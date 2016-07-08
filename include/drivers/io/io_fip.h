@@ -10,5 +10,6 @@
 struct io_dev_connector;
 
 int register_io_dev_fip(const struct io_dev_connector **dev_con);
+uint64_t get_fip_header_flags(void);
 
 #endif /* IO_FIP_H */
