@@ -59,6 +59,7 @@ static const uuid_t uuid_null;
 static file_state_t current_file = {0};
 static uintptr_t backend_dev_handle;
 static uintptr_t backend_image_spec;
+static uint64_t header_flags;
 
 static fip_dev_state_t state_pool[MAX_FIP_DEVICES];
 static io_dev_info_t dev_info_pool[MAX_FIP_DEVICES];
@@ -248,6 +249,8 @@ static int fip_dev_init(io_dev_info_t *dev_info, const uintptr_t init_params)
 			result = -ENOENT;
 		} else {
 			VERBOSE("FIP header looks OK.\n");
+			/* Store header flags for future queries */
+			header_flags = header.flags;
 		}
 	}
 
@@ -450,4 +453,9 @@ int register_io_dev_fip(const io_dev_connector_t **dev_con)
 		*dev_con = &fip_dev_connector;
 
 	return result;
+}
+
+uint64_t get_fip_header_flags(void)
+{
+	return header_flags;
 }
