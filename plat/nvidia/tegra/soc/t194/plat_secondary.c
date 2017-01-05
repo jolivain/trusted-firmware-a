@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2017, ARM Limited and Contributors. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -83,7 +83,4 @@ void plat_secondary_setup(void)
 			addr_low);
 	mmio_write_32(TEGRA_SCRATCH_BASE + SECURE_SCRATCH_RSV1_HI,
 			addr_high);
-
-	/* update reset vector address to the CCPLEX */
-	mce_update_reset_vector();
 }
