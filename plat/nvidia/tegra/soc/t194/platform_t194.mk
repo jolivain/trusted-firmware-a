@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2016-2017, ARM Limited and Contributors. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -44,7 +44,7 @@ $(eval $(call add_define,RELOCATE_TO_BL31_BASE))
 ENABLE_CHIP_VERIFICATION_HARNESS	:= 0
 $(eval $(call add_define,ENABLE_CHIP_VERIFICATION_HARNESS))
 
-ENABLE_SMMU_DEVICE			:= 0
+ENABLE_SMMU_DEVICE			:= 1
 $(eval $(call add_define,ENABLE_SMMU_DEVICE))
 
 NUM_SMMU_DEVICES			:= 3
