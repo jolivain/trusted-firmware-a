@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2017, ARM Limited and Contributors. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -105,7 +105,11 @@ static const mmap_region_t tegra_mmap[] = {
 			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(TEGRA_MMCRAB_BASE, 0x60000, /* 384KB */
 			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(TEGRA_SMMU_BASE, 0x1000000, /* 64KB */
+	MAP_REGION_FLAT(TEGRA_SMMU0_BASE, 0x1000000, /* 64KB */
+			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(TEGRA_SMMU1_BASE, 0x1000000, /* 64KB */
+			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(TEGRA_SMMU2_BASE, 0x1000000, /* 64KB */
 			MT_DEVICE | MT_RW | MT_SECURE),
 	{0}
 };

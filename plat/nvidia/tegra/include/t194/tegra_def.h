@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2017, ARM Limited and Contributors. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -243,7 +243,9 @@
 /*******************************************************************************
  * Tegra SMMU Controller constants
  ******************************************************************************/
-#define TEGRA_SMMU_BASE			0x10000000
+#define TEGRA_SMMU0_BASE		0x12000000
+#define TEGRA_SMMU1_BASE		0x11000000
+#define TEGRA_SMMU2_BASE		0x10000000
 
 /*******************************************************************************
  * Tegra TZRAM constants
