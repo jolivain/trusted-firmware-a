@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2017, ARM Limited and Contributors. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -34,7 +34,7 @@
 #include <memctrl_v2.h>
 #include <tegra_def.h>
 
-#define TEGRA186_SMMU_CTX_SIZE		0x420
+#define TEGRA186_SMMU_CTX_SIZE		0x490
 
 	.align 4
 	.globl	tegra186_cpu_reset_handler
@@ -80,12 +80,12 @@ boot_cpu:
 endfunc tegra186_cpu_reset_handler
 
 	/*
-	 * Tegra186 reset data (offset 0x0 - 0x430)
+	 * Tegra186 reset data (offset 0x0 - 0x2490)
 	 *
-	 * 0x000: secure world's entrypoint
-	 * 0x008: BL31 size (RO + RW)
-	 * 0x00C: SMMU context start
-	 * 0x42C: SMMU context end
+	 * 0x0000: secure world's entrypoint
+	 * 0x0008: BL31 size (RO + RW)
+	 * 0x0010: SMMU context start
+	 * 0x2490: SMMU context end
 	 */
 
 	.align 4
