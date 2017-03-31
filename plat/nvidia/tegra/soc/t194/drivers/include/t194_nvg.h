@@ -101,8 +101,8 @@ typedef union
 {
     uint64_t flat;
     struct nvg_version_channel_t {
-        uint64_t minor_version : 32;
-        uint64_t major_version : 32;
+        uint32_t minor_version : 32;
+        uint32_t major_version : 32;
     } bits;
 } nvg_version_data_t;
 
@@ -111,8 +111,9 @@ typedef union nvg_channel_1_data_u
     uint64_t flat;
     struct nvg_channel_1_data_s
     {
-        uint64_t perf_per_watt_mode : 1;
-        uint64_t reserved_63_1 : 63;
+        uint32_t perf_per_watt_mode : 1;
+        uint32_t reserved_31_1 : 31;
+        uint32_t reserved_63_32 : 32;
     } bits;
 } nvg_channel_1_data_t;
 
@@ -121,9 +122,10 @@ typedef union nvg_channel_2_data_u
     uint64_t flat;
     struct nvg_channel_2_data_s
     {
-        uint64_t reserved_1_0 : 2;
-        uint64_t battery_saver_mode : 1;
-        uint64_t reserved_63_3 : 61;
+        uint32_t reserved_1_0 : 2;
+        uint32_t battery_saver_mode : 1;
+        uint32_t reserved_31_3 : 29;
+        uint32_t reserved_63_32 : 32;
     } bits;
 } nvg_channel_2_data_t;
 
@@ -131,8 +133,8 @@ typedef union
 {
     uint64_t flat;
     struct nvg_wake_time_channel_t {
-        uint64_t wake_time : 32;
-        uint64_t reserved_63_32 : 32;
+        uint32_t wake_time : 32;
+        uint32_t reserved_63_32 : 32;
     } bits;
 } nvg_wake_time_channel_t;
 
@@ -140,18 +142,18 @@ typedef union
 {
     uint64_t flat;
     struct nvg_cstate_info_channel_t {
-        uint64_t cluster_state : 3;
-        uint64_t reserved_6_3 : 4;
-        uint64_t update_cluster : 1;
-        uint64_t cg_cstate : 3;
-        uint64_t reserved_14_11 : 4;
-        uint64_t update_cg : 1;
-        uint64_t system_cstate : 4;
-        uint64_t reserved_22_20 : 3;
-        uint64_t update_system : 1;
-        uint64_t reserved_30_24 : 7;
-        uint64_t update_wake_mask : 1;
-        uint64_t wake_mask : 32;
+        uint32_t cluster_state : 3;
+        uint32_t reserved_6_3 : 4;
+        uint32_t update_cluster : 1;
+        uint32_t cg_cstate : 3;
+        uint32_t reserved_14_11 : 4;
+        uint32_t update_cg : 1;
+        uint32_t system_cstate : 4;
+        uint32_t reserved_22_20 : 3;
+        uint32_t update_system : 1;
+        uint32_t reserved_30_24 : 7;
+        uint32_t update_wake_mask : 1;
+        uint32_t wake_mask : 32;
     } bits;
 } nvg_cstate_info_channel_t;
 
@@ -159,8 +161,8 @@ typedef union
 {
     uint64_t flat;
     struct nvg_lower_bound_channel_t {
-        uint64_t crossover_value : 32;
-        uint64_t reserved_63_32 : 32;
+        uint32_t crossover_value : 32;
+        uint32_t reserved_63_32 : 32;
     } bits;
 } nvg_lower_bound_channel_t;
 
@@ -169,10 +171,10 @@ typedef union
 {
     uint64_t flat;
     struct nvg_cstate_stat_query_channel_t {
-        uint64_t unit_id : 4;
-        uint64_t reserved_15_4 : 12;
-        uint64_t stat_id : 16;
-        uint64_t reserved_63_32 : 32;
+        uint32_t unit_id : 4;
+        uint32_t reserved_15_4 : 12;
+        uint32_t stat_id : 16;
+        uint32_t reserved_63_32 : 32;
     } bits;
 } nvg_cstate_stat_query_channel_t;
 
@@ -180,8 +182,9 @@ typedef union
 {
     uint64_t flat;
     struct nvg_is_sc7_allowed_channel_t {
-        uint64_t is_sc7_allowed : 1;
-        uint64_t reserved_63_32 : 63;
+        uint32_t is_sc7_allowed : 1;
+        uint32_t reserved_31_1 : 31;
+        uint32_t reserved_63_32 : 32;
     } bits;
 } nvg_is_sc7_allowed_channel_t;
 
@@ -190,8 +193,9 @@ typedef union
 {
     uint64_t flat;
     struct nvg_core_online_channel_t {
-        uint64_t core_id : 4;
-        uint64_t reserved_63_4 : 60;
+        uint32_t core_id : 4;
+        uint32_t reserved_31_4 : 28;
+        uint32_t reserved_63_32 : 32;
     } bits;
 } nvg_core_online_channel_t;
 
@@ -200,10 +204,10 @@ typedef union
 {
     uint64_t flat;
     struct nvg_cc3_control_channel_t {
-        uint64_t freq_req : 8;
-        uint64_t reserved_30_8 : 23;
-        uint64_t enable : 1;
-        uint64_t reserved_63_32 : 32;
+        uint32_t freq_req : 8;
+        uint32_t reserved_30_8 : 23;
+        uint32_t enable : 1;
+        uint32_t reserved_63_32 : 32;
     } bits;
 } nvg_cc3_control_channel_t;
 
@@ -212,8 +216,9 @@ typedef union
 {
     uint64_t flat;
     struct nvg_update_gsc_channel_t {
-        uint64_t gsc_enum : 16;
-        uint64_t reserved_63_16 : 48;
+        uint32_t gsc_enum : 16;
+        uint32_t reserved_31_16 : 16;
+        uint32_t reserved_63_32 : 32;
     } bits;
 } nvg_update_gsc_channel_t;
 
@@ -222,10 +227,11 @@ typedef union
 {
     uint64_t flat;
     struct nvg_cache_inval_channel_t {
-        uint64_t cache_clean : 1;
-        uint64_t cache_clean_inval : 1;
-        uint64_t cache_clean_inval_tr : 1;
-        uint64_t reserved_63_3 : 61;
+        uint32_t cache_clean : 1;
+        uint32_t cache_clean_inval : 1;
+        uint32_t cache_clean_inval_tr : 1;
+        uint32_t reserved_31_3 : 29;
+        uint32_t reserved_63_32 : 32;
     } bits;
 } nvg_cache_inval_channel_t;
 
