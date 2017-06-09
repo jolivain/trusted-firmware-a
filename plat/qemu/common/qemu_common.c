@@ -12,6 +12,11 @@
 
 #include "qemu_private.h"
 
+#if ENABLE_SPM && defined(IMAGE_BL31)
+#include <secure_partition.h>
+#include <bl31/ehf.h>
+#endif
+
 #define MAP_DEVICE0	MAP_REGION_FLAT(DEVICE0_BASE,			\
 					DEVICE0_SIZE,			\
 					MT_DEVICE | MT_RW | MT_SECURE)
@@ -32,8 +37,10 @@
 					SHARED_RAM_SIZE,		\
 					MT_DEVICE  | MT_RW | MT_SECURE)
 
+#ifdef SPD_tspd
 #define MAP_BL32_MEM	MAP_REGION_FLAT(BL32_MEM_BASE, BL32_MEM_SIZE,	\
 					MT_MEMORY | MT_RW | MT_SECURE)
+#endif
 
 #define MAP_NS_DRAM0	MAP_REGION_FLAT(NS_DRAM0_BASE, NS_DRAM0_SIZE,	\
 					MT_MEMORY | MT_RW | MT_NS)
@@ -43,6 +50,11 @@
 
 #define MAP_FLASH1	MAP_REGION_FLAT(QEMU_FLASH1_BASE, QEMU_FLASH1_SIZE, \
 					MT_MEMORY | MT_RO | MT_SECURE)
+
+#if ENABLE_SPM && SPM_MM
+#define MAP_BL31_SEC_DRAM	MAP_REGION_FLAT(BL31_BASE, BL31_SIZE, \
+					MT_MEMORY | MT_RW | MT_SECURE)
+#endif
 
 /*
  * Table of regions for various BL stages to map using the MMU.
@@ -77,7 +89,13 @@ static const mmap_region_t plat_qemu_mmap[] = {
 	MAP_DEVICE2,
 #endif
 	MAP_NS_DRAM0,
+#ifdef SPD_tspd
 	MAP_BL32_MEM,
+#endif
+#if ENABLE_SPM && SPM_MM
+	QEMU_SP_IMAGE_MMAP,
+	MAP_BL31_SEC_DRAM,
+#endif
 	{0}
 };
 #endif
@@ -88,7 +106,12 @@ static const mmap_region_t plat_qemu_mmap[] = {
 #ifdef MAP_DEVICE1
 	MAP_DEVICE1,
 #endif
+#ifdef SPD_tspd
 	MAP_BL32_MEM,
+#endif
+#if ENABLE_SPM && SPM_MM
+	QEMU_SPM_BUF_EL3_MMAP,
+#endif
 	{0}
 };
 #endif

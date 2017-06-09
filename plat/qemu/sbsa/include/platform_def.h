@@ -127,8 +127,15 @@
  * Put BL3-1 at the top of the Trusted SRAM. BL31_BASE is calculated using the
  * current BL3-1 debug size plus a little space for growth.
  */
-#define BL31_BASE			(BL31_LIMIT - 0x20000)
-#define BL31_LIMIT			(BL_RAM_BASE + BL_RAM_SIZE)
+#define BL31_BASE			(BL31_LIMIT - BL31_SIZE)
+#define BL31_LIMIT		BL1_RW_BASE
+/*
+ * BL3-1 SIZE defines.
+ *
+ * Since this binary will include more functions,
+ * we need to make this big enough (> 0x4e000, for now)
+ */
+#define BL31_SIZE			0x50000
 #define BL31_PROGBITS_LIMIT		BL1_RW_BASE
 
 
@@ -139,11 +146,16 @@
  */
 #define BL32_SRAM_BASE			BL_RAM_BASE
 #define BL32_SRAM_LIMIT			BL31_BASE
-#define BL32_DRAM_BASE			SEC_DRAM_BASE
+#define BL32_DRAM_BASE			(QEMU_OPTEE_PAGEABLE_LOAD_BASE + \
+					 QEMU_OPTEE_PAGEABLE_LOAD_SIZE)
 #define BL32_DRAM_LIMIT			(SEC_DRAM_BASE + SEC_DRAM_SIZE)
 
 #define SEC_SRAM_ID			0
 #define SEC_DRAM_ID			1
+
+#if ENABLE_SPM && BL32_RAM_LOCATION_ID == SEC_DRAM_ID
+# error " BL32_RAM_LOCATION_ID can not be SEC_DRAM_ID while SPM is enabled"
+#endif
 
 #if BL32_RAM_LOCATION_ID == SEC_SRAM_ID
 # define BL32_MEM_BASE			BL_RAM_BASE
@@ -164,10 +176,20 @@
 
 #define PLAT_PHY_ADDR_SPACE_SIZE	(1ull << 42)
 #define PLAT_VIRT_ADDR_SPACE_SIZE	(1ull << 42)
+#if ENABLE_SPM
+#define MAX_MMAP_REGIONS		12
+#define MAX_XLAT_TABLES			11
+#else
 #define MAX_MMAP_REGIONS		11
 #define MAX_XLAT_TABLES			10
+#endif
 #define MAX_IO_DEVICES			3
 #define MAX_IO_HANDLES			4
+
+#if ENABLE_SPM && defined(IMAGE_BL31)
+# define PLAT_SP_IMAGE_MMAP_REGIONS		7
+# define PLAT_SP_IMAGE_MAX_XLAT_TABLES	14
+#endif
 
 /*
  * PL011 related constants
@@ -251,5 +273,111 @@
  * System counter
  */
 #define SYS_COUNTER_FREQ_IN_TICKS	((1000 * 1000 * 1000) / 16)
+
+#if ENABLE_SPM
+/* The maximum size of the S-EL0 payload can be 3MB */
+# define QEMU_SP_IMAGE_BASE		(QEMU_OPTEE_PAGEABLE_LOAD_BASE +	\
+					 QEMU_OPTEE_PAGEABLE_LOAD_SIZE)
+# define QEMU_SP_IMAGE_LIMIT		BL32_LIMIT
+# define QEMU_SP_IMAGE_SIZE		ULL(0x300000)
+
+#ifdef IMAGE_BL2
+/* In BL2 all memory allocated to the SPM Payload image is marked as RW. */
+# define QEMU_SP_IMAGE_MMAP		MAP_REGION_FLAT(			\
+					QEMU_SP_IMAGE_BASE,			\
+					QEMU_SP_IMAGE_SIZE,			\
+					MT_MEMORY | MT_RW | MT_SECURE)
+#endif
+#ifdef IMAGE_BL31
+/* All SPM Payload memory is marked as code in S-EL0 */
+# define QEMU_SP_IMAGE_MMAP		MAP_REGION2(				\
+					QEMU_SP_IMAGE_BASE,			\
+					QEMU_SP_IMAGE_BASE,			\
+					QEMU_SP_IMAGE_SIZE,			\
+					MT_CODE | MT_SECURE | MT_USER,		\
+					PAGE_SIZE)
+#endif
+
+/*
+ * SPM Payload memory is followed by memory shared between EL3 and S-EL0. It is
+ * used by the latter to push data into the former and hence mapped with RO
+ * permission.
+ */
+#define PLAT_SPM_BUF_BASE		(QEMU_SP_IMAGE_BASE +			\
+					 QEMU_SP_IMAGE_SIZE)
+#define PLAT_SPM_BUF_PCPU_SIZE		ULL(0x20000)
+#define PLAT_SPM_BUF_SIZE		(PLATFORM_CORE_COUNT *			\
+					 PLAT_SPM_BUF_PCPU_SIZE)
+#define QEMU_SPM_BUF_EL3_MMAP		MAP_REGION_FLAT(			\
+						PLAT_SPM_BUF_BASE,		\
+						PLAT_SPM_BUF_SIZE,		\
+						MT_RW_DATA | MT_SECURE)
+#define QEMU_SPM_BUF_EL0_MMAP		MAP_REGION2(				\
+						PLAT_SPM_BUF_BASE,		\
+						PLAT_SPM_BUF_BASE,		\
+						PLAT_SPM_BUF_SIZE,		\
+						MT_RO_DATA | MT_SECURE | MT_USER,\
+						PAGE_SIZE)
+
+/*
+ * Shared memory is followed by memory shared between Normal world and S-EL0 for
+ * passing data during service requests. It will be marked as RW and NS.
+ */
+#define QEMU_SP_IMAGE_NS_BUF_BASE	(PLAT_QEMU_DT_BASE +\
+					 PLAT_QEMU_DT_MAX_SIZE)
+#define QEMU_SP_IMAGE_NS_BUF_SIZE	ULL(0x10000)
+#define QEMU_SP_IMAGE_NS_BUF_MMAP	MAP_REGION2(				\
+						QEMU_SP_IMAGE_NS_BUF_BASE,	\
+						QEMU_SP_IMAGE_NS_BUF_BASE,	\
+						QEMU_SP_IMAGE_NS_BUF_SIZE,	\
+						MT_RW_DATA | MT_NS | MT_USER,	\
+						PAGE_SIZE)
+
+/*
+ * Fix the hardcode problem in services/std_svc/spm/secure_partition_setup.c
+ */
+#define PLAT_SP_IMAGE_NS_BUF_BASE	QEMU_SP_IMAGE_NS_BUF_BASE
+#define PLAT_SP_IMAGE_NS_BUF_SIZE	QEMU_SP_IMAGE_NS_BUF_SIZE
+
+/*
+ * Memory shared with Normal world is followed by RW memory. First there is
+ * stack memory for all CPUs and then there is the common heap memory. Both are
+ * marked with RW permissions.
+ */
+#define PLAT_SP_IMAGE_STACK_BASE	(PLAT_SPM_BUF_BASE +\
+					 PLAT_SPM_BUF_SIZE)
+#define PLAT_SP_IMAGE_STACK_PCPU_SIZE	ULL(0x2000)
+#define QEMU_SP_IMAGE_STACK_TOTAL_SIZE	(PLATFORM_CORE_COUNT *			\
+					 PLAT_SP_IMAGE_STACK_PCPU_SIZE)
+
+#define QEMU_SP_IMAGE_HEAP_BASE		(PLAT_SP_IMAGE_STACK_BASE +		\
+					 QEMU_SP_IMAGE_STACK_TOTAL_SIZE)
+#define QEMU_SP_IMAGE_HEAP_SIZE		(QEMU_SP_IMAGE_LIMIT -			\
+					 QEMU_SP_IMAGE_HEAP_BASE)
+
+#define QEMU_SP_IMAGE_RW_MMAP		MAP_REGION2(		\
+						PLAT_SP_IMAGE_STACK_BASE,	\
+						PLAT_SP_IMAGE_STACK_BASE,	\
+						(QEMU_SP_IMAGE_LIMIT -		\
+						 PLAT_SP_IMAGE_STACK_BASE),	\
+						MT_RW_DATA | MT_SECURE | MT_USER,\
+						PAGE_SIZE)
+
+/* Total number of memory regions with distinct properties */
+#define QEMU_SP_IMAGE_NUM_MEM_REGIONS	6
+/*
+ * Name of the section to put the translation tables used by the S-EL1/S-EL0
+ * context of a Secure Partition.
+ */
+#define PLAT_SP_IMAGE_XLAT_SECTION_NAME	"qemu_el3_dram"
+
+/* Cookies passed to the Secure Partition at boot. Not used by QEMU platforms. */
+#define PLAT_SPM_COOKIE_0		ULL(0)
+#define PLAT_SPM_COOKIE_1		ULL(0)
+#endif
+
+#define QEMU_PRI_BITS			3
+#define PLAT_RAS_PRI			0x10
+#define PLAT_SP_PRI			PLAT_RAS_PRI
 
 #endif /* __PLATFORM_DEF_H__ */
