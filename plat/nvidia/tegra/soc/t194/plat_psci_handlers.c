@@ -15,11 +15,13 @@
 #include <mce.h>
 #include <plat/common/platform.h>
 #include <lib/psci/psci.h>
+#include <se.h>
 #include <smmu.h>
+#include <stdbool.h>
 #include <string.h>
+#include <tegra_platform.h>
 #include <tegra_private.h>
 #include <t194_nvg.h>
-#include <stdbool.h>
 
 extern void tegra_secure_entrypoint(void);
 
@@ -39,10 +41,7 @@ extern uint32_t __tegra186_cpu_reset_handler_data,
 #define TEGRA186_WAKE_TIME_SHIFT	4U
 /* default core wake mask for CPU_SUSPEND */
 #define TEGRA194_CORE_WAKE_MASK		0x180cU
-/* context size to save during system suspend */
-#define TEGRA186_SE_CONTEXT_SIZE	3U
 
-static uint32_t se_regs[TEGRA186_SE_CONTEXT_SIZE];
 static struct t19x_psci_percpu_data {
 	uint32_t wake_time;
 } __aligned(CACHE_WRITEBACK_GRANULE) t19x_percpu_data[PLATFORM_CORE_COUNT];
@@ -108,6 +107,7 @@ int32_t tegra_soc_pwr_domain_suspend(const psci_power_state_t *target_state)
 	uint32_t val;
 	mce_cstate_info_t cstate_info = { 0 };
 	uint32_t cpu = plat_my_core_pos();
+	int32_t ret;
 
 	/* get the state ID */
 	pwr_domain_state = target_state->pwr_domain_state;
@@ -127,14 +127,6 @@ int32_t tegra_soc_pwr_domain_suspend(const psci_power_state_t *target_state)
 
 	} else if (stateid_afflvl2 == PSTATE_ID_SOC_POWERDN) {
 
-		/* save SE registers */
-		se_regs[0] = mmio_read_32(TEGRA_SE0_BASE +
-				SE_MUTEX_WATCHDOG_NS_LIMIT);
-		se_regs[1] = mmio_read_32(TEGRA_RNG1_BASE +
-				RNG_MUTEX_WATCHDOG_NS_LIMIT);
-		se_regs[2] = mmio_read_32(TEGRA_PKA1_BASE +
-				PKA_MUTEX_WATCHDOG_NS_LIMIT);
-
 		/* save 'Secure Boot' Processor Feature Config Register */
 		val = mmio_read_32(TEGRA_MISC_BASE + MISCREG_PFCFG);
 		mmio_write_32(TEGRA_SCRATCH_BASE + SCRATCH_SECURE_BOOTP_FCFG, val);
@@ -149,6 +141,15 @@ int32_t tegra_soc_pwr_domain_suspend(const psci_power_state_t *target_state)
 #else
 		tegra_smmu_save_context(0);
 #endif
+
+		/*
+		 * Suspend SE, RNG1 and PKA1 only on silcon and fpga,
+		 * since VDK does not support atomic se ctx save
+		 */
+		if (tegra_platform_is_silicon() || tegra_platform_is_fpga()) {
+			ret = tegra_se_suspend();
+			assert(ret == 0);
+		}
 
 		if (tegra_fake_system_suspend == false) {
 
@@ -334,17 +335,11 @@ int32_t tegra_soc_pwr_domain_on_finish(const psci_power_state_t *target_state)
 	 * context if we are.
 	 */
 	if (stateid_afflvl2 == PSTATE_ID_SOC_POWERDN) {
-
-		mmio_write_32(TEGRA_SE0_BASE + SE_MUTEX_WATCHDOG_NS_LIMIT,
-			se_regs[0]);
-		mmio_write_32(TEGRA_RNG1_BASE + RNG_MUTEX_WATCHDOG_NS_LIMIT,
-			se_regs[1]);
-		mmio_write_32(TEGRA_PKA1_BASE + PKA_MUTEX_WATCHDOG_NS_LIMIT,
-			se_regs[2]);
-
 		/* Init SMMU */
-
 		tegra_smmu_init();
+
+		/* Resume SE, RNG1 and PKA1 */
+		tegra_se_resume();
 
 		/*
 		 * Reset power state info for the last core doing SC7
