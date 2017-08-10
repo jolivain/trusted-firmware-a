@@ -13,6 +13,7 @@
 #include <common/debug.h>
 #include <denver.h>
 #include <mce.h>
+#include <mce_private.h>
 #include <plat/common/platform.h>
 #include <lib/psci/psci.h>
 #include <se.h>
@@ -338,6 +339,13 @@ int32_t tegra_soc_pwr_domain_on_finish(const psci_power_state_t *target_state)
 	 * context if we are.
 	 */
 	if (stateid_afflvl2 == PSTATE_ID_SOC_POWERDN) {
+
+		/*
+		 * Enable strict checking after programming the GSC for
+		 * enabling TZSRAM and TZDRAM
+		 */
+		mce_enable_strict_checking();
+
 		/* Init SMMU */
 		tegra_smmu_init();
 
