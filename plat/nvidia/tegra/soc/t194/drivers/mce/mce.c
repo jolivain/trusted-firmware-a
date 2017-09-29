@@ -40,11 +40,24 @@
 #include <mce_private.h>
 #include <mmio.h>
 #include <platform_def.h>
+#include <stdbool.h>
 #include <string.h>
 #include <errno.h>
 #include <t194_nvg.h>
 #include <tegra_def.h>
 #include <tegra_platform.h>
+
+/* Handler to check if MCE firmware is supported */
+static bool mce_firmware_not_supported(void)
+{
+	bool status;
+
+	/* these platforms do not load MCE firmware */
+	status = tegra_platform_is_linsim() || tegra_platform_is_qt() ||
+		 tegra_platform_is_virt_dev_kit();
+
+	return status;
+}
 
 /*******************************************************************************
  * Common handler for all MCE commands
@@ -198,7 +211,18 @@ int32_t mce_command_handler(uint64_t cmd, uint64_t arg0, uint64_t arg1,
  ******************************************************************************/
 int32_t mce_update_gsc_videomem(void)
 {
-	return nvg_update_ccplex_gsc((uint32_t)TEGRA_NVG_GSC_VPR_IDX);
+	int32_t ret = 0;
+
+	/*
+	 * MCE firmware is not running on simulation platforms.
+	 */
+	if (mce_firmware_not_supported()) {
+		ret = -EINVAL;
+	} else {
+		ret = nvg_update_ccplex_gsc((uint32_t)TEGRA_NVG_CHANNEL_UPDATE_GSC_VPR);
+	}
+
+	return ret;
 }
 
 /*******************************************************************************
@@ -206,7 +230,18 @@ int32_t mce_update_gsc_videomem(void)
  ******************************************************************************/
 int32_t mce_update_gsc_tzdram(void)
 {
-	return nvg_update_ccplex_gsc((uint32_t)TEGRA_NVG_GSC_TZ_DRAM_IDX);
+	int32_t ret = 0;
+
+	/*
+	 * MCE firmware is not running on simulation platforms.
+	 */
+	if (mce_firmware_not_supported()) {
+		ret = -EINVAL;
+	} else {
+		ret = nvg_update_ccplex_gsc((uint32_t)TEGRA_NVG_CHANNEL_UPDATE_GSC_TZ_DRAM);
+	}
+
+	return ret;
 }
 
 /*******************************************************************************
@@ -214,7 +249,18 @@ int32_t mce_update_gsc_tzdram(void)
  ******************************************************************************/
 int32_t mce_update_gsc_tzram(void)
 {
-	return nvg_update_ccplex_gsc((uint32_t)TEGRA_NVG_GSC_TZRAM);
+	int32_t ret = 0;
+
+	/*
+	 * MCE firmware is not running on simulation platforms.
+	 */
+	if (mce_firmware_not_supported()) {
+		ret = -EINVAL;
+	} else {
+		ret = nvg_update_ccplex_gsc((uint32_t)TEGRA_NVG_CHANNEL_UPDATE_GSC_TZRAM);
+	}
+
+	return ret;
 }
 
 /*******************************************************************************
@@ -239,9 +285,7 @@ void mce_verify_firmware_version(void)
 	/*
 	 * MCE firmware is not running on simulation platforms.
 	 */
-	if ((tegra_platform_is_linsim() == 1U) ||
-		(tegra_platform_is_virt_dev_kit() == 1U) ||
-		(tegra_platform_is_qt() == 1U)) {
+	if (mce_firmware_not_supported()) {
 		return;
 	}
 
