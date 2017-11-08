@@ -25,7 +25,7 @@
  */
 enum {
     TEGRA_NVG_VERSION_MAJOR = 6,
-    TEGRA_NVG_VERSION_MINOR = 1,
+    TEGRA_NVG_VERSION_MINOR = 4,
 };
 
 typedef enum {
@@ -52,16 +52,27 @@ typedef enum {
     TEGRA_NVG_CHANNEL_DDA_MCF_ORD1                = 57,
     TEGRA_NVG_CHANNEL_DDA_MCF_ORD2                = 58,
     TEGRA_NVG_CHANNEL_DDA_MCF_ORD3                = 59,
-    TEGRA_NVG_CHANNEL_DDA_MCF_NISO                = 60,
-    TEGRA_NVG_CHANNEL_DDA_MCF_NISO_REMOTE         = 61,
-    TEGRA_NVG_CHANNEL_DDA_L3CTRL_ISO              = 62,
-    TEGRA_NVG_CHANNEL_DDA_L3CTRL_SISO             = 63,
-    TEGRA_NVG_CHANNEL_DDA_L3CTRL_NISO             = 64,
-    TEGRA_NVG_CHANNEL_DDA_L3CTRL_NISO_REMOTE      = 65,
-    TEGRA_NVG_CHANNEL_DDA_L3CTRL_L3FILL           = 66,
-    TEGRA_NVG_CHANNEL_DDA_L3CTRL_L3WR             = 67,
-    TEGRA_NVG_CHANNEL_DDA_L3CTRL_RSP_L3RD_DMA     = 68,
-    TEGRA_NVG_CHANNEL_DDA_L3CTRL_RSP_MCFRD_DMA    = 69,
+    TEGRA_NVG_CHANNEL_DDA_MCF_ISO                 = 60,
+    TEGRA_NVG_CHANNEL_DDA_MCF_SISO                = 61,
+    TEGRA_NVG_CHANNEL_DDA_MCF_NISO                = 62,
+    TEGRA_NVG_CHANNEL_DDA_MCF_NISO_REMOTE         = 63,
+    TEGRA_NVG_CHANNEL_DDA_L3CTRL_ISO              = 64,
+    TEGRA_NVG_CHANNEL_DDA_L3CTRL_SISO             = 65,
+    TEGRA_NVG_CHANNEL_DDA_L3CTRL_NISO             = 66,
+    TEGRA_NVG_CHANNEL_DDA_L3CTRL_NISO_REMOTE      = 67,
+    TEGRA_NVG_CHANNEL_DDA_L3CTRL_L3FILL           = 68,
+    TEGRA_NVG_CHANNEL_DDA_L3CTRL_L3WR             = 69,
+    TEGRA_NVG_CHANNEL_DDA_L3CTRL_RSP_L3RD_DMA     = 70,
+    TEGRA_NVG_CHANNEL_DDA_L3CTRL_RSP_MCFRD_DMA    = 71,
+    TEGRA_NVG_CHANNEL_DDA_L3CTRL_GLOBAL           = 72,
+    TEGRA_NVG_CHANNEL_DDA_L3CTRL_LL               = 73,
+    TEGRA_NVG_CHANNEL_DDA_L3CTRL_L3D              = 74,
+    TEGRA_NVG_CHANNEL_DDA_L3CTRL_FCM_RD           = 75,
+    TEGRA_NVG_CHANNEL_DDA_L3CTRL_FCM_WR           = 76,
+    TEGRA_NVG_CHANNEL_DDA_SNOC_GLOBAL_CTRL        = 77,
+    TEGRA_NVG_CHANNEL_DDA_SNOC_CLIENT_REQ_CTRL    = 78,
+    TEGRA_NVG_CHANNEL_DDA_SNOC_CLIENT_REPLENTISH_CTRL = 79,
+
     TEGRA_NVG_CHANNEL_LAST_INDEX,
 } tegra_nvg_channel_id_t;
 
@@ -76,6 +87,26 @@ typedef enum {
     NVG_STAT_QUERY_CG7_RESIDENCY_SUM = 46,
     NVG_STAT_QUERY_C6_RESIDENCY_SUM  = 51,
     NVG_STAT_QUERY_C7_RESIDENCY_SUM  = 56,
+    NVG_STAT_QUERY_SC7_ENTRY_TIME_SUM = 60,
+    NVG_STAT_QUERY_CC6_ENTRY_TIME_SUM = 61,
+    NVG_STAT_QUERY_CG7_ENTRY_TIME_SUM = 62,
+    NVG_STAT_QUERY_C6_ENTRY_TIME_SUM  = 63,
+    NVG_STAT_QUERY_C7_ENTRY_TIME_SUM  = 64,
+    NVG_STAT_QUERY_SC7_EXIT_TIME_SUM  = 70,
+    NVG_STAT_QUERY_CC6_EXIT_TIME_SUM  = 71,
+    NVG_STAT_QUERY_CG7_EXIT_TIME_SUM  = 72,
+    NVG_STAT_QUERY_C6_EXIT_TIME_SUM   = 73,
+    NVG_STAT_QUERY_C7_EXIT_TIME_SUM   = 74,
+    NVG_STAT_QUERY_SC7_ENTRY_LAST     = 80,
+    NVG_STAT_QUERY_CC6_ENTRY_LAST     = 81,
+    NVG_STAT_QUERY_CG7_ENTRY_LAST     = 82,
+    NVG_STAT_QUERY_C6_ENTRY_LAST      = 83,
+    NVG_STAT_QUERY_C7_ENTRY_LAST      = 84,
+    NVG_STAT_QUERY_SC7_EXIT_LAST      = 90,
+    NVG_STAT_QUERY_CC6_EXIT_LAST      = 91,
+    NVG_STAT_QUERY_CG7_EXIT_LAST      = 92,
+    NVG_STAT_QUERY_C6_EXIT_LAST       = 93,
+    NVG_STAT_QUERY_C7_EXIT_LAST       = 94,
 } tegra_nvg_stat_query_t;
 
 typedef enum {
@@ -93,7 +124,7 @@ typedef enum {
 
 typedef enum {
     TEGRA_NVG_CG_CG0 = 0,
-    TEGRA_NVG_CG_CG7 = 1,
+    TEGRA_NVG_CG_CG7 = 7,
 
 } tegra_nvg_cluster_group_sleep_state_t;
 
@@ -115,6 +146,28 @@ typedef union
         uint32_t major_version : 32;
     } bits;
 } nvg_version_data_t;
+
+typedef union
+{
+    uint64_t flat;
+    struct nvg_power_perf_channel_t {
+        uint32_t perf_per_watt  : 1;
+        uint32_t reserved_31_1  : 31;
+        uint32_t reserved_63_32 : 32;
+    } bits;
+} nvg_power_perf_channel_t;
+
+typedef union
+{
+    uint64_t flat;
+    struct nvg_power_modes_channel_t {
+        uint32_t low_battery    : 1;
+        uint32_t reserved_1_1   : 1;
+        uint32_t battery_save   : 1;
+        uint32_t reserved_31_3  : 29;
+        uint32_t reserved_63_32 : 32;
+    } bits;
+} nvg_power_modes_channel_t;
 
 typedef union nvg_channel_1_data_u
 {
