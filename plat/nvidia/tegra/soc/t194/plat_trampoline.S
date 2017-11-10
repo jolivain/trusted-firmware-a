@@ -34,13 +34,13 @@
 #include <memctrl_v2.h>
 #include <tegra_def.h>
 
-#define TEGRA186_SMMU_CTX_SIZE		0x490
+#define TEGRA194_SMMU_CTX_SIZE		0x490
 
 	.align 4
-	.globl	tegra186_cpu_reset_handler
+	.globl	tegra194_cpu_reset_handler
 
 /* CPU reset handler routine */
-func tegra186_cpu_reset_handler
+func tegra194_cpu_reset_handler
 	/*
 	 * The TZRAM loses state during System Suspend. We use this
 	 * information to decide if the reset handler is running after a
@@ -53,8 +53,8 @@ func tegra186_cpu_reset_handler
 
 	/* resume from system suspend */
 	mov	x0, #BL31_BASE
-	adr	x1, __tegra186_cpu_reset_handler_end
-	adr	x2, __tegra186_cpu_reset_handler_data
+	adr	x1, __tegra194_cpu_reset_handler_end
+	adr	x2, __tegra194_cpu_reset_handler_data
 	ldr	x2, [x2, #8]
 
 	/* memcpy16 */
@@ -74,13 +74,13 @@ m_loop1:
 	b.ne	m_loop1
 
 boot_cpu:
-	adr	x0, __tegra186_cpu_reset_handler_data
+	adr	x0, __tegra194_cpu_reset_handler_data
 	ldr	x0, [x0]
 	br	x0
-endfunc tegra186_cpu_reset_handler
+endfunc tegra194_cpu_reset_handler
 
 	/*
-	 * Tegra186 reset data (offset 0x0 - 0x2490)
+	 * Tegra194 reset data (offset 0x0 - 0x2490)
 	 *
 	 * 0x0000: secure world's entrypoint
 	 * 0x0008: BL31 size (RO + RW)
@@ -89,19 +89,19 @@ endfunc tegra186_cpu_reset_handler
 	 */
 
 	.align 4
-	.type	__tegra186_cpu_reset_handler_data, %object
-	.globl	__tegra186_cpu_reset_handler_data
-__tegra186_cpu_reset_handler_data:
+	.type	__tegra194_cpu_reset_handler_data, %object
+	.globl	__tegra194_cpu_reset_handler_data
+__tegra194_cpu_reset_handler_data:
 	.quad	tegra_secure_entrypoint
 	.quad	__BL31_END__ - BL31_BASE
-	.globl	__tegra186_smmu_ctx_start
-__tegra186_smmu_ctx_start:
-	.rept	TEGRA186_SMMU_CTX_SIZE
+	.globl	__tegra194_smmu_ctx_start
+__tegra194_smmu_ctx_start:
+	.rept	TEGRA194_SMMU_CTX_SIZE
 	.quad	0
 	.endr
-	.size	__tegra186_cpu_reset_handler_data, \
-		. - __tegra186_cpu_reset_handler_data
+	.size	__tegra194_cpu_reset_handler_data, \
+		. - __tegra194_cpu_reset_handler_data
 
 	.align 4
-	.globl	__tegra186_cpu_reset_handler_end
-__tegra186_cpu_reset_handler_end:
+	.globl	__tegra194_cpu_reset_handler_end
+__tegra194_cpu_reset_handler_end:
