@@ -160,9 +160,13 @@ int32_t tegra_soc_pwr_domain_suspend(const psci_power_state_t *target_state)
 						0U);
 			} while (val == 0U);
 
-	                /* Instruct the MCE to enter system suspend state */
+			/* Instruct the MCE to enter system suspend state */
 			(void)mce_command_handler((uint64_t)MCE_CMD_ENTER_CSTATE,
-			(uint64_t)TEGRA_NVG_CORE_C7, MCE_CORE_SLEEP_TIME_INFINITE, 0U);
+					(uint64_t)TEGRA_NVG_CORE_C7,
+					MCE_CORE_SLEEP_TIME_INFINITE, 0U);
+
+			/* set system suspend state for house-keeping */
+			tegra194_set_system_suspend_entry();
 		}
 	} else {
 		; /* do nothing */
