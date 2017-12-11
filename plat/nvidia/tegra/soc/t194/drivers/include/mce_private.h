@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, NVIDIA CORPORATION. All rights reserved.
+ * Copyright (c) 2019-2020, NVIDIA CORPORATION. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,6 +7,7 @@
 #ifndef __MCE_PRIVATE_H__
 #define __MCE_PRIVATE_H__
 
+#include <stdbool.h>
 #include <tegra_def.h>
 
 /*******************************************************************************
@@ -68,8 +69,12 @@ uint64_t nvg_cache_clean_inval(void);
 uint64_t nvg_cache_inval_all(void);
 int32_t nvg_roc_clean_cache_trbits(void);
 void nvg_enable_strict_checking_mode(void);
+void nvg_system_shutdown(void);
+void nvg_system_reboot(void);
 
 /* MCE helper functions */
 void mce_enable_strict_checking(void);
+void mce_system_shutdown(void);
+void mce_system_reboot(void);
 
 #endif /* __MCE_PRIVATE_H__ */
