@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, NVIDIA Corporation. All rights reserved.
+ * Copyright (c) 2019-2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -529,6 +529,9 @@
 #define  MC_CLIENT_HOTRESET_CTRL2_PCIE0A2_FLUSH_ENB		(1U << 23)
 #define  MC_CLIENT_HOTRESET_CTRL2_PCIE4A_FLUSH_ENB		(1U << 25)
 #define MC_CLIENT_HOTRESET_STATUS2				0x1898U
+
+#define MC_COALESCE_CTRL					0x2930U
+#define  MC_COALESCE_CTRL_COALESCER_ENABLE			(1U << 31)
 
 /*******************************************************************************
  * Tegra TSA Controller constants
