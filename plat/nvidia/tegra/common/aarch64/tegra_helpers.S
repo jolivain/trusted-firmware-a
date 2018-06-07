@@ -18,21 +18,19 @@
 /*******************************************************************************
  * Implementation defined ACTLR_EL3 bit definitions
  ******************************************************************************/
-#define ACTLR_EL3_L2ACTLR_BIT		(U(1) << 6)
-#define ACTLR_EL3_L2ECTLR_BIT		(U(1) << 5)
-#define ACTLR_EL3_L2CTLR_BIT		(U(1) << 4)
-#define ACTLR_EL3_CPUECTLR_BIT		(U(1) << 1)
-#define ACTLR_EL3_CPUACTLR_BIT		(U(1) << 0)
-#define ACTLR_EL3_ENABLE_ALL_MASK	(ACTLR_EL3_L2ACTLR_BIT | \
-								ACTLR_EL3_L2ECTLR_BIT | \
-					 			ACTLR_EL3_L2CTLR_BIT | \
-					 			ACTLR_EL3_CPUECTLR_BIT | \
-					 			ACTLR_EL3_CPUACTLR_BIT)
-#define ACTLR_EL3_ENABLE_ALL_ACCESS	(ACTLR_EL3_L2ACTLR_BIT | \
-					 			ACTLR_EL3_L2ECTLR_BIT | \
-					 			ACTLR_EL3_L2CTLR_BIT | \
-					 			ACTLR_EL3_CPUECTLR_BIT | \
-					 			ACTLR_EL3_CPUACTLR_BIT)
+#define ACTLR_ELx_L2ACTLR_BIT		(U(1) << 6)
+#define ACTLR_ELx_L2ECTLR_BIT		(U(1) << 5)
+#define ACTLR_ELx_L2CTLR_BIT		(U(1) << 4)
+#define ACTLR_ELx_CPUECTLR_BIT		(U(1) << 1)
+#define ACTLR_ELx_CPUACTLR_BIT		(U(1) << 0)
+#define ACTLR_ELx_ENABLE_ALL_MASK	(ACTLR_ELx_L2ACTLR_BIT | \
+					 ACTLR_ELx_L2ECTLR_BIT | \
+					 ACTLR_ELx_L2CTLR_BIT | \
+					 ACTLR_ELx_CPUECTLR_BIT)
+#define ACTLR_ELx_ENABLE_ALL_ACCESS	(ACTLR_ELx_L2ACTLR_BIT | \
+					 ACTLR_ELx_L2ECTLR_BIT | \
+					 ACTLR_ELx_L2CTLR_BIT | \
+					 ACTLR_ELx_CPUECTLR_BIT)
 
 	/* Global functions */
 	.globl	plat_is_my_cpu_primary
@@ -93,15 +91,15 @@
 	 * -------------------------------------------------------
 	 */
 	mrs	x0, actlr_el3
-	mov	x1, #ACTLR_EL3_ENABLE_ALL_MASK
+	mov	x1, #ACTLR_ELx_ENABLE_ALL_MASK
 	bic	x0, x0, x1
-	mov	x1, #ACTLR_EL3_ENABLE_ALL_ACCESS
+	mov	x1, #ACTLR_ELx_ENABLE_ALL_ACCESS
 	orr	x0, x0, x1
 	msr	actlr_el3, x0
 	mrs	x0, actlr_el2
-	mov	x1, #ACTLR_EL3_ENABLE_ALL_MASK
+	mov	x1, #ACTLR_ELx_ENABLE_ALL_MASK
 	bic	x0, x0, x1
-	mov	x1, #ACTLR_EL3_ENABLE_ALL_ACCESS
+	mov	x1, #ACTLR_ELx_ENABLE_ALL_ACCESS
 	orr	x0, x0, x1
 	msr	actlr_el2, x0
 	isb
