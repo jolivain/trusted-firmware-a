@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -263,6 +264,15 @@ func denver_reset_func
 	isb
 	dsb	sy
 #endif
+
+	/* ----------------------------------------------------
+	 * Reset ACTLR.PMSTATE to C1 state
+	 * ----------------------------------------------------
+	 */
+	mrs	x0, actlr_el1
+	bic	x0, x0, #DENVER_CPU_PMSTATE_MASK
+	orr	x0, x0, #DENVER_CPU_PMSTATE_C1
+	msr	actlr_el1, x0
 
 	/* ----------------------------------------------------
 	 * Reset ACTLR.PMSTATE to C1 state
