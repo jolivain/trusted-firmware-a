@@ -75,8 +75,10 @@ static inline void write_cache_op(uintptr_t addr, bool cached)
 
 static inline void read_cache_op(uintptr_t addr, bool cached)
 {
-	if (cached)
+	if (cached) {
 		dccivac(addr);
+		dsbish();
+	}
 }
 
 /* Helper function to check if the lock is acquired */
