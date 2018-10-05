@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -18,7 +18,7 @@
  * (PM_VERSION_MAJOR << 16) | PM_VERSION_MINOR
  */
 #define PM_VERSION_MAJOR	1
-#define PM_VERSION_MINOR	0
+#define PM_VERSION_MINOR	1
 
 #define PM_VERSION	((PM_VERSION_MAJOR << 16) | PM_VERSION_MINOR)
 
