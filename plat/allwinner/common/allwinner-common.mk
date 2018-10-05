@@ -32,6 +32,8 @@ BL31_SOURCES		+=	drivers/allwinner/axp/common.c		\
 				${AW_PLAT}/common/sunxi_security.c	\
 				${AW_PLAT}/common/sunxi_topology.c
 
+BL31_CPPFLAGS += -march=armv8-a+crc
+
 # By default, attempt to use SCPI to the ARISC management processor. If SCPI
 # is not enabled or SCP firmware is not loaded, fall back to a simpler native
 # implementation that does not support CPU or system suspend.
@@ -70,6 +72,12 @@ SUNXI_AMEND_DTB		?=	0
 ifeq (${SUNXI_BL31_IN_DRAM},1)
 SUNXI_AMEND_DTB		:=	1
 $(eval $(call add_define,SUNXI_BL31_IN_DRAM))
+endif
+
+ifeq (${SUNXI_GENERATE_MAC_ADDRESSES},1)
+SUNXI_AMEND_DTB		:=	1
+BL31_SOURCES		+=	common/tf_crc32.c
+$(eval $(call add_define,SUNXI_GENERATE_MAC_ADDRESSES))
 endif
 
 ifeq (${SUNXI_AMEND_DTB},1)
