@@ -263,7 +263,7 @@ enum {
 };
 
 /* Write wrapper callback for debug:
- * will print written data in case LOG_LEVEL >= 40
+ * will print written data in case LOG_LEVEL >= 4
  */
 static void mci_mmio_write_32(uintptr_t addr, uint32_t value)
 {
@@ -271,7 +271,7 @@ static void mci_mmio_write_32(uintptr_t addr, uint32_t value)
 	mmio_write_32(addr, value);
 }
 /* Read wrapper callback for debug:
- * will print read data in case LOG_LEVEL >= 40
+ * will print read data in case LOG_LEVEL >= 4
  */
 static uint32_t mci_mmio_read_32(uintptr_t addr)
 {

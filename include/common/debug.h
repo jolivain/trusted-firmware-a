@@ -21,11 +21,11 @@
  */
 
 #define LOG_LEVEL_NONE			U(0)
-#define LOG_LEVEL_ERROR			U(10)
-#define LOG_LEVEL_NOTICE		U(20)
-#define LOG_LEVEL_WARNING		U(30)
-#define LOG_LEVEL_INFO			U(40)
-#define LOG_LEVEL_VERBOSE		U(50)
+#define LOG_LEVEL_ERROR			U(1)
+#define LOG_LEVEL_NOTICE		U(2)
+#define LOG_LEVEL_WARNING		U(3)
+#define LOG_LEVEL_INFO			U(4)
+#define LOG_LEVEL_VERBOSE		U(5)
 
 #ifndef __ASSEMBLER__
 
@@ -41,11 +41,11 @@
  * be embedded in the format string and is expected by tf_log() to determine
  * the log level.
  */
-#define LOG_MARKER_ERROR		"\xa"	/* 10 */
-#define LOG_MARKER_NOTICE		"\x14"	/* 20 */
-#define LOG_MARKER_WARNING		"\x1e"	/* 30 */
-#define LOG_MARKER_INFO			"\x28"	/* 40 */
-#define LOG_MARKER_VERBOSE		"\x32"	/* 50 */
+#define LOG_MARKER_ERROR		"\x1"	/* 1 */
+#define LOG_MARKER_NOTICE		"\x2"	/* 2 */
+#define LOG_MARKER_WARNING		"\x3"	/* 3 */
+#define LOG_MARKER_INFO			"\x4"	/* 4 */
+#define LOG_MARKER_VERBOSE		"\x5"	/* 5 */
 
 /*
  * If the log output is too low then this macro is used in place of tf_log()

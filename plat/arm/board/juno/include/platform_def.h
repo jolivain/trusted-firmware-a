@@ -186,9 +186,9 @@
 
 /*
  * Since free SRAM space is scant, enable the ASSERTION message size
- * optimization by fixing the PLAT_LOG_LEVEL_ASSERT to LOG_LEVEL_INFO (40).
+ * optimization by fixing the PLAT_LOG_LEVEL_ASSERT to LOG_LEVEL_INFO (4).
  */
-#define PLAT_LOG_LEVEL_ASSERT		40
+#define PLAT_LOG_LEVEL_ASSERT		4
 
 /* CCI related constants */
 #define PLAT_ARM_CCI_BASE		UL(0x2c090000)

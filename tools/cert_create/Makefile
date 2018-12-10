@@ -46,9 +46,9 @@ endif
 endif
 
 ifeq (${DEBUG},1)
-  HOSTCCFLAGS += -g -O0 -DDEBUG -DLOG_LEVEL=40
+  HOSTCCFLAGS += -g -O0 -DDEBUG -DLOG_LEVEL=4
 else
-  HOSTCCFLAGS += -O2 -DLOG_LEVEL=20
+  HOSTCCFLAGS += -O2 -DLOG_LEVEL=2
 endif
 ifeq (${V},0)
   Q := @

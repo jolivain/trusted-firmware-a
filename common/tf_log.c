@@ -32,7 +32,6 @@ void tf_log(const char *fmt, ...)
 
 	/* Verify that log_level is one of LOG_MARKER_* macro defined in debug.h */
 	assert((log_level > 0U) && (log_level <= LOG_LEVEL_VERBOSE));
-	assert((log_level % 10U) == 0U);
 
 	if (log_level > max_log_level)
 		return;
@@ -57,7 +56,6 @@ void tf_log(const char *fmt, ...)
 void tf_log_set_max_level(unsigned int log_level)
 {
 	assert(log_level <= LOG_LEVEL_VERBOSE);
-	assert((log_level % 10U) == 0U);
 
 	/* Cap log_level to the compile time maximum. */
 	if (log_level <= (unsigned int)LOG_LEVEL)

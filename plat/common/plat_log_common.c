@@ -15,15 +15,5 @@ static const char *plat_prefix_str[] = {
 
 const char *plat_log_get_prefix(unsigned int log_level)
 {
-	unsigned int level;
-
-	if (log_level < LOG_LEVEL_ERROR) {
-		level = LOG_LEVEL_ERROR;
-	} else if (log_level > LOG_LEVEL_VERBOSE) {
-		level = LOG_LEVEL_VERBOSE;
-	} else {
-		level = log_level;
-	}
-
-	return plat_prefix_str[(level / 10U) - 1U];
+	return plat_prefix_str[log_level - 1U];
 }
