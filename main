@@ -4,13 +4,13 @@
   foreach = project:TF-A/trusted-firmware-a
 
 [section "Open Published Patches"]
-  query = is:open -is:draft -label:Code-Review=2 branch:integration
+  query = is:open -is:wip -label:Code-Review=2 branch:integration
 
-[section "Open Draft Patches"]
-  query = is:open is:draft branch:integration
+[section "Open WIP Patches"]
+  query = is:open is:wip branch:integration
 
 [section "Approved Patches"]
-  query = is:open -is:draft label:Code-Review=2 branch:integration
+  query = is:open -is:wip label:Code-Review=2 branch:integration
 
 [section "Not against integration branch"]
   query = is:open -branch:integration
