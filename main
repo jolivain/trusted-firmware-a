@@ -1,0 +1,22 @@
+[dashboard]
+  title = Trusted Firmware-A patches
+  description = Main dashboard for the Trusted Firmware-A project
+  foreach = project:TF-A/trusted-firmware-a
+
+[section "Open Published Patches"]
+  query = is:open -is:draft -label:Code-Review=2 branch:integration
+
+[section "Open Draft Patches"]
+  query = is:open is:draft branch:integration
+
+[section "Approved Patches"]
+  query = is:open -is:draft label:Code-Review=2 branch:integration
+
+[section "Not against integration branch"]
+  query = is:open -branch:integration
+
+[section "Recently Abandoned"]
+  query = is:abandoned -age:1w
+
+[section "Recently Merged"]
+  query = is:merged -age:1w
