@@ -5,9 +5,12 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <drivers/delay_timer.h>
+#include <lib/mmio.h>
 #include <platform.h>
 #include "qti_cpu.h"
 #include <lib/psci/psci.h>
+#include <qti_plat.h>
 #include <qtiseclib_defs_plat.h>
 #include <qtiseclib_interface.h>
 #include <qtiseclib_cb_interface.h>
@@ -186,14 +189,25 @@ __dead2 void qti_domain_power_down_wfi(const psci_power_state_t * target_state)
 	/* We should never reach here */
 }
 
+static __dead2 void assert_ps_hold(void)
+{
+	mmio_write_32(QTI_PS_HOLD_REG, 0);
+	mdelay(1000);
+
+	/* Should be dead before reaching this. */
+	panic();
+}
+
 __dead2 void qti_system_off(void)
 {
-	qtiseclib_psci_system_off();
+	qti_pmic_prepare_shutdown();
+	assert_ps_hold();
 }
 
 __dead2 void qti_system_reset(void)
 {
-	qtiseclib_psci_system_reset();
+	qti_pmic_prepare_reset();
+	assert_ps_hold();
 }
 
 void qti_get_sys_suspend_power_state(psci_power_state_t * req_state)
