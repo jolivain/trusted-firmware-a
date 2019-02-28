@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc8ed369_946467e4",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-02-28T14:32:57Z",
+      "side": 1,
+      "message": "This code is not prepared to handle a NULL pointer.",
+      "range": {
+        "startLine": 367,
+        "startChar": 1,
+        "endLine": 367,
+        "endChar": 42
+      },
+      "revId": "0c88cbbeef5460e44a8af70dd9fc3259a543701d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "270751b8_fc071bac",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-02-28T14:32:57Z",
+      "side": 1,
+      "message": "As far as I understand, this will not save any space because we will still have an array of AUTH_METHOD_NUM entries. The only difference I can see is that now the auth_img_desc_t structure contains a pointer to this array.\n\nWhich, in itself, is dangerous because the code is not prepared to handle a NULL pointer. And I don\u0027t think we want to change that. IIUC, an image should always provide at least 1 authentication method (even if it is the dummy AUTH_METHOD_NONE method).\n\nI suspect the memory savings you\u0027ve indicated in the commit message are due to the authenticated_data changes, right? I.e. could you please confirm we do not gain any memory from the changes on the img_auth_methods field?",
+      "range": {
+        "startLine": 125,
+        "startChar": 2,
+        "endLine": 125,
+        "endChar": 67
+      },
+      "revId": "0c88cbbeef5460e44a8af70dd9fc3259a543701d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad022ec_62f48926",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-02-28T14:32:57Z",
+      "side": 1,
+      "message": "Again, my understanding is that this will still be an array of COT_MAX_VERIFIED_PARAMS entries, just like before this patch.\n\nI suspect the only cases where we do save some memory thanks to this patch are when there is no authenticated_data at all. Before this patch, we\u0027d store a bunch of zero bytes covering the entire array ; now it\u0027s just storing a NULL pointer.\n\nIs my understanding correct that this is where the memory savings are coming from?",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 2
+      },
+      "revId": "0c88cbbeef5460e44a8af70dd9fc3259a543701d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6e71986_c45992ef",
+        "filename": "include/drivers/auth/auth_mod.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-02-28T14:32:57Z",
+      "side": 1,
+      "message": "With these changes, img_auth_methods and authenticated_data become pointers but we have no idea how many elements there are behind these pointers. We just know the maximum number of elements. This means each pointer is:\n* either a NULL pointer when there\u0027s no element at all.\n* or a pointer to an array containing the max number of elements.\n\nThis all-or-nothing rule is because I think we don\u0027t have anything to identify the end of these lists. To solve this issue, we could \n* either add an additional invalid entry at the end of the list (a sentinel).\n* or add a \u0027count\u0027 field tracking the number of elements in each of these lists.\n\nThe 2nd solution is probably more memory-efficient but might require a bit more logic to ensure that it is kept in sync with the actual number of elements we declare in the list. We might have to use some preprocessor ugliness to do that...",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 51
+      },
+      "revId": "0c88cbbeef5460e44a8af70dd9fc3259a543701d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
