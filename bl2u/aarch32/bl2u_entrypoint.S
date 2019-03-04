@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -41,12 +41,14 @@ func bl2u_entrypoint
 	stcopr	r0, VBAR
 	isb
 
-	/* -----------------------------------------------------
-	 * Enable the instruction cache
-	 * -----------------------------------------------------
+	/* --------------------------------------------------------
+	 * Enable the instruction cache - disable speculative loads
+	 * --------------------------------------------------------
 	 */
 	ldcopr	r0, SCTLR
 	orr	r0, r0, #SCTLR_I_BIT
+	ldr	r1, =(~SCTLR_DSSBS_BIT)
+	and	r0, r0, r1
 	stcopr	r0, SCTLR
 	isb
 

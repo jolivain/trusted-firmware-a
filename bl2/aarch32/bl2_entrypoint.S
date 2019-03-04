@@ -42,12 +42,14 @@ func bl2_entrypoint
 	stcopr	r0, VBAR
 	isb
 
-	/* -----------------------------------------------------
-	 * Enable the instruction cache
-	 * -----------------------------------------------------
+	/* --------------------------------------------------------
+	 * Enable the instruction cache - disable speculative loads
+	 * --------------------------------------------------------
 	 */
 	ldcopr	r0, SCTLR
 	orr	r0, r0, #SCTLR_I_BIT
+	ldr	r1, =(~SCTLR_DSSBS_BIT)
+	and	r0, r0, r1
 	stcopr	r0, SCTLR
 	isb
 
