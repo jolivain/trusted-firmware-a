@@ -41,10 +41,12 @@ func bl2_entrypoint
 
 	/* ---------------------------------------------
 	 * Enable the instruction cache, stack pointer
-	 * and data access alignment checks
+	 * and data access alignment checks and disable
+	 * speculative loads.
 	 * ---------------------------------------------
 	 */
-	mov	x1, #(SCTLR_I_BIT | SCTLR_A_BIT | SCTLR_SA_BIT)
+	mov	x1, #((SCTLR_I_BIT | SCTLR_A_BIT | SCTLR_SA_BIT) & \
+			~SCTLR_DSSBS_BIT)
 	mrs	x0, sctlr_el1
 	orr	x0, x0, x1
 	msr	sctlr_el1, x0
