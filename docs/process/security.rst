@@ -1,5 +1,5 @@
-Security Center
-===============
+Security Processes
+==================
 
 Security Disclosures
 --------------------
