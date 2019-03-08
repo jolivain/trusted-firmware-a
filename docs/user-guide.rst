@@ -1644,7 +1644,7 @@ The latest version of the AArch64 build of TF-A has been tested on the following
 Arm FVPs without shifted affinities, and that do not support threaded CPU cores
 (64-bit host machine only).
 
-NOTE: Unless otherwise stated, the model version is Version 11.4 Build 37.
+NOTE: Unless otherwise stated, the model version is Version 11.6 Build 35.
 
 -  ``FVP_Base_Aresx4``
 -  ``FVP_Base_AEMv8A-AEMv8A``
