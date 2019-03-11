@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4f7a47cc_0a665029",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000054
+      },
+      "writtenOn": "2019-03-11T13:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e2d8ff5_cd105f80",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 27
+      },
+      "revId": "e5118d51ba47625833fe444e574bfd46e2fa8612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff848acd_c5a6f6b9",
         "filename": "drivers/auth/tbbr/tbbr_cot.c",
         "patchSetId": 1
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "3dacf3d3_d92da71d",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1000054
+      },
+      "writtenOn": "2019-03-11T13:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a630bf7_4cf33ca7",
+      "range": {
+        "startLine": 790,
+        "startChar": 0,
+        "endLine": 790,
+        "endChar": 40
+      },
+      "revId": "e5118d51ba47625833fe444e574bfd46e2fa8612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62483dd3_19a6f294",
         "filename": "include/drivers/auth/auth_mod.h",
         "patchSetId": 1
@@ -105,6 +153,30 @@
       "writtenOn": "2019-02-27T16:29:33Z",
       "side": 1,
       "message": "nit: This is no longer true, now it is an array of pointers to auth_img_desc structures.",
+      "range": {
+        "startLine": 41,
+        "startChar": 35,
+        "endLine": 41,
+        "endChar": 65
+      },
+      "revId": "e5118d51ba47625833fe444e574bfd46e2fa8612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "710f02da_de0327b0",
+        "filename": "include/drivers/auth/auth_mod.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000054
+      },
+      "writtenOn": "2019-03-11T13:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62483dd3_19a6f294",
       "range": {
         "startLine": 41,
         "startChar": 35,
