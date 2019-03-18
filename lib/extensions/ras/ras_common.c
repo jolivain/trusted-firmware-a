@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,10 +14,6 @@
 #include <lib/extensions/ras.h>
 #include <lib/extensions/ras_arch.h>
 #include <plat/common/platform.h>
-
-#ifndef PLAT_RAS_PRI
-# error Platform must define RAS priority value
-#endif
 
 /* Handler that receives External Aborts on RAS-capable systems */
 int ras_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
@@ -56,6 +53,13 @@ int ras_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
 
 	return (n_handled != 0U) ? 1 : 0;
 }
+
+#if EL3_EXCEPTION_HANDLING
+
+#ifndef PLAT_RAS_PRI
+# error Platform must define RAS priority value
+#endif
+
 
 #if ENABLE_ASSERTIONS
 static void assert_interrupts_sorted(void)
@@ -129,9 +133,12 @@ static int ras_interrupt_handler(uint32_t intr_raw, uint32_t flags,
 
 	return 0;
 }
+#endif
 
 void __init ras_init(void)
 {
+#if EL3_EXCEPTION_HANDLING
+
 #if ENABLE_ASSERTIONS
 	/* Check RAS interrupts are sorted */
 	assert_interrupts_sorted();
@@ -139,4 +146,6 @@ void __init ras_init(void)
 
 	/* Register RAS priority handler */
 	ehf_register_priority_handler(PLAT_RAS_PRI, ras_interrupt_handler);
+
+#endif /* EL3_EXCEPTION_HANDLING */
 }
