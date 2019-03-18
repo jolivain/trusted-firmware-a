@@ -99,4 +99,9 @@
 #define PLAT_SDEI_NORMAL_PRI		U(0x30)
 #define PLAT_TEGRA_WDT_PRIO		U(0x40)
 
+/*******************************************************************************
+ * Platform macros to support RAS handling
+ ******************************************************************************/
+#define PLAT_RAS_PRI			U(0x20)
+
 #endif /* PLATFORM_DEF_H */
