@@ -86,5 +86,9 @@
 #define MAX_IO_DEVICES			U(0)
 #define MAX_IO_HANDLES			U(0)
 
+/*******************************************************************************
+ * Platform macros to support RAS handling
+ ******************************************************************************/
+#define PLAT_RAS_PRI			U(0x20)
 
 #endif /* PLATFORM_DEF_H */
