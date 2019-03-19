@@ -30,7 +30,9 @@ BL2_SOURCES		+=	bl2/${ARCH}/bl2_el3_entrypoint.S	\
 				lib/cpus/errata_report.c
 
 ifeq (${ARCH},aarch64)
+ifeq (${HW_ASSISTED_COHERENCY}, 1)
 BL2_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S
+endif
 endif
 
 BL2_LINKERFILE		:=	bl2/bl2_el3.ld.S
