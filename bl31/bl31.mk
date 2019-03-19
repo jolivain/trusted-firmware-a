@@ -31,12 +31,15 @@ BL31_SOURCES		+=	bl31/bl31_main.c				\
 				bl31/aarch64/runtime_exceptions.S		\
 				bl31/bl31_context_mgmt.c			\
 				common/runtime_svc.c				\
-				lib/cpus/aarch64/dsu_helpers.S			\
 				plat/common/aarch64/platform_mp_stack.S		\
 				services/arm_arch_svc/arm_arch_svc_setup.c	\
 				services/std_svc/std_svc_setup.c		\
 				${PSCI_LIB_SOURCES}				\
 				${SPM_SOURCES}
+
+ifeq (${HW_ASSISTED_COHERENCY}, 1)
+BL31_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S
+endif
 
 
 ifeq (${ENABLE_PMF}, 1)

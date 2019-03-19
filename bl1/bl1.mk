@@ -17,8 +17,12 @@ BL1_SOURCES		+=	bl1/bl1_main.c				\
 				${MBEDTLS_SOURCES}
 
 ifeq (${ARCH},aarch64)
-BL1_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S		\
-				lib/el3_runtime/aarch64/context.S
+BL1_SOURCES		+=	lib/el3_runtime/aarch64/context.S
+
+ifeq (${HW_ASSISTED_COHERENCY}, 1)
+BL1_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S
+endif
+
 endif
 
 ifeq (${ENABLE_PAUTH},1)
