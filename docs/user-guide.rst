@@ -460,7 +460,7 @@ Common build options
    architecture is AArch32.
 
 -  ``ENABLE_STACK_PROTECTOR``: String option to enable the stack protection
-   checks in GCC. Allowed values are "all", "strong" and "0" (default).
+   checks in GCC. Allowed values are "all", "strong", "1" and "0" (default).
    "strong" is the recommended stack protection level if this feature is
    desired. 0 disables the stack protection. For all values other than 0, the
    ``plat_get_stack_protector_canary()`` platform hook needs to be implemented.

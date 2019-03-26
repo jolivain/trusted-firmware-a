@@ -8,12 +8,15 @@
 STACK_PROTECTOR_ENABLED := 0
 
 ifneq (${ENABLE_STACK_PROTECTOR},0)
-STACK_PROTECTOR_ENABLED := 1
-BL_COMMON_SOURCES	+=	lib/stack_protector/stack_protector.c			\
+  STACK_PROTECTOR_ENABLED := 1
+  BL_COMMON_SOURCES	+=	lib/stack_protector/stack_protector.c	\
 				lib/stack_protector/${ARCH}/asm_stack_protector.S
 
-TF_CFLAGS		+=	-fstack-protector-${ENABLE_STACK_PROTECTOR}
+  ifeq (${ENABLE_STACK_PROTECTOR},1)
+    TF_CFLAGS		+=	-fstack-protector
+  else
+    TF_CFLAGS		+=	-fstack-protector-${ENABLE_STACK_PROTECTOR}
+  endif
 endif
 
 $(eval $(call add_define,STACK_PROTECTOR_ENABLED))
-
