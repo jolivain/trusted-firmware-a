@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -298,6 +298,9 @@ int32_t spm_setup(void)
 		      rc_int);
 		panic();
 	}
+
+	/* Setup shim layer */
+	spm_exceptions_xlat_init_context();
 
 	/*
 	 * Setup all Secure Partitions.

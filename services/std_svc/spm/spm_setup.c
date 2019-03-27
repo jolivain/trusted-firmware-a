@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -77,11 +77,23 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 	write_ctx_reg(get_sysregs_ctx(ctx), CTX_MAIR_EL1,
 		      mmu_cfg_params[MMU_CFG_MAIR]);
 
+	/* Enable translations using TTBR1_EL1 */
+	int t1sz = 64 - __builtin_ctzll(SPM_SHIM_XLAT_VIRT_ADDR_SPACE_SIZE);
+	mmu_cfg_params[MMU_CFG_TCR] &= ~TCR_EPD1_BIT;
+	mmu_cfg_params[MMU_CFG_TCR] |=
+		((uint64_t)t1sz << TCR_T1SZ_SHIFT) |
+		TCR_SH1_INNER_SHAREABLE |
+		TCR_RGN1_OUTER_WBA | TCR_RGN1_INNER_WBA |
+		TCR_TG1_4K;
+
 	write_ctx_reg(get_sysregs_ctx(ctx), CTX_TCR_EL1,
 		      mmu_cfg_params[MMU_CFG_TCR]);
 
 	write_ctx_reg(get_sysregs_ctx(ctx), CTX_TTBR0_EL1,
 		      mmu_cfg_params[MMU_CFG_TTBR0]);
+
+	write_ctx_reg(get_sysregs_ctx(ctx), CTX_TTBR1_EL1,
+		      (uint64_t)spm_exceptions_xlat_get_base_table());
 
 	/* Setup SCTLR_EL1 */
 	u_register_t sctlr_el1 = read_ctx_reg(get_sysregs_ctx(ctx), CTX_SCTLR_EL1);
@@ -124,7 +136,7 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 
 	/* Shim Exception Vector Base Address */
 	write_ctx_reg(get_sysregs_ctx(ctx), CTX_VBAR_EL1,
-			SPM_SHIM_EXCEPTIONS_PTR);
+		      0ULL - (SPM_SHIM_XLAT_VIRT_ADDR_SPACE_SIZE - 1ULL));
 
 	/*
 	 * FPEN: Allow the Secure Partition to access FP/SIMD registers.
