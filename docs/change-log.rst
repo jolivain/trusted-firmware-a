@@ -442,6 +442,9 @@ Known Issues
      relating to the hdlcd driver failing to suspend will be emitted on the
      Linux terminal.
 
+   - arm/juno: The firmware update use-cases require a motherboard firmware
+     version of MB v1.5.0 which preserves the reset reason.
+
    - mediatek/mt6795: This platform does not build in this release
 
 Trusted Firmware-A - version 2.0
