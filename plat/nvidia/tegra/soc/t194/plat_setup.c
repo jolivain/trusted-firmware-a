@@ -204,6 +204,7 @@ void plat_early_platform_setup(void)
 	const plat_params_from_bl2_t *params_from_bl2 = bl31_get_plat_params();
 	uint8_t enable_ccplex_lock_step = params_from_bl2->enable_ccplex_lock_step;
 	uint64_t actlr_elx;
+	uint32_t scr_el3 __unused;
 
 	/* sanity check MCE firmware compatibility */
 	mce_verify_firmware_version();
@@ -276,6 +277,17 @@ void plat_early_platform_setup(void)
 		actlr_elx |= DENVER_CPU_ENABLE_DUAL_EXEC_EL1;
 		write_actlr_el1(actlr_elx);
 	}
+
+#if TRAP_LOWER_EL_ERR_ACCESS
+	/*
+	 * SCR_EL3.TERR: Error register(ER*_EL1) accesses from EL1 or EL2
+	 * generate a Trap exception to EL3.
+	 */
+	scr_el3 = (uint32_t)read_scr();
+	scr_el3 |= SCR_TERR_BIT;
+	write_scr(scr_el3);
+#endif
+
 }
 
 /* Secure IRQs for Tegra194 */

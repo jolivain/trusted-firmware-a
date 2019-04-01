@@ -314,6 +314,7 @@
 #define SCR_RES1_BITS		((U(1) << 4) | (U(1) << 5))
 #define SCR_ATA_BIT		(U(1) << 26)
 #define SCR_FIEN_BIT		(U(1) << 21)
+#define SCR_TERR_BIT		(U(1) << 15)
 #define SCR_EEL2_BIT		(U(1) << 18)
 #define SCR_API_BIT		(U(1) << 17)
 #define SCR_APK_BIT		(U(1) << 16)
