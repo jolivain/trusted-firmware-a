@@ -26,7 +26,8 @@
  */
 #define ERR_FR_EN_BITS_MASK 0xFFFFFFFF00000000ULL
 
-/* ERR<n>FR bits[63:32], it indicates supported RAS errors which can be enabled
+/*
+ * ERR<n>FR bits[63:32], it indicates supported RAS errors which can be enabled
  * by setting corresponding bits in ERR<n>CTLR
  */
 #define ERR_FR_EN_BITS_MASK 0xFFFFFFFF00000000ULL
@@ -36,6 +37,9 @@ static DEFINE_BAKERY_LOCK(ras_handler_lock);
 #define ras_lock()	bakery_lock_get(&ras_handler_lock)
 #define ras_unlock()	bakery_lock_release(&ras_handler_lock)
 
+/* Is any RAS error handled on any cpu. */
+static bool is_ras_err_handled = false;
+
 /*
  * Function to handle an External Abort received at EL3.
  * This function is invoked by RAS framework.
@@ -43,7 +47,6 @@ static DEFINE_BAKERY_LOCK(ras_handler_lock);
 static void tegra194_ea_handler(unsigned int ea_reason, uint64_t syndrome,
 		void *cookie, void *handle, uint64_t flags)
 {
-
 	int32_t ret;
 
 	ras_lock();
@@ -51,9 +54,10 @@ static void tegra194_ea_handler(unsigned int ea_reason, uint64_t syndrome,
 	INFO("exception reason=%u syndrome=0x%llux on 0x%lux at EL3.\n",
 		ea_reason, syndrome, read_mpidr_el1());
 
-	/* Call RAS EA handler */
+	/* Call RAS EA handler to read out RAS error records. */
 	ret = ras_ea_handler(ea_reason, syndrome, cookie, handle, flags);
 	if (ret != 0) {
+		is_ras_err_handled = true;
 		ERROR("RAS error handled!\n");
 	} else {
 		ERROR("Not a RAS error!\n");
@@ -61,18 +65,22 @@ static void tegra194_ea_handler(unsigned int ea_reason, uint64_t syndrome,
 
 	ras_unlock();
 
-	if (ret != 0) {
+	/* Uncorrectable RAS error is reported, we die. */
+	if (is_ras_err_handled) {
 		/* There is RAS error, power off this cpu */
 		(void)mce_command_handler(
 				(uint64_t)MCE_CMD_ENTER_CSTATE,
 				(uint64_t)TEGRA_NVG_CORE_C7,
 				MCE_CORE_SLEEP_TIME_INFINITE,
 				0U);
-		wfi();
+		for (;;) {
+			wfi();
+		}
 	}
 }
 
-/* Function to enable all supported RAS error report.
+/*
+ * Function to enable all supported RAS error report.
  * Uncorrected errors are set to report as External abort (SError);
  * Corrected errors are set to report as interrupt.
  */
@@ -124,12 +132,15 @@ void tegra194_ras_enable(void)
 			 */
 			ser_sys_select_record(idx_start + j);
 
+			/* enable error reporting if any supported RAS error */
 			err_fr = read_erxfr_el1() & ERR_FR_EN_BITS_MASK;
+			if (err_fr != 0ULL) {
+				ERR_CTLR_ENABLE_FIELD(err_ctrl, ED);
+			}
+
+			/* bitmasks */
 			uncorr_errs = aux_data[j].err_ctrl();
 			corr_errs = ~uncorr_errs & err_fr;
-
-			/* enable error reporting */
-			ERR_CTLR_ENABLE_FIELD(err_ctrl, ED);
 
 			/* enable SError reporting for uncorrectable errors */
 			if ((uncorr_errs & err_fr) != 0ULL) {
@@ -144,8 +155,10 @@ void tegra194_ras_enable(void)
 			/* enable the supported errors */
 			err_ctrl |= err_fr;
 
-			VERBOSE("errselr_el1:0x%x, erxfr:0x%llx\n", idx_start + j, err_fr);
-			VERBOSE("erxfr[63:32]:0x%llx, err_ctrl:0x%llx\n", err_fr, err_ctrl);
+			VERBOSE("errselr_el1:0x%x, erxfr:0x%lx\n",
+				idx_start + j, read_erxfr_el1());
+			VERBOSE("erxfr[63:32]:0x%llx, err_ctrl:0x%llx\n",
+				err_fr, err_ctrl);
 
 			/* enable specified errors, or set to 0 if no supported error */
 			write_erxctlr_el1(err_ctrl);
@@ -207,6 +220,7 @@ static int32_t tegra194_ras_record_probe(const struct err_record_info *info,
 	return ser_probe_sysreg(info->sysreg.idx_start, info->sysreg.num_idx, probe_data);
 }
 
+#if LOG_LEVEL >= LOG_LEVEL_ERROR
 /* Function to retrieve corresponding error message from SERR error code. */
 static const char *tegra194_ras_serr2str(uint32_t code)
 {
@@ -219,9 +233,10 @@ static const char *tegra194_ras_serr2str(uint32_t code)
 			break;
 		ERR_STATUS_SERR(DEFINE_ONE_SERRSTR)
 	}
+
 	return ret;
 }
-
+#endif
 
 /* Function to handle error from one given node */
 static int32_t tegra194_ras_node_handler(uint32_t errselr,
@@ -229,7 +244,9 @@ static int32_t tegra194_ras_node_handler(uint32_t errselr,
 {
 	bool found = false;
 	uint32_t ierr = (uint32_t)ERR_STATUS_GET_FIELD(status, IERR);
+#if LOG_LEVEL >= LOG_LEVEL_ERROR
 	uint32_t serr = (uint32_t)ERR_STATUS_GET_FIELD(status, SERR);
+#endif
 
 	/* not a valid error. */
 	if (ERR_STATUS_GET_FIELD(status, V) == 0U) {
@@ -270,7 +287,6 @@ static int32_t tegra194_ras_node_handler(uint32_t errselr,
 static int32_t tegra194_ras_record_handler(const struct err_record_info *info,
 		int probe_data, const struct err_handler_data *const data __unused)
 {
-	uint32_t num_idx = info->sysreg.num_idx;
 	uint32_t idx_start = info->sysreg.idx_start;
 	const struct ras_aux_data *aux_data = info->aux_data;
 	const struct ras_error *errors;
@@ -281,7 +297,7 @@ static int32_t tegra194_ras_record_handler(const struct err_record_info *info,
 	INFO("%s\n", __func__);
 
 	assert(probe_data >= 0);
-	assert((uint32_t)probe_data < num_idx);
+	assert((uint32_t)probe_data < info->sysreg.num_idx);
 
 	offset = (uint32_t)probe_data;
 	errors = aux_data[offset].error_records;
@@ -296,7 +312,6 @@ static int32_t tegra194_ras_record_handler(const struct err_record_info *info,
 
 	return tegra194_ras_node_handler(idx_start + offset, errors, status);
 }
-
 
 /* Instantiate RAS nodes */
 PER_CORE_RAS_NODE_LIST(DEFINE_ONE_RAS_NODE)
