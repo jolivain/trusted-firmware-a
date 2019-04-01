@@ -49,11 +49,15 @@ ENABLE_TEGRA_WDT_LEGACY_FIQ_HANDLING	?= 0
 # Flag to allow relocation of BL32 image to TZDRAM during boot
 RELOCATE_BL32_IMAGE		?= 0
 
+# Do not trap accesses to Error System registers from EL1 or EL2.
+TEGRA_TRAP_LOWER_EL_ERR_ACCESS	?= 0
+
 include plat/nvidia/tegra/common/tegra_common.mk
 include ${SOC_DIR}/platform_${TARGET_SOC}.mk
 
 $(eval $(call add_define,ENABLE_TEGRA_WDT_LEGACY_FIQ_HANDLING))
 $(eval $(call add_define,RELOCATE_BL32_IMAGE))
+$(eval $(call add_define,TEGRA_TRAP_LOWER_EL_ERR_ACCESS))
 
 # modify BUILD_PLAT to point to SoC specific build directory
 BUILD_PLAT	:=	${BUILD_BASE}/${PLAT}/${TARGET_SOC}/${BUILD_TYPE}
