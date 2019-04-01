@@ -373,6 +373,7 @@ int32_t tegra_soc_pwr_domain_on_finish(const psci_power_state_t *target_state)
 	uint8_t stateid_afflvl2 = target_state->pwr_domain_state[PLAT_MAX_PWR_LVL];
 	cpu_context_t *ctx = cm_get_context(NON_SECURE);
 	uint64_t actlr_elx;
+	uint32_t scr_el3 __unused;
 
 	/*
 	 * Reset power state info for CPUs when onlining, we set
@@ -472,6 +473,16 @@ int32_t tegra_soc_pwr_domain_on_finish(const psci_power_state_t *target_state)
 		actlr_elx |= DENVER_CPU_ENABLE_DUAL_EXEC_EL1;
 		write_actlr_el1(actlr_elx);
 	}
+
+#if TEGRA_TRAP_LOWER_EL_ERR_ACCESS
+	/*
+	 * SCR_EL3.TERR: Error register(ER*_EL1) accesses from EL1 or EL2
+	 * generate a Trap exception to EL3.
+	 */
+	scr_el3 = (uint32_t)read_scr();
+	scr_el3 |= SCR_TERR_BIT;
+	write_scr(scr_el3);
+#endif
 
 	return PSCI_E_SUCCESS;
 }
