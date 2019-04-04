@@ -26,7 +26,6 @@ ERRATA_A53_855873	:=	1
 TI_AM65X_WORKAROUND	:=	1
 $(eval $(call add_define,TI_AM65X_WORKAROUND))
 
-MULTI_CONSOLE_API	:=	1
 TI_16550_MDR_QUIRK	:=	1
 $(eval $(call add_define,TI_16550_MDR_QUIRK))
 

@@ -4,8 +4,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#if MULTI_CONSOLE_API
-
 #include <assert.h>
 
 #include <drivers/console.h>
@@ -119,5 +117,3 @@ int console_flush(void)
 
 	return err;
 }
-
-#endif	/* MULTI_CONSOLE_API */
