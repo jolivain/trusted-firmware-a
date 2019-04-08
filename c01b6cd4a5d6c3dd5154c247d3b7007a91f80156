@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0bb0a8e0_94b81ef8",
+        "filename": "lib/cpus/aarch64/cortex_a76ae.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-08T13:52:30Z",
+      "side": 1,
+      "message": "Done, but see lib\\cpus\\aarch64\\cortex_a76.S.",
+      "parentUuid": "6c32bf4a_482a5c60",
+      "range": {
+        "startLine": 29,
+        "startChar": 32,
+        "endLine": 29,
+        "endChar": 39
+      },
+      "revId": "c01b6cd4a5d6c3dd5154c247d3b7007a91f80156",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b2dd9fd_301bdfc1",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 1
@@ -93,6 +117,30 @@
       "revId": "c01b6cd4a5d6c3dd5154c247d3b7007a91f80156",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27fdb3d5_4ceac548",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-08T13:52:30Z",
+      "side": 1,
+      "message": "Aligned for me.",
+      "parentUuid": "844f839a_066bd3cb",
+      "range": {
+        "startLine": 106,
+        "startChar": 35,
+        "endLine": 106,
+        "endChar": 39
+      },
+      "revId": "c01b6cd4a5d6c3dd5154c247d3b7007a91f80156",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
