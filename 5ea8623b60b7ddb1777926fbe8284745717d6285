@@ -22,6 +22,29 @@
       "revId": "5ea8623b60b7ddb1777926fbe8284745717d6285",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08a8b131_accdafa2",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-08T13:13:19Z",
+      "side": 1,
+      "message": "If I am not mistaken, this is incorrectly declaring an array of *mutable* pointers to const structures. In fact, GCC8 issues the following warning message on this line:\n\n drivers/auth/tbbr/tbbr_cot.c:790:30: error: duplicate ‘const’ declaration specifier [-Werror\u003dduplicate-decl-specifier]\n static const auth_img_desc_t const *cot_desc[] \u003d {\n                              ^~~~~\n\nI think you have to declare it that way in order to get an array of *constant* pointers to constant structures:\n\n static const auth_img_desc_t * const cot_desc[] \u003d {",
+      "range": {
+        "startLine": 790,
+        "startChar": 0,
+        "endLine": 790,
+        "endChar": 50
+      },
+      "revId": "5ea8623b60b7ddb1777926fbe8284745717d6285",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
