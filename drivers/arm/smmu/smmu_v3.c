@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -41,6 +41,13 @@ int __init smmuv3_init(uintptr_t smmu_base)
 	uint32_t idr1_reg;
 
 	/*
+	 * SMMU_CR0 resets to zero with all non-secure streams bypassing
+	 * the SMMU, so just abort all incoming transactions in order
+	 * to implement a default deny policy on reset.
+	 */
+	mmio_setbits_32(smmu_base + SMMU_GBPA, 1U << SMMU_GBPA_ABORT);
+
+	/*
 	 * Invalidation of secure caches and TLBs is required only if the SMMU
 	 * supports secure state. If not, it's implementation defined as to how
 	 * SMMU_S_INIT register is accessed.
@@ -55,6 +62,13 @@ int __init smmuv3_init(uintptr_t smmu_base)
 	smmuv3_write_s_init(smmu_base, SMMU_S_INIT_INV_ALL_MASK);
 	while (smmuv3_inval_pending(smmu_base))
 		;
+
+	/*
+	 * SMMU_S_CR0 resets to zero with all secure streams bypassing
+	 * the SMMU, so just abort all incoming transactions in order
+	 * to implement a default deny policy on reset.
+	 */
+	mmio_setbits_32(smmu_base + SMMU_S_GBPA, 1U << SMMU_S_GBPA_ABORT);
 
 	return 0;
 }
