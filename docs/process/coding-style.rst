@@ -11,6 +11,166 @@ and suggestions.
    You will almost certainly find code in the |TF-A| repository that does not
    follow the style. The intent is for all code to do so eventually.
 
+Automated Formatting
+--------------------
+
+Many of the style rules in this documentation can be applied automatically.
+Basic rules, such as indentation size, use of tabs, and newlines can be followed
+by configuring your text editor of choice appropriately. Other rules, which are
+more specific to C code, can be applied using the `Uncrustify`_ tool.
+
+Using EditorConfig
+^^^^^^^^^^^^^^^^^^
+
+The `EditorConfig`_ configuration file in the root of the repository
+(``.editorconfig``) can be used to automatically configure your text editing
+software to follow TF-A style rules that relate to basic formatting such as
+indentation width and tabs vs spaces.
+
+With a supported editor, the rules set out in this file can be automatically
+applied when you are editing files in the |TF-A| repository. Several editors
+include built-in support for EditorConfig files, and many others support its
+functionality through plugins.
+
+.. note::
+   Use of the EditorConfig file is suggested for convenience but is not
+   required.
+
+Using Uncrustify
+^^^^^^^^^^^^^^^^
+
+`Uncrustify`_ is a tool that can automatically format source code to comply with
+a specified coding style.
+
+The TF-A repository contains a configuration file for Uncrustify
+(``.code-style``) in the root directory and the rules within it configure the
+formatter to apply the preferred TF-A coding style.
+
+You can use Uncrustify to reformat files, or portions of them, before submitting
+changes for review. This will help to streamline the review process by cleaning
+up any formatting that does not follow the project's coding style, something
+that could otherwise result in a -1 score from a maintainer and some manual
+re-work.
+
+Uncrustify can be run from the command line or from within your preferred IDE.
+Many editors have the ability to invoke external formatting tools on a file, or
+portion of a file, that is opened for editing. This document describes only the
+command line execution.
+
+.. note::
+
+   No automated formatting tool will give perfect results on every source file.
+   In some cases you may encounter behaviour that appears incorrect. Please
+   report any obvious issues using the methods given on the :ref:`Support &
+   Contact` page, or submit a patch if you were able to resolve the issue by
+   modifying the Uncrustify configuration file.
+
+Running from the command line
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following example commands assume that the working directory is the root of
+the TF-A repository, as this is where the Uncrustify configuration file is
+located.
+
+To begin with, you may want to run Uncrustify and send the output to *stdout* to
+preview any changes without modifying the target file:
+
+.. code:: shell
+
+   uncrustify -c .code-style -f path/to/file.c
+
+To modify the target file in-place, use:
+
+.. code:: shell
+
+   uncrustify -c .code-style [--no-backup] path/to/file.c
+
+.. note::
+
+   The ``--no-backup`` option prevents a backup file from being created in the
+   same directory as the target file. This can be useful when working in a
+   directory that is part of a git repository as changes can be quickly reverted
+   without the need for a separate backup file.
+
+Uncrustify can alternatively take a target file and output the modified contents
+to a separate output file:
+
+.. code:: shell
+
+   uncrustify -c .code-style -f path/to/file.c -o path/to/out.c
+
+It is possible to use wildcards in the filename to reformat multiple files at
+once:
+
+.. code:: shell
+
+   uncrustify -c .code-style [--no-backup] path/to/*.c
+
+Finally, when used with git, Uncrustify can be quickly run on files that have
+been modified (either staged or unstaged):
+
+.. code:: shell
+
+   git diff [--staged] --name-only | uncrustify -c .code-style --replace [--no-backup] -F -
+
+Without the ``--staged`` option, Uncrustify will process any changed files in
+the repository, as identified by git. If ``--staged`` is specified then only
+files that have been modified *and* staged for commit will be processed.
+
+.. warning::
+
+   Be careful not to omit the trailing hyphen that follows ``-F`` as this is
+   used to accept the list of files to process from ``stdin``.
+
+Checkpatch Compliance Checking
+------------------------------
+
+To assist with coding style compliance, the project Makefile contains two
+targets which both utilise the `checkpatch.pl` script that ships with the Linux
+source tree. The project also defines certain *checkpatch* options in the
+``.checkpatch.conf`` file in the top-level directory.
+
+.. note::
+   Checkpatch errors will gate upstream merging of pull requests.
+   Checkpatch warnings will not gate merging but should be reviewed and fixed if
+   possible.
+
+To check the entire source tree, you must first download copies of
+``checkpatch.pl``, ``spelling.txt`` and ``const_structs.checkpatch`` available
+in the `Linux master tree`_ *scripts* directory, then set the ``CHECKPATCH``
+environment variable to point to ``checkpatch.pl`` (with the other 2 files in
+the same directory) and build the `checkcodebase` target:
+
+.. code:: shell
+
+    make CHECKPATCH=<path-to-linux>/linux/scripts/checkpatch.pl checkcodebase
+
+To just check the style on the files that differ between your local branch and
+the remote master, use:
+
+.. code:: shell
+
+    make CHECKPATCH=<path-to-linux>/linux/scripts/checkpatch.pl checkpatch
+
+If you wish to check your patch against something other than the remote master,
+set the ``BASE_COMMIT`` variable to your desired branch. By default,
+``BASE_COMMIT`` is set to ``origin/master``.
+
+Ignored Checkpatch Warnings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Some checkpatch warnings in the TF codebase are deliberately ignored. These
+include:
+
+- ``**WARNING: line over 80 characters**``: Although the codebase should
+  generally conform to the 80 character limit this is overly restrictive in some
+  cases.
+
+- ``**WARNING: Use of volatile is usually wrong``: see
+  `Why the “volatile” type class should not be used`_ . Although this document
+  contains some very useful information, there are several legimate uses of the
+  volatile keyword within the TF codebase.
+
 File Encoding
 -------------
 
@@ -464,5 +624,9 @@ Existing typedefs will be retained for compatibility.
 *Copyright (c) 2020, Arm Limited. All rights reserved.*
 
 .. _`Linux kernel coding style`: https://www.kernel.org/doc/html/latest/process/coding-style.html
+.. _`Uncrustify`: https://github.com/uncrustify/uncrustify
+.. _`EditorConfig`: http://editorconfig.org/
+.. _`Why the “volatile” type class should not be used`: https://www.kernel.org/doc/html/latest/process/volatile-considered-harmful.html
 .. _`MISRA C:2012 Guidelines`: https://www.misra.org.uk/Activities/MISRAC/tabid/160/Default.aspx
 .. _`a spreadsheet`: https://developer.trustedfirmware.org/file/download/lamajxif3w7c4mpjeoo5/PHID-FILE-fp7c7acszn6vliqomyhn/MISRA-and-TF-Analysis-v1.3.ods
+.. _`Linux master tree`: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/
