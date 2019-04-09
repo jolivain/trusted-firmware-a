@@ -1,60 +1,67 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <assert.h>
 #include <cdefs.h>
 #include <stdbool.h>
 
 #include <drivers/arm/smmu_v3.h>
+
 #include <lib/mmio.h>
 
-static inline uint32_t __init smmuv3_read_s_idr1(uintptr_t base)
+void __init smmuv3_poll(uintptr_t smmu_reg, uint32_t mask, uint32_t value)
 {
-	return mmio_read_32(base + SMMU_S_IDR1);
-}
+	uint32_t retries = SMMU_POLL_RETRY;
 
-static inline uint32_t __init smmuv3_read_s_init(uintptr_t base)
-{
-	return mmio_read_32(base + SMMU_S_INIT);
-}
+	while (((mmio_read_32(smmu_reg) & mask) != value) && (--retries != 0))
+		;
 
-static inline void __init smmuv3_write_s_init(uintptr_t base, uint32_t value)
-{
-	mmio_write_32(base + SMMU_S_INIT, value);
-}
-
-/* Test for pending invalidate */
-static inline bool smmuv3_inval_pending(uintptr_t base)
-{
-	return (smmuv3_read_s_init(base) & SMMU_S_INIT_INV_ALL_MASK) != 0U;
+	assert(retries != 0);
 }
 
 /*
  * Initialize the SMMU by invalidating all secure caches and TLBs.
- *
- * Returns 0 on success, and -1 on failure.
+ * Abort all incoming transactions in order to implement a default
+ * deny policy on reset
  */
-int __init smmuv3_init(uintptr_t smmu_base)
+void __init smmuv3_init(uintptr_t smmu_base)
 {
-	uint32_t idr1_reg;
+	/* Attribute update has completed when SMMU_(S)_GBPA.Update bit is 0 */
+	smmuv3_poll(smmu_base + SMMU_GBPA, SMMU_GBPA_UPDATE, 0);
+
+	/*
+	 * SMMU_(S)_CR0 resets to zero with all streams bypassing the SMMU,
+	 * so just abort all incoming transactions.
+	 */
+	mmio_setbits_32(smmu_base + SMMU_GBPA,
+			SMMU_GBPA_UPDATE | SMMU_GBPA_ABORT);
+
+	smmuv3_poll(smmu_base + SMMU_GBPA, SMMU_GBPA_UPDATE, 0);
 
 	/*
 	 * Invalidation of secure caches and TLBs is required only if the SMMU
 	 * supports secure state. If not, it's implementation defined as to how
 	 * SMMU_S_INIT register is accessed.
 	 */
-	idr1_reg = smmuv3_read_s_idr1(smmu_base);
-	if (((idr1_reg >> SMMU_S_IDR1_SECURE_IMPL_SHIFT) &
-			SMMU_S_IDR1_SECURE_IMPL_MASK) == 0U) {
-		return -1;
+	if ((mmio_read_32(smmu_base + SMMU_S_IDR1) &
+			SMMU_S_IDR1_SECURE_IMPL) == 0) {
+		return;
 	}
 
-	/* Initiate invalidation, and wait for it to finish */
-	smmuv3_write_s_init(smmu_base, SMMU_S_INIT_INV_ALL_MASK);
-	while (smmuv3_inval_pending(smmu_base))
-		;
+	/* Initiate invalidation */
+	mmio_write_32(smmu_base + SMMU_S_INIT, SMMU_S_INIT_INV_ALL);
 
-	return 0;
+	/* Wait for global invalidation operation to finish */
+	smmuv3_poll(smmu_base + SMMU_S_INIT, SMMU_S_INIT_INV_ALL, 0);
+
+	/* Abort all incoming secure transactions */
+	smmuv3_poll(smmu_base + SMMU_S_GBPA, SMMU_S_GBPA_UPDATE, 0);
+
+	mmio_setbits_32(smmu_base + SMMU_S_GBPA,
+			SMMU_S_GBPA_UPDATE | SMMU_S_GBPA_ABORT);
+
+	smmuv3_poll(smmu_base + SMMU_S_GBPA, SMMU_S_GBPA_UPDATE, 0);
 }
