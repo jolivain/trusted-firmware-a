@@ -140,6 +140,54 @@
       "revId": "988c6d3f0f0c756b87232012e0877a7f01ff48d4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe38cefb_625530b6",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-10T15:09:23Z",
+      "side": 1,
+      "message": "\u003e The current pattern defines 4 inline functions which aren\u0027t used anywhere else in the source code and are actually mmio_write_32() \u0026 mmio_read_32() calls.\n\nYes. I\u0027m not sure what was the motivation for writing the code this way, I guess it\u0027s down to personal preference. I\u0027m just saying that we might want to follow the existing structure for consistency.\n\n\u003e Also it is not clear why all functions have __init attribute but smmuv3_inval_pending() doesn\u0027t.\n\nYes, that is a good question. We should investigate after this patch.",
+      "parentUuid": "17ab817c_468d318a",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 67
+      },
+      "revId": "988c6d3f0f0c756b87232012e0877a7f01ff48d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ab7a900_9ca459ab",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-10T15:09:23Z",
+      "side": 1,
+      "message": "Right, I had missed that, thanks.",
+      "parentUuid": "1a0c537f_706241c5",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 16
+      },
+      "revId": "988c6d3f0f0c756b87232012e0877a7f01ff48d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
