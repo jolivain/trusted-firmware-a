@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -30,10 +30,11 @@ SGM_GIC_SOURCES		:=	drivers/arm/gic/common/gic_common.c	\
 
 BL1_SOURCES		+=	$(SGM_CPU_SOURCES)			\
 				${INTERCONNECT_SOURCES}			\
-				${CSS_SGM_BASE}/sgm_bl1_setup.c	\
+				${CSS_SGM_BASE}/sgm_bl1_setup.c		\
 				${CSS_SGM_BASE}/sgm_plat_config.c
 
-BL2_SOURCES		+=	${SECURITY_SOURCES}
+BL2_SOURCES		+=	${SECURITY_SOURCES}			\
+				${CSS_SGM_BASE}/sgm_plat_config.c
 
 BL2U_SOURCES		+=	${SECURITY_SOURCES}
 

@@ -841,6 +841,29 @@ utilize the C runtime environment. For further details about how TF-A
 represents the power domain topology and how this relates to the linear CPU
 index, please refer `Power Domain Topology Design`_.
 
+Function : plat_get_mbedtls_heap() [when TRUSTED_BOARD_BOOT == 1]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Arguments : void **heap_addr, size_t *heap_size
+    Return    : int
+
+This function is invoked during Mbed TLS library initialisation to get
+a heap, by means of a starting address and a size. This heap will then be used
+internally by the Mbed TLS library. The heap is requested from the current BL
+stage, i.e. the current BL image inside which Mbed TLS is used.
+
+A helper function can be found in `drivers/auth/mbedtls/mbedtls_common.c` in
+which a heap is statically allocated inside every image (i.e. every BL stage)
+that utilises Mbed TLS. So, in this case, the function simply returns the
+address and size of this "pre-allocated" heap. However, by writting their own
+implementation, platforms have the potential to optimise memory usage. For
+example, on some Arm platforms, the Mbed TLS heap is shared between BL1 and BL2
+stages and, thus, the necessary space is not reserved twice.
+
+On success the function should return 0 and a negative error code otherwise.
+
 Common optional modifications
 -----------------------------
 
@@ -1053,29 +1076,6 @@ correspond to one of the standard log levels defined in debug.h. The platform
 can override the common implementation to define a different prefix string for
 the log output. The implementation should be robust to future changes that
 increase the number of log levels.
-
-Function : plat_get_mbedtls_heap()
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-::
-
-    Arguments : void **heap_addr, size_t *heap_size
-    Return    : int
-
-This function is invoked during Mbed TLS library initialisation to get
-a heap, by means of a starting address and a size. This heap will then be used
-internally by the Mbed TLS library. The heap is requested from the current BL
-stage, i.e. the current BL image inside which Mbed TLS is used.
-
-In the default implementation a heap is statically allocated inside every image
-(i.e. every BL stage) that utilises Mbed TLS. So, in this case, the function
-simply returns the address and size of this "pre-allocated" heap. However, by
-overriding the default implementation, platforms have the potential to optimise
-memory usage. For example, on some Arm platforms, the Mbed TLS heap is shared
-between BL1 and BL2 stages and, thus, the necessary space is not reserved
-twice.
-
-On success the function should return 0 and a negative error code otherwise.
 
 Modifications specific to a Boot Loader stage
 ---------------------------------------------
