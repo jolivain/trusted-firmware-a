@@ -92,6 +92,54 @@
       "revId": "988c6d3f0f0c756b87232012e0877a7f01ff48d4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17ab817c_468d318a",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-10T14:14:49Z",
+      "side": 1,
+      "message": "The current pattern defines 4 inline functions which aren\u0027t used anywhere else in the source code and are actually mmio_write_32() \u0026 mmio_read_32() calls.\nAlso it is not clear why all functions have __init attribute but smmuv3_inval_pending() doesn\u0027t.",
+      "parentUuid": "6d9f6ac9_2b277c28",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 67
+      },
+      "revId": "988c6d3f0f0c756b87232012e0877a7f01ff48d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a0c537f_706241c5",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-10T14:14:49Z",
+      "side": 1,
+      "message": "\".. given that there\u0027s only RES0 fields in the SMMU_S_GBPA register\" This is not correct.\nAll the fields in SMMU_S_GBPA except [31]Update \"reset to an IMPLEMENTATION DEFINED values\", so the current implementation doesn\u0027t change their values.",
+      "parentUuid": "6f8a0f7f_e2168cc0",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 16
+      },
+      "revId": "988c6d3f0f0c756b87232012e0877a7f01ff48d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
