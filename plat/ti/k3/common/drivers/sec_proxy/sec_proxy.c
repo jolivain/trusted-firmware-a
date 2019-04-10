@@ -263,7 +263,7 @@ int k3_sec_proxy_send(enum k3_sec_proxy_chan_id id, const struct k3_sec_proxy_ms
 	if (data_reg <= spm.desc.data_end_offset)
 		mmio_write_32(spt->data + spm.desc.data_end_offset, 0);
 
-	VERBOSE("Message successfully sent on thread %ud\n", id);
+	VERBOSE("Message successfully sent on thread %d\n", id);
 
 	return 0;
 }
@@ -323,7 +323,7 @@ int k3_sec_proxy_recv(uint32_t id, struct k3_sec_proxy_msg *msg)
 	/* TODO: Verify checksum */
 	(void)secure_header.checksum;
 
-	VERBOSE("Message successfully received from thread %ud\n", id);
+	VERBOSE("Message successfully received from thread %d\n", id);
 
 	return 0;
 }
