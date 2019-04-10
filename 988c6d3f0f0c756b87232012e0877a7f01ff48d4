@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cc8aea53_84a692c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-10T14:07:34Z",
+      "side": 1,
+      "message": "On further thoughts, I think the consequences of this patch are slightly more nuanced. The SMMU_S_GBPA.ABORT bit seems to reset to an implementation defined value so I guess that the effect of this patch will differ from one platform to another (on some platforms, this bit might reset to 1, in which case this patch does not change anything). Is that correct?",
+      "parentUuid": "c03242aa_178809a2",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "988c6d3f0f0c756b87232012e0877a7f01ff48d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6d9f6ac9_2b277c28",
         "filename": "drivers/arm/smmu/smmu_v3.c",
         "patchSetId": 1
