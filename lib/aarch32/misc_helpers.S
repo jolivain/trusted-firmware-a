@@ -171,6 +171,9 @@ endfunc memcpy4
 func disable_mmu_secure
 	mov	r1, #(SCTLR_M_BIT | SCTLR_C_BIT)
 do_disable_mmu:
+	// Cortex A9 - errata 794073 workaround
+	stcopr	r0, BPIALL
+	dsb
 	ldcopr	r0, SCTLR
 	bic	r0, r0, r1
 	stcopr	r0, SCTLR
