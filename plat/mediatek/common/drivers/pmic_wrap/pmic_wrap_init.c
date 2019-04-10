@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,7 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
-#include <mt8173_def.h>
+#include <platform_def.h>
 #include <pmic_wrap_init.h>
 
 /* pmic wrap module wait_idle and read polling interval (in microseconds) */
@@ -32,8 +31,9 @@ static inline uint32_t wait_for_state_idle(uint32_t timeout_us,
 		udelay(WAIT_IDLE_POLLING_DELAY_US);
 		reg_rdata = mmio_read_32((uintptr_t)wacs_register);
 		/* if last read command timeout,clear vldclr bit
-		   read command state machine:FSM_REQ-->wfdle-->WFVLDCLR;
-		   write:FSM_REQ-->idle */
+		 * read command state machine:FSM_REQ-->wfdle-->WFVLDCLR;
+		 * write:FSM_REQ-->idle
+		 */
 		switch (((reg_rdata >> RDATA_WACS_FSM_SHIFT) &
 			RDATA_WACS_FSM_MASK)) {
 		case WACS_FSM_WFVLDCLR:
@@ -107,7 +107,7 @@ static int32_t pwrap_wacs2(uint32_t write,
 	uint32_t return_value = 0;
 
 	if (init_check) {
-		reg_rdata = mmio_read_32((uintptr_t)&mt8173_pwrap->wacs2_rdata);
+		reg_rdata = mmio_read_32((uintptr_t)&mtk_pwrap->wacs2_rdata);
 		/* Prevent someone to used pwrap before pwrap init */
 		if (((reg_rdata >> RDATA_INIT_DONE_SHIFT) &
 		    RDATA_INIT_DONE_MASK) != WACS_INIT_DONE) {
@@ -118,8 +118,8 @@ static int32_t pwrap_wacs2(uint32_t write,
 	reg_rdata = 0;
 	/* Check IDLE in advance */
 	return_value = wait_for_state_idle(TIMEOUT_WAIT_IDLE,
-				&mt8173_pwrap->wacs2_rdata,
-				&mt8173_pwrap->wacs2_vldclr,
+				&mtk_pwrap->wacs2_rdata,
+				&mtk_pwrap->wacs2_vldclr,
 				0);
 	if (return_value != 0) {
 		ERROR("wait_for_fsm_idle fail,return_value=%d\n", return_value);
@@ -129,15 +129,15 @@ static int32_t pwrap_wacs2(uint32_t write,
 	wacs_adr = (adr >> 1) << 16;
 	wacs_cmd = wacs_write | wacs_adr | wdata;
 
-	mmio_write_32((uintptr_t)&mt8173_pwrap->wacs2_cmd, wacs_cmd);
+	mmio_write_32((uintptr_t)&mtk_pwrap->wacs2_cmd, wacs_cmd);
 	if (write == 0) {
-		if (NULL == rdata) {
+		if (rdata == NULL) {
 			ERROR("rdata is a NULL pointer\n");
 			return_value = E_PWR_INVALID_ARG;
 			goto FAIL;
 		}
 		return_value = wait_for_state_ready(TIMEOUT_READ,
-					&mt8173_pwrap->wacs2_rdata,
+					&mtk_pwrap->wacs2_rdata,
 					&reg_rdata);
 		if (return_value != 0) {
 			ERROR("wait_for_fsm_vldclr fail,return_value=%d\n",
@@ -146,7 +146,7 @@ static int32_t pwrap_wacs2(uint32_t write,
 		}
 		*rdata = ((reg_rdata >> RDATA_WACS_RDATA_SHIFT)
 			  & RDATA_WACS_RDATA_MASK);
-		mmio_write_32((uintptr_t)&mt8173_pwrap->wacs2_vldclr, 1);
+		mmio_write_32((uintptr_t)&mtk_pwrap->wacs2_vldclr, 1);
 	}
 FAIL:
 	return return_value;

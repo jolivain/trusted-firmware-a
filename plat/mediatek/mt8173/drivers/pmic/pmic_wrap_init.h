@@ -11,7 +11,7 @@
 int32_t pwrap_read(uint32_t adr, uint32_t *rdata);
 int32_t pwrap_write(uint32_t adr, uint32_t wdata);
 
-static struct mt8173_pmic_wrap_regs *const mt8173_pwrap =
+static struct mt8173_pmic_wrap_regs *const mtk_pwrap =
 	(void *)PMIC_WRAP_BASE;
 
 /* timeout setting */
