@@ -1,0 +1,531 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01a63936_f8a2c048",
+        "filename": "drivers/cadence/uart/aarch64/cdns_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7312f49_80b3f2c7",
+        "filename": "drivers/console/aarch64/skeleton_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0224d6da_9c98e38f",
+        "filename": "drivers/ti/uart/aarch64/16550_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d64fb74_4505e497",
+        "filename": "include/drivers/console.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0c638d8_6ea06309",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "653aee16_a3590446",
+        "filename": "plat/arm/common/arm_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08be5f4c_d3306100",
+        "filename": "plat/common/aarch32/crash_console_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13dbf718_703f6eaf",
+        "filename": "plat/common/aarch32/plat_sp_min_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fb7bb15_feb60ee2",
+        "filename": "plat/common/aarch64/crash_console_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc647b76_043dbfec",
+        "filename": "plat/common/aarch64/plat_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "294bb6c7_4b6cb5d8",
+        "filename": "plat/hisilicon/hikey/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d32b8cd_921978cd",
+        "filename": "plat/hisilicon/hikey960/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d4c857e_e352bf21",
+        "filename": "plat/hisilicon/poplar/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2acec463_cf1ce531",
+        "filename": "plat/imx/imx7/warp7/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a2da706_24d470bf",
+        "filename": "plat/imx/imx8m/imx8mq/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7b41578_ae10487a",
+        "filename": "plat/imx/imx8qm/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a7606a8_9c277511",
+        "filename": "plat/imx/imx8qx/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcb55f4b_465b7305",
+        "filename": "plat/layerscape/board/ls1043/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d4be4aa_073f2d8a",
+        "filename": "plat/layerscape/common/aarch64/ls_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c72098c_0500c7a2",
+        "filename": "plat/layerscape/common/aarch64/ls_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36649144_f59f0309",
+        "filename": "plat/marvell/common/marvell_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "(c) ARM?\n2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e36f02dd_557b5bb3",
+        "filename": "plat/meson/gxbb/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ad1afaf_3990a1d7",
+        "filename": "plat/meson/gxl/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd3b49c4_b0135568",
+        "filename": "plat/qemu/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d137ee3_a73f05a8",
+        "filename": "plat/qemu/qemu_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e114c76_40eb40ac",
+        "filename": "plat/rockchip/rk3328/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eac0ba2f_619ea034",
+        "filename": "plat/rockchip/rk3368/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9c2fff9_ee4f49fc",
+        "filename": "plat/rockchip/rk3399/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efdaaf0c_4aa25151",
+        "filename": "plat/rpi3/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44c57ef1_4f8dcb94",
+        "filename": "plat/socionext/synquacer/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05551c47_9c4a7f5c",
+        "filename": "plat/ti/k3/common/plat_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-11T09:45:22Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "839e47dac38a0644daf55f7060b7ca2da6242814",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
