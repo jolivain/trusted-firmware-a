@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d72d0181_ff3649d5",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-04-11T15:04:18Z",
+      "side": 1,
+      "message": "Sorry for the confusion, what I meant before is at this point put back the sentence \"This heap will then be used internally by the Mbed TLS library. Hence...\"",
+      "range": {
+        "startLine": 853,
+        "startChar": 42,
+        "endLine": 853,
+        "endChar": 43
+      },
+      "revId": "155238ea8b935495f579a3f1bde11314ce0faaf1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa567043_6f9d85da",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-04-11T15:04:18Z",
+      "side": 1,
+      "message": "And remove this sentence.",
+      "range": {
+        "startLine": 854,
+        "startChar": 47,
+        "endLine": 855,
+        "endChar": 74
+      },
+      "revId": "155238ea8b935495f579a3f1bde11314ce0faaf1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
