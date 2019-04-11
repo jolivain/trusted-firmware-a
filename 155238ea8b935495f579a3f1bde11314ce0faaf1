@@ -45,6 +45,29 @@
       "revId": "155238ea8b935495f579a3f1bde11314ce0faaf1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf8c0cdf_c7bfaa8c",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000122
+      },
+      "writtenOn": "2019-04-11T15:57:19Z",
+      "side": 1,
+      "message": "you should probably move get_mbedtls_heap_helper into a separate .c file. As it is, all platforms will incur the cost of \"TF_MBEDTLS_HEAP_SIZE\" bytes to their BSS even if they don\u0027t use the helper function, since it gets pulled in by being in the same .c as mbedtls_init. If you move it out to its own .c, then only platforms that use get_mbedtls_heap_helper will incur that added BSS size.",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 62,
+        "endChar": 27
+      },
+      "revId": "155238ea8b935495f579a3f1bde11314ce0faaf1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
