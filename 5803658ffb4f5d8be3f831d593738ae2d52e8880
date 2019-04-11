@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75b01e65_b4096a9a",
+        "filename": "lib/aarch32/misc_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000080
+      },
+      "writtenOn": "2019-04-11T09:25:20Z",
+      "side": 1,
+      "message": "It may be a good idea to use a build option for this.\nThat way it won\u0027t affect every aarch32 configuration and it will be easier to keep track of the workaround\u0027s instructions.",
+      "range": {
+        "startLine": 175,
+        "startChar": 1,
+        "endLine": 176,
+        "endChar": 4
+      },
+      "revId": "5803658ffb4f5d8be3f831d593738ae2d52e8880",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
