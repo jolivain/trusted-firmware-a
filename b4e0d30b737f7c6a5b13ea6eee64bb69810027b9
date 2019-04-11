@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a3e16488_9004143b",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1000080
+      },
+      "writtenOn": "2019-04-11T13:25:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abd959fc_f93cbac2",
+      "range": {
+        "startLine": 854,
+        "startChar": 36,
+        "endLine": 855,
+        "endChar": 63
+      },
+      "revId": "b4e0d30b737f7c6a5b13ea6eee64bb69810027b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d38d7da_76713da3",
         "filename": "docs/porting-guide.rst",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-04-11T10:33:05Z",
       "side": 1,
       "message": "replace with \"reserved during compile time\"",
+      "range": {
+        "startLine": 858,
+        "startChar": 27,
+        "endLine": 858,
+        "endChar": 36
+      },
+      "revId": "b4e0d30b737f7c6a5b13ea6eee64bb69810027b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ae1c62b_c26f1609",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1000080
+      },
+      "writtenOn": "2019-04-11T13:25:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d38d7da_76713da3",
       "range": {
         "startLine": 858,
         "startChar": 27,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1b486b99_096c899f",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1000080
+      },
+      "writtenOn": "2019-04-11T13:25:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3984e2e8_98099797",
+      "range": {
+        "startLine": 859,
+        "startChar": 24,
+        "endLine": 859,
+        "endChar": 40
+      },
+      "revId": "b4e0d30b737f7c6a5b13ea6eee64bb69810027b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6071b1f_1d041862",
         "filename": "docs/porting-guide.rst",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2019-04-11T10:33:05Z",
       "side": 1,
       "message": "Add a sentence here: For a platform to use this default implementation, only a call to the helper from inside plat_get_mbedtls_heap() body is enough and nothing else is needed.\n\nAfter the sentence change paragraph.",
+      "range": {
+        "startLine": 860,
+        "startChar": 46,
+        "endLine": 860,
+        "endChar": 47
+      },
+      "revId": "b4e0d30b737f7c6a5b13ea6eee64bb69810027b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b7d09c1_431f5626",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1000080
+      },
+      "writtenOn": "2019-04-11T13:25:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6071b1f_1d041862",
       "range": {
         "startLine": 860,
         "startChar": 46,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "6ce550fb_c6d9b265",
+        "filename": "plat/arm/board/juno/juno_security.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000080
+      },
+      "writtenOn": "2019-04-11T13:25:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf7c731e_69732c82",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "b4e0d30b737f7c6a5b13ea6eee64bb69810027b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f56ac0c2_51ab85a4",
         "filename": "plat/arm/css/sgm/sgm-common.mk",
         "patchSetId": 2
@@ -128,6 +248,24 @@
       "writtenOn": "2019-04-11T10:33:05Z",
       "side": 1,
       "message": "The changes in this file are actually a bug fix - well done for finding that btw!\n\nSo either make it a separate patch (doesn\u0027t matter that it will be very small) or mention \u0026 explain the bug fix in this patch\u0027s commit message.",
+      "revId": "b4e0d30b737f7c6a5b13ea6eee64bb69810027b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f38eb17_fce97877",
+        "filename": "plat/arm/css/sgm/sgm-common.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000080
+      },
+      "writtenOn": "2019-04-11T13:25:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f56ac0c2_51ab85a4",
       "revId": "b4e0d30b737f7c6a5b13ea6eee64bb69810027b9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
