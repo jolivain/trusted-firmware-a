@@ -26,7 +26,7 @@ Introduction
 
 Through various control bits in the ``SCR_EL3`` register, the Arm architecture
 allows for asynchronous exceptions to be routed to EL3. As described in the
-`Interrupt Framework Design`_ document, depending on the chosen interrupt
+:ref:`Interrupt Management Framework` document, depending on the chosen interrupt
 routing model, TF-A appropriately sets the ``FIQ`` and ``IRQ`` bits of
 ``SCR_EL3`` register to effect this routing. For most use cases, other than for
 the purpose of facilitating context switch between Normal and Secure worlds,
@@ -143,8 +143,8 @@ Interrupt handling
 ------------------
 
 The |EHF| is a client of *Interrupt Management Framework*, and registers the
-top-level handler for interrupts that target EL3, as described in the `Interrupt
-Framework Design`_ document. This has the following implications.
+top-level handler for interrupts that target EL3, as described in the
+:ref:`Interrupt Management Framework` document. This has the following implications:
 
 -  On GICv3 systems, when executing in S-EL1, pending Non-secure interrupts of
    sufficient priority are signalled as FIQs, and therefore will be routed to
@@ -622,5 +622,4 @@ The |EHF| has the following limitations:
 
 *Copyright (c) 2018, Arm Limited and Contributors. All rights reserved.*
 
-.. _Interrupt Framework Design: ../design/interrupt-framework-design.rst
 .. _SDEI specification: http://infocenter.arm.com/help/topic/com.arm.doc.den0054a/ARM_DEN0054A_Software_Delegated_Exception_Interface.pdf
