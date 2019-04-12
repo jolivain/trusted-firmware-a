@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "bfebf825_3c5b5953",
+        "filename": "plat/mediatek/common/drivers/uart/8250_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-04-12T13:46:00Z",
+      "side": 1,
+      "message": "Are you actually using this driver or have you forgot to remove this file from the patch?",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5ae5137_2c7266c1",
+        "filename": "plat/mediatek/common/drivers/uart/uart8250.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-04-12T13:46:00Z",
+      "side": 1,
+      "message": "Are you actually using this driver or have you forgot to remove this file from the patch?",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612658e6_28bfe92e",
         "filename": "plat/mediatek/common/drivers/uart/uart8250.h",
         "patchSetId": 1
