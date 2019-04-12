@@ -42,7 +42,7 @@ depending on project requirement and partner feedback.
 Removal of Deprecated Interfaces
 --------------------------------
 
-As mentioned in the `Platform compatibility policy`_, this is a live document
+As mentioned in the :ref:`Platform Compatibility Policy`, this is a live document
 cataloging all the deprecated interfaces in TF-A project and the Release version
 after which it will be removed.
 
@@ -76,7 +76,6 @@ after which it will be removed.
 
 *Copyright (c) 2018-2019, Arm Limited and Contributors. All rights reserved.*
 
-.. _Platform compatibility policy: platform-compatibility-policy.rst
 .. _crash_console_helpers.S: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/common/aarch64/crash_console_helpers.S
 .. _cc5859c: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/commit/?id=cc5859ca19ff546c35eb0331000dae090b6eabcf
 .. _09d40e0e0828: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/commit/?id=09d40e0e08283a249e7dce0e106c07c5141f9b7e
