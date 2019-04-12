@@ -1,9 +1,6 @@
 Reliability, Availability, and Serviceability (RAS) Extensions
 ==============================================================
 
-.. |EHF| replace:: Exception Handling Framework
-.. |TF-A| replace:: Trusted Firmware-A
-
 This document describes |TF-A| support for Arm Reliability, Availability, and
 Serviceability (RAS) extensions. RAS is a mandatory extension for Armv8.2 and
 later CPUs, and also an optional extension to the base Armv8.0 architecture.
