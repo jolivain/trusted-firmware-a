@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "e7d1fca4_64d216d3",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-13T01:04:31Z",
+      "side": 1,
+      "message": "Well, you\u0027ve copied these drivers to common but you haven\u0027t removed them from mt8173. Can you please do that so that both SoCs actually use the same code? (If you do that Gerrit will also treat this as a \"move\" so it will be easier for reviewers to see if there were any changes to the file.)",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bfebf825_3c5b5953",
         "filename": "plat/mediatek/common/drivers/uart/8250_console.S",
         "patchSetId": 1
@@ -70,6 +87,40 @@
     },
     {
       "key": {
+        "uuid": "5e903efe_14070ca8",
+        "filename": "plat/mediatek/mt8183/aarch64/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-13T01:04:31Z",
+      "side": 1,
+      "message": "I still think these should go into some platform-independent place (in a separate patch), they\u0027re part of the CPU core and not MTK-specific.",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfc674b8_5789b593",
+        "filename": "plat/mediatek/mt8183/bl31_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-13T01:04:31Z",
+      "side": 1,
+      "message": "Why not just use the normal logging levels rather than adding your own guard macro (e.g. change these to VERBOSE() if you don\u0027t want them visible normally)?",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8aa7abc1_514149a1",
         "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
         "patchSetId": 1
@@ -116,6 +167,108 @@
     },
     {
       "key": {
+        "uuid": "ea9c5576_54aea187",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-13T01:04:31Z",
+      "side": 1,
+      "message": "What is this doing?",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5605e289_d5a02957",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-13T01:04:31Z",
+      "side": 1,
+      "message": "You should probably not define something with such a generic name in a header that may be included all over the place. Either prefix it with GPIO_ or move it into the .c file.",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "424d41b1_2b0488ea",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio_cfg.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-13T01:04:31Z",
+      "side": 1,
+      "message": "Can you get rid of these addr arrays as well? You could write it like this instead:\n\nuint32_t gpio_get_iocfg(uint32_t pin)\n{\n  switch (pin) {\n  case 0..10:\n    return IOCFG_5_BASE;\n  case 11..12:\n    return IOCFG_0_BASE;\n  case 13..28:\n    return IOCFG_1_BASE;\n  ...\n  }\n}\n\nThat will waste much less code size than these giant arrays.\n\nAlternatively, I think it would be even better if you just copied the coreboot approach to encoding GPIOs for this SoC instead. That saves even more code and will make it much easier to pass GPIOs from one codebase to the other (which you\u0027ll probably need to do at some point with your bl31_plat_params?).",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f1dc8c8_a48cca17",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio_cfg.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-13T01:04:31Z",
+      "side": 1,
+      "message": "PULLEN_offset and PULLSEL_offset are the same, right? Please combine them into a single array.",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "183c1bf4_955218e4",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio_cfg.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-13T01:04:31Z",
+      "side": 1,
+      "message": "This can also be transformed into a switch statement, e.g.:\n\n case 29..42:\n   return (pin - 29) * 4 % 32;\n ...\n default:\n   return -1;",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f76b7bda_bbd30d22",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio_cfg.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-13T01:04:31Z",
+      "side": 1,
+      "message": "Many of these aren\u0027t actually used anymore, please remove them.",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c043c228_43bad01d",
         "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
         "patchSetId": 1
@@ -130,6 +283,23 @@
       "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "105a275a_a1f4f95d",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-13T01:04:31Z",
+      "side": 1,
+      "message": "nit: this is pointless, you can just put return 0 up there.",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
@@ -167,6 +337,63 @@
     },
     {
       "key": {
+        "uuid": "689b00f5_41eadc49",
+        "filename": "plat/mediatek/mt8183/drivers/rtc/rtc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-13T01:04:31Z",
+      "side": 1,
+      "message": "Can this driver be deduplicated with mt8173 as well (at least partitially)? It looks like many functions are 100% identical.",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65adc96f_b66f7321",
+        "filename": "plat/mediatek/mt8183/drivers/spmc/mtspmc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-13T01:04:31Z",
+      "side": 1,
+      "message": "Same as in platform.mk, I\u0027d avoid using the prefix CONFIG_ because it makes people think of Kconfig (which TF doesn\u0027t use).",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22f65ec5_20aac9b1",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-13T01:04:31Z",
+      "side": 1,
+      "message": "This already exists as __XSTRING() in \u003ccdefs.h\u003e",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "788bce9d_c353d337",
         "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
         "patchSetId": 1
@@ -198,6 +425,23 @@
       "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "208eece5_59b8ef0f",
+        "filename": "plat/mediatek/mt8183/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-13T01:04:31Z",
+      "side": 1,
+      "message": "nit: compile-time options in TF are usually not prefixed with CONFIG_ (that\u0027s a Kconfig thing).",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
