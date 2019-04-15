@@ -72,7 +72,7 @@ MULTI_CONSOLE_API	:=	1
 
 include lib/coreboot/coreboot.mk
 
-$(eval $(call add_define,PLAT_EXTRA_LD_SCRIPT))
+$(eval $(call add_define,PLAT_EXTRA_POST_LD_SCRIPT))
 
 # Enable workarounds for selected Cortex-A53 erratas.
 ERRATA_A53_855873	:=	1

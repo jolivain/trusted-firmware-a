@@ -26,6 +26,12 @@
  */
 IMPORT_SYM(unsigned long, __RO_START__,	BL31_RO_BASE);
 IMPORT_SYM(unsigned long, __RO_END__,	BL31_RO_LIMIT);
+#ifdef PLAT_EXTRA_POST_LD_SCRIPT
+IMPORT_SYM(unsigned long, __SRAM_START__, BL31_SRAM_START);
+IMPORT_SYM(unsigned long, __SRAM_END__, BL31_SRAM_END);
+IMPORT_SYM(unsigned long, __PMUSRAM_START__, BL31_PMUSRAM_START);
+IMPORT_SYM(unsigned long, __PMUSRAM_END__, BL31_PMUSRAM_END);
+#endif
 
 static entry_point_info_t bl32_ep_info;
 static entry_point_info_t bl33_ep_info;
@@ -116,10 +122,31 @@ void bl31_plat_arch_setup(void)
 {
 	plat_cci_init();
 	plat_cci_enable();
+#ifndef PLAT_EXTRA_POST_LD_SCRIPT
 	plat_configure_mmu_el3(BL31_RO_BASE,
 			       BL_COHERENT_RAM_END - BL31_RO_BASE,
 			       BL31_RO_BASE,
 			       BL31_RO_LIMIT,
 			       BL_COHERENT_RAM_BASE,
 			       BL_COHERENT_RAM_END);
+#else
+	unsigned long sram_len = BL31_SRAM_END - BL31_SRAM_START;
+	unsigned long pmusram_len = BL31_PMUSRAM_END - BL31_PMUSRAM_START;
+	unsigned long pmusram_end = BL_COHERENT_RAM_END + sram_len + pmusram_len;
+
+	plat_configure_mmu_el3(BL31_RO_BASE,
+			       pmusram_end - BL31_RO_BASE,
+			       BL31_RO_BASE,
+			       BL31_RO_LIMIT,
+			       BL_COHERENT_RAM_BASE,
+			       BL_COHERENT_RAM_END);
+
+	/* Initialize SRAM contents. */
+	memcpy((void *)SRAM_BASE, (void *)BL31_END, sram_len);
+
+	/* Initialize PMUSRAM contents. */
+	memcpy((void *)PMUSRAM_BASE, (void *)(BL31_END + sram_len),
+	       pmusram_len);
+
+#endif /* PLAT_EXTRA_POST_LD_SCRIPT */
 }

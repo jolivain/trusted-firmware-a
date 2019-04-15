@@ -3,8 +3,8 @@
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-#ifndef ROCKCHIP_PLAT_LD_S
-#define ROCKCHIP_PLAT_LD_S
+#ifndef ROCKCHIP_PLAT_POST_LD_S
+#define ROCKCHIP_PLAT_POST_LD_S
 
 #include <lib/xlat_tables/xlat_tables_defs.h>
 
@@ -16,6 +16,8 @@ MEMORY {
 SECTIONS
 {
 	. = SRAM_BASE;
+	__SRAM_START__ = .;
+
 	ASSERT(. == ALIGN(PAGE_SIZE),
 		"SRAM_BASE address is not aligned on a page boundary.")
 
@@ -35,7 +37,7 @@ SECTIONS
 		 __sram_incbin_real_end = .;
 		. = ALIGN(PAGE_SIZE);
 		__sram_incbin_end = .;
-	} >SRAM
+	} >SRAM AT >RAM
 	ASSERT((__sram_incbin_real_end - __sram_incbin_start) <=
 		SRAM_BIN_LIMIT, ".incbin_sram has exceeded its limit")
 
@@ -46,7 +48,7 @@ SECTIONS
 		__bl31_sram_text_real_end = .;
 		. = ALIGN(PAGE_SIZE);
 		__bl31_sram_text_end = .;
-	} >SRAM
+	} >SRAM AT >RAM
 	ASSERT((__bl31_sram_text_real_end - __bl31_sram_text_start) <=
 		SRAM_TEXT_LIMIT, ".text_sram has exceeded its limit")
 
@@ -56,7 +58,7 @@ SECTIONS
 		__bl31_sram_data_real_end = .;
 		. = ALIGN(PAGE_SIZE);
 		__bl31_sram_data_end = .;
-	} >SRAM
+	} >SRAM AT >RAM
 	ASSERT((__bl31_sram_data_real_end - __bl31_sram_data_start) <=
 		SRAM_DATA_LIMIT, ".data_sram has exceeded its limit")
 
@@ -64,9 +66,13 @@ SECTIONS
 		__bl31_sram_stack_start = .;
 		. += PAGE_SIZE;
 		__bl31_sram_stack_end = .;
-	} >SRAM
+	} >SRAM AT >RAM
+
+	. = ALIGN(PAGE_SIZE);
+	__SRAM_END__ = .;
 
 	. = PMUSRAM_BASE;
+	__PMUSRAM_START__ = .;
 
 	/*
 	 * pmu_cpuson_entrypoint request address
@@ -92,7 +98,10 @@ SECTIONS
 		__bl31_pmusram_data_start = .;
 		*(.pmusram.data)
 		__bl31_pmusram_data_end = .;
-	} >PMUSRAM
+	} >PMUSRAM AT >RAM
+
+	. = ALIGN(PAGE_SIZE);
+	__PMUSRAM_END__ = .;
 }
 
-#endif /* ROCKCHIP_PLAT_LD_S */
+#endif /* ROCKCHIP_PLAT_POST_LD_S */
