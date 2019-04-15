@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -50,7 +50,7 @@ typedef struct optee_header {
  * Return 1 if valid
  * Return 0 if invalid
  ******************************************************************************/
-static inline int tee_validate_header(optee_header_t *header)
+static int validate_header(optee_header_t *header)
 {
 	int valid = 0;
 
@@ -61,11 +61,12 @@ static inline int tee_validate_header(optee_header_t *header)
 		valid = 1;
 	}
 
-	else {
-		WARN("Not a known TEE, use default loading options.\n");
-	}
-
 	return valid;
+}
+
+bool optee_header_is_valid(uintptr_t header_base)
+{
+	return validate_header((optee_header_t *)header_base) == 1;
 }
 
 /*******************************************************************************
@@ -171,7 +172,7 @@ int parse_optee_header(entry_point_info_t *header_ep,
 	 *	pager and pageable. Remove skip attr for BL32_EXTRA1_IMAGE_ID
 	 *	and BL32_EXTRA2_IMAGE_ID to load pager and paged bin.
 	 */
-	if (!tee_validate_header(header)) {
+	if (validate_header(header) == 0) {
 		INFO("Invalid OPTEE header, set legacy mode.\n");
 #ifdef __aarch64__
 		header_ep->args.arg0 = MODE_RW_64;
