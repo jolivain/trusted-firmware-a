@@ -310,3 +310,7 @@ SECTIONS
 
     ASSERT(. <= BL31_LIMIT, "BL31 image has exceeded its limit.")
 }
+
+#ifdef PLAT_EXTRA_POST_LD_SCRIPT
+#include <plat.post.ld.S>
+#endif
