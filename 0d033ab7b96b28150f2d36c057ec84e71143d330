@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86b15383_700ab795",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-16T07:23:07Z",
+      "side": 1,
+      "message": "I wonder whether assert() is the right thing to do here. I suppose the scenario where the SMMU does not complete the update in the allocated time is very unlikely. I guess it would mean that either the SMMU_POLL_RETRY value has to be increased or the device is faulty. In the former case, an assertion might be the best answer because it means the SMMU_POLL_RETRY value has not been properly chosen and we should go and fix it in the code. However, in the latter case there is not much we can do...\n\nArguably, disabling the bypass mechanism is a mandatory security requirement and perhaps we should refuse to boot if it fails, so should we panic() instead here?",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "0d033ab7b96b28150f2d36c057ec84e71143d330",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5be7f0b8_086cb50c",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-16T07:23:07Z",
+      "side": 1,
+      "message": "Soby and I had proposed to split the SMMUv3 initialization code in 2 functions:\n1. initialization of the GBPA bits.\n2. invalidation of the caches.\n\nThe reason being that, it is recommended to disable the SMMUv3 bypass as early as possible in the boot ROM so we should do that unconditionally (when the platform has an SMMUv3 IP, of course). On the other hand, we think that the cache invalidation might only be needed if the platform actually intends to enable and use the SMMUv3. So we expect that some platforms might do 1 but not 2. Also, it is likely that on platforms where we would want to do both, the boot ROM (BL1 for example) would only need to do 1, and 2 would be delayed into the runtime firmware BL31.\n\nDoes it make sense to you? Or is there a reason why you think all the code has to stay in the same API?\n\nFYI, I had proposed smmuv3_early_init() for function 1, Soby had proposed smmuv3_security_init(). I am happy with both but we can also choose something else.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 44
+      },
+      "revId": "0d033ab7b96b28150f2d36c057ec84e71143d330",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebf69652_85ccab72",
+        "filename": "include/drivers/arm/smmu_v3.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-16T07:23:07Z",
+      "side": 1,
+      "message": "I wonder whether we should move this macro inside the C driver file. All other macros in this header file are actual data from the SMMUv3 specification but this one is different. AFAIU, it\u0027s more of an empirical value so it doesn\u0027t quite fit there IMO.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 29
+      },
+      "revId": "0d033ab7b96b28150f2d36c057ec84e71143d330",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51b0c9cb_de448338",
+        "filename": "include/drivers/arm/smmu_v3.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-16T07:23:07Z",
+      "side": 1,
+      "message": "(minor) Indentation is not consistent across the file. For example, line 24 uses a tab between the #define and the macro name, whereas line 25 uses a space.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "0d033ab7b96b28150f2d36c057ec84e71143d330",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
