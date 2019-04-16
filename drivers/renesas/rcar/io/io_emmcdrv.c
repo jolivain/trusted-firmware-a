@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2017, Renesas Electronics Corporation. All rights reserved.
+ * Copyright (c) 2015-2019, Renesas Electronics Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -25,7 +25,7 @@ static int32_t emmcdrv_dev_close(io_dev_info_t *dev_info);
 typedef struct {
 	uint32_t in_use;
 	uintptr_t base;
-	ssize_t file_pos;
+	signed long long file_pos;
 	EMMC_PARTITION_ID partition;
 } file_state_t;
 
@@ -39,7 +39,7 @@ static io_type_t device_type_emmcdrv(void)
 }
 
 static int32_t emmcdrv_block_seek(io_entity_t *entity, int32_t mode,
-				  ssize_t offset)
+				  signed long long offset)
 {
 	if (mode != IO_SEEK_SET)
 		return IO_FAIL;
@@ -59,7 +59,7 @@ static int32_t emmcdrv_block_read(io_entity_t *entity, uintptr_t buffer,
 	sector_add = current_file.file_pos >> EMMC_SECTOR_SIZE_SHIFT;
 	sector_num = (length + EMMC_SECTOR_SIZE - 1U) >> EMMC_SECTOR_SIZE_SHIFT;
 
-	NOTICE("BL2: Load dst=0x%lx src=(p:%d)0x%lx(%d) len=0x%lx(%d)\n",
+	NOTICE("BL2: Load dst=0x%lx src=(p:%d)0x%llx(%d) len=0x%lx(%d)\n",
 	       buffer,
 	       current_file.partition, current_file.file_pos,
 	       sector_add, length, sector_num);
