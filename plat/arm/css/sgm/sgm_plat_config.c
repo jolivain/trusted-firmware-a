@@ -74,9 +74,6 @@ css_plat_config_t *get_plat_config(void)
 #if TRUSTED_BOARD_BOOT
 int plat_get_mbedtls_heap(void **heap_addr, size_t *heap_size)
 {
-	assert(heap_addr != NULL);
-	assert(heap_size != NULL);
-
-	return arm_get_mbedtls_heap(heap_addr, heap_size);
+	return get_mbedtls_heap_helper(heap_addr, heap_size);
 }
 #endif
