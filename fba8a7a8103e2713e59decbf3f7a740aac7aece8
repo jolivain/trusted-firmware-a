@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23b3e29d_7a0e6f31",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-16T11:47:43Z",
+      "side": 1,
+      "message": "Sorry, I forgot to mention this in the previous version... I think this function could be made static, unless you can foresee the need to export it (in which case, its prototype probably ought to be in smmu_v3.h)",
+      "range": {
+        "startLine": 18,
+        "startChar": 1,
+        "endLine": 18,
+        "endChar": 74
+      },
+      "revId": "fba8a7a8103e2713e59decbf3f7a740aac7aece8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7740fb0b_c1e94e86",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-16T11:47:43Z",
+      "side": 1,
+      "message": "I think this function should also be compiled if RESET_TO_BL31\u003d\u003d1 (whereby BL31 is the boot ROM, instead of BL1).",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 16
+      },
+      "revId": "fba8a7a8103e2713e59decbf3f7a740aac7aece8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "200ee520_6df79a62",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-16T11:47:43Z",
+      "side": 1,
+      "message": "I don\u0027t think we should restrict the inclusion of this function for any particular BL image. I think it\u0027s appropriate to expect smmuv3_security_init() to be used by the boot ROM image only but I suppose that smmuv3_init() could be done in BL1, in BL2 or BL31, right? It\u0027s up to the platform port I think.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 25
+      },
+      "revId": "fba8a7a8103e2713e59decbf3f7a740aac7aece8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7bd159d_5aeb86c3",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-16T11:47:43Z",
+      "side": 1,
+      "message": "I think we also need to call smmuv3_security_init() on the RESET_TO_BL31\u003d\u003d1 code path.",
+      "revId": "fba8a7a8103e2713e59decbf3f7a740aac7aece8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
