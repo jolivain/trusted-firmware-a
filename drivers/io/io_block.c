@@ -29,7 +29,7 @@ io_type_t device_type_block(void);
 
 static int block_open(io_dev_info_t *dev_info, const uintptr_t spec,
 		      io_entity_t *entity);
-static int block_seek(io_entity_t *entity, int mode, ssize_t offset);
+static int block_seek(io_entity_t *entity, int mode, signed long long offset);
 static int block_read(io_entity_t *entity, uintptr_t buffer, size_t length,
 		      size_t *length_read);
 static int block_write(io_entity_t *entity, const uintptr_t buffer,
@@ -148,7 +148,7 @@ static int block_open(io_dev_info_t *dev_info, const uintptr_t spec,
 }
 
 /* parameter offset is relative address at here */
-static int block_seek(io_entity_t *entity, int mode, ssize_t offset)
+static int block_seek(io_entity_t *entity, int mode, signed long long offset)
 {
 	block_dev_state_t *cur;
 
