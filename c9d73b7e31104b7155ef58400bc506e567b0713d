@@ -16,6 +16,24 @@
       "revId": "c9d73b7e31104b7155ef58400bc506e567b0713d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "feb4b25b_44efca0d",
+        "filename": "drivers/ti/uart/aarch32/16550_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-04-16T09:10:33Z",
+      "side": 1,
+      "message": "Ah, right ... I remember reading that you wanted to drop the legacy console api.",
+      "parentUuid": "f7c8c319_737dd2fe",
+      "revId": "c9d73b7e31104b7155ef58400bc506e567b0713d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
