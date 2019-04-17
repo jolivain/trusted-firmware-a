@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "44b1d4e5_782ab223",
+        "filename": "plat/rockchip/rk3288/drivers/secure/secure.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-04-17T21:04:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32ab7481_87e288a0",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 13
+      },
+      "revId": "d5d6e84d22701ccca51103a59ce6174bc7e78439",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cde1a150_1f6ecea7",
         "filename": "plat/rockchip/rk3288/drivers/soc/soc.c",
         "patchSetId": 5
@@ -36,6 +60,24 @@
       "writtenOn": "2019-04-17T13:40:32Z",
       "side": 1,
       "message": "This ; has to be indented one tab more.",
+      "revId": "d5d6e84d22701ccca51103a59ce6174bc7e78439",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3acc569_41ac341a",
+        "filename": "plat/rockchip/rk3288/drivers/soc/soc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-04-17T21:04:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cde1a150_1f6ecea7",
       "revId": "d5d6e84d22701ccca51103a59ce6174bc7e78439",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "a0e6fb65_4c5cc04b",
+        "filename": "plat/rockchip/rk3288/drivers/soc/soc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-04-17T21:04:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7c4abf8_394bc5e6",
+      "revId": "d5d6e84d22701ccca51103a59ce6174bc7e78439",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06735d6c_df484114",
         "filename": "plat/rockchip/rk3288/include/shared/bl32_param.h",
         "patchSetId": 5
@@ -70,6 +130,30 @@
       "writtenOn": "2019-04-17T13:40:32Z",
       "side": 1,
       "message": "BL32",
+      "range": {
+        "startLine": 21,
+        "startChar": 7,
+        "endLine": 21,
+        "endChar": 12
+      },
+      "revId": "d5d6e84d22701ccca51103a59ce6174bc7e78439",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "798f3245_84dadbf0",
+        "filename": "plat/rockchip/rk3288/include/shared/bl32_param.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-04-17T21:04:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06735d6c_df484114",
       "range": {
         "startLine": 21,
         "startChar": 7,
