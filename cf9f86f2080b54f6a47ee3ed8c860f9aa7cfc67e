@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5dec36b9_2906d8e9",
+        "filename": "plat/rockchip/common/aarch32/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-04-17T08:01:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "469065f1_f2f12a00",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "cf9f86f2080b54f6a47ee3ed8c860f9aa7cfc67e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e177f158_d3ac4bc1",
         "filename": "plat/rockchip/common/aarch32/platform_common.c",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "acccb223_4dece566",
+        "filename": "plat/rockchip/common/aarch32/platform_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-04-17T08:01:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e177f158_d3ac4bc1",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "cf9f86f2080b54f6a47ee3ed8c860f9aa7cfc67e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2d668ab_98115b55",
         "filename": "plat/rockchip/common/sp_min_plat_setup.c",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2019-04-16T08:20:06Z",
       "side": 1,
       "message": "This should be added to include/common/bl_common.h along with the others.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 53
+      },
+      "revId": "cf9f86f2080b54f6a47ee3ed8c860f9aa7cfc67e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5eb02d0_c33a2b16",
+        "filename": "plat/rockchip/common/sp_min_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-04-17T08:01:51Z",
+      "side": 1,
+      "message": "Done ... I could just reuse the already existing BL_CODE_BASE + BL_CODE_END which also map to __RO_foo__",
+      "parentUuid": "f2d668ab_98115b55",
       "range": {
         "startLine": 22,
         "startChar": 0,
