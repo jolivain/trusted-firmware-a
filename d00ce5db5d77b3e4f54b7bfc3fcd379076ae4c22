@@ -16,6 +16,24 @@
       "revId": "d00ce5db5d77b3e4f54b7bfc3fcd379076ae4c22",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ec920d6_f1015faa",
+        "filename": "lib/cpus/aarch64/cortex_a35.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-04-17T12:44:33Z",
+      "side": 1,
+      "message": "this is an abandon patches, but the comment still applied to the original one.\n#if are usually not used with errata function on the code base, the symbols are just ignored if not used somewhere.",
+      "parentUuid": "414981c5_d8309f75",
+      "revId": "d00ce5db5d77b3e4f54b7bfc3fcd379076ae4c22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
