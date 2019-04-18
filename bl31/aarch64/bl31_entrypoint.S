@@ -203,17 +203,12 @@ func bl31_warm_entrypoint
 	bl	bl31_plat_enable_mmu
 
 	/* --------------------------------------------------------------------
-	 * Enable pointer authentication
+	 * Load APIAKey and enable pointer authentication
 	 * --------------------------------------------------------------------
 	 */
 #if ENABLE_PAUTH
-	bl	pauth_load_bl_apiakey
-
-	mrs	x0, sctlr_el3
-	orr	x0, x0, #SCTLR_EnIA_BIT
-	msr	sctlr_el3, x0
-	isb
-#endif /* ENABLE_PAUTH */
+	bl	pauth_load_bl_apiakey_enable
+#endif
 
 	bl	psci_warmboot_entrypoint
 
