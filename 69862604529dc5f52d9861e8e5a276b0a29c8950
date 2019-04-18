@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a986978c_e5a1b3f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-04-18T12:26:06Z",
+      "side": 1,
+      "message": "I\u0027d replace the underscore with a space. It\u0027s more likely that people look for the string \"Neoverse N1\" than \"Neoverse_N1\".",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "69862604529dc5f52d9861e8e5a276b0a29c8950",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2285e0b_0e9a386d",
+        "filename": "include/lib/cpus/aarch64/neoverse_n1.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-04-18T12:26:06Z",
+      "side": 1,
+      "message": "Move the new definitions below line 34 to keep the field definitions next to the register definition.\n\nAlso, there are spaces before the # in both of the new definitions.",
+      "revId": "69862604529dc5f52d9861e8e5a276b0a29c8950",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
