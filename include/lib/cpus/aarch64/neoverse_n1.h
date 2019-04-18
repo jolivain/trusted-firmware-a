@@ -18,6 +18,13 @@
 #define NEOVERSE_N1_CPUPWRCTLR_EL1	S3_0_C15_C2_7
 #define NEOVERSE_N1_CPUECTLR_EL1	S3_0_C15_C1_4
 
+/*******************************************************************************
+ * CPU Auxiliary Control register specific definitions.
+ ******************************************************************************/
+ #define NEOVERSE_N1_CPUACTLR2_EL1	S3_0_C15_C1_1
+
+ #define NEOVERSE_N1_CPUACTLR2_EL1_BIT_2	(ULL(1) << 2)
+
 /* Definitions of register field mask in NEOVERSE_N1_CPUPWRCTLR_EL1 */
 #define NEOVERSE_N1_CORE_PWRDN_EN_MASK	U(0x1)
 
