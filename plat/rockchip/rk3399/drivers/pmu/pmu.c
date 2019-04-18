@@ -1540,7 +1540,7 @@ void rockchip_plat_mmu_el3(void)
 		    (char *)&__bl31_sram_text_start;
 	mmap_add_region((unsigned long)&__bl31_sram_text_start,
 			(unsigned long)&__bl31_sram_text_start,
-			sram_size, MT_MEMORY | MT_RO | MT_SECURE);
+			sram_size, MT_MEMORY | MT_RW | MT_SECURE);
 
 	/* sram.data size */
 	sram_size = (char *)&__bl31_sram_data_end -
