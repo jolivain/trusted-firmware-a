@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3d8ec39_818fde69",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-04-18T16:36:06Z",
+      "side": 1,
+      "message": "This should be called ST_AARCH32_SP_OPTEE so that other platforms don\u0027t use it, or moved to common code. I think that renaming it makes more sense, but I\u0027m fine with either.",
+      "range": {
+        "startLine": 19,
+        "startChar": 25,
+        "endLine": 19,
+        "endChar": 41
+      },
+      "revId": "b0cf2c1f46e8952c4b2e89d5c7f98855daa143a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
