@@ -82,6 +82,7 @@ void plat_cci_disable(void);
 void plat_delay_timer_init(void);
 
 void params_early_setup(void *plat_params_from_bl2);
+void plat_rockchip_dt_process_fdt_uart(void *fdt);
 
 void plat_rockchip_gic_driver_init(void);
 void plat_rockchip_gic_init(void);
@@ -134,6 +135,7 @@ extern uint32_t cpuson_flags[PLATFORM_CORE_COUNT];
 extern const mmap_region_t plat_rk_mmap[];
 
 void rockchip_plat_mmu_el3(void);
+void rockchip_set_uart_base(uint32_t uart_base);
 
 #endif /* __ASSEMBLY__ */
 

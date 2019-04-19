@@ -29,6 +29,7 @@ IMPORT_SYM(unsigned long, __RO_END__,	BL31_RO_LIMIT);
 
 static entry_point_info_t bl32_ep_info;
 static entry_point_info_t bl33_ep_info;
+static uint32_t rk_uart_base = PLAT_RK_UART_BASE;
 
 /*******************************************************************************
  * Return a pointer to the 'entry_point_info' structure of the next image for
@@ -47,6 +48,11 @@ entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 		return next_image_info;
 	else
 		return NULL;
+}
+
+void rockchip_set_uart_base(uint32_t uart_base)
+{
+	rk_uart_base = uart_base;
 }
 
 #pragma weak params_early_setup
@@ -78,7 +84,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 				       coreboot_serial.baud,
 				       &console);
 #else
-	console_16550_register(PLAT_RK_UART_BASE, PLAT_RK_UART_CLOCK,
+	console_16550_register(rk_uart_base, PLAT_RK_UART_CLOCK,
 			       PLAT_RK_UART_BAUDRATE, &console);
 #endif
 

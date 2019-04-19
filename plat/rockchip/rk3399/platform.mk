@@ -55,6 +55,7 @@ BL31_SOURCES	+=	${RK_GIC_SOURCES}				\
 			${RK_PLAT_COMMON}/aarch64/platform_common.c	\
 			${RK_PLAT_COMMON}/rockchip_sip_svc.c		\
 			${RK_PLAT_SOC}/plat_sip_calls.c			\
+			${RK_PLAT_SOC}/plat_params_setup.c		\
 			${RK_PLAT_SOC}/drivers/dp/cdn_dp.c		\
 			${RK_PLAT_SOC}/drivers/gpio/rk3399_gpio.c	\
 			${RK_PLAT_SOC}/drivers/pmu/pmu.c		\
