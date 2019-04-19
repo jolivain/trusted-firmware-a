@@ -134,6 +134,7 @@ extern uint32_t cpuson_flags[PLATFORM_CORE_COUNT];
 extern const mmap_region_t plat_rk_mmap[];
 
 void rockchip_plat_mmu_el3(void);
+void rockchip_set_uart_base(uint32_t uart_base);
 
 #endif /* __ASSEMBLY__ */
 

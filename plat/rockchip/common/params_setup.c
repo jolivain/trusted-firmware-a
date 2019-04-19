@@ -57,12 +57,73 @@ struct apio_info *plat_get_rockchip_suspend_apio(void)
 	return suspend_apio;
 }
 
+static int dt_process_fdt_uart(void *fdt)
+{
+	const char *path_name = "/chosen";
+	const char *prop_name = "stdout-path";
+	int node_offset;
+	int stdout_path_len;
+	const char *stdout_path;
+	char serial_char;
+	int serial_no;
+	uint32_t uart_base;
+
+	node_offset = fdt_path_offset(fdt, path_name);
+	if (node_offset < 0)
+		return 0;
+
+	stdout_path = fdt_getprop(fdt, node_offset, prop_name,
+				  &stdout_path_len);
+	if (stdout_path == NULL)
+		return 0;
+
+	stdout_path_len = strnlen(stdout_path, stdout_path_len);
+
+	/*
+	 * We expect something like:
+	 *   "serial0:...""
+	 */
+	if (stdout_path_len < 7)
+		return 0;
+
+	if (strncmp("serial", stdout_path, 6) != 0)
+		return 0;
+
+	serial_char = stdout_path[6];
+	serial_no = serial_char - '0';
+
+	switch (serial_no) {
+	case 0:
+		uart_base = UART0_BASE;
+		break;
+	case 1:
+		uart_base = UART1_BASE;
+		break;
+	case 2:
+		uart_base = UART2_BASE;
+		break;
+	case 3:
+		uart_base = UART3_BASE;
+		break;
+	default:
+		return 0;
+	}
+
+	rockchip_set_uart_base(uart_base);
+
+	return 0;
+}
+
 static int dt_process_fdt(void *blob)
 {
 	void *fdt = plat_get_fdt();
 	int ret;
 
 	ret = fdt_open_into(blob, fdt, 0x10000);
+	if (ret < 0)
+		return ret;
+
+	ret = dt_process_fdt_uart(fdt);
 	if (ret < 0)
 		return ret;
 
