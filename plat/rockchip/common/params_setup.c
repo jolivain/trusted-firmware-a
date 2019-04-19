@@ -55,6 +55,11 @@ static int dt_process_fdt(void *blob)
 }
 #endif
 
+#pragma weak plat_rockchip_dt_process_fdt_uart
+void plat_rockchip_dt_process_fdt_uart(void *fdt)
+{
+}
+
 struct gpio_info *plat_get_rockchip_gpio_reset(void)
 {
 	return rst_gpio;
