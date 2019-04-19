@@ -270,6 +270,30 @@
     },
     {
       "key": {
+        "uuid": "3918fa26_fbda5b43",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-04-19T02:13:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8aa7abc1_514149a1",
+      "range": {
+        "startLine": 63,
+        "startChar": 18,
+        "endLine": 63,
+        "endChar": 20
+      },
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7159e6aa_87a42e7b",
         "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
         "patchSetId": 1
@@ -281,6 +305,30 @@
       "writtenOn": "2019-04-12T09:23:07Z",
       "side": 1,
       "message": "Similarly, use 3U across the file.",
+      "range": {
+        "startLine": 157,
+        "startChar": 40,
+        "endLine": 157,
+        "endChar": 42
+      },
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b836fab8_3a71affa",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-04-19T02:13:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7159e6aa_87a42e7b",
       "range": {
         "startLine": 157,
         "startChar": 40,
@@ -310,6 +358,24 @@
     },
     {
       "key": {
+        "uuid": "22744140_a344d07a",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-04-19T02:13:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea9c5576_54aea187",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5605e289_d5a02957",
         "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.h",
         "patchSetId": 1
@@ -324,6 +390,24 @@
       "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77255983_01dc43c9",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-04-19T02:13:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5605e289_d5a02957",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -344,6 +428,24 @@
     },
     {
       "key": {
+        "uuid": "c1a3f1a9_08def649",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio_cfg.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-04-19T02:13:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "424d41b1_2b0488ea",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f1dc8c8_a48cca17",
         "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio_cfg.h",
         "patchSetId": 1
@@ -358,6 +460,24 @@
       "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "194724f3_2e67b1d4",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio_cfg.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-04-19T02:13:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f1dc8c8_a48cca17",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -378,6 +498,24 @@
     },
     {
       "key": {
+        "uuid": "72e8f588_a6cd5c76",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio_cfg.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-04-19T02:13:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "183c1bf4_955218e4",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f76b7bda_bbd30d22",
         "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio_cfg.h",
         "patchSetId": 1
@@ -392,6 +530,24 @@
       "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c88be8d6_b9191dec",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio_cfg.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-04-19T02:13:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f76b7bda_bbd30d22",
+      "revId": "347cb9de9daea9311bfc2abdd4d8af6c539ab27e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
