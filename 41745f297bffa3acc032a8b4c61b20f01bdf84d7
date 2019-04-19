@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "581a35d7_4d716384",
+        "filename": "bl1/bl1.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-19T08:12:49Z",
+      "side": 1,
+      "message": "It seems to me that this change is not required. IIUC, BL1 does not call pauth_load_bl_apiakey(). Instead, it uses bl_handle_pauth() to generate and load the keys.",
+      "revId": "41745f297bffa3acc032a8b4c61b20f01bdf84d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d84abf0d_0424c7d9",
+        "filename": "lib/aarch64/pauth_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-19T08:12:49Z",
+      "side": 1,
+      "message": "I still question whether this is the right place for this ISB. I am copying for reference what I had said in a previous version of the code review.\n\n----------\n\n1) Either we include the missing barrier inside the pauth_load_bl_apiakey() function, like you\u0027ve done.\n\nThe advantage is that the caller need not remembering to put an ISB after the call to the function. That can save us some bugs, as we can see today.\n\nThe disadvantage is that it penalizes some code paths, like bl31_warm_entrypoint(), where I believe we do not need 2 ISBs and could have a single one after the keys have been programmed *and* PtrAuth has been enabled.\n\n2) Or we make the caller responsible for synchronizing the context on return from pauth_load_bl_apiakey() when appropriate.\n\nAn ISB is an expensive operation so it\u0027s worth trying to limit their numbers, especially on hot code paths. I think the warm boot path is one of them, as a CPU might be turned on and off quite frequently and the wake up path latency matters for some use cases.",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 4
+      },
+      "revId": "41745f297bffa3acc032a8b4c61b20f01bdf84d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
