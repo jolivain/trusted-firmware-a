@@ -57,6 +57,11 @@ struct apio_info *plat_get_rockchip_suspend_apio(void)
 	return suspend_apio;
 }
 
+#pragma weak plat_rockchip_dt_process_fdt_uart
+void plat_rockchip_dt_process_fdt_uart(void *fdt)
+{
+}
+
 static int dt_process_fdt(void *blob)
 {
 	void *fdt = plat_get_fdt();
@@ -65,6 +70,8 @@ static int dt_process_fdt(void *blob)
 	ret = fdt_open_into(blob, fdt, 0x10000);
 	if (ret < 0)
 		return ret;
+
+	plat_rockchip_dt_process_fdt_uart(fdt);
 
 	return 0;
 }
