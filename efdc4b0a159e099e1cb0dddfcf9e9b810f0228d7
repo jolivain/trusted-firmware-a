@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63fc097e_d85cc362",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-23T14:37:33Z",
+      "side": 1,
+      "message": "The commit message would need an update to reflect the changes introduced in the latest patch set. For example, this only mentions pauth_load_bl_apiakey(), not pauth_load_bl_apiakey_enable().",
+      "revId": "efdc4b0a159e099e1cb0dddfcf9e9b810f0228d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b9af9c5_e1ecd86c",
+        "filename": "lib/aarch64/pauth_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-23T14:37:33Z",
+      "side": 1,
+      "message": "I think we should remove this line. Let each BL image choose what function they want to call. If, say, TSP pulls in this source file but only uses pauth_load_bl_apiakey_enable(), the other unused function should be removed by the linker so there should be no memory footprint impact there.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 17
+      },
+      "revId": "efdc4b0a159e099e1cb0dddfcf9e9b810f0228d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
