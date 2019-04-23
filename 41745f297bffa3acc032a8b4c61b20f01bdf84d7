@@ -81,6 +81,30 @@
       "revId": "41745f297bffa3acc032a8b4c61b20f01bdf84d7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc70f2db_e5d62ab2",
+        "filename": "lib/aarch64/pauth_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-23T11:52:44Z",
+      "side": 1,
+      "message": "IIUC, you\u0027re proposing that we provide 2 functions:\n* One function that would simply load the A key then issue an ISB.\n* Another function that would load the A key, enable PAuth then issue an ISB.\n\nThen the caller of either API does not have to worry about the ISB. Is that what you have in mind?\n\nI guess in this case it would be fine to return from a function that enables PAuth, as the problem usually lies in the AUTIASP/RETAA instructions emitted by the compiler in the function epilogue, but here we implement things in assembly language so we don\u0027t have this problem, correct?\n\nI think it might be a good idea. I\u0027m just worried that right now, I lack visibility on how platform ports will use PAuth in the future. If we combine functions then we leave them less freedom than if we provide short functions that do just 1 thing. The latter approach being lower-level, it is more flexible.",
+      "parentUuid": "452f7312_e0134c27",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 4
+      },
+      "revId": "41745f297bffa3acc032a8b4c61b20f01bdf84d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
