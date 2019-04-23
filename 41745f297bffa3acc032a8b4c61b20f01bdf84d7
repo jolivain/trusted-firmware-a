@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "35410574_297877cd",
+        "filename": "bl1/bl1.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-23T10:17:36Z",
+      "side": 1,
+      "message": "Yes, you are right, thanks for finding this.\npauth_load_bl_apiakey() was moved from context.S to a new file pauth_helpers.S, but is not called by BL1.\nIn context.S there are also fpregs_context_save() \u0026 fpregs_context_restore() which aren\u0027t called by BL1 and can be moved to other file.",
+      "parentUuid": "581a35d7_4d716384",
+      "revId": "41745f297bffa3acc032a8b4c61b20f01bdf84d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d84abf0d_0424c7d9",
         "filename": "lib/aarch64/pauth_helpers.S",
         "patchSetId": 2
