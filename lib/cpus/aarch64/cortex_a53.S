@@ -48,13 +48,8 @@ endfunc cortex_a53_disable_smp
 	 * ---------------------------------------------------
 	 */
 func check_errata_819472
-	/*
-	 * Even though this is only needed for revision <= r0p1, it
-	 * is always applied due to limitations of the current
-	 * errata framework.
-	 */
-	mov	x0, #ERRATA_APPLIES
-	ret
+	mov	x1, #0x01
+	b	cpu_rev_var_ls
 endfunc check_errata_819472
 
 	/* ---------------------------------------------------
@@ -63,13 +58,8 @@ endfunc check_errata_819472
 	 * ---------------------------------------------------
 	 */
 func check_errata_824069
-	/*
-	 * Even though this is only needed for revision <= r0p2, it
-	 * is always applied due to limitations of the current
-	 * errata framework.
-	 */
-	mov	x0, #ERRATA_APPLIES
-	ret
+	mov	x1, #0x02
+	b	cpu_rev_var_ls
 endfunc check_errata_824069
 
 	/* --------------------------------------------------
@@ -106,13 +96,8 @@ endfunc check_errata_826319
 	 * ---------------------------------------------------
 	 */
 func check_errata_827319
-	/*
-	 * Even though this is only needed for revision <= r0p2, it
-	 * is always applied due to limitations of the current
-	 * errata framework.
-	 */
-	mov	x0, #ERRATA_APPLIES
-	ret
+	mov	x1, #0x02
+	b	cpu_rev_var_ls
 endfunc check_errata_827319
 
 	/* ---------------------------------------------------------------------
