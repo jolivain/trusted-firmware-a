@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad15dbe6_13c41a0f",
+        "filename": "make_helpers/build_macros.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-24T21:23:29Z",
+      "side": 1,
+      "message": "nit: looks like the rest of these makefiles use $(VARIABLE) syntax instead of ${VARIABLE}",
+      "range": {
+        "startLine": 422,
+        "startChar": 7,
+        "endLine": 422,
+        "endChar": 8
+      },
+      "revId": "64331aa175276704a7c283fc95016b15a91ce24d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d08a2bb_e4d61c10",
+        "filename": "make_helpers/build_macros.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-24T21:23:29Z",
+      "side": 1,
+      "message": "nit: the .PHONY rule doesn\u0027t change, no need to have it twice\n\n(You could also just write this as\n\n bl$(1): $(if $(DISABLE_BIN_GENERATION),$(ELF),$(BIN)) $(DUMP)\n   @${ECHO_BLANK_LINE}\n   @echo \"Built $$\u003c successfully\"\n   @${ECHO_BLANK_LINE}\n\nto further reduce the amount of duplication you need to spread around.)",
+      "revId": "64331aa175276704a7c283fc95016b15a91ce24d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
