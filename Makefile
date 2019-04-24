@@ -117,6 +117,31 @@ ifneq (${GENERATE_COT},0)
         FWU_FIP_DEPS += fwu_certificates
 endif
 
+# Process BRANCH_PROTECTION value and set
+# Pointer Authentication and Branch Target Identification flags
+ifeq (${BRANCH_PROTECTION},0)
+	# Default value turns off all types of branch protection
+	BP_OPTION := none
+else ifeq (${BRANCH_PROTECTION},1)
+	# Enables all types of branch protection features
+	BP_OPTION := standard
+	ENABLE_BTI := 1
+	ENABLE_PAUTH := 1
+else ifeq (${BRANCH_PROTECTION},2)
+	# Return address signing to its standard level
+	BP_OPTION := pac-ret
+	ENABLE_PAUTH := 1
+else ifeq (${BRANCH_PROTECTION},3)
+	# Extend the signing to include leaf functions
+	BP_OPTION := pac-ret+leaf
+	ENABLE_PAUTH := 1
+else ifeq (${BRANCH_PROTECTION},4)
+	# Branch target identification mechanism
+	BP_OPTION := bti
+	ENABLE_BTI := 1
+else
+	$(error Error: Unknown BRANCH_PROTECTION value ${BRANCH_PROTECTION})
+endif
 
 ################################################################################
 # Toolchain
@@ -455,13 +480,28 @@ endif
 # leak the value of the key used by EL3 to EL1 and S-EL1.
 ifeq ($(ENABLE_PAUTH),1)
     ifeq ($(CTX_INCLUDE_PAUTH_REGS),0)
-        $(error ENABLE_PAUTH=1 requires CTX_INCLUDE_PAUTH_REGS=1)
+        $(error Pointer Authentication requires CTX_INCLUDE_PAUTH_REGS=1)
     else
-        $(info ENABLE_PAUTH and CTX_INCLUDE_PAUTH_REGS are experimental features)
+        ifeq ($(ENABLE_BTI),1)
+            $(info Branch Target Identification, Pointer Authentication \
+              and CTX_INCLUDE_PAUTH_REGS are experimental features)
+        else
+            $(info Pointer Authentication and CTX_INCLUDE_PAUTH_REGS \
+              are experimental features)
+        endif
     endif
 else
-    ifeq ($(CTX_INCLUDE_PAUTH_REGS),1)
-        $(info CTX_INCLUDE_PAUTH_REGS is an experimental feature)
+    ifeq ($(ENABLE_BTI),1)
+        ifeq ($(CTX_INCLUDE_PAUTH_REGS),1)
+            $(info Branch Target Identification and CTX_INCLUDE_PAUTH_REGS \
+              are experimental features)
+	else
+            $(info Branch Target Identification is an experimental feature)
+        endif
+    else
+        ifeq ($(CTX_INCLUDE_PAUTH_REGS),1)
+            $(info CTX_INCLUDE_PAUTH_REGS is an experimental feature)
+        endif
     endif
 endif
 
@@ -593,7 +633,6 @@ $(eval $(call assert_boolean,EL3_EXCEPTION_HANDLING))
 $(eval $(call assert_boolean,ENABLE_AMU))
 $(eval $(call assert_boolean,ENABLE_ASSERTIONS))
 $(eval $(call assert_boolean,ENABLE_MPAM_FOR_LOWER_ELS))
-$(eval $(call assert_boolean,ENABLE_PAUTH))
 $(eval $(call assert_boolean,ENABLE_PIE))
 $(eval $(call assert_boolean,ENABLE_PMF))
 $(eval $(call assert_boolean,ENABLE_PSCI_STAT))
@@ -629,6 +668,7 @@ $(eval $(call assert_boolean,BL2_IN_XIP_MEM))
 
 $(eval $(call assert_numeric,ARM_ARCH_MAJOR))
 $(eval $(call assert_numeric,ARM_ARCH_MINOR))
+$(eval $(call assert_numeric,BRANCH_PROTECTION))
 
 ################################################################################
 # Add definitions to the cpp preprocessor based on the current build options.
@@ -645,6 +685,7 @@ $(eval $(call add_define,CTX_INCLUDE_PAUTH_REGS))
 $(eval $(call add_define,EL3_EXCEPTION_HANDLING))
 $(eval $(call add_define,ENABLE_AMU))
 $(eval $(call add_define,ENABLE_ASSERTIONS))
+$(eval $(call add_define,ENABLE_BTI))
 $(eval $(call add_define,ENABLE_MPAM_FOR_LOWER_ELS))
 $(eval $(call add_define,ENABLE_PAUTH))
 $(eval $(call add_define,ENABLE_PIE))

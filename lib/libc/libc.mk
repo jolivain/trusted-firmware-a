@@ -30,5 +30,9 @@ LIBC_SRCS	+=	$(addprefix lib/libc/aarch64/,	\
 			setjmp.S)
 endif
 
+ifeq (${ENABLE_BTI},1)
+TF_CFLAGS_aarch64	+= -mbranch-protection=${BP_OPTION}
+endif
+
 INCLUDES	+=	-Iinclude/lib/libc		\
 			-Iinclude/lib/libc/$(ARCH)	\

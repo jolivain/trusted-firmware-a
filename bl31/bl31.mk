@@ -75,13 +75,13 @@ ifeq (${ENABLE_MPAM_FOR_LOWER_ELS},1)
 BL31_SOURCES		+=	lib/extensions/mpam/mpam.c
 endif
 
-ifeq (${ENABLE_PAUTH},1)
-BL31_CFLAGS		+=	-msign-return-address=non-leaf
-endif
-
 ifeq (${WORKAROUND_CVE_2017_5715},1)
 BL31_SOURCES		+=	lib/cpus/aarch64/wa_cve_2017_5715_bpiall.S	\
 				lib/cpus/aarch64/wa_cve_2017_5715_mmu.S
+endif
+
+ifneq (${BP_OPTION},none)
+BL1_CFLAGS		+=	-mbranch-protection=${BP_OPTION}
 endif
 
 BL31_LINKERFILE		:=	bl31/bl31.ld.S

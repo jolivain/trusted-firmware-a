@@ -17,9 +17,11 @@ BL32_SOURCES		+=	bl32/tsp/tsp_main.c			\
 
 BL32_LINKERFILE		:=	bl32/tsp/tsp.ld.S
 
-# This flag determines whether pointer authentication is used in the TSP or not
-ifeq ($(ENABLE_PAUTH),1)
-BL32_CFLAGS		+=	-msign-return-address=non-leaf
+# This flag determines whether
+# Branch Target Identification / Pointer Authentication
+# are used in the TSP or not
+ifneq (${BP_OPTION},none)
+BL32_CFLAGS		+=	-mbranch-protection=${BP_OPTION}
 endif
 
 # This flag determines if the TSPD initializes BL32 in tspd_init() (synchronous

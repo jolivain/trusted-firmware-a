@@ -15,10 +15,6 @@ ifeq (${ARCH},aarch64)
 BL2_SOURCES		+=	common/aarch64/early_exceptions.S
 endif
 
-ifeq (${ENABLE_PAUTH},1)
-BL2_CFLAGS		+=	-msign-return-address=non-leaf
-endif
-
 ifeq (${BL2_AT_EL3},0)
 BL2_SOURCES		+=	bl2/${ARCH}/bl2_entrypoint.S
 BL2_LINKERFILE		:=	bl2/bl2.ld.S
@@ -34,4 +30,8 @@ BL2_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S
 endif
 
 BL2_LINKERFILE		:=	bl2/bl2_el3.ld.S
+endif
+
+ifneq (${BP_OPTION},none)
+BL2_CFLAGS		+=	-mbranch-protection=${BP_OPTION}
 endif

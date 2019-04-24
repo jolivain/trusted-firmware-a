@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -172,6 +172,9 @@ endfunc console_pl011_core_putc
 	 * --------------------------------------------------------
 	 */
 func console_pl011_putc
+#if ENABLE_BTI
+	bti	c
+#endif
 #if ENABLE_ASSERTIONS
 	cmp	x1, #0
 	ASM_ASSERT(ne)
@@ -191,6 +194,9 @@ endfunc console_pl011_putc
 	 * ---------------------------------------------
 	 */
 func console_pl011_core_getc
+#if ENABLE_BTI
+	bti	c
+#endif
 #if ENABLE_ASSERTIONS
 	cmp	x0, #0
 	ASM_ASSERT(ne)
@@ -259,6 +265,9 @@ endfunc console_pl011_core_flush
 	 * ---------------------------------------------
 	 */
 func console_pl011_flush
+#if ENABLE_BTI
+	bti	c
+#endif
 #if ENABLE_ASSERTIONS
 	cmp	x0, #0
 	ASM_ASSERT(ne)

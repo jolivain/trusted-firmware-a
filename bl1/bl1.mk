@@ -21,8 +21,8 @@ BL1_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S		\
 				lib/el3_runtime/aarch64/context.S
 endif
 
-ifeq (${ENABLE_PAUTH},1)
-BL1_CFLAGS		+=	-msign-return-address=non-leaf
+ifneq (${BP_OPTION},none)
+BL1_CFLAGS		+=	-mbranch-protection=${BP_OPTION}
 endif
 
 ifeq (${TRUSTED_BOARD_BOOT},1)
