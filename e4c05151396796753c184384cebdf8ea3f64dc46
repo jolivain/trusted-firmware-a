@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f4dd9d9_cae4f078",
+        "filename": "lib/aarch64/pauth_helpers.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-24T15:08:14Z",
+      "side": 1,
+      "message": "Sorry, I had overlooked this in patch set 3. I had not realized that we would have to provide 2 implementations of the code enabling PAuth (one for EL3 and one for S-EL1). Using the IMAGE_BL* macros here does not sound like the right approach to me because these functions are meant to be generic, architectural code. Ideally, they should have no notion of BL image at all. They should just worry about exception levels. Besides, there\u0027s no good reason why we should prevent BL1 or BL2 from using this code from a conceptual point of view, other than, this is not how it is implemented today.\n\nAFAIK, the way we usually deal with this in TF-A is, we provide 2 distinct functions, one for each EL. Each BL image then calls the right version, as it inherently knows the EL it runs at. So for example, BL31 would call the EL3 version. See https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/plain/lib/aarch64/misc_helpers.S for instance.\n\nDoes that make sense?",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 6
+      },
+      "revId": "e4c05151396796753c184384cebdf8ea3f64dc46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
