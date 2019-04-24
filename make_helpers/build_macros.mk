@@ -419,6 +419,11 @@ endif
 
 $(ELF): $(OBJS) $(LINKERFILE) | bl$(1)_dirs libraries $(BL_LIBS)
 	$$(ECHO) "  LD      $$@"
+ifeq (${DISABLE_BIN_GENERATION},1)
+	@${ECHO_BLANK_LINE}
+	@echo "Built $$@ successfully"
+	@${ECHO_BLANK_LINE}
+endif
 ifdef MAKE_BUILD_STRINGS
 	$(call MAKE_BUILD_STRINGS, $(BUILD_DIR)/build_message.o)
 else
@@ -450,8 +455,13 @@ $(BIN): $(ELF)
 	@echo "Built $$@ successfully"
 	@${ECHO_BLANK_LINE}
 
+ifeq (${DISABLE_BIN_GENERATION},1)
+.PHONY: bl$(1)
+bl$(1): $(ELF) $(DUMP)
+else
 .PHONY: bl$(1)
 bl$(1): $(BIN) $(DUMP)
+endif
 
 all: bl$(1)
 
