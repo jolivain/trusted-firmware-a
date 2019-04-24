@@ -5,16 +5,20 @@
  */
 
 #include <assert.h>
+#include <errno.h>
 #include <string.h>
 
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/console.h>
 #include <drivers/gpio.h>
-#include <libfdt.h>
 #include <lib/coreboot.h>
 #include <lib/mmio.h>
 #include <plat/common/platform.h>
+
+#ifndef COREBOOT
+#include <libfdt.h>
+#endif
 
 #include <plat_params.h>
 #include <plat_private.h>
@@ -28,12 +32,31 @@ static struct gpio_info suspend_gpio[10];
 uint32_t suspend_gpio_cnt;
 static struct apio_info *suspend_apio;
 
+#ifdef COREBOOT
+static int dt_process_fdt(void *blob)
+{
+	return -ENODEV;
+}
+#else
 static uint8_t fdt_buffer[0x10000];
 
 void *plat_get_fdt(void)
 {
 	return &fdt_buffer[0];
 }
+
+static int dt_process_fdt(void *blob)
+{
+	void *fdt = plat_get_fdt();
+	int ret;
+
+	ret = fdt_open_into(blob, fdt, 0x10000);
+	if (ret < 0)
+		return ret;
+
+	return 0;
+}
+#endif
 
 struct gpio_info *plat_get_rockchip_gpio_reset(void)
 {
@@ -55,18 +78,6 @@ struct gpio_info *plat_get_rockchip_suspend_gpio(uint32_t *count)
 struct apio_info *plat_get_rockchip_suspend_apio(void)
 {
 	return suspend_apio;
-}
-
-static int dt_process_fdt(void *blob)
-{
-	void *fdt = plat_get_fdt();
-	int ret;
-
-	ret = fdt_open_into(blob, fdt, 0x10000);
-	if (ret < 0)
-		return ret;
-
-	return 0;
 }
 
 void params_early_setup(void *plat_param_from_bl2)
