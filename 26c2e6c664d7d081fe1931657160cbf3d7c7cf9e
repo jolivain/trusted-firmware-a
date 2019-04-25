@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "253c73cc_07feb24e",
+        "filename": "plat/rockchip/common/params_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-25T00:39:50Z",
+      "side": 1,
+      "message": "Could also put the #include right here so you at least have it all in one block. I don\u0027t know. I just try to get rid of #ifdefs wherever I see them. ;)",
+      "revId": "26c2e6c664d7d081fe1931657160cbf3d7c7cf9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
