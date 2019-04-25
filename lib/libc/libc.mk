@@ -7,6 +7,7 @@
 LIBC_SRCS	:=	$(addprefix lib/libc/,		\
 			abort.c				\
 			assert.c			\
+			errno.c				\
 			exit.c				\
 			memchr.c			\
 			memcmp.c			\
@@ -19,6 +20,7 @@ LIBC_SRCS	:=	$(addprefix lib/libc/,		\
 			snprintf.c			\
 			strchr.c			\
 			strcmp.c			\
+			strcpy.c			\
 			strlcpy.c			\
 			strlen.c			\
 			strncmp.c			\

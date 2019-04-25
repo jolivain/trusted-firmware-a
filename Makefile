@@ -550,6 +550,8 @@ SPTOOL			?=	${SPTOOLPATH}/sptool${BIN_EXT}
 # Variables for use with ROMLIB
 ROMLIBPATH		?=	lib/romlib
 
+LIB9P_PATH		?=	lib/lib9p
+
 ################################################################################
 # Include BL specific makefiles
 ################################################################################
@@ -795,6 +797,7 @@ clean:
 	$(call SHELL_REMOVE_DIR,${BUILD_PLAT})
 	${Q}${MAKE} --no-print-directory -C ${FIPTOOLPATH} clean
 	${Q}${MAKE} PLAT=${PLAT} --no-print-directory -C ${CRTTOOLPATH} clean
+	${Q}${MAKE} --no-print-directory -C ${LIB9P_PATH} clean
 	${Q}${MAKE} --no-print-directory -C ${ROMLIBPATH} clean
 
 realclean distclean:
@@ -804,6 +807,7 @@ realclean distclean:
 	${Q}${MAKE} --no-print-directory -C ${FIPTOOLPATH} clean
 	${Q}${MAKE} --no-print-directory -C ${SPTOOLPATH} clean
 	${Q}${MAKE} PLAT=${PLAT} --no-print-directory -C ${CRTTOOLPATH} clean
+	${Q}${MAKE} --no-print-directory -C ${LIB9P_PATH} clean
 	${Q}${MAKE} --no-print-directory -C ${ROMLIBPATH} clean
 
 checkcodebase:		locate-checkpatch
@@ -896,6 +900,10 @@ ${SPTOOL}:
 .PHONY: libraries
 romlib.bin: libraries
 	${Q}${MAKE} PLAT_DIR=${PLAT_DIR} BUILD_PLAT=${BUILD_PLAT} INCLUDES='${INCLUDES}' DEFINES='${DEFINES}' --no-print-directory -C ${ROMLIBPATH} all
+
+.PHONY: lib9p
+lib9p:
+	${Q}${MAKE} CC=${CC} PLAT_DIR=${PLAT_DIR} BUILD_PLAT=${BUILD_PLAT} INCLUDES='${INCLUDES}' DEFINES='${DEFINES}' --no-print-directory -C ${LIB9P_PATH} all
 
 cscope:
 	@echo "  CSCOPE"

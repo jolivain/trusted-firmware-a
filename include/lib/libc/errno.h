@@ -166,4 +166,6 @@
 
 #define	ELAST		96		/* Must be equal largest errno */
 
+extern int errno;
+
 #endif /* ERRNO_H */
