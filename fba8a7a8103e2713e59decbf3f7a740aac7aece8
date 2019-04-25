@@ -158,6 +158,30 @@
     },
     {
       "key": {
+        "uuid": "6914a5e0_4d0ee548",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-04-25T15:51:33Z",
+      "side": 1,
+      "message": "I agree there is no error code to return in secure side is not implemented for SMMU. But for future proofness of API, it is good to leave opportunity to return error code in future without breaking compaitibility and hence I would keep the `int` return  code (unless we are sure that there is not chance of this API returning error in future).",
+      "parentUuid": "da4e276e_b8a8d782",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 4
+      },
+      "revId": "fba8a7a8103e2713e59decbf3f7a740aac7aece8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0b41bd46_ab8ccd8f",
         "filename": "drivers/arm/smmu/smmu_v3.c",
         "patchSetId": 5
