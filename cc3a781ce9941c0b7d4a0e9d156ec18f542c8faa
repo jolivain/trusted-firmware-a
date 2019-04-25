@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "c680b7c5_98b9fc62",
+        "filename": "plat/rockchip/common/params_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-25T00:39:50Z",
+      "side": 1,
+      "message": "Hmm... okay. How about adding libfdt.mk by default? Building the library shouldn\u0027t hurt as long as you\u0027re not referencing functions from it. (I guess the drawback may be that it\u0027s easier to miss if you do add a dependency not guarded by the flag...)",
+      "parentUuid": "c763cbbe_a1abbf5d",
+      "revId": "cc3a781ce9941c0b7d4a0e9d156ec18f542c8faa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f25e8d7_11b97d4b",
         "filename": "plat/rockchip/rk3328/platform.mk",
         "patchSetId": 1
