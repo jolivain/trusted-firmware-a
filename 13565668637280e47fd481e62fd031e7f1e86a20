@@ -16,6 +16,24 @@
       "revId": "13565668637280e47fd481e62fd031e7f1e86a20",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63059832_43e88fce",
+        "filename": "lib/cpus/aarch64/cortex_a53.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-04-25T09:30:30Z",
+      "side": 1,
+      "message": "Actually, I\u0027ve been discussing this with Ambroise and we\u0027ve arrived to another fix:\n\n```\n#if ERRATA_A53_827319\n    mov x0, #ERRATA_APPLIES\n    ret\n#else\n    mov x1, #0x01\n    b   cpu_rev_var_ls\n#endif\n```\n\nThis way, if the workaround is compiled in, it will always print an INFO message saying that it has been applied (which is the truth). If it is not compiled in, it will either print a WARN message if it is needed, or nothing if it isn\u0027t.",
+      "parentUuid": "c33062ca_471dbe2b",
+      "revId": "13565668637280e47fd481e62fd031e7f1e86a20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
