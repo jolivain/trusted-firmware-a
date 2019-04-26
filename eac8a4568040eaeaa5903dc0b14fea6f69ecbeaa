@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7ca1a2b_02315676",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-26T13:54:55Z",
+      "side": 1,
+      "message": "Seems unneeded, remove?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "eac8a4568040eaeaa5903dc0b14fea6f69ecbeaa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58c038ae_14eea228",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-26T13:54:55Z",
+      "side": 1,
+      "message": "No longer needed AFAICS, I think smmuv3_inval_pending() was the only user of the bool type in this file.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 20
+      },
+      "revId": "eac8a4568040eaeaa5903dc0b14fea6f69ecbeaa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18b02abf_c7912dbf",
+        "filename": "include/drivers/arm/smmu_v3.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-26T13:54:55Z",
+      "side": 1,
+      "message": "After expansion from the C preprocessor, this will become:\n\n (1 \u003c\u003c 31U)\n\nTo avoid the undefined behaviour, I believe what we need is the *left* operand of the shift to be unsigned, i.e.:\n\n (U(1) \u003c\u003c 31)",
+      "range": {
+        "startLine": 21,
+        "startChar": 26,
+        "endLine": 21,
+        "endChar": 36
+      },
+      "revId": "eac8a4568040eaeaa5903dc0b14fea6f69ecbeaa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
