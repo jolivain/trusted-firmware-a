@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bb86e8c_87e8ca8d",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-04-26T11:41:44Z",
+      "side": 1,
+      "message": "As commented previously, it is better to be keep the return type as `int` and return 0 always. Changing it now will break compatibility and the return value is good for future proofness of the API.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 4
+      },
+      "revId": "22918454d4e15b2bf368a2c7624e08c05e88cd35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
