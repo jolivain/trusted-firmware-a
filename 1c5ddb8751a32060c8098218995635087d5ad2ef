@@ -22,6 +22,30 @@
       "revId": "1c5ddb8751a32060c8098218995635087d5ad2ef",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72f5a92a_23318756",
+        "filename": "include/drivers/arm/smmu_v3.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-26T14:29:56Z",
+      "side": 1,
+      "message": "Driver compiled successfully, because \nlib/utils_def.h is included from debug.h. Is it still needed in smmu_v3.h?",
+      "parentUuid": "4a17f353_e8f9cb7d",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "1c5ddb8751a32060c8098218995635087d5ad2ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
