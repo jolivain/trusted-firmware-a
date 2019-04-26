@@ -46,6 +46,30 @@
       "revId": "1c5ddb8751a32060c8098218995635087d5ad2ef",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87bc6b38_5cce76e3",
+        "filename": "include/drivers/arm/smmu_v3.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-04-26T14:36:34Z",
+      "side": 1,
+      "message": "Ah I see. I\u0027d say it\u0027s better to explicitly include what we need and not rely on header inclusion dependencies. But that\u0027s not a gating comment.",
+      "parentUuid": "72f5a92a_23318756",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "1c5ddb8751a32060c8098218995635087d5ad2ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
