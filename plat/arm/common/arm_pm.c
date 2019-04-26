@@ -40,13 +40,13 @@ int arm_validate_power_state(unsigned int power_state,
 		 * It's possible to enter standby only on power level 0
 		 * Ignore any other power level.
 		 */
-		if (pwr_lvl != ARM_PWR_LVL0)
+		if (pwr_lvl != PLAT_MIN_PWR_LVL)
 			return PSCI_E_INVALID_PARAMS;
 
-		req_state->pwr_domain_state[ARM_PWR_LVL0] =
+		req_state->pwr_domain_state[PLAT_MIN_PWR_LVL] =
 					ARM_LOCAL_STATE_RET;
 	} else {
-		for (i = ARM_PWR_LVL0; i <= pwr_lvl; i++)
+		for (i = PLAT_MIN_PWR_LVL; i <= pwr_lvl; i++)
 			req_state->pwr_domain_state[i] =
 					ARM_LOCAL_STATE_OFF;
 	}
@@ -139,7 +139,7 @@ int arm_validate_psci_entrypoint(uintptr_t entrypoint)
 void arm_system_pwr_domain_save(void)
 {
 	/* Assert system power domain is available on the platform */
-	assert(PLAT_MAX_PWR_LVL >= ARM_PWR_LVL2);
+	assert(PLAT_MAX_PWR_LVL >= PLAT_SYSTEM_PWR_LVL);
 
 	plat_arm_gic_save();
 
@@ -168,7 +168,7 @@ void arm_system_pwr_domain_resume(void)
 	arm_console_runtime_init();
 
 	/* Assert system power domain is available on the platform */
-	assert(PLAT_MAX_PWR_LVL >= ARM_PWR_LVL2);
+	assert(PLAT_MAX_PWR_LVL >= PLAT_SYSTEM_PWR_LVL);
 
 	plat_arm_gic_resume();
 

@@ -47,8 +47,12 @@
 						N1SDP_MAX_CPUS_PER_CLUSTER *	\
 						N1SDP_MAX_PE_PER_CPU)
 
-/* System power domain level */
+#define PLAT_CORE_PWR_LVL			ARM_PWR_LVL0
+#define PLAT_CLUSTER_PWR_LVL			ARM_PWR_LVL1
 #define PLAT_SYSTEM_PWR_LVL			ARM_PWR_LVL2
+
+#define PLAT_MIN_PWR_LVL			PLAT_CORE_PWR_LVL
+#define PLAT_MAX_PWR_LVL			PLAT_CLUSTER_PWR_LVL
 
 /*
  * PLAT_ARM_MMAP_ENTRIES depends on the number of entries in the
@@ -62,8 +66,6 @@
 #define PLAT_ARM_NSTIMER_FRAME_ID		0
 #define PLAT_CSS_MHU_BASE			0x45000000
 #define PLAT_MHUV2_BASE				PLAT_CSS_MHU_BASE
-#define PLAT_MAX_PWR_LVL			1
-
 #define PLAT_ARM_G1S_IRQS			ARM_G1S_IRQS,			\
 						CSS_IRQ_MHU
 #define PLAT_ARM_G0_IRQS			ARM_G0_IRQS

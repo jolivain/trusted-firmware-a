@@ -13,8 +13,12 @@
 #include <lib/psci/psci.h>
 
 /* Macros to read the CSS power domain state */
-#define CSS_CORE_PWR_STATE(state)	(state)->pwr_domain_state[ARM_PWR_LVL0]
-#define CSS_CLUSTER_PWR_STATE(state)	(state)->pwr_domain_state[ARM_PWR_LVL1]
+#define CSS_THREAD_PWR_STATE(state)	(state)->pwr_domain_state[PLAT_THREAD_PWR_LVL]
+#define CSS_CORE_PWR_STATE(state)	(state)->pwr_domain_state[PLAT_CORE_PWR_LVL]
+#define CSS_CLUSTER_PWR_STATE(state)	(state)->pwr_domain_state[PLAT_CLUSTER_PWR_LVL]
+
+#define CSS_MIN_PWR_STATE(state)	(state)->pwr_domain_state[PLAT_MIN_PWR_LVL]
+#define CSS_MAX_PWR_STATE(state) 	(state)->pwr_domain_state[PLAT_MAX_PWR_LVL]
 
 static inline unsigned int css_system_pwr_state(const psci_power_state_t *state)
 {

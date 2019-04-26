@@ -50,7 +50,7 @@ const unsigned int arm_pm_idle_states[] = {
  * All the power management helpers in this file assume at least cluster power
  * level is supported.
  */
-CASSERT(PLAT_MAX_PWR_LVL >= ARM_PWR_LVL1,
+CASSERT(PLAT_MAX_PWR_LVL >= PLAT_CLUSTER_PWR_LVL,
 		assert_max_pwr_lvl_supported_mismatch);
 
 /*
@@ -74,7 +74,7 @@ int css_pwr_domain_on(u_register_t mpidr)
 static void css_pwr_domain_on_finisher_common(
 		const psci_power_state_t *target_state)
 {
-	assert(CSS_CORE_PWR_STATE(target_state) == ARM_LOCAL_STATE_OFF);
+	assert(CSS_MIN_PWR_STATE(target_state) == ARM_LOCAL_STATE_OFF);
 
 	/* Enable the gic cpu interface */
 	plat_arm_gic_cpuif_enable();
@@ -128,7 +128,7 @@ static void css_power_down_common(const psci_power_state_t *target_state)
  ******************************************************************************/
 void css_pwr_domain_off(const psci_power_state_t *target_state)
 {
-	assert(CSS_CORE_PWR_STATE(target_state) == ARM_LOCAL_STATE_OFF);
+	assert(CSS_MIN_PWR_STATE(target_state) == ARM_LOCAL_STATE_OFF);
 	css_power_down_common(target_state);
 	css_scp_off(target_state);
 }
@@ -143,11 +143,11 @@ void css_pwr_domain_suspend(const psci_power_state_t *target_state)
 	 * CSS currently supports retention only at cpu level. Just return
 	 * as nothing is to be done for retention.
 	 */
-	if (CSS_CORE_PWR_STATE(target_state) == ARM_LOCAL_STATE_RET)
+	if (CSS_MIN_PWR_STATE(target_state) == ARM_LOCAL_STATE_RET)
 		return;
 
 
-	assert(CSS_CORE_PWR_STATE(target_state) == ARM_LOCAL_STATE_OFF);
+	assert(CSS_MIN_PWR_STATE(target_state) == ARM_LOCAL_STATE_OFF);
 	css_power_down_common(target_state);
 
 	/* Perform system domain state saving if issuing system suspend */
@@ -172,7 +172,7 @@ void css_pwr_domain_suspend_finish(
 				const psci_power_state_t *target_state)
 {
 	/* Return as nothing is to be done on waking up from retention. */
-	if (CSS_CORE_PWR_STATE(target_state) == ARM_LOCAL_STATE_RET)
+	if (CSS_MIN_PWR_STATE(target_state) == ARM_LOCAL_STATE_RET)
 		return;
 
 	/* Perform system domain restore if woken up from system suspend */
@@ -242,7 +242,7 @@ void css_get_sys_suspend_power_state(psci_power_state_t *req_state)
 	 */
 	assert(PLAT_MAX_PWR_LVL == PLAT_SYSTEM_PWR_LVL);
 
-	for (i = ARM_PWR_LVL0; i <= PLAT_MAX_PWR_LVL; i++)
+	for (i = PLAT_MIN_PWR_LVL; i <= PLAT_MAX_PWR_LVL; i++)
 		req_state->pwr_domain_state[i] = ARM_LOCAL_STATE_OFF;
 }
 

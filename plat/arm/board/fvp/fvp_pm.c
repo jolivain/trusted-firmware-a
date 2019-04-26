@@ -86,14 +86,14 @@ static void fvp_power_domain_on_finish_common(const psci_power_state_t *target_s
 {
 	unsigned long mpidr;
 
-	assert(target_state->pwr_domain_state[ARM_PWR_LVL0] ==
+	assert(target_state->pwr_domain_state[PLAT_MIN_PWR_LVL] ==
 					ARM_LOCAL_STATE_OFF);
 
 	/* Get the mpidr for this cpu */
 	mpidr = read_mpidr_el1();
 
 	/* Perform the common cluster specific operations */
-	if (target_state->pwr_domain_state[ARM_PWR_LVL1] ==
+	if (target_state->pwr_domain_state[PLAT_CLUSTER_PWR_LVL] ==
 					ARM_LOCAL_STATE_OFF) {
 		/*
 		 * This CPU might have woken up whilst the cluster was
@@ -110,7 +110,7 @@ static void fvp_power_domain_on_finish_common(const psci_power_state_t *target_s
 		fvp_interconnect_enable();
 	}
 	/* Perform the common system specific operations */
-	if (target_state->pwr_domain_state[ARM_PWR_LVL2] ==
+	if (target_state->pwr_domain_state[PLAT_SYSTEM_PWR_LVL] ==
 						ARM_LOCAL_STATE_OFF)
 		arm_system_pwr_domain_resume();
 
@@ -166,7 +166,7 @@ static int fvp_pwr_domain_on(u_register_t mpidr)
  ******************************************************************************/
 static void fvp_pwr_domain_off(const psci_power_state_t *target_state)
 {
-	assert(target_state->pwr_domain_state[ARM_PWR_LVL0] ==
+	assert(target_state->pwr_domain_state[PLAT_MIN_PWR_LVL] ==
 					ARM_LOCAL_STATE_OFF);
 
 	/*
@@ -184,7 +184,7 @@ static void fvp_pwr_domain_off(const psci_power_state_t *target_state)
 	/* Program the power controller to power off this cpu. */
 	fvp_pwrc_write_ppoffr(read_mpidr_el1());
 
-	if (target_state->pwr_domain_state[ARM_PWR_LVL1] ==
+	if (target_state->pwr_domain_state[PLAT_CLUSTER_PWR_LVL] ==
 					ARM_LOCAL_STATE_OFF)
 		fvp_cluster_pwrdwn_common();
 
@@ -202,11 +202,11 @@ static void fvp_pwr_domain_suspend(const psci_power_state_t *target_state)
 	 * FVP has retention only at cpu level. Just return
 	 * as nothing is to be done for retention.
 	 */
-	if (target_state->pwr_domain_state[ARM_PWR_LVL0] ==
+	if (target_state->pwr_domain_state[PLAT_MIN_PWR_LVL] ==
 					ARM_LOCAL_STATE_RET)
 		return;
 
-	assert(target_state->pwr_domain_state[ARM_PWR_LVL0] ==
+	assert(target_state->pwr_domain_state[PLAT_MIN_PWR_LVL] ==
 					ARM_LOCAL_STATE_OFF);
 
 	/* Get the mpidr for this cpu */
@@ -225,12 +225,12 @@ static void fvp_pwr_domain_suspend(const psci_power_state_t *target_state)
 	 */
 
 	/* Perform the common cluster specific operations */
-	if (target_state->pwr_domain_state[ARM_PWR_LVL1] ==
+	if (target_state->pwr_domain_state[PLAT_CLUSTER_PWR_LVL] ==
 					ARM_LOCAL_STATE_OFF)
 		fvp_cluster_pwrdwn_common();
 
 	/* Perform the common system specific operations */
-	if (target_state->pwr_domain_state[ARM_PWR_LVL2] ==
+	if (target_state->pwr_domain_state[PLAT_SYSTEM_PWR_LVL] ==
 						ARM_LOCAL_STATE_OFF)
 		arm_system_pwr_domain_save();
 
@@ -266,7 +266,7 @@ static void fvp_pwr_domain_suspend_finish(const psci_power_state_t *target_state
 	/*
 	 * Nothing to be done on waking up from retention from CPU level.
 	 */
-	if (target_state->pwr_domain_state[ARM_PWR_LVL0] ==
+	if (target_state->pwr_domain_state[PLAT_MIN_PWR_LVL] ==
 					ARM_LOCAL_STATE_RET)
 		return;
 
@@ -346,7 +346,7 @@ static void fvp_get_sys_suspend_power_state(psci_power_state_t *req_state)
 {
 	unsigned int i;
 
-	for (i = ARM_PWR_LVL0; i <= PLAT_MAX_PWR_LVL; i++)
+	for (i = PLAT_MIN_PWR_LVL; i <= PLAT_MAX_PWR_LVL; i++)
 		req_state->pwr_domain_state[i] = ARM_LOCAL_STATE_OFF;
 }
 #endif
@@ -370,7 +370,7 @@ static int fvp_validate_power_state(unsigned int power_state,
 	 * via PSCI CPU SUSPEND API. Currently system suspend is only
 	 * supported via PSCI SYSTEM SUSPEND API.
 	 */
-	req_state->pwr_domain_state[ARM_PWR_LVL2] = ARM_LOCAL_STATE_RUN;
+	req_state->pwr_domain_state[PLAT_SYSTEM_PWR_LVL] = ARM_LOCAL_STATE_RUN;
 	return rc;
 }
 

@@ -80,7 +80,7 @@ int css_scp_get_power_state(u_register_t mpidr, unsigned int power_level)
 	 * The format of 'power_level' is implementation-defined, but 0 must
 	 * mean a CPU. We also allow 1 to denote the cluster
 	 */
-	if (power_level != ARM_PWR_LVL0 && power_level != ARM_PWR_LVL1)
+	if (power_level > PLAT_CLUSTER_PWR_LVL)
 		return PSCI_E_INVALID_PARAMS;
 
 	/* Query SCP */
@@ -89,7 +89,7 @@ int css_scp_get_power_state(u_register_t mpidr, unsigned int power_level)
 		return PSCI_E_INVALID_PARAMS;
 
 	/* Map power states of CPU and cluster to expected PSCI return codes */
-	if (power_level == ARM_PWR_LVL0) {
+	if (power_level == PLAT_MIN_PWR_LVL) {
 		/*
 		 * The CPU state returned by SCP is an 8-bit bit mask
 		 * corresponding to each CPU in the cluster

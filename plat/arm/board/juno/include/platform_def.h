@@ -21,13 +21,18 @@
 #include "../juno_def.h"
 
 /* Required platform porting definitions */
-/* Juno supports system power domain */
-#define PLAT_MAX_PWR_LVL		ARM_PWR_LVL2
 #define PLAT_NUM_PWR_DOMAINS		(ARM_SYSTEM_COUNT + \
 					JUNO_CLUSTER_COUNT + \
 					PLATFORM_CORE_COUNT)
 #define PLATFORM_CORE_COUNT		(JUNO_CLUSTER0_CORE_COUNT + \
 					JUNO_CLUSTER1_CORE_COUNT)
+
+#define PLAT_CORE_PWR_LVL		ARM_PWR_LVL0
+#define PLAT_CLUSTER_PWR_LVL		ARM_PWR_LVL1
+#define PLAT_SYSTEM_PWR_LVL		ARM_PWR_LVL2
+
+#define PLAT_MIN_PWR_LVL		PLAT_CORE_PWR_LVL
+#define PLAT_MAX_PWR_LVL		PLAT_SYSTEM_PWR_LVL
 
 /* Cryptocell HW Base address */
 #define PLAT_CRYPTOCELL_BASE		UL(0x60050000)
@@ -284,8 +289,5 @@
 
 #define PLAT_ARM_PRIVATE_SDEI_EVENTS	ARM_SDEI_PRIVATE_EVENTS
 #define PLAT_ARM_SHARED_SDEI_EVENTS	ARM_SDEI_SHARED_EVENTS
-
-/* System power domain level */
-#define PLAT_SYSTEM_PWR_LVL		ARM_PWR_LVL2
 
 #endif /* PLATFORM_DEF_H */
