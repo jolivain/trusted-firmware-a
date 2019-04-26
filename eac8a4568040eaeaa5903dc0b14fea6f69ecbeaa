@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "988a8f37_53ecb20c",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-26T14:02:32Z",
+      "side": 1,
+      "message": "Removal of #include \u003cassert.h\u003e causes\ndrivers/arm/smmu/smmu_v3.c: In function \u0027smmuv3_poll\u0027:\ndrivers/arm/smmu/smmu_v3.c:26:2: error: implicit declaration of function \u0027ERROR\u0027 [-Werror\u003dimplicit-function-declaration]\n   26 |  ERROR(\"Failed to poll SMMUv3 register @%p\\n\", (void *)smmu_reg);",
+      "parentUuid": "e7ca1a2b_02315676",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "eac8a4568040eaeaa5903dc0b14fea6f69ecbeaa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "58c038ae_14eea228",
         "filename": "drivers/arm/smmu/smmu_v3.c",
         "patchSetId": 8
