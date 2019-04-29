@@ -24,9 +24,11 @@ else
   Q :=
 endif
 
+CFLAGS := -Os -ffunction-sections -fdata-sections
+LDFLAGS := --gc-sections -Os
 ifeq ($(DEBUG),1)
-   CFLAGS  := -g
-   LDFLAGS := -g --gc-sections -O1 -Map=$(MAPFILE)
+   CFLAGS  += -g
+   LDFLAGS += -g -Map=$(MAPFILE)
 endif
 
 
