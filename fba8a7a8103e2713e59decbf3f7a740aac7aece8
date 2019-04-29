@@ -294,6 +294,24 @@
     },
     {
       "key": {
+        "uuid": "09749995_980dc4ee",
+        "filename": "plat/arm/board/fvp/fvp_bl1_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-29T10:25:04Z",
+      "side": 1,
+      "message": "This will require a new FVP specific function which checks arm_config.flags for SMMUv3 presence because bl1_platform_setup() is common for other platforms.",
+      "parentUuid": "27292d56_617919c7",
+      "revId": "fba8a7a8103e2713e59decbf3f7a740aac7aece8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7bd159d_5aeb86c3",
         "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
         "patchSetId": 5
