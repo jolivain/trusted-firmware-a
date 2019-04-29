@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "09030fb0_a53b1b1c",
+        "filename": "docs/binary-policy.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-29T23:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4153fc2_8144a359",
+      "range": {
+        "startLine": 14,
+        "startChar": 20,
+        "endLine": 14,
+        "endChar": 39
+      },
+      "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01be0fbb_484ba8c7",
         "filename": "docs/binary-policy.rst",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2019-04-25T16:26:00Z",
       "side": 1,
       "message": "I think the above paragraph should be moved into a new section of contributing.rst, and the remainder of this document should be moved to the readme.rst (or a new contributing.rst) in the tf-binaries repo. This new document would then no longer be needed.\n\nAll references to Trusted Firmware in this project should specifically refer to Trusted Firmware-A.",
+      "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9788b0a_44ccd1c4",
+        "filename": "docs/binary-policy.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-29T23:34:19Z",
+      "side": 1,
+      "message": "Okay, merged it into readme.rst and added some stuff to contributing.rst. I rewrote that to better match the existing bullet point style in that file, but tried to capture the same general ideas.",
+      "parentUuid": "01be0fbb_484ba8c7",
       "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -88,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "827eddf0_af931976",
+        "filename": "docs/binary-policy.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-29T23:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6027886_48dfae54",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 20
+      },
+      "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d31a9681_1285c04a",
         "filename": "docs/binary-policy.rst",
         "patchSetId": 1
@@ -111,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "68726a9b_9e616b42",
+        "filename": "docs/binary-policy.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-29T23:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d31a9681_1285c04a",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 16
+      },
+      "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7de5ed24_48160988",
         "filename": "docs/binary-policy.rst",
         "patchSetId": 1
@@ -128,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "5231c40d_aa71a9d4",
+        "filename": "docs/binary-policy.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-29T23:34:19Z",
+      "side": 1,
+      "message": "I just added those licenses because I thought they may likely be used by third-party dependencies of some blobs, but I agree linking to SPDX is better. I think the Permissive Binary License should still be the only one we \"recommend\" to make things less confusing. I rewrote the paragraph about third-party code below to suggest linking to SPDX.",
+      "parentUuid": "7de5ed24_48160988",
+      "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4c654590_5810b30e",
         "filename": "docs/binary-policy.rst",
         "patchSetId": 1
@@ -139,6 +247,24 @@
       "writtenOn": "2019-04-25T16:26:00Z",
       "side": 1,
       "message": "This potentially could be a long list of licenses (it was for the earlier SDM845 PR) and may clutter the overall document. Also, your comment about license files not looking good in rst applies here too. I think it would be better to upload this license list separately using a suggested name (e.g. license-notices.txt) and add a new section above to say that this is needed (instead of attaching to this release notes section).",
+      "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6c144d5_6280638b",
+        "filename": "docs/binary-policy.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-29T23:34:19Z",
+      "side": 1,
+      "message": "You mean this file: https://github.com/sgorecha/arm-trusted-firmware/blob/b6baf293abf994ea46720deadce1eccefa9eae88/plat/qti/NOTICE ?\n\nThat\u0027s just so long because it includes the license text in full for every license. That\u0027s not the plan for these release notes (it says list of licenses, not full-text copy of licenses, after all... is there a way we can clarify that further?), they\u0027re just supposed to contain a list of links (either inside the repository or to SPDX). With that approach this should be fine, right? I think it\u0027s nicer to keep all the info about a binary together in a single file.",
+      "parentUuid": "4c654590_5810b30e",
       "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -168,6 +294,30 @@
     },
     {
       "key": {
+        "uuid": "3667d8b9_4ff14870",
+        "filename": "docs/binary-policy.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-29T23:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8c6d906_62cd8617",
+      "range": {
+        "startLine": 91,
+        "startChar": 29,
+        "endLine": 91,
+        "endChar": 45
+      },
+      "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1995f637_c8ff6418",
         "filename": "docs/binary-policy.rst",
         "patchSetId": 1
@@ -188,6 +338,30 @@
       "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f283b1b_96a9b9e2",
+        "filename": "docs/binary-policy.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-29T23:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1995f637_c8ff6418",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 16
+      },
+      "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
