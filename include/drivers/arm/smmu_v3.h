@@ -17,19 +17,20 @@
 #define SMMU_S_GBPA	U(0x8044)
 
 /* SMMU_GBPA register fields */
-#define SMMU_GBPA_UPDATE		(1U << 31)
-#define SMMU_GBPA_ABORT			(1U << 20)
+#define SMMU_GBPA_UPDATE		(1UL << 31)
+#define SMMU_GBPA_ABORT			(1UL << 20)
 
 /* SMMU_S_IDR1 register fields */
-#define SMMU_S_IDR1_SECURE_IMPL		(1U << 31)
+#define SMMU_S_IDR1_SECURE_IMPL		(1UL << 31)
 
 /* SMMU_S_INIT register fields */
-#define SMMU_S_INIT_INV_ALL		(1U << 0)
+#define SMMU_S_INIT_INV_ALL		(1UL << 0)
 
 /* SMMU_S_GBPA register fields */
-#define SMMU_S_GBPA_UPDATE		(1U << 31)
-#define SMMU_S_GBPA_ABORT		(1U << 20)
+#define SMMU_S_GBPA_UPDATE		(1UL << 31)
+#define SMMU_S_GBPA_ABORT		(1UL << 20)
 
 int smmuv3_init(uintptr_t smmu_base);
+int smmuv3_security_init(uintptr_t smmu_base);
 
 #endif /* SMMU_V3_H */
