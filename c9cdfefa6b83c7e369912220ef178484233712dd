@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4881217_7bc535e4",
+        "filename": "plat/rockchip/common/params_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-30T21:31:26Z",
+      "side": 1,
+      "message": "You forgot the part where you\u0027re calling this now. (Also, should be implemented inside the !COREBOOT block.)",
+      "revId": "c9cdfefa6b83c7e369912220ef178484233712dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
