@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "1a08a6fd_9bee781f",
+        "filename": "docs/binary-policy.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-04-30T09:58:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b9788b0a_44ccd1c4",
+      "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb0c8f63_4bc6cf9f",
         "filename": "docs/binary-policy.rst",
         "patchSetId": 1
@@ -236,6 +254,24 @@
     },
     {
       "key": {
+        "uuid": "98eabed3_f52a576d",
+        "filename": "docs/binary-policy.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-04-30T09:58:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5231c40d_aa71a9d4",
+      "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c654590_5810b30e",
         "filename": "docs/binary-policy.rst",
         "patchSetId": 1
@@ -265,6 +301,24 @@
       "side": 1,
       "message": "You mean this file: https://github.com/sgorecha/arm-trusted-firmware/blob/b6baf293abf994ea46720deadce1eccefa9eae88/plat/qti/NOTICE ?\n\nThat\u0027s just so long because it includes the license text in full for every license. That\u0027s not the plan for these release notes (it says list of licenses, not full-text copy of licenses, after all... is there a way we can clarify that further?), they\u0027re just supposed to contain a list of links (either inside the repository or to SPDX). With that approach this should be fine, right? I think it\u0027s nicer to keep all the info about a binary together in a single file.",
       "parentUuid": "4c654590_5810b30e",
+      "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6e42a3a_ff4b38ad",
+        "filename": "docs/binary-policy.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-04-30T09:58:27Z",
+      "side": 1,
+      "message": "Yes I was referring to that. I agree using SPDX license links is better and should make this shorter but we still need to keep all the unique copyright notices (or links to them), which will be quite long overall.\n\nPerhaps the compromise is to give the option here of listing the notices inline or linking to a separate file?",
+      "parentUuid": "d6c144d5_6280638b",
       "revId": "b1349743a7949bb7b678fdf5aa681eb9d8d88081",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
