@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19c85139_20f131a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-30T09:10:44Z",
+      "side": 1,
+      "message": "enables.. to all functions that declare",
+      "revId": "28b418380dbacaff128443819fbca096e47f68a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d0379d2_380d9637",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-30T09:10:44Z",
+      "side": 1,
+      "message": "its -\u003e their",
+      "revId": "28b418380dbacaff128443819fbca096e47f68a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3777de79_6f06b958",
+        "filename": "docs/user-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-30T09:10:44Z",
+      "side": 1,
+      "message": "would it be more clear to have just either string (i.e. \"none\u0027, \"default\", \"all\", \"strong\") or numeric option 0...3 which will correspond to GCC compiler flag? Also consider\n\"fstack-protector-explicit\nLike -fstack-protector but only protects those functions which have the stack_protect attribute. \"",
+      "revId": "28b418380dbacaff128443819fbca096e47f68a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fa6db7a_b1c193a3",
+        "filename": "lib/stack_protector/stack_protector.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-04-30T09:10:44Z",
+      "side": 1,
+      "message": "please see the comments for user_guide.rst",
+      "revId": "28b418380dbacaff128443819fbca096e47f68a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
