@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "07287966_b0e92f8e",
+        "filename": "contributing.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-30T23:23:49Z",
+      "side": 1,
+      "message": "Will fix.",
+      "parentUuid": "1078f20a_ac1c3277",
+      "revId": "e652a1258fb5be6b32928352d9e515d00076c6ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66b56bda_f000e985",
         "filename": "contributing.rst",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2019-04-30T09:58:27Z",
       "side": 1,
       "message": "minor: potential link confusion with readme of this repository. Suggest _tf-binaries-readme.",
+      "range": {
+        "startLine": 148,
+        "startChar": 3,
+        "endLine": 148,
+        "endChar": 14
+      },
+      "revId": "e652a1258fb5be6b32928352d9e515d00076c6ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5388fc40_940cdba5",
+        "filename": "contributing.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-04-30T23:23:49Z",
+      "side": 1,
+      "message": "Done, took me a while to figure out how to do that in rst",
+      "parentUuid": "66b56bda_f000e985",
       "range": {
         "startLine": 148,
         "startChar": 3,
