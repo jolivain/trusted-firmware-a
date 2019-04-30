@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "46770c3d_94e065e7",
+        "filename": "docs/user-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-04-30T09:29:49Z",
+      "side": 1,
+      "message": "we don\u0027t need to add explicit support now, but if we migrate the options to be (\"none\u0027, \"default\", \"all\", \"strong\"), explicit can be added on later if needed.",
+      "parentUuid": "477e4a8a_a9658422",
+      "revId": "28b418380dbacaff128443819fbca096e47f68a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8fa6db7a_b1c193a3",
         "filename": "lib/stack_protector/stack_protector.mk",
         "patchSetId": 1
