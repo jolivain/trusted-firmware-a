@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0912b27f_074c1ab2",
+        "filename": "include/drivers/arm/smmu_v3.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-04-30T15:49:35Z",
+      "side": 1,
+      "message": "I suspect UL is not sufficient. ULL might be required. Lets wait for the Coverity scan results.",
+      "range": {
+        "startLine": 20,
+        "startChar": 28,
+        "endLine": 20,
+        "endChar": 30
+      },
+      "revId": "95832fbb246b456a12c5cb45d70cd96cd0afbcdb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
