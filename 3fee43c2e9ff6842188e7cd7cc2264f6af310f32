@@ -16,6 +16,24 @@
       "revId": "3fee43c2e9ff6842188e7cd7cc2264f6af310f32",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85251c71_a19031c3",
+        "filename": "lib/psci/psci_lib.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-01T10:52:01Z",
+      "side": 1,
+      "message": "lib/aarch64/pauth_helpers.S was removed from bl1.mk after Sandrine\u0027s comment:\n\"It seems to me that this change is not required. IIUC, BL1 does not call pauth_load_bl_apiakey(). Instead, it uses bl_handle_pauth() to generate and load the keys.\"\n\nNeither BL1 nor BL2 calls any function from pauth_helpers.S which are called by BL31 and TSP only.",
+      "parentUuid": "7d22018b_8905b870",
+      "revId": "3fee43c2e9ff6842188e7cd7cc2264f6af310f32",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
