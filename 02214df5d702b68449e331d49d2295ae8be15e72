@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "503f8dfe_e1082633",
+        "filename": "include/lib/cpus/aarch64/cortex_a76.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-05-01T16:21:45Z",
+      "side": 1,
+      "message": "I only found a definition for this register on A76 r3p1 TRM, which is not concerned by this errata... Sadly it is not document on TRM r3p0.",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 46
+      },
+      "revId": "02214df5d702b68449e331d49d2295ae8be15e72",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "86939ff4_bcc5d891",
         "filename": "lib/cpus/aarch64/cortex_a76.S",
         "patchSetId": 1
