@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70496d30_a2f22977",
+        "filename": "plat/rockchip/rk3288/drivers/soc/soc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-05-01T09:25:34Z",
+      "side": 0,
+      "message": "Note that each region needs 8 bytes * 4 fields \u003d 32 bytes to be described, and you are adding 4 regions, so you\u0027re increasing the size of the array by 128 bytes by doing this.",
+      "revId": "19b4f689c6f58cb2da9377bcec32c79a97d3fb73",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
