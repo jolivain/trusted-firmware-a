@@ -44,6 +44,11 @@ $(eval $(call add_define,JUNO_TZMP1))
 endif
 
 ifeq (${JUNO_AARCH32_EL3_RUNTIME}, 1)
+
+ifneq (${ENABLE_STACK_PROTECTOR}, 0)
+BL2U_SOURCES		+=	${JUNO_SECURITY_SOURCES}
+endif
+
 # Include BL32 in FIP
 NEED_BL32		:= yes
 # BL31 is not required
@@ -153,4 +158,3 @@ include plat/arm/board/common/board_common.mk
 include plat/arm/common/arm_common.mk
 include plat/arm/soc/common/soc_css.mk
 include plat/arm/css/common/css_common.mk
-
