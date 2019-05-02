@@ -69,7 +69,7 @@
 /* TF txet, ro, rw, xlat table, coherent memory ... etc.
  * Size: release: 128KB, debug: 128KB
  */
-#define TZRAM_BASE		(0x100000)
+#define TZRAM_BASE		(0x54600000)
 #if DEBUG
 #define TZRAM_SIZE		(0x20000)
 #else
