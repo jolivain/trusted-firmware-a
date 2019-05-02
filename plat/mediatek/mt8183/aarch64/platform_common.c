@@ -7,6 +7,7 @@
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
+#include <mt_gic_v3.h>
 #include <platform_def.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables.h>
@@ -50,3 +51,9 @@ unsigned int plat_get_syscnt_freq2(void)
 {
 	return SYS_COUNTER_FREQ_IN_TICKS;
 }
+
+void plat_gic_init(void)
+{
+	gic_setup();
+}
+
