@@ -31,6 +31,7 @@ BL31_SOURCES    += drivers/arm/cci/cci.c                                 \
                    ${MTK_PLAT_SOC}/aarch64/platform_common.c             \
                    ${MTK_PLAT_SOC}/plat_pm.c                             \
                    ${MTK_PLAT_SOC}/plat_topology.c                       \
+                   ${MTK_PLAT_SOC}/plat_mt_gic.c                         \
                    ${MTK_PLAT_SOC}/bl31_plat_setup.c                     \
                    ${MTK_PLAT_SOC}/plat_debug.c                          \
                    ${MTK_PLAT_SOC}/scu.c
