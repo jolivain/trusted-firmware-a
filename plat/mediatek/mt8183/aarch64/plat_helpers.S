@@ -10,6 +10,8 @@
 
 	.globl plat_is_my_cpu_primary
 	.globl plat_my_core_pos
+	.globl read_cpuectlr
+	.globl write_cpuectlr
 
 func plat_is_my_cpu_primary
 	mrs x0, mpidr_el1
