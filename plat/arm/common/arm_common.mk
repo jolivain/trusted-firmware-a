@@ -208,7 +208,8 @@ endif
 
 BL2U_SOURCES		+=	drivers/delay_timer/delay_timer.c		\
 				drivers/delay_timer/generic_delay_timer.c	\
-				plat/arm/common/arm_bl2u_setup.c
+				plat/arm/common/arm_bl2u_setup.c		\
+				${JUNO_SECURITY_SOURCES}
 
 BL31_SOURCES		+=	plat/arm/common/arm_bl31_setup.c		\
 				plat/arm/common/arm_pm.c			\
