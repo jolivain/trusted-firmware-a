@@ -21,7 +21,7 @@ void plat_cci_init(void);
 void plat_cci_enable(void);
 void plat_cci_disable(void);
 void plat_cci_init_sf(void);
-void plat_gic_init(void);
+void plat_mtk_gic_init(void);
 
 /* Declarations for plat_topology.c */
 int mt_setup_topology(void);
