@@ -91,6 +91,9 @@ void bl31_platform_setup(void)
 {
 	platform_setup_cpu();
 	generic_delay_timer_init();
+
+	/* Initialize the gic cpu and distributor interfaces */
+	plat_gic_init();
 }
 
 /*******************************************************************************
