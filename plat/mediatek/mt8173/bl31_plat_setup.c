@@ -8,8 +8,8 @@
 
 #include <common/bl_common.h>
 #include <common/debug.h>
-#include <drivers/console.h>
 #include <drivers/generic_delay_timer.h>
+#include <drivers/ti/uart/uart_16550.h>
 #include <lib/mmio.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/common_def.h>
@@ -100,7 +100,8 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 {
 	struct mtk_bl31_params *arg_from_bl2 = (struct mtk_bl31_params *)arg0;
 
-	console_init(MT8173_UART0_BASE, MT8173_UART_CLOCK, MT8173_BAUDRATE);
+	static console_16550_t console;
+	console_16550_register(MT8173_UART0_BASE, MT8173_UART_CLOCK, MT8173_BAUDRATE, &console);
 
 	VERBOSE("bl31_setup\n");
 
