@@ -15,6 +15,7 @@
 #include <lib/mmio.h>
 #include <mtk_plat_common.h>
 #include <mtspmc.h>
+#include <params_setup.h>
 #include <plat_debug.h>
 #include <plat_private.h>
 #include <platform_def.h>
@@ -70,6 +71,9 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 				u_register_t arg2, u_register_t arg3)
 {
 	struct mtk_bl31_params *arg_from_bl2 = (struct mtk_bl31_params *)arg0;
+	void *plat_params_from_bl2 = (void *) arg1;
+
+	params_early_setup(plat_params_from_bl2);
 
 	static console_16550_t console;
 	console_16550_register(UART0_BASE, UART_CLOCK, UART_BAUDRATE, &console);
