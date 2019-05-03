@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9113d602_12cf6500",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-03T10:12:06Z",
+      "side": 1,
+      "message": "as the workaround for #1262606 is the same as for #1275112, would it be more practical to combine these 2 in 1 function which will be called just one if either or both errata are applied?",
+      "revId": "5981a30d28f1802c19d735b109219237fb6704cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
