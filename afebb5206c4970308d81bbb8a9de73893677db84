@@ -65,6 +65,24 @@
     },
     {
       "key": {
+        "uuid": "701e1bd1_ab97b34f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-03T15:33:12Z",
+      "side": 1,
+      "message": "This patch set addresses comments to place pauth_helpers.S in BL_COMMON_SOURCES of arm_common.mk, move all PAuth support code from lib/aarch64 to lib/extensions/pauth folder and rename bl_init_pauth to bl_init_pauth(). How would you split the changes?\nI will restore platform specific plat_init_apiakey() in arm/common/aarch64/arm_pauth.c, so what are the other changes required?",
+      "parentUuid": "03c81b0c_6e0dcf8a",
+      "revId": "afebb5206c4970308d81bbb8a9de73893677db84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2e208eb_b39441c7",
         "filename": "lib/extensions/pauth/arm_pauth.c",
         "patchSetId": 6
