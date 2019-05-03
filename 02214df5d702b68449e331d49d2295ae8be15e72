@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "02a1e47b_c4b8087a",
+        "filename": "include/lib/cpus/aarch64/cortex_a76.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-03T09:16:57Z",
+      "side": 1,
+      "message": "Yes, that is right.",
+      "parentUuid": "503f8dfe_e1082633",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 46
+      },
+      "revId": "02214df5d702b68449e331d49d2295ae8be15e72",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "86939ff4_bcc5d891",
         "filename": "lib/cpus/aarch64/cortex_a76.S",
         "patchSetId": 1
