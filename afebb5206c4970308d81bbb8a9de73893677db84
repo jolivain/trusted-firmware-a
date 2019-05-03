@@ -133,6 +133,30 @@
       "revId": "afebb5206c4970308d81bbb8a9de73893677db84",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceaebf4a_33333873",
+        "filename": "lib/extensions/pauth/arm_pauth.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-05-03T15:06:06Z",
+      "side": 1,
+      "message": "In other words, the right place for this code is plat/arm/common/ because that way non-arm platforms can implement their own version of it. However, the rest of bl_init_pauth() is common, and that is why this code was split into two functions before.",
+      "parentUuid": "01ed810c_87688444",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 52
+      },
+      "revId": "afebb5206c4970308d81bbb8a9de73893677db84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
