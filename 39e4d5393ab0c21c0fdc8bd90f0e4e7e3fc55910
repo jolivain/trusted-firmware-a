@@ -1,0 +1,1159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0174ea2_d6dc9b59",
+        "filename": "plat/mediatek/mt8183/aarch64/plat_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "2019?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fca504f_c54e68ce",
+        "filename": "plat/mediatek/mt8183/aarch64/platform_common.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "2019?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e9a9db4_9d24504a",
+        "filename": "plat/mediatek/mt8183/aarch64/platform_common.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "remove the blank line?",
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ced47662_33189849",
+        "filename": "plat/mediatek/mt8183/aarch64/platform_common.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "one blank line should be enough - no need to have two?",
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97745795_534654b1",
+        "filename": "plat/mediatek/mt8183/aarch64/platform_common.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "line exceed col 80; please move MT_MEMORY and reset to next line.\nSame as below.",
+      "range": {
+        "startLine": 41,
+        "startChar": 64,
+        "endLine": 41,
+        "endChar": 84
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe2ec9ce_5052a1dc",
+        "filename": "plat/mediatek/mt8183/bl31_plat_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "2019?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dab8ee0_c92da56b",
+        "filename": "plat/mediatek/mt8183/bl31_plat_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "exceed col 80 - please move arg to next line. same as next VERBOSE.",
+      "range": {
+        "startLine": 35,
+        "startChar": 29,
+        "endLine": 35,
+        "endChar": 91
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e944ed87_e294c2d8",
+        "filename": "plat/mediatek/mt8183/bl31_plat_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "indent error? Please align this to u_register_t arg0",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 5
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7d90719_b2a031a6",
+        "filename": "plat/mediatek/mt8183/bl31_plat_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "no need to have extra blank line here",
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc2750f8_1364d91a",
+        "filename": "plat/mediatek/mt8183/include/mcucfg.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "2019?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ffb25cd_6bf1da67",
+        "filename": "plat/mediatek/mt8183/include/mcucfg.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "it\u0027s weird to have constant defined in lower case. Please consider changing to upper case. Probably even better in enum. i.e.,\n\nenum {\n  SW_SPARK_EN \u003d (1 \u003c\u003c 0),",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 19
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16500456_a3e6ef82",
+        "filename": "plat/mediatek/mt8183/include/mcucfg.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "for consistency, please add space between operator and operand:\n\n (1 \u003c\u003c 0)\n\nSame as lines below.",
+      "range": {
+        "startLine": 80,
+        "startChar": 22,
+        "endLine": 80,
+        "endChar": 28
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74ced4af_c20cdfb6",
+        "filename": "plat/mediatek/mt8183/include/plat_debug.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "exceed col 80; please change to\n\n #define sync_writel(addr, val) \\\n      do { ...}",
+      "range": {
+        "startLine": 10,
+        "startChar": 31,
+        "endLine": 10,
+        "endChar": 86
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d03c1403_5aaf51ec",
+        "filename": "plat/mediatek/mt8183/include/plat_debug.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "no need to quote single value.",
+      "range": {
+        "startLine": 12,
+        "startChar": 23,
+        "endLine": 12,
+        "endChar": 35
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "272f8768_c6d4312e",
+        "filename": "plat/mediatek/mt8183/include/plat_debug.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "please be consistent - if you the rest of this file put numbers in lower case as 0xb00.",
+      "range": {
+        "startLine": 13,
+        "startChar": 25,
+        "endLine": 13,
+        "endChar": 32
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2cf5881_ac5269e8",
+        "filename": "plat/mediatek/mt8183/include/plat_debug.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "endif  /* PLATFORM_DEBUG_H */",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2a64710_65fa4803",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11d94b2a_1ed05b80",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "No need to quote for single value",
+      "range": {
+        "startLine": 15,
+        "startChar": 27,
+        "endLine": 15,
+        "endChar": 39
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5833d4a_1bd5604a",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "no need to quote for single value",
+      "range": {
+        "startLine": 25,
+        "startChar": 27,
+        "endLine": 25,
+        "endChar": 39
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "236c0163_dd9ef515",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "no need to quote for single value",
+      "range": {
+        "startLine": 30,
+        "startChar": 27,
+        "endLine": 30,
+        "endChar": 39
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b173ceeb_0ce5d94d",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "Be consistent with others: add space between operator and operands.\n\n (APMIXEDSYS + 0x200)",
+      "range": {
+        "startLine": 42,
+        "startChar": 27,
+        "endLine": 42,
+        "endChar": 45
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50bd4037_9354c3c8",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "Be consistent with others: add space between operator and operands.\n\n (APMIXEDSYS + 0x200)",
+      "range": {
+        "startLine": 49,
+        "startChar": 36,
+        "endLine": 49,
+        "endChar": 44
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ee3bcdd_336cd878",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "no need to quote for single value",
+      "range": {
+        "startLine": 56,
+        "startChar": 29,
+        "endLine": 56,
+        "endChar": 38
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "506b94ac_4b73c456",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "remove space",
+      "range": {
+        "startLine": 74,
+        "startChar": 33,
+        "endLine": 74,
+        "endChar": 35
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "690d4e50_33d781a5",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "remove space",
+      "range": {
+        "startLine": 81,
+        "startChar": 28,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e362f878_fce7bb5d",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "remove space",
+      "range": {
+        "startLine": 83,
+        "startChar": 28,
+        "endLine": 83,
+        "endChar": 29
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9379a0d_36703455",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "remove space",
+      "range": {
+        "startLine": 84,
+        "startChar": 28,
+        "endLine": 84,
+        "endChar": 30
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1e24de8_5749c9ed",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "remove this comment",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 38
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdee60b0_15f2aff2",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "no need to quote single value",
+      "range": {
+        "startLine": 153,
+        "startChar": 32,
+        "endLine": 153,
+        "endChar": 40
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50d88997_f8f2bb88",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "Be consistent: (MTK_WDT_BASE + 0x0000)",
+      "range": {
+        "startLine": 154,
+        "startChar": 32,
+        "endLine": 154,
+        "endChar": 53
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8077f279_bc8759c3",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "no need to quote single value",
+      "range": {
+        "startLine": 198,
+        "startChar": 29,
+        "endLine": 198,
+        "endChar": 37
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10ebe2b4_a4e8d29a",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "add space between operator and operands",
+      "range": {
+        "startLine": 199,
+        "startChar": 29,
+        "endLine": 199,
+        "endChar": 47
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d0da685_e48cffd3",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "no need to quote single value",
+      "range": {
+        "startLine": 202,
+        "startChar": 29,
+        "endLine": 202,
+        "endChar": 41
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "286d5fd1_e75c1b58",
+        "filename": "plat/mediatek/mt8183/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "no need to quote single value",
+      "range": {
+        "startLine": 276,
+        "startChar": 27,
+        "endLine": 276,
+        "endChar": 40
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e8c77a4_292d510d",
+        "filename": "plat/mediatek/mt8183/include/scu.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "2019?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99c6f89f_59522018",
+        "filename": "plat/mediatek/mt8183/plat_debug.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "2019?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94723795_34aad437",
+        "filename": "plat/mediatek/mt8183/plat_debug.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "Is this a per-function comment or per file?\n\nFor per file we probably want to put one blank line between comment and functions.\n\nBut somehow I feel this comment is not helpful - the file name plat_debug already tells same thing.",
+      "range": {
+        "startLine": 13,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 32
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "843cfd93_8827d670",
+        "filename": "plat/mediatek/mt8183/plat_debug.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "Be consistent: If you prefer to capitalize comments then all comments in this file should be capitalized (Clear). Same thing to comments below.",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 9
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f57b2b5_7a9271c5",
+        "filename": "plat/mediatek/mt8183/plat_debug.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "exceed col 80 - please put mmio_read or all args in next line",
+      "range": {
+        "startLine": 17,
+        "startChar": 1,
+        "endLine": 17,
+        "endChar": 91
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1eb1871_fe7941d0",
+        "filename": "plat/mediatek/mt8183/plat_debug.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "exceed col 80",
+      "range": {
+        "startLine": 28,
+        "startChar": 66,
+        "endLine": 28,
+        "endChar": 79
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c4e2945_4ac4f7ba",
+        "filename": "plat/mediatek/mt8183/plat_debug.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "workaround of what? maybe add a reference to issue, spec, data sheet or longer explanation.",
+      "range": {
+        "startLine": 30,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 38
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "441bf587_1e15b1c0",
+        "filename": "plat/mediatek/mt8183/plat_debug.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "exceed col 80",
+      "range": {
+        "startLine": 32,
+        "startChar": 42,
+        "endLine": 32,
+        "endChar": 101
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b20476e_0604aaf9",
+        "filename": "plat/mediatek/mt8183/plat_debug.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "exceed col 80",
+      "range": {
+        "startLine": 46,
+        "startChar": 34,
+        "endLine": 47,
+        "endChar": 36
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8e4b0e2_25dd6172",
+        "filename": "plat/mediatek/mt8183/plat_debug.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "exceed col 80",
+      "range": {
+        "startLine": 53,
+        "startChar": 64,
+        "endLine": 53,
+        "endChar": 89
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b307671d_d8649193",
+        "filename": "plat/mediatek/mt8183/plat_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "2019?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50d0a5db_5eb4e7a1",
+        "filename": "plat/mediatek/mt8183/plat_topology.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "797a2be0_49329fdd",
+        "filename": "plat/mediatek/mt8183/plat_topology.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "Number",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 12,
+        "endChar": 6
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e5fc4be_32b6363b",
+        "filename": "plat/mediatek/mt8183/plat_topology.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "Number (same below)",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 6
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40e5371c_a8b5f010",
+        "filename": "plat/mediatek/mt8183/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f34df336_22b6a08c",
+        "filename": "plat/mediatek/mt8183/scu.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "exist.",
+      "range": {
+        "startLine": 31,
+        "startChar": 28,
+        "endLine": 31,
+        "endChar": 34
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e28b04f_0729f14a",
+        "filename": "plat/mediatek/mt8183/scu.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T07:24:42Z",
+      "side": 1,
+      "message": "exist.",
+      "range": {
+        "startLine": 52,
+        "startChar": 28,
+        "endLine": 52,
+        "endChar": 34
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
