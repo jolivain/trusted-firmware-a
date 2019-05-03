@@ -109,6 +109,30 @@
       "revId": "afebb5206c4970308d81bbb8a9de73893677db84",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01ed810c_87688444",
+        "filename": "lib/extensions/pauth/arm_pauth.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-05-03T15:04:31Z",
+      "side": 1,
+      "message": "bl_init_pauth() is a common function that can\u0027t be overriden by the platform. This comment about \"a production system must re-implement this function\" is incorrect. This code should be in the platform layer, as it was before in plat_init_apikey().",
+      "parentUuid": "3007a964_4ddec612",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 52
+      },
+      "revId": "afebb5206c4970308d81bbb8a9de73893677db84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
