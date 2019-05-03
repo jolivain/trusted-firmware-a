@@ -85,6 +85,30 @@
       "revId": "afebb5206c4970308d81bbb8a9de73893677db84",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3007a964_4ddec612",
+        "filename": "lib/extensions/pauth/arm_pauth.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-03T15:01:44Z",
+      "side": 1,
+      "message": "which function do you mean? bl_init_pauth or removed plat_init_apikey()?",
+      "parentUuid": "d2e208eb_b39441c7",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 52
+      },
+      "revId": "afebb5206c4970308d81bbb8a9de73893677db84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
