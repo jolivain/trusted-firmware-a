@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2b95d75f_f9ae019d",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-03T11:53:01Z",
+      "side": 1,
+      "message": "Both PAUTH and BTI features are passed as one build option, so a single warning should be printed. The logic is correct and covers all possible user cases.",
+      "parentUuid": "3ec3d449_538f13f4",
+      "range": {
+        "startLine": 481,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 5
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7906ac8_3d1db3b1",
         "filename": "bl1/bl1.mk",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "6f5c4764_b242f47f",
+        "filename": "bl1/bl1.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-03T11:53:01Z",
+      "side": 1,
+      "message": "Yes. In GCC 9 sign-return-address option has been deprecated by -mbranch-protection. Compilation with sign-return-address emits warnings and no PAUTH support code is generated.",
+      "parentUuid": "a7906ac8_3d1db3b1",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "caf6f13e_462d63b6",
         "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2019-05-03T09:10:45Z",
       "side": 1,
       "message": "Given that we have to *clear* this bit to enable PAC branch type compatibility, I suppose we should set it by default in other configurations (as this bit resets to an architecturally unknown value).\n\nWhere is this done?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 23
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fadbc080_e1bee8c4",
+        "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-03T11:53:01Z",
+      "side": 1,
+      "message": "Setting these bits is only required when PAUTH gets enabled and the bits don\u0027t have any effect otherwise. All PAUTH bits EnIA, EnIB, EnDA, EnDB also reset \"to an architecturally UNKNOWN value\", but only EnIA gets enabled by setting to 1 if ENABLE_PAUTH \u003d 1 and not cleared otherwise.\n\"I suppose we should set it by default in other configurations...\"\nSCTLR_EL3 is set in el3_entrypoint_common macro (include\\arch\\arch64\\el3_common_macros.S):\n mov_imm x0, (SCTLR_RESET_VAL \u0026 ~(SCTLR_EE_BIT | SCTLR_WXN_BIT \\\n\t    | SCTLR_SA_BIT | SCTLR_A_BIT | SCTLR_DSSBS_BIT))\n msr\tsctlr_el3, x0\n isb\n\n, where SCTLR_RESET_VAL is definition for RES1 bits, so all other bits are set to 0.",
+      "parentUuid": "caf6f13e_462d63b6",
       "range": {
         "startLine": 54,
         "startChar": 0,
@@ -128,6 +194,30 @@
     },
     {
       "key": {
+        "uuid": "f9ff78c3_945b04b1",
+        "filename": "docs/user-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-03T11:53:01Z",
+      "side": 1,
+      "message": "Makefile should be abstracted from GCC and not dependent on compilation options, which could be changed in other versions, as what happened with \"sign-return-address\" deprecated by \"branch-protection\".",
+      "parentUuid": "b537671d_ebb2e6c2",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 48
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6dee442d_8faef8c7",
         "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
         "patchSetId": 1
@@ -145,6 +235,24 @@
     },
     {
       "key": {
+        "uuid": "c0a8ac4d_ab9eb0fd",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-03T11:53:01Z",
+      "side": 1,
+      "message": "Code analysis and debugging.",
+      "parentUuid": "6dee442d_8faef8c7",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fdc5521b_66c47ab7",
         "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
         "patchSetId": 1
@@ -156,6 +264,30 @@
       "writtenOn": "2019-05-03T09:10:45Z",
       "side": 1,
       "message": "We should try to limit the use of conditional code like that if we can, as it hurts readability.\n\nI think we might be able to handle that in the func macro. How about adding an optional macro argument that specifies whether this function is a valid BTI target? Then line 174 would become something like:\n\n func console_pl011_putc, bti\u003dc",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 6
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22b33db0_e29c0fad",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-03T11:53:01Z",
+      "side": 1,
+      "message": "Changing func macro will effect all other assembler fuunctions as well which shouldn\u0027t be modified and use bti parameter as not being not effected by BTI. \nfunc macro bti parameter should be optional and will use conditional code anyway.",
+      "parentUuid": "fdc5521b_66c47ab7",
       "range": {
         "startLine": 175,
         "startChar": 0,
@@ -191,6 +323,30 @@
     },
     {
       "key": {
+        "uuid": "1a4710de_cdd86cab",
+        "filename": "lib/libc/libc.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-03T11:53:01Z",
+      "side": 1,
+      "message": "Yes, thanks for pointing to this. Will fix in the next patch set.",
+      "parentUuid": "687280b2_18aa8e42",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "833d82a5_cbe9c742",
         "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
         "patchSetId": 1
@@ -202,6 +358,24 @@
       "writtenOn": "2019-05-03T09:10:45Z",
       "side": 1,
       "message": "IIUC, only code pages are guarded here, data pages are not.\n\nI did not clearly understand how non-guarded pages are treated. Let\u0027s say I do an indirect branch to a non-guarded page, what happens? Will it be allowed/ignored, or will it generate a branch target exception?",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19a97c4d_2e7536ab",
+        "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-03T11:53:01Z",
+      "side": 1,
+      "message": "- Code is not executed in data pages.\n- Allowed, only guarded pages are protected, no exception is generated.",
+      "parentUuid": "833d82a5_cbe9c742",
       "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
