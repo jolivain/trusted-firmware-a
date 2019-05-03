@@ -421,6 +421,29 @@
     },
     {
       "key": {
+        "uuid": "2382608a_87acbf07",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:31:00Z",
+      "side": 1,
+      "message": "Where is this used?\n\nbit fields is not a good choice if we\u0027re going to do MMIO with it...",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 10
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a0173fc6_9043202e",
         "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio_cfg.h",
         "patchSetId": 3
