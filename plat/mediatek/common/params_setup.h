@@ -9,7 +9,7 @@
 
 #include <plat_params.h>
 
-struct gpio_info *plat_get_gpio_reset(void);
+struct bl_aux_gpio_info *plat_get_mtk_gpio_reset(void);
 void params_early_setup(u_register_t plat_param_from_bl2);
 
 #endif
