@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2e208eb_b39441c7",
+        "filename": "lib/extensions/pauth/arm_pauth.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-05-03T14:45:44Z",
+      "side": 1,
+      "message": "This is a common function, so you can\u0027t reimplement this in the platform layer.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 52
+      },
+      "revId": "afebb5206c4970308d81bbb8a9de73893677db84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
