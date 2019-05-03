@@ -82,6 +82,29 @@
     },
     {
       "key": {
+        "uuid": "530e01db_f5b891f4",
+        "filename": "plat/mediatek/mt8183/aarch64/platform_common.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-05-03T08:59:51Z",
+      "side": 1,
+      "message": "Change all unsigned long by uintptr_t.",
+      "range": {
+        "startLine": 34,
+        "startChar": 28,
+        "endLine": 34,
+        "endChar": 41
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97745795_534654b1",
         "filename": "plat/mediatek/mt8183/aarch64/platform_common.c",
         "patchSetId": 8
@@ -171,6 +194,29 @@
       "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb1db18b_5b70eea7",
+        "filename": "plat/mediatek/mt8183/bl31_plat_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-05-03T08:59:51Z",
+      "side": 1,
+      "message": "BL31",
+      "range": {
+        "startLine": 86,
+        "startChar": 15,
+        "endLine": 86,
+        "endChar": 20
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -349,6 +395,29 @@
       "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0417982_b0997583",
+        "filename": "plat/mediatek/mt8183/include/plat_private.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-05-03T08:59:51Z",
+      "side": 1,
+      "message": "Change all unsigned long by uintptr_t.",
+      "range": {
+        "startLine": 13,
+        "startChar": 28,
+        "endLine": 13,
+        "endChar": 41
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -766,6 +835,29 @@
     },
     {
       "key": {
+        "uuid": "6c998fca_e25e9305",
+        "filename": "plat/mediatek/mt8183/include/power_tracer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-05-03T08:59:51Z",
+      "side": 1,
+      "message": "u_register_t",
+      "range": {
+        "startLine": 17,
+        "startChar": 22,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e8c77a4_292d510d",
         "filename": "plat/mediatek/mt8183/include/scu.h",
         "patchSetId": 8
@@ -786,6 +878,52 @@
       "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a8bbda8_1abe1052",
+        "filename": "plat/mediatek/mt8183/include/scu.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-05-03T08:59:51Z",
+      "side": 1,
+      "message": "u_register_t",
+      "range": {
+        "startLine": 10,
+        "startChar": 17,
+        "endLine": 10,
+        "endChar": 30
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "698ae709_259c12d3",
+        "filename": "plat/mediatek/mt8183/include/scu.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-05-03T08:59:51Z",
+      "side": 1,
+      "message": "u_register_t",
+      "range": {
+        "startLine": 11,
+        "startChar": 16,
+        "endLine": 11,
+        "endChar": 29
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -1111,6 +1249,46 @@
     },
     {
       "key": {
+        "uuid": "8d4ec3c0_e97d8a47",
+        "filename": "plat/mediatek/mt8183/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-05-03T08:59:51Z",
+      "side": 1,
+      "message": "Have you checked the rest of the errata for A53? There are a few more than the ones specified here, and maybe some of them apply to your platform.",
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e0e5d90_5835ea34",
+        "filename": "plat/mediatek/mt8183/scu.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-05-03T08:59:51Z",
+      "side": 1,
+      "message": "u_register_t",
+      "range": {
+        "startLine": 16,
+        "startChar": 17,
+        "endLine": 16,
+        "endChar": 30
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f34df336_22b6a08c",
         "filename": "plat/mediatek/mt8183/scu.c",
         "patchSetId": 8
@@ -1131,6 +1309,29 @@
       "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dfd2a8b_5e87dbb2",
+        "filename": "plat/mediatek/mt8183/scu.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000050
+      },
+      "writtenOn": "2019-05-03T08:59:51Z",
+      "side": 1,
+      "message": "u_register_t",
+      "range": {
+        "startLine": 37,
+        "startChar": 16,
+        "endLine": 37,
+        "endChar": 29
+      },
+      "revId": "39e4d5393ab0c21c0fdc8bd90f0e4e7e3fc55910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
