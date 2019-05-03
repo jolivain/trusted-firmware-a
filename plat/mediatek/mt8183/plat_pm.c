@@ -16,7 +16,9 @@
 #include <platform_def.h>
 #include <scu.h>
 #include <mtk_plat_common.h>
+#include <mtgpio.h>
 #include <mtspmc.h>
+#include <params_setup.h>
 #include <power_tracer.h>
 #include <plat_dcm.h>
 #include <plat_debug.h>
@@ -134,6 +136,19 @@ static void __dead2 plat_system_off(void)
 	panic();
 }
 
+static void __dead2 plat_system_reset(void)
+{
+	struct gpio_info *gpio_reset = plat_get_gpio_reset();
+
+	INFO("MTK System Reset\n");
+
+	mt_set_gpio_out(gpio_reset->index, gpio_reset->polarity);
+
+	wfi();
+	ERROR("MTK System Reset: operation not handled.\n");
+	panic();
+}
+
 /*******************************************************************************
  * MTK_platform handler called when an affinity instance is about to be turned
  * on. The level and mpidr determine the affinity instance.
@@ -146,7 +161,7 @@ static const plat_psci_ops_t plat_plat_pm_ops = {
 	.pwr_domain_suspend		= NULL,
 	.pwr_domain_suspend_finish	= NULL,
 	.system_off			= plat_system_off,
-	.system_reset			= NULL,
+	.system_reset			= plat_system_reset,
 	.validate_power_state		= NULL,
 	.get_sys_suspend_power_state	= NULL,
 };
