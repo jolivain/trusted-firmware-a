@@ -1,0 +1,469 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71ee0ad6_5f1987f4",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "/********...\n * Macro Definition\n *****.../",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 79
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b84d7b77_f765cc18",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "what is this VERSION for and why is it GPIO_DEVICE?",
+      "range": {
+        "startLine": 22,
+        "startChar": 8,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9c7bac8_fbfe1cb6",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "never used?",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 14
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32951c10_b27688e3",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "never used?",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 14
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f25718d2_6338e669",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "never used?",
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24fec6b7_a6491f00",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "For multiple-value, always quote\n\n (GPIO_BASE + 0x000)",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 30,
+        "endChar": 41
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36fee1b6_7044cda8",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "I feel this is over-decorated, and there\u0027s no enum/structure here?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 79
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27c84ada_47f1973d",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "remove the blank line",
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f20f943e_6fcb2178",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "I think one blank line between functions would be enough, no need to add /*-----*/",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 79
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86053d3b_da3ffebd",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "remove blank line",
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43c6fac7_9a1a0f28",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "const int32_t offset \u003d 0x0c0;\n\n...\nreturn IOCFG_1_BASE + offset;",
+      "range": {
+        "startLine": 195,
+        "startChar": 8,
+        "endLine": 195,
+        "endChar": 28
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fca7048_6a9f47ee",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "exceed col 80",
+      "range": {
+        "startLine": 233,
+        "startChar": 38,
+        "endLine": 233,
+        "endChar": 83
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17815461_8d7d225f",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "I think this is trivial enough we should just make it oneline:\n\nmt_set_gpio_dir_chip((uint32_t)pin, direction);",
+      "range": {
+        "startLine": 361,
+        "startChar": 1,
+        "endLine": 364,
+        "endChar": 38
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7a6ec07_20bac191",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "extra lines can be removed.",
+      "range": {
+        "startLine": 374,
+        "startChar": 0,
+        "endLine": 376,
+        "endChar": 1
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36b2778d_73255a21",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "We usually prefer to include standard header (stdint) before project specific ones (plat/common/common_def.h) unless if there\u0027re special reasons (do we have here?)",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 19
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "332b1e1d_3d6a5934",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "Please align comment star properly. i.e.\n\n /****\n  *\n  *..../",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 78
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "015fbf9d_80cdad5c",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "add a blank line after this",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 10
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2366a4f2_8a0a7c68",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "we probably don\u0027t need the \u003d 1, \u003d 2, .... to \u003d7 here?",
+      "range": {
+        "startLine": 58,
+        "startChar": 14,
+        "endLine": 58,
+        "endChar": 21
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0080b3c6_57cf4557",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "remove the extra 2 lines here (3 -\u003e 1)",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 80
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0173fc6_9043202e",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio_cfg.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "no need to quote for single value",
+      "range": {
+        "startLine": 13,
+        "startChar": 21,
+        "endLine": 13,
+        "endChar": 33
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1560fef_8971945f",
+        "filename": "plat/mediatek/mt8183/drivers/gpio/mtgpio_cfg.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-03T14:29:03Z",
+      "side": 1,
+      "message": "Slightly confusing to understand what\u0027s this - can you add a comment for what this is for, or a reference to the application doc?",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "3f9d7c0aa4309c2bca517d3f9a3c803dd5c5edce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
