@@ -18,9 +18,6 @@
 	.global	pauth_context_restore
 	.global	pauth_context_save
 #endif
-#if ENABLE_PAUTH
-	.global	pauth_load_bl_apiakey
-#endif
 	.global	save_gp_registers
 	.global	restore_gp_registers
 	.global	restore_gp_registers_eret

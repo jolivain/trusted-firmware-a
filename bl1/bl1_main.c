@@ -59,15 +59,15 @@ void bl1_setup(void)
 	/* Perform early platform-specific setup */
 	bl1_early_platform_setup();
 
-#ifdef AARCH64
+#if defined(ENABLE_PAUTH) || defined(CTX_INCLUDE_PAUTH_REGS)
 	/*
 	 * Update pointer authentication key before the MMU is enabled. It is
-	 * saved in the rodata section, that can be writen before enabling the
+	 * saved in the RW section, that is written before enabling the
 	 * MMU. This function must be called after the console is initialized
 	 * in the early platform setup.
 	 */
-	bl_handle_pauth();
-#endif /* AARCH64 */
+	bl_init_pauth();
+#endif /* ENABLE_PAUTH || CTX_INCLUDE_PAUTH_REGS */
 
 	/* Perform late platform-specific setup */
 	bl1_plat_arch_setup();

@@ -73,7 +73,7 @@ func enter_lower_el_sync_ea
 	bl	pauth_context_save
 #endif
 #if ENABLE_PAUTH
-	bl	pauth_load_bl_apiakey
+	bl	pauth_load_apiakey
 #endif
 
 	/* Setup exception class and syndrome arguments for platform handler */
@@ -111,7 +111,7 @@ func enter_lower_el_async_ea
 	bl	pauth_context_save
 #endif
 #if ENABLE_PAUTH
-	bl	pauth_load_bl_apiakey
+	bl	pauth_load_apiakey
 #endif
 
 	/* Setup exception class and syndrome arguments for platform handler */

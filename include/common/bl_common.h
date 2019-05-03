@@ -249,7 +249,9 @@ struct mmap_region;
 void setup_page_tables(const struct mmap_region *bl_regions,
 			   const struct mmap_region *plat_regions);
 
-void bl_handle_pauth(void);
+#if defined(ENABLE_PAUTH) || defined(CTX_INCLUDE_PAUTH_REGS)
+void bl_init_pauth(void);
+#endif
 
 #endif /*__ASSEMBLY__*/
 

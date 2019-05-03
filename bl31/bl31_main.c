@@ -72,13 +72,15 @@ void bl31_setup(u_register_t arg0, u_register_t arg1, u_register_t arg2,
 	/* Perform early platform-specific setup */
 	bl31_early_platform_setup2(arg0, arg1, arg2, arg3);
 
+#if defined(ENABLE_PAUTH) || defined(CTX_INCLUDE_PAUTH_REGS)
 	/*
 	 * Update pointer authentication key before the MMU is enabled. It is
-	 * saved in the rodata section, that can be writen before enabling the
+	 * saved in the RW section, that is written before enabling the
 	 * MMU. This function must be called after the console is initialized
 	 * in the early platform setup.
 	 */
-	bl_handle_pauth();
+	bl_init_pauth();
+#endif /* ENABLE_PAUTH || CTX_INCLUDE_PAUTH_REGS */
 
 	/* Perform late platform-specific setup */
 	bl31_plat_arch_setup();

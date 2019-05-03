@@ -128,7 +128,7 @@
 	bl	pauth_context_save
 #endif
 #if ENABLE_PAUTH
-	bl	pauth_load_bl_apiakey
+	bl	pauth_load_apiakey
 #endif
 
 	/* Save the EL3 system registers needed to return from this exception */
@@ -340,7 +340,7 @@ smc_handler64:
 	bl	pauth_context_save
 #endif
 #if ENABLE_PAUTH
-	bl	pauth_load_bl_apiakey
+	bl	pauth_load_apiakey
 #endif
 
 	/*
