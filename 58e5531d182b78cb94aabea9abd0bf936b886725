@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "ea021be5_546babb5",
+        "filename": "bl1/bl1.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-06T08:46:24Z",
+      "side": 1,
+      "message": "Ok.",
+      "parentUuid": "6f5c4764_b242f47f",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "caf6f13e_462d63b6",
         "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
         "patchSetId": 1
@@ -119,6 +137,30 @@
       "side": 1,
       "message": "Setting these bits is only required when PAUTH gets enabled and the bits don\u0027t have any effect otherwise. All PAUTH bits EnIA, EnIB, EnDA, EnDB also reset \"to an architecturally UNKNOWN value\", but only EnIA gets enabled by setting to 1 if ENABLE_PAUTH \u003d 1 and not cleared otherwise.\n\"I suppose we should set it by default in other configurations...\"\nSCTLR_EL3 is set in el3_entrypoint_common macro (include\\arch\\arch64\\el3_common_macros.S):\n mov_imm x0, (SCTLR_RESET_VAL \u0026 ~(SCTLR_EE_BIT | SCTLR_WXN_BIT \\\n\t    | SCTLR_SA_BIT | SCTLR_A_BIT | SCTLR_DSSBS_BIT))\n msr\tsctlr_el3, x0\n isb\n\n, where SCTLR_RESET_VAL is definition for RES1 bits, so all other bits are set to 0.",
       "parentUuid": "caf6f13e_462d63b6",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 23
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ce05fa0_08651d6a",
+        "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-06T08:46:24Z",
+      "side": 1,
+      "message": "Ok, thanks for the clarification.",
+      "parentUuid": "fadbc080_e1bee8c4",
       "range": {
         "startLine": 54,
         "startChar": 0,
@@ -218,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "afe9e585_949d70da",
+        "filename": "docs/user-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-06T08:46:24Z",
+      "side": 1,
+      "message": "Good point!",
+      "parentUuid": "f9ff78c3_945b04b1",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 48
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6dee442d_8faef8c7",
         "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
         "patchSetId": 1
@@ -247,6 +313,24 @@
       "side": 1,
       "message": "Code analysis and debugging.",
       "parentUuid": "6dee442d_8faef8c7",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8771cb0_2916cb62",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-06T08:46:24Z",
+      "side": 1,
+      "message": "Ok. I suppose that the debugging approach relies on running the code, i.e. you build TF-A in a specific configuration, run it on the target and fix any issue you can see. We might still miss some BTI instructions in code that is not built into the firmware (because conditionally excluded from the image by some build flag) or code that has not been executed (because this code path was not exercised in the debugging session). I guess it\u0027s hard to catch all of these through code analysis.\n\nI wonder whether we could use some tooling here. For example, we might be able to get the call graph from the compiler and if it tells us the type of branch for each call site, that would give us a list of all BTI targets. Then we could filter this list of BTI targets to keep only the functions implemented in assembly language, and check whether we\u0027ve patched all such code.\n\nThis still does not solve the build flags issues (we would still have to run this tool on many different build configurations) but it at least removes the need to run the code (since it\u0027s based on static code analysis rather than dynamic execution).\n\nWhat do you think? Do you reckon that would work?",
+      "parentUuid": "c0a8ac4d_ab9eb0fd",
       "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -294,6 +378,47 @@
         "endLine": 177,
         "endChar": 6
       },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "493b2397_b939b5ac",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-06T08:46:24Z",
+      "side": 1,
+      "message": "Yes, any change to the func macro will affect all assembler functions, which is why I was proposing to add an *optional* macro parameter. I think something like the following could work:\n\n .macro func _name, _align\u003d2, _bti_target\n /* snip */\n \\_name:\n #if ENABLE_BTI\n .ifnb _bti_target\n   bti \\_bti_target\n .endif\n #endif\n .endm\n\nWhen ENABLE_BTI is 0, nothing will change, except that the func macro now has an extra optional argument that is not used in the macro body.\n\nWhen ENABLE_BTI is 1, depending on whether the user of the func macro specifies a BTI target argument, the bti instruction will or will not be assembled.\n\nThe benefit I see in this approach is that the #if ENABLE_BIT preprocessor logic is hidden and contained in a single place. This makes the code easier to read IMO.",
+      "parentUuid": "22b33db0_e29c0fad",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 6
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "180da222_539d013b",
+        "filename": "lib/cpus/aarch64/aem_generic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-06T08:46:24Z",
+      "side": 1,
+      "message": "I would expect that similar changes are needed for all other CPUs as well, since these power management hooks are invoked through a table of function pointers in the cpu_ops structure. Is that not the case? Or is BTI support only introduced for the Base AEM FVP at this stage, and support for other platforms will be added in a future patch?",
       "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -371,6 +496,30 @@
     },
     {
       "key": {
+        "uuid": "64689bcc_705cd630",
+        "filename": "lib/libc/libc.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-06T08:46:24Z",
+      "side": 1,
+      "message": "\u003e Should PAuth compilation support added as well?\n\nBut you said here [1] that we were deprecating -msign-return-address in favour of -mbranch-protection, so why would we add support for PAuth only in this makefile and not the other ones? Did I misunderstand what you meant here?\n\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/929/1/bl1/bl1.mk",
+      "parentUuid": "eff247e3_087843b5",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "833d82a5_cbe9c742",
         "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
         "patchSetId": 1
@@ -400,6 +549,24 @@
       "side": 1,
       "message": "- Code is not executed in data pages.\n- Allowed, only guarded pages are protected, no exception is generated.",
       "parentUuid": "833d82a5_cbe9c742",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b6143dc_43bb79f6",
+        "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-06T08:46:24Z",
+      "side": 1,
+      "message": "Ok thanks.",
+      "parentUuid": "19a97c4d_2e7536ab",
       "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
