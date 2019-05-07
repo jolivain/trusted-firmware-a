@@ -418,11 +418,11 @@ Common build options
    and use partitions in EL3 as required. This option defaults to ``0``.
 
 -  ``ENABLE_PAUTH``: Boolean option to enable ARMv8.3 Pointer Authentication
-  support for TF-A BL images itself. If enabled, it is needed to use a compiler
-  that supports the option ``-msign-return-address``. This flag defaults to 0
-  and this is an experimental feature.
-  Note that Pointer Authentication is enabled for Non-secure world irrespective
-  of the value of this flag if the CPU supports it.
+   support for TF-A BL images itself. If enabled, it is needed to use a compiler
+   that supports the option ``-msign-return-address``. This flag defaults to 0
+   and this is an experimental feature.
+   Note that Pointer Authentication is enabled for Non-secure world irrespective
+   of the value of this flag if the CPU supports it.
 
 -  ``ENABLE_PIE``: Boolean option to enable Position Independent Executable(PIE)
    support within generic code in TF-A. This option is currently only supported
