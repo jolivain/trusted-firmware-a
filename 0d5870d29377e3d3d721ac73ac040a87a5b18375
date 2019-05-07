@@ -16,6 +16,24 @@
       "revId": "0d5870d29377e3d3d721ac73ac040a87a5b18375",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df8c9aca_a15fec4e",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-07T12:52:03Z",
+      "side": 1,
+      "message": "I am not very keen on adding #if macros unless required. I would prefer it to be without the #if macro if possible.\n\nI will add a comment in the caller to indicate that only one check is utilised by the caller.",
+      "parentUuid": "583233fd_be4409f7",
+      "revId": "0d5870d29377e3d3d721ac73ac040a87a5b18375",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
