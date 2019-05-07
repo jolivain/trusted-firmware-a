@@ -34,6 +34,24 @@
       "revId": "0d5870d29377e3d3d721ac73ac040a87a5b18375",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec796e87_7b07583c",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-07T12:57:39Z",
+      "side": 1,
+      "message": "There are 15 #ifdef/endif macros in this file already, \u0026 if you prefer not to add a new one, this function can be moved to line #481 under existing #if REPORT_ERRATA, where it actually belongs to. Do we care about code size in TF-A?",
+      "parentUuid": "df8c9aca_a15fec4e",
+      "revId": "0d5870d29377e3d3d721ac73ac040a87a5b18375",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
