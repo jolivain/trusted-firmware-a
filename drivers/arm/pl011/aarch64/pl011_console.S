@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -171,7 +171,7 @@ endfunc console_pl011_core_putc
 	 * Clobber list : x2
 	 * --------------------------------------------------------
 	 */
-func console_pl011_putc
+func console_pl011_putc,, c
 #if ENABLE_ASSERTIONS
 	cmp	x1, #0
 	ASM_ASSERT(ne)
@@ -217,7 +217,7 @@ endfunc console_pl011_core_getc
 	 * Clobber list : x0, x1
 	 * ---------------------------------------------
 	 */
-func console_pl011_getc
+func console_pl011_getc,, c
 #if ENABLE_ASSERTIONS
 	cmp	x0, #0
 	ASM_ASSERT(ne)
@@ -258,7 +258,7 @@ endfunc console_pl011_core_flush
 	 * Clobber list : x0, x1
 	 * ---------------------------------------------
 	 */
-func console_pl011_flush
+func console_pl011_flush,, c
 #if ENABLE_ASSERTIONS
 	cmp	x0, #0
 	ASM_ASSERT(ne)

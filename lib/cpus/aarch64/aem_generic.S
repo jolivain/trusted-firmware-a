@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2015, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,7 +8,7 @@
 #include <asm_macros.S>
 #include <cpu_macros.S>
 
-func aem_generic_core_pwr_dwn
+func aem_generic_core_pwr_dwn,, j
 	/* ---------------------------------------------
 	 * Disable the Data Cache.
 	 * ---------------------------------------------
@@ -28,7 +28,7 @@ func aem_generic_core_pwr_dwn
 endfunc aem_generic_core_pwr_dwn
 
 
-func aem_generic_cluster_pwr_dwn
+func aem_generic_cluster_pwr_dwn,, j
 	/* ---------------------------------------------
 	 * Disable the Data Cache.
 	 * ---------------------------------------------
@@ -50,7 +50,7 @@ endfunc aem_generic_cluster_pwr_dwn
 /*
  * Errata printing function for AEM. Must follow AAPCS.
  */
-func aem_generic_errata_report
+func aem_generic_errata_report,, j
 	ret
 endfunc aem_generic_errata_report
 #endif
@@ -68,7 +68,7 @@ endfunc aem_generic_errata_report
 aem_generic_regs:  /* The ascii list of register names to be reported */
 	.asciz	"" /* no registers to report */
 
-func aem_generic_cpu_reg_dump
+func aem_generic_cpu_reg_dump,, c
 	adr	x6, aem_generic_regs
 	ret
 endfunc aem_generic_cpu_reg_dump

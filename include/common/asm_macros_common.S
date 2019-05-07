@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,8 +16,11 @@
 	 * _align=2 because both Aarch32 and Aarch64 instructions must be
 	 * word aligned. Do *not* try to use a raw .align directive. Since func
 	 * switches to a new section, this would not have the desired effect.
+	 * Optional _target parameter specifies the allowed type of indirect
+	 * call or branch and is used for insertion of "bti _target"
+	 * instruction on function entry when ENABLE_BTI is set to 1.
 	 */
-	.macro func _name, _align=2
+	.macro func _name, _align=2, _target
 	/*
 	 * Add Call Frame Information entry in the .debug_frame section for
 	 * debugger consumption. This enables callstack printing in debuggers.
@@ -38,6 +41,11 @@
 	.cfi_startproc
 	.align \_align
 	\_name:
+#if ENABLE_BTI
+	.ifnb \_target
+	  bti \_target
+	.endif
+#endif
 	.endm
 
 	/*

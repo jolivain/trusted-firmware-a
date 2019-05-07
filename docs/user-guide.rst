@@ -320,6 +320,36 @@ Common build options
    file that contains the BL33 private key in PEM format. If ``SAVE_KEYS=1``,
    this file name will be used to save the key.
 
+-  ``BRANCH_PROTECTION``: Numeric value to enable ARMv8.3 Pointer Authentication
+   and ARMv8.5 Branch Target Identification support for TF-A BL images themselves.
+   If enabled, it is needed to use a compiler that supports the option
+   ``-mbranch-protection``. Selects the branch protection features to use:
+   ``0``: Default value turns off all types of branch protection
+   ``1``: Enables all types of branch protection features
+   ``2``: Return address signing to its standard level  
+   ``3``: Extend the signing to include leaf functions
+   ``4``: Branch target identification mechanism
+   The table below summarizes ``BRANCH_PROTECTION`` values, GCC compilation options
+   and resulting PAuth/BTI features.
+   
+   +-------+--------------+-------+-----+
+   | Value |  GCC option  | PAuth | BTI |
+   +=======+==============+=======+=====+
+   |   0   |     none     |   N   |  N  |
+   +-------+--------------+-------+-----+
+   |   1   |   standard   |   Y   |  Y  |
+   +-------+--------------+-------+-----+
+   |   2   |   pac-ret    |   Y   |  N  |
+   +-------+--------------+-------+-----+
+   |   3   | pac-ret+leaf |   Y   |  N  |
+   +-------+--------------+-------+-----+
+   |   4   |     bti      |   N   |  Y  |
+   +-------+--------------+-------+-----+
+   
+   This option defaults to 0 and this is an experimental feature.
+   Note that Pointer Authentication is enabled for Non-secure world
+   irrespective of the value of this option if the CPU supports it.
+
 -  ``BUILD_MESSAGE_TIMESTAMP``: String used to identify the time and date of the
    compilation of each build. It must be set to a C string (including quotes
    where applicable). Defaults to a string that contains the time and date of
@@ -416,13 +446,6 @@ Common build options
    MPAM registers without trapping into EL3. This option doesn't make use of
    partitioning in EL3, however. Platform initialisation code should configure
    and use partitions in EL3 as required. This option defaults to ``0``.
-
--  ``ENABLE_PAUTH``: Boolean option to enable ARMv8.3 Pointer Authentication
-  support for TF-A BL images itself. If enabled, it is needed to use a compiler
-  that supports the option ``-msign-return-address``. This flag defaults to 0
-  and this is an experimental feature.
-  Note that Pointer Authentication is enabled for Non-secure world irrespective
-  of the value of this flag if the CPU supports it.
 
 -  ``ENABLE_PIE``: Boolean option to enable Position Independent Executable(PIE)
    support within generic code in TF-A. This option is currently only supported
