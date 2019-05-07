@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "a2c293fd_e200075f",
+        "filename": "plat/mediatek/common/params_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-05-07T22:52:35Z",
+      "side": 1,
+      "message": "According to my understanding of your dynamic configuration concept, this is essentially already implementing that, right? This list is passed in arg1 during the BL2-\u003eBL31 handoff, so it takes the spot of what you call SOC_FW_CONFIG. It\u0027s just not an FDT.\n\nI do however agree that something needs to be done here long term, because copy\u0026pasting this function around between platforms all the time isn\u0027t great. But I\u0027m not really convinced FDT is the answer. It\u0027s a very heavy data structure with a heavy library to parse it, and all this needs to run before MMU and caching are enabled (at least if we want dynamically configured consoles available early enough to debug MMU initialization). I think for Chrome OS, with the relatively small amount of info we want to pass and our aggressive boot time goals, FDT just isn\u0027t a good fit here.\n\nI think this list approach has a few nice properties (e.g. easily extensible and robust to adding/omitting individual parameters) and it would be nice to standardize the platforms that don\u0027t want to use FDT around it. I already tried to do that in https://github.com/ARM-software/arm-trusted-firmware/pull/989#discussion_r126469404 but Dan didn\u0027t want to take it back then in order to wait until your dynamic configuration work was finished. So we added it to plat/rockchip, and are now copy\u0026pasting the same into plat/mediatek and probably soon plat/qti. We could still revert course and unify those platforms if you\u0027re okay with that... it would just be a small, optional helper library in plat/common that platforms can link in if they want to.\n\nAnother option would be to forget about the list and just have every platform define a simple bl31_plat_params structure with exactly the fields it needs. That would be the most simple and bare-bones approach. It makes it a little harder to support downwards-compatbility when adding new parameters, but with careful use of size and version fields it should be possible (and in practice I think we haven\u0027t often had a need to add parameters after the initial bring-up of the platform port had finished). It also means that you can\u0027t have support for \"generic\" parameters that work across all platforms, but for now we\u0027ve only had one of those (coreboot table pointer) and I don\u0027t really see a need for more on the horizon.",
+      "parentUuid": "0cdd3d72_8f36199c",
+      "range": {
+        "startLine": 23,
+        "startChar": 39,
+        "endLine": 23,
+        "endChar": 58
+      },
+      "revId": "8b54d0b81b340da40880bc6057413b4c404fff0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93571381_3d5078af",
         "filename": "plat/mediatek/common/params_setup.h",
         "patchSetId": 1
