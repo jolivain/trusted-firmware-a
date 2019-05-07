@@ -459,6 +459,9 @@ ifeq ($(ENABLE_PAUTH),1)
     else
         $(info ENABLE_PAUTH and CTX_INCLUDE_PAUTH_REGS are experimental features)
     endif
+    ifneq ($(ARCH),aarch64)
+        $(error ENABLE_PAUTH=1 requires AArch64)
+    endif
 else
     ifeq ($(CTX_INCLUDE_PAUTH_REGS),1)
         $(info CTX_INCLUDE_PAUTH_REGS is an experimental feature)
