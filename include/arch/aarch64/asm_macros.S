@@ -192,4 +192,26 @@
 	.endm
 #endif
 
+	/*
+	 * Helper macro to read system register value into x0
+	 */
+	.macro	read reg:req
+#if ENABLE_BTI
+	bti	j
+#endif	
+	mrs	x0, \reg
+	ret
+	.endm
+
+	/*
+	 * Helper macro to write value from x1 to system register
+	 */
+	.macro	write reg:req
+#if ENABLE_BTI
+	bti	j
+#endif	
+	msr	\reg, x1
+	ret
+	.endm
+
 #endif /* ASM_MACROS_S */
