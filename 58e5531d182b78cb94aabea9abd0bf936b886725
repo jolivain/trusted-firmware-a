@@ -355,6 +355,24 @@
     },
     {
       "key": {
+        "uuid": "4fe3a193_fd1ec8ca",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-07T13:06:50Z",
+      "side": 1,
+      "message": "\u003e 1. BTI feature is listed as experimental and is still under development/testing, e.g. USE_ROMLIB\u003d1 is currently not supported, because \"bti j\" instructions need to be injected in the jump table. I have a workaround for that, but John will implement a proper implementation.\n\nI see, thanks for the additional information. I think it would be worth mentioning that in the commit message. If you are aware of any other limitations or functionality excluded from the scope of this patch, these would be useful as well IMO.\n\n\u003e 2. I\u0027m not aware of such tool existence, which indeed should be run for all configurations, build options, in case of any new assembler file added/modified, compiler version changed, etc. Also only assembler functions called after MMU is enabled should be analysed.\n\u003e 3. Ideally this sort of analysis (except MMU) could be imlemented in GCC compiler/linker itself which could generate a warning for functions called from BTI-enabled code and missing \"bti\" instuctions.\n\nYes that would be neat, indeed.\n\n\u003e 4. Are you suggesting that BTI support fro TF-A should be postponed until such tool is available?\n\nNo, I am not suggesting that at all, sorry if I led you to think that. This patch per se is already a great stepping stone towards full BTI support in the TF-A and I think we should carry on with it. I guess there will be some BTI instructions missing in some places but we can go and fix them later. That should be easily identifiable, as we\u0027ll get a branch target exception.\n\nI guess I was just thinking out loud about how we could increase our confidence in identifying all BTI spots. But on further thoughts, I think that it would be too much work for us to develop such a tool for the value we\u0027d get out of it. I suppose I was also curious to know whether you\u0027d heard about any such tool.",
+      "parentUuid": "34b4bbc1_11bff6fc",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fdc5521b_66c47ab7",
         "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
         "patchSetId": 1
@@ -479,6 +497,24 @@
       "side": 1,
       "message": "BTI is v8.5 feature which is currently supported for FVP_Base_AEMv8A_... \u0026 FVP_Base_RevC-2xAEMv8A models only, support for other v8.5 platforms will be added when they are available,",
       "parentUuid": "180da222_539d013b",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd21aee3_3119d565",
+        "filename": "lib/cpus/aarch64/aem_generic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-07T13:06:50Z",
+      "side": 1,
+      "message": "Yes, of course, that makes sense!",
+      "parentUuid": "62fdadf2_66494074",
       "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
