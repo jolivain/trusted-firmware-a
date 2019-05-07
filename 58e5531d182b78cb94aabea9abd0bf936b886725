@@ -433,6 +433,24 @@
     },
     {
       "key": {
+        "uuid": "51f450df_e8790675",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-07T15:19:36Z",
+      "side": 1,
+      "message": "Sorry, I did not get your point, how will the changes to the func macro help in identifying missing BTI instructions? Could you please elaborate on that?\n\n \u003e func macro you suggested to make it always add \"bti jc\" instruction on function entry\n\nActually, what I had in mind was to specify the kind of BTI instruction to the func macro, i.e. 3 possible options for declaring a function foo() that is genuinely reachable through an indirect branch:\n* func foo, bti\u003dc\n* func foo, bti\u003dj\n* func foo, bti\u003djc\n\nI think this would be a better approach than unconditionally using a \u0027bti cj\u0027. It\u0027s the principle of least privilege: if we don\u0027t need the function to be reachable through call-type instructions then let\u0027s not allow it.",
+      "parentUuid": "9885ff8c_7c586730",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fdc5521b_66c47ab7",
         "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
         "patchSetId": 1
@@ -688,6 +706,30 @@
       "side": 1,
       "message": "1. libc.mk didn\u0027t support PAuth and didn\u0027t have \"sign-return-address\" option.\n2. Now, when ENABLE_BTI \u003d 1 libc.mk must be compiled with \"mbranch-protection\u003dbti\" if only BTI is needed, or if we want to add full support for all PAuth+BTI combinations with:\n-mbranch-protection\u003d${BP_OPTION} when ifneq (${BP_OPTION},none)\nPlease share your opinion on that.",
       "parentUuid": "64689bcc_705cd630",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daf295ed_dc7c105f",
+        "filename": "lib/libc/libc.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-07T15:19:36Z",
+      "side": 1,
+      "message": "Oh I see! I had not realized that the libc code was compiled without pointer authentication support until now, even when TF-A was compiled with ENABLE_PAUTH\u003d1. Was that a gap in the implementation or was it done on purpose for a good reason?\n\nIf it was just a gap, then my opinion is that we should go for:\n\n ifneq (${BP_OPTION},none)\n   TF_CFLAGS_aarch64\t+\u003d -mbranch-protection\u003d${BP_OPTION}\n endif\n\nIf we go for the other option you\u0027re considering, which I believe, is:\n\n ifeq (${ENABLE_BTI},1)\n   TF_CFLAGS_aarch64\t+\u003d -mbranch-protection\u003dbti\n endif\n\nthen in the case where we\u0027d build TF-A with BRANCH_PROTECTION\u003d2 (pac-ret option) for example, my understanding is that we would compile the libc with no BTI or PAuth support whatsoever, while the rest of the firmware would have PAuth support. I find this use case intuitive. Can you think about why anyone would want to do that? Is there a use case I\u0027ve missed where this could be useful?\n\nAlso, would it make more sense to move this code to the top-level Makefile, rather than keeping it in libc.mk? AFAICS, if we keep it in libc.mk then some code is still compiled without PAuth/BTI support, for example libfdt code. Should we not extend this to all code within the firmware?",
+      "parentUuid": "db846cc3_5128afb5",
       "range": {
         "startLine": 33,
         "startChar": 0,
