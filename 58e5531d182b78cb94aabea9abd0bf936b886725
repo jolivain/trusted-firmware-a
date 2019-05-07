@@ -196,6 +196,30 @@
     },
     {
       "key": {
+        "uuid": "6b17ad35_5efb78e7",
+        "filename": "docs/firmware-design.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2586,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-07T13:16:06Z",
+      "side": 1,
+      "message": "Thanks, will fix that.",
+      "parentUuid": "84e83884_0ea78a03",
+      "range": {
+        "startLine": 2586,
+        "startChar": 0,
+        "endLine": 2586,
+        "endChar": 2
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "053c1a5b_384d9df0",
         "filename": "docs/user-guide.rst",
         "patchSetId": 1
@@ -207,6 +231,24 @@
       "writtenOn": "2019-05-03T09:10:45Z",
       "side": 1,
       "message": "The changes introduced in this file do not seem to render properly, it looks like the whole paragraph ends up on the same line. (You can easily see that by copying \u0026 pasting this text in some online rst renderer, e.g. http://rst.ninjs.org/)",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6be53dc0_93184865",
+        "filename": "docs/user-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-07T13:16:06Z",
+      "side": 1,
+      "message": "Thanks, will fix that.",
+      "parentUuid": "053c1a5b_384d9df0",
       "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -367,6 +409,24 @@
       "side": 1,
       "message": "\u003e 1. BTI feature is listed as experimental and is still under development/testing, e.g. USE_ROMLIB\u003d1 is currently not supported, because \"bti j\" instructions need to be injected in the jump table. I have a workaround for that, but John will implement a proper implementation.\n\nI see, thanks for the additional information. I think it would be worth mentioning that in the commit message. If you are aware of any other limitations or functionality excluded from the scope of this patch, these would be useful as well IMO.\n\n\u003e 2. I\u0027m not aware of such tool existence, which indeed should be run for all configurations, build options, in case of any new assembler file added/modified, compiler version changed, etc. Also only assembler functions called after MMU is enabled should be analysed.\n\u003e 3. Ideally this sort of analysis (except MMU) could be imlemented in GCC compiler/linker itself which could generate a warning for functions called from BTI-enabled code and missing \"bti\" instuctions.\n\nYes that would be neat, indeed.\n\n\u003e 4. Are you suggesting that BTI support fro TF-A should be postponed until such tool is available?\n\nNo, I am not suggesting that at all, sorry if I led you to think that. This patch per se is already a great stepping stone towards full BTI support in the TF-A and I think we should carry on with it. I guess there will be some BTI instructions missing in some places but we can go and fix them later. That should be easily identifiable, as we\u0027ll get a branch target exception.\n\nI guess I was just thinking out loud about how we could increase our confidence in identifying all BTI spots. But on further thoughts, I think that it would be too much work for us to develop such a tool for the value we\u0027d get out of it. I suppose I was also curious to know whether you\u0027d heard about any such tool.",
       "parentUuid": "34b4bbc1_11bff6fc",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9885ff8c_7c586730",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-07T13:16:06Z",
+      "side": 1,
+      "message": "If some BTI instructions are really missing in some assembler files/places and exception is generated, then modification of func macro you suggested to make it always add \"bti jc\" instruction on function entry will help identify this kind of problem.",
+      "parentUuid": "4fe3a193_fd1ec8ca",
       "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -604,6 +664,30 @@
       "side": 1,
       "message": "\u003e Should PAuth compilation support added as well?\n\nBut you said here [1] that we were deprecating -msign-return-address in favour of -mbranch-protection, so why would we add support for PAuth only in this makefile and not the other ones? Did I misunderstand what you meant here?\n\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/929/1/bl1/bl1.mk",
       "parentUuid": "eff247e3_087843b5",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db846cc3_5128afb5",
+        "filename": "lib/libc/libc.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-07T13:16:06Z",
+      "side": 1,
+      "message": "1. libc.mk didn\u0027t support PAuth and didn\u0027t have \"sign-return-address\" option.\n2. Now, when ENABLE_BTI \u003d 1 libc.mk must be compiled with \"mbranch-protection\u003dbti\" if only BTI is needed, or if we want to add full support for all PAuth+BTI combinations with:\n-mbranch-protection\u003d${BP_OPTION} when ifneq (${BP_OPTION},none)\nPlease share your opinion on that.",
+      "parentUuid": "64689bcc_705cd630",
       "range": {
         "startLine": 33,
         "startChar": 0,
