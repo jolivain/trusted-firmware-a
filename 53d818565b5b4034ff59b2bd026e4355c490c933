@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da1a7138_3479f963",
+        "filename": "plat/mediatek/mt8183/bl31_plat_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-07T11:15:26Z",
+      "side": 1,
+      "message": "Future enhancement. If this is made a configuration option at runtime (dynamic config) , then this code will reduce to reading the config file and configuring the UART as per the config.",
+      "revId": "53d818565b5b4034ff59b2bd026e4355c490c933",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
