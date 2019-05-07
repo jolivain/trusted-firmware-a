@@ -337,6 +337,24 @@
     },
     {
       "key": {
+        "uuid": "34b4bbc1_11bff6fc",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-07T10:15:06Z",
+      "side": 1,
+      "message": "1. BTI feature is listed as experimental and is still under development/testing, e.g. USE_ROMLIB\u003d1 is currently not supported, because \"bti j\" instructions need to be injected in the jump table. I have a workaround for that, but John will implement a proper implementation.\n2. I\u0027m not aware of such tool existence, which indeed should be run for all configurations, build options, in case of any new assembler file added/modified, compiler version changed, etc. Also only assembler functions called after MMU is enabled should be analysed.\n3. Ideally this sort of analysis (except MMU) could be imlemented in GCC compiler/linker itself which could generate a warning for functions called from BTI-enabled code and missing \"bti\" instuctions.\n4. Are you suggesting that BTI support fro TF-A should be postponed until such tool is available?",
+      "parentUuid": "c8771cb0_2916cb62",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fdc5521b_66c47ab7",
         "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
         "patchSetId": 1
@@ -408,6 +426,30 @@
     },
     {
       "key": {
+        "uuid": "bef980ab_862e2362",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-07T10:15:06Z",
+      "side": 1,
+      "message": "Thanks. I\u0027ll take a look at this option.",
+      "parentUuid": "493b2397_b939b5ac",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 6
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "180da222_539d013b",
         "filename": "lib/cpus/aarch64/aem_generic.S",
         "patchSetId": 1
@@ -419,6 +461,24 @@
       "writtenOn": "2019-05-06T08:46:24Z",
       "side": 1,
       "message": "I would expect that similar changes are needed for all other CPUs as well, since these power management hooks are invoked through a table of function pointers in the cpu_ops structure. Is that not the case? Or is BTI support only introduced for the Base AEM FVP at this stage, and support for other platforms will be added in a future patch?",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62fdadf2_66494074",
+        "filename": "lib/cpus/aarch64/aem_generic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-07T10:15:06Z",
+      "side": 1,
+      "message": "BTI is v8.5 feature which is currently supported for FVP_Base_AEMv8A_... \u0026 FVP_Base_RevC-2xAEMv8A models only, support for other v8.5 platforms will be added when they are available,",
+      "parentUuid": "180da222_539d013b",
       "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
