@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "46b43f86_9e081610",
+        "filename": "bl1/bl1.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-08T15:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea021be5_546babb5",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caf6f13e_462d63b6",
         "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
         "patchSetId": 1
@@ -173,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "ae92216e_67691342",
+        "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-08T15:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ce05fa0_08651d6a",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 23
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84e83884_0ea78a03",
         "filename": "docs/firmware-design.rst",
         "patchSetId": 1
@@ -220,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "5de3a875_e48aa1d8",
+        "filename": "docs/firmware-design.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2586,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-08T15:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b17ad35_5efb78e7",
+      "range": {
+        "startLine": 2586,
+        "startChar": 0,
+        "endLine": 2586,
+        "endChar": 2
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "053c1a5b_384d9df0",
         "filename": "docs/user-guide.rst",
         "patchSetId": 1
@@ -252,6 +318,24 @@
       "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5993306f_203ae1eb",
+        "filename": "docs/user-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-08T15:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6be53dc0_93184865",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -323,6 +407,30 @@
       "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca35fef7_8314b322",
+        "filename": "docs/user-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-08T15:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afe9e585_949d70da",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 48
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -469,6 +577,24 @@
     },
     {
       "key": {
+        "uuid": "cb7f6082_62c48fb7",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-08T15:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ab26091_1be228b7",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdc5521b_66c47ab7",
         "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
         "patchSetId": 1
@@ -564,6 +690,30 @@
     },
     {
       "key": {
+        "uuid": "4993ccc0_13deb126",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-08T15:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bef980ab_862e2362",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 6
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "180da222_539d013b",
         "filename": "lib/cpus/aarch64/aem_generic.S",
         "patchSetId": 1
@@ -614,6 +764,24 @@
       "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72b914b1_ad1a1389",
+        "filename": "lib/cpus/aarch64/aem_generic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-08T15:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd21aee3_3119d565",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -760,6 +928,30 @@
     },
     {
       "key": {
+        "uuid": "c2e2d122_8a08e13c",
+        "filename": "lib/libc/libc.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-08T15:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "daf295ed_dc7c105f",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "833d82a5_cbe9c742",
         "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
         "patchSetId": 1
@@ -813,6 +1005,24 @@
     },
     {
       "key": {
+        "uuid": "5b0875d7_2671620c",
+        "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-08T15:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b6143dc_43bb79f6",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60e73b43_294763e6",
         "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
         "patchSetId": 1
@@ -833,6 +1043,30 @@
       "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa0b0a91_687d4757",
+        "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-08T15:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60e73b43_294763e6",
+      "range": {
+        "startLine": 206,
+        "startChar": 7,
+        "endLine": 206,
+        "endChar": 37
+      },
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
