@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a84425fa_3e566f27",
+        "filename": "plat/mediatek/common/params_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-08T12:42:47Z",
+      "side": 1,
+      "message": "\u003e This list is passed in arg1 during the BL2-\u003eBL31 handoff, so it takes the spot of what you call SOC_FW_CONFIG. . It\u0027s just not an FDT.\n\nThat\u0027s right. The config can be any data structure but FDT is the format used by ARM reference platforms and the preferred one.\n\nNot all information can be populated in the FDT as you mention. The early console is one such info.\n\nThe idea of dynamic config is that it is separate from the BL image thus enabling the config file to be updated without changing the BL image. Is that the case here ?\n\nWe have found that just utilizing the read functions in libfdt has minimal impact on code size. We have not measured the boot time impact due to use of libfdt.\n\nOn ARM reference platforms, arg0 is plat specific data, arg1 is SOC_FW_CONFIG, arg2 is HW_CONFIG, and arg3 is a magic number for validity check.\n\nIt is a platform choice what arguments to pass from BL2 and the format of config file (or whether to use a config at all). Perhaps the information that is currently passed in `plat_param_from_bl2` is better in the current list (It seems to have only some GPIO config and console info).\n\nThe future enhancements that are planned for BL31 may rely on additional info being passed via config files (eg: Secure partition resource descriptions etc).  In that case, the config file can be an additional argument to the existing argument list for the core boot platforms. \n\nDoes that sound reasonable ?\n\n\u003e it would be nice to standardize the platforms that don\u0027t want to use FDT around it. I already tried to do that in\n\nThe thinking on dynamic configuration has evolved from the initial concept I think. I think it is alright for platforms to have custom data structures to be passed between BL images but as long as there is scope for additional config files to be passed which may define properties used by generic BL31 code.\n\nRegarding the current state of this code in platforms, I think it makes sense to define a common utility for this which platforms can pull in instead of copying code across.\n\n\u003e Another option would be to forget about the list and just have every platform define a simple bl31_plat_params structure with exactly the fields it needs.\n\nI prefer the list approach you have taken.",
+      "parentUuid": "a2c293fd_e200075f",
+      "range": {
+        "startLine": 23,
+        "startChar": 39,
+        "endLine": 23,
+        "endChar": 58
+      },
+      "revId": "8b54d0b81b340da40880bc6057413b4c404fff0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93571381_3d5078af",
         "filename": "plat/mediatek/common/params_setup.h",
         "patchSetId": 1
