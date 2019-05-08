@@ -451,6 +451,24 @@
     },
     {
       "key": {
+        "uuid": "0ab26091_1be228b7",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-08T10:21:15Z",
+      "side": 1,
+      "message": "What I meant is that if exception is generated, we can work out whether it was caused by a missing \"bti\" instruction in assembler function by modifying \"func\" macro to always insert \"bti jc\". If after that code executes normaly, we know that \"bti\" is missing in assembler functions and can analyse and debug the code.",
+      "parentUuid": "51f450df_e8790675",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fdc5521b_66c47ab7",
         "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
         "patchSetId": 1
