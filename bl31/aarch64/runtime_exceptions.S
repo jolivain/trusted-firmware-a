@@ -414,15 +414,14 @@ smc_handler64:
 
 smc_unknown:
 	/*
-	 * Unknown SMC call. Populate return value with SMC_UNK, restore
-	 * GP registers, and return to caller.
+	 * Unknown SMC call. Populate return value with SMC_UNK and call
+	 * el3_exit() which will restore the remaining architectural state
+	 * i.e., SYS, GP and PAuth registers(if any) prior to issuing the ERET
+         * to the desired lower EL.
 	 */
 	mov	x0, #SMC_UNK
 	str	x0, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X0]
-#if CTX_INCLUDE_PAUTH_REGS
-	bl	pauth_context_restore
-#endif
-	b	restore_gp_registers_eret
+	b	el3_exit
 
 smc_prohibited:
 	ldr	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
