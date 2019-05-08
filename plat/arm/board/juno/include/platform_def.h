@@ -286,6 +286,6 @@
 #define PLAT_ARM_SHARED_SDEI_EVENTS	ARM_SDEI_SHARED_EVENTS
 
 /* System power domain level */
-#define CSS_SYSTEM_PWR_DMN_LVL		ARM_PWR_LVL2
+#define PLAT_SYSTEM_PWR_LVL		ARM_PWR_LVL2
 
 #endif /* PLATFORM_DEF_H */

@@ -242,6 +242,6 @@
 					 V2M_FLASH0_SIZE - V2M_FLASH_BLOCK_SIZE)
 
 /* System power domain level */
-#define CSS_SYSTEM_PWR_DMN_LVL		ARM_PWR_LVL2
+#define PLAT_SYSTEM_PWR_LVL		ARM_PWR_LVL2
 
 #endif /* SGM_BASE_PLATFORM_DEF_H */

@@ -220,7 +220,7 @@ int css_scp_get_power_state(u_register_t mpidr, unsigned int power_level)
 
 	/* We don't support get power state at the system power domain level */
 	if ((power_level > PLAT_MAX_PWR_LVL) ||
-			(power_level == CSS_SYSTEM_PWR_DMN_LVL)) {
+			(power_level == PLAT_SYSTEM_PWR_LVL)) {
 		WARN("Invalid power level %u specified for SCMI get power state\n",
 				power_level);
 		return PSCI_E_INVALID_PARAMS;

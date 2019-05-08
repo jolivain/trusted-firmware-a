@@ -54,10 +54,10 @@ CASSERT(PLAT_MAX_PWR_LVL >= ARM_PWR_LVL1,
 		assert_max_pwr_lvl_supported_mismatch);
 
 /*
- * Ensure that the PLAT_MAX_PWR_LVL is not greater than CSS_SYSTEM_PWR_DMN_LVL
+ * Ensure that the PLAT_MAX_PWR_LVL is not greater than PLAT_SYSTEM_PWR_LVL
  * assumed by the CSS layer.
  */
-CASSERT(PLAT_MAX_PWR_LVL <= CSS_SYSTEM_PWR_DMN_LVL,
+CASSERT(PLAT_MAX_PWR_LVL <= PLAT_SYSTEM_PWR_LVL,
 		assert_max_pwr_lvl_higher_than_css_sys_lvl);
 
 /*******************************************************************************
@@ -240,7 +240,7 @@ void css_get_sys_suspend_power_state(psci_power_state_t *req_state)
 	 * System Suspend is supported only if the system power domain node
 	 * is implemented.
 	 */
-	assert(PLAT_MAX_PWR_LVL == CSS_SYSTEM_PWR_DMN_LVL);
+	assert(PLAT_MAX_PWR_LVL == PLAT_SYSTEM_PWR_LVL);
 
 	for (i = ARM_PWR_LVL0; i <= PLAT_MAX_PWR_LVL; i++)
 		req_state->pwr_domain_state[i] = ARM_LOCAL_STATE_OFF;
@@ -271,7 +271,7 @@ static int css_validate_power_state(unsigned int power_state,
 	 * power level
 	 */
 
-#if (PLAT_MAX_PWR_LVL == CSS_SYSTEM_PWR_DMN_LVL)
+#if (PLAT_MAX_PWR_LVL == PLAT_SYSTEM_PWR_LVL)
 
 	/*
 	 * Ensure that the system power domain level is never suspended
@@ -279,7 +279,7 @@ static int css_validate_power_state(unsigned int power_state,
 	 * supported via PSCI SYSTEM SUSPEND API.
 	 */
 
-	req_state->pwr_domain_state[CSS_SYSTEM_PWR_DMN_LVL] =
+	req_state->pwr_domain_state[PLAT_SYSTEM_PWR_LVL] =
 							ARM_LOCAL_STATE_RUN;
 #endif
 

@@ -18,8 +18,8 @@
 
 static inline unsigned int css_system_pwr_state(const psci_power_state_t *state)
 {
-#if (PLAT_MAX_PWR_LVL == CSS_SYSTEM_PWR_DMN_LVL)
-	return state->pwr_domain_state[CSS_SYSTEM_PWR_DMN_LVL];
+#if (PLAT_MAX_PWR_LVL == PLAT_SYSTEM_PWR_LVL)
+	return state->pwr_domain_state[PLAT_SYSTEM_PWR_LVL];
 #else
 	return 0;
 #endif

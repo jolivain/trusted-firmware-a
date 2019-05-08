@@ -48,7 +48,7 @@
 						N1SDP_MAX_PE_PER_CPU)
 
 /* System power domain level */
-#define CSS_SYSTEM_PWR_DMN_LVL			ARM_PWR_LVL2
+#define PLAT_SYSTEM_PWR_LVL			ARM_PWR_LVL2
 
 /*
  * PLAT_ARM_MMAP_ENTRIES depends on the number of entries in the

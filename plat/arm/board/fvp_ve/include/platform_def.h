@@ -214,8 +214,9 @@
 #define PLATFORM_CORE_COUNT		1
 #define PLAT_NUM_PWR_DOMAINS		((FVP_VE_CLUSTER_COUNT + \
 					PLATFORM_CORE_COUNT) + 1)
+#define PLAT_SYSTEM_PWR_LVL		2
 
-#define PLAT_MAX_PWR_LVL		2
+#define PLAT_MAX_PWR_LVL		PLAT_SYSTEM_PWR_LVL
 
 /*
  * Other platform porting definitions are provided by included headers
