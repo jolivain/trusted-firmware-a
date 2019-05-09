@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f9a3b03_803564d2",
+        "filename": "plat/mediatek/mt8183/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-05-09T01:12:02Z",
+      "side": 1,
+      "message": "Why don\u0027t you just compile in plat/common/plat_psci_common.c? That\u0027s the same implementation as this, essentially.",
+      "revId": "843ff88296562fb71b78a49e44b78eb49671f982",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
