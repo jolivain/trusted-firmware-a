@@ -101,6 +101,29 @@
     },
     {
       "key": {
+        "uuid": "3abbb67e_20120fe5",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-09T09:45:46Z",
+      "side": 1,
+      "message": "The pauth initialization and key management can be simplified IMO.\n\nThis function can be removed. pauth_load_apiakey_enable_el3() can query the platform for the keys and program the keys provided. \n\nThis will enable the flexibility to have a different PAUTH key for each CPU and even a different key for every warm boot.",
+      "range": {
+        "startLine": 82,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 14
+      },
+      "revId": "afebb5206c4970308d81bbb8a9de73893677db84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2e208eb_b39441c7",
         "filename": "lib/extensions/pauth/arm_pauth.c",
         "patchSetId": 6
@@ -189,6 +212,53 @@
         "startChar": 0,
         "endLine": 48,
         "endChar": 52
+      },
+      "revId": "afebb5206c4970308d81bbb8a9de73893677db84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f106c71_f072c572",
+        "filename": "lib/extensions/pauth/arm_pauth.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-09T09:45:46Z",
+      "side": 1,
+      "message": "Hi Alexei, the platform must be given the option of choosing the key to program for each BL. \n\nIn fact, the platform may choose a a different key for each BL and each PE in case of BL31. The API must be flexible to allow all these combinations.\n\nI don\u0027t particularly like the prototype of the previous plat_init_apiakey().",
+      "parentUuid": "ceaebf4a_33333873",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 52
+      },
+      "revId": "afebb5206c4970308d81bbb8a9de73893677db84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c58c79b4_133f5c80",
+        "filename": "lib/extensions/pauth/pauth_helpers.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-09T09:45:46Z",
+      "side": 1,
+      "message": "Is there a need for this function to be written in asm ?. This function can query the platform for the keys to use and then use pauth_load_apiakey() to program the key.\n\nI have given another suggestion in another place regarding this.",
+      "range": {
+        "startLine": 51,
+        "startChar": 5,
+        "endLine": 51,
+        "endChar": 34
       },
       "revId": "afebb5206c4970308d81bbb8a9de73893677db84",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
