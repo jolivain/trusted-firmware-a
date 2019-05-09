@@ -595,6 +595,24 @@
     },
     {
       "key": {
+        "uuid": "1550c6a2_704ca4a1",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-09T12:26:46Z",
+      "side": 1,
+      "message": "Ah I see, yes that could indeed be handy to catch such issues.\n\nThat said, I\u0027d expect the crash dump triggered by the branch target exception to already provide this information, as my understanding is that the ELR_ELx register will contain the address of the branch instruction that jumped to a non-BTI target function.",
+      "parentUuid": "cb7f6082_62c48fb7",
+      "revId": "58e5531d182b78cb94aabea9abd0bf936b886725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdc5521b_66c47ab7",
         "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
         "patchSetId": 1
