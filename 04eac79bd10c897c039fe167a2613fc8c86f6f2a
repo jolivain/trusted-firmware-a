@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1685dd6_6dd85076",
+        "filename": "plat/mediatek/mt8183/scu.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-05-09T09:42:11Z",
+      "side": 1,
+      "message": "There is a compilation error related to this variable when DEBUG\u003d0:\n\n\nIn file included from plat/mediatek/mt8183/scu.c:10:\nplat/mediatek/mt8183/scu.c: In function ‘disable_scu’:\ninclude/lib/mmio.h:66:2: error: ‘axi_value’ may be used uninitialized in this function [-Werror\u003dmaybe-uninitialized]\n  mmio_write_32(addr, mmio_read_32(addr) | set);\n  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nplat/mediatek/mt8183/scu.c:19:11: note: ‘axi_value’ was declared here\n  uint32_t axi_value;\n           ^~~~~~~~~\nIn file included from plat/mediatek/mt8183/scu.c:10:\nplat/mediatek/mt8183/scu.c: In function ‘enable_scu’:\ninclude/lib/mmio.h:61:43: error: ‘axi_value’ may be used uninitialized in this function [-Werror\u003dmaybe-uninitialized]\n  mmio_write_32(addr, mmio_read_32(addr) \u0026 ~clear);\n                                           ^~~~~~\nplat/mediatek/mt8183/scu.c:40:11: note: ‘axi_value’ was declared here\n  uint32_t axi_value;\n           ^~~~~~~~~\ncc1: all warnings being treated as errors",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 20
+      },
+      "revId": "04eac79bd10c897c039fe167a2613fc8c86f6f2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "208c7f58_81feee2d",
+        "filename": "plat/mediatek/mt8183/scu.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-05-09T09:42:11Z",
+      "side": 1,
+      "message": "There is a compilation error related to this variable when DEBUG\u003d0:\n\nIn file included from plat/mediatek/mt8183/scu.c:10:\nplat/mediatek/mt8183/scu.c: In function ‘enable_scu’:\ninclude/lib/mmio.h:61:43: error: ‘axi_value’ may be used uninitialized in this function [-Werror\u003dmaybe-uninitialized]\n  mmio_write_32(addr, mmio_read_32(addr) \u0026 ~clear);\n                                           ^~~~~~\nplat/mediatek/mt8183/scu.c:40:11: note: ‘axi_value’ was declared here\n  uint32_t axi_value;\n           ^~~~~~~~~\ncc1: all warnings being treated as errors",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 20
+      },
+      "revId": "04eac79bd10c897c039fe167a2613fc8c86f6f2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
