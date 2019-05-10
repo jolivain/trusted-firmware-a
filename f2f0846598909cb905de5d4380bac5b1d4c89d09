@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e20d918_0e66a507",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-10T10:52:53Z",
+      "side": 0,
+      "message": "Just invoke from here the function smmuv3_security_init();\n\nIt is OK from BL31 to reapply security setting done already by BL1. This will cover the case if BL1 is not used by the platform.",
+      "revId": "f2f0846598909cb905de5d4380bac5b1d4c89d09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
