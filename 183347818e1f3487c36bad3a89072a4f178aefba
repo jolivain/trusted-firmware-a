@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "c5dd2716_c2b9c1cd",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-10T08:44:21Z",
+      "side": 1,
+      "message": "In all the code examples where a macro is called with parameters, parameters are passed with no no names are used. I was just following the existing pattern.",
+      "parentUuid": "4a080401_bf5533d0",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 27
+      },
+      "revId": "183347818e1f3487c36bad3a89072a4f178aefba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "37b12206_f07db9cc",
         "filename": "include/common/asm_macros_common.S",
         "patchSetId": 2
