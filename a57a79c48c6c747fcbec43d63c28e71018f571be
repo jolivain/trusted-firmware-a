@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10c27706_4cafbc44",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-10T12:47:10Z",
+      "side": 1,
+      "message": "There is an implementation of time based timeout loop done here: https://review.trustedfirmware.org/#/c/TF-A/tf-a-tests/+/976/5/tftf/tests/runtime_services/standard_service/psci/system_tests/test_psci_on_off_suspend_stress.c@624\n\nThis can be done later.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "a57a79c48c6c747fcbec43d63c28e71018f571be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
