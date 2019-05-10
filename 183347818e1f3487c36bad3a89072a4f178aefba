@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5feaf01b_ae14a273",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-10T08:49:00Z",
+      "side": 1,
+      "message": "I understand but I think the result here (with a double comma) is a bit ugly and I would prefer we diverge from the existing pattern for this one, if possible.",
+      "parentUuid": "c5dd2716_c2b9c1cd",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 27
+      },
+      "revId": "183347818e1f3487c36bad3a89072a4f178aefba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "37b12206_f07db9cc",
         "filename": "include/common/asm_macros_common.S",
         "patchSetId": 2
