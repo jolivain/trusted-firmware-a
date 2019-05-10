@@ -123,3 +123,6 @@
 #define COUNTER_FREQUENCY		8000000 /* 8MHz */
 
 #define IMX_WDOG_B_RESET
+
+#define PLAT_IMX8M			1
+#define PLAT_IMX8MM			1

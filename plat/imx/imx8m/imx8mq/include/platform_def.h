@@ -120,6 +120,7 @@
 #define DEBUG_CONSOLE			0
 #define IMX_WDOG_B_RESET
 #define PLAT_IMX8M			1
+#define PLAT_IMX8MQ			1
 
 #define CAAM_JR0MID			U(0x30900010)
 #define CAAM_JR1MID			U(0x30900018)
