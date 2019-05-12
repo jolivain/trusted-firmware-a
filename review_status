@@ -6,9 +6,6 @@
 [section "Targeted against master - to be retargeted"]
   query = is:open -is:draft branch:master
 
-[section "<7 days"]
-  query = is:open -is:draft -is:wip -age:7d -label:Code-Review=2 branch:integration
-
 [section ">7 days"]
   query = is:open -is:draft -is:wip age:7d -age:14d -label:Code-Review=2 branch:integration
 
