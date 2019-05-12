@@ -1,0 +1,13 @@
+[dashboard]
+  title = TF-A Patch Review Status
+  description = Review the status of pending patches and reviews
+  foreach = project:TF-A/trusted-firmware-a
+
+[section "Targeted against master"]
+  query = is:open -is:draft -is:wip branch:master
+
+[section ">7 days <21 days"]
+  query = is:open -is:draft -is:wip age:7d -age:21d -label:Code-Review=2 branch:integration
+
+[section ">21 days"]
+  query = is:open -is:draft -is:wip age:21d -label:Code-Review=2 branch:integration
