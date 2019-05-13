@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70a9159a_7ffe48c8",
+        "filename": "lib/locks/exclusive/aarch64/spinlock.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-05-13T12:31:04Z",
+      "side": 0,
+      "message": "I assume that this directive attempts to guarantee at least v8.1. If so, we might need to check here if ARM_ARCH_MINOR\u003e\u003d1 otherwise produce compilation error?",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 16
+      },
+      "revId": "c33aa45f4400bc7c09fed1300bc59e0e70d36bd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
