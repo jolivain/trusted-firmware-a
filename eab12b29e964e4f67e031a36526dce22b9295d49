@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7bc8d5ec_adff6c42",
+        "filename": "plat/mediatek/mt8183/aarch64/platform_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afd20500_9d716b2d",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e1fe726_56c55836",
         "filename": "plat/mediatek/mt8183/bl31_plat_setup.c",
         "patchSetId": 3
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "0a6bc25f_2af42abe",
+        "filename": "plat/mediatek/mt8183/bl31_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e1fe726_56c55836",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73035fd1_fad6f847",
         "filename": "plat/mediatek/mt8183/bl31_plat_setup.c",
         "patchSetId": 3
@@ -53,6 +95,30 @@
       "writtenOn": "2019-05-07T11:04:20Z",
       "side": 1,
       "message": "`plat_` is reserved space for platform porting APIs. Please use a more specific name like `plat_mtk_gic_init()`, `plat_mtk_cci_init()` etc.",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 95,
+        "endChar": 6
+      },
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6ad4a28_bb310028",
+        "filename": "plat/mediatek/mt8183/bl31_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "plat_mtk_gic_init is updated in the previous commit\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/993/10..11\n\nplat_mtk_cci_* are updated in this commit",
+      "parentUuid": "73035fd1_fad6f847",
       "range": {
         "startLine": 95,
         "startChar": 1,
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "d4470244_28719d88",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28af6aaa_b01011bb",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74ba92ed_d3eda536",
         "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
         "patchSetId": 3
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "1b0380f5_a03048ac",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74ba92ed_d3eda536",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "915fcba0_8910d01a",
         "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
         "patchSetId": 3
@@ -110,6 +212,24 @@
       "writtenOn": "2019-05-07T10:54:51Z",
       "side": 1,
       "message": "assert() or panic()?",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b392d4e_e3b86f60",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "It\u0027s ok to just show message.",
+      "parentUuid": "915fcba0_8910d01a",
       "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -133,6 +253,24 @@
     },
     {
       "key": {
+        "uuid": "ef585d63_3aa88a9b",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5c26e87_4795eee8",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94d835d7_e63b2370",
         "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
         "patchSetId": 3
@@ -147,6 +285,24 @@
       "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92469920_c5f8ac6a",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94d835d7_e63b2370",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -167,6 +323,24 @@
     },
     {
       "key": {
+        "uuid": "44ca54ad_9951f1f7",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "695a150a_e7afeb66",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8068df8d_b0c2f26c",
         "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
         "patchSetId": 3
@@ -181,6 +355,24 @@
       "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7e4f6f3_ade36917",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8068df8d_b0c2f26c",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -201,6 +393,24 @@
     },
     {
       "key": {
+        "uuid": "cf2940fe_a7b15a59",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca1d8b65_ad7dd64c",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4153d3ca_c3d7f514",
         "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
         "patchSetId": 3
@@ -215,6 +425,24 @@
       "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fab5614_6dfc4269",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4153d3ca_c3d7f514",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -235,6 +463,24 @@
     },
     {
       "key": {
+        "uuid": "a29f2eec_a308e4d8",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4e7ae5f_a9705674",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12e116a4_161c1f42",
         "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
         "patchSetId": 3
@@ -249,6 +495,24 @@
       "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d83355c_f79a80c6",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12e116a4_161c1f42",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -269,6 +533,24 @@
     },
     {
       "key": {
+        "uuid": "b02f1cd2_ef56c372",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f057eafd_4078ab8b",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e1fb4e8_fb528e83",
         "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
         "patchSetId": 3
@@ -283,6 +565,24 @@
       "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52836d41_bdfd4151",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e1fb4e8_fb528e83",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -303,6 +603,24 @@
     },
     {
       "key": {
+        "uuid": "a80ad253_0aa2fc7d",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fcf54bf_e3146cc3",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f729c85_c28bf851",
         "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.h",
         "patchSetId": 3
@@ -314,6 +632,24 @@
       "writtenOn": "2019-05-03T09:05:36Z",
       "side": 1,
       "message": "align this so that it doesn\u0027t go over 80 columns",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "550ef825_7bbadf72",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f729c85_c28bf851",
       "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -367,6 +703,30 @@
     },
     {
       "key": {
+        "uuid": "8a1f1e60_a340c809",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4605c059_b58589a3",
+      "range": {
+        "startLine": 111,
+        "startChar": 60,
+        "endLine": 111,
+        "endChar": 67
+      },
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b47156e_9c1982fa",
         "filename": "plat/mediatek/mt8183/platform.mk",
         "patchSetId": 3
@@ -381,6 +741,24 @@
       "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2fa9df3_e9d6a198",
+        "filename": "plat/mediatek/mt8183/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-05-13T09:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b47156e_9c1982fa",
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
