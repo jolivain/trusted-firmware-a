@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ea4a252_e4787cec",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-14T15:54:57Z",
+      "side": 1,
+      "message": "For if-clauses, when there are multiple lines, even if it\u0027s just comment, we need to use {} to make the block clear. So this is either\n\n\n if (polarity \u003d\u003d 0)\n    value |\u003d (1 \u003c\u003c offset);  /* active low */\n else\n    value \u0026\u003d ~(0x1 \u003c\u003c offset);  /* active high */\n\nOr,\n\n if (polarity \u003d\u003d 0) {\n    /* active low */\n    value |\u003d ...\n } else {\n    ...\n }",
+      "range": {
+        "startLine": 456,
+        "startChar": 1,
+        "endLine": 461,
+        "endChar": 28
+      },
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d202b11b_8e31f3d6",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-14T15:54:57Z",
+      "side": 1,
+      "message": "If there are some constant (during function execution) that will be shared or reused, I find it more clean to have that defined in its own variable:\n\n uint32_t value \u003d 0x2 \u003c\u003c (irq % 16) * 2;\n unsigned int address \u003d base + GICD_ICFGR + (irq / 16) * 4;\n\n config \u003d mmio_read_32(address);\n if (sens \u003d\u003d MT_DEGE_SENSITIVE)\n   config |\u003d value;\n else\n   config \u0026\u003d value;\n mmio_write_32(address, config);\n\nEasier to read and maintain, so you won\u0027t forget updating all addresses when the calculation has to be changed.",
+      "range": {
+        "startLine": 471,
+        "startChar": 12,
+        "endLine": 471,
+        "endChar": 35
+      },
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58d7691e_b65e87ac",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-14T15:54:57Z",
+      "side": 1,
+      "message": "rdist_base + GICR_V3_WAKER",
+      "range": {
+        "startLine": 502,
+        "startChar": 15,
+        "endLine": 502,
+        "endChar": 39
+      },
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1e0ed35_3a7cdda3",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-14T15:54:57Z",
+      "side": 1,
+      "message": "rdist_base + SZ_64K + GICE_V3_IGROUP0",
+      "range": {
+        "startLine": 511,
+        "startChar": 15,
+        "endLine": 511,
+        "endChar": 48
+      },
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9436489_a4d27c41",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-05-14T15:54:57Z",
+      "side": 1,
+      "message": "int i; \n\n(use space, not tab)",
+      "range": {
+        "startLine": 681,
+        "startChar": 3,
+        "endLine": 681,
+        "endChar": 4
+      },
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
