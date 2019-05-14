@@ -2,6 +2,74 @@
   "comments": [
     {
       "key": {
+        "uuid": "77977d91_bf454b8e",
+        "filename": "plat/mediatek/mt8183/include/mt_gic_v3.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-05-14T21:55:48Z",
+      "side": 1,
+      "message": "Why are you defining your own accesors here rather than using the ones from drivers/arm/gic/v3/gicv3_private.h?",
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e466c6b_a51b0056",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-05-14T21:55:48Z",
+      "side": 1,
+      "message": "exists in utils_def.h",
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aea56b13_d82ef30a",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-05-14T21:55:48Z",
+      "side": 1,
+      "message": "Please use existing constants instead of defining your own (e.g. MPIDR_AFFLVL_SHIFT/MASK)",
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efade057_72eb07c4",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-05-14T21:55:48Z",
+      "side": 1,
+      "message": "Don\u0027t many these functions fundamentally do the same thing as the ones in drivers/arm/gic/v3/gicv3_main.c? Why do you need to define your own?",
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ea4a252_e4787cec",
         "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
         "patchSetId": 11
