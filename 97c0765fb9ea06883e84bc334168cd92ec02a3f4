@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1a0eb44_aa12def9",
+        "filename": "plat/arm/css/sgm/include/sgm_base_platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-15T16:01:51Z",
+      "side": 1,
+      "message": "Would prefer the name to be PLAT_ARM_* because this macro is internal to ARM platforms.",
+      "range": {
+        "startLine": 245,
+        "startChar": 8,
+        "endLine": 245,
+        "endChar": 27
+      },
+      "revId": "97c0765fb9ea06883e84bc334168cd92ec02a3f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
