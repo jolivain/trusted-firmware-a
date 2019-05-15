@@ -15,5 +15,5 @@
 [section "Pending merge"]
   query = label:Code-Review=2 -label:Code-Review=-1 branch:integration
 
-[section "Targeted against master - to be retargeted"]
+[section "Targeted against master: retarget against integration"]
   query = branch:master
