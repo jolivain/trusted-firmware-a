@@ -218,3 +218,7 @@ ifneq (${ARCH},aarch32)
 else
     override ENABLE_SVE_FOR_NS	:= 0
 endif
+
+# Build option to enable multi socket GIC registributor frame discovery for
+# GICv3 driver i.e., support for non contiguous GICR frames.
+NON_CONTIGUOUS_GICR_FRAMES_EXIST	:=0

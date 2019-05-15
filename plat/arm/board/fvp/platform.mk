@@ -58,9 +58,13 @@ FVP_GICV3_SOURCES	:=	drivers/arm/gic/common/gic_common.c	\
 ifeq (${FVP_USE_GIC_DRIVER}, FVP_GICV3)
 FVP_GIC_SOURCES		:=	${FVP_GICV3_SOURCES}			\
 				drivers/arm/gic/v3/gic500.c
+
+NON_CONTIGUOUS_GICR_FRAMES_EXIST	:= 1
 else ifeq (${FVP_USE_GIC_DRIVER},FVP_GIC600)
 FVP_GIC_SOURCES		:=	${FVP_GICV3_SOURCES}			\
 				drivers/arm/gic/v3/gic600.c
+
+NON_CONTIGUOUS_GICR_FRAMES_EXIST	:= 1
 else ifeq (${FVP_USE_GIC_DRIVER}, FVP_GICV2)
 FVP_GIC_SOURCES		:=	drivers/arm/gic/common/gic_common.c	\
 				drivers/arm/gic/v2/gicv2_main.c		\
@@ -69,6 +73,7 @@ FVP_GIC_SOURCES		:=	drivers/arm/gic/common/gic_common.c	\
 				plat/arm/common/arm_gicv2.c
 
 FVP_DT_PREFIX		:=	fvp-base-gicv2-psci
+NON_CONTIGUOUS_GICR_FRAMES_EXIST	:= 0
 else
 $(error "Incorrect GIC driver chosen on FVP port")
 endif

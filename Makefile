@@ -635,6 +635,7 @@ $(eval $(call assert_boolean,BL2_IN_XIP_MEM))
 
 $(eval $(call assert_numeric,ARM_ARCH_MAJOR))
 $(eval $(call assert_numeric,ARM_ARCH_MINOR))
+$(eval $(call assert_boolean,NON_CONTIGUOUS_GICR_FRAMES_EXIST))
 
 ################################################################################
 # Add definitions to the cpp preprocessor based on the current build options.
@@ -686,6 +687,7 @@ $(eval $(call add_define,USE_TBBR_DEFS))
 $(eval $(call add_define,WARMBOOT_ENABLE_DCACHE_EARLY))
 $(eval $(call add_define,BL2_AT_EL3))
 $(eval $(call add_define,BL2_IN_XIP_MEM))
+$(eval $(call add_define,NON_CONTIGUOUS_GICR_FRAMES_EXIST))
 
 # Define the EL3_PAYLOAD_BASE flag only if it is provided.
 ifdef EL3_PAYLOAD_BASE
