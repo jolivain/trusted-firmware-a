@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -366,6 +366,11 @@ typedef struct gicv3_its_ctx {
  * GICv3 EL3 driver API
  ******************************************************************************/
 void gicv3_driver_init(const gicv3_driver_data_t *plat_driver_data);
+void gicv3_copy_gicr_frame_bases(uintptr_t gicr_frames_base[],
+				unsigned int count);
+void gicv3_rdistif_probe(const gicv3_driver_data_t *driver_data,
+			uintptr_t *gicr_frames,	unsigned int num_of_gicr_frames,
+			unsigned int proc_self);
 void gicv3_distif_init(void);
 void gicv3_rdistif_init(unsigned int proc_num);
 void gicv3_rdistif_on(unsigned int proc_num);
