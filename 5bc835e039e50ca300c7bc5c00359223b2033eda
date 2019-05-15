@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "ef9a7805_ac7a0fb2",
+        "filename": "lib/romlib/Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-15T14:08:14Z",
+      "side": 1,
+      "message": "If there is any doubt about the effect of this patch, this can be easily confirmed by looking at the build command lines (compiling with V\u003d1) to make sure the right flags are passed to the compiler, and/or disassembling the firmware binaries and quickly comparing the assembly instructions generated (code with no optimisation should look quite different to code compiled with -Os).\n\nLouis, could you please double-check the effects of your patch if in doubt?",
+      "parentUuid": "f2511dac_98bc4279",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 6
+      },
+      "revId": "5bc835e039e50ca300c7bc5c00359223b2033eda",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9533a77_25a9c173",
         "filename": "lib/romlib/Makefile",
         "patchSetId": 3
