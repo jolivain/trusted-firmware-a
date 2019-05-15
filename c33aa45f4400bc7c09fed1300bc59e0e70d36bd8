@@ -22,6 +22,30 @@
       "revId": "c33aa45f4400bc7c09fed1300bc59e0e70d36bd8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "673ebdef_5af652c6",
+        "filename": "lib/locks/exclusive/aarch64/spinlock.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-15T09:13:30Z",
+      "side": 0,
+      "message": "This was added previously because the `arch` directive didn\u0027t passed down to assembler properly. This issue is resolved now hopefully.",
+      "parentUuid": "70a9159a_7ffe48c8",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 16
+      },
+      "revId": "c33aa45f4400bc7c09fed1300bc59e0e70d36bd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
