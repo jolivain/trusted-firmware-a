@@ -258,6 +258,11 @@ void plat_arm_error_handler(int err);
 unsigned int plat_arm_get_cpu_pe_count(u_register_t mpidr);
 #endif
 
+#if NON_CONTIGUOUS_GICR_FRAMES_EXIST
+void plat_populate_gicr_frame_bases(void);
+void plat_gicv3_discover_gicr_frame(unsigned int proc_num);
+#endif
+
 /*
  * This function is called after loading SCP_BL2 image and it is used to perform
  * any platform-specific actions required to handle the SCP firmware.

@@ -233,6 +233,8 @@
 #define PLAT_ARM_GICR_BASE		BASE_GICR_BASE
 #define PLAT_ARM_GICC_BASE		BASE_GICC_BASE
 
+#define NON_CONTIGUOUS_GICR_FRAMES_EXIST	1
+#define PLAT_ARM_GICR_FRAMES_BASE_ARRAY		UL(0x2f100000)
 /*
  * Define a list of Group 1 Secure and Group 0 interrupts as per GICv3
  * terminology. On a GICv2 system or mode, the lists will be merged and treated
