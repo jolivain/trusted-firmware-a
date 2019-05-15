@@ -22,6 +22,30 @@
       "revId": "3ae9193ae24f5e18174b867dc280119fc764614f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04ea42c0_801c3726",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-15T14:01:18Z",
+      "side": 1,
+      "message": "\u003e * It changes the optimisation level (from -O1 to -Os) used to compile this code.\n\nSorry for contradicting myself on this one, I know you\u0027ve changed the commit message as per my request but I\u0027ve just realised I had missed that -Os/-O1 were used as linker flags...",
+      "parentUuid": "3af22d66_ea327d2e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 54
+      },
+      "revId": "3ae9193ae24f5e18174b867dc280119fc764614f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
