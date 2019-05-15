@@ -1,7 +1,7 @@
 [dashboard]
   title = TF-A Patch Review Status
   description = Status of inactive patches
-  foreach = is:open -is:draft -is:wip age:14d
+  foreach = is:open -is:draft -is:wip age:21d
 
 [section "TF-A: >21 days"]
   query = branch:integration project:TF-A/trusted-firmware-a
