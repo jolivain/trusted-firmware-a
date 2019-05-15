@@ -27,6 +27,10 @@
 /* The GICv3 driver only needs to be initialized in EL3 */
 static uintptr_t rdistif_base_addrs[PLATFORM_CORE_COUNT];
 
+#if NON_CONTIGUOUS_GICR_FRAMES_EXIST
+static uintptr_t gicr_frames_base[] = {PLAT_ARM_GICR_FRAMES_BASE_ARRAY};
+#endif/* NON_CONTIGUOUS_GICR_FRAMES_EXIST */
+
 static const interrupt_prop_t arm_interrupt_props[] = {
 	PLAT_ARM_G1S_IRQ_PROPS(INTR_GROUP1S),
 	PLAT_ARM_G0_IRQ_PROPS(INTR_GROUP0)
@@ -85,7 +89,13 @@ void __init plat_arm_gic_driver_init(void)
 	 */
 #if (defined(AARCH32) && defined(IMAGE_BL32)) || \
 	(defined(IMAGE_BL31) && !defined(AARCH32))
+#if NON_CONTIGUOUS_GICR_FRAMES_EXIST
+	plat_populate_gicr_frame_bases();
+	gicv3_driver_init(&arm_gic_data, plat_my_core_pos());
+#else
 	gicv3_driver_init(&arm_gic_data);
+#endif/* NON_CONTIGUOUS_GICR_FRAMES_EXIST */
+
 #endif
 }
 
@@ -199,3 +209,21 @@ void plat_arm_gic_resume(void)
 	 * re-enabled after this sequence has been executed.
 	 */
 }
+
+#if NON_CONTIGUOUS_GICR_FRAMES_EXIST
+void plat_populate_gicr_frame_bases(void)
+{
+	gicv3_copy_gicr_frame_bases(gicr_frames_base,
+				ARRAY_SIZE(gicr_frames_base));
+}
+
+/******************************************************************************
+ * ARM common helper to discover the per-cpu redistributor interface base frame
+ * in GICv3
+ *****************************************************************************/
+void plat_gicv3_discover_gicr_frame(unsigned int proc_self)
+{
+	gicv3_rdistif_probe(&arm_gic_data, gicr_frames_base,
+				ARRAY_SIZE(gicr_frames_base), proc_self);
+}
+#endif/* NON_CONTIGUOUS_GICR_FRAMES_EXIST */

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -247,10 +247,16 @@ static void fvp_pwr_domain_on_finish(const psci_power_state_t *target_state)
 {
 	fvp_power_domain_on_finish_common(target_state);
 
-	/* Enable the gic cpu interface */
+	/* Each CPU has to discover its corresponding Redistributor interface
+	 * frame. It needs to be done only once i.e., on cold boot.
+	 */
+#if NON_CONTIGUOUS_GICR_FRAMES_EXIST
+	plat_gicv3_discover_gicr_frame(plat_my_core_pos());
+#endif/* NON_CONTIGUOUS_GICR_FRAMES_EXIST */
+	/* Program GIC per-cpu distributor or re-distributor interface */
 	plat_arm_gic_pcpu_init();
 
-	/* Program the gic per-cpu distributor or re-distributor interface */
+	/* Enable GIC CPU interface */
 	plat_arm_gic_cpuif_enable();
 }
 
@@ -272,7 +278,7 @@ static void fvp_pwr_domain_suspend_finish(const psci_power_state_t *target_state
 
 	fvp_power_domain_on_finish_common(target_state);
 
-	/* Enable the gic cpu interface */
+	/* Enable GIC CPU interface */
 	plat_arm_gic_cpuif_enable();
 }
 
