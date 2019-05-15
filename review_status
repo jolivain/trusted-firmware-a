@@ -1,6 +1,6 @@
 [dashboard]
   title = TF-A Patch Review Status
-  description = Status if inactive patches
+  description = Status of inactive patches
   foreach = project:TF-A/trusted-firmware-a
 
 [section ">7 days"]
