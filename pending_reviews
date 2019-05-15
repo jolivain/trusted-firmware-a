@@ -10,7 +10,7 @@
   query = label:Code-Review=1 -label:Code-Review=2 -label:Code-Review=-1 branch:integration
 
 [section "-1: waiting for rework"]
-  query = label:Code-Review=-1
+  query = label:Code-Review=-1 branch:integration
 
 [section "Pending merge"]
   query = label:Code-Review=2 -label:Code-Review=-1 branch:integration
