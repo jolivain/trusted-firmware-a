@@ -1,0 +1,16 @@
+[dashboard]
+  title = TF-A pending reviews
+  description = Patches pending review
+  foreach = project:TF-A/trusted-firmware-a is:open -is:draft
+
+[section "Pending +1"]
+  query = -label:Code-Review=1 -label:Code-Review=2 -label:Code-Review=-1 branch:integration
+
+[section "Pending +2"]
+  query = label:Code-Review=1 -label:Code-Review=2 -label:Code-Review=-1 branch:integration
+
+[section "Pending merge"]
+  query = label:Code-Review=2 -label:Code-Review=-1 branch:integration
+
+[section "Targeted against master - to be retargeted"]
+  query = branch:master
