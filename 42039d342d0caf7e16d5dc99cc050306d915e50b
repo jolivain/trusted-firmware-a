@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47cd4168_664ed5af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-05-15T09:05:56Z",
+      "side": 1,
+      "message": "We tend to keep the commit messages up to 72 characters width. This way it\u0027s easier to read the commit message in the various tools (Gerrit, git etc.) and ensure the line endings don\u0027t get hidden. You definitely don\u0027t need to push again only for this - just info for future use.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 34
+      },
+      "revId": "42039d342d0caf7e16d5dc99cc050306d915e50b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
