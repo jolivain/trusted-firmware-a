@@ -1,5 +1,5 @@
 [dashboard]
-  title = TF-A pending reviews
+  title = TF-A Incoming Reviews
   description = Helper dashboard for tracking progress of incoming reviews
   foreach = project:TF-A/trusted-firmware-a is:open -is:draft
 
