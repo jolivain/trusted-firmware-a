@@ -45,6 +45,30 @@
       "revId": "76225648fa292f2428fae8bacada0c127f0343b7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3bb429c_0db76740",
+        "filename": "docs/process/security.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-05-16T10:17:42Z",
+      "side": 1,
+      "message": "Can\u0027t really agree on this one for two reasons. First, the advisories get their own, top-level category in the document index so they are displayed prominently on any other page, and they can be found separately from this page. Plus, 3 of 4 sections on this page are to do with security processes.\n\nSecondly, \"Security Center\" sounds like a strange way to describe a document IMO. It would be like calling the index page \"Welcome Center\". What is a center in the context of technical documents?",
+      "parentUuid": "2a3d7307_c066d5a6",
+      "range": {
+        "startLine": 1,
+        "startChar": 9,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "76225648fa292f2428fae8bacada0c127f0343b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
