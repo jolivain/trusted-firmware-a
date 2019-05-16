@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c6df4f42_4d2bfbd4",
+        "filename": "lib/romlib/Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-05-16T14:59:22Z",
+      "side": 1,
+      "message": "Effectively, the CFLAGS does nothing here, thanks for pointing this out !\nThe only useful flags to reduce the size of the binary is the linker one.\nI didn\u0027t find an equivalent of -ffunction/data-section for AS...",
+      "parentUuid": "ef9a7805_ac7a0fb2",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 6
+      },
+      "revId": "5bc835e039e50ca300c7bc5c00359223b2033eda",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9533a77_25a9c173",
         "filename": "lib/romlib/Makefile",
         "patchSetId": 3
@@ -88,6 +112,53 @@
         "startChar": 25,
         "endLine": 28,
         "endChar": 28
+      },
+      "revId": "5bc835e039e50ca300c7bc5c00359223b2033eda",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95886acf_84083d93",
+        "filename": "lib/romlib/Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-05-16T14:59:22Z",
+      "side": 1,
+      "message": "yes, my mistake, -Os is not for the linker... -O1 is the one used on TF-A and was the original value here before I modify it to -Os",
+      "parentUuid": "a9533a77_25a9c173",
+      "range": {
+        "startLine": 28,
+        "startChar": 25,
+        "endLine": 28,
+        "endChar": 28
+      },
+      "revId": "5bc835e039e50ca300c7bc5c00359223b2033eda",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "225ffae8_ca3fad78",
+        "filename": "lib/romlib/Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-05-16T14:59:22Z",
+      "side": 1,
+      "message": "this is never used -\u003e removed",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 16
       },
       "revId": "5bc835e039e50ca300c7bc5c00359223b2033eda",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
