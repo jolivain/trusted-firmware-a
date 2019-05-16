@@ -14,6 +14,9 @@
 #define CAP				0x00
 #define CAP_NUTRS_MASK			0x1F
 
+/* UFSStatus Macros used as return values*/
+#define UFS_SUCCESS     0x00
+
 /* UFS Version */
 #define VER				0x08
 /* Host Controller Identification - Product ID */
