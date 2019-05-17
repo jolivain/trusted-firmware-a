@@ -237,7 +237,7 @@ static const char *tegra194_ras_serr2str(uint32_t code)
 
 
 /* Function to handle error from one given node */
-static int32_t tegra194_ras_node_handler(uint32_t errselr,
+static int32_t tegra194_ras_node_handler(uint32_t errselr, const char *name,
 		const struct ras_error *errors, uint64_t status)
 {
 	bool found = false;
@@ -251,31 +251,58 @@ static int32_t tegra194_ras_node_handler(uint32_t errselr,
 		return 0;
 	}
 
+	/* keep the log print same as linux arm64_ras driver. */
+	ERROR("**************************************\n");
+	ERROR("RAS Error in %s, ERRSELR_EL1=%u:\n", name, errselr);
+	ERROR("\tStatus = 0x%llx\n", status);
+
 	/* Print uncorrectable errror information. */
 	if (ERR_STATUS_GET_FIELD(status, UE) != 0U) {
 
 		/* IERR to error message */
 		for (uint32_t i = 0; errors[i].error_msg != NULL; i++) {
 			if (ierr == errors[i].error_code) {
-				ERROR("ERRSELR_EL1:0x%x\n, IERR = %s(0x%x)\n",
-					errselr, errors[i].error_msg,
-					errors[i].error_code);
+				ERROR("\tIERR = %s: 0x%x\n",
+					errors[i].error_msg, ierr);
+
 				found = true;
 				break;
 			}
 		}
 
 		if (!found) {
-			ERROR("unknown uncorrectable eror, "
-				"ERRSELR_EL1:0x%x, IERR: 0x%x\n", errselr, ierr);
+			ERROR("\tUnknown IERR: 0x%x\n", ierr);
 		}
 
-		ERROR("SERR = %s(0x%x)\n", tegra194_ras_serr2str(serr), serr);
+		ERROR("SERR = %s: 0x%x\n", tegra194_ras_serr2str(serr), serr);
+
+		/* Overflow, multiple errors have been detected. */
+		if (ERR_STATUS_GET_FIELD(status, OF) != 0U) {
+			ERROR("\tOverflow (there may be more errors) - "
+				"Uncorrectable\n");
+		}
+
+		ERROR("\tUncorrectable (this is fatal)\n");
+
+		/* Miscellaneous Register Valid. */
+		if (ERR_STATUS_GET_FIELD(status, MV) != 0U) {
+
+			ERROR("\tMISC0 = 0x%lx\n", read_erxmisc0_el1());
+			ERROR("\tMISC1 = 0x%lx\n", read_erxmisc1_el1());
+		}
+
+		/* Address Valid. */
+		if (ERR_STATUS_GET_FIELD(status, AV) != 0U) {
+			ERROR("\tADDR = 0x%lx\n", read_erxaddr_el1());
+		}
+
 	} else {
 		/* For corrected error, simply clear it. */
 		VERBOSE("corrected RAS error is cleared: ERRSELR_EL1:0x%x, "
 			"IERR:0x%x, SERR:0x%x\n", errselr, ierr, serr);
 	}
+
+	ERROR("**************************************\n");
 
 	/* Write to clear reported errors. */
 	write_erxstatus_el1(status);
@@ -291,6 +318,7 @@ static int32_t tegra194_ras_record_handler(const struct err_record_info *info,
 	const struct ras_aux_data *aux_data = info->aux_data;
 	const struct ras_error *errors;
 	uint32_t offset;
+	const char *node_name;
 
 	uint64_t status = 0ULL;
 
@@ -301,6 +329,7 @@ static int32_t tegra194_ras_record_handler(const struct err_record_info *info,
 
 	offset = (uint32_t)probe_data;
 	errors = aux_data[offset].error_records;
+	node_name = aux_data[offset].name;
 
 	assert(errors != NULL);
 
@@ -310,7 +339,8 @@ static int32_t tegra194_ras_record_handler(const struct err_record_info *info,
 	/* Retrieve status register from the error record */
 	status = read_erxstatus_el1();
 
-	return tegra194_ras_node_handler(idx_start + offset, errors, status);
+	return tegra194_ras_node_handler(idx_start + offset, node_name,
+			errors, status);
 }
 
 /* Instantiate RAS nodes */
