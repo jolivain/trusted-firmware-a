@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4a620090_da1f08be",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1000154
+      },
+      "writtenOn": "2019-05-17T02:38:55Z",
+      "side": 1,
+      "message": "advise to change the value to 1000 ms.",
+      "range": {
+        "startLine": 711,
+        "startChar": 12,
+        "endLine": 711,
+        "endChar": 15
+      },
+      "revId": "69fd42445043cb71a51c8a04431d6cdbe8941f65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "957f7923_4489b308",
         "filename": "drivers/ufs/ufs.c",
         "patchSetId": 2
