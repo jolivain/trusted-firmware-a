@@ -686,8 +686,7 @@ void bl2_el3_early_platform_setup(u_register_t arg1, u_register_t arg2,
 	if (boot_cpu == MODEMR_BOOT_CPU_CA57 ||
 	    boot_cpu == MODEMR_BOOT_CPU_CA53) {
 		rcar_pfc_init();
-		/* console configuration (platform specific) done in driver */
-		console_init(0, 0, 0);
+		rcar_console_boot_init();
 	}
 
 	plat_rcar_gic_driver_init();
