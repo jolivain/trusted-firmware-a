@@ -79,9 +79,7 @@ struct entry_point_info *bl31_plat_get_next_image_ep_info(uint32_t type)
 void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 				u_register_t arg2, u_register_t arg3)
 {
-	/* dummy config: the actual console configuration (platform specific)
-	   is done in the driver (scif.c) */
-	console_init(1, 0, 0);
+	rcar_console_runtime_init();
 
 	NOTICE("BL3-1 : Rev.%s\n", version_of_renesas);
 
