@@ -26,4 +26,5 @@ Platform Ports
    synquacer
    ti-k3
    warp7
+   xilinx-versal
    xilinx-zynqmp
