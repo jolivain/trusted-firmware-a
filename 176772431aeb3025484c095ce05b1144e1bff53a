@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "731a563f_2a9c0b89",
+        "filename": "docs/security_advisories/security-advisory-tfv-3.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-05-21T16:30:00Z",
+      "side": 1,
+      "message": "And to me as well, however the parser was giving a warning about being unable to parse this as C. I expect it\u0027s a bug in the parser rather than anything on our side but I went back to using just a normal literal block for now.",
+      "parentUuid": "6627c071_cf4a0785",
+      "revId": "176772431aeb3025484c095ce05b1144e1bff53a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6351cac6_e9ad4662",
         "filename": "docs/security_advisories/security-advisory-tfv-8.rst",
         "patchSetId": 8
@@ -30,6 +48,30 @@
       "writtenOn": "2019-05-21T13:11:54Z",
       "side": 1,
       "message": "Is there no syntax highlighting for assembly language?",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 2
+      },
+      "revId": "176772431aeb3025484c095ce05b1144e1bff53a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5ff898d_91342c9c",
+        "filename": "docs/security_advisories/security-advisory-tfv-8.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-05-21T16:30:00Z",
+      "side": 1,
+      "message": "I didn\u0027t see an appropriate lexer in the list of Pygments lexers: http://pygments.org/docs/lexers/ but maybe there is one and I missed it.\n\nPygments is the library responsible for syntax highlighting.",
+      "parentUuid": "6351cac6_e9ad4662",
       "range": {
         "startLine": 42,
         "startChar": 0,
