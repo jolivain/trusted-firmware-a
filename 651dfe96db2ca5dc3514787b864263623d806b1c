@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2ac988d5_d5d15ef3",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-21T13:58:24Z",
+      "side": 1,
+      "message": "1. See original Makefile line #455:\nifeq ($(ENABLE_PAUTH),1)\n    ifneq ($(ARCH),aarch64)\n        $(error ENABLE_PAUTH\u003d1 requires AArch64)\n2. \u0026 line #465:\nifeq ($(CTX_INCLUDE_PAUTH_REGS),1)\n        ifneq ($(ARCH),aarch64)\n            $(error CTX_INCLUDE_PAUTH_REGS\u003d1 requires AArch64)\nwhich aren\u0027t in \"Check incompatible options\" section.\n3. Placing aarch64 check for BRANCH_PROTECTION in \"Check incompatible options\" section will require an extra \"ifneq (${BRANCH_PROTECTION},0)\" check which was done already when setting compiler options and build flags.",
+      "parentUuid": "fa4571e1_ce2ab831",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 51
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d69b02f5_d13f1dcf",
         "filename": "Makefile",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50584d39_741953ad",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-21T13:58:24Z",
+      "side": 1,
+      "message": "ENABLE_PAUTH is set only when BRANCH_PROTECTION !\u003d 0. There is check for AArch64 at line #125",
+      "parentUuid": "d69b02f5_d13f1dcf",
+      "range": {
+        "startLine": 483,
+        "startChar": 0,
+        "endLine": 483,
+        "endChar": 24
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
