@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c75d794e_ecbebbfb",
+        "filename": "docs/design/interrupt-framework-design.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-05-21T10:25:41Z",
+      "side": 1,
+      "message": "I\u0027ll rename it and eventually that means we must move it, since it would be describing a component (so under docs/components) and not a design document (docs/design). That\u0027s fine though because I think there will be another reshuffle after these patches are merged - that will be easier because links path based.",
+      "parentUuid": "4608719e_1db8f872",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 27
+      },
+      "revId": "0f168021a9a958d45c2f2c9ef3c2c9a66fe393b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51074488_c1914ae1",
         "filename": "docs/design/psci-pd-tree.rst",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-05-20T13:28:39Z",
       "side": 1,
       "message": "\"Power Domain Tree Structure\"?",
+      "range": {
+        "startLine": 1,
+        "startChar": 23,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "0f168021a9a958d45c2f2c9ef3c2c9a66fe393b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c24b925b_7ea777bc",
+        "filename": "docs/design/psci-pd-tree.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-05-21T10:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51074488_c1914ae1",
       "range": {
         "startLine": 1,
         "startChar": 23,
