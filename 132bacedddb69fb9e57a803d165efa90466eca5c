@@ -85,6 +85,29 @@
       "revId": "132bacedddb69fb9e57a803d165efa90466eca5c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6067a5ad_3bbae44a",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-21T11:06:54Z",
+      "side": 1,
+      "message": "Call this PLAT_ARM_CLUSTER_LVL. I think the level just below system level will always be the cluster. So perhaps the cluster level is just PLAT_SYSTEM_PWR_LVL - 1 and you dont need to define this macro.",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 28
+      },
+      "revId": "132bacedddb69fb9e57a803d165efa90466eca5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
