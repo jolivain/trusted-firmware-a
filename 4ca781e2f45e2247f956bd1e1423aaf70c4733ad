@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "8851e9a1_c5d129c8",
+        "filename": "docs/components/secure-partition-manager-design.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-21T12:26:59Z",
+      "side": 1,
+      "message": "(minor) Should we use \u0027\u003d\u0027 as the underlining character, like in other documents?",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 24
+      },
+      "revId": "4ca781e2f45e2247f956bd1e1423aaf70c4733ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ab07f260_75493768",
         "filename": "docs/design/interrupt-framework-design.rst",
         "patchSetId": 7
@@ -41,6 +64,69 @@
         "startChar": 30,
         "endLine": 1,
         "endChar": 31
+      },
+      "revId": "4ca781e2f45e2247f956bd1e1423aaf70c4733ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f02c4ff_0ac279be",
+        "filename": "docs/getting_started/rt-svc-writers-guide.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-21T12:26:59Z",
+      "side": 1,
+      "message": "(minor) Extra characters to be removed?",
+      "range": {
+        "startLine": 2,
+        "startChar": 34,
+        "endLine": 3,
+        "endChar": 0
+      },
+      "revId": "4ca781e2f45e2247f956bd1e1423aaf70c4733ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e4fa35a_9ce8fd32",
+        "filename": "docs/index.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-21T12:26:59Z",
+      "side": 1,
+      "message": "Out of curiosity, why was this change needed?",
+      "revId": "4ca781e2f45e2247f956bd1e1423aaf70c4733ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2379621c_fc9edcf0",
+        "filename": "docs/maintainers.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-21T12:26:59Z",
+      "side": 1,
+      "message": "(off-topic) I\u0027ve just noticed we\u0027ll need to update this in a future patch.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 13
       },
       "revId": "4ca781e2f45e2247f956bd1e1423aaf70c4733ad",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
@@ -87,6 +173,29 @@
         "startChar": 8,
         "endLine": 1,
         "endChar": 17
+      },
+      "revId": "4ca781e2f45e2247f956bd1e1423aaf70c4733ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de36f780_49f372ef",
+        "filename": "docs/process/release-information.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-05-21T12:26:59Z",
+      "side": 1,
+      "message": "Comment removed by: Sandrine Bailleux; Reason: Addressed in a subsequent patch in the stack.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 14
       },
       "revId": "4ca781e2f45e2247f956bd1e1423aaf70c4733ad",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
