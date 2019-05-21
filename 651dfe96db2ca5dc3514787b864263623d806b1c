@@ -45,6 +45,29 @@
       "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f9d7ec4_85a82713",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-05-21T13:44:41Z",
+      "side": 1,
+      "message": "To be honest I would also prefer this to be broken down to simpler dependency checks... I\u0027m not saying it\u0027s wrong - I can see that all combinations are covered and the logic is correct. But I think it\u0027s difficult to maintain.\n\nFor example, the check for CTX_INCLUDE_PAUTH_REGS is triplicated. If we need to change anything in the future (especially if someone else other than Alexei makes a change) it would be very likely to miss something.\n\nHaving separate messages for each experimental feature is, aesthetically, not that bad. Since we need to create this very complex \"if\" block to avoid the separate messages, I would personally prefer the separate messages.",
+      "range": {
+        "startLine": 483,
+        "startChar": 0,
+        "endLine": 507,
+        "endChar": 5
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
