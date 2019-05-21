@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa4571e1_ce2ab831",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-05-21T13:37:24Z",
+      "side": 1,
+      "message": "Why not having this check together with all the other similar checks inside the \"Check incompatible options\" section? Here we \"hide\" an additional check that is not visible at the place we do all the other relevant checks and it could be easy to miss it.",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 51
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d69b02f5_d13f1dcf",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-05-21T13:37:24Z",
+      "side": 1,
+      "message": "If this is true, it seems that we forget to check about AArch64 (it\u0027s the hidden check at my other comment). That\u0027s why I think we should move the AArch64 check here.",
+      "range": {
+        "startLine": 483,
+        "startChar": 0,
+        "endLine": 483,
+        "endChar": 24
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
