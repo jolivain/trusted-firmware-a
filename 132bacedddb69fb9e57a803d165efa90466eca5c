@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c027ab1_a68c2801",
+        "filename": "drivers/arm/css/scp/css_pm_scpi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-21T11:04:22Z",
+      "side": 1,
+      "message": "Would prefer to keep SCPI untouched as SCPI will no longer be used for new generation platforms.",
+      "revId": "132bacedddb69fb9e57a803d165efa90466eca5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd034867_cb406acd",
+        "filename": "include/plat/arm/css/common/css_pm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-21T11:04:22Z",
+      "side": 1,
+      "message": "These macros are not needed and can be removed.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 78
+      },
+      "revId": "132bacedddb69fb9e57a803d165efa90466eca5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec209de2_e3eb75ed",
+        "filename": "include/plat/arm/css/common/css_pm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-21T11:04:22Z",
+      "side": 1,
+      "message": "Not needed I think.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 77
+      },
+      "revId": "132bacedddb69fb9e57a803d165efa90466eca5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d924e3d0_7d07db31",
+        "filename": "plat/arm/board/fvp/fvp_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-21T11:04:22Z",
+      "side": 1,
+      "message": "rename to PLAT_ARM_SYSTEM_PWR_LVL",
+      "range": {
+        "startLine": 113,
+        "startChar": 36,
+        "endLine": 113,
+        "endChar": 55
+      },
+      "revId": "132bacedddb69fb9e57a803d165efa90466eca5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
