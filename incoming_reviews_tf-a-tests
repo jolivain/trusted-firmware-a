@@ -1,0 +1,16 @@
+[dashboard]
+  title = TF-A-Tests Incoming Reviews
+  description = Helper dashboard for tracking progress of incoming reviews for TF-A-Tests
+  foreach = project:TF-A/tf-a-tests is:open -is:draft branch:master
+
+[section "Pending +1"]
+  query = -label:Code-Review=1 -label:Code-Review=2 -label:Code-Review=-1
+
+[section "Pending +2"]
+  query = label:Code-Review=1 -label:Code-Review=2 -label:Code-Review=-1
+
+[section "-1: waiting for rework"]
+  query = label:Code-Review=-1
+
+[section "Pending merge"]
+  query = label:Code-Review=2 -label:Code-Review=-1
