@@ -2,6 +2,63 @@
   "comments": [
     {
       "key": {
+        "uuid": "70b382b0_33c2b11c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-23T09:11:53Z",
+      "side": 1,
+      "message": "USE_LIBROM",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40f61c17_ac9c8840",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-23T09:11:53Z",
+      "side": 1,
+      "message": "Add \"NOTE: The previous ENABLE_PAUTH to enable PAuth in EL3 is made an internal flag and the BRANCH_PROTECTION flag should be used to enable PAuth.\"",
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a8fda94_9f2019e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-23T09:11:53Z",
+      "side": 1,
+      "message": "Need also some hints that the assembly macros and assembly helpers are modified to accomodate the BTI instruction. Also call out that this is an experimental feature.",
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa4571e1_ce2ab831",
         "filename": "Makefile",
         "patchSetId": 4
@@ -119,6 +176,30 @@
     },
     {
       "key": {
+        "uuid": "f8f67f48_ef8814d6",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-23T09:11:53Z",
+      "side": 1,
+      "message": "I dont like that way assembler ties in arch features to Arch revisions. This really complicates the option configuration. BUt I dont see a clean way out of this, unless we encode the instruction using macro in assembly.\n\nSo to enable BTI, we need to set BRANCH_PROTECTION\u003d1 and also set ARCH_MINOR\u003d5\n\nThis needs to be mentioned in user-guide and the dependency check will help.",
+      "parentUuid": "0324110b_edd519e8",
+      "range": {
+        "startLine": 484,
+        "startChar": 4,
+        "endLine": 484,
+        "endChar": 26
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f9d7ec4_85a82713",
         "filename": "Makefile",
         "patchSetId": 4
@@ -136,6 +217,166 @@
         "endLine": 507,
         "endChar": 5
       },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65395c89_67ea2f11",
+        "filename": "docs/user-guide.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-23T09:11:53Z",
+      "side": 1,
+      "message": "Call out that this feature is experimental.",
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f5034b_fc3dac45",
+        "filename": "docs/user-guide.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-23T09:11:53Z",
+      "side": 1,
+      "message": "nit: remove this whitespace",
+      "range": {
+        "startLine": 329,
+        "startChar": 50,
+        "endLine": 329,
+        "endChar": 52
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b22090f4_08de116f",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-23T09:11:53Z",
+      "side": 1,
+      "message": "extraneous change",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad08431_9048286e",
+        "filename": "include/lib/xlat_tables/xlat_tables_defs.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-23T09:11:53Z",
+      "side": 1,
+      "message": "nit : replace tab with space",
+      "range": {
+        "startLine": 67,
+        "startChar": 7,
+        "endLine": 67,
+        "endChar": 8
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9be9423_6bd9d240",
+        "filename": "lib/cpus/aarch64/aem_generic.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-23T09:11:53Z",
+      "side": 1,
+      "message": "extraneous change",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab22da5a_94688021",
+        "filename": "lib/extensions/amu/aarch64/amu_helpers.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-23T09:11:53Z",
+      "side": 1,
+      "message": "This is good changes. Please confirm that this code path is tested.",
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f819f69_28ad3451",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-23T09:11:53Z",
+      "side": 1,
+      "message": "Also mention this is an internal flag. Not meant for User.",
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15036926_a82fed50",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-05-23T09:11:53Z",
+      "side": 1,
+      "message": "Also mention this is an internal flag. Not meant for User. Use BRANCH_PROTECTION flag to enable PAUTH",
       "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
