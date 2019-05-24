@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2b314526_2e4eb4eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-24T11:26:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70b382b0_33c2b11c",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40f61c17_ac9c8840",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "73dfcae0_f7d6dec1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-24T11:26:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40f61c17_ac9c8840",
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a8fda94_9f2019e2",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -53,6 +95,24 @@
       "writtenOn": "2019-05-23T09:11:53Z",
       "side": 1,
       "message": "Need also some hints that the assembly macros and assembly helpers are modified to accomodate the BTI instruction. Also call out that this is an experimental feature.",
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a769071e_210634e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-24T11:26:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a8fda94_9f2019e2",
       "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -223,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "7accac2d_6aefa34a",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-24T11:26:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f9d7ec4_85a82713",
+      "range": {
+        "startLine": 483,
+        "startChar": 0,
+        "endLine": 507,
+        "endChar": 5
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65395c89_67ea2f11",
         "filename": "docs/user-guide.rst",
         "patchSetId": 4
@@ -237,6 +321,24 @@
       "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9223d77d_606f5322",
+        "filename": "docs/user-guide.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-24T11:26:41Z",
+      "side": 1,
+      "message": "See line #347:\n\"This option defaults to 0 and this is an experimental feature.\"",
+      "parentUuid": "65395c89_67ea2f11",
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
@@ -263,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "cb786dc2_9e1eec33",
+        "filename": "docs/user-guide.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-24T11:26:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3f5034b_fc3dac45",
+      "range": {
+        "startLine": 329,
+        "startChar": 50,
+        "endLine": 329,
+        "endChar": 52
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b22090f4_08de116f",
         "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
         "patchSetId": 4
@@ -274,6 +400,30 @@
       "writtenOn": "2019-05-23T09:11:53Z",
       "side": 1,
       "message": "extraneous change",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6bf52b3_588ab151",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-24T11:26:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b22090f4_08de116f",
       "range": {
         "startLine": 2,
         "startChar": 25,
@@ -309,6 +459,30 @@
     },
     {
       "key": {
+        "uuid": "52403556_505aa5fe",
+        "filename": "include/lib/xlat_tables/xlat_tables_defs.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-24T11:26:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ad08431_9048286e",
+      "range": {
+        "startLine": 67,
+        "startChar": 7,
+        "endLine": 67,
+        "endChar": 8
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9be9423_6bd9d240",
         "filename": "lib/cpus/aarch64/aem_generic.S",
         "patchSetId": 4
@@ -320,6 +494,30 @@
       "writtenOn": "2019-05-23T09:11:53Z",
       "side": 1,
       "message": "extraneous change",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52ab4e28_d98996f6",
+        "filename": "lib/cpus/aarch64/aem_generic.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-24T11:26:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9be9423_6bd9d240",
       "range": {
         "startLine": 2,
         "startChar": 25,
@@ -366,6 +564,24 @@
     },
     {
       "key": {
+        "uuid": "2f4335e7_2f6d6ae2",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-24T11:26:41Z",
+      "side": 1,
+      "message": "It\u0027s an external one.",
+      "parentUuid": "6f819f69_28ad3451",
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15036926_a82fed50",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 4
@@ -377,6 +593,24 @@
       "writtenOn": "2019-05-23T09:11:53Z",
       "side": 1,
       "message": "Also mention this is an internal flag. Not meant for User. Use BRANCH_PROTECTION flag to enable PAUTH",
+      "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd0895d7_33710dfe",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-05-24T11:26:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15036926_a82fed50",
       "revId": "651dfe96db2ca5dc3514787b864263623d806b1c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
