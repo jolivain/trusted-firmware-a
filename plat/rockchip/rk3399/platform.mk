@@ -34,6 +34,7 @@ RK_GIC_SOURCES		:=	drivers/arm/gic/common/gic_common.c	\
 
 PLAT_BL_COMMON_SOURCES	:=	lib/xlat_tables/xlat_tables_common.c	\
 				lib/xlat_tables/aarch64/xlat_tables.c	\
+				plat/common/bl31_params.c		\
 				plat/common/aarch64/crash_console_helpers.S \
 				plat/common/plat_psci_common.c
 
