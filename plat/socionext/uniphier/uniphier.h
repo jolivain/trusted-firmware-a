@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -35,6 +35,7 @@ unsigned int uniphier_get_boot_master(unsigned int soc);
 #define UNIPHIER_BOOT_MASTER_EXT	2
 
 void uniphier_console_setup(void);
+void uniphier_console_uninit(void);
 
 int uniphier_emmc_init(uintptr_t *block_dev_spec);
 int uniphier_nand_init(uintptr_t *block_dev_spec);
