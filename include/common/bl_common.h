@@ -106,6 +106,8 @@
 
 #include <lib/cassert.h>
 
+#include "bl_common_raw.h"
+
 /*
  * Declarations of linker defined symbols to help determine memory layout of
  * BL images
@@ -166,20 +168,6 @@ typedef struct meminfo {
 } meminfo_t;
 
 /*****************************************************************************
- * Image info binary provides information from the image loader that
- * can be used by the firmware to manage available trusted RAM.
- * More advanced firmware image formats can provide additional
- * information that enables optimization or greater flexibility in the
- * common firmware code
- *****************************************************************************/
-typedef struct image_info {
-	param_header_t h;
-	uintptr_t image_base;   /* physical address of base of image */
-	uint32_t image_size;    /* bytes read from image file */
-	uint32_t image_max_size;
-} image_info_t;
-
-/*****************************************************************************
  * The image descriptor struct definition.
  *****************************************************************************/
 typedef struct image_desc {
@@ -207,23 +195,6 @@ typedef struct bl_load_info {
 	param_header_t h;
 	bl_load_info_node_t *head;
 } bl_load_info_t;
-
-/* BL image node in the BL image execution sequence */
-typedef struct bl_params_node {
-	unsigned int image_id;
-	image_info_t *image_info;
-	entry_point_info_t *ep_info;
-	struct bl_params_node *next_params_info;
-} bl_params_node_t;
-
-/*
- * BL image head node in the BL image execution sequence
- * It is also used to pass information to next BL image.
- */
-typedef struct bl_params {
-	param_header_t h;
-	bl_params_node_t *head;
-} bl_params_t;
 
 /*******************************************************************************
  * Function & variable prototypes
