@@ -10,7 +10,8 @@ PLAT_INCLUDES		:=	-Iplat/nvidia/tegra/include/drivers \
 				-Iplat/nvidia/tegra/include/${TARGET_SOC}
 
 include lib/xlat_tables_v2/xlat_tables.mk
-PLAT_BL_COMMON_SOURCES	+=	${XLAT_TABLES_LIB_SRCS}
+PLAT_BL_COMMON_SOURCES	+=	${XLAT_TABLES_LIB_SRCS}				\
+				
 
 COMMON_DIR		:=	plat/nvidia/tegra/common
 
@@ -20,9 +21,9 @@ TEGRA_GICv2_SOURCES	:=	drivers/arm/gic/common/gic_common.c		\
 				plat/common/plat_gicv2.c			\
 				${COMMON_DIR}/tegra_gicv2.c
 
-BL31_SOURCES		+=	drivers/console/aarch64/console.S		\
-				drivers/delay_timer/delay_timer.c		\
+BL31_SOURCES		+=	drivers/delay_timer/delay_timer.c		\
 				drivers/io/io_storage.c				\
+				plat/common/aarch64/crash_console_helpers.S	\
 				${TEGRA_GICv2_SOURCES}				\
 				${COMMON_DIR}/aarch64/tegra_helpers.S		\
 				${COMMON_DIR}/drivers/pmc/pmc.c			\
