@@ -27,6 +27,7 @@
 extern uint64_t tegra_bl31_phys_base;
 extern uint64_t tegra_sec_entry_point;
 extern uint64_t tegra_console_base;
+extern console_16550_t tegra_runtime_console;
 
 /*
  * tegra_fake_system_suspend acts as a boolean var controlling whether
@@ -219,7 +220,8 @@ void tegra_pwr_domain_suspend(const psci_power_state_t *target_state)
 	/* Disable console if we are entering deep sleep. */
 	if (target_state->pwr_domain_state[PLAT_MAX_PWR_LVL] ==
 			PSTATE_ID_SOC_POWERDN) {
-		(void)console_uninit();
+		(void)console_flush();
+		(void)console_unregister(&tegra_runtime_console.console);
 	}
 
 	/* disable GICC */
@@ -293,8 +295,12 @@ void tegra_pwr_domain_on_finish(const psci_power_state_t *target_state)
 
 		/* Initialize the runtime console */
 		if (tegra_console_base != 0ULL) {
-			(void)console_init(tegra_console_base, console_clock,
-				     TEGRA_CONSOLE_BAUDRATE);
+			(void)console_16550_register(tegra_console_base,
+						     console_clock,
+						     TEGRA_CONSOLE_BAUDRATE,
+						     &tegra_runtime_console);
+			console_set_scope(&tegra_runtime_console.console,
+					  CONSOLE_FLAG_RUNTIME);
 		}
 
 		/*
