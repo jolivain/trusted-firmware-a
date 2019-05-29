@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -89,6 +89,6 @@ void bl31_plat_runtime_setup(void)
 {
 	/* Suppress any runtime logs unless DEBUG is defined */
 #if !DEBUG
-	console_uninit();
+	uniphier_console_uninit();
 #endif
 }
