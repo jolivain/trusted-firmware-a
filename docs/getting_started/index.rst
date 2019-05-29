@@ -6,8 +6,11 @@ Getting Started
    :caption: Contents
    :numbered:
 
-   user-guide
+   prerequisites
    docs-build
+   tools-build
+   initial-build
+   build-options
    image-terminology
    porting-guide
    psci-lib-integration-guide
