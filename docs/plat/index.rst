@@ -8,10 +8,12 @@ Platform Ports
    :hidden:
 
    allwinner
+   arm/juno/index
+   arm/fvp/index
+   arm/fvp-ve/index
    meson-gxbb
    meson-gxl
    meson-g12a
-   fvp_ve
    hikey
    hikey960
    intel-agilex
