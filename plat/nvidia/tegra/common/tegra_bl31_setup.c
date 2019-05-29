@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -50,6 +50,7 @@ IMPORT_SYM(uint64_t, __TEXT_END__,	TEXT_END);
 
 extern uint64_t tegra_bl31_phys_base;
 extern uint64_t tegra_console_base;
+console_16550_t tegra_runtime_console;
 
 static entry_point_info_t bl33_image_ep_info, bl32_image_ep_info;
 static plat_params_from_bl2_t plat_bl31_params_from_bl2 = {
@@ -200,8 +201,12 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 		/*
 		 * Configure the UART port to be used as the console
 		 */
-		(void)console_init(tegra_console_base, console_clock,
-			     TEGRA_CONSOLE_BAUDRATE);
+		(void)console_16550_register(tegra_console_base,
+					     console_clock,
+					     TEGRA_CONSOLE_BAUDRATE,
+					     &tegra_runtime_console);
+		console_set_scope(&tegra_runtime_console.console,
+				  CONSOLE_FLAG_RUNTIME);
 	}
 
 	/*
