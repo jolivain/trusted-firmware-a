@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -244,7 +244,7 @@ endfunc plat_crash_console_init
 func plat_crash_console_putc
 	adr	x1, tegra_console_base
 	ldr	x1, [x1]
-	b	console_core_putc
+	b	console_16550_core_putc
 endfunc plat_crash_console_putc
 
 	/* ---------------------------------------------
@@ -258,7 +258,7 @@ endfunc plat_crash_console_putc
 func plat_crash_console_flush
 	adr	x0, tegra_console_base
 	ldr	x0, [x0]
-	b	console_core_flush
+	b	console_16550_core_flush
 endfunc plat_crash_console_flush
 
 	/* ---------------------------------------------------

@@ -20,8 +20,7 @@ TEGRA_GICv2_SOURCES	:=	drivers/arm/gic/common/gic_common.c		\
 				plat/common/plat_gicv2.c			\
 				${COMMON_DIR}/tegra_gicv2.c
 
-BL31_SOURCES		+=	drivers/console/aarch64/console.S		\
-				drivers/delay_timer/delay_timer.c		\
+BL31_SOURCES		+=	drivers/delay_timer/delay_timer.c		\
 				drivers/io/io_storage.c				\
 				${TEGRA_GICv2_SOURCES}				\
 				${COMMON_DIR}/aarch64/tegra_helpers.S		\
