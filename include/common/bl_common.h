@@ -222,6 +222,10 @@ void setup_page_tables(const struct mmap_region *bl_regions,
 
 void bl_handle_pauth(void);
 
+/* Helper to extract entry points from bl_params structures (version 1 and 2) */
+void bl31_params_parse(u_register_t param, entry_point_info_t *bl32_ep_info_out,
+		       entry_point_info_t *bl33_ep_info_out);
+
 #endif /*__ASSEMBLY__*/
 
 #endif /* BL_COMMON_H */
