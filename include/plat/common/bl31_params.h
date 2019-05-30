@@ -11,6 +11,10 @@
 
 #include "bl31_params_raw.h"
 
+/* Helper to extract entry points from bl_params structures (version 1 and 2) */
+void bl31_params_parse(u_register_t param, entry_point_info_t *bl32_ep_info_out,
+		       entry_point_info_t *bl33_ep_info_out);
+
 /* Handler function that handles an individual platform parameter. Returns true
  * if the parameter was recognized and false if not. */
 typedef bool (*bl31_plat_param_handler_t)(bl31_plat_param_header_t *param);
