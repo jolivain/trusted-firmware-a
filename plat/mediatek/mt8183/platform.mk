@@ -12,6 +12,7 @@ PLAT_INCLUDES := -I${MTK_PLAT}/common/                            \
 
 PLAT_BL_COMMON_SOURCES := lib/xlat_tables/aarch64/xlat_tables.c       \
                           lib/xlat_tables/xlat_tables_common.c        \
+                          plat/common/bl31_params.c                   \
                           plat/common/plat_gicv2.c                    \
                           plat/common/plat_psci_common.c              \
                           plat/common/aarch64/crash_console_helpers.S
