@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6ab60de_f871ab69",
+        "filename": "plat/socionext/uniphier/uniphier_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-05-31T20:18:10Z",
+      "side": 1,
+      "message": "The equivalent of this in MULTI_CONSOLE_API is to just do console_switch_state(CONSOLE_FLAG_RUNTIME). (In order to make the console actually turn off in that case, you shouldn\u0027t call console_set_scope(CONSOLE_FLAG_RUNTIME) on  it when you register it.)\n\nIn order to implement the desired effect (do not output stuff at runtime unless DEBUG is set) cleanly with the new framework, I\u0027d suggest you don\u0027t override bl31_plat_runtime_setup() here (so you get the default plat/common implementation that just always does console_switch_state(CONSOLE_FLAG_RUNTIME)), and instead you do this when you register the console:\n\n console_uniphier_register(..., \u0026uniphier_console);\n#if DEBUG\n console_set_scope(\u0026uniphier_console, CONSOLE_FLAG_BOOT | CONSOLE_FLAG_RUNTIME | CONSOLE_FLAG_CRASH);\n#endif\n\nThis means that if DEBUG is set you override the console scope to make it active in all three states (BOOT, RUNTIME and CRASH), otherwise you stick with the default scope (only BOOT and CRASH).",
+      "revId": "576f8a321c62a8d31fe1a83a50c9b459a1584922",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
