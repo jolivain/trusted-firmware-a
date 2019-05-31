@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86f0f357_9d2d1307",
+        "filename": "plat/common/aarch64/plat_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-05-31T20:11:57Z",
+      "side": 1,
+      "message": "Somewhat unrelated to your change, but I think we should move this to a function that cannot get overridden by the platform (like bl31_main() right before it calls this) now. Otherwise it gets very weird when platforms override this function for reasons not related to console handling and forget to switch the console state, meaning it will stay at CONSOLE_FLAG_BOOT even though the system is long done booting.\n\nIf all platforms use the MULTI_CONSOLE_API, they should be able to do anything they may want to do with console_set_scope(), they shouldn\u0027t need to mess with the global console state accounting.",
+      "revId": "d7699b50974c58f05d6325bccdaf3dca590e4293",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
