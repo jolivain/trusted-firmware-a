@@ -22,6 +22,30 @@
       "revId": "3e4d1553706d68f59167e7fe97ef3d1ad40caf82",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06d850df_71e672e7",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-05-31T17:27:32Z",
+      "side": 1,
+      "message": "Hi Soby, \n          The reason I redefined this function gicv3_driver_init is because we need a new input argument called proc_self which will be consumed my new API gicv3_rdistif_probe(....). I could have extracted proc_self using the function pointer (plat_driver_data-\u003empidr_to_core_pos) together with read_mpidr_el(). But i believe there will be problem with it in scenarios where the function pointer (essentially a hash which converts mpidr to a unique number) is null i.e., the mapping function is not implemented. \nAlso, the build flag will make the code simpler by leveraging preprocessor and we can support legacy code easily. I think the flag is also necessary to include few new functions conditionally. For ex: plat_populate_gicr_frame_bases() etc. \nPlease let me know your thoughts.",
+      "parentUuid": "b0b6efda_934a704f",
+      "range": {
+        "startLine": 64,
+        "startChar": 12,
+        "endLine": 64,
+        "endChar": 29
+      },
+      "revId": "3e4d1553706d68f59167e7fe97ef3d1ad40caf82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
