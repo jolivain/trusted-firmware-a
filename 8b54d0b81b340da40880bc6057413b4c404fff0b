@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "d9f53a15_63eb88d0",
+        "filename": "plat/mediatek/common/params_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-05-31T04:32:56Z",
+      "side": 1,
+      "message": "Uploaded a patch series to factor this out into plat/common at https://review.trustedfirmware.org/1185, please let me know what you think.",
+      "parentUuid": "05fcf7f9_d2a76484",
+      "range": {
+        "startLine": 23,
+        "startChar": 39,
+        "endLine": 23,
+        "endChar": 58
+      },
+      "revId": "8b54d0b81b340da40880bc6057413b4c404fff0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93571381_3d5078af",
         "filename": "plat/mediatek/common/params_setup.h",
         "patchSetId": 1
