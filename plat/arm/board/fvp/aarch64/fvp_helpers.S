@@ -59,14 +59,11 @@ func plat_secondary_cold_boot_setup
 	cmp	x0, #1
 	b.ne	gicv2_bypass_disable
 
-	/* Check for SRE enable */
+	/* Enable the CPU interface and disable interrupt bypass support */
 	mrs	x1, ICC_SRE_EL3
-	tst	x1, #ICC_SRE_SRE_BIT
-	b.eq	gicv2_bypass_disable
-
-	mrs	x2, ICC_SRE_EL3
-	orr	x2, x2, #(ICC_SRE_DIB_BIT | ICC_SRE_DFB_BIT)
+	orr	x1, x1, #(ICC_SRE_DIB_BIT | ICC_SRE_DFB_BIT | ICC_SRE_SRE_BIT)
 	msr	ICC_SRE_EL3, x2
+	isb
 	b	secondary_cold_boot_wait
 
 gicv2_bypass_disable:
