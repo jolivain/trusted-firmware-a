@@ -16,6 +16,24 @@
       "revId": "bbb24f611c92ada192ed7a6825da8b477fd6bcfb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9233db6_54a83127",
+        "filename": "lib/romlib/genwrappers.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-06-03T13:38:17Z",
+      "side": 1,
+      "message": "John did this change as per Alexei\u0027s request. I am not 100% sure why swapping these 2 instructions would make the code more efficient, could it be to reduce the dependency between consecutive instructions using the same registers? Is that  what you had in mind Alexei?",
+      "parentUuid": "42a5e02f_65044f1b",
+      "revId": "bbb24f611c92ada192ed7a6825da8b477fd6bcfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
