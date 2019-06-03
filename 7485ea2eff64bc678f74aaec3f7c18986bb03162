@@ -22,6 +22,30 @@
       "revId": "7485ea2eff64bc678f74aaec3f7c18986bb03162",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f281826_ccb56f94",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-03T13:47:32Z",
+      "side": 1,
+      "message": "Very good catch... big mistake of mine.",
+      "parentUuid": "fcdc3f5f_5f7787c0",
+      "range": {
+        "startLine": 65,
+        "startChar": 18,
+        "endLine": 65,
+        "endChar": 20
+      },
+      "revId": "7485ea2eff64bc678f74aaec3f7c18986bb03162",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
