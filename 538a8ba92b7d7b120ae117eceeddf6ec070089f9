@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03198cf3_3b1942ce",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-04T11:43:58Z",
+      "side": 1,
+      "message": "Shouldn\u0027t that be two digit? E.g. 0x31.\n\nAlso, I think this will apply the errata also for r3p1. The function call at the next line checks for \"less or same\". In that case maybe we need to write #0x30 to apply the errata for any version\u003c\u003dr3p0.",
+      "range": {
+        "startLine": 98,
+        "startChar": 9,
+        "endLine": 98,
+        "endChar": 15
+      },
+      "revId": "538a8ba92b7d7b120ae117eceeddf6ec070089f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
