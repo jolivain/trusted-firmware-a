@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ddb0b407_296f205c",
+        "filename": "plat/mediatek/mt8183/include/mt_gic_v3.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-06-04T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77977d91_bf454b8e",
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e466c6b_a51b0056",
         "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
         "patchSetId": 11
@@ -33,6 +51,24 @@
       "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4b47fb9_d79bc847",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-06-04T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e466c6b_a51b0056",
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "2f494377_30260b08",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-06-04T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aea56b13_d82ef30a",
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efade057_72eb07c4",
         "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
         "patchSetId": 11
@@ -67,6 +121,24 @@
       "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7e74641_d2dcf19f",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-06-04T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efade057_72eb07c4",
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -93,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "03f98107_f2bb95cc",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-06-04T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ea4a252_e4787cec",
+      "range": {
+        "startLine": 456,
+        "startChar": 1,
+        "endLine": 461,
+        "endChar": 28
+      },
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d202b11b_8e31f3d6",
         "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
         "patchSetId": 11
@@ -113,6 +209,30 @@
       "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a88bb710_93001ab7",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-06-04T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d202b11b_8e31f3d6",
+      "range": {
+        "startLine": 471,
+        "startChar": 12,
+        "endLine": 471,
+        "endChar": 35
+      },
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -139,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "d291afd1_ba0c6f18",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-06-04T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58d7691e_b65e87ac",
+      "range": {
+        "startLine": 502,
+        "startChar": 15,
+        "endLine": 502,
+        "endChar": 39
+      },
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1e0ed35_3a7cdda3",
         "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
         "patchSetId": 11
@@ -162,6 +306,30 @@
     },
     {
       "key": {
+        "uuid": "779c132a_bca8ed61",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-06-04T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1e0ed35_3a7cdda3",
+      "range": {
+        "startLine": 511,
+        "startChar": 15,
+        "endLine": 511,
+        "endChar": 48
+      },
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9436489_a4d27c41",
         "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
         "patchSetId": 11
@@ -182,6 +350,30 @@
       "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2c8f4cc_69af4f9e",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-06-04T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9436489_a4d27c41",
+      "range": {
+        "startLine": 681,
+        "startChar": 3,
+        "endLine": 681,
+        "endChar": 4
+      },
+      "revId": "6d01ce895c097496309dc649b01ac1dfa5d8777b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
