@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "13babd8f_199e17d3",
+        "filename": "plat/mediatek/mt8183/aarch64/platform_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-06-04T13:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46554dbc_aacf66ef",
+      "range": {
+        "startLine": 69,
+        "startChar": 1,
+        "endLine": 70,
+        "endChar": 65
+      },
+      "revId": "eab12b29e964e4f67e031a36526dce22b9295d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e1fe726_56c55836",
         "filename": "plat/mediatek/mt8183/bl31_plat_setup.c",
         "patchSetId": 3
