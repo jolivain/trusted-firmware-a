@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b02ec584_6bbdd274",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-04T15:17:22Z",
+      "side": 1,
+      "message": "can be removed",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91b8f41d_3c42b678",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-04T15:17:22Z",
+      "side": 1,
+      "message": "can also be removed",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98b93fb5_d523dcc3",
+        "filename": "include/plat/common/bl31_params.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-04T15:17:22Z",
+      "side": 1,
+      "message": "TF-A",
+      "range": {
+        "startLine": 40,
+        "startChar": 70,
+        "endLine": 40,
+        "endChar": 72
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b74d0ad_f22bdae8",
+        "filename": "include/plat/common/bl31_params.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-04T15:17:22Z",
+      "side": 1,
+      "message": "Depending on how you used this function in the next file, I would say it actually *parses* the argument, not just \"recognises\" it. Maybe we need to clarify that in this comment.",
+      "range": {
+        "startLine": 98,
+        "startChar": 24,
+        "endLine": 98,
+        "endChar": 34
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "965d6a99_1ba46198",
+        "filename": "plat/common/bl31_params.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-04T15:17:22Z",
+      "side": 1,
+      "message": "param-\u003enext is already a (void *)",
+      "range": {
+        "startLine": 16,
+        "startChar": 49,
+        "endLine": 16,
+        "endChar": 57
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2edd0d7f_e6d279b4",
+        "filename": "plat/common/bl31_params.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-04T15:17:22Z",
+      "side": 1,
+      "message": "Why not directly (bl31_plat_param_header_t *) ?",
+      "range": {
+        "startLine": 16,
+        "startChar": 14,
+        "endLine": 16,
+        "endChar": 22
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce7e830a_aab9196b",
+        "filename": "plat/common/bl31_params.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-04T15:17:22Z",
+      "side": 1,
+      "message": "coreboot_table_setup() is expecting a void * argument anyway. Is the explicit cast needed?",
+      "range": {
+        "startLine": 23,
+        "startChar": 24,
+        "endLine": 23,
+        "endChar": 32
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
