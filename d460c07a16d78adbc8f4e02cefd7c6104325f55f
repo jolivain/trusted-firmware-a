@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "766d3a3e_d1d8385e",
+        "filename": "include/plat/common/bl31_params.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-05T09:40:29Z",
+      "side": 1,
+      "message": "IMHO it would make a bit more clear what the function does.\n\nHowever I don\u0027t have a strong opinion on that. For example in my case by \"recognise\" I assumed something like \"validated\", in a sense e.g. that it\u0027s properly formatted. Maybe an accompanying comment in line 18 of the next file would explain better the usage of the function.\n\nAgain, I don\u0027t mean to be pedantic. The only reason I\u0027m saying that it\u0027s because while reading the next file I was slightly confused by the fact that if the function returns true you are exiting the loop without further parsing.\n\nBut I leave it up to your discretion.",
+      "parentUuid": "7ab390bf_a54cadde",
+      "range": {
+        "startLine": 98,
+        "startChar": 24,
+        "endLine": 98,
+        "endChar": 34
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "965d6a99_1ba46198",
         "filename": "plat/common/bl31_params.c",
         "patchSetId": 1
