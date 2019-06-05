@@ -22,6 +22,30 @@
       "revId": "538a8ba92b7d7b120ae117eceeddf6ec070089f9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c491103_f75b35fe",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-05T16:22:02Z",
+      "side": 1,
+      "message": "Yes, this should be #0x31.",
+      "parentUuid": "03198cf3_3b1942ce",
+      "range": {
+        "startLine": 98,
+        "startChar": 9,
+        "endLine": 98,
+        "endChar": 15
+      },
+      "revId": "538a8ba92b7d7b120ae117eceeddf6ec070089f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
