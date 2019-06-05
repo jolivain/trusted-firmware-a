@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3460e9a_4a873551",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-06-05T16:25:06Z",
+      "side": 1,
+      "message": "If you need to include this header that\u0027s probably a signal that you\u0027re doing something wrong and breaking encapsulation somewhere. What do you need it for?",
+      "revId": "adef014cb4201ceb3e1c703aed5c14cb69333255",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31249237_ebcce9ed",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-06-05T16:25:06Z",
+      "side": 1,
+      "message": "What is this? Please don\u0027t copy\u0026paste code from somewhere if you don\u0027t understand what it does. This is only defined in an Arm-platform-specific linker script (include/plat/arm/common/arm_tzc_dram.ld.S), it won\u0027t do anything for you.\n\nAs I understand this is just a small optimization and placing the structures in BSS should work just as well. Just remove the __section() annotation.",
+      "revId": "adef014cb4201ceb3e1c703aed5c14cb69333255",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7924f776_bdeac7aa",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-06-05T16:25:06Z",
+      "side": 1,
+      "message": "Please use mmio_clrsetbits_32() for read-modify-write operations.",
+      "revId": "adef014cb4201ceb3e1c703aed5c14cb69333255",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b48c391e_f675281c",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-06-05T16:25:06Z",
+      "side": 1,
+      "message": "Are all of these functions actually used somewhere? It looks like you haven\u0027t updated the later patches (like CPU hotplug) to reflect the changes here so it\u0027s a bit hard to tell.",
+      "revId": "adef014cb4201ceb3e1c703aed5c14cb69333255",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
