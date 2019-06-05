@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26674dab_c7fb8dc2",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-06-05T13:56:15Z",
+      "side": 1,
+      "message": "It looks like this macro was only used by the code this patch removes ; presumably the macro itself could be removed as well?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 6
+      },
+      "revId": "7c92fe80bc5ff3269f53f74a0299e1bd97e47e61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
