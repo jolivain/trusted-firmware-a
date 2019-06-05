@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "37fa6ac9_aba6386a",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-06-05T09:59:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dc2ea38_6c108be0",
+      "range": {
+        "startLine": 60,
+        "startChar": 2,
+        "endLine": 60,
+        "endChar": 8
+      },
+      "revId": "27cab6a9408fd8830890ad9bd914d8a6a8f104da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b3c2f5e_78368511",
         "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2019-06-04T15:47:33Z",
       "side": 1,
       "message": "What is the difference with line 55? And if there is no difference why not taking it out of the \"if-else\" block?\n\nAlso: line 62, replace spaces with a tab",
+      "range": {
+        "startLine": 61,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 46
+      },
+      "revId": "27cab6a9408fd8830890ad9bd914d8a6a8f104da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc4aea0d_f9939c71",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-06-05T09:59:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b3c2f5e_78368511",
       "range": {
         "startLine": 61,
         "startChar": 2,
