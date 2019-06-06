@@ -119,6 +119,52 @@
     },
     {
       "key": {
+        "uuid": "b289ce24_65b74819",
+        "filename": "include/plat/common/bl31_params.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-06T16:12:26Z",
+      "side": 1,
+      "message": "I understand this is being positioned as a generic data structure for passing parameters to BL31, but I am inclined to suggest calling this `cb_plat_params because COREBOOT_TABLE is the only generic param in the list.\n\nFollowing that line of thought, this file and header can move into the plat/common/coreboot folder.\n\nOr the other alternative is instead of positioning this as only for BL31, if this is a format that can be used by all BL images to pass config around, that would mean making this more generic\nby calling it `list_bl_params` \n\nIn which case this can move into the /lib/common folder. \n\nLet me know of your thoughts.",
+      "range": {
+        "startLine": 50,
+        "startChar": 5,
+        "endLine": 50,
+        "endChar": 25
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da834733_6e239247",
+        "filename": "include/plat/common/bl31_params.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-06T16:12:26Z",
+      "side": 1,
+      "message": "nit: the multi line comment is not as per guidelines.",
+      "range": {
+        "startLine": 97,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 3
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b74d0ad_f22bdae8",
         "filename": "include/plat/common/bl31_params.h",
         "patchSetId": 1
