@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49dcd6cf_c6483a72",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-06-06T07:13:03Z",
+      "side": 1,
+      "message": "Coverity has noticed that the data parent_nodes points to is not modified by this function so it is suggesting making it (const unsigned int *).",
+      "range": {
+        "startLine": 576,
+        "startChar": 60,
+        "endLine": 576,
+        "endChar": 86
+      },
+      "revId": "08b232c4d6036a18f558c92f3e2f20699571b86c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8240a853_e9eb4218",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-06-06T07:13:03Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 593,
+        "startChar": 60,
+        "endLine": 593,
+        "endChar": 86
+      },
+      "revId": "08b232c4d6036a18f558c92f3e2f20699571b86c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
