@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7ca370d_52028192",
+        "filename": "docs/process/security-checks.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-06-06T11:50:50Z",
+      "side": 1,
+      "message": "I would add SEPARATE_CODE_AND_RODATA build option to this list.\n\nI suppose TBBR options are overkill, what do you think?\n\nI am wondering whether we should also isolate debug-only build options (in a separate patch to this one). I mean, options that should never be enabled on a production system, things like DYN_DISABLE_AUTH, DEBUG (obviously!), SPIN_ON_BL1_EXIT, FAULT_INJECTION_SUPPORT, the options enabling traces (ENABLE_BACKTRACE, V, ENABLE_ASSERTIONS) - although these might be arguable.\n\nRegarding the location of this documentation file, I agree with John and it would sound more appropriate to me to have this under the same location as the user guide. I also agree with you that it\u0027s not \"getting started\" material, this is for more advanced users. So perhaps the root of contention here is because the build options should not be in the user guide in the first place. Should we move them into a new file, perhaps some building.rst at the top of the docs/ directory?",
+      "revId": "78b61abaa6a87d96098c7833fdcb01ed66df9463",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
