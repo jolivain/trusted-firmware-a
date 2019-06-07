@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "674b9a66_89b41d81",
+        "filename": "include/plat/common/bl31_params.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-06-07T22:26:09Z",
+      "side": 1,
+      "message": "COREBOOT_TABLE is the only generic parameter (for now), but it\u0027s not the only parameter. The Rockchip platform-specific parameters have nothing to do with coreboot and would be just as relevant if e.g. chain-loaded from U-Boot instead. So I would definitely prefer to keep this independent from coreboot.\n\nExpanding this to other BLs sounds fine. What do you think about John\u0027s naming concerns (commented earlier on this CL)? bl_list_params or bl_aux_params would both sound fine to me (although since bl_params_t is now also a list, maybe the latter would be better to avoid confusion between the two?).\n\nThere is no /lib/common, did you mean /common? I\u0027m happy putting it there if you want, I\u0027m not sure where exactly the line between /common and /plat/common is supposed to be. Although since this is supposed to be an optional feature that platforms have to explicitly select from their platform.mk, wouldn\u0027t /plat/common be more suitable (that seems to be the standard for files in there, whereas all the files in /common seem to be selected unconditionally by the toplevel Makefile)?",
+      "parentUuid": "b289ce24_65b74819",
+      "range": {
+        "startLine": 50,
+        "startChar": 5,
+        "endLine": 50,
+        "endChar": 25
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da834733_6e239247",
         "filename": "include/plat/common/bl31_params.h",
         "patchSetId": 1
@@ -153,6 +177,30 @@
       "writtenOn": "2019-06-06T16:12:26Z",
       "side": 1,
       "message": "nit: the multi line comment is not as per guidelines.",
+      "range": {
+        "startLine": 97,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 3
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67d1ea8a_aab36f44",
+        "filename": "include/plat/common/bl31_params.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-06-07T22:26:09Z",
+      "side": 1,
+      "message": "Will fix.",
+      "parentUuid": "da834733_6e239247",
       "range": {
         "startLine": 97,
         "startChar": 2,
