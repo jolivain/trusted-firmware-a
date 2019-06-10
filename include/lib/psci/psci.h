@@ -301,6 +301,8 @@ typedef struct plat_psci_ops {
 				const psci_power_state_t *target_state);
 	void (*pwr_domain_suspend)(const psci_power_state_t *target_state);
 	void (*pwr_domain_on_finish)(const psci_power_state_t *target_state);
+	void (*pwr_domain_on_finish_coherent)(
+				const psci_power_state_t *target_state);
 	void (*pwr_domain_suspend_finish)(
 				const psci_power_state_t *target_state);
 	void __dead2 (*pwr_domain_pwr_down_wfi)(

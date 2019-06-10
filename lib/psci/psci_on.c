@@ -181,6 +181,12 @@ void psci_cpu_on_finish(int cpu_idx, const psci_power_state_t *state_info)
 	psci_do_pwrup_cache_maintenance();
 #endif
 
+	/* Plat. management: Perform any platform specific actions
+	 * which can only be done with the cpu and the cluster guaranteed to
+	 * participate in coherency.
+	 */
+	psci_plat_pm_ops->pwr_domain_on_finish_coherent(state_info);
+
 	/*
 	 * All the platform specific actions for turning this cpu
 	 * on have completed. Perform enough arch.initialization
