@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -246,11 +246,26 @@ static void fvp_pwr_domain_suspend(const psci_power_state_t *target_state)
 static void fvp_pwr_domain_on_finish(const psci_power_state_t *target_state)
 {
 	fvp_power_domain_on_finish_common(target_state);
+}
 
-	/* Enable the gic cpu interface */
+/*******************************************************************************
+ * FVP handler called when a power domain has just been powered on and the cpu
+ * and its cluster are fully participating in coherent transaction on the
+ * interconnect. Data cache must be enabled for CPU at this point.
+ ******************************************************************************/
+static void fvp_pwr_domain_on_finish_late(const psci_power_state_t *target_state)
+{
+	/* Ensure this function is called with Data Cache enabled */
+#ifndef __aarch64__
+	assert((read_sctlr() & SCTLR_C_BIT) != 0);
+#else
+	assert((read_sctlr_el3() & SCTLR_C_BIT) != 0);
+#endif /* !__aarch64__ */
+
+	/* Program GIC per-cpu distributor or re-distributor interface */
 	plat_arm_gic_pcpu_init();
 
-	/* Program the gic per-cpu distributor or re-distributor interface */
+	/* Enable GIC CPU interface */
 	plat_arm_gic_cpuif_enable();
 }
 
@@ -272,7 +287,7 @@ static void fvp_pwr_domain_suspend_finish(const psci_power_state_t *target_state
 
 	fvp_power_domain_on_finish_common(target_state);
 
-	/* Enable the gic cpu interface */
+	/* Enable GIC CPU interface */
 	plat_arm_gic_cpuif_enable();
 }
 
@@ -397,6 +412,7 @@ plat_psci_ops_t plat_arm_psci_pm_ops = {
 	.pwr_domain_off = fvp_pwr_domain_off,
 	.pwr_domain_suspend = fvp_pwr_domain_suspend,
 	.pwr_domain_on_finish = fvp_pwr_domain_on_finish,
+	.pwr_domain_on_finish_late = fvp_pwr_domain_on_finish_late,
 	.pwr_domain_suspend_finish = fvp_pwr_domain_suspend_finish,
 	.system_off = fvp_system_off,
 	.system_reset = fvp_system_reset,
