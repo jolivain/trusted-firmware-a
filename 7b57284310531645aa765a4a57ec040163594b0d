@@ -16,6 +16,23 @@
       "revId": "7b57284310531645aa765a4a57ec040163594b0d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed651dc8_1daf97e6",
+        "filename": "plat/arm/board/juno/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-10T15:46:32Z",
+      "side": 1,
+      "message": "For Juno, when JUNO_AARCH32_EL3_RUNTIME is set, BL1 and BL2/BL2u are in AArch64 and BL32 is AArch32. \n\nHence I thought this line should have taken care of this. Unless BL2U is getting compiled in AArch32 mode which is a problem that needs to be fixed. BL1, BL2 and BL2U always should compile in AArch64 mode for JUNO. This is due to a system limitation related to reset vector.",
+      "revId": "7b57284310531645aa765a4a57ec040163594b0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
