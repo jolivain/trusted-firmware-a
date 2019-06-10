@@ -258,6 +258,7 @@ void plat_arm_error_handler(int err);
 unsigned int plat_arm_get_cpu_pe_count(u_register_t mpidr);
 #endif
 
+
 /*
  * This function is called after loading SCP_BL2 image and it is used to perform
  * any platform-specific actions required to handle the SCP firmware.
