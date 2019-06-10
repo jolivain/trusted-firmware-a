@@ -67,7 +67,7 @@ static unsigned int arm_gicv3_mpidr_hash(u_register_t mpidr)
 
 static const gicv3_driver_data_t arm_gic_data __unused = {
 	.gicd_base = PLAT_ARM_GICD_BASE,
-	.gicr_base = PLAT_ARM_GICR_BASE,
+	.gicr_base = 0U,
 	.interrupt_props = arm_interrupt_props,
 	.interrupt_props_num = ARRAY_SIZE(arm_interrupt_props),
 	.rdistif_num = PLATFORM_CORE_COUNT,
@@ -86,6 +86,7 @@ void __init plat_arm_gic_driver_init(void)
 #if (defined(AARCH32) && defined(IMAGE_BL32)) || \
 	(defined(IMAGE_BL31) && !defined(AARCH32))
 	gicv3_driver_init(&arm_gic_data);
+	gicv3_rdistif_probe();
 #endif
 }
 
@@ -120,6 +121,7 @@ void plat_arm_gic_cpuif_disable(void)
  *****************************************************************************/
 void plat_arm_gic_pcpu_init(void)
 {
+	gicv3_rdistif_probe();
 	gicv3_rdistif_init(plat_my_core_pos());
 }
 
