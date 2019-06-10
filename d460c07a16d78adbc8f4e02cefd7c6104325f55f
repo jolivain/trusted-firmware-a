@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c754c198_93cd7357",
+        "filename": "include/plat/common/bl31_params.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-10T14:57:50Z",
+      "side": 1,
+      "message": "\u003e So I would definitely prefer to keep this independent from coreboot.\n\nOK\n\n\u003e There is no /lib/common, did you mean /common?\n\u003e I\u0027m not sure where exactly the line between /common and /plat/common is supposed to be. \n\nAh yes, sorry, I meant /common.\n\n/plat/common traditionally is the common implementation of platform porting APIs.\n\n/common is code that is shared between different BLs.\n\nRegarding the name, this can be considered as another format for dynamic config vs DT and can be a /lib component.\n\n`bl_aux_params` sounds OK to me. This can go as a lib in `/lib/bl_aux_params` folder.",
+      "parentUuid": "674b9a66_89b41d81",
+      "range": {
+        "startLine": 50,
+        "startChar": 5,
+        "endLine": 50,
+        "endChar": 25
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da834733_6e239247",
         "filename": "include/plat/common/bl31_params.h",
         "patchSetId": 1
