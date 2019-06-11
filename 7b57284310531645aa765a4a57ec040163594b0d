@@ -33,6 +33,24 @@
       "revId": "7b57284310531645aa765a4a57ec040163594b0d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24de8c35_932d542b",
+        "filename": "plat/arm/board/juno/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-06-11T09:32:07Z",
+      "side": 1,
+      "message": "BL2u apparently compile in AArch32 mode and this is why this line is not applied. I will push another patch to ignore building BL2u in AArch32 and this should replace this patch.",
+      "parentUuid": "ed651dc8_1daf97e6",
+      "revId": "7b57284310531645aa765a4a57ec040163594b0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
