@@ -34,6 +34,139 @@
       "revId": "78b61abaa6a87d96098c7833fdcb01ed66df9463",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cdf3d94_0806dbf7",
+        "filename": "docs/process/security-checks.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-06-11T09:30:22Z",
+      "side": 1,
+      "message": "About the location of this document - that\u0027s a tricky one. The User Guide is going to be split up - I have a patch that pulls the information from that file out into separate documents. In that patch I create a \"Build Options\" document, where this information could arguably go. On the other hand, I think there is value in having a list of options that are specifically called out for security.\n\nFrom the title and the first description I get the feeling that this page is intended to hold other kinds of security checks in the future, not just build options. What sort of things are we thinking of? Either way, I\u0027m not too worried about moving this file for now.",
+      "parentUuid": "e6bd44f8_f422757b",
+      "revId": "78b61abaa6a87d96098c7833fdcb01ed66df9463",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9b3a47b_0e844493",
+        "filename": "docs/process/security-checks.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-06-11T09:30:22Z",
+      "side": 1,
+      "message": "\"Security Hardening\" ...maybe? If this document really will grow to cover other security measures.",
+      "range": {
+        "startLine": 1,
+        "startChar": 9,
+        "endLine": 1,
+        "endChar": 15
+      },
+      "revId": "78b61abaa6a87d96098c7833fdcb01ed66df9463",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "383ffbca_96423ad7",
+        "filename": "docs/process/security-checks.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-06-11T09:30:22Z",
+      "side": 1,
+      "message": "additional security measures, including build options that can be modified to improve security or catch issues early in development.",
+      "range": {
+        "startLine": 4,
+        "startChar": 31,
+        "endLine": 4,
+        "endChar": 77
+      },
+      "revId": "78b61abaa6a87d96098c7833fdcb01ed66df9463",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6d3dde9_60505227",
+        "filename": "docs/process/security-checks.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-06-11T09:30:22Z",
+      "side": 1,
+      "message": "I\u0027ll come back and update this when I rebase my link-changing patch",
+      "range": {
+        "startLine": 10,
+        "startChar": 1,
+        "endLine": 10,
+        "endChar": 13
+      },
+      "revId": "78b61abaa6a87d96098c7833fdcb01ed66df9463",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f672137e_0821c823",
+        "filename": "docs/process/security-checks.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-06-11T09:30:22Z",
+      "side": 1,
+      "message": "Single quotes tell the RST parser to interpret the enclosed text (like for links). Use ``double quotes`` here if you want to render these as inline literals (which get a nice highlight in Sphinx).",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "78b61abaa6a87d96098c7833fdcb01ed66df9463",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a066a9b_0875c94a",
+        "filename": "docs/process/security-checks.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-06-11T09:30:22Z",
+      "side": 1,
+      "message": "These should all get the ``double quotes``",
+      "range": {
+        "startLine": 23,
+        "startChar": 8,
+        "endLine": 23,
+        "endChar": 16
+      },
+      "revId": "78b61abaa6a87d96098c7833fdcb01ed66df9463",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
