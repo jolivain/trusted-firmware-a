@@ -72,6 +72,54 @@
     },
     {
       "key": {
+        "uuid": "f019ba42_2ce9b7c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-06-13T02:56:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4908805_1422ef9b",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d18d7af2_1d8b8ac1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-06-13T02:56:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91b8f41d_3c42b678",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98b93fb5_d523dcc3",
         "filename": "include/plat/common/bl31_params.h",
         "patchSetId": 1
@@ -107,6 +155,30 @@
       "side": 1,
       "message": "Will do.",
       "parentUuid": "98b93fb5_d523dcc3",
+      "range": {
+        "startLine": 40,
+        "startChar": 70,
+        "endLine": 40,
+        "endChar": 72
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ac7cfaa_874ab32e",
+        "filename": "include/plat/common/bl31_params.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-06-13T02:56:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "720b2a50_3e6cfa0d",
       "range": {
         "startLine": 40,
         "startChar": 70,
@@ -190,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "825c043c_fddad7bf",
+        "filename": "include/plat/common/bl31_params.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-06-13T02:56:21Z",
+      "side": 1,
+      "message": "Okay, great. Uploaded a new series with bl_aux_params.",
+      "parentUuid": "c754c198_93cd7357",
+      "range": {
+        "startLine": 50,
+        "startChar": 5,
+        "endLine": 50,
+        "endChar": 25
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da834733_6e239247",
         "filename": "include/plat/common/bl31_params.h",
         "patchSetId": 1
@@ -225,6 +321,30 @@
       "side": 1,
       "message": "Will fix.",
       "parentUuid": "da834733_6e239247",
+      "range": {
+        "startLine": 97,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 3
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4bbcf24_4a8f1545",
+        "filename": "include/plat/common/bl31_params.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-06-13T02:56:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67d1ea8a_aab36f44",
       "range": {
         "startLine": 97,
         "startChar": 2,
@@ -296,6 +416,30 @@
       "side": 1,
       "message": "IMHO it would make a bit more clear what the function does.\n\nHowever I don\u0027t have a strong opinion on that. For example in my case by \"recognise\" I assumed something like \"validated\", in a sense e.g. that it\u0027s properly formatted. Maybe an accompanying comment in line 18 of the next file would explain better the usage of the function.\n\nAgain, I don\u0027t mean to be pedantic. The only reason I\u0027m saying that it\u0027s because while reading the next file I was slightly confused by the fact that if the function returns true you are exiting the loop without further parsing.\n\nBut I leave it up to your discretion.",
       "parentUuid": "7ab390bf_a54cadde",
+      "range": {
+        "startLine": 98,
+        "startChar": 24,
+        "endLine": 98,
+        "endChar": 34
+      },
+      "revId": "d460c07a16d78adbc8f4e02cefd7c6104325f55f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce866c0d_62ab68cb",
+        "filename": "include/plat/common/bl31_params.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-06-13T02:56:21Z",
+      "side": 1,
+      "message": "Updated text",
+      "parentUuid": "766d3a3e_d1d8385e",
       "range": {
         "startLine": 98,
         "startChar": 24,
