@@ -155,14 +155,23 @@ static const interrupt_prop_t tegra210_interrupt_props[] = {
 void plat_late_platform_setup(void)
 {
 	const plat_params_from_bl2_t *plat_params = bl31_get_plat_params();
+	uint64_t sc7entry_fw_base, sc7entry_fw_size;
 	uint64_t sc7entry_end, offset;
 	int ret;
 	uint32_t val;
 
-	/* memmap TZDRAM area containing the SC7 Entry Firmware */
-	if (plat_params->sc7entry_fw_base && plat_params->sc7entry_fw_size) {
+	if (plat_params->v1.boot_profiler_shmem_base >= TEGRA_DRAM_BASE) {
+		sc7entry_fw_base = plat_params->v1.sc7entry_fw_base;
+		sc7entry_fw_size = plat_params->v1.sc7entry_fw_size;
+	} else {
+		sc7entry_fw_base = plat_params->v2.sc7entry_fw_base;
+		sc7entry_fw_size = plat_params->v2.sc7entry_fw_size;
+	}
 
-		assert(plat_params->sc7entry_fw_size <= TEGRA_IRAM_A_SIZE);
+	/* memmap TZDRAM area containing the SC7 Entry Firmware */
+	if (sc7entry_fw_base && sc7entry_fw_size) {
+
+		assert(sc7entry_fw_size <= TEGRA_IRAM_A_SIZE);
 
 		/*
 		 * Verify that the SC7 entry firmware resides inside the TZDRAM
@@ -171,27 +180,26 @@ void plat_late_platform_setup(void)
 		 */
 
 		/* sc7entry-fw must be _before_ BL31 base */
-		assert(plat_params->tzdram_base > plat_params->sc7entry_fw_base);
+		assert(plat_params->tzdram_base > sc7entry_fw_base);
 
-		sc7entry_end = plat_params->sc7entry_fw_base +
-			       plat_params->sc7entry_fw_size;
+		sc7entry_end = sc7entry_fw_base + sc7entry_fw_size;
 		assert(sc7entry_end < plat_params->tzdram_base);
 
 		/* sc7entry-fw start must be exactly 1MB behind BL31 base */
-		offset = plat_params->tzdram_base - plat_params->sc7entry_fw_base;
+		offset = plat_params->tzdram_base - sc7entry_fw_base;
 		assert(offset == 0x100000);
 
 		/* secure TZDRAM area */
-		tegra_memctrl_tzdram_setup(plat_params->sc7entry_fw_base,
+		tegra_memctrl_tzdram_setup(sc7entry_fw_base,
 			plat_params->tzdram_size + offset);
 
 		/* power off BPMP processor until SC7 entry */
 		tegra_fc_bpmp_off();
 
 		/* memmap SC7 entry firmware code */
-		ret = mmap_add_dynamic_region(plat_params->sc7entry_fw_base,
-				plat_params->sc7entry_fw_base,
-				plat_params->sc7entry_fw_size,
+		ret = mmap_add_dynamic_region(sc7entry_fw_base,
+				sc7entry_fw_base,
+				sc7entry_fw_size,
 				MT_SECURE | MT_RO_DATA);
 		assert(ret == 0);
 

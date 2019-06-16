@@ -169,8 +169,13 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	plat_bl31_params_from_bl2.tzdram_size = plat_params->tzdram_size;
 	plat_bl31_params_from_bl2.uart_id = plat_params->uart_id;
 	plat_bl31_params_from_bl2.l2_ecc_parity_prot_dis = plat_params->l2_ecc_parity_prot_dis;
-	plat_bl31_params_from_bl2.sc7entry_fw_size = plat_params->sc7entry_fw_size;
-	plat_bl31_params_from_bl2.sc7entry_fw_base = plat_params->sc7entry_fw_base;
+	if (plat_params->v1.boot_profiler_shmem_base >= TEGRA_DRAM_BASE) {
+		plat_bl31_params_from_bl2.v1.sc7entry_fw_size = plat_params->v1.sc7entry_fw_size;
+		plat_bl31_params_from_bl2.v1.sc7entry_fw_base = plat_params->v1.sc7entry_fw_base;
+	} else {
+		plat_bl31_params_from_bl2.v2.sc7entry_fw_size = plat_params->v2.sc7entry_fw_size;
+		plat_bl31_params_from_bl2.v2.sc7entry_fw_base = plat_params->v2.sc7entry_fw_base;
+	}
 
 	/*
 	 * It is very important that we run either from TZDRAM or TZSRAM base.
@@ -209,18 +214,18 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	 * location to store the boot profiler logs. Sanity check the
 	 * address and initialise the profiler library, if it looks ok.
 	 */
-	if (plat_params->boot_profiler_shmem_base != 0ULL) {
+	if (plat_params->v1.boot_profiler_shmem_base >= TEGRA_DRAM_BASE) {
 
-		ret = bl31_check_ns_address(plat_params->boot_profiler_shmem_base,
+		ret = bl31_check_ns_address(plat_params->v1.boot_profiler_shmem_base,
 				PROFILER_SIZE_BYTES);
 		if (ret == (int32_t)0) {
 
 			/* store the membase for the profiler lib */
-			plat_bl31_params_from_bl2.boot_profiler_shmem_base =
-				plat_params->boot_profiler_shmem_base;
+			plat_bl31_params_from_bl2.v1.boot_profiler_shmem_base =
+				plat_params->v1.boot_profiler_shmem_base;
 
 			/* initialise the profiler library */
-			boot_profiler_init(plat_params->boot_profiler_shmem_base,
+			boot_profiler_init(plat_params->v1.boot_profiler_shmem_base,
 					   TEGRA_TMRUS_BASE);
 		}
 	}

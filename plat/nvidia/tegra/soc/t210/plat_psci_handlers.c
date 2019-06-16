@@ -44,6 +44,7 @@ int32_t tegra_soc_validate_power_state(unsigned int power_state,
 {
 	int state_id = psci_get_pstate_id(power_state);
 	const plat_params_from_bl2_t *plat_params = bl31_get_plat_params();
+	uint64_t sc7entry_fw_base;
 
 	/* Sanity check the requested state id */
 	switch (state_id) {
@@ -66,12 +67,17 @@ int32_t tegra_soc_validate_power_state(unsigned int power_state,
 
 	case PSTATE_ID_SOC_POWERDN:
 
+		if (plat_params->v1.boot_profiler_shmem_base >= TEGRA_DRAM_BASE) {
+			sc7entry_fw_base = plat_params->v1.sc7entry_fw_base;
+		} else {
+			sc7entry_fw_base = plat_params->v2.sc7entry_fw_base;
+		}
 		/*
 		 * sc7entry-fw must be present in the system when the bpmp
 		 * firmware is not present, for a successful System Suspend
 		 * entry.
 		 */
-		if (!tegra_bpmp_init() && !plat_params->sc7entry_fw_base)
+		if (!tegra_bpmp_init() && !sc7entry_fw_base)
 			return PSCI_E_NOT_SUPPORTED;
 
 		/*
@@ -341,6 +347,7 @@ int tegra_soc_pwr_domain_power_down_wfi(const psci_power_state_t *target_state)
 		target_state->pwr_domain_state;
 	unsigned int stateid_afflvl2 = pwr_domain_state[PLAT_MAX_PWR_LVL];
 	const plat_params_from_bl2_t *plat_params = bl31_get_plat_params();
+	uint64_t sc7entry_fw_base, sc7entry_fw_size;
 	uint32_t val;
 
 	if (stateid_afflvl2 == PSTATE_ID_SOC_POWERDN) {
@@ -391,10 +398,18 @@ int tegra_soc_pwr_domain_power_down_wfi(const psci_power_state_t *target_state)
 			zeromem((void *)(uintptr_t)TEGRA_IRAM_BASE,
 					TEGRA_IRAM_A_SIZE);
 
+			if (plat_params->v1.boot_profiler_shmem_base >= TEGRA_DRAM_BASE) {
+				sc7entry_fw_base = plat_params->v1.sc7entry_fw_base;
+				sc7entry_fw_size = plat_params->v1.sc7entry_fw_size;
+			} else {
+				sc7entry_fw_base = plat_params->v2.sc7entry_fw_base;
+				sc7entry_fw_size = plat_params->v2.sc7entry_fw_size;
+			}
+
 			/* Copy the firmware to BPMP's internal RAM */
 			(void)memcpy((void *)(uintptr_t)TEGRA_IRAM_BASE,
-				(const void *)(plat_params->sc7entry_fw_base + SC7ENTRY_FW_HEADER_SIZE_BYTES),
-				plat_params->sc7entry_fw_size - SC7ENTRY_FW_HEADER_SIZE_BYTES);
+				(const void *)(sc7entry_fw_base + SC7ENTRY_FW_HEADER_SIZE_BYTES),
+				sc7entry_fw_size - SC7ENTRY_FW_HEADER_SIZE_BYTES);
 
 			/* Power on the BPMP and execute from IRAM base */
 			tegra_fc_bpmp_on(TEGRA_IRAM_BASE);
@@ -415,9 +430,16 @@ int tegra_soc_pwr_domain_power_down_wfi(const psci_power_state_t *target_state)
 int tegra_soc_pwr_domain_on_finish(const psci_power_state_t *target_state)
 {
 	const plat_params_from_bl2_t *plat_params = bl31_get_plat_params();
+	uint64_t sc7entry_fw_base;
 	uint32_t cfg;
 	uint32_t val, entrypoint = 0;
 	uint64_t offset;
+
+	if (plat_params->v1.boot_profiler_shmem_base >= TEGRA_DRAM_BASE) {
+		sc7entry_fw_base = plat_params->v1.sc7entry_fw_base;
+	} else {
+		sc7entry_fw_base = plat_params->v2.sc7entry_fw_base;
+	}
 
 	/* platform parameter passed by the previous bootloader */
 	if (plat_params->l2_ecc_parity_prot_dis != 1) {
@@ -469,9 +491,9 @@ int tegra_soc_pwr_domain_on_finish(const psci_power_state_t *target_state)
 		}
 
 		/* sc7entry-fw is part of TZDRAM area */
-		if (plat_params->sc7entry_fw_base != 0U) {
-			offset = plat_params->tzdram_base - plat_params->sc7entry_fw_base;
-			tegra_memctrl_tzdram_setup(plat_params->sc7entry_fw_base,
+		if (sc7entry_fw_base != 0U) {
+			offset = plat_params->tzdram_base - sc7entry_fw_base;
+			tegra_memctrl_tzdram_setup(sc7entry_fw_base,
 				plat_params->tzdram_size + offset);
 
 			/* restrict PMC access to secure world */
@@ -523,7 +545,7 @@ int tegra_soc_pwr_domain_on_finish(const psci_power_state_t *target_state)
 	/*
          * Resume PMC hardware block for Tegra210 platforms supporting sc7entry-fw
          */
-	if (!tegra_chipid_is_t210_b01() && (plat_params->sc7entry_fw_base != 0U))
+	if (!tegra_chipid_is_t210_b01() && (sc7entry_fw_base != 0U))
 		tegra_pmc_resume();
 
 	return PSCI_E_SUCCESS;
