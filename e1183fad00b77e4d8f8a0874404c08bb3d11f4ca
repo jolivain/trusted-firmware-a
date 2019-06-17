@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebf7aca5_36d2986e",
+        "filename": "plat/rockchip/common/pmusram/cpus_on_fixed_addr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-17T10:32:22Z",
+      "side": 1,
+      "message": "Would prefer to have just contributor company name mentioned.",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "e1183fad00b77e4d8f8a0874404c08bb3d11f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d4e7f1_48274d96",
+        "filename": "plat/rockchip/px30/drivers/pmu/pmu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-17T10:32:22Z",
+      "side": 1,
+      "message": "Just a suggestion : perhaps wfi() would suffice ? In that case it should be followed by a panic(). Similar comment for below function.",
+      "range": {
+        "startLine": 1012,
+        "startChar": 0,
+        "endLine": 1013,
+        "endChar": 3
+      },
+      "revId": "e1183fad00b77e4d8f8a0874404c08bb3d11f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
