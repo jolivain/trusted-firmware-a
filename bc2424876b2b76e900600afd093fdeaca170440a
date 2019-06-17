@@ -88,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "5dac41d3_99297730",
+        "filename": "plat/nvidia/tegra/include/tegra_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000179
+      },
+      "writtenOn": "2019-06-17T17:04:49Z",
+      "side": 1,
+      "message": "Have you envisioned anything when you broke the parameter layout incompatibly? I\u0027d happily have you suggest or cook up another solution, but just saying no doesn\u0027t unbreak it...",
+      "parentUuid": "f720a223_97144d50",
+      "revId": "bc2424876b2b76e900600afd093fdeaca170440a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c196beaa_c15f3f37",
         "filename": "plat/nvidia/tegra/soc/t210/plat_psci_handlers.c",
         "patchSetId": 1
