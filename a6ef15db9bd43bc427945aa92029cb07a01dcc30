@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b67f35ed_b84b5dd3",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-17T11:13:32Z",
+      "side": 1,
+      "message": "not needed, see comments below.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 6
+      },
+      "revId": "a6ef15db9bd43bc427945aa92029cb07a01dcc30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27b9a147_2ea078a0",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1103,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-17T11:13:32Z",
+      "side": 1,
+      "message": "The prototype of this should be :\n\nint gicv3_rdistif_probe(const uintptr_t gicr_frame);\n\nThis function will return 0 if the probe succeeded, else should return -1 or some other suitable error code i probe fails.",
+      "range": {
+        "startLine": 1103,
+        "startChar": 0,
+        "endLine": 1103,
+        "endChar": 30
+      },
+      "revId": "a6ef15db9bd43bc427945aa92029cb07a01dcc30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "758c713f_fa51b43a",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-17T11:13:32Z",
+      "side": 1,
+      "message": "Not required. This function will only be called if this field is 0. Perhaps can add an assertion for this.",
+      "range": {
+        "startLine": 1105,
+        "startChar": 0,
+        "endLine": 1105,
+        "endChar": 42
+      },
+      "revId": "a6ef15db9bd43bc427945aa92029cb07a01dcc30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1885503_97a92a26",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-17T11:13:32Z",
+      "side": 1,
+      "message": "The function should only iterate over a single GICR frame and then should return status. The caller (platform layer) will invoke with the next GICR base address if the status is \"not found\" . Hence this loop will move to platform layer for suitable platform. \n\nIn case of FVP, there will only be a single GICR frame and hence the platform will only invoke probe once and expect this function to succeed.",
+      "range": {
+        "startLine": 1115,
+        "startChar": 0,
+        "endLine": 1116,
+        "endChar": 28
+      },
+      "revId": "a6ef15db9bd43bc427945aa92029cb07a01dcc30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2afadc8a_2cbcabe7",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-17T11:13:32Z",
+      "side": 1,
+      "message": "This (array of GICR frames) is something to be maintained by the platform layer and not be by the driver. Hence this can be removed.",
+      "range": {
+        "startLine": 1117,
+        "startChar": 3,
+        "endLine": 1117,
+        "endChar": 44
+      },
+      "revId": "a6ef15db9bd43bc427945aa92029cb07a01dcc30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
