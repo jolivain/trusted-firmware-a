@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "0c71f1a1_ef0760cc",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-06-18T16:24:38Z",
+      "side": 1,
+      "message": "Thanks for the detailed review. I initially used a unique name in the platform definition file to refer to the list of non-contiguous GICR frames. I understand FVP doesnt support non-contiguous frames as of today, but i architected the code to be compatible to future changes where FVP might support them.",
+      "parentUuid": "cf5a4c4c_028bdbe9",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 50
+      },
+      "revId": "45ac265aa3963198f2ba094ee2c8900160d8ca90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b6b461d_598a84f8",
         "filename": "plat/arm/common/arm_gicv3.c",
         "patchSetId": 3
