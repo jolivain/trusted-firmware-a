@@ -16,6 +16,24 @@
       "revId": "bde37a7348b13da8d36298cb064bd72cae82e191",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a2a4dd_7aa67d34",
+        "filename": "include/common/bl_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-06-18T00:04:29Z",
+      "side": 1,
+      "message": "I only move the structures I needed to get the BL31 handoff working for the boards I have for now, but I\u0027m happy to do the others too if you want (haven\u0027t really looked into what the image_desc stuff is used for yet...).",
+      "parentUuid": "746b908e_e7220225",
+      "revId": "bde37a7348b13da8d36298cb064bd72cae82e191",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
