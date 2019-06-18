@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "413ba7e9_97512d64",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-06-18T16:24:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b67f35ed_b84b5dd3",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 6
+      },
+      "revId": "a6ef15db9bd43bc427945aa92029cb07a01dcc30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27b9a147_2ea078a0",
         "filename": "drivers/arm/gic/v3/gicv3_main.c",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2019-06-17T11:13:32Z",
       "side": 1,
       "message": "The prototype of this should be :\n\nint gicv3_rdistif_probe(const uintptr_t gicr_frame);\n\nThis function will return 0 if the probe succeeded, else should return -1 or some other suitable error code i probe fails.",
+      "range": {
+        "startLine": 1103,
+        "startChar": 0,
+        "endLine": 1103,
+        "endChar": 30
+      },
+      "revId": "a6ef15db9bd43bc427945aa92029cb07a01dcc30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57abcbd8_a229e471",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1103,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-06-18T16:24:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27b9a147_2ea078a0",
       "range": {
         "startLine": 1103,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6e2c1556_a479df5a",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-06-18T16:24:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "758c713f_fa51b43a",
+      "range": {
+        "startLine": 1105,
+        "startChar": 0,
+        "endLine": 1105,
+        "endChar": 42
+      },
+      "revId": "a6ef15db9bd43bc427945aa92029cb07a01dcc30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1885503_97a92a26",
         "filename": "drivers/arm/gic/v3/gicv3_main.c",
         "patchSetId": 6
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c3802444_97265340",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-06-18T16:24:01Z",
+      "side": 1,
+      "message": "I have made the necessary changes in the platform layer. As you mentioned, since there are no non-contiguous GICR frames, this function was invoked only once in the platform layer but I provided some explanation in the comments for plat_arm_gic_pcpu_init(void).",
+      "parentUuid": "b1885503_97a92a26",
+      "range": {
+        "startLine": 1115,
+        "startChar": 0,
+        "endLine": 1116,
+        "endChar": 28
+      },
+      "revId": "a6ef15db9bd43bc427945aa92029cb07a01dcc30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2afadc8a_2cbcabe7",
         "filename": "drivers/arm/gic/v3/gicv3_main.c",
         "patchSetId": 6
@@ -105,6 +201,30 @@
       "writtenOn": "2019-06-17T11:13:32Z",
       "side": 1,
       "message": "This (array of GICR frames) is something to be maintained by the platform layer and not be by the driver. Hence this can be removed.",
+      "range": {
+        "startLine": 1117,
+        "startChar": 3,
+        "endLine": 1117,
+        "endChar": 44
+      },
+      "revId": "a6ef15db9bd43bc427945aa92029cb07a01dcc30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fad9da6e_59147569",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-06-18T16:24:01Z",
+      "side": 1,
+      "message": "I have made the necessary changes.",
+      "parentUuid": "2afadc8a_2cbcabe7",
       "range": {
         "startLine": 1117,
         "startChar": 3,
