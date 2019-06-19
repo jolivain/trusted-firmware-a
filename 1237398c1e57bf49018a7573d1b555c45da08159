@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28b7e884_0c67e265",
+        "filename": "plat/rockchip/common/include/plat_params.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-19T16:27:29Z",
+      "side": 0,
+      "message": "If this can be included in the C file and the dependancy can be resolved by forward declaration, then we don\u0027t need the \"raw\" file.\n\nWould stdint.h inclusion be a problem for external projects importing header ?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 19
+      },
+      "revId": "1237398c1e57bf49018a7573d1b555c45da08159",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
