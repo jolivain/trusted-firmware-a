@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18ab7ebf_bf80d0f7",
+        "filename": "plat/imx/imx7/common/imx7.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-19T14:09:41Z",
+      "side": 1,
+      "message": "This file is new, so 2018 is not accurate. Also, maybe the copyright owner must be differently stated.\n\nRule of thumb: if the content is entirely new you should put your own company\u0027s name. If the majority of the file is taken from an already existing makefile, you should keep the original owner. After that, if you made significant changes/additions you can add a \"portions copyright\" line for your company.\n\nPlease refer here for details: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/about/docs/process/contributing.rst",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 77
+      },
+      "revId": "ad96df2977f963e092504deab8012f06a83bbe20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27d73783_49e45cb3",
+        "filename": "plat/imx/imx7/common/imx7_bl2_el3_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-19T14:09:41Z",
+      "side": 1,
+      "message": "The same goes for this copyright, too.",
+      "revId": "ad96df2977f963e092504deab8012f06a83bbe20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7478a018_d40ba842",
+        "filename": "plat/imx/imx7/common/imx7_bl2_el3_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-19T14:09:41Z",
+      "side": 1,
+      "message": "Can\u0027t this go inside a header file? I\u0027m not mandating it but it would be preferred.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 39
+      },
+      "revId": "ad96df2977f963e092504deab8012f06a83bbe20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "022aaba9_77cc703f",
+        "filename": "plat/imx/imx7/common/imx7_bl2_el3_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-19T14:09:41Z",
+      "side": 1,
+      "message": "I would prefer that near the top of the file, before all the function definitions.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 6
+      },
+      "revId": "ad96df2977f963e092504deab8012f06a83bbe20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ddb7de9_de0a0b8f",
+        "filename": "plat/imx/imx7/common/imx7_rotpk.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-19T14:09:41Z",
+      "side": 1,
+      "message": "The same",
+      "revId": "ad96df2977f963e092504deab8012f06a83bbe20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
