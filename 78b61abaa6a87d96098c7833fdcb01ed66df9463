@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "a90cc56f_3c0e56c9",
+        "filename": "docs/process/security-checks.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000080
+      },
+      "writtenOn": "2019-06-20T09:54:02Z",
+      "side": 1,
+      "message": "\u003e You mentioned FAULT_INJECTION_SUPPORT and I think it should be listed here.\n\nI changed my mind on that. After looking at it more closely I think that FAULT_INJECTION_SUPPORT is the same as SEPARATE_CODE_AND_RODATA and TBBR.",
+      "parentUuid": "6cdf3d94_0806dbf7",
+      "revId": "78b61abaa6a87d96098c7833fdcb01ed66df9463",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9b3a47b_0e844493",
         "filename": "docs/process/security-checks.rst",
         "patchSetId": 1
