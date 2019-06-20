@@ -106,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "060fcf42_dd74c500",
+        "filename": "plat/nvidia/tegra/include/tegra_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-20T08:04:57Z",
+      "side": 1,
+      "message": "Hi Varun,\nThis solution is solving an issue on the platform. Could you please provide your suggestion on how to proceed on this ?",
+      "parentUuid": "5dac41d3_99297730",
+      "revId": "bc2424876b2b76e900600afd093fdeaca170440a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c196beaa_c15f3f37",
         "filename": "plat/nvidia/tegra/soc/t210/plat_psci_handlers.c",
         "patchSetId": 1
