@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4448a204_8526607b",
+        "filename": "plat/xilinx/zynqmp/aarch64/zynqmp_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-20T10:06:01Z",
+      "side": 1,
+      "message": "Don\u0027t we need cdns_console.S to be included to use this?",
+      "range": {
+        "startLine": 93,
+        "startChar": 3,
+        "endLine": 93,
+        "endChar": 25
+      },
+      "revId": "225c3bd48c858b3b2f1ccc2136a77f24a6f07a2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e69b691b_89baa258",
+        "filename": "plat/xilinx/zynqmp/include/plat_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-20T10:06:01Z",
+      "side": 1,
+      "message": "Why is this needed since the code in this file is not altered?\n\nI would add this line directly to bl31_zynqmp_setup.c and tsp_plat_setup.c that are using functions from inside that header. Why not?",
+      "revId": "225c3bd48c858b3b2f1ccc2136a77f24a6f07a2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
