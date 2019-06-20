@@ -1,7 +1,7 @@
 /*
- * copyright (c) 2019, arm limited and contributors. all rights reserved.
+ * Copyright (c) 2019, Arm Limited and Contributors. all rights reserved.
  *
- * spdx-license-identifier: bsd-3-clause
+ * SPDX-license-identifier: BSD-3-clause
  */
 
 #include <lib/mmio.h>
