@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "640ccb2d_8ca2512f",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-20T11:55:34Z",
+      "side": 1,
+      "message": "The \"Arm Limited and Contributors\" copyright is valid only for already existing files.\n\nSince this is an entirely new file you should use your company\u0027s name in the copyright notice *unless* this file is copy pasted from an existing file and isn\u0027t changed much. But I suspect this is not the case here...?",
+      "revId": "a19f9fc3d6f9758861778efde1dcca9039e85e28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20efb49e_b71c5a18",
+        "filename": "plat/mediatek/mt8183/drivers/pmic/pmic.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-20T11:55:34Z",
+      "side": 1,
+      "message": "PMIC_H\n\nWe try to avoid double underscores in header guards.",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "a19f9fc3d6f9758861778efde1dcca9039e85e28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f66fcb9_cdfae971",
+        "filename": "plat/mediatek/mt8183/drivers/pmic/pmic_wrap_init.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-20T11:55:34Z",
+      "side": 1,
+      "message": "The same",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "a19f9fc3d6f9758861778efde1dcca9039e85e28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f654215d_8e8b9c3f",
+        "filename": "plat/mediatek/mt8183/drivers/rtc/rtc.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-20T11:55:34Z",
+      "side": 1,
+      "message": "The same",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "a19f9fc3d6f9758861778efde1dcca9039e85e28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
