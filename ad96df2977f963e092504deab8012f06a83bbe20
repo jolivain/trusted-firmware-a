@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3a70144_6b20b8c1",
+        "filename": "plat/imx/imx7/common/imx7.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000147
+      },
+      "writtenOn": "2019-06-20T07:27:41Z",
+      "side": 1,
+      "message": "The code in this file is copied from original platform.mk and revised slightly.\nAll these code is from joint project between Linaro and Arm, and copyright belong to Arm.\nDo I need to revise it in this case?",
+      "parentUuid": "18ab7ebf_bf80d0f7",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 77
+      },
+      "revId": "ad96df2977f963e092504deab8012f06a83bbe20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27d73783_49e45cb3",
         "filename": "plat/imx/imx7/common/imx7_bl2_el3_common.c",
         "patchSetId": 1
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "e4c4edd8_fa1fe80f",
+        "filename": "plat/imx/imx7/common/imx7_bl2_el3_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000147
+      },
+      "writtenOn": "2019-06-20T07:27:41Z",
+      "side": 1,
+      "message": "OK, will changethis to header file later.",
+      "parentUuid": "7478a018_d40ba842",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 39
+      },
+      "revId": "ad96df2977f963e092504deab8012f06a83bbe20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "022aaba9_77cc703f",
         "filename": "plat/imx/imx7/common/imx7_bl2_el3_common.c",
         "patchSetId": 1
@@ -76,6 +124,30 @@
       "writtenOn": "2019-06-19T14:09:41Z",
       "side": 1,
       "message": "I would prefer that near the top of the file, before all the function definitions.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 6
+      },
+      "revId": "ad96df2977f963e092504deab8012f06a83bbe20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10b132fd_08059fbb",
+        "filename": "plat/imx/imx7/common/imx7_bl2_el3_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000147
+      },
+      "writtenOn": "2019-06-20T07:27:41Z",
+      "side": 1,
+      "message": "Will change it.",
+      "parentUuid": "022aaba9_77cc703f",
       "range": {
         "startLine": 55,
         "startChar": 0,
@@ -116,6 +188,30 @@
       "writtenOn": "2019-06-19T14:13:32Z",
       "side": 1,
       "message": "IMX7_DEF_H\n\nDrop the double underscores",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "ad96df2977f963e092504deab8012f06a83bbe20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8813c929_6ea4bcd3",
+        "filename": "plat/imx/imx7/include/imx7_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000147
+      },
+      "writtenOn": "2019-06-20T07:27:41Z",
+      "side": 1,
+      "message": "Will change it.",
+      "parentUuid": "2f67bdc3_32fd446a",
       "range": {
         "startLine": 7,
         "startChar": 8,
