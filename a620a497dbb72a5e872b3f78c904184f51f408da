@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6078768b_0098935d",
+        "filename": "drivers/staging/renesas/rcar/pfc/pfc_regs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-20T13:36:06Z",
+      "side": 1,
+      "message": "Drop the double underscore. We try not to use double underscores in header guards.",
+      "range": {
+        "startLine": 6,
+        "startChar": 8,
+        "endLine": 6,
+        "endChar": 22
+      },
+      "revId": "a620a497dbb72a5e872b3f78c904184f51f408da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
