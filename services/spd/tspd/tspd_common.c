@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -54,7 +54,7 @@ void tspd_init_tsp_ep_state(struct entry_point_info *tsp_entry_point,
 	SET_PARAM_HEAD(tsp_entry_point, PARAM_EP, VERSION_1, ep_attr);
 
 	tsp_entry_point->pc = pc;
-	tsp_entry_point->spsr = SPSR_64(MODE_EL1,
+	tsp_entry_point->spsr = SPSR_64_SSBS(MODE_EL1,
 					MODE_SP_ELX,
 					DISABLE_ALL_EXCEPTIONS);
 	zeromem(&tsp_entry_point->args, sizeof(tsp_entry_point->args));
