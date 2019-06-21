@@ -56,10 +56,10 @@ uint32_t arm_get_spsr_for_bl32_entry(void)
 	return 0;
 }
 
-/*******************************************************************************
- * Gets SPSR for BL33 entry
- ******************************************************************************/
 #ifndef AARCH32
+/*******************************************************************************
+ * Gets SPSR for BL33 entry when AArch64
+ ******************************************************************************/
 uint32_t arm_get_spsr_for_bl33_entry(void)
 {
 	unsigned int mode;
@@ -73,12 +73,12 @@ uint32_t arm_get_spsr_for_bl33_entry(void)
 	 * the FIP ToC and allowing the platform to have a say as
 	 * well.
 	 */
-	spsr = SPSR_64(mode, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
+	spsr = SPSR_64_SSBS(mode, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 	return spsr;
 }
 #else
 /*******************************************************************************
- * Gets SPSR for BL33 entry
+ * Gets SPSR for BL33 entry when AArch32
  ******************************************************************************/
 uint32_t arm_get_spsr_for_bl33_entry(void)
 {
@@ -93,7 +93,7 @@ uint32_t arm_get_spsr_for_bl33_entry(void)
 	 * the FIP ToC and allowing the platform to have a say as
 	 * well.
 	 */
-	spsr = SPSR_MODE32(mode, plat_get_ns_image_entrypoint() & 0x1,
+	spsr = SPSR_MODE32_SSBS(mode, plat_get_ns_image_entrypoint() & 0x1,
 			SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
 	return spsr;
 }
