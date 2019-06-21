@@ -294,6 +294,8 @@
 #define SPSR_MODE_SHIFT		U(0)
 #define SPSR_MODE_MASK		U(0x7)
 
+#define SPSR_SSBS_BIT		BIT_32(23)
+
 #define DISABLE_ALL_EXCEPTIONS \
 		(SPSR_FIQ_BIT | SPSR_IRQ_BIT | SPSR_ABT_BIT)
 
@@ -389,6 +391,13 @@
 	((isa) & SPSR_T_MASK) << SPSR_T_SHIFT |		\
 	((endian) & SPSR_E_MASK) << SPSR_E_SHIFT |	\
 	((aif) & SPSR_AIF_MASK) << SPSR_AIF_SHIFT)
+
+/* Set SPSR with additional SSBS bit initialisation. This, by default disallows
+ * speculative loads & stores.
+ */
+#define SPSR_MODE32_SSBS(mode, isa, endian, aif)		\
+	( (SPSR_MODE32((mode), (isa), (endian), (aif))) &	\
+		(~(SPSR_SSBS_BIT)) )
 
 /*
  * TTBR definitions

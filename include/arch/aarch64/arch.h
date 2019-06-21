@@ -411,6 +411,8 @@
 #define SPSR_M_AARCH64		U(0x0)
 #define SPSR_M_AARCH32		U(0x1)
 
+#define SPSR_SSBS_BIT		BIT_64(12)
+
 #define DISABLE_ALL_EXCEPTIONS \
 		(DAIF_FIQ_BIT | DAIF_IRQ_BIT | DAIF_ABT_BIT | DAIF_DBG_BIT)
 
@@ -535,6 +537,12 @@
 #define GET_SP(mode)		(((mode) >> MODE_SP_SHIFT) & MODE_SP_MASK)
 #define GET_M32(mode)		(((mode) >> MODE32_SHIFT) & MODE32_MASK)
 
+/*
+ * Set SPSR for AArch64 and AArch32 modes.
+ *
+ * This is mainly intended to be used for context management,
+ * e.g. context save/restore.
+ */
 #define SPSR_64(el, sp, daif)				\
 	((MODE_RW_64 << MODE_RW_SHIFT) |		\
 	(((el) & MODE_EL_MASK) << MODE_EL_SHIFT) |	\
@@ -547,6 +555,17 @@
 	(((isa) & SPSR_T_MASK) << SPSR_T_SHIFT) |	\
 	(((endian) & SPSR_E_MASK) << SPSR_E_SHIFT) |	\
 	(((aif) & SPSR_AIF_MASK) << SPSR_AIF_SHIFT))
+
+/* Set SPSR with additional SSBS bit initialisation. This, by default disallows
+ * speculative loads & stores.
+ */
+#define SPSR_64_SSBS(el, sp, daif)			\
+	( (SPSR_64((el), (sp), (daif))) &		\
+		(~(SPSR_SSBS_BIT)) )
+
+#define SPSR_MODE32_SSBS(mode, isa, endian, aif)		\
+	( (SPSR_MODE32((mode), (isa), (endian), (aif))) &	\
+		(~(SPSR_SSBS_BIT)) )
 
 /*
  * TTBR Definitions
