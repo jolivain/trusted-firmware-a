@@ -26,4 +26,15 @@
 
 #define CSS_SYSTEM_PWR_DMN_LVL		ARM_PWR_LVL3
 
+/*
+ * Physical and virtual address space limits for MMU in AARCH64 & AARCH32 modes
+ */
+#ifdef AARCH64
+#define PLAT_ARM_PHY_ADDR_SPACE_SIZE	(1ULL << 36)
+#define PLAT_ARM_VIRT_ADDR_SPACE_SIZE	(1ULL << 36)
+#else
+#define PLAT_ARM_PHY_ADDR_SPACE_SIZE	(1ULL << 32)
+#define PLAT_ARM_VIRT_ADDR_SPACE_SIZE	(1ULL << 32)
+#endif
+
 #endif /* PLATFORM_DEF_H */
