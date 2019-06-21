@@ -12,6 +12,8 @@
 #include <plat/common/platform.h>
 #include <drivers/arm/sbsa.h>
 
+#include "n1sdp_def.h"
+
 /*
  * Table of regions to map using the MMU.
  * Replace or extend the below regions as required
@@ -19,7 +21,10 @@
 
 const mmap_region_t plat_arm_mmap[] = {
 	ARM_MAP_SHARED_RAM,
+	N1SDP_MAP_NS_RAM,
 	N1SDP_MAP_DEVICE,
+	ARM_MAP_DRAM1,
+	ARM_MAP_DRAM2,
 	{0}
 };
 

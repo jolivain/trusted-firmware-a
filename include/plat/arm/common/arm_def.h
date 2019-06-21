@@ -315,14 +315,8 @@
  * We need to access DRAM2 from BL2 for PSCI_MEM_PROTECT for
  * AArch64 builds
  */
-#ifdef AARCH64
-#define PLAT_PHY_ADDR_SPACE_SIZE			(1ULL << 36)
-#define PLAT_VIRT_ADDR_SPACE_SIZE			(1ULL << 36)
-#else
-#define PLAT_PHY_ADDR_SPACE_SIZE			(1ULL << 32)
-#define PLAT_VIRT_ADDR_SPACE_SIZE			(1ULL << 32)
-#endif
-
+#define PLAT_PHY_ADDR_SPACE_SIZE	PLAT_ARM_PHY_ADDR_SPACE_SIZE
+#define PLAT_VIRT_ADDR_SPACE_SIZE	PLAT_ARM_VIRT_ADDR_SPACE_SIZE
 
 /*
  * This macro defines the deepest retention state possible. A higher state
