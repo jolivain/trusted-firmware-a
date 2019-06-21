@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -45,7 +45,7 @@ static bl_mem_params_node_t bl2_mem_params_descs[] = {
 		    VERSION_2, entry_point_info_t,
 		    SECURE | EXECUTABLE | EP_FIRST_EXE),
 	    .ep_info.pc = EL3_PAYLOAD_BASE,
-	    .ep_info.spsr = SPSR_64(MODE_EL3, MODE_SP_ELX,
+	    .ep_info.spsr = SPSR_64_SSBS(MODE_EL3, MODE_SP_ELX,
 		    DISABLE_ALL_EXCEPTIONS),
 
 	    SET_STATIC_PARAM_HEAD(image_info, PARAM_EP,
@@ -65,7 +65,7 @@ static bl_mem_params_node_t bl2_mem_params_descs[] = {
 		    VERSION_2, entry_point_info_t,
 		    SECURE | EXECUTABLE | EP_FIRST_EXE),
 	    .ep_info.pc = BL31_BASE,
-	    .ep_info.spsr = SPSR_64(MODE_EL3, MODE_SP_ELX,
+	    .ep_info.spsr = SPSR_64_SSBS(MODE_EL3, MODE_SP_ELX,
 		    DISABLE_ALL_EXCEPTIONS),
 #if DEBUG
 	    .ep_info.args.arg3 = ARM_BL31_PLAT_PARAM_VAL,

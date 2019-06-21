@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
+#include <arch.h>
 #include <arch_helpers.h>
 #include <context.h>
 #include <common/debug.h>
@@ -74,15 +75,15 @@ void bl1_prepare_next_image(unsigned int image_id)
 
 	/* Prepare the SPSR for the next BL image. */
 	if (security_state == SECURE) {
-		next_bl_ep->spsr = SPSR_64(MODE_EL1, MODE_SP_ELX,
+		next_bl_ep->spsr = SPSR_64_SSBS(MODE_EL1, MODE_SP_ELX,
 				   DISABLE_ALL_EXCEPTIONS);
 	} else {
 		/* Use EL2 if supported; else use EL1. */
 		if (el_implemented(2) != EL_IMPL_NONE) {
-			next_bl_ep->spsr = SPSR_64(MODE_EL2, MODE_SP_ELX,
+			next_bl_ep->spsr = SPSR_64_SSBS(MODE_EL2, MODE_SP_ELX,
 				DISABLE_ALL_EXCEPTIONS);
 		} else {
-			next_bl_ep->spsr = SPSR_64(MODE_EL1, MODE_SP_ELX,
+			next_bl_ep->spsr = SPSR_64_SSBS(MODE_EL1, MODE_SP_ELX,
 			   DISABLE_ALL_EXCEPTIONS);
 		}
 	}
