@@ -22,6 +22,30 @@
       "revId": "1237398c1e57bf49018a7573d1b555c45da08159",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5cc726e_1ccf3d1b",
+        "filename": "plat/rockchip/common/include/plat_params.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-06-24T22:53:05Z",
+      "side": 0,
+      "message": "Most projects probably have a \u003cstdint.h\u003e but I think it would be best to just consistently allow no #include in the raw headers at all. Having one exception there just makes it more likely people will add more, and warning comments are easily overlooked.\n\nI think the header should also definitely still be called ..._raw.h (or however else we decide to set these apart) and be included by TF files via a wrapper header (never directly), just so that we have consistency between all these special headers even if some of them would be suitable for direct inclusion.",
+      "parentUuid": "28b7e884_0c67e265",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 19
+      },
+      "revId": "1237398c1e57bf49018a7573d1b555c45da08159",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
