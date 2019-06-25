@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "36bf27b7_04707fc4",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000186
+      },
+      "writtenOn": "2019-06-25T10:28:50Z",
+      "side": 1,
+      "message": "Missed in first commit. Now added.",
+      "parentUuid": "67fa6505_65c01e62",
+      "range": {
+        "startLine": 263,
+        "startChar": 8,
+        "endLine": 263,
+        "endChar": 36
+      },
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c96496d9_a77adb93",
         "filename": "plat/arm/board/n1sdp/include/n1sdp_def.h",
         "patchSetId": 1
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "43b2d62f_5001e06a",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000186
+      },
+      "writtenOn": "2019-06-25T10:28:50Z",
+      "side": 1,
+      "message": "No SP_MIN or OPTEE as of now but may be added in future. Macro usage fixed as recommended.",
+      "parentUuid": "56ab4f6c_98cd3576",
+      "range": {
+        "startLine": 37,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 14
+      },
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6484c36_4723122d",
         "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
         "patchSetId": 1
@@ -82,6 +130,24 @@
     },
     {
       "key": {
+        "uuid": "0583f26c_5b8e73e3",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000186
+      },
+      "writtenOn": "2019-06-25T10:28:50Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "d6484c36_4723122d",
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83f64fb1_77de89ef",
         "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
         "patchSetId": 1
@@ -93,6 +159,30 @@
       "writtenOn": "2019-06-25T10:02:26Z",
       "side": 1,
       "message": "move this to line 18 to keep header inclusion order guidelines.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 37
+      },
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2610ca40_4a11f9c3",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000186
+      },
+      "writtenOn": "2019-06-25T10:28:50Z",
+      "side": 1,
+      "message": "Moved.",
+      "parentUuid": "83f64fb1_77de89ef",
       "range": {
         "startLine": 14,
         "startChar": 0,
@@ -128,6 +218,30 @@
     },
     {
       "key": {
+        "uuid": "1976cef9_5da457ae",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000186
+      },
+      "writtenOn": "2019-06-25T10:28:50Z",
+      "side": 1,
+      "message": "This platform has CMN-600 that has system level cache.",
+      "parentUuid": "b8d6772b_68609f6c",
+      "range": {
+        "startLine": 69,
+        "startChar": 1,
+        "endLine": 69,
+        "endChar": 19
+      },
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8b36e9a8_2fc1fac1",
         "filename": "plat/arm/board/rde1edge/include/platform_def.h",
         "patchSetId": 1
@@ -139,6 +253,30 @@
       "writtenOn": "2019-06-25T10:02:26Z",
       "side": 1,
       "message": "Prefer to use this other way around, ie. ifndef AARCH32",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 14
+      },
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1be22a2a_95022b90",
+        "filename": "plat/arm/board/rde1edge/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000186
+      },
+      "writtenOn": "2019-06-25T10:28:50Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "8b36e9a8_2fc1fac1",
       "range": {
         "startLine": 32,
         "startChar": 0,
