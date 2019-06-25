@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67fa6505_65c01e62",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-25T10:02:26Z",
+      "side": 1,
+      "message": "Doesnt the PLAT_PHY_ADDR_SPACE_SIZE need to be removed/modified in arm_def.h?",
+      "range": {
+        "startLine": 263,
+        "startChar": 8,
+        "endLine": 263,
+        "endChar": 36
+      },
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c96496d9_a77adb93",
+        "filename": "plat/arm/board/n1sdp/include/n1sdp_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-25T10:02:26Z",
+      "side": 1,
+      "message": "Keep this out of the \"include\" folder. Move it to the parent directory",
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56ab4f6c_98cd3576",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-25T10:02:26Z",
+      "side": 1,
+      "message": "Is AARCH32 a supported configuration via SP_MIN or another Secure payload like OPTEE ?\n\nnit: Would prefer to use the macros other way around, ie. Ifndef AARCH32. This way we reduce the macros being referred to in header file.",
+      "range": {
+        "startLine": 37,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 14
+      },
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6484c36_4723122d",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-25T10:02:26Z",
+      "side": 1,
+      "message": "Once this header is moved out to parent directory, use \"\" to include the header. This should be last header that is included.",
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83f64fb1_77de89ef",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-25T10:02:26Z",
+      "side": 1,
+      "message": "move this to line 18 to keep header inclusion order guidelines.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 37
+      },
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8d6772b_68609f6c",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-25T10:02:26Z",
+      "side": 1,
+      "message": "This can be optimized in case system caches are not present. Just use dcsw_op_all() function here in that case. Same comment for the below function.\n\nCould you confirm whether this has CCN or any system caches?",
+      "range": {
+        "startLine": 69,
+        "startChar": 1,
+        "endLine": 69,
+        "endChar": 19
+      },
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b36e9a8_2fc1fac1",
+        "filename": "plat/arm/board/rde1edge/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-25T10:02:26Z",
+      "side": 1,
+      "message": "Prefer to use this other way around, ie. ifndef AARCH32",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 14
+      },
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
