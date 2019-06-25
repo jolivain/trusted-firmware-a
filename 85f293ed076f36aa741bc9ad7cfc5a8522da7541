@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20271ca3_215f97ff",
+        "filename": "drivers/staging/renesas/rcar/pfc/E3/pfc_init_e3.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-25T11:17:02Z",
+      "side": 1,
+      "message": "REVERSED ??\n\nAlthough I won\u0027t block the patch if you don\u0027t modify this, I understand that if the macro is extensively used it might be troublesome to fix this typo.",
+      "range": {
+        "startLine": 55,
+        "startChar": 20,
+        "endLine": 55,
+        "endChar": 28
+      },
+      "revId": "85f293ed076f36aa741bc9ad7cfc5a8522da7541",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ebccc31_ece4a1e7",
+        "filename": "drivers/staging/renesas/rcar/pfc/E3/pfc_init_e3.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-25T11:17:02Z",
+      "side": 1,
+      "message": "Space before tab, please remove",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 29
+      },
+      "revId": "85f293ed076f36aa741bc9ad7cfc5a8522da7541",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b733f2e_86441431",
+        "filename": "drivers/staging/renesas/rcar/pfc/E3/pfc_init_e3.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-25T11:17:02Z",
+      "side": 1,
+      "message": "The same",
+      "revId": "85f293ed076f36aa741bc9ad7cfc5a8522da7541",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
