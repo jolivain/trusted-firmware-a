@@ -195,6 +195,29 @@
     },
     {
       "key": {
+        "uuid": "e404087a_35422460",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-25T13:15:25Z",
+      "side": 1,
+      "message": "This has to be passed via SDS. We cannot rely on information passed from non secure memory.",
+      "range": {
+        "startLine": 63,
+        "startChar": 1,
+        "endLine": 63,
+        "endChar": 10
+      },
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8d6772b_68609f6c",
         "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
         "patchSetId": 1
@@ -230,6 +253,30 @@
       "side": 1,
       "message": "This platform has CMN-600 that has system level cache.",
       "parentUuid": "b8d6772b_68609f6c",
+      "range": {
+        "startLine": 69,
+        "startChar": 1,
+        "endLine": 69,
+        "endChar": 19
+      },
+      "revId": "0c685cff58b5e68e05083d225b1e6772de545f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72182b5a_d408ebf8",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-25T13:15:25Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "1976cef9_5da457ae",
       "range": {
         "startLine": 69,
         "startChar": 1,
