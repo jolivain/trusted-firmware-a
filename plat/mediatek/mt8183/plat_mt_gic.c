@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019, MediaTek Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <assert.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/arm/gicv3.h>
 #include <bl31/interrupt_mgmt.h>
-#include <../drivers/arm/gic/v3/gicv3_private.h>
 #include <mt_gic_v3.h>
 #include <mtk_plat_common.h>
 #include "plat_private.h"
@@ -19,15 +19,15 @@
 
 #define NR_INT_POL_CTL         20
 
+extern const gicv3_driver_data_t *gicv3_driver_data;
 uintptr_t rdistif_base_addrs[PLATFORM_CORE_COUNT];
 
 /*
  * We save and restore the GICv3 context on system suspend. Allocate the
  * data in the designated EL3 Secure carve-out memory
  */
-gicv3_redist_ctx_t rdist_ctx __section("arm_el3_tzc_dram");
-gicv3_dist_ctx_t dist_ctx __section("arm_el3_tzc_dram");
-
+gicv3_redist_ctx_t rdist_ctx;
+gicv3_dist_ctx_t dist_ctx;
 
 static unsigned int mt_mpidr_to_core_pos(u_register_t mpidr)
 {
@@ -49,18 +49,13 @@ void setup_int_schedule_mode(enum irq_schedule_mode mode,
 	assert(active_cpu <= 0xFF);
 
 	if (mode == HW_MODE) {
-		mmio_write_32(GIC_INT_MASK,
-		(mmio_read_32(GIC_INT_MASK) & ~(GIC500_ACTIVE_SEL_MASK))
-		| (0x1 << GIC500_ACTIVE_SEL_SHIFT));
-	} else if (mode == SW_MODE) {
-		mmio_write_32(GIC_INT_MASK,
-		(mmio_read_32(GIC_INT_MASK) & ~(GIC500_ACTIVE_SEL_MASK)));
-	}
+		mmio_clrsetbits_32(GIC_INT_MASK, GIC500_ACTIVE_SEL_MASK,
+				0x1 << GIC500_ACTIVE_SEL_SHIFT);
+	} else if (mode == SW_MODE)
+		mmio_clrbits_32(GIC_INT_MASK, GIC500_ACTIVE_SEL_MASK);
 
-	mmio_write_32(GIC_INT_MASK,
-		(mmio_read_32(GIC_INT_MASK) & ~(GIC500_ACTIVE_CPU_MASK))
-		| (active_cpu << GIC500_ACTIVE_CPU_SHIFT));
-	return;
+	mmio_clrsetbits_32(GIC_INT_MASK, GIC500_ACTIVE_CPU_MASK,
+			active_cpu << GIC500_ACTIVE_CPU_SHIFT);
 }
 
 void clear_sec_pol_ctl_en(void)
