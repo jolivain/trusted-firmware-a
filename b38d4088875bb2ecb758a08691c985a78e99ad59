@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea388afc_515aaf4a",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-25T16:00:28Z",
+      "side": 1,
+      "message": "We could maybe leave that disabled by default? The reason is that, for the erratum to occur, CPUECTLR_EL1.HPA_CAP bit must be enabled. Since this bit\u0027s value out of reset is zero, I would think that it\u0027s the platform\u0027s responsibility to enable this workaround, if HPA_CAP is indeed enabled. I don\u0027t know where this bit is set, potentially it\u0027s part of the MMU initialisation...?\n\nAlso, since the workaround mentions a small performance impact, maybe it\u0027s another reason to leave it disabled by default?\n\nDon\u0027t change it only because of my comment, though. It\u0027s better to cross-check.",
+      "range": {
+        "startLine": 250,
+        "startChar": 18,
+        "endLine": 250,
+        "endChar": 21
+      },
+      "revId": "b38d4088875bb2ecb758a08691c985a78e99ad59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
