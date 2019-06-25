@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0efd720_0417b7b4",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-25T13:15:25Z",
+      "side": 1,
+      "message": "Just thinking about it, maybe it is better to delete this macro from here and have every ARM platform directly define PLAT_PHY_* and PLAT_VIRT_* macros. That removes the need for macro indirection via PLAT_ARM_* macros.",
+      "range": {
+        "startLine": 318,
+        "startChar": 8,
+        "endLine": 318,
+        "endChar": 32
+      },
+      "revId": "4f4f4f8c8c8ed467f0abefd014f2a3b4bbce882d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
