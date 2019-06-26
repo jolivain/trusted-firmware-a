@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa66aace_5a510585",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-26T10:02:55Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 123,
+        "startChar": 1,
+        "endLine": 123,
+        "endChar": 4
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7a2ccd_06f0b16a",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-26T10:02:55Z",
+      "side": 1,
+      "message": "An ISB instruction must be inserted here, just before \"ret\", to guarantee that all errata workarounds take effect before we exit the reset handler. This way we will be able to remove the ISBs from each and every workaround function to avoid so many ISBs which are expensive instructions.",
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
