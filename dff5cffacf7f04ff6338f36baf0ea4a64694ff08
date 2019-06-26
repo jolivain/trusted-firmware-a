@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cf12a4a2_be034daf",
+        "filename": "include/lib/cpus/aarch64/neoverse_n1.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-06-26T16:06:04Z",
+      "side": 1,
+      "message": "according to the TRM, this is the \"Threshold for direct stream to L2 cache on store\" -\u003e WS_THR_L2.\nYou can rename it: NEOVERSE_N1_WS_THR_L2_MASK ?",
+      "parentUuid": "3c12b735_a0cef11c",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 42
+      },
+      "revId": "dff5cffacf7f04ff6338f36baf0ea4a64694ff08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d62ed494_6095cfdf",
         "filename": "include/lib/cpus/aarch64/neoverse_n1.h",
         "patchSetId": 1
