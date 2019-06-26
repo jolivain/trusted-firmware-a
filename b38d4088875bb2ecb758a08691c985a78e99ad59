@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e3ff4531_79c4c061",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-06-26T15:51:50Z",
+      "side": 1,
+      "message": "the list of errata must be sorted\n(same comments as the previous patch, I will not mention it for the next one if applies)",
+      "range": {
+        "startLine": 237,
+        "startChar": 5,
+        "endLine": 237,
+        "endChar": 22
+      },
+      "revId": "b38d4088875bb2ecb758a08691c985a78e99ad59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ea388afc_515aaf4a",
         "filename": "lib/cpus/cpu-ops.mk",
         "patchSetId": 1
