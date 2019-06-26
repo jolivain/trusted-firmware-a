@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b7837f7a_5eddaf32",
+        "filename": "include/lib/cpus/aarch64/neoverse_n1.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-06-26T16:29:09Z",
+      "side": 1,
+      "message": "according to the TRM, this the \"Disables L2 TLB prefetcher\" bit :\nNEOVERSE_N1_CPUECTLR_EL1_MM_TLBPF_DIS_BIT",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 39
+      },
+      "revId": "dee4360fc7d3b3eca0dc3804e85da3cc0cfdde8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "11368584_d10cbe88",
         "filename": "lib/cpus/aarch64/neoverse_n1.S",
         "patchSetId": 1
