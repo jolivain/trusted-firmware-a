@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "7bab5bcf_52153510",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-06-26T15:31:52Z",
+      "side": 1,
+      "message": "this link seems broken",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 100
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f5124fc_e2258c19",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-06-26T15:31:52Z",
+      "side": 1,
+      "message": "can you move this before ERRATA_N1_1315703.\nThe list of erreta must be sorted",
+      "range": {
+        "startLine": 234,
+        "startChar": 15,
+        "endLine": 234,
+        "endChar": 22
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "530fbbb4_78897745",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-06-26T15:31:52Z",
+      "side": 1,
+      "message": "here to, move before 1315703",
+      "range": {
+        "startLine": 108,
+        "startChar": 3,
+        "endLine": 108,
+        "endChar": 52
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa66aace_5a510585",
         "filename": "lib/cpus/aarch64/neoverse_n1.S",
         "patchSetId": 1
@@ -25,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "578c0e2b_292dc4e7",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-06-26T15:31:52Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 158,
+        "startChar": 4,
+        "endLine": 158,
+        "endChar": 21
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4d7a2ccd_06f0b16a",
         "filename": "lib/cpus/aarch64/neoverse_n1.S",
         "patchSetId": 1
@@ -39,6 +131,93 @@
       "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96ed9f44_a3e0e14e",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-06-26T15:31:52Z",
+      "side": 1,
+      "message": "It would be great to do this modification on a separate commit. Like this we can also clean the other workaround already implemented here.",
+      "parentUuid": "4d7a2ccd_06f0b16a",
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fc05a11_c22fc4a3",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-06-26T15:31:52Z",
+      "side": 1,
+      "message": "same here, move it before 1315703",
+      "range": {
+        "startLine": 221,
+        "startChar": 47,
+        "endLine": 221,
+        "endChar": 54
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55d5eae3_2104f4eb",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-06-26T15:31:52Z",
+      "side": 1,
+      "message": "move before 1315703",
+      "range": {
+        "startLine": 244,
+        "startChar": 24,
+        "endLine": 244,
+        "endChar": 31
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80729e0a_37ba8f8d",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-06-26T15:31:52Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 442,
+        "startChar": 10,
+        "endLine": 442,
+        "endChar": 27
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
