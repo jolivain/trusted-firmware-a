@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0faa6b9_121f5ef5",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-26T08:53:09Z",
+      "side": 1,
+      "message": "Do not enable the workarounds by default. Since these errata apply of pre-EAC version of the chip and the n1sdp  used for development , it is not needed to enable them by default.",
+      "range": {
+        "startLine": 254,
+        "startChar": 18,
+        "endLine": 254,
+        "endChar": 21
+      },
+      "revId": "6d78fb313e37199aa098a7f438bb93a46dbb3e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
