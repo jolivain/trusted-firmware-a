@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c12b735_a0cef11c",
+        "filename": "include/lib/cpus/aarch64/neoverse_n1.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-26T09:36:18Z",
+      "side": 1,
+      "message": "I would rename that as NEOVERSE_N1_ERR_1220197_MASK.\n\nAlthough I don\u0027t have strong opinion on that, up to you.",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 42
+      },
+      "revId": "dff5cffacf7f04ff6338f36baf0ea4a64694ff08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d62ed494_6095cfdf",
+        "filename": "include/lib/cpus/aarch64/neoverse_n1.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-26T09:36:18Z",
+      "side": 1,
+      "message": "Combined with my comment above: it\u0027s not your fault (this pattern pre-existed) but I\u0027m not very in favour of the naming pattern we use for those bitfields. There is the existing BIT macro inside lib/utils_def.h, which is already included in this file. Hence we could just use\n\nBIT(11)\n\ninside the .S file directly and not mention anything else in this header. All those\n\nULL(x) \u003c\u003c y\n\ndefinitions essentially duplicate the BIT macro and I don\u0027t see the value of it. Moreover, this naming pattern results in \"weird\" names when we need to refer to fields and not single bits - like the one you were forced to use in line 33 above.\n\nIt\u0027s definitely not something I request to be changed in this patch but, given the chance, I\u0027m recording it here. Nevertheless, we could have a short discussion (in a design review perhaps?) about dropping all those redundant definitions in favour of a simple usage of the BIT macro.",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "dff5cffacf7f04ff6338f36baf0ea4a64694ff08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
