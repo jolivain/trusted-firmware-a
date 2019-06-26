@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11f0f8d5_15740d56",
+        "filename": "plat/intel/soc/common/drivers/qspi/cadence_qspi.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-26T10:21:48Z",
+      "side": 1,
+      "message": "Drop double underscores.",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "f0bf5714afbb13f254d6c047ed7080b5af68e243",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a0b0a4c_220eb6ff",
+        "filename": "plat/intel/soc/common/drivers/wdt/watchdog.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-26T10:21:48Z",
+      "side": 1,
+      "message": "I would strongly suggest to drop the double underscores. It\u0027s a late finding from my side so the patch won\u0027t be blocked on that. But please submit another patch to fix that, if possible. Thank you!",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "f0bf5714afbb13f254d6c047ed7080b5af68e243",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
