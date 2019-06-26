@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f852a42d_6f966e46",
+        "filename": "plat/xilinx/zynqmp/bl31_zynqmp_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2019-06-26T06:36:11Z",
+      "side": 1,
+      "message": "Tested this on zynqmp and its not working without the boot flag CONSOLE_FLAG_BOOT. Please set scope as below \nconsole_set_scope(\u0026bl31_boot_console.console, CONSOLE_FLAG_RUNTIME | CONSOLE_FLAG_BOOT);",
+      "range": {
+        "startLine": 66,
+        "startChar": 20,
+        "endLine": 66,
+        "endChar": 37
+      },
+      "revId": "602093936df71eb0dc92a0e215f25aebfa6d91e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
