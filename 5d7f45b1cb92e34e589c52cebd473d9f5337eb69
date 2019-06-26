@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "24db3008_6e080f0f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2019-06-26T19:36:58Z",
+      "side": 1,
+      "message": "Fixed!",
+      "parentUuid": "7bab5bcf_52153510",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 100
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f5124fc_e2258c19",
         "filename": "docs/design/cpu-specific-build-macros.rst",
         "patchSetId": 1
@@ -65,6 +89,48 @@
     },
     {
       "key": {
+        "uuid": "a7d39557_fc3dbfc8",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2019-06-26T19:36:58Z",
+      "side": 1,
+      "message": "I reordered for all, thanks!",
+      "parentUuid": "2f5124fc_e2258c19",
+      "range": {
+        "startLine": 234,
+        "startChar": 15,
+        "endLine": 234,
+        "endChar": 22
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89ae9596_4a3f5e7f",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2019-06-26T19:36:58Z",
+      "side": 1,
+      "message": "Fixed!",
+      "parentUuid": "babcc989_36a8b6a1",
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "530fbbb4_78897745",
         "filename": "lib/cpus/aarch64/neoverse_n1.S",
         "patchSetId": 1
@@ -85,6 +151,30 @@
       "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2922bf9_4c7ced74",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2019-06-26T19:36:58Z",
+      "side": 1,
+      "message": "Fixed!",
+      "parentUuid": "530fbbb4_78897745",
+      "range": {
+        "startLine": 108,
+        "startChar": 3,
+        "endLine": 108,
+        "endChar": 52
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -131,6 +221,30 @@
       "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5f4cbe3_79850bfb",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2019-06-26T19:36:58Z",
+      "side": 1,
+      "message": "Fixed!",
+      "parentUuid": "578c0e2b_292dc4e7",
+      "range": {
+        "startLine": 158,
+        "startChar": 4,
+        "endLine": 158,
+        "endChar": 21
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -192,6 +306,30 @@
     },
     {
       "key": {
+        "uuid": "49b43257_92d73bc0",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2019-06-26T19:36:58Z",
+      "side": 1,
+      "message": "Fixed!",
+      "parentUuid": "1fc05a11_c22fc4a3",
+      "range": {
+        "startLine": 221,
+        "startChar": 47,
+        "endLine": 221,
+        "endChar": 54
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55d5eae3_2104f4eb",
         "filename": "lib/cpus/cpu-ops.mk",
         "patchSetId": 1
@@ -215,6 +353,30 @@
     },
     {
       "key": {
+        "uuid": "e2653974_774c68b5",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2019-06-26T19:36:58Z",
+      "side": 1,
+      "message": "Fixed!",
+      "parentUuid": "55d5eae3_2104f4eb",
+      "range": {
+        "startLine": 244,
+        "startChar": 24,
+        "endLine": 244,
+        "endChar": 31
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80729e0a_37ba8f8d",
         "filename": "lib/cpus/cpu-ops.mk",
         "patchSetId": 1
@@ -235,6 +397,30 @@
       "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97d1316b_458e1328",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2019-06-26T19:36:58Z",
+      "side": 1,
+      "message": "Fixed!",
+      "parentUuid": "80729e0a_37ba8f8d",
+      "range": {
+        "startLine": 442,
+        "startChar": 10,
+        "endLine": 442,
+        "endChar": 27
+      },
+      "revId": "5d7f45b1cb92e34e589c52cebd473d9f5337eb69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
