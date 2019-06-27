@@ -46,6 +46,76 @@
       "revId": "86b1d422c1df8efdd3d971752306ea6891cde19b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b6725a_9bb90cac",
+        "filename": "docs/process/coding-guidelines.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-06-27T12:52:22Z",
+      "side": 1,
+      "message": "I will end up moving this, most likely, as I have a patch to split this document into two: Coding Style and Coding Guidelines. I think it\u0027s fine here for now.",
+      "parentUuid": "f766ecb9_0d822679",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 57
+      },
+      "revId": "86b1d422c1df8efdd3d971752306ea6891cde19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15fd300e_877b8ef0",
+        "filename": "docs/process/coding-guidelines.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-06-27T12:52:22Z",
+      "side": 1,
+      "message": "We could make it stronger and say \"are discouraged from use and must be used with care\"",
+      "range": {
+        "startLine": 270,
+        "startChar": 17,
+        "endLine": 270,
+        "endChar": 39
+      },
+      "revId": "86b1d422c1df8efdd3d971752306ea6891cde19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f00dfbb_5dd45870",
+        "filename": "docs/process/coding-guidelines.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-06-27T12:52:22Z",
+      "side": 1,
+      "message": "ensure result fits in buffer?",
+      "range": {
+        "startLine": 284,
+        "startChar": 39,
+        "endLine": 284,
+        "endChar": 75
+      },
+      "revId": "86b1d422c1df8efdd3d971752306ea6891cde19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
