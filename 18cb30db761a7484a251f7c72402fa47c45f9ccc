@@ -1,0 +1,337 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed8b57f8_19f06e3d",
+        "filename": "fdts/a5ds.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "no need for this extra empty line",
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62ff9566_3370c76a",
+        "filename": "plat/arm/board/a5ds/a5ds_bl2_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "Apart from those two headers that are really needed, why are all the others included here?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb8a0ad5_7764e9d1",
+        "filename": "plat/arm/board/a5ds/a5ds_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "Why including that?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 37
+      },
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a2505e_956e4119",
+        "filename": "plat/arm/board/a5ds/a5ds_topology.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "I think \"supported\" would make it more clear that secondary cores are not even seen by Linux, instead of just \"not used\". Someone could make the assumption that TF-A doesn\u0027t use the secondary cores but Linux can, which is not true.",
+      "range": {
+        "startLine": 34,
+        "startChar": 28,
+        "endLine": 34,
+        "endChar": 32
+      },
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10c117fc_22fdf9ba",
+        "filename": "plat/arm/board/a5ds/aarch32/a5ds_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "I do not really agree with that... As we discussed face to face, this leaves the secondary cores spinning instead of being properly powered down. I would suggest that we properly power down the cores or, at least, put a WFI for now until we fix that properly in a later patch.",
+      "range": {
+        "startLine": 24,
+        "startChar": 1,
+        "endLine": 24,
+        "endChar": 11
+      },
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45db28d3_6de01160",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "Try to make lines not exceed 80 characters",
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ba7741f_91ae43f5",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "remove one tab to align with the rest",
+      "range": {
+        "startLine": 7,
+        "startChar": 17,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68311e9b_88a70b18",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "Is this platform only for AArch32?? Maybe we should add a check for this? To make sure no one tries to compile it for AArch64 (although if they do they will receive an error most probably...).\n\nCheck the top level Makefile, after line 423, to see some examples of how such a check could be done.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 46
+      },
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36087c72_6eca4724",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "move this line up to be together with the other \"drivers/...\" sources",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 31
+      },
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "250fde7b_1cf5713e",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "Move this line together with the rest \"plat/arm...\" sources below",
+      "range": {
+        "startLine": 41,
+        "startChar": 16,
+        "endLine": 41,
+        "endChar": 52
+      },
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62a4a7cc_8d968e66",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "This file only exists for AArch32, you don\u0027t need to use ${ARCH}.",
+      "range": {
+        "startLine": 96,
+        "startChar": 42,
+        "endLine": 96,
+        "endChar": 66
+      },
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a3e2d96_19b4503a",
+        "filename": "plat/arm/board/a5ds/sp_min/a5ds_sp_min_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "why? it\u0027s not used",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d770a048_6a167c0c",
+        "filename": "plat/arm/board/a5ds/sp_min/sp_min-a5ds.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "Remove this tab from every line because they end up \u003e80 char length",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 14
+      },
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9fba8f7_5d472f76",
+        "filename": "plat/arm/board/a5ds/sp_min/sp_min-a5ds.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "Propably, mentioning the files here in some order would make it a bit more readable.\n\nE.g. all \"drivers/...\" together, then all \"lib/...\" etc.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 12
+      },
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2874cca8_9168f954",
+        "filename": "plat/arm/board/a5ds/sp_min/sp_min-a5ds.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-27T08:40:11Z",
+      "side": 1,
+      "message": "Align with all the rest",
+      "range": {
+        "startLine": 12,
+        "startChar": 35,
+        "endLine": 12,
+        "endChar": 36
+      },
+      "revId": "18cb30db761a7484a251f7c72402fa47c45f9ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
