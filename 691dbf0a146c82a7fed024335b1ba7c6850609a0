@@ -22,6 +22,30 @@
       "revId": "691dbf0a146c82a7fed024335b1ba7c6850609a0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2a6e65_2689a9b8",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-06-28T08:45:22Z",
+      "side": 1,
+      "message": "There could be a dependency between setting AMEN bit and enabling the counters. This would be need to be checked.",
+      "parentUuid": "33608db5_079a5d18",
+      "range": {
+        "startLine": 413,
+        "startChar": 1,
+        "endLine": 413,
+        "endChar": 4
+      },
+      "revId": "691dbf0a146c82a7fed024335b1ba7c6850609a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
