@@ -70,6 +70,30 @@
       "revId": "691dbf0a146c82a7fed024335b1ba7c6850609a0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9efd8687_490622e6",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2019-06-28T16:36:14Z",
+      "side": 1,
+      "message": "I removed them and tested as you suggested.  It works properly so I will remove these 3 ISB instructions.",
+      "parentUuid": "af0cbf87_3cb870ff",
+      "range": {
+        "startLine": 413,
+        "startChar": 1,
+        "endLine": 413,
+        "endChar": 4
+      },
+      "revId": "691dbf0a146c82a7fed024335b1ba7c6850609a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
