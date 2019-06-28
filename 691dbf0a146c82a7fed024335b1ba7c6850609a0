@@ -46,6 +46,30 @@
       "revId": "691dbf0a146c82a7fed024335b1ba7c6850609a0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af0cbf87_3cb870ff",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-06-28T09:19:39Z",
+      "side": 1,
+      "message": "I checked the N1 TRM and the ARM-ARM and I didn\u0027t find any reference about a specific sequence of touching the AMU system registers in order to enable/disable the AMU.\n\nAlso, out of reset, accesses to AMU registers are, anyway, by default trapped. Hence, whether we execute the ISB for the changes to take effect a few cycles later I guess it wouldn\u0027t cause problems. Unless I have missed something of course while reading the docs.\n\nIn any case I don\u0027t have a strong opinion on that, I was just thinking aloud - we could omit it entirely.\n\nMaybe we could try to remove the ISBs in this block too, build TF-A with ENABLE_AMU, do a test run with the N1 FVP + TFTF to see if it works properly and then decide?",
+      "parentUuid": "6a2a6e65_2689a9b8",
+      "range": {
+        "startLine": 413,
+        "startChar": 1,
+        "endLine": 413,
+        "endChar": 4
+      },
+      "revId": "691dbf0a146c82a7fed024335b1ba7c6850609a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
