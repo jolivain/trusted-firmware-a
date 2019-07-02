@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef406acc_7435c44c",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-02T15:00:12Z",
+      "side": 1,
+      "message": "This is the only piece of code that is conditional.\nThe rest is needed irrespective of this if. infact the previous probe can be replaced with the new probe I think.\n\nSuggest :\n\ngicv3_driver_data \u003d plat_driver_data;\n\nif (plat_driver_data-\u003egicr_base !\u003d 0U) {\n    gicv3_rdistif_probe(plat_driver_data-\u003egicr_base);\n}\n\n....",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 46
+      },
+      "revId": "51de295d74fd61f3d9ed5c5fb9557ab95e265241",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
