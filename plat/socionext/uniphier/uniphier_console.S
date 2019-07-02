@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -38,8 +38,8 @@
  *     w2 - baud rate
  * Out: return 1 on success, or 0 on error
  */
-	.globl	console_core_init
-func console_core_init
+	.globl	uniphier_console_init
+func uniphier_console_init
 	cbz	x0, 1f
 #ifdef UNIPHIER_UART_INIT_DIVISOR
 	cbz	w1, 1f
@@ -64,7 +64,7 @@ func console_core_init
 	ret
 1:	mov	w0, #0
 	ret
-endfunc console_core_init
+endfunc uniphier_console_init
 
 /*
  * In: w0 - character to be printed
@@ -72,8 +72,8 @@ endfunc console_core_init
  * Out: return the character written, or -1 on error
  * Clobber: x2
  */
-	.globl	console_core_putc
-func console_core_putc
+	.globl	__uniphier_console_putc
+func __uniphier_console_putc
 	/* Error out if the console is not initialized */
 	cbz	x1, 2f
 
@@ -91,15 +91,15 @@ func console_core_putc
 	b	1b
 2:	mov	w0, #-1
 3:	ret
-endfunc console_core_putc
+endfunc __uniphier_console_putc
 
 /*
  * In: x0 - console base address
  * Out: return the character read
  * Clobber: x1
  */
-	.globl	console_core_getc
-func console_core_getc
+	.globl	__uniphier_console_getc
+func __uniphier_console_getc
 	/* Error out if the console is not initialized */
 	cbz	x0, 1f
 
@@ -112,15 +112,15 @@ func console_core_getc
 	ret
 1:	mov	w0, #-1
 	ret
-endfunc console_core_getc
+endfunc __uniphier_console_getc
 
 /*
  * In:  x0 - console base address
  * Out: return 0, or -1 on error
  * Clobber: x1
  */
-	.global console_core_flush
-func console_core_flush
+	.global __uniphier_console_flush
+func __uniphier_console_flush
 	/* Error out if the console is not initialized */
 	cbz	x0, 1f
 
@@ -132,10 +132,10 @@ func console_core_flush
 	ret
 1:	mov	w0, #-1
 	ret
-endfunc console_core_flush
+endfunc __uniphier_console_flush
 
 /* find initialized UART port */
-.macro uniphier_console_get_base base, tmpx, tmpw
+.macro _uniphier_console_get_base base, tmpx, tmpw
 	ldr	\base, =UNIPHIER_UART_BASE
 0000:	ldr	\tmpw, [\base, #UNIPHIER_UART_DLR]
 	mvn	\tmpw, \tmpw
@@ -149,6 +149,11 @@ endfunc console_core_flush
 0001:
 .endm
 
+	.global uniphier_console_get_base
+func uniphier_console_get_base
+	_uniphier_console_get_base x0, x1, w1
+	ret
+endfunc uniphier_console_get_base
 /*
  * int plat_crash_console_init(void)
  * Clobber: x0-x2
@@ -159,7 +164,7 @@ func plat_crash_console_init
 	ldr	x0, =UNIPHIER_UART_DEFAULT_BASE
 	ldr	x1, =UNIPHIER_UART_CLK_RATE
 	ldr	x2, =UNIPHIER_UART_DEFAULT_BAUDRATE
-	b	console_core_init
+	b	uniphier_console_init
 #else
 	ret
 #endif
@@ -174,9 +179,9 @@ func plat_crash_console_putc
 #ifdef UNIPHIER_UART_INIT_DIVISOR
 	ldr	x1, =UNIPHIER_UART_DEFAULT_BASE
 #else
-	uniphier_console_get_base x1, x2, w2
+	_uniphier_console_get_base x1, x2, w2
 #endif
-	b	console_core_putc
+	b	__uniphier_console_putc
 endfunc plat_crash_console_putc
 
 /*
@@ -188,25 +193,7 @@ func plat_crash_console_flush
 #ifdef UNIPHIER_UART_INIT_DIVISOR
 	ldr	x0, =UNIPHIER_UART_DEFAULT_BASE
 #else
-	uniphier_console_get_base x0, x1, w1
+	_uniphier_console_get_base x0, x1, w1
 #endif
-	b	console_core_flush
+	b	__uniphier_console_flush
 endfunc plat_crash_console_flush
-
-/*
- * void uniphier_console_setup(void)
- * Clobber: x0-x2
- */
-	.globl	uniphier_console_setup
-func uniphier_console_setup
-#ifdef UNIPHIER_UART_INIT_DIVISOR
-	ldr	x0, =UNIPHIER_UART_DEFAULT_BASE
-	ldr	w1, =UNIPHIER_UART_CLK_RATE
-	ldr	w2, =UNIPHIER_UART_DEFAULT_BAUDRATE
-#else
-	uniphier_console_get_base x0, x1, w1
-	mov	w1, #0
-	mov	w2, #0
-#endif
-	b	console_init
-endfunc uniphier_console_setup
