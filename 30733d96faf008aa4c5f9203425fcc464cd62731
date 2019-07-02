@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "569beeab_562b4fde",
+        "filename": "docs/plat/rockchip.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-07-02T10:30:58Z",
+      "side": 1,
+      "message": "A53 with a capital A please",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee0831b9_d2634d73",
+        "filename": "plat/rockchip/common/pmusram/cpus_on_fixed_addr.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-07-02T10:30:58Z",
+      "side": 1,
+      "message": "This file seems to be somewhat similar to plat/rockchip/common/aarch64/pmu_sram_cpus_on.S .\nSo could you try to re-use the one we already have?\n\nAlso please note that when introducing aarch32 support I moved that aarch64-specific file to a matching subdir, where it now lives.",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adf5b033_b6ac55bb",
+        "filename": "plat/rockchip/common/pmusram/cpus_on_fixed_addr.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-07-02T10:30:58Z",
+      "side": 1,
+      "message": "In the general sram-resume assembler file it just uses __bl31_sram_stack_end as stack-pointer. Shouldn\u0027t that work the same way and not need another variable.",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb6b32cb_d245db9c",
+        "filename": "plat/rockchip/common/pmusram/cpus_on_fixed_addr.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-07-02T10:30:58Z",
+      "side": 1,
+      "message": "Together with the other comments I guess these ddr_func + flag + data are more or less px30-specific for now, so should probably live inside the dmc_resume for px30?",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ed725c9_548d5408",
+        "filename": "plat/rockchip/common/pmusram/cpus_on_fixed_addr.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-07-02T10:30:58Z",
+      "side": 1,
+      "message": "This ties into the general comment of re-using (or adapting) pmu_sram_cpus_on.S . As there already is a global boot_mpidr variable used there.",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "260c1a63_32c12ca3",
+        "filename": "plat/rockchip/px30/drivers/pmu/pmu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-07-02T10:30:58Z",
+      "side": 1,
+      "message": "git complains about that additional blank line",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa0f61ad_629c9ad4",
+        "filename": "plat/rockchip/px30/drivers/soc/soc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-07-02T10:30:58Z",
+      "side": 1,
+      "message": "I think TF-A already does emit a release boilerplate message?",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5433f7f_264876cc",
+        "filename": "plat/rockchip/px30/drivers/soc/soc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-07-02T10:30:58Z",
+      "side": 1,
+      "message": "constants in upper-case perhaps?",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a1bc646_02b10060",
+        "filename": "plat/rockchip/px30/drivers/soc/soc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-07-02T10:30:58Z",
+      "side": 1,
+      "message": "constants in upper-case perhaps?",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
