@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "4baf58d7_931822c7",
+        "filename": "plat/arm/board/a5ds/a5ds_topology.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-02T14:15:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "938fb34c_e76a0603",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "51b39660c89ec98d445c8defe78eb32d8b2cc5fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d71b67c0_c562d0da",
         "filename": "plat/arm/board/a5ds/aarch32/a5ds_helpers.S",
         "patchSetId": 3
@@ -53,6 +77,30 @@
       "writtenOn": "2019-07-02T13:40:48Z",
       "side": 1,
       "message": "Convert to tab - this line is misaligned",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 5
+      },
+      "revId": "51b39660c89ec98d445c8defe78eb32d8b2cc5fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "522e84d3_93ff03e8",
+        "filename": "plat/arm/board/a5ds/aarch32/a5ds_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-02T14:15:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d71b67c0_c562d0da",
       "range": {
         "startLine": 56,
         "startChar": 0,
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "8e611a0f_dcac0422",
+        "filename": "plat/arm/board/a5ds/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-02T14:15:57Z",
+      "side": 1,
+      "message": "I believe most of the other platforms name it as platform_def.h. Also the header is using the same guard.\n./plat/arm/board/fvp_ve/include/platform_def.h\n./plat/arm/board/rdn1edge/include/platform_def.h\n./plat/arm/board/fvp/include/platform_def.h\n./plat/arm/board/n1sdp/include/platform_def.h\n./plat/arm/board/a5ds/include/platform_def.h\n./plat/arm/board/sgm775/include/platform_def.h\n./plat/arm/board/juno/include/platform_def.h\n./plat/arm/board/sgi575/include/platform_def.h\n./plat/arm/board/rde1edge/include/platform_def.h\n\nThe directory structure i think would become weird if just have this platform file name changed for plat/arm/board.",
+      "parentUuid": "2cd9e883_0a350bd1",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "51b39660c89ec98d445c8defe78eb32d8b2cc5fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6845a6e5_d561dbdd",
         "filename": "plat/arm/board/a5ds/include/platform_def.h",
         "patchSetId": 3
@@ -99,6 +171,30 @@
       "writtenOn": "2019-07-02T13:40:48Z",
       "side": 1,
       "message": "adjust",
+      "range": {
+        "startLine": 353,
+        "startChar": 10,
+        "endLine": 353,
+        "endChar": 20
+      },
+      "revId": "51b39660c89ec98d445c8defe78eb32d8b2cc5fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ee2fc_45bc145e",
+        "filename": "plat/arm/board/a5ds/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-02T14:15:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6845a6e5_d561dbdd",
       "range": {
         "startLine": 353,
         "startChar": 10,
@@ -134,6 +230,30 @@
     },
     {
       "key": {
+        "uuid": "406885ef_9558d853",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-02T14:15:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1af3a698_dc67817c",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 45
+      },
+      "revId": "51b39660c89ec98d445c8defe78eb32d8b2cc5fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c17187cd_fa44b926",
         "filename": "plat/arm/board/a5ds/platform.mk",
         "patchSetId": 3
@@ -145,6 +265,30 @@
       "writtenOn": "2019-07-02T13:40:48Z",
       "side": 1,
       "message": "Move this line to the end of this block for readability and combine with line 68 below.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 62
+      },
+      "revId": "51b39660c89ec98d445c8defe78eb32d8b2cc5fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4803bc7_0ca9bc3e",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-02T14:15:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c17187cd_fa44b926",
       "range": {
         "startLine": 61,
         "startChar": 0,
@@ -180,6 +324,30 @@
     },
     {
       "key": {
+        "uuid": "ef165464_fc39eef2",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-02T14:15:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "882496f5_75f245e5",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 36
+      },
+      "revId": "51b39660c89ec98d445c8defe78eb32d8b2cc5fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6334d19d_aaaf89a7",
         "filename": "plat/arm/board/a5ds/platform.mk",
         "patchSetId": 3
@@ -191,6 +359,30 @@
       "writtenOn": "2019-07-02T13:40:48Z",
       "side": 1,
       "message": "Indent this part one level inside.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 61
+      },
+      "revId": "51b39660c89ec98d445c8defe78eb32d8b2cc5fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fcb3992_732806bd",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-02T14:15:57Z",
+      "side": 1,
+      "message": "The if statements in other makefiles are not indented. Should we keep it the same as other makefiles?",
+      "parentUuid": "6334d19d_aaaf89a7",
       "range": {
         "startLine": 60,
         "startChar": 0,
@@ -220,6 +412,24 @@
     },
     {
       "key": {
+        "uuid": "2355bd09_025facb3",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-02T14:15:57Z",
+      "side": 1,
+      "message": "The if statements in other makefiles are not indented. Should we keep it the same as other makefiles?",
+      "parentUuid": "288f4518_9814910d",
+      "revId": "51b39660c89ec98d445c8defe78eb32d8b2cc5fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3838f8e5_7cea2be1",
         "filename": "plat/arm/board/a5ds/platform.mk",
         "patchSetId": 3
@@ -243,6 +453,30 @@
     },
     {
       "key": {
+        "uuid": "5fdc8351_5a471382",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-02T14:15:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3838f8e5_7cea2be1",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 51
+      },
+      "revId": "51b39660c89ec98d445c8defe78eb32d8b2cc5fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67fde676_4df891c3",
         "filename": "plat/arm/board/a5ds/platform.mk",
         "patchSetId": 3
@@ -254,6 +488,30 @@
       "writtenOn": "2019-07-02T13:40:48Z",
       "side": 1,
       "message": "Can this go on the very top of the makefile, for readability? Unless there are ordering reasons why this inclusion must happen here.",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 28
+      },
+      "revId": "51b39660c89ec98d445c8defe78eb32d8b2cc5fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d521dadc_a46a1256",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-02T14:15:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67fde676_4df891c3",
       "range": {
         "startLine": 98,
         "startChar": 0,
