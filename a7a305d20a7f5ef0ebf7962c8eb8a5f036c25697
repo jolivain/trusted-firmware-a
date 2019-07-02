@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c541c47e_594bbc58",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-02T16:09:59Z",
+      "side": 1,
+      "message": "Suggest:\n\nMigrate ARM platforms to use the new GICv3 API.\n\nThis patch invokes the new function gicv3_rdistif_probe() in the\nARM platform specific gicv3 driver.",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "a7a305d20a7f5ef0ebf7962c8eb8a5f036c25697",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
