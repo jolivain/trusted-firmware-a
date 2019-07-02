@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "47471525_74a35805",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-07-02T23:20:17Z",
+      "side": 1,
+      "message": "I will make the change you suggested about conditional code. This function(gicv3_driver_init) is used by partner platforms and only the old API can perform the discovery of each GICR frame. If we use the new API, I think the secondary CPUs may not have a valid GICR frame base address.",
+      "parentUuid": "ef406acc_7435c44c",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 46
+      },
+      "revId": "51de295d74fd61f3d9ed5c5fb9557ab95e265241",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e608073_7b91d602",
         "filename": "drivers/arm/gic/v3/gicv3_main.c",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2019-07-02T16:20:42Z",
       "side": 1,
       "message": "There is an optimization possible here. The probe will get invoked on every warm boot but the discovery only needs to be done once. hence the probe can return early if this is non-zero (i.e already discovered).",
+      "range": {
+        "startLine": 1119,
+        "startChar": 3,
+        "endLine": 1120,
+        "endChar": 16
+      },
+      "revId": "51de295d74fd61f3d9ed5c5fb9557ab95e265241",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "160841b3_8f8c6f48",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-07-02T23:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e608073_7b91d602",
       "range": {
         "startLine": 1119,
         "startChar": 3,
