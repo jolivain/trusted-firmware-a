@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5513151_31d8cceb",
+        "filename": "plat/socionext/uniphier/uniphier_console_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-02T15:46:41Z",
+      "side": 1,
+      "message": "This is a new file. According to some changes in the way we handle copyright notices, you could actually put your own name in the copyright instead of \"ARM Limited and Contributors\".",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 73
+      },
+      "revId": "b585c78b1b8c7aed6072eb0ed2a28f42f24e498f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bbe6ace_85be5b0c",
+        "filename": "plat/socionext/uniphier/uniphier_console_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-02T15:46:41Z",
+      "side": 1,
+      "message": "Although this isn\u0027t a problem from a compiler perspective, I believe that this obfuscates the code a bit. IMHO I would prefer the member name to not coincide with the struct name, I think it would be a bit easier to follow later on in the code.\n\nHowever it is platform code so I don\u0027t have a strong opinion on that - although it would improve readability of the file, I think.",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 12,
+        "endChar": 23
+      },
+      "revId": "b585c78b1b8c7aed6072eb0ed2a28f42f24e498f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "312c85f6_1a0bb565",
+        "filename": "plat/socionext/uniphier/uniphier_console_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-02T15:46:41Z",
+      "side": 1,
+      "message": "The same comment. We could use anything as the pointer name, I think there is no big benefit from using the same name for the struct and the variable.",
+      "range": {
+        "startLine": 28,
+        "startChar": 40,
+        "endLine": 28,
+        "endChar": 63
+      },
+      "revId": "b585c78b1b8c7aed6072eb0ed2a28f42f24e498f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63bf9083_3daf8752",
+        "filename": "plat/socionext/uniphier/uniphier_console_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-02T15:46:41Z",
+      "side": 1,
+      "message": "The same",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 47
+      },
+      "revId": "b585c78b1b8c7aed6072eb0ed2a28f42f24e498f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
