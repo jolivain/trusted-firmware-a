@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad40543a_f6e39fd1",
+        "filename": "plat/imx/common/include/imx_io_mux.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-07-02T11:31:34Z",
+      "side": 1,
+      "message": "utils_def.h should be included for this macro definition.",
+      "range": {
+        "startLine": 25,
+        "startChar": 55,
+        "endLine": 25,
+        "endChar": 58
+      },
+      "revId": "8dd54fc398cd8bb6711eb9579cf175d13b05e63d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3712df2_444cff55",
+        "filename": "plat/imx/imx7/picopi/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-07-02T11:31:34Z",
+      "side": 1,
+      "message": "(minor) Do you need this definition?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 38
+      },
+      "revId": "8dd54fc398cd8bb6711eb9579cf175d13b05e63d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faabbd54_c56f2cb1",
+        "filename": "plat/imx/imx7/picopi/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-07-02T11:31:34Z",
+      "side": 1,
+      "message": "The comment does not seem to match the next line.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 33
+      },
+      "revId": "8dd54fc398cd8bb6711eb9579cf175d13b05e63d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d09b90e1_5e83fcff",
+        "filename": "plat/imx/imx7/picopi/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-07-02T11:31:34Z",
+      "side": 1,
+      "message": "This comments does not seem to add much value, drop it?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 18
+      },
+      "revId": "8dd54fc398cd8bb6711eb9579cf175d13b05e63d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
