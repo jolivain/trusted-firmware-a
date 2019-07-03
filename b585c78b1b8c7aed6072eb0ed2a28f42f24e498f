@@ -166,6 +166,24 @@
     },
     {
       "key": {
+        "uuid": "4cdf96c3_6dcdce41",
+        "filename": "plat/socionext/uniphier/uniphier_console_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2019-07-03T03:05:37Z",
+      "side": 1,
+      "message": "Ah, FreeBSD had already copied container_of and list helpers from Linux.\nThe header include guard \u0027_LINUX_LIST_H_\u0027 proves it.\n\nI do not know the license stuff since I am not a lawyer.\n\nAnyway, I want to move all the callbacks to assembly\nin order to re-use crash_console_helpers.S\n\nSo, I will delete this comment anyway.",
+      "parentUuid": "e982ef38_378fc55e",
+      "revId": "b585c78b1b8c7aed6072eb0ed2a28f42f24e498f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "312c85f6_1a0bb565",
         "filename": "plat/socionext/uniphier/uniphier_console_setup.c",
         "patchSetId": 3
