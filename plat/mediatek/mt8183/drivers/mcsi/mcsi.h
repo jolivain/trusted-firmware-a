@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <lib/utils_def.h>
+
 #ifndef MCSI_H
 #define MCSI_H
 
@@ -41,7 +43,7 @@
 #define BD_CTRL_REG			0x40
 
 /* Snoop Control register bit definitions */
-#define DVM_SUPPORT			(1 << 31)
+#define DVM_SUPPORT			(U(1) << 31)
 #define SNP_SUPPORT			(1 << 30)
 #define SHAREABLE_OVWRT			(1 << 2)
 #define DVM_EN_BIT			(1 << 1)
