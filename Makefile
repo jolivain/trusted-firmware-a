@@ -253,7 +253,7 @@ endif
 
 WARNINGS	+=		-Wunused -Wno-unused-parameter	\
 				-Wdisabled-optimization		\
-				-Wvla
+				-Wvla -Wshift-overflow=2
 
 ifeq ($(findstring clang,$(notdir $(CC))),)
 WARNINGS	+=		-Wunused-but-set-variable	\
