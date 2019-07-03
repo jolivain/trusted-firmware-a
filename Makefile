@@ -253,12 +253,17 @@ endif
 
 WARNINGS	+=		-Wunused -Wno-unused-parameter	\
 				-Wdisabled-optimization		\
-				-Wvla
+				-Wvla -Wshift-overflow=2
 
 ifeq ($(findstring clang,$(notdir $(CC))),)
+# not using clang
 WARNINGS	+=		-Wunused-but-set-variable	\
 				-Wmaybe-uninitialized		\
-				-Wpacked-bitfield-compat
+				-Wpacked-bitfield-compat	\
+				-Wshift-overflow=2
+else
+# using clang
+WARNINGS	+=		-Wshift-overflow -Wshift-sign-overflow
 endif
 
 ifneq (${E},0)
