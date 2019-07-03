@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "29a3d8d1_8a8ace6a",
+        "filename": "plat/socionext/uniphier/uniphier_console.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-03T17:00:03Z",
+      "side": 1,
+      "message": "Not related to this patch, but note that it\u0027s usually convention to send the \\r *before* the \\n, not after.",
+      "revId": "1b2d8305c4b47894d3bbe0f9afc7700fa94661b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d6bd316_5dc37843",
+        "filename": "plat/socionext/uniphier/uniphier_console.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-03T17:00:03Z",
+      "side": 1,
+      "message": "In multi-console API, this shouldn\u0027t block, it should instead return ERROR_NO_PENDING_CHAR",
+      "revId": "1b2d8305c4b47894d3bbe0f9afc7700fa94661b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b8a1a8a1_45c72f92",
         "filename": "plat/socionext/uniphier/uniphier_console_setup.c",
         "patchSetId": 5
