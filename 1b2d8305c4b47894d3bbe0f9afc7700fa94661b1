@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e25a4325_77bc5301",
+        "filename": "plat/socionext/uniphier/uniphier_console.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2019-07-03T22:29:47Z",
+      "side": 1,
+      "message": "Ugh, you are right.\n\nI did this to simplify the assembly implementation, but\nI am happy to fix this (in a separate patch).\n\nBTW, many console drivers prepend \u0027\\r\u0027 by themselves.\n\nI think this should be taken care of by the framework,\nthen drivers can be cleaned up.\n\nMy idea:\n\nAdd a new flag, CONSOLE_FLAG_TRANSLATE_CRLF\n(please feel free to bikeshed the flag name).\n\nIf a driver sets this flag,\nthe framework (multi_console.c and crash_console_helpers.S)\nwill automatically prepend \u0027\\r\u0027 before \u0027\\n\u0027.\n\nYou can simplify your putc hook by setting this flag.",
+      "parentUuid": "29a3d8d1_8a8ace6a",
+      "revId": "1b2d8305c4b47894d3bbe0f9afc7700fa94661b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9d6bd316_5dc37843",
         "filename": "plat/socionext/uniphier/uniphier_console.S",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2019-07-03T17:00:03Z",
       "side": 1,
       "message": "In multi-console API, this shouldn\u0027t block, it should instead return ERROR_NO_PENDING_CHAR",
+      "revId": "1b2d8305c4b47894d3bbe0f9afc7700fa94661b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f96fd8e4_8c23b400",
+        "filename": "plat/socionext/uniphier/uniphier_console.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2019-07-03T22:29:47Z",
+      "side": 1,
+      "message": "Right.\n\nActually, I did not test the getc hook in my\nconversion because TF-A is non-interactive on my boards\n(so, only putc and flush are really used. Perhaps,getc\nmight have been unneeded in the first place.)",
+      "parentUuid": "9d6bd316_5dc37843",
       "revId": "1b2d8305c4b47894d3bbe0f9afc7700fa94661b1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
