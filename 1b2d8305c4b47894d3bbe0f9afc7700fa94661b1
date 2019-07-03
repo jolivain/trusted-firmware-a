@@ -22,6 +22,30 @@
       "revId": "1b2d8305c4b47894d3bbe0f9afc7700fa94661b1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60aaeb18_4939998f",
+        "filename": "plat/socionext/uniphier/uniphier_console_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2019-07-03T08:45:55Z",
+      "side": 1,
+      "message": "Good question.\n\nFor all the existing SoCs, the base of UART is 0x54006800, but\nit will be changed to 0x14006800 for a planned new SoC.\n\nIt is under development, so I cannot publish the SoC/board support code yet,\nbut I plan to turn these macros into variables sooner or later.",
+      "parentUuid": "b8a1a8a1_45c72f92",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 34
+      },
+      "revId": "1b2d8305c4b47894d3bbe0f9afc7700fa94661b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
