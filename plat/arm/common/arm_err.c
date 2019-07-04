@@ -5,14 +5,7 @@
  */
 
 #include <errno.h>
-#include <stdint.h>
 
-#include <platform_def.h>
-
-#include <arch_helpers.h>
-#include <common/debug.h>
-#include <drivers/cfi/v2m_flash.h>
-#include <drivers/console.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 
@@ -21,31 +14,8 @@
 /*
  * ARM common implementation for error handler
  */
-void __dead2 plat_arm_error_handler(int err)
+void __dead2 arm_error_handler(void)
 {
-	int ret;
-
-	switch (err) {
-	case -ENOENT:
-	case -EAUTH:
-		/* Image load or authentication error. Erase the ToC */
-		INFO("Erasing FIP ToC from flash...\n");
-		(void)nor_unlock(PLAT_ARM_FIP_BASE);
-		ret = nor_word_program(PLAT_ARM_FIP_BASE, 0);
-		if (ret != 0) {
-			ERROR("Cannot erase ToC\n");
-		} else {
-			INFO("Done\n");
-		}
-		break;
-	default:
-		/* Unexpected error */
-		break;
-	}
-
-	(void)console_flush();
-
-	/* Loop until the watchdog resets the system */
 	for (;;)
 		wfi();
 }
