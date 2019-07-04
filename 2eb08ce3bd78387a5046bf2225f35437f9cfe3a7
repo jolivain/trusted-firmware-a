@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "310102c1_31ecd745",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-04T09:34:37Z",
+      "side": 1,
+      "message": "I think the following is a bit more clear:\n\nTrap all asynchronous errors to EL3\n\nAlso, ATF is the old name of the project, currently is TF-A. But mentioning the exception level where you intend to trap the errors is more clear. E.g. TF-A has components that run to S-EL1, also, so \"trapping to TF-A\" could be ambiguous.",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "2eb08ce3bd78387a5046bf2225f35437f9cfe3a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d500a29e_014dec62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-04T09:34:37Z",
+      "side": 1,
+      "message": "do you mean \"here\"? And what \"here\" would mean? Judging from your change I guess you mean EL3 - so maybe mentioning EL3 would be a bit clearer.",
+      "range": {
+        "startLine": 11,
+        "startChar": 28,
+        "endLine": 11,
+        "endChar": 32
+      },
+      "revId": "2eb08ce3bd78387a5046bf2225f35437f9cfe3a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
