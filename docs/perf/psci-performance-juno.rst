@@ -2,9 +2,9 @@ PSCI Performance Measurements on Arm Juno Development Platform
 ==============================================================
 
 This document summarises the findings of performance measurements of key
-operations in the ARM Trusted Firmware (TF) Power State Coordination Interface
-(PSCI) implementation, using the in-built Performance Measurement Framework
-(PMF) and runtime instrumentation timestamps.
+operations in the Trusted Firmware-A Power State Coordination Interface (PSCI)
+implementation, using the in-built Performance Measurement Framework (PMF) and
+runtime instrumentation timestamps.
 
 Method
 ------

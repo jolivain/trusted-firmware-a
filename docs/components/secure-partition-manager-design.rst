@@ -250,7 +250,7 @@ implemented by the SPM.
 A SVC causes an exception to be taken to S-EL1. TF-A assumes ownership of S-EL1
 and installs a simple exception vector table in S-EL1 that relays a SVC request
 from a Secure Partition as a SMC request to the SPM in EL3. Upon servicing the
-SMC request, Arm Trusted Firmware returns control directly to S-EL0 through an
+SMC request, Trusted Firmware-A returns control directly to S-EL0 through an
 ERET instruction.
 
 Calling conventions
