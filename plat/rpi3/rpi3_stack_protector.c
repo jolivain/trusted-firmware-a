@@ -7,6 +7,7 @@
 #include <stdint.h>
 
 #include <lib/utils.h>
+#include <lib/utils_def.h>
 
 #include "rpi3_private.h"
 
