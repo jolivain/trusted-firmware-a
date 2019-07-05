@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a9df2cb_8a0c964b",
+        "filename": "plat/socionext/uniphier/uniphier_console.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2019-07-05T09:42:38Z",
+      "side": 1,
+      "message": "Good catch! Will fix soon.",
+      "parentUuid": "8a0d238c_711f878f",
+      "range": {
+        "startLine": 39,
+        "startChar": 35,
+        "endLine": 39,
+        "endChar": 52
+      },
+      "revId": "57f2f9d23282af7374480c70b0069d8f1a36d086",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b45b1661_5d0b2eb7",
         "filename": "plat/socionext/uniphier/uniphier_console_setup.c",
         "patchSetId": 7
@@ -36,6 +60,24 @@
       "writtenOn": "2019-07-05T08:56:20Z",
       "side": 1,
       "message": "Add \"All rights reserved.\" at the end of the line, as indicated in license.rst [1]? I suppose it\u0027s up to you really but that\u0027s the copyright boilerplate we use everywhere else.\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/license.rst",
+      "revId": "57f2f9d23282af7374480c70b0069d8f1a36d086",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a4e6fe8_465fe990",
+        "filename": "plat/socionext/uniphier/uniphier_console_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2019-07-05T09:42:38Z",
+      "side": 1,
+      "message": "Will fix this one, too. Thanks.",
+      "parentUuid": "b45b1661_5d0b2eb7",
       "revId": "57f2f9d23282af7374480c70b0069d8f1a36d086",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
