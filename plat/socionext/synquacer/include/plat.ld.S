@@ -7,7 +7,7 @@
 #ifndef SYNQUACER_PLAT_LD_S__
 #define SYNQUACER_PLAT_LD_S__
 
-#include <xlat_tables_defs.h>
+#include <lib/xlat_tables/xlat_tables_defs.h>
 
 #define SPM_SHIM_EXCEPTIONS_VMA		SP_DRAM
 
