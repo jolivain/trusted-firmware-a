@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "105d5d79_de3ec920",
+        "filename": "plat/arm/board/a5ds/a5ds_bl1_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-07-08T14:24:40Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 33
+      },
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83cb8bc1_b52b29ae",
+        "filename": "plat/arm/board/a5ds/a5ds_topology.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-07-08T14:24:40Z",
+      "side": 1,
+      "message": "Replace with A5DS?",
+      "range": {
+        "startLine": 9,
+        "startChar": 7,
+        "endLine": 9,
+        "endChar": 13
+      },
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc0aee8e_580a81a0",
+        "filename": "plat/arm/board/a5ds/a5ds_topology.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-07-08T14:24:40Z",
+      "side": 1,
+      "message": "Would it make sense to add an assertion to check that this function is always called with mpidr \u003d\u003d 0? It might help when adding multicore support.",
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48402f08_fc236561",
+        "filename": "plat/arm/board/a5ds/aarch32/a5ds_helpers.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-07-08T14:24:40Z",
+      "side": 1,
+      "message": "I think we need an infinite loop here, in addition to the WFI instruction. At the moment, if an interrupt ever reaches a secondary core then it will wake it up and execution will continue to the next instruction (which might be plat_get_my_entrypoint() or possibly something else depending on how the linking is done).",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 7
+      },
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b857c678_e59e9ba3",
+        "filename": "plat/arm/board/a5ds/aarch32/a5ds_helpers.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-07-08T14:24:40Z",
+      "side": 1,
+      "message": "This part of the comment looks inappropriate to me here, should it be removed?",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 41,
+        "endChar": 47
+      },
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac9413de_d3448895",
+        "filename": "plat/arm/board/a5ds/aarch32/a5ds_helpers.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-07-08T14:24:40Z",
+      "side": 1,
+      "message": "This implementation caters for several cores, whereas plat_core_pos_by_mpidr() in a5ds_topology.c only expects to be called by core 0 (given that there is no multicore support for now). I think it would be preferable if both functions\u0027 expectations were aligned and that plat_is_my_cpu_primary() here should be simplified into:\n\n mov r0, #1\n bx lr",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 13
+      },
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1263423_c5e7d892",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-07-08T14:24:40Z",
+      "side": 1,
+      "message": "Is there a specific reason for using v1 rather than v2?",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 0
+      },
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f9699c8_e73ed49d",
+        "filename": "plat/arm/board/a5ds/sp_min/sp_min-a5ds.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-07-08T14:24:40Z",
+      "side": 1,
+      "message": "(minor) Update?",
+      "range": {
+        "startLine": 7,
+        "startChar": 34,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
