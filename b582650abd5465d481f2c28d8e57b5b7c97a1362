@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5b7932db_3cfc9a50",
+        "filename": "plat/arm/board/a5ds/a5ds_bl1_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-08T16:39:55Z",
+      "side": 1,
+      "message": "Done.\nNot needed.",
+      "parentUuid": "105d5d79_de3ec920",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 33
+      },
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "83cb8bc1_b52b29ae",
         "filename": "plat/arm/board/a5ds/a5ds_topology.c",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2019-07-08T14:24:40Z",
       "side": 1,
       "message": "Replace with A5DS?",
+      "range": {
+        "startLine": 9,
+        "startChar": 7,
+        "endLine": 9,
+        "endChar": 13
+      },
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16b3d174_0d9181d2",
+        "filename": "plat/arm/board/a5ds/a5ds_topology.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-08T16:39:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83cb8bc1_b52b29ae",
       "range": {
         "startLine": 9,
         "startChar": 7,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "bffd3536_4862d600",
+        "filename": "plat/arm/board/a5ds/a5ds_topology.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-08T16:39:55Z",
+      "side": 1,
+      "message": "Changed it for multicore.",
+      "parentUuid": "cc0aee8e_580a81a0",
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "48402f08_fc236561",
         "filename": "plat/arm/board/a5ds/aarch32/a5ds_helpers.S",
         "patchSetId": 9
@@ -76,6 +142,30 @@
       "writtenOn": "2019-07-08T14:24:40Z",
       "side": 1,
       "message": "I think we need an infinite loop here, in addition to the WFI instruction. At the moment, if an interrupt ever reaches a secondary core then it will wake it up and execution will continue to the next instruction (which might be plat_get_my_entrypoint() or possibly something else depending on how the linking is done).",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 7
+      },
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4848be1b_03cfb563",
+        "filename": "plat/arm/board/a5ds/aarch32/a5ds_helpers.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-08T16:39:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48402f08_fc236561",
       "range": {
         "startLine": 23,
         "startChar": 0,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "adb7e000_87baa11a",
+        "filename": "plat/arm/board/a5ds/aarch32/a5ds_helpers.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-08T16:39:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b857c678_e59e9ba3",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 41,
+        "endChar": 47
+      },
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac9413de_d3448895",
         "filename": "plat/arm/board/a5ds/aarch32/a5ds_helpers.S",
         "patchSetId": 9
@@ -122,6 +236,30 @@
       "writtenOn": "2019-07-08T14:24:40Z",
       "side": 1,
       "message": "This implementation caters for several cores, whereas plat_core_pos_by_mpidr() in a5ds_topology.c only expects to be called by core 0 (given that there is no multicore support for now). I think it would be preferable if both functions\u0027 expectations were aligned and that plat_is_my_cpu_primary() here should be simplified into:\n\n mov r0, #1\n bx lr",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 13
+      },
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "018c8eb6_0dd11fa3",
+        "filename": "plat/arm/board/a5ds/aarch32/a5ds_helpers.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-08T16:39:55Z",
+      "side": 1,
+      "message": "This is currently a multi core platform. Support for further cores will be added in future patches. \n\nI have now implemented in the previous patchset the function plat_core_pos_by_mpidr according to multicore support. However, this patch is only meant to boot up single core and test it, as you can see in device tree.\n\nplat_is_my_cpu_primary is called in el3_entrypoint_common to make sure that only core 0 starts executing the tf code and the rest of them call plat_secondary_cold_boot_setup which causes them to panic.",
+      "parentUuid": "ac9413de_d3448895",
       "range": {
         "startLine": 60,
         "startChar": 0,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "f87b88ed_6897581e",
+        "filename": "plat/arm/board/a5ds/platform.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-08T16:39:55Z",
+      "side": 1,
+      "message": "Cortex A5 is an ARMv7\narchitectures that does not support the Large Page Address Extensions(LPAE). nonlpae is only supported in v1.",
+      "parentUuid": "f1263423_c5e7d892",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 0
+      },
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9f9699c8_e73ed49d",
         "filename": "plat/arm/board/a5ds/sp_min/sp_min-a5ds.mk",
         "patchSetId": 9
@@ -168,6 +330,30 @@
       "writtenOn": "2019-07-08T14:24:40Z",
       "side": 1,
       "message": "(minor) Update?",
+      "range": {
+        "startLine": 7,
+        "startChar": 34,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "b582650abd5465d481f2c28d8e57b5b7c97a1362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c1fe85d_708c1d6d",
+        "filename": "plat/arm/board/a5ds/sp_min/sp_min-a5ds.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2019-07-08T16:39:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f9699c8_e73ed49d",
       "range": {
         "startLine": 7,
         "startChar": 34,
