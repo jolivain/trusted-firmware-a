@@ -159,7 +159,7 @@ ifeq (${ARCH},aarch32)
 endif
 
 ifneq ($(ENABLE_STACK_PROTECTOR), 0)
-PLAT_BL_COMMON_SOURCES	+=	plat/rpi/rpi3/rpi3_rng.c		\
+PLAT_BL_COMMON_SOURCES	+=	drivers/rpi3/rng/rpi3_rng.c		\
 				plat/rpi/rpi3/rpi3_stack_protector.c
 endif
 
