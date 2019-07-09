@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ef75566a_26a8c401",
+        "filename": "docs/plat/rockchip.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2019-07-09T11:19:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "569beeab_562b4fde",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ee0831b9_d2634d73",
         "filename": "plat/rockchip/common/pmusram/cpus_on_fixed_addr.S",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2019-07-02T10:30:58Z",
       "side": 1,
       "message": "This file seems to be somewhat similar to plat/rockchip/common/aarch64/pmu_sram_cpus_on.S .\nSo could you try to re-use the one we already have?\n\nAlso please note that when introducing aarch32 support I moved that aarch64-specific file to a matching subdir, where it now lives.",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a01ad8a4_03d4629b",
+        "filename": "plat/rockchip/common/pmusram/cpus_on_fixed_addr.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2019-07-09T11:19:42Z",
+      "side": 1,
+      "message": "Hi Heiko. The cpus in px30 only support to warm boot from pmusram_base, which is unlike old SOCs that can be set any address for warm boot. And subsequent SOCs were designed in the same way. It means that \"cpu on\", \"cpu resume\" and \"system resume\" always start from pmuram_base. So we need a new design of warm boot code to make these situations compatible, and let pmu_sram_on.S be used by old SOCs.",
+      "parentUuid": "ee0831b9_d2634d73",
       "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -121,6 +157,24 @@
     },
     {
       "key": {
+        "uuid": "2af2a0ec_d216106e",
+        "filename": "plat/rockchip/px30/drivers/pmu/pmu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2019-07-09T11:19:42Z",
+      "side": 1,
+      "message": "The register \"PMU_PWRDN_CON\" in px30 has write_mask，so we need a new instance and the generic one is used by old socs that has no write_mask.",
+      "parentUuid": "189391a4_a9af544e",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "260c1a63_32c12ca3",
         "filename": "plat/rockchip/px30/drivers/pmu/pmu.c",
         "patchSetId": 2
@@ -155,6 +209,24 @@
     },
     {
       "key": {
+        "uuid": "ceab4195_143a5502",
+        "filename": "plat/rockchip/px30/drivers/soc/soc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2019-07-09T11:19:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa0f61ad_629c9ad4",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f5433f7f_264876cc",
         "filename": "plat/rockchip/px30/drivers/soc/soc.h",
         "patchSetId": 2
@@ -166,6 +238,24 @@
       "writtenOn": "2019-07-02T10:30:58Z",
       "side": 1,
       "message": "constants in upper-case perhaps?",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "051de89e_397b374c",
+        "filename": "plat/rockchip/px30/drivers/soc/soc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2019-07-09T11:19:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5433f7f_264876cc",
       "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -189,6 +279,24 @@
     },
     {
       "key": {
+        "uuid": "49d1cb67_5eb10136",
+        "filename": "plat/rockchip/px30/drivers/soc/soc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2019-07-09T11:19:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a1bc646_02b10060",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2610712_12270fbd",
         "filename": "plat/rockchip/px30/platform.mk",
         "patchSetId": 2
@@ -200,6 +308,24 @@
       "writtenOn": "2019-07-02T13:44:57Z",
       "side": 1,
       "message": "please also add\nDISABLE_BIN_GENERATION :\u003d 1\nwhich is a new option to prevent the building of the 4GB .bin file, we never even use.",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a273156_d3683b6e",
+        "filename": "plat/rockchip/px30/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2019-07-09T11:19:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2610712_12270fbd",
       "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -223,6 +349,24 @@
     },
     {
       "key": {
+        "uuid": "2558dd1b_f431b222",
+        "filename": "plat/rockchip/px30/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2019-07-09T11:19:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11f50845_71353e5c",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef6ad71d_ac7a2f0b",
         "filename": "plat/rockchip/px30/platform.mk",
         "patchSetId": 2
@@ -240,6 +384,24 @@
     },
     {
       "key": {
+        "uuid": "189aeaec_bc43ef27",
+        "filename": "plat/rockchip/px30/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2019-07-09T11:19:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef6ad71d_ac7a2f0b",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e010163f_f7c86e8c",
         "filename": "plat/rockchip/px30/platform.mk",
         "patchSetId": 2
@@ -251,6 +413,24 @@
       "writtenOn": "2019-07-02T13:07:16Z",
       "side": 1,
       "message": "these two maybe also want a tab after the :\u003d instead of the space currently in there.",
+      "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "768a2d82_61607cab",
+        "filename": "plat/rockchip/px30/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2019-07-09T11:19:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e010163f_f7c86e8c",
       "revId": "30733d96faf008aa4c5f9203425fcc464cd62731",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
