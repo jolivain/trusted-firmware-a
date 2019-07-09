@@ -11,11 +11,11 @@
 #include <common/param_header.h>
 #include <lib/utils_def.h>
 
-#ifndef __ASSEMBLY__
+#ifndef __ASSEMBLER__
 #include <stddef.h>
 #include <stdint.h>
 #include <lib/cassert.h>
-#endif /* __ASSEMBLY__ */
+#endif /* __ASSEMBLER__ */
 
 #include <export/common/bl_common_exp.h>
 
@@ -91,7 +91,7 @@
 #define __TEXT_END__			Load$$__TEXT_EPILOGUE__$$Base
 #endif /* USE_ARM_LINK */
 
-#ifndef __ASSEMBLY__
+#ifndef __ASSEMBLER__
 
 /*
  * Declarations of linker defined symbols to help determine memory layout of
@@ -182,6 +182,6 @@ void bl_handle_pauth(void);
 void bl31_params_parse(u_register_t param, entry_point_info_t *bl32_ep_info_out,
 		       entry_point_info_t *bl33_ep_info_out);
 
-#endif /*__ASSEMBLY__*/
+#endif /*__ASSEMBLER__*/
 
 #endif /* BL_COMMON_H */
