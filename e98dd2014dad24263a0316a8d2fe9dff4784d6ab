@@ -69,6 +69,30 @@
       "revId": "e98dd2014dad24263a0316a8d2fe9dff4784d6ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e787388_4d64769c",
+        "filename": "plat/marvell/a8k/common/plat_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-07-09T10:58:58Z",
+      "side": 1,
+      "message": "But then I would like to understand the scope of the changes here. There are lots of places throughout the code base where we shift signed values, a lot more than this patch stack attempts to fix. IIUC, MISRA would require all of the left operands to be unsigned, right? I thought the criteria in this patch stack was to fix only those shifts that actually trigger a C undefined behaviour (where the sign bit is pushed out of the value). Did I misunderstand? If not, how does line 94 constitute an undefined behaviour? Was the compiler complaining about this line?",
+      "parentUuid": "f1f4be10_0f863f2e",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 43
+      },
+      "revId": "e98dd2014dad24263a0316a8d2fe9dff4784d6ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
