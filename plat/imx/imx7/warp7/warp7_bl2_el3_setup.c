@@ -67,7 +67,7 @@ static uint32_t warp7_get_spsr_for_bl33_entry(void)
 			   SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
 }
 
-#ifndef AARCH32_SP_OPTEE
+#ifdef __aarch64___SP_OPTEE
 #error "Must build with OPTEE support included"
 #endif
 
