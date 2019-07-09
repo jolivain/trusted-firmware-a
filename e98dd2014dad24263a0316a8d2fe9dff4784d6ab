@@ -45,6 +45,30 @@
       "revId": "e98dd2014dad24263a0316a8d2fe9dff4784d6ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1f4be10_0f863f2e",
+        "filename": "plat/marvell/a8k/common/plat_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-09T10:05:44Z",
+      "side": 1,
+      "message": "It might be worth fixing this anyway, because MISRA requires the values to be unsigned. Also this will help us to enable the compiler flag by default.",
+      "parentUuid": "1d5ea485_1dd1c481",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 43
+      },
+      "revId": "e98dd2014dad24263a0316a8d2fe9dff4784d6ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
