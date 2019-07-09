@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef RPI3_HW_H
-#define RPI3_HW_H
+#ifndef RPI_HW_H
+#define RPI_HW_H
 
 #include <lib/utils_def.h>
 
