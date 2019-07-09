@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "194e75ed_4abc10c0",
+        "filename": "plat/rockchip/rk3328/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-09T23:12:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34893132_c6e0050f",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "f6e53127dc5799d2fad04728f55d107e2a4dffda",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "743cfced_649e270a",
         "filename": "plat/rockchip/rk3399/drivers/pmu/pmu.c",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "f6e53127dc5799d2fad04728f55d107e2a4dffda",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e61cb799_ca760a4e",
+        "filename": "plat/rockchip/rk3399/drivers/pmu/pmu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-09T23:12:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "743cfced_649e270a",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "f6e53127dc5799d2fad04728f55d107e2a4dffda",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
