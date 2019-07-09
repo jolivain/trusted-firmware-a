@@ -1,0 +1,428 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3c54a69_da54dda3",
+        "filename": "plat/intel/soc/agilex/aarch64/platform_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "From what I see this file is identical with the one from stratix10. Why not having this file inside \"intel/soc/common\" and using it from all intel platforms? You could avoid quite a lot of code duplication this way.",
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eec71590_1981796d",
+        "filename": "plat/intel/soc/agilex/aarch64/platform_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "I think these are not used...?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "536163d3_18f2e1ca",
+        "filename": "plat/intel/soc/agilex/aarch64/platform_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "We also need:\n\n#include \u003carch.h\u003e (I would put that at the very top)\n...\n#include \u003cplat/common/platform.h\u003e\n#include \u003cplatform_private.h\u003e\n\n- plat_get_syscnt_freq2, plat_get_ns_image_entrypoint are inside platform.h\n- most of the macros you use are inside arch.h\n- plat_get_spsr... are inside your platform_private.h",
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fc70ffc_3c42b92a",
+        "filename": "plat/intel/soc/agilex/aarch64/platform_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "Please use something specific - not \"plat\" - to prefix the \"get_spsr\" functions, e.g. agilex_get_spsr_...",
+      "range": {
+        "startLine": 25,
+        "startChar": 9,
+        "endLine": 25,
+        "endChar": 37
+      },
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12c250f2_ac61f7b3",
+        "filename": "plat/intel/soc/agilex/bl2_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "Are all these used inside the file? E.g. errno.h is not used.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 25
+      },
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d1b0a8e_8a5697ee",
+        "filename": "plat/intel/soc/agilex/include/agilex_handoff.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "Maybe align all of those for readability? In TF-A each tab is equivalent to 8 spaces (I\u0027m mentioning that because with tab as 4 spaces it might be appear aligned)",
+      "range": {
+        "startLine": 10,
+        "startChar": 29,
+        "endLine": 10,
+        "endChar": 50
+      },
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "809eeab8_6ce4a16d",
+        "filename": "plat/intel/soc/agilex/include/platform_private.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "This file should be named agilex_private.h",
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c407e212_11358f7d",
+        "filename": "plat/intel/soc/agilex/include/platform_private.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "Unused?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 29
+      },
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d98ca71d_bcdd6af7",
+        "filename": "plat/intel/soc/agilex/include/platform_private.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "The functions in this file shouldn\u0027t start with \"plat\". Please rename all of them and use \"agilex\" or something else as prefix. The \"plat\" prefix is intended to be used for API functions, i.e. functions mentioned in the porting guide.",
+      "range": {
+        "startLine": 14,
+        "startChar": 5,
+        "endLine": 14,
+        "endChar": 27
+      },
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bad86c3_60f54545",
+        "filename": "plat/intel/soc/agilex/include/platform_private.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "This is not an Arm platform.",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c61ed69d_3daab880",
+        "filename": "plat/intel/soc/agilex/plat_image_load.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "The mostly followed convention is to name the file after the platform, e.g. stratix10_image_load.c",
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69f8b46e_7e5added",
+        "filename": "plat/intel/soc/agilex/plat_psci.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "This file should be agilex_psci.c",
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b63e10f_be3a16f8",
+        "filename": "plat/intel/soc/agilex/plat_psci.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "All the functions inside this file should start with \"agilex\" or \"agx\" and not \"plat\". Please rename",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bd37e16_b275ecea",
+        "filename": "plat/intel/soc/agilex/plat_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "Replace \"plat\" with something else",
+      "range": {
+        "startLine": 42,
+        "startChar": 9,
+        "endLine": 42,
+        "endChar": 25
+      },
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaf42284_d2a5fefb",
+        "filename": "plat/intel/soc/agilex/plat_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "Replace \"platform\" with something specific",
+      "range": {
+        "startLine": 134,
+        "startChar": 5,
+        "endLine": 134,
+        "endChar": 22
+      },
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4330cff_b655e110",
+        "filename": "plat/intel/soc/agilex/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "Just for readability, I would put in \"groups\" (i.e. subsequent lines) all the paths starting from \"lib/...\", all the paths starting from \"drivers/...\" and all the paths starting from \"plat/...\".\n\nAnd I would do the same for BL2_SOURCES and BL31_SOURCES",
+      "range": {
+        "startLine": 14,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 47
+      },
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c5e46d5_e2f80935",
+        "filename": "plat/intel/soc/agilex/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "Why this file not being inside the \"include\" subfolder? If you indeed decide to move it, you will also be able to remove this folder from the \"PLAT_INCLUDES\" variable in the makefile.",
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c882925_844aaeb6",
+        "filename": "plat/intel/soc/agilex/soc/agilex_handoff.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "If I\u0027m not mistaken, only  string.h, platform_def.h and agilex_handoff.h are used inside this file.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 27
+      },
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3028dde_5c34f484",
+        "filename": "plat/intel/soc/agilex/soc/agilex_handoff.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "endian  :)",
+      "range": {
+        "startLine": 32,
+        "startChar": 16,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "babb1d8f_be615c4a",
+        "filename": "plat/intel/soc/agilex/soc/agilex_reset_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-09T15:32:17Z",
+      "side": 1,
+      "message": "Apart from mmio.h and agilex_reset_manager.h, are all the other headers really needed?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "78e8e4246e91359cba5051d2566ea914b4c14d63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
