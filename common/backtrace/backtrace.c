@@ -57,6 +57,15 @@ static bool is_address_readable(uintptr_t addr)
 {
 	unsigned int el = get_current_el();
 
+#ifdef ENABLE_PAUTH
+	/*
+	 * When pointer authentication is enabled, the LR value saved on the
+	 * stack contains a PAC. It must be stripped to retrieve the return
+	 * address.
+	 */
+	addr &= (PLAT_VIRT_ADDR_SPACE_SIZE-1);
+#endif
+
 	if (el == 3U) {
 		ats1e3r(addr);
 	} else if (el == 2U) {
@@ -200,6 +209,15 @@ static void unwind_stack(struct frame_record *fr, uintptr_t current_pc,
 		 * which is always 4 bytes before it.
 		 */
 		call_site = fr->return_addr - 4U;
+
+#ifdef ENABLE_PAUTH
+		/*
+		 * When pointer authentication is enabled, the LR value saved on
+		 * the stack contains a PAC. It must be stripped to retrieve the
+		 * return address.
+		 */
+		call_site &= (PLAT_VIRT_ADDR_SPACE_SIZE-1);
+#endif
 
 		/*
 		 * If the address is invalid it means that the frame record is
