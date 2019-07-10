@@ -13,11 +13,15 @@
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
+#include <lib/xlat_tables/xlat_tables_v2.h>
 #include <plat/common/platform.h>
 
 #include <drivers/arm/gicv2.h>
 
 #include <rpi_shared.h>
+
+/* Fields at the beginning of armstub8.bin, filled by the GPU firmware. */
+extern uint32_t stub_magic;
 
 static const gicv2_driver_data_t rpi4_gic_data = {
 	.gicd_base = RPI4_GIC_GICD_BASE,
@@ -115,6 +119,14 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 void bl31_plat_arch_setup(void)
 {
+	/*
+	 * Add the first page of memory, which holds the stub magic,
+	 * the kernel and the DT address.
+	 * This is read-only, as the GPU already populated the header,
+	 * we just need to read it.
+	 */
+	mmap_add_region(0, 0, 4096, MT_MEMORY | MT_RO | MT_SECURE);
+
 	rpi3_setup_page_tables(BL31_BASE, BL31_END - BL31_BASE,
 			       BL_CODE_BASE, BL_CODE_END,
 			       BL_RO_DATA_BASE, BL_RO_DATA_END
