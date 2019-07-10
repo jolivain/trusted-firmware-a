@@ -15,6 +15,7 @@
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/desc_image_load.h>
+#include <common/fdt_fixup.h>
 #include <lib/optee_utils.h>
 #include <lib/utils.h>
 #include <plat/common/platform.h>
