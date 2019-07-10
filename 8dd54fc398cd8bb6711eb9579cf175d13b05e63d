@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30cefab3_cdfb0913",
+        "filename": "plat/imx/common/include/imx_io_mux.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000147
+      },
+      "writtenOn": "2019-07-10T07:15:42Z",
+      "side": 1,
+      "message": "Thanks for reminder! Will change it in next version. But I am curious why no warning or error message for this.",
+      "parentUuid": "ad40543a_f6e39fd1",
+      "range": {
+        "startLine": 25,
+        "startChar": 55,
+        "endLine": 25,
+        "endChar": 58
+      },
+      "revId": "8dd54fc398cd8bb6711eb9579cf175d13b05e63d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a3712df2_444cff55",
         "filename": "plat/imx/imx7/picopi/include/platform_def.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-07-02T11:31:34Z",
       "side": 1,
       "message": "(minor) Do you need this definition?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 38
+      },
+      "revId": "8dd54fc398cd8bb6711eb9579cf175d13b05e63d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bb78579_7062dcde",
+        "filename": "plat/imx/imx7/picopi/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000147
+      },
+      "writtenOn": "2019-07-10T07:15:42Z",
+      "side": 1,
+      "message": "You are right, it is plat specific and can be removed in next version.",
+      "parentUuid": "a3712df2_444cff55",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2da409e4_b72d5516",
+        "filename": "plat/imx/imx7/picopi/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000147
+      },
+      "writtenOn": "2019-07-10T07:15:42Z",
+      "side": 1,
+      "message": "Yes, this should be copied from other platform and supposed to be removed. Will do in next version.",
+      "parentUuid": "faabbd54_c56f2cb1",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 33
+      },
+      "revId": "8dd54fc398cd8bb6711eb9579cf175d13b05e63d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d09b90e1_5e83fcff",
         "filename": "plat/imx/imx7/picopi/platform.mk",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2019-07-02T11:31:34Z",
       "side": 1,
       "message": "This comments does not seem to add much value, drop it?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 18
+      },
+      "revId": "8dd54fc398cd8bb6711eb9579cf175d13b05e63d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2c6b42c_3bf43a0b",
+        "filename": "plat/imx/imx7/picopi/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000147
+      },
+      "writtenOn": "2019-07-10T07:15:42Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "d09b90e1_5e83fcff",
       "range": {
         "startLine": 40,
         "startChar": 0,
