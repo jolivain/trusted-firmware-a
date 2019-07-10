@@ -93,6 +93,30 @@
       "revId": "e98dd2014dad24263a0316a8d2fe9dff4784d6ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bba6981_4ded7d89",
+        "filename": "plat/marvell/a8k/common/plat_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-10T13:54:43Z",
+      "side": 1,
+      "message": "I assume these fixes are errors flagged by the compiler. I had a further look at the usage of the macro \"PWRC_CPUN_CR_ISO_ENABLE_MASK\" and there is a usage of this macro like this :\n\nreg_val \u0026\u003d ~PWRC_CPUN_CR_ISO_ENABLE_MASK;\n\nNow negation of a signed number doesn\u0027t look correct to me (I guess it depends whether negation property is utilized to relate to the 2\u0027s complement form or not) and perhaps that is why the compiler has chosen to flag this up and not other such macros in the file.",
+      "parentUuid": "4e787388_4d64769c",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 43
+      },
+      "revId": "e98dd2014dad24263a0316a8d2fe9dff4784d6ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
