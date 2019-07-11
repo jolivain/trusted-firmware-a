@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31752884_8541c001",
+        "filename": "common/backtrace/backtrace.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T10:31:44Z",
+      "side": 1,
+      "message": "If we move this inside the function then we can get rid of the 3 places with #ifdef. Check with Soby with that, if he would like this style.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 19
+      },
+      "revId": "f33586965014aeb499b03adfe198791c9a2785ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd16aa5c_1a01d5cc",
+        "filename": "common/backtrace/backtrace.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T10:31:44Z",
+      "side": 1,
+      "message": "Why do you need to update the value of *addr and also return the same value? From what I see we don\u0027t use the returned value.",
+      "range": {
+        "startLine": 77,
+        "startChar": 14,
+        "endLine": 77,
+        "endChar": 16
+      },
+      "revId": "f33586965014aeb499b03adfe198791c9a2785ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a95872e_91386494",
+        "filename": "common/backtrace/backtrace.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T10:31:44Z",
+      "side": 1,
+      "message": "We don\u0027t use the return value. If we don\u0027t need it, the function maybe should have a \"void\" return type?",
+      "range": {
+        "startLine": 107,
+        "startChar": 1,
+        "endLine": 107,
+        "endChar": 17
+      },
+      "revId": "f33586965014aeb499b03adfe198791c9a2785ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
