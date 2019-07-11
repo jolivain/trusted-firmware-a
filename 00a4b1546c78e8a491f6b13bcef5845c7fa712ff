@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5d9601d_d065d8b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T12:22:56Z",
+      "side": 1,
+      "message": "nit: For",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 1
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12f8b623_341200bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T12:22:56Z",
+      "side": 1,
+      "message": "replace with just \"made\"",
+      "range": {
+        "startLine": 10,
+        "startChar": 39,
+        "endLine": 10,
+        "endChar": 46
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30b25ec5_422ad3f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T12:22:56Z",
+      "side": 1,
+      "message": "nit: This",
+      "range": {
+        "startLine": 11,
+        "startChar": 27,
+        "endLine": 11,
+        "endChar": 28
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b92c8da_30dc285a",
+        "filename": "plat/imx/common/include/imx_clock.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T12:22:56Z",
+      "side": 1,
+      "message": "2018-2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28f181f_8690ae08",
+        "filename": "plat/imx/imx7/common/imx7.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T12:22:56Z",
+      "side": 1,
+      "message": "What\u0027s the point of the conditionals since in every case you do the same?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 5
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dccc885_2f24e1ef",
+        "filename": "plat/imx/imx7/common/imx7.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T12:22:56Z",
+      "side": 1,
+      "message": "delete it",
+      "range": {
+        "startLine": 24,
+        "startChar": 29,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a8d3263_6e5d3921",
+        "filename": "plat/imx/imx7/common/imx7.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T12:22:56Z",
+      "side": 1,
+      "message": "Why not having all makefile includes in the beginning, for clarity?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 44
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d134533e_8c6fe466",
+        "filename": "plat/imx/imx7/common/imx7.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T12:22:56Z",
+      "side": 1,
+      "message": "Put this above, together with the rest of BL2_SOURCES.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 37
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2453d77c_64088296",
+        "filename": "plat/imx/imx7/common/imx7_bl2_el3_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T12:22:56Z",
+      "side": 1,
+      "message": "Are all of these actually used?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 21
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd024b5d_1aafabf4",
+        "filename": "plat/imx/imx7/warp7/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T12:22:56Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 11,
+        "startChar": 49,
+        "endLine": 11,
+        "endChar": 50
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8513222_aefadee4",
+        "filename": "plat/imx/imx7/warp7/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T12:22:56Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 14,
+        "startChar": 46,
+        "endLine": 14,
+        "endChar": 47
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
