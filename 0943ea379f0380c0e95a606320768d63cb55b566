@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee5aa7e8_ed738d0b",
+        "filename": "plat/intel/soc/stratix10/include/s10_system_manager.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-11T12:37:17Z",
+      "side": 1,
+      "message": "This is not related with this patch and that\u0027s why I am not blocking the patch for this comment.\n\nHowever, this macro is inside lib/utils_def.h which is not explicitly included here. s10_system_manager.c includes this necessary header before this one and that\u0027s why we don\u0027t hit the problem. Nevertheless, this is a stale bug. Could you please submit another patch to fix that?",
+      "range": {
+        "startLine": 67,
+        "startChar": 29,
+        "endLine": 67,
+        "endChar": 32
+      },
+      "revId": "0943ea379f0380c0e95a606320768d63cb55b566",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
