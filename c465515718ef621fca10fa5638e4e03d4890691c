@@ -16,6 +16,24 @@
       "revId": "c465515718ef621fca10fa5638e4e03d4890691c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0774923_fa7a9dfa",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-11T14:17:16Z",
+      "side": 1,
+      "message": "I don\u0027t think so, but since we are defining the bits, might as well define the other bits in the register.",
+      "parentUuid": "6863f343_d48d9b15",
+      "revId": "c465515718ef621fca10fa5638e4e03d4890691c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
