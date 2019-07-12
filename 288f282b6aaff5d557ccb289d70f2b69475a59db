@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed32fd80_cb4e5dba",
+        "filename": "drivers/staging/renesas/rcar/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-12T09:40:15Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "288f282b6aaff5d557ccb289d70f2b69475a59db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40425175_7e418669",
+        "filename": "drivers/staging/renesas/rcar/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-12T09:40:15Z",
+      "side": 1,
+      "message": "why not the following?\n\ncase 2:\ncase 3:\ncase 4:\n       dataDIV \u003d tmpDIV;\n       break;\n\n\nAlthough this is purely personal preference, it is purely a suggestion and you are not obliged to change it if you prefer it this way.",
+      "range": {
+        "startLine": 386,
+        "startChar": 1,
+        "endLine": 394,
+        "endChar": 8
+      },
+      "revId": "288f282b6aaff5d557ccb289d70f2b69475a59db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3efbb599_984689b9",
+        "filename": "drivers/staging/renesas/rcar/ddr/ddr_b/boot_init_dram_config.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-12T09:40:15Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "288f282b6aaff5d557ccb289d70f2b69475a59db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "523286de_d262a75c",
+        "filename": "drivers/staging/renesas/rcar/ddr/ddr_b/boot_init_dram_config.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1627,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-12T09:40:15Z",
+      "side": 1,
+      "message": "How do you use that since you haven\u0027t included the lib/utils_def.h file? Is this .c file not compiled?",
+      "range": {
+        "startLine": 1627,
+        "startChar": 16,
+        "endLine": 1627,
+        "endChar": 19
+      },
+      "revId": "288f282b6aaff5d557ccb289d70f2b69475a59db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fdd5faf_ee5fab48",
+        "filename": "drivers/staging/renesas/rcar/ddr/ddr_b/ddr_regdef.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-12T09:40:15Z",
+      "side": 1,
+      "message": "2018-2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "288f282b6aaff5d557ccb289d70f2b69475a59db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
