@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "76cd69a8_61f9346a",
+        "filename": "drivers/staging/renesas/rcar/ddr/ddr_b/boot_init_dram_config.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1627,
+      "author": {
+        "id": 1000121
+      },
+      "writtenOn": "2019-07-12T10:55:56Z",
+      "side": 1,
+      "message": "I guess this explains it:\n\n$ git grep boot_init_dram_config.c\ndrivers/staging/renesas/rcar/ddr/ddr_b/boot_init_dram.c:#include \"boot_init_dram_config.c\"",
+      "parentUuid": "523286de_d262a75c",
+      "range": {
+        "startLine": 1627,
+        "startChar": 16,
+        "endLine": 1627,
+        "endChar": 19
+      },
+      "revId": "288f282b6aaff5d557ccb289d70f2b69475a59db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fdd5faf_ee5fab48",
         "filename": "drivers/staging/renesas/rcar/ddr/ddr_b/ddr_regdef.h",
         "patchSetId": 4
