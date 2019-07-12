@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2cfccfa1_1361fe6e",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000194
+      },
+      "writtenOn": "2019-07-12T08:21:32Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "cab9e7dd_cd39084a",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "84fb80d5da250792115a6fa4bea4f5c50cd1ea79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "942a26f9_dd7d5fd2",
         "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.h",
         "patchSetId": 5
@@ -39,6 +63,24 @@
       "revId": "84fb80d5da250792115a6fa4bea4f5c50cd1ea79",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b1df2cd_d0f02475",
+        "filename": "plat/mediatek/mt8183/drivers/mcsi/mcsi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000194
+      },
+      "writtenOn": "2019-07-12T08:21:32Z",
+      "side": 1,
+      "message": "I\u0027ve tried to keep this patch as minimal as possible, doing the minimum required to get the code to remove the warnings under the new compiler flag. Therefore, I\u0027ve only made changes on the lines that require it.",
+      "parentUuid": "942a26f9_dd7d5fd2",
+      "revId": "84fb80d5da250792115a6fa4bea4f5c50cd1ea79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
