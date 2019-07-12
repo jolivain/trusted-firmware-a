@@ -57,4 +57,10 @@ int stat(const char *path, dir_t *dir);
 /* DebugFS initialization */
 void debugfs_init(void);
 
+/* Function ID for accessing the debugfs interface */
+#define ARM_SIP_SVC_DEBUGFS		0x82000021U
+
+int64_t debugfs_smc_handler(unsigned int cmd,
+			    uint64_t arg2, uint64_t arg3, uint64_t arg4);
+
 #endif /* DEBUGFS_H */

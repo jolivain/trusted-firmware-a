@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,7 @@
 
 #include <common/debug.h>
 #include <common/runtime_svc.h>
+#include <lib/debugfs.h>
 #include <lib/pmf/pmf.h>
 #include <plat/arm/common/arm_sip_svc.h>
 #include <plat/arm/common/plat_arm.h>
@@ -85,6 +86,22 @@ static uintptr_t arm_sip_handler(unsigned int smc_fid,
 	case ARM_SIP_SVC_VERSION:
 		/* Return the version of current implementation */
 		SMC_RET2(handle, ARM_SIP_SVC_VERSION_MAJOR, ARM_SIP_SVC_VERSION_MINOR);
+
+#if USE_DEBUGFS
+
+	case ARM_SIP_SVC_DEBUGFS: {
+		int64_t ret;
+
+		/* Allow calls from non-secure only */
+		if (!is_caller_non_secure(flags)) {
+			SMC_RET1(handle, STATE_SW_E_DENIED);
+		}
+
+		ret = debugfs_smc_handler(x1, x2, x3, x4);
+		SMC_RET1(handle, ret);
+		}
+
+#endif /* USE_DEBUGFS */
 
 	default:
 		WARN("Unimplemented ARM SiP Service Call: 0x%x \n", smc_fid);
