@@ -122,6 +122,10 @@ const mmap_region_t plat_arm_mmap[] = {
 #ifdef IMAGE_BL31
 const mmap_region_t plat_arm_mmap[] = {
 	ARM_MAP_SHARED_RAM,
+#if USE_DEBUGFS
+	V2M_MAP_FLASH0_RW,
+	ARM_DEBUGFS_ENV,
+#endif /* USE_DEBUGFS */
 	ARM_MAP_EL3_TZC_DRAM,
 	V2M_MAP_IOFPGA,
 	MAP_DEVICE0,
