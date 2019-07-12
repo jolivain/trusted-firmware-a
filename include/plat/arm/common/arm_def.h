@@ -280,6 +280,15 @@
 						V2M_FLASH_BLOCK_SIZE,		\
 						MT_DEVICE | MT_RW | MT_SECURE)
 
+#if USE_DEBUGFS
+/*
+ * Map debugfs shared buffer region with read and write permissions
+ */
+#define ARM_DEBUGFS_ENV			MAP_REGION_FLAT(PLAT_ARM_DEBUGFS_BASE, \
+						PLAT_ARM_DEBUGFS_SIZE,	       \
+						MT_MEMORY | MT_RW | MT_NS)
+#endif /* USE_DEBUGFS */
+
 /*
  * The max number of regions like RO(code), coherent and data required by
  * different BL stages which need to be mapped in the MMU.

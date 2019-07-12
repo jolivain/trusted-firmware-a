@@ -68,7 +68,11 @@
 #  define PLAT_SP_IMAGE_MAX_XLAT_TABLES	10
 # else
 #  define PLAT_ARM_MMAP_ENTRIES		8
-#  define MAX_XLAT_TABLES		5
+#  if USE_DEBUGFS
+#   define MAX_XLAT_TABLES		6
+#  else
+#   define MAX_XLAT_TABLES		5
+#  endif
 # endif
 #elif defined(IMAGE_BL32)
 # define PLAT_ARM_MMAP_ENTRIES		8
@@ -266,5 +270,13 @@
 #define PLAT_PHY_ADDR_SPACE_SIZE	(1ULL << 32)
 #define PLAT_VIRT_ADDR_SPACE_SIZE	(1ULL << 32)
 #endif
+
+/*
+ * DebugFS shared buffer area
+ */
+#if USE_DEBUGFS
+#define PLAT_ARM_DEBUGFS_BASE		(0x81000000)
+#define PLAT_ARM_DEBUGFS_SIZE		(0x1000)
+#endif /* USE_DEBUGFS */
 
 #endif /* PLATFORM_DEF_H */
