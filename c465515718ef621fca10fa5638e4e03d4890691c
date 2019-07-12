@@ -34,6 +34,24 @@
       "revId": "c465515718ef621fca10fa5638e4e03d4890691c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a0bc9bc_0c9dd1fa",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-12T08:35:52Z",
+      "side": 1,
+      "message": "GCC10 has option \"+b-key\" which uses B-Key instructions to sign addresses instead of A-key instructions. These extra definitions are also required for TF-TF PAuth tests.",
+      "parentUuid": "d0774923_fa7a9dfa",
+      "revId": "c465515718ef621fca10fa5638e4e03d4890691c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
