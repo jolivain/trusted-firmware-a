@@ -45,6 +45,30 @@
       "revId": "f0a4a283a7aed06a123b44bad600d623ef6ea3d5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ac10773_e50abe72",
+        "filename": "drivers/staging/renesas/rcar/ddr/ddr_b/boot_init_dram_config.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1429,
+      "author": {
+        "id": 1000121
+      },
+      "writtenOn": "2019-07-12T10:55:56Z",
+      "side": 1,
+      "message": "I\u0027m sticking to the coding style that\u0027s in this file, indenting just a small bit of this huge array differently would make it stick out like a sore thumb. All these DDR drivers need to be cleaned up and moved out of staging and that\u0027s when I\u0027ll be fixing up the coding style, but not here and now.",
+      "parentUuid": "5a18d509_c72c8c48",
+      "range": {
+        "startLine": 1429,
+        "startChar": 0,
+        "endLine": 1429,
+        "endChar": 9
+      },
+      "revId": "f0a4a283a7aed06a123b44bad600d623ef6ea3d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
