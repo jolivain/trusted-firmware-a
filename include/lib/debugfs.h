@@ -56,5 +56,19 @@ int stat(const char *path, dir_t *dir);
 
 /* DebugFS initialization */
 void debugfs_init(void);
+int debugfs_smc_setup(void);
+
+/* Debugfs version returned through SMC interface */
+#define DEBUGFS_VERSION		(0x000000001U)
+
+/* Function ID for accessing the debugfs interface */
+#define DEBUGFS_FID_VALUE	(0x30U)
+
+#define is_debugfs_fid(_fid)	\
+	(((_fid) & FUNCID_NUM_MASK) == DEBUGFS_FID_VALUE)
+
+uintptr_t debugfs_smc_handler(unsigned int smc_fid, unsigned int cmd,
+			      uint64_t arg2, uint64_t arg3, uint64_t arg4,
+			      void *handle, uintptr_t flags);
 
 #endif /* DEBUGFS_H */
