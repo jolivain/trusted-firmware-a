@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -18,6 +18,9 @@
 
 /* Function ID for requesting state switch of lower EL */
 #define ARM_SIP_SVC_EXE_STATE_SWITCH	U(0x82000020)
+
+/* Function ID for accessing the driver model */
+#define ARM_SIP_SVC_DEBUGFS		U(0x82000021)
 
 /* ARM SiP Service Calls version numbers */
 #define ARM_SIP_SVC_VERSION_MAJOR		U(0x0)
