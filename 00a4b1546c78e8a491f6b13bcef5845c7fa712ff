@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "e9846f36_42409e92",
+        "filename": "plat/imx/imx7/common/imx7.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000147
+      },
+      "writtenOn": "2019-07-15T06:45:03Z",
+      "side": 1,
+      "message": "Will remove unnecessary code.",
+      "parentUuid": "a28f181f_8690ae08",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 5
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2dccc885_2f24e1ef",
         "filename": "plat/imx/imx7/common/imx7.mk",
         "patchSetId": 4
@@ -163,6 +187,30 @@
     },
     {
       "key": {
+        "uuid": "fb999515_5c7a4d07",
+        "filename": "plat/imx/imx7/common/imx7.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000147
+      },
+      "writtenOn": "2019-07-15T06:45:03Z",
+      "side": 1,
+      "message": "This part is included in TRUSTED_BOARD_BOOT, together with below BL2_SOURCES source code files.",
+      "parentUuid": "9a8d3263_6e5d3921",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 44
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d134533e_8c6fe466",
         "filename": "plat/imx/imx7/common/imx7.mk",
         "patchSetId": 4
@@ -174,6 +222,30 @@
       "writtenOn": "2019-07-11T12:22:56Z",
       "side": 1,
       "message": "Put this above, together with the rest of BL2_SOURCES.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 37
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02c4962_d772097c",
+        "filename": "plat/imx/imx7/common/imx7.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000147
+      },
+      "writtenOn": "2019-07-15T06:45:03Z",
+      "side": 1,
+      "message": "This part is included in TRUSTED_BOARD_BOOT, while above files is for common part. For convenience of test and demo without trust boot.",
+      "parentUuid": "d134533e_8c6fe466",
       "range": {
         "startLine": 72,
         "startChar": 0,
@@ -209,6 +281,30 @@
     },
     {
       "key": {
+        "uuid": "c1bdbd58_3827f340",
+        "filename": "plat/imx/imx7/common/imx7_bl2_el3_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000147
+      },
+      "writtenOn": "2019-07-15T06:45:03Z",
+      "side": 1,
+      "message": "Will remove two unused files.",
+      "parentUuid": "2453d77c_64088296",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 21
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd024b5d_1aafabf4",
         "filename": "plat/imx/imx7/warp7/platform.mk",
         "patchSetId": 4
@@ -220,6 +316,30 @@
       "writtenOn": "2019-07-11T12:22:56Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 11,
+        "startChar": 49,
+        "endLine": 11,
+        "endChar": 50
+      },
+      "revId": "00a4b1546c78e8a491f6b13bcef5845c7fa712ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24ee7743_3680de2c",
+        "filename": "plat/imx/imx7/warp7/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000147
+      },
+      "writtenOn": "2019-07-15T06:45:03Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "fd024b5d_1aafabf4",
       "range": {
         "startLine": 11,
         "startChar": 49,
