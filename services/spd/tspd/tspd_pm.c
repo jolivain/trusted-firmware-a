@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,6 +11,7 @@
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <lib/el3_runtime/context_mgmt.h>
+#include <lib/el3_runtime/cpu_data.h>
 #include <plat/common/platform.h>
 
 #include "tspd_private.h"
@@ -161,6 +162,13 @@ static void tspd_cpu_suspend_finish_handler(u_register_t max_off_pwrlvl)
 		      CTX_GPREG_X0,
 		      max_off_pwrlvl);
 	cm_set_elr_el3(SECURE, (uint64_t) &tsp_vectors->cpu_resume_entry);
+
+#if ENABLE_PAUTH
+	/* Store APIAKey_EL1 key */
+	set_cpu_data(apiakey[0], read_apiakeylo_el1());
+	set_cpu_data(apiakey[1], read_apiakeyhi_el1());
+#endif /* ENABLE_PAUTH */
+
 	rc = tspd_synchronous_sp_entry(tsp_ctx);
 
 	/*

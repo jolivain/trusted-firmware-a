@@ -164,7 +164,7 @@ func smc_handler64
 	 * ----------------------------------------------
 	 */
 	ldr	x30, [sp, #CTX_EL3STATE_OFFSET + CTX_RUNTIME_SP]
-	msr	spsel, #0
+	msr	spsel, #MODE_SP_EL0
 	mov	sp, x30
 
 	/* ---------------------------------------------------------------------
@@ -217,11 +217,11 @@ unexpected_sync_exception:
 	 */
 smc_handler:
 	/* -----------------------------------------------------
-	 * Save the GP registers x0-x29.
+	 * Save x0-x29 and ARMv8.3-PAuth (if enabled) registers.
 	 * TODO: Revisit to store only SMCCC specified registers.
 	 * -----------------------------------------------------
 	 */
-	bl	save_gp_registers
+	bl	save_gp_pauth_registers
 
 	/* -----------------------------------------------------
 	 * Populate the parameters for the SMC handler. We
@@ -247,7 +247,7 @@ smc_handler:
 	 * Switch back to SP_EL0 for the C runtime stack.
 	 * ---------------------------------------------
 	 */
-	msr	spsel, #0
+	msr	spsel, #MODE_SP_EL0
 	mov	sp, x12
 
 	/* -----------------------------------------------------

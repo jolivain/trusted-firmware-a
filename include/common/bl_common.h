@@ -176,8 +176,6 @@ struct mmap_region;
 void setup_page_tables(const struct mmap_region *bl_regions,
 			   const struct mmap_region *plat_regions);
 
-void bl_handle_pauth(void);
-
 #endif /*__ASSEMBLY__*/
 
 #endif /* BL_COMMON_H */

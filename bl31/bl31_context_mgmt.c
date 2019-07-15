@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -34,6 +34,12 @@ void cm_set_context(void *context, uint32_t security_state)
 	assert(security_state <= NON_SECURE);
 
 	set_cpu_data(cpu_context[security_state], context);
+
+#if ENABLE_PAUTH
+	/* Store APIAKey_EL1 key */
+	set_cpu_data(apiakey[0], read_apiakeylo_el1());
+	set_cpu_data(apiakey[1], read_apiakeyhi_el1());
+#endif /* ENABLE_PAUTH */
 }
 
 /*******************************************************************************

@@ -59,6 +59,17 @@ int plat_get_mbedtls_heap(void **heap_addr, size_t *heap_size);
 u_register_t plat_get_stack_protector_canary(void);
 #endif /* STACK_PROTECTOR_ENABLED */
 
+#if ENABLE_PAUTH
+/*
+ * Program and enable ARMv8.3 pointer authentication in EL3
+ */
+void pauth_init_enable_el3(void);
+
+/* Disable ARMv8.3 pointer authentication in EL1/EL3 */
+void pauth_disable_el1(void);
+void pauth_disable_el3(void);
+#endif /* ENABLE_PAUTH */
+
 /*******************************************************************************
  * Mandatory interrupt management functions
  ******************************************************************************/
@@ -104,7 +115,6 @@ void plat_panic_handler(void) __dead2;
 const char *plat_log_get_prefix(unsigned int log_level);
 void bl2_plat_preload_setup(void);
 int plat_try_next_boot_source(void);
-uint64_t *plat_init_apiakey(void);
 
 /*******************************************************************************
  * Mandatory BL1 functions
