@@ -160,10 +160,19 @@ exit:
 }
 
 /*******************************************************************************
- * The following function finish an earlier power on request. They
- * are called by the common finisher routine in psci_common.c. The `state_info`
- * is the psci_power_state from which this CPU has woken up from.
+ * The following function finish an earlier power on request.
+ * They are called by the common finisher routine in psci_common.c.
+ * The `state_info` is psci_power_state from which this CPU has woken up from.
+ *
+ * ARMv8.3-PAuth gets enabled in pauth_init_enable_el3() call,
+ * so this function must be compiled with "branch-protection=none" attribute.
+ * If it wasn't, we would enter it without pointer authentication so
+ * the signature check on the return address on function exit would fail,
+ * causing an exception.
  ******************************************************************************/
+#if ENABLE_PAUTH
+__attribute__((target("branch-protection=none")))
+#endif
 void psci_cpu_on_finish(int cpu_idx, const psci_power_state_t *state_info)
 {
 	/*
@@ -179,6 +188,14 @@ void psci_cpu_on_finish(int cpu_idx, const psci_power_state_t *state_info)
 	 * Arch. management: Enable data cache and manage stack memory
 	 */
 	psci_do_pwrup_cache_maintenance();
+#endif
+
+#if ENABLE_PAUTH
+	/*
+	 * Program, store APIAKey_EL1 in cpu_data structure
+	 * and enable pointer authentication
+	 */
+	pauth_init_enable_el3();
 #endif
 
 	/*

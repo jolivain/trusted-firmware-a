@@ -317,8 +317,9 @@ Common build options
 
 -  ``BRANCH_PROTECTION``: Numeric value to enable ARMv8.3 Pointer Authentication
    and ARMv8.5 Branch Target Identification support for TF-A BL images themselves.
-   If enabled, it is needed to use a compiler that supports the option
-   ``-mbranch-protection``. Selects the branch protection features to use:
+   If enabled, it is needed to use a compiler (e.g GCC 9.1 and later versions) that
+   supports the option ``-mbranch-protection``.
+   Selects the branch protection features to use:
 -  0: Default value turns off all types of branch protection
 -  1: Enables all types of branch protection features
 -  2: Return address signing to its standard level

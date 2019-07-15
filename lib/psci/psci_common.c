@@ -752,14 +752,23 @@ int psci_validate_entry_point(entry_point_info_t *ep,
 }
 
 /*******************************************************************************
- * Generic handler which is called when a cpu is physically powered on. It
+ * Generic handler which is called when a CPU is physically powered on. It
  * traverses the node information and finds the highest power level powered
  * off and performs generic, architectural, platform setup and state management
  * to power on that power level and power levels below it.
- * e.g. For a cpu that's been powered on, it will call the platform specific
- * code to enable the gic cpu interface and for a cluster it will enable
+ * e.g. For a CPU that's been powered on, it will call the platform specific
+ * code to enable the GIC CPU interface and for a cluster it will enable
  * coherency at the interconnect level in addition to gic cpu interface.
+ *
+ * ARMv8.3-PAuth gets enabled in psci_cpu_on_finish() call,
+ * so this function must be compiled with "branch-protection=none" attribute.
+ * If it wasn't, we would enter it without pointer authentication so
+ * the signature check on the return address on function exit would fail,
+ * causing an exception.
  ******************************************************************************/
+#if ENABLE_PAUTH
+__attribute__((target("branch-protection=none")))
+#endif
 void psci_warmboot_entrypoint(void)
 {
 	unsigned int end_pwrlvl;
