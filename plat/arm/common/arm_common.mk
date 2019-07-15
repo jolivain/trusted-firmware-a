@@ -233,8 +233,13 @@ BL31_SOURCES		+=	lib/extensions/ras/std_err_record.c		\
 endif
 
 # Pointer Authentication sources
+ifneq (00, $(ENABLE_PAUTH)$(CTX_INCLUDE_PAUTH_REGS))
+PLAT_BL_COMMON_SOURCES	+=	lib/extensions/pauth/pauth.c
+
 ifeq (${ENABLE_PAUTH}, 1)
-PLAT_BL_COMMON_SOURCES	+=	plat/arm/common/aarch64/arm_pauth.c
+PLAT_BL_COMMON_SOURCES	+=	plat/arm/common/aarch64/arm_pauth.c	\
+				lib/extensions/pauth/pauth_helpers.S
+endif
 endif
 
 # SPM uses libfdt in Arm platforms

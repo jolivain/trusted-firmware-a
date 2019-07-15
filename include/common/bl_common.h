@@ -249,7 +249,7 @@ struct mmap_region;
 void setup_page_tables(const struct mmap_region *bl_regions,
 			   const struct mmap_region *plat_regions);
 
-void bl_handle_pauth(void);
+void bl_check_pauth_present(void);
 
 #endif /*__ASSEMBLY__*/
 

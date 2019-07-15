@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,13 +19,19 @@
 #define CPU_DATA_CPU_OPS_PTR		0x0
 #define CPU_DATA_CRASH_BUF_OFFSET	0x4
 
-#else /* AARCH32 */
+#else /* AARCH64 */
 
-/* Offsets for the cpu_data structure */
+#define CPU_DATA_CPU_OPS_PTR		0x10
+
+#if ENABLE_PAUTH
+#define	CPU_DATA_APIAKEY_OFFSET		0x18
+#define CPU_DATA_CRASH_BUF_OFFSET	0x28
+#else
 #define CPU_DATA_CRASH_BUF_OFFSET	0x18
+#endif	/* ENABLE_PAUTH */
+
 /* need enough space in crash buffer to save 8 registers */
 #define CPU_DATA_CRASH_BUF_SIZE		64
-#define CPU_DATA_CPU_OPS_PTR		0x10
 
 #endif /* AARCH32 */
 
@@ -88,6 +94,9 @@ typedef struct cpu_data {
 	void *cpu_context[2];
 #endif
 	uintptr_t cpu_ops_ptr;
+#if ENABLE_PAUTH
+	uint64_t apiakey[2];
+#endif
 #if CRASH_REPORTING
 	u_register_t crash_buf[CPU_DATA_CRASH_BUF_SIZE >> 3];
 #endif
@@ -104,6 +113,12 @@ typedef struct cpu_data {
 } __aligned(CACHE_WRITEBACK_GRANULE) cpu_data_t;
 
 extern cpu_data_t percpu_data[PLATFORM_CORE_COUNT];
+
+#if ENABLE_PAUTH
+CASSERT(CPU_DATA_APIAKEY_OFFSET == __builtin_offsetof
+	(cpu_data_t, apiakey),
+	assert_cpu_data_crash_stack_offset_mismatch);
+#endif
 
 #if CRASH_REPORTING
 /* verify assembler offsets match data structures */

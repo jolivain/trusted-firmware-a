@@ -18,9 +18,9 @@ New Features
      flags.
 
      Use of pointer authentication in the secure world remains an
-     experimental configuration at this time. Using both the ``ENABLE_PAUTH``
-     and ``CTX_INCLUDE_PAUTH_REGS`` build flags, pointer authentication can be
-     enabled in EL3 and S-EL1/0.
+     experimental configuration at this time. Using ``CTX_INCLUDE_PAUTH_REGS``
+     build flag and ``BRANCH_PROTECTION`` option set to non-zero value,
+     pointer authentication can be enabled in EL3 and S-EL1/0.
 
      See the `Firmware Design`_ document for additional details on the use of
      pointer authentication.

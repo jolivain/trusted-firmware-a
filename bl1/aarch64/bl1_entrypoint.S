@@ -38,15 +38,16 @@ func bl1_entrypoint
 	 */
 	bl	bl1_setup
 
+#if DEBUG && CTX_INCLUDE_PAUTH_REGS
+	bl	bl_check_pauth_present
+#endif	/* DEBUG && CTX_INCLUDE_PAUTH_REGS */
+
+#if ENABLE_PAUTH
 	/* --------------------------------------------------------------------
-	 * Enable pointer authentication
+	 * Program APIAKey_EL1 and enable pointer authentication.
 	 * --------------------------------------------------------------------
 	 */
-#if ENABLE_PAUTH
-	mrs	x0, sctlr_el3
-	orr	x0, x0, #SCTLR_EnIA_BIT
-	msr	sctlr_el3, x0
-	isb
+	bl	pauth_init_enable_el3
 #endif /* ENABLE_PAUTH */
 
 	/* --------------------------------------------------------------------
@@ -56,12 +57,11 @@ func bl1_entrypoint
 	 */
 	bl	bl1_main
 
+#if ENABLE_PAUTH
 	/* --------------------------------------------------------------------
-	 * Disable pointer authentication before jumping to BL31 or that will
-	 * cause an authentication failure during the early platform init.
+	 * Disable pointer authentication before jumping to next boot image.
 	 * --------------------------------------------------------------------
 	 */
-#if ENABLE_PAUTH
 	mrs	x0, sctlr_el3
 	bic	x0, x0, #SCTLR_EnIA_BIT
 	msr	sctlr_el3, x0
