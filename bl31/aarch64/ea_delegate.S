@@ -65,15 +65,12 @@ func enter_lower_el_sync_ea
 	mrs	x30, esr_el3
 	tbz	x30, #ESR_ISS_EABORT_EA_BIT, 2f
 
-	/* Save GP registers */
-	bl	save_gp_registers
+	/* Save general purpose and ARMv8.3-PAuth registers (if enabled) */
+	bl	save_gp_pauth_registers
 
-	/* Save ARMv8.3-PAuth registers and load firmware key */
-#if CTX_INCLUDE_PAUTH_REGS
-	bl	pauth_context_save
-#endif
 #if ENABLE_PAUTH
-	bl	pauth_load_bl_apiakey
+	/* Load and program APIAKey firmware key */
+	bl	pauth_load_bl31_apiakey
 #endif
 
 	/* Setup exception class and syndrome arguments for platform handler */
@@ -103,15 +100,12 @@ func enter_lower_el_async_ea
 	 */
 	str	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
 
-	/* Save GP registers */
-	bl	save_gp_registers
+	/* Save general purpose and ARMv8.3-PAuth registers (if enabled) */
+	bl	save_gp_pauth_registers
 
-	/* Save ARMv8.3-PAuth registers and load firmware key */
-#if CTX_INCLUDE_PAUTH_REGS
-	bl	pauth_context_save
-#endif
 #if ENABLE_PAUTH
-	bl	pauth_load_bl_apiakey
+	/* Load and program APIAKey firmware key */
+	bl	pauth_load_bl31_apiakey
 #endif
 
 	/* Setup exception class and syndrome arguments for platform handler */
@@ -233,7 +227,7 @@ func ea_proceed
 
 	/* Switch to runtime stack */
 	ldr	x5, [sp, #CTX_EL3STATE_OFFSET + CTX_RUNTIME_SP]
-	msr	spsel, #0
+	msr	spsel, #MODE_SP_EL0
 	mov	sp, x5
 
 	mov	x29, x30
@@ -255,7 +249,7 @@ func ea_proceed
 #endif
 
 	/* Make SP point to context */
-	msr	spsel, #1
+	msr	spsel, #MODE_SP_ELX
 
 	/* Restore EL3 state and ESR */
 	ldp	x1, x2, [sp, #CTX_EL3STATE_OFFSET + CTX_SPSR_EL3]

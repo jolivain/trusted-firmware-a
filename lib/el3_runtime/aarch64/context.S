@@ -14,16 +14,8 @@
 	.global	fpregs_context_save
 	.global	fpregs_context_restore
 #endif
-#if CTX_INCLUDE_PAUTH_REGS
-	.global	pauth_context_restore
-	.global	pauth_context_save
-#endif
-#if ENABLE_PAUTH
-	.global	pauth_load_bl_apiakey
-#endif
-	.global	save_gp_registers
-	.global	restore_gp_registers
-	.global	restore_gp_registers_eret
+	.global	save_gp_pauth_registers
+	.global	restore_gp_pauth_registers
 	.global	el3_exit
 
 /* -----------------------------------------------------
@@ -306,101 +298,11 @@ func fpregs_context_restore
 endfunc fpregs_context_restore
 #endif /* CTX_INCLUDE_FPREGS */
 
-#if CTX_INCLUDE_PAUTH_REGS
-/* -----------------------------------------------------
- * The following function strictly follows the AArch64
- * PCS to use x9-x17 (temporary caller-saved registers)
- * to save the ARMv8.3-PAuth register context. It assumes
- * that 'sp' is pointing to a 'cpu_context_t' structure
- * to where the register context will be saved.
- * -----------------------------------------------------
- */
-func pauth_context_save
-	add	x11, sp, #CTX_PAUTH_REGS_OFFSET
-
-	mrs	x9, APIAKeyLo_EL1
-	mrs	x10, APIAKeyHi_EL1
-	stp	x9, x10, [x11, #CTX_PACIAKEY_LO]
-
-	mrs	x9, APIBKeyLo_EL1
-	mrs	x10, APIBKeyHi_EL1
-	stp	x9, x10, [x11, #CTX_PACIBKEY_LO]
-
-	mrs	x9, APDAKeyLo_EL1
-	mrs	x10, APDAKeyHi_EL1
-	stp	x9, x10, [x11, #CTX_PACDAKEY_LO]
-
-	mrs	x9, APDBKeyLo_EL1
-	mrs	x10, APDBKeyHi_EL1
-	stp	x9, x10, [x11, #CTX_PACDBKEY_LO]
-
-	mrs	x9, APGAKeyLo_EL1
-	mrs	x10, APGAKeyHi_EL1
-	stp	x9, x10, [x11, #CTX_PACGAKEY_LO]
-
-	ret
-endfunc pauth_context_save
-
-/* -----------------------------------------------------
- * The following function strictly follows the AArch64
- * PCS to use x9-x17 (temporary caller-saved registers)
- * to restore the ARMv8.3-PAuth register context. It assumes
- * that 'sp' is pointing to a 'cpu_context_t' structure
- * from where the register context will be restored.
- * -----------------------------------------------------
- */
-func pauth_context_restore
-	add	x11, sp, #CTX_PAUTH_REGS_OFFSET
-
-	ldp	x9, x10, [x11, #CTX_PACIAKEY_LO]
-	msr	APIAKeyLo_EL1, x9
-	msr	APIAKeyHi_EL1, x10
-
-	ldp	x9, x10, [x11, #CTX_PACIBKEY_LO]
-	msr	APIBKeyLo_EL1, x9
-	msr	APIBKeyHi_EL1, x10
-
-	ldp	x9, x10, [x11, #CTX_PACDAKEY_LO]
-	msr	APDAKeyLo_EL1, x9
-	msr	APDAKeyHi_EL1, x10
-
-	ldp	x9, x10, [x11, #CTX_PACDBKEY_LO]
-	msr	APDBKeyLo_EL1, x9
-	msr	APDBKeyHi_EL1, x10
-
-	ldp	x9, x10, [x11, #CTX_PACGAKEY_LO]
-	msr	APGAKeyLo_EL1, x9
-	msr	APGAKeyHi_EL1, x10
-
-	ret
-endfunc pauth_context_restore
-#endif /* CTX_INCLUDE_PAUTH_REGS */
-
-/* -----------------------------------------------------
- * The following function strictly follows the AArch64
- * PCS to use x9-x17 (temporary caller-saved registers)
- * to load the APIA key used by the firmware.
- * -----------------------------------------------------
- */
-#if ENABLE_PAUTH
-func pauth_load_bl_apiakey
-	/* Load instruction key A used by the Trusted Firmware. */
-	adrp	x11, plat_apiakey
-	add	x11, x11, :lo12:plat_apiakey
-	ldp	x9, x10, [x11, #0]
-
-	msr	APIAKeyLo_EL1, x9
-	msr	APIAKeyHi_EL1, x10
-
-	ret
-endfunc pauth_load_bl_apiakey
-#endif /* ENABLE_PAUTH */
-
 /* -----------------------------------------------------
  * The following functions are used to save and restore
- * all the general purpose registers. Ideally we would
- * only save and restore the callee saved registers when
- * a world switch occurs but that type of implementation
+ * all the general purpose and ARMv8.3-PAuth (if enabled) registers.
+ * Ideally we would only save and restore the callee saved registers
+ * when a world switch occurs but that type of implementation
  * is more complex. So currently we will always save and
  * restore these registers on entry and exit of EL3.
  * These are not macros to ensure their invocation fits
@@ -408,7 +310,7 @@ endfunc pauth_load_bl_apiakey
  * clobbers: x18
  * -----------------------------------------------------
  */
-func save_gp_registers
+func save_gp_pauth_registers
 	stp	x0, x1, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X0]
 	stp	x2, x3, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X2]
 	stp	x4, x5, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X4]
@@ -426,15 +328,65 @@ func save_gp_registers
 	stp	x28, x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X28]
 	mrs	x18, sp_el0
 	str	x18, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_SP_EL0]
+
+#if CTX_INCLUDE_PAUTH_REGS
+	/* -----------------------------------------------------
+ 	 * Save the ARMv8.3-PAuth keys as they are not banked
+ 	 * by exception level
+	 * -----------------------------------------------------
+	 */
+	add	x19, sp, #CTX_PAUTH_REGS_OFFSET
+
+	mrs	x20, APIAKeyLo_EL1	/* x21:x20 = APIAKey */
+	mrs	x21, APIAKeyHi_EL1
+	mrs	x22, APIBKeyLo_EL1	/* x23:x22 = APIBKey */
+	mrs	x23, APIBKeyHi_EL1
+	mrs	x24, APDAKeyLo_EL1	/* x25:x24 = APDAKey */
+	mrs	x25, APDAKeyHi_EL1
+	mrs	x26, APDBKeyLo_EL1	/* x27:x26 = APDBKey */
+	mrs	x27, APDBKeyHi_EL1
+	mrs	x28, APGAKeyLo_EL1	/* x29:x28 = APGAKey */
+	mrs	x29, APGAKeyHi_EL1
+
+	stp	x20, x21, [x19, #CTX_PACIAKEY_LO]
+	stp	x22, x23, [x19, #CTX_PACIBKEY_LO]
+	stp	x24, x25, [x19, #CTX_PACDAKEY_LO]
+	stp	x26, x27, [x19, #CTX_PACDBKEY_LO]
+	stp	x28, x29, [x19, #CTX_PACGAKEY_LO]
+#endif /* CTX_INCLUDE_PAUTH_REGS */
+
 	ret
-endfunc save_gp_registers
+endfunc save_gp_pauth_registers
 
 /* -----------------------------------------------------
- * This function restores all general purpose registers except x30 from the
- * CPU context. x30 register must be explicitly restored by the caller.
+ * This function restores ARMv8.3-PAuth (if enabled) and
+ * all general purpose registers except x30 from the CPU context.
+ * x30 register must be explicitly restored by the caller.
  * -----------------------------------------------------
  */
-func restore_gp_registers
+func restore_gp_pauth_registers
+#if CTX_INCLUDE_PAUTH_REGS
+ 	/* Restore the ARMv8.3 PAuth keys */
+	add	x10, sp, #CTX_PAUTH_REGS_OFFSET
+
+	ldp	x0, x1, [x10, #CTX_PACIAKEY_LO]	/* x1:x0 = APIAKey */
+	ldp	x2, x3, [x10, #CTX_PACIBKEY_LO]	/* x3:x2 = APIBKey */
+	ldp	x4, x5, [x10, #CTX_PACDAKEY_LO]	/* x5:x4 = APDAKey */
+	ldp	x6, x7, [x10, #CTX_PACDBKEY_LO]	/* x7:x6 = APDBKey */
+	ldp	x8, x9, [x10, #CTX_PACGAKEY_LO]	/* x9:x8 = APGAKey */
+
+	msr	APIAKeyLo_EL1, x0
+	msr	APIAKeyHi_EL1, x1
+	msr	APIBKeyLo_EL1, x2
+	msr	APIBKeyHi_EL1, x3
+	msr	APDAKeyLo_EL1, x4
+	msr	APDAKeyHi_EL1, x5
+	msr	APDBKeyLo_EL1, x6
+	msr	APDBKeyHi_EL1, x7
+	msr	APGAKeyLo_EL1, x8
+	msr	APGAKeyHi_EL1, x9
+#endif /* CTX_INCLUDE_PAUTH_REGS */
+
 	ldp	x0, x1, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X0]
 	ldp	x2, x3, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X2]
 	ldp	x4, x5, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X4]
@@ -453,28 +405,7 @@ func restore_gp_registers
 	msr	sp_el0, x28
 	ldp	x28, x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X28]
 	ret
-endfunc restore_gp_registers
-
-/* -----------------------------------------------------
- * Restore general purpose registers (including x30), and exit EL3 via ERET to
- * a lower exception level.
- * -----------------------------------------------------
- */
-func restore_gp_registers_eret
-	bl	restore_gp_registers
-	ldr	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
-
-#if IMAGE_BL31 && RAS_EXTENSION
-	/*
-	 * Issue Error Synchronization Barrier to synchronize SErrors before
-	 * exiting EL3. We're running with EAs unmasked, so any synchronized
-	 * errors would be taken immediately; therefore no need to inspect
-	 * DISR_EL1 register.
-	 */
-	esb
-#endif
-	eret
-endfunc	restore_gp_registers_eret
+endfunc restore_gp_pauth_registers
 
 /* -----------------------------------------------------
  * This routine assumes that the SP_EL3 is pointing to
@@ -490,7 +421,7 @@ func el3_exit
 	 * -----------------------------------------------------
 	 */
 	mov	x17, sp
-	msr	spsel, #1
+	msr	spsel, #MODE_SP_ELX
 	str	x17, [sp, #CTX_EL3STATE_OFFSET + CTX_RUNTIME_SP]
 
 	/* -----------------------------------------------------
@@ -511,12 +442,23 @@ func el3_exit
 	blr	x17
 1:
 #endif
+	/* -----------------------------------------------------
+	 * Restore general purpose (including x30) and ARMv8.3-PAuth registers.
+	 * Exit EL3 via ERET to a lower exception level.
+ 	 * -----------------------------------------------------
+ 	 */
+	bl	restore_gp_pauth_registers
+	ldr	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
 
-#if CTX_INCLUDE_PAUTH_REGS
-	/* Restore ARMv8.3-PAuth registers */
-	bl	pauth_context_restore
+#if IMAGE_BL31 && RAS_EXTENSION
+	/*
+	 * Issue Error Synchronization Barrier to synchronize SErrors before
+	 * exiting EL3. We're running with EAs unmasked, so any synchronized
+	 * errors would be taken immediately; therefore no need to inspect
+	 * DISR_EL1 register.
+	 */
+	esb
 #endif
+	eret
 
-	/* Restore saved general purpose registers and return */
-	b	restore_gp_registers_eret
 endfunc el3_exit
