@@ -79,14 +79,6 @@ void tsp_setup(void)
 	/* Perform early platform-specific setup */
 	tsp_early_platform_setup();
 
-	/*
-	 * Update pointer authentication key before the MMU is enabled. It is
-	 * saved in the rodata section, that can be writen before enabling the
-	 * MMU. This function must be called after the console is initialized
-	 * in the early platform setup.
-	 */
-	bl_handle_pauth();
-
 	/* Perform late platform-specific setup */
 	tsp_plat_arch_setup();
 }

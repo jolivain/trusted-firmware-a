@@ -31,16 +31,6 @@ void bl2_setup(u_register_t arg0, u_register_t arg1, u_register_t arg2,
 	/* Perform early platform-specific setup */
 	bl2_early_platform_setup2(arg0, arg1, arg2, arg3);
 
-#ifdef AARCH64
-	/*
-	 * Update pointer authentication key before the MMU is enabled. It is
-	 * saved in the rodata section, that can be writen before enabling the
-	 * MMU. This function must be called after the console is initialized
-	 * in the early platform setup.
-	 */
-	bl_handle_pauth();
-#endif /* AARCH64 */
-
 	/* Perform late platform-specific setup */
 	bl2_plat_arch_setup();
 }
@@ -54,16 +44,6 @@ void bl2_el3_setup(u_register_t arg0, u_register_t arg1, u_register_t arg2,
 {
 	/* Perform early platform-specific setup */
 	bl2_el3_early_platform_setup(arg0, arg1, arg2, arg3);
-
-#ifdef AARCH64
-	/*
-	 * Update pointer authentication key before the MMU is enabled. It is
-	 * saved in the rodata section, that can be writen before enabling the
-	 * MMU. This function must be called after the console is initialized
-	 * in the early platform setup.
-	 */
-	bl_handle_pauth();
-#endif /* AARCH64 */
 
 	/* Perform late platform-specific setup */
 	bl2_el3_plat_arch_setup();
