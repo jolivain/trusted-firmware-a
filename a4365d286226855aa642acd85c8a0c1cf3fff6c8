@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d63477e6_63ab0053",
+        "filename": "include/export/common/bl_common.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-16T02:39:28Z",
+      "side": 1,
+      "message": "Doesn\u0027t the path already distinguish them? These are only ever really used with their full path anyway so adding a suffix on top seems redundant to me. But I can change them if you really want.",
+      "parentUuid": "e9d35839_edc9e787",
+      "revId": "a4365d286226855aa642acd85c8a0c1cf3fff6c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c745d0d_c8b6dee0",
         "filename": "include/export/lib/bl_aux_params/bl_aux_params.h",
         "patchSetId": 7
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "eec54197_e1bad845",
+        "filename": "include/export/lib/bl_aux_params/bl_aux_params.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-16T02:39:28Z",
+      "side": 1,
+      "message": "It\u0027s not needed explicitly but it provides the definitions for the values that are supposed to be put into the members of struct bl_aux_gpio_info from this file, so I think including it here would be a nice convenience for files using it.",
+      "parentUuid": "6c745d0d_c8b6dee0",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 31
+      },
+      "revId": "a4365d286226855aa642acd85c8a0c1cf3fff6c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ad17849_47ed8453",
         "filename": "include/export/plat/rockchip/common/plat_params.h",
         "patchSetId": 7
@@ -53,6 +95,24 @@
       "writtenOn": "2019-07-15T15:52:16Z",
       "side": 1,
       "message": "This file can be called rk_params.h.\n\nAlso does it need to have a deep directory structure ? IMO, it could go in include/export/plat/rockchip/ folder.",
+      "revId": "a4365d286226855aa642acd85c8a0c1cf3fff6c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f55971e4_dec4b38f",
+        "filename": "include/export/plat/rockchip/common/plat_params.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-16T02:39:28Z",
+      "side": 1,
+      "message": "I think it would be nice if the path structure under include/export/ mirrors the path structure of the rest of the repo. Since every export header should always have a corresponding wrapper header, this would make it more obvious which belongs to which. If we just throw it all at the top level, more headers with similar names get added in the rest of the repo later and then a use case comes up where those also need to be exported, I think it could become messy if there is no clear structure. I also think the export header should always have the same name (plus maybe a suffix if you think that\u0027s necessary) as its wrapper header, anything else is just unnecessarily confusing.",
+      "parentUuid": "8ad17849_47ed8453",
       "revId": "a4365d286226855aa642acd85c8a0c1cf3fff6c8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
