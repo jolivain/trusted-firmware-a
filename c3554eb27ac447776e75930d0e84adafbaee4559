@@ -22,6 +22,30 @@
       "revId": "c3554eb27ac447776e75930d0e84adafbaee4559",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bbb1bfc_43b66fc5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000107
+      },
+      "writtenOn": "2019-07-16T14:27:41Z",
+      "side": 1,
+      "message": "Unfortunately some attempts to do so in the kernel has be made before and were rejected. Kernel people arrived at the consensus that this should be done in the secure firmware (http://lists.infradead.org/pipermail/linux-arm-kernel/2017-March/496864.html).\n\nAlso please note that rcar platforms already do something similar.",
+      "parentUuid": "ca882427_d142bde2",
+      "range": {
+        "startLine": 11,
+        "startChar": 32,
+        "endLine": 12,
+        "endChar": 8
+      },
+      "revId": "c3554eb27ac447776e75930d0e84adafbaee4559",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
