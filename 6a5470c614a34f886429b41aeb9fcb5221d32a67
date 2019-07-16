@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "546d9fbf_0cd816f5",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-16T12:19:13Z",
+      "side": 1,
+      "message": "nit: start on next line.",
+      "range": {
+        "startLine": 540,
+        "startChar": 2,
+        "endLine": 540,
+        "endChar": 3
+      },
+      "revId": "6a5470c614a34f886429b41aeb9fcb5221d32a67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c219c227_413f88ab",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-16T12:19:13Z",
+      "side": 1,
+      "message": "Given that disabling SSBS is the only way we would want to initialize the lower exception, I would add this to the regular SPSR helper macros. What do you think ?",
+      "range": {
+        "startLine": 561,
+        "startChar": 8,
+        "endLine": 561,
+        "endChar": 20
+      },
+      "revId": "6a5470c614a34f886429b41aeb9fcb5221d32a67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
