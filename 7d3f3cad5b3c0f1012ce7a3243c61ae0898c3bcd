@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e266b259_42ffe90f",
+        "filename": "common/backtrace/backtrace.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-16T16:27:01Z",
+      "side": 1,
+      "message": "Would it be better to use\nstatic uintptr_t demangle_address(uintptr_t addr)?\n, so when you call demangle_address(), addr won\u0027t be pushed on stack, but the value will be just passed as parameter and returned in X0?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 45
+      },
+      "revId": "7d3f3cad5b3c0f1012ce7a3243c61ae0898c3bcd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
