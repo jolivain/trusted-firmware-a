@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57362a8b_e77948bc",
+        "filename": "lib/romlib/Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-17T11:41:51Z",
+      "side": 1,
+      "message": "This is not needed since you are just changing the suffix.",
+      "range": {
+        "startLine": 24,
+        "startChar": 40,
+        "endLine": 24,
+        "endChar": 41
+      },
+      "revId": "3cee0d3b21ceaafa0c9fab34553370b6e8a03b08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efadbdcf_00e99117",
+        "filename": "lib/romlib/Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-17T11:41:51Z",
+      "side": 1,
+      "message": "Remove that, too.",
+      "range": {
+        "startLine": 24,
+        "startChar": 44,
+        "endLine": 24,
+        "endChar": 45
+      },
+      "revId": "3cee0d3b21ceaafa0c9fab34553370b6e8a03b08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1e05142_4931b1ee",
+        "filename": "lib/romlib/templates/jmptbl_entry_function.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-17T11:41:51Z",
+      "side": 1,
+      "message": "Remove that part from all new files",
+      "range": {
+        "startLine": 2,
+        "startChar": 34,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "3cee0d3b21ceaafa0c9fab34553370b6e8a03b08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf5d1a2a_ea3ce154",
+        "filename": "lib/romlib/templates/jmptbl_entry_reserved_bti.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-17T11:41:51Z",
+      "side": 1,
+      "message": "Since this will be a \"reserved\" entry in the jumptable, we should normally never arrive here, right?\n\nSo, if we land at this instruction that should be an error... I\u0027m thinking that this is a stale bug from before. So, if we have BTI enabled, then we should put some garbage at this line (maybe another .word 0x0?) so if we ever arrive here to get an exception and not continue executing.\n\nWhat do you think?",
+      "range": {
+        "startLine": 6,
+        "startChar": 1,
+        "endLine": 6,
+        "endChar": 6
+      },
+      "revId": "3cee0d3b21ceaafa0c9fab34553370b6e8a03b08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
