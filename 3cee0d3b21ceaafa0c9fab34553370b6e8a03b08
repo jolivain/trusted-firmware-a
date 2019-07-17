@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "cee865f5_20275228",
+        "filename": "lib/romlib/templates/jmptbl_entry_reserved_bti.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000159
+      },
+      "writtenOn": "2019-07-17T13:38:45Z",
+      "side": 1,
+      "message": "The ENABLE_BTI build flag is passed to the romlib_generator.py as a command line argument and it chooses [x].S or [x]_bti.S templates accordingly. I commented this into the script instead of the template files.",
+      "parentUuid": "cf5431c8_8bb0912d",
+      "range": {
+        "startLine": 6,
+        "startChar": 1,
+        "endLine": 6,
+        "endChar": 6
+      },
+      "revId": "3cee0d3b21ceaafa0c9fab34553370b6e8a03b08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a9c64dc_8f597cb8",
         "filename": "lib/romlib/templates/wrapper_bti.S",
         "patchSetId": 2
@@ -162,6 +186,30 @@
       "revId": "3cee0d3b21ceaafa0c9fab34553370b6e8a03b08",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51fe3643_b161c0b7",
+        "filename": "lib/romlib/templates/wrapper_bti.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000159
+      },
+      "writtenOn": "2019-07-17T13:38:45Z",
+      "side": 1,
+      "message": "I think jc is used here because any kind of branch instructions can be used to call the wrapper function. However the entries in the jump table should be accessed only through these wrappers and there the bti j is suitable for br x16 instruction.",
+      "parentUuid": "7a9c64dc_8f597cb8",
+      "range": {
+        "startLine": 8,
+        "startChar": 1,
+        "endLine": 8,
+        "endChar": 7
+      },
+      "revId": "3cee0d3b21ceaafa0c9fab34553370b6e8a03b08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
