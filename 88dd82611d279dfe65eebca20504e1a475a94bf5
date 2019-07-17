@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9daacb63_3f87bfaf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-17T09:39:22Z",
+      "side": 1,
+      "message": "You need to rebase your patch, please. When I tried to compile I faced some error which was solved when I rebased the patch on top of the most recent master.",
+      "revId": "88dd82611d279dfe65eebca20504e1a475a94bf5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cbeee3e_6808a5d8",
+        "filename": "drivers/intel/soc/stratix10/io/s10_memmap_qspi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-17T09:39:22Z",
+      "side": 1,
+      "message": "Why is this file in this patch? It\u0027s unrelated. If it\u0027s fixing an issue, please submit this change separately.",
+      "revId": "88dd82611d279dfe65eebca20504e1a475a94bf5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b990f70_140cbac2",
+        "filename": "plat/intel/soc/agilex/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-17T09:39:22Z",
+      "side": 1,
+      "message": "duplicated",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 36
+      },
+      "revId": "88dd82611d279dfe65eebca20504e1a475a94bf5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
