@@ -386,6 +386,11 @@ tsp_args_t *tsp_smc_handler(uint64_t func,
 	 */
 	tsp_get_magic(service_args);
 
+#if CTX_INCLUDE_MTE_REGS
+	/* Modify the MTE registers, to simulate usage in the secure world */
+	write_gcr_el1(0);
+#endif
+
 	/* Determine the function to perform based on the function ID */
 	switch (TSP_BARE_FID(func)) {
 	case TSP_ADD:

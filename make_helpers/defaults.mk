@@ -214,6 +214,14 @@ ifeq (${ARCH},aarch32)
     override ENABLE_SPE_FOR_LOWER_ELS := 0
 endif
 
+# Enable support for the Memory Tagging Extension
+CTX_INCLUDE_MTE_REGS := 0
+
+# Disable MTE on aarch32 as all addresses in aarch32 are untagged
+ifeq (${ARCH},aarch32)
+    override CTX_INCLUDE_MTE_REGS := 0
+endif
+
 ENABLE_AMU			:= 0
 
 # By default, enable Scalable Vector Extension if implemented for Non-secure
