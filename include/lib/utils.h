@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -82,8 +82,6 @@ void zeromem(void *mem, u_register_t length);
 static inline u_register_t load_addr_## _name(void)		\
 {								\
 	u_register_t v;						\
-	/* Create a void reference to silence compiler */	\
-	(void) _name;						\
 	__asm__ volatile ("ldr %0, =" #_name : "=r" (v));	\
 	return v;						\
 }
