@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "bbdfb425_8beca566",
+        "filename": "lib/romlib/templates/jmptbl_entry_reserved_bti.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000051
+      },
+      "writtenOn": "2019-07-18T14:11:23Z",
+      "side": 1,
+      "message": "I asked Alexei about this. When BTI is enabled then whenever we take a branch we need to \"land\" to a BTI instruction. If we land somewhere where there is *not* a BTI instruction, that will cause an exception.\n\nHere, this template will be used when BTI is enabled. So, if this file is used, we know that BTI is enabled. As such that\u0027s why I asked whether it would be meaningful to make this fail if we land here because we should *never* land on a \"reserved\" space in the jump table. If we precede a reserved space with a BTI instruction we make it a valid target - while it shouldn\u0027t be. And potentially that\u0027s also a security risk?\n\nIf we just fall-through to all zeroes that\u0027s simply a NOP, it won\u0027t cause any exception. When encountering other BTI instructions while falling through also doesn\u0027t cause exceptions (as per Alexei\u0027s clarification). So that\u0027s why I though that when we have BTI enabled, the reserved spaces in the jump table shouldn\u0027t be allowed to be valid landing places.\n\nThat\u0027s not something Imre is doing wrong - it was an additional thought of me while reviewing. Actually it was already like this but after rethinking about it I think we should change it.",
+      "parentUuid": "cee865f5_20275228",
+      "range": {
+        "startLine": 6,
+        "startChar": 1,
+        "endLine": 6,
+        "endChar": 6
+      },
+      "revId": "3cee0d3b21ceaafa0c9fab34553370b6e8a03b08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a9c64dc_8f597cb8",
         "filename": "lib/romlib/templates/wrapper_bti.S",
         "patchSetId": 2
