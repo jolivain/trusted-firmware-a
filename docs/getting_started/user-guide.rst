@@ -797,6 +797,14 @@ Common build options
    cluster platforms). If this option is enabled, then warm boot path
    enables D-caches immediately after enabling MMU. This option defaults to 0.
 
+-  ``CTX_INCLUDE_MTE_REGS``: Enables register saving/reloading support for
+   ARMv8.5 Memory Tagging Extension. A value of 0 will disable
+   saving/reloading and restrict the use of MTE to the normal world if the
+   CPU has support, while a value of 1 enables the saving/reloading, allowing
+   the use of MTE in both the secure and non-secure worlds. Default is 0
+   (disabled) and this feature is experimental.
+
+
 Arm development platform specific build options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
