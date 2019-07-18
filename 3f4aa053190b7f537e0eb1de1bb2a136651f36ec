@@ -70,6 +70,30 @@
       "revId": "3f4aa053190b7f537e0eb1de1bb2a136651f36ec",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e69d82fa_2481a909",
+        "filename": "common/bl_common.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-18T23:33:49Z",
+      "side": 1,
+      "message": "\u003e If you wrap all of this implementation under #if !ERROR_DERPECATED and then rename this API to compat_bl31_params_parse() with comments saying that this is a helper compatibility API to help with migration of platform still using the deprecated `bl31_params_v1` struct and place it in `common/desc/image_load.c` that will be good I think.\n\nSorry, I think that\u0027s still not really suitable for what I intended this for. Again, the purpose of this is *not* just to support the V1 API. Supporting the V1 parameters is just sort of a useful extra that fits in here as well. The main purpose is to factor out the parsing of the V2 parameters so it doesn\u0027t need to be duplicated among all the platforms. That\u0027s why I wouldn\u0027t want to call the whole function compat_xxx or wrap everything in ERROR_DEPRECATED (I can wrap only the V1 parts in ERROR_DEPRECATED if you want).\n\nIf you\u0027re worried about creating the impression that it\u0027s mandatory, would maybe calling it bl31_params_parse_helper() or so be better? I can clarify that it\u0027s optional in the comment, too.\n\nMoving to desc_image_load.c sounds fine.",
+      "parentUuid": "2015cadb_72ee7632",
+      "range": {
+        "startLine": 313,
+        "startChar": 5,
+        "endLine": 313,
+        "endChar": 22
+      },
+      "revId": "3f4aa053190b7f537e0eb1de1bb2a136651f36ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
