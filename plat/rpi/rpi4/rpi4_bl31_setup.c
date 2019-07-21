@@ -217,6 +217,9 @@ static void rpi4_prepare_dtb(void)
 		return;
 	}
 
+	/* Reserve memory used by Trusted Firmware. */
+	fdt_add_reserved_memory(dtb, "atf@0", 0, 0x80000);
+
 	ret = fdt_pack(dtb);
 	if (ret < 0)
 		ERROR("Failed to pack Device Tree at %p: error %d\n", dtb, ret);
