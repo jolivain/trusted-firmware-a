@@ -29,6 +29,10 @@ $(eval $(call add_define,TSP_INIT_ASYNC))
 # If no platform-specific TSP Makefile exists, it means TSP is not supported
 # on this platform.
 TSP_PLAT_MAKEFILE := $(wildcard ${PLAT_DIR}/tsp/tsp-${PLAT}.mk)
+ifeq (${PLAT},sgm775)
+TSP_PLAT_MAKEFILE	:= 	plat/arm/css/sgm/tsp/tsp-sgm.mk
+endif
+
 ifeq (,${TSP_PLAT_MAKEFILE})
   $(error TSP is not supported on platform ${PLAT})
 else
