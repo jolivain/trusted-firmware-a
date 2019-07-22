@@ -136,7 +136,9 @@
 /*
  * tspd support is conditional so enable this for CSS sgm platforms.
  */
+#ifndef SPD_tspd
 #define SPD_tspd
+#endif
 
 /*
  * PLAT_CSS_MAX_SCP_BL2_SIZE is calculated using the current
