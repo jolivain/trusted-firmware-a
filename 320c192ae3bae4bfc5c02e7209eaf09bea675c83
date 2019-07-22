@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7de384ab_de326df9",
+        "filename": "plat/arm/board/fvp/fvp_bl1_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-22T21:35:19Z",
+      "side": 1,
+      "message": "remove whitespace character here.",
+      "revId": "320c192ae3bae4bfc5c02e7209eaf09bea675c83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7a3b438_adf0059b",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-22T21:35:19Z",
+      "side": 1,
+      "message": "Need a comment here as to why generic_delay_timer cannot be included in BL2U",
+      "revId": "320c192ae3bae4bfc5c02e7209eaf09bea675c83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
