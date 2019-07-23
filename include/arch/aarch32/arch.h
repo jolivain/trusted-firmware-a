@@ -388,7 +388,8 @@
 	((mode) & MODE32_MASK) << MODE32_SHIFT |	\
 	((isa) & SPSR_T_MASK) << SPSR_T_SHIFT |		\
 	((endian) & SPSR_E_MASK) << SPSR_E_SHIFT |	\
-	((aif) & SPSR_AIF_MASK) << SPSR_AIF_SHIFT)
+	((aif) & SPSR_AIF_MASK) << SPSR_AIF_SHIFT &	\
+	(~(SPSR_SSBS_BIT)))
 
 /*
  * TTBR definitions
