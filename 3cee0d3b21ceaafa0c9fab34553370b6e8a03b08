@@ -262,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "e60e39b0_166d376a",
+        "filename": "lib/romlib/templates/jmptbl_entry_reserved_bti.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T12:47:16Z",
+      "side": 1,
+      "message": "After discussing with Imre, we thought it is better to have uniform behaviour when BTI is enabled or disabled. Instead of encoding 0x0 for reserved entries, if we do a `b .` then the error will be contained for both the cases and it will behave the same with BTI enabled as well.\n\nHence Imre has reworked the patch to that effect.",
+      "parentUuid": "bbdfb425_8beca566",
+      "range": {
+        "startLine": 6,
+        "startChar": 1,
+        "endLine": 6,
+        "endChar": 6
+      },
+      "revId": "3cee0d3b21ceaafa0c9fab34553370b6e8a03b08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a9c64dc_8f597cb8",
         "filename": "lib/romlib/templates/wrapper_bti.S",
         "patchSetId": 2
