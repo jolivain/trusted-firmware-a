@@ -294,6 +294,8 @@
 #define SPSR_MODE_SHIFT		U(0)
 #define SPSR_MODE_MASK		U(0x7)
 
+#define SPSR_SSBS_BIT		BIT_32(23)
+
 #define DISABLE_ALL_EXCEPTIONS \
 		(SPSR_FIQ_BIT | SPSR_IRQ_BIT | SPSR_ABT_BIT)
 
@@ -388,7 +390,8 @@
 	((mode) & MODE32_MASK) << MODE32_SHIFT |	\
 	((isa) & SPSR_T_MASK) << SPSR_T_SHIFT |		\
 	((endian) & SPSR_E_MASK) << SPSR_E_SHIFT |	\
-	((aif) & SPSR_AIF_MASK) << SPSR_AIF_SHIFT)
+	((aif) & SPSR_AIF_MASK) << SPSR_AIF_SHIFT &	\
+	(~(SPSR_SSBS_BIT)))
 
 /*
  * TTBR definitions
