@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a15604e_78d51017",
+        "filename": "bl32/tsp/tsp.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:18:12Z",
+      "side": 1,
+      "message": "This looks incorrect. The PLAT_DIR is supposed to encode the path to the platform correctly.",
+      "revId": "edf6a7abaca3b8ad6fb31e70511b80ff353bdef0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b9e04be_57d74b51",
+        "filename": "plat/arm/css/sgm/include/sgm_base_platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:18:12Z",
+      "side": 1,
+      "message": "This line incorrect",
+      "revId": "edf6a7abaca3b8ad6fb31e70511b80ff353bdef0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
