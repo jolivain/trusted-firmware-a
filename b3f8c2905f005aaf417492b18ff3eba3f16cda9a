@@ -1,0 +1,341 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f6e5ba5_fc8602d5",
+        "filename": "bl1/aarch64/bl1_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "Would prefer to call this within the C code, say blx_setup.c\n\nAlso looks like is_armv8_3_pauth_present is a superset of the 2 checks.\n\nIf ENABLE_PAUTH is always dependant on CTX_INCLUDE_PAUTH_REGS, then it is enough to assert for is_armv8_3_pauth_present() if CTX_INCLUDE_PAUTH_REGS is enabled. There is no need for this helper function.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 6
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cbea184_a8d3d008",
+        "filename": "bl1/aarch64/bl1_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "would prefer a helper for disable as well.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 4
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92f9313e_77547b52",
+        "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "see comment for bl1_entrypoint.S",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 26
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "489d158a_92ad77ee",
+        "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "see comment for bl1_entrypoint.S",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 4
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "133f644c_a6d1c261",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "shouldnt pauth be disabled before leaving this BL image here ?",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c6da9ad_98040c3b",
+        "filename": "bl31/aarch64/bl31_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "see comment for bl1_entrypoint.S",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56ba7b83_0599ef94",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "This can be a separate patch",
+      "range": {
+        "startLine": 428,
+        "startChar": 4,
+        "endLine": 428,
+        "endChar": 9
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33e1b6ad_9192b7ad",
+        "filename": "bl32/tsp/aarch64/tsp_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "see comment for bl1_entrypoint.S",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f55353c_ba0b783f",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "We dont need to modify the change log as it is a record of what was previously done.",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b3a8dfd_34663cfb",
+        "filename": "include/common/bl_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "see comment for bl1_entrypoint.S. I think this function is not needed.",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a77d183_274d5119",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "Need to have a comment why the PAuth regs need to be saved along with GPregs.",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "511cb0ee_2d5c2e23",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "Why was this changed ?",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65d09745_993c8067",
+        "filename": "lib/extensions/pauth/pauth.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "see comment for bl1_entrypoint.S. This function is not required I think.",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3c7a498_9bc894a4",
+        "filename": "lib/extensions/pauth/pauth_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "There is scope for factorising the common code between this function and the el3 variant.",
+      "range": {
+        "startLine": 19,
+        "startChar": 5,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb118bdf_1d8a9d20",
+        "filename": "lib/extensions/pauth/pauth_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "This function is enabling both PAuth and BTI.\nshould this reflect in the name of the function ? I dont have a good suggestion as of now.",
+      "range": {
+        "startLine": 49,
+        "startChar": 5,
+        "endLine": 49,
+        "endChar": 26
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "731cc3b0_2ea1fbe9",
+        "filename": "plat/arm/common/aarch64/arm_pauth.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "why is the weak needed ? Lets keep it strong for the moment.",
+      "range": {
+        "startLine": 17,
+        "startChar": 15,
+        "endLine": 17,
+        "endChar": 19
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "898d57aa_a0e31d48",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T16:07:26Z",
+      "side": 1,
+      "message": "since CTX_INCLUDE_PAUTH_REGS is mandatory for ENABLE_PAUTH, it is enough to just check for that flag. But I guess this is not needed if the helper is removed.",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
