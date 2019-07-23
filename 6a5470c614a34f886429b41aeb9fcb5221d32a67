@@ -93,6 +93,30 @@
       "revId": "6a5470c614a34f886429b41aeb9fcb5221d32a67",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1784ad_a698a2b4",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-23T09:56:58Z",
+      "side": 1,
+      "message": "Hmm, that\u0027s the trouble. The new BL entry can be considered part of cold boot whereas in case of warm boot, we would want to initialize the secondary CPUs with the right SPSR values. Hence there is little to differentiate between new BL entry or just re-entry to lower EL (`context_mgmt` as in your comments). Given that we would prefer the entry to be safe by default, it is better to clear the bit in the default macro.",
+      "parentUuid": "7e2e3530_38e9acad",
+      "range": {
+        "startLine": 561,
+        "startChar": 8,
+        "endLine": 561,
+        "endChar": 20
+      },
+      "revId": "6a5470c614a34f886429b41aeb9fcb5221d32a67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
