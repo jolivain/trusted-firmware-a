@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "418165ef_8752224f",
+        "filename": "bl32/tsp/tsp.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-07-23T17:22:54Z",
+      "side": 1,
+      "message": "I am not sure I understand your comment. \nIn the case of sgm775, the tsp makefile is not provided specifically for the platform. It is made available for sgm family of platforms in general. Subsequently, the tsp makefile is not placed under the expected directory. This is an exception.",
+      "parentUuid": "4a15604e_78d51017",
+      "revId": "edf6a7abaca3b8ad6fb31e70511b80ff353bdef0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b9e04be_57d74b51",
         "filename": "plat/arm/css/sgm/include/sgm_base_platform_def.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-07-23T16:18:12Z",
       "side": 1,
       "message": "This line incorrect",
+      "revId": "edf6a7abaca3b8ad6fb31e70511b80ff353bdef0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9a60dfe_bd3d5708",
+        "filename": "plat/arm/css/sgm/include/sgm_base_platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-07-23T17:22:54Z",
+      "side": 1,
+      "message": "Can you elaborate? \nThis is needed to avoid compilation fail. \n\nBuilding sgm775\n  CC      lib/libc/abort.c\n  CC      lib/libc/assert.c\nIn file included from plat/arm/board/sgm775/include/platform_def.h:10:0,\n                 from include/lib/libc/assert.h:12,\n                 from lib/libc/assert.c:7:\nplat/arm/css/sgm/include/sgm_base_platform_def.h:139:0: error: \"SPD_tspd\" redefined [-Werror]\n #define SPD_tspd\n \n\u003ccommand-line\u003e:0:0: note: this is the location of the previous definition\ncc1: all warnings being treated as errors\nMakefile:776: recipe for target \u0027build/sgm775/debug/libc/assert.o\u0027 failed\nmake: *** [build/sgm775/debug/libc/assert.o] Error 1",
+      "parentUuid": "4b9e04be_57d74b51",
       "revId": "edf6a7abaca3b8ad6fb31e70511b80ff353bdef0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
