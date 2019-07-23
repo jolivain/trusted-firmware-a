@@ -16,6 +16,24 @@
       "revId": "363324157c727635514cbf33200c5f90c0c8e7e8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0927359_421d9cc2",
+        "filename": "include/common/fdt_fixup.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-07-23T15:32:21Z",
+      "side": 1,
+      "message": "That is what I originally had, but later in the series I add another, not PSCI related function. So I figured a generic name would be more of a fit.",
+      "parentUuid": "afd4a19d_ca7621ec",
+      "revId": "363324157c727635514cbf33200c5f90c0c8e7e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
