@@ -123,11 +123,19 @@ putc_loop:
 	ldr	w1, [x15, #CONSOLE_T_FLAGS]
 	tst	w1, #CONSOLE_FLAG_CRASH
 	b.eq	putc_continue
-	ldr	x2, [x15, #CONSOLE_T_PUTC]
-	cbz	x2, putc_continue
+	ldr	x16, [x15, #CONSOLE_T_PUTC]
+	cbz	x16, putc_continue
+	tst	w1, #CONSOLE_FLAG_TRANSLATE_CRLF
+	b.eq	putc
+	cmp	w14, #'\n'
+	b.ne	putc
 	mov	x1, x15
-	blr	x2
+	mov	w0, #'\r'
+	blr	x16
+putc:
+	mov	x1, x15
 	mov	w0, w14
+	blr	x16
 putc_continue:
 	ldr	x15, [x15]			/* X15 = next struct */
 	b	putc_loop

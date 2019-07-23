@@ -77,9 +77,21 @@ int console_putc(int c)
 
 	for (console = console_list; console != NULL; console = console->next)
 		if ((console->flags & console_state) && console->putc) {
+			if ((console->flags & CONSOLE_FLAG_TRANSLATE_CRLF) &&
+			    (c == '\n')) {
+				int ret = console->putc('\r', console);
+				if (ret) {
+					if (err == ERROR_NO_VALID_CONSOLE)
+						err = ret;
+					continue;
+				}
+			}
+
 			int ret = console->putc(c, console);
 			if ((err == ERROR_NO_VALID_CONSOLE) || (ret < err))
 				err = ret;
+
+
 		}
 
 	return err;
