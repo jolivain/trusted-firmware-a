@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -22,6 +22,7 @@
 /* Bits 3 to 7 reserved for additional scopes in future expansion. */
 #define CONSOLE_FLAG_SCOPE_MASK		((U(1) << 8) - 1)
 /* Bits 8 to 31 reserved for non-scope use in future expansion. */
+#define CONSOLE_FLAG_TRANSLATE_CRLF	(U(1) << 8)
 
 /* Returned by getc callbacks when receive FIFO is empty. */
 #define ERROR_NO_PENDING_CHAR		(-1)
