@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <lib/utils_def.h>
+
 #ifndef AGX_MBOX_H
 #define AGX_MBOX_H
 
@@ -76,7 +78,7 @@
 #define RECONFIG_STATUS_STATE		0
 #define RECONFIG_STATUS_PIN_STATUS	2
 #define RECONFIG_STATUS_SOFTFUNC_STATUS 3
-#define PIN_STATUS_NSTATUS		(1 << 31)
+#define PIN_STATUS_NSTATUS		(U(1) << 31)
 #define SOFTFUNC_STATUS_SEU_ERROR	(1 << 3)
 #define SOFTFUNC_STATUS_INIT_DONE	(1 << 1)
 #define SOFTFUNC_STATUS_CONF_DONE	(1 << 0)
