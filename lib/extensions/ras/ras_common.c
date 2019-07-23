@@ -83,7 +83,8 @@ static int ras_interrupt_handler(uint32_t intr_raw, uint32_t flags,
 {
 	struct ras_interrupt *ras_inrs = ras_interrupt_mappings.intrs;
 	struct ras_interrupt *selected = NULL;
-	int start, end, mid, probe_data, ret __unused;
+	int probe_data = 0;
+	int start, end, mid, ret __unused;
 
 	const struct err_handler_data err_data = {
 		.version = ERR_HANDLER_VERSION,
