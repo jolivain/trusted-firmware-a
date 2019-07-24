@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04dbb47b_de557030",
+        "filename": "docs/plat/virt.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-24T11:42:37Z",
+      "side": 1,
+      "message": "It is desirable to the platform name as qemu to prevent a build break for users of this platform port if possible.\n\nThe documentation could clarify that `qemu` refers to the virt platform.",
+      "range": {
+        "startLine": 38,
+        "startChar": 46,
+        "endLine": 38,
+        "endChar": 50
+      },
+      "revId": "6104567a3f1a29c428be9bacb0ad694c7abacc41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
