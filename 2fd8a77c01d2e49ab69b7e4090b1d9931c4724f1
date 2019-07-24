@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59d91787_3a27db4c",
+        "filename": "plat/rpi/common/include/rpi_shared.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-07-24T13:28:20Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "2fd8a77c01d2e49ab69b7e4090b1d9931c4724f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d92076a8_bee2b352",
+        "filename": "plat/rpi/common/include/rpi_shared.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-07-24T13:28:20Z",
+      "side": 1,
+      "message": "As you are moving this to a common folder, would it make sense to rename the functions to \"rpi_xxx\" (like: rpi_console_init() ) ?",
+      "range": {
+        "startLine": 17,
+        "startChar": 5,
+        "endLine": 17,
+        "endChar": 22
+      },
+      "revId": "2fd8a77c01d2e49ab69b7e4090b1d9931c4724f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60b1d118_f6bf0198",
+        "filename": "plat/rpi/common/rpi3_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-07-24T13:28:20Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "2fd8a77c01d2e49ab69b7e4090b1d9931c4724f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f71fea5_72ee48b5",
+        "filename": "plat/rpi/common/rpi3_topology.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-07-24T13:28:20Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "2fd8a77c01d2e49ab69b7e4090b1d9931c4724f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80fc5a58_99f67937",
+        "filename": "plat/rpi/rpi3/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-07-24T13:28:20Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "2fd8a77c01d2e49ab69b7e4090b1d9931c4724f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0783fec8_0c89564d",
+        "filename": "plat/rpi/rpi3/rpi3_bl1_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-07-24T13:28:20Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "2fd8a77c01d2e49ab69b7e4090b1d9931c4724f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a118dcbf_93f9b853",
+        "filename": "plat/rpi/rpi3/rpi3_bl2_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-07-24T13:28:20Z",
+      "side": 1,
+      "message": "2019",
+      "revId": "2fd8a77c01d2e49ab69b7e4090b1d9931c4724f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99e76712_7b4522e0",
+        "filename": "plat/rpi/rpi3/rpi3_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-07-24T13:28:20Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "2fd8a77c01d2e49ab69b7e4090b1d9931c4724f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
