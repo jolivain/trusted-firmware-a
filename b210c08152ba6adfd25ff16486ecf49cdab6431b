@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a337271f_9e13b4af",
+        "filename": "bl32/tsp/tsp.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2019-07-24T06:29:37Z",
+      "side": 1,
+      "message": "This file being a common framework file should not have any platform specific changes in it (or have a valid reason to do so). So this change should be avoided.\n\nInstead, add a new file plat/arm/board/sgm775/tsp/tsp-sgm775.mk. This file would have only the following line in it (in addition to the copyright headers).\n\ninclude plat/arm/css/sgm/tsp/tsp-sgm.mk",
+      "revId": "b210c08152ba6adfd25ff16486ecf49cdab6431b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1998ddfc_7b3d8b4f",
+        "filename": "plat/arm/css/sgm/include/sgm_base_platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2019-07-24T06:29:37Z",
+      "side": 1,
+      "message": "Any reason for this change?",
+      "revId": "b210c08152ba6adfd25ff16486ecf49cdab6431b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
