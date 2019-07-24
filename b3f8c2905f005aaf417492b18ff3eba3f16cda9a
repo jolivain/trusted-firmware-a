@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b2a05dde_01fbec8c",
+        "filename": "bl1/aarch64/bl1_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f6e5ba5_fc8602d5",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 6
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cbea184_a8d3d008",
         "filename": "bl1/aarch64/bl1_entrypoint.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-07-23T16:07:26Z",
       "side": 1,
       "message": "would prefer a helper for disable as well.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 4
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81436a51_d3f09163",
+        "filename": "bl1/aarch64/bl1_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cbea184_a8d3d008",
       "range": {
         "startLine": 65,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6462d6ff_1bb7d47b",
+        "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92f9313e_77547b52",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 26
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "489d158a_92ad77ee",
         "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2019-07-23T16:07:26Z",
       "side": 1,
       "message": "see comment for bl1_entrypoint.S",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 4
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa614942_4a65ca19",
+        "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "489d158a_92ad77ee",
       "range": {
         "startLine": 91,
         "startChar": 0,
@@ -111,6 +207,41 @@
     },
     {
       "key": {
+        "uuid": "dae12b54_728f1869",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "133f644c_a6d1c261",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4da1ae37_ed33fc28",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "also added pauth_disable_el3() here.",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c6da9ad_98040c3b",
         "filename": "bl31/aarch64/bl31_entrypoint.S",
         "patchSetId": 1
@@ -122,6 +253,24 @@
       "writtenOn": "2019-07-23T16:07:26Z",
       "side": 1,
       "message": "see comment for bl1_entrypoint.S",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4996b36_f9a53967",
+        "filename": "bl31/aarch64/bl31_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c6da9ad_98040c3b",
       "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -151,6 +300,30 @@
     },
     {
       "key": {
+        "uuid": "24d89997_20a9c60a",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "This is a very small change, can we keep it in this patch?",
+      "parentUuid": "56ba7b83_0599ef94",
+      "range": {
+        "startLine": 428,
+        "startChar": 4,
+        "endLine": 428,
+        "endChar": 9
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33e1b6ad_9192b7ad",
         "filename": "bl32/tsp/aarch64/tsp_entrypoint.S",
         "patchSetId": 1
@@ -162,6 +335,24 @@
       "writtenOn": "2019-07-23T16:07:26Z",
       "side": 1,
       "message": "see comment for bl1_entrypoint.S",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ca7d82a_6fa4b58c",
+        "filename": "bl32/tsp/aarch64/tsp_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33e1b6ad_9192b7ad",
       "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -185,6 +376,24 @@
     },
     {
       "key": {
+        "uuid": "473ee52d_0e3a0b85",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f55353c_ba0b783f",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b3a8dfd_34663cfb",
         "filename": "include/common/bl_common.h",
         "patchSetId": 1
@@ -196,6 +405,24 @@
       "writtenOn": "2019-07-23T16:07:26Z",
       "side": 1,
       "message": "see comment for bl1_entrypoint.S. I think this function is not needed.",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbb5d4cd_3948b9ad",
+        "filename": "include/common/bl_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b3a8dfd_34663cfb",
       "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -219,6 +446,24 @@
     },
     {
       "key": {
+        "uuid": "057d4868_9f119f66",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a77d183_274d5119",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "511cb0ee_2d5c2e23",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
@@ -230,6 +475,24 @@
       "writtenOn": "2019-07-23T16:07:26Z",
       "side": 1,
       "message": "Why was this changed ?",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dde419e5_2b01ab54",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "Separate restore_gp_registers_eret() is not needed.\n\n\"- Combined `save_gp_pauth_registers()` function replaces calls to `save_gp_registers()` and `pauth_context_save()`;\n\t\n  `restore_gp_pauth_registers()` replaces `pauth_context_restore()`\n\t\n  and `restore_gp_registers()` calls.\n\t\n- `restore_gp_registers_eret()` function removed with its corresponding code placed in `el3_exit()`.\"",
+      "parentUuid": "511cb0ee_2d5c2e23",
       "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -253,6 +516,24 @@
     },
     {
       "key": {
+        "uuid": "9f6c1cd9_7a6e7ec4",
+        "filename": "lib/extensions/pauth/pauth.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "Done. This file is removed.",
+      "parentUuid": "65d09745_993c8067",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3c7a498_9bc894a4",
         "filename": "lib/extensions/pauth/pauth_helpers.S",
         "patchSetId": 1
@@ -264,6 +545,30 @@
       "writtenOn": "2019-07-23T16:07:26Z",
       "side": 1,
       "message": "There is scope for factorising the common code between this function and the el3 variant.",
+      "range": {
+        "startLine": 19,
+        "startChar": 5,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e689ec62_93a0685e",
+        "filename": "lib/extensions/pauth/pauth_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "The only common code between EL1 \u0026 El3 variants is 4 instructions on entry:\n\u003cstp, bl, 2*msr\u003e and 3 on exit: \u003cisb, ldp, ret\u003e. We can have 1 function which will check current EL level and read/write corresponding sctlr_elX. Do you want this to be implementated?",
+      "parentUuid": "d3c7a498_9bc894a4",
       "range": {
         "startLine": 19,
         "startChar": 5,
@@ -299,6 +604,30 @@
     },
     {
       "key": {
+        "uuid": "710cf132_1cc52f52",
+        "filename": "lib/extensions/pauth/pauth_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "BTI is not enabled here. It is done in MMU set up when bit [50] of page descriptor gets set.\nThis function just makes PACIASP and PACIBSP instructions compatible with BTI instructions.",
+      "parentUuid": "bb118bdf_1d8a9d20",
+      "range": {
+        "startLine": 49,
+        "startChar": 5,
+        "endLine": 49,
+        "endChar": 26
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "731cc3b0_2ea1fbe9",
         "filename": "plat/arm/common/aarch64/arm_pauth.c",
         "patchSetId": 1
@@ -322,6 +651,30 @@
     },
     {
       "key": {
+        "uuid": "f0939920_54442454",
+        "filename": "plat/arm/common/aarch64/arm_pauth.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "The idea was that it can be replaced with a proper platform specific implementation. I\u0027ll remove this attribute.",
+      "parentUuid": "731cc3b0_2ea1fbe9",
+      "range": {
+        "startLine": 17,
+        "startChar": 15,
+        "endLine": 17,
+        "endChar": 19
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "898d57aa_a0e31d48",
         "filename": "plat/arm/common/arm_common.mk",
         "patchSetId": 1
@@ -333,6 +686,24 @@
       "writtenOn": "2019-07-23T16:07:26Z",
       "side": 1,
       "message": "since CTX_INCLUDE_PAUTH_REGS is mandatory for ENABLE_PAUTH, it is enough to just check for that flag. But I guess this is not needed if the helper is removed.",
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb377b35_24649d50",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T16:41:21Z",
+      "side": 1,
+      "message": "pauth.c is removed from the build.",
+      "parentUuid": "898d57aa_a0e31d48",
       "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
