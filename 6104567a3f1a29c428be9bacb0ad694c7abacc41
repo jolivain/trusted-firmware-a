@@ -22,6 +22,30 @@
       "revId": "6104567a3f1a29c428be9bacb0ad694c7abacc41",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9985f93_dc5de74d",
+        "filename": "docs/plat/virt.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000199
+      },
+      "writtenOn": "2019-07-24T11:59:31Z",
+      "side": 1,
+      "message": "OK, to clarify other comments regarding names:\nas build parameters are inherited from directory names, we would have following directory structure:\n`-- plat\n    `-- qemu\n        |-- common    (files shared with all qemu subplatforms)\n        |-- qemu      (original qemu platform)\n        |-- qemu_sbsa (new sqemu_sbsa platform)\n\nand build process:\nmake CROSS_COMPILE\u003daarch64-none-elf- PLAT\u003dqemu\nmake CROSS_COMPILE\u003daarch64-none-elf- PLAT\u003dqemu_sbsa\n\nThat\u0027s what we want, right?",
+      "parentUuid": "04dbb47b_de557030",
+      "range": {
+        "startLine": 38,
+        "startChar": 46,
+        "endLine": 38,
+        "endChar": 50
+      },
+      "revId": "6104567a3f1a29c428be9bacb0ad694c7abacc41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
