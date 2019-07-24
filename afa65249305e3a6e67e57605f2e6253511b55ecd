@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b004457b_984bcbab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T08:30:54Z",
+      "side": 1,
+      "message": "\"compiler flag MTE_SUPPORT\"?\nCompiler flag is ‘memtag’, \"This option is only to enable the extension at the assembler level and does not affect code generation\"\nShould it mention CTX_INCLUDE_MTE_REGS instead?",
+      "revId": "afa65249305e3a6e67e57605f2e6253511b55ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02e4b568_857623ba",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T08:30:54Z",
+      "side": 1,
+      "message": "use SECURE instead of 0, which is:\n#define SECURE\t\tU(0x0)",
+      "revId": "afa65249305e3a6e67e57605f2e6253511b55ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74a16320_0a59131b",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-24T08:30:54Z",
+      "side": 1,
+      "message": "This is not required, because AArch32 doesn\u0027t have code which uses CTX_INCLUDE_MTE_REGS.\nOther option to check that CTX_INCLUDE_MTE_REGS is set to 1 for AArch64 only, and report an error for AArch32 (as was done for BTI \u0026 PAuth).",
+      "revId": "afa65249305e3a6e67e57605f2e6253511b55ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
