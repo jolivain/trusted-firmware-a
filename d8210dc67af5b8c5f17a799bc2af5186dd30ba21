@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cccd7fb1_8b7a7566",
+        "filename": "lib/romlib/romlib_generator.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000194
+      },
+      "writtenOn": "2019-07-25T08:07:46Z",
+      "side": 1,
+      "message": "Only comment here is that this seems like an unusual way of handling subcommands, especially since argparse has builtin functionality for them, see here: https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_subparsers.",
+      "revId": "d8210dc67af5b8c5f17a799bc2af5186dd30ba21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
