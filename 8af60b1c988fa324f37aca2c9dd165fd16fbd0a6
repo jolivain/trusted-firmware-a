@@ -37,6 +37,41 @@
     },
     {
       "key": {
+        "uuid": "5576a655_8b3cda41",
+        "filename": "drivers/console/multi_console.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-25T19:44:50Z",
+      "side": 1,
+      "message": "Sorry, I forgot that every console has it\u0027s own flag. Yes, you\u0027re right, you have to do it the way you did.",
+      "parentUuid": "098e3b5a_fd8087fa",
+      "revId": "8af60b1c988fa324f37aca2c9dd165fd16fbd0a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d81b0dd1_14096394",
+        "filename": "drivers/console/multi_console.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-25T19:44:50Z",
+      "side": 1,
+      "message": "However, maybe this could be cleaner if it was factored out into a helper function? This could be:\n\n for (console \u003d ... ) {\n   if ((c \u003d\u003d \u0027\\n\u0027) \u0026\u0026 (console-\u003eflags \u0026 CONSOLE_FLAG_TRANSLATE_CRLF))\n     putc_helper(\u0027\\r\u0027, console, \u0026err);\n   putc_helper(c, console, \u0026err);\n }\n\n...and then above this...\n\n static void putc_helper(int c, console_t *console, int *err)\n {\n   if (!(console-\u003eflags \u0026 console_state) || !console-\u003eputc)\n     return;\n   int ret \u003d console-\u003eputc(c, console);\n   if ((*err \u003d\u003d ERROR_NO_VALID_CONSOLE) || (ret \u003c *err))\n     *err \u003d ret;\n }",
+      "revId": "8af60b1c988fa324f37aca2c9dd165fd16fbd0a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f74804d_68fd0467",
         "filename": "drivers/console/multi_console.c",
         "patchSetId": 2
@@ -89,6 +124,24 @@
       "side": 1,
       "message": "OK, I will do so.\n(or perhaps, we could save x13 and use it instead of x16)",
       "parentUuid": "7632289b_5b1457d5",
+      "revId": "8af60b1c988fa324f37aca2c9dd165fd16fbd0a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6be6aa6_f4d10386",
+        "filename": "plat/common/aarch64/crash_console_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-25T19:44:50Z",
+      "side": 1,
+      "message": "Then you\u0027ll need to save another register to crash_console_reg_stash. Considering that you only need to load the pointer twice for \u0027\\n\u0027 characters (are comparatively rare occurrence), I don\u0027t think that\u0027s worth it.",
+      "parentUuid": "a771c49c_47a7fcf8",
       "revId": "8af60b1c988fa324f37aca2c9dd165fd16fbd0a6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
