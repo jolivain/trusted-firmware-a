@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "098e3b5a_fd8087fa",
+        "filename": "drivers/console/multi_console.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2019-07-25T03:54:46Z",
+      "side": 1,
+      "message": "Let me clarify your suggestion here:\n\n[1] Drop excessive parentheses from the if-conditional\n[2] Replace console-\u003eputc() with console_putc()\n\nCorrect?\n\n\nAs for [1], I just made it consistent with:\nif ((err \u003d\u003d ERROR_NO_VALID_CONSOLE) || (ret \u003c err))\n\nIIRC, I was told me to add pointlessly excessive\nparentheses to meet the MISRA requirement.\n\n\nAs for [2], would it work correctly?\n\nLet\u0027s assume we have console-a and console-b.\n\nIf console-a has TRANSLATE_CRLF flag,\nit would recurse to console_putc() to\nrequest both of the consoles to emit \u0027\\r\u0027.\n\nIf console-b also has TRANSLATE_CRLF flag,\nit would request both of the consoles to do so again.\n\nAs a result, the consoles would emit \u0027\\r\u0027 more than needed.",
+      "parentUuid": "17cde49f_77c55978",
+      "revId": "8af60b1c988fa324f37aca2c9dd165fd16fbd0a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7632289b_5b1457d5",
         "filename": "plat/common/aarch64/crash_console_helpers.S",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2019-07-25T03:10:30Z",
       "side": 1,
       "message": "Technically x16/x17 may change across any function call according to AAPCS (the linker may use it as veneer scratch register). Some console drivers (e.g. cbmem) make use of this fact to have an extra two scratch registers. So I think you\u0027ll just have to load the function pointer twice here.",
+      "revId": "8af60b1c988fa324f37aca2c9dd165fd16fbd0a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a771c49c_47a7fcf8",
+        "filename": "plat/common/aarch64/crash_console_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2019-07-25T03:54:46Z",
+      "side": 1,
+      "message": "OK, I will do so.\n(or perhaps, we could save x13 and use it instead of x16)",
+      "parentUuid": "7632289b_5b1457d5",
       "revId": "8af60b1c988fa324f37aca2c9dd165fd16fbd0a6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
