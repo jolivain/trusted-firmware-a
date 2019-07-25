@@ -16,6 +16,24 @@
       "revId": "f1db797ae0689c39ff202e477082415720df26d2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9f15743_e69f6172",
+        "filename": "plat/socionext/uniphier/uniphier_console.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2019-07-25T04:14:19Z",
+      "side": 1,
+      "message": "Hmm, I did not that.\n\nPerhaps, just because some people want to make it\nconsistent with putchar()?\n\nI personally prefer 0 on success for low-level API like this\nsince returning the given character back is useless.\n\nOur putchar() implementation accepts console_putc() returning\n0 on success.\n\nint putchar(int c)\n{\n\tint res;\n\tif (console_putc((unsigned char)c) \u003e\u003d 0)\n\t\tres \u003d c;\n\telse\n\t\tres \u003d EOF;\n\n\treturn res;\n}\n\nThat said, I do not insist on this much,\nso I will change it.",
+      "parentUuid": "74e752f0_2614a6e6",
+      "revId": "f1db797ae0689c39ff202e477082415720df26d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
