@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66a0a1c2_52139a3f",
+        "filename": "drivers/console/multi_console.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-26T17:09:55Z",
+      "side": 1,
+      "message": "nit: would prefer the checks other way around as I think it is more efficient that way. The CONSOLE_FLAG_TRANSLATE_CRLF flag needs to be checked only if \\n is encountered.\n\nif ((c \u003d\u003d \u0027\\n\u0027) \u0026\u0026 (console-\u003eflags \u0026 CONSOLE_FLAG_TRANSLATE_CRLF))",
+      "range": {
+        "startLine": 77,
+        "startChar": 5,
+        "endLine": 77,
+        "endChar": 66
+      },
+      "revId": "77cb6c4a92e55497260950ebd76dc38db47d655b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aacf669_26500f11",
+        "filename": "plat/common/aarch64/crash_console_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-07-26T17:09:55Z",
+      "side": 1,
+      "message": "The checks can be reversed as I think checking \\n first is more efficient.",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 10
+      },
+      "revId": "77cb6c4a92e55497260950ebd76dc38db47d655b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
