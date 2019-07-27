@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "65719fdf_ac312267",
+        "filename": "drivers/console/multi_console.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2019-07-27T01:22:03Z",
+      "side": 1,
+      "message": "Good point.\nOK, I will change as your suggestion.\n\nBTW, let me clarify the reason of inner parentheses,\nwhich look redundant at least from C grammar.\nIs this MISRA requirement?",
+      "parentUuid": "66a0a1c2_52139a3f",
+      "range": {
+        "startLine": 77,
+        "startChar": 5,
+        "endLine": 77,
+        "endChar": 66
+      },
+      "revId": "77cb6c4a92e55497260950ebd76dc38db47d655b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1aacf669_26500f11",
         "filename": "plat/common/aarch64/crash_console_helpers.S",
         "patchSetId": 3
