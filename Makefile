@@ -673,6 +673,10 @@ $(eval $(call assert_numeric,ARM_ARCH_MAJOR))
 $(eval $(call assert_numeric,ARM_ARCH_MINOR))
 $(eval $(call assert_numeric,BRANCH_PROTECTION))
 
+ifdef KEY_SIZE
+$(eval $(call assert_numeric,KEY_SIZE))
+endif
+
 ################################################################################
 # Add definitions to the cpp preprocessor based on the current build options.
 # This is done after including the platform specific makefile to allow the
