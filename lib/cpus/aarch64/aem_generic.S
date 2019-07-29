@@ -18,15 +18,33 @@ func aem_generic_core_pwr_dwn
 	msr	sctlr_el3, x1
 	isb
 
-	mov	x0, #DCCISW
+	/* Check if L3 cache is present */
+	mrs	x1, clidr_el1
+	tst	x1, ((1 << CLIDR_FIELD_WIDTH) - 1) << CTYPE_SHIFT(3)
 
 	/* ---------------------------------------------
-	 * Flush L1 cache to PoU.
+	 * Flush L1 cache to L2 only.
 	 * ---------------------------------------------
 	 */
-	b	dcsw_op_louis
-endfunc aem_generic_core_pwr_dwn
+	mov	x0, #DCCISW
+	b.eq	dcsw_op_level1
 
+	mov	x18, x30
+
+	/* ---------------------------------------------
+	 * Flush L1 cache to L2.
+	 * ---------------------------------------------
+	 */
+	bl	dcsw_op_level1
+	mov	x30, x18
+
+	/* ---------------------------------------------
+	 * Flush L2 cache to L3.
+	 * ---------------------------------------------
+	 */
+	mov	x0, #DCCISW
+	b	dcsw_op_level2
+endfunc aem_generic_core_pwr_dwn
 
 func aem_generic_cluster_pwr_dwn
 	/* ---------------------------------------------
@@ -39,7 +57,7 @@ func aem_generic_cluster_pwr_dwn
 	isb
 
 	/* ---------------------------------------------
-	 * Flush L1 and L2 caches to PoC.
+	 * Flush all caches to PoC.
 	 * ---------------------------------------------
 	 */
 	mov	x0, #DCCISW
