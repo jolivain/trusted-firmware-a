@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e3f6c21e_a7edb933",
+        "filename": "include/lib/psci/psci.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-07-30T16:12:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1df3e0dc_05e12734",
+      "revId": "b7841eeeea4d3280a85e85a2ee7175692ad54e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9f475df2_a6d08b34",
         "filename": "lib/psci/psci_on.c",
         "patchSetId": 12
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "7b704771_fcedee7f",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-07-30T16:12:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f475df2_a6d08b34",
+      "revId": "b7841eeeea4d3280a85e85a2ee7175692ad54e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a121544_51023143",
         "filename": "plat/arm/common/arm_gicv3.c",
         "patchSetId": 12
@@ -47,6 +83,24 @@
       "writtenOn": "2019-07-30T09:36:02Z",
       "side": 1,
       "message": "remove \u003d -1;",
+      "revId": "b7841eeeea4d3280a85e85a2ee7175692ad54e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dcf1a33_9f9022ff",
+        "filename": "plat/arm/common/arm_gicv3.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-07-30T16:12:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a121544_51023143",
       "revId": "b7841eeeea4d3280a85e85a2ee7175692ad54e86",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
