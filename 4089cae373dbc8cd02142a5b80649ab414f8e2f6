@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "7d69eea4_f74e9f0d",
+        "filename": "drivers/console/multi_console.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2019-07-30T02:54:55Z",
+      "side": 1,
+      "message": "__console_putc() is locally used in this file.\n\nI will add \u0027static\u0027 in the next version.",
+      "revId": "4089cae373dbc8cd02142a5b80649ab414f8e2f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0d376daf_01b48b9d",
         "filename": "drivers/console/multi_console.c",
         "patchSetId": 4
