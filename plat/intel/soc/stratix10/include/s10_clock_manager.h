@@ -50,10 +50,10 @@
 #define ALT_CLKMGR_MAINPLL_VCOCALIB_HSCNT_SET(x) (((x) << 0) & 0x000000ff)
 #define ALT_CLKMGR_MAINPLL_VCOCALIB_MSCNT_SET(x) (((x) << 9) & 0x0001fe00)
 
-#define ALT_CLKMGR_MAINPLL_PLLGLOB_PSRC(x)	(((x) & 0x00030000) >> 16)
-#define ALT_CLKMGR_MAINPLL_PLLGLOB_PSRC_EOSC1	0x0
-#define ALT_CLKMGR_MAINPLL_PLLGLOB_PSRC_INTOSC	0x1
-#define ALT_CLKMGR_MAINPLL_PLLGLOB_PSRC_F2S	0x2
+#define ALT_CLKMGR_PLLGLOB_PSRC(x)		(((x) & 0x00030000) >> 16)
+#define ALT_CLKMGR_PLLGLOB_PSRC_EOSC1		0x0
+#define ALT_CLKMGR_PLLGLOB_PSRC_INTOSC		0x1
+#define ALT_CLKMGR_PLLGLOB_PSRC_F2S		0x2
 
 #define ALT_CLKMGR_PERPLL			0xffd100a4
 #define ALT_CLKMGR_PERPLL_EN			0x0
@@ -91,6 +91,8 @@ typedef struct {
 } CLOCK_SOURCE_CONFIG;
 
 void config_clkmgr_handoff(handoff *hoff_ptr);
-int get_wdt_clk(handoff *hoff_ptr);
+int get_wdt_clk(void);
+int get_uart_clk(void);
+int get_mmc_clk(void);
 
 #endif
