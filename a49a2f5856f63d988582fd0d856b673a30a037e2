@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3abd73cd_5ba8abde",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-30T01:23:16Z",
+      "side": 1,
+      "message": "Will fix.",
+      "parentUuid": "15cd4278_8946bfe1",
+      "revId": "a49a2f5856f63d988582fd0d856b673a30a037e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "332b169f_50005d8b",
         "filename": "bl2/bl2_main.c",
         "patchSetId": 8
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "2cc3d719_e1d19e8f",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-30T01:23:16Z",
+      "side": 1,
+      "message": "Sorry, will fix these.",
+      "parentUuid": "332b169f_50005d8b",
+      "revId": "a49a2f5856f63d988582fd0d856b673a30a037e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "38a4b78a_de9f695e",
         "filename": "bl2u/bl2u_main.c",
         "patchSetId": 8
@@ -47,6 +83,24 @@
       "writtenOn": "2019-07-29T12:17:30Z",
       "side": 1,
       "message": "2019",
+      "revId": "a49a2f5856f63d988582fd0d856b673a30a037e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa90d438_369f0400",
+        "filename": "bl2u/bl2u_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-30T01:23:16Z",
+      "side": 1,
+      "message": "Do you really want me to update copyright for every file I ran sed over? That feels wrong somehow... (let alone being pretty annoying... is there a reason this is enforced so strictly in TF, whereas in most projects (e.g. Linux) copyright lines are just optionally updated with larger changes?)\n\nBut I can do it if necessary, just wanted to double-check.",
+      "parentUuid": "38a4b78a_de9f695e",
       "revId": "a49a2f5856f63d988582fd0d856b673a30a037e2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
