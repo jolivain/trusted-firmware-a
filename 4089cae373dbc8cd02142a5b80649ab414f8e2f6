@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d376daf_01b48b9d",
+        "filename": "drivers/console/multi_console.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-07-30T02:33:05Z",
+      "side": 1,
+      "message": "nit: could also just be console-\u003eputc() directly here?",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "4089cae373dbc8cd02142a5b80649ab414f8e2f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
