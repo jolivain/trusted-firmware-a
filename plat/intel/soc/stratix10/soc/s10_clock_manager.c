@@ -14,15 +14,8 @@
 
 #include "s10_clock_manager.h"
 #include "s10_handoff.h"
+#include "s10_system_manager.h"
 
-static const CLOCK_SOURCE_CONFIG  clk_source = {
-	/* clk_freq_of_eosc1 */
-	(uint32_t) 25000000,
-	/* clk_freq_of_f2h_free */
-	(uint32_t) 460000000,
-	/* clk_freq_of_cb_intosc_ls */
-	(uint32_t) 50000000,
-};
 
 void wait_pll_lock(void)
 {
@@ -196,24 +189,31 @@ void config_clkmgr_handoff(handoff *hoff_ptr)
 	mmio_write_32(ALT_CLKMGR + ALT_CLKMGR_INTRCLR,
 			ALT_CLKMGR_INTRCLR_MAINLOCKLOST_SET_MSK |
 			ALT_CLKMGR_INTRCLR_PERLOCKLOST_SET_MSK);
+
+	/* Pass clock source frequency into scratch register */
+	mmio_write_32(S10_SYSMGR_CORE(SYSMGR_BOOT_SCRATCH_COLD_1),
+			hoff_ptr->hps_osc_clk_h);
+	mmio_write_32(S10_SYSMGR_CORE(SYSMGR_BOOT_SCRATCH_COLD_2),
+			hoff_ptr->fpga_clk_hz);
+
 }
 
-int get_wdt_clk(handoff *hoff_ptr)
+int get_ref_clk(int pllglob)
 {
-	int main_noc_base_clk, l3_main_free_clk, l4_sys_free_clk;
 	int data32, mdiv, refclkdiv, ref_clk;
+	uint32_t scr_reg;
 
-	data32 = mmio_read_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_PLLGLOB);
-
-	switch (ALT_CLKMGR_MAINPLL_PLLGLOB_PSRC(data32)) {
-	case ALT_CLKMGR_MAINPLL_PLLGLOB_PSRC_EOSC1:
-		ref_clk = clk_source.clk_freq_of_eosc1;
+	switch (ALT_CLKMGR_PLLGLOB_PSRC(pllglob)) {
+	case ALT_CLKMGR_PLLGLOB_PSRC_EOSC1:
+		scr_reg = S10_SYSMGR_CORE(SYSMGR_BOOT_SCRATCH_COLD_1);
+		ref_clk = mmio_read_32(scr_reg);
 		break;
-	case ALT_CLKMGR_MAINPLL_PLLGLOB_PSRC_INTOSC:
-		ref_clk = clk_source.clk_freq_of_cb_intosc_ls;
+	case ALT_CLKMGR_PLLGLOB_PSRC_INTOSC:
+		ref_clk = ALT_CLKMGR_INTOSC_HZ;
 		break;
-	case ALT_CLKMGR_MAINPLL_PLLGLOB_PSRC_F2S:
-		ref_clk = clk_source.clk_freq_of_f2h_free;
+	case ALT_CLKMGR_PLLGLOB_PSRC_F2S:
+		scr_reg = S10_SYSMGR_CORE(SYSMGR_BOOT_SCRATCH_COLD_2);
+		ref_clk = mmio_read_32(scr_reg);
 		break;
 	default:
 		ref_clk = 0;
@@ -221,14 +221,70 @@ int get_wdt_clk(handoff *hoff_ptr)
 		break;
 	}
 
-	refclkdiv = ALT_CLKMGR_MAINPLL_PLLGLOB_REFCLKDIV(data32);
+	refclkdiv = ALT_CLKMGR_MAINPLL_PLLGLOB_REFCLKDIV(pllglob);
 	data32 = mmio_read_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_FDBCK);
 	mdiv = ALT_CLKMGR_MAINPLL_FDBCK_MDIV(data32);
+
 	ref_clk = (ref_clk / refclkdiv) * (6 + mdiv);
 
-	main_noc_base_clk = ref_clk / (hoff_ptr->main_pll_pllc1 & 0xff);
-	l3_main_free_clk = main_noc_base_clk / (hoff_ptr->main_pll_nocclk + 1);
-	l4_sys_free_clk = l3_main_free_clk / 4;
+	return ref_clk;
+}
 
-	return l4_sys_free_clk;
+int get_l3_main_clk(int ref_clk)
+{
+	int main_noc_base_clk, l3_main_clk, data32;
+
+	data32 = mmio_read_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_PLLC1);
+	main_noc_base_clk = ref_clk / (data32 & 0xff);
+
+	data32 = mmio_read_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_NOCCLK);
+	l3_main_clk = main_noc_base_clk / (data32 + 1);
+
+	return l3_main_clk;
+}
+
+int get_wdt_clk(void)
+{
+	int data32, ref_clk, l3_main_clk, l4_sys_clk;
+
+	data32 = mmio_read_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_PLLGLOB);
+	ref_clk = get_ref_clk(data32);
+
+	l3_main_clk = get_l3_main_clk(ref_clk);
+
+	l4_sys_clk = l3_main_clk / 4;
+
+	return l4_sys_clk;
+}
+
+int get_uart_clk(void)
+{
+	int data32, ref_clk, l3_main_clk, l4_sp_clk;
+
+	data32 = mmio_read_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_PLLGLOB);
+	ref_clk = get_ref_clk(data32);
+
+	l3_main_clk = get_l3_main_clk(ref_clk);
+
+	data32 = mmio_read_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_NOCDIV);
+	data32 = (1 << (data32 >> 16));
+
+	l4_sp_clk = (l3_main_clk / data32);
+
+	return l4_sp_clk;
+}
+
+int get_mmc_clk(void)
+{
+	int data32, ref_clk, l3_main_clk, mmc_clk;
+
+	data32 = mmio_read_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_PLLGLOB);
+	ref_clk = get_ref_clk(data32);
+
+	l3_main_clk = get_l3_main_clk(ref_clk);
+
+	data32 = mmio_read_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_CNTR6CLK);
+	mmc_clk = (l3_main_clk / (data32 + 1)) / 4;
+
+	return mmc_clk;
 }
