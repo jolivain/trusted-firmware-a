@@ -22,6 +22,30 @@
       "revId": "92933db993d748aec914339f55f6eae60b355e76",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60c040aa_db360e34",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2019-07-31T15:32:19Z",
+      "side": 1,
+      "message": "Difficult for me to say; it\u0027s probably worth deferring that question to whoever the current maintainer for the SGx platforms is. I should probably reword this commit, as it would be more accurate to say \"the Arm SCP firmware does not support SCPI on SGM platforms\".",
+      "parentUuid": "332ecf23_7a4496c1",
+      "range": {
+        "startLine": 9,
+        "startChar": 21,
+        "endLine": 9,
+        "endChar": 58
+      },
+      "revId": "92933db993d748aec914339f55f6eae60b355e76",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
