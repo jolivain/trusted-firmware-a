@@ -5,9 +5,9 @@
 #
 
 PLAT_INCLUDES		:=	\
-			-Iplat/intel/soc/stratix10/			\
 			-Iplat/intel/soc/stratix10/include/		\
-			-Iplat/intel/soc/common/drivers/
+			-Iplat/intel/soc/common/drivers/		\
+			-Iplat/intel/soc/common/include/		\
 
 PLAT_BL_COMMON_SOURCES	:=	\
 			lib/xlat_tables/xlat_tables_common.c 		\
@@ -19,8 +19,8 @@ PLAT_BL_COMMON_SOURCES	:=	\
 			drivers/delay_timer/delay_timer.c		\
 			drivers/delay_timer/generic_delay_timer.c  	\
 			drivers/ti/uart/aarch64/16550_console.S		\
-			plat/intel/soc/stratix10/aarch64/platform_common.c \
-			plat/intel/soc/stratix10/aarch64/plat_helpers.S \
+			plat/intel/soc/common/aarch64/platform_common.c \
+			plat/intel/soc/common/aarch64/plat_helpers.S \
 
 BL2_SOURCES     +=	\
 		drivers/partition/partition.c				\
