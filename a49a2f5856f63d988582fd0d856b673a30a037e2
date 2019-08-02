@@ -234,6 +234,24 @@
     },
     {
       "key": {
+        "uuid": "c84b326b_96822d41",
+        "filename": "drivers/arm/gic/v3/gicv3_private.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-02T08:39:28Z",
+      "side": 1,
+      "message": "It depends on the screen size... It would be more readable for other people when the comment is added if there\u0027s more than 1-2 lines between #if/else/endif. It\u0027s up to you to add these comments or not.",
+      "parentUuid": "861cc244_2810c3ae",
+      "revId": "a49a2f5856f63d988582fd0d856b673a30a037e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "647b70e4_12395470",
         "filename": "include/lib/el3_runtime/context_mgmt.h",
         "patchSetId": 8
