@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6b0719c_39d58446",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-02T10:26:20Z",
+      "side": 1,
+      "message": "please revert the order of statements and use __aarch64__",
+      "revId": "c00a6f873b1eab12b59a13bb85a54fc8bff97602",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b67c474_4d6a9e19",
+        "filename": "plat/arm/board/fvp/fvp_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-02T10:26:20Z",
+      "side": 1,
+      "message": "use __aarch64__",
+      "revId": "c00a6f873b1eab12b59a13bb85a54fc8bff97602",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a62224c_4cfe0786",
+        "filename": "plat/arm/common/arm_gicv3.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-02T10:26:20Z",
+      "side": 1,
+      "message": "please change AARCH32 to __arm__",
+      "revId": "c00a6f873b1eab12b59a13bb85a54fc8bff97602",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
