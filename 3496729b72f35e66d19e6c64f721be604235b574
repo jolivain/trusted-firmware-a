@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "95d8c85f_0e320c64",
+        "filename": "include/drivers/rpi3/rng/rpi3_rng.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-08-03T00:25:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "137624d3_64e95e31",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "3496729b72f35e66d19e6c64f721be604235b574",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0fb14c1f_f92ab1b9",
         "filename": "plat/rpi/rpi3/platform.mk",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "797ec2cd_95caaa87",
+        "filename": "plat/rpi/rpi3/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-08-03T00:25:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fb14c1f_f92ab1b9",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "3496729b72f35e66d19e6c64f721be604235b574",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77d7b437_ef05cca4",
         "filename": "plat/rpi/rpi3/rpi3_private.h",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "3496729b72f35e66d19e6c64f721be604235b574",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40475524_124ad820",
+        "filename": "plat/rpi/rpi3/rpi3_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-08-03T00:25:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77d7b437_ef05cca4",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "3496729b72f35e66d19e6c64f721be604235b574",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
