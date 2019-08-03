@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "518f3eca_53b228ce",
+        "filename": "plat/rpi/common/include/rpi_shared.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-08-03T00:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59d91787_3a27db4c",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "2fd8a77c01d2e49ab69b7e4090b1d9931c4724f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d92076a8_bee2b352",
         "filename": "plat/rpi/common/include/rpi_shared.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-07-24T13:28:20Z",
       "side": 1,
       "message": "As you are moving this to a common folder, would it make sense to rename the functions to \"rpi_xxx\" (like: rpi_console_init() ) ?",
+      "range": {
+        "startLine": 17,
+        "startChar": 5,
+        "endLine": 17,
+        "endChar": 22
+      },
+      "revId": "2fd8a77c01d2e49ab69b7e4090b1d9931c4724f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97dd32a6_1141f547",
+        "filename": "plat/rpi/common/include/rpi_shared.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-08-03T00:29:31Z",
+      "side": 1,
+      "message": "Well, I thought about this, but wanted to keep the churn minimal. So I kept existing names when possible. This also helps to tell people that those functions have not changed, so there might be (yet unknown) incompatibilities.",
+      "parentUuid": "d92076a8_bee2b352",
       "range": {
         "startLine": 17,
         "startChar": 5,
