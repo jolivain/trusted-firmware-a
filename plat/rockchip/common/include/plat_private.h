@@ -140,6 +140,7 @@ extern const mmap_region_t plat_rk_mmap[];
 
 uint32_t rockchip_get_uart_base(void);
 uint32_t rockchip_get_uart_baudrate(void);
+void rockchip_set_uart(uint32_t base, uint32_t baudrate);
 
 #endif /* __ASSEMBLY__ */
 
