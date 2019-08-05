@@ -13,3 +13,6 @@ SPD_SOURCES		:=	services/spd/opteed/opteed_common.c	\
 				services/spd/opteed/opteed_pm.c
 
 NEED_BL32		:=	yes
+
+# required so that optee code can control access to the timer registers
+NS_TIMER_SWITCH		:=	1
