@@ -39,6 +39,12 @@ uint32_t rockchip_get_uart_baudrate(void)
 	return rk_uart_baudrate;
 }
 
+void rockchip_set_uart(uint32_t base, uint32_t baudrate)
+{
+	rk_uart_base = base;
+	rk_uart_baudrate = baudrate;
+}
+
 #if COREBOOT
 static int dt_process_fdt(u_register_t param_from_bl2)
 {
