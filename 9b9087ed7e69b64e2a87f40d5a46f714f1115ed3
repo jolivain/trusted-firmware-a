@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15e767b6_e85c302d",
+        "filename": "lib/cpus/aarch64/aem_generic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-08-05T12:49:10Z",
+      "side": 1,
+      "message": "Because enabling L3 on AEM is a niche chase, we can assume that each CPU only has L1 cache associated with it. That keeps this sequence simple.\n\n#if ENABLE_ASSERTIONS\n\t/* Check if L3 cache is present */\n\tmrs\tx1, clidr_el1\n\ttst\tx1, ((1 \u003c\u003c CLIDR_FIELD_WIDTH) - 1) \u003c\u003c CTYPE_SHIFT(3)\n        ASM_ASSERT(ne)\n#endif\n\n\tmov\tx0, #DCCISW\n\tb\tdcsw_op_level1",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 17
+      },
+      "revId": "9b9087ed7e69b64e2a87f40d5a46f714f1115ed3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
