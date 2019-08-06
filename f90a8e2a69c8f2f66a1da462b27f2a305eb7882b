@@ -16,6 +16,24 @@
       "revId": "f90a8e2a69c8f2f66a1da462b27f2a305eb7882b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0001b605_c149a24e",
+        "filename": "plat/rockchip/rk3399/drivers/pmu/pmu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-08-06T08:21:58Z",
+      "side": 1,
+      "message": "The underlying static variable gets initialized to\n    rk_uart_base \u003d PLAT_RK_UART_BASE;\nin params_setup.c . So defaults to uart2 on rk3399 for example and any overrides would just set a different address offset.\n\nSo while we could check for \"0\", it being 0 really should not happen at all.",
+      "parentUuid": "bcd62815_629a1267",
+      "revId": "f90a8e2a69c8f2f66a1da462b27f2a305eb7882b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
