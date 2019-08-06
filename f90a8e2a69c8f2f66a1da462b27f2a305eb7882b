@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcd62815_629a1267",
+        "filename": "plat/rockchip/rk3399/drivers/pmu/pmu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-08-06T00:18:47Z",
+      "side": 1,
+      "message": "This needs to check for NULL for platforms that were booted with no UART configured.",
+      "revId": "f90a8e2a69c8f2f66a1da462b27f2a305eb7882b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
