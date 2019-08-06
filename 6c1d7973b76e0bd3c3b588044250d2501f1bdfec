@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1198576_d1aeb700",
+        "filename": "docs/plat/qemu_sbsa.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-08-06T15:17:19Z",
+      "side": 1,
+      "message": "The project is now called \"Trusted Firmware-A\", which you may abbreviate as \"TF-A\".",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "6c1d7973b76e0bd3c3b588044250d2501f1bdfec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99a32aae_3593ff97",
+        "filename": "docs/plat/qemu_sbsa.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-08-06T15:17:19Z",
+      "side": 1,
+      "message": "This will work of course but we only keep a read-only mirror of TF-A on Github. The official repository is at https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git so it would be better to change this line into:\n\n git clone https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git tfa",
+      "range": {
+        "startLine": 28,
+        "startChar": 14,
+        "endLine": 28,
+        "endChar": 70
+      },
+      "revId": "6c1d7973b76e0bd3c3b588044250d2501f1bdfec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9b3233c_cc0f21df",
+        "filename": "docs/plat/qemu_sbsa.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-08-06T15:17:19Z",
+      "side": 1,
+      "message": "If I am not mistaken, this should be build/qemu_sbsa/release",
+      "range": {
+        "startLine": 33,
+        "startChar": 25,
+        "endLine": 33,
+        "endChar": 43
+      },
+      "revId": "6c1d7973b76e0bd3c3b588044250d2501f1bdfec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a814d8ec_7f90b20d",
+        "filename": "docs/plat/qemu_sbsa.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-08-06T15:17:19Z",
+      "side": 1,
+      "message": "I can\u0027t actually find this file in repo https://github.com/tianocore/edk2-platforms.git, is it expected? Will it be added to the EDK2 repo in the future (which is what you might have meant in the commit message: \"planed changes in edk2-platform repo\")?",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 32
+      },
+      "revId": "6c1d7973b76e0bd3c3b588044250d2501f1bdfec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
