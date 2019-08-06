@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "ec46e314_24f3225e",
+        "filename": "plat/rpi/common/include/rpi_shared.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-08-06T09:56:23Z",
+      "side": 1,
+      "message": "ok this is a good point. I guess the renaming can happen when we are confident that no unknowns incompatibilities are present.",
+      "parentUuid": "97dd32a6_1141f547",
+      "range": {
+        "startLine": 17,
+        "startChar": 5,
+        "endLine": 17,
+        "endChar": 22
+      },
+      "revId": "2fd8a77c01d2e49ab69b7e4090b1d9931c4724f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60b1d118_f6bf0198",
         "filename": "plat/rpi/common/rpi3_common.c",
         "patchSetId": 1
