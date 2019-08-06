@@ -89,6 +89,47 @@
     },
     {
       "key": {
+        "uuid": "bf694114_1b99a942",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-06T13:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e21f163a_038f2dbe",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 25
+      },
+      "revId": "2477292e25ca412d9ed3dfc5412e2b2cfc12e4f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d2af085_185c2183",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-06T13:59:04Z",
+      "side": 1,
+      "message": "This code below replaces branch to original \"function\" restore_gp_registers_eret with the same functionality.\nrestore_gp_registers_eret is defined as \"func\", but it is only referenced and used as a branch label in this file.\nBecause in this patch a single function restore_gp_pauth_registers() now implements pauth_context_restore() + restore_gp_registers(), there is no any point of adding a new restore_gp_pauth_registers_eret() \"function\" which will be used in just one branch instruction.",
+      "revId": "2477292e25ca412d9ed3dfc5412e2b2cfc12e4f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08cf5857_420d87f4",
         "filename": "services/spd/tspd/tspd_pm.c",
         "patchSetId": 5
