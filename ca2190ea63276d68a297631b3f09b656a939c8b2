@@ -57,6 +57,30 @@
       "revId": "ca2190ea63276d68a297631b3f09b656a939c8b2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bbc6407_61275501",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000194
+      },
+      "writtenOn": "2019-08-06T10:18:40Z",
+      "side": 1,
+      "message": "I\u0027ve catered for that case now - however, I haven\u0027t used the exact implementation you\u0027ve given but it should be functionally equivalent.",
+      "parentUuid": "191b5bc3_392fc055",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 25
+      },
+      "revId": "ca2190ea63276d68a297631b3f09b656a939c8b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
