@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "464cc0d5_b313246c",
+        "filename": "bl31/bl31_context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-06T12:45:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1edb701_9e7d9012",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 25
+      },
+      "revId": "2477292e25ca412d9ed3dfc5412e2b2cfc12e4f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66962ba5_eb844d14",
         "filename": "include/lib/el3_runtime/cpu_data.h",
         "patchSetId": 5
@@ -76,6 +100,30 @@
       "writtenOn": "2019-08-05T16:45:30Z",
       "side": 1,
       "message": "Do this in psci_arch_setup().",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 25
+      },
+      "revId": "2477292e25ca412d9ed3dfc5412e2b2cfc12e4f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b88a7438_0ae9f7a7",
+        "filename": "services/spd/tspd/tspd_pm.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-06T12:45:18Z",
+      "side": 1,
+      "message": "Doing this causes exception, because in that case key won\u0027t be stored for SUSPEND FINISH event.\nThe key is re-initilised on every psci_warmboot_entrypoint() which is called in CPU ON and SUSPEND FINISH.\nFor secondary CPUs psci_arch_setup() is called only from psci_cpu_on_finish() but not from psci_cpu_suspend_finish().\nI can place this code in psci_cpu_suspend_finish(), which is more correct because tspd_cpu_suspend_finish_handler() is called only when \n(psci_spd_pm !\u003d NULL) \u0026\u0026 (psci_spd_pm-\u003esvc_suspend_finish !\u003d NULL)",
+      "parentUuid": "08cf5857_420d87f4",
       "range": {
         "startLine": 166,
         "startChar": 0,
