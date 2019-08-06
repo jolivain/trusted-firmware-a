@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54c38d6d_626b5a37",
+        "filename": "plat/mediatek/common/params_setup.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-08-06T23:40:13Z",
+      "side": 1,
+      "message": "nit: This could probably be merged into plat_params.h?",
+      "revId": "d9b6b93af73f1e3d9d84f561754fbd25a25991b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca408f44_3b4258a2",
+        "filename": "plat/mediatek/common/plat_params.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-08-06T23:40:13Z",
+      "side": 1,
+      "message": "This needs to be split into an export header and a wrapper header for that, so that you can #include the constant from coreboot. See plat/rockchip/common/include/plat_params.h and include/export/plat/rockchip/common/plat_params_exp.h for comparison.",
+      "revId": "d9b6b93af73f1e3d9d84f561754fbd25a25991b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
