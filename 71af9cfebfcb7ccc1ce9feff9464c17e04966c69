@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20f2a67c_7d8975ec",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 2588,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-08-06T12:39:54Z",
+      "side": 1,
+      "message": "Given that it says \"enabled for both worlds\", I guess you mean, EL0 and S-EL0 here? If so, I think it\u0027s worth making it explicit to avoid any confusion.",
+      "range": {
+        "startLine": 2588,
+        "startChar": 30,
+        "endLine": 2588,
+        "endChar": 33
+      },
+      "revId": "71af9cfebfcb7ccc1ce9feff9464c17e04966c69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
