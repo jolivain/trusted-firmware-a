@@ -34,6 +34,24 @@
       "revId": "baab9e249df4904c8c4eecfdf78b092f0743c54b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcc9fb59_b57276ca",
+        "filename": "plat/rockchip/common/bl31_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-08-06T21:34:08Z",
+      "side": 1,
+      "message": "Yes, that\u0027s what I mean. You should change the code here to just do\n\n if (rockchip_get_uart_base() !\u003d 0)\n   console_16550_register(rockchip_get_uart_base(), PLAT_RK_UART_CLOCK, rockchip_get_uart_baudrate(), \u0026console);\n\nwithout any #if. And then you change those functions to\n\n uint32_t rockchip_get_uart_base(void)\n {\n #if COREBOOT\n   return coreboot_serial.baseaddr;\n #else\n   return rk_uart_base;\n #endif\n }\n\n(same for baudrate).",
+      "parentUuid": "2c5c9756_e38c2e77",
+      "revId": "baab9e249df4904c8c4eecfdf78b092f0743c54b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
