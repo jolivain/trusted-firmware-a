@@ -16,6 +16,24 @@
       "revId": "baab9e249df4904c8c4eecfdf78b092f0743c54b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c5c9756_e38c2e77",
+        "filename": "plat/rockchip/common/bl31_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2019-08-06T08:31:59Z",
+      "side": 1,
+      "message": "coreboot_serial gets defined in coreboot_table.c, which only gets compiled with COREBOOT defined and always compiling the coreboot-lib would break aarch32\n\nWith the above and your comment about coreboot_serial being always enabled, we could update rockchip_get_uart_base though to also do an \"#if COREBOOT\" there and try to return the coreboot serial in that case.",
+      "parentUuid": "1d9b3daf_47cc0e8c",
+      "revId": "baab9e249df4904c8c4eecfdf78b092f0743c54b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
