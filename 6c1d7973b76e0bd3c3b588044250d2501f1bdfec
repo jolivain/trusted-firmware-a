@@ -187,6 +187,70 @@
       "revId": "6c1d7973b76e0bd3c3b588044250d2501f1bdfec",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6434cc0c_25d4307d",
+        "filename": "docs/plat/qemu_sbsa.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-08-06T15:51:30Z",
+      "side": 1,
+      "message": "I suppose it depends on when the EDK2 changes will land. If they\u0027re coming soon then I suppose there\u0027s no need to add a remark here but it\u0027s up to you.",
+      "parentUuid": "81b251ff_28694bc9",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 32
+      },
+      "revId": "6c1d7973b76e0bd3c3b588044250d2501f1bdfec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5073d26e_b62a11fa",
+        "filename": "plat/qemu/qemu_sbsa/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-08-06T15:51:30Z",
+      "side": 1,
+      "message": "Based on the build options in this makefile, we\u0027re looking into adding the required support in the CI.\n\nSo far, I\u0027ve listed the following build command lines, can you please confirm whether all of them make sense and are supposed to build? Did I miss any?\n\n \n make \\\n CROSS_COMPILE\u003daarch64-linux-gnu- \\\n PLAT\u003dqemu_sbsa \\\n all\n\n make \\\n CROSS_COMPILE\u003daarch64-linux-gnu- \\\n PLAT\u003dqemu_sbsa \\\n QEMU_USE_GIC_DRIVER\u003dQEMU_GICV2 \\\n all\n\n make \\\n CROSS_COMPILE\u003daarch64-linux-gnu- \\\n PLAT\u003dqemu_sbsa \\\n SPD\u003dopteed \\\n all\n\n make \\\n CROSS_COMPILE\u003daarch64-linux-gnu- \\\n ENABLE_STACK_PROTECTOR\u003dstrong \\\n PLAT\u003dqemu_sbsa \\\n all\n\n make \\\n ARM_XLAT_TABLES_LIB_V1\u003d1 \\\n CROSS_COMPILE\u003daarch64-linux-gnu- \\\n PLAT\u003dqemu_sbsa \\\n all",
+      "revId": "6c1d7973b76e0bd3c3b588044250d2501f1bdfec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe259977_75738c81",
+        "filename": "plat/qemu/qemu_sbsa/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-08-06T15:51:30Z",
+      "side": 1,
+      "message": "Could you please provide instructions to build QEMU SBSA platform with TBBR support enabled? This is essential to add the required build tests in the CI.\n\nI tried the following:\n\n MBEDTLS_DIR\u003d~/mbedtls make ARM_ROTPK_LOCATION\u003ddevel_rsa CROSS_COMPILE\u003daarch64-linux-gnu- GENERATE_COT\u003d1 PLAT\u003dqemu_sbsa ROT_KEY\u003dplat/arm/board/common/rotpk/arm_rotprivk_rsa.pem TRUSTED_BOARD_BOOT\u003d1 all\n\nbut it looks like BL2 gets too big to fit in memory:\n\n    LD      build/qemu_sbsa/release/bl2/bl2.elf\n aarch64-linux-gnu-ld.bfd: build/qemu_sbsa/release/bl2/bl2.elf section `xlat_table\u0027 will not fit in region `RAM\u0027\n aarch64-linux-gnu-ld.bfd: BL2 image has exceeded its limit.\n aarch64-linux-gnu-ld.bfd: region `RAM\u0027 overflowed by 4096 bytes\n Makefile:788: recipe for target \u0027build/qemu_sbsa/release/bl2/bl2.elf\u0027 failed",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 31
+      },
+      "revId": "6c1d7973b76e0bd3c3b588044250d2501f1bdfec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
