@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7466ddd_c9ccb9e9",
+        "filename": "plat/nvidia/tegra/common/drivers/spe/shared_console.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-07T08:48:45Z",
+      "side": 1,
+      "message": "if x3\u003d\u003d0, then 0 won\u0027t be returned on this error, as stated: \"Out: return 1 on success, 0 on error\"",
+      "revId": "6225190a0ecfe275d22b66614fed9944f1b46c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
