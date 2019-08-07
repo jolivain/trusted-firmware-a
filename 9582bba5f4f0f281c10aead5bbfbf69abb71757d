@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "631ce26e_f881725a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-08-07T09:41:26Z",
+      "side": 1,
+      "message": "FYI, the \u0027D\u0027 actually stands for \"Dispatcher\" ;)",
+      "range": {
+        "startLine": 20,
+        "startChar": 31,
+        "endLine": 20,
+        "endChar": 37
+      },
+      "revId": "9582bba5f4f0f281c10aead5bbfbf69abb71757d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5683400_284c7a99",
+        "filename": "plat/qemu/common/qemu_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-08-07T09:41:26Z",
+      "side": 1,
+      "message": "This could be declared as static?",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 51
+      },
+      "revId": "9582bba5f4f0f281c10aead5bbfbf69abb71757d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63d2963f_825919c7",
+        "filename": "plat/qemu/common/qemu_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-08-07T09:41:26Z",
+      "side": 1,
+      "message": "This could be declared as static?",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 71
+      },
+      "revId": "9582bba5f4f0f281c10aead5bbfbf69abb71757d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
