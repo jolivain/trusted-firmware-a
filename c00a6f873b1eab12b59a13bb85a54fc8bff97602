@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "82942732_e944c128",
+        "filename": "include/lib/psci/psci.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-08-08T20:03:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d8eadd3_3aec5c47",
+      "revId": "c00a6f873b1eab12b59a13bb85a54fc8bff97602",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8a34071_6be3309c",
         "filename": "lib/psci/psci_on.c",
         "patchSetId": 14
@@ -47,6 +65,24 @@
       "writtenOn": "2019-08-05T11:57:11Z",
       "side": 1,
       "message": "I think this hook is only required in case #if !(HW_ASSISTED_COHERENCY || WARMBOOT_ENABLE_DCACHE_EARLY)\n\n\nThis should be an optional hook i.e \n\nif (psci_plat_pm_ops-\u003epwr_domain_on_finish_coherent)\n psci_plat_pm_ops-\u003epwr_domain_on_finish_coherent(state_info);\n\nnit: correct for multi line comment format.",
+      "revId": "c00a6f873b1eab12b59a13bb85a54fc8bff97602",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeeb825d_02ea1d74",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-08-08T20:03:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8a34071_6be3309c",
       "revId": "c00a6f873b1eab12b59a13bb85a54fc8bff97602",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "84dcd17c_a2f45a35",
+        "filename": "plat/arm/board/fvp/fvp_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-08-08T20:03:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b67c474_4d6a9e19",
+      "revId": "c00a6f873b1eab12b59a13bb85a54fc8bff97602",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "860b9f52_506d8583",
         "filename": "plat/arm/board/fvp/fvp_pm.c",
         "patchSetId": 14
@@ -81,6 +135,30 @@
       "writtenOn": "2019-08-05T11:57:11Z",
       "side": 1,
       "message": "This assert should also be in the gicv3_probe()",
+      "range": {
+        "startLine": 260,
+        "startChar": 1,
+        "endLine": 260,
+        "endChar": 43
+      },
+      "revId": "c00a6f873b1eab12b59a13bb85a54fc8bff97602",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e97d847_75629fc1",
+        "filename": "plat/arm/board/fvp/fvp_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-08-08T20:03:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "860b9f52_506d8583",
       "range": {
         "startLine": 260,
         "startChar": 1,
@@ -122,6 +200,24 @@
       "side": 1,
       "message": "it is better to just stick to checking for one compiler define. So in this case !defined(__aarch64__)",
       "parentUuid": "1a62224c_4cfe0786",
+      "revId": "c00a6f873b1eab12b59a13bb85a54fc8bff97602",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "937db38e_d556635c",
+        "filename": "plat/arm/common/arm_gicv3.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-08-08T20:03:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0e1b4c9_da1480a9",
       "revId": "c00a6f873b1eab12b59a13bb85a54fc8bff97602",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
