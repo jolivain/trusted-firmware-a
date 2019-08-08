@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ce1b4ef6_fab39eed",
+        "filename": "drivers/console/multi_console.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-08-08T02:57:16Z",
+      "side": 1,
+      "message": "do_putc()? putc_helper()?",
+      "parentUuid": "6eb3737b_928b90d9",
+      "range": {
+        "startLine": 73,
+        "startChar": 11,
+        "endLine": 73,
+        "endChar": 25
+      },
+      "revId": "0eb2ba4c8dd93fe928cde148bc4c68ea570f335f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65583d3e_9c515e3d",
         "filename": "drivers/console/multi_console.c",
         "patchSetId": 6
@@ -129,6 +153,30 @@
       "writtenOn": "2019-08-07T13:09:31Z",
       "side": 1,
       "message": "This violates MISRA C-2012 Rule 12.2. In MISRA\u0027s essential types model, the essential type of U(1) is \"essentially unsigned char\" so Coverity complains about this literal being shifted by more than its width:\n\n In expression \"1U \u003c\u003c 8\", shifting more than 7 bits, the number of bits in the essential type of\n the left expression, \"1U\", is not allowed. The shift amount is 8.\n\nTo fix this, we would need to express it as:\n\n (UL(1) \u003c\u003c 8)\n\nIn MISRA\u0027s essential types model, the essential type of UL(1) is \"essentially unsigned long\" so a shift by 8 is legal.\n\nWe are committed to enforce rule 12.2 so this needs to be changed please.",
+      "range": {
+        "startLine": 25,
+        "startChar": 36,
+        "endLine": 25,
+        "endChar": 47
+      },
+      "revId": "0eb2ba4c8dd93fe928cde148bc4c68ea570f335f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffed14cf_63db077a",
+        "filename": "include/drivers/console.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-08-08T02:57:16Z",
+      "side": 1,
+      "message": "This one really confuses me. I don\u0027t know what a MISRA essential type is, but according to the C standard (ISO C11 6.4.4.1 \"Integer constants\"), the type of the expression \"1U\" should definitely always be \"unsigned int\", and never anything shorter. I don\u0027t see any way how this could be interpreted to overflow an 8-bit value in even the strictest interpretation of C. What exactly is that MISRA warning trying to prevent?\n\nUsing 1UL instead seems wrong here, because that turns it into a 64-bit constant, which would then be implicitly downconverted when you assign it to a uint32_t.",
+      "parentUuid": "e9dc3c3a_f90a7de2",
       "range": {
         "startLine": 25,
         "startChar": 36,
