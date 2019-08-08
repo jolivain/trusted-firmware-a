@@ -191,6 +191,12 @@ DYN_CFG_SOURCES		+=	plat/arm/common/arm_dyn_cfg.c		\
 BL1_SOURCES		+=	${DYN_CFG_SOURCES}
 BL2_SOURCES		+=	${DYN_CFG_SOURCES}
 
+# Add Property Access Layer platform specific files
+PAL_SOURCES		:=	drivers/pal/pal.c
+
+BL1_SOURCES		+=	${PAL_SOURCES}
+BL2_SOURCES		+=	${PAL_SOURCES}
+
 ifeq (${BL2_AT_EL3},1)
 BL2_SOURCES		+=	plat/arm/common/arm_bl2_el3_setup.c
 endif
@@ -260,6 +266,7 @@ ifneq (${TRUSTED_BOARD_BOOT},0)
 				drivers/auth/crypto_mod.c			\
 				drivers/auth/img_parser_mod.c			\
 				drivers/auth/tbbr/tbbr_cot.c			\
+				drivers/pal/pal_tbbr_getter.c
 
     BL1_SOURCES		+=	${AUTH_SOURCES}					\
 				bl1/tbbr/tbbr_img_desc.c			\

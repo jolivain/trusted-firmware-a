@@ -46,6 +46,11 @@ SECTIONS
         __RODATA_START__ = .;
         *(.rodata*)
 
+       . = ALIGN(8);
+        __PAL_POPULATOR_START__ = .;
+        KEEP(*(.pal_populator))
+        __PAL_POPULATOR_END__ = .;
+
         /* Ensure 8-byte alignment for descriptors and ensure inclusion */
         . = ALIGN(8);
         __PARSER_LIB_DESCS_START__ = .;
@@ -61,6 +66,11 @@ SECTIONS
         *bl2_entrypoint.o(.text*)
         *(.text*)
         *(.rodata*)
+
+	. = ALIGN(8);
+         __PAL_POPULATOR_START__ = .;
+         KEEP()*(.pal_populator))
+         __PAL_POPULATOR_END__ = .;
 
         /* Ensure 8-byte alignment for descriptors and ensure inclusion */
         . = ALIGN(8);
