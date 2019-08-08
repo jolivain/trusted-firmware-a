@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "6e28c584_35bb58f6",
+        "filename": "drivers/console/multi_console.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2019-08-08T03:08:02Z",
+      "side": 1,
+      "message": "I really do not understand your comments.\n\n\u0027\\n\u0027 is (int), not (char).\n\nTry this.\n\n#include \u003cstdio.h\u003e\nint main(void)\n{\n\tprintf(\"%d\\n\", __builtin_types_compatible_p(int, typeof(\u0027\\n\u0027)));\n\tprintf(\"%d\\n\", __builtin_types_compatible_p(char, typeof(\u0027\\n\u0027)));\n\treturn 0;\n}\n\n$ ./a.out\n1\n0\n\n\nBoth sides of (c \u003d\u003d \u0027\\n\u0027) are int. What\u0027s the problem?",
+      "parentUuid": "65583d3e_9c515e3d",
+      "range": {
+        "startLine": 77,
+        "startChar": 6,
+        "endLine": 77,
+        "endChar": 15
+      },
+      "revId": "0eb2ba4c8dd93fe928cde148bc4c68ea570f335f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ab0dc1c3_0c455205",
         "filename": "include/drivers/console.h",
         "patchSetId": 6
@@ -177,6 +201,30 @@
       "side": 1,
       "message": "This one really confuses me. I don\u0027t know what a MISRA essential type is, but according to the C standard (ISO C11 6.4.4.1 \"Integer constants\"), the type of the expression \"1U\" should definitely always be \"unsigned int\", and never anything shorter. I don\u0027t see any way how this could be interpreted to overflow an 8-bit value in even the strictest interpretation of C. What exactly is that MISRA warning trying to prevent?\n\nUsing 1UL instead seems wrong here, because that turns it into a 64-bit constant, which would then be implicitly downconverted when you assign it to a uint32_t.",
       "parentUuid": "e9dc3c3a_f90a7de2",
+      "range": {
+        "startLine": 25,
+        "startChar": 36,
+        "endLine": 25,
+        "endChar": 47
+      },
+      "revId": "0eb2ba4c8dd93fe928cde148bc4c68ea570f335f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0292f50_9775d889",
+        "filename": "include/drivers/console.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2019-08-08T03:08:02Z",
+      "side": 1,
+      "message": "I ran the following test code, at least my GCC\nthinks 1U is (unsigned int).\n\n#include \u003cstdio.h\u003e\nint main(void)\n{\n\tprintf(\"%d\\n\", __builtin_types_compatible_p(unsigned int, typeof(1U)));\n\tprintf(\"%d\\n\", __builtin_types_compatible_p(unsigned char, typeof(1U)));\n\treturn 0;\n}\n\n$ ./a.out \n1\n0",
+      "parentUuid": "ffed14cf_63db077a",
       "range": {
         "startLine": 25,
         "startChar": 36,
