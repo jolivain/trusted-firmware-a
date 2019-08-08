@@ -16,6 +16,24 @@
       "revId": "a4057d4fa7a9a1e99f37130947370eb084095150",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0dfe1f8_96cd7e4b",
+        "filename": "plat/nvidia/tegra/common/drivers/spe/shared_console.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-08-08T16:53:56Z",
+      "side": 1,
+      "message": "Does it make a difference? I don\u0027t see any rules on this in the coding guidelines, and personally I find the version with the immediate more readable.",
+      "parentUuid": "0d439e87_6482eca1",
+      "revId": "a4057d4fa7a9a1e99f37130947370eb084095150",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
