@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "7dbc5aeb_736f9b00",
+        "filename": "lib/cpus/aarch64/aem_generic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-08-09T20:24:02Z",
+      "side": 1,
+      "message": "Does FVP have private L2 cache for every core? I was wondering why dcsw_op_level2 is done as part of core_pwr_down ? I see other cores (such as a72) do it as part of cluster_pwr_down.",
+      "revId": "9b9087ed7e69b64e2a87f40d5a46f714f1115ed3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15e767b6_e85c302d",
         "filename": "lib/cpus/aarch64/aem_generic.S",
         "patchSetId": 1
