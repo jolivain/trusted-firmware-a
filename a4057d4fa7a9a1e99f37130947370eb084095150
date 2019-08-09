@@ -52,6 +52,24 @@
       "revId": "a4057d4fa7a9a1e99f37130947370eb084095150",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2b0f159_47adfb04",
+        "filename": "plat/nvidia/tegra/common/drivers/spe/shared_console.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-08-09T18:54:41Z",
+      "side": 1,
+      "message": "Yeah, I\u0027m aware that there are multiple equivalent ways to write this, I\u0027m just asking why you want me to prefer this one over another one? Is there a style guide for assembly code that demands this? They both do the exact same thing.",
+      "parentUuid": "b7dbe3e8_c58eebeb",
+      "revId": "a4057d4fa7a9a1e99f37130947370eb084095150",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
