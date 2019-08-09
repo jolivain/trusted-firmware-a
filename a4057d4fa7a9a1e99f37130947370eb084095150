@@ -34,6 +34,24 @@
       "revId": "a4057d4fa7a9a1e99f37130947370eb084095150",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7dbe3e8_c58eebeb",
+        "filename": "plat/nvidia/tegra/common/drivers/spe/shared_console.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-09T09:08:39Z",
+      "side": 1,
+      "message": "look @lines #103, 133, 155, where int value is returned in W0.\nAlso look @the original code line #48.",
+      "parentUuid": "c0dfe1f8_96cd7e4b",
+      "revId": "a4057d4fa7a9a1e99f37130947370eb084095150",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
