@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bb7de06c_921372ce",
+        "filename": "plat/intel/soc/stratix10/soc/s10_clock_manager.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2019-08-10T06:10:29Z",
+      "side": 1,
+      "message": "Hi Madhukar,\n\nPreviously, the clock frequency for peripheral use such as watchdog, sdmmc is hardcoded. Hence, comes this patch to make the calculation dynamic based on customer configuration.\n\nThere are several different clock sources for this platform and is identified from pllglob register value. This function is used to extract the reference clock used in the platform.",
+      "parentUuid": "1ce2ec2f_371bcc5b",
+      "revId": "feaff44daa5f65329fb5edfab26b2dda9a45df67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84c8cb1e_a28fd714",
         "filename": "plat/intel/soc/stratix10/soc/s10_clock_manager.c",
         "patchSetId": 7
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "3aa52efb_d421341f",
+        "filename": "plat/intel/soc/stratix10/soc/s10_clock_manager.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2019-08-10T06:10:29Z",
+      "side": 1,
+      "message": "All 3 clock frequency of interest which is uart, mmc \u0026 watchdogis based on l3 main clock which is what this function is for.",
+      "parentUuid": "84c8cb1e_a28fd714",
+      "revId": "feaff44daa5f65329fb5edfab26b2dda9a45df67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2f6db88_cb9d041d",
         "filename": "plat/intel/soc/stratix10/soc/s10_clock_manager.c",
         "patchSetId": 7
@@ -47,6 +83,24 @@
       "writtenOn": "2019-08-09T21:02:34Z",
       "side": 1,
       "message": "same as above.",
+      "revId": "feaff44daa5f65329fb5edfab26b2dda9a45df67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af21ce14_5173862b",
+        "filename": "plat/intel/soc/stratix10/soc/s10_clock_manager.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2019-08-10T06:10:29Z",
+      "side": 1,
+      "message": "Below functions is to calculate the clock frequency for wdt, sdmmc \u0026 uart respectively. These calculation is based on platform specification.",
+      "parentUuid": "a2f6db88_cb9d041d",
       "revId": "feaff44daa5f65329fb5edfab26b2dda9a45df67",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
