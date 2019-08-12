@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -496,6 +496,11 @@ int main(int argc, char *argv[])
 		if (cert->fn && !cert_new(key_alg, hash_alg, cert, VAL_DAYS, 0, sk)) {
 			ERROR("Cannot create %s\n", cert->cn);
 			exit(1);
+		}
+
+		while (sk_X509_EXTENSION_num(sk) > 0) {
+			cert_ext = sk_X509_EXTENSION_pop(sk);
+			X509_EXTENSION_free(cert_ext);
 		}
 
 		sk_X509_EXTENSION_free(sk);
