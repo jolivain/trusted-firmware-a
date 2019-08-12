@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "a0f2c019_c6b9ef52",
+        "filename": "plat/intel/soc/stratix10/soc/s10_clock_manager.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-08-12T15:18:58Z",
+      "side": 1,
+      "message": "Thanks for the description. I actually meant if you could put the description in the source code as a comment before the start of the function. For example, at line 199 in this file s10_clock_manager.c .\nSorry if I was not clear.",
+      "parentUuid": "bb7de06c_921372ce",
+      "revId": "feaff44daa5f65329fb5edfab26b2dda9a45df67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84c8cb1e_a28fd714",
         "filename": "plat/intel/soc/stratix10/soc/s10_clock_manager.c",
         "patchSetId": 7
