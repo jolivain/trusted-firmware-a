@@ -24,7 +24,35 @@
 	.global	save_gp_registers
 	.global	restore_gp_registers
 	.global	restore_gp_registers_eret
+	.global	save_pmcr_disable_pmu
 	.global	el3_exit
+
+/* -----------------------------------------------------
+ * If ARMv8.5-PMU is implemented, event counting is
+ * prohibited by setting MDCR_EL3.SPME to 0,
+ * and cycle counting is disabled by seting
+ * MDCR_EL3.SCCD to 1.
+ * -----------------------------------------------------
+ */
+func save_pmcr_disable_pmu
+
+	mrs	x9, mdcr_el3
+	tst	x9, #MDCR_SCCD_BIT
+	b.ne	1f
+
+	/* Secure Cycle Counter is not disabled */
+	mrs	x9, pmcr_el0
+	str	x9, [sp, #CTX_EL3STATE_OFFSET + CTX_PMCR_EL0]
+
+	/* Disable cycle counter when event counting is prohibited */
+	orr	x9, x9, #PMCR_EL0_DP_BIT
+
+	/* Disable all event counters and PMCCNTR_EL0 */
+	bic	x9, x9, #PMCR_EL0_E_BIT
+	msr	pmcr_el0, x9
+	isb
+1:	ret
+endfunc save_pmcr_disable_pmu
 
 /* -----------------------------------------------------
  * The following function strictly follows the AArch64
@@ -79,9 +107,6 @@ func el1_sysregs_context_save
 	mrs	x17, contextidr_el1
 	mrs	x9, vbar_el1
 	stp	x17, x9, [x0, #CTX_CONTEXTIDR_EL1]
-
-	mrs	x10, pmcr_el0
-	str	x10, [x0, #CTX_PMCR_EL0]
 
 	/* Save AArch32 system registers if the build has instructed so */
 #if CTX_INCLUDE_AARCH32_REGS
@@ -168,9 +193,6 @@ func el1_sysregs_context_restore
 	ldp	x17, x9, [x0, #CTX_CONTEXTIDR_EL1]
 	msr	contextidr_el1, x17
 	msr	vbar_el1, x9
-
-	ldr	x10, [x0, #CTX_PMCR_EL0]
-	msr	pmcr_el0, x10
 
 	/* Restore AArch32 system registers if the build has instructed so */
 #if CTX_INCLUDE_AARCH32_REGS
@@ -502,6 +524,18 @@ func el3_exit
 	msr	scr_el3, x18
 	msr	spsr_el3, x16
 	msr	elr_el3, x17
+
+	/* -----------------------------------------------------
+	 * Restore PMCR_EL0 if Secure Cycle Counter is not
+	 * disabled in MDCR_EL3 when ARMv8.5-PMU is implemented
+	 * -----------------------------------------------------
+	 */
+	mrs	x16, mdcr_el3
+	tst	x16, #MDCR_SCCD_BIT
+	bne	2f
+	ldr	x19, [sp, #CTX_EL3STATE_OFFSET + CTX_PMCR_EL0]
+	msr	pmcr_el0, x19
+2:
 
 #if IMAGE_BL31 && DYNAMIC_WORKAROUND_CVE_2018_3639
 	/* Restore mitigation state as it was on entry to EL3 */
