@@ -224,6 +224,14 @@ smc_handler:
 	bl	save_gp_registers
 
 	/* -----------------------------------------------------
+	 * If Secure Cycle Counter is not disabled in MDCR_EL3
+	 * when ARMv8.5-PMU is implemented, save PMCR_EL0 and
+	 * disable all event counters and cycle counter.
+	 * -----------------------------------------------------
+	 */
+	bl	save_pmcr_disable_pmu
+
+	/* -----------------------------------------------------
 	 * Populate the parameters for the SMC handler. We
 	 * already have x0-x4 in place. x5 will point to a
 	 * cookie (not used now). x6 will point to the context
