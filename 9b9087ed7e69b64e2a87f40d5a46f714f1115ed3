@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0c73b863_1f43dc40",
+        "filename": "lib/cpus/aarch64/aem_generic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-13T15:24:13Z",
+      "side": 1,
+      "message": "Yes, AEM model supports level3 caches also in which case l2 caches will be per core.",
+      "parentUuid": "7dbc5aeb_736f9b00",
+      "revId": "9b9087ed7e69b64e2a87f40d5a46f714f1115ed3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15e767b6_e85c302d",
         "filename": "lib/cpus/aarch64/aem_generic.S",
         "patchSetId": 1
