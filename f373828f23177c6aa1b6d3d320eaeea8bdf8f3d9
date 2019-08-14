@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19dc452e_b74f49c5",
+        "filename": "plat/intel/soc/agilex/include/agilex_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-14T10:37:43Z",
+      "side": 1,
+      "message": "remove \",\"",
+      "revId": "f373828f23177c6aa1b6d3d320eaeea8bdf8f3d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffd63251_262c9110",
+        "filename": "plat/intel/soc/agilex/include/agilex_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-14T10:37:43Z",
+      "side": 1,
+      "message": "remove \",\"",
+      "revId": "f373828f23177c6aa1b6d3d320eaeea8bdf8f3d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f67e4149_367e93d4",
+        "filename": "plat/intel/soc/agilex/soc/agilex_clock_manager.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-14T10:37:43Z",
+      "side": 1,
+      "message": "remove empty line",
+      "revId": "f373828f23177c6aa1b6d3d320eaeea8bdf8f3d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86a476c9_37e00d36",
+        "filename": "plat/intel/soc/agilex/soc/agilex_clock_manager.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-14T10:37:43Z",
+      "side": 1,
+      "message": "In release build you\u0027ll get assertion on line #320 in that case.",
+      "revId": "f373828f23177c6aa1b6d3d320eaeea8bdf8f3d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ee86c85_f184a5ae",
+        "filename": "plat/intel/soc/agilex/soc/agilex_clock_manager.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-14T10:37:43Z",
+      "side": 1,
+      "message": "remove this line",
+      "revId": "f373828f23177c6aa1b6d3d320eaeea8bdf8f3d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7af21ae0_de10a4e8",
+        "filename": "plat/intel/soc/agilex/soc/agilex_clock_manager.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-14T10:37:43Z",
+      "side": 1,
+      "message": "l4_sp_clk \u003d l3_clk \u003c\u003c data32;",
+      "revId": "f373828f23177c6aa1b6d3d320eaeea8bdf8f3d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
