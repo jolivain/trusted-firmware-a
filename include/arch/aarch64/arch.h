@@ -621,6 +621,7 @@
 #define EC_AARCH32_FP			U(0x28)
 #define EC_AARCH64_FP			U(0x2c)
 #define EC_SERROR			U(0x2f)
+#define EC_BRK				U(0x3c)
 
 /*
  * External Abort bit in Instruction and Data Aborts synchronous exception
