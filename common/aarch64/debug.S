@@ -132,8 +132,8 @@ asm_print_hex_bits:
 endfunc asm_print_hex
 
 /*
-* Helper function to print newline to console.
-*/
+ * Helper function to print newline to console
+ */
 func asm_print_newline
 	mov	x0, '\n'
 	b	plat_crash_console_putc
