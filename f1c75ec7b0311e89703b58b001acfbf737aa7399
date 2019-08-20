@@ -1,0 +1,261 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72feab39_b48e6eee",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-08-20T13:46:55Z",
+      "side": 1,
+      "message": "minor: Some of the changes here are a bit off-topic",
+      "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff694c90_724dd1e4",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-08-20T13:46:55Z",
+      "side": 1,
+      "message": "This is not strictly necessary since MDCR_EL3.SPME architecturally resets to zero. We typically only explicitly reference fields that reset to an architecturally UNKNOWN value or a value we want to change.",
+      "range": {
+        "startLine": 117,
+        "startChar": 19,
+        "endLine": 118,
+        "endChar": 17
+      },
+      "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95e5c9ba_42c504c5",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-08-20T13:46:55Z",
+      "side": 1,
+      "message": "Not strictly necessary as this architecturally resets to zero.",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 57
+      },
+      "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e40b51b_15915aed",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-08-20T13:46:55Z",
+      "side": 1,
+      "message": "This is confusing as the MDCR_EL3.SPME setting is nothing to do with ARMv8.5-PMU. Also this may change in future. Suggest removing.",
+      "range": {
+        "startLine": 31,
+        "startChar": 34,
+        "endLine": 32,
+        "endChar": 43
+      },
+      "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c0973b2_803b8e1b",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-08-20T13:46:55Z",
+      "side": 1,
+      "message": "Could do with a comment to save that if the earlier SCCD initialization to 1 fails then we know that Armv8.5-PMU is not implemented so we must save the non-secure context.",
+      "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "244cc0a3_6319ae95",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-08-20T13:46:55Z",
+      "side": 1,
+      "message": "I think we only need to do this when coming from the non-secure world (see other comment).",
+      "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b62326b4_31343d14",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-08-20T13:46:55Z",
+      "side": 1,
+      "message": "We want to do this from either world, however.",
+      "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9fe823e_4761cc56",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-08-20T13:46:55Z",
+      "side": 1,
+      "message": "Not necessary since event counting is already disabled (by setting MDCR_EL3.SPME to 0). Also, in future we may want to allow event (and cycle) counting in secure state for trusted debug scenarios. To do that it\u0027s better to just change the code where SPME/SCCD is set rather than change here as well.",
+      "range": {
+        "startLine": 50,
+        "startChar": 1,
+        "endLine": 52,
+        "endChar": 17
+      },
+      "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9882ada_6b6ba1e8",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-08-20T13:46:55Z",
+      "side": 1,
+      "message": "I think we only need to do this when going back to the non-secure world (see other comment).",
+      "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5c672c1_26e23415",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-08-20T13:46:55Z",
+      "side": 1,
+      "message": "You\u0027ve changed the code so that there is now an initialized context for both worlds (not just secure). Actually I\u0027m not sure we need to init either context here. The non-secure world can take of initializing its own context (as it does now) and the secure world (S-EL1) can just use the same context as EL3, which is the non-secure context but with MDCR_EL3.DP set to 1. There\u0027s no use-case for the secure world independently managing its own event/cycle counters. By using the same context, it will be possible to do event/cycle counting for a use-case through both worlds (assuming a trusted debug scenario), without the secure world having to do anything special.\n\nSo there\u0027s no need to save/restore the secure context.",
+      "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a777ae9_8a1443dd",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-08-20T13:46:55Z",
+      "side": 1,
+      "message": "Not strictly necessary as architecturally resets to zero.",
+      "range": {
+        "startLine": 267,
+        "startChar": 5,
+        "endLine": 267,
+        "endChar": 28
+      },
+      "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e13dc51_d3ebe3fd",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-08-20T13:46:55Z",
+      "side": 1,
+      "message": "El2 is unused in this case so no need to disable cycle counting.",
+      "range": {
+        "startLine": 471,
+        "startChar": 6,
+        "endLine": 471,
+        "endChar": 31
+      },
+      "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a73b88b_d4028a52",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-08-20T13:46:55Z",
+      "side": 1,
+      "message": "All these extra fields you\u0027re initializing are already architecturally initialized so need to specify them explicitly.",
+      "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
