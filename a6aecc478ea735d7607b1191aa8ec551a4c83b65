@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0189e3a3_68dd2fec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2019-08-20T09:41:38Z",
+      "side": 1,
+      "message": "Yeah, it seems that there is no other workaround except make the changes to the common code which will affect all.",
+      "parentUuid": "7d31478e_23e47b01",
+      "revId": "a6aecc478ea735d7607b1191aa8ec551a4c83b65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86e33f61_7b96ee60",
         "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-08-20T09:24:54Z",
       "side": 1,
       "message": "As this is common code for all platforms, I\u0027d suggest to add a new build option which will have default value of 1, \u0026 can be set to 0 for \"intel: agilex\".",
+      "revId": "a6aecc478ea735d7607b1191aa8ec551a4c83b65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6685ac85_f9515ae3",
+        "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2019-08-20T09:41:38Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. How about if I add the build option in el3_common_macros.S itself (line 306)? Will submit a patch to reflect this.",
+      "parentUuid": "86e33f61_7b96ee60",
       "revId": "a6aecc478ea735d7607b1191aa8ec551a4c83b65",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
