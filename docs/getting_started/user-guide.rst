@@ -287,6 +287,10 @@ Common build options
    enable this use-case. For now, this option is only supported when BL2_AT_EL3
    is set to '1'.
 
+-  ``BL2_INV_DCACHE``: This is an optional build option which control dcache
+   invalidation upon BL2 entry. In this case, BL2 will do the invalidation.
+   This option is only relevant when BL2_AT_EL3 is set to '1'.
+
 -  ``BL31``: This is an optional build option which specifies the path to
    BL31 image for the ``fip`` target. In this case, the BL31 in TF-A will not
    be built.
