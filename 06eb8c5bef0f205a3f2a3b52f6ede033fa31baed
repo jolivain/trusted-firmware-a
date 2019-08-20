@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e00cf29d_d6a87221",
+        "filename": "common/aarch64/debug.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-08-20T09:43:45Z",
+      "side": 1,
+      "message": "Align these asterisks with the opening one",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 2
+      },
+      "revId": "06eb8c5bef0f205a3f2a3b52f6ede033fa31baed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95792085_c2598ed1",
+        "filename": "common/aarch64/debug.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-08-20T09:43:45Z",
+      "side": 1,
+      "message": "Not sure if it\u0027s worth adding \"Clobber: x0\" but it looks like the other functions in this file have a clobber list.",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 22
+      },
+      "revId": "06eb8c5bef0f205a3f2a3b52f6ede033fa31baed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
