@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28ccf6ba_71860daf",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2019-08-21T20:15:03Z",
+      "side": 1,
+      "message": "Is it necessary to save and restore the system register GMID_EL1? just wondering...",
+      "revId": "38748230224c671fc6e1984a9ffcb7d86b8d142f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
