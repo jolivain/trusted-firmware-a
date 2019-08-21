@@ -502,6 +502,24 @@
       "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "413b9ced_4c945b34",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2019-08-21T13:48:24Z",
+      "side": 1,
+      "message": "Hmm, you\u0027re right the Arm ARM is not clear. Leave it then.",
+      "parentUuid": "90e05bd7_34df2690",
+      "revId": "f1c75ec7b0311e89703b58b001acfbf737aa7399",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
