@@ -16,6 +16,24 @@
       "revId": "38748230224c671fc6e1984a9ffcb7d86b8d142f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b072a0c4_1c4a3f96",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000194
+      },
+      "writtenOn": "2019-08-22T08:34:49Z",
+      "side": 1,
+      "message": "According to the doc here (https://armh.sharepoint.com/sites/ts-atg/ATGArchitecture/ATGSpecifications/ARMv8A%20profile/ARMv8.5%20Extensions%20-%20Memory%20Tagging.pdf), GMID_EL1 is \"read-only in EL1 and above\". If it\u0027s not writable, we shouldn\u0027t need to save it. Is my interpretation here correct?",
+      "parentUuid": "28ccf6ba_71860daf",
+      "revId": "38748230224c671fc6e1984a9ffcb7d86b8d142f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
