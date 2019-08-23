@@ -19,6 +19,7 @@ Trusted Firmware-A Documentation
    change-log-upcoming
    glossary
    license
+   cmake/index
 
 Trusted Firmware-A (TF-A) provides a reference implementation of secure world
 software for `Armv7-A and Armv8-A`_, including a `Secure Monitor`_ executing
