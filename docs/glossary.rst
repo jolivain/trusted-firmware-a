@@ -184,6 +184,9 @@ You can find additional definitions in the `Arm Glossary`_.
    TF-M
       Trusted Firmware-M
 
+   TFACMF
+      Trusted Firmware-A CMake Framework
+
    TLB
       Translation Lookaside Buffer
 
