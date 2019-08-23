@@ -1,5 +1,5 @@
-TF-A CMake buildsystem
-======================
+TF-A CMake Build System Proposal
+================================
 
 :Author: Balint Dobszay
 :Organization: Arm Limited
