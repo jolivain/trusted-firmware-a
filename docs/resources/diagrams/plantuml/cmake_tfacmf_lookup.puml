@@ -1,0 +1,53 @@
+/'
+ ' Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ '
+ ' SPDX-License-Identifier: BSD-3-Clause
+ '/
+
+@startuml
+skinparam BackgroundColor lightblue
+skinparam notebackgroundcolor f4e8d6
+!define SUCCESS #d9ffe9:success;
+
+!define VAR_TFACMF_DIR //TFACMF_DIR//
+!define VAR_TFACMF_VERSION //TFACMF_VERSION//
+!define VAR_TFACMF_GIT_URL //TFACMF_GIT_URL//
+!define INT_FRAMEWORK_LOC //CMAKE_BINARY_DIR/cmake-framework//
+
+title	TFACMF lookup process\n\n
+
+if (is VAR_TFACMF_DIR set?) then (yes)
+	:Check <VAR_TFACMF_DIR> ]
+	if (location exists) then (yes)
+		if (compatible version found) then (yes)
+			SUCCESS
+			stop
+		endif
+	endif
+endif
+
+:Check <INT_FRAMEWORK_LOC> ]
+if (location exists) then (yes)
+	if (compatible version found) then (yes)
+		SUCCESS
+		stop
+	endif
+endif
+
+:Use FetchContent to get TFACMF;
+note right
+	clone <VAR_TFACMF_GIT_URL>
+	.     to <INT_FRAMEWORK_LOC>
+	.     check out tag "v<VAR_TFACMF_VERSION>"
+endnote
+if (success) then (yes)
+	if (compatible version found) then (yes)
+		SUCCESS
+		stop
+	endif
+endif
+:report error >
+#ffcccb:<U+26A0>failure;
+stop
+
+@enduml
