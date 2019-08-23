@@ -1,0 +1,6 @@
+const char build_message[] = "Built : "__TIME__", "__DATE__;
+/*
+ * version_string is populated by configure_file in CMake to the output of
+ * `git describe --always --dirty --tags`.
+ */
+const char version_string[] = "@GIT_DESC@";
