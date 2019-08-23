@@ -9,6 +9,7 @@
 #include <common/bl_common.h>
 #include <common/desc_image_load.h>
 #include <devapc.h>
+#include <emi_mpu.h>
 #include <plat/common/common_def.h>
 #include <drivers/console.h>
 #include <common/debug.h>
@@ -137,6 +138,17 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 void bl31_platform_setup(void)
 {
 	devapc_init();
+
+	/* Set permission */
+	emi_mpu_set_region_protection(0x40000000UL, 0x4FFFFFFFUL, 0,
+				(FORBIDDEN << 3 | FORBIDDEN << 6));
+	emi_mpu_set_region_protection(0x50000000UL, 0x528FFFFFUL, 1,
+				(FORBIDDEN << 6));
+	emi_mpu_set_region_protection(0x52900000UL, 0x5FFFFFFFUL, 2,
+				(FORBIDDEN << 3 | FORBIDDEN << 6));
+	emi_mpu_set_region_protection(0x60000000UL, 0x7FFFFFFFUL, 3,
+				(FORBIDDEN << 3 | FORBIDDEN << 6));
+	dump_emi_mpu_regions();
 
 	platform_setup_cpu();
 	generic_delay_timer_init();
