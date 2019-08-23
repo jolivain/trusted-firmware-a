@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bc74c428_b850e7b2",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-23T15:13:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66de72d5_0161a97c",
+      "range": {
+        "startLine": 125,
+        "startChar": 19,
+        "endLine": 125,
+        "endChar": 20
+      },
+      "revId": "7c1a2caf9de8c8f71049c881262b942439ba2b8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8d2ab0de_8ae164e1",
         "filename": "include/arch/aarch32/el3_common_macros.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-08-23T14:43:44Z",
       "side": 1,
       "message": "hardware? HW?",
+      "range": {
+        "startLine": 126,
+        "startChar": 7,
+        "endLine": 126,
+        "endChar": 9
+      },
+      "revId": "7c1a2caf9de8c8f71049c881262b942439ba2b8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db18563e_f1f14ced",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-23T15:13:29Z",
+      "side": 1,
+      "message": "I was using original notation, see line #110",
+      "parentUuid": "8d2ab0de_8ae164e1",
       "range": {
         "startLine": 126,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ebe173d0_ac186ec0",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-23T15:13:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "155e0618_aac3c4ca",
+      "range": {
+        "startLine": 133,
+        "startChar": 12,
+        "endLine": 133,
+        "endChar": 47
+      },
+      "revId": "7c1a2caf9de8c8f71049c881262b942439ba2b8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e16024c_e21ca450",
         "filename": "include/arch/aarch32/el3_common_macros.S",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2019-08-23T14:43:44Z",
       "side": 1,
       "message": "Nitpick: ,\n\nI wouldn\u0027t mention this without other changes being asked for at the same time",
+      "range": {
+        "startLine": 141,
+        "startChar": 12,
+        "endLine": 141,
+        "endChar": 13
+      },
+      "revId": "7c1a2caf9de8c8f71049c881262b942439ba2b8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a6ce451_340b1268",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-23T15:13:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e16024c_e21ca450",
       "range": {
         "startLine": 141,
         "startChar": 12,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "30871e5a_0872d003",
+        "filename": "include/arch/aarch32/smccc_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-23T15:13:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21f9387c_e78035d7",
+      "range": {
+        "startLine": 89,
+        "startChar": 21,
+        "endLine": 89,
+        "endChar": 40
+      },
+      "revId": "7c1a2caf9de8c8f71049c881262b942439ba2b8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "444f7300_9b7f866f",
         "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2019-08-23T14:43:44Z",
       "side": 1,
       "message": "Ditto previous comment about new sentence.",
+      "range": {
+        "startLine": 291,
+        "startChar": 39,
+        "endLine": 292,
+        "endChar": 25
+      },
+      "revId": "7c1a2caf9de8c8f71049c881262b942439ba2b8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a86d3837_1c27d319",
+        "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-08-23T15:13:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "444f7300_9b7f866f",
       "range": {
         "startLine": 291,
         "startChar": 39,
