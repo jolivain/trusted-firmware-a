@@ -20,7 +20,8 @@ project = 'Trusted Firmware-A'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autosectionlabel', 'sphinxcontrib.plantuml']
+extensions = ['sphinx.ext.autosectionlabel', 'sphinxcontrib.plantuml',
+              'sphinxcontrib.moderncmakedomain', 'sphinx.ext.todo' ]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -84,3 +85,8 @@ autosectionlabel_maxdepth = 1
 # -- Options for plantuml ----------------------------------------------------
 
 plantuml_output_format = 'svg_img'
+
+# -- Options for todo extension ----------------------------------------------
+
+# Display todos
+todo_include_todos = False
