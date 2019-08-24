@@ -4,13 +4,11 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <stdint.h>
-
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <lib/mmio.h>
+#include <platform_def.h>
+#include <stdint.h>
 
 #include "aml_private.h"
 
