@@ -675,6 +675,30 @@
     },
     {
       "key": {
+        "uuid": "4d3fc34b_ab7d629b",
+        "filename": "plat/arm/common/aarch64/arm_pauth.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-08-27T20:55:44Z",
+      "side": 1,
+      "message": "Hi Soby,\n     Can you tell why the attribute weak should not be used? We want the platform to define its own efficient implementation of this function right?",
+      "parentUuid": "731cc3b0_2ea1fbe9",
+      "range": {
+        "startLine": 17,
+        "startChar": 15,
+        "endLine": 17,
+        "endChar": 19
+      },
+      "revId": "b3f8c2905f005aaf417492b18ff3eba3f16cda9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "898d57aa_a0e31d48",
         "filename": "plat/arm/common/arm_common.mk",
         "patchSetId": 1
