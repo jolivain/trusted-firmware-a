@@ -16,6 +16,24 @@
       "revId": "9d028eb1cfb88ad5dc668da21164b5d897f145f0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "862f8a18_9f0d3923",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-08-29T15:31:24Z",
+      "side": 1,
+      "message": "After confirm the design, we won\u0027t use it.\nTherefore, remove the function.\nThanks.",
+      "parentUuid": "7df224bf_4f5d2201",
+      "revId": "9d028eb1cfb88ad5dc668da21164b5d897f145f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
