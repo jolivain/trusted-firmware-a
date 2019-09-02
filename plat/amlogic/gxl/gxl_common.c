@@ -1,19 +1,19 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
+#include <bl31/interrupt_mgmt.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/ep_info.h>
-#include <bl31/interrupt_mgmt.h>
-#include <meson_console.h>
 #include <lib/mmio.h>
+#include <lib/xlat_tables/xlat_tables_v2.h>
+#include <meson_console.h>
 #include <platform_def.h>
 #include <stdint.h>
-#include <lib/xlat_tables/xlat_tables_v2.h>
 
 /*******************************************************************************
  * Platform memory map regions
@@ -34,8 +34,8 @@
 					AML_SEC_DEVICE1_SIZE,		\
 					MT_DEVICE | MT_RW | MT_SECURE)
 
-#define MAP_TZRAM	MAP_REGION_FLAT(AML_TZRAM_BASE,		\
-					AML_TZRAM_SIZE,		\
+#define MAP_TZRAM	MAP_REGION_FLAT(AML_TZRAM_BASE,			\
+					AML_TZRAM_SIZE,			\
 					MT_DEVICE | MT_RW | MT_SECURE)
 
 #define MAP_SEC_DEVICE2	MAP_REGION_FLAT(AML_SEC_DEVICE2_BASE,		\
