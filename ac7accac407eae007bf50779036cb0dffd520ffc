@@ -16,6 +16,24 @@
       "revId": "ac7accac407eae007bf50779036cb0dffd520ffc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f973cde0_1005279a",
+        "filename": "plat/st/stm32mp1/stm32mp1_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2019-09-02T15:20:51Z",
+      "side": 1,
+      "message": "STM32MP1 may not support other types of memories, so I will remove it.\n\nOn the other hand, C99 allows this last coma.\nAnd I think it is easier, and this patch is an example, to just add one line when adding a field, rather than changing 2 lines, adding a coma on the previous line.\nBut maybe there are other requirements I\u0027m not aware of?",
+      "parentUuid": "3067c063_afd30aba",
+      "revId": "ac7accac407eae007bf50779036cb0dffd520ffc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
