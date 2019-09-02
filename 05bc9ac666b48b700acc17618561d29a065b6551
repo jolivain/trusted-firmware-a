@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0cf79b34_3bc832b9",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-09-02T13:49:45Z",
+      "side": 1,
+      "message": "add new line",
+      "revId": "05bc9ac666b48b700acc17618561d29a065b6551",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b459351f_21d0b922",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-09-02T13:49:45Z",
+      "side": 1,
+      "message": "board_id will be set on line #237.",
+      "revId": "05bc9ac666b48b700acc17618561d29a065b6551",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08eac89a_eda8b06b",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-09-02T13:49:45Z",
+      "side": 1,
+      "message": "if cuint \u003d\u003d NULL, RELEASE build will cause NULL ptr exception at line #235.",
+      "revId": "05bc9ac666b48b700acc17618561d29a065b6551",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3da57fd_1f031be3",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-09-02T13:49:45Z",
+      "side": 1,
+      "message": "rev is just 1 char, why not use \u0027c\u0027 for printing it?",
+      "revId": "05bc9ac666b48b700acc17618561d29a065b6551",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
