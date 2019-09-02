@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cbb29d90_e1b952f8",
+        "filename": "plat/mediatek/mt8183/drivers/pmic/pmic.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000224
+      },
+      "writtenOn": "2019-09-02T06:33:44Z",
+      "side": 1,
+      "message": "Hi Alexei,\nThe bit 0 of PMIC_VPROC11_CON0 is to enable power.\nThe bit 1 of PMIC_VPROC11_CON0 is to enter low power mode.\nWe need to set bit 0 \u003d 1 and bit 1 \u003d 0 to enable power with normal mode.\nFor error handle, we set 0x1 to PMIC_VPROC11_CON0 directly instead of pwrap_write(PMIC_VPROC11_CON0, en).",
+      "parentUuid": "1220c7e4_93d7e90f",
+      "revId": "a285910eedbd52237f8ac646e13ce4424385a44b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97799a88_4a4575db",
         "filename": "plat/mediatek/mt8183/drivers/pmic/pmic.c",
         "patchSetId": 1
