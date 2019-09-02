@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d037be6f_cab547d6",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2019-09-02T15:10:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0cf79b34_3bc832b9",
+      "revId": "05bc9ac666b48b700acc17618561d29a065b6551",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b459351f_21d0b922",
         "filename": "plat/st/stm32mp1/stm32mp1_private.c",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-09-02T13:49:45Z",
       "side": 1,
       "message": "board_id will be set on line #237.",
+      "revId": "05bc9ac666b48b700acc17618561d29a065b6551",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "937b4654_bcb8332a",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2019-09-02T15:10:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b459351f_21d0b922",
       "revId": "05bc9ac666b48b700acc17618561d29a065b6551",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1f7d1176_eef7eb0b",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2019-09-02T15:10:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "08eac89a_eda8b06b",
+      "revId": "05bc9ac666b48b700acc17618561d29a065b6551",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3da57fd_1f031be3",
         "filename": "plat/st/stm32mp1/stm32mp1_private.c",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2019-09-02T13:49:45Z",
       "side": 1,
       "message": "rev is just 1 char, why not use \u0027c\u0027 for printing it?",
+      "revId": "05bc9ac666b48b700acc17618561d29a065b6551",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67e00cc9_398cc553",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2019-09-02T15:10:26Z",
+      "side": 1,
+      "message": "\u0027c\u0027 is not supported in TF-A implementation of vprintf, that\u0027s why I had to create this 1 char string",
+      "parentUuid": "e3da57fd_1f031be3",
       "revId": "05bc9ac666b48b700acc17618561d29a065b6551",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
