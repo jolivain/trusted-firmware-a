@@ -244,6 +244,21 @@ func do_crash_reporting
 	mrs	x0, tpidr_el3
 	/* report x30 first from the crash buf */
 	ldr	x4, [x0, #REGSZ * 7]
+
+	/* Skip LR demangling if lower-level is an AArch32 state */
+	mrs	x2, spsr_el3
+	tst	x2, #(1 << SPSR_M_SHIFT)
+	b.ne	skip_demangle
+
+	/* Extract EL that threw exception */
+	ubfx	x1, x2, #SPSR_EL_BIT, #SPSR_EL_WIDTH
+
+	/* Demangle address for that EL */
+	mov	x0, x4
+	bl	demangle_address
+	mov	x4, x0
+skip_demangle:
+
 	bl	asm_print_hex
 	bl	asm_print_newline
 	/* Load the crash buf address */
