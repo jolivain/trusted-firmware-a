@@ -47,19 +47,31 @@ struct frame_record {
  *
  * With bottom_PAC_bit = 64 - TCR_ELx.TnSZ
  */
-#if ENABLE_PAUTH
-static uintptr_t demangle_address(uintptr_t addr)
+uintptr_t demangle_address(uintptr_t addr, unsigned int el)
 {
-	unsigned int el, t0sz, bottom_pac_bit;
-	uint64_t tcr, pac_mask;
+	unsigned int t0sz, bottom_pac_bit;
+	uint64_t sctlr, tcr, pac_mask;
+
+	/*
+	 * Check if pointer authentication is enabled at the specified EL.
+	 * If it isn't, we can then skip stripping a PAC code.
+	 */
+	if (el == 3U) {
+		sctlr = read_sctlr_el3();
+	} else if (el == 2U) {
+		sctlr = read_sctlr_el2();
+	} else {
+		sctlr = read_sctlr_el1();
+	}
+	if ((sctlr & (SCTLR_EnIA_BIT || SCTLR_EnIB_BIT)) == 0) {
+		return addr;
+	}
 
 	/*
 	 * Different virtual address space size can be defined for each EL.
 	 * Ensure that we use the proper one by reading the corresponding
 	 * TCR_ELx register.
 	 */
-	el = get_current_el();
-
 	if (el == 3U) {
 		tcr = read_tcr_el3();
 	} else if (el == 2U) {
@@ -76,7 +88,6 @@ static uintptr_t demangle_address(uintptr_t addr)
 	/* demangle the address with the computed mask */
 	return (addr & pac_mask);
 }
-#endif /* ENABLE_PAUTH */
 
 static const char *get_el_str(unsigned int el)
 {
@@ -104,7 +115,7 @@ static bool is_address_readable(uintptr_t addr)
 	 * stack contains a PAC. It must be stripped to retrieve the return
 	 * address.
 	 */
-	addr = demangle_address(addr);
+	addr = demangle_address(addr, get_current_el());
 #endif
 
 	if (el == 3U) {
@@ -257,7 +268,7 @@ static void unwind_stack(struct frame_record *fr, uintptr_t current_pc,
 		 * the stack contains a PAC. It must be stripped to retrieve the
 		 * return address.
 		 */
-		call_site = demangle_address(call_site);
+		call_site = demangle_address(call_site, get_current_el());
 #endif
 
 		/*
