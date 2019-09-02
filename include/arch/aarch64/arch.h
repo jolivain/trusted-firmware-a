@@ -422,6 +422,9 @@
 #define SPSR_M_AARCH64		U(0x0)
 #define SPSR_M_AARCH32		U(0x1)
 
+#define SPSR_EL_BIT		U(3)
+#define SPSR_EL_WIDTH		U(2)
+
 #define SPSR_SSBS_BIT_AARCH64	BIT_64(12)
 #define SPSR_SSBS_BIT_AARCH32	BIT_64(23)
 
