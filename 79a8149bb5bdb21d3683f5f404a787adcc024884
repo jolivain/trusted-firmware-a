@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b16fbfd7_3f0cdc86",
+        "filename": "plat/mediatek/mt8173/bl31_plat_setup.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-09-03T17:12:14Z",
+      "side": 1,
+      "message": "This variable is unused now and adding it here will throw an unused variable warning. You have to remove it.",
+      "revId": "79a8149bb5bdb21d3683f5f404a787adcc024884",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
