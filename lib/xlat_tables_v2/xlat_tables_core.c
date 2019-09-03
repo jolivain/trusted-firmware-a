@@ -381,7 +381,7 @@ static void xlat_tables_unmap_region(xlat_ctx_t *ctx, mmap_region_t *mm,
 
 		} else if (action == ACTION_RECURSE_INTO_TABLE) {
 
-			subtable = (uint64_t *)(uintptr_t)(desc & TABLE_ADDR_MASK);
+			subtable = (uint64_t *)(desc & TABLE_ADDR_MASK);
 
 			/* Recurse to write into subtable */
 			xlat_tables_unmap_region(ctx, mm, table_idx_va,
@@ -607,7 +607,8 @@ static uintptr_t xlat_tables_map_region(xlat_ctx_t *ctx, mmap_region_t *mm,
 			}
 
 			/* Point to new subtable from this one. */
-			table_base[table_idx] = TABLE_DESC | (unsigned long)subtable;
+			table_base[table_idx] =
+				TABLE_DESC | (uint64_t)subtable;
 
 			/* Recurse to write into subtable */
 			end_va = xlat_tables_map_region(ctx, mm, table_idx_va,
