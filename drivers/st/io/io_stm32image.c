@@ -341,6 +341,12 @@ static int stm32image_partition_read(io_entity_t *entity, uintptr_t buffer,
 			header->magic = 0;
 		}
 
+		result = stm32mp_auth_image(header, buffer);
+		if (result != 0) {
+			ERROR("Authentication Failed (%i)\n", result);
+			return result;
+		}
+
 		io_close(backend_handle);
 	}
 
