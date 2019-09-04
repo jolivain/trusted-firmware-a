@@ -1149,12 +1149,9 @@ Trusted Board Boot primarily consists of the following two features:
 The following steps should be followed to build FIP and (optionally) FWU_FIP
 images with support for these features:
 
-#. Fulfill the dependencies of the ``mbedtls`` cryptographic and image parser
-   modules by checking out a recent version of the `mbed TLS Repository`_. It
-   is important to use a version that is compatible with TF-A and fixes any
-   known security vulnerabilities. See `mbed TLS Security Center`_ for more
-   information. The latest version of TF-A is tested with tag
-   ``mbedtls-2.16.0``.
+#. TF-A contains source files imported from the ``mbedtls`` 2.16.0 for the
+   cryptographic and image parser modules. See `mbed TLS Security Center`_ for
+   more information.
 
    The ``drivers/auth/mbedtls/mbedtls_*.mk`` files contain the list of mbed TLS
    source files the modules depend upon.
@@ -1168,7 +1165,6 @@ images with support for these features:
 #. To build the FIP image, ensure the following command line variables are set
    while invoking ``make`` to build TF-A:
 
-   -  ``MBEDTLS_DIR=<path of the directory containing mbed TLS sources>``
    -  ``TRUSTED_BOARD_BOOT=1``
    -  ``GENERATE_COT=1``
 
@@ -1197,7 +1193,6 @@ images with support for these features:
 
    .. code:: shell
 
-       MBEDTLS_DIR=<path of the directory containing mbed TLS sources> \
        make PLAT=<platform> TRUSTED_BOARD_BOOT=1 GENERATE_COT=1        \
        ARM_ROTPK_LOCATION=devel_rsa                                    \
        ROT_KEY=plat/arm/board/common/rotpk/arm_rotprivk_rsa.pem        \
@@ -1222,7 +1217,6 @@ images with support for these features:
 
    ::
 
-       MBEDTLS_DIR=<path of the directory containing mbed TLS sources> \
        make PLAT=juno TRUSTED_BOARD_BOOT=1 GENERATE_COT=1              \
        ARM_ROTPK_LOCATION=devel_rsa                                    \
        ROT_KEY=plat/arm/board/common/rotpk/arm_rotprivk_rsa.pem        \

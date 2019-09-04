@@ -58,10 +58,6 @@ directory "fiptool_images". "fiptool_images" contains
 - tee-pageable_v2.bin
   Binary outputs from the previous OPTEE build steps
 
-It is also assumed copy of mbedtls is available on the path path ../mbedtls
-  https://github.com/ARMmbed/mbedtls.git
-  At the time of writing HEAD points to 0592ea772aee48ca1e6d9eb84eca8e143033d973
-
 .. code:: shell
 
     mkdir fiptool_images
@@ -71,7 +67,7 @@ It is also assumed copy of mbedtls is available on the path path ../mbedtls
 
     make CROSS_COMPILE=${CROSS_COMPILE} PLAT=warp7 ARCH=aarch32 ARM_ARCH_MAJOR=7 \
          ARM_CORTEX_A7=yes AARCH32_SP=optee PLAT_WARP7_UART=1 GENERATE_COT=1 \
-         TRUSTED_BOARD_BOOT=1 USE_TBBR_DEFS=1 MBEDTLS_DIR=../mbedtls \
+         TRUSTED_BOARD_BOOT=1 USE_TBBR_DEFS=1 \
          NEED_BL32=yes BL32=fiptool_images/tee-header_v2.bin \
          BL32_EXTRA1=fiptool_images/tee-pager_v2.bin \
          BL32_EXTRA2=fiptool_images/tee-pageable_v2.bin \

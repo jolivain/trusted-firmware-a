@@ -270,7 +270,7 @@ ifneq (${E},0)
 ERRORS := -Werror
 endif
 
-CPPFLAGS		=	${DEFINES} ${INCLUDES} ${MBEDTLS_INC} -nostdinc		\
+CPPFLAGS		=	${DEFINES} ${INCLUDES} -nostdinc		\
 				-Wmissing-include-dirs $(ERRORS) $(WARNINGS)
 ASFLAGS			+=	$(CPPFLAGS) $(ASFLAGS_$(ARCH))			\
 				-ffreestanding -Wa,--fatal-warnings

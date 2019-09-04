@@ -7,14 +7,6 @@
 ifneq (${MBEDTLS_COMMON_MK},1)
 MBEDTLS_COMMON_MK	:=	1
 
-# MBEDTLS_DIR must be set to the mbed TLS main directory (it must contain
-# the 'include' and 'library' subdirectories).
-ifeq (${MBEDTLS_DIR},)
-  $(error Error: MBEDTLS_DIR not set)
-endif
-
-MBEDTLS_INC		=	-I${MBEDTLS_DIR}/include
-
 # Specify mbed TLS configuration file
 MBEDTLS_CONFIG_FILE	:=	"<drivers/auth/mbedtls/mbedtls_config.h>"
 $(eval $(call add_define,MBEDTLS_CONFIG_FILE))
@@ -22,7 +14,7 @@ $(eval $(call add_define,MBEDTLS_CONFIG_FILE))
 MBEDTLS_SOURCES	+=		drivers/auth/mbedtls/mbedtls_common.c
 
 
-LIBMBEDTLS_SRCS		:= $(addprefix ${MBEDTLS_DIR}/library/,	\
+LIBMBEDTLS_SRCS		:= $(addprefix lib/mbedtls/,				\
 					asn1parse.c 				\
 					asn1write.c 				\
 					memory_buffer_alloc.c			\
