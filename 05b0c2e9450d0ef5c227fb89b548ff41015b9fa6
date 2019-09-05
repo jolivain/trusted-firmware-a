@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8cd4b0d1_17008be1",
+        "filename": "lib/xlat_tables/aarch32/nonlpae_tables.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-09-05T16:54:20Z",
+      "side": 1,
+      "message": "Thanks for explanation, Line 31 explains it.\nWill use unsigned int instead uint32_t instead, as per coding guideline",
+      "parentUuid": "c1515d53_ddae0dde",
+      "range": {
+        "startLine": 287,
+        "startChar": 7,
+        "endLine": 287,
+        "endChar": 16
+      },
+      "revId": "05b0c2e9450d0ef5c227fb89b548ff41015b9fa6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c3fa86d_fda62e45",
         "filename": "lib/xlat_tables/aarch32/nonlpae_tables.c",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2019-09-05T08:34:08Z",
       "side": 1,
       "message": "level_index_mask is used to mask out some bits of base_va so should have the same type.",
+      "range": {
+        "startLine": 390,
+        "startChar": 1,
+        "endLine": 390,
+        "endChar": 30
+      },
+      "revId": "05b0c2e9450d0ef5c227fb89b548ff41015b9fa6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5e85ddc_cbf8fe83",
+        "filename": "lib/xlat_tables/aarch32/nonlpae_tables.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-09-05T16:54:20Z",
+      "side": 1,
+      "message": "As per values assigned to mask it will be 32-bit as well. \nWill use unsigned int for mask and base_va",
+      "parentUuid": "e609139e_6098011b",
       "range": {
         "startLine": 390,
         "startChar": 1,
@@ -114,6 +162,30 @@
       "revId": "05b0c2e9450d0ef5c227fb89b548ff41015b9fa6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1e9df63_c3a355c4",
+        "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-09-05T16:54:20Z",
+      "side": 1,
+      "message": "subtable is 64-bit and so is table_base. However TABLE_DESC in this equation is 32-bit, is the typecast intentional to not OR upper 32-bit. \nSomething similar is done on line 384 where double cast is performed - one for RHS analysis and 2nd for assignment to LHS.",
+      "parentUuid": "98a724bf_8268885a",
+      "range": {
+        "startLine": 610,
+        "startChar": 3,
+        "endLine": 610,
+        "endChar": 60
+      },
+      "revId": "05b0c2e9450d0ef5c227fb89b548ff41015b9fa6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
