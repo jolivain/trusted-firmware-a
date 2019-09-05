@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2015-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -360,7 +361,7 @@ void tegra_memctrl_videomem_setup(uint64_t phys_base, uint32_t size_in_bytes)
 
 	if ((phys_base > vmem_end_old) || (video_mem_base > vmem_end_new)) {
 		tegra_clear_videomem(video_mem_base,
-				     (uint32_t)video_mem_size_mb << 20U);
+				     (uint32_t)(video_mem_size_mb << 20U));
 	} else {
 		if (video_mem_base < phys_base) {
 			non_overlap_area_size = phys_base - video_mem_base;
