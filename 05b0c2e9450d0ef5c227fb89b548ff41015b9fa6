@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1515d53_ddae0dde",
+        "filename": "lib/xlat_tables/aarch32/nonlpae_tables.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-05T08:34:08Z",
+      "side": 1,
+      "message": "Here uint32_t would seem more appropriate to me, as this source file is exclusively used for Armv7 platforms with no LPAE support if I am not mistaken. In this context, physical addresses cannot be larger than 32-bits (see the compile-time assertion at line 31 in this file).",
+      "range": {
+        "startLine": 287,
+        "startChar": 7,
+        "endLine": 287,
+        "endChar": 16
+      },
+      "revId": "05b0c2e9450d0ef5c227fb89b548ff41015b9fa6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c3fa86d_fda62e45",
+        "filename": "lib/xlat_tables/aarch32/nonlpae_tables.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-05T08:34:08Z",
+      "side": 1,
+      "message": "(uint32_t *) seems more appropriate here, as it\u0027s treated as an array of (32-bit) translation table entries here.",
+      "range": {
+        "startLine": 384,
+        "startChar": 6,
+        "endLine": 384,
+        "endChar": 22
+      },
+      "revId": "05b0c2e9450d0ef5c227fb89b548ff41015b9fa6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e609139e_6098011b",
+        "filename": "lib/xlat_tables/aarch32/nonlpae_tables.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-05T08:34:08Z",
+      "side": 1,
+      "message": "level_index_mask is used to mask out some bits of base_va so should have the same type.",
+      "range": {
+        "startLine": 390,
+        "startChar": 1,
+        "endLine": 390,
+        "endChar": 30
+      },
+      "revId": "05b0c2e9450d0ef5c227fb89b548ff41015b9fa6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75fdbc27_45e1fff2",
+        "filename": "lib/xlat_tables/aarch32/nonlpae_tables.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-05T08:34:08Z",
+      "side": 1,
+      "message": "Again, I think uint32_t would be better here, as it\u0027s a translation table descriptor.",
+      "range": {
+        "startLine": 399,
+        "startChar": 2,
+        "endLine": 399,
+        "endChar": 11
+      },
+      "revId": "05b0c2e9450d0ef5c227fb89b548ff41015b9fa6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98a724bf_8268885a",
+        "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-05T08:34:08Z",
+      "side": 1,
+      "message": "In xlat tables v2, translation entries are always 64-bit wide, regardless of the execution state (in AArch32 state, TF-A uses the long-descriptor translation table format, see [1])). Therefore, I think it would be more accurate to cast subtable into a uint64_t here.\n\nI think the code as it was originally (i.e. before this patch) was already incorrect. In AArch32, subtable would be cast into a 32-bit value. This seems incorrect to me because subtable is conceptually a physical address here and thus might be larger than 32-bits on some platforms. I guess this does not cause any problem in practice because translation tables are statically allocated in each BL image so typically mapped at a low address (likely to be under the 2**32 threshold).\n\n[1] http://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/xlat_tables_v2/aarch32/xlat_tables_arch.c#n173",
+      "range": {
+        "startLine": 610,
+        "startChar": 3,
+        "endLine": 610,
+        "endChar": 60
+      },
+      "revId": "05b0c2e9450d0ef5c227fb89b548ff41015b9fa6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
