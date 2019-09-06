@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d8612fe_4eedf0ef",
+        "filename": "fdts/fvp-base-gicv3-psci-aarch32-common.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-06T07:45:15Z",
+      "side": 1,
+      "message": "I suspect this line needs to be removed to address the issue Madhu reported. As it\u0027s already defined by the parent dts file, I suspect the duplication is not allowed.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "1aeaf1ce65eb50d45cfe3331ef2f2d83bcb31fb5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
