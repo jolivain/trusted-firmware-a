@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b9e10951_42d06c46",
+        "filename": "plat/rpi/rpi4/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-09-09T08:24:28Z",
+      "side": 1,
+      "message": "As detailed below I figured I can remove this whole section.",
+      "parentUuid": "3a922fa7_5af7eb8c",
+      "range": {
+        "startLine": 62,
+        "startChar": 25,
+        "endLine": 62,
+        "endChar": 35
+      },
+      "revId": "10c231f83af38fa19450da2ce16b5d3277643715",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cec69244_7be00e0e",
         "filename": "plat/rpi/rpi4/include/platform_def.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-08-06T13:25:50Z",
       "side": 1,
       "message": "The current port is bl31 only, but it is planned to add support for bl1 and/or bl2 ?\nAs we have the GPU firmware loading the different images, I guess we don\u0027t really need bl1. As for bl2, it can probably be used for learning purpose ? Or maybe the dynamic-configuration features can be used to provide information on the bl33 entry-point and device tree address ?\n\nIf not, you can probably remove the FIP definition.",
+      "range": {
+        "startLine": 67,
+        "startChar": 3,
+        "endLine": 67,
+        "endChar": 43
+      },
+      "revId": "10c231f83af38fa19450da2ce16b5d3277643715",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a287dfe_2f163b5d",
+        "filename": "plat/rpi/rpi4/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-09-09T08:24:28Z",
+      "side": 1,
+      "message": "Indeed there is no reason that the RPi4 couldn\u0027t use the same booting and image model as the RPi3, it\u0027s just more complicated and I can\u0027t test this without further components like U-Boot or any secure payloads. \"Just\" booting some BL33 (preloaded by the GPU) works fine with the new model, so I decided to go ahead on this one. If later someone needs the old model, we can always add support for this.\nBut looking at these definitions again, I just see that they are used in common code, but only when building BL1 and BL2. So I can safely remove this whole section.",
+      "parentUuid": "cec69244_7be00e0e",
       "range": {
         "startLine": 67,
         "startChar": 3,
