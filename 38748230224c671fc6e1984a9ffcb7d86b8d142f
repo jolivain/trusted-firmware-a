@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4c587085_c92847e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-09T10:38:08Z",
+      "side": 1,
+      "message": "nit: ...for both the non-secure and secure worlds,...",
+      "range": {
+        "startLine": 11,
+        "startChar": 27,
+        "endLine": 11,
+        "endChar": 28
+      },
+      "revId": "38748230224c671fc6e1984a9ffcb7d86b8d142f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28ccf6ba_71860daf",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 5
