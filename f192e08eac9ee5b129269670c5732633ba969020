@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae0b8bb0_2624d445",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-09T16:24:59Z",
+      "side": 1,
+      "message": "...when HW_ASSISTED_COHERENCY is unset.",
+      "range": {
+        "startLine": 11,
+        "startChar": 30,
+        "endLine": 11,
+        "endChar": 31
+      },
+      "revId": "f192e08eac9ee5b129269670c5732633ba969020",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca8c0c8d_f7fea095",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 2209,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-09T16:24:59Z",
+      "side": 1,
+      "message": "(would be good to mention that this is when HW_ASSISTED_COHERENCY is 0). For HW_ASSISTED_COHERENCY systems, both the hooks are identical but pwr_domain_on_finish is the mandatory hook for PSCI_CPU_ON functionality.",
+      "range": {
+        "startLine": 2209,
+        "startChar": 55,
+        "endLine": 2209,
+        "endChar": 56
+      },
+      "revId": "f192e08eac9ee5b129269670c5732633ba969020",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bd75234_99c28023",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 2220,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-09T16:24:59Z",
+      "side": 1,
+      "message": "This paragraph can be removed. I think pwr_domain_on_finish is the mandatory hook and the PSCI_CPU_ON feature depends this hook. So for compatibility, this is the primary hook that the platforms need to implement.",
+      "range": {
+        "startLine": 2218,
+        "startChar": 0,
+        "endLine": 2220,
+        "endChar": 44
+      },
+      "revId": "f192e08eac9ee5b129269670c5732633ba969020",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27f4e511_13b16af1",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-09T16:24:59Z",
+      "side": 1,
+      "message": "nit: new line here.",
+      "range": {
+        "startLine": 184,
+        "startChar": 3,
+        "endLine": 184,
+        "endChar": 4
+      },
+      "revId": "f192e08eac9ee5b129269670c5732633ba969020",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
