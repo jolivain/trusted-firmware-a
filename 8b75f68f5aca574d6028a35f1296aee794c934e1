@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fd2b154_0e403432",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-09T16:27:43Z",
+      "side": 1,
+      "message": "Is there a way for this function to reuse the functionality from line 1112 to 1138 ?",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 104,
+        "endChar": 32
+      },
+      "revId": "8b75f68f5aca574d6028a35f1296aee794c934e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc6f7ff8_3690ad01",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-09T16:27:43Z",
+      "side": 1,
+      "message": "This still will  not solve the problem and since we not restrict the API to only be invoked when caches are ON, this is not required.",
+      "range": {
+        "startLine": 1140,
+        "startChar": 0,
+        "endLine": 1150,
+        "endChar": 6
+      },
+      "revId": "8b75f68f5aca574d6028a35f1296aee794c934e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
