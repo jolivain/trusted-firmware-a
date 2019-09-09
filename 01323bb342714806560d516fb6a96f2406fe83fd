@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "86934e67_db53f4f7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-09-09T00:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13881114_d3aae6f7",
+      "revId": "01323bb342714806560d516fb6a96f2406fe83fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dce7f505_f7bfe14e",
         "filename": "plat/rpi/rpi4/aarch64/armstub8_header.S",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2019-08-14T15:10:19Z",
       "side": 1,
       "message": "(c)?",
+      "revId": "01323bb342714806560d516fb6a96f2406fe83fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49600c22_b52d7216",
+        "filename": "plat/rpi/rpi4/aarch64/armstub8_header.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-09-09T00:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dce7f505_f7bfe14e",
       "revId": "01323bb342714806560d516fb6a96f2406fe83fd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0cdadc2c_d1db24c0",
+        "filename": "plat/rpi/rpi4/include/plat.ld.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-09-09T00:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9277ef22_4b609991",
+      "revId": "01323bb342714806560d516fb6a96f2406fe83fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a18ab954_5d0f5062",
         "filename": "plat/rpi/rpi4/rpi4_bl31_setup.c",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2019-08-14T15:10:19Z",
       "side": 1,
       "message": "remove \",\"",
+      "revId": "01323bb342714806560d516fb6a96f2406fe83fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43277dac_1e746fc4",
+        "filename": "plat/rpi/rpi4/rpi4_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-09-09T00:21:54Z",
+      "side": 1,
+      "message": "I don\u0027t think it helps to drop the comma. Reworded the comment instead.",
+      "parentUuid": "a18ab954_5d0f5062",
       "revId": "01323bb342714806560d516fb6a96f2406fe83fd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
