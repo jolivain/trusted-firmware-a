@@ -22,6 +22,30 @@
       "revId": "8cf008d6fcb209603c96b7f5ddef2864cc4a75f3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d84c8b81_81e1cd6d",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-09-09T10:06:35Z",
+      "side": 1,
+      "message": "True. Made it return an int, passing on the error value. Also checking this in the caller and printing a warning if this was not successful.",
+      "parentUuid": "ab054878_9983828c",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 10
+      },
+      "revId": "8cf008d6fcb209603c96b7f5ddef2864cc4a75f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
