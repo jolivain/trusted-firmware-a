@@ -735,6 +735,30 @@
     },
     {
       "key": {
+        "uuid": "2b33dd08_5402195d",
+        "filename": "plat/rpi/rpi4/include/rpi_hw.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-11T14:11:20Z",
+      "side": 1,
+      "message": "\"Copyright (c) 2019, ARM Limited\" should be sufficient for copyright unless the files are copied from RPI3.",
+      "parentUuid": "cb42e011_75329d54",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "cdf6ab0388fca8df9ef9f52df53a184ec60cde1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "521469b8_80683169",
         "filename": "plat/rpi/rpi4/platform.mk",
         "patchSetId": 1
