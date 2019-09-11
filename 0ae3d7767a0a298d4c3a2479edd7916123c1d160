@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cf9c5b8_097359fe",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-11T13:24:16Z",
+      "side": 1,
+      "message": "The sp points to the C runtime stack at this point and not the CPU context. Hence this needs to be corrected. This patch will be abandoned.",
+      "revId": "0ae3d7767a0a298d4c3a2479edd7916123c1d160",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
