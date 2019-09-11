@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d3532d2_ba730b82",
+        "filename": "plat/amlogic/gxl/include/platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-09-11T16:42:40Z",
+      "side": 0,
+      "message": "This change seems outside the scope of this patch. If you don\u0027t want to go through the process of splitting it up then a comment in the commit message to say that this (unused) value is being removed would be fine.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 56
+      },
+      "revId": "9158854a58bbff71dbf926814e7addfdae94f4b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
