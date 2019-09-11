@@ -210,6 +210,30 @@
       "revId": "05b0c2e9450d0ef5c227fb89b548ff41015b9fa6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06011711_404718e4",
+        "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-11T13:53:03Z",
+      "side": 1,
+      "message": "\u003e Something similar is done on line 384 where double cast is performed - one for RHS analysis and 2nd for assignment to LHS.\n\nIndeed! I think line 384 is wrong as well.\n\nAFAICS, (desc \u0026 TABLE_ADDR_MASK) is correct, this is doing a bitwise operation between 2 64-bit quantities, resulting in a 64-bit quantity. However, the next cast into uintptr_t seems incorrect to me. In our libc, uintptr_t is an unsigned long so again a 32-bit value on AArch32 systems. But again, translation descriptors should always be 64-bit wide so this should be cast into a 64-bit quantity if I am not mistaken:\n\n subtable \u003d (uint64_t *)(desc \u0026 TABLE_ADDR_MASK);",
+      "parentUuid": "e7f7de37_f709bfbe",
+      "range": {
+        "startLine": 610,
+        "startChar": 3,
+        "endLine": 610,
+        "endChar": 60
+      },
+      "revId": "05b0c2e9450d0ef5c227fb89b548ff41015b9fa6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
