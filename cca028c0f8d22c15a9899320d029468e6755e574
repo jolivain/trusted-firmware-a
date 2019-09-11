@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ceffba2_58918cd2",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-11T13:39:35Z",
+      "side": 1,
+      "message": "There is a build error for AArch32 for this change : \ncommon/fdt_fixup.c: In function \u0027fdt_add_reserved_memory\u0027:\ncommon/fdt_fixup.c:146:35: error: right shift count \u003e\u003d width of type [-Werror\u003dshift-count-overflow]\n  addresses[0] \u003d cpu_to_fdt32(base \u003e\u003e 32);\n                                   ^~\ncc1: all warnings being treated as errors\nMakefile:789: recipe for target \u0027build/qemu/debug/bl2/fdt_fixup.o\u0027 failed\nmake: *** [build/qemu/debug/bl2/fdt_fixup.o] Error 1\n\nThe make command line is : \n make  AARCH32_SP\u003doptee ARCH\u003daarch32 ARM_ARCH_MAJOR\u003d7 CROSS_COMPILE\u003darm-eabi- PLAT\u003dqemu  DEBUG\u003d1 V\u003d1 fiptool all",
+      "revId": "cca028c0f8d22c15a9899320d029468e6755e574",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
