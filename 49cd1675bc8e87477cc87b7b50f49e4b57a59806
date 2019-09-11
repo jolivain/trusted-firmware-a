@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6a6393a_5025afeb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-09-11T14:02:33Z",
+      "side": 1,
+      "message": "Pointer Authentication (PAuth)",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "49cd1675bc8e87477cc87b7b50f49e4b57a59806",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1991a1bb_2ac5b6a8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-09-11T14:02:33Z",
+      "side": 1,
+      "message": "missing word",
+      "range": {
+        "startLine": 21,
+        "startChar": 33,
+        "endLine": 21,
+        "endChar": 40
+      },
+      "revId": "49cd1675bc8e87477cc87b7b50f49e4b57a59806",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "365980f6_a87f53a9",
+        "filename": "common/demangle.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-09-11T14:02:33Z",
+      "side": 1,
+      "message": "As this file is in common/, should it not have a more descriptive filename? Maybe pauth_demangle, or something along those lines?",
+      "revId": "49cd1675bc8e87477cc87b7b50f49e4b57a59806",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
