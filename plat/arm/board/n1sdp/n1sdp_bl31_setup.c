@@ -84,8 +84,10 @@ void dmc_ecc_setup(uint32_t ddr_size_gb)
 	INFO("Zeroing DDR memories\n");
 	zero_normalmem((void *)ARM_DRAM1_BASE, ARM_DRAM1_SIZE);
 	flush_dcache_range(ARM_DRAM1_BASE, ARM_DRAM1_SIZE);
-	zero_normalmem((void *)ARM_DRAM2_BASE, dram2_size);
-	flush_dcache_range(ARM_DRAM2_BASE, dram2_size);
+	zero_normalmem((void *)ARM_DRAM2_BASE,
+			(unsigned long long)dram2_size);
+	flush_dcache_range(ARM_DRAM2_BASE,
+			(unsigned long long)dram2_size);
 
 	INFO("Enabling ECC on DMCs\n");
 	/* Set DMCs to CONFIG state before writing ERR0CTLR0 register */
@@ -99,6 +101,40 @@ void dmc_ecc_setup(uint32_t ddr_size_gb)
 	/* Set DMCs to READY state */
 	mmio_write_32(N1SDP_DMC0_MEMC_CMD_REG, N1SDP_DMC_MEMC_CMD_READY);
 	mmio_write_32(N1SDP_DMC1_MEMC_CMD_REG, N1SDP_DMC_MEMC_CMD_READY);
+}
+
+void remote_dmc_ecc_setup(uint8_t remote_ddr_size)
+{
+	uint64_t remote_dram2_size;
+
+	remote_dram2_size = (remote_ddr_size * 1024UL * 1024UL * 1024UL) -
+				N1SDP_REMOTE_DRAM1_SIZE;
+	/* multichip setup */
+	INFO("Zeroing remote DDR memories\n");
+	zero_normalmem((void *)N1SDP_REMOTE_DRAM1_BASE,
+			N1SDP_REMOTE_DRAM1_SIZE);
+	flush_dcache_range(N1SDP_REMOTE_DRAM1_BASE, N1SDP_REMOTE_DRAM1_SIZE);
+	zero_normalmem((void *)N1SDP_REMOTE_DRAM2_BASE,
+			(unsigned long long)remote_dram2_size);
+	flush_dcache_range(N1SDP_REMOTE_DRAM2_BASE,
+			(unsigned long long)remote_dram2_size);
+
+	INFO("Enabling ECC on remote DMCs\n");
+	/* Set DMCs to CONFIG state before writing ERR0CTLR0 register */
+	mmio_write_32(N1SDP_REMOTE_DMC0_MEMC_CMD_REG,
+			N1SDP_DMC_MEMC_CMD_CONFIG);
+	mmio_write_32(N1SDP_REMOTE_DMC1_MEMC_CMD_REG,
+			N1SDP_DMC_MEMC_CMD_CONFIG);
+
+	/* Enable ECC in DMCs */
+	mmio_setbits_32(N1SDP_REMOTE_DMC0_ERR0CTLR0_REG,
+			N1SDP_DMC_ERR0CTLR0_ECC_EN);
+	mmio_setbits_32(N1SDP_REMOTE_DMC1_ERR0CTLR0_REG,
+			N1SDP_DMC_ERR0CTLR0_ECC_EN);
+
+	/* Set DMCs to READY state */
+	mmio_write_32(N1SDP_REMOTE_DMC0_MEMC_CMD_REG, N1SDP_DMC_MEMC_CMD_READY);
+	mmio_write_32(N1SDP_REMOTE_DMC1_MEMC_CMD_REG, N1SDP_DMC_MEMC_CMD_READY);
 }
 
 void copy_bl33(uint32_t src, uint32_t dst, uint32_t size)
@@ -142,6 +178,10 @@ void bl31_platform_setup(void)
 	}
 
 	dmc_ecc_setup(plat_info.local_ddr_size);
+
+	/* Check if remote memory is present */
+	if ((plat_info.multichip_mode) && (plat_info.remote_ddr_size != 0))
+		remote_dmc_ecc_setup(plat_info.remote_ddr_size);
 
 	ret = sds_struct_read(N1SDP_SDS_BL33_INFO_STRUCT_ID,
 				N1SDP_SDS_BL33_INFO_OFFSET,
