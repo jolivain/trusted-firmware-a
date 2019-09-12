@@ -16,6 +16,24 @@
       "revId": "cca028c0f8d22c15a9899320d029468e6755e574",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff9b43eb_7f70b08b",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-09-12T14:33:01Z",
+      "side": 1,
+      "message": "Ah, thanks for the heads up (and the command line!). Interesting problem, I went with:\n#define HIGH_BITS(x) ((sizeof(x) \u003e 4) ? ((x) \u003e\u003e 32) : (typeof(x))0)\nto fix this issue.",
+      "parentUuid": "5ceffba2_58918cd2",
+      "revId": "cca028c0f8d22c15a9899320d029468e6755e574",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
