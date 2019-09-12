@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8928f2f_b43de6d2",
+        "filename": "plat/mediatek/mt8173/platform.mk",
+        "patchSetId": 33
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-12T08:05:11Z",
+      "side": 1,
+      "message": "Why are these 2 files added to the makefile? They seem unrelated to this commit. Perhaps a left over from the shuffling of the patches in the stack?\n\nAs a matter of fact, if I cherry-pick just this patch and try to build, this fails:\n\n $ make PLAT\u003dmt8173 all\n Makefile:799: warning: overriding recipe for target \u0027build/mt8173/release/bl31/pmic_wrap_init.o\u0027\n Makefile:799: warning: ignoring old recipe for target \u0027build/mt8173/release/bl31/pmic_wrap_init.o\u0027\n Building mt8173\n  CC      lib/libc/abort.c\n  CC      lib/libc/assert.c\n  CC      lib/libc/exit.c\n  CC      lib/libc/memchr.c\n  CC      lib/libc/memcmp.c\n  CC      lib/libc/memcpy.c\n  CC      lib/libc/memmove.c\n  CC      lib/libc/memset.c\n  CC      lib/libc/printf.c\n  CC      lib/libc/putchar.c\n  CC      lib/libc/puts.c\n  CC      lib/libc/snprintf.c\n  CC      lib/libc/strchr.c\n  CC      lib/libc/strcmp.c\n  CC      lib/libc/strlcpy.c\n  CC      lib/libc/strlen.c\n  CC      lib/libc/strncmp.c\n  CC      lib/libc/strnlen.c\n  CC      lib/libc/strrchr.c\n  AS      lib/libc/aarch64/setjmp.S\n  AR      build/mt8173/release/lib/libc.a\n  CC      common/desc_image_load.c\n  CC      drivers/arm/cci/cci.c\n  CC      drivers/arm/gic/common/gic_common.c\n  CC      drivers/arm/gic/v2/gicv2_main.c\n  CC      drivers/arm/gic/v2/gicv2_helpers.c\n  CC      drivers/delay_timer/delay_timer.c\n  CC      drivers/delay_timer/generic_delay_timer.c\n make: *** No rule to make target \u0027plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init.c\u0027, needed by \u0027build/mt8173/release/bl31/pmic_wrap_init.o\u0027.  Stop.\n\nCould you please double-check on your end?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "42ec6a0da1bf2b0a8ac86353be4fafe5c1403f49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
