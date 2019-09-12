@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "393756cc_2ce58375",
+        "filename": "bl1/aarch64/bl1_exceptions.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-12T16:02:41Z",
+      "side": 1,
+      "message": "Dont we need to enable PAuth in EL3 now? perhaps a `pauth_load_bl1_apiakey()` ?",
+      "revId": "d54cbea1a2169034764786b3e79588bc000cc8c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33451806_943aec33",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-12T16:02:41Z",
+      "side": 1,
+      "message": "TSP doesn\u0027t save the PAuth registers right ? This check here should be for ENABLE_PAUTH",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 35
+      },
+      "revId": "d54cbea1a2169034764786b3e79588bc000cc8c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeda50f8_17981cd0",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-12T16:02:41Z",
+      "side": 1,
+      "message": "The scr_el3 register is already restored. So scr can be read and tested instead of reading from the context.",
+      "range": {
+        "startLine": 415,
+        "startChar": 0,
+        "endLine": 416,
+        "endChar": 20
+      },
+      "revId": "d54cbea1a2169034764786b3e79588bc000cc8c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9399474_ef2ee0d7",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-12T16:02:41Z",
+      "side": 1,
+      "message": "It is not safe to couple these changes into the same patch. But I will let this go as the change is trivial",
+      "range": {
+        "startLine": 485,
+        "startChar": 2,
+        "endLine": 485,
+        "endChar": 4
+      },
+      "revId": "d54cbea1a2169034764786b3e79588bc000cc8c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64c317cb_69447fac",
+        "filename": "lib/extensions/pauth/pauth_helpers.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-12T16:02:41Z",
+      "side": 1,
+      "message": "Should BTI be disabled here?",
+      "revId": "d54cbea1a2169034764786b3e79588bc000cc8c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
