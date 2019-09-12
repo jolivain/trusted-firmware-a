@@ -759,6 +759,30 @@
     },
     {
       "key": {
+        "uuid": "6db4599f_8967cbc6",
+        "filename": "plat/rpi/rpi4/include/rpi_hw.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-09-12T13:58:52Z",
+      "side": 1,
+      "message": "It is copied, indeed most of the file is identical to the RPi3 version (MBOX, PM, RNG, ...)\nSo I figured I\u0027d rather keep the original copyright year range.",
+      "parentUuid": "2b33dd08_5402195d",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "cdf6ab0388fca8df9ef9f52df53a184ec60cde1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "521469b8_80683169",
         "filename": "plat/rpi/rpi4/platform.mk",
         "patchSetId": 1
