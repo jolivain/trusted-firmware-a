@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -43,10 +43,10 @@
 #define PLAT_PHY_ADDR_SPACE_SIZE	(1ULL << 32)
 #define PLAT_VIRT_ADDR_SPACE_SIZE	(1ULL << 28)
 
-#define PLATFORM_CLUSTER_COUNT		1
+#define PLATFORM_CLUSTER_COUNT		U(1)
 #define PLATFORM_CORE_COUNT		(PLATFORM_CLUSTER_COUNT * \
 					 PLATFORM_MAX_CPUS_PER_CLUSTER)
-#define PLATFORM_MAX_CPUS_PER_CLUSTER	4
+#define PLATFORM_MAX_CPUS_PER_CLUSTER	U(4)
 #define PLATFORM_MMAP_REGIONS		4
 #define PLATFORM_STACK_SIZE		(0x1000 / PLATFORM_CORE_COUNT)
 

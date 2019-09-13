@@ -211,9 +211,9 @@
 #define BL32_LIMIT			(ARM_BL_RAM_BASE + ARM_BL_RAM_SIZE)
 
 /* Required platform porting definitions */
-#define PLATFORM_CORE_COUNT		1
+#define PLATFORM_CORE_COUNT		U(1)
 #define PLAT_NUM_PWR_DOMAINS		((FVP_VE_CLUSTER_COUNT + \
-					PLATFORM_CORE_COUNT) + 1)
+					PLATFORM_CORE_COUNT) + U(1))
 
 #define PLAT_MAX_PWR_LVL		2
 

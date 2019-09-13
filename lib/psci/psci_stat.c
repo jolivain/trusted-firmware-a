@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -77,7 +77,7 @@ void psci_stats_update_pwr_down(unsigned int end_pwrlvl,
 			const psci_power_state_t *state_info)
 {
 	unsigned int lvl, parent_idx;
-	int cpu_idx = (int) plat_my_core_pos();
+	unsigned int cpu_idx = plat_my_core_pos();
 
 	assert(end_pwrlvl <= PLAT_MAX_PWR_LVL);
 	assert(state_info != NULL);
@@ -110,7 +110,7 @@ void psci_stats_update_pwr_up(unsigned int end_pwrlvl,
 			const psci_power_state_t *state_info)
 {
 	unsigned int lvl, parent_idx;
-	int cpu_idx = (int) plat_my_core_pos();
+	unsigned int cpu_idx = plat_my_core_pos();
 	int stat_idx;
 	plat_local_state_t local_state;
 	u_register_t residency;
