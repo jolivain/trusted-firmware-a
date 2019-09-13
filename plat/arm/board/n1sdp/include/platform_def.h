@@ -55,9 +55,9 @@
 /*******************************************************************************
  * N1SDP topology related constants
  ******************************************************************************/
-#define N1SDP_MAX_CPUS_PER_CLUSTER		2
-#define PLAT_ARM_CLUSTER_COUNT			2
-#define N1SDP_MAX_PE_PER_CPU			1
+#define N1SDP_MAX_CPUS_PER_CLUSTER		U(2)
+#define PLAT_ARM_CLUSTER_COUNT			U(2)
+#define N1SDP_MAX_PE_PER_CPU			U(1)
 
 #define PLATFORM_CORE_COUNT			(PLAT_ARM_CLUSTER_COUNT *	\
 						N1SDP_MAX_CPUS_PER_CLUSTER *	\

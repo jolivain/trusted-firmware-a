@@ -161,7 +161,7 @@ unsigned int psci_is_last_on_cpu(void)
 {
 	unsigned int cpu_idx, my_idx = plat_my_core_pos();
 
-	for (cpu_idx = 0; cpu_idx < (unsigned int)PLATFORM_CORE_COUNT;
+	for (cpu_idx = 0; cpu_idx < PLATFORM_CORE_COUNT;
 			cpu_idx++) {
 		if (cpu_idx == my_idx) {
 			assert(psci_get_aff_info_state() == AFF_STATE_ON);
@@ -208,7 +208,7 @@ static void psci_set_req_local_pwr_state(unsigned int pwrlvl,
 {
 	assert(pwrlvl > PSCI_CPU_PWR_LVL);
 	if ((pwrlvl > PSCI_CPU_PWR_LVL) && (pwrlvl <= PLAT_MAX_PWR_LVL) &&
-			(cpu_idx < (unsigned int) PLATFORM_CORE_COUNT)) {
+			(cpu_idx < PLATFORM_CORE_COUNT)) {
 		psci_req_local_pwr_states[pwrlvl - 1U][cpu_idx] = req_pwr_state;
 	}
 }
@@ -220,7 +220,7 @@ void __init psci_init_req_local_pwr_states(void)
 {
 	/* Initialize the requested state of all non CPU power domains as OFF */
 	unsigned int pwrlvl;
-	int core;
+	unsigned int core;
 
 	for (pwrlvl = 0U; pwrlvl < PLAT_MAX_PWR_LVL; pwrlvl++) {
 		for (core = 0; core < PLATFORM_CORE_COUNT; core++) {
@@ -244,7 +244,7 @@ static plat_local_state_t *psci_get_req_local_pwr_states(unsigned int pwrlvl,
 	assert(pwrlvl > PSCI_CPU_PWR_LVL);
 
 	if ((pwrlvl > PSCI_CPU_PWR_LVL) && (pwrlvl <= PLAT_MAX_PWR_LVL) &&
-			(cpu_idx < (unsigned int) PLATFORM_CORE_COUNT)) {
+			(cpu_idx < PLATFORM_CORE_COUNT)) {
 		return &psci_req_local_pwr_states[pwrlvl - 1U][cpu_idx];
 	} else
 		return NULL;
@@ -888,7 +888,7 @@ int psci_spd_migrate_info(u_register_t *mpidr)
 void psci_print_power_domain_map(void)
 {
 #if LOG_LEVEL >= LOG_LEVEL_INFO
-	int idx;
+	unsigned int idx;
 	plat_local_state_t state;
 	plat_local_state_type_t state_type;
 

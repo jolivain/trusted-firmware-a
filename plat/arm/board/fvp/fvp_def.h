@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,15 +10,15 @@
 #include <lib/utils_def.h>
 
 #ifndef FVP_CLUSTER_COUNT
-#define FVP_CLUSTER_COUNT		2
+#define FVP_CLUSTER_COUNT		U(2)
 #endif
 
 #ifndef FVP_MAX_CPUS_PER_CLUSTER
-#define FVP_MAX_CPUS_PER_CLUSTER	4
+#define FVP_MAX_CPUS_PER_CLUSTER	U(4)
 #endif
 
 #ifndef FVP_MAX_PE_PER_CPU
-# define FVP_MAX_PE_PER_CPU		1
+# define FVP_MAX_PE_PER_CPU		U(1)
 #endif
 
 #define FVP_PRIMARY_CPU			0x0

@@ -186,7 +186,8 @@ void css_scp_off(const struct psci_power_state *target_state)
 void css_scp_on(u_register_t mpidr)
 {
 	unsigned int lvl = 0;
-	int ret, core_pos;
+	unsigned int core_pos;
+	int ret;
 	uint32_t scmi_pwr_state = 0;
 
 	for (; lvl <= PLAT_MAX_PWR_LVL; lvl++)
