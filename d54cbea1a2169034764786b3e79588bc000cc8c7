@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b9b9f379_0bde537f",
+        "filename": "bl1/aarch64/bl1_exceptions.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-09-13T13:14:10Z",
+      "side": 1,
+      "message": "This change needs some investigation and will be submitted as a new patch.",
+      "parentUuid": "393756cc_2ce58375",
+      "revId": "d54cbea1a2169034764786b3e79588bc000cc8c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33451806_943aec33",
         "filename": "bl32/tsp/tsp_main.c",
         "patchSetId": 7
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "ca1ee1c7_af020064",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-09-13T13:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33451806_943aec33",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 35
+      },
+      "revId": "d54cbea1a2169034764786b3e79588bc000cc8c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeda50f8_17981cd0",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 7
@@ -53,6 +95,30 @@
       "writtenOn": "2019-09-12T16:02:41Z",
       "side": 1,
       "message": "The scr_el3 register is already restored. So scr can be read and tested instead of reading from the context.",
+      "range": {
+        "startLine": 415,
+        "startChar": 0,
+        "endLine": 416,
+        "endChar": 20
+      },
+      "revId": "d54cbea1a2169034764786b3e79588bc000cc8c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1f22f4b_327b111e",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-09-13T13:14:10Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure about \"handle_lower_el_ea_esb()\" which is called before \"restore_gp_pmcr_pauth_regs()\", but further code reading shows that SCR_EL3 is restored from [CTX_EL3STATE_OFFSET + CTX_SCR_EL3] in subsequent branch to \"ea_proceed()\" (bl31\\aarch64\\ea_delegate.S, line #269)\nDone.",
+      "parentUuid": "eeda50f8_17981cd0",
       "range": {
         "startLine": 415,
         "startChar": 0,
@@ -99,6 +165,24 @@
       "writtenOn": "2019-09-12T16:02:41Z",
       "side": 1,
       "message": "Should BTI be disabled here?",
+      "revId": "d54cbea1a2169034764786b3e79588bc000cc8c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11644ca6_2d0b810e",
+        "filename": "lib/extensions/pauth/pauth_helpers.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-09-13T13:14:10Z",
+      "side": 1,
+      "message": "BIT gets enabled in MMU by setting GP[50] bit in page descriptor.",
+      "parentUuid": "64c317cb_69447fac",
       "revId": "d54cbea1a2169034764786b3e79588bc000cc8c7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
