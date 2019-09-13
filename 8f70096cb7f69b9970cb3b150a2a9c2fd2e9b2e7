@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0ab4081_208064e7",
+        "filename": "bl31/aarch64/crash_reporting.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-13T15:11:56Z",
+      "side": 1,
+      "message": "I dont think we can call a C function from here because the C runtime stack pointer is invalid at this point.",
+      "revId": "8f70096cb7f69b9970cb3b150a2a9c2fd2e9b2e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
