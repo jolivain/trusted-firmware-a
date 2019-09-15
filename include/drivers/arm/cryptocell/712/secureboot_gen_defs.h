@@ -24,7 +24,14 @@ extern "C"
 /***********************/
 
 /*RSA definitions*/
+#if (KEY_SIZE == 2048)
 #define SB_RSA_MOD_SIZE_IN_WORDS		 64
+#elif (KEY_SIZE == 3072)
+#define SB_RSA_MOD_SIZE_IN_WORDS		96
+#else
+#error Unsupported CryptoCell key size requested
+#endif
+
 #define SB_RSA_HW_PKI_PKA_BARRETT_MOD_TAG_SIZE_IN_WORDS 5
 
 
@@ -44,8 +51,8 @@ typedef struct {
 
 /*! RSA supported algorithms */
 typedef enum {
-	RSA_PSS_2048           = 0x01,			/*!< RSA PSS 2048 after hash SHA 256 */
-	RSA_PKCS15_2048	       = 0x02,			/*!< RSA PKX15 */
+	RSA_PSS                = 0x01,			/*!< RSA PSS after hash SHA 256 */
+	RSA_PKCS15	       = 0x02,			/*!< RSA PKX15 */
 	RSA_Last               = 0x7FFFFFFF
 } CCSbRsaAlg_t;
 
