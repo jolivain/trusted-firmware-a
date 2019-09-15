@@ -597,15 +597,18 @@ Common build options
 
 -  ``KEY_SIZE``: This build flag enables the user to select the key size for
    the algorithm specified by ``KEY_ALG``. The valid values for ``KEY_SIZE``
-   depend on the chosen algorithm.
+   depend on the chosen algorithm and the cryptographic module.
 
    +-----------+------------------------------------+
    |  KEY_ALG  |        Possible key sizes          |
    +===========+====================================+
-   |    rsa    |  1024, 2048 (default), 3072, 4096  |
+   |    rsa    | 1024 , 2048 (default), 3072, 4096* |
    +-----------+------------------------------------+
    |   ecdsa   |            unavailable             |
    +-----------+------------------------------------+
+
+   * Only 2048 bits size is available with CryptoCell 712 SBROM release 1.
+     Only 3072 bits size is available with CryptoCell 712 SBROM release 2.
 
 -  ``HASH_ALG``: This build flag enables the user to select the secure hash
    algorithm. It accepts 3 values: ``sha256``, ``sha384`` and ``sha512``.
