@@ -140,6 +140,30 @@
       "revId": "4c8d211d130df8884aca4acddd145abad37fd3e0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b53bb422_d49884bb",
+        "filename": "plat/amlogic/common/aml_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2019-09-16T19:56:50Z",
+      "side": 1,
+      "message": "Oh, forget the stack allocation comment, I wrongly read your comment. Anyway, I\u0027m going to cast dst in v2.",
+      "parentUuid": "16ec41db_e10a12f1",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 5
+      },
+      "revId": "4c8d211d130df8884aca4acddd145abad37fd3e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
