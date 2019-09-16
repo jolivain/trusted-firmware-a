@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ddbd8601_b87d6f45",
+        "filename": "plat/amlogic/common/aml_scpi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2019-09-16T19:25:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3e67baf2_6951a0a7",
+      "range": {
+        "startLine": 156,
+        "startChar": 1,
+        "endLine": 156,
+        "endChar": 9
+      },
+      "revId": "4c8d211d130df8884aca4acddd145abad37fd3e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84055720_014f5e15",
         "filename": "plat/amlogic/common/aml_scpi.c",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5f70e6f6_23d6a011",
+        "filename": "plat/amlogic/common/aml_scpi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2019-09-16T19:25:38Z",
+      "side": 1,
+      "message": "It is 0.",
+      "parentUuid": "84055720_014f5e15",
+      "range": {
+        "startLine": 165,
+        "startChar": 1,
+        "endLine": 165,
+        "endChar": 29
+      },
+      "revId": "4c8d211d130df8884aca4acddd145abad37fd3e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69ff7a83_79570c4b",
         "filename": "plat/amlogic/common/aml_sip_svc.c",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "4c8d211d130df8884aca4acddd145abad37fd3e0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16ec41db_e10a12f1",
+        "filename": "plat/amlogic/common/aml_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2019-09-16T19:25:38Z",
+      "side": 1,
+      "message": "A way to save some stack allocation I guess but I\u0027m not strongly opinionated on that. I\u0027ll change that.",
+      "parentUuid": "69ff7a83_79570c4b",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 5
+      },
+      "revId": "4c8d211d130df8884aca4acddd145abad37fd3e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
