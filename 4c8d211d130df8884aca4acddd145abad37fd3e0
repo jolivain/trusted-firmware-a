@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e67baf2_6951a0a7",
+        "filename": "plat/amlogic/common/aml_scpi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000107
+      },
+      "writtenOn": "2019-09-16T19:02:50Z",
+      "side": 1,
+      "message": "Nit: I am not sure about trusted-firmware coding style but could you please make this fit within a 80 char line ?",
+      "range": {
+        "startLine": 156,
+        "startChar": 1,
+        "endLine": 156,
+        "endChar": 9
+      },
+      "revId": "4c8d211d130df8884aca4acddd145abad37fd3e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84055720_014f5e15",
+        "filename": "plat/amlogic/common/aml_scpi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000107
+      },
+      "writtenOn": "2019-09-16T19:02:50Z",
+      "side": 1,
+      "message": "Is it 0 or should it be 12 ?",
+      "range": {
+        "startLine": 165,
+        "startChar": 1,
+        "endLine": 165,
+        "endChar": 29
+      },
+      "revId": "4c8d211d130df8884aca4acddd145abad37fd3e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69ff7a83_79570c4b",
+        "filename": "plat/amlogic/common/aml_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000107
+      },
+      "writtenOn": "2019-09-16T19:02:50Z",
+      "side": 1,
+      "message": "Why not casting dst as a aml_cpu_info instead of relying on hardcoded offset ?",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 5
+      },
+      "revId": "4c8d211d130df8884aca4acddd145abad37fd3e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
