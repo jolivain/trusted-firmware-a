@@ -9,8 +9,40 @@
 #include <lib/mmio.h>
 #include <platform_def.h>
 #include <stdint.h>
+#include <string.h>
 
 #include "aml_private.h"
+
+static int aml_sip_get_chip_id(uint64_t version)
+{
+	void *dst = (void *)AML_SHARE_MEM_OUTPUT_BASE;
+	uint8_t id[16];
+	uint32_t size;
+	int ret;
+
+	size = (version == 2) ? 16 : 12;
+
+	if ((ret = aml_scpi_get_chip_id(id, &size)) != 0)
+		return ret;
+
+	if (version == 2 && size == 16) {
+		*((uint32_t *)dst) = 2;
+		memcpy(dst + 4, id, sizeof(id));
+	} else {
+		/*
+		 * struct aml_cpu_info {
+		 *      unsigned int version;
+		 *      uint8_t chipid[12];
+		 *      unsigned int reserved[103];
+		 * }
+		 */
+		memset(dst, 0, 428);
+		*((uint32_t *)dst) = 1;
+		memcpy(dst + 4, id, 12);
+	}
+
+	return 0;
+}
 
 /*******************************************************************************
  * This function is responsible for handling all SiP calls
@@ -46,6 +78,9 @@ static uintptr_t aml_sip_handler(uint32_t smc_fid,
 	case AML_SM_JTAG_OFF:
 		aml_scpi_jtag_set_state(AML_JTAG_STATE_OFF, x1);
 		SMC_RET1(handle, 0);
+
+	case AML_SM_GET_CHIP_ID:
+		SMC_RET1(handle, aml_sip_get_chip_id(x1));
 
 	default:
 		ERROR("BL31: Unhandled SIP SMC: 0x%08x\n", smc_fid);
