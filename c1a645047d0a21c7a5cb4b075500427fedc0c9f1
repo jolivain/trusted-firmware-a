@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8de5d4c4_06f0a379",
+        "filename": "lib/xlat_tables/aarch32/nonlpae_tables.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-16T07:29:19Z",
+      "side": 1,
+      "message": "I think this file requires a lot more type cleanups than what is taken care here. The changes done here do not do any harm (because unsigned long is equivalent to unsigned int in this specific file) but I am not convinced they are going in the right direction. I feel they are adding more confusion and inconsistency to a piece of code that is already a bit confusing.\n\nIn the context of this file, translation descriptors are always 32-bit wide. This is reflected in the type of the translation tables:\n\n static uint32_t mmu_l1_base[NUM_1MB_IN_4GB]\n\t__aligned(MMU32B_L1_TABLE_ALIGN) __attribute__((section(\"xlat_table\")));\n\n static uint32_t mmu_l2_base[MAX_XLAT_TABLES][NUM_4K_IN_1MB]\n\t__aligned(MMU32B_L2_TABLE_ALIGN) __attribute__((section(\"xlat_table\")));\n\nThus, I think that any variable that refers to a translation descriptor should be of uint32_t type for 2 reasons:\n* For consistency. Right now we\u0027ve got a mix of uint32_t and unsigned int to describe descriptors.\n* Because we are describing system resources with a specific, architecturally-defined size. Translation descriptors are exactly 32-bit wide. I think this should be apparent in the type. unsigned int was chosen instead, and the argument was that it better aligns with the coding guidelines. I disagree, here the exact size matters, it\u0027s not general purpose variables.\n\nThe coding guidelines say:\n\n \u003e Where possible, use the built-in *C* data types for variable storage (for\n  example, ``char``, ``int``, ``long long``, etc) instead of the standard *C99*\n  types. Most code is typically only concerned with the minimum size of the\n  data stored, which the built-in *C* types guarantee.\n\nThis code is not concerned about the minimum size, it wants exactly 32-bit values.\n\n \u003e Avoid using the exact-size standard *C99* types in general (for example,\n  ``uint16_t``, ``uint32_t``, ``uint64_t``, etc) since they can prevent the\n  compiler from making optimizations. There are legitimate uses for them,\n  for example to represent data of a known structure.\n\nWe do not want the compiler to do any optimizations based on the size of descriptors. We are representing a know data structure, namely page tables using the short-descriptor format as defined in the Arm architecture.\n\nI\u0027ve highlighted a few examples as inline comments where I think we should switch to uint32_t.",
+      "revId": "c1a645047d0a21c7a5cb4b075500427fedc0c9f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6498b40_c02c8f31",
+        "filename": "lib/xlat_tables/aarch32/nonlpae_tables.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-16T07:29:19Z",
+      "side": 1,
+      "message": "Should be uint32_t IMO. Just like we use uint64_t in xlat_desc():\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/xlat_tables_v2/xlat_tables_core.c#n107",
+      "range": {
+        "startLine": 287,
+        "startChar": 7,
+        "endLine": 287,
+        "endChar": 19
+      },
+      "revId": "c1a645047d0a21c7a5cb4b075500427fedc0c9f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7bf2e6c_9a3eb4cb",
+        "filename": "lib/xlat_tables/aarch32/nonlpae_tables.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-16T07:29:19Z",
+      "side": 1,
+      "message": "Should be (uint32_t *) IMO.",
+      "range": {
+        "startLine": 384,
+        "startChar": 6,
+        "endLine": 384,
+        "endChar": 20
+      },
+      "revId": "c1a645047d0a21c7a5cb4b075500427fedc0c9f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5e77adb_2cd78dab",
+        "filename": "lib/xlat_tables/aarch32/nonlpae_tables.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-16T07:29:19Z",
+      "side": 1,
+      "message": "Should be (uint32_t *) IMO.",
+      "range": {
+        "startLine": 459,
+        "startChar": 7,
+        "endLine": 459,
+        "endChar": 18
+      },
+      "revId": "c1a645047d0a21c7a5cb4b075500427fedc0c9f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f96d4c4_36c5a73d",
+        "filename": "lib/xlat_tables/aarch32/nonlpae_tables.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-16T07:29:19Z",
+      "side": 1,
+      "message": "Should be (uint32_t *) IMO.",
+      "range": {
+        "startLine": 483,
+        "startChar": 36,
+        "endLine": 483,
+        "endChar": 50
+      },
+      "revId": "c1a645047d0a21c7a5cb4b075500427fedc0c9f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
