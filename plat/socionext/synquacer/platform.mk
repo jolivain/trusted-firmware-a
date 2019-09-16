@@ -57,7 +57,7 @@ BL31_SOURCES		+=	$(PLAT_PATH)/drivers/scp/sq_scmi.c		\
 				drivers/arm/css/mhu/css_mhu_doorbell.c
 endif
 
-ifeq (${ENABLE_SPM},1)
+ifeq (${SPM_MM},1)
 $(eval $(call add_define,PLAT_EXTRA_LD_SCRIPT))
 
 BL31_SOURCES		+=	$(PLAT_PATH)/sq_spm.c
