@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "9d15c731_1fbc751a",
+        "filename": "plat/mediatek/mt8183/drivers/spm/spm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2019-09-16T03:19:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9000e180_8d3800d1",
+      "revId": "a285910eedbd52237f8ac646e13ce4424385a44b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b15ed43_8d62dc80",
         "filename": "plat/mediatek/mt8183/drivers/spm/spm.c",
         "patchSetId": 1
@@ -326,6 +344,24 @@
         "id": 1000123
       },
       "writtenOn": "2019-09-16T02:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9056f9d6_8e3bbffa",
+      "revId": "a285910eedbd52237f8ac646e13ce4424385a44b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7919b4_143c43d5",
+        "filename": "plat/mediatek/mt8183/drivers/spm/spm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2532,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2019-09-16T03:19:36Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "9056f9d6_8e3bbffa",
@@ -801,6 +837,24 @@
       "writtenOn": "2019-08-23T23:32:03Z",
       "side": 1,
       "message": "I am curious where is the calling cpu being suspended/turned-off? what does the function spm_system_suspend() do? Does this function put cluster into low power state if needed?",
+      "revId": "a285910eedbd52237f8ac646e13ce4424385a44b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "042d8d75_c092030e",
+        "filename": "plat/mediatek/mt8183/plat_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2019-09-16T03:19:36Z",
+      "side": 1,
+      "message": "Hi Madhukar,\n\nI am curious where is the calling cpu being suspended/turned-off?\n\u003d\u003e It is called by psci_cpu_suspend_start @ lib/psci/psci_suspend.c\n\nwhat does the function spm_system_suspend() do?\n\u003d\u003e This function configures SPM(HW) to suspend mode. Once last CPU is wfi, SPM(HW) would help turn off last CPU power and other AP resources.\n\nDoes this function put cluster into low power state if needed?\n\u003d\u003e This function only configure SPM(HW) and won\u0027t turn off any resources until last CPU is idle.",
+      "parentUuid": "49a56797_8dccc7d7",
       "revId": "a285910eedbd52237f8ac646e13ce4424385a44b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
