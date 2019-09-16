@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d81e6d8d_34db747f",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-16T13:10:49Z",
+      "side": 1,
+      "message": "What about AArch32 kernels? Are these out of scope for this function? If so, I think it would be worth calling it out in the function documentation.",
+      "range": {
+        "startLine": 52,
+        "startChar": 47,
+        "endLine": 52,
+        "endChar": 71
+      },
+      "revId": "f240728b76c05ac507189a37375b120379eda650",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb53aed4_af7b0d40",
+        "filename": "include/common/fdt_fixup.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-16T13:10:49Z",
+      "side": 1,
+      "message": "Now that these functions are taken out of platform code and pulled in generic code, I feel it\u0027s important we document them properly. Would you mind adding some function documentation in this file please? Among other things, I would like to see a mention that dt_add_psci_node() will succeed (return 0) if the psci node already exists for example.",
+      "revId": "f240728b76c05ac507189a37375b120379eda650",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
