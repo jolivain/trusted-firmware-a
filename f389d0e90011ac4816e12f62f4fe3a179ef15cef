@@ -22,6 +22,30 @@
       "revId": "f389d0e90011ac4816e12f62f4fe3a179ef15cef",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6fb0484_42164ca9",
+        "filename": "plat/mediatek/mt8173/drivers/pmic/pmic_wrap_init.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-17T10:00:11Z",
+      "side": 1,
+      "message": "Since there are several patches in the series, if you can pop in a patch to update the copyright at the top of stack, that should also be fine.",
+      "parentUuid": "07b245ea_3f6974c1",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "f389d0e90011ac4816e12f62f4fe3a179ef15cef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
