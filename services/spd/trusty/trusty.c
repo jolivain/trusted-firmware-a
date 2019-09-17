@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,10 +17,17 @@
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <lib/el3_runtime/context_mgmt.h>
+#include <lib/smccc.h>
 #include <plat/common/platform.h>
+#include <tools_share/uuid.h>
 
 #include "sm_err.h"
 #include "smcall.h"
+
+/* Trusty UID: RFC-4122 compliant UUID version 4 */
+DEFINE_SVC_UUID2(trusty_uuid,
+		 0x40ee25f0, 0xa2bc, 0x304c, 0x8c, 0x4c,
+		 0xa1, 0x73, 0xc5, 0x7d, 0x8a, 0xf1);
 
 /* macro to check if Hypervisor is enabled in the HCR_EL2 register */
 #define HYP_ENABLE_FLAG		0x286001U
@@ -256,13 +264,18 @@ static uintptr_t trusty_smc_handler(uint32_t smc_fid,
 		SMC_RET1(handle, SMC_UNK);
 	} else {
 		switch (smc_fid) {
+		case SMC_FC64_GET_UUID:
+		case SMC_FC_GET_UUID:
+			/* provide the UUID for the service to the client */
+			SMC_UUID_RET(handle, trusty_uuid);
+			break;
 		case SMC_FC64_SET_FIQ_HANDLER:
 			return trusty_set_fiq_handler(handle, x1, x2, x3);
 		case SMC_FC64_GET_FIQ_REGS:
 			return trusty_get_fiq_regs(handle);
 		case SMC_FC_FIQ_EXIT:
 			return trusty_fiq_exit(handle, x1, x2, x3);
-		default:
+		case OEN_TOS_START...SMC_ENTITY_SECURE_MONITOR:
 			if (is_hypervisor_mode())
 				vmid = SMC_GET_GP(handle, CTX_GPREG_X7);
 
@@ -279,6 +292,9 @@ static uintptr_t trusty_smc_handler(uint32_t smc_fid,
 				x2, x3);
 			current_vmid = 0;
 			SMC_RET1(handle, ret.r0);
+		default:
+			VERBOSE("%s: unsupported SMC FID (0x%x)\n", __func__, smc_fid);
+			SMC_RET1(handle, SMC_UNK);
 		}
 	}
 }
@@ -502,7 +518,7 @@ DECLARE_RT_SVC(
 	trusty_fast,
 
 	OEN_TOS_START,
-	SMC_ENTITY_SECURE_MONITOR,
+	OEN_TOS_END,
 	SMC_TYPE_FAST,
 	trusty_setup,
 	trusty_smc_handler
