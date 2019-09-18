@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb89bcdc_4563d817",
+        "filename": "plat/mediatek/mt8183/drivers/devapc/devapc.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2019-09-18T02:05:14Z",
+      "side": 1,
+      "message": "This can be locked, I think, since we don\u0027t use GPIOs for any purpose on the SCP now.",
+      "range": {
+        "startLine": 90,
+        "startChar": 59,
+        "endLine": 90,
+        "endChar": 65
+      },
+      "revId": "0cdf30075b2eec0a28de1e0d8c5d8fc2c053136a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49bcb886_3d5e7010",
+        "filename": "plat/mediatek/mt8183/drivers/devapc/devapc.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2019-09-18T02:05:14Z",
+      "side": 1,
+      "message": "Also, why do we need this?",
+      "range": {
+        "startLine": 100,
+        "startChar": 59,
+        "endLine": 100,
+        "endChar": 65
+      },
+      "revId": "0cdf30075b2eec0a28de1e0d8c5d8fc2c053136a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1dede32_54bc0f36",
+        "filename": "plat/mediatek/mt8183/drivers/devapc/devapc.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2019-09-18T02:05:14Z",
+      "side": 1,
+      "message": "Do we really need this, I don\u0027t think we touch the external UART controller.",
+      "range": {
+        "startLine": 195,
+        "startChar": 59,
+        "endLine": 195,
+        "endChar": 65
+      },
+      "revId": "0cdf30075b2eec0a28de1e0d8c5d8fc2c053136a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
