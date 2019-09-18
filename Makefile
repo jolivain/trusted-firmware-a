@@ -238,7 +238,6 @@ WARNINGS		:=	-Wall -Wmissing-include-dirs -Wunused	\
 WARNING1 := -Wextra
 WARNING1 += -Wmissing-declarations
 WARNING1 += -Wmissing-format-attribute
-WARNING1 += -Wmissing-prototypes
 WARNING1 += -Wold-style-definition
 
 # Level 2
