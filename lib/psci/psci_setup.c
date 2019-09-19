@@ -234,7 +234,8 @@ int __init psci_setup(const psci_lib_args_t *lib_args)
 		psci_caps |=  define_psci_cap(PSCI_CPU_OFF);
 	if ((psci_plat_pm_ops->pwr_domain_on != NULL) &&
 	    (psci_plat_pm_ops->pwr_domain_on_finish != NULL))
-		psci_caps |=  define_psci_cap(PSCI_CPU_ON_AARCH64);
+		psci_caps |=  define_psci_cap(PSCI_CPU_ON_AARCH64)
+			| define_psci_cap(PSCI_CPU_ON_AARCH32);
 	if ((psci_plat_pm_ops->pwr_domain_suspend != NULL) &&
 	    (psci_plat_pm_ops->pwr_domain_suspend_finish != NULL)) {
 		psci_caps |=  define_psci_cap(PSCI_CPU_SUSPEND_AARCH64);
