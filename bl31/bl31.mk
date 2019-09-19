@@ -80,6 +80,14 @@ BL31_SOURCES		+=	lib/cpus/aarch64/wa_cve_2017_5715_bpiall.S	\
 				lib/cpus/aarch64/wa_cve_2017_5715_mmu.S
 endif
 
+ifeq (${USE_DEBUGFS},1)
+BL31_SOURCES		+=	drivers/debugfs/dev.c \
+				drivers/debugfs/devc.c \
+				drivers/debugfs/devfip.c \
+				drivers/debugfs/devpsci.c \
+				drivers/debugfs/devroot.c
+endif
+
 BL31_LINKERFILE		:=	bl31/bl31.ld.S
 
 # Flag used to indicate if Crash reporting via console should be included

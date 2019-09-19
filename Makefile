@@ -150,6 +150,13 @@ else
 endif
 endif
 
+# USE_DEBUGFS only available in debug builds
+ifeq (${USE_DEBUGFS},1)
+ifneq (${DEBUG},1)
+        $(error USE_DEBUGFS is only available in debug builds)
+endif
+endif
+
 ################################################################################
 # Toolchain
 ################################################################################
@@ -693,6 +700,7 @@ $(eval $(call assert_boolean,SPIN_ON_BL1_EXIT))
 $(eval $(call assert_boolean,SPM_MM))
 $(eval $(call assert_boolean,TRUSTED_BOARD_BOOT))
 $(eval $(call assert_boolean,USE_COHERENT_MEM))
+$(eval $(call assert_boolean,USE_DEBUGFS))
 $(eval $(call assert_boolean,USE_ROMLIB))
 $(eval $(call assert_boolean,USE_TBBR_DEFS))
 $(eval $(call assert_boolean,WARMBOOT_ENABLE_DCACHE_EARLY))
@@ -759,6 +767,7 @@ $(eval $(call add_define,SPIN_ON_BL1_EXIT))
 $(eval $(call add_define,SPM_MM))
 $(eval $(call add_define,TRUSTED_BOARD_BOOT))
 $(eval $(call add_define,USE_COHERENT_MEM))
+$(eval $(call add_define,USE_DEBUGFS))
 $(eval $(call add_define,USE_ROMLIB))
 $(eval $(call add_define,USE_TBBR_DEFS))
 $(eval $(call add_define,WARMBOOT_ENABLE_DCACHE_EARLY))
