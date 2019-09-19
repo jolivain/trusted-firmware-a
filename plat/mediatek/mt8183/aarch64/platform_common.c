@@ -7,6 +7,7 @@
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
+#include <mt_gic_v3.h>
 #include <mcsi/mcsi.h>
 #include <platform_def.h>
 #include <lib/utils.h>
@@ -82,3 +83,9 @@ void plat_mtk_cci_init_sf(void)
 	/* Init mcsi snoop filter. */
 	cci_init_sf();
 }
+
+void plat_gic_init(void)
+{
+	gic_setup();
+}
+
