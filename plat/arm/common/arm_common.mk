@@ -292,3 +292,8 @@ ifeq (${RECLAIM_INIT_CODE}, 1)
         $(error "To reclaim init code xlat tables v2 must be used")
     endif
 endif
+
+include lib/debugfs/debugfs.mk
+ifeq (${USE_DEBUGFS},1)
+	BL31_SOURCES	+= $(DEBUGFS_SRCS)
+endif
