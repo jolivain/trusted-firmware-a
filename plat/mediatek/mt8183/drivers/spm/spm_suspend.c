@@ -45,6 +45,8 @@
 #define SLP_PCM_FLAGS1 \
 	(SPM_FLAG1_DISABLE_MCDSR)
 
+static struct mtk_irq_mask mask;
+
 static const struct pwr_ctrl suspend_ctrl = {
 	.wake_src = WAKE_SRC_FOR_SUSPEND,
 	.pcm_flags = SLP_PCM_FLAGS,
@@ -160,6 +162,8 @@ void go_to_sleep_before_wfi(void)
 	int cpu = MPIDR_AFFLVL0_VAL(read_mpidr());
 	uint32_t settle;
 
+	mt_irq_mask_all(&mask);
+
 	settle = spm_set_sysclk_settle();
 	spm_set_cpu_status(cpu);
 	spm_set_power_control(&suspend_ctrl);
@@ -193,6 +197,8 @@ static void go_to_sleep_after_wfi(void)
 
 	if (is_infra_pdn(suspend_ctrl.pcm_flags))
 		mt_uart_restore();
+
+	mt_irq_mask_restore(&mask);
 
 	spm_set_pcm_wdt(0);
 	spm_get_wakeup_status(&spm_wakesta);
