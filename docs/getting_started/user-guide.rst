@@ -48,7 +48,7 @@ Install the required packages to build TF-A with the following command:
 
     sudo apt-get install device-tree-compiler build-essential gcc make git libssl-dev
 
-TF-A has been tested with Linaro Release 18.04.
+TF-A has been tested with Linaro Release 19.06.
 
 Download and install the AArch32 (arm-eabi) or AArch64 little-endian
 (aarch64-linux-gnu) GCC cross compiler. If you would like to use the latest
@@ -2197,7 +2197,7 @@ wakeup interrupt from RTC.
 .. _Linaro: `Linaro Release Notes`_
 .. _Linaro Release: `Linaro Release Notes`_
 .. _Linaro Release Notes: https://community.arm.com/dev-platforms/w/docs/226/old-release-notes
-.. _Linaro instructions: https://community.arm.com/dev-platforms/w/docs/304/arm-reference-platforms-deliverables
+.. _Linaro instructions: https://git.linaro.org/landing-teams/working/arm/arm-reference-platforms.git/about/
 .. _Instructions for using Linaro's deliverables on Juno: https://community.arm.com/dev-platforms/w/docs/303/juno
 .. _Arm Platforms Portal: https://community.arm.com/dev-platforms/
 .. _Development Studio 5 (DS-5): https://developer.arm.com/products/software-development-tools/ds-5-development-studio
