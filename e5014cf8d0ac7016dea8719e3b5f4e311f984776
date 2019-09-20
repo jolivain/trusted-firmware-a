@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4aa068f6_b282cb19",
+        "filename": "docs/plat/meson-g12a.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2019-09-20T08:01:00Z",
+      "side": 1,
+      "message": "Of course it is wrong. At the same time I was noticing that there are really no public information around on how to build the G12a FIP image. I should probably drop a note into the gxlimg readme.",
+      "parentUuid": "239a90c8_e05ce358",
+      "range": {
+        "startLine": 27,
+        "startChar": 87,
+        "endLine": 27,
+        "endChar": 106
+      },
+      "revId": "e5014cf8d0ac7016dea8719e3b5f4e311f984776",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03ead667_86075849",
         "filename": "plat/amlogic/g12a/g12a_common.c",
         "patchSetId": 2
