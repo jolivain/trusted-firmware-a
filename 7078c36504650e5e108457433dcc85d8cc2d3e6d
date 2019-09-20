@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e8d2649_426401a9",
+        "filename": "plat/rpi/rpi4/rpi4_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-20T14:24:18Z",
+      "side": 1,
+      "message": "This line gives a checkpatch error.\n\nplat/rpi/rpi4/rpi4_bl31_setup.c:64: ERROR: spaces required around that \u0027:\u0027 (ctx:VxW)\n+\t\t: \"\u003d\u0026r\" (delay): \"0\" (delay)",
+      "range": {
+        "startLine": 64,
+        "startChar": 17,
+        "endLine": 64,
+        "endChar": 19
+      },
+      "revId": "7078c36504650e5e108457433dcc85d8cc2d3e6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
