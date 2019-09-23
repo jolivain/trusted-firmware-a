@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -18,3 +18,9 @@ unsigned int plat_arm_sgi_get_config_id(void)
 	return (mmio_read_32(SSC_VERSION) >> SSC_VERSION_CONFIG_SHIFT)
 			& SSC_VERSION_CONFIG_MASK;
 }
+
+#if defined(IMAGE_BL31)
+void plat_arm_sgi_bl31_board_setup(void)
+{
+}
+#endif
