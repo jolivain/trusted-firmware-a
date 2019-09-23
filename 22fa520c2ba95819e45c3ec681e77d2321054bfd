@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81dbf673_95d2de8e",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-23T11:32:24Z",
+      "side": 1,
+      "message": "My comment is off-topic but should we consider swapping these 2 conditions to optimize the code? Checking whether len equals 4 is typically faster than a call to strcmp() so this would presumably make the code more efficient for nodes other than \"cpu\"?",
+      "range": {
+        "startLine": 112,
+        "startChar": 5,
+        "endLine": 112,
+        "endChar": 47
+      },
+      "revId": "22fa520c2ba95819e45c3ec681e77d2321054bfd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
