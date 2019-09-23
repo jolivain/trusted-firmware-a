@@ -20,6 +20,9 @@
 
 sgi_platform_info_t sgi_plat_info;
 
+/* Board specific bl31 platform setup will be handled in this function */
+extern void plat_arm_sgi_bl31_board_setup(void);
+
 static scmi_channel_plat_info_t sgi575_scmi_plat_info = {
 		.scmi_mbx_mem = CSS_SCMI_PAYLOAD_BASE,
 		.db_reg_addr = PLAT_CSS_MHU_BASE + CSS_SCMI_MHU_DB_REG_OFF,
@@ -57,6 +60,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 void bl31_platform_setup(void)
 {
+	plat_arm_sgi_bl31_board_setup();
 	arm_bl31_platform_setup();
 
 #if RAS_EXTENSION
