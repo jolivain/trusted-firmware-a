@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,6 +19,9 @@
 #include <sgi_variant.h>
 
 sgi_platform_info_t sgi_plat_info;
+
+/* Board specific bl31 platform setup will be handled in this function */
+extern void plat_arm_sgi_bl31_board_setup(void);
 
 static scmi_channel_plat_info_t sgi575_scmi_plat_info = {
 		.scmi_mbx_mem = CSS_SCMI_PAYLOAD_BASE,
@@ -57,6 +60,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 void bl31_platform_setup(void)
 {
+	plat_arm_sgi_bl31_board_setup();
 	arm_bl31_platform_setup();
 
 #if RAS_EXTENSION
