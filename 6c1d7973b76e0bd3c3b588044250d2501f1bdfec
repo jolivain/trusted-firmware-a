@@ -392,6 +392,24 @@
     },
     {
       "key": {
+        "uuid": "153b0ab3_41b0c4da",
+        "filename": "plat/qemu/qemu_sbsa/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-24T14:30:17Z",
+      "side": 1,
+      "message": "Sounds good to me.",
+      "parentUuid": "ff2a0569_95e614ad",
+      "revId": "6c1d7973b76e0bd3c3b588044250d2501f1bdfec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe259977_75738c81",
         "filename": "plat/qemu/qemu_sbsa/platform.mk",
         "patchSetId": 3
@@ -427,6 +445,30 @@
       "side": 1,
       "message": "Is TBBR is not essentially needed for build tests in CI?\nIf not then we could drop it and add it later if needed.",
       "parentUuid": "fe259977_75738c81",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 31
+      },
+      "revId": "6c1d7973b76e0bd3c3b588044250d2501f1bdfec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3433701b_dc84c471",
+        "filename": "plat/qemu/qemu_sbsa/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-24T14:30:17Z",
+      "side": 1,
+      "message": "If you tell me that TBBR is not yet supported on QEMU SBSA then that\u0027s fine, we won\u0027t attempt to build that in the CI. As you say, it can be dropped for now and added later.",
+      "parentUuid": "ee8ce614_7e54e5c8",
       "range": {
         "startLine": 53,
         "startChar": 0,
