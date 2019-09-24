@@ -25,6 +25,47 @@
     },
     {
       "key": {
+        "uuid": "91142bb8_2e45614e",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-09-24T18:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b13d279_d64248f2",
+      "range": {
+        "startLine": 125,
+        "startChar": 32,
+        "endLine": 125,
+        "endChar": 53
+      },
+      "revId": "aa587c78a08d6f712d88638f53f5606a86b9d867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9766f88c_daac5f38",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-09-24T18:58:18Z",
+      "side": 1,
+      "message": "Removed the trailing space.",
+      "revId": "aa587c78a08d6f712d88638f53f5606a86b9d867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9893ea0_6aeda6a2",
         "filename": "drivers/arm/gic/v3/gicv3_main.c",
         "patchSetId": 25
@@ -59,6 +100,54 @@
       "writtenOn": "2019-09-24T11:26:22Z",
       "side": 1,
       "message": "Use gicv3_driver_data-\u003erdistif_num",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 21
+      },
+      "revId": "aa587c78a08d6f712d88638f53f5606a86b9d867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09e9bf0e_152e2794",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-09-24T18:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9893ea0_6aeda6a2",
+      "range": {
+        "startLine": 130,
+        "startChar": 22,
+        "endLine": 130,
+        "endChar": 39
+      },
+      "revId": "aa587c78a08d6f712d88638f53f5606a86b9d867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3687859_1aa1d8f0",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-09-24T18:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53a986bd_cc2a9f11",
       "range": {
         "startLine": 130,
         "startChar": 2,
