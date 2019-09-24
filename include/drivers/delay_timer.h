@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019, Linaro Limited
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,7 +8,10 @@
 #ifndef DELAY_TIMER_H
 #define DELAY_TIMER_H
 
+#include <stdbool.h>
 #include <stdint.h>
+
+#include <arch_helpers.h>
 
 /********************************************************************
  * A simple timer driver providing synchronous delay functionality.
@@ -22,6 +26,21 @@ typedef struct timer_ops {
 	uint32_t clk_mult;
 	uint32_t clk_div;
 } timer_ops_t;
+
+static inline uint64_t arm_cnt_us2cnt(uint32_t us)
+{
+	return ((uint64_t)us * (uint64_t)read_cntfrq_el0()) / 1000000ULL;
+}
+
+static inline uint64_t timeout_init_us(uint32_t us)
+{
+	return read_cntpct_el0() + arm_cnt_us2cnt(us);
+}
+
+static inline bool timeout_elapsed(uint64_t expire)
+{
+	return read_cntpct_el0() > expire;
+}
 
 void mdelay(uint32_t msec);
 void udelay(uint32_t usec);
