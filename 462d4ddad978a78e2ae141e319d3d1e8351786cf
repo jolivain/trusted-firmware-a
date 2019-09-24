@@ -117,6 +117,29 @@
     },
     {
       "key": {
+        "uuid": "ddc17cb1_c11e7c7a",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/mce/nvg.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-09-24T11:10:07Z",
+      "side": 1,
+      "message": "Is this the correct name for the cluster(s) on this platform?",
+      "range": {
+        "startLine": 162,
+        "startChar": 31,
+        "endLine": 162,
+        "endChar": 38
+      },
+      "revId": "462d4ddad978a78e2ae141e319d3d1e8351786cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "26c744ab_c63537e2",
         "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
         "patchSetId": 1
