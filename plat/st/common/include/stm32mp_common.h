@@ -81,21 +81,6 @@ unsigned long stm32mp_clk_get_rate(unsigned long id);
 /* Initialise the IO layer and register platform IO devices */
 void stm32mp_io_setup(void);
 
-static inline uint64_t arm_cnt_us2cnt(uint32_t us)
-{
-	return ((uint64_t)us * (uint64_t)read_cntfrq()) / 1000000ULL;
-}
-
-static inline uint64_t timeout_init_us(uint32_t us)
-{
-	return read_cntpct_el0() + arm_cnt_us2cnt(us);
-}
-
-static inline bool timeout_elapsed(uint64_t expire)
-{
-	return read_cntpct_el0() > expire;
-}
-
 /*
  * Check that the STM32 header of a .stm32 binary image is valid
  * @param header: pointer to the stm32 image header
