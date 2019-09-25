@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65644d54_c74d837a",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-25T16:29:36Z",
+      "side": 1,
+      "message": "This micro optimization looks wrong when WARMBOOT_ENABLE_DCACHE_EARLY is set because gicv3_driver_data-\u003erdistif_base_addrs can be accessed with caches disabled in the suspend-to-powerdown code path. Suggest to remove this conditional atleast for WARMBOOT_ENABLE_DCACHE_EARLY.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 60
+      },
+      "revId": "94a547d18f3fbebe6cf63547cb120bcc0e3cbe94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78202af8_a562807c",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-25T16:29:36Z",
+      "side": 1,
+      "message": "if (plat_driver_data-\u003egicr_base !\u003d 0U) {\n        flush(....)\n}",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 52
+      },
+      "revId": "94a547d18f3fbebe6cf63547cb120bcc0e3cbe94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5da93199_8c287164",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-25T16:29:36Z",
+      "side": 1,
+      "message": "You just want to flush gicv3_driver_data-\u003erdistif_base_addrs[proc_num] because you modify only entry.",
+      "range": {
+        "startLine": 1137,
+        "startChar": 3,
+        "endLine": 1137,
+        "endChar": 50
+      },
+      "revId": "94a547d18f3fbebe6cf63547cb120bcc0e3cbe94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "557bad73_bac2da5d",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-25T16:29:36Z",
+      "side": 1,
+      "message": "#if !(HW_ASSISTED_COHERENCY)",
+      "range": {
+        "startLine": 1153,
+        "startChar": 0,
+        "endLine": 1153,
+        "endChar": 60
+      },
+      "revId": "94a547d18f3fbebe6cf63547cb120bcc0e3cbe94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8cc64723_652e5be2",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-25T16:29:36Z",
+      "side": 1,
+      "message": "These flushes are not required.",
+      "range": {
+        "startLine": 1154,
+        "startChar": 1,
+        "endLine": 1158,
+        "endChar": 3
+      },
+      "revId": "94a547d18f3fbebe6cf63547cb120bcc0e3cbe94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
