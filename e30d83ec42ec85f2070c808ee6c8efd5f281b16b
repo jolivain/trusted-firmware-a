@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "128b77c7_c8b50909",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 2208,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-09-25T23:14:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81e556f4_d7dc5521",
+      "range": {
+        "startLine": 2208,
+        "startChar": 0,
+        "endLine": 2208,
+        "endChar": 44
+      },
+      "revId": "e30d83ec42ec85f2070c808ee6c8efd5f281b16b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b858df02_4bf8784c",
         "filename": "lib/psci/psci_on.c",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2019-09-25T15:58:29Z",
       "side": 1,
       "message": "move this outside the #if.",
+      "range": {
+        "startLine": 183,
+        "startChar": 1,
+        "endLine": 189,
+        "endChar": 58
+      },
+      "revId": "e30d83ec42ec85f2070c808ee6c8efd5f281b16b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cda21d65_a4e89d9e",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-09-25T23:14:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b858df02_4bf8784c",
       "range": {
         "startLine": 183,
         "startChar": 1,
