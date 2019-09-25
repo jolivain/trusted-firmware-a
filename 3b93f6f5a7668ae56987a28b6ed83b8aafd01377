@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d31a8974_c691563c",
+        "filename": "plat/arm/board/fvp/fvp_pm.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-09-25T23:17:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "740373f1_fc6e2218",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 6
+      },
+      "revId": "3b93f6f5a7668ae56987a28b6ed83b8aafd01377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04030050_17ef6be1",
         "filename": "plat/arm/css/common/css_pm.c",
         "patchSetId": 30
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a7363a01_3df02fef",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-09-25T23:17:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04030050_17ef6be1",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 6
+      },
+      "revId": "3b93f6f5a7668ae56987a28b6ed83b8aafd01377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db8faa90_6a7f6a8a",
         "filename": "plat/arm/css/common/css_pm.c",
         "patchSetId": 30
@@ -59,6 +107,30 @@
       "writtenOn": "2019-09-25T16:04:45Z",
       "side": 1,
       "message": "This was causing the mixed attribute access to the gicr_base_addresses[]. If you introduce a suspend_finish_late and move this to the new hook, then the problem will be resolved.",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 29
+      },
+      "revId": "3b93f6f5a7668ae56987a28b6ed83b8aafd01377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810496e4_28d8773d",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-09-25T23:17:38Z",
+      "side": 1,
+      "message": "this function only reads gicr_base value from the GICv3 data structure. An earlier PSCI hook flushed the contents of this data structure after modifying it (function gicv3_rdist_probe() ). I think suspend_finish_late may not be required at least for Arm platforms.",
+      "parentUuid": "db8faa90_6a7f6a8a",
       "range": {
         "startLine": 204,
         "startChar": 0,
