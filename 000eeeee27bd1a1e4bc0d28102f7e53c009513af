@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b96cb5c8_cd021c8f",
+        "filename": "docs/getting_started/user-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-26T07:31:38Z",
+      "side": 1,
+      "message": "We have to provide a link to the 19.06 binaries: http://releases.linaro.org/members/arm/platforms/19.06/\n\nWith the new instructions on https://git.linaro.org/landing-teams/working/arm/arm-reference-platforms.git/about/ , it is a lot more difficult to find it.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 47
+      },
+      "revId": "000eeeee27bd1a1e4bc0d28102f7e53c009513af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f88d0904_840ec629",
+        "filename": "docs/getting_started/user-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-26T07:31:38Z",
+      "side": 1,
+      "message": "This also needs to be updated. I don\u0027t think the sync_workspace.py script downloads the cross-toolchain, does it? I don\u0027t see any specific toolchain version specified in the instructions on [1]. I\u0027ve found a mention of GCC 6.2 on this page [2] but these are FVP-specific instructions, they might advise a different version for other platforms.\n\nBottom line, I think we cannot rely on these instructions to indicate the toolchain version for the time being and we should indicate the exact version we use.\n\n[1] https://git.linaro.org/landing-teams/working/arm/arm-reference-platforms.git/about/\n[2] https://git.linaro.org/landing-teams/working/arm/arm-reference-platforms.git/about/docs/basefvp/user-guide.rst",
+      "range": {
+        "startLine": 56,
+        "startChar": 23,
+        "endLine": 57,
+        "endChar": 57
+      },
+      "revId": "000eeeee27bd1a1e4bc0d28102f7e53c009513af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fb6eb9c_08aea83d",
+        "filename": "docs/getting_started/user-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2158,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-09-26T07:31:38Z",
+      "side": 1,
+      "message": "Should be updated.",
+      "range": {
+        "startLine": 2157,
+        "startChar": 0,
+        "endLine": 2158,
+        "endChar": 65
+      },
+      "revId": "000eeeee27bd1a1e4bc0d28102f7e53c009513af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
