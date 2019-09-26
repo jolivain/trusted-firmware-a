@@ -22,6 +22,30 @@
       "revId": "cdb8c52f922b5c4d972e398a72ac89d100937507",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4ccf1a5_b977adfa",
+        "filename": "plat/amlogic/g12a/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2019-09-26T13:53:03Z",
+      "side": 1,
+      "message": "Has Amlogic the copyright here? The work is a derivative work from other files attributed to ARM and I\u0027m definitely not an Amlogic employee. So, why this change is needed?",
+      "parentUuid": "e9b3c69d_3e2c13df",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 50
+      },
+      "revId": "cdb8c52f922b5c4d972e398a72ac89d100937507",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
