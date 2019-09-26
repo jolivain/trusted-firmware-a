@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a68b56d_0b9f29db",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-26T10:52:10Z",
+      "side": 1,
+      "message": "remove this. Also call out the issue with WARMBOOT_ENABLE_DCACHE_EARLY in the commit message so it is clear which it is removed from here.",
+      "range": {
+        "startLine": 124,
+        "startChar": 39,
+        "endLine": 124,
+        "endChar": 70
+      },
+      "revId": "46821d4bba395dbfa29fabdb20339b98e102bb51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ba32b83_07e51f02",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-09-26T10:52:10Z",
+      "side": 1,
+      "message": "remove this.",
+      "range": {
+        "startLine": 1153,
+        "startChar": 7,
+        "endLine": 1153,
+        "endChar": 35
+      },
+      "revId": "46821d4bba395dbfa29fabdb20339b98e102bb51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
