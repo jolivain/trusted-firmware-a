@@ -7,3 +7,4 @@ Performance & Testing
    :numbered:
 
    psci-performance-juno
+   performance-monitoring-unit
