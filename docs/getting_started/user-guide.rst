@@ -1,6 +1,6 @@
 User Guide
 ==========
-
+ 
 This document describes how to build Trusted Firmware-A (TF-A) and run it with a
 tested set of other software components using defined configurations on the Juno
 Arm development platform and Arm Fixed Virtual Platform (FVP) models. It is
