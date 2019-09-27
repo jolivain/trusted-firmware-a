@@ -8,6 +8,7 @@ Performance & Testing
 
    psci-performance-juno
    tsp
+   performance-monitoring-unit
 
 --------------
 
