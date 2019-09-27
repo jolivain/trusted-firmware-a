@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61c5fb6e_edf08cbd",
+        "filename": "plat/mediatek/mt8183/drivers/devapc/devapc.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2019-09-27T08:27:07Z",
+      "side": 1,
+      "message": "I did some experiments before. It turned out that the SCP console couldn\u0027t be initialized if changing this to FORBID, but I don\u0027t know the reason.\n\nhttps://buganizer.corp.google.com/issues/122028868#comment70",
+      "range": {
+        "startLine": 99,
+        "startChar": 59,
+        "endLine": 99,
+        "endChar": 65
+      },
+      "revId": "e7e1c66d2c855961964ae5c8045284e3c9ac1a8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
