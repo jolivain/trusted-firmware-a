@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "fcb39873_1712ac6c",
+        "filename": "docs/getting_started/user-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2019-09-30T17:26:50Z",
+      "side": 1,
+      "message": "Actually, the script downloads the cross-compiler (GCC 6.2) if I choose to build from source. I think this statement is confusing because it gives the impression that Linaro also provides the cross compiler, which is not necessarily true for newer versions of GCC. I made some changes in the second patch set which should make things clearer. Let me know if it makes sense. Thanks.",
+      "parentUuid": "d92c0645_4b99d633",
+      "range": {
+        "startLine": 56,
+        "startChar": 23,
+        "endLine": 57,
+        "endChar": 57
+      },
+      "revId": "000eeeee27bd1a1e4bc0d28102f7e53c009513af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5fb6eb9c_08aea83d",
         "filename": "docs/getting_started/user-guide.rst",
         "patchSetId": 1
