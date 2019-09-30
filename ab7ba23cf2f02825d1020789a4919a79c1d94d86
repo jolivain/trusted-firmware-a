@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0381b291_342e44eb",
+        "filename": "plat/arm/board/a5ds/a5ds_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-09-30T09:55:34Z",
+      "side": 1,
+      "message": "1. Should be false but not 0.\n2. What\u0027s about RELEASE builds? Should this code panic?",
+      "revId": "ab7ba23cf2f02825d1020789a4919a79c1d94d86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
