@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a50175d4_f8ddc46d",
+        "filename": "docs/getting_started/user-guide.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2019-09-30T17:26:50Z",
+      "side": 1,
+      "message": "It shouldn\u0027t affect my changes, as there is no conflicting information here. He has fetched my changes.",
+      "parentUuid": "a21ac5d7_b120be46",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 22
+      },
+      "revId": "8090b62a572dbd7cf62a44999e3b22e903250c04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "349fc675_920e11c1",
         "filename": "docs/getting_started/user-guide.rst",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-09-30T07:19:59Z",
       "side": 1,
       "message": "(cosmetic) Please truncate the lines to 80 columns and remove the trailing whitespace.",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 28
+      },
+      "revId": "8090b62a572dbd7cf62a44999e3b22e903250c04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3685d385_46d37e1a",
+        "filename": "docs/getting_started/user-guide.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2019-09-30T17:26:50Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "349fc675_920e11c1",
       "range": {
         "startLine": 71,
         "startChar": 0,
