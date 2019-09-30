@@ -15,6 +15,7 @@
 #include <common/debug.h>
 #include <drivers/auth/auth_mod.h>
 #include <drivers/io/io_storage.h>
+#include <drivers/pal/pal_tbbr_getter.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
 #include <plat/common/platform.h>
@@ -219,6 +220,15 @@ static int load_auth_image_recursive(unsigned int image_id,
 static int load_auth_image_internal(unsigned int image_id,
 				    image_info_t *image_data)
 {
+#if TRUSTED_BOARD_BOOT && defined(DYN_DISABLE_AUTH)
+	uint32_t disable_auth = 0;
+
+	disable_auth = PAL_GET_PROPERTY(tbbr, dyn_config, disable_auth);
+
+	if (disable_auth == 1)
+		dyn_disable_auth();
+#endif
+
 #if TRUSTED_BOARD_BOOT
 	if (dyn_is_auth_disabled() == 0) {
 		return load_auth_image_recursive(image_id, image_data, 0);
