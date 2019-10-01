@@ -14,15 +14,14 @@
 #include <drivers/synopsys/dw_mmc.h>
 #include <drivers/ti/uart/uart_16550.h>
 #include <lib/xlat_tables/xlat_tables.h>
-#include <platform_def.h>
-#include <socfpga_private.h>
+
+#include "socfpga_handoff.h"
+#include "socfpga_mailbox.h"
+#include "socfpga_private.h"
 
 #include "agilex_clock_manager.h"
-#include "agilex_handoff.h"
-#include "agilex_mailbox.h"
 #include "agilex_memory_controller.h"
 #include "agilex_pinmux.h"
-#include "agilex_private.h"
 #include "agilex_reset_manager.h"
 #include "agilex_system_manager.h"
 
@@ -59,7 +58,7 @@ void bl2_el3_early_platform_setup(u_register_t x0, u_register_t x1,
 
 	generic_delay_timer_init();
 
-	if (agilex_get_handoff(&reverse_handoff_ptr))
+	if (socfpga_get_handoff(&reverse_handoff_ptr))
 		return;
 	config_pinmux(&reverse_handoff_ptr);
 	boot_source = reverse_handoff_ptr.boot_source;

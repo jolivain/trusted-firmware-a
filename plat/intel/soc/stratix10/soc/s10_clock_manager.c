@@ -11,8 +11,9 @@
 #include <lib/mmio.h>
 #include <platform_def.h>
 
+#include "socfpga_handoff.h"
+
 #include "s10_clock_manager.h"
-#include "s10_handoff.h"
 #include "s10_system_manager.h"
 
 
