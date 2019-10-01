@@ -18,6 +18,7 @@
 #endif
 #include <drivers/fconf/fconf.h>
 #include <drivers/fconf/fconf_dyn_cfg_getter.h>
+#include <drivers/fconf/fconf_tbbr_getter.h>
 #include <plat/arm/common/arm_dyn_cfg_helpers.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
@@ -56,24 +57,10 @@ int arm_get_mbedtls_heap(void **heap_addr, size_t *heap_size)
 
 #elif defined(IMAGE_BL2)
 
-	int err;
-	void *tb_fw_cfg_dtb;
-
-	/* fconf FW_CONFIG and TB_FW_CONFIG are currently the same DTB*/
-	tb_fw_cfg_dtb = FCONF_GET_PROPERTY(fconf, dtb, base_addr);
-
 	/* If in BL2, retrieve the already allocated heap's info from DTB */
-	if (tb_fw_cfg_dtb != NULL) {
-		err = arm_get_dtb_mbedtls_heap_info(tb_fw_cfg_dtb, heap_addr,
-			heap_size);
-		if (err < 0) {
-			ERROR("BL2: unable to retrieve shared Mbed TLS heap information from DTB\n");
-			panic();
-		}
-	} else {
-		ERROR("BL2: DTB missing, cannot get Mbed TLS heap\n");
-		panic();
-	}
+	*heap_addr = FCONF_GET_PROPERTY(tbbr, dyn_config, mbedtls_heap_addr);
+	*heap_size = FCONF_GET_PROPERTY(tbbr, dyn_config, mbedtls_heap_size);
+
 #endif
 
 	return 0;
@@ -86,7 +73,7 @@ int arm_get_mbedtls_heap(void **heap_addr, size_t *heap_size)
 void arm_bl1_set_mbedtls_heap(void)
 {
 	int err;
-	void *tb_fw_cfg_dtb;
+	uintptr_t tb_fw_cfg_dtb;
 
 	/*
 	 * If tb_fw_cfg_dtb==NULL then DTB is not present for the current
@@ -104,8 +91,11 @@ void arm_bl1_set_mbedtls_heap(void)
 	/* fconf FW_CONFIG and TB_FW_CONFIG are currently the same DTB*/
 	tb_fw_cfg_dtb = FCONF_GET_PROPERTY(fconf, dtb, base_addr);
 
-	if ((tb_fw_cfg_dtb != NULL) && (mbedtls_heap_addr != NULL)) {
-		err = arm_set_dtb_mbedtls_heap_info(tb_fw_cfg_dtb,
+	if ((tb_fw_cfg_dtb != 0UL) && (mbedtls_heap_addr != NULL)) {
+		/* As libfdt use void *, we can't avoid this cast */
+		void *dtb = (void *)tb_fw_cfg_dtb;
+
+		err = arm_set_dtb_mbedtls_heap_info(dtb,
 			mbedtls_heap_addr, mbedtls_heap_size);
 		if (err < 0) {
 			ERROR("BL1: unable to write shared Mbed TLS heap information to DTB\n");
@@ -116,8 +106,8 @@ void arm_bl1_set_mbedtls_heap(void)
 		 * images. It's critical because BL2 won't be able to proceed
 		 * without the heap info.
 		 */
-		flush_dcache_range((uintptr_t)tb_fw_cfg_dtb,
-			fdt_totalsize(tb_fw_cfg_dtb));
+		flush_dcache_range(tb_fw_cfg_dtb,
+			fdt_totalsize(dtb));
 	}
 }
 
