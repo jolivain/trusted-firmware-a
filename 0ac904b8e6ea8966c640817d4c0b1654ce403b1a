@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7c64e23c_706c34d4",
+        "filename": "docs/plat/sbsa.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000199
+      },
+      "writtenOn": "2019-10-01T14:18:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ffab9d6_36c2ac8a",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 18
+      },
+      "revId": "0ac904b8e6ea8966c640817d4c0b1654ce403b1a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c63b4df_ee0112f2",
         "filename": "plat/qemu/sbsa/include/platform_def.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-07-17T09:48:20Z",
       "side": 1,
       "message": "Use the standard license boiler plate.\n\nJust have the name of the contributing organization here (say `Linaro`).",
+      "range": {
+        "startLine": 3,
+        "startChar": 23,
+        "endLine": 3,
+        "endChar": 51
+      },
+      "revId": "0ac904b8e6ea8966c640817d4c0b1654ce403b1a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a14dc58a_e1da57cd",
+        "filename": "plat/qemu/sbsa/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000199
+      },
+      "writtenOn": "2019-10-01T14:18:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c63b4df_ee0112f2",
       "range": {
         "startLine": 3,
         "startChar": 23,
