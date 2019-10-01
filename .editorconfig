@@ -70,3 +70,7 @@ indent_style = space
 # [PEP8] Maximum Line Length
 #	"Limit all lines to a maximum of 79 characters."
 max_line_length = 79
+
+[*.dts]
+indent_size = 4
+indent_style = space
