@@ -16,6 +16,8 @@
 
 struct tbbr_dyn_config_t {
 	uint32_t disable_auth;
+	void *mbedtls_heap_addr;
+	size_t mbedtls_heap_size;
 } tbbr_dyn_config;
 
 int pal_populate_tbbr_dyn_config(void *dtb);

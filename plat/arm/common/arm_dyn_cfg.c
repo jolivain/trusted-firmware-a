@@ -15,6 +15,7 @@
 #if TRUSTED_BOARD_BOOT
 #include <drivers/auth/mbedtls/mbedtls_config.h>
 #endif
+#include <drivers/pal/pal.h>
 #include <plat/arm/common/arm_dyn_cfg_helpers.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
@@ -60,6 +61,8 @@ int arm_get_mbedtls_heap(void **heap_addr, size_t *heap_size)
 
 	int err;
 
+	tb_fw_cfg_dtb = PAL_GET_PROPERTY(pal, dtb, base_addr);
+
 	/* If in BL2, retrieve the already allocated heap's info from DTB */
 	if (tb_fw_cfg_dtb != NULL) {
 		err = arm_get_dtb_mbedtls_heap_info(tb_fw_cfg_dtb, heap_addr,
@@ -97,6 +100,10 @@ void arm_bl1_set_mbedtls_heap(void)
 	 * information, we would need to call plat_get_mbedtls_heap to retrieve
 	 * the default heap's address and size.
 	 */
+
+	tb_fw_cfg_dtb = PAL_GET_PROPERTY(pal, dtb, base_addr);
+	tb_fw_cfg_dtb_size = PAL_GET_PROPERTY(pal, dtb, size);
+
 	if ((tb_fw_cfg_dtb != NULL) && (mbedtls_heap_addr != NULL)) {
 		err = arm_set_dtb_mbedtls_heap_info(tb_fw_cfg_dtb,
 			mbedtls_heap_addr, mbedtls_heap_size);

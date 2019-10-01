@@ -14,9 +14,6 @@
 #include <libfdt.h>
 #include <plat/common/platform.h>
 
-static void *tb_fw_cfg_dtb;
-static size_t tb_fw_cfg_dtb_size;
-
 void pal_load_config(void)
 {
 	int err;
@@ -42,8 +39,8 @@ void pal_load_config(void)
 
 	/* At this point we know that a DTB is indeed available */
 	config_base = arm_tb_fw_info.image_info.image_base;
-	tb_fw_cfg_dtb = (void *)config_base;
-	tb_fw_cfg_dtb_size = (size_t)arm_tb_fw_info.image_info.image_max_size;
+	pal_dtb_info.base_addr = (void *)config_base;
+	pal_dtb_info.size = (size_t)arm_tb_fw_info.image_info.image_max_size;
 
 	/* The BL2 ep_info arg0 is modified to point to TB_FW_CONFIG */
 	desc = bl1_plat_get_image_desc(BL2_IMAGE_ID);
@@ -78,4 +75,7 @@ void pal_populate(void *dtb)
 			// TODO: handle property miss
 		}
 	}
+
+	// save local pointer to dtb
+	pal_dtb_info.base_addr = dtb;
 }
