@@ -226,6 +226,14 @@ smc_handler:
 	 */
 	bl	save_gp_pmcr_pauth_regs
 
+#if ENABLE_PAUTH
+	/* -----------------------------------------------------
+	 * Load and program stored APIAKey firmware key, enable
+	 * pointer authentication in EL3
+	 * -----------------------------------------------------
+	 */
+	bl	pauth_load_bl1_apiakey_enable
+#endif
 	/* -----------------------------------------------------
 	 * Populate the parameters for the SMC handler. We
 	 * already have x0-x4 in place. x5 will point to a
