@@ -25,4 +25,12 @@ struct pal_populator {
 void pal_load_config(void);
 void pal_populate(void *dtb);
 
+/* PAL specific getter */
+#define pal__dtb_getter(prop)	pal_dtb_info.prop
+
+struct pal_dtb_info_t {
+	void *base_addr;
+	size_t size;
+} pal_dtb_info;
+
 #endif /* PAL_H */
