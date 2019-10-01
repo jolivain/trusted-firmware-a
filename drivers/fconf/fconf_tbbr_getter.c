@@ -33,8 +33,26 @@ int fconf_populate_tbbr_dyn_config(void *dtb)
 		return -1;
 	}
 
+	/* Retrieve the Mbed TLS heap details from the DTB */
+	err = fdtw_read_cells(dtb, node,
+		"mbedtls_heap_addr", 2, &tbbr_dyn_config.mbedtls_heap_addr);
+	if (err < 0) {
+		ERROR("FCONF: Read cell failed for mbedtls_heap_addr\n");
+		return -1;
+	}
+	err = fdtw_read_cells(dtb, node,
+		"mbedtls_heap_size", 1, &tbbr_dyn_config.mbedtls_heap_size);
+	if (err < 0) {
+		ERROR("FCONF: Read cell failed for mbedtls_heap_size\n");
+		return -1;
+	}
+
 	VERBOSE("FCONF:tbbr.disable_auth cell found with value = %d\n",
 					tbbr_dyn_config.disable_auth);
+	VERBOSE("FCONF:tbbr.mbedtls_heap_addr cell found with value = %p\n",
+					tbbr_dyn_config.mbedtls_heap_addr);
+	VERBOSE("FCONF:tbbr.mbedtls_heap_size cell found with value = %zu\n",
+					tbbr_dyn_config.mbedtls_heap_size);
 	return 0;
 }
 
