@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bea5d204_ca255e80",
+        "filename": "include/drivers/delay_timer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2019-10-01T07:01:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a62110ad_1f90f89b",
+      "range": {
+        "startLine": 30,
+        "startChar": 23,
+        "endLine": 30,
+        "endChar": 27
+      },
+      "revId": "90e9f1f52abc40ae7300004f1dc53e15b391bd20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04f2e6bb_9f0b9400",
         "filename": "include/drivers/delay_timer.h",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e11cfbb3_1a9c5a0c",
+        "filename": "include/drivers/delay_timer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2019-10-01T07:01:55Z",
+      "side": 1,
+      "message": "Hi Soby,\nI would prefer to keep this interface that it will be aligned with OP-TEE code (and would help for drivers that are shared in both context) but also that it seems more simple from a user experience to keep an init timeout function and an elapsed time.",
+      "parentUuid": "04f2e6bb_9f0b9400",
+      "range": {
+        "startLine": 35,
+        "startChar": 23,
+        "endLine": 35,
+        "endChar": 38
+      },
+      "revId": "90e9f1f52abc40ae7300004f1dc53e15b391bd20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41f046fa_d8eda1d0",
         "filename": "include/drivers/delay_timer.h",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2019-09-30T09:56:15Z",
       "side": 1,
       "message": "call this \"expire_cnt\"",
+      "range": {
+        "startLine": 40,
+        "startChar": 44,
+        "endLine": 40,
+        "endChar": 50
+      },
+      "revId": "90e9f1f52abc40ae7300004f1dc53e15b391bd20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70e53415_27f4ebc6",
+        "filename": "include/drivers/delay_timer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2019-10-01T07:01:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "41f046fa_d8eda1d0",
       "range": {
         "startLine": 40,
         "startChar": 44,
