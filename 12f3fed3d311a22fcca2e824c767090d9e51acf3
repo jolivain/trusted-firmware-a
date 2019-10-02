@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "2bb1cac5_f705aca0",
+        "filename": "include/lib/cpus/aarch64/cortex_a65.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000159
+      },
+      "writtenOn": "2019-10-02T16:11:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00da837c_4bc1f248",
+      "revId": "12f3fed3d311a22fcca2e824c767090d9e51acf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bdd4e878_c463126f",
         "filename": "lib/cpus/aarch64/cortex_a65.S",
         "patchSetId": 3
@@ -47,6 +65,24 @@
       "writtenOn": "2019-10-02T14:37:13Z",
       "side": 1,
       "message": "add empty line",
+      "revId": "12f3fed3d311a22fcca2e824c767090d9e51acf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d311924_e7cb1978",
+        "filename": "lib/cpus/aarch64/cortex_a65.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000159
+      },
+      "writtenOn": "2019-10-02T16:11:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdd4e878_c463126f",
       "revId": "12f3fed3d311a22fcca2e824c767090d9e51acf3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -100,6 +136,24 @@
       "side": 1,
       "message": "HW_ASSISTED_COHERENCY is boolean, so the 2-nd \"way is more MISRA compliant\"",
       "parentUuid": "a57a22eb_e98884ee",
+      "revId": "12f3fed3d311a22fcca2e824c767090d9e51acf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2102b25e_4818da2f",
+        "filename": "lib/cpus/aarch64/cortex_a65.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000159
+      },
+      "writtenOn": "2019-10-02T16:11:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4a4d63f_15d34c35",
       "revId": "12f3fed3d311a22fcca2e824c767090d9e51acf3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
