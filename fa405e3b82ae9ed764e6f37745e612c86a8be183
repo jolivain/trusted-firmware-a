@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f974a359_639d9838",
+        "filename": "plat/qemu/common/qemu_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-02T12:15:51Z",
+      "side": 1,
+      "message": "Should that be MT_NS? If I understood correctly, Flash1 is reserved for normal world so I expected TF-A to map it as non-secure memory.",
+      "range": {
+        "startLine": 45,
+        "startChar": 25,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "fa405e3b82ae9ed764e6f37745e612c86a8be183",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5237e185_5a22e3d7",
+        "filename": "plat/qemu/common/qemu_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-02T12:15:51Z",
+      "side": 1,
+      "message": "Why does BL1 need to map Flash1? I understand why BL2 needs it (i.e. to load UEFI, which is stored in Flash1) but the FIP (containing BL2) is in Flash0, if I am not mistaken. Does BL1 need to do anything with UEFI or the UEFI variables?",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 12
+      },
+      "revId": "fa405e3b82ae9ed764e6f37745e612c86a8be183",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
