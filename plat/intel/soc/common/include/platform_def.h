@@ -169,6 +169,14 @@
 #define PLAT_UART_CLOCK		(100000000)
 
 /*******************************************************************************
+ * PHY related constants
+ ******************************************************************************/
+
+#define EMAC0_PHY_MODE			PHY_INTERFACE_MODE_RGMII
+#define EMAC1_PHY_MODE			PHY_INTERFACE_MODE_RGMII
+#define EMAC2_PHY_MODE			PHY_INTERFACE_MODE_RGMII
+
+/*******************************************************************************
  * System counter frequency related constants
  ******************************************************************************/
 #define PLAT_SYS_COUNTER_FREQ_IN_TICKS	(400000000)

@@ -20,6 +20,7 @@
 #include "agilex_pinmux.h"
 #include "ccu/ncore_ccu.h"
 #include "qspi/cadence_qspi.h"
+#include "socfpga_emac.h"
 #include "socfpga_handoff.h"
 #include "socfpga_mailbox.h"
 #include "socfpga_private.h"
@@ -73,6 +74,7 @@ void bl2_el3_early_platform_setup(u_register_t x0, u_register_t x1,
 
 	socfpga_delay_timer_init();
 	init_ncore_ccu();
+	socfpga_emac_init();
 	init_hard_memory_controller();
 	mailbox_init();
 
