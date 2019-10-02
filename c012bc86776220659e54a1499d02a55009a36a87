@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a6fbcaf1_ba6553be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2019-10-02T07:06:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3ea81c29_5906c3dd",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "c012bc86776220659e54a1499d02a55009a36a87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd92c7ef_548be7a6",
         "filename": "include/arch/aarch32/el3_common_macros.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-10-01T20:40:25Z",
       "side": 1,
       "message": "These macros are meant for use by code residing at EL3.\nDid you intend to add this for BL2_AT_EL3 image ?\n\nIn which case the check should be (defined(IMAGE_BL2) \u0026\u0026 BL2_AT_EL3 \u0026\u0026 BL2_IN_XIP_MEM)\n\nI realize this is a mistake in the AArch64 variant of the file as well. Could you please correct that too ?",
+      "range": {
+        "startLine": 342,
+        "startChar": 35,
+        "endLine": 342,
+        "endChar": 44
+      },
+      "revId": "c012bc86776220659e54a1499d02a55009a36a87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94a628ae_080c3fe6",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2019-10-02T07:06:50Z",
+      "side": 1,
+      "message": "OK, I\u0027ll do.",
+      "parentUuid": "dd92c7ef_548be7a6",
       "range": {
         "startLine": 342,
         "startChar": 35,
