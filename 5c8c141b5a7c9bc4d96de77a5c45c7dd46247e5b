@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2db664c1_8923c421",
+        "filename": "plat/mediatek/mt8183/drivers/devapc/devapc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-02T14:20:57Z",
+      "side": 1,
+      "message": "if (domain_emi_view \u003d\u003d DOMAIN_10) is obsolete",
+      "revId": "5c8c141b5a7c9bc4d96de77a5c45c7dd46247e5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2845db0_71200fae",
+        "filename": "plat/mediatek/mt8183/drivers/devapc/devapc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-02T14:20:57Z",
+      "side": 1,
+      "message": "if execution gets here, then input parameters are incorrect, should the code panic() in that case?",
+      "revId": "5c8c141b5a7c9bc4d96de77a5c45c7dd46247e5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "210cf2c7_4e8658e2",
+        "filename": "plat/mediatek/mt8183/drivers/devapc/devapc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-02T14:20:57Z",
+      "side": 1,
+      "message": "spaces around / to make code more readable?",
+      "revId": "5c8c141b5a7c9bc4d96de77a5c45c7dd46247e5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
