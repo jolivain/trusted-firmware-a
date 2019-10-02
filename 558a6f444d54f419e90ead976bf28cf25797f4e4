@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6aa17532_737f8b01",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-02T07:07:16Z",
+      "side": 1,
+      "message": "Given that support for the OP-TEE dispatcher has been droppped in v4, do you want to keep these defines?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 48
+      },
+      "revId": "558a6f444d54f419e90ead976bf28cf25797f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "378eb2f6_f99986d4",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-02T07:07:16Z",
+      "side": 1,
+      "message": "Same question regarding the BL32 defines, does it make sense to keep them or should they be re-introduced in a later patch?",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 36
+      },
+      "revId": "558a6f444d54f419e90ead976bf28cf25797f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d1e2686_f0d1f4e2",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-02T07:07:16Z",
+      "side": 1,
+      "message": "This value looks suspicious to me, 1Hz? Is this correct?",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 27
+      },
+      "revId": "558a6f444d54f419e90ead976bf28cf25797f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
