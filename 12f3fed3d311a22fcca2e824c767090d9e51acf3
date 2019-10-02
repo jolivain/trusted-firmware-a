@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2709ec41_2cc33289",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-02T14:37:13Z",
+      "side": 1,
+      "message": "If you run check patch script, you\u0027ll get an error saying that there\u0027s no patch description but only the title.",
+      "revId": "12f3fed3d311a22fcca2e824c767090d9e51acf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00da837c_4bc1f248",
+        "filename": "include/lib/cpus/aarch64/cortex_a65.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-02T14:37:13Z",
+      "side": 1,
+      "message": "remove trailing \".\" from all three comments",
+      "revId": "12f3fed3d311a22fcca2e824c767090d9e51acf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdd4e878_c463126f",
+        "filename": "lib/cpus/aarch64/cortex_a65.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-02T14:37:13Z",
+      "side": 1,
+      "message": "add empty line",
+      "revId": "12f3fed3d311a22fcca2e824c767090d9e51acf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569f6366_a0d4b4c6",
+        "filename": "lib/cpus/aarch64/cortex_a65.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-02T14:37:13Z",
+      "side": 1,
+      "message": "#if !HW_ASSISTED_COHERENCY",
+      "revId": "12f3fed3d311a22fcca2e824c767090d9e51acf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
