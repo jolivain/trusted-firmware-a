@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, Intel Corporation. All rights reserved.
+ * Copyright (c) 2019-2020, Intel Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,6 +12,11 @@
 /* System Manager Register Map */
 
 #define SOCFPGA_SYSMGR_SDMMC				0x28
+
+#define SOCFPGA_SYSMGR_EMAC_0				0x44
+#define SOCFPGA_SYSMGR_EMAC_1				0x48
+#define SOCFPGA_SYSMGR_EMAC_2				0x4c
+#define SOCFPGA_SYSMGR_FPGAINTF_EN_3			0x70
 
 #define SOCFPGA_SYSMGR_NOC_TIMEOUT			0xc0
 #define SOCFPGA_SYSMGR_NOC_IDLEREQ_SET			0xc4
