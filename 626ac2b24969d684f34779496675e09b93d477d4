@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "676b0795_d67d2652",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2019-10-03T17:07:42Z",
+      "side": 1,
+      "message": "Fixed!",
+      "parentUuid": "de113d53_79484502",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b2a741d_4e15f1e1",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-10-03T16:27:54Z",
       "side": 1,
       "message": "move this code to line #84 \u0026 remove \"b 2f\"",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d69cf29_29bb9c28",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2019-10-03T17:07:42Z",
+      "side": 1,
+      "message": "I would still need to keep the branch, but just switch to \"b 3f\" so I\u0027m going to keep this as is for readability.",
+      "parentUuid": "3b2a741d_4e15f1e1",
       "revId": "626ac2b24969d684f34779496675e09b93d477d4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "19d8e9ef_3dbfd9ea",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2019-10-03T17:07:42Z",
+      "side": 1,
+      "message": "Fixed!",
+      "parentUuid": "91b2cee9_8c06586c",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fdca73f_789d7002",
         "filename": "lib/cpus/aarch64/neoverse_n1.S",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "db8c853d_40c247e5",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2019-10-03T17:07:42Z",
+      "side": 1,
+      "message": "Fixed!",
+      "parentUuid": "5fdca73f_789d7002",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98446e8e_f4f9d54e",
         "filename": "lib/cpus/aarch64/neoverse_n1.S",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2019-10-03T16:27:54Z",
       "side": 1,
       "message": "This function is only called when ERRATA_N1_1542419 \u003d 1.",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59241039_1dcc3ab9",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2019-10-03T17:07:42Z",
+      "side": 1,
+      "message": "Yes, that is the intention, by default it should be 0 and partners can enable on their own.",
+      "parentUuid": "98446e8e_f4f9d54e",
       "revId": "626ac2b24969d684f34779496675e09b93d477d4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
