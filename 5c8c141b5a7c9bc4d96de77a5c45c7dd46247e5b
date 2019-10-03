@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "afa4c1c4_0c9c6752",
+        "filename": "plat/mediatek/mt8183/drivers/devapc/devapc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-10-03T02:51:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2db664c1_8923c421",
+      "revId": "5c8c141b5a7c9bc4d96de77a5c45c7dd46247e5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2845db0_71200fae",
         "filename": "plat/mediatek/mt8183/drivers/devapc/devapc.c",
         "patchSetId": 10
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a0de1478_a6821ef8",
+        "filename": "plat/mediatek/mt8183/drivers/devapc/devapc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-10-03T02:51:16Z",
+      "side": 1,
+      "message": "set_module_apc would be used/controlled inside DEVAPC and it\u0027s fine to just return.",
+      "parentUuid": "a2845db0_71200fae",
+      "revId": "5c8c141b5a7c9bc4d96de77a5c45c7dd46247e5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "210cf2c7_4e8658e2",
         "filename": "plat/mediatek/mt8183/drivers/devapc/devapc.c",
         "patchSetId": 10
@@ -47,6 +83,24 @@
       "writtenOn": "2019-10-02T14:20:57Z",
       "side": 1,
       "message": "spaces around / to make code more readable?",
+      "revId": "5c8c141b5a7c9bc4d96de77a5c45c7dd46247e5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "907ebbb2_7f5e061c",
+        "filename": "plat/mediatek/mt8183/drivers/devapc/devapc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-10-03T02:51:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "210cf2c7_4e8658e2",
       "revId": "5c8c141b5a7c9bc4d96de77a5c45c7dd46247e5b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
