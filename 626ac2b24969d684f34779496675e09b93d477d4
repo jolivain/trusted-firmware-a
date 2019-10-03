@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de113d53_79484502",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-03T16:27:54Z",
+      "side": 1,
+      "message": "cbz  x0, 2f",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b2a741d_4e15f1e1",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-03T16:27:54Z",
+      "side": 1,
+      "message": "move this code to line #84 \u0026 remove \"b 2f\"",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91b2cee9_8c06586c",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-03T16:27:54Z",
+      "side": 1,
+      "message": "revisions",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fdca73f_789d7002",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-03T16:27:54Z",
+      "side": 1,
+      "message": "revisions",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98446e8e_f4f9d54e",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-03T16:27:54Z",
+      "side": 1,
+      "message": "This function is only called when ERRATA_N1_1542419 \u003d 1.",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
