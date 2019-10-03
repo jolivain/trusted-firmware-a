@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2356d01f_501ee6d2",
+        "filename": "lib/extensions/pauth/pauth_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-03T11:32:35Z",
+      "side": 1,
+      "message": "do we need these given that these are already intialized by BL1 as part of boot? This function should just load the key regs I think.",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 18
+      },
+      "revId": "ed26a875734cc7eb280a85ce2d9419dd581ade44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
