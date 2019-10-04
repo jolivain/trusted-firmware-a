@@ -17,12 +17,11 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#define NR_INT_POL_CTL         20
-
 uintptr_t rdistif_base_addrs[PLATFORM_CORE_COUNT];
+static uint32_t rdist_has_saved[PLATFORM_CORE_COUNT];
+const gicv3_driver_data_t *gicv3_driver_data;
 
 /* we save and restore the GICv3 context on system suspend */
-gicv3_redist_ctx_t rdist_ctx;
 gicv3_dist_ctx_t dist_ctx;
 
 static unsigned int mt_mpidr_to_core_pos(u_register_t mpidr)
@@ -37,6 +36,16 @@ gicv3_driver_data_t mt_gicv3_data = {
 	.rdistif_base_addrs = rdistif_base_addrs,
 	.mpidr_to_core_pos = mt_mpidr_to_core_pos,
 };
+
+struct gic_chip_data {
+	unsigned int saved_group[DIV_ROUND_UP(MAX_IRQ_NR, 32)];
+	unsigned int saved_enable[DIV_ROUND_UP(MAX_IRQ_NR, 32)];
+	unsigned int saved_priority[DIV_ROUND_UP(MAX_IRQ_NR, 4)];
+	unsigned int saved_conf[DIV_ROUND_UP(MAX_IRQ_NR, 16)];
+	unsigned int saved_grpmod[DIV_ROUND_UP(MAX_IRQ_NR, 32)];
+};
+
+static struct gic_chip_data gic_data;
 
 void clear_sec_pol_ctl_en(void)
 {
@@ -78,21 +87,53 @@ void mt_gic_cpuif_disable(void)
 	gicv3_cpuif_disable(plat_my_core_pos());
 }
 
-void mt_gic_pcpu_init(void)
+void mt_gic_rdistif_init(void)
 {
 	gicv3_rdistif_init(plat_my_core_pos());
 }
 
-void mt_gic_irq_save(void)
+void mt_gic_distif_save(void)
 {
-	gicv3_rdistif_save(plat_my_core_pos(), &rdist_ctx);
 	gicv3_distif_save(&dist_ctx);
 }
 
-void mt_gic_irq_restore(void)
+void mt_gic_distif_restore(void)
 {
 	gicv3_distif_init_restore(&dist_ctx);
-	gicv3_rdistif_init_restore(plat_my_core_pos(), &rdist_ctx);
+}
+
+void mt_gic_rdistif_save(void)
+{
+	unsigned int proc_num;
+	uintptr_t gicr_base;
+
+	proc_num = plat_my_core_pos();
+	gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+
+	gic_data.saved_group[0] = mmio_read_32(gicr_base + GICR_IGROUPR0);
+	gic_data.saved_enable[0] = mmio_read_32(gicr_base + GICR_ISENABLER0);
+	gic_data.saved_priority[0] = mmio_read_32(gicr_base + GICR_IPRIORITYR);
+	gic_data.saved_conf[0] = mmio_read_32(gicr_base + GICR_ICFGR0);
+	gic_data.saved_grpmod[0] = mmio_read_32(gicr_base + GICR_IGRPMODR0);
+
+	rdist_has_saved[proc_num] = 1;
+}
+
+void mt_gic_rdistif_restore(void)
+{
+	unsigned int proc_num;
+	unsigned int gicr_base;
+
+	proc_num = plat_my_core_pos();
+	if (rdist_has_saved[proc_num] == 0)
+		return;
+
+	gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+	mmio_write_32(gicr_base + GICR_IGROUPR0, gic_data.saved_group[0]);
+	mmio_write_32(gicr_base + GICR_ISENABLER0, gic_data.saved_enable[0]);
+	mmio_write_32(gicr_base + GICR_IPRIORITYR, gic_data.saved_priority[0]);
+	mmio_write_32(gicr_base + GICR_ICFGR0, gic_data.saved_conf[0]);
+	mmio_write_32(gicr_base + GICR_IGRPMODR0, gic_data.saved_grpmod[0]);
 }
 
 void mt_gic_sync_dcm_enable(void)
