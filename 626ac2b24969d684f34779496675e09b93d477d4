@@ -210,6 +210,24 @@
       "revId": "626ac2b24969d684f34779496675e09b93d477d4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44be73d6_a0a1c5a5",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-04T11:25:58Z",
+      "side": 1,
+      "message": "I think not having under #if for the definition is OK with as the --gc-sections flag to linker will remove all unreferenced sections.",
+      "parentUuid": "059d0b6c_5c90fc91",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
