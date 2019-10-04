@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "804aae10_876973a8",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-04T09:29:19Z",
+      "side": 1,
+      "message": "Keeping this branch doesn\u0027t increase readability but adds obsolete \"b 2f\" instruction.",
+      "parentUuid": "5d69cf29_29bb9c28",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91b2cee9_8c06586c",
         "filename": "docs/design/cpu-specific-build-macros.rst",
         "patchSetId": 1
@@ -171,6 +189,24 @@
       "side": 1,
       "message": "Yes, that is the intention, by default it should be 0 and partners can enable on their own.",
       "parentUuid": "98446e8e_f4f9d54e",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "059d0b6c_5c90fc91",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-04T09:29:19Z",
+      "side": 1,
+      "message": "This function is now always enabled, even when it is not called when ERRATA_N1_1073348 \u003d 0.\nIt should be placed inside\n#if ERRATA_N1_1073348\n#endif",
+      "parentUuid": "59241039_1dcc3ab9",
       "revId": "626ac2b24969d684f34779496675e09b93d477d4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
