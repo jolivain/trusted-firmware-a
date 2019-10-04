@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "59a955bd_a5b3f24d",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-04T16:38:00Z",
+      "side": 1,
+      "message": "branch to 2f is done at line 80 and 84 we cannot simply replace the code and remove branch.",
+      "parentUuid": "9c3a5995_73324397",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91b2cee9_8c06586c",
         "filename": "docs/design/cpu-specific-build-macros.rst",
         "patchSetId": 1
@@ -243,6 +261,24 @@
       "side": 1,
       "message": "I think not having under #if for the definition is OK with as the --gc-sections flag to linker will remove all unreferenced sections.",
       "parentUuid": "059d0b6c_5c90fc91",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f75530d7_2734cbe8",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-04T16:38:00Z",
+      "side": 1,
+      "message": "Agree with Soby and Lauren here, #if is not required. Not to be fixed!",
+      "parentUuid": "44be73d6_a0a1c5a5",
       "revId": "626ac2b24969d684f34779496675e09b93d477d4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
