@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "bcef4ee3_97587521",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-04T16:43:18Z",
+      "side": 1,
+      "message": "Why?\nremove \"b 2f\" at line #84\nmove the code below 2: instead of \"b 2f\":\nldp\tx0, x1, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X0]\n\tldp\tx2, x3, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X2]\n\tldp\tx4, x5, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X4]\n\n3:\n\t/* Synchronous exceptions other than the above are assumed to be EA */\n\tldr\tx30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]\n\tno_ret\treport_unhandled_exception\n\ncode at line #89 will be\ntbz\tx30, #ESR_ISS_EABORT_EA_BIT, 3b",
+      "parentUuid": "59a955bd_a5b3f24d",
+      "revId": "626ac2b24969d684f34779496675e09b93d477d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91b2cee9_8c06586c",
         "filename": "docs/design/cpu-specific-build-macros.rst",
         "patchSetId": 1
