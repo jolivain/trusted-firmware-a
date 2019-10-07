@@ -25,6 +25,11 @@
 #define N1SDP_SDS_BL33_INFO_OFFSET		0
 #define N1SDP_SDS_BL33_INFO_SIZE		12
 
+/* SDS Multichip information defines */
+#define N1SDP_SDS_MULTICHIP_INFO_STRUCT_ID	10
+#define N1SDP_SDS_MULTICHIP_INFO_OFFSET		0
+#define N1SDP_SDS_MULTICHIP_INFO_SIZE		4
+
 /* DMC memory command registers */
 #define N1SDP_DMC0_MEMC_CMD_REG			0x4E000008
 #define N1SDP_DMC1_MEMC_CMD_REG			0x4E100008
