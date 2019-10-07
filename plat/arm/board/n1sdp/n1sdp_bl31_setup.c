@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -37,12 +37,23 @@ struct n1sdp_bl33_info {
 	uint32_t bl33_size;
 };
 
+/*
+ * Multichip information structure stored in SDS.
+ * This structure holds the information about N1SDP multichip
+ * mode populated by SCP firmware.
+ */
+struct n1sdp_multichip_info {
+	bool mode;
+	uint8_t slave_count;
+	uint8_t remote_ddr_size;
+};
+
 static scmi_channel_plat_info_t n1sdp_scmi_plat_info = {
 		.scmi_mbx_mem = N1SDP_SCMI_PAYLOAD_BASE,
 		.db_reg_addr = PLAT_CSS_MHU_BASE + CSS_SCMI_MHU_DB_REG_OFF,
 		.db_preserve_mask = 0xfffffffe,
 		.db_modify_mask = 0x1,
-		.ring_doorbell = &mhu_ring_doorbell,
+		.ring_doorbell = &mhu_ring_doorbell
 };
 
 scmi_channel_plat_info_t *plat_css_get_scmi_info()
@@ -114,12 +125,23 @@ void bl31_platform_setup(void)
 	int ret;
 	struct n1sdp_mem_info mem_info;
 	struct n1sdp_bl33_info bl33_info;
+	struct n1sdp_multichip_info multichip_info;
 
 	arm_bl31_platform_setup();
 
 	ret = sds_init();
 	if (ret != SDS_OK) {
 		ERROR("SDS initialization failed\n");
+		panic();
+	}
+
+	ret = sds_struct_read(N1SDP_SDS_MULTICHIP_INFO_STRUCT_ID,
+				N1SDP_SDS_MULTICHIP_INFO_OFFSET,
+				&multichip_info,
+				N1SDP_SDS_MULTICHIP_INFO_SIZE,
+				SDS_ACCESS_MODE_NON_CACHED);
+	if (ret != SDS_OK) {
+		ERROR("Error getting multichip info from SDS\n");
 		panic();
 	}
 
