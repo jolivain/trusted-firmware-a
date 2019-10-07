@@ -74,6 +74,7 @@
 
 void deassert_peripheral_reset(void);
 void config_hps_hs_before_warm_reset(void);
+void bridges_enable_init(void);
 
 #endif
 

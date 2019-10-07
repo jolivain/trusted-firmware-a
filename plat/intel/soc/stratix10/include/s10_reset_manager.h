@@ -9,7 +9,9 @@
 
 #define S10_RSTMGR_PER0MODRST				0xffd11024
 #define S10_RSTMGR_PER1MODRST				0xffd11028
-#define S10_RSTMGR_HDSKEN					0xffd11010
+#define S10_RSTMGR_HDSKEN				0xffd11010
+#define S10_RSTMGR_BRGMODRST                            0xffd1102c
+
 
 #define S10_RSTMGR_PER0MODRST_EMAC0			0x00000001
 #define S10_RSTMGR_PER0MODRST_EMAC1			0x00000002
@@ -80,8 +82,11 @@
 #define S10_RSTMGR_PER0MODRST_DMAIF6		0x40000000
 #define S10_RSTMGR_PER0MODRST_DMAIF7		0x80000000
 
+#define S10_RSTMGR_BRGMODRST_DDRSCH			0x00000040
+
 void deassert_peripheral_reset(void);
 void config_hps_hs_before_warm_reset(void);
+void bridges_enable_init(void);
 
 #endif
 

@@ -15,6 +15,7 @@
 #include <plat/common/platform.h>
 #include <platform_def.h>
 #include "s10_reset_manager.h"
+#include "s10_system_manager.h"
 
 void deassert_peripheral_reset(void)
 {
@@ -86,3 +87,21 @@ void config_hps_hs_before_warm_reset(void)
 	mmio_setbits_32(S10_RSTMGR_HDSKEN, or_mask);
 }
 
+void bridges_enable_init(void)
+{
+	uint32_t time_out = 1000;
+
+	/* Clear idle request */
+	mmio_setbits_32(S10_SYSMGR_CORE(SYSMGR_NOC_IDLEREQ_CLR), ~0);
+
+	/* De-assert all bridges */
+	mmio_clrbits_32(S10_RSTMGR_BRGMODRST, ~0);
+
+	/* Wait until idle ack becomes 0 */
+	for (int i = 0; i < time_out; i++) {
+		if (!(mmio_read_32(S10_SYSMGR_CORE(SYSMGR_NOC_IDLEACK))))
+			return;
+	}
+
+	INFO("Bridge enable failed\n");
+}

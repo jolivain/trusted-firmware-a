@@ -15,6 +15,7 @@
 #include <string.h>
 
 #include "s10_memory_controller.h"
+#include "s10_reset_manager.h"
 
 #define ALT_CCU_NOC_DI_SET_MSK 0x10
 

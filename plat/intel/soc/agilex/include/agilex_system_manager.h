@@ -66,6 +66,13 @@
 #define AGX_CCU_NOC_IOM_RAMSPACE0_0		0xf7018628
 
 #define AGX_SYSMGR_CORE(x)                      (0xffd12000 + (x))
+
+#define SYSMGR_NOC_IDLEREQ_SET                  0xc4
+#define SYSMGR_NOC_IDLEREQ_CLR                  0xc8
+#define SYSMGR_NOC_IDLEREQ_VAL                  0xcc
+#define SYSMGR_NOC_IDLEACK                      0xd0
+#define SYSMGR_NOC_IDLESTATUS                   0xd4
+
 #define SYSMGR_BOOT_SCRATCH_COLD_0		0x200
 #define SYSMGR_BOOT_SCRATCH_COLD_1		0x204
 #define SYSMGR_BOOT_SCRATCH_COLD_2		0x208
@@ -74,6 +81,7 @@
 #define DISABLE_L4_FIREWALL	(BIT(0) | BIT(16) | BIT(24))
 
 void enable_nonsecure_access(void);
+void enable_ns_peripheral_access(void);
 void enable_ns_bridge_access(void);
 
 #endif

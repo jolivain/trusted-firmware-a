@@ -5,8 +5,10 @@
  */
 
 #include <lib/mmio.h>
+#include <common/debug.h>
 
 #include "agilex_reset_manager.h"
+#include "agilex_system_manager.h"
 
 void deassert_peripheral_reset(void)
 {
@@ -80,3 +82,21 @@ void config_hps_hs_before_warm_reset(void)
 	mmio_setbits_32(AGX_RSTMGR_HDSKEN, or_mask);
 }
 
+void bridges_enable_init(void)
+{
+	uint32_t time_out = 1000;
+
+	/* Clear idle request */
+	mmio_setbits_32(AGX_SYSMGR_CORE(SYSMGR_NOC_IDLEREQ_CLR), ~0);
+
+	/* De-assert all bridges */
+	mmio_clrbits_32(AGX_RSTMGR_BRGMODRST, ~0);
+
+	/* Wait until idle ack becomes 0 */
+	for (int i = 0; i < time_out; i++) {
+		if (!(mmio_read_32(AGX_SYSMGR_CORE(SYSMGR_NOC_IDLEACK))))
+			return;
+	}
+
+	INFO("Bridge enable failed\n");
+}
