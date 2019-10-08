@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff4753d1_12cf2af1",
+        "filename": "docs/components/arm-sip-service.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-08T13:11:44Z",
+      "side": 1,
+      "message": "(minor) 2019\n\nSome of the files changed throughout this patch need an update as well.",
+      "range": {
+        "startLine": 92,
+        "startChar": 20,
+        "endLine": 92,
+        "endChar": 24
+      },
+      "revId": "687a69bfb32641e8857275d84adbd06fafac20c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3fc9421_59f3856e",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2412,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-08T13:11:44Z",
+      "side": 1,
+      "message": "(cosmetic) Truncate this line?\n\nI noticed a few other instances of lines going over 80 columns in this patch, would be good to break them if possible.",
+      "range": {
+        "startLine": 2412,
+        "startChar": 0,
+        "endLine": 2412,
+        "endChar": 111
+      },
+      "revId": "687a69bfb32641e8857275d84adbd06fafac20c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb941370_6dfdd664",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-08T13:11:44Z",
+      "side": 1,
+      "message": "(cosmetic) Indentation looks off.",
+      "range": {
+        "startLine": 78,
+        "startChar": 69,
+        "endLine": 78,
+        "endChar": 86
+      },
+      "revId": "687a69bfb32641e8857275d84adbd06fafac20c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b9a6254_14cb49a2",
+        "filename": "docs/process/release-information.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-08T13:11:44Z",
+      "side": 1,
+      "message": "Could this explicit link be removed, just like you\u0027ve done for xlat tables lib files?",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 137
+      },
+      "revId": "687a69bfb32641e8857275d84adbd06fafac20c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
