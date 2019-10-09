@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d16e0e58_55ef0987",
+        "filename": "docs/getting_started/user-guide.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-10-09T12:27:41Z",
+      "side": 0,
+      "message": "Nope. Probably a rebasing artifact. I restored it.",
+      "parentUuid": "d248e963_62ab9ed9",
+      "range": {
+        "startLine": 416,
+        "startChar": 0,
+        "endLine": 416,
+        "endChar": 68
+      },
+      "revId": "e43ed98b801b8d6583d6854cd57d4beec9f314de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f53ec348_8a29ea82",
         "filename": "docs/getting_started/user-guide.rst",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-10-08T13:11:44Z",
       "side": 0,
       "message": "Has this been removed on purpose?",
+      "range": {
+        "startLine": 831,
+        "startChar": 0,
+        "endLine": 834,
+        "endChar": 0
+      },
+      "revId": "e43ed98b801b8d6583d6854cd57d4beec9f314de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce1d33b1_2047285d",
+        "filename": "docs/getting_started/user-guide.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-10-09T12:27:41Z",
+      "side": 0,
+      "message": "No; I restored it",
+      "parentUuid": "f53ec348_8a29ea82",
       "range": {
         "startLine": 831,
         "startChar": 0,

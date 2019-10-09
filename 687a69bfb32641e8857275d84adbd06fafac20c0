@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8f77c51b_69777ec8",
+        "filename": "docs/components/arm-sip-service.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-10-09T12:27:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff4753d1_12cf2af1",
+      "range": {
+        "startLine": 92,
+        "startChar": 20,
+        "endLine": 92,
+        "endChar": 24
+      },
+      "revId": "687a69bfb32641e8857275d84adbd06fafac20c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3fc9421_59f3856e",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-10-08T13:11:44Z",
       "side": 1,
       "message": "(cosmetic) Truncate this line?\n\nI noticed a few other instances of lines going over 80 columns in this patch, would be good to break them if possible.",
+      "range": {
+        "startLine": 2412,
+        "startChar": 0,
+        "endLine": 2412,
+        "endChar": 111
+      },
+      "revId": "687a69bfb32641e8857275d84adbd06fafac20c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52c9c4c5_6c95bfc0",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2412,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-10-09T12:27:41Z",
+      "side": 1,
+      "message": "I\u0027ll try to reflow any long-line instances that were caused by modifications in this patch.",
+      "parentUuid": "a3fc9421_59f3856e",
       "range": {
         "startLine": 2412,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e6c83327_17c1b71f",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-10-09T12:27:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb941370_6dfdd664",
+      "range": {
+        "startLine": 78,
+        "startChar": 69,
+        "endLine": 78,
+        "endChar": 86
+      },
+      "revId": "687a69bfb32641e8857275d84adbd06fafac20c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b9a6254_14cb49a2",
         "filename": "docs/process/release-information.rst",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "687a69bfb32641e8857275d84adbd06fafac20c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb242586_67f88e62",
+        "filename": "docs/process/release-information.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-10-09T12:27:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b9a6254_14cb49a2",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 137
+      },
+      "revId": "687a69bfb32641e8857275d84adbd06fafac20c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
