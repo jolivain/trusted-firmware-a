@@ -970,8 +970,9 @@ Arm FVP platform specific build options
 -  ``FVP_USE_GIC_DRIVER`` : Selects the GIC driver to be built. Options:
 
    -  ``FVP_GIC600`` : The GIC600 implementation of GICv3 is selected
-   -  ``FVP_GICV2`` : The GICv2 only driver is selected
-   -  ``FVP_GICV3`` : The GICv3 only driver is selected (default option)
+   -  ``FVP_GICV2``  : The GICv2 only driver is selected
+   -  ``FVP_GICV3``  : The GICv3 only driver is selected (default option)
+   -  ``FVP_GICV3X`` : The GICv3.x and GICv4.x driver is selected
 
 -  ``FVP_USE_SP804_TIMER`` : Use the SP804 timer instead of the Generic Timer
    for functions that wait for an arbitrary time length (udelay and mdelay).

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -27,6 +27,11 @@
 #define FVP_CCI			1
 #define FVP_CCN			2
 
+/* Defines for GIC Driver build time selection */
+#define FVP_GICV2		1
+#define FVP_GICV3		2
+#define FVP_GICV3X		3
+
 /*******************************************************************************
  * FVP memory map related constants
  ******************************************************************************/
@@ -53,7 +58,13 @@
 #define DEVICE1_SIZE			UL(0x1A00000)
 #else
 #define DEVICE1_BASE			UL(0x2f000000)
+
+#if FVP_USE_GIC_DRIVER == FVP_GICV3X
+#define DEVICE1_SIZE			UL(0x300000)
+#else
 #define DEVICE1_SIZE			UL(0x200000)
+#endif
+
 #define NSRAM_BASE			UL(0x2e000000)
 #define NSRAM_SIZE			UL(0x10000)
 #endif
