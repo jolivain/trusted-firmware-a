@@ -5,7 +5,7 @@
 #
 
 # Use the GICv3 driver on the FVP by default
-FVP_USE_GIC_DRIVER	:= FVP_GICV3
+FVP_USE_GIC_DRIVER	:= FVP_GIC600
 
 # Use the SP804 timer instead of the generic one
 FVP_USE_SP804_TIMER	:= 0
@@ -54,8 +54,17 @@ FVP_GICV3_SOURCES	:=	drivers/arm/gic/common/gic_common.c	\
 				plat/common/plat_gicv3.c		\
 				plat/arm/common/arm_gicv3.c
 
+FVP_GICV3X_SOURCES	:=	drivers/arm/gic/v3x/gicv3x_main.c	\
+				drivers/arm/gic/v3x/gicv3x_helpers.c	\
+				drivers/arm/gic/v3x/gicdv3x_helpers.c	\
+				drivers/arm/gic/v3x/gicrv3x_helpers.c	\
+				plat/common/plat_gicv3x.c		\
+				plat/arm/common/arm_gicv3x.c
+
 # Choose the GIC sources depending upon the how the FVP will be invoked
-ifeq (${FVP_USE_GIC_DRIVER}, FVP_GICV3)
+ifeq (${FVP_USE_GIC_DRIVER}, FVP_GICV3X)
+FVP_GIC_SOURCES		:=	${FVP_GICV3X_SOURCES}
+else ifeq (${FVP_USE_GIC_DRIVER}, FVP_GICV3)
 FVP_GIC_SOURCES		:=	${FVP_GICV3_SOURCES}			\
 				drivers/arm/gic/v3/gic500.c
 else ifeq (${FVP_USE_GIC_DRIVER},FVP_GIC600)

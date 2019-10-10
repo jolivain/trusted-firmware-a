@@ -22,10 +22,6 @@
 
 #include "fvp_private.h"
 
-/* Defines for GIC Driver build time selection */
-#define FVP_GICV2		1
-#define FVP_GICV3		2
-
 /*******************************************************************************
  * arm_config holds the characteristics of the differences between the three FVP
  * platforms (Base, A53_A57 & Foundation). It will be populated during cold boot

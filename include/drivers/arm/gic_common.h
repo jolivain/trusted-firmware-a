@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -68,11 +68,10 @@
 #define PIDR2_ARCH_REV_SHIFT	4
 #define PIDR2_ARCH_REV_MASK	U(0xf)
 
-/* GICv3 revision as reported by the PIDR2 register */
+/* GIC revisions as reported by the PIDR2 register */
+#define ARCH_REV_GICV4		U(0x4)
 #define ARCH_REV_GICV3		U(0x3)
-/* GICv2 revision as reported by the PIDR2 register */
 #define ARCH_REV_GICV2		U(0x2)
-/* GICv1 revision as reported by the PIDR2 register */
 #define ARCH_REV_GICV1		U(0x1)
 
 #define IGROUPR_SHIFT		5
