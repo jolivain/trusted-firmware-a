@@ -21,9 +21,7 @@
 #error "Neoverse-N1 supports only AArch64. Compile with CTX_INCLUDE_AARCH32_REGS=0"
 #endif
 
-#if ERRATA_N1_IC_TRAP
 	.global neoverse_n1_errata_ic_trap_handler
-#endif
 
 /* --------------------------------------------------
  * Errata Workaround for Neoverse N1 Erratum 1043202.
