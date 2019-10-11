@@ -111,6 +111,20 @@ The calling sequence for a patched function is as follows:
 
 BL image --> function
 
+Memory impact of library at ROM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Using library at ROM will modify the memory layout of the BL images:
+- A new section of 1 page (0x1000) will be created at the top of the SRAM to
+   hold the RW data of the function pulled in the ROM library. This will shift
+   down all the BL image by 1 page.
+- Depending on the functions moved to the ROM library, the size of the BL images
+   will be reduced.
+   For example: moving MbedTLS function into the ROM library reduces BL1 and
+   BL2, but not BL31.
+- This change in BL image size can be taken in consideration to optimize the
+   memory layout when defining the BLx_BASE symbol.
+
 Build library at ROM
 ~~~~~~~~~~~~~~~~~~~~~
 
