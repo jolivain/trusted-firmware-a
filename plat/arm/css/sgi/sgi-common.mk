@@ -10,8 +10,6 @@ CSS_ENT_BASE			:=	plat/arm/css/sgi
 
 RAS_EXTENSION			:=	0
 
-ENABLE_SPM			:=	0
-
 SDEI_SUPPORT			:=	0
 
 EL3_EXCEPTION_HANDLING		:=	0
