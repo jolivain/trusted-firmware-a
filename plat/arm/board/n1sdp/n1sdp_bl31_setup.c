@@ -9,6 +9,7 @@
 #include <drivers/arm/css/css_mhu_doorbell.h>
 #include <drivers/arm/css/scmi.h>
 #include <drivers/arm/css/sds.h>
+#include <drivers/arm/gic600_multichip.h>
 #include <common/debug.h>
 #include <lib/mmio.h>
 #include <lib/utils.h>
@@ -54,6 +55,26 @@ static scmi_channel_plat_info_t n1sdp_scmi_plat_info = {
 		.db_preserve_mask = 0xfffffffe,
 		.db_modify_mask = 0x1,
 		.ring_doorbell = &mhu_ring_doorbell
+};
+
+static gic600_multichip_data_t n1sdp_multichip_data __init = {
+	.gicd_base = PLAT_ARM_GICD_BASE,
+	.rt_owner = 0,
+	.chip_count = 1,
+	.chip_addrs = {
+		PLAT_ARM_GICD_BASE >> 16,
+		PLAT_ARM_GICD_BASE >> 16
+	},
+	.spi_ids = {
+		{32, 255},
+		{32, 32}
+	}
+};
+
+static uintptr_t n1sdp_multichip_gicr_frames[3] = {
+	PLAT_ARM_GICR_BASE,
+	PLAT_ARM_GICR_BASE + REMOTE_CHIP_OFFSET,
+	0
 };
 
 scmi_channel_plat_info_t *plat_css_get_scmi_info()
@@ -152,6 +173,13 @@ void copy_bl33(uint32_t src, uint32_t dst, uint32_t size)
 	}
 }
 
+
+void n1sdp_bl31_multichip_setup(void)
+{
+	plat_arm_override_gicr_frames(n1sdp_multichip_gicr_frames);
+	gic600_multichip_init(&n1sdp_multichip_data);
+}
+
 void bl31_platform_setup(void)
 {
 	int ret;
@@ -159,14 +187,13 @@ void bl31_platform_setup(void)
 	struct n1sdp_bl33_info bl33_info;
 	struct n1sdp_multichip_info multichip_info;
 
-	arm_bl31_platform_setup();
-
 	ret = sds_init();
 	if (ret != SDS_OK) {
 		ERROR("SDS initialization failed\n");
 		panic();
 	}
 
+	/* Read multichip information passed by SCP */
 	ret = sds_struct_read(N1SDP_SDS_MULTICHIP_INFO_STRUCT_ID,
 				N1SDP_SDS_MULTICHIP_INFO_OFFSET,
 				&multichip_info,
@@ -176,6 +203,14 @@ void bl31_platform_setup(void)
 		ERROR("Error getting multichip info from SDS\n");
 		panic();
 	}
+
+	if (multichip_info.mode) {
+		n1sdp_multichip_data.chip_count =
+				multichip_info.slave_count + 1;
+		n1sdp_bl31_multichip_setup();
+	}
+
+	arm_bl31_platform_setup();
 
 	ret = sds_struct_read(N1SDP_SDS_MEM_INFO_STRUCT_ID,
 				N1SDP_SDS_MEM_INFO_OFFSET,
