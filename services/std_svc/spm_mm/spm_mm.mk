@@ -5,10 +5,10 @@
 #
 
 ifneq (${SPD},none)
-        $(error "Error: SPD and SPM are incompatible build options.")
+        $(error "Error: SPD and SPM_MM are incompatible build options.")
 endif
 ifneq (${ARCH},aarch64)
-        $(error "Error: SPM is only supported on aarch64.")
+        $(error "Error: SPM_MM is only supported on aarch64.")
 endif
 
 SPM_SOURCES	:=	$(addprefix services/std_svc/spm_mm/,	\
