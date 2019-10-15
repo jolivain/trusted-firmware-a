@@ -9,27 +9,10 @@
 
 #include <lib/utils_def.h>
 
-/*
- * The MM_VERSION_XXX definitions are used when responding to the
- * MM_VERSION_AARCH32 service request. The version returned is different between
- * this request and the SPM_MM_VERSION_AARCH32 request - both have been retained
- * for compatibility.
- */
-#define MM_VERSION_MAJOR	U(1)
-#define MM_VERSION_MAJOR_SHIFT	16
-#define MM_VERSION_MAJOR_MASK	U(0x7FFF)
-#define MM_VERSION_MINOR	U(0)
-#define MM_VERSION_MINOR_SHIFT	0
-#define MM_VERSION_MINOR_MASK	U(0xFFFF)
-#define MM_VERSION_FORM(major, minor) ((major << MM_VERSION_MAJOR_SHIFT) | \
-				       (minor))
-#define MM_VERSION_COMPILED	MM_VERSION_FORM(MM_VERSION_MAJOR, \
-						MM_VERSION_MINOR)
-
-#define SPM_MM_VERSION_MAJOR		  U(0)
+#define SPM_MM_VERSION_MAJOR		  U(1)
 #define SPM_MM_VERSION_MAJOR_SHIFT	  16
 #define SPM_MM_VERSION_MAJOR_MASK	  U(0x7FFF)
-#define SPM_MM_VERSION_MINOR		  U(1)
+#define SPM_MM_VERSION_MINOR		  U(0)
 #define SPM_MM_VERSION_MINOR_SHIFT	  0
 #define SPM_MM_VERSION_MINOR_MASK	  U(0xFFFF)
 #define SPM_MM_VERSION_FORM(major, minor) ((major << \
