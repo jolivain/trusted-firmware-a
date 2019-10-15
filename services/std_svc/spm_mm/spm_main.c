@@ -333,7 +333,7 @@ uint64_t spm_mm_smc_handler(uint32_t smc_fid,
 		switch (smc_fid) {
 
 		case MM_VERSION_AARCH32:
-			SMC_RET1(handle, MM_VERSION_COMPILED);
+			SMC_RET1(handle, SPM_MM_VERSION_COMPILED);
 
 		case MM_COMMUNICATE_AARCH32:
 		case MM_COMMUNICATE_AARCH64:
