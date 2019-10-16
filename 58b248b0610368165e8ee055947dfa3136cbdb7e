@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d274900_14e97ef2",
+        "filename": "drivers/arm/gic/v3x/gicrv3x_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-16T19:24:42Z",
+      "side": 1,
+      "message": "This macro expands to - Calculate bit num -\u003e get the offset  -\u003e mmio set bit.\n\nComparing it to implementation in V3 set operation must perform register read before writing new value to the register.\n\nAlso, instead of introducing new macros to calculate offset and perform read/write, I would recommend using existing functions\nin the `GICR_xxx_BIT` macro that is `gicr_set_igrpmodr` and `gicd_write_igrpmodr`",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f703aa4_bc6f0b10",
+        "filename": "drivers/arm/gic/v3x/gicv3x_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-16T19:24:42Z",
+      "side": 1,
+      "message": "Please explain the motivation behind this special macro instead of calling `return mmio_read_32(base + GICR_ISENABLER + (reg_num \u003c\u003c 2))` directly.\n\nI am not sure if we need this string concatenation really\n\n#define GICR_READ_NUM(REG, base, reg_num)           \\\n    return mmio_read_32(base + GICR_##REG + (reg_num \u003c\u003c 2))",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5a6e5ab_e50b8a64",
+        "filename": "drivers/arm/gic/v3x/gicv3x_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-16T19:24:42Z",
+      "side": 1,
+      "message": "Similar comment for `GICR_WRITE_NUM` macro, shouldn;t we be avoiding use of macros as per MISRA.",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e90b1e18_13bea6d9",
+        "filename": "include/drivers/arm/gicv3x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-16T19:24:42Z",
+      "side": 1,
+      "message": "Offset here is confusing, is `unsigned int offset` defined only when `id \u003e\u003d MIN_EPPI_ID`?",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22f458b7_0564b328",
+        "filename": "include/drivers/arm/gicv3x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-16T19:24:42Z",
+      "side": 1,
+      "message": "I will prefer the existing GICv3 implementation of using functions instead of macros.\n\nCan we have GICR_GET_BIT as function? \n\nunsigned int gicr_get_bit(uintptr_t reg, uintptr_t base,  unsigned int id) {\n       ....\n}",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
