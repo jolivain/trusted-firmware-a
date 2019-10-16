@@ -6,11 +6,11 @@ Project Release Cadence
 
 The project currently aims to do a release once every 6 months which will be
 tagged on the master branch. There will be a code freeze (stop merging
-non-essential PRs) up to 4 weeks prior to the target release date. The release
+non-essential changes) up to 4 weeks prior to the target release date. The release
 candidates will start appearing after this and only bug fixes or updates
 required for the release will be merged. The maintainers are free to use their
-judgement on what PRs are essential for the release. A release branch may be
-created after code freeze if there are significant PRs that need merging onto
+judgement on what changes are essential for the release. A release branch may be
+created after code freeze if there are significant changes that need merging onto
 the integration branch during the merge window.
 
 The release testing will be performed on release candidates and depending on
@@ -38,6 +38,8 @@ depending on project requirement and partner feedback.
 +-----------------+---------------------------+------------------------------+
 | v2.1            | 5th week of Mar '19       | 1st week of Mar '19          |
 +-----------------+---------------------------+------------------------------+
+| v2.2            | 3rd week of Oct '19       | 1st week of Oct '19          |
++-----------------+---------------------------+------------------------------+
 
 Removal of Deprecated Interfaces
 --------------------------------
@@ -51,27 +53,12 @@ Release version after which it will be removed.
 |                                | Date        | after   |                                                         |
 |                                |             | Release |                                                         |
 +================================+=============+=========+=========================================================+
-| Legacy Console API             | Jan '18     | v2.1    | Deprecated in favour of ``MULTI_CONSOLE_API``           |
+| AARCH32/AARCH64 macros         | Oct '19     | v2.2    | Deprecated in favor of ``__aarch64__``                  |
 +--------------------------------+-------------+---------+---------------------------------------------------------+
-| Weak default                   | Oct '18     | v2.1    | The default implementations are defined in              |
-| ``plat_crash_console_*``       |             |         | ``crash_console_helpers.S``. The platforms have to      |
-| APIs                           |             |         | define ``plat_crash_console_*``.                        |
+| ``__ASSEMBLY__`` macro         | Oct '19     | v2.2    | Deprecated in favor of ``__ASSEMBLER__``                |
 +--------------------------------+-------------+---------+---------------------------------------------------------+
-| ``finish_console_register``    | Oct '18     | v2.1    | The old version of the macro is deprecated. See commit  |
-| macro in                       |             |         | cc5859c_ for more details.                              |
-| ``MULTI_CONSOLE_API``          |             |         |                                                         |
-+--------------------------------+-------------+---------+---------------------------------------------------------+
-| Types ``tzc_action_t`` and     | Oct '18     | v2.1    | Using logical operations such as OR in enumerations     |
-| ``tzc_region_attributes_t``    |             |         | goes against the MISRA guidelines.                      |
-+--------------------------------+-------------+---------+---------------------------------------------------------+
-| Macro ``EL_IMPLEMENTED()``     | Oct '18     | v2.1    | Deprecated in favour of ``el_implemented()``.           |
-+--------------------------------+-------------+---------+---------------------------------------------------------+
-| ``get_afflvl_shift()``,        | Dec '18     | v2.1    | Removed.                                                |
-| ``mpidr_mask_lower_afflvls()``,|             |         |                                                         |
-| and ``eret()``.                |             |         |                                                         |
-+--------------------------------+-------------+---------+---------------------------------------------------------+
-| Extra include paths in the     | Jan '18     | v2.1    | Now it is needed to use the full path of the common     |
-| Makefile in ``INCLUDES``.      |             |         | header files. More information in commit 09d40e0e0828_. |
+| Prototype SPCI-based SPM       | Oct '19     | v2.2    | Based on outdated Alpha 1 spec. Will be replaced with   |
+| (services/std_svc/spm)         |             |         | alternative methods of secure partitioning support.     |
 +--------------------------------+-------------+---------+---------------------------------------------------------+
 
 --------------
