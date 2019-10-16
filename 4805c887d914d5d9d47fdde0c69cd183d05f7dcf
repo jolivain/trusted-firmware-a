@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6325118c_d8e91cb6",
+        "filename": "drivers/auth/cryptocell/712/cryptocell_crypto.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-16T09:44:46Z",
+      "side": 1,
+      "message": "Add a Cyrptocell variant runtime check to validate the build option selected. It should panic on failure.",
+      "range": {
+        "startLine": 57,
+        "startChar": 12,
+        "endLine": 57,
+        "endChar": 16
+      },
+      "revId": "4805c887d914d5d9d47fdde0c69cd183d05f7dcf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a45002fa_8d334398",
+        "filename": "include/drivers/arm/cryptocell/712/secureboot_gen_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-16T09:44:46Z",
+      "side": 1,
+      "message": "a comment here regarding the dependency of CC variant with Key size would be good to mention.",
+      "range": {
+        "startLine": 55,
+        "startChar": 44,
+        "endLine": 55,
+        "endChar": 46
+      },
+      "revId": "4805c887d914d5d9d47fdde0c69cd183d05f7dcf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
