@@ -22,6 +22,7 @@ struct fconf_populator {
 	int (*populate)(uintptr_t config);
 };
 
+void fconf_load_config(void);
 void fconf_populate(uintptr_t config);
 
 #endif /* FCONF_H */
