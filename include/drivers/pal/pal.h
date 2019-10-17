@@ -22,6 +22,7 @@ struct pal_populator {
 	int (*populate)(void *dtb);
 };
 
+void pal_load_config(void);
 void pal_populate(void *dtb);
 
 #endif /* PAL_H */
