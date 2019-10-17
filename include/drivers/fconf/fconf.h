@@ -25,4 +25,14 @@ struct fconf_populator {
 void fconf_load_config(void);
 void fconf_populate(uintptr_t config);
 
+/* FCONF specific getter */
+#define fconf__dtb_getter(prop)	fconf_dtb_info.prop
+
+struct fconf_dtb_info_t {
+	uintptr_t base_addr;
+	size_t size;
+};
+
+extern struct fconf_dtb_info_t fconf_dtb_info;
+
 #endif /* FCONF_H */
