@@ -9,11 +9,12 @@
 #include <platform_def.h>
 
 #include <common/debug.h>
+#include <common/fdt_wrappers.h>
 #include <drivers/fconf/fconf.h>
+#include <libfdt.h>
 #include <plat/common/platform.h>
 
-static void *tb_fw_cfg_dtb;
-static size_t tb_fw_cfg_dtb_size;
+struct fconf_dtb_info_t fconf_dtb_info;
 
 void fconf_load_config(void)
 {
@@ -40,8 +41,8 @@ void fconf_load_config(void)
 
 	/* At this point we know that a DTB is indeed available */
 	config_base = arm_tb_fw_info.image_info.image_base;
-	tb_fw_cfg_dtb = (void *)config_base;
-	tb_fw_cfg_dtb_size = (size_t)arm_tb_fw_info.image_info.image_max_size;
+	fconf_dtb_info.base_addr = (void *)config_base;
+	fconf_dtb_info.size = (size_t)arm_tb_fw_info.image_info.image_max_size;
 
 	/* The BL2 ep_info arg0 is modified to point to TB_FW_CONFIG */
 	desc = bl1_plat_get_image_desc(BL2_IMAGE_ID);
@@ -53,6 +54,16 @@ void fconf_load_config(void)
 
 void fconf_populate(void *dtb)
 {
+	assert(dtb);
+
+	/* Check if the pointer to DTB is correct */
+	if (fdt_check_header(dtb) != 0) {
+		WARN("FCONF: Invalid DTB file passed for tbbr.dyn_config\n");
+		panic();
+	}
+
+	INFO("FCONF: populate from: %p\n", dtb);
+
 	/* go through all registered populate functions */
 	extern struct fconf_populator *__FCONF_POPULATOR_START__;
 	extern struct fconf_populator *__FCONF_POPULATOR_END__;
@@ -66,4 +77,7 @@ void fconf_populate(void *dtb)
 			/* TODO: handle property miss */
 		}
 	}
+
+	/* save local pointer to dtb */
+	fconf_dtb_info.base_addr = dtb;
 }
