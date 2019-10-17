@@ -9,7 +9,9 @@
 #include <platform_def.h>
 
 #include <common/debug.h>
+#include <common/fdt_wrappers.h>
 #include <drivers/pal/pal.h>
+#include <libfdt.h>
 #include <plat/common/platform.h>
 
 static void *tb_fw_cfg_dtb;
@@ -53,6 +55,16 @@ void pal_load_config(void)
 
 void pal_populate(void *dtb)
 {
+	assert(dtb);
+
+	/* Check if the pointer to DTB is correct */
+	if (fdt_check_header(dtb) != 0) {
+		WARN("PAL: Invalid DTB file passed for tbbr.dyn_config\n");
+		panic();
+	}
+
+	INFO("PAL: populate from: %p\n", dtb);
+
 	// go through all registered populate functions
 	extern struct pal_populator *__PAL_POPULATOR_START__;
 	extern struct pal_populator *__PAL_POPULATOR_END__;
