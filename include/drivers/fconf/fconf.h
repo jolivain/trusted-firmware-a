@@ -22,6 +22,7 @@ struct fconf_populator {
 	int (*populate)(void *dtb);
 };
 
+void fconf_load_config(void);
 void fconf_populate(void *dtb);
 
 #endif /* FCONF_H */
