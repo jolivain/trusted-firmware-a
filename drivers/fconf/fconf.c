@@ -7,19 +7,18 @@
 #include <assert.h>
 
 #include <common/debug.h>
+#include <common/fdt_wrappers.h>
 #include <drivers/fconf/fconf.h>
 #include <libfdt.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
-static uintptr_t tb_fw_cfg_dtb;
-static size_t tb_fw_cfg_dtb_size;
+struct fconf_dtb_info_t fconf_dtb_info;
 
 void fconf_load_config(void)
 {
 	int err;
 	uintptr_t config_base = 0UL;
-	image_desc_t *desc;
 
 	image_desc_t arm_tb_fw_info = {
 		.image_id = TB_FW_CONFIG_ID,
@@ -40,13 +39,17 @@ void fconf_load_config(void)
 
 	/* At this point we know that a DTB is indeed available */
 	config_base = arm_tb_fw_info.image_info.image_base;
-	tb_fw_cfg_dtb = config_base;
-	tb_fw_cfg_dtb_size = (size_t)arm_tb_fw_info.image_info.image_max_size;
+	fconf_dtb_info.base_addr = config_base;
+	fconf_dtb_info.size = (size_t)arm_tb_fw_info.image_info.image_max_size;
+
+#if !BL2_AT_EL3
+	image_desc_t *desc;
 
 	/* The BL2 ep_info arg0 is modified to point to FW_CONFIG */
 	desc = bl1_plat_get_image_desc(BL2_IMAGE_ID);
 	assert(desc != NULL);
 	desc->ep_info.args.arg0 = config_base;
+#endif
 
 	INFO("FCONF: FW_CONFIG loaded at address = 0x%lx\n", config_base);
 }
@@ -76,4 +79,7 @@ void fconf_populate(uintptr_t config)
 			/* TODO: handle property miss */
 		}
 	}
+
+	/* save local pointer to the config dtb */
+	fconf_dtb_info.base_addr = config;
 }
