@@ -19,6 +19,57 @@
     },
     {
       "key": {
+        "uuid": "04d83034_3ccb03fb",
+        "filename": "drivers/arm/gic/v3x/gicv3x_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-10-18T08:23:13Z",
+      "side": 1,
+      "message": "Should this explicitly check for INTR_GROUP0?\nThere is possibility to provide INTR_GROUP1NS through interrupt properties and this would fall back to it being configured as Grp0 ...",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17b55fe9_afe4991b",
+        "filename": "drivers/arm/gic/v3x/gicv3x_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-10-18T08:23:13Z",
+      "side": 1,
+      "message": "As a security hardening, should we make sure that DS bit is cleared?\nThere are other settings done later that assume that DS\u003d0 (e.g. default SPI conf).",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba6fe9eb_fa1fcdfd",
+        "filename": "drivers/arm/gic/v3x/gicv3x_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-10-18T08:23:13Z",
+      "side": 1,
+      "message": "It seems this re-distributor power-on arrives late because re-distributor registers are already accessed before in the flow (e.g. rdist base addresses discovery). This problem might already exist with GIC-600.",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f703aa4_bc6f0b10",
         "filename": "drivers/arm/gic/v3x/gicv3x_private.h",
         "patchSetId": 1
@@ -53,6 +104,69 @@
     },
     {
       "key": {
+        "uuid": "2a7abee9_ba3784a9",
+        "filename": "include/drivers/arm/gic_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-10-18T08:23:13Z",
+      "side": 1,
+      "message": "Does it make sense to re-order the defines GICV1, GICV2, GICV4, GICV4 ?...",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f56ae1c_beee6a69",
+        "filename": "include/drivers/arm/gicv3x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-10-18T08:23:13Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d9b940a_d3311b67",
+        "filename": "include/drivers/arm/gicv3x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-10-18T08:23:13Z",
+      "side": 1,
+      "message": "Should this go to gic_common.h?",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 29,
+        "endChar": 18
+      },
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e90b1e18_13bea6d9",
         "filename": "include/drivers/arm/gicv3x.h",
         "patchSetId": 1
@@ -84,6 +198,52 @@
       "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee99b011_a1e849ec",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-10-18T08:23:13Z",
+      "side": 1,
+      "message": "GIC600 ?",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4473c6f5_b5378c3f",
+        "filename": "plat/common/plat_gicv3x.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-10-18T08:23:13Z",
+      "side": 1,
+      "message": "Braces on if statements?",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 31
+      },
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
