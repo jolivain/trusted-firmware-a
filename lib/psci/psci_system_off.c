@@ -27,6 +27,7 @@ void __dead2 psci_system_off(void)
 
 	(void) console_flush();
 
+	psci_do_pwrdown_sequence(PLAT_MAX_PWR_LVL);
 	/* Call the platform specific hook */
 	psci_plat_pm_ops->system_off();
 
@@ -46,6 +47,7 @@ void __dead2 psci_system_reset(void)
 
 	(void) console_flush();
 
+	psci_do_pwrdown_sequence(PLAT_MAX_PWR_LVL);
 	/* Call the platform specific hook */
 	psci_plat_pm_ops->system_reset();
 
