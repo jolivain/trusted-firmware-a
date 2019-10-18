@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "175b87a9_d354063e",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-18T14:26:25Z",
+      "side": 1,
+      "message": "Is that meant to be a subparagraph of line 14? Perhaps my lack of understanding but I thought that adding support for PAuth in the FWU code was orthogonal to enabling PAuth in secure world. Or was that the only bit missing to claim full PAuth support in secure world?",
+      "range": {
+        "startLine": 15,
+        "startChar": 7,
+        "endLine": 17,
+        "endChar": 66
+      },
+      "revId": "1888c52db62d0c153c3c45075c3b01bc8e492508",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "304dd1fd_68a1e036",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-18T14:26:25Z",
+      "side": 1,
+      "message": "I would remove these details and only keep the headline at line 29.",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 80
+      },
+      "revId": "1888c52db62d0c153c3c45075c3b01bc8e492508",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23b7f390_98097204",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-18T14:26:25Z",
+      "side": 1,
+      "message": "Core names should not be abbreviated like that, always use the full name, i.e. Cortex-A76AE.",
+      "range": {
+        "startLine": 64,
+        "startChar": 37,
+        "endLine": 64,
+        "endChar": 42
+      },
+      "revId": "1888c52db62d0c153c3c45075c3b01bc8e492508",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3821ba9f_8a878fa3",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-18T14:26:25Z",
+      "side": 1,
+      "message": "This sounds too detailed to me for a change log. I personally would have thought that a single line would have suffice, something like, \"Further enhance protection against Spectre variant 4 by disabling speculative loads/stores (SPSR.SSBS bit) by default.\".",
+      "range": {
+        "startLine": 164,
+        "startChar": 3,
+        "endLine": 179,
+        "endChar": 68
+      },
+      "revId": "1888c52db62d0c153c3c45075c3b01bc8e492508",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c1e13aa_9898bdcf",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-18T14:26:25Z",
+      "side": 1,
+      "message": "This looks too detailed too. Suggest,\n\n  cert_create: Add support for bigger RSA key sizes (3KB and 4KB).\n  The maximum key size was 2KB before.",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 21
+      },
+      "revId": "1888c52db62d0c153c3c45075c3b01bc8e492508",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4055d5b_1104aeb6",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-18T14:26:25Z",
+      "side": 1,
+      "message": "Suggest:\n\n Add support to build fiptool on Windows.",
+      "range": {
+        "startLine": 193,
+        "startChar": 5,
+        "endLine": 193,
+        "endChar": 52
+      },
+      "revId": "1888c52db62d0c153c3c45075c3b01bc8e492508",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0545ce2c_8579de28",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-18T14:26:25Z",
+      "side": 1,
+      "message": "I would remove this sentence.",
+      "range": {
+        "startLine": 203,
+        "startChar": 7,
+        "endLine": 203,
+        "endChar": 78
+      },
+      "revId": "1888c52db62d0c153c3c45075c3b01bc8e492508",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f463bbfa_19b9b3ed",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-18T14:26:25Z",
+      "side": 1,
+      "message": "Suggest:\n\n Prettify crash reporting output on AArch64.",
+      "range": {
+        "startLine": 205,
+        "startChar": 5,
+        "endLine": 207,
+        "endChar": 31
+      },
+      "revId": "1888c52db62d0c153c3c45075c3b01bc8e492508",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8348f5c_a1580531",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-18T14:26:25Z",
+      "side": 1,
+      "message": "What\u0027s the issue there? Is it the lack of migration to the new console API again? (I thought all platforms had migrated by now).",
+      "range": {
+        "startLine": 444,
+        "startChar": 5,
+        "endLine": 444,
+        "endChar": 66
+      },
+      "revId": "1888c52db62d0c153c3c45075c3b01bc8e492508",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
