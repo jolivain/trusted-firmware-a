@@ -68,24 +68,16 @@ static int axp805_probe(void)
 	return 0;
 }
 
-int sunxi_pmic_setup(uint16_t socid, const void *fdt)
+void sunxi_pmic_setup(uint16_t socid, const void *fdt)
 {
-	int ret;
-
 	sunxi_init_platform_r_twi(SUNXI_SOC_H6, false);
 	/* initialise mi2cv driver */
 	i2c_init((void *)SUNXI_R_I2C_BASE);
 
 	NOTICE("PMIC: Probing AXP805\n");
+	if (axp805_probe())
+		return;
 	pmic = AXP805;
-
-	ret = axp805_probe();
-	if (ret)
-		pmic = UNKNOWN;
-	else
-		pmic = AXP805;
-
-	return 0;
 }
 
 void __dead2 sunxi_power_down(void)

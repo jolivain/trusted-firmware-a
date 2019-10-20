@@ -284,10 +284,8 @@ static void setup_axp803_rails(const void *fdt)
 	}
 }
 
-int sunxi_pmic_setup(uint16_t socid, const void *fdt)
+void sunxi_pmic_setup(uint16_t socid, const void *fdt)
 {
-	int ret;
-
 	switch (socid) {
 	case SUNXI_SOC_H5:
 		pmic = REF_DESIGN_H5;
@@ -295,14 +293,11 @@ int sunxi_pmic_setup(uint16_t socid, const void *fdt)
 		break;
 	case SUNXI_SOC_A64:
 		pmic = GENERIC_A64;
-		ret = sunxi_init_platform_r_twi(socid, true);
-		if (ret)
-			return ret;
 
-		ret = rsb_init();
-		if (ret)
-			return ret;
-
+		if (sunxi_init_platform_r_twi(socid, true))
+			return;
+		if (rsb_init())
+			return;
 		pmic = AXP803_RSB;
 		NOTICE("BL31: PMIC: Detected AXP803 on RSB.\n");
 
@@ -312,9 +307,8 @@ int sunxi_pmic_setup(uint16_t socid, const void *fdt)
 		break;
 	default:
 		NOTICE("BL31: PMIC: No support for Allwinner %x SoC.\n", socid);
-		return -ENODEV;
+		break;
 	}
-	return 0;
 }
 
 void __dead2 sunxi_power_down(void)
