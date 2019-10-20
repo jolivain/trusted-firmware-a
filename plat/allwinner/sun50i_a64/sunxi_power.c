@@ -22,6 +22,7 @@
 #include <sunxi_private.h>
 
 static enum pmic_type {
+	UNKNOWN,
 	GENERIC_H5,
 	GENERIC_A64,
 	REF_DESIGN_H5,	/* regulators controlled by GPIO pins on port L */

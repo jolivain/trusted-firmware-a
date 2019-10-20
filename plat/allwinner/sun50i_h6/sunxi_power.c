@@ -21,12 +21,10 @@
 #define AXP805_ADDR	0x36
 #define AXP805_ID	0x03
 
-enum pmic_type {
-	NO_PMIC,
+static enum pmic_type {
+	UNKNOWN,
 	AXP805,
-};
-
-enum pmic_type pmic;
+} pmic;
 
 int axp_i2c_read(uint8_t chip, uint8_t reg, uint8_t *val)
 {
@@ -83,7 +81,7 @@ int sunxi_pmic_setup(uint16_t socid, const void *fdt)
 
 	ret = axp805_probe();
 	if (ret)
-		pmic = NO_PMIC;
+		pmic = UNKNOWN;
 	else
 		pmic = AXP805;
 
