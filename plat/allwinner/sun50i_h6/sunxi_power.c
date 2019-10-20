@@ -49,19 +49,19 @@ static int axp805_probe(void)
 
 	ret = axp_i2c_write(AXP805_ADDR, 0xff, 0x0);
 	if (ret) {
-		ERROR("PMIC: Cannot put AXP805 to master mode.\n");
+		ERROR("PMIC: Cannot put AXP805 in master mode\n");
 		return -EPERM;
 	}
 
 	ret = axp_i2c_read(AXP805_ADDR, AXP805_ID, &val);
-
-	if (!ret && ((val & 0xcf) == 0x40))
-		NOTICE("PMIC: AXP805 detected\n");
-	else if (ret) {
-		ERROR("PMIC: Cannot communicate with AXP805.\n");
+	if (ret) {
+		ERROR("PMIC: Cannot communicate with AXP805\n");
 		return -EPERM;
-	} else {
-		ERROR("PMIC: Non-AXP805 chip attached at AXP805's address.\n");
+	}
+
+	val &= 0xcf;
+	if (val != 0x40) {
+		ERROR("PMIC: Unknown PMIC 0x%02x detected\n", val);
 		return -EINVAL;
 	}
 
@@ -74,10 +74,10 @@ void sunxi_pmic_setup(uint16_t socid, const void *fdt)
 	/* initialise mi2cv driver */
 	i2c_init((void *)SUNXI_R_I2C_BASE);
 
-	NOTICE("PMIC: Probing AXP805\n");
 	if (axp805_probe())
 		return;
 	pmic = AXP805;
+	NOTICE("PMIC: Detected AXP805 on I2C\n");
 }
 
 void __dead2 sunxi_power_down(void)

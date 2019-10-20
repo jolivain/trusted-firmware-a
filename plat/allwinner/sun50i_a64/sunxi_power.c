@@ -231,7 +231,7 @@ static void setup_axp803_rails(const void *fdt)
 	/* locate the PMIC DT node, bail out if not found */
 	node = fdt_node_offset_by_compatible(fdt, -1, "x-powers,axp803");
 	if (node < 0) {
-		WARN("BL31: PMIC: Cannot find AXP803 DT node, skipping initial setup.\n");
+		WARN("PMIC: No %s DT node, skipping setup\n", "AXP803");
 		return;
 	}
 
@@ -244,7 +244,7 @@ static void setup_axp803_rails(const void *fdt)
 	/* descend into the "regulators" subnode */
 	node = fdt_subnode_offset(fdt, node, "regulators");
 	if (node < 0) {
-		WARN("BL31: PMIC: Cannot find regulators subnode, skipping initial setup.\n");
+		WARN("PMIC: No %s DT node, skipping setup\n", "regulators");
 		return;
 	}
 
@@ -274,6 +274,7 @@ static void setup_axp803_rails(const void *fdt)
 			continue;
 		}
 	}
+
 	/*
 	 * If DLDO2 is enabled after DC1SW, the PMIC overheats and shuts
 	 * down. So always enable DC1SW as the very last regulator.
@@ -289,7 +290,7 @@ void sunxi_pmic_setup(uint16_t socid, const void *fdt)
 	switch (socid) {
 	case SUNXI_SOC_H5:
 		pmic = REF_DESIGN_H5;
-		NOTICE("BL31: PMIC: Defaulting to PortL GPIO according to H5 reference design.\n");
+		NOTICE("PMIC: Assuming H5 reference regulator design\n");
 		break;
 	case SUNXI_SOC_A64:
 		pmic = GENERIC_A64;
@@ -299,14 +300,12 @@ void sunxi_pmic_setup(uint16_t socid, const void *fdt)
 		if (rsb_init())
 			return;
 		pmic = AXP803_RSB;
-		NOTICE("BL31: PMIC: Detected AXP803 on RSB.\n");
+		NOTICE("PMIC: Detected AXP803 on RSB\n");
 
 		if (fdt)
 			setup_axp803_rails(fdt);
-
 		break;
 	default:
-		NOTICE("BL31: PMIC: No support for Allwinner %x SoC.\n", socid);
 		break;
 	}
 }
