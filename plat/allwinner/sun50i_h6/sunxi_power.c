@@ -80,7 +80,7 @@ void sunxi_pmic_setup(uint16_t socid, const void *fdt)
 	NOTICE("PMIC: Detected AXP805 on I2C\n");
 }
 
-void __dead2 sunxi_power_down(void)
+void sunxi_power_down(void)
 {
 	uint8_t val;
 
@@ -96,9 +96,4 @@ void __dead2 sunxi_power_down(void)
 	default:
 		break;
 	}
-
-	udelay(1000);
-	ERROR("PSCI: Cannot communicate with PMIC, halting\n");
-	wfi();
-	panic();
 }

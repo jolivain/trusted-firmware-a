@@ -65,6 +65,11 @@ static void __dead2 sunxi_system_off(void)
 	sunxi_disable_secondary_cpus(read_mpidr());
 
 	sunxi_power_down();
+
+	udelay(1000);
+	ERROR("PSCI: Cannot turn off system, halting\n");
+	wfi();
+	panic();
 }
 
 static void __dead2 sunxi_system_reset(void)
