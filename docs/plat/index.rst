@@ -91,6 +91,7 @@ CPU cores (64-bit host machine only).
 -  ``FVP_CSS_SGM-775`` (Version 11.3 build 42)
 -  ``FVP_RD_E1Edge`` (Version 11.3 build 42)
 -  ``FVP_RD_N1Edge`` (Version 11.3 build 42)
+-  ``FVP_Zeus``
 -  ``Foundation_Platform``
 
 The latest version of the AArch32 build of TF-A has been tested on the
@@ -103,8 +104,8 @@ CPU cores (64-bit host machine only).
 .. note::
    The ``FVP_Base_RevC-2xAEMv8A`` FVP only supports shifted affinities.
 
-The *Foundation* FVP can be downloaded free of charge. The *Base* FVPs can be
-licensed from Arm. See the `Arm FVP website`_.
+The *Foundation* and *Base* FVPs can be downloaded free of charge. See the
+`Arm FVP website`_.
 
 All the above platforms have been tested with `Linaro Release 19.06`_.
 

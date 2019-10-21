@@ -1768,6 +1768,7 @@ Arm FVPs without shifted affinities, and that do not support threaded CPU cores
 -  ``FVP_CSS_SGM-775`` (Version 11.3 build 42)
 -  ``FVP_RD_E1Edge`` (Version 11.3 build 42)
 -  ``FVP_RD_N1Edge``
+-  ``FVP_Zeus``
 -  ``Foundation_Platform``
 
 The latest version of the AArch32 build of TF-A has been tested on the following
