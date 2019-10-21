@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "68752c84_307a3672",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-21T15:14:34Z",
+      "side": 1,
+      "message": "Yes they are related and were addressed in the same patch. But this patch introduced 2 independent changes:\n* it fixed a bug in the CAS-based implementation of spinlocks (missing dsb in spin_unlock()).\n* it introduced a new build option to let each platform select which implementation of spinlocks it wants to use (rather than automatically opting in for CAS-based implementation on Armv8.1+ systems).",
+      "parentUuid": "f2d63e87_270660b7",
+      "range": {
+        "startLine": 303,
+        "startChar": 6,
+        "endLine": 305,
+        "endChar": 60
+      },
+      "revId": "8f99564f40942f1b6282246c53448234d20c6af9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e355874_7d199d5a",
         "filename": "docs/change-log.rst",
         "patchSetId": 5
