@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e16b8eca_02a31f99",
+        "filename": "plat/allwinner/sun50i_a64/sunxi_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2019-10-21T12:24:10Z",
+      "side": 0,
+      "message": "Oh, I was reading that wrong. `length` is for the node, not `reg`. Yes, I\u0027ll switch it back to strncmp. (That actually saves bytes, because strcmp is otherwise unused.)",
+      "parentUuid": "85ea6791_ebcc9b1e",
+      "revId": "3430faf9b95e6dfe6fda6ab43d814f0817fd77d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "136bc2c9_70b39b46",
         "filename": "plat/allwinner/sun50i_a64/sunxi_power.c",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-10-21T11:02:26Z",
       "side": 0,
       "message": "Can we please keep this in? This is to make the code more robust, in case anybody adds some code (dealing with another specialty) after this block.",
+      "revId": "3430faf9b95e6dfe6fda6ab43d814f0817fd77d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b8db45a_a9238e50",
+        "filename": "plat/allwinner/sun50i_a64/sunxi_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2019-10-21T12:24:10Z",
+      "side": 0,
+      "message": "I find it more confusing than robust, since it signals the intent to perform some control flow redirection that\u0027s not actually happening. (And besides, there\u0027s no `continue` after finding a matching regulator... maybe moving this before the inner loop would make everyone happy?)",
+      "parentUuid": "136bc2c9_70b39b46",
       "revId": "3430faf9b95e6dfe6fda6ab43d814f0817fd77d8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
