@@ -102,7 +102,7 @@ static bool should_enable_regulator(const void *fdt, int node)
 void axp_setup_regulators(const void *fdt)
 {
 	int node;
-	bool dc1sw = false;
+	bool sw = false;
 
 	if (fdt == NULL)
 		return;
@@ -114,6 +114,7 @@ void axp_setup_regulators(const void *fdt)
 		return;
 	}
 
+	/* This applies to AXP803 only. */
 	if (fdt_getprop(fdt, node, "x-powers,drive-vbus-en", NULL)) {
 		axp_clrbits(0x8f, BIT(4));
 		axp_setbits(0x30, BIT(2));
@@ -145,17 +146,18 @@ void axp_setup_regulators(const void *fdt)
 			}
 		}
 
-		/* Delay DC1SW enablement to avoid overheating. */
-		if (!strcmp(name, "dc1sw"))
-			dc1sw = true;
+		/* Enable the switch last to avoid overheating. */
+		if (!strcmp(name, "dc1sw") || !strcmp(name, "sw"))
+			sw = true;
 	}
 
 	/*
-	 * If DLDO2 is enabled after DC1SW, the PMIC overheats and shuts
-	 * down. So always enable DC1SW as the very last regulator.
+	 * On the AXP803, if DLDO2 is enabled after DC1SW, the PMIC overheats
+	 * and shuts down. So always enable DC1SW as the very last regulator.
 	 */
-	if (dc1sw) {
-		INFO("PMIC: %s: Enabling DC1SW\n", axp_name);
-		axp_setbits(0x12, BIT(7));
+	if (sw) {
+		INFO("PMIC: %s: Enabling SW\n", axp_name);
+		axp_setbits(axp_chip_id == AXP803_CHIP_ID ? 0x12 : 0x11,
+			    BIT(7));
 	}
 }
