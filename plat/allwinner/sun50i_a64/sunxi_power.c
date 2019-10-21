@@ -268,11 +268,9 @@ static void setup_axp803_rails(const void *fdt)
 			}
 		}
 
-		if (!strncmp(name, "dc1sw", length)) {
-			/* Delay DC1SW enablement to avoid overheating. */
+		/* Delay DC1SW enablement to avoid overheating. */
+		if (!strcmp(name, "dc1sw"))
 			dc1sw = true;
-			continue;
-		}
 	}
 
 	/*
