@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01128fda_e247a0c3",
+        "filename": "plat/allwinner/sun50i_a64/sunxi_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-10-21T10:39:09Z",
+      "side": 1,
+      "message": "Since it took me a while to get it ;-), maybe add a comment here to point out the purpose of sharing the base string to save memory by relying on the compiler\u0027s string merging?",
+      "revId": "12ce6aac3df182d04edc42e0380281de34741ac6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}

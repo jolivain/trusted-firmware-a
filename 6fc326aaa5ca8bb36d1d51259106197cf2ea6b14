@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34addf9a_9c9a4579",
+        "filename": "plat/allwinner/sun50i_h6/sunxi_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-10-21T10:39:09Z",
+      "side": 0,
+      "message": "Is there any chance of leaving this message in? The idea was to print what the firmware is about to do, so that any crash at this point is easy to attribute.\nI could possibly even be talked into trading the success message for that, as it looks like we report every possible error now.",
+      "revId": "6fc326aaa5ca8bb36d1d51259106197cf2ea6b14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
