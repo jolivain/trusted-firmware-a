@@ -16,6 +16,24 @@
       "revId": "b30646a8f7f8c428faa02f26c01ca383b985afed",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d32c525a_d94609da",
+        "filename": "plat/arm/common/arm_topology.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-21T14:04:24Z",
+      "side": 1,
+      "message": "Adding MPIDR_AFF0_SHIFT will not have any impact, also it seems that the intention of AFFLVL_MASK is used to check only AFF1/2/3 (when multi threaded is there) and that is why it was left.",
+      "parentUuid": "359f88d2_0202fb58",
+      "revId": "b30646a8f7f8c428faa02f26c01ca383b985afed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
