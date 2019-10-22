@@ -17,8 +17,6 @@
 #define AGX_RSTMGR_OFST			0xffd11000
 #define AGX_RSTMGR_MPUMODRST_OFST	0x20
 
-uintptr_t *agilex_sec_entry = (uintptr_t *) PLAT_SEC_ENTRY;
-uintptr_t *cpuid_release = (uintptr_t *) PLAT_CPUID_RELEASE;
 
 /*******************************************************************************
  * plat handler called when a CPU is about to enter standby.
@@ -47,7 +45,7 @@ int socfpga_pwr_domain_on(u_register_t mpidr)
 	if (cpu_id == -1)
 		return PSCI_E_INTERN_FAIL;
 
-	*cpuid_release = cpu_id;
+	mmio_write_64(PLAT_CPUID_RELEASE, cpu_id);
 
 	/* release core reset */
 	mmio_setbits_32(AGX_RSTMGR_OFST + AGX_RSTMGR_MPUMODRST_OFST,
@@ -191,8 +189,8 @@ int plat_setup_psci_ops(uintptr_t sec_entrypoint,
 			const struct plat_psci_ops **psci_ops)
 {
 	/* Save warm boot entrypoint.*/
-	*agilex_sec_entry = sec_entrypoint;
-
+	mmio_write_64(PLAT_SEC_ENTRY, sec_entrypoint);
 	*psci_ops = &socfpga_psci_pm_ops;
+
 	return 0;
 }
