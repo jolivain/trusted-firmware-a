@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "06fe6bcc_6fd8ed96",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-22T15:47:40Z",
+      "side": 1,
+      "message": "Since this is global specific to psci lib, can we rename it to \"psci_plat_core_count\".\n\nPLAT_CORE_COUNT define is platform specific and is populated from platform headers, but global variable is for psci library.",
+      "range": {
+        "startLine": 46,
+        "startChar": 13,
+        "endLine": 46,
+        "endChar": 28
+      },
+      "revId": "9b97a0d2dee027d3617ed2f4b49e3c93574c16f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5d63a4a_b6fecc21",
         "filename": "lib/psci/psci_common.c",
         "patchSetId": 1
@@ -30,6 +53,23 @@
       "writtenOn": "2019-10-22T11:14:28Z",
       "side": 1,
       "message": "the same",
+      "revId": "9b97a0d2dee027d3617ed2f4b49e3c93574c16f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d99e2a5e_438e7774",
+        "filename": "lib/psci/psci_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-22T15:47:40Z",
+      "side": 1,
+      "message": "Since we are checking for `\u003c\u003d` integer overflow of j can cause this to be true (very unlikely) but can be instead have it as \nassert(j \u003c\u003d (unsigned int)PLATFORM_CORE_COUNT);",
       "revId": "9b97a0d2dee027d3617ed2f4b49e3c93574c16f8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
