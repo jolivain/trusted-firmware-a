@@ -19,6 +19,15 @@
 #define PLAT_CPUID_RELEASE			0xffe1b000
 #define PLAT_SEC_ENTRY				0xffe1b008
 
+/*
+ * sysmgr.boot_scratch_cold6 & 7 (64bit) are used to indicate L2 reset
+ * is done and HPS should trigger warm reset via RMR_EL3.
+ */
+#define L2_RESET_DONE_REG			0xFFD12218
+
+/* Magic word to indicate L2 reset is completed */
+#define L2_RESET_DONE_STATUS			0x1228E5E7
+
 /* Define next boot image name and offset */
 #define PLAT_NS_IMAGE_OFFSET			0x50000
 #define PLAT_HANDOFF_OFFSET			0xFFE3F000
