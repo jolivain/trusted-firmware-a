@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b276f01_1994e61e",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/include/mce_private.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-22T16:42:06Z",
+      "side": 1,
+      "message": "Can we update defines to either (1u \u003c\u003c 31) or (U(1) \u003c\u003c 31)",
+      "revId": "2fa9288a4584d828b62c21f97558ca56c3b223f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be34b19d_4745cd35",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/include/mce_private.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-22T16:42:06Z",
+      "side": 1,
+      "message": "0xFFFFFFFF - 0xFFFFFFFFu or U(0xFFFFFFFF)",
+      "revId": "2fa9288a4584d828b62c21f97558ca56c3b223f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f82ff34_e0f03eda",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/include/mce_private.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-22T16:42:06Z",
+      "side": 1,
+      "message": "Can we update define to either (1u \u003c\u003c 31) or (U(1) \u003c\u003c 31)",
+      "revId": "2fa9288a4584d828b62c21f97558ca56c3b223f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8715ad5b_e893f811",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/mce/mce.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-22T16:42:06Z",
+      "side": 1,
+      "message": "Case statement says \"Read cstate stats\" but only operation performed here is write to stats where ret64 \u003d 0.\n\nAre these dummy functions or I am missing something here?\n\nLooking more into this, I believe this base is to just build the system and functionality is implemented in subsequent patches. If this assumption is correct, no change needed here",
+      "revId": "2fa9288a4584d828b62c21f97558ca56c3b223f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
