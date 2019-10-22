@@ -35,5 +35,6 @@ uint32_t socfpga_get_spsr_for_bl33_entry(void);
 
 unsigned long socfpga_get_ns_image_entrypoint(void);
 
+void plat_secondary_cpus_bl31_entry(void);
 
 #endif /* PLATFORM_PRIVATE_H */

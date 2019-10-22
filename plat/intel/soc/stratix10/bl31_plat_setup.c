@@ -14,9 +14,6 @@
 #include <drivers/arm/gic_common.h>
 #include <drivers/arm/gicv2.h>
 #include <drivers/ti/uart/uart_16550.h>
-#include <drivers/generic_delay_timer.h>
-#include <drivers/arm/gicv2.h>
-#include <s10_mailbox.h>
 #include <lib/xlat_tables/xlat_tables.h>
 #include <lib/mmio.h>
 #include <plat/common/platform.h>
@@ -107,6 +104,10 @@ void bl31_platform_setup(void)
 	gicv2_distif_init();
 	gicv2_pcpu_distif_init();
 	gicv2_cpuif_enable();
+
+	/* Signal secondary CPUs to jump to BL31 (BL2 = U-boot SPL) */
+	mmio_write_64(PLAT_CPU_RELEASE_ADDR,
+		(uint64_t)plat_secondary_cpus_bl31_entry);
 }
 
 const mmap_region_t plat_stratix10_mmap[] = {
