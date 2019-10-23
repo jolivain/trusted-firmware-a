@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d6099da_9f805499",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_trampoline.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-23T21:20:01Z",
+      "side": 1,
+      "message": "Please cross check this comment, as per old commit \nSMMU context end (0x42C) - SMMU context start (0xC) \u003d SMMU CTX SIZE (0x420)\n\nHere it is 0x2490 as SMMU context end should it be 0x4A0 instead?",
+      "revId": "fcc14a4639bc54770841873526a8db5c7d8939d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
