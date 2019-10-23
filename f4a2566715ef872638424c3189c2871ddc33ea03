@@ -101,6 +101,23 @@
       "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d66e0b22_381f8b73",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-23T17:00:12Z",
+      "side": 1,
+      "message": "remote_ddr_size \u003e 4 will result in overflow for long (32-bits)\n(remote_ddr_size * 1024UL * 1024UL * 1024UL) - This expression will be evaluated as long and not long long. Typecast will be required here",
+      "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
