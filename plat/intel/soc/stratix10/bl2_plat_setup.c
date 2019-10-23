@@ -21,7 +21,6 @@
 #include <lib/xlat_tables/xlat_tables.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
-#include <socfpga_private.h>
 
 #include "include/s10_mailbox.h"
 #include "qspi/cadence_qspi.h"
@@ -30,7 +29,7 @@
 #include "s10_pinmux.h"
 #include "s10_reset_manager.h"
 #include "socfpga_handoff.h"
-#include "stratix10_private.h"
+#include "socfpga_private.h"
 #include "wdt/watchdog.h"
 
 
