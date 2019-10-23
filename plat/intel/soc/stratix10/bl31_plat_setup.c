@@ -22,7 +22,6 @@
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
-#include "stratix10_private.h"
 #include "s10_handoff.h"
 #include "s10_reset_manager.h"
 #include "s10_memory_controller.h"
