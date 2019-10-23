@@ -10,8 +10,9 @@
 #include <errno.h>
 #include <lib/mmio.h>
 
+#include "socfpga_handoff.h"
+
 #include "agilex_clock_manager.h"
-#include "agilex_handoff.h"
 #include "agilex_system_manager.h"
 
 
