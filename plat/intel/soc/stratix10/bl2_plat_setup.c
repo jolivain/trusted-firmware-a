@@ -6,32 +6,31 @@
 
 #include <arch.h>
 #include <arch_helpers.h>
-#include <drivers/arm/gicv2.h>
-
-#include <drivers/generic_delay_timer.h>
-#include <drivers/console.h>
-#include <drivers/ti/uart/uart_16550.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/desc_image_load.h>
-#include <errno.h>
-#include <drivers/io/io_storage.h>
 #include <common/image_decompress.h>
+#include <drivers/arm/gicv2.h>
+#include <drivers/console.h>
+#include <drivers/generic_delay_timer.h>
+#include <drivers/io/io_storage.h>
+#include <drivers/synopsys/dw_mmc.h>
+#include <drivers/ti/uart/uart_16550.h>
+#include <errno.h>
+#include <lib/mmio.h>
+#include <lib/xlat_tables/xlat_tables.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
 #include <socfpga_private.h>
-#include <drivers/synopsys/dw_mmc.h>
-#include <lib/mmio.h>
-#include <lib/xlat_tables/xlat_tables.h>
 
-#include "s10_memory_controller.h"
-#include "s10_reset_manager.h"
-#include "s10_clock_manager.h"
-#include "s10_handoff.h"
-#include "s10_pinmux.h"
-#include "stratix10_private.h"
 #include "include/s10_mailbox.h"
 #include "qspi/cadence_qspi.h"
+#include "s10_clock_manager.h"
+#include "s10_memory_controller.h"
+#include "s10_pinmux.h"
+#include "s10_reset_manager.h"
+#include "socfpga_handoff.h"
+#include "stratix10_private.h"
 #include "wdt/watchdog.h"
 
 
@@ -63,7 +62,7 @@ void bl2_el3_early_platform_setup(u_register_t x0, u_register_t x1,
 
 	generic_delay_timer_init();
 
-	if (s10_get_handoff(&reverse_handoff_ptr))
+	if (socfpga_get_handoff(&reverse_handoff_ptr))
 		return;
 	config_pinmux(&reverse_handoff_ptr);
 	boot_source = reverse_handoff_ptr.boot_source;
