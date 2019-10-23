@@ -19,7 +19,6 @@
 #include <common/image_decompress.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
-#include <socfpga_private.h>
 #include <drivers/synopsys/dw_mmc.h>
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_tables.h>
@@ -28,10 +27,10 @@
 #include "s10_reset_manager.h"
 #include "s10_clock_manager.h"
 #include "s10_pinmux.h"
-#include "stratix10_private.h"
 #include "include/s10_mailbox.h"
 #include "qspi/cadence_qspi.h"
 #include "socfpga_handoff.h"
+#include "socfpga_private.h"
 #include "wdt/watchdog.h"
 
 
