@@ -71,5 +71,6 @@ endfunc spin_lock
  */
 func spin_unlock
 	stlr	wzr, [x0]
+	sev
 	ret
 endfunc spin_unlock
