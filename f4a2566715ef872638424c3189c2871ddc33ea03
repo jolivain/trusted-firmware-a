@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95c56476_34c81fe0",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-23T16:58:50Z",
+      "side": 1,
+      "message": "PLAT_ARM_REMOTE_CHIP_OFFSET",
+      "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ba628d2_c8d876d2",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-23T16:58:50Z",
+      "side": 1,
+      "message": "CPU ID\u0027s and counts are unsigned in code base, please use U(n) for all defines\n\n#define N1SDP_MAX_CPUS_PER_CLUSTER\t\tU(2)",
+      "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91fb2953_bf27b834",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-23T16:58:50Z",
+      "side": 1,
+      "message": "U(2)",
+      "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d9e3a93_118ca950",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-23T16:58:50Z",
+      "side": 1,
+      "message": "U(2)",
+      "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bfee130_6ea3ca55",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-23T16:58:50Z",
+      "side": 1,
+      "message": "u(4)",
+      "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dde527d1_a4e3ffde",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-23T16:58:50Z",
+      "side": 1,
+      "message": "U(1)",
+      "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
