@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019, Intel Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,27 +10,20 @@
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/desc_image_load.h>
-#include <common/image_decompress.h>
-#include <drivers/arm/gicv2.h>
-#include <drivers/console.h>
 #include <drivers/generic_delay_timer.h>
-#include <drivers/io/io_storage.h>
 #include <drivers/synopsys/dw_mmc.h>
 #include <drivers/ti/uart/uart_16550.h>
-#include <errno.h>
-#include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_tables.h>
-#include <plat/common/platform.h>
-#include <platform_def.h>
 
 #include "qspi/cadence_qspi.h"
+#include "socfpga_handoff.h"
+#include "socfpga_mailbox.h"
+#include "socfpga_private.h"
 #include "s10_clock_manager.h"
 #include "s10_memory_controller.h"
 #include "s10_pinmux.h"
 #include "s10_reset_manager.h"
-#include "socfpga_handoff.h"
-#include "socfpga_mailbox.h"
-#include "socfpga_private.h"
+#include "s10_system_manager.h"
 #include "wdt/watchdog.h"
 
 

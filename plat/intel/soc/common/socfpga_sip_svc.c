@@ -7,9 +7,9 @@
 #include <assert.h>
 #include <common/debug.h>
 #include <common/runtime_svc.h>
-#include <lib/mmio.h>
-#include <s10_mailbox.h>
 #include <tools_share/uuid.h>
+
+#include "socfpga_mailbox.h"
 
 /* Number of SiP Calls implemented */
 #define SIP_NUM_CALLS		0x3
@@ -39,7 +39,7 @@ DEFINE_SVC_UUID2(intl_svc_uid,
 		0xa85273b0, 0xe85a, 0x4862, 0xa6, 0x2a,
 		0xfa, 0x88, 0x88, 0x17, 0x68, 0x81);
 
-uint64_t plat_sip_handler(uint32_t smc_fid,
+uint64_t socfpga_sip_handler(uint32_t smc_fid,
 				   uint64_t x1,
 				   uint64_t x2,
 				   uint64_t x3,
@@ -354,13 +354,13 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 		break;
 
 	default:
-		return plat_sip_handler(smc_fid, x1, x2, x3, x4,
+		return socfpga_sip_handler(smc_fid, x1, x2, x3, x4,
 			cookie, handle, flags);
 	}
 }
 
 DECLARE_RT_SVC(
-	s10_sip_svc,
+	socfpga_sip_svc,
 	OEN_SIP_START,
 	OEN_SIP_END,
 	SMC_TYPE_FAST,
@@ -369,7 +369,7 @@ DECLARE_RT_SVC(
 );
 
 DECLARE_RT_SVC(
-	s10_sip_svc_std,
+	socfpga_sip_svc_std,
 	OEN_SIP_START,
 	OEN_SIP_END,
 	SMC_TYPE_YIELD,
