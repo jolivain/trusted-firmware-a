@@ -22,13 +22,13 @@
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
-#include "include/s10_mailbox.h"
 #include "qspi/cadence_qspi.h"
 #include "s10_clock_manager.h"
 #include "s10_memory_controller.h"
 #include "s10_pinmux.h"
 #include "s10_reset_manager.h"
 #include "socfpga_handoff.h"
+#include "socfpga_mailbox.h"
 #include "socfpga_private.h"
 #include "wdt/watchdog.h"
 
@@ -113,7 +113,7 @@ void bl2_el3_plat_arch_setup(void)
 	switch (boot_source) {
 	case BOOT_SOURCE_SDMMC:
 		dw_mmc_init(&params, &info);
-		stratix10_io_setup(boot_source);
+		socfpga_io_setup(boot_source);
 		break;
 
 	case BOOT_SOURCE_QSPI:
@@ -122,7 +122,7 @@ void bl2_el3_plat_arch_setup(void)
 		cad_qspi_init(0, QSPI_CONFIG_CPHA, QSPI_CONFIG_CPOL,
 			QSPI_CONFIG_CSDA, QSPI_CONFIG_CSDADS,
 			QSPI_CONFIG_CSEOT, QSPI_CONFIG_CSSOT, 0);
-		stratix10_io_setup(boot_source);
+		socfpga_io_setup(boot_source);
 		break;
 
 	default:
