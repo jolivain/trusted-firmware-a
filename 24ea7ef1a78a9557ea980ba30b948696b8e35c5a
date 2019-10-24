@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31378d64_335a0b19",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/mce/mce.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-24T11:28:24Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be better to define MCE_CMD_ENTER_CSTATE (\u0026 friends) value as a 64-bit constant (0x...ULL) rather than casting it here? Or would that cause type issues elsewhere?",
+      "range": {
+        "startLine": 53,
+        "startChar": 16,
+        "endLine": 53,
+        "endChar": 36
+      },
+      "revId": "24ea7ef1a78a9557ea980ba30b948696b8e35c5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dbbedb0_5225a306",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/mce/nvg.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-24T11:28:24Z",
+      "side": 1,
+      "message": "Same question, I wonder whether these TEGRA_NVG_CHANNEL_* macros could be 64-bit constants straight away to avoid the need to cast them here.",
+      "range": {
+        "startLine": 28,
+        "startChar": 27,
+        "endLine": 28,
+        "endChar": 52
+      },
+      "revId": "24ea7ef1a78a9557ea980ba30b948696b8e35c5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
