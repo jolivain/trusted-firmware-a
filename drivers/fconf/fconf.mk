@@ -6,7 +6,8 @@
 
 # Add Property Access Layer platform specific files
 FCONF_SOURCES		:=	drivers/fconf/fconf.c				\
-				drivers/fconf/fconf_dyn_cfg_getter.c
+				drivers/fconf/fconf_dyn_cfg_getter.c		\
+				plat/arm/common/fconf/arm_fconf_io.c
 
 BL1_SOURCES		+=	${FCONF_SOURCES}
 BL2_SOURCES		+=	${FCONF_SOURCES}
