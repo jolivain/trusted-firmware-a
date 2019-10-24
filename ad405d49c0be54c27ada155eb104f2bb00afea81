@@ -16,6 +16,24 @@
       "revId": "ad405d49c0be54c27ada155eb104f2bb00afea81",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc2431ad_1317a379",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-10-24T07:10:07Z",
+      "side": 1,
+      "message": "also, don\u0027t we need to set it back to 0 sometime?\n\nit seems to me that once if multiple cores save and restore in different timings this would definitely cause race condition.\n\nfor example\n\n core 1 save (idle)\n core 2 save (idle)\n core 1 restore (got data from core 2)",
+      "parentUuid": "c64c25dc_e9eb8853",
+      "revId": "ad405d49c0be54c27ada155eb104f2bb00afea81",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
