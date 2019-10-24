@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a8558785_71f74596",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-24T10:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95c56476_34c81fe0",
+      "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ba628d2_c8d876d2",
         "filename": "plat/arm/board/n1sdp/include/platform_def.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-10-23T16:58:50Z",
       "side": 1,
       "message": "CPU ID\u0027s and counts are unsigned in code base, please use U(n) for all defines\n\n#define N1SDP_MAX_CPUS_PER_CLUSTER\t\tU(2)",
+      "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "456b1f94_3b1d76d7",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-24T10:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ba628d2_c8d876d2",
       "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1e3d9056_14e173fa",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-24T10:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91fb2953_bf27b834",
+      "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d9e3a93_118ca950",
         "filename": "plat/arm/board/n1sdp/include/platform_def.h",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2019-10-23T16:58:50Z",
       "side": 1,
       "message": "U(2)",
+      "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52900e76_419ebb5e",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-24T10:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d9e3a93_118ca950",
       "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "fa736602_01abf9df",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-24T10:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bfee130_6ea3ca55",
+      "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dde527d1_a4e3ffde",
         "filename": "plat/arm/board/n1sdp/include/platform_def.h",
         "patchSetId": 1
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "e136b2ae_54777a6a",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-24T10:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dde527d1_a4e3ffde",
+      "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d66e0b22_381f8b73",
         "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
         "patchSetId": 1
@@ -115,6 +223,24 @@
       "writtenOn": "2019-10-23T17:00:12Z",
       "side": 1,
       "message": "remote_ddr_size \u003e 4 will result in overflow for long (32-bits)\n(remote_ddr_size * 1024UL * 1024UL * 1024UL) - This expression will be evaluated as long and not long long. Typecast will be required here",
+      "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9a4f7fa_7551dc7d",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-24T10:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d66e0b22_381f8b73",
       "revId": "f4a2566715ef872638424c3189c2871ddc33ea03",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
