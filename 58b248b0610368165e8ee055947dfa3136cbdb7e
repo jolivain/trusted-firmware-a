@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7b08cfb2_e492fd9c",
+        "filename": "drivers/arm/gic/v3x/gicrv3x_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T12:08:15Z",
+      "side": 1,
+      "message": "1. \"Comparing it to implementation in V3 set operation must perform register read before writing new value to the register.\"\nPlease explain what is wrong with GICR_SET_BIT macro \nwhich has exactly the same functionality by calling mmio_setbits_32().\n2. GICR_OFFSET macro is used in other macros, please explain how it can be replaced by `gicr_set_igrpmodr` and `gicd_write_igrpmodr` functions which set/clear bits in IGRPMODR and IGRPMODRE registers.",
+      "parentUuid": "3d274900_14e97ef2",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04d83034_3ccb03fb",
         "filename": "drivers/arm/gic/v3x/gicv3x_helpers.c",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-10-18T08:23:13Z",
       "side": 1,
       "message": "Should this explicitly check for INTR_GROUP0?\nThere is possibility to provide INTR_GROUP1NS through interrupt properties and this would fall back to it being configured as Grp0 ...",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f6ac7d2_8b73b7c7",
+        "filename": "drivers/arm/gic/v3x/gicv3x_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T12:08:15Z",
+      "side": 1,
+      "message": "See line #325.",
+      "parentUuid": "04d83034_3ccb03fb",
       "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8b658be3_cf28f8a2",
+        "filename": "drivers/arm/gic/v3x/gicv3x_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T12:08:15Z",
+      "side": 1,
+      "message": "DS, bit [6]: This field resets to 0.",
+      "parentUuid": "17b55fe9_afe4991b",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba6fe9eb_fa1fcdfd",
         "filename": "drivers/arm/gic/v3x/gicv3x_main.c",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2019-10-18T08:23:13Z",
       "side": 1,
       "message": "It seems this re-distributor power-on arrives late because re-distributor registers are already accessed before in the flow (e.g. rdist base addresses discovery). This problem might already exist with GIC-600.",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ceba9f14_9b827eb7",
+        "filename": "drivers/arm/gic/v3x/gicv3x_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T12:08:15Z",
+      "side": 1,
+      "message": "GICv3.x \u0026 4.x don\u0027t have GICR_PWRR as GIC-600, so\nvoid gicv3x_rdistif_on(unsigned int proc_num)\n{\n}\nPlease create a JIRA ticket for GIC-600.",
+      "parentUuid": "ba6fe9eb_fa1fcdfd",
       "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "ec7e955b_54b13ff7",
+        "filename": "drivers/arm/gic/v3x/gicv3x_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T12:08:15Z",
+      "side": 1,
+      "message": "Using macros makes code more clear and reduces the number of programming errors.",
+      "parentUuid": "7f703aa4_bc6f0b10",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5a6e5ab_e50b8a64",
         "filename": "drivers/arm/gic/v3x/gicv3x_private.h",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2019-10-16T19:24:42Z",
       "side": 1,
       "message": "Similar comment for `GICR_WRITE_NUM` macro, shouldn;t we be avoiding use of macros as per MISRA.",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e04e013f_1a38431c",
+        "filename": "drivers/arm/gic/v3x/gicv3x_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T12:08:15Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "f5a6e5ab_e50b8a64",
       "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "8f9773cc_8305a06c",
+        "filename": "include/drivers/arm/gic_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T12:08:15Z",
+      "side": 1,
+      "message": "Yes, it makes, but I left the original order to keep the changes in common code minimal, otherwise somebody would ask to split the patch \u0026 it would take ages for review to complete.",
+      "parentUuid": "2a7abee9_ba3784a9",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1f56ae1c_beee6a69",
         "filename": "include/drivers/arm/gicv3x.h",
         "patchSetId": 1
@@ -132,6 +258,30 @@
       "writtenOn": "2019-10-18T08:23:13Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c35bede_a46536bf",
+        "filename": "include/drivers/arm/gicv3x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T12:08:15Z",
+      "side": 1,
+      "message": "Thanks! Don\u0027t you think that ARM will still exist in 22019?",
+      "parentUuid": "1f56ae1c_beee6a69",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -167,6 +317,30 @@
     },
     {
       "key": {
+        "uuid": "600bbce6_d9af0147",
+        "filename": "include/drivers/arm/gicv3x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T12:08:15Z",
+      "side": 1,
+      "message": "No, it is only used in GIC v3.x driver.",
+      "parentUuid": "6d9b940a_d3311b67",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 29,
+        "endChar": 18
+      },
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e90b1e18_13bea6d9",
         "filename": "include/drivers/arm/gicv3x.h",
         "patchSetId": 1
@@ -184,6 +358,24 @@
     },
     {
       "key": {
+        "uuid": "a9302f52_7d75c3a4",
+        "filename": "include/drivers/arm/gicv3x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T12:08:15Z",
+      "side": 1,
+      "message": "No, the extra tab should be removed. Thanks for spotting.",
+      "parentUuid": "e90b1e18_13bea6d9",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22f458b7_0564b328",
         "filename": "include/drivers/arm/gicv3x.h",
         "patchSetId": 1
@@ -195,6 +387,24 @@
       "writtenOn": "2019-10-16T19:24:42Z",
       "side": 1,
       "message": "I will prefer the existing GICv3 implementation of using functions instead of macros.\n\nCan we have GICR_GET_BIT as function? \n\nunsigned int gicr_get_bit(uintptr_t reg, uintptr_t base,  unsigned int id) {\n       ....\n}",
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c862a5c9_a58a1587",
+        "filename": "include/drivers/arm/gicv3x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T12:08:15Z",
+      "side": 1,
+      "message": "Why to implement \u0026 call an extra function when a inline macro can be used?",
+      "parentUuid": "22f458b7_0564b328",
       "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -224,6 +434,30 @@
     },
     {
       "key": {
+        "uuid": "bcffb5ff_bac9a4be",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T12:08:15Z",
+      "side": 1,
+      "message": "Comment removed by: Soby Mathew",
+      "parentUuid": "ee99b011_a1e849ec",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4473c6f5_b5378c3f",
         "filename": "plat/common/plat_gicv3x.c",
         "patchSetId": 1
@@ -235,6 +469,30 @@
       "writtenOn": "2019-10-18T08:23:13Z",
       "side": 1,
       "message": "Braces on if statements?",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 31
+      },
+      "revId": "58b248b0610368165e8ee055947dfa3136cbdb7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7daac38f_b922b525",
+        "filename": "plat/common/plat_gicv3x.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T12:08:15Z",
+      "side": 1,
+      "message": "This code follows GICv3 coding style.",
+      "parentUuid": "4473c6f5_b5378c3f",
       "range": {
         "startLine": 164,
         "startChar": 2,
