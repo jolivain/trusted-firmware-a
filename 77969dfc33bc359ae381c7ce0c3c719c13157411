@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31a23bfd_61ba9165",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-24T08:27:36Z",
+      "side": 1,
+      "message": "disable_mmu_el3() below already issues isb + dsbsy so I think it is OK to remove the barriers here. I don\u0027t think it\u0027s important that the MMU is disabled at EL1 *before* we disable it at EL3, right? I would think both operations can be committed in batch and their order does not matter.\n\nBut then, as I understand it, the performance of this code is not critical, given that it\u0027s debug code for pre-silicon. So you might want to keep them just to be on the safe side, in case disable_mmu_el3() ever gets changed and the barriers removed (which I doubt...). Your call.",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 11
+      },
+      "revId": "77969dfc33bc359ae381c7ce0c3c719c13157411",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0d72c4b_23a5702a",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_sip_calls.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-24T08:27:36Z",
+      "side": 1,
+      "message": "There\u0027s a fall through here, in the case this code is *not* running on VDK. Although this is harmless right now given that the next case statement does nothing, I would still recommend adding a \"break\" statement here, to make the code more future proof if additional SiP calls handlers are ever added  below.",
+      "revId": "77969dfc33bc359ae381c7ce0c3c719c13157411",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
