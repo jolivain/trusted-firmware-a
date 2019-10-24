@@ -192,7 +192,8 @@ BL1_SOURCES		+=	${DYN_CFG_SOURCES}
 BL2_SOURCES		+=	${DYN_CFG_SOURCES}
 
 # Add Property Access Layer platform specific files
-PAL_SOURCES		:=	drivers/pal/pal.c
+PAL_SOURCES		:=	drivers/pal/pal.c				\
+				plat/arm/common/pal/arm_pal_io.c
 
 BL1_SOURCES		+=	${PAL_SOURCES}
 BL2_SOURCES		+=	${PAL_SOURCES}
