@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8d8508c0_319b5fcc",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-24T10:44:29Z",
+      "side": 1,
+      "message": "Initialize the structure with single chip and update it based on information passed from SCP.Refer to line 207",
+      "parentUuid": "90e4aed3_00bbd5a0",
+      "revId": "17866ff7e85edb9361e1e8b589b6e657e5bf4641",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0d84e63_b4544917",
         "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-10-23T16:58:11Z",
       "side": 1,
       "message": "PLAT_ARM_GICD_BASE + Remote?",
+      "revId": "17866ff7e85edb9361e1e8b589b6e657e5bf4641",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cafbede5_e5fdf744",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-24T10:44:29Z",
+      "side": 1,
+      "message": "GICD base for both the chips are same, this feature is an implementation defined and for N1sdp it has same value.",
+      "parentUuid": "b0d84e63_b4544917",
       "revId": "17866ff7e85edb9361e1e8b589b6e657e5bf4641",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
