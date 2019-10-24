@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17e7a52e_51a4515b",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-24T14:23:54Z",
+      "side": 1,
+      "message": "(unsigned long long) (ddr_size_gb * 1024UL * 1024UL * 1024UL) or\n(uint64_t) (ddr_size_gb * 1024UL * 1024UL * 1024UL)",
+      "revId": "b8366c31bcfbbda035ec96c61cbb4a4dcb3d6f89",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "760c4e56_4879b26a",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-24T14:23:54Z",
+      "side": 1,
+      "message": "This typecasting is not required since dram2_size is fixed 64-bit (uint64_t)",
+      "revId": "b8366c31bcfbbda035ec96c61cbb4a4dcb3d6f89",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb4e17b6_ff2507d1",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-24T14:23:54Z",
+      "side": 1,
+      "message": "typecast not needed",
+      "revId": "b8366c31bcfbbda035ec96c61cbb4a4dcb3d6f89",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff00cdf2_db2fb21c",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-24T14:23:54Z",
+      "side": 1,
+      "message": "(unsigned long long)(remote_ddr_size * 1024UL * 1024UL * 1024UL) or\n(uint64_t)(remote_ddr_size * 1024UL * 1024UL * 1024UL)",
+      "revId": "b8366c31bcfbbda035ec96c61cbb4a4dcb3d6f89",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1512644_f0568883",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-24T14:23:54Z",
+      "side": 1,
+      "message": "typecast to unsigned long long not required",
+      "revId": "b8366c31bcfbbda035ec96c61cbb4a4dcb3d6f89",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa25f54_a9d682d8",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-10-24T14:23:54Z",
+      "side": 1,
+      "message": "typecast not required",
+      "revId": "b8366c31bcfbbda035ec96c61cbb4a4dcb3d6f89",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
