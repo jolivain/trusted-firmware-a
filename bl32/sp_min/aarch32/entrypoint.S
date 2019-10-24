@@ -10,7 +10,9 @@
 #include <common/runtime_svc.h>
 #include <context.h>
 #include <el3_common_macros.S>
+#include <lib/runtime_instr.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
+#include <pmf_asm_macros.S>
 #include <smccc_helpers.h>
 #include <smccc_macros.S>
 
@@ -239,6 +241,17 @@ endfunc sp_min_handle_fiq
  * The Warm boot entrypoint for SP_MIN.
  */
 func sp_min_warm_entrypoint
+#if ENABLE_RUNTIME_INSTRUMENTATION
+
+	/*
+	 * This timestamp update happens with cache off.  The next
+	 * timestamp collection will need to do cache maintenance prior
+	 * to timestamp update.
+	 */
+	pmf_calc_timestamp_addr rt_instr_svc, RT_INSTR_EXIT_HW_LOW_PWR
+	ldcopr16 r2, r3, CNTPCT_64
+	strd r2, r3, [r0]
+#endif
 	/*
 	 * On the warm boot path, most of the EL3 initialisations performed by
 	 * 'el3_entrypoint_common' must be skipped:
@@ -292,6 +305,25 @@ func sp_min_warm_entrypoint
 #endif
 
 	bl	sp_min_warm_boot
+
+#if ENABLE_RUNTIME_INSTRUMENTATION
+	pmf_calc_timestamp_addr rt_instr_svc, RT_INSTR_EXIT_PSCI
+	mov	r4, r0
+
+	/*
+	 * Invalidate before updating timestamp to ensure previous timestamp
+	 * updates on the same cache line with caches disabled are properly
+	 * seen by the same core. Without the cache invalidate, the core might
+	 * write into a stale cache line.
+	 */
+	mov	r1, #PMF_TS_SIZE
+	mov	r5, lr
+	bl	inv_dcache_range
+	mov	lr, r5
+
+	ldcopr16 r2, r3, CNTPCT_64
+	strd r2, r3, [r4]
+#endif
 	bl	smc_get_next_ctx
 	/* r0 points to `smc_ctx_t` */
 	/* The PSCI cpu_context registers have been copied to `smc_ctx_t` */
