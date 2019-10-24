@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7c81bef4_a2d549af",
+        "filename": "drivers/arm/gic/v3/gic600.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T10:28:07Z",
+      "side": 1,
+      "message": "This is not different to 0, but explicitly states which bits should be set to what values to define power state if operating through the core when RDAG should be set to 0.\nI\u0027ll restore the original macro definition.",
+      "parentUuid": "8fa479e2_5af90f0e",
+      "revId": "c9d9d149d829c98df6c62d37f7b7be3846112aab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35dddad5_f9eeeecc",
         "filename": "drivers/arm/gic/v3/gic600.c",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-10-23T21:02:58Z",
       "side": 1,
       "message": "Its same as existing define, why addition of obfuscate code which results into nothing?\n#define PWRR_OFF\t(1 \u003c\u003c PWRR_RDPD_SHIFT)",
+      "revId": "c9d9d149d829c98df6c62d37f7b7be3846112aab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1e2e39c_06894c53",
+        "filename": "drivers/arm/gic/v3/gic600.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-10-24T10:28:07Z",
+      "side": 1,
+      "message": "see above.",
+      "parentUuid": "35dddad5_f9eeeecc",
       "revId": "c9d9d149d829c98df6c62d37f7b7be3846112aab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
