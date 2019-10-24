@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "eb4c638c_5019b149",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/include/mce_private.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-24T08:35:39Z",
+      "side": 1,
+      "message": "This is fixed in a subsequent patch. Not sure which one but if I take the tip of this branch, I can see it defined as:\n\n #define CSTATE_WAKE_MASK_UPDATE_BIT             (1U \u003c\u003c 31)",
+      "parentUuid": "5b276f01_1994e61e",
+      "revId": "2fa9288a4584d828b62c21f97558ca56c3b223f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be34b19d_4745cd35",
         "filename": "plat/nvidia/tegra/soc/t194/drivers/include/mce_private.h",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2019-10-22T16:42:06Z",
       "side": 1,
       "message": "0xFFFFFFFF - 0xFFFFFFFFu or U(0xFFFFFFFF)",
+      "revId": "2fa9288a4584d828b62c21f97558ca56c3b223f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e57e4214_da867cd9",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/include/mce_private.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-24T08:35:39Z",
+      "side": 1,
+      "message": "Fixed in a subsequent patch:\n\n #define CSTATE_WAKE_MASK_CLEAR                  0xFFFFFFFFU",
+      "parentUuid": "be34b19d_4745cd35",
       "revId": "2fa9288a4584d828b62c21f97558ca56c3b223f1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "e4c7c23b_f6437960",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/include/mce_private.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-24T08:35:39Z",
+      "side": 1,
+      "message": "This is removed in patch \"Tegra194: mce: remove unsupported functionality\".",
+      "parentUuid": "5f82ff34_e0f03eda",
+      "revId": "2fa9288a4584d828b62c21f97558ca56c3b223f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8715ad5b_e893f811",
         "filename": "plat/nvidia/tegra/soc/t194/drivers/mce/mce.c",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2019-10-22T16:42:06Z",
       "side": 1,
       "message": "Case statement says \"Read cstate stats\" but only operation performed here is write to stats where ret64 \u003d 0.\n\nAre these dummy functions or I am missing something here?\n\nLooking more into this, I believe this base is to just build the system and functionality is implemented in subsequent patches. If this assumption is correct, no change needed here",
+      "revId": "2fa9288a4584d828b62c21f97558ca56c3b223f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bae71c2c_35d77475",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/mce/mce.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-24T08:35:39Z",
+      "side": 1,
+      "message": "I believe this is removed in patch \"Tegra194: mce: remove unsupported functionality\" as well.\n\n \u003e Looking more into this, I believe this base is to just build the system and functionality is implemented in subsequent patches. If this assumption is correct, no change needed here\n\nYes, this is my understanding. The commit message hints that most of this code was copied straight from Tegra186 platform and subsequent patches refine this.",
+      "parentUuid": "8715ad5b_e893f811",
       "revId": "2fa9288a4584d828b62c21f97558ca56c3b223f1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
