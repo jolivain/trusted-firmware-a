@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9a5d86c_32d03169",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/include/memctrl_plat_config.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-24T09:06:49Z",
+      "side": 1,
+      "message": "Because MISRA considers all identifiers starting with an underscore as reserved, the TF-A coding guidelines advise against this naming scheme for header guards. See https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html#header-guards\n\nSuggest renaming into MEMCTRL_PLAT_CONFIG_H",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 31
+      },
+      "revId": "d959a4aaa9c212b446c287dbcd69f9f333e70702",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06ad1372_39b8804b",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/include/memctrl_plat_config.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-24T09:06:49Z",
+      "side": 1,
+      "message": "Suggest enclosing macro parameters in parentheses to avoid any erroneous operator pairing:\n\n #define MC_STREAMID_OVERRIDE_TO_SECURITY_CFG(addr) ((addr) + sizeof(uint32_t))",
+      "range": {
+        "startLine": 159,
+        "startChar": 52,
+        "endLine": 159,
+        "endChar": 56
+      },
+      "revId": "d959a4aaa9c212b446c287dbcd69f9f333e70702",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2da4098a_bb984484",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/include/memctrl_plat_config.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-24T09:06:49Z",
+      "side": 1,
+      "message": "I was about to say that it\u0027s a bit odd to define an array in a header file but I now see this array is being moved to plat/nvidia/tegra/soc/t194/plat_memctrl.c later on so that\u0027s fine by me.",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 49
+      },
+      "revId": "d959a4aaa9c212b446c287dbcd69f9f333e70702",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
