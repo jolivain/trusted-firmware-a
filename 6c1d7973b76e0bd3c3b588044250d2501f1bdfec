@@ -501,6 +501,30 @@
     },
     {
       "key": {
+        "uuid": "e47aa4c2_128a64c4",
+        "filename": "docs/plat/qemu_sbsa.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000199
+      },
+      "writtenOn": "2019-10-24T18:10:00Z",
+      "side": 1,
+      "message": "There is RFC on edk2_platform mailing list for that.\nAlso in PS5 the corrected path is: Platform/Qemu/SbsaQemu/Readme.md",
+      "parentUuid": "7bddc167_0f53f68c",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 32
+      },
+      "revId": "6c1d7973b76e0bd3c3b588044250d2501f1bdfec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5073d26e_b62a11fa",
         "filename": "plat/qemu/qemu_sbsa/platform.mk",
         "patchSetId": 3
