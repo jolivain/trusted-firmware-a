@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3d459e0e_45d74774",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/mce/mce.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-10-24T23:02:16Z",
+      "side": 1,
+      "message": "AFAIR, that doesnt fix the MISRA issues. We still see violations for Rule 10.3.",
+      "parentUuid": "31378d64_335a0b19",
+      "range": {
+        "startLine": 53,
+        "startChar": 16,
+        "endLine": 53,
+        "endChar": 36
+      },
+      "revId": "24ea7ef1a78a9557ea980ba30b948696b8e35c5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5dbbedb0_5225a306",
         "filename": "plat/nvidia/tegra/soc/t194/drivers/mce/nvg.c",
         "patchSetId": 2
