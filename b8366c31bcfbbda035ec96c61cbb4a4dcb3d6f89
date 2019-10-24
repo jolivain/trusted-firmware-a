@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "a71057d3_9d50c19a",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-24T14:48:23Z",
+      "side": 1,
+      "message": "Since remote_ddr_size is uint8_t which is multiplied with a large value, i think compiler should be smart enough to change it to size of remote_dram2_size (uint64_t) ?",
+      "parentUuid": "ff00cdf2_db2fb21c",
+      "revId": "b8366c31bcfbbda035ec96c61cbb4a4dcb3d6f89",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1512644_f0568883",
         "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
         "patchSetId": 4
