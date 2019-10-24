@@ -22,6 +22,30 @@
       "revId": "36191553474c7f3a739574e619d289b708a606be",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c7ad6cd_adcc0775",
+        "filename": "plat/st/stm32mp1/stm32mp1_boot_device.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2019-10-24T09:04:26Z",
+      "side": 1,
+      "message": "OK to replace here, below seems useless as it is a customized value with no real range, I\u0027d prefer keeping it (cf nbytes).",
+      "parentUuid": "74907843_5fabdc90",
+      "range": {
+        "startLine": 155,
+        "startChar": 16,
+        "endLine": 155,
+        "endChar": 26
+      },
+      "revId": "36191553474c7f3a739574e619d289b708a606be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
