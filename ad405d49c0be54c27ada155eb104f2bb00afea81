@@ -70,6 +70,24 @@
       "revId": "ad405d49c0be54c27ada155eb104f2bb00afea81",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "faa3e63c_06f3cce5",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-10-24T09:31:33Z",
+      "side": 1,
+      "message": "synced with kenny offline. the rdist data for all cores should be the same, so that\u0027s why they are sharing same gic_chip_data.\n\nmeanwhile, the [0] may still be removed.",
+      "parentUuid": "dafcc11c_093abef0",
+      "revId": "ad405d49c0be54c27ada155eb104f2bb00afea81",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
