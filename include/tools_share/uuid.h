@@ -56,6 +56,15 @@ struct uuid {
 	uint8_t		node[_UUID_NODE_LEN];
 };
 
+struct uuid_32 {
+	uint32_t	uuid[4];
+};
+
+union uuid_helper{
+	struct uuid uuid;
+	struct uuid_32 uuid_32;
+};
+
 /* XXX namespace pollution? */
 typedef struct uuid uuid_t;
 

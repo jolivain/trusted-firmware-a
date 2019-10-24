@@ -52,7 +52,7 @@ typedef struct io_file_spec {
 /* UUID specification - used to refer to data accessed using UUIDs (i.e. FIP
  * images) */
 typedef struct io_uuid_spec {
-	const uuid_t uuid;
+	uuid_t uuid;
 } io_uuid_spec_t;
 
 /* Block specification - used to refer to data on a device supporting
