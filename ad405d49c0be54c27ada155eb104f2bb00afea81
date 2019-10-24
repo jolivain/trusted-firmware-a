@@ -52,6 +52,24 @@
       "revId": "ad405d49c0be54c27ada155eb104f2bb00afea81",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dafcc11c_093abef0",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2019-10-24T07:45:59Z",
+      "side": 1,
+      "message": "Hi Kenny, I think Alexei is asking \n\n gic_data.saved_group[0] \u003d mmio_read_32(gicr_base + GICR_IGROUPR0);\n\nWhy is here only 0, given saved_group has more?\n\nAlso, even if gicr_base is different, where you saved (gic_data) is a single variable. Won\u0027t that be a problem?",
+      "parentUuid": "530eba2d_23fc6a18",
+      "revId": "ad405d49c0be54c27ada155eb104f2bb00afea81",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
