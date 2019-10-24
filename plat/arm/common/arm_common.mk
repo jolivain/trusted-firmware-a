@@ -164,8 +164,15 @@ BL1_SOURCES		+=	drivers/io/io_fip.c				\
 				drivers/io/io_memmap.c				\
 				drivers/io/io_storage.c				\
 				plat/arm/common/arm_bl1_setup.c			\
-				plat/arm/common/arm_err.c			\
-				plat/arm/common/arm_io_storage.c
+				plat/arm/common/arm_err.c
+
+ifeq (${USE_FCONF_BASED_IO}, 0)
+BL1_SOURCES		+=	plat/arm/common/arm_io_storage.c
+else
+BL1_SOURCES		+=	plat/arm/common/arm_fconf_io_storage.c		\
+				plat/arm/common/fconf/arm_fconf_io.c
+endif
+
 ifdef EL3_PAYLOAD_BASE
 # Need the plat_arm_program_trusted_mailbox() function to release secondary CPUs from
 # their holding pen
@@ -178,8 +185,14 @@ BL2_SOURCES		+=	drivers/delay_timer/delay_timer.c		\
 				drivers/io/io_memmap.c				\
 				drivers/io/io_storage.c				\
 				plat/arm/common/arm_bl2_setup.c			\
-				plat/arm/common/arm_err.c			\
-				plat/arm/common/arm_io_storage.c
+				plat/arm/common/arm_err.c
+
+ifeq (${USE_FCONF_BASED_IO}, 0)
+BL2_SOURCES		+=	plat/arm/common/arm_io_storage.c
+else
+BL2_SOURCES		+=	plat/arm/common/arm_fconf_io_storage.c		\
+				plat/arm/common/fconf/arm_fconf_io.c
+endif
 
 # Firmware Configuration Framework sources
 include drivers/fconf/fconf.mk
