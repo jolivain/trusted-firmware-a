@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -197,6 +197,9 @@ USE_COHERENT_MEM		:= 1
 
 # Build option to add debugfs support
 USE_DEBUGFS			:= 0
+
+# Build option to fconf based io
+USE_FCONF_BASED_IO		:= 0
 
 # Build option to choose whether Trusted Firmware uses library at ROM
 USE_ROMLIB			:= 0
