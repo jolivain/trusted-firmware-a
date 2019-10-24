@@ -34,6 +34,24 @@
       "revId": "ad405d49c0be54c27ada155eb104f2bb00afea81",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "530eba2d_23fc6a18",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-10-24T07:34:24Z",
+      "side": 1,
+      "message": "proc_num \u003d plat_my_core_pos();\n\tgicr_base \u003d gicv3_driver_data-\u003erdistif_base_addrs[proc_num];\n\n\trdist_has_saved[proc_num] \u003d 1;\n\nNot only index 0 is used.\nEach CPU executes here, gets its core number, and then saves it according to the index.\n\ngicr_base \u003d gicv3_driver_data-\u003erdistif_base_addrs[proc_num];\ngicr_base \u003d gicv3_driver_data-\u003erdistif_base_addrs[proc_num];\n\nBasically, GIC base differs among cores.\nThey save and restore data in their own registers.",
+      "parentUuid": "fc2431ad_1317a379",
+      "revId": "ad405d49c0be54c27ada155eb104f2bb00afea81",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
