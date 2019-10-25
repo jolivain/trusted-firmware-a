@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b0ed7fb_709edb7a",
+        "filename": "plat/nvidia/tegra/include/t194/tegra_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-10-25T19:23:18Z",
+      "side": 1,
+      "message": "why not define SCRATCH_BL31_PARAMS_ADDR directly as U(0x1C4) ?",
+      "revId": "da6f3ef274c9ba4d533e14e81d002bcff04101d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
