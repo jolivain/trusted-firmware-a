@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cea21bd6_0f3366c8",
+        "filename": "lib/psci/psci_system_off.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2019-10-25T06:53:25Z",
+      "side": 1,
+      "message": "In case of linux (reboot) the secondary cores are not using PSCI\nbut they just wait in \"YIELD\" once IPI_CPU_STOP is triggered.\nSo system_off/system_reset/system_reset2 are invoked from the boot cpu but the other cores are not expected to be in sane state. ie. this is not the last core in psci view.\n\nHowever I am not sure if system_off/system_reset/system_reset2 were deliberately designed not to do a graceful power down sequence Or if it can have any side effect because the other cores and clusters are still alive(cluster DVM on, SMP bit on, caches on .. and in YIELD) ?",
+      "parentUuid": "a30ea399_c0c57588",
+      "revId": "596d2edf08eebda44b2d467defb4f05e412779b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd9304b6_717ac5bf",
         "filename": "lib/psci/psci_system_off.c",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a9b580ed_70fb707c",
+        "filename": "lib/psci/psci_system_off.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2019-10-25T06:53:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd9304b6_717ac5bf",
+      "revId": "596d2edf08eebda44b2d467defb4f05e412779b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29c97822_f885985e",
         "filename": "lib/psci/psci_system_off.c",
         "patchSetId": 1
@@ -47,6 +83,41 @@
       "writtenOn": "2019-10-24T20:06:05Z",
       "side": 1,
       "message": "same as above.",
+      "revId": "596d2edf08eebda44b2d467defb4f05e412779b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4466555_873ee7b6",
+        "filename": "lib/psci/psci_system_off.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2019-10-25T06:53:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29c97822_f885985e",
+      "revId": "596d2edf08eebda44b2d467defb4f05e412779b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1a6d33f_0e97dac0",
+        "filename": "lib/psci/psci_system_off.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2019-10-25T06:53:25Z",
+      "side": 1,
+      "message": "I missed to add it here as well.",
       "revId": "596d2edf08eebda44b2d467defb4f05e412779b3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
