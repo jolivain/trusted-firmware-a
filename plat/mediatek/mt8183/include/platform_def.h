@@ -40,6 +40,9 @@
 #define INFRACFG_AO_BASE   (IO_PHYS + 0x1000)
 
 #define APMIXEDSYS         (IO_PHYS + 0xC000)
+#define AP_PLL_CON3        (APMIXEDSYS + 0xC)
+#define AP_PLL_CON4        (APMIXEDSYS + 0x10)
+#define AP_PLL_CON6        (APMIXEDSYS + 0x18)
 #define ARMPLL_LL_CON0     (APMIXEDSYS + 0x200)
 #define ARMPLL_L_CON0      (APMIXEDSYS + 0x210)
 #define ARMPLL_L_PWR_CON0  (APMIXEDSYS + 0x21c)

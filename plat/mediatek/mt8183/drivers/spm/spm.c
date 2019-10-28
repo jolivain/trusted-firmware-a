@@ -12,6 +12,10 @@
 
 DEFINE_BAKERY_LOCK(spm_lock);
 
+#define SPM_PLL_CONTROL		(0x7FAAAAF)
+#define SPM_PLL_OUT_OFF_CONTROL	(0xFA0A)
+#define PLL_DLY			(0x20000)
+
 const char *wakeup_src_str[32] = {
 	[0] = "R12_PCM_TIMER",
 	[1] = "R12_SSPM_WDT_EVENT_B",
@@ -323,6 +327,11 @@ void spm_boot_init(void)
 
 	spm_lock_init();
 	mt_spm_pmic_wrap_set_phase(PMIC_WRAP_PHASE_ALLINONE);
+
+	/* switch PLL control to SPM */
+	mmio_clrbits_32(AP_PLL_CON3, SPM_PLL_CONTROL);
+	mmio_clrbits_32(AP_PLL_CON4, SPM_PLL_OUT_OFF_CONTROL);
+	mmio_clrbits_32(AP_PLL_CON6, PLL_DLY);
 
 	NOTICE("%s() end\n", __func__);
 }
