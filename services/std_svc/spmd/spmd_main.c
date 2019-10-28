@@ -42,6 +42,14 @@ static spmc_manifest_sect_attribute_t spmc_attrs;
 static entry_point_info_t *spmc_ep_info;
 
 /*******************************************************************************
+ * SPM Core entry point information get helper.
+ ******************************************************************************/
+entry_point_info_t *spmd_spmc_ep_info_get(void)
+{
+	return spmc_ep_info;
+}
+
+/*******************************************************************************
  * Static function declaration.
  ******************************************************************************/
 static int32_t	spmd_init(void);
