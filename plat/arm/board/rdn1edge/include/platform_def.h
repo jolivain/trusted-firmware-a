@@ -11,7 +11,7 @@
 
 #include <sgi_base_platform_def.h>
 
-#define CSS_SGI_MAX_CHIP_COUNT		U(1)
+#define CSS_SGI_MAX_CHIP_COUNT		U(2)
 #define PLAT_ARM_CLUSTER_COUNT		U(2)
 #define CSS_SGI_MAX_CPUS_PER_CLUSTER	U(4)
 #define CSS_SGI_MAX_PE_PER_CPU		U(1)
@@ -31,15 +31,24 @@
 
 #define PLAT_MAX_PWR_LVL		ARM_PWR_LVL1
 
+/* Virtual address used by dynamic mem_protect for chunk_base */
+#define PLAT_ARM_MEM_PROTEC_VA_FRAME	UL(0xc0000000)
+
 /*
  * Physical and virtual address space limits for MMU in AARCH64 & AARCH32 modes
  */
 #ifdef __aarch64__
-#define PLAT_PHY_ADDR_SPACE_SIZE	(1ULL << 36)
-#define PLAT_VIRT_ADDR_SPACE_SIZE	(1ULL << 36)
+#define PLAT_PHY_ADDR_SPACE_SIZE	(1ULL << 43)
+#define PLAT_VIRT_ADDR_SPACE_SIZE	(1ULL << 43)
 #else
 #define PLAT_PHY_ADDR_SPACE_SIZE	(1ULL << 32)
 #define PLAT_VIRT_ADDR_SPACE_SIZE	(1ULL << 32)
+#endif
+
+#if (PLAT_ARM_CSS_NUM_CHIPS > 1)
+/* No of SCMI channels for MultiChip configuration */
+#undef PLAT_ARM_SCMI_CHANNEL_COUNT
+#define PLAT_ARM_SCMI_CHANNEL_COUNT		2
 #endif
 
 #endif /* PLATFORM_DEF_H */
