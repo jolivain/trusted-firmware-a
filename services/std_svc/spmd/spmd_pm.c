@@ -15,7 +15,7 @@
 static void spmd_cpu_on_finish_handler(u_register_t unused)
 {
 	unsigned int linear_id = plat_my_core_pos();
-	spmd_spm_core_context_t *ctx = &spm_core_context[linear_id];
+	spmd_spm_core_context_t *ctx = spmd_get_context();
 	int rc;
 
 	assert(ctx->state != SPMC_STATE_ON);
