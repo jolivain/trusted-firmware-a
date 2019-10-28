@@ -36,6 +36,20 @@ spmd_spm_core_context_t spm_core_context[PLATFORM_CORE_COUNT];
 spmc_manifest_sect_attribute_t spmc_attrs;
 
 /*******************************************************************************
+ * SPM Core entry point information. Discovered on the primary core and reused
+ * on secondary cores.
+ ******************************************************************************/
+static entry_point_info_t *spmc_ep_info;
+
+/*******************************************************************************
+ * SPM Core entry point information get helper.
+ ******************************************************************************/
+entry_point_info_t *spmd_spmc_ep_info_get(void)
+{
+	return spmc_ep_info;
+}
+
+/*******************************************************************************
  * This function takes an SP context pointer and performs a synchronous entry
  * into it.
  ******************************************************************************/
@@ -116,7 +130,6 @@ int32_t spmd_setup(void)
 	int rc;
 	void *rd_base;
 	size_t rd_size;
-	entry_point_info_t *spmc_ep_info;
 	uintptr_t rd_base_align;
 	uintptr_t rd_size_align;
 	uint32_t ep_attr;

@@ -73,6 +73,9 @@ __dead2 void spmd_spm_core_sync_exit(uint64_t rc);
 uint64_t spmd_spm_core_enter(uint64_t *c_rt_ctx);
 void __dead2 spmd_spm_core_exit(uint64_t c_rt_ctx, uint64_t ret);
 
+/* SPMC entry point information helper */
+entry_point_info_t *spmd_spmc_ep_info_get(void);
+
 #endif /* __ASSEMBLER__ */
 
 #endif /* SPMD_PRIVATE_H */
