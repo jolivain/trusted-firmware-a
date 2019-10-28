@@ -286,6 +286,9 @@ int32_t spmd_setup(void)
 	/* Reuse PSCI affinity states to mark this SPMC context as off */
 	spm_ctx->state = AFF_STATE_OFF;
 
+	/* Register power management hooks with PSCI */
+	psci_register_spd_pm_hook(&spmd_pm);
+
 	INFO("SPM core setup done.\n");
 
 	/* Register init function for deferred init.  */
