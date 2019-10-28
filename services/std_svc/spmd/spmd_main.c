@@ -104,19 +104,29 @@ __dead2 void spmd_spm_core_sync_exit(uint64_t rc)
  ******************************************************************************/
 static int32_t spmd_init(void)
 {
+	unsigned int linear_id = plat_my_core_pos();
+	spmd_spm_core_context_t *spm_ctx = &spm_core_context[linear_id];
+	uint32_t core_id = 0;
 	uint64_t rc = 0;
-	spmd_spm_core_context_t *ctx = &spm_core_context[plat_my_core_pos()];
 
 	INFO("SPM Core init start.\n");
-	ctx->state = SPMC_STATE_RESET;
+	spm_ctx->state = AFF_STATE_ON_PENDING;
 
-	rc = spmd_spm_core_sync_entry(ctx);
+	/* Set the SPMC context state on other CPUs to OFF */
+	for (core_id = 0; core_id < PLATFORM_CORE_COUNT; core_id++) {
+		if (core_id != linear_id) {
+			spm_core_context[core_id].state = AFF_STATE_OFF;
+		}
+	}
+
+	rc = spmd_spm_core_sync_entry(spm_ctx);
 	if (rc) {
 		ERROR("SPMC initialisation failed 0x%llx\n", rc);
 		panic();
 	}
 
-	ctx->state = SPMC_STATE_IDLE;
+	spm_ctx->state = AFF_STATE_ON;
+
 	INFO("SPM Core init end.\n");
 
 	return 1;
@@ -127,6 +137,8 @@ static int32_t spmd_init(void)
  ******************************************************************************/
 int32_t spmd_setup(void)
 {
+	unsigned int linear_id = plat_my_core_pos();
+	spmd_spm_core_context_t *spm_ctx = &spm_core_context[linear_id];
 	int rc;
 	void *rd_base;
 	size_t rd_size;
@@ -269,8 +281,10 @@ int32_t spmd_setup(void)
 	}
 
 	/* Initialise SPM core context with this entry point information */
-	cm_setup_context(&(spm_core_context[plat_my_core_pos()].cpu_ctx),
-			 spmc_ep_info);
+	cm_setup_context(&spm_ctx->cpu_ctx, spmc_ep_info);
+
+	/* Reuse PSCI affinity states to mark this SPMC context as off */
+	spm_ctx->state = AFF_STATE_OFF;
 
 	INFO("SPM core setup done.\n");
 
@@ -316,12 +330,6 @@ uint64_t spmd_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 		out_sstate = SECURE;
 	}
 
-	INFO("SPM: 0x%x, 0x%llx, 0x%llx, 0x%llx, 0x%llx, "
-	     "0x%llx, 0x%llx, 0x%llx\n",
-	     smc_fid, x1, x2, x3, x4, SMC_GET_GP(handle, CTX_GPREG_X5),
-	     SMC_GET_GP(handle, CTX_GPREG_X6),
-	     SMC_GET_GP(handle, CTX_GPREG_X7));
-
 	switch (smc_fid) {
 	case SPCI_ERROR:
 		/*
@@ -329,7 +337,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 		 * this CPU. If so, then indicate that the SPM core initialised
 		 * unsuccessfully.
 		 */
-		if ((in_sstate == SECURE) && (ctx->state == SPMC_STATE_RESET))
+		if ((in_sstate == SECURE) &&
+		    (ctx->state == AFF_STATE_ON_PENDING))
 			spmd_spm_core_sync_exit(x2);
 
 		/* Save incoming security state */
@@ -462,7 +471,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 		 * this CPU from the Secure world. If so, then indicate that the
 		 * SPM core initialised successfully.
 		 */
-		if ((in_sstate == SECURE) && (ctx->state == SPMC_STATE_RESET)) {
+		if ((in_sstate == SECURE) &&
+		    (ctx->state == AFF_STATE_ON_PENDING)) {
 			spmd_spm_core_sync_exit(0);
 		}
 
