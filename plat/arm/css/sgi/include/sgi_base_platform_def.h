@@ -23,6 +23,9 @@
 
 #define PLAT_ARM_TRUSTED_SRAM_SIZE	0x00040000	/* 256 KB */
 
+/* Remote chip address offset (4TB per chip) */
+#define PLAT_ARM_SGI_REMOTE_CHIP_MEM_OFFSET(n)	((ULL(1) << 42) * (n))
+
 /*
  * PLAT_ARM_MMAP_ENTRIES depends on the number of entries in the
  * plat_arm_mmap array defined for each BL stage.
@@ -128,6 +131,22 @@
 					CSS_SGI_DEVICE_BASE,	\
 					CSS_SGI_DEVICE_SIZE,	\
 					MT_DEVICE | MT_RW | MT_SECURE)
+
+#define CSS_SGI_MAP_DEVICE_REMOTE_CHIP(n)					\
+			MAP_REGION_FLAT(					\
+				PLAT_ARM_SGI_REMOTE_CHIP_MEM_OFFSET(n) +	\
+				CSS_SGI_DEVICE_BASE,				\
+				CSS_SGI_DEVICE_SIZE,				\
+				MT_DEVICE | MT_RW | MT_SECURE			\
+			)
+
+#define SOC_CSS_MAP_DEVICE_REMOTE_CHIP(n)					\
+			MAP_REGION_FLAT(					\
+				PLAT_ARM_SGI_REMOTE_CHIP_MEM_OFFSET(n) +	\
+				SOC_CSS_DEVICE_BASE,				\
+				SOC_CSS_DEVICE_SIZE,				\
+				MT_DEVICE | MT_RW | MT_SECURE			\
+			)
 
 /* GIC related constants */
 #define PLAT_ARM_GICD_BASE		0x30000000
