@@ -28,7 +28,7 @@
 /*******************************************************************************
  * SPM Core context information.
  ******************************************************************************/
-static spmd_spm_core_context_t spm_core_context[PLATFORM_CORE_COUNT];
+spmd_spm_core_context_t spm_core_context[PLATFORM_CORE_COUNT];
 
 /*******************************************************************************
  * SPM Core attribute information read from its manifest.
@@ -263,10 +263,13 @@ static int spmd_spmc_init(void *pm_addr)
 	/* Reuse PSCI affinity states to mark this SPMC context as off */
 	spm_ctx->state = AFF_STATE_OFF;
 
-	INFO("SPM Core setup done.\n");
+	/* Register power management hooks with PSCI */
+	psci_register_spd_pm_hook(&spmd_pm);
 
 	/* Register init function for deferred init. */
 	bl31_register_bl32_init(&spmd_init);
+
+	INFO("SPM core setup done.\n");
 
 	return 0;
 }

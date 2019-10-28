@@ -22,7 +22,7 @@ static void spmd_cpu_on_finish_handler(u_register_t unused)
 {
 	int32_t rc = 0;
 	uint32_t linear_id = plat_my_core_pos();
-	spmd_spm_core_context_t *ctx = &spm_core_context[linear_id];
+	spmd_spm_core_context_t *ctx = spmd_get_context();
 
 	assert(ctx->state != AFF_STATE_ON);
 
