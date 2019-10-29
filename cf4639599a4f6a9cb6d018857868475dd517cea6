@@ -70,6 +70,30 @@
       "revId": "cf4639599a4f6a9cb6d018857868475dd517cea6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efb923e9_8ca48416",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-29T14:44:29Z",
+      "side": 1,
+      "message": "Yes the points you raised make sense, but considering scope of our Firmware (TF-A and SCP) i think we are good with current declaration.\nIf you see ARM compilers basic data types the size of boolean is a byte long, though i am not sure if it is \"The docment\" to refer \nhttp://infocenter.arm.com/help/index.jsp?topic\u003d/com.arm.doc.dui0491c/Babfcgfc.html\nhttp://www.keil.com/support/man/docs/armcc/armcc_chr1359125009502.htm\nUsing  Boolean makes more sense for multichip_mode.\n\nIf we assume that Boolean is always going to be byte long then i think this structure is always going to be 4 Byte long no need to declare it as packed.(i have verified this in SCP/TF-A and UEFI)",
+      "parentUuid": "3341f1b0_539d5662",
+      "range": {
+        "startLine": 165,
+        "startChar": 41,
+        "endLine": 165,
+        "endChar": 64
+      },
+      "revId": "cf4639599a4f6a9cb6d018857868475dd517cea6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
