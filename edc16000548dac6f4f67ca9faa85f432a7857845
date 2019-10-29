@@ -2,6 +2,115 @@
   "comments": [
     {
       "key": {
+        "uuid": "b724b81f_80c153e2",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-29T08:10:10Z",
+      "side": 1,
+      "message": "Should we add a third assertion:\n\n assert(spi_id_min \u003c\u003d spi_id_max);\n\n?",
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dba90493_f691ec5b",
+        "filename": "drivers/arm/gic/v3/gic600_multichip_private.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-29T08:10:10Z",
+      "side": 1,
+      "message": "Should be: \n\n  Copyright (c) 2019, Arm Limited. All rights reserved.",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c740322_2c285081",
+        "filename": "drivers/arm/gic/v3/gic600_multichip_private.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-29T08:10:10Z",
+      "side": 1,
+      "message": "(cosmetic) Consider moving this line down to keep offsets in ascending order.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 30
+      },
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "405f403d_1cc115ee",
+        "filename": "drivers/arm/gic/v3/gic600_multichip_private.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-29T08:10:10Z",
+      "side": 1,
+      "message": "Looking at https://developer.arm.com/docs/100336/latest/programmers-model/distributor-registers-gicdgicda-summary/chip-status-register-gicd_chipsr, I think GICD_CHIPSR_RTS_STATE_CONSISTENT should be 0x2, right?",
+      "range": {
+        "startLine": 33,
+        "startChar": 41,
+        "endLine": 33,
+        "endChar": 44
+      },
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47e7beb3_f1a0252e",
+        "filename": "drivers/arm/gic/v3/gic600_multichip_private.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-29T08:10:10Z",
+      "side": 1,
+      "message": "Enclose macro parameters in parentheses to avoid any erroneous operators pairing:\n\n #define SPI_BLOCK_MIN_VALUE(spi_id_min) \\\n\t\t\t(((spi_id_min) - GICv3_SPI_ID_MIN)/ \\\n\nSame comment for macros below.",
+      "range": {
+        "startLine": 43,
+        "startChar": 5,
+        "endLine": 43,
+        "endChar": 15
+      },
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2709ef89_368de3f3",
         "filename": "include/drivers/arm/gic600_multichip.h",
         "patchSetId": 6
@@ -19,6 +128,46 @@
         "endLine": 2,
         "endChar": 51
       },
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c92d315a_db4d1dc8",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-29T08:10:10Z",
+      "side": 1,
+      "message": "Please do no \"typedef\" this structure. This should be:\n\n struct gic600_multichip_data {\n\tuintptr_t gicd_base;\n\tunsigned int rt_owner;\n\tunsigned int chip_count;\n\tuint64_t chip_addrs[GIC600_MAX_MULTICHIP];\n\tunsigned int spi_ids[GIC600_MAX_MULTICHIP][2];\n };\n\naccording to the TF-A coding guidelines: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html#avoid-anonymous-typedefs-of-structs-enums-in-headers\n\nIn particular, to comply with this paragraph: \"Some TF definitions use both a struct/enum name and a typedef name. This is discouraged for new definitions as it makes it difficult for TF to comply with MISRA rule 8.3, which states that “All declarations of an object or function shall use the same names and type qualifiers”.\"",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 25
+      },
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1792446_f7d16a30",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-29T08:10:10Z",
+      "side": 1,
+      "message": "(cosmetic) Remove these 2 blank lines at the end of the file.",
       "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
