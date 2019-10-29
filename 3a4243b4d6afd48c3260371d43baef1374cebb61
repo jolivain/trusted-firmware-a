@@ -68,6 +68,29 @@
       "revId": "3a4243b4d6afd48c3260371d43baef1374cebb61",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "437ec5d4_d66a2c29",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-29T14:03:56Z",
+      "side": 1,
+      "message": "Is there validation of this value when reading from SDS ?",
+      "range": {
+        "startLine": 203,
+        "startChar": 36,
+        "endLine": 203,
+        "endChar": 62
+      },
+      "revId": "3a4243b4d6afd48c3260371d43baef1374cebb61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
