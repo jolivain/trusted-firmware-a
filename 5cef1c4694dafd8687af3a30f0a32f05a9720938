@@ -42,6 +42,23 @@
     },
     {
       "key": {
+        "uuid": "4408d004_1698d831",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-29T13:16:22Z",
+      "side": 1,
+      "message": "Assert that the GICD_CHIPSR register on the chip is initially RTS \u003d\u003d Disconnected.",
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "614cb612_4844d524",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 8
