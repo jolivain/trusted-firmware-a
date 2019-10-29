@@ -16,6 +16,52 @@
       "revId": "f845ee123682e216b222f92509769817ff846191",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e3e845b_623add94",
+        "filename": "plat/arm/board/n1sdp/n1sdp_plat.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T06:27:01Z",
+      "side": 1,
+      "message": "Will this region be exposed for single chip n1sdp as well?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "f845ee123682e216b222f92509769817ff846191",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "744df913_a2e5eb91",
+        "filename": "plat/arm/board/n1sdp/n1sdp_topology.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T06:27:01Z",
+      "side": 1,
+      "message": "Would this be applicable for single chip n1sdp as well?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 2
+      },
+      "revId": "f845ee123682e216b222f92509769817ff846191",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
