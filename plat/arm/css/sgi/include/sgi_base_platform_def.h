@@ -17,7 +17,8 @@
 #include <plat/arm/soc/common/soc_css_def.h>
 #include <plat/common/common_def.h>
 
-#define PLATFORM_CORE_COUNT		(PLAT_ARM_CLUSTER_COUNT *	\
+#define PLATFORM_CORE_COUNT		(CSS_SGI_MAX_CHIP_COUNT *	\
+					PLAT_ARM_CLUSTER_COUNT *	\
 					CSS_SGI_MAX_CPUS_PER_CLUSTER * \
 					CSS_SGI_MAX_PE_PER_CPU)
 
