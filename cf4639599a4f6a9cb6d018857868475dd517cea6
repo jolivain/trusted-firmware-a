@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a9a8f65_689b1b28",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-29T08:23:20Z",
+      "side": 1,
+      "message": "I am confused by this... If I understand correctly, this stores the first 4 bytes of the plat_info structure at address N1SDP_PLATFORM_INFO_BASE. This structure starts with a boolean. I am not sure the size of a boolean is defined by the C standard (I think it just says that it must be large enough to hold 0 and 1).\n\nIs this code correct? Am I missing something?",
+      "range": {
+        "startLine": 165,
+        "startChar": 41,
+        "endLine": 165,
+        "endChar": 64
+      },
+      "revId": "cf4639599a4f6a9cb6d018857868475dd517cea6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
