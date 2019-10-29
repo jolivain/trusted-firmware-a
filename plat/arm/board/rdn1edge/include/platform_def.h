@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,9 +11,13 @@
 
 #include <sgi_base_platform_def.h>
 
+#define CSS_SGI_MAX_CHIP_COUNT		U(1)
 #define PLAT_ARM_CLUSTER_COUNT		U(2)
 #define CSS_SGI_MAX_CPUS_PER_CLUSTER	U(4)
 #define CSS_SGI_MAX_PE_PER_CPU		U(1)
+#define CSS_SGI_MAX_PE_PER_CHIP		PLAT_ARM_CLUSTER_COUNT *	\
+					CSS_SGI_MAX_CPUS_PER_CLUSTER *	\
+					CSS_SGI_MAX_PE_PER_CPU
 
 #define PLAT_CSS_MHU_BASE		UL(0x45400000)
 #define PLAT_MHUV2_BASE			PLAT_CSS_MHU_BASE
