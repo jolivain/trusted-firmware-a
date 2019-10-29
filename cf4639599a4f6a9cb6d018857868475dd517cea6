@@ -22,6 +22,30 @@
       "revId": "cf4639599a4f6a9cb6d018857868475dd517cea6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e8686aa_00c77246",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-29T10:19:03Z",
+      "side": 1,
+      "message": "plat_info structure is 4 bytes long, Boolean also takes 1 byte(An object declared as type _Bool is large enough to store the values 0 and 1, which is at least a byte long)\n\nIntention here is to copy plat_info structure at this address for UEFI.",
+      "parentUuid": "2a9a8f65_689b1b28",
+      "range": {
+        "startLine": 165,
+        "startChar": 41,
+        "endLine": 165,
+        "endChar": 64
+      },
+      "revId": "cf4639599a4f6a9cb6d018857868475dd517cea6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
