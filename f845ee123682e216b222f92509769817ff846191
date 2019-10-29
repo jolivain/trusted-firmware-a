@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "30e8a5fd_b6241476",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-29T08:59:48Z",
+      "side": 1,
+      "message": "platform_def.h is included from assembly files so this should use the ULL() macro:\n\n (ULL(1) \u003c\u003c 42)",
+      "range": {
+        "startLine": 31,
+        "startChar": 38,
+        "endLine": 31,
+        "endChar": 42
+      },
+      "revId": "f845ee123682e216b222f92509769817ff846191",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e3e845b_623add94",
         "filename": "plat/arm/board/n1sdp/n1sdp_plat.c",
         "patchSetId": 6
