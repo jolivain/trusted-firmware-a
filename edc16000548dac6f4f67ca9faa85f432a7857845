@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cf2fb212_b21a83d3",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T11:35:31Z",
+      "side": 1,
+      "message": "Added",
+      "parentUuid": "b724b81f_80c153e2",
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dba90493_f691ec5b",
         "filename": "drivers/arm/gic/v3/gic600_multichip_private.h",
         "patchSetId": 6
@@ -30,6 +48,30 @@
       "writtenOn": "2019-10-29T08:10:10Z",
       "side": 1,
       "message": "Should be: \n\n  Copyright (c) 2019, Arm Limited. All rights reserved.",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "702f9c28_ad47f181",
+        "filename": "drivers/arm/gic/v3/gic600_multichip_private.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T11:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dba90493_f691ec5b",
       "range": {
         "startLine": 2,
         "startChar": 23,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "488ee076_f8d260f7",
+        "filename": "drivers/arm/gic/v3/gic600_multichip_private.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T11:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c740322_2c285081",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 30
+      },
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "405f403d_1cc115ee",
         "filename": "drivers/arm/gic/v3/gic600_multichip_private.h",
         "patchSetId": 6
@@ -76,6 +142,30 @@
       "writtenOn": "2019-10-29T08:10:10Z",
       "side": 1,
       "message": "Looking at https://developer.arm.com/docs/100336/latest/programmers-model/distributor-registers-gicdgicda-summary/chip-status-register-gicd_chipsr, I think GICD_CHIPSR_RTS_STATE_CONSISTENT should be 0x2, right?",
+      "range": {
+        "startLine": 33,
+        "startChar": 41,
+        "endLine": 33,
+        "endChar": 44
+      },
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da5c60d3_442c54ce",
+        "filename": "drivers/arm/gic/v3/gic600_multichip_private.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T11:35:31Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "405f403d_1cc115ee",
       "range": {
         "startLine": 33,
         "startChar": 41,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "9e222e34_2c85cc5e",
+        "filename": "drivers/arm/gic/v3/gic600_multichip_private.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T11:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47e7beb3_f1a0252e",
+      "range": {
+        "startLine": 43,
+        "startChar": 5,
+        "endLine": 43,
+        "endChar": 15
+      },
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2709ef89_368de3f3",
         "filename": "include/drivers/arm/gic600_multichip.h",
         "patchSetId": 6
@@ -122,6 +236,30 @@
       "writtenOn": "2019-10-28T15:30:25Z",
       "side": 1,
       "message": "For new files, this needs to be:\n\n Arm Limited.",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f768339_ee84d3e2",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T11:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2709ef89_368de3f3",
       "range": {
         "startLine": 2,
         "startChar": 23,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "1f30370c_96505b05",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T11:35:31Z",
+      "side": 1,
+      "message": "Thanks for the reference. Fixed.",
+      "parentUuid": "c92d315a_db4d1dc8",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 25
+      },
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c1792446_f7d16a30",
         "filename": "include/drivers/arm/gic600_multichip.h",
         "patchSetId": 6
@@ -168,6 +330,24 @@
       "writtenOn": "2019-10-29T08:10:10Z",
       "side": 1,
       "message": "(cosmetic) Remove these 2 blank lines at the end of the file.",
+      "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc0524a6_3b74d839",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T11:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1792446_f7d16a30",
       "revId": "edc16000548dac6f4f67ca9faa85f432a7857845",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
