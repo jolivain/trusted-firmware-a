@@ -18,19 +18,22 @@
 	 * unsigned int plat_arm_calc_core_pos(u_register_t mpidr)
 	 *
 	 * Helper function to calculate the core position.
-	 * (ClusterId * CSS_SGI_MAX_CPUS_PER_CLUSTER * CSS_SGI_MAX_PE_PER_CPU) +
+	 * (ChipId * CSS_SGI_MAX_PE_PER_CHIP) +
+	 * (ClusterId * CSS_SGI_MAX_CPUS_PER_CLUSTER *
+	 * CSS_SGI_MAX_PE_PER_CPU) +
 	 * (CPUId * CSS_SGI_MAX_PE_PER_CPU) +
 	 * ThreadId
 	 *
 	 * which can be simplified as:
 	 *
-	 * ((ClusterId * CSS_SGI_MAX_CPUS_PER_CLUSTER + CPUId) *
+	 * (ChipId * CSS_SGI_MAX_PE_PER_CHIP) +
+	 * (ClusterId * CSS_SGI_MAX_CPUS_PER_CLUSTER + CPUId) *
 	 * CSS_SGI_MAX_PE_PER_CPU) + ThreadId
 	 * ------------------------------------------------------
 	 */
 
 func plat_arm_calc_core_pos
-	mov	x3, x0
+	mov	x4, x0
 
 	/*
 	 * The MT bit in MPIDR is always set for SGI platforms
@@ -38,15 +41,18 @@ func plat_arm_calc_core_pos
 	 */
 
 	/* Extract individual affinity fields from MPIDR */
-	ubfx    x0, x3, #MPIDR_AFF0_SHIFT, #MPIDR_AFFINITY_BITS
-	ubfx    x1, x3, #MPIDR_AFF1_SHIFT, #MPIDR_AFFINITY_BITS
-	ubfx    x2, x3, #MPIDR_AFF2_SHIFT, #MPIDR_AFFINITY_BITS
+	ubfx    x0, x4, #MPIDR_AFF0_SHIFT, #MPIDR_AFFINITY_BITS
+	ubfx    x1, x4, #MPIDR_AFF1_SHIFT, #MPIDR_AFFINITY_BITS
+	ubfx    x2, x4, #MPIDR_AFF2_SHIFT, #MPIDR_AFFINITY_BITS
+	ubfx    x3, x4, #MPIDR_AFF3_SHIFT, #MPIDR_AFFINITY_BITS
 
 	/* Compute linear position */
 	mov     x4, #CSS_SGI_MAX_CPUS_PER_CLUSTER
 	madd    x1, x2, x4, x1
-	mov     x5, #CSS_SGI_MAX_PE_PER_CPU
-	madd    x0, x1, x5, x0
+	mov     x4, #CSS_SGI_MAX_PE_PER_CPU
+	madd    x0, x1, x4, x0
+	mov     x4, #CSS_SGI_MAX_PE_PER_CHIP
+	madd    x0, x3, x4, x0
 	ret
 endfunc plat_arm_calc_core_pos
 
