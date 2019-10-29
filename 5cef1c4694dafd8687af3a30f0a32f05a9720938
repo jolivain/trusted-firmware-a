@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a6e035a4_6f6941a8",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "38929d31_e1e43ad8",
+      "range": {
+        "startLine": 52,
+        "startChar": 12,
+        "endLine": 52,
+        "endChar": 43
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b7e866e2_48660c7e",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 8
@@ -39,6 +63,24 @@
       "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e392a6a_07a7220b",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "The following (L87) be moved up? \n\n\t/* Poll till PUP is zero */\n\tgicd_dchipr_wait_for_power_update_progress(base);\n\nOn each write of dchipr, the function waits for the pup update before exiting. Should there be a pup check before and after gicd_write_dchipr() function?",
+      "parentUuid": "b7e866e2_48660c7e",
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "511da78a_2d72371a",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "Not sure if this is required. When this function is called for the second time, (for chipr1), RTS would be in consistent state. RTS \u003d\u003d Disconnected would fail in that case.\n\n\u003e Assert that the GICD_CHIPSR register on the chip is initially RTS \u003d\u003d Disconnected.\n\n*initially* here means only once at the beginning? Even if it is the case, TRM doesn\u0027t mention about the check.",
+      "parentUuid": "4408d004_1698d831",
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "614cb612_4844d524",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 8
@@ -70,6 +130,30 @@
       "writtenOn": "2019-10-29T13:13:35Z",
       "side": 1,
       "message": "The init() function should confirm this. Hence there is no point in every function doing this unless they are exported externally.",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 2
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce235341_1789dbf7",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "This is added for supporting change of SPI ownership. Later when we add change of SPI ownership functionality, we can reuse gicd_set_chipr_n() function. It is required to ensure that the GICD_CTLR group enables have been cleared.",
+      "parentUuid": "614cb612_4844d524",
       "range": {
         "startLine": 103,
         "startChar": 0,
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "21f89f9e_e97f7d8f",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "Will update in next patch set.",
+      "parentUuid": "622a0ea6_028796d4",
+      "range": {
+        "startLine": 120,
+        "startChar": 1,
+        "endLine": 120,
+        "endChar": 34
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d5a40ee0_069de5f1",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 8
@@ -125,6 +233,30 @@
       "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "597c7e14_f2e3b08f",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "GICD_CHIPRy.PUP has the following description:\n\n\tThis bit is RO and returns the power update status:\n\t0 \u003d Power update complete.\n\t1 \u003d Power update in progress.\n\n\nI added this check to ensure that writes to GICD_CHIPRy is complete. Probably, @Manish can quickly test by removing this check in n1sdp board. If this has no impact, we can remove this.",
+      "parentUuid": "d5a40ee0_069de5f1",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 60
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "484ccd23_00e51b63",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "In the GICD_CHIPR_VALUE macro itself?",
+      "parentUuid": "dda5bfa5_3af315e2",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 42
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "baa750aa_cd3ba9f5",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 8
@@ -171,6 +327,30 @@
       "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "079c36b3_18e57d5e",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "Will convert to assert in next patch set.",
+      "parentUuid": "baa750aa_cd3ba9f5",
+      "range": {
+        "startLine": 160,
+        "startChar": 1,
+        "endLine": 160,
+        "endChar": 39
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
@@ -197,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "f2fc23f7_2628f0fb",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "\u003e We need to enforce sequence here. This init should be called prior to main GICV3_driver init. \n\nTo ensure that this function is called before gicv3_driver init, we can have an assert(gicv3_driver_data-\u003egicd_base \u003d\u003d 0) to ensure that the gicv3_driver is not initialized. Not sure if this is a right approach (we might have to extern gicv3_driver_data here).\n\n\u003e Disabling the bits may not be the solution.\ngicv3_distif_init() function starts by clearing the group enable bits. If we don\u0027t clear the group enables, asserting of \"Ensure that all Group enables in the GICD_CTLR register are disabled and GICD_CTLR.RWP \u003d\u003d 0\" might fail right?",
+      "parentUuid": "cec5c697_e631de29",
+      "range": {
+        "startLine": 171,
+        "startChar": 1,
+        "endLine": 175,
+        "endChar": 18
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e223654f_f29d5f9c",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 8
@@ -217,6 +421,30 @@
       "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af5103a9_8ed12479",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "From my understanding, current chip need not necessarily be the rt_owner. For example, chip 0 can make the chip 1 as rt_owner (in which case, multichip_data-\u003egicd_base should point to base of chip 1\u0027s gic).",
+      "parentUuid": "e223654f_f29d5f9c",
+      "range": {
+        "startLine": 178,
+        "startChar": 1,
+        "endLine": 179,
+        "endChar": 29
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
@@ -243,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "3f62eb21_dfc4064d",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "I will add this check in the gicd_set_chipr_n function.",
+      "parentUuid": "721c25ab_64827a60",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 57
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "37b11c8a_c2cc3e4f",
         "filename": "include/drivers/arm/gic600_multichip.h",
         "patchSetId": 8
@@ -254,6 +506,30 @@
       "writtenOn": "2019-10-29T13:13:35Z",
       "side": 1,
       "message": "I have questions on whether this can be any other value other than the primary chip (the chip with the primary CPU). \n\nAlso I dont know if all the 16 chips will be powered up at reset ? Need to understand about the possibilities of power control available to each of the distributors.",
+      "range": {
+        "startLine": 44,
+        "startChar": 14,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "114b51f9_4776aa97",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "GIC600 multi-chip support is targeted mainly for enterprise platforms. On an enterprise platforms, all the chips (SYSTOP) are powered up at the beginning  by the SCP. To my knowledge, there\u0027s no specific requirement that a chip x will be powered up at the later stage (after BL31). So all the distributors will be powered at reset (provided GICD power domain is SYSTOP). This is the case for RDN1Edge-Dual, N1SDP and other Reference Design platforms.\n\nIf such assumptions are not allowed, then this might need a review for the case where rt_owner\u0027s GICD is not powered up. For now, we can keep the assumption that at reset all GICD in the system are powered up and this is good enough to add initial support for the multi-chip platform. Later if there\u0027s a requirement for different scenarios of power control we can rework this patch.",
+      "parentUuid": "37b11c8a_c2cc3e4f",
       "range": {
         "startLine": 44,
         "startChar": 14,
