@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1d5810dd_03d4143a",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-29T15:29:22Z",
+      "side": 1,
+      "message": "i have initialized it with 1 and at run time if dual chip is detected then will make it 2(line 203)",
+      "parentUuid": "7767d9ad_ca5a2ffa",
+      "range": {
+        "startLine": 60,
+        "startChar": 2,
+        "endLine": 60,
+        "endChar": 12
+      },
+      "revId": "3a4243b4d6afd48c3260371d43baef1374cebb61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7bc1c025_55042548",
         "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2019-10-29T14:02:57Z",
       "side": 1,
       "message": "This doesn\u0027t seem to be correct.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 26
+      },
+      "revId": "3a4243b4d6afd48c3260371d43baef1374cebb61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4cbde10_c770ef40",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-29T15:29:22Z",
+      "side": 1,
+      "message": "The gic600_multichip_data_t structure expects chip address for each available chip and it is implementation defined.\nFor N1sdp chip address is same for both the chips.",
+      "parentUuid": "7bc1c025_55042548",
       "range": {
         "startLine": 63,
         "startChar": 0,
@@ -82,6 +130,30 @@
       "writtenOn": "2019-10-29T14:03:56Z",
       "side": 1,
       "message": "Is there validation of this value when reading from SDS ?",
+      "range": {
+        "startLine": 203,
+        "startChar": 36,
+        "endLine": 203,
+        "endChar": 62
+      },
+      "revId": "3a4243b4d6afd48c3260371d43baef1374cebb61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63eeccba_79789d17",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-10-29T15:29:22Z",
+      "side": 1,
+      "message": "We have validation only to read the SDS not on the values, do we really need it ?",
+      "parentUuid": "437ec5d4_d66a2c29",
       "range": {
         "startLine": 203,
         "startChar": 36,
