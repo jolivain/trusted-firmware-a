@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0428b0d_1627bef8",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-29T11:45:02Z",
+      "side": 1,
+      "message": "I suspect this is not MISRA compliant.",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 19
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f5b1c8c_4048518e",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-29T11:45:02Z",
+      "side": 1,
+      "message": "Is this different from the GICD of the main driver ?\n\nGood to avoid duplication.",
+      "range": {
+        "startLine": 170,
+        "startChar": 31,
+        "endLine": 170,
+        "endChar": 40
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8654c29b_b15a87f4",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-29T11:45:02Z",
+      "side": 1,
+      "message": "These are not generic GICd functions. Are they ? Would prefer to not prefix them with gicd.",
+      "range": {
+        "startLine": 177,
+        "startChar": 1,
+        "endLine": 177,
+        "endChar": 5
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2a5a40a_2a5e5388",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-29T11:45:02Z",
+      "side": 1,
+      "message": "It looks like \"Each coherent chip can have up to 512 cores.\" according the specification.\n\nAlso there is a Note:\n\"The microarchitecture for product versions r0p0, r0p1, and r0p2 is limited to a maximum of 16 cores on a single chip.\"",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 41
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36dcc549_6d0104f5",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-29T11:45:02Z",
+      "side": 1,
+      "message": "I think we need to have a wider discussion on the design of this structure.\n\nIMO, the gicd_base should not be repeated if possible since it is present in the main GIC driver data structure.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 26
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
