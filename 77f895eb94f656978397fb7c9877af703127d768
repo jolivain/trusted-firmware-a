@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "28064688_e2f0c19e",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "CI didn\u0027t throw any error/warning for this. \n\nThis was initially written as:\n\nretry--;\nif (retry \u003d\u003d 0) {\n\nlater updated based on a comment.",
+      "parentUuid": "b0428b0d_1627bef8",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 19
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f5b1c8c_4048518e",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2019-10-29T11:45:02Z",
       "side": 1,
       "message": "Is this different from the GICD of the main driver ?\n\nGood to avoid duplication.",
+      "range": {
+        "startLine": 170,
+        "startChar": 31,
+        "endLine": 170,
+        "endChar": 40
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aee44ca_87885b77",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "This could be different from the GICD of the main driver, if the rt_owner is a different chip or in case of rt_owner being changed dynamically.",
+      "parentUuid": "5f5b1c8c_4048518e",
       "range": {
         "startLine": 170,
         "startChar": 31,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1aecb202_fdc280ef",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "GIC600 specification uses register name GICD_DCHIPR, GICD_CHIPRn and GICD_CHIPSR. Hence using the same naming convention here too.",
+      "parentUuid": "8654c29b_b15a87f4",
+      "range": {
+        "startLine": 177,
+        "startChar": 1,
+        "endLine": 177,
+        "endChar": 5
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2a5a40a_2a5e5388",
         "filename": "include/drivers/arm/gic600_multichip.h",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "1a90b753_ff07df80",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "\u003e It looks like \"Each coherent chip can have up to 512 cores.\" according the specification.\n\nCould be a typo in r0p2 spec. From r1p2, this has been updated to \"The microarchitecture scales from a single core to coherent multichip environments containing up to 16 chips of up to 64 cores each.\"\n\n\u003e Also there is a Note:\n \u003e \"The microarchitecture for product versions r0p0, r0p1, and r0p2 is\n \u003e limited to a maximum of 16 cores on a single chip.\"\n\nI guess it is a good idea to have this check in main gicv3/gic600 file. gic600 multichip operation is affected only by the number of chips (number of GICD_CHIPRn registers, 0 \u003c\u003d n \u003c 16). In configuring gic600 multichip, number of cores per chip detail is not used.",
+      "parentUuid": "e2a5a40a_2a5e5388",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 41
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36dcc549_6d0104f5",
         "filename": "include/drivers/arm/gic600_multichip.h",
         "patchSetId": 7
@@ -105,6 +201,30 @@
       "writtenOn": "2019-10-29T11:45:02Z",
       "side": 1,
       "message": "I think we need to have a wider discussion on the design of this structure.\n\nIMO, the gicd_base should not be repeated if possible since it is present in the main GIC driver data structure.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 26
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82042326_ea07ff0f",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-29T17:18:43Z",
+      "side": 1,
+      "message": "I thought about reusing the gicd_base while writing this struct. There are two reasons to have this base defined in this struct.\n\n* GIC600 multichip has to be initialized much before gicv3 initialization. This means, plat_driver_data-\u003egicd_base will be null because gicv3_driver_init() function will be called after the gic600_multichip_init().\n\n* While adding support for changing the rt_owner dynamically, plat_driver_data-\u003egicd_base cannot be reused. When changing the rt_owner, platform will be passing a new value of gicd_base.",
+      "parentUuid": "36dcc549_6d0104f5",
       "range": {
         "startLine": 42,
         "startChar": 0,
