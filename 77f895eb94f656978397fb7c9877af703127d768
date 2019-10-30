@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "cad2d19f_b41917e4",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-30T17:00:12Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "28064688_e2f0c19e",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 19
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f5b1c8c_4048518e",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 7
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "This could be different from the GICD of the main driver, if the rt_owner is a different chip or in case of rt_owner being changed dynamically.",
       "parentUuid": "5f5b1c8c_4048518e",
+      "range": {
+        "startLine": 170,
+        "startChar": 31,
+        "endLine": 170,
+        "endChar": 40
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bdbbf22_55a83a3d",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-30T17:00:12Z",
+      "side": 1,
+      "message": "Hmm, in that case, this name is misleading. Needs to be chnaged to rt_owner_base or something like that",
+      "parentUuid": "6aee44ca_87885b77",
       "range": {
         "startLine": 170,
         "startChar": 31,
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "de79913c_f8049d9f",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-30T17:00:12Z",
+      "side": 1,
+      "message": "Ok, would prefer something like gic600_set_gicd_dchir_* if the functions are exported or simply set_gicd_dchir_* if they are static functions used internally.",
+      "parentUuid": "1aecb202_fdc280ef",
+      "range": {
+        "startLine": 177,
+        "startChar": 1,
+        "endLine": 177,
+        "endChar": 5
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2a5a40a_2a5e5388",
         "filename": "include/drivers/arm/gic600_multichip.h",
         "patchSetId": 7
@@ -190,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "c2b7c6b7_4e145dd3",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-30T17:00:12Z",
+      "side": 1,
+      "message": "If the number of cores is not a detail not used in the drive, then the comment need to say anything related to that. Just say gic600 supports 16 chips.",
+      "parentUuid": "1a90b753_ff07df80",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 41
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36dcc549_6d0104f5",
         "filename": "include/drivers/arm/gic600_multichip.h",
         "patchSetId": 7
@@ -225,6 +321,30 @@
       "side": 1,
       "message": "I thought about reusing the gicd_base while writing this struct. There are two reasons to have this base defined in this struct.\n\n* GIC600 multichip has to be initialized much before gicv3 initialization. This means, plat_driver_data-\u003egicd_base will be null because gicv3_driver_init() function will be called after the gic600_multichip_init().\n\n* While adding support for changing the rt_owner dynamically, plat_driver_data-\u003egicd_base cannot be reused. When changing the rt_owner, platform will be passing a new value of gicd_base.",
       "parentUuid": "36dcc549_6d0104f5",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 26
+      },
+      "revId": "77f895eb94f656978397fb7c9877af703127d768",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76e2428a_4dd801f5",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-30T17:00:12Z",
+      "side": 1,
+      "message": "I didn\u0027t get the concept of rt_owner point. I thought to change the owner, we just need to write a chipID to the GICD_CHIPR reg. The different chip addrs are present in the `chip_addrs` field. Is that what you are referring to ? In which case, this gicd_base is not required ?",
+      "parentUuid": "82042326_ea07ff0f",
       "range": {
         "startLine": 42,
         "startChar": 0,
