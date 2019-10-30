@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "8fbc74ff_8a23e7b9",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-30T17:00:12Z",
+      "side": 1,
+      "message": "yes, I think writing to the reg while PUP!\u003d0 is not valid. Hence you need a check for PUP \u003d\u003d 0 before the write as well.",
+      "parentUuid": "1e392a6a_07a7220b",
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4408d004_1698d831",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 8
@@ -113,6 +131,24 @@
       "side": 1,
       "message": "Not sure if this is required. When this function is called for the second time, (for chipr1), RTS would be in consistent state. RTS \u003d\u003d Disconnected would fail in that case.\n\n\u003e Assert that the GICD_CHIPSR register on the chip is initially RTS \u003d\u003d Disconnected.\n\n*initially* here means only once at the beginning? Even if it is the case, TRM doesn\u0027t mention about the check.",
       "parentUuid": "4408d004_1698d831",
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58c67e11_ee03efa0",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-30T17:00:12Z",
+      "side": 1,
+      "message": "Ah, RTS state need to be verified only for the rt_owner chip. I suppose the owner can be differentiated from the other chips. The TRM does mention this but not in a direct way.",
+      "parentUuid": "511da78a_2d72371a",
       "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -154,6 +190,30 @@
       "side": 1,
       "message": "This is added for supporting change of SPI ownership. Later when we add change of SPI ownership functionality, we can reuse gicd_set_chipr_n() function. It is required to ensure that the GICD_CTLR group enables have been cleared.",
       "parentUuid": "614cb612_4844d524",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 2
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3257d239_94afec8f",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-30T17:00:12Z",
+      "side": 1,
+      "message": "The details of changing ownership is not clear to me. Does it mean the `chip` can be hotplugged in and out ?\n\nIf a chip is not present, would the probe of the corresponding registers and their initialization fail ? \n\nIf the chip cannot be hotplugged, then why should be the routing tables be modified ?\n\nAnyway, I think the current driver API is not suited for allowing this use case and if it something we need to support, then the API has to reflect that.",
+      "parentUuid": "ce235341_1789dbf7",
       "range": {
         "startLine": 103,
         "startChar": 0,
@@ -295,6 +355,30 @@
       "side": 1,
       "message": "In the GICD_CHIPR_VALUE macro itself?",
       "parentUuid": "dda5bfa5_3af315e2",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 42
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "990b9e9d_03306f01",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-30T17:00:12Z",
+      "side": 1,
+      "message": "something like : \nchipr_n_val \u003d GICD_CHIPR_VALUE(chip_addr, spi_block_min, spi_blocks) |  GICD_CHIPRx_SOCKET_STATE;",
+      "parentUuid": "484ccd23_00e51b63",
       "range": {
         "startLine": 148,
         "startChar": 4,
@@ -535,6 +619,53 @@
         "startChar": 14,
         "endLine": 44,
         "endChar": 22
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77d3ab7d_49e651af",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-30T17:00:12Z",
+      "side": 1,
+      "message": "Well the problem is that once an API is defined, it is difficult to change it. Hence I would prefer this is thought through and the issues are understood before this is merged. If the assumption is that all the `chip` s are powered up at boot, that is reasonable but that should be made explicit in the comments. \n\nThe spec allows chip to be plugged in and out dynamically and the driver should follow spec as far as possible and not be limited by platform capability. There might be a case that the chip hotplugging may not be possible in the current software architecture in which case the driver can make assumptions and proceed on those lines.",
+      "parentUuid": "114b51f9_4776aa97",
+      "range": {
+        "startLine": 44,
+        "startChar": 14,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6752972b_636cba29",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-30T17:00:12Z",
+      "side": 1,
+      "message": "Can this follow the same scheme as `rdistif_base_addrs` in gicv3_driver_data so as to allow platform to do the right allocation based on the number of chips ?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 47
       },
       "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
