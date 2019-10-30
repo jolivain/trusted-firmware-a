@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d501021c_78cb14a7",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-30T16:56:24Z",
+      "side": 1,
+      "message": "(cosmetic) This could be replaced by \u0027\u003d\u003d 0\u0027 given that it cannot be negative. This is equivalent but just sounds clearer to me.",
+      "range": {
+        "startLine": 144,
+        "startChar": 31,
+        "endLine": 144,
+        "endChar": 33
+      },
+      "revId": "050557e51898cbecbe2d4864e3add30871a426f7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94942409_88e63429",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-30T16:56:24Z",
+      "side": 1,
+      "message": "plat_info.remote_ddr_size cannot be negative (since it\u0027s a uint8_t) so this test can be removed.\n\nI noticed here that the local DDR size is not allowed to be zero, whereas the remote one can be. Just wanted to double-check with you that the difference is there on purpose, I am guessing the reason is that the code may deal with systems with/without remote DDR, whereas we always expect some local DDR, correct?",
+      "range": {
+        "startLine": 144,
+        "startChar": 40,
+        "endLine": 144,
+        "endChar": 71
+      },
+      "revId": "050557e51898cbecbe2d4864e3add30871a426f7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
