@@ -62,6 +62,13 @@ static int plat_sgi_append_config_node(void)
 		return -1;
 	}
 
+	platcfg = plat_arm_sgi_get_multi_chip_mode();
+	err = fdt_setprop_u32(fdt, nodeoffset, "multi-chip-mode", platcfg);
+	if (err < 0) {
+		ERROR("Failed to set multi-chip-mode\n");
+		return -1;
+	}
+
 	flush_dcache_range((uintptr_t)fdt, mem_params->image_info.image_size);
 
 	return 0;
