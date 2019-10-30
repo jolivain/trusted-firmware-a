@@ -9,7 +9,7 @@ Advisory TFV-5 (CVE-2017-15031)
 +----------------+-------------------------------------------------------------+
 | Date           | 02 Oct 2017                                                 |
 +----------------+-------------------------------------------------------------+
-| Versions       | All, up to and including v1.4                               |
+| Versions       | All, up to and including v2.1                               |
 | Affected       |                                                             |
 +----------------+-------------------------------------------------------------+
 | Configurations | All                                                         |
@@ -18,6 +18,10 @@ Advisory TFV-5 (CVE-2017-15031)
 | Impact         | Leakage of sensitive secure world timing information        |
 +----------------+-------------------------------------------------------------+
 | Fix Version    | `Pull Request #1127`_ (merged on 18 October 2017)           |
+|                |                                                             |
+|                | `Code Review #1789`_ (merged on 23 August 2019)             |
+|                |                                                             |
+|                | `Code Review #1810`_ (merged on 27 September 2019)          |
 +----------------+-------------------------------------------------------------+
 | Credit         | Arm                                                         |
 +----------------+-------------------------------------------------------------+
@@ -28,10 +32,11 @@ implemented, and configures and controls the counters. If the ``PMCR_EL0.DP``
 bit is set to zero, the cycle counter (when enabled) counts during secure world
 execution, even when prohibited by the debug signals.
 
-Since Arm TF does not save and restore ``PMCR_EL0`` when switching between the
+Since TF-A does not save and restore ``PMCR_EL0`` when switching between the
 normal and secure worlds, normal world code can set ``PMCR_EL0.DP`` to zero to
 cause leakage of secure world timing information. This register should be added
-to the list of saved/restored registers.
+to the list of saved/restored registers both when entering EL3 and also
+transitioning to S-EL1.
 
 Furthermore, ``PMCR_EL0.DP`` has an architecturally ``UNKNOWN`` reset value.
 Since Arm TF does not initialize this register, it's possible that on at least
@@ -42,5 +47,17 @@ sensible default values in the secure context.
 The same issue exists for the equivalent AArch32 register, ``PMCR``, except that
 here ``PMCR_EL0.DP`` architecturally resets to zero.
 
+NOTE: The original pull request referenced above only fixed the issue for S-EL1
+whereas the EL3 was fixed in the later commits.
+
+On CPU cold/warm boot ``PMCR_EL0.DP`` bit is set to one so that the cycle
+counter does not count when event counting is prohibited. For ARMv8.5 the
+counter gets disabled by setting ``MDCR_El3.SCCD/SDCR.SCCD`` bit on CPU
+cold/warm boot. For the earlier architectures ``PMCR_EL0`` register is
+saved/restored on secure world entry/exit from/to Non-secure state, and cycle
+counting gets disabled by setting ``PMCR_EL0.DP/PMCR.DP`` bit.
+
 .. _CVE-2017-15031: http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15031
 .. _Pull Request #1127: https://github.com/ARM-software/arm-trusted-firmware/pull/1127
+.. _Code Review #1789: https://review.trustedfirmware.org/#/c/TF-A/trusted-firmware-a/+/1789/
+.. _Code Review #1810: https://review.trustedfirmware.org/#/c/TF-A/trusted-firmware-a/+/1810/
