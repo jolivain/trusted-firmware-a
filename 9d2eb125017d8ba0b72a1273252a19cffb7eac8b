@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "12b5f3bf_ccdbb4b0",
+        "filename": "plat/arm/board/n1sdp/aarch64/n1sdp_helper.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-30T17:03:52Z",
+      "side": 1,
+      "message": "This is not addressed.",
+      "parentUuid": "e428c30c_fd07cfcf",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 36
+      },
+      "revId": "9d2eb125017d8ba0b72a1273252a19cffb7eac8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "465979d0_dd59e380",
         "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
         "patchSetId": 9
