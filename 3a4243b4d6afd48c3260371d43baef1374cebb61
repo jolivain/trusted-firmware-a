@@ -163,6 +163,30 @@
       "revId": "3a4243b4d6afd48c3260371d43baef1374cebb61",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd4b3cf_bf0f6e0e",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-30T15:36:34Z",
+      "side": 1,
+      "message": "yes, sanity checks would be needed.",
+      "parentUuid": "63eeccba_79789d17",
+      "range": {
+        "startLine": 203,
+        "startChar": 36,
+        "endLine": 203,
+        "endChar": 62
+      },
+      "revId": "3a4243b4d6afd48c3260371d43baef1374cebb61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
