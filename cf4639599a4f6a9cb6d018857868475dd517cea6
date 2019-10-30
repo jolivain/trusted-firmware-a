@@ -187,6 +187,30 @@
       "revId": "cf4639599a4f6a9cb6d018857868475dd517cea6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b036ce50_a4691ca7",
+        "filename": "plat/arm/board/n1sdp/n1sdp_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-10-30T16:13:57Z",
+      "side": 1,
+      "message": "Hi Manish, Soby,\n\nActually I think Manish is right, it is safe to assume that _Bool is exactly 1 byte long. Although this is not enforced by the C standard, it is clearly defined in the Arm ABIs (both 32-bit and 64-bit architectures).\n\nhttps://developer.arm.com/docs/ihi0055/latest/procedure-call-standard-for-the-arm-64-bit-architecture\nhttps://developer.arm.com/docs/ihi0042/latest/procedure-call-standard-for-the-arm-architecture-abi-2018q4-documentation\n\nIn these documents, _Bool maps to an unsigned byte.\n\nSo I am happy for multichip_mode to be of bool type. However, I still think we need to pack the structure to eliminate any risk of padding, unless you can point me to a section in the ABI that says it can\u0027t happen in this case. It is very unlikely that the compiler would introduce any padding bytes in a structure of uint8_t/bool variables but it is not impossible I think.",
+      "parentUuid": "7bb0bac9_5a28ed49",
+      "range": {
+        "startLine": 165,
+        "startChar": 41,
+        "endLine": 165,
+        "endChar": 64
+      },
+      "revId": "cf4639599a4f6a9cb6d018857868475dd517cea6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
