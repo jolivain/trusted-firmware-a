@@ -16,6 +16,24 @@
       "revId": "83cdc0bf5e183b8649fa31455171e5ff967cf620",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e22acb62_6f331629",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-10-30T10:08:46Z",
+      "side": 1,
+      "message": "The gap between BL1 and BL2 can be found by looking at the .map file generated with the binaries. When building FVP with ROMLIB:\n\n__BL1_RAM_START__ symbol is at 0x0000000004034000\n__BL2_END__ symbol is at 0x000000000402b000\n\nThis represent a gap of 0x9000 between the two images. \nA few pages are left between the two images to allows future size increase of the BL images.",
+      "parentUuid": "284b6e88_26abed72",
+      "revId": "83cdc0bf5e183b8649fa31455171e5ff967cf620",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
