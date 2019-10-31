@@ -19,15 +19,14 @@
 
 static timer_ops_t ops;
 
-static uint32_t get_timer_value(void)
+static uint64_t get_timer_value(void)
 {
 	/*
 	 * Generic delay timer implementation expects the timer to be a down
 	 * counter. We apply bitwise NOT operator to the tick values returned
-	 * by read_cntpct_el0() to simulate the down counter. The value is
-	 * clipped from 64 to 32 bits.
+	 * by read_cntpct_el0() to simulate the down counter.
 	 */
-	return (uint32_t)(~read_cntpct_el0());
+	return ~read_cntpct_el0();
 }
 
 void generic_delay_timer_init_args(uint32_t mult, uint32_t div)
