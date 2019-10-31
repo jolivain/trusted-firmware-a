@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb0dae3e_57690cbc",
+        "filename": "drivers/delay_timer/delay_timer.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-10-31T21:47:28Z",
+      "side": 1,
+      "message": "Can you explain what this is trying to solve in more detail? This change will make delays increasingly inaccurate if the timer clock doesn\u0027t cleanly divide to microseconds. For example, for the common 19.2MHz frequency (like on rpi3), delays will be more than 4% longer than programmed because of this.\n\nIs your problem just that the assert() fails when the frequency gets too high? If so, I think we should just count the time in 64 bits instead to preserve accuracy. That could be done with something like this:\n\n uint32_t start, timer;\n int64_t delta;\n\n assert(usec \u003c (UINT64_MAX / timer_ops-\u003eclk_div));\n delta \u003d div_round_up((int64_t)usec * timer_ops-\u003eclk_div, timer_ops-\u003eclk_mult) + 1;\n\n start \u003d timer_ops-\u003eget_timer_value();\n do {\n   timer \u003d timer_ops-\u003eget_timer_value();\n   delta -\u003d timer - start;\n   start \u003d timer;\n } while (delta \u003e 0);",
+      "revId": "57249685cf98810ec78714edd59b6a5b1b9d316b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
