@@ -304,13 +304,19 @@ static int plat_mtk_power_domain_on(unsigned long mpidr)
 {
 	int cpu = MPIDR_AFFLVL0_VAL(mpidr);
 	int cluster = MPIDR_AFFLVL1_VAL(mpidr);
+	int clst_pwr = spm_get_cluster_powerstate(cluster);
+	int i;
 
 	mcdi_ctrl_before_hotplug_on(cluster, cpu);
 	hotplug_ctrl_cluster_on(cluster, cpu);
 
-	/* init cpu reset arch as AARCH64 */
-	mcucfg_init_archstate(cluster, cpu, 1);
-	mcucfg_set_bootaddr(cluster, cpu, secure_entrypoint);
+	if (!clst_pwr) {
+		/* init cpu reset arch as AARCH64 of cluster */
+		for (i = 0; i < PLATFORM_MAX_CPUS_PER_CLUSTER; i++) {
+			mcucfg_init_archstate(cluster, i, 1);
+			mcucfg_set_bootaddr(cluster, i, secure_entrypoint);
+		}
+	}
 
 	hotplug_ctrl_cpu_on(cluster, cpu);
 
@@ -361,10 +367,6 @@ static void plat_mtk_power_domain_suspend(const psci_power_state_t *state)
 	bool afflvl1 = (pds[MPIDR_AFFLVL1] == MTK_LOCAL_STATE_OFF);
 	bool afflvl2 = (pds[MPIDR_AFFLVL2] == MTK_LOCAL_STATE_OFF);
 	bool cluster_off = MCDI_C2 && afflvl1 && clst_single_pwr(cluster, cpu);
-
-	/* init cpu reset arch as AARCH64 */
-	mcucfg_init_archstate(cluster, cpu, 1);
-	mcucfg_set_bootaddr(cluster, cpu, secure_entrypoint);
 
 	plat_cpu_pwrdwn_common();
 
@@ -567,8 +569,16 @@ static const plat_psci_ops_t plat_plat_pm_ops = {
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,
 			const plat_psci_ops_t **psci_ops)
 {
+	int i;
+
 	*psci_ops = &plat_plat_pm_ops;
 	secure_entrypoint = sec_entrypoint;
+
+	/* Init cpu reset arch as AARCH64 of cluster 0 */
+	for (i = 0; i < PLATFORM_MAX_CPUS_PER_CLUSTER; i++) {
+		mcucfg_init_archstate(0, i, 1);
+		mcucfg_set_bootaddr(0, i, secure_entrypoint);
+	}
 
 	if (!check_mcdi_ctl_stat()) {
 		HP_SSPM_CTRL = false;
