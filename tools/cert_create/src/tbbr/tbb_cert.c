@@ -141,13 +141,14 @@ static cert_t tbb_certs[] = {
 		.help_msg = "Non-Trusted Firmware Key Certificate (output file)",
 		.fn = NULL,
 		.cn = "Non-Trusted Firmware Key Certificate",
-		.key = NON_TRUSTED_WORLD_KEY,
+		.key = NS_ROT_KEY,
 		.issuer = NON_TRUSTED_FW_KEY_CERT,
 		.ext = {
 			NON_TRUSTED_FW_NVCOUNTER_EXT,
-			NON_TRUSTED_FW_CONTENT_CERT_PK_EXT
+			NON_TRUSTED_FW_CONTENT_CERT_PK_EXT,
+			NS_ROT_PK_EXT
 		},
-		.num_ext = 2
+		.num_ext = 3
 	},
 	[NON_TRUSTED_FW_CONTENT_CERT] = {
 		.id = NON_TRUSTED_FW_CONTENT_CERT,

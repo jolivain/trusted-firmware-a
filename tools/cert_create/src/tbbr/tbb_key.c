@@ -53,7 +53,13 @@ static key_t tbb_keys[] = {
 		.opt = "nt-fw-key",
 		.help_msg = "Non Trusted Firmware Content Certificate key (input/output file)",
 		.desc = "Non Trusted Firmware Content Certificate key"
-	}
+	},
+	[NS_ROT_KEY] = {
+		.id = NS_ROT_KEY,
+		.opt = "ns-rot-key",
+		.help_msg = "Non-Secure Root of Trust key",
+		.desc = "Non-Secure Root of Trust key"
+	},
 };
 
 REGISTER_KEYS(tbb_keys);

@@ -232,7 +232,15 @@ static ext_t tbb_ext[] = {
 		.asn1_type = V_ASN1_OCTET_STRING,
 		.type = EXT_TYPE_HASH,
 		.optional = 1
-	}
+	},
+	[NS_ROT_PK_EXT] = {
+		.oid = NS_ROT_KEY_OID,
+		.sn = "NonSecureRoTKey",
+		.ln = "Non-Secure Root of Trust Public Key",
+		.asn1_type = V_ASN1_OCTET_STRING,
+		.type = EXT_TYPE_PKEY,
+		.attr.key = NS_ROT_KEY
+	},
 };
 
 REGISTER_EXTENSIONS(tbb_ext);

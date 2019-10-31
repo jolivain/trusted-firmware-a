@@ -73,6 +73,47 @@ int plat_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
 	assert(key_len != NULL);
 	assert(flags != NULL);
 
+	/*
+	 * Return the right root of trust key hash based on the cookie value:
+	 *  - NULL means S-ROTPK (as always).
+	 *  - Otherwise, interpret cookie as the OID of the certificate
+	 *    extension containing the key.
+	 */
+	if ((cookie != NULL) &&
+	    (strcmp(cookie, NS_ROT_KEY_OID) == 0)) {
+		VERBOSE("%s: Getting key hash for BL33 certificate.\n",
+			__func__);
+
+		/*
+		 * SHA-256 hash of the NS-ROT public key.
+		 *
+		 * Was generated on the host machine by hashing the RSA public
+		 * key in DER format:
+		 *   openssl rsa						\
+		 *     -in plat/arm/board/common/ns-rotpk/ns-rot-priv.pem	\
+		 *     -pubout -outform DER |					\
+		 *   openssl dgst -sha256 -binary |				\
+		 *   hexdump -e '"\x"/1 "%02X "'
+		 *
+		 * Then do a bit of formatting to get the hexadecimal string and
+		 * embed it in the code here.
+		 */
+		static unsigned char ns_rotpk_hash[] = \
+			/* DER header. */ \
+			"\x30\x31\x30\x0D\x06\x09\x60\x86\x48" \
+			"\x01\x65\x03\x04\x02\x01\x05\x00\x04\x20" \
+			/* Key hash. */			   \
+			"\xBF\x7C\x46\xF6\xCA\xCE\x99\x18" \
+			"\xA0\xA6\x74\x22\x42\x7B\xB5\x53" \
+			"\xA7\x29\x6E\x79\x3D\x3B\x9B\xBE" \
+			"\x0F\x01\xD0\x5B\xD8\xDE\x1E\xB9";
+
+		*key_ptr = ns_rotpk_hash;
+		*key_len = sizeof(ns_rotpk_hash);
+		*flags = ROTPK_IS_HASH;
+		return 0;
+	}
+
 	/* Copy the DER header */
 	memcpy(rotpk_hash_der, rotpk_hash_hdr, rotpk_hash_hdr_len);
 	dst = (uint8_t *)&rotpk_hash_der[rotpk_hash_hdr_len];

@@ -135,6 +135,9 @@
 /* NonTrustedFirmwareContentCertPK */
 #define NON_TRUSTED_FW_CONTENT_CERT_PK_OID	"1.3.6.1.4.1.4128.2100.1101"
 
+/* Pick the next available OID. Arbitrary value, not defined by TBBR spec. */
+#define NS_ROT_KEY_OID				"1.3.6.1.4.1.4128.2100.1102"
+
 
 /*
  * Non-Trusted Firmware Content Certificate

@@ -603,15 +603,19 @@ static const auth_img_desc_t tos_fw_config = {
 /*
  * Non-Trusted Firmware
  */
+static auth_param_type_desc_t ns_rot_pk = AUTH_PARAM_TYPE_DESC(
+	AUTH_PARAM_PUB_KEY, NS_ROT_KEY_OID);
+
 static const auth_img_desc_t non_trusted_fw_key_cert = {
 	.img_id = NON_TRUSTED_FW_KEY_CERT_ID,
 	.img_type = IMG_CERT,
-	.parent = &trusted_key_cert,
+	.parent = NULL, /* Root certificate. */
 	.img_auth_methods = (const auth_method_desc_t[AUTH_METHOD_NUM]) {
 		[0] = {
+			/* Expected to be signed with the NS-ROTPK. */
 			.type = AUTH_METHOD_SIG,
 			.param.sig = {
-				.pk = &non_trusted_world_pk,
+				.pk = &ns_rot_pk,
 				.sig = &sig,
 				.alg = &sig_alg,
 				.data = &raw_data
