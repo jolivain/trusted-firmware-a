@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56ad6069_7727d15c",
+        "filename": "plat/arm/board/n1sdp/aarch64/n1sdp_helper.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-31T10:02:42Z",
+      "side": 1,
+      "message": "The affnity level above should use the count of affinity just below. Hence AFF level 3 should use cluster count. I am not sure the below calculation is valid anymore.\n\nN1SDP_MAX_CLUSTERS_PER_CHIP should be the macro name.",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "78ebe6997d822fdae40d4304009ba77bbbb7e516",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87954b67_fd7c22cd",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-10-31T10:02:42Z",
+      "side": 1,
+      "message": "Just noticed this. This has to be MAX_CLUSTER_PER_CHIP.",
+      "range": {
+        "startLine": 71,
+        "startChar": 8,
+        "endLine": 71,
+        "endChar": 31
+      },
+      "revId": "78ebe6997d822fdae40d4304009ba77bbbb7e516",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
