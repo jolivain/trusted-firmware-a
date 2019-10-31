@@ -22,7 +22,7 @@
  ********************************************************************/
 
 typedef struct timer_ops {
-	uint32_t (*get_timer_value)(void);
+	uint64_t (*get_timer_value)(void);
 	uint32_t clk_mult;
 	uint32_t clk_div;
 } timer_ops_t;
