@@ -28,15 +28,16 @@ void udelay(uint32_t usec)
 		(timer_ops->get_timer_value != NULL));
 
 	uint32_t start, delta, total_delta;
+	uint16_t ticks_per_sec;
 
-	assert(usec < (UINT32_MAX / timer_ops->clk_div));
+	ticks_per_sec = div_round_up(timer_ops->clk_div, timer_ops->clk_mult);
+
+	assert(usec < (UINT32_MAX / ticks_per_sec));
 
 	start = timer_ops->get_timer_value();
 
 	/* Add an extra tick to avoid delaying less than requested. */
-	total_delta =
-		div_round_up(usec * timer_ops->clk_div,
-						timer_ops->clk_mult) + 1U;
+	total_delta = usec * ticks_per_sec + 1U;
 
 	do {
 		/*
