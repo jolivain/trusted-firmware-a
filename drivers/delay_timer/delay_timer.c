@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -27,16 +27,19 @@ void udelay(uint32_t usec)
 		(timer_ops->clk_div != 0U) &&
 		(timer_ops->get_timer_value != NULL));
 
-	uint32_t start, delta, total_delta;
+	uint32_t start, delta;
+	uint64_t total_delta;
 
-	assert(usec < (UINT32_MAX / timer_ops->clk_div));
+	assert(usec < (UINT64_MAX / timer_ops->clk_div));
 
 	start = timer_ops->get_timer_value();
 
 	/* Add an extra tick to avoid delaying less than requested. */
 	total_delta =
-		div_round_up(usec * timer_ops->clk_div,
+		div_round_up((uint64_t)usec * timer_ops->clk_div,
 						timer_ops->clk_mult) + 1U;
+	/* Precaution for the fact that we cannot catch every tick on high-frequency platforms. */
+	assert(total_delta < UINT32_MAX - 1000U);
 
 	do {
 		/*
@@ -54,6 +57,7 @@ void udelay(uint32_t usec)
  ***********************************************************/
 void mdelay(uint32_t msec)
 {
+	assert(msec * 1000UL < UINT32_MAX);
 	udelay(msec * 1000U);
 }
 
