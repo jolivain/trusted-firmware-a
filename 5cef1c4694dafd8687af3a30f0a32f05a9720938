@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6b250293_6ca1afea",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-31T17:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6e035a4_6f6941a8",
+      "range": {
+        "startLine": 52,
+        "startChar": 12,
+        "endLine": 52,
+        "endChar": 43
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b7e866e2_48660c7e",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 8
@@ -102,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "c35ee165_f7a78caf",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-31T17:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fbc74ff_8a23e7b9",
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4408d004_1698d831",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 8
@@ -149,6 +191,24 @@
       "side": 1,
       "message": "Ah, RTS state need to be verified only for the rt_owner chip. I suppose the owner can be differentiated from the other chips. The TRM does mention this but not in a direct way.",
       "parentUuid": "511da78a_2d72371a",
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7a5631f_9b662470",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-31T17:32:42Z",
+      "side": 1,
+      "message": "Added a assert in gic600_multichip_init function before starting writes to dchipr register.",
+      "parentUuid": "58c67e11_ee03efa0",
       "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -273,6 +333,30 @@
     },
     {
       "key": {
+        "uuid": "a9cd8bc0_aadfbf67",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-31T17:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21f89f9e_e97f7d8f",
+      "range": {
+        "startLine": 120,
+        "startChar": 1,
+        "endLine": 120,
+        "endChar": 34
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d5a40ee0_069de5f1",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 8
@@ -308,6 +392,30 @@
       "side": 1,
       "message": "GICD_CHIPRy.PUP has the following description:\n\n\tThis bit is RO and returns the power update status:\n\t0 \u003d Power update complete.\n\t1 \u003d Power update in progress.\n\n\nI added this check to ensure that writes to GICD_CHIPRy is complete. Probably, @Manish can quickly test by removing this check in n1sdp board. If this has no impact, we can remove this.",
       "parentUuid": "d5a40ee0_069de5f1",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 60
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b0a0368_6375ceec",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-31T17:32:42Z",
+      "side": 1,
+      "message": "Done. This is removed in next patch.\n\n@Manish: Kindly confirm that the removal of this function has no effect in N1SDP platform.",
+      "parentUuid": "597c7e14_f2e3b08f",
       "range": {
         "startLine": 140,
         "startChar": 0,
@@ -391,6 +499,30 @@
     },
     {
       "key": {
+        "uuid": "06f0ba25_16d236af",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-31T17:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "990b9e9d_03306f01",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 42
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "baa750aa_cd3ba9f5",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 8
@@ -426,6 +558,30 @@
       "side": 1,
       "message": "Will convert to assert in next patch set.",
       "parentUuid": "baa750aa_cd3ba9f5",
+      "range": {
+        "startLine": 160,
+        "startChar": 1,
+        "endLine": 160,
+        "endChar": 39
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1319a550_d939cc72",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-31T17:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "079c36b3_18e57d5e",
       "range": {
         "startLine": 160,
         "startChar": 1,
@@ -567,6 +723,30 @@
       "side": 1,
       "message": "I will add this check in the gicd_set_chipr_n function.",
       "parentUuid": "721c25ab_64827a60",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 57
+      },
+      "revId": "5cef1c4694dafd8687af3a30f0a32f05a9720938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1d56c04_1a9e9eae",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2019-10-31T17:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f62eb21_dfc4064d",
       "range": {
         "startLine": 182,
         "startChar": 0,
