@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77012f11_4eefc306",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-11-01T10:34:29Z",
+      "side": 1,
+      "message": "Suggest: \"and the API may change in future.\"",
+      "range": {
+        "startLine": 20,
+        "startChar": 61,
+        "endLine": 20,
+        "endChar": 94
+      },
+      "revId": "956bbe21fd2eb80420d70bd0e666f6dd7e983874",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75fdc66e_dc932571",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-11-01T10:34:29Z",
+      "side": 1,
+      "message": "just check if spi_id_min \u003c\u003d spi_id_max \nand spi_id_min \u003e\u003d GIC600_SPI_ID_MIN\nand spi_id_max \u003c\u003d GIC600_SPI_ID_MAX\n\nmove all validation to a separate function.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 37
+      },
+      "revId": "956bbe21fd2eb80420d70bd0e666f6dd7e983874",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec11f305_9f4ee2e6",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-11-01T10:34:29Z",
+      "side": 1,
+      "message": "Just do assert((spi_id_max - spi_id_min) % 32 \u003d\u003d 0);",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 38
+      },
+      "revId": "956bbe21fd2eb80420d70bd0e666f6dd7e983874",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13f2c0ee_79328f77",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-11-01T10:34:29Z",
+      "side": 1,
+      "message": "Check for NULL. Move all gic600_multichip_data validation to a separate function including the ones below.",
+      "range": {
+        "startLine": 152,
+        "startChar": 57,
+        "endLine": 152,
+        "endChar": 71
+      },
+      "revId": "956bbe21fd2eb80420d70bd0e666f6dd7e983874",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27e7167f_a414107b",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-11-01T10:34:29Z",
+      "side": 1,
+      "message": "Add an INFO(\"The GIC-600 multichip driver is experimantal\");",
+      "revId": "956bbe21fd2eb80420d70bd0e666f6dd7e983874",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3a22ae2_a6b4cd5e",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-11-01T10:34:29Z",
+      "side": 1,
+      "message": "Introduce macro for [0] and [1] and replace all instances with the macro",
+      "range": {
+        "startLine": 181,
+        "startChar": 35,
+        "endLine": 181,
+        "endChar": 36
+      },
+      "revId": "956bbe21fd2eb80420d70bd0e666f6dd7e983874",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0743c87f_fa324871",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-11-01T10:34:29Z",
+      "side": 1,
+      "message": "Need better logic for checking overlap. Since SPI can be added only in blocks of 32 this fact can be exploited to do a efficient overlap check. I am thinking about 32 bit variable with each bit corresponding to a SPI block. I will let you come up with a proper implementation.",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 4
+      },
+      "revId": "956bbe21fd2eb80420d70bd0e666f6dd7e983874",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
