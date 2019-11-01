@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "228f6525_46952dc9",
+        "filename": "plat/mediatek/mt8183/plat_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2019-11-01T02:43:55Z",
+      "side": 1,
+      "message": "CPU and cluster index far less than the limit of int, so it\u0027s safe to use signed int here. And other cpu/cluster index variable in plat_pm.c are signed int, it\u0027s better to keep consistent here.",
+      "parentUuid": "b9d6cc7e_08e7cccc",
+      "revId": "754d63808355544785e2cb97e62d875da264c6fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0d471ea_0e547a1c",
         "filename": "plat/mediatek/mt8183/plat_pm.c",
         "patchSetId": 1
