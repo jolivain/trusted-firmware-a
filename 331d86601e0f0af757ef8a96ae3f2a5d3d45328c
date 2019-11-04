@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7d81f47_9d2e04de",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-11-04T15:06:32Z",
+      "side": 1,
+      "message": "There is inconsistency in the belwo panic() check and this check as an asert. Suggest to make this proper runtime checks, and panic if the check fails.",
+      "range": {
+        "startLine": 155,
+        "startChar": 3,
+        "endLine": 155,
+        "endChar": 9
+      },
+      "revId": "331d86601e0f0af757ef8a96ae3f2a5d3d45328c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
