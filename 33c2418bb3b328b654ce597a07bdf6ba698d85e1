@@ -16,6 +16,24 @@
       "revId": "33c2418bb3b328b654ce597a07bdf6ba698d85e1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac5bf91d_2f5331e1",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000274
+      },
+      "writtenOn": "2019-11-04T09:39:38Z",
+      "side": 1,
+      "message": "pc has the type u_register_t, so on AArch32 line 62 overflows it. On AArch32 arm_execution_state_switch() also always calls SMC_RET1(handle, STATE_SW_E_DENIED), so even if the entrypoint is valid, the state switch will still fail.\n\nIf you want, I could change the ifdef, so that x1 is ignored on AArch32, and arm_validate_ns_entrypoint() is still called. The difference is only whether we want to even try validating the entrypoint address before failing.",
+      "parentUuid": "bc7e7c15_4418afe3",
+      "revId": "33c2418bb3b328b654ce597a07bdf6ba698d85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
