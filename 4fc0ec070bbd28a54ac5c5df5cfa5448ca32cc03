@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9ed9504_5c4a88b4",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-11-04T17:32:47Z",
+      "side": 1,
+      "message": "This depends on USE_DEBUGFS option, and should be 5 if it is 0.",
+      "revId": "4fc0ec070bbd28a54ac5c5df5cfa5448ca32cc03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
