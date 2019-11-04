@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "0d11034c_f225b271",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-11-04T22:19:50Z",
+      "side": 1,
+      "message": "Can you define a macro for 0x81000000 ? something like PLAT_ARM_DEBUGFS_BASE",
+      "revId": "4fc0ec070bbd28a54ac5c5df5cfa5448ca32cc03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9ed9504_5c4a88b4",
         "filename": "plat/arm/board/fvp/include/platform_def.h",
         "patchSetId": 1
@@ -13,6 +30,40 @@
       "writtenOn": "2019-11-04T17:32:47Z",
       "side": 1,
       "message": "This depends on USE_DEBUGFS option, and should be 5 if it is 0.",
+      "revId": "4fc0ec070bbd28a54ac5c5df5cfa5448ca32cc03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f7c229a_66415a96",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-11-04T22:19:50Z",
+      "side": 1,
+      "message": "Instead of -1 , can you use SMC_UNK?",
+      "revId": "4fc0ec070bbd28a54ac5c5df5cfa5448ca32cc03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21dab660_8f2ed18e",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-11-04T22:19:50Z",
+      "side": 1,
+      "message": "I was wondering what does -2 signify here? Does it mean this SMC call to the DEBUGFS interface is not implemented or not supported?",
       "revId": "4fc0ec070bbd28a54ac5c5df5cfa5448ca32cc03",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
