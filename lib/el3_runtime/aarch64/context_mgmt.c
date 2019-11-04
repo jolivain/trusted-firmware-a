@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -66,7 +66,7 @@ void __init cm_init(void)
 void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 {
 	unsigned int security_state;
-	uint32_t scr_el3;
+	u_register_t scr_el3;
 	el3_state_t *state;
 	gp_regs_t *gp_regs;
 	u_register_t sctlr_elx, actlr_elx;
@@ -87,7 +87,7 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 	 * the required value depending on the state of the SPSR_EL3 and the
 	 * Security state and entrypoint attributes of the next EL.
 	 */
-	scr_el3 = (uint32_t)read_scr();
+	scr_el3 = read_scr();
 	scr_el3 &= ~(SCR_NS_BIT | SCR_RW_BIT | SCR_FIQ_BIT | SCR_IRQ_BIT |
 			SCR_ST_BIT | SCR_HCE_BIT);
 	/*
@@ -531,6 +531,52 @@ void cm_prepare_el3_exit(uint32_t security_state)
 	cm_el1_sysregs_context_restore(security_state);
 	cm_set_next_eret_context(security_state);
 }
+
+#if CTX_INCLUDE_EL2_REGS
+/*******************************************************************************
+ * Save EL2 sysreg context
+ ******************************************************************************/
+void cm_el2_sysregs_context_save(uint32_t security_state)
+{
+	u_register_t scr_el3 = read_scr();
+
+	/*
+	 * Always save the non-secure EL2 context, only save the
+	 * S-EL2 context if S-EL2 is enabled.
+	 */
+	if ((security_state == NON_SECURE) ||
+	    ((scr_el3 & SCR_EEL2_BIT) != 0U)) {
+		cpu_context_t *ctx;
+
+		ctx = cm_get_context(security_state);
+		assert(ctx != NULL);
+
+		el2_sysregs_context_save(get_sysregs_ctx(ctx));
+	}
+}
+
+/*******************************************************************************
+ * Restore EL2 sysreg context
+ ******************************************************************************/
+void cm_el2_sysregs_context_restore(uint32_t security_state)
+{
+	u_register_t scr_el3 = read_scr();
+
+	/*
+	 * Always restore the non-secure EL2 context, only restore the
+	 * S-EL2 context if S-EL2 is enabled.
+	 */
+	if ((security_state == NON_SECURE) ||
+	    ((scr_el3 & SCR_EEL2_BIT) != 0U)) {
+		cpu_context_t *ctx;
+
+		ctx = cm_get_context(security_state);
+		assert(ctx != NULL);
+
+		el2_sysregs_context_restore(get_sysregs_ctx(ctx));
+	}
+}
+#endif /* CTX_INCLUDE_EL2_REGS */
 
 /*******************************************************************************
  * The next four functions are used by runtime services to save and restore

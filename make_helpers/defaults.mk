@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -246,3 +246,8 @@ USE_SPINLOCK_CAS := 0
 
 # Enable Link Time Optimization
 ENABLE_LTO			:= 0
+
+# Build flag to include EL2 registers in cpu context save and restore during
+# S-EL2 firmware entry/exit. This flag is to be used with SPD=spmd option.
+# Default is 0.
+CTX_INCLUDE_EL2_REGS		:= 0
