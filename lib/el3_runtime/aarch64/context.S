@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,9 @@
 #include <asm_macros.S>
 #include <assert_macros.S>
 #include <context.h>
+
+	.global	el2_sysregs_context_save
+	.global	el2_sysregs_context_restore
 
 	.global	el1_sysregs_context_save
 	.global	el1_sysregs_context_restore
@@ -18,6 +21,269 @@
 	.global	save_gp_pmcr_pauth_regs
 	.global	restore_gp_pmcr_pauth_regs
 	.global	el3_exit
+
+#if CTX_INCLUDE_EL2_REGS
+
+/* -----------------------------------------------------
+ * The following function strictly follows the AArch64
+ * PCS to use x9-x17 (temporary caller-saved registers)
+ * to save EL1 system register context. It assumes that
+ * 'x0' is pointing to a 'el1_sys_regs' structure where
+ * the register context will be saved.
+ * -----------------------------------------------------
+ */
+func el2_sysregs_context_save
+
+	mrs	x9, actlr_el2
+	str	x9, [x0, #CTX_ACTLR_EL2]
+
+	mrs	x9, afsr0_el2
+	str	x9, [x0, #CTX_AFSR0_EL2]
+
+	mrs	x9, afsr1_el2
+	str	x9, [x0, #CTX_AFSR1_EL2]
+
+	mrs	x9, amair_el2
+	str	x9, [x0, #CTX_AMAIR_EL2]
+
+	mrs	x9, S3_4_C14_C5_1
+	str	x9, [x0, #CTX_CNTHPS_CTL_EL2]
+
+	mrs	x9, cnthctl_el2
+	str	x9, [x0, #CTX_CNTHCTL_EL2]
+
+	mrs	x9, S3_4_C14_C5_2
+	str	x9, [x0, #CTX_CNTHPS_CVAL_EL2]
+
+	mrs	x9, S3_4_C14_C5_0
+	str	x9, [x0, #CTX_CNTHPS_TVAL_EL2]
+
+	mrs	x9, cnthp_ctl_el2
+	str	x9, [x0, #CTX_CNTHP_CTL_EL2]
+
+	mrs	x9, cnthp_cval_el2
+	str	x9, [x0, #CTX_CNTHP_CVAL_EL2]
+
+	mrs	x9, cnthp_tval_el2
+	str	x9, [x0, #CTX_CNTHP_TVAL_EL2]
+
+	mrs	x9, S3_4_C14_C4_1
+	str	x9, [x0, #CTX_CNTHVS_CTL_EL2]
+
+	mrs	x9, S3_4_C14_C4_2
+	str	x9, [x0, #CTX_CNTHVS_CVAL_EL2]
+
+	mrs	x9, cntvoff_el2
+	str	x9, [x0, #CTX_CNTVOFF_EL2]
+
+	mrs	x9, S3_4_C13_C0_1
+	str	x9, [x0, #CTX_CONTEXTIDR_EL2]
+
+	mrs	x9, cptr_el2
+	str	x9, [x0, #CTX_CPTR_EL2]
+
+	mrs	x9, dbgvcr32_el2
+	str	x9, [x0, #CTX_DBGVCR32_EL2]
+
+	mrs	x9, elr_el2
+	str	x9, [x0, #CTX_ELR_EL2]
+
+	mrs	x9, esr_el2
+	str	x9, [x0, #CTX_ESR_EL2]
+
+	mrs	x9, hcr_el2
+	str	x9, [x0, #CTX_HCR_EL2]
+
+	mrs	x9, mair_el2
+	str	x9, [x0, #CTX_MAIR_EL2]
+
+	mrs	x9, mdcr_el2
+	str	x9, [x0, #CTX_MDCR_EL2]
+
+	mrs	x9, sctlr_el2
+	str	x9, [x0, #CTX_SCTLR_EL2]
+
+	mrs	x9, spsr_el2
+	str	x9, [x0, #CTX_SPSR_EL2]
+
+	mrs	x9, sp_el2
+	str	x9, [x0, #CTX_SP_EL2]
+
+	mrs	x9, tcr_el2
+	str	x9, [x0, #CTX_TCR_EL2]
+
+	mrs	x9, tpidr_el2
+	str	x9, [x0, #CTX_TPIDR_EL2]
+
+	mrs	x9, ttbr0_el2
+	str	x9, [x0, #CTX_TTBR0_EL2]
+
+	mrs	x9, S3_4_C2_C0_1
+	str	x9, [x0, #CTX_TTBR1_EL2]
+
+	mrs	x9, vbar_el2
+	str	x9, [x0, #CTX_VBAR_EL2]
+
+	mrs	x9, S3_4_C12_C1_1
+	str	x9, [x0, #CTX_VDISR_EL2]
+
+	mrs	x9, vmpidr_el2
+	str	x9, [x0, #CTX_VMPIDR_EL2]
+
+	mrs	x9, S3_4_C2_C2_0
+	str	x9, [x0, #CTX_VNCR_EL2]
+
+	mrs	x9, vpidr_el2
+	str	x9, [x0, #CTX_VPIDR_EL2]
+
+	mrs	x9, S3_4_C5_C2_3
+	str	x9, [x0, #CTX_VSESR_EL2]
+
+	mrs	x9, S3_4_C2_C6_2
+	str	x9, [x0, #CTX_VSTCR_EL2]
+
+	mrs	x9, S3_4_C2_C6_0
+	str	x9, [x0, #CTX_VSTTBR_EL2]
+
+	mrs	x9, vtcr_el2
+	str	x9, [x0, #CTX_VTCR_EL2]
+
+	mrs	x9, vttbr_el2
+	str	x9, [x0, #CTX_VTTBR_EL2]
+
+	ret
+endfunc el2_sysregs_context_save
+
+/* -----------------------------------------------------
+ * The following function strictly follows the AArch64
+ * PCS to use x9-x17 (temporary caller-saved registers)
+ * to restore EL1 system register context.  It assumes
+ * that 'x0' is pointing to a 'el1_sys_regs' structure
+ * from where the register context will be restored
+ * -----------------------------------------------------
+ */
+func el2_sysregs_context_restore
+	ldr	x9, [x0, #CTX_ACTLR_EL2]
+	msr	actlr_el2, x9
+
+	ldr	x9, [x0, #CTX_AFSR0_EL2]
+	msr	afsr0_el2, x9
+
+	ldr	x9, [x0, #CTX_AFSR1_EL2]
+	msr	afsr1_el2, x9
+
+	ldr	x9, [x0, #CTX_AMAIR_EL2]
+	msr	amair_el2, x9
+
+	ldr	x9, [x0, #CTX_CNTHPS_CTL_EL2]
+	msr	S3_4_C14_C5_1, x9
+
+	ldr	x9, [x0, #CTX_CNTHCTL_EL2]
+	msr	cnthctl_el2, x9
+
+	ldr	x9, [x0, #CTX_CNTHPS_CVAL_EL2]
+	msr	S3_4_C14_C5_2, x9
+
+	ldr	x9, [x0, #CTX_CNTHPS_TVAL_EL2]
+	msr	S3_4_C14_C5_0, x9
+
+	ldr	x9, [x0, #CTX_CNTHP_CTL_EL2]
+	msr	cnthp_ctl_el2, x9
+
+	ldr	x9, [x0, #CTX_CNTHP_CVAL_EL2]
+	msr	cnthp_cval_el2, x9
+
+	ldr	x9, [x0, #CTX_CNTHP_TVAL_EL2]
+	msr	cnthp_tval_el2, x9
+
+	ldr	x9, [x0, #CTX_CNTHVS_CTL_EL2]
+	msr	S3_4_C14_C4_1, x9
+
+	ldr	x9, [x0, #CTX_CNTHVS_CVAL_EL2]
+	msr	S3_4_C14_C4_2, x9
+
+	ldr	x9, [x0, #CTX_CNTVOFF_EL2]
+	msr	cntvoff_el2, x9
+
+	ldr	x9, [x0, #CTX_CONTEXTIDR_EL2]
+	msr	S3_4_C13_C0_1, x9
+
+	ldr	x9, [x0, #CTX_CPTR_EL2]
+	msr	cptr_el2, x9
+
+	ldr	x9, [x0, #CTX_DBGVCR32_EL2]
+	msr	dbgvcr32_el2, x9
+
+	ldr	x9, [x0, #CTX_ELR_EL2]
+	msr	elr_el2, x9
+
+	ldr	x9, [x0, #CTX_ESR_EL2]
+	msr	esr_el2, x9
+
+	ldr	x9, [x0, #CTX_HCR_EL2]
+	msr	hcr_el2, x9
+
+	ldr	x9, [x0, #CTX_MAIR_EL2]
+	msr	mair_el2, x9
+
+	ldr	x9, [x0, #CTX_MDCR_EL2]
+	msr	mdcr_el2, x9
+
+	ldr	x9, [x0, #CTX_SCTLR_EL2]
+	msr	sctlr_el2, x9
+
+	ldr	x9, [x0, #CTX_SPSR_EL2]
+	msr	spsr_el2, x9
+
+	ldr	x9, [x0, #CTX_SP_EL2]
+	msr	sp_el2, x9
+
+	ldr	x9, [x0, #CTX_TCR_EL2]
+	msr	tcr_el2, x9
+
+	ldr	x9, [x0, #CTX_TPIDR_EL2]
+	msr	tpidr_el2, x9
+
+	ldr	x9, [x0, #CTX_TTBR0_EL2]
+	msr	ttbr0_el2, x9
+
+	ldr	x9, [x0, #CTX_TTBR1_EL2]
+	msr	S3_4_C2_C0_1, x9
+
+	ldr	x9, [x0, #CTX_VBAR_EL2]
+	msr	vbar_el2, x9
+
+	ldr	x9, [x0, #CTX_VDISR_EL2]
+	msr	S3_4_C12_C1_1, x9
+
+	ldr	x9, [x0, #CTX_VMPIDR_EL2]
+	msr	vmpidr_el2, x9
+
+	ldr	x9, [x0, #CTX_VNCR_EL2]
+	msr	S3_4_C2_C2_0, x9
+
+	ldr	x9, [x0, #CTX_VPIDR_EL2]
+	msr	vpidr_el2, x9
+
+	ldr	x9, [x0, #CTX_VSESR_EL2]
+	msr	S3_4_C5_C2_3, x9
+
+	ldr	x9, [x0, #CTX_VSTCR_EL2]
+	msr	S3_4_C2_C6_2, x9
+
+	ldr	x9, [x0, #CTX_VSTTBR_EL2]
+	msr	S3_4_C2_C6_0, x9
+
+	ldr	x9, [x0, #CTX_VTCR_EL2]
+	msr	vtcr_el2, x9
+
+	ldr	x9, [x0, #CTX_VTTBR_EL2]
+	msr	vttbr_el2, x9
+
+	ret
+endfunc el2_sysregs_context_restore
+
+#endif /* CTX_INCLUDE_EL2_REGS */
 
 /* ------------------------------------------------------------------
  * The following function strictly follows the AArch64 PCS to use
