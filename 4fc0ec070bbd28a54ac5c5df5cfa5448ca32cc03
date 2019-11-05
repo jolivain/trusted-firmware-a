@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e00bb1ff_b017c307",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-05T13:52:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d11034c_f225b271",
+      "revId": "4fc0ec070bbd28a54ac5c5df5cfa5448ca32cc03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9ed9504_5c4a88b4",
         "filename": "plat/arm/board/fvp/include/platform_def.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-11-04T17:32:47Z",
       "side": 1,
       "message": "This depends on USE_DEBUGFS option, and should be 5 if it is 0.",
+      "revId": "4fc0ec070bbd28a54ac5c5df5cfa5448ca32cc03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afd6e63f_b0c9dca5",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-05T13:52:30Z",
+      "side": 1,
+      "message": "indeed, fixed.",
+      "parentUuid": "e9ed9504_5c4a88b4",
       "revId": "4fc0ec070bbd28a54ac5c5df5cfa5448ca32cc03",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "46c24d12_a7f43e18",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-05T13:52:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f7c229a_66415a96",
+      "revId": "4fc0ec070bbd28a54ac5c5df5cfa5448ca32cc03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21dab660_8f2ed18e",
         "filename": "plat/arm/common/arm_sip_svc.c",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2019-11-04T22:19:50Z",
       "side": 1,
       "message": "I was wondering what does -2 signify here? Does it mean this SMC call to the DEBUGFS interface is not implemented or not supported?",
+      "revId": "4fc0ec070bbd28a54ac5c5df5cfa5448ca32cc03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ffcf6f8_f3a7c0fd",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-05T13:52:30Z",
+      "side": 1,
+      "message": "This is meant to return an identifiable value for TFTF to skip the test when TFA does not activate the option. Maybe there are other ways, I need to dig into existing tests how to handle this.",
+      "parentUuid": "21dab660_8f2ed18e",
       "revId": "4fc0ec070bbd28a54ac5c5df5cfa5448ca32cc03",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
