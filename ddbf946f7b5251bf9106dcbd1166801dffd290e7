@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "519938b8_4f43b2b1",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_trampoline.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-11-05T08:50:09Z",
+      "side": 1,
+      "message": "To avoid any future discrepancy between this macro and the actual size of the array, would it be worth adding a compile-time assertion in plat/nvidia/tegra/soc/t194/plat_smmu.c, something along these lines:\n\n CASSERT(TEGRA194_SMMU_CTX_SIZE \u003d\u003d ARRAY_SIZE(tegra194_smmu_context),\n   assert_t194_smmu_mismatch);\n\nGiven that the array is statically defined, I think it should work. You might have to export this #define outside of this C file, though.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "ddbf946f7b5251bf9106dcbd1166801dffd290e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fdbdcfb7_e13d00b1",
         "filename": "plat/nvidia/tegra/soc/t194/plat_trampoline.S",
         "patchSetId": 3
