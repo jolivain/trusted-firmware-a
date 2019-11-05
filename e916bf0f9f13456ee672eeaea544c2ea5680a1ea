@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0933e421_4e08fc57",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-11-05T11:33:12Z",
+      "side": 1,
+      "message": "I see that tegra_soc_pwr_domain_suspend() may fail. Wouldn\u0027t it be better to catch its return value and propagate it to the caller of tegra_soc_pwr_domain_suspend()?",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 8
+      },
+      "revId": "e916bf0f9f13456ee672eeaea544c2ea5680a1ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
