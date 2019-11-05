@@ -16,6 +16,24 @@
       "revId": "5fdc76d61c85befb46711456439ee6c9b129997d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a2b9600_df57f4e7",
+        "filename": "include/drivers/allwinner/axp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2019-11-05T04:22:43Z",
+      "side": 1,
+      "message": "I generally prefer to keep the trailing comma, so appending a new entry (exactly the situation in this commit) doesn\u0027t require modifying the preceding line. I see this pattern being used several places throughout the codebase.",
+      "parentUuid": "dec0034c_39a8cd10",
+      "revId": "5fdc76d61c85befb46711456439ee6c9b129997d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
