@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c1bd89a_0cc94e19",
+        "filename": "drivers/delay_timer/delay_timer.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-06T17:54:35Z",
+      "side": 1,
+      "message": "Assert is to make sure the msec delay requested in not greater than UINT32_MAX. \nRequesting for delay higher than (0xFFFFFFFF‬ / 1000 * 1000 \u003d 4294 sec) is quite large and indicates of sometime not correct.",
+      "revId": "9568c7176baf438d328cc0e408146c4758d25b4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35df5b1f_69dcf1c0",
+        "filename": "drivers/delay_timer/delay_timer.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-06T17:54:35Z",
+      "side": 0,
+      "message": "Please add the assert back, usec delay should be reasonable number and not required to be uint64_t",
+      "revId": "5d71d3f624873884a43179aaaafb06cb5a77d507",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
