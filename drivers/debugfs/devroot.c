@@ -14,6 +14,7 @@
 enum {
 	DEV_ROOT_QROOT,
 	DEV_ROOT_QDEV,
+	DEV_ROOT_QFIP,
 	DEV_ROOT_QBLOBS,
 	DEV_ROOT_QBLOBCTL
 };
@@ -25,7 +26,8 @@ enum {
  ******************************************************************************/
 static const dirtab_t dirtab[] = {
 	{"dev",   CHDIR | DEV_ROOT_QDEV,   0, O_READ},
-	{"blobs", CHDIR | DEV_ROOT_QBLOBS, 0, O_READ}
+	{"blobs", CHDIR | DEV_ROOT_QBLOBS, 0, O_READ},
+	{"fip",   CHDIR | DEV_ROOT_QFIP,   0, O_READ}
 };
 
 static const dirtab_t devfstab[] = {
