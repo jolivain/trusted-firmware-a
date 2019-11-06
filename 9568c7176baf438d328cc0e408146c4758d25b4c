@@ -16,6 +16,24 @@
       "revId": "9568c7176baf438d328cc0e408146c4758d25b4c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cc501b4_1dc3545d",
+        "filename": "drivers/delay_timer/delay_timer.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2019-11-06T18:12:26Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t get your point. I added this assert exactly for this reason - if somehow requested delay is too long to even handle.",
+      "parentUuid": "6c1bd89a_0cc94e19",
+      "revId": "9568c7176baf438d328cc0e408146c4758d25b4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }

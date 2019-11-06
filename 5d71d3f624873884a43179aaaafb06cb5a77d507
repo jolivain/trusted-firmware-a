@@ -16,6 +16,24 @@
       "revId": "5d71d3f624873884a43179aaaafb06cb5a77d507",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc6a22d6_984736a2",
+        "filename": "drivers/delay_timer/delay_timer.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2019-11-06T18:12:26Z",
+      "side": 0,
+      "message": "usec is still uint32_t, that\u0027s exactly why we don\u0027t need this assert anymore - even requesting udelay(UINT32_MAX) would not give any problems (aside from sleeping for 4294 seconds)",
+      "parentUuid": "35df5b1f_69dcf1c0",
+      "revId": "5d71d3f624873884a43179aaaafb06cb5a77d507",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
