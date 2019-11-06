@@ -16,7 +16,8 @@ enum {
 	DEV_ROOT_QDEV,
 	DEV_ROOT_QFIP,
 	DEV_ROOT_QBLOBS,
-	DEV_ROOT_QBLOBCTL
+	DEV_ROOT_QBLOBCTL,
+	DEV_ROOT_QPSCI
 };
 
 #include "blobs.h"
@@ -31,6 +32,7 @@ static const dirtab_t dirtab[] = {
 };
 
 static const dirtab_t devfstab[] = {
+	{"psci",  CHDIR | DEV_ROOT_QPSCI,  0, O_READ}
 };
 
 /*******************************************************************************
