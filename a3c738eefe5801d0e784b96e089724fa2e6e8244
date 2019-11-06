@@ -22,6 +22,30 @@
       "revId": "a3c738eefe5801d0e784b96e089724fa2e6e8244",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9681b492_0525556c",
+        "filename": "docs/components/romlib-design.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-11-06T10:41:23Z",
+      "side": 1,
+      "message": "I guess this depends on where the ROMLIB_RW_BASE is defined to be. On ARM platforms this is at top of SRAM.\n\nThe comment here can say something on the lines of \"the ROMLIB needs a page aligned section to hold .... This section is defined by the ROMLIB_RW_BASE and ROMLIB_RW_END linker symbols. On ARM platforms this is at the top of SRAM and is allocated a page of memory.\"",
+      "parentUuid": "80b7d861_e17b8100",
+      "range": {
+        "startLine": 118,
+        "startChar": 51,
+        "endLine": 118,
+        "endChar": 73
+      },
+      "revId": "a3c738eefe5801d0e784b96e089724fa2e6e8244",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
