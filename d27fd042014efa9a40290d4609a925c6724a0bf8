@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "611b2d74_c15d8a26",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-11-06T18:25:04Z",
+      "side": 1,
+      "message": "Shouldn\u0027t the current CPU be excluded from this check because it is obviously not offline if it is the last CPU in the cluster?",
+      "revId": "d27fd042014efa9a40290d4609a925c6724a0bf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcc7d967_ac414bca",
         "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
         "patchSetId": 4
@@ -16,6 +33,23 @@
       "revId": "d27fd042014efa9a40290d4609a925c6724a0bf8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be485346_b00921a9",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-11-06T18:25:04Z",
+      "side": 1,
+      "message": "Why not obtain the core position from  plat_my_core_pos() API?",
+      "revId": "d27fd042014efa9a40290d4609a925c6724a0bf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
