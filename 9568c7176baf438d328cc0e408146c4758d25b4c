@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "c3485528_e44da4b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-06T20:19:48Z",
+      "side": 1,
+      "message": "Please elaborate the commit message. It is not clear what issue are we trying to fix here.\n\nChanging from uint32_t to uint64_t won\u0027t support any frequency, it should be divisible",
+      "revId": "9568c7176baf438d328cc0e408146c4758d25b4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c1bd89a_0cc94e19",
         "filename": "drivers/delay_timer/delay_timer.c",
         "patchSetId": 5
@@ -31,6 +48,41 @@
       "side": 1,
       "message": "Sorry, I don\u0027t get your point. I added this assert exactly for this reason - if somehow requested delay is too long to even handle.",
       "parentUuid": "6c1bd89a_0cc94e19",
+      "revId": "9568c7176baf438d328cc0e408146c4758d25b4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "656c91c9_289ce14e",
+        "filename": "drivers/delay_timer/delay_timer.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-06T20:19:48Z",
+      "side": 1,
+      "message": "My bad, I visualized macro is removed from both places.",
+      "parentUuid": "3cc501b4_1dc3545d",
+      "revId": "9568c7176baf438d328cc0e408146c4758d25b4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f12dd33_a2293e32",
+        "filename": "include/drivers/delay_timer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-06T20:19:48Z",
+      "side": 1,
+      "message": "This is generic structure used in various timer driver. Update will be required for all instances. Quick grep gives this result:\n\ndrivers/delay_timer/generic_delay_timer.c:22:static uint32_t get_timer_value(void)\ndrivers/delay_timer/generic_delay_timer.c:35:   ops.get_timer_value     \u003d get_timer_value;\ndrivers/delay_timer/delay_timer.c:28:           (timer_ops-\u003eget_timer_value !\u003d NULL));\ndrivers/delay_timer/delay_timer.c:34:   start \u003d timer_ops-\u003eget_timer_value();\ndrivers/delay_timer/delay_timer.c:46:           delta \u003d start - timer_ops-\u003eget_timer_value(); /* Decreasing counter */\ndrivers/delay_timer/delay_timer.c:69:           (ops_ptr-\u003eget_timer_value !\u003d NULL));\ndrivers/imx/timer/imx_gpt.c:36: .get_timer_value        \u003d imx_get_timer_value,\ndrivers/arm/sp804/sp804_delay_timer.c:44:       assert(ops !\u003d 0 \u0026\u0026 ops-\u003eget_timer_value \u003d\u003d sp804_get_timer_value);\ninclude/drivers/delay_timer.h:25:       uint32_t (*get_timer_value)(void);\nplat/nvidia/tegra/common/tegra_delay_timer.c:25:                .get_timer_value        \u003d tegra_timerus_get_value,\nplat/marvell/common/plat_delay_timer.c:26:      .get_timer_value        \u003d plat_get_timer_value,\nplat/layerscape/common/ls_timer.c:30:   .get_timer_value        \u003d ls_timeus_get_value,\nplat/intel/soc/common/socfpga_delay_timer.c:30: .get_timer_value    \u003d socfpga_get_timer_value,\nplat/mediatek/mt6795/plat_delay_timer.c:23:     .get_timer_value        \u003d plat_get_timer_value,",
       "revId": "9568c7176baf438d328cc0e408146c4758d25b4c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
