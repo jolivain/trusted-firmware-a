@@ -84,7 +84,8 @@ ifeq (${USE_DEBUGFS},1)
 BL31_SOURCES		+=	drivers/debugfs/dev.c \
 				drivers/debugfs/devc.c \
 				drivers/debugfs/devroot.c \
-				drivers/debugfs/devfip.c
+				drivers/debugfs/devfip.c \
+				drivers/debugfs/devpsci.c
 endif
 
 BL31_LINKERFILE		:=	bl31/bl31.ld.S
