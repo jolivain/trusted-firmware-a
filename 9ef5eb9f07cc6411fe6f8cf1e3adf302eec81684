@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d6155132_62c88511",
+        "filename": "drivers/delay_timer/delay_timer.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2019-11-06T09:51:52Z",
+      "side": 1,
+      "message": "Maybe we should move to UINT64 in general? timer_ops-\u003eget_timer_value() is in fact clipping uint64 to uint32 anyways.\nIn that case, we can leave all asserts and logic as it is, just switch to uint64 for start, delta, total_delta and get_tirer_value()",
+      "parentUuid": "adb35279_eb7ac67e",
+      "revId": "9ef5eb9f07cc6411fe6f8cf1e3adf302eec81684",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "27fe31bf_143aebf2",
         "filename": "include/drivers/generic_delay_timer.h",
         "patchSetId": 3
