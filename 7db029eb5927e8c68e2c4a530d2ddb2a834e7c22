@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3ca6c16_dbe8ce2f",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/se/se.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2019-11-06T11:15:52Z",
+      "side": 1,
+      "message": "nit: This is up to you, but I would initialize sha_status and aes_status with definition as well.",
+      "revId": "7db029eb5927e8c68e2c4a530d2ddb2a834e7c22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
