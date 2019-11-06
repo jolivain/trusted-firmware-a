@@ -45,6 +45,74 @@
       "revId": "7c9860e852f43f506abf2ac75c47a7f996f3417b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce5c5ede_1dbe6d53",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_trampoline.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-06T09:26:18Z",
+      "side": 1,
+      "message": "Lines 26-27 can be combined into a single movk",
+      "revId": "7c9860e852f43f506abf2ac75c47a7f996f3417b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29d2e351_bb9612d2",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_trampoline.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-06T09:26:18Z",
+      "side": 1,
+      "message": "Lines 33-35 can be combined into a single movk",
+      "revId": "7c9860e852f43f506abf2ac75c47a7f996f3417b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcfb4831_a6679a34",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_trampoline.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-06T09:26:18Z",
+      "side": 1,
+      "message": "Lines 130-135 can be combined into:\n\tldr\tw1, [x0, #MC_SECURITY_CFG0_0]\n\tldr\tw2, [x0, #MC_SECURITY_CFG3_0]\n\torr\tx3, x1, x2, lsl #32",
+      "revId": "7c9860e852f43f506abf2ac75c47a7f996f3417b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a729443f_4a9c87ef",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_trampoline.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-06T09:26:18Z",
+      "side": 1,
+      "message": "Lines 140-141 can be combined into a single movk",
+      "revId": "7c9860e852f43f506abf2ac75c47a7f996f3417b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
