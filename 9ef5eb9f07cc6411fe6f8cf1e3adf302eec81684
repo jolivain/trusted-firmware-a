@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "adb35279_eb7ac67e",
+        "filename": "drivers/delay_timer/delay_timer.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-11-06T02:08:08Z",
+      "side": 1,
+      "message": "nit: I think it might be worth it to insert a\n\n assert(total_delta \u003c UINT32_MAX);\n\nhere, or maybe even\n\n assert(total_delta \u003c UINT32_MAX \u003e\u003e 1);\n\nto account for the fact that we can\u0027t catch every tick. Otherwise, a really long delay on a platform with a really high frequency timer could make \u0027delta\u0027 overflow so that it can never reach total_delta. (This check was previously included in the assert() above, but now isn\u0027t anymore.)",
+      "revId": "9ef5eb9f07cc6411fe6f8cf1e3adf302eec81684",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27fe31bf_143aebf2",
+        "filename": "include/drivers/generic_delay_timer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-11-06T02:08:08Z",
+      "side": 1,
+      "message": "nit: you\u0027re not actually changing this file?",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "9ef5eb9f07cc6411fe6f8cf1e3adf302eec81684",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
