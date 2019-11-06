@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b07fe90b_6c679c0e",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2019-11-06T13:22:50Z",
+      "side": 1,
+      "message": "Aren\u0027t these 6.4 Mb? Should there be 0x10000 or /* 6400KB */?",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 34
+      },
+      "revId": "4d98be18e7c60411c53e977089b4f9ade264e5a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
