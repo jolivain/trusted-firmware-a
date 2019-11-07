@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -147,6 +147,14 @@ ifeq (${ARCH},aarch32)
 else
     ifeq (${RESET_TO_BL31},1)
         BL31_CFLAGS	+=	-DPLAT_XLAT_TABLES_DYNAMIC=1
+    endif
+endif
+
+ifeq (${ALLOW_RO_XLAT_TABLES}, 1)
+    ifeq (${JUNO_AARCH32_EL3_RUNTIME}, 1)
+        BL32_CFLAGS	+=	-DPLAT_RO_XLAT_TABLES=1
+    else
+        BL31_CFLAGS	+=	-DPLAT_RO_XLAT_TABLES=1
     endif
 endif
 
