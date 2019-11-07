@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -168,6 +168,10 @@ void arm_sp_min_plat_runtime_setup(void)
 {
 	/* Initialize the runtime console */
 	arm_console_runtime_init();
+
+#if PLAT_RO_XLAT_TABLES
+	arm_xlat_make_tables_readonly();
+#endif
 }
 
 /*******************************************************************************
