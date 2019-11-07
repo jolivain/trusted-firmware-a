@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -231,6 +231,11 @@ int arm_get_mbedtls_heap(void **heap_addr, size_t *heap_size);
  * time so it can be reclaimed for runtime data
  */
 void arm_free_init_memory(void);
+
+/*
+ * Make the higher level translation tables read-only
+ */
+void arm_xlat_make_tables_readonly(void);
 
 /*
  * Mandatory functions required in ARM standard platforms
