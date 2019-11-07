@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "635db1f7_e90bb4d9",
+        "filename": "drivers/delay_timer/delay_timer.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2019-11-07T12:05:50Z",
+      "side": 1,
+      "message": "See my last commit message change. #define read_cntpct_el0() read64_cntpct() suggests we are getting 64 bit value from hardware even on 32-bit platforms. I consulted with Soby Mathew and we found no reason to do the clipping, which is currently done by all platforms.\nI will make a separate patch fixing platform implementation if we agree this is a way to go.",
+      "parentUuid": "bae16c2d_f23fe890",
+      "revId": "9ef5eb9f07cc6411fe6f8cf1e3adf302eec81684",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "27fe31bf_143aebf2",
         "filename": "include/drivers/generic_delay_timer.h",
         "patchSetId": 3
