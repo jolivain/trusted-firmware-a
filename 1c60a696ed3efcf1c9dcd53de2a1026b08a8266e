@@ -52,6 +52,24 @@
       "revId": "1c60a696ed3efcf1c9dcd53de2a1026b08a8266e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cf6eb0f_3b82922f",
+        "filename": "drivers/delay_timer/delay_timer.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-11-08T19:17:54Z",
+      "side": 1,
+      "message": "Really, neither of this is going to work reliably. If you have a 100MHz timer connected over a 25MHz APB you\u0027re gonna miss at least 4 ticks (probably way more) between every query. That\u0027s why I suggested UINT32_MAX \u003e\u003e 1 to be really sure (or doing something like UINT32_MAX - 1000 would probably be good enough as well).",
+      "parentUuid": "4ebf42c2_1b1ecf2c",
+      "revId": "1c60a696ed3efcf1c9dcd53de2a1026b08a8266e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
