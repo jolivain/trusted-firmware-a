@@ -34,6 +34,24 @@
       "revId": "1c60a696ed3efcf1c9dcd53de2a1026b08a8266e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ebf42c2_1b1ecf2c",
+        "filename": "drivers/delay_timer/delay_timer.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-11-08T11:41:32Z",
+      "side": 1,
+      "message": "why 0xFFFFFFFE is a valid value, but 0xFFFFFFFF is not? They both fit in uint32_t",
+      "parentUuid": "33c37132_fec6a430",
+      "revId": "1c60a696ed3efcf1c9dcd53de2a1026b08a8266e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
