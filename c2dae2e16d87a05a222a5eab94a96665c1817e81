@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "9b79f1ab_e7a786ab",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-11-08T14:38:33Z",
+      "side": 1,
+      "message": "There\u0027s a follow-up patch that casts the return value of mce_command_handler into uint32_t here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/2073/4/plat/nvidia/tegra/soc/t194/plat_psci_handlers.c#164\n\nI guess a cast is fine if the mce_command_handler() is always returning a positive value for the MCE_CMD_IS_SC7_ALLOWED command (which I haven\u0027t double-checked).",
+      "parentUuid": "e933ccec_e4db2f19",
+      "revId": "c2dae2e16d87a05a222a5eab94a96665c1817e81",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e7d5e35_098edd3f",
         "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
         "patchSetId": 3
