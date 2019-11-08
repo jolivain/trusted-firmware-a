@@ -92,6 +92,8 @@ You can find additional definitions in the `Arm Glossary`_.
    OTE
       Open-source Trusted Execution Environment
 
+   PAL
+      Property Access Layer
    PDD
       Platform Design Document
 
