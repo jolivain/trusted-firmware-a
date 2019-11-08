@@ -42,11 +42,17 @@ You can find additional definitions in the `Arm Glossary`_.
    DT
       Device Tree
 
+   DTB
+      Device Tree Blop
+
    EL
       Exception Level
 
    EHF
       Exception Handling Framework
+
+   FCONF
+      Firmware Configuration Framework
 
    FDT
       Flattened Device Tree
