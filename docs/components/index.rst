@@ -16,3 +16,4 @@ Components
    sdei
    secure-partition-manager-design
    xlat-tables-lib-v2-design
+   fconf
