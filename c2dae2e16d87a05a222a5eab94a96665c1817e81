@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7b382c29_ea056ebe",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-11-11T17:57:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8bf5514b_f829e982",
+      "range": {
+        "startLine": 137,
+        "startChar": 16,
+        "endLine": 140,
+        "endChar": 49
+      },
+      "revId": "c2dae2e16d87a05a222a5eab94a96665c1817e81",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e933ccec_e4db2f19",
         "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
         "patchSetId": 3
@@ -71,6 +95,30 @@
       "writtenOn": "2019-11-05T10:11:19Z",
       "side": 1,
       "message": "Is there a risk the MCE might never authorize the system suspend operation, turning this into an infinite loop? Should there be a maximum number of attempts before giving up?",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 21
+      },
+      "revId": "c2dae2e16d87a05a222a5eab94a96665c1817e81",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaaed3c6_672c803e",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-11-11T17:57:21Z",
+      "side": 1,
+      "message": "Yes, it would make sense to have a definite loop. I will have to discuss this with the MCE team to see what timeout makes sense.",
+      "parentUuid": "9e7d5e35_098edd3f",
       "range": {
         "startLine": 143,
         "startChar": 0,
