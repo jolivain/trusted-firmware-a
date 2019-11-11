@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "905412ae_a58b0d60",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-11-11T17:58:46Z",
+      "side": 1,
+      "message": "offline is a linux kernel term. We meant CPU power down",
+      "parentUuid": "9f0edb20_0e7af616",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "4c6d3283902da936a34975276376e5bcd8493c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4cd4a243_110da67d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "4c6d3283902da936a34975276376e5bcd8493c5c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "958e5b53_6848a220",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-11-11T17:58:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4cd4a243_110da67d",
+      "range": {
+        "startLine": 11,
+        "startChar": 40,
+        "endLine": 11,
+        "endChar": 50
+      },
+      "revId": "4c6d3283902da936a34975276376e5bcd8493c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "05af90de_a536f34b",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-11-11T17:58:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c85cbeab_391ae098",
+      "range": {
+        "startLine": 224,
+        "startChar": 34,
+        "endLine": 224,
+        "endChar": 35
+      },
+      "revId": "4c6d3283902da936a34975276376e5bcd8493c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71fd7d67_217bf234",
         "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
         "patchSetId": 4
@@ -91,6 +163,30 @@
       "revId": "4c6d3283902da936a34975276376e5bcd8493c5c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dcc6bb1_eedd8774",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-11-11T17:58:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "71fd7d67_217bf234",
+      "range": {
+        "startLine": 229,
+        "startChar": 34,
+        "endLine": 229,
+        "endChar": 35
+      },
+      "revId": "4c6d3283902da936a34975276376e5bcd8493c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
