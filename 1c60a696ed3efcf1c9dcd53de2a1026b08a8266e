@@ -70,6 +70,24 @@
       "revId": "1c60a696ed3efcf1c9dcd53de2a1026b08a8266e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3922259e_66f2d98e",
+        "filename": "drivers/delay_timer/delay_timer.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2019-11-11T13:57:18Z",
+      "side": 1,
+      "message": "UINT32_MAX - 1000 sounds reasonable, will upload a patch.",
+      "parentUuid": "6cf6eb0f_3b82922f",
+      "revId": "1c60a696ed3efcf1c9dcd53de2a1026b08a8266e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
