@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "276e6c11_6564d1c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-12T09:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c31c94f_a32cba74",
+      "range": {
+        "startLine": 14,
+        "startChar": 58,
+        "endLine": 14,
+        "endChar": 68
+      },
+      "revId": "06650962e8d29073d0956e00b14a265feeddc1eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2159cda_a0ab71f2",
         "filename": "drivers/debugfs/dev.c",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-11-07T15:21:29Z",
       "side": 1,
       "message": "I am aware of the work that this comment involved, but I really think that the readability of the code could be greatly improved by using more meaningful variable names.",
+      "range": {
+        "startLine": 98,
+        "startChar": 13,
+        "endLine": 98,
+        "endChar": 14
+      },
+      "revId": "06650962e8d29073d0956e00b14a265feeddc1eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebe5d110_06fdd54f",
+        "filename": "drivers/debugfs/dev.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-12T09:34:05Z",
+      "side": 1,
+      "message": "Yes, agree, this will come if this patchset is eventually candidate for merge.",
+      "parentUuid": "c2159cda_a0ab71f2",
       "range": {
         "startLine": 98,
         "startChar": 13,
@@ -68,6 +116,30 @@
       "revId": "06650962e8d29073d0956e00b14a265feeddc1eb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3180d26_d90c2a9e",
+        "filename": "drivers/debugfs/dev.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-12T09:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7755891e_78b2d9ed",
+      "range": {
+        "startLine": 70,
+        "startChar": 15,
+        "endLine": 70,
+        "endChar": 19
+      },
+      "revId": "06650962e8d29073d0956e00b14a265feeddc1eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
