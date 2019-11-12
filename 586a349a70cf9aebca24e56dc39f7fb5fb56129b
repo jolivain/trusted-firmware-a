@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d1f2476_aa5f45bc",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-11-12T19:10:32Z",
+      "side": 1,
+      "message": "Since the target dependency is \"all\", memmap will build the BL binaries (with default flags) if any binary is missing. Is this intentional? \nI believe the python script should check if all appropriate BL binaries are available and report an error if any binary is missing. The user can then build using the appropriate build flags.",
+      "range": {
+        "startLine": 1000,
+        "startChar": 8,
+        "endLine": 1000,
+        "endChar": 11
+      },
+      "revId": "586a349a70cf9aebca24e56dc39f7fb5fb56129b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
