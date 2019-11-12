@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8afce07d_28f7abfc",
+        "filename": "lib/xlat_tables/aarch32/nonlpae_tables.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-12T16:31:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3af3287e_296644f7",
+      "range": {
+        "startLine": 399,
+        "startChar": 2,
+        "endLine": 399,
+        "endChar": 19
+      },
+      "revId": "a93cd252259bca1744d5a516b6e4e164a5de056c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ef866a3_0036ec36",
         "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2019-11-12T15:29:46Z",
       "side": 1,
       "message": "Would it be more appropriate to cast subtable into a uint64_t, as table_base[] holds 64-bit values?",
+      "range": {
+        "startLine": 611,
+        "startChar": 17,
+        "endLine": 611,
+        "endChar": 37
+      },
+      "revId": "a93cd252259bca1744d5a516b6e4e164a5de056c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1cddfdd_86a4bc1e",
+        "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-12T16:31:02Z",
+      "side": 1,
+      "message": "Changed to uint32_t - as per previous comments in mail. \nsubtable is less than 2**32, so can use 32-bit size explicitly",
+      "parentUuid": "8ef866a3_0036ec36",
       "range": {
         "startLine": 611,
         "startChar": 17,
