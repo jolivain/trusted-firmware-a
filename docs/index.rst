@@ -14,6 +14,7 @@ Trusted Firmware-A Documentation
    plat/index
    perf/index
    security_advisories/index
+   design_documents/index
    change-log
    change-log-upcoming
    glossary
