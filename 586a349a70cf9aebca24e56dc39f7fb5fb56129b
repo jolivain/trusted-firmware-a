@@ -46,6 +46,30 @@
       "revId": "586a349a70cf9aebca24e56dc39f7fb5fb56129b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7aa55b0_7e54355f",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-11-13T15:03:00Z",
+      "side": 1,
+      "message": "using ${BUILD_PLAT} as dependency seems to be a better option here, but that doesn\u0027t work if you add -j to the make commande",
+      "parentUuid": "dfc09d06_00139195",
+      "range": {
+        "startLine": 1000,
+        "startChar": 8,
+        "endLine": 1000,
+        "endChar": 11
+      },
+      "revId": "586a349a70cf9aebca24e56dc39f7fb5fb56129b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
