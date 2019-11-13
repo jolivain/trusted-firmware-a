@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3f1757fd_e53db27a",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_memctrl.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-11-13T13:48:09Z",
+      "side": 1,
+      "message": "Hi Maksims, lines over 80 columns is only a warning from checkpatch, not an error, so we do not mandate it.\n\nIn this specific case, I think truncating the lines would hurt readability.",
+      "parentUuid": "ee7a8275_13fc83e6",
+      "revId": "2e53fdd8dcd227ede86d1bc77d6ef9dcec8923f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7f0e988_1e63c574",
         "filename": "plat/nvidia/tegra/soc/t194/plat_memctrl.c",
         "patchSetId": 4
