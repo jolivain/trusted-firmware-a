@@ -30,12 +30,19 @@ enum {
 	LOG_ERR
 };
 
+enum {
+	PLAIN = 0,
+	ENCRYPTED = 1
+};
+
 typedef struct image_desc {
 	uuid_t             uuid;
 	char              *name;
 	char              *cmdline_name;
+	char              *cmdline_enc_name;
 	int                action;
 	char              *action_arg;
+	int                image_type;
 	struct image      *image;
 	struct image_desc *next;
 } image_desc_t;
