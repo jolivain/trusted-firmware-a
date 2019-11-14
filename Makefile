@@ -159,6 +159,16 @@ else
 endif
 endif
 
+FIP_ARGS += --fw-enc-status ${FW_ENC_STATUS}
+FWU_FIP_ARGS += --fw-enc-status ${FW_ENC_STATUS}
+
+ifneq (${FW_ENC_STATUS},0)
+ENC_ARGS += -k ${ENC_KEY}
+ENC_ARGS += -n ${ENC_NONCE}
+FIP_DEPS += enctool
+FWU_FIP_DEPS += enctool
+endif
+
 ################################################################################
 # Toolchain
 ################################################################################
@@ -580,6 +590,12 @@ ifeq ($(CTX_INCLUDE_MTE_REGS),1)
     endif
 endif
 
+ifneq (${FW_ENC_STATUS},0)
+    ifeq (${TRUSTED_BOARD_BOOT}, 0)
+        $(error "TRUSTED_BOARD_BOOT must be enabled for FW_ENC_STATUS to be set.")
+    endif
+endif
+
 ################################################################################
 # Process platform overrideable behaviour
 ################################################################################
@@ -753,10 +769,13 @@ $(eval $(call assert_boolean,BL2_AT_EL3))
 $(eval $(call assert_boolean,BL2_IN_XIP_MEM))
 $(eval $(call assert_boolean,BL2_INV_DCACHE))
 $(eval $(call assert_boolean,USE_SPINLOCK_CAS))
+$(eval $(call assert_boolean,ENCRYPT_BL31))
+$(eval $(call assert_boolean,ENCRYPT_BL32))
 
 $(eval $(call assert_numeric,ARM_ARCH_MAJOR))
 $(eval $(call assert_numeric,ARM_ARCH_MINOR))
 $(eval $(call assert_numeric,BRANCH_PROTECTION))
+$(eval $(call assert_numeric,FW_ENC_STATUS))
 
 ifdef KEY_SIZE
         $(eval $(call assert_numeric,KEY_SIZE))
@@ -897,8 +916,13 @@ endif
 
 ifeq (${NEED_BL31},yes)
 BL31_SOURCES += ${SPD_SOURCES}
+ifneq ($(FW_ENC_STATUS),0)
+$(if ${BL31}, $(eval $(call TOOL_ADD_IMG,bl31,--soc-fw,,$(ENCRYPT_BL31))),\
+	$(eval $(call MAKE_BL,31,soc-fw,,$(ENCRYPT_BL31))))
+else
 $(if ${BL31}, $(eval $(call TOOL_ADD_IMG,bl31,--soc-fw)),\
 	$(eval $(call MAKE_BL,31,soc-fw)))
+endif
 endif
 
 # If a BL32 image is needed but neither BL32 nor BL32_SOURCES is defined, the
@@ -908,8 +932,13 @@ ifeq (${NEED_BL32},yes)
 
 BUILD_BL32 := $(if $(BL32),,$(if $(BL32_SOURCES),1))
 
+ifneq ($(FW_ENC_STATUS),0)
+$(if ${BUILD_BL32}, $(eval $(call MAKE_BL,32,tos-fw,,$(ENCRYPT_BL32))),\
+	$(eval $(call TOOL_ADD_IMG,bl32,--tos-fw,,$(ENCRYPT_BL32))))
+else
 $(if ${BUILD_BL32}, $(eval $(call MAKE_BL,32,tos-fw)),\
 	$(eval $(call TOOL_ADD_IMG,bl32,--tos-fw)))
+endif
 endif
 
 # Add the BL33 image if required by the platform
