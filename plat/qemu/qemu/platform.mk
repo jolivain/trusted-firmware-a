@@ -162,10 +162,18 @@ endif
 # Add the build options to pack Trusted OS Extra1 and Trusted OS Extra2 images
 # in the FIP if the platform requires.
 ifneq ($(BL32_EXTRA1),)
+ifneq ($(FW_ENC_STATUS),0)
+$(eval $(call TOOL_ADD_IMG,bl32_extra1,--tos-fw-extra1,,$(ENCRYPT_BL32)))
+else
 $(eval $(call TOOL_ADD_IMG,bl32_extra1,--tos-fw-extra1))
 endif
+endif
 ifneq ($(BL32_EXTRA2),)
+ifneq ($(FW_ENC_STATUS),0)
+$(eval $(call TOOL_ADD_IMG,bl32_extra2,--tos-fw-extra2,,$(ENCRYPT_BL32)))
+else
 $(eval $(call TOOL_ADD_IMG,bl32_extra2,--tos-fw-extra2))
+endif
 endif
 
 SEPARATE_CODE_AND_RODATA := 1
