@@ -59,18 +59,30 @@ static const io_uuid_spec_t bl2_uuid_spec = {
 
 static const io_uuid_spec_t bl31_uuid_spec = {
 	.uuid = UUID_EL3_RUNTIME_FIRMWARE_BL31,
+#if ENCRYPT_BL31
+	.encrypted = true,
+#endif
 };
 
 static const io_uuid_spec_t bl32_uuid_spec = {
 	.uuid = UUID_SECURE_PAYLOAD_BL32,
+#if ENCRYPT_BL32
+	.encrypted = true,
+#endif
 };
 
 static const io_uuid_spec_t bl32_extra1_uuid_spec = {
 	.uuid = UUID_SECURE_PAYLOAD_BL32_EXTRA1,
+#if ENCRYPT_BL32
+	.encrypted = true,
+#endif
 };
 
 static const io_uuid_spec_t bl32_extra2_uuid_spec = {
 	.uuid = UUID_SECURE_PAYLOAD_BL32_EXTRA2,
+#if ENCRYPT_BL32
+	.encrypted = true,
+#endif
 };
 
 static const io_uuid_spec_t bl33_uuid_spec = {
