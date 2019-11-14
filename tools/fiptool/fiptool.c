@@ -22,6 +22,8 @@
 #define OPT_TOC_ENTRY 0
 #define OPT_PLAT_TOC_FLAGS 1
 #define OPT_ALIGN 2
+#define OPT_TOC_ENC_ENTRY 3
+#define OPT_FW_ENC_STATUS_FLAG 4
 
 static int info_cmd(int argc, char *argv[]);
 static void info_usage(void);
@@ -134,8 +136,9 @@ static void xfwrite(void *buf, size_t size, FILE *fp, const char *filename)
 		log_errx("Failed to write %s", filename);
 }
 
-static image_desc_t *new_image_desc(const uuid_t *uuid,
-    const char *name, const char *cmdline_name)
+static image_desc_t *new_image_desc(const uuid_t *uuid, const char *name,
+				    const char *cmdline_name,
+				    const char *cmdline_enc_name)
 {
 	image_desc_t *desc;
 
@@ -146,6 +149,9 @@ static image_desc_t *new_image_desc(const uuid_t *uuid,
 	    "failed to allocate memory for image name");
 	desc->cmdline_name = xstrdup(cmdline_name,
 	    "failed to allocate memory for image command line name");
+	if (cmdline_enc_name)
+		desc->cmdline_enc_name = xstrdup(cmdline_enc_name,
+		    "failed to allocate memory for enc image cmd line name");
 	desc->action = DO_UNSPEC;
 	return desc;
 }
@@ -168,6 +174,7 @@ static void free_image_desc(image_desc_t *desc)
 {
 	free(desc->name);
 	free(desc->cmdline_name);
+	free(desc->cmdline_enc_name);
 	free(desc->action_arg);
 	if (desc->image) {
 		free(desc->image->buffer);
@@ -212,7 +219,8 @@ static void fill_image_descs(void)
 
 		desc = new_image_desc(&toc_entry->uuid,
 		    toc_entry->name,
-		    toc_entry->cmdline_name);
+		    toc_entry->cmdline_name,
+		    toc_entry->cmdline_enc_name);
 		add_image_desc(desc);
 	}
 }
@@ -231,9 +239,13 @@ static image_desc_t *lookup_image_desc_from_opt(const char *opt)
 {
 	image_desc_t *desc;
 
-	for (desc = image_desc_head; desc != NULL; desc = desc->next)
+	for (desc = image_desc_head; desc != NULL; desc = desc->next) {
 		if (strcmp(desc->cmdline_name, opt) == 0)
 			return desc;
+		if (strcmp(desc->cmdline_enc_name, opt) == 0)
+			return desc;
+	}
+
 	return NULL;
 }
 
@@ -350,7 +362,8 @@ static int parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 			uuid_to_str(name, sizeof(name), &toc_entry->uuid);
 			snprintf(filename, sizeof(filename), "%s%s",
 			    name, ".bin");
-			desc = new_image_desc(&toc_entry->uuid, name, "blob");
+			desc = new_image_desc(&toc_entry->uuid, name, "blob",
+					      NULL);
 			desc->action = DO_UNPACK;
 			desc->action_arg = xstrdup(filename,
 			    "failed to allocate memory for blob filename");
@@ -359,6 +372,7 @@ static int parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 
 		assert(desc->image == NULL);
 		desc->image = image;
+		desc->image_type = toc_entry->flags & 0x1;
 
 		toc_entry++;
 	}
@@ -428,9 +442,14 @@ static struct option *fill_common_opts(struct option *opts, size_t *nr_opts,
 {
 	image_desc_t *desc;
 
-	for (desc = image_desc_head; desc != NULL; desc = desc->next)
+	for (desc = image_desc_head; desc != NULL; desc = desc->next) {
 		opts = add_opt(opts, nr_opts, desc->cmdline_name, has_arg,
-		    OPT_TOC_ENTRY);
+			       OPT_TOC_ENTRY);
+		if (desc->cmdline_enc_name)
+			opts = add_opt(opts, nr_opts, desc->cmdline_enc_name,
+				       has_arg, OPT_TOC_ENC_ENTRY);
+	}
+
 	return opts;
 }
 
@@ -464,14 +483,20 @@ static int info_cmd(int argc, char *argv[])
 
 	for (desc = image_desc_head; desc != NULL; desc = desc->next) {
 		image_t *image = desc->image;
+		char *name;
 
 		if (image == NULL)
 			continue;
+
+		if (desc->image_type == ENCRYPTED)
+			name = desc->cmdline_enc_name;
+		else
+			name = desc->cmdline_name;
+
 		printf("%s: offset=0x%llX, size=0x%llX, cmdline=\"--%s\"",
 		       desc->name,
 		       (unsigned long long)image->toc_e.offset_address,
-		       (unsigned long long)image->toc_e.size,
-		       desc->cmdline_name);
+		       (unsigned long long)image->toc_e.size, name);
 #ifndef _MSC_VER	/* We don't have SHA256 for Visual Studio. */
 		if (verbose) {
 			unsigned char md[SHA256_DIGEST_LENGTH];
@@ -530,6 +555,8 @@ static int pack_images(const char *filename, uint64_t toc_flags, unsigned long a
 		payload_size += image->toc_e.size;
 		entry_offset = (entry_offset + align - 1) & ~(align - 1);
 		image->toc_e.offset_address = entry_offset;
+		image->toc_e.flags |= desc->image_type;
+
 		*toc_entry++ = image->toc_e;
 		entry_offset += image->toc_e.size;
 	}
@@ -628,6 +655,20 @@ static void parse_plat_toc_flags(const char *arg, unsigned long long *toc_flags)
 	*toc_flags |= flags << 32;
 }
 
+static void parse_fw_enc_status_flag(const char *arg,
+				     unsigned long long *toc_flags)
+{
+	unsigned long long flag;
+	char *endptr;
+
+	errno = 0;
+	flag = strtoull(arg, &endptr, 16);
+	if (*endptr != '\0' || flag > 0x3 || errno != 0)
+		log_errx("Invalid FW enc status ToC flag: %s", arg);
+	/* FW enc status ToC flag is a 2-bit field occupying bits [0-1]. */
+	*toc_flags |= flag & 0x3;
+}
+
 static int is_power_of_2(unsigned long x)
 {
 	return x && !(x & (x - 1));
@@ -676,6 +717,8 @@ static int create_cmd(int argc, char *argv[])
 	    OPT_PLAT_TOC_FLAGS);
 	opts = add_opt(opts, &nr_opts, "align", required_argument, OPT_ALIGN);
 	opts = add_opt(opts, &nr_opts, "blob", required_argument, 'b');
+	opts = add_opt(opts, &nr_opts, "fw-enc-status", required_argument,
+		       OPT_FW_ENC_STATUS_FLAG);
 	opts = add_opt(opts, &nr_opts, NULL, 0, 0);
 
 	while (1) {
@@ -690,11 +733,23 @@ static int create_cmd(int argc, char *argv[])
 			image_desc_t *desc;
 
 			desc = lookup_image_desc_from_opt(opts[opt_index].name);
+			desc->image_type = PLAIN;
+			set_image_desc_action(desc, DO_PACK, optarg);
+			break;
+		}
+		case OPT_TOC_ENC_ENTRY: {
+			image_desc_t *desc;
+
+			desc = lookup_image_desc_from_opt(opts[opt_index].name);
+			desc->image_type = ENCRYPTED;
 			set_image_desc_action(desc, DO_PACK, optarg);
 			break;
 		}
 		case OPT_PLAT_TOC_FLAGS:
 			parse_plat_toc_flags(optarg, &toc_flags);
+			break;
+		case OPT_FW_ENC_STATUS_FLAG:
+			parse_fw_enc_status_flag(optarg, &toc_flags);
 			break;
 		case OPT_ALIGN:
 			align = get_image_align(optarg);
@@ -715,7 +770,8 @@ static int create_cmd(int argc, char *argv[])
 			desc = lookup_image_desc_from_uuid(&uuid);
 			if (desc == NULL) {
 				uuid_to_str(name, sizeof(name), &uuid);
-				desc = new_image_desc(&uuid, name, "blob");
+				desc = new_image_desc(&uuid, name, "blob",
+						      NULL);
 				add_image_desc(desc);
 			}
 			set_image_desc_action(desc, DO_PACK, filename);
@@ -741,6 +797,7 @@ static int create_cmd(int argc, char *argv[])
 static void create_usage(void)
 {
 	toc_entry_t *toc_entry = toc_entries;
+	char name[32];
 
 	printf("fiptool create [opts] FIP_FILENAME\n");
 	printf("\n");
@@ -750,9 +807,10 @@ static void create_usage(void)
 	printf("  --plat-toc-flags <value>\t16-bit platform specific flag field occupying bits 32-47 in 64-bit ToC header.\n");
 	printf("\n");
 	printf("Specific images are packed with the following options:\n");
-	for (; toc_entry->cmdline_name != NULL; toc_entry++)
-		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
-		    toc_entry->name);
+	for (; toc_entry->cmdline_name != NULL; toc_entry++) {
+		sprintf(name, "%s%s", toc_entry->cmdline_name, "(-enc)");
+		printf("  --%-22s FILENAME\t%s\n", name, toc_entry->name);
+	}
 	exit(1);
 }
 
@@ -775,6 +833,8 @@ static int update_cmd(int argc, char *argv[])
 	opts = add_opt(opts, &nr_opts, "out", required_argument, 'o');
 	opts = add_opt(opts, &nr_opts, "plat-toc-flags", required_argument,
 	    OPT_PLAT_TOC_FLAGS);
+	opts = add_opt(opts, &nr_opts, "fw-enc-status", required_argument,
+		       OPT_FW_ENC_STATUS_FLAG);
 	opts = add_opt(opts, &nr_opts, NULL, 0, 0);
 
 	while (1) {
@@ -789,12 +849,24 @@ static int update_cmd(int argc, char *argv[])
 			image_desc_t *desc;
 
 			desc = lookup_image_desc_from_opt(opts[opt_index].name);
+			desc->image_type = PLAIN;
+			set_image_desc_action(desc, DO_PACK, optarg);
+			break;
+		}
+		case OPT_TOC_ENC_ENTRY: {
+			image_desc_t *desc;
+
+			desc = lookup_image_desc_from_opt(opts[opt_index].name);
+			desc->image_type = ENCRYPTED;
 			set_image_desc_action(desc, DO_PACK, optarg);
 			break;
 		}
 		case OPT_PLAT_TOC_FLAGS:
 			parse_plat_toc_flags(optarg, &toc_flags);
 			pflag = 1;
+			break;
+		case OPT_FW_ENC_STATUS_FLAG:
+			parse_fw_enc_status_flag(optarg, &toc_flags);
 			break;
 		case 'b': {
 			char name[_UUID_STR_LEN + 1];
@@ -812,7 +884,8 @@ static int update_cmd(int argc, char *argv[])
 			desc = lookup_image_desc_from_uuid(&uuid);
 			if (desc == NULL) {
 				uuid_to_str(name, sizeof(name), &uuid);
-				desc = new_image_desc(&uuid, name, "blob");
+				desc = new_image_desc(&uuid, name, "blob",
+						      NULL);
 				add_image_desc(desc);
 			}
 			set_image_desc_action(desc, DO_PACK, filename);
@@ -854,6 +927,7 @@ static int update_cmd(int argc, char *argv[])
 static void update_usage(void)
 {
 	toc_entry_t *toc_entry = toc_entries;
+	char name[32];
 
 	printf("fiptool update [opts] FIP_FILENAME\n");
 	printf("\n");
@@ -864,9 +938,11 @@ static void update_usage(void)
 	printf("  --plat-toc-flags <value>\t16-bit platform specific flag field occupying bits 32-47 in 64-bit ToC header.\n");
 	printf("\n");
 	printf("Specific images are packed with the following options:\n");
-	for (; toc_entry->cmdline_name != NULL; toc_entry++)
-		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
-		    toc_entry->name);
+	for (; toc_entry->cmdline_name != NULL; toc_entry++) {
+		sprintf(name, "%s%s", toc_entry->cmdline_name, "(-enc)");
+		printf("  --%-22s FILENAME\t%s\n", name, toc_entry->name);
+	}
+
 	exit(1);
 }
 
@@ -900,6 +976,16 @@ static int unpack_cmd(int argc, char *argv[])
 			image_desc_t *desc;
 
 			desc = lookup_image_desc_from_opt(opts[opt_index].name);
+			desc->image_type = PLAIN;
+			set_image_desc_action(desc, DO_UNPACK, optarg);
+			unpack_all = 0;
+			break;
+		}
+		case OPT_TOC_ENC_ENTRY: {
+			image_desc_t *desc;
+
+			desc = lookup_image_desc_from_opt(opts[opt_index].name);
+			desc->image_type = ENCRYPTED;
 			set_image_desc_action(desc, DO_UNPACK, optarg);
 			unpack_all = 0;
 			break;
@@ -920,7 +1006,8 @@ static int unpack_cmd(int argc, char *argv[])
 			desc = lookup_image_desc_from_uuid(&uuid);
 			if (desc == NULL) {
 				uuid_to_str(name, sizeof(name), &uuid);
-				desc = new_image_desc(&uuid, name, "blob");
+				desc = new_image_desc(&uuid, name, "blob",
+						      NULL);
 				add_image_desc(desc);
 			}
 			set_image_desc_action(desc, DO_UNPACK, filename);
@@ -989,6 +1076,7 @@ static int unpack_cmd(int argc, char *argv[])
 static void unpack_usage(void)
 {
 	toc_entry_t *toc_entry = toc_entries;
+	char name[32];
 
 	printf("fiptool unpack [opts] FIP_FILENAME\n");
 	printf("\n");
@@ -998,9 +1086,10 @@ static void unpack_usage(void)
 	printf("  --out path\t\t\tSet the output directory path.\n");
 	printf("\n");
 	printf("Specific images are unpacked with the following options:\n");
-	for (; toc_entry->cmdline_name != NULL; toc_entry++)
-		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
-		    toc_entry->name);
+	for (; toc_entry->cmdline_name != NULL; toc_entry++) {
+		sprintf(name, "%s%s", toc_entry->cmdline_name, "(-enc)");
+		printf("  --%-22s FILENAME\t%s\n", name, toc_entry->name);
+	}
 	printf("\n");
 	printf("If no options are provided, all images will be unpacked.\n");
 	exit(1);
@@ -1038,6 +1127,15 @@ static int remove_cmd(int argc, char *argv[])
 			image_desc_t *desc;
 
 			desc = lookup_image_desc_from_opt(opts[opt_index].name);
+			desc->image_type = PLAIN;
+			set_image_desc_action(desc, DO_REMOVE, NULL);
+			break;
+		}
+		case OPT_TOC_ENC_ENTRY: {
+			image_desc_t *desc;
+
+			desc = lookup_image_desc_from_opt(opts[opt_index].name);
+			desc->image_type = ENCRYPTED;
 			set_image_desc_action(desc, DO_REMOVE, NULL);
 			break;
 		}
@@ -1058,7 +1156,8 @@ static int remove_cmd(int argc, char *argv[])
 			desc = lookup_image_desc_from_uuid(&uuid);
 			if (desc == NULL) {
 				uuid_to_str(name, sizeof(name), &uuid);
-				desc = new_image_desc(&uuid, name, "blob");
+				desc = new_image_desc(&uuid, name, "blob",
+						      NULL);
 				add_image_desc(desc);
 			}
 			set_image_desc_action(desc, DO_REMOVE, NULL);
@@ -1113,6 +1212,7 @@ static int remove_cmd(int argc, char *argv[])
 static void remove_usage(void)
 {
 	toc_entry_t *toc_entry = toc_entries;
+	char name[32];
 
 	printf("fiptool remove [opts] FIP_FILENAME\n");
 	printf("\n");
@@ -1124,8 +1224,8 @@ static void remove_usage(void)
 	printf("\n");
 	printf("Specific images are removed with the following options:\n");
 	for (; toc_entry->cmdline_name != NULL; toc_entry++)
-		printf("  --%-16s\t%s\n", toc_entry->cmdline_name,
-		    toc_entry->name);
+		sprintf(name, "%s%s", toc_entry->cmdline_name, "(-enc)");
+		printf("  --%-22s\t%s\n", name, toc_entry->name);
 	exit(1);
 }
 
