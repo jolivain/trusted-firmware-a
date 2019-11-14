@@ -159,6 +159,16 @@ else
 endif
 endif
 
+FIP_ARGS += --fw-enc-status ${FW_ENC_STATUS}
+FWU_FIP_ARGS += --fw-enc-status ${FW_ENC_STATUS}
+
+ifneq (${DECRYPTION_SUPPORT},none)
+ENC_ARGS += -k ${ENC_KEY}
+ENC_ARGS += -n ${ENC_NONCE}
+FIP_DEPS += enctool
+FWU_FIP_DEPS += enctool
+endif
+
 ################################################################################
 # Toolchain
 ################################################################################
@@ -804,10 +814,13 @@ $(eval $(call assert_boolean,BL2_AT_EL3))
 $(eval $(call assert_boolean,BL2_IN_XIP_MEM))
 $(eval $(call assert_boolean,BL2_INV_DCACHE))
 $(eval $(call assert_boolean,USE_SPINLOCK_CAS))
+$(eval $(call assert_boolean,ENCRYPT_BL31))
+$(eval $(call assert_boolean,ENCRYPT_BL32))
 
 $(eval $(call assert_numeric,ARM_ARCH_MAJOR))
 $(eval $(call assert_numeric,ARM_ARCH_MINOR))
 $(eval $(call assert_numeric,BRANCH_PROTECTION))
+$(eval $(call assert_numeric,FW_ENC_STATUS))
 
 ifdef KEY_SIZE
         $(eval $(call assert_numeric,KEY_SIZE))
@@ -842,6 +855,8 @@ $(eval $(call add_define,ENABLE_PSCI_STAT))
 $(eval $(call add_define,ENABLE_RUNTIME_INSTRUMENTATION))
 $(eval $(call add_define,ENABLE_SPE_FOR_LOWER_ELS))
 $(eval $(call add_define,ENABLE_SVE_FOR_NS))
+$(eval $(call add_define,ENCRYPT_BL31))
+$(eval $(call add_define,ENCRYPT_BL32))
 $(eval $(call add_define,ERROR_DEPRECATED))
 $(eval $(call add_define,FAULT_INJECTION_SUPPORT))
 $(eval $(call add_define,GICV2_G0_FOR_EL3))
@@ -950,8 +965,13 @@ endif
 
 ifeq (${NEED_BL31},yes)
 BL31_SOURCES += ${SPD_SOURCES}
+ifneq (${DECRYPTION_SUPPORT},none)
+$(if ${BL31}, $(eval $(call TOOL_ADD_IMG,bl31,--soc-fw,,$(ENCRYPT_BL31))),\
+	$(eval $(call MAKE_BL,31,soc-fw,,$(ENCRYPT_BL31))))
+else
 $(if ${BL31}, $(eval $(call TOOL_ADD_IMG,bl31,--soc-fw)),\
 	$(eval $(call MAKE_BL,31,soc-fw)))
+endif
 endif
 
 # If a BL32 image is needed but neither BL32 nor BL32_SOURCES is defined, the
@@ -961,8 +981,13 @@ ifeq (${NEED_BL32},yes)
 
 BUILD_BL32 := $(if $(BL32),,$(if $(BL32_SOURCES),1))
 
+ifneq (${DECRYPTION_SUPPORT},none)
+$(if ${BUILD_BL32}, $(eval $(call MAKE_BL,32,tos-fw,,$(ENCRYPT_BL32))),\
+	$(eval $(call TOOL_ADD_IMG,bl32,--tos-fw,,$(ENCRYPT_BL32))))
+else
 $(if ${BUILD_BL32}, $(eval $(call MAKE_BL,32,tos-fw)),\
 	$(eval $(call TOOL_ADD_IMG,bl32,--tos-fw)))
+endif
 endif
 
 # Add the BL33 image if required by the platform
