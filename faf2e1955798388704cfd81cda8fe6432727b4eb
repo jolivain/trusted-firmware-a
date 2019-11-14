@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ca60011_21902280",
+        "filename": "plat/mediatek/mt8183/plat_pm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-11-14T00:12:34Z",
+      "side": 1,
+      "message": "I was wondering why this initialization (lines 578-581) is done again here. This is already done by power_domain_on() psci hook for every secondary CPU.",
+      "revId": "faf2e1955798388704cfd81cda8fe6432727b4eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
