@@ -98,6 +98,22 @@ define IMG_BIN
     ${BUILD_PLAT}/bl$(1).bin
 endef
 
+# IMG_ENC_BIN defines the default encrypted image file corresponding to a
+# BL stage
+#   $(1) = BL stage (2, 30, 31, 32, 33)
+define IMG_ENC_BIN
+    ${BUILD_PLAT}/bl$(1)_enc.bin
+endef
+
+# ENCRYPT_FW builds a C source file and generates the dependency file
+#   $(1) = input firmware binary
+#   $(2) = output encrypted firmware binary
+define ENCRYPT_FW
+$(2): $(1)
+	$$(ECHO) "  ENC     $$<"
+	$$(Q)$$(ENCTOOL) $$(ENC_ARGS) -i $$< -o $$@
+endef
+
 # TOOL_ADD_PAYLOAD appends the command line arguments required by fiptool to
 # package a new payload and/or by cert_create to generate certificate.
 # Optionally, it adds the dependency on this payload
@@ -105,11 +121,18 @@ endef
 #   $(2) = command line option for the specified payload (i.e. --soc-fw)
 #   $(3) = tool target dependency (optional) (ex. build/fvp/release/bl31.bin)
 #   $(4) = FIP prefix (optional) (if FWU_, target is fwu_fip instead of fip)
+#   $(5) = encrypted payload (optional) (ex. build/fvp/release/bl31_enc.bin)
 define TOOL_ADD_PAYLOAD
+ifneq ($(5),)
+    $(4)FIP_ARGS += $(2)-enc $(5)
+    $(if $(3),$(4)FIP_DEPS += $(3))
+    $(if $(3),$(4)CRT_DEPS += $(1))
+else
     $(4)FIP_ARGS += $(2) $(1)
     $(if $(3),$(4)FIP_DEPS += $(3))
-    $(4)CRT_ARGS += $(2) $(1)
     $(if $(3),$(4)CRT_DEPS += $(3))
+endif
+    $(4)CRT_ARGS += $(2) $(1)
 endef
 
 # TOOL_ADD_IMG_PAYLOAD works like TOOL_ADD_PAYLOAD, but applies image filters
@@ -119,6 +142,7 @@ endef
 #   $(3) = command line option for the specified payload (ex. --soc-fw)
 #   $(4) = tool target dependency (optional) (ex. build/fvp/release/bl31.bin)
 #   $(5) = FIP prefix (optional) (if FWU_, target is fwu_fip instead of fip)
+#   $(6) = encrypted payload (optional) (ex. build/fvp/release/bl31_enc.bin)
 
 define TOOL_ADD_IMG_PAYLOAD
 
@@ -132,10 +156,10 @@ $(call $(PRE_TOOL_FILTER)_RULE,$(PROCESSED_PATH),$(2))
 
 $(PROCESSED_PATH): $(4)
 
-$(call TOOL_ADD_PAYLOAD,$(PROCESSED_PATH),$(3),$(PROCESSED_PATH),$(5))
+$(call TOOL_ADD_PAYLOAD,$(PROCESSED_PATH),$(3),$(PROCESSED_PATH),$(5),$(6))
 
 else
-$(call TOOL_ADD_PAYLOAD,$(2),$(3),$(4),$(5))
+$(call TOOL_ADD_PAYLOAD,$(2),$(3),$(4),$(5),$(6))
 endif
 endef
 
@@ -153,6 +177,7 @@ endef
 #   $(1) = image_type (scp_bl2, bl33, etc.)
 #   $(2) = command line option for fiptool (--scp-fw, --nt-fw, etc)
 #   $(3) = FIP prefix (optional) (if FWU_, target is fwu_fip instead of fip)
+#   $(4) = Image encryption flag (optional) (0, 1)
 # Example:
 #   $(eval $(call TOOL_ADD_IMG,bl33,--nt-fw))
 define TOOL_ADD_IMG
@@ -162,7 +187,14 @@ define TOOL_ADD_IMG
 
     $(3)CRT_DEPS += check_$(1)
     $(3)FIP_DEPS += check_$(1)
+ifeq ($(4),1)
+    $(eval ENC_BIN := ${BUILD_PLAT}/$(1)_enc.bin)
+    $(call ENCRYPT_FW,$(value $(_V)),$(ENC_BIN))
+    $(call TOOL_ADD_IMG_PAYLOAD,$(1),$(value $(_V)),$(2),$(ENC_BIN),$(3), \
+		$(ENC_BIN))
+else
     $(call TOOL_ADD_IMG_PAYLOAD,$(1),$(value $(_V)),$(2),,$(3))
+endif
 
 .PHONY: check_$(1)
 check_$(1):
@@ -379,6 +411,7 @@ endef
 #   $(1) = BL stage (2, 2u, 30, 31, 32, 33)
 #   $(2) = FIP command line option (if empty, image will not be included in the FIP)
 #   $(3) = FIP prefix (optional) (if FWU_, target is fwu_fip instead of fip)
+#   $(4) = BL encryption flag (optional) (0, 1)
 define MAKE_BL
         $(eval BUILD_DIR  := ${BUILD_PLAT}/bl$(1))
         $(eval BL_SOURCES := $(BL$(call uppercase,$(1))_SOURCES))
@@ -389,6 +422,7 @@ define MAKE_BL
         $(eval ELF        := $(call IMG_ELF,$(1)))
         $(eval DUMP       := $(call IMG_DUMP,$(1)))
         $(eval BIN        := $(call IMG_BIN,$(1)))
+        $(eval ENC_BIN    := $(call IMG_ENC_BIN,$(1)))
         $(eval BL_LINKERFILE := $(BL$(call uppercase,$(1))_LINKERFILE))
         $(eval BL_LIBS    := $(BL$(call uppercase,$(1))_LIBS))
         # We use sort only to get a list of unique object directory names.
@@ -468,7 +502,13 @@ endif
 
 all: bl$(1)
 
+ifeq ($(4),1)
+$(call ENCRYPT_FW,$(BIN),$(ENC_BIN))
+$(if $(2),$(call TOOL_ADD_IMG_PAYLOAD,bl$(1),$(BIN),--$(2),$(ENC_BIN),$(3), \
+		$(ENC_BIN)))
+else
 $(if $(2),$(call TOOL_ADD_IMG_PAYLOAD,bl$(1),$(BIN),--$(2),$(BIN),$(3)))
+endif
 
 endef
 
