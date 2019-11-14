@@ -22,6 +22,7 @@
 #define OPT_TOC_ENTRY 0
 #define OPT_PLAT_TOC_FLAGS 1
 #define OPT_ALIGN 2
+#define OPT_FW_ENC_STATUS_FLAG 3
 
 static int info_cmd(int argc, char *argv[]);
 static void info_usage(void);
@@ -628,6 +629,19 @@ static void parse_plat_toc_flags(const char *arg, unsigned long long *toc_flags)
 	*toc_flags |= flags << 32;
 }
 
+static void parse_fw_enc_status_flag(const char *arg,
+				     unsigned long long *toc_flags)
+{
+	unsigned long long flag;
+	char *endptr;
+
+	errno = 0;
+	flag = strtoull(arg, &endptr, 16);
+	if (*endptr != '\0' || flag > 0x1 || errno != 0)
+		log_errx("Invalid FW enc status ToC flag: %s", arg);
+	*toc_flags |= flag & FW_ENC_STATUS_FLAG_MASK;
+}
+
 static int is_power_of_2(unsigned long x)
 {
 	return x && !(x & (x - 1));
@@ -676,6 +690,8 @@ static int create_cmd(int argc, char *argv[])
 	    OPT_PLAT_TOC_FLAGS);
 	opts = add_opt(opts, &nr_opts, "align", required_argument, OPT_ALIGN);
 	opts = add_opt(opts, &nr_opts, "blob", required_argument, 'b');
+	opts = add_opt(opts, &nr_opts, "fw-enc-status", required_argument,
+		       OPT_FW_ENC_STATUS_FLAG);
 	opts = add_opt(opts, &nr_opts, NULL, 0, 0);
 
 	while (1) {
@@ -695,6 +711,9 @@ static int create_cmd(int argc, char *argv[])
 		}
 		case OPT_PLAT_TOC_FLAGS:
 			parse_plat_toc_flags(optarg, &toc_flags);
+			break;
+		case OPT_FW_ENC_STATUS_FLAG:
+			parse_fw_enc_status_flag(optarg, &toc_flags);
 			break;
 		case OPT_ALIGN:
 			align = get_image_align(optarg);
@@ -775,6 +794,8 @@ static int update_cmd(int argc, char *argv[])
 	opts = add_opt(opts, &nr_opts, "out", required_argument, 'o');
 	opts = add_opt(opts, &nr_opts, "plat-toc-flags", required_argument,
 	    OPT_PLAT_TOC_FLAGS);
+	opts = add_opt(opts, &nr_opts, "fw-enc-status", required_argument,
+		       OPT_FW_ENC_STATUS_FLAG);
 	opts = add_opt(opts, &nr_opts, NULL, 0, 0);
 
 	while (1) {
@@ -795,6 +816,9 @@ static int update_cmd(int argc, char *argv[])
 		case OPT_PLAT_TOC_FLAGS:
 			parse_plat_toc_flags(optarg, &toc_flags);
 			pflag = 1;
+			break;
+		case OPT_FW_ENC_STATUS_FLAG:
+			parse_fw_enc_status_flag(optarg, &toc_flags);
 			break;
 		case 'b': {
 			char name[_UUID_STR_LEN + 1];
