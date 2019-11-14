@@ -17,6 +17,7 @@ typedef struct toc_entry {
 	char         *name;
 	uuid_t        uuid;
 	char         *cmdline_name;
+	char         *cmdline_enc_name;
 } toc_entry_t;
 
 extern toc_entry_t toc_entries[];
