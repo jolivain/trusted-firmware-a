@@ -85,7 +85,10 @@
 /* Binary with STM32 header */
 #define STM32_IMAGE_ID			U(29)
 
+/* Encrypted image identifier */
+#define ENC_IMAGE_ID			U(30)
+
 /* Define size of the array */
-#define MAX_NUMBER_IDS			U(30)
+#define MAX_NUMBER_IDS			U(31)
 
 #endif /* ARM_TRUSTED_FIRMWARE_EXPORT_COMMON_TBBR_TBBR_IMG_DEF_EXP_H */
