@@ -8,6 +8,7 @@
 #include <string.h>
 
 /* mbed TLS headers */
+#include <mbedtls/gcm.h>
 #include <mbedtls/md.h>
 #include <mbedtls/memory_buffer_alloc.h>
 #include <mbedtls/oid.h>
@@ -205,7 +206,94 @@ static int verify_hash(void *data_ptr, unsigned int data_len,
 	return CRYPTO_SUCCESS;
 }
 
+static int gcm_decrypt(void *data_ptr, unsigned int len, void *key,
+		       unsigned int key_len, void *iv, unsigned int iv_len,
+		       void *tag, unsigned int tag_len)
+{
+	mbedtls_gcm_context ctx;
+	mbedtls_cipher_id_t cipher = MBEDTLS_CIPHER_ID_AES;
+	unsigned char buf[128];
+	unsigned char tag_buf[16];
+	unsigned char *pt = data_ptr;
+	int dec_len, diff, i, rc;
+
+	mbedtls_gcm_init(&ctx);
+
+	rc = mbedtls_gcm_setkey(&ctx, cipher, key, key_len * 8);
+	if (rc != 0) {
+		rc = CRYPTO_ERR_DECRYPTION;
+		goto exit_gcm;
+	}
+
+	rc = mbedtls_gcm_starts(&ctx, MBEDTLS_GCM_DECRYPT, iv, iv_len, NULL, 0);
+	if (rc != 0) {
+		rc = CRYPTO_ERR_DECRYPTION;
+		goto exit_gcm;
+	}
+
+	while (len > 0) {
+		dec_len = MIN(128U, len);
+
+		rc = mbedtls_gcm_update(&ctx, dec_len, pt, buf);
+		if (rc != 0) {
+			rc = CRYPTO_ERR_DECRYPTION;
+			goto exit_gcm;
+		}
+
+		memcpy(pt, buf, dec_len);
+		pt += dec_len;
+		len -= dec_len;
+	}
+
+	rc = mbedtls_gcm_finish(&ctx, tag_buf, 16);
+	if (rc != 0) {
+		rc = CRYPTO_ERR_DECRYPTION;
+		goto exit_gcm;
+	}
+
+	/* Check tag in "constant-time" */
+	for (diff = 0, i = 0; i < tag_len; i++)
+		diff |= ((unsigned char *)tag)[i] ^ tag_buf[i];
+
+	if (diff != 0) {
+		rc = CRYPTO_ERR_DECRYPTION;
+		goto exit_gcm;
+	}
+
+	/* GCM decryption success */
+	rc = CRYPTO_SUCCESS;
+
+exit_gcm:
+	mbedtls_gcm_free(&ctx);
+	return rc;
+}
+
+/*
+ * Authenticated decryption of an image
+ */
+static int auth_decrypt(unsigned int dec_algo, void *data_ptr, unsigned int len,
+			void *key, unsigned int key_len, void *iv,
+			unsigned int iv_len, void *tag, unsigned int tag_len)
+{
+	int rc;
+
+	switch (dec_algo) {
+	case CRYPTO_GCM_DECRYPT:
+		rc = gcm_decrypt(data_ptr, len, key, key_len, iv, iv_len, tag,
+				 tag_len);
+		if (rc != 0) {
+			return rc;
+		}
+		break;
+	default:
+		return CRYPTO_ERR_DECRYPTION;
+	}
+
+	return CRYPTO_SUCCESS;
+}
+
 /*
  * Register crypto library descriptor
  */
-REGISTER_CRYPTO_LIB(LIB_NAME, init, verify_signature, verify_hash);
+REGISTER_CRYPTO_LIB(LIB_NAME, init, verify_signature, verify_hash,
+		    auth_decrypt);
