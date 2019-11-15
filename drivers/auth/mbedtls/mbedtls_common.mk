@@ -45,6 +45,10 @@ LIBMBEDTLS_SRCS		:= $(addprefix ${MBEDTLS_DIR}/library/,	\
 					rsa_internal.c				\
 					x509.c 					\
 					x509_crt.c 				\
+					gcm.c 					\
+					cipher.c 				\
+					cipher_wrap.c 				\
+					aes.c 					\
 					)
 
 # The platform may define the variable 'TF_MBEDTLS_KEY_ALG' to select the key
@@ -92,6 +96,13 @@ $(eval $(call add_define,TF_MBEDTLS_KEY_ALG_ID))
 $(eval $(call add_define,TF_MBEDTLS_KEY_SIZE))
 $(eval $(call add_define,TF_MBEDTLS_HASH_ALG_ID))
 
+ifeq (${DECRYPTION_SUPPORT}, aes-gcm)
+    TF_MBEDTLS_USE_AES_GCM	:=	1
+else
+    TF_MBEDTLS_USE_AES_GCM	:=	0
+endif
+
+$(eval $(call add_define,TF_MBEDTLS_USE_AES_GCM))
 
 $(eval $(call MAKE_LIB,mbedtls))
 
