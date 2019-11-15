@@ -254,6 +254,16 @@ Common build options
    platform hook needs to be implemented. The value is passed as the last
    component of the option ``-fstack-protector-$ENABLE_STACK_PROTECTOR``.
 
+-  ``ENCRYPT_BL31``: Binary flag to enable encryption of BL31 firmware.
+
+-  ``ENCRYPT_BL32``: Binary flag to enable encryption of Secure BL32 payload.
+
+-  ``ENC_KEY``: A 32-byte (256-bit) symmetric key in hex string format. It could
+   either be SSK or BSSK depending on ``FW_ENC_STATUS`` flag.
+
+-  ``ENC_NONCE``: A 12-byte (96-bit) encryption nonce or Initialization Vector
+   (IV) in hex string format.
+
 -  ``ERROR_DEPRECATED``: This option decides whether to treat the usage of
    deprecated platform APIs, helper functions or drivers within Trusted
    Firmware as error. It can take the value 1 (flag the use of deprecated
@@ -277,6 +287,13 @@ Common build options
 
 -  ``FWU_FIP_NAME``: This is an optional build option which specifies the FWU
    FIP filename for the ``fwu_fip`` target. Default is ``fwu_fip.bin``.
+
+-  ``FW_ENC_STATUS``: Top level firmware's encryption numeric flag, values:
+     ``0``: No encryption used.
+     ``1``: Encryption is done with Secret Symmetric Key (SSK) which is common
+            for a class of devices.
+     ``2``: Encryption is done with Binding Secret Symmetric Key (BSSK) which is
+            unique per device.
 
 -  ``GENERATE_COT``: Boolean flag used to build and execute the ``cert_create``
    tool to create certificates as per the Chain of Trust described in
@@ -336,6 +353,9 @@ Common build options
    Note that, when ``HW_ASSISTED_COHERENCY`` is enabled, version 2 of
    translation library (xlat tables v2) must be used; version 1 of translation
    library is not supported.
+
+-  ``IMPORT_MBEBTLS_DEC_LIB``: This build flag imports mbedTLS authenticated
+   decryption library as a crypto backend to decrypt firmware/s during boot.
 
 -  ``JUNO_AARCH32_EL3_RUNTIME``: This build flag enables you to execute EL3
    runtime software in AArch32 mode, which is required to run AArch32 on Juno.

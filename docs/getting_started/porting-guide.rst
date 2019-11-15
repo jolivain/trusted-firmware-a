@@ -872,6 +872,28 @@ twice.
 
 On success the function should return 0 and a negative error code otherwise.
 
+Function : plat_get_fip_enc_key_info() [when FW_ENC_STATUS == 1 or 2]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Arguments : unsigned int fip_enc_status, uint8_t *key, size_t *key_len,
+                unsigned int *flags
+    Return    : int
+
+This function provides a symmetric key (either SSK or BSSK depending on
+fip_enc_status) which is invoked during runtime decryption of encrypted
+firmware images. `plat/common/plat_bl_common.c` provides a dummy weak
+implementation for testing purposes which must be overridden by the platform
+trying to implement a real world firmware encryption use-case.
+
+It also allows the platform to pass symmetric key identifier rather than
+actual symmetric key which is useful in cases where the crypto backend provides
+secure storage for the symmetric key. So in this case ``ENC_KEY_IS_IDENTIFIER``
+flag must be set in ``flags``.
+
+On success the function should return 0 and a negative error code otherwise.
+
 Common optional modifications
 -----------------------------
 
