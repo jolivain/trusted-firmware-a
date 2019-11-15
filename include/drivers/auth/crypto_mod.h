@@ -13,7 +13,13 @@ enum crypto_ret_value {
 	CRYPTO_ERR_INIT,
 	CRYPTO_ERR_HASH,
 	CRYPTO_ERR_SIGNATURE,
+	CRYPTO_ERR_DECRYPTION,
 	CRYPTO_ERR_UNKNOWN
+};
+
+/* Decryption algorithm */
+enum crypto_dec_algo {
+	CRYPTO_GCM_DECRYPT = 0
 };
 
 /*
@@ -37,6 +43,16 @@ typedef struct crypto_lib_desc_s {
 	/* Verify a hash. Return one of the 'enum crypto_ret_value' options */
 	int (*verify_hash)(void *data_ptr, unsigned int data_len,
 			   void *digest_info_ptr, unsigned int digest_info_len);
+
+	/*
+	 * Authenticated decryption. Return one of the
+	 * 'enum crypto_ret_value' options.
+	 */
+	int (*auth_decrypt)(enum crypto_dec_algo dec_algo, void *data_ptr,
+			    unsigned int len, const void *key,
+			    unsigned int key_len, unsigned int key_flags,
+			    const void *iv, unsigned int iv_len,
+			    const void *tag, unsigned int tag_len);
 } crypto_lib_desc_t;
 
 /* Public functions */
@@ -47,14 +63,21 @@ int crypto_mod_verify_signature(void *data_ptr, unsigned int data_len,
 				void *pk_ptr, unsigned int pk_len);
 int crypto_mod_verify_hash(void *data_ptr, unsigned int data_len,
 			   void *digest_info_ptr, unsigned int digest_info_len);
+int crypto_mod_auth_decrypt(enum crypto_dec_algo dec_algo, void *data_ptr,
+			    unsigned int len, const void *key,
+			    unsigned int key_len, unsigned int key_flags,
+			    const void *iv, unsigned int iv_len,
+			    const void *tag, unsigned int tag_len);
 
 /* Macro to register a cryptographic library */
-#define REGISTER_CRYPTO_LIB(_name, _init, _verify_signature, _verify_hash) \
+#define REGISTER_CRYPTO_LIB(_name, _init, _verify_signature, _verify_hash, \
+			    _auth_decrypt) \
 	const crypto_lib_desc_t crypto_lib_desc = { \
 		.name = _name, \
 		.init = _init, \
 		.verify_signature = _verify_signature, \
-		.verify_hash = _verify_hash \
+		.verify_hash = _verify_hash, \
+		.auth_decrypt = _auth_decrypt \
 	}
 
 extern const crypto_lib_desc_t crypto_lib_desc;

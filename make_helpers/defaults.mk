@@ -136,6 +136,10 @@ HANDLE_EA_EL3_FIRST		:= 0
 # operations.
 HW_ASSISTED_COHERENCY		:= 0
 
+# Flag to import mbedTLS authenticated decryption library as a crypto backend
+# to decrypt firmware/s during boot.
+IMPORT_MBEBTLS_DEC_LIB		:= 0
+
 # Set the default algorithm for the generation of Trusted Board Boot keys
 KEY_ALG				:= rsa
 

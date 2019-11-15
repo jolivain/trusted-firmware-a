@@ -47,6 +47,15 @@ LIBMBEDTLS_SRCS		:= $(addprefix ${MBEDTLS_DIR}/library/,	\
 					x509_crt.c 				\
 					)
 
+ifeq (${IMPORT_MBEBTLS_DEC_LIB},1)
+LIBMBEDTLS_SRCS		+= $(addprefix ${MBEDTLS_DIR}/library/, \
+					gcm.c 					\
+					cipher.c 				\
+					cipher_wrap.c 				\
+					aes.c 					\
+					)
+endif
+
 # The platform may define the variable 'TF_MBEDTLS_KEY_ALG' to select the key
 # algorithm to use. If the variable is not defined, select it based on
 # algorithm used for key generation `KEY_ALG`. If `KEY_ALG` is not defined,
