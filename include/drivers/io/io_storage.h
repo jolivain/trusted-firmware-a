@@ -54,6 +54,7 @@ typedef struct io_file_spec {
  * images) */
 typedef struct io_uuid_spec {
 	uuid_t uuid;
+	bool encrypted;
 } io_uuid_spec_t;
 
 /* Block specification - used to refer to data on a device supporting

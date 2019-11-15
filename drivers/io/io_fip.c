@@ -13,6 +13,7 @@
 
 #include <common/bl_common.h>
 #include <common/debug.h>
+#include <drivers/auth/crypto_mod.h>
 #include <drivers/io/io_driver.h>
 #include <drivers/io/io_fip.h>
 #include <drivers/io/io_storage.h>
@@ -36,6 +37,7 @@
 typedef struct {
 	unsigned int file_pos;
 	fip_toc_entry_t entry;
+	bool file_encrypted;
 } file_state_t;
 
 /*
@@ -57,6 +59,7 @@ static const uuid_t uuid_null;
  * if the same support is available in the backend
  */
 static file_state_t current_file = {0};
+static enum fw_enc_status fw_enc_status = FW_ENC_WITH_SSK;
 static uintptr_t backend_dev_handle;
 static uintptr_t backend_image_spec;
 
@@ -251,6 +254,8 @@ static int fip_dev_init(io_dev_info_t *dev_info, const uintptr_t init_params)
 		}
 	}
 
+	fw_enc_status = header.flags & FW_ENC_STATUS_FLAG_MASK;
+
 	io_close(backend_handle);
 
  fip_dev_init_exit:
@@ -336,6 +341,12 @@ static int fip_file_open(io_dev_info_t *dev_info, const uintptr_t spec,
 		 * base and size of the file.
 		 */
 		current_file.file_pos = 0;
+#if TRUSTED_BOARD_BOOT
+		current_file.file_encrypted = uuid_spec->encrypted;
+#else
+		/* File encryption only supported with TBB enabled */
+		assert(uuid_spec->encrypted == false);
+#endif /* TRUSTED_BOARD_BOOT */
 		entity->info = (uintptr_t)&current_file;
 	} else {
 		/* Did not find the file in the FIP. */
@@ -358,6 +369,19 @@ static int fip_file_len(io_entity_t *entity, size_t *length)
 	assert(length != NULL);
 
 	*length =  ((file_state_t *)entity->info)->entry.size;
+
+#if TRUSTED_BOARD_BOOT
+	/*
+	 * Decryption data is attached at the beginning of the encrypted file
+	 * and is not considered a part of the payload.
+	 */
+	if (((file_state_t *)entity->info)->file_encrypted) {
+		if (*length < sizeof(fip_toc_dec_data_t))
+			return -EIO;
+
+		*length -= sizeof(fip_toc_dec_data_t);
+	}
+#endif /* TRUSTED_BOARD_BOOT */
 
 	return 0;
 }
@@ -388,6 +412,38 @@ static int fip_file_read(io_entity_t *entity, uintptr_t buffer, size_t length,
 
 	fp = (file_state_t *)entity->info;
 
+#if TRUSTED_BOARD_BOOT
+	fip_toc_dec_data_t dec_data;
+
+	if (fp->file_encrypted) {
+		/* Decryption data is prepended to file data */
+		file_offset = fp->entry.offset_address + fp->file_pos;
+		result = io_seek(backend_handle, IO_SEEK_SET, file_offset);
+		if (result != 0) {
+			WARN("Failed to seek offset\n");
+			result = -ENOENT;
+			goto fip_file_read_close;
+		}
+
+		result = io_read(backend_handle, (uintptr_t)&dec_data,
+				 sizeof(dec_data), &bytes_read);
+		if (result != 0) {
+			WARN("Failed to read dec data (%i)\n", result);
+			result = -ENOENT;
+			goto fip_file_read_close;
+		}
+
+		if (dec_data.iv_len > FIP_MAX_IV_SIZE ||
+		    dec_data.tag_len > FIP_MAX_TAG_SIZE) {
+			WARN("Incorrect IV or tag length\n");
+			result = -ENOENT;
+			goto fip_file_read_close;
+		}
+
+		fp->file_pos += bytes_read;
+	}
+#endif /* TRUSTED_BOARD_BOOT */
+
 	/* Seek to the position in the FIP where the payload lives */
 	file_offset = fp->entry.offset_address + fp->file_pos;
 	result = io_seek(backend_handle, IO_SEEK_SET,
@@ -409,6 +465,40 @@ static int fip_file_read(io_entity_t *entity, uintptr_t buffer, size_t length,
 		*length_read = bytes_read;
 		fp->file_pos += bytes_read;
 	}
+
+#if TRUSTED_BOARD_BOOT
+	if (fp->file_encrypted) {
+		uint8_t key[FIP_MAX_ENC_KEY_SIZE];
+		size_t key_len = sizeof(key);
+		unsigned int key_flags = 0;
+
+		result = plat_get_enc_key_info(fw_enc_status, key,
+					       &key_len, &key_flags,
+					       (uint8_t *)
+					       &current_file.entry.uuid,
+					       sizeof(uuid_t));
+		if (result != 0) {
+			WARN("Failed to obtain encryption key (%i)\n", result);
+			result = -ENOENT;
+			goto fip_file_read_close;
+		}
+
+		result = crypto_mod_auth_decrypt(dec_data.dec_algo,
+						 (void *)buffer, *length_read,
+						 key, key_len, key_flags,
+						 dec_data.iv, dec_data.iv_len,
+						 dec_data.tag,
+						 dec_data.tag_len);
+		memset(key, 0, key_len);
+
+		if (result != 0) {
+			ERROR("FIP file entry decryption failed (%i)\n",
+			      result);
+			result = -ENOENT;
+			goto fip_file_read_close;
+		}
+	}
+#endif /* TRUSTED_BOARD_BOOT */
 
 /* Close the backend. */
  fip_file_read_close:
