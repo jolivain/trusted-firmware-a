@@ -31,6 +31,9 @@ New Features
 - Drivers
    - Example: "console: Allow the console to register multiple times"
 
+- Firmware Encryption (experimental)
+   - Add support for optional firmware encryption feature.
+
 - Libraries
    - Example: "Introduce BTI support in Library at ROM (romlib)"
    - Add Firmware Configuration Framework (fconf).
