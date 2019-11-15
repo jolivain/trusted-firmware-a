@@ -76,6 +76,21 @@
 #define UUID_NT_FW_CONFIG \
 	{{0x28,  0xda, 0x98, 0x15}, {0x93, 0xe8}, {0x7e, 0x44}, 0xac, 0x66, {0x1a, 0xaf, 0x80, 0x15, 0x50, 0xf9} }
 
+/* ToC encryption flags */
+#define FIP_ENC_STATUS_FLAG_MASK	0x3
+
+/*
+ * SSK: Secret Symmetric Key
+ * BSSK: Binding Secret Symmetric Key
+ */
+enum fip_enc_status {
+	FIP_ENC_DISABLED = 0,
+	FIP_ENC_WITH_SSK = 1,
+	FIP_ENC_WITH_BSSK = 2,
+};
+
+#define FIP_ENTRY_ENC_FLAG_MASK		0x1
+
 typedef struct fip_toc_header {
 	uint32_t	name;
 	uint32_t	serial_number;
@@ -88,5 +103,17 @@ typedef struct fip_toc_entry {
 	uint64_t	size;
 	uint64_t	flags;
 } fip_toc_entry_t;
+
+#define FIP_MAX_IV_SIZE			16U
+#define FIP_MAX_TAG_SIZE		16U
+#define FIP_MAX_ENC_KEY_SIZE		256U
+
+typedef struct fip_toc_dec_data {
+	uint32_t dec_algo;
+	uint16_t iv_len;
+	uint16_t tag_len;
+	uint8_t iv[FIP_MAX_IV_SIZE];
+	uint8_t tag[FIP_MAX_TAG_SIZE];
+} fip_toc_dec_data_t;
 
 #endif /* FIRMWARE_IMAGE_PACKAGE_H */

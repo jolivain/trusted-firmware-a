@@ -23,6 +23,7 @@
 #pragma weak bl2_plat_handle_pre_image_load
 #pragma weak bl2_plat_handle_post_image_load
 #pragma weak plat_try_next_boot_source
+#pragma weak plat_get_fip_enc_key_info
 
 void bl2_el3_plat_prepare_exit(void)
 {
@@ -50,6 +51,28 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 
 int plat_try_next_boot_source(void)
 {
+	return 0;
+}
+
+/*
+ * Weak implementation to provide dummy decryption key only for test purposes,
+ * platforms must override this API for any real world firmware encryption
+ * use-case.
+ */
+int plat_get_fip_enc_key_info(unsigned int fip_enc_status, uint8_t *key,
+			      size_t *key_len, unsigned int *flags)
+{
+#define DUMMY_FIP_ENC_KEY { 0x12, 0x34, 0x56, 0x78, 0x90, 0xab, 0xcd, 0xef, \
+			    0x12, 0x34, 0x56, 0x78, 0x90, 0xab, 0xcd, 0xef, \
+			    0x12, 0x34, 0x56, 0x78, 0x90, 0xab, 0xcd, 0xef, \
+			    0x12, 0x34, 0x56, 0x78, 0x90, 0xab, 0xcd, 0xef }
+
+	const uint8_t dummy_key[] = DUMMY_FIP_ENC_KEY;
+
+	*key_len = sizeof(dummy_key);
+	memcpy(key, dummy_key, *key_len);
+	*flags = 0;
+
 	return 0;
 }
 
