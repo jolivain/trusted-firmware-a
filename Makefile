@@ -580,6 +580,12 @@ ifeq ($(CTX_INCLUDE_MTE_REGS),1)
     endif
 endif
 
+ifneq (${DECRYPTION_SUPPORT},none)
+    ifeq (${TRUSTED_BOARD_BOOT}, 0)
+        $(error "TRUSTED_BOARD_BOOT must be enabled for DECRYPTION_SUPPORT to be set.")
+    endif
+endif
+
 ################################################################################
 # Process platform overrideable behaviour
 ################################################################################
