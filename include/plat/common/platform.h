@@ -48,6 +48,8 @@ uintptr_t plat_get_ns_image_entrypoint(void);
 unsigned int plat_my_core_pos(void);
 int plat_core_pos_by_mpidr(u_register_t mpidr);
 int plat_get_mbedtls_heap(void **heap_addr, size_t *heap_size);
+int plat_get_fip_encryption_key(unsigned int fip_enc_status, uint8_t *key,
+				size_t *key_len);
 
 #if STACK_PROTECTOR_ENABLED
 /*
