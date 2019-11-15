@@ -614,9 +614,15 @@ endif
 
 ifeq ($(MEASURED_BOOT),1)
     ifneq (${TRUSTED_BOARD_BOOT},1)
-        $(error MEASURED_BOOT requires TRUSTED_BOARD_BOOT=1")
+        $(error MEASURED_BOOT requires TRUSTED_BOARD_BOOT=1)
     else
         $(info MEASURED_BOOT is an experimental feature)
+    endif
+endif
+
+ifneq (${DECRYPTION_SUPPORT},none)
+    ifeq (${TRUSTED_BOARD_BOOT}, 0)
+        $(error TRUSTED_BOARD_BOOT must be enabled for DECRYPTION_SUPPORT to be set)
     endif
 endif
 
