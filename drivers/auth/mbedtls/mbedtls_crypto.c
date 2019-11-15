@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <assert.h>
 #include <stddef.h>
 #include <string.h>
 
@@ -18,6 +19,7 @@
 #include <drivers/auth/crypto_mod.h>
 #include <drivers/auth/mbedtls/mbedtls_common.h>
 #include <drivers/auth/mbedtls/mbedtls_config.h>
+#include <plat/common/platform.h>
 
 #define LIB_NAME		"mbed TLS"
 
@@ -272,10 +274,13 @@ exit_gcm:
  * Authenticated decryption of an image
  */
 static int auth_decrypt(unsigned int dec_algo, void *data_ptr, unsigned int len,
-			void *key, unsigned int key_len, void *iv,
-			unsigned int iv_len, void *tag, unsigned int tag_len)
+			void *key, unsigned int key_len, unsigned int key_flags,
+			void *iv, unsigned int iv_len, void *tag,
+			unsigned int tag_len)
 {
 	int rc;
+
+	assert((key_flags & ENC_KEY_IS_IDENTIFIER) == 0);
 
 	switch (dec_algo) {
 	case CRYPTO_GCM_DECRYPT:

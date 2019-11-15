@@ -111,13 +111,14 @@ int crypto_mod_verify_hash(void *data_ptr, unsigned int data_len,
  *
  *   dec_algo: authenticated decryption algorithm
  *   data_ptr, len: data to be decrypted (inout param)
- *   key, key_len: symmetric decryption key
+ *   key, key_len, key_flags: symmetric decryption key
  *   iv, iv_len: initialization vector
  *   tag, tag_len: authentication tag
  */
 int crypto_mod_auth_decrypt(unsigned int dec_algo, void *data_ptr,
 			    unsigned int len, void *key, unsigned int key_len,
-			    void *iv, unsigned int iv_len, void *tag,
+			    unsigned int key_flags, void *iv,
+			    unsigned int iv_len, void *tag,
 			    unsigned int tag_len)
 {
 	assert(data_ptr != NULL);
@@ -130,5 +131,6 @@ int crypto_mod_auth_decrypt(unsigned int dec_algo, void *data_ptr,
 	assert(tag_len != 0);
 
 	return crypto_lib_desc.auth_decrypt(dec_algo, data_ptr, len, key,
-					    key_len, iv, iv_len, tag, tag_len);
+					    key_len, key_flags, iv, iv_len, tag,
+					    tag_len);
 }

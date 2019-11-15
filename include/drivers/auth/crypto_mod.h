@@ -50,7 +50,8 @@ typedef struct crypto_lib_desc_s {
 	 */
 	int (*auth_decrypt)(unsigned int dec_algo, void *data_ptr,
 			    unsigned int len, void *key, unsigned int key_len,
-			    void *iv, unsigned int iv_len, void *tag,
+			    unsigned int key_flags, void *iv,
+			    unsigned int iv_len, void *tag,
 			    unsigned int tag_len);
 } crypto_lib_desc_t;
 
@@ -64,7 +65,8 @@ int crypto_mod_verify_hash(void *data_ptr, unsigned int data_len,
 			   void *digest_info_ptr, unsigned int digest_info_len);
 int crypto_mod_auth_decrypt(unsigned int dec_algo, void *data_ptr,
 			    unsigned int len, void *key, unsigned int key_len,
-			    void *iv, unsigned int iv_len, void *tag,
+			    unsigned int key_flags, void *iv,
+			    unsigned int iv_len, void *tag,
 			    unsigned int tag_len);
 
 /* Macro to register a cryptographic library */

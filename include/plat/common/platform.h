@@ -34,6 +34,15 @@ struct sp_res_desc;
 #define ROTPK_NOT_DEPLOYED		(1 << 1)
 
 /*******************************************************************************
+ * plat_get_fip_enc_key_info() flags
+ ******************************************************************************/
+/*
+ * Flag used to notify caller that information provided in key buffer is an
+ * identifier rather than an actual key.
+ */
+#define ENC_KEY_IS_IDENTIFIER		(1 << 0)
+
+/*******************************************************************************
  * Function declarations
  ******************************************************************************/
 /*******************************************************************************
@@ -262,6 +271,8 @@ int plat_set_nv_ctr(void *cookie, unsigned int nv_ctr);
 int plat_set_nv_ctr2(void *cookie, const struct auth_img_desc_s *img_desc,
 		unsigned int nv_ctr);
 int get_mbedtls_heap_helper(void **heap_addr, size_t *heap_size);
+int plat_get_fip_enc_key_info(unsigned int fip_enc_status, uint8_t *key,
+			      size_t *key_len, unsigned int *flags);
 
 /*******************************************************************************
  * Secure Partitions functions
