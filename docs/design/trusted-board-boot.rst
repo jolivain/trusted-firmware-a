@@ -226,6 +226,32 @@ The tool resides in the ``tools/cert_create`` directory. It uses OpenSSL SSL
 library version 1.0.1 or later to generate the X.509 certificates. Instructions
 for building and using the tool can be found in the :ref:`User Guide`.
 
+Authenticated Encryption Framework
+----------------------------------
+
+The authenticated encryption framework included in TF-A provides support to
+implement the optional firmware encryption feature. This feature can be
+optionally enabled on platforms to implement the optional requirement:
+R060_TBBR_FUNCTION as specified in the `Trusted Board Boot Requirements (TBBR)`_
+document.
+
+Firmware Encryption Tool
+------------------------
+
+The ``encrypt_fw`` tool is built and runs on the host machine as part of the
+TF-A build process when ``FW_ENC_STATUS=1 or FW_ENC_STATUS=2``. It takes the
+plain firmware images as inputs and generates the encrypted firmware images
+which can passed as inputs (cmdline name as: ``--foo-enc``) to the ``fiptool``
+utility for creating the FIP.
+
+The encrypted firmwares are also stored individually in the in the output build
+directory.
+
+The tool resides in the ``tools/encrypt_fw`` directory. It uses OpenSSL SSL
+library version 1.0.1 or later to do authenticated encryption operation.
+Instructions for building and using the tool can be found in the
+:ref:`User Guide`.
+
 --------------
 
 *Copyright (c) 2015-2019, Arm Limited and Contributors. All rights reserved.*
