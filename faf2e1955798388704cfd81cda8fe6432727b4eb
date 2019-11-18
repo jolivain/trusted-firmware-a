@@ -16,6 +16,24 @@
       "revId": "faf2e1955798388704cfd81cda8fe6432727b4eb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcd8626_8be04ee2",
+        "filename": "plat/mediatek/mt8183/plat_pm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2019-11-18T02:04:50Z",
+      "side": 1,
+      "message": "These settings need to be done before CPU off such as power_domain_suspend(). But CPU0 (cluster0) will not be set in power_domain_on() at boot because it\u0027s powered on by default. So we init CPU0 (cluster0) settings here.",
+      "parentUuid": "0ca60011_21902280",
+      "revId": "faf2e1955798388704cfd81cda8fe6432727b4eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
