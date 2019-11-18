@@ -34,6 +34,24 @@
       "revId": "33c2418bb3b328b654ce597a07bdf6ba698d85e1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "838e73e8_19b06748",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-11-18T12:43:35Z",
+      "side": 1,
+      "message": "Hi Bence,\nThanks for the explanation. This API doesn\u0027t make sense for AArch32 builds so I agree this change is correct. This issue is this change is unrelated to the PMF capability you are adding. Hence make this a separate patch either on this same branch or a separate one.",
+      "parentUuid": "ac5bf91d_2f5331e1",
+      "revId": "33c2418bb3b328b654ce597a07bdf6ba698d85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
