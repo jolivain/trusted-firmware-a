@@ -52,6 +52,24 @@
       "revId": "33c2418bb3b328b654ce597a07bdf6ba698d85e1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19948e99_5b1619e2",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000274
+      },
+      "writtenOn": "2019-11-18T15:10:45Z",
+      "side": 1,
+      "message": "I included this change in the patch, because this function, arm_sip_handler is the one that dispatches PMF calls to the PMF SMC handler, and thus I needed to build it on AArch32 to enable the PMF SMC service on AArch32. It wouldn\u0027t compile due to the issues discussed above, so I added the ifdef.\n\nI can move this change into a separate commit, but the PMF changes will have to depend on it.",
+      "parentUuid": "838e73e8_19b06748",
+      "revId": "33c2418bb3b328b654ce597a07bdf6ba698d85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
