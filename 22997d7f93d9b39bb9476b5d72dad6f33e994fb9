@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1537654_a68562f9",
+        "filename": "plat/nvidia/tegra/include/drivers/spe.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-11-19T12:52:10Z",
+      "side": 1,
+      "message": "As MISRA considers all identifiers starting with an underscore as reserved, we\u0027ve moved away from this naming convention in favour of SPE_H. See https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "22997d7f93d9b39bb9476b5d72dad6f33e994fb9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8a4b0a7_32ae90d6",
+        "filename": "plat/nvidia/tegra/include/drivers/spe.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-11-19T12:52:10Z",
+      "side": 1,
+      "message": "I agree with Alexei, I think drivers/console.h must be included here for console_t definition.",
+      "revId": "22997d7f93d9b39bb9476b5d72dad6f33e994fb9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
