@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65b54f01_d6a5ccb0",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/include/t194_nvg.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-11-19T14:03:05Z",
+      "side": 1,
+      "message": "your patch stack, and especially this file, have `checkpatch` error. \nWe try to keep the main tree free of checkpatch issue.\nIt would be great if you can update your files, or submit a new commit to fix them.\nPlease refer to the `contributing`, and the `1.3.1. Checking source code style` documentation pages: https://trustedfirmware-a.readthedocs.io/en/latest/getting_started/user-guide.html#checking-source-code-style",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 4
+      },
+      "revId": "4ebd3db35563547610c5e4254823d5abd65d7b82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
