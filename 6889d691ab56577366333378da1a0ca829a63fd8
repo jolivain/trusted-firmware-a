@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f67220f_70be002d",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-11-19T12:11:29Z",
+      "side": 1,
+      "message": "I\u0027ve mentioned this in another patch for a similar line of code but AFAIU, MCE_CMD_ENTER_CSTATE may fail so it might be a good idea to return its error code rather than always succeeding (PSCI_E_SUCCESS).",
+      "range": {
+        "startLine": 363,
+        "startChar": 1,
+        "endLine": 364,
+        "endChar": 55
+      },
+      "revId": "6889d691ab56577366333378da1a0ca829a63fd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
