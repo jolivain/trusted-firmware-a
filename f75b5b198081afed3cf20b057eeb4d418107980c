@@ -16,6 +16,24 @@
       "revId": "f75b5b198081afed3cf20b057eeb4d418107980c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8078a6e6_bfe76223",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/mce/nvg.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-11-19T12:31:51Z",
+      "side": 1,
+      "message": "I agree with Madhu here. The MCE driver [1] seems to expect a negative error code from nvg_online_core():\n\n ret \u003d nvg_online_core((uint32_t)arg0);\n if (ret \u003c 0) {\n \tERROR(\"%s: online_core failed(%d)\\n\", __func__, ret);\n }\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/nvidia/tegra/soc/t194/drivers/mce/mce.c?id\u003d228cc826e2363c66752fc1473ff795102add21a8#n64",
+      "parentUuid": "afaa63a1_ddfe7ddc",
+      "revId": "f75b5b198081afed3cf20b057eeb4d418107980c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
