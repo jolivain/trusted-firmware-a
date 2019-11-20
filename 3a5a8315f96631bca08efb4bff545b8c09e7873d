@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19275327_85850a3f",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2019-11-20T17:26:36Z",
+      "side": 1,
+      "message": "is it acceptable for this SMC to be called from multiple cores at the same time ? Is a lock required ?",
+      "revId": "3a5a8315f96631bca08efb4bff545b8c09e7873d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
