@@ -16,6 +16,24 @@
       "revId": "3a5a8315f96631bca08efb4bff545b8c09e7873d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a171d803_5dc53ea7",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-21T08:45:08Z",
+      "side": 1,
+      "message": "You\u0027re right. In our linux drv sample code, we protect from concurrent accesses using a mutex. But I will preferably add a spinlock here.",
+      "parentUuid": "19275327_85850a3f",
+      "revId": "3a5a8315f96631bca08efb4bff545b8c09e7873d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
