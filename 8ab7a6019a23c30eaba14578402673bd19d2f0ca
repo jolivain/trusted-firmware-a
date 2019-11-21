@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f337c41_08828050",
+        "filename": "drivers/debugfs/blobs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-11-21T11:29:30Z",
+      "side": 1,
+      "message": "If I remember properly, the `blob` driver is to include a file as a tab[] in the code. I can understand this features for the IO layer, but what would be the use case of it for the debugFS ?",
+      "range": {
+        "startLine": 7,
+        "startChar": 22,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "8ab7a6019a23c30eaba14578402673bd19d2f0ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
