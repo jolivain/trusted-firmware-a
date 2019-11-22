@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f67ab7c1_57b1b90a",
+        "filename": "plat/intel/soc/agilex/socfpga_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-22T21:53:41Z",
+      "side": 1,
+      "message": "*count \u003c 3 is already checked at line 162, this is redundant",
+      "revId": "57f3d20a54c59db7fa7a6b539b026fb4c1ab9ec9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
