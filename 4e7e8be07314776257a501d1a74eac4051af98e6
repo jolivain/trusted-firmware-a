@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee8a6b06_b7c6f6ac",
+        "filename": "plat/intel/soc/agilex/socfpga_sip_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-25T17:04:42Z",
+      "side": 1,
+      "message": "Return value is boolean range, as per the implementation and function name, should we change it to? \n\nstatic bool is_fpga_config_buffer_full",
+      "revId": "4e7e8be07314776257a501d1a74eac4051af98e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "450ccaa6_4a5c534e",
+        "filename": "plat/intel/soc/agilex/socfpga_sip_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-25T17:04:42Z",
+      "side": 1,
+      "message": "bool as return for function?",
+      "revId": "4e7e8be07314776257a501d1a74eac4051af98e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
