@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "629a0526_db583a2b",
+        "filename": "plat/intel/soc/agilex/soc/agilex_mailbox.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-25T17:37:13Z",
+      "side": 1,
+      "message": "Should the loop continue even after resp_len is zero?",
+      "revId": "17616d455064ce9d2ff31b286a81867d4f45e93e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2fa00c9_5a9ffd61",
+        "filename": "plat/intel/soc/agilex/soc/agilex_mailbox.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-25T17:37:13Z",
+      "side": 1,
+      "message": "Do we need range checks on `response_length` from MBOX vs `resp_len` requested in API.\n\nAlso case when resp_len is less, loop continues with `read` is that intended?",
+      "revId": "17616d455064ce9d2ff31b286a81867d4f45e93e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
