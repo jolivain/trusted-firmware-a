@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8d64fc13_8b7294c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2019-11-25T07:36:20Z",
+      "side": 1,
+      "message": "Hi Deepika,\n\nCIN is pointing to the next free address in the buffer. CIN will always be less than or equal to BUFFER_SIZE as cmd_free_offset will always be a modulus of BUFFER_SIZE upon storage. That\u0027s how overflow is handled. So the previous check is not needed.",
+      "parentUuid": "3e43dfc6_805923bd",
+      "revId": "8867957caeb3af438a997724a249043bc62f0565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52b536ef_5e1f5cbc",
         "filename": "plat/intel/soc/agilex/include/agilex_mailbox.h",
         "patchSetId": 1
