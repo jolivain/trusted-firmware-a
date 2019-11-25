@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d04ab291_c8300ceb",
+        "filename": "lib/psci/psci_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-25T19:52:51Z",
+      "side": 1,
+      "message": "lib/psci/psci_setup.c:91:28: error: comparison of integer expressions of different signedness: \u0027int\u0027 and \u0027unsigned int\u0027",
+      "revId": "ae3742ff89932856c2380ca3ad71563c2eb354fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
