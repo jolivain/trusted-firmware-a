@@ -22,6 +22,30 @@
       "revId": "228cc826e2363c66752fc1473ff795102add21a8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc0ffeff_9dcaf633",
+        "filename": "plat/nvidia/tegra/include/t194/tegra_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-11-26T18:41:37Z",
+      "side": 1,
+      "message": "Even though these are the same offsets, the registers are different and in a common location. if we have to change the names here, then all the other platform ports would be affected. I would like to avoid that.",
+      "parentUuid": "44c07053_1eb76e02",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 34
+      },
+      "revId": "228cc826e2363c66752fc1473ff795102add21a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
