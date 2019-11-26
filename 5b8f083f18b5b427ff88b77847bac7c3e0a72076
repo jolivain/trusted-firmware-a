@@ -16,6 +16,24 @@
       "revId": "5b8f083f18b5b427ff88b77847bac7c3e0a72076",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f43ac548_cf32c27e",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/mce/mce.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-11-26T18:45:28Z",
+      "side": 1,
+      "message": "ISB was not present in the sequence we received from the hardware team, but I guess it wont hurt to add one",
+      "parentUuid": "018e499a_7b7eab4f",
+      "revId": "5b8f083f18b5b427ff88b77847bac7c3e0a72076",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
