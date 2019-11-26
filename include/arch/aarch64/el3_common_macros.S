@@ -232,11 +232,21 @@
  *
  * _exception_vectors:
  *	Address of the exception vectors to program in the VBAR_EL3 register.
+ *
+ * _pie_fixup_start:
+ *	Start of memory region to fixup Global Descriptor Table (GDT).
+ *
+ * _pie_fixup_limit:
+ *	Limit of memory region to fixup Global Descriptor Table (GDT).
+ *
+ *	A non-zero value expected when firmware needs GDT to be fixed-up.
+ *
  * -----------------------------------------------------------------------------
  */
 	.macro el3_entrypoint_common					\
 		_init_sctlr, _warm_boot_mailbox, _secondary_cold_boot,	\
-		_init_memory, _init_c_runtime, _exception_vectors
+		_init_memory, _init_c_runtime, _exception_vectors,	\
+		_pie_fixup_start, _pie_fixup_limit
 
 	.if \_init_sctlr
 		/* -------------------------------------------------------------
@@ -281,6 +291,19 @@
 		br	x0
 
 	do_cold_boot:
+		.if \_pie_fixup_limit
+		/* ------------------------------------------------------------
+		 * If PIE is enabled fixup the Global descriptor Table only
+		 * once during primary core cold boot path.
+		 * ------------------------------------------------------------
+		 */
+#if ENABLE_PIE
+		mov_imm x0, \_pie_fixup_start
+		mov_imm x1, \_pie_fixup_limit
+		bl      fixup_gdt_reloc
+#endif /* ENABLE_PIE */
+		.endif /* _pie_fixup_limit */
+
 	.endif /* _warm_boot_mailbox */
 
 	/* ---------------------------------------------------------------------

@@ -30,7 +30,9 @@ func bl1_entrypoint
 		_secondary_cold_boot=!COLD_BOOT_SINGLE_CPU	\
 		_init_memory=1					\
 		_init_c_runtime=1				\
-		_exception_vectors=bl1_exceptions
+		_exception_vectors=bl1_exceptions		\
+		_pie_fixup_start=0				\
+		_pie_fixup_limit=0
 
 	/* --------------------------------------------------------------------
 	 * Perform BL1 setup
