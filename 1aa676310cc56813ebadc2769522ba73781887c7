@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "f16c5386_d3adbb55",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/se/se.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-11-26T19:43:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "040f7976_10595321",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 27
+      },
+      "revId": "1aa676310cc56813ebadc2769522ba73781887c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "042f8900_b5297f70",
         "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
         "patchSetId": 5
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "0594ca03_303cab36",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-11-26T19:43:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "042f8900_b5297f70",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 21
+      },
+      "revId": "1aa676310cc56813ebadc2769522ba73781887c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14405b4c_a92839c2",
         "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
         "patchSetId": 5
@@ -105,6 +153,30 @@
       "writtenOn": "2019-11-19T14:25:36Z",
       "side": 1,
       "message": "Can\u0027t we just assert(tegra_se_suspend() \u003d\u003d 0); without declaring ret variable?",
+      "range": {
+        "startLine": 156,
+        "startChar": 10,
+        "endLine": 156,
+        "endChar": 18
+      },
+      "revId": "1aa676310cc56813ebadc2769522ba73781887c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d5dde51_6b5f7e04",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-11-26T19:43:29Z",
+      "side": 1,
+      "message": "In a new patchset I have used ret else where in the function. So I guess, we can keep this as is",
+      "parentUuid": "14405b4c_a92839c2",
       "range": {
         "startLine": 156,
         "startChar": 10,
