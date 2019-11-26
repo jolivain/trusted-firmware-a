@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "47ede165_cf5789ed",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-11-26T17:52:45Z",
+      "side": 1,
+      "message": "Isnt this always going to be \u0027false\u0027?",
+      "parentUuid": "789463eb_a8fa27e6",
+      "revId": "1dc80aa5cefd92fe11eb3e18800ef8e7e62e931d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e1caa8ec_4bd9916f",
         "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
         "patchSetId": 5
