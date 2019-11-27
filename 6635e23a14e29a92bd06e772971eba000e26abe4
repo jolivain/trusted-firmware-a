@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca13ea8e_84c5fca8",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-11-27T08:28:35Z",
+      "side": 1,
+      "message": "Would it make sense to catch the return value of the command here as well? And if it fails, do not call tegra194_set_system_suspend_entry() and return PSCI_E_DENIED or another PSCI error code as appropriate?",
+      "range": {
+        "startLine": 164,
+        "startChar": 3,
+        "endLine": 166,
+        "endChar": 39
+      },
+      "revId": "6635e23a14e29a92bd06e772971eba000e26abe4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
