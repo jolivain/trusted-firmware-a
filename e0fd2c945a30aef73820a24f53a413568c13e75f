@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45aecbfa_65f0c01f",
+        "filename": "plat/allwinner/sun50i_h6/sunxi_power.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-11-27T16:21:10Z",
+      "side": 1,
+      "message": "That looks unnecessarily complicated now. Are you extending this later, or did you want to have it that way for consistency with _read()?",
+      "revId": "e0fd2c945a30aef73820a24f53a413568c13e75f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
