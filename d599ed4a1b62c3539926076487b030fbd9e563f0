@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c1552756_418cfdbc",
+        "filename": "docs/design/alt-boot-flows.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-11-27T10:44:37Z",
+      "side": 1,
+      "message": "Done. Also reviewed other new files for missing copyrights.",
+      "parentUuid": "52b928b7_91566b10",
+      "revId": "d599ed4a1b62c3539926076487b030fbd9e563f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d84cdb6e_06d08d77",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 3
@@ -39,6 +57,30 @@
       "revId": "d599ed4a1b62c3539926076487b030fbd9e563f0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af3e9d06_9bca5bf4",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-11-27T10:44:37Z",
+      "side": 1,
+      "message": "I think what I\u0027ll do is create a new page for this section under docs/plat/arm itself. The following sections have build options for FVPs and CSS platforms - FVP build options will move under docs/plat/arm/fvp while CSS build options will go in the new page I just mentioned since they don\u0027t really relate to one specific platform (such as Juno).",
+      "parentUuid": "d84cdb6e_06d08d77",
+      "range": {
+        "startLine": 567,
+        "startChar": 0,
+        "endLine": 569,
+        "endChar": 0
+      },
+      "revId": "d599ed4a1b62c3539926076487b030fbd9e563f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "3d6038a6_77c8ad07",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-11-27T10:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "934f9cd2_0d362521",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 46
+      },
+      "revId": "d599ed4a1b62c3539926076487b030fbd9e563f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dc59363_d4ecd5bd",
         "filename": "docs/getting_started/prerequisites.rst",
         "patchSetId": 3
@@ -79,6 +145,24 @@
       "revId": "d599ed4a1b62c3539926076487b030fbd9e563f0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0da9c26e_b33112b9",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-11-27T10:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dc59363_d4ecd5bd",
+      "revId": "d599ed4a1b62c3539926076487b030fbd9e563f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -102,6 +186,30 @@
       "revId": "d599ed4a1b62c3539926076487b030fbd9e563f0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14b54a6d_fbf77249",
+        "filename": "docs/plat/arm/juno/index.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-11-27T10:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b211778_141e40e6",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 1
+      },
+      "revId": "d599ed4a1b62c3539926076487b030fbd9e563f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
