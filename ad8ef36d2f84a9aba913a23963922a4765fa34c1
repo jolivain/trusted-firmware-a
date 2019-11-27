@@ -22,6 +22,30 @@
       "revId": "ad8ef36d2f84a9aba913a23963922a4765fa34c1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd4ddfc8_8da463b1",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-11-27T22:37:40Z",
+      "side": 1,
+      "message": "We use ENABLE_ASSERTIONS even for release builds. IIUC the error code cannot be returned to the SMC caller this late in the process.",
+      "parentUuid": "16386d50_c8c2fb7d",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 132,
+        "endChar": 19
+      },
+      "revId": "ad8ef36d2f84a9aba913a23963922a4765fa34c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
