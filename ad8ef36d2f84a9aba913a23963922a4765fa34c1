@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16386d50_c8c2fb7d",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-11-27T08:11:18Z",
+      "side": 1,
+      "message": "Using an assertion here means there won\u0027t be any check on the return value of the MCE_CMD_ENTER_CSTATE command in release builds. Is it OK? Is the thought process here that this command is never expected to fail? Would it be incorrect to propagate the error to the caller, as in:\n\n if (ret !\u003d 0) {\n   return PSCI_E_DENIED;\n }\n\n?",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 132,
+        "endChar": 19
+      },
+      "revId": "ad8ef36d2f84a9aba913a23963922a4765fa34c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
