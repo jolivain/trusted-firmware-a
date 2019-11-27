@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fdb6dc5_8055abe9",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-11-27T08:56:54Z",
+      "side": 1,
+      "message": "This is another instance of an MCE command whose return value is ignored. I would think it should be captured and propagated to the caller.",
+      "range": {
+        "startLine": 318,
+        "startChar": 1,
+        "endLine": 318,
+        "endChar": 78
+      },
+      "revId": "c3fbaa5a0b86b7e3b4f592e301ec0333313efb9c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
