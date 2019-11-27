@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51bdfef3_47536ef2",
+        "filename": "docs/getting_started/user-guide.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-11-27T15:36:24Z",
+      "side": 1,
+      "message": "You have a merge conflict here now because my patch that splits up the user guide was merged first. The content that you\u0027ve modified now lives in the build-options.rst file.",
+      "range": {
+        "startLine": 599,
+        "startChar": 0,
+        "endLine": 611,
+        "endChar": 74
+      },
+      "revId": "9e7934c0ffb190f6b362dc93d2365c67a8f6f633",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
