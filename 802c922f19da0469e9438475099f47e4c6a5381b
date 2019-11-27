@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2574f46c_97ae5685",
+        "filename": "docs/getting_started/user-guide.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 975,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-11-27T15:53:13Z",
+      "side": 1,
+      "message": "You have a merge conflict here now because my patch that splits up the user guide was merged first. The content that you\u0027ve modified now lives in the docs/plat/arm/fvp/index.rst file.",
+      "range": {
+        "startLine": 972,
+        "startChar": 3,
+        "endLine": 975,
+        "endChar": 65
+      },
+      "revId": "802c922f19da0469e9438475099f47e4c6a5381b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
