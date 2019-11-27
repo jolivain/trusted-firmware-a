@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "9775e39d_bddd0a3d",
+        "filename": "plat/allwinner/sun50i_h6/sunxi_power.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-27T21:52:55Z",
+      "side": 1,
+      "message": "Would recommended something like below instead of goto:\nint ret;\n\nret \u003d i2c_write(chip, 0, 0, \u0026reg, 1);\nif (0 \u003d\u003d ret) {\n        ret \u003d i2c_read(chip, 0, 0, val, 1);\n}\nif (ret) {\n\tERROR(\"PMIC: Cannot read AXP805 register %02x\\n\", reg);\n}\nreturn ret;",
+      "revId": "e0fd2c945a30aef73820a24f53a413568c13e75f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45aecbfa_65f0c01f",
         "filename": "plat/allwinner/sun50i_h6/sunxi_power.c",
         "patchSetId": 2
@@ -13,6 +30,24 @@
       "writtenOn": "2019-11-27T16:21:10Z",
       "side": 1,
       "message": "That looks unnecessarily complicated now. Are you extending this later, or did you want to have it that way for consistency with _read()?",
+      "revId": "e0fd2c945a30aef73820a24f53a413568c13e75f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ab3cd98_0ff429bf",
+        "filename": "plat/allwinner/sun50i_h6/sunxi_power.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-11-27T21:52:55Z",
+      "side": 1,
+      "message": "I agree with Andre here",
+      "parentUuid": "45aecbfa_65f0c01f",
       "revId": "e0fd2c945a30aef73820a24f53a413568c13e75f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
