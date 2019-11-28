@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ad3f3271_7e43c18c",
+        "filename": "drivers/debugfs/blobs.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-28T10:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e375fbc2_dc8022c8",
+      "revId": "e1388083dd2489226899a0e000e7880cb007d320",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a61df124_55e4b7ba",
         "filename": "drivers/debugfs/devfip.c",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2019-11-21T13:58:15Z",
       "side": 1,
       "message": "is this entry needed?",
+      "revId": "e1388083dd2489226899a0e000e7880cb007d320",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc18c726_2135b4dc",
+        "filename": "drivers/debugfs/devfip.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-28T10:49:28Z",
+      "side": 1,
+      "message": "Yes because we want to match entries in this array, to the corresponding image ids from tbbr_img_def_exp.h",
+      "parentUuid": "a61df124_55e4b7ba",
       "revId": "e1388083dd2489226899a0e000e7880cb007d320",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -64,6 +100,24 @@
       "writtenOn": "2019-11-21T13:58:15Z",
       "side": 1,
       "message": "((c-\u003edev \u003e\u003d nfips) || ((c-\u003eqid \u0026 CHDIR) !\u003d 0))",
+      "revId": "e1388083dd2489226899a0e000e7880cb007d320",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5189c99_4b8e2aba",
+        "filename": "drivers/debugfs/devfip.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-11-28T10:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "531eae06_ab463752",
       "revId": "e1388083dd2489226899a0e000e7880cb007d320",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
