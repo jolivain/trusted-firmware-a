@@ -70,6 +70,24 @@
       "revId": "86476b62af2029c4bc1e83eeb571919d4c46ca09",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eae96951_9a95ff68",
+        "filename": "plat/intel/soc/common/socfpga_psci.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2019-11-28T04:58:05Z",
+      "side": 1,
+      "message": "Update: I will need to also refactor reset manager code to leave this part of code after refactoring. Hence, I remove them as they don\u0027t serve meaningful purpose.",
+      "parentUuid": "aa1ac18a_69aa630a",
+      "revId": "86476b62af2029c4bc1e83eeb571919d4c46ca09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
