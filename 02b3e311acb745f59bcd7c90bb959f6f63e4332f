@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d18cfc77_4701a022",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/include/t194_nvg.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-11-29T07:53:23Z",
+      "side": 1,
+      "message": "Why is this type change needed? With patch [1] being dropped, I thought bitfields types would remain as uint64_t throughout this file.\n\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/2051",
+      "range": {
+        "startLine": 138,
+        "startChar": 2,
+        "endLine": 138,
+        "endChar": 10
+      },
+      "revId": "02b3e311acb745f59bcd7c90bb959f6f63e4332f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
