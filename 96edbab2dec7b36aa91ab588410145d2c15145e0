@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7a25f10_ccbc3157",
+        "filename": "bl31/bl31.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-02T14:38:31Z",
+      "side": 1,
+      "message": "It seems this check is abusive.\nIn previous version ENABLE_SPM\u003d1/SPM_MM\u003d0 did not require EL3_EXCEPTION_HANDLING\u003d1.",
+      "revId": "96edbab2dec7b36aa91ab588410145d2c15145e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
