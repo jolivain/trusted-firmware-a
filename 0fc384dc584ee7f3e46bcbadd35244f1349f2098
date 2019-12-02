@@ -46,6 +46,30 @@
       "revId": "0fc384dc584ee7f3e46bcbadd35244f1349f2098",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35c13c2c_b1863476",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-12-02T09:58:19Z",
+      "side": 1,
+      "message": "I\u0027ve given this a bit more thoughts.\n\nThe way I see it, we\u0027ve got 2 distinct modules here:\n- The SMC dispatcher (arm_sip_handler()), which is responsible for identifying *which* service is being requested and by *whom* (NS-EL1, S-EL1, NS-EL2, S-EL2). This is the first gate and acts as a permission check (\"Is this caller allowed to request this service?\"). \n- The service itself (arm_execution_state_switch()). Its behaviour might be controlled through input parameters, which we must sanity-check first, like any data coming from an external caller.\n\nFrom this point of view, moving the entrypoint validation into arm_execution_state_switch() seems like the right thing to do to me, as this is part of the input parameters validation.\n\nHowever, I don\u0027t think we should move the non-secure caller check there as well, as this is part of identifying who requests the service.\n\nWhether we keep the EL3 execution state check in this file or not doesn\u0027t seem so obvious to me anymore. I think it might make more sense to keep it here in the end. It\u0027s similar to the PSCI SMC handler, which does not recognize PSCI_STAT calls as valid SMC requests if PSCI_STAT support itself is not compiled into the firmware. After all, there\u0027s no point checking who requested the service if the service is not supported in the first place!\n\nIn summary, this is what I have in mind:\n1. Keep the EL3 execution state check in this file (just like you\u0027ve done in your patch).\n2. Keep the caller check in this file too (as is the case right now).\n3. Move the entrypoint validation code into arm_execution_state_switch().\n4. Remove EL3 execution state checks from arm_execution_state_switch().\n5. Move plat/arm/common/execution_state_switch.c into plat/arm/common/aarch64/execution_state_switch.c.\n6. Modify the Arm platform makefile to exclude plat/arm/common/aarch64/execution_state_switch.c from the AArch32 build.",
+      "parentUuid": "ac93c6bb_d7d3704f",
+      "range": {
+        "startLine": 69,
+        "startChar": 21,
+        "endLine": 69,
+        "endChar": 47
+      },
+      "revId": "0fc384dc584ee7f3e46bcbadd35244f1349f2098",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
