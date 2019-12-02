@@ -6,7 +6,10 @@
 
 #include <assert.h>
 
+#include <lib/mmio.h>
+
 #include <plat/common/platform.h>
+#include <drivers/generic_delay_timer.h>
 
 #include "fpga_private.h"
 
@@ -48,7 +51,11 @@ void bl31_plat_arch_setup(void)
 
 void bl31_platform_setup(void)
 {
-	/* TODO: initialize GIC and timer using the specifications of the FPGA image */
+	/* Write frequency to CNTCRL and initialize timer */
+	generic_delay_timer_init();
+	mmio_write_32(FPGA_TIMER_BASE, ((1 << 8) | 1UL));
+
+	/* TODO: initialize GIC using the specifications of the FPGA image */
 }
 
 entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
@@ -69,11 +76,7 @@ entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 
 unsigned int plat_get_syscnt_freq2()
 {
-	/*
-	 * TODO: return the frequency of the System Counter as configured by the
-	 * FPGA image
-	 */
-	return 0;
+	return FPGA_TIMER_FREQUENCY;
 }
 
 void bl31_plat_enable_mmu(uint32_t flags)
