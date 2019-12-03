@@ -125,7 +125,7 @@ int32_t tegra_soc_pwr_domain_suspend(const psci_power_state_t *target_state)
 		val = (stateid_afflvl0 == PSTATE_ID_CORE_IDLE) ?
 			(uint32_t)TEGRA_NVG_CORE_C6 : (uint32_t)TEGRA_NVG_CORE_C7;
 		ret = mce_command_handler((uint64_t)MCE_CMD_ENTER_CSTATE, (uint64_t)val,
-				percpu_data[cpu].wake_time, 0);
+				t19x_percpu_data[cpu].wake_time, 0);
 		assert(ret == 0);
 
 	} else if (stateid_afflvl2 == PSTATE_ID_SOC_POWERDN) {
