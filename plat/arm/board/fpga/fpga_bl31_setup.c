@@ -51,8 +51,9 @@ void bl31_plat_arch_setup(void)
 
 void bl31_platform_setup(void)
 {
-	generic_delay_timer_init(); // write timer frequency to CNTCRL
-	mmio_write_32(FPGA_TIMER_BASE, ((1 << 8) | 1UL)); // initialize timer
+	/* Write frequency to CNTCRL and initialize timer */
+	generic_delay_timer_init();
+	mmio_write_32(FPGA_TIMER_BASE, ((1 << 8) | 1UL));
 
 	/* TODO: initialize GIC using the specifications of the FPGA image */
 }
