@@ -11,4 +11,6 @@ unsigned int plat_fpga_calc_core_pos(u_register_t mpidr);
 
 void fpga_console_init();
 
+void plat_fpga_gic_init(void);
+
 #endif
