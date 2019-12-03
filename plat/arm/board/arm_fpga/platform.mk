@@ -39,7 +39,12 @@ FPGA_CPU_LIBS		:=	lib/cpus/${ARCH}/aem_generic.S		\
 
 FPGA_GIC_SOURCES	:=	drivers/arm/gic/common/gic_common.c	\
 				drivers/arm/gic/v3/gicv3_main.c		\
-				plat/common/plat_gicv3.c
+				drivers/arm/gic/v3/gicv3_helpers.c	\
+				drivers/arm/gic/v3/gicdv3_helpers.c     \
+                                drivers/arm/gic/v3/gicrv3_helpers.c     \
+				plat/arm/board/arm_fpga/fpga_gicv3.c	\
+				plat/common/plat_gicv3.c		\
+				drivers/arm/gic/v3/gic600.c
 
 PLAT_INCLUDES		:=	-Iplat/arm/board/arm_fpga/include
 
