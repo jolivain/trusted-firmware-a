@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b5d3805_65aeede7",
+        "filename": "make_helpers/build_macros.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-03T10:44:21Z",
+      "side": 1,
+      "message": "Can we not use gcc as a rapper to linker always ? Is there any reason to invoke LD directly ? \n\nI suspect this may have tie-ins to how the Clang compiler and linker is invoked.",
+      "revId": "edbce9aad48fe71a6fed0df8d56eebb61e44632e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
