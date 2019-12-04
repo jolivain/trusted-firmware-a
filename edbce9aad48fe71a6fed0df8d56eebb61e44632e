@@ -34,6 +34,24 @@
       "revId": "edbce9aad48fe71a6fed0df8d56eebb61e44632e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bfa5754_4b8a7dfd",
+        "filename": "make_helpers/build_macros.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-04T10:35:41Z",
+      "side": 1,
+      "message": "OK, I also suspect that the LLVM build will break if we wrap gcc by default. So this patch is good to go.",
+      "parentUuid": "fb341bee_1e1dee2f",
+      "revId": "edbce9aad48fe71a6fed0df8d56eebb61e44632e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
