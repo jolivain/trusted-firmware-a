@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a31a14d5_4c9ccbe6",
+        "filename": "drivers/allwinner/axp/axp805.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2019-12-04T09:29:05Z",
+      "side": 1,
+      "message": "\u003e According to (my copy of) the manual, ALDO2 goes up to 3.4 volts.\n\nThat\u0027s an error in the manual. It says 3.3V on page 7/16/24, and it\u0027s the same 27 100mV steps starting at 0.7V as ALDO1 and ALDO3.\n\n\u003e In general I was tending to just name those regulators that are actually used (as in: programmed by ATF), to avoid having untested data in here. This would apply to DCDCB, DCDCC, BLDO4, CLDO2, CLDO3, which wouldn\u0027t be enabled by ATF judging by the DTs in the kernel.\n\nI don\u0027t see any particular harm in putting all of the regulators here. The interface is consistent across all regulators, and it avoids needing to come back and add things later (like we\u0027re doing now for AXP803).\n\nI *do* think there\u0027s a case to be made for only touching regulators with a \"regulator-boot-on\" property, and not everything with a phandle. The obvious scenario is where the user disables the driver and/or DT node for a peripheral to save power, but the regulator \"magically\" gets turned on anyway.",
+      "parentUuid": "58145c0a_7b348f7c",
+      "revId": "5fdc76d61c85befb46711456439ee6c9b129997d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "213ca7e1_8e7946b7",
         "filename": "drivers/allwinner/axp/common.c",
         "patchSetId": 2
