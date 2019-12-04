@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95abb6a0_1de47a3c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-12-04T00:13:13Z",
+      "side": 1,
+      "message": "Hi,\nThanks for the bug fix. I guess it was quite tricky to catch the bug. I was wondering if you could add this comment (/* el3_exit assumes SP_EL0 on entry */) at the beginning of the el3_exit function. Also, can you add an assertion in the function el3_exit to make sure spsel is configured to pick SP_EL0.\n\nmrs x17, spsel\ncmp x17, #0\nASM_ASSERT(eq)",
+      "revId": "f38e4d9f5b0c73e9f16205665531d02b704c1dc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
