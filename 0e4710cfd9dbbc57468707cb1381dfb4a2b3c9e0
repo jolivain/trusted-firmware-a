@@ -46,6 +46,29 @@
       "revId": "0e4710cfd9dbbc57468707cb1381dfb4a2b3c9e0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48c583d1_5bdc3cf2",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-05T18:05:15Z",
+      "side": 1,
+      "message": "I think this can be removed if we are clever enough with the input arguments to this macro.",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 14
+      },
+      "revId": "0e4710cfd9dbbc57468707cb1381dfb4a2b3c9e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
