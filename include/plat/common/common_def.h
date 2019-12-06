@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -43,6 +43,12 @@
 		VERSION_2, entry_point_info_t, SECURE | EXECUTABLE),\
 	.ep_info.pc = BL2_BASE,				\
 }
+
+/*
+ * Root of trust key hash lengths
+ */
+ #define ROTPK_HEADER_LEN		19
+ #define ROTPK_HASH_LEN			32
 
 /*
  * The following constants identify the extents of the code & read-only data
