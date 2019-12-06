@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018-2019, Arm Limited. All rights reserved.
+# Copyright (c) 2018-2020, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -27,6 +27,11 @@ BL31_SOURCES		+=	${SGI_CPU_SOURCES}			\
 				drivers/cfi/v2m/v2m_flash.c		\
 				lib/utils/mem_region.c			\
 				plat/arm/common/arm_nor_psci_mem_protect.c
+
+ifeq (${TRUSTED_BOARD_BOOT}, 1)
+BL1_SOURCES		+=	${RDE1EDGE_BASE}/rde1edge_trusted_boot.c
+BL2_SOURCES		+=	${RDE1EDGE_BASE}/rde1edge_trusted_boot.c
+endif
 
 # Add the FDT_SOURCES and options for Dynamic Config
 FDT_SOURCES		+=	${RDE1EDGE_BASE}/fdts/${PLAT}_tb_fw_config.dts
