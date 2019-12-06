@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -19,12 +19,23 @@ ifneq (${TRUSTED_BOARD_BOOT},0)
     else ifeq (${ARM_ROTPK_LOCATION}, devel_rsa)
         KEY_ALG := rsa
         ARM_ROTPK_LOCATION_ID = ARM_ROTPK_DEVEL_RSA_ID
+        ARM_ROTPK_HASH := \"$(shell openssl rsa -in ${ROT_KEY} -pubout \
+        -outform DER | openssl dgst -sha256 -binary | \
+        hexdump -ve '"\\\\x" /1 "%X"')\"
+        $(warning "Develpment keys support for FVP is deprecated. Use `regs` \
+        option instead")
     else ifeq (${ARM_ROTPK_LOCATION}, devel_ecdsa)
         KEY_ALG := ecdsa
         ARM_ROTPK_LOCATION_ID = ARM_ROTPK_DEVEL_ECDSA_ID
+        ARM_ROTPK_HASH := \"$(shell openssl ec -in ${ROT_KEY} -pubout \
+        -outform DER | openssl dgst -sha256 -binary | \
+        hexdump -ve '"\\\\x" /1 "%X"')\"
+        $(warning Develpment keys support for FVP is deprecated. Use `regs` \
+        option instead)
     else
         $(error "Unsupported ARM_ROTPK_LOCATION value")
     endif
+    $(eval $(call add_define,ARM_ROTPK_HASH))
     $(eval $(call add_define,ARM_ROTPK_LOCATION_ID))
 
     # Certificate NV-Counters. Use values corresponding to tied off values in

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2020, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,9 +8,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <common/debug.h>
 #include <drivers/arm/cryptocell/cc_rotpk.h>
-#include <drivers/delay_timer.h>
 #include <lib/cassert.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
@@ -30,13 +28,9 @@ static unsigned char rotpk_hash_der[sizeof(rotpk_hash_hdr) - 1 + SHA256_BYTES];
   #error "ARM_ROTPK_LOCATION_ID not defined"
 #endif
 
-/* Weak definition may be overridden in specific platform */
-#pragma weak plat_get_nv_ctr
-#pragma weak plat_set_nv_ctr
-
 #if (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_RSA_ID) \
 	|| (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_ECDSA_ID)
-static const unsigned char arm_devel_rotpk_hash[] = ARM_ROTPK_HASH;
+	static const unsigned char arm_devel_rotpk_hash[] =	ARM_ROTPK_HASH;
 #endif
 
 /*
@@ -52,7 +46,7 @@ static const unsigned char arm_devel_rotpk_hash[] = ARM_ROTPK_HASH;
  *     digest            OCTET STRING
  * }
  */
-int arm_regs_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
+int juno_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
 			unsigned int *flags)
 {
 	uint8_t *dst;
@@ -72,16 +66,51 @@ int arm_regs_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
 	uint32_t *src, tmp;
 	unsigned int words, i;
 
-	words = SHA256_BYTES >> 2;
+	/*
+	 * Append the hash from Trusted Root-Key Storage registers. The hash has
+	 * not been written linearly into the registers, so we have to do a bit
+	 * of byte swapping:
+	 *
+	 *     0x00    0x04    0x08    0x0C    0x10    0x14    0x18    0x1C
+	 * +---------------------------------------------------------------+
+	 * | Reg0  | Reg1  | Reg2  | Reg3  | Reg4  | Reg5  | Reg6  | Reg7  |
+	 * +---------------------------------------------------------------+
+	 *  | ...                    ... |   | ...                   ...  |
+	 *  |       +--------------------+   |                    +-------+
+	 *  |       |                        |                    |
+	 *  +----------------------------+   +----------------------------+
+	 *          |                    |                        |       |
+	 *  +-------+                    |   +--------------------+       |
+	 *  |                            |   |                            |
+	 *  v                            v   v                            v
+	 * +---------------------------------------------------------------+
+	 * |                               |                               |
+	 * +---------------------------------------------------------------+
+	 *  0                           15  16                           31
+	 *
+	 * Additionally, we have to access the registers in 32-bit words
+	 */
+	words = SHA256_BYTES >> 3;
 
+	/* Swap bytes 0-15 (first four registers) */
 	src = (uint32_t *)TZ_PUB_KEY_HASH_BASE;
 	for (i = 0 ; i < words ; i++) {
 		tmp = src[words - 1 - i];
 		/* Words are read in little endian */
-		*dst++ = (uint8_t)(tmp & 0xFF);
-		*dst++ = (uint8_t)((tmp >> 8) & 0xFF);
-		*dst++ = (uint8_t)((tmp >> 16) & 0xFF);
 		*dst++ = (uint8_t)((tmp >> 24) & 0xFF);
+		*dst++ = (uint8_t)((tmp >> 16) & 0xFF);
+		*dst++ = (uint8_t)((tmp >> 8) & 0xFF);
+		*dst++ = (uint8_t)(tmp & 0xFF);
+	}
+
+	/* Swap bytes 16-31 (last four registers) */
+	src = (uint32_t *)(TZ_PUB_KEY_HASH_BASE + SHA256_BYTES / 2);
+	for (i = 0 ; i < words ; i++) {
+		tmp = src[words - 1 - i];
+		*dst++ = (uint8_t)((tmp >> 24) & 0xFF);
+		*dst++ = (uint8_t)((tmp >> 16) & 0xFF);
+		*dst++ = (uint8_t)((tmp >> 8) & 0xFF);
+		*dst++ = (uint8_t)(tmp & 0xFF);
 	}
 #endif /* (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_RSA_ID) \
 		  || (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_ECDSA_ID) */
@@ -90,47 +119,6 @@ int arm_regs_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
 	*key_len = (unsigned int)sizeof(rotpk_hash_der);
 	*flags = ROTPK_IS_HASH;
 	return 0;
-}
-
-/*
- * Return the non-volatile counter value stored in the platform. The cookie
- * will contain the OID of the counter in the certificate.
- *
- * Return: 0 = success, Otherwise = error
- */
-int plat_get_nv_ctr(void *cookie, unsigned int *nv_ctr)
-{
-	const char *oid;
-	uint32_t *nv_ctr_addr;
-
-	assert(cookie != NULL);
-	assert(nv_ctr != NULL);
-
-	oid = (const char *)cookie;
-	if (strcmp(oid, TRUSTED_FW_NVCOUNTER_OID) == 0) {
-		nv_ctr_addr = (uint32_t *)TFW_NVCTR_BASE;
-	} else if (strcmp(oid, NON_TRUSTED_FW_NVCOUNTER_OID) == 0) {
-		nv_ctr_addr = (uint32_t *)NTFW_CTR_BASE;
-	} else {
-		return 1;
-	}
-
-	*nv_ctr = (unsigned int)(*nv_ctr_addr);
-
-	return 0;
-}
-
-/*
- * Store a new non-volatile counter value. By default on ARM development
- * platforms, the non-volatile counters are RO and cannot be modified. We expect
- * the values in the certificates to always match the RO values so that this
- * function is never called.
- *
- * Return: 0 = success, Otherwise = error
- */
-int plat_set_nv_ctr(void *cookie, unsigned int nv_ctr)
-{
-	return 1;
 }
 
 /*
@@ -146,19 +134,12 @@ int plat_set_nv_ctr(void *cookie, unsigned int nv_ctr)
  *     digest            OCTET STRING
  * }
  */
-int arm_cc_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
+int plat_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
 			unsigned int *flags)
 {
-	unsigned char *dst;
-
-	assert(key_ptr != NULL);
-	assert(key_len != NULL);
-	assert(flags != NULL);
-
-	/* Copy the DER header */
-	memcpy(rotpk_hash_der, rotpk_hash_hdr, rotpk_hash_hdr_len);
-	dst = &rotpk_hash_der[rotpk_hash_hdr_len];
-	*key_ptr = rotpk_hash_der;
-	*key_len = sizeof(rotpk_hash_der);
-	return cc_get_rotpk_hash(dst, SHA256_BYTES, flags);
+#if !ARM_CRYPTOCELL_INTEG
+	return juno_get_rotpk_info(cookie, key_ptr, key_len, flags);
+#else
+	return arm_cc_get_rotpk_info(cookie, key_ptr, key_len, flags);
+#endif
 }
