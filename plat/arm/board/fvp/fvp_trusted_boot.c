@@ -11,8 +11,28 @@
 #include <lib/mmio.h>
 
 #include <plat/common/platform.h>
+#include <plat/arm/common/plat_arm.h>
 #include <platform_def.h>
 #include <tools_share/tbbr_oid.h>
+
+/*
+ * Return the ROTPK hash in the following ASN.1 structure in DER format:
+ *
+ * AlgorithmIdentifier  ::=  SEQUENCE  {
+ *     algorithm         OBJECT IDENTIFIER,
+ *     parameters        ANY DEFINED BY algorithm OPTIONAL
+ * }
+ *
+ * DigestInfo ::= SEQUENCE {
+ *     digestAlgorithm   AlgorithmIdentifier,
+ *     digest            OCTET STRING
+ * }
+ */
+int plat_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
+			unsigned int *flags)
+{
+	return plat_arm_get_rotpk_info(cookie, key_ptr, key_len, flags);
+}
 
 /*
  * Store a new non-volatile counter value.
