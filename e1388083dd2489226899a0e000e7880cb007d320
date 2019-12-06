@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "7111275c_ca2f48d7",
+        "filename": "drivers/debugfs/devfip.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-06T14:12:03Z",
+      "side": 1,
+      "message": "I tend to say yes it\u0027s correct, because fipgen is called from devwalk or devfip where n is iterated from 0 and we need to go through this for loop at least for n\u003d0. We could refactor this using do while I guess, but that would not make it much easier to read.",
+      "parentUuid": "c74d09f4_0efebe7c",
+      "revId": "e1388083dd2489226899a0e000e7880cb007d320",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "531eae06_ab463752",
         "filename": "drivers/debugfs/devfip.c",
         "patchSetId": 3
