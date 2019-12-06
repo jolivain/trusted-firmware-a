@@ -57,8 +57,7 @@ Arm Platform Build Options
    ``ARM_ROTPK_LOCATION`` are:
 
    -  ``regs`` : return the ROTPK hash stored in the Trusted root-key storage
-      registers. The private key corresponding to this ROTPK hash is not
-      currently available.
+      registers.
    -  ``devel_rsa`` : return a development public key hash embedded in the BL1
       and BL2 binaries. This hash has been obtained from the RSA public key
       ``arm_rotpk_rsa.der``, located in ``plat/arm/board/common/rotpk``. To use
