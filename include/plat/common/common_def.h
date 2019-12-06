@@ -45,6 +45,12 @@
 }
 
 /*
+ * Root of trust key hash lengths
+ */
+ #define ROTPK_HEADER_LEN		19
+ #define ROTPK_HASH_LEN			32
+
+/*
  * The following constants identify the extents of the code & read-only data
  * regions. These addresses are used by the MMU setup code and therefore they
  * must be page-aligned.
