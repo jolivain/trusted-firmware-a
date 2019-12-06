@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -62,6 +62,7 @@ BL1_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S		\
 				lib/cpus/aarch64/cortex_a72.S		\
 				plat/arm/board/juno/juno_err.c		\
 				plat/arm/board/juno/juno_bl1_setup.c	\
+				plat/arm/board/juno/juno_trusted_boot.c \
 				drivers/arm/sp805/sp805.c		\
 				${JUNO_INTERCONNECT_SOURCES}		\
 				${JUNO_SECURITY_SOURCES}
@@ -70,6 +71,7 @@ BL2_SOURCES		+=	drivers/arm/sp805/sp805.c		\
 				lib/utils/mem_region.c			\
 				plat/arm/board/juno/juno_err.c		\
 				plat/arm/board/juno/juno_bl2_setup.c	\
+				plat/arm/board/juno/juno_trusted_boot.c \
 				plat/arm/common/arm_nor_psci_mem_protect.c \
 				${JUNO_SECURITY_SOURCES}
 
@@ -91,6 +93,42 @@ ifeq (${CSS_USE_SCMI_SDS_DRIVER},1)
 BL1_SOURCES		+=	drivers/arm/css/sds/sds.c
 endif
 
+endif
+
+ifneq (${TRUSTED_BOARD_BOOT},0)
+  ifneq (${ARM_CRYPTOCELL_INTEG}, 1)
+    # ROTPK hash location
+    ifeq (${ARM_ROTPK_LOCATION}, regs)
+        ARM_ROTPK_LOCATION_ID = ARM_ROTPK_REGS_ID
+    else ifeq (${ARM_ROTPK_LOCATION}, devel_rsa)
+        KEY_ALG := rsa
+        ARM_ROTPK_LOCATION_ID = ARM_ROTPK_DEVEL_RSA_ID
+        ARM_ROTPK_HASH := \"$(shell openssl rsa -in ${ROT_KEY} -pubout \
+        -outform DER | openssl dgst -sha256 -binary | \
+        hexdump -ve '"\\\\x" /1 "%X"')\"
+
+    else ifeq (${ARM_ROTPK_LOCATION}, devel_ecdsa)
+        KEY_ALG := ecdsa
+        ARM_ROTPK_LOCATION_ID = ARM_ROTPK_DEVEL_ECDSA_ID
+        ARM_ROTPK_HASH := \"$(shell openssl ec -in ${ROT_KEY} -pubout \
+        -outform DER | openssl dgst -sha256 -binary | \
+        hexdump -ve '"\\\\x" /1 "%X"')\"
+    else
+        $(error "Unsupported ARM_ROTPK_LOCATION value")
+    endif
+    $(eval $(call add_define,ARM_ROTPK_HASH))
+    $(eval $(call add_define,ARM_ROTPK_LOCATION_ID))
+
+    # Certificate NV-Counters. Use values corresponding to tied off values in
+    # ARM development platforms
+    TFW_NVCTR_VAL	?=	31
+    NTFW_NVCTR_VAL	?=	223
+  else
+    # Certificate NV-Counters when CryptoCell is integrated. For development
+    # platforms we set the counter to first valid value.
+    TFW_NVCTR_VAL	?=	0
+    NTFW_NVCTR_VAL	?=	0
+  endif
 endif
 
 ifneq (${RESET_TO_BL31},0)
