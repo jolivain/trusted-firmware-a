@@ -126,8 +126,30 @@
 /*
  * Serial-related constants.
  */
-#define PLAT_RPI3_UART_BASE		RPI3_MINI_UART_BASE
 #define PLAT_RPI3_UART_BAUDRATE		ULL(115200)
+#if RPI3_USE_PL011_UART
+#define PLAT_RPI3_UART_BASE		RPI3_PL011_UART_BASE
+#define PLAT_RPI3_UART_CLOCK		RPI3_PL011_UART_CLK_IN_HZ
+#define PLAT_RPI3_CONSOLE_CORE_INIT	console_pl011_core_init
+#define PLAT_RPI3_CONSOLE_CORE_PUTC	console_pl011_core_putc
+#define PLAT_RPI3_CONSOLE_CORE_FLUSH	console_pl011_core_flush
+#define PLAT_RPI3_CONSOLE_REGISTER	console_pl011_register
+#define PLAT_RPI3_CONSOLE_T		console_pl011_t
+#else
+#define PLAT_RPI3_UART_BASE		RPI3_MINI_UART_BASE
+/*
+ * For miniUART, rely on the GPU firmware to have initialised the UART
+ * correctly, as the baud base clock rate differs across GPU firmware
+ * revisions. Providing a base clock of 0 will let the 16550 UART init
+ * routine skip the initial enablement and baud rate setup.
+ */
+#define PLAT_RPI3_UART_CLOCK		0
+#define PLAT_RPI3_CONSOLE_CORE_INIT	console_16550_core_init
+#define PLAT_RPI3_CONSOLE_CORE_PUTC	console_16550_core_putc
+#define PLAT_RPI3_CONSOLE_CORE_FLUSH	console_16550_core_flush
+#define PLAT_RPI3_CONSOLE_REGISTER	console_16550_register
+#define PLAT_RPI3_CONSOLE_T		console_16550_t
+#endif /* RPI3_USE_PL011_UART */
 
 /*
  * System counter
