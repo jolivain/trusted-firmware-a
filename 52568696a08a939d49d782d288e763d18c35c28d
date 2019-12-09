@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55832b22_e6f47338",
+        "filename": "docs/plat/nvidia-tegra.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-12-09T12:09:07Z",
+      "side": 1,
+      "message": "Should this list be updated to mention which Trusted OS\u0027 Tegra194 supports?\n\nBTW, the existing text does not render properly (see https://trustedfirmware-a.readthedocs.io/en/latest/plat/nvidia-tegra.html#trusted-os-dispatcher). Suggest turning this into a proper list:\n\n- Tegra132: TLK\n- Tegra210: TLK and Trusty\n- Tegra186: Trusty",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 16
+      },
+      "revId": "52568696a08a939d49d782d288e763d18c35c28d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
