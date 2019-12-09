@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4afc8106_22fd9289",
+        "filename": "drivers/io/io_block.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2019-12-09T07:54:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8e613e11_3adbdafb",
+      "revId": "5d08a36f74842884629547f4f4345a35cc4343f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f74558c5_f7b8327a",
         "filename": "drivers/io/io_memmap.c",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2019-12-05T20:38:27Z",
       "side": 1,
       "message": "file_pos and size both should be signed long long",
+      "revId": "5d08a36f74842884629547f4f4345a35cc4343f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92419054_fb376813",
+        "filename": "drivers/io/io_memmap.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2019-12-09T07:54:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f74558c5_f7b8327a",
       "revId": "5d08a36f74842884629547f4f4345a35cc4343f1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6f072375_a9c94c93",
+        "filename": "drivers/renesas/rcar/io/io_emmcdrv.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2019-12-09T07:54:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3fd4f17e_86c4765d",
+      "revId": "5d08a36f74842884629547f4f4345a35cc4343f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef50e2c4_9bfe59ea",
         "filename": "drivers/renesas/rcar/io/io_memdrv.c",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2019-12-05T20:38:27Z",
       "side": 1,
       "message": "file_pos should also be updated to `signed long long` on line 31",
+      "revId": "5d08a36f74842884629547f4f4345a35cc4343f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a01a002a_4632a76e",
+        "filename": "drivers/renesas/rcar/io/io_memdrv.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2019-12-09T07:54:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ef50e2c4_9bfe59ea",
       "revId": "5d08a36f74842884629547f4f4345a35cc4343f1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
