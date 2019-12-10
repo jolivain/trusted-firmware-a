@@ -90,6 +90,7 @@ uint64_t spmd_psci_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 		 * Initialise an entry_point_info structure for target
 		 * context.
 		 */
+		entry_point_info_t *spmc_ep_info = spmd_spmc_ep_info_get();
 		ep_info = *spmc_ep_info;
 		ep_info.pc = x2; /* TODO: check PSCI ABI */
 		zeromem(&ep_info.args, sizeof(ep_info.args));

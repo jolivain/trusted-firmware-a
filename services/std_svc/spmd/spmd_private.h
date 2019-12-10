@@ -78,8 +78,8 @@ extern spmd_spm_core_context_t spm_core_context[PLATFORM_CORE_COUNT];
 /* SPMD PSCI power management handlers */
 extern const spd_pm_ops_t spmd_pm;
 
-/* SPMC entry point information */
-extern entry_point_info_t *spmc_ep_info;
+/* SPMC entry point information helper */
+entry_point_info_t *spmd_spmc_ep_info_get(void);
 
 #endif /* __ASSEMBLER__ */
 
