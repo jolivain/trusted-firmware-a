@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "567fbf51_6fa45cad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-12-10T08:12:58Z",
+      "side": 1,
+      "message": "Is this still true when LTO are enabled?\n\nMy understanding is that making these variables global fixes the problem here because then the compiler cannot assume that they won\u0027t be modified outside of this file so it has to be conservative and really emit the ldr instruction.\n\nHowever, if LTO are enabled then the compiler might have enough information about the complete program to figure out that these variables are in fact only accessed in this file and then it\u0027s as if they were static in the first place and we\u0027re back to square one...",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 0
+      },
+      "revId": "63fded217fb01c9f6a6f958452c70aebe05b0aa3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b5ce76c_1bbb5582",
+        "filename": "include/lib/utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-12-10T08:12:58Z",
+      "side": 1,
+      "message": "Don\u0027t we need to tell the compiler that _name is an input operand here? And then I am guessing that it won\u0027t complain about the variable not being used (which makes the cast at line 86 useless).",
+      "range": {
+        "startLine": 85,
+        "startChar": 1,
+        "endLine": 85,
+        "endChar": 50
+      },
+      "revId": "63fded217fb01c9f6a6f958452c70aebe05b0aa3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
