@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db97a076_590167ca",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-10T15:29:03Z",
+      "side": 1,
+      "message": "Sorry, I did not notice this before. There is a chance that _warm_boot_mailbox is 0. This should not be coupled to _warm_boot_mailbox",
+      "revId": "8c1808267f4dec419521c951c457424020e53557",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
