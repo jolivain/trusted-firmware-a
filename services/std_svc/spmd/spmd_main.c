@@ -39,7 +39,15 @@ spmc_manifest_sect_attribute_t spmc_attrs;
  * SPM Core entry point information. Discovered on the primary core and reused
  * on secondary cores.
  ******************************************************************************/
-entry_point_info_t *spmc_ep_info;
+static entry_point_info_t *spmc_ep_info;
+
+/*******************************************************************************
+ * SPM Core entry point information get helper.
+ ******************************************************************************/
+entry_point_info_t *spmd_spmc_ep_info_get(void)
+{
+	return spmc_ep_info;
+}
 
 /*******************************************************************************
  * This function takes an SP context pointer and performs a synchronous entry
