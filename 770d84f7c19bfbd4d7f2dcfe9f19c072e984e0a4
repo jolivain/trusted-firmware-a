@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7a82be6f_79cd3231",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-12-10T23:14:56Z",
+      "side": 1,
+      "message": "Function prototype is the function signature i.e it must have return type, arguments and function name.\n\nExample declaration: void hello(); and so is hello(); - This is function declaration but might give warning in `C`\n\nExpectation is to have function declaration in prototype format - void hello(void);\nHope I didn\u0027t add to the confusion",
+      "parentUuid": "6e10d4f5_4d5940a2",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 13
+      },
+      "revId": "770d84f7c19bfbd4d7f2dcfe9f19c072e984e0a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "70467eef_614b5ade",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
