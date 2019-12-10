@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8c5a248_f1ee5780",
+        "filename": "include/lib/cpus/aarch64/cortex_a72.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2019-12-10T10:39:11Z",
+      "side": 1,
+      "message": "I think this 1 Cycle, 2 cycles, 3 cycles  defines can be removed as that depends on platform. They can be absolute values.",
+      "revId": "882d0f777ea660ffe2c1a9050b838d4923eb4206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
