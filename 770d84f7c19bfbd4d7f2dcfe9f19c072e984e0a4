@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6e10d4f5_4d5940a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-12-10T20:06:29Z",
+      "side": 1,
+      "message": "I was very confused by the terminology myself since people use these terms interchangeably and each term means something different depending on whether it is old-style code or new style c code. Let me try to summarize my observations for my benefit and others who review the code. Sorry if it is redundant.",
+      "parentUuid": "e5695214_661e7bd9",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 13
+      },
+      "revId": "770d84f7c19bfbd4d7f2dcfe9f19c072e984e0a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "70467eef_614b5ade",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ce31afdd_3cb2197e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-12-10T20:06:29Z",
+      "side": 1,
+      "message": "Just FYI, the warnings in WARNING1 are not part of final compilation flags.",
+      "parentUuid": "70467eef_614b5ade",
+      "range": {
+        "startLine": 17,
+        "startChar": 57,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "770d84f7c19bfbd4d7f2dcfe9f19c072e984e0a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "448c9bbf_b935f001",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2019-12-10T07:48:15Z",
       "side": 1,
       "message": "I am confused... I see both -Wmissing-declarations (line 239) and -Wold-style-definition (line 241) being defined in the level-1 warnings today.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 23
+      },
+      "revId": "770d84f7c19bfbd4d7f2dcfe9f19c072e984e0a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93c499a8_f63ea2d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-12-10T20:06:29Z",
+      "side": 1,
+      "message": "I feel the discussion about the cross-compatibility of these flags is not very clear and is confusing.",
+      "parentUuid": "448c9bbf_b935f001",
       "range": {
         "startLine": 21,
         "startChar": 0,
