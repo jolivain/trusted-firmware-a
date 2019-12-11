@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ec363d0c_8e8ba2f7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2019-12-11T00:14:44Z",
+      "side": 1,
+      "message": "That\u0027s a good point. I have resorted to using the \u0027used\u0027 attribute for the variables. This should also resolve potential LTO issue.",
+      "parentUuid": "567fbf51_6fa45cad",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 0
+      },
+      "revId": "63fded217fb01c9f6a6f958452c70aebe05b0aa3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b5ce76c_1bbb5582",
         "filename": "include/lib/utils.h",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "Indeed. Something like __asm__ volatile (\"ldr %0, \u003d\" #_name : \"\u003dr\" (v) : \"X\" (#_name)) should work without the need for global variables (to be tested).",
       "parentUuid": "5b5ce76c_1bbb5582",
+      "range": {
+        "startLine": 85,
+        "startChar": 1,
+        "endLine": 85,
+        "endChar": 50
+      },
+      "revId": "63fded217fb01c9f6a6f958452c70aebe05b0aa3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57829f53_5e20e717",
+        "filename": "include/lib/utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2019-12-11T00:14:44Z",
+      "side": 1,
+      "message": "I made the suggested changes. But this by itself didn\u0027t solve the \u0027variables not being needed\u0027 issue. The\u0027used\u0027 attribute was needed to fix that issue.",
+      "parentUuid": "80bbfa82_ca7f02f8",
       "range": {
         "startLine": 85,
         "startChar": 1,
