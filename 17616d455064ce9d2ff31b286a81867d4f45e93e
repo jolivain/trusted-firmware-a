@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9cdfdce5_d01454ec",
+        "filename": "plat/intel/soc/agilex/soc/agilex_mailbox.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2019-12-11T06:42:41Z",
+      "side": 1,
+      "message": "Yes, the idea is that the loop will continue until all response based on response_length is iterated. The if statement serve to capture only the expected number of response as expected.",
+      "parentUuid": "629a0526_db583a2b",
+      "revId": "17616d455064ce9d2ff31b286a81867d4f45e93e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2fa00c9_5a9ffd61",
         "filename": "plat/intel/soc/agilex/soc/agilex_mailbox.c",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2019-11-25T17:37:13Z",
       "side": 1,
       "message": "Do we need range checks on `response_length` from MBOX vs `resp_len` requested in API.\n\nAlso case when resp_len is less, loop continues with `read` is that intended?",
+      "revId": "17616d455064ce9d2ff31b286a81867d4f45e93e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59993daf_a2e640df",
+        "filename": "plat/intel/soc/agilex/soc/agilex_mailbox.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2019-12-11T06:42:41Z",
+      "side": 1,
+      "message": "I believe range checking is not needed here.\nIf resp_len \u003c response_length : loop through response_length, only store according to resp_len\nIf resp_len \u003e response_length : loop through and store according to response_length\n\nYes, it is intended for the loop to iterate through response_length as to update rout value correctly",
+      "parentUuid": "f2fa00c9_5a9ffd61",
       "revId": "17616d455064ce9d2ff31b286a81867d4f45e93e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
