@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3860e6e_f3172088",
+        "filename": "plat/intel/soc/stratix10/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-12-11T23:26:34Z",
+      "side": 0,
+      "message": "Is s10_mailbox file used anywhere else? Else it will be good to remove the dead code from codebase",
+      "revId": "e9b5e360de9e43e6dd4d17bc53622f5a5606ff8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
