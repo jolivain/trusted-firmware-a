@@ -16,6 +16,24 @@
       "revId": "da90359b7852e13dc21f54f4d42df6d4790fe0cd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782f68c4_5f368577",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2019-12-12T15:16:43Z",
+      "side": 1,
+      "message": "As we need compile time address, adrp won\u0027t work as it uses run time address.(as we verified it together)",
+      "parentUuid": "927050dc_652f02d6",
+      "revId": "da90359b7852e13dc21f54f4d42df6d4790fe0cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
