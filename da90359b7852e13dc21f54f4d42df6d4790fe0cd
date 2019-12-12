@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "927050dc_652f02d6",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-12-12T14:48:21Z",
+      "side": 1,
+      "message": "remove lines 304-306\nreplace with \"adrp   x0, .\"",
+      "revId": "da90359b7852e13dc21f54f4d42df6d4790fe0cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
