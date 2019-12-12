@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ffd2690_f8b25488",
+        "filename": "plat/intel/soc/stratix10/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2019-12-12T20:10:41Z",
+      "side": 1,
+      "message": "Any reason why the name has a different format than other headers?",
+      "range": {
+        "startLine": 8,
+        "startChar": 8,
+        "endLine": 8,
+        "endChar": 26
+      },
+      "revId": "6be51af7fd89e4474bc1b25d35f9c5ea20999062",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddc3afe1_24203893",
+        "filename": "plat/xilinx/zynqmp/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2019-12-12T20:10:41Z",
+      "side": 1,
+      "message": "I think a tab is missing here.",
+      "range": {
+        "startLine": 25,
+        "startChar": 31,
+        "endLine": 25,
+        "endChar": 32
+      },
+      "revId": "6be51af7fd89e4474bc1b25d35f9c5ea20999062",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
