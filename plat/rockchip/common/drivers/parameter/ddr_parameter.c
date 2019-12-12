@@ -59,8 +59,8 @@ struct param_ddr_usage ddr_region_usage_parse(uint64_t addr, uint64_t max_mb)
 	/* read how many blocks of ns-regions, read from offset: 0x0 */
 	p.ns_nr = mmio_read_32(addr + REGION_NR_OFFSET);
 	if ((p.ns_nr > DDR_REGION_NR_MAX) || (p.ns_nr == 0)) {
-		ERROR("over or zero region, nr=%d, max=%d\n",
-		      p.ns_nr, DDR_REGION_NR_MAX);
+		VERBOSE("over or zero region, nr=%d, max=%d\n",
+			p.ns_nr, DDR_REGION_NR_MAX);
 		return p;
 	}
 
