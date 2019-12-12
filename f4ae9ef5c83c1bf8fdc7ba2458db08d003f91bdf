@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7db4749_d8158442",
+        "filename": "plat/renesas/rcar/bl2_plat_mem_params_desc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-12-12T19:41:15Z",
+      "side": 1,
+      "message": "I was wondering why arg3 was used to pass the address of dtb. Is there a specification for optee regarding the arguments expected from a previous bootloader image?",
+      "revId": "f4ae9ef5c83c1bf8fdc7ba2458db08d003f91bdf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
