@@ -106,9 +106,13 @@ func console_16550_register
 	cbz	x6, register_fail
 	str	x0, [x6, #CONSOLE_T_16550_BASE]
 
+	/* A clock rate of zero means to skip the initialisation. */
+	cbz	w1, 1f
+
 	bl	console_16550_core_init
 	cbz	x0, register_fail
 
+1:
 	mov	x0, x6
 	mov	x30, x7
 	finish_console_register 16550 putc=1, getc=1, flush=1

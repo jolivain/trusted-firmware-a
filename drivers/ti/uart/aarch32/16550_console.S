@@ -110,10 +110,15 @@ func console_16550_register
 	beq	register_fail
 	str	r0, [r4, #CONSOLE_T_16550_BASE]
 
+	/* A clock rate of zero means to skip the initialisation. */
+	cmp	r1, #0
+	beq	1f
+
 	bl	console_16550_core_init
 	cmp	r0, #0
 	beq	register_fail
 
+1:
 	mov	r0, r4
 	pop	{r4, lr}
 	finish_console_register 16550 putc=1, getc=1, flush=1
