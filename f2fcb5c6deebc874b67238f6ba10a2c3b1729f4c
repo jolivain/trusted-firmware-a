@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10592a59_861ac719",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-12T12:11:53Z",
+      "side": 1,
+      "message": "The fixup_gdt_reloc expects base and limit as arguments.\nSo you need to add _pie_fixup_size to x0 before calling the function.",
+      "revId": "f2fcb5c6deebc874b67238f6ba10a2c3b1729f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
