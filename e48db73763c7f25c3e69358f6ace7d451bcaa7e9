@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfacdd99_4cb4fc1e",
+        "filename": "drivers/ti/uart/aarch64/16550_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-12-12T17:51:03Z",
+      "side": 1,
+      "message": "Please update documentation to mention this option (same for aarch32). Also please mention this in the documentation in include/drivers/ti/uart/uart_16550.h for the function.",
+      "revId": "e48db73763c7f25c3e69358f6ace7d451bcaa7e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1da1ee50_64110195",
+        "filename": "drivers/ti/uart/aarch64/16550_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2019-12-12T17:51:03Z",
+      "side": 1,
+      "message": "nit: should have a readable name for consistency with register_fail below (e.g. register_finish or something). same for aarch32.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 1
+      },
+      "revId": "e48db73763c7f25c3e69358f6ace7d451bcaa7e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
