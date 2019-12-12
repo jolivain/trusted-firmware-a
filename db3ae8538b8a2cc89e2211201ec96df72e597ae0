@@ -16,6 +16,24 @@
       "revId": "db3ae8538b8a2cc89e2211201ec96df72e597ae0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "849a9706_62065ea6",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000221
+      },
+      "writtenOn": "2019-12-12T10:38:23Z",
+      "side": 1,
+      "message": "Yes, it should be checked, but cm_setup_context() does not look like a perfect place for that.\nPotentially you can setup context by a core which supports S-EL2 for a core which does not and vice versa.\nThe check is currently in SPMD setup.",
+      "parentUuid": "584f58a5_e0b7c54e",
+      "revId": "db3ae8538b8a2cc89e2211201ec96df72e597ae0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
