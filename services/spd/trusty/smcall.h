@@ -43,7 +43,7 @@
 #define SMC_YC_NOP		SMC_YIELDCALL_NR  (SMC_ENTITY_SECURE_MONITOR, 1U)
 
 /*
- * Return from secure os to non-secure os with return value in r1
+ * Return from secure os to non-secure os with return values in r1–r7.
  */
 #define SMC_YC_NS_RETURN	SMC_YIELDCALL_NR  (SMC_ENTITY_SECURE_MONITOR, 0U)
 
