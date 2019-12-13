@@ -5,10 +5,27 @@
  */
 #include <assert.h>
 
+#include <drivers/arm/gicv2.h>
+#include <lib/mmio.h>
 #include <lib/psci/psci.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
-#include <drivers/arm/gicv2.h>
+
+/*******************************************************************************
+ * Turn ON snoop control unit. This is needed to synchronize the data between
+ * CPU's.
+ ******************************************************************************/
+static void a5ds_enable_scu()
+{
+	uint32_t scu_ctrl = mmio_read_32(A5DS_SCU_BASE + A5DS_SCU_CTRL);
+
+	/* already enabled? */
+	if (scu_ctrl & A5DS_SCU_ENABLE)
+		return;
+
+	scu_ctrl |= A5DS_SCU_ENABLE;
+	mmio_write_32(A5DS_SCU_BASE + A5DS_SCU_CTRL, scu_ctrl);
+}
 
 /*******************************************************************************
  * Platform handler called when a power domain is about to be turned on. The
@@ -22,6 +39,9 @@ static int a5ds_pwr_domain_on(u_register_t mpidr)
 	hold_base[pos] = A5DS_HOLD_STATE_GO;
 	dsbish();
 	sev();
+
+	/*enable snoop control unit */
+	a5ds_enable_scu();
 
 	return PSCI_E_SUCCESS;
 }
