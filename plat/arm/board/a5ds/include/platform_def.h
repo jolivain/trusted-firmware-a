@@ -32,6 +32,10 @@
 #define SRAM_BASE	0x2000000
 #define SRAM_SIZE	0x200000
 
+#define A5DS_SCU_BASE	0x1C000000
+#define A5DS_SCU_CTRL	0x00
+#define A5DS_SCU_ENABLE	(1 << 0)
+
 /* The first 4KB of NS DRAM1 are used as shared memory */
 #define A5DS_SHARED_RAM_BASE		SRAM_BASE
 #define A5DS_SHARED_RAM_SIZE		UL(0x00001000)	/* 4 KB */

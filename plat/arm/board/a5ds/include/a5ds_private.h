@@ -12,4 +12,6 @@
  ******************************************************************************/
 void a5ds_config_setup(void);
 
+void a5ds_enable_scu(void);
+
 #endif /* A5DS_PRIVATE_H */
