@@ -3,12 +3,30 @@
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-#include <assert.h>
 
+#include <assert.h>
+#include <a5ds_private.h>
+#include <drivers/arm/gicv2.h>
+#include <lib/mmio.h>
 #include <lib/psci/psci.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
-#include <drivers/arm/gicv2.h>
+
+/*******************************************************************************
+ * Turn ON snoop control unit. This is needed to synchronize the data between
+ * CPU's.
+ ******************************************************************************/
+void a5ds_enable_scu(void)
+{
+	uint32_t scu_ctrl = mmio_read_32(A5DS_SCU_BASE + A5DS_SCU_CTRL);
+
+	/* already enabled? */
+	if (scu_ctrl & A5DS_SCU_ENABLE)
+		return;
+
+	scu_ctrl |= A5DS_SCU_ENABLE;
+	mmio_write_32(A5DS_SCU_BASE + A5DS_SCU_CTRL, scu_ctrl);
+}
 
 /*******************************************************************************
  * Platform handler called when a power domain is about to be turned on. The
