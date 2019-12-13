@@ -77,8 +77,11 @@ static bool is_hypervisor_mode(void)
 	return ((hcr & HYP_ENABLE_FLAG) != 0U) ? true : false;
 }
 
-static struct smc_args trusty_context_switch(uint32_t security_state, uint64_t r0,
-					 uint64_t r1, uint64_t r2, uint64_t r3)
+static struct smc_args trusty_context_switch(uint32_t security_state,
+					     uint64_t r0, uint64_t r1,
+					     uint64_t r2, uint64_t r3,
+					     uint64_t r4, uint64_t r5,
+					     uint64_t r6)
 {
 	struct smc_args args, ret_args;
 	struct trusty_cpu_ctx *ctx = get_trusty_ctx();
@@ -93,10 +96,9 @@ static struct smc_args trusty_context_switch(uint32_t security_state, uint64_t r
 		assert(ctx_smc != NULL);
 		args.r7 = SMC_GET_GP(ctx_smc, CTX_GPREG_X7);
 	}
-	/* r4, r5, r6 reserved for future use. */
-	args.r6 = 0;
-	args.r5 = 0;
-	args.r4 = 0;
+	args.r6 = r6;
+	args.r5 = r5;
+	args.r4 = r4;
 	args.r3 = r3;
 	args.r2 = r2;
 	args.r1 = r1;
@@ -136,7 +138,8 @@ static uint64_t trusty_fiq_handler(uint32_t id,
 
 	assert(!is_caller_secure(flags));
 
-	ret = trusty_context_switch(NON_SECURE, SMC_FC_FIQ_ENTER, 0, 0, 0);
+	ret = trusty_context_switch(NON_SECURE, SMC_FC_FIQ_ENTER, 0, 0, 0, 0, 0,
+				    0);
 	if (ret.r0 != 0U) {
 		SMC_RET0(handle);
 	}
@@ -194,7 +197,8 @@ static uint64_t trusty_fiq_exit(void *handle, uint64_t x1, uint64_t x2, uint64_t
 		SMC_RET1(handle, (uint64_t)SM_ERR_INVALID_PARAMETERS);
 	}
 
-	ret = trusty_context_switch(NON_SECURE, SMC_FC_FIQ_EXIT, 0, 0, 0);
+	ret = trusty_context_switch(NON_SECURE, SMC_FC_FIQ_EXIT, 0, 0, 0, 0, 0,
+				    0);
 	if (ret.r0 != 1U) {
 		INFO("%s(%p) SMC_FC_FIQ_EXIT returned unexpected value, %lld\n",
 		       __func__, handle, ret.r0);
@@ -229,6 +233,9 @@ static uintptr_t trusty_smc_handler(uint32_t smc_fid,
 	struct smc_args ret;
 	uint32_t vmid = 0U;
 	entry_point_info_t *ep_info = bl31_plat_get_next_image_ep_info(SECURE);
+	u_register_t x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
+	u_register_t x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
+	u_register_t x7 = SMC_GET_GP(handle, CTX_GPREG_X7);
 
 	/*
 	 * Return success for SET_ROT_PARAMS if Trusty is not present, as
@@ -245,14 +252,15 @@ static uintptr_t trusty_smc_handler(uint32_t smc_fid,
 
 	if (is_caller_secure(flags)) {
 		if (smc_fid == SMC_YC_NS_RETURN) {
-			ret = trusty_context_switch(SECURE, x1, 0, 0, 0);
+			ret = trusty_context_switch(SECURE, x1, x2, x3, x4, x5,
+						    x6, x7);
 			SMC_RET8(handle, ret.r0, ret.r1, ret.r2, ret.r3,
 				 ret.r4, ret.r5, ret.r6, ret.r7);
 		}
-		INFO("%s (0x%x, 0x%lx, 0x%lx, 0x%lx, 0x%lx, %p, %p, 0x%lx) \
-		     cpu %d, unknown smc\n",
-		     __func__, smc_fid, x1, x2, x3, x4, cookie, handle, flags,
-		     plat_my_core_pos());
+		INFO(
+			"%s (0x%x, 0x%lx, 0x%lx, 0x%lx, 0x%lx, 0x%lx, 0x%lx, 0x%lx, %p, %p, 0x%lx) cpu %d, unknown smc\n",
+			__func__, smc_fid, x1, x2, x3, x4, x5, x6, x7, cookie,
+			handle, flags, plat_my_core_pos());
 		SMC_RET1(handle, SMC_UNK);
 	} else {
 		switch (smc_fid) {
@@ -276,7 +284,7 @@ static uintptr_t trusty_smc_handler(uint32_t smc_fid,
 			}
 			current_vmid = vmid;
 			ret = trusty_context_switch(NON_SECURE, smc_fid, x1,
-				x2, x3);
+				x2, x3, x4, x5, x6);
 			current_vmid = 0;
 			SMC_RET1(handle, ret.r0);
 		}
@@ -335,7 +343,8 @@ static void trusty_cpu_suspend(uint32_t off)
 {
 	struct smc_args ret;
 
-	ret = trusty_context_switch(NON_SECURE, SMC_FC_CPU_SUSPEND, off, 0, 0);
+	ret = trusty_context_switch(NON_SECURE, SMC_FC_CPU_SUSPEND, off, 0, 0,
+				    0, 0, 0);
 	if (ret.r0 != 0U) {
 		INFO("%s: cpu %d, SMC_FC_CPU_SUSPEND returned unexpected value, %lld\n",
 		     __func__, plat_my_core_pos(), ret.r0);
@@ -346,7 +355,8 @@ static void trusty_cpu_resume(uint32_t on)
 {
 	struct smc_args ret;
 
-	ret = trusty_context_switch(NON_SECURE, SMC_FC_CPU_RESUME, on, 0, 0);
+	ret = trusty_context_switch(NON_SECURE, SMC_FC_CPU_RESUME, on, 0, 0, 0,
+				    0, 0);
 	if (ret.r0 != 0U) {
 		INFO("%s: cpu %d, SMC_FC_CPU_RESUME returned unexpected value, %lld\n",
 		     __func__, plat_my_core_pos(), ret.r0);
