@@ -16,6 +16,24 @@
       "revId": "7089f0397c9d89de56b8590c9f874e76173bafb3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82ade65f_1f729e9b",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-12-13T01:25:17Z",
+      "side": 1,
+      "message": "The system should be off after the udelay() call. If it still executes code, this is an error and should be displayed. Calling wfi() before that just gives the impression that it worked. I just checked, my board still draws like 230mA in WFI when I comment sunxi_power_down(), whereas it\u0027s less then 10mA when properly powered off via the PMIC.\nIf even the WFI fails, we get the lengthy panic message.\nSo the sequence is correct as is.",
+      "parentUuid": "45bfa114_f61dff72",
+      "revId": "7089f0397c9d89de56b8590c9f874e76173bafb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
