@@ -25,7 +25,7 @@
  * This function does generic and platform specific operations after a wake-up
  * from standby/retention states at multiple power levels.
  ******************************************************************************/
-static void psci_suspend_to_standby_finisher(int cpu_idx,
+static void psci_suspend_to_standby_finisher(unsigned int cpu_idx,
 					     unsigned int end_pwrlvl)
 {
 	unsigned int parent_nodes[PLAT_MAX_PWR_LVL] = {0};
@@ -157,7 +157,7 @@ void psci_cpu_suspend_start(const entry_point_info_t *ep,
 			    unsigned int is_power_down_state)
 {
 	int skip_wfi = 0;
-	int idx = (int) plat_my_core_pos();
+	unsigned int idx = plat_my_core_pos();
 	unsigned int parent_nodes[PLAT_MAX_PWR_LVL] = {0};
 
 	/*
