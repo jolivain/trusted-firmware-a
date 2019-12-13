@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ac512f9_3f2fda6d",
+        "filename": "Makefile",
+        "patchSetId": 16
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-13T11:35:06Z",
+      "side": 1,
+      "message": "You might also want to call this out as experimental here.",
+      "revId": "873046010f92571a71397e8428ccb924d8606a21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3d022d_c36010dd",
+        "filename": "bl31/bl31.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-13T11:35:06Z",
+      "side": 1,
+      "message": "Just a thought, would it be better to add a .mk under lib/debugfs and include that from here?",
+      "revId": "873046010f92571a71397e8428ccb924d8606a21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
