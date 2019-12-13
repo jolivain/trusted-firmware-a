@@ -91,9 +91,9 @@ static void __init psci_update_pwrlvl_limits(void)
 
 	for (cpu_idx = 0; cpu_idx < psci_plat_core_count; cpu_idx++) {
 		psci_get_parent_pwr_domain_nodes(cpu_idx,
-						 (unsigned int)PLAT_MAX_PWR_LVL,
+						 PLAT_MAX_PWR_LVL,
 						 temp_index);
-		for (j = (int) PLAT_MAX_PWR_LVL - 1; j >= 0; j--) {
+		for (j = (int)PLAT_MAX_PWR_LVL - 1; j >= 0; j--) {
 			if (temp_index[j] != nodes_idx[j]) {
 				nodes_idx[j] = temp_index[j];
 				psci_non_cpu_pd_nodes[nodes_idx[j]].cpu_start_idx
@@ -115,7 +115,7 @@ static unsigned int __init populate_power_domain_tree(const unsigned char
 {
 	unsigned int i, j = 0U, num_nodes_at_lvl = 1U, num_nodes_at_next_lvl;
 	unsigned int node_index = 0U, num_children;
-	int parent_node_index = 0;
+	unsigned int parent_node_index = 0;
 	int level = (int) PLAT_MAX_PWR_LVL;
 
 	/*
@@ -145,8 +145,8 @@ static unsigned int __init populate_power_domain_tree(const unsigned char
 			for (j = node_index;
 				j < (node_index + num_children); j++)
 				psci_init_pwr_domain_node((unsigned char)j,
-							  parent_node_index - 1,
-							  (unsigned char)level);
+						  parent_node_index - 1U,
+						  (unsigned char)level);
 
 			node_index = j;
 			num_nodes_at_next_lvl += num_children;
@@ -162,7 +162,7 @@ static unsigned int __init populate_power_domain_tree(const unsigned char
 	}
 
 	/* Validate the sanity of array exported by the platform */
-	assert(j <= (unsigned int)PLATFORM_CORE_COUNT);
+	assert(j <= PLATFORM_CORE_COUNT);
 	return j;
 }
 
