@@ -22,6 +22,30 @@
       "revId": "42dff73fcbb99403c4b93ae451cd375dbc06557b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fef4d9b_979b9a23",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-12-13T19:50:42Z",
+      "side": 1,
+      "message": "My understanding as to why it was signed is: last_cpu_in_non_cpu_pd is signed value and default assigned to it is -1. \nSince `last_cpu_in_non_cpu_pd` is passed as `last_cpu_idx` it was kept as signed. But I see before assignment we make sure the value must be positive.",
+      "parentUuid": "ad5ab788_494df03e",
+      "range": {
+        "startLine": 240,
+        "startChar": 3,
+        "endLine": 240,
+        "endChar": 11
+      },
+      "revId": "42dff73fcbb99403c4b93ae451cd375dbc06557b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
