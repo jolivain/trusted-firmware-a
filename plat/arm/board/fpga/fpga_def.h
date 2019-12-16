@@ -13,9 +13,9 @@
  * The initial FPGA image configures a system with 2 clusters, 1 core in each,
  * and MT is unimplemented.
  */
-#define FPGA_MAX_CLUSTER_COUNT			2
-#define FPGA_MAX_CPUS_PER_CLUSTER		1
-#define FPGA_MAX_PE_PER_CPU			1
+#define FPGA_MAX_CLUSTER_COUNT			8
+#define FPGA_MAX_CPUS_PER_CLUSTER		8
+#define FPGA_MAX_PE_PER_CPU			4
 
 #define FPGA_PRIMARY_CPU			0x0
 
