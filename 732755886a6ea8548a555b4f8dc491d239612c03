@@ -39,6 +39,30 @@
       "revId": "732755886a6ea8548a555b4f8dc491d239612c03",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "778f1e77_6968bab4",
+        "filename": "include/lib/libc/stdint.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000274
+      },
+      "writtenOn": "2019-12-16T14:56:06Z",
+      "side": 1,
+      "message": "I don\u0027t think so.\nThe original commit which unified the libc definitions[1] justified not unifying size_t by saying that it should match the type of the sizeof() operator.\nHowever this macro expands to an equivalent value (A32: xxxU / xxxUL, A64: yyyULL / yyyUL) regardless of if we use AArch specific headers or just use ULONG_MAX.\n\n[1]: https://github.com/ARM-software/arm-trusted-firmware/commit/0a2d5b43c81ed6132761023bf43755f13122ddf0",
+      "parentUuid": "fbcd4b4b_485ad19a",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 26
+      },
+      "revId": "732755886a6ea8548a555b4f8dc491d239612c03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
