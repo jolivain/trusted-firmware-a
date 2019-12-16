@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7296cbf9_eb2e1520",
+        "filename": "include/lib/debugfs.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-16T15:50:38Z",
+      "side": 1,
+      "message": "If we are to follow PMF pattern, then I suggest the following:\n#define DEBUGFS_SMC 0x82000030\n\nand put a comment in arm_sip_svc.h",
+      "parentUuid": "e3609470_4165aea1",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 27
+      },
+      "revId": "63a5036ec245051d387aac6ad5eabb0d5b2e5d41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87e99d4a_794c0fdf",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 21
