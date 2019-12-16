@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7c3e69d2_3c8f42d7",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-12-16T16:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be0712ce_b60b97f1",
+      "range": {
+        "startLine": 199,
+        "startChar": 26,
+        "endLine": 199,
+        "endChar": 27
+      },
+      "revId": "42dff73fcbb99403c4b93ae451cd375dbc06557b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "677d850f_34342016",
         "filename": "include/export/lib/utils_def_exp.h",
         "patchSetId": 3
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "a03b16b0_999ac5d3",
+        "filename": "include/export/lib/utils_def_exp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-12-16T16:59:33Z",
+      "side": 1,
+      "message": "In case of assembler agree this is not needed, since we will not call U_() from code directly",
+      "parentUuid": "677d850f_34342016",
+      "revId": "42dff73fcbb99403c4b93ae451cd375dbc06557b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7271e03_b1e665f6",
         "filename": "include/export/lib/utils_def_exp.h",
         "patchSetId": 3
@@ -53,6 +95,24 @@
       "writtenOn": "2019-12-16T15:12:10Z",
       "side": 1,
       "message": "This doesnt seem right to me. Why is this needed ?",
+      "revId": "42dff73fcbb99403c4b93ae451cd375dbc06557b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2060272d_709263dc",
+        "filename": "include/export/lib/utils_def_exp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-12-16T16:59:33Z",
+      "side": 1,
+      "message": "Macros in pre-processing step are scanned once and replaced, this is needed to tell resolve the macro passed inside the U(x) i.e if x is not a value but another macro/define.\n\nExample\n\n#define MY_VALUE 10\n#define MY_UNSIGNED_VALUE  U(MY_VALUE)\n\nWithout this change, `MY_UNSIGNED_VALUE` will be MY_VALUEU instead of 10U",
+      "parentUuid": "e7271e03_b1e665f6",
       "revId": "42dff73fcbb99403c4b93ae451cd375dbc06557b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -118,6 +178,30 @@
       "side": 1,
       "message": "We still need to modify the API description in that case once we are convinced this is the right change to do. https://trustedfirmware-a.readthedocs.io/en/latest/getting_started/porting-guide.html#function-plat-psci-stat-get-residency-optional",
       "parentUuid": "5fef4d9b_979b9a23",
+      "range": {
+        "startLine": 240,
+        "startChar": 3,
+        "endLine": 240,
+        "endChar": 11
+      },
+      "revId": "42dff73fcbb99403c4b93ae451cd375dbc06557b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51b373ec_b0e509fe",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-12-16T16:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9725a50c_5b1895dc",
       "range": {
         "startLine": 240,
         "startChar": 3,
