@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "be0712ce_b60b97f1",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-16T15:12:10Z",
+      "side": 1,
+      "message": "Remove white space error.",
+      "range": {
+        "startLine": 199,
+        "startChar": 26,
+        "endLine": 199,
+        "endChar": 27
+      },
+      "revId": "42dff73fcbb99403c4b93ae451cd375dbc06557b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "677d850f_34342016",
         "filename": "include/export/lib/utils_def_exp.h",
         "patchSetId": 3
@@ -13,6 +36,23 @@
       "writtenOn": "2019-12-16T14:07:39Z",
       "side": 1,
       "message": "I didnt understand the need for this change.",
+      "revId": "42dff73fcbb99403c4b93ae451cd375dbc06557b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7271e03_b1e665f6",
+        "filename": "include/export/lib/utils_def_exp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-16T15:12:10Z",
+      "side": 1,
+      "message": "This doesnt seem right to me. Why is this needed ?",
       "revId": "42dff73fcbb99403c4b93ae451cd375dbc06557b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -54,6 +94,30 @@
       "side": 1,
       "message": "My understanding as to why it was signed is: last_cpu_in_non_cpu_pd is signed value and default assigned to it is -1. \nSince `last_cpu_in_non_cpu_pd` is passed as `last_cpu_idx` it was kept as signed. But I see before assignment we make sure the value must be positive.",
       "parentUuid": "ad5ab788_494df03e",
+      "range": {
+        "startLine": 240,
+        "startChar": 3,
+        "endLine": 240,
+        "endChar": 11
+      },
+      "revId": "42dff73fcbb99403c4b93ae451cd375dbc06557b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9725a50c_5b1895dc",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-16T15:12:10Z",
+      "side": 1,
+      "message": "We still need to modify the API description in that case once we are convinced this is the right change to do. https://trustedfirmware-a.readthedocs.io/en/latest/getting_started/porting-guide.html#function-plat-psci-stat-get-residency-optional",
+      "parentUuid": "5fef4d9b_979b9a23",
       "range": {
         "startLine": 240,
         "startChar": 3,
