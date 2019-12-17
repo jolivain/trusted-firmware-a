@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a5811f1_b1961da9",
+        "filename": "lib/debugfs/debugfs_smc.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-17T12:39:04Z",
+      "side": 1,
+      "message": "Suggest SMC_UNK",
+      "range": {
+        "startLine": 65,
+        "startChar": 15,
+        "endLine": 65,
+        "endChar": 16
+      },
+      "revId": "3e110b422d06997680975fdcf348ed82911dea7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db251330_041d9ce9",
+        "filename": "lib/debugfs/debugfs_smc.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-17T12:39:04Z",
+      "side": 1,
+      "message": "Might need to populate a generic error code here in case of error. Would not be wise to expose xlat_table error code directly to NS world.\n\nSimilarly comments for all calls below. On Success return SMC_OK and on error, return a generic error code.",
+      "revId": "3e110b422d06997680975fdcf348ed82911dea7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "074ce306_fa593fac",
+        "filename": "lib/debugfs/debugfs_smc.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-17T12:39:04Z",
+      "side": 1,
+      "message": "Suggest to use another variable for SMC return, say smc_ret, to separate the internal API errorss from SMC error return.",
+      "range": {
+        "startLine": 143,
+        "startChar": 2,
+        "endLine": 143,
+        "endChar": 5
+      },
+      "revId": "3e110b422d06997680975fdcf348ed82911dea7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7cab467_22c2288f",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-17T12:39:04Z",
+      "side": 1,
+      "message": "might need a debugfs_setup() here to initialize the spin_lock variable.",
+      "revId": "3e110b422d06997680975fdcf348ed82911dea7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
