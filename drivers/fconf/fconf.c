@@ -20,6 +20,7 @@ void fconf_load_config(void)
 	int err;
 	uintptr_t config_base = 0UL;
 
+	/* fconf FW_CONFIG and TB_FW_CONFIG are currently the same DTB */
 	image_desc_t arm_tb_fw_info = {
 		.image_id = TB_FW_CONFIG_ID,
 		SET_STATIC_PARAM_HEAD(image_info, PARAM_IMAGE_BINARY,
