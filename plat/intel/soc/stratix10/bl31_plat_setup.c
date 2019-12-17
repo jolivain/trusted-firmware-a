@@ -17,6 +17,7 @@
 #include <platform_def.h>
 
 #include "socfpga_private.h"
+#include "socfpga_mailbox.h"
 #include "s10_reset_manager.h"
 #include "s10_memory_controller.h"
 #include "s10_pinmux.h"
@@ -114,6 +115,8 @@ void bl31_platform_setup(void)
 	/* Signal secondary CPUs to jump to BL31 (BL2 = U-boot SPL) */
 	mmio_write_64(PLAT_CPU_RELEASE_ADDR,
 		(uint64_t)plat_secondary_cpus_bl31_entry);
+
+	mailbox_hps_stage_notify(HPS_EXECUTION_STATE_SSBL);
 }
 
 const mmap_region_t plat_stratix10_mmap[] = {
