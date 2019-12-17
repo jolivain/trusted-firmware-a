@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "df5b26ea_dde9ed58",
+        "filename": "plat/intel/soc/common/aarch64/plat_helpers.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-17T16:25:19Z",
+      "side": 1,
+      "message": "Isn\u0027t there a race here that the C runtime will be initialized multiple times by several CPUs ?\n\nI guess you dont hit the problem because the plat_secondary_cold_boot_setup is trapping those CPUs.",
+      "range": {
+        "startLine": 124,
+        "startChar": 2,
+        "endLine": 125,
+        "endChar": 20
+      },
+      "revId": "2db1e7663db8f94986bea02ade171693abfbdee6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3658bcff_e1260161",
         "filename": "plat/intel/soc/stratix10/bl31_plat_setup.c",
         "patchSetId": 5
