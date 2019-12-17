@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "abd54bf0_1d44b761",
+        "filename": "include/lib/debugfs.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-17T10:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7296cbf9_eb2e1520",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 27
+      },
+      "revId": "63a5036ec245051d387aac6ad5eabb0d5b2e5d41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87e99d4a_794c0fdf",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 21
@@ -66,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "7f6d2f00_299ddbec",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 21
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-17T10:38:27Z",
+      "side": 1,
+      "message": "NS component (TFTF or kernel driver) provides a shared buffer address (PA), that BL31 maps in its VA space.",
+      "parentUuid": "87e99d4a_794c0fdf",
+      "revId": "63a5036ec245051d387aac6ad5eabb0d5b2e5d41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "547bb25f_8ba5efe6",
         "filename": "plat/arm/common/arm_sip_svc.c",
         "patchSetId": 21
@@ -77,6 +119,30 @@
       "writtenOn": "2019-12-16T15:37:47Z",
       "side": 1,
       "message": "nit: remove tab here.",
+      "range": {
+        "startLine": 102,
+        "startChar": 1,
+        "endLine": 102,
+        "endChar": 2
+      },
+      "revId": "63a5036ec245051d387aac6ad5eabb0d5b2e5d41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfbf93bd_6d4cb002",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-17T10:38:27Z",
+      "side": 1,
+      "message": "code is reworked in next patch",
+      "parentUuid": "547bb25f_8ba5efe6",
       "range": {
         "startLine": 102,
         "startChar": 1,
