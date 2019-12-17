@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c37f6d41_4279e0b3",
+        "filename": "Makefile",
+        "patchSetId": 17
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-17T10:42:14Z",
+      "side": 1,
+      "message": "You mean we shall better use info rather than warning directive?",
+      "parentUuid": "9e5be6ac_a9940aea",
+      "revId": "42753df3c8816de72416d39025e7cdc923b32e50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b17b328_966ee0d0",
         "filename": "plat/arm/common/arm_common.mk",
         "patchSetId": 17
@@ -54,6 +72,30 @@
       "side": 1,
       "message": "I see what you have done. I guess the question is how of this is generic and how much is pltform specific.\n\nThe functionality of debugFS is generic, which is why the debugfs fns are a lib.\n\nNow the SMC is in ARM SiP range whereas the build option is Generic (As it doesn\u0027t have ARM_ prefix to indicate it is SiP specific). So enabling the build flag doesn\u0027t do anything for a non-ARM SiP platform.\n\nIdeally we would like to make this SMC as generic as possible which means it shouldn\u0027t be SiP specific. We need to discuss regarding how to expose SMC.",
       "parentUuid": "6b17b328_966ee0d0",
+      "range": {
+        "startLine": 296,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 5
+      },
+      "revId": "42753df3c8816de72416d39025e7cdc923b32e50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50daafbd_b3698bae",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-17T10:42:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4625351d_c78a2fe5",
       "range": {
         "startLine": 296,
         "startChar": 0,
