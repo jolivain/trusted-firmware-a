@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) 2019-2020, Arm Limited. All rights reserved.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+/dts-v1/;
+
+/ {
+	dtb-registry {
+		compatible = "arm,dyn_cfg-dtb_registry";
+
+		/* tb_fw_config is temporarily contains on this dtb */
+		tb_fw-config {
+			load-address = <0x0 0x2001010>;
+			max-size = <0x200>;
+			id = <24>;
+		};
+
+		hw-config {
+			load-address = <0x0 0x83000000>;
+			max-size = <0x01000000>;
+			id = <23>;
+		};
+	};
+
+	tb_fw-config {
+		compatible = "arm,tb_fw";
+
+		/* Disable authentication for development */
+		disable_auth = <0x0>;
+	};
+};
