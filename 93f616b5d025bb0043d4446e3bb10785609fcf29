@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01f3ef55_92230e68",
+        "filename": "plat/arm/board/a5ds/a5ds_pm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-12-17T23:37:20Z",
+      "side": 1,
+      "message": "Hi Vishnu,\nThis psci hook(pwr_domain_on) is executed by primary cpu to turn on a secondary cpu. I think it would be efficient to enable snoop control unit as part of primary cpu bootup. I believe bl31_early_platform_setup2() function is a good place to invoke a5ds_enable_scu().",
+      "revId": "93f616b5d025bb0043d4446e3bb10785609fcf29",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
