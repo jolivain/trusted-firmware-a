@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3658bcff_e1260161",
+        "filename": "plat/intel/soc/stratix10/bl31_plat_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-17T15:32:07Z",
+      "side": 1,
+      "message": "why cant bl31_warm_entrypoint() be used ?",
+      "range": {
+        "startLine": 106,
+        "startChar": 12,
+        "endLine": 106,
+        "endChar": 42
+      },
+      "revId": "2db1e7663db8f94986bea02ade171693abfbdee6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
