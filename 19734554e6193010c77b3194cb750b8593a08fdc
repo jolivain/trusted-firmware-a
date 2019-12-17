@@ -22,6 +22,30 @@
       "revId": "19734554e6193010c77b3194cb750b8593a08fdc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc350a3f_25b585ee",
+        "filename": "docs/components/arm-sip-service.rst",
+        "patchSetId": 24
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-17T16:45:50Z",
+      "side": 1,
+      "message": "Yes, agree. It seems there is no choice other than SMC_OK/SMC_UNK from smccc.h. So we can define a specific return code, or define a generic one, (or re-use ones from errno.h?) ...",
+      "parentUuid": "64e31809_52d6501b",
+      "range": {
+        "startLine": 158,
+        "startChar": 22,
+        "endLine": 158,
+        "endChar": 29
+      },
+      "revId": "19734554e6193010c77b3194cb750b8593a08fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
