@@ -1,0 +1,151 @@
+/*
+ * Copyright (c) 2019, Arm Limited. All rights reserved.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+/dts-v1/;
+
+/include/ "fvp-base-gicv3-psci-common.dtsi"
+
+/* Updating the IDs of the first 8 PEs */
+&CPU0 {
+	reg = <0x0 0x0>;
+};
+
+&CPU1 {
+	reg = <0x0 0x1>;
+};
+
+&CPU2 {
+	reg = <0x0 0x100>;
+};
+
+&CPU3 {
+	reg = <0x0 0x101>;
+};
+
+&CPU4 {
+	reg = <0x0 0x200>;
+};
+
+&CPU5 {
+	reg = <0x0 0x201>;
+};
+
+&CPU6 {
+	reg = <0x0 0x300>;
+};
+
+&CPU7 {
+	reg = <0x0 0x301>;
+};
+
+/* Adding 8 extra PEs */
+/ {
+	cpus {
+		cpu-map {
+			cluster2 {
+				core0 {
+					cpu = <&CPU8>;
+				};
+				core1 {
+					cpu = <&CPU9>;
+				};
+				core2 {
+					cpu = <&CPU10>;
+				};
+				core3 {
+					cpu = <&CPU11>;
+				};
+			};
+
+			cluster3 {
+				core0 {
+					cpu = <&CPU12>;
+				};
+				core1 {
+					cpu = <&CPU13>;
+				};
+				core2 {
+					cpu = <&CPU14>;
+				};
+				core3 {
+					cpu = <&CPU15>;
+				};
+			};
+		};
+
+		CPU8:cpu@200 {
+			device_type = "cpu";
+			compatible = "arm,armv8";
+			reg = <0x0 0x400>;
+			enable-method = "psci";
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			next-level-cache = <&L2_0>;
+		};
+
+		CPU9:cpu@201 {
+			device_type = "cpu";
+			compatible = "arm,armv8";
+			reg = <0x0 0x401>;
+			enable-method = "psci";
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			next-level-cache = <&L2_0>;
+		};
+
+		CPU10:cpu@202 {
+			device_type = "cpu";
+			compatible = "arm,armv8";
+			reg = <0x0 0x500>;
+			enable-method = "psci";
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			next-level-cache = <&L2_0>;
+		};
+
+		CPU11:cpu@203 {
+			device_type = "cpu";
+			compatible = "arm,armv8";
+			reg = <0x0 0x501>;
+			enable-method = "psci";
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			next-level-cache = <&L2_0>;
+		};
+
+		CPU12:cpu@300 {
+			device_type = "cpu";
+			compatible = "arm,armv8";
+			reg = <0x0 0x600>;
+			enable-method = "psci";
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			next-level-cache = <&L2_0>;
+		};
+
+		CPU13:cpu@301 {
+			device_type = "cpu";
+			compatible = "arm,armv8";
+			reg = <0x0 0x601>;
+			enable-method = "psci";
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			next-level-cache = <&L2_0>;
+		};
+
+		CPU14:cpu@302 {
+			device_type = "cpu";
+			compatible = "arm,armv8";
+			reg = <0x0 0x700>;
+			enable-method = "psci";
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			next-level-cache = <&L2_0>;
+		};
+
+		CPU15:cpu@303 {
+			device_type = "cpu";
+			compatible = "arm,armv8";
+			reg = <0x0 0x701>;
+			enable-method = "psci";
+			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+			next-level-cache = <&L2_0>;
+		};
+	};
+};
