@@ -13,6 +13,7 @@
 #include <drivers/ti/uart/uart_16550.h>
 #include <lib/xlat_tables/xlat_tables.h>
 
+#include "socfpga_mailbox.h"
 
 static entry_point_info_t bl32_image_ep_info;
 static entry_point_info_t bl33_image_ep_info;
@@ -91,6 +92,8 @@ void bl31_platform_setup(void)
 	gicv2_distif_init();
 	gicv2_pcpu_distif_init();
 	gicv2_cpuif_enable();
+
+	mailbox_hps_stage_notify(HPS_EXECUTION_STATE_SSBL);
 }
 
 const mmap_region_t plat_agilex_mmap[] = {
