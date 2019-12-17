@@ -137,6 +137,24 @@
     },
     {
       "key": {
+        "uuid": "5ff17f2b_db2d33af",
+        "filename": "include/export/lib/utils_def_exp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-12-17T15:20:16Z",
+      "side": 1,
+      "message": "This is always the case with pre-processing step. The macro will work fine if the define is number, but it won;t resolve 2nd level macros.\n\nWe need this because in case of defines added by command line or makefile we do not have mechanism to append `U` in -D / .mk.\nSo we need to add unsigned to a macro which is added via build configs else MISRA will complaint about all those build config defines",
+      "parentUuid": "3bcef69a_59c7649a",
+      "revId": "42dff73fcbb99403c4b93ae451cd375dbc06557b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad5ab788_494df03e",
         "filename": "include/plat/common/platform.h",
         "patchSetId": 3
