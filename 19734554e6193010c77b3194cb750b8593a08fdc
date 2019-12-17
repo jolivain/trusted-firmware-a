@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64e31809_52d6501b",
+        "filename": "docs/components/arm-sip-service.rst",
+        "patchSetId": 24
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2019-12-17T16:37:46Z",
+      "side": 1,
+      "message": "If we return SMC_UNK, it is not clear to the caller whether the error is due to SMC being unimplemented or some other parameter error.\n\nSo if we decide to stick with one error code in the beginning for all the API errors , we could use -2 and define it to be (E_INVALID_PARAMS).",
+      "range": {
+        "startLine": 158,
+        "startChar": 22,
+        "endLine": 158,
+        "endChar": 29
+      },
+      "revId": "19734554e6193010c77b3194cb750b8593a08fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
