@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "162317da_01e4557a",
+        "filename": "Makefile",
+        "patchSetId": 18
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-17T10:44:51Z",
+      "side": 1,
+      "message": "I could not make it break the build in case of release build.\nForcing DEBUG\u003d1 in tf_config makes debug/release build passing, though there is something else next in the CI flow (CC checker?) which breaks in release mode ...",
+      "revId": "0ca3913dd898ec0822d4984f8fd6eb86131f1088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
