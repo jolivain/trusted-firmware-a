@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d7b1491b_95115da2",
+        "filename": "lib/debugfs/debugfs_smc.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-17T13:07:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7a5811f1_b1961da9",
+      "range": {
+        "startLine": 65,
+        "startChar": 15,
+        "endLine": 65,
+        "endChar": 16
+      },
+      "revId": "3e110b422d06997680975fdcf348ed82911dea7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db251330_041d9ce9",
         "filename": "lib/debugfs/debugfs_smc.c",
         "patchSetId": 23
@@ -36,6 +60,24 @@
       "writtenOn": "2019-12-17T12:39:04Z",
       "side": 1,
       "message": "Might need to populate a generic error code here in case of error. Would not be wise to expose xlat_table error code directly to NS world.\n\nSimilarly comments for all calls below. On Success return SMC_OK and on error, return a generic error code.",
+      "revId": "3e110b422d06997680975fdcf348ed82911dea7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8cf08632_2a860c2f",
+        "filename": "lib/debugfs/debugfs_smc.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-17T13:07:14Z",
+      "side": 1,
+      "message": "Ok for the map api.\n\nFor others, we need to transmit the return value, e.g. open returns a file descriptor id, or read returns the number of bytes read .....",
+      "parentUuid": "db251330_041d9ce9",
       "revId": "3e110b422d06997680975fdcf348ed82911dea7f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "f6532ed3_cc6f7275",
+        "filename": "lib/debugfs/debugfs_smc.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-17T13:07:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "074ce306_fa593fac",
+      "range": {
+        "startLine": 143,
+        "startChar": 2,
+        "endLine": 143,
+        "endChar": 5
+      },
+      "revId": "3e110b422d06997680975fdcf348ed82911dea7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7cab467_22c2288f",
         "filename": "plat/arm/common/arm_sip_svc.c",
         "patchSetId": 23
@@ -76,6 +142,24 @@
       "writtenOn": "2019-12-17T12:39:04Z",
       "side": 1,
       "message": "might need a debugfs_setup() here to initialize the spin_lock variable.",
+      "revId": "3e110b422d06997680975fdcf348ed82911dea7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3439e81_9518b580",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-17T13:07:14Z",
+      "side": 1,
+      "message": "I thought of that, though there is no API to init a spinlock (appart from manually assigning a value). Also when I looked at the overall code base, I seemed none of the spinlock variables elsewhere is explicitly initialized. Usage looks to assume spinlock variables are part of bss and auto-initialized to zero?",
+      "parentUuid": "c7cab467_22c2288f",
       "revId": "3e110b422d06997680975fdcf348ed82911dea7f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
