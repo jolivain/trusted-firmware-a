@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d7f4dab_b08f005b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-12-18T14:30:17Z",
+      "side": 1,
+      "message": "(minor) It is called plat_get_fip_enc_key_info() now.",
+      "range": {
+        "startLine": 13,
+        "startChar": 10,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "950ab751_57dc59dc",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-12-18T14:30:17Z",
+      "side": 1,
+      "message": "(minor) assert(fip_enc_status \u003d\u003d 0) would provide a better assertion message.",
+      "range": {
+        "startLine": 351,
+        "startChar": 3,
+        "endLine": 351,
+        "endChar": 13
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5efd5f90_821d9831",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-12-18T14:30:17Z",
+      "side": 1,
+      "message": "Could it be part of the FIP ToC entry metadata instead? Why does it need to be in the payload area?",
+      "range": {
+        "startLine": 415,
+        "startChar": 2,
+        "endLine": 415,
+        "endChar": 49
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94a3c236_43aaa107",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-12-18T14:30:17Z",
+      "side": 1,
+      "message": "I am not fond of this fic_enc_status name, how about something like \u0027key_type\u0027 instead? Or \u0027key_id\u0027? Or if we want to follow the plat_get_rotpk_info() / plat_get_nv_ctr() naming scheme, this would be \u0027cookie\u0027 (although I don\u0027t quite like it either but at least it would be consistent).",
+      "range": {
+        "startLine": 274,
+        "startChar": 30,
+        "endLine": 274,
+        "endChar": 57
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e209a80e_55a620a8",
+        "filename": "plat/common/plat_bl_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-12-18T14:30:17Z",
+      "side": 1,
+      "message": "(minor) I don\u0027t really see the point of having the key here at the top of the file when it\u0027s only used by plat_get_fip_enc_key_info(). How about moving it there?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 55
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cf95a3f_cd8f50e9",
+        "filename": "plat/common/plat_bl_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-12-18T14:30:17Z",
+      "side": 1,
+      "message": "(minor) From the point of view of the firmware, I would say this is the *decryption* key. I guess it depends on how you look at it!",
+      "range": {
+        "startLine": 63,
+        "startChar": 40,
+        "endLine": 63,
+        "endChar": 50
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da096576_bc303721",
+        "filename": "plat/common/plat_bl_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-12-18T14:30:17Z",
+      "side": 1,
+      "message": "Could be const.",
+      "range": {
+        "startLine": 70,
+        "startChar": 1,
+        "endLine": 70,
+        "endChar": 20
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "503da6e8_6b2d0803",
+        "filename": "plat/common/plat_bl_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-12-18T14:30:17Z",
+      "side": 1,
+      "message": "I we move the key byte array in the function as I suggested then I think it is more straightforward to see that using the sizeof() operation on it is fine.",
+      "range": {
+        "startLine": 72,
+        "startChar": 1,
+        "endLine": 72,
+        "endChar": 30
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
