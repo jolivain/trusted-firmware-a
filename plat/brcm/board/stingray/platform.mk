@@ -11,6 +11,9 @@ ERRATA_A72_859971 := 1
 DRIVER_CC_ENABLE := 1
 $(eval $(call add_define,DRIVER_CC_ENABLE))
 
+# BL31 is in DRAM
+ARM_BL31_IN_DRAM	:=	1
+
 USE_CRMU_SRAM := yes
 
 # Use single cluster
@@ -21,6 +24,12 @@ endif
 
 ifeq (${BOARD_CFG},)
 BOARD_CFG := bcm958742k
+endif
+
+# BL31 build for standalone mode
+ifeq (${STANDALONE_BL31},yes)
+RESET_TO_BL31 := 1
+$(info Using RESET_TO_BL31)
 endif
 
 ifeq (${USE_DDR},yes)
@@ -56,4 +65,32 @@ PLAT_INCLUDES		+=	-Iplat/${SOC_DIR}/include/ \
 PLAT_BL_COMMON_SOURCES	+=	lib/cpus/aarch64/cortex_a72.S \
 				plat/${SOC_DIR}/aarch64/plat_helpers.S \
 				drivers/brcm/uart/ns16550_uart_console.S \
-				drivers/arm/tzc/tzc400.c
+				plat/${SOC_DIR}/src/tz_sec.c \
+				drivers/arm/tzc/tzc400.c \
+				plat/${SOC_DIR}/src/topology.c
+
+BL31_SOURCES		+=	\
+				drivers/arm/ccn/ccn.c \
+				drivers/arm/gic/common/gic_common.c \
+				drivers/arm/gic/v3/gicv3_helpers.c \
+				drivers/arm/gic/v3/gicv3_main.c \
+				plat/brcm/board/common/timer_sync.c \
+				plat/brcm/common/brcm_ccn.c \
+				plat/brcm/common/brcm_gicv3.c \
+				plat/common/plat_gicv3.c \
+				plat/common/plat_psci_common.c \
+				plat/${SOC_DIR}/driver/ihost_pll_config.c
+
+ifdef SCP_BL2
+PLAT_INCLUDES		+=	-Iplat/brcm/common/
+
+BL31_SOURCES		+=	plat/brcm/common/brcm_mhu.c \
+				plat/brcm/common/brcm_scpi.c \
+				plat/${SOC_DIR}/src/brcm_pm_ops.c
+else
+BL31_SOURCES		+=	plat/${SOC_DIR}/src/ihost_pm.c \
+				plat/${SOC_DIR}/src/pm.c
+endif
+
+# Do not execute the startup code on warm reset.
+PROGRAMMABLE_RESET_ADDRESS	:=	1
