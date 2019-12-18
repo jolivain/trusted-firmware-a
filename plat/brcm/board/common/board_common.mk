@@ -124,6 +124,7 @@ BL31_SOURCES		+=	plat/brcm/common/brcm_bl31_setup.c
 ifeq (${BCM_ELOG},yes)
 ELOG_SOURCES		+= 	plat/brcm/board/common/bcm_elog.c
 BL2_SOURCES		+= 	${ELOG_SOURCES}
+BL31_SOURCES		+= 	${ELOG_SOURCES}
 endif
 
 ifeq (${DRIVER_OCOTP_ENABLE},1)
