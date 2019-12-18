@@ -71,6 +71,115 @@
     },
     {
       "key": {
+        "uuid": "c9fd3e7e_dba1f904",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-12-18T17:01:21Z",
+      "side": 1,
+      "message": "Could this be a configuration option which would allow to balance stack usage vs execution speed?\nI think it is worth to capture this value in a macro definition. That shows developers, this value could be changed.",
+      "range": {
+        "startLine": 215,
+        "startChar": 19,
+        "endLine": 215,
+        "endChar": 22
+      },
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec82e6d5_a3a39bc9",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-12-18T17:01:21Z",
+      "side": 1,
+      "message": "if len is zero do we need to do anything? Is is possible to simply return with success in this case?",
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33bbaeb2_dad0e3f0",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-12-18T17:01:21Z",
+      "side": 1,
+      "message": "Does this number relate to the size of buf? If so I suggest writing this as sizeof(buf), due to readability and maintenance factors.",
+      "range": {
+        "startLine": 235,
+        "startChar": 16,
+        "endLine": 235,
+        "endChar": 20
+      },
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "995b46eb_6364c496",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-12-18T17:01:21Z",
+      "side": 1,
+      "message": "Please use sizeof(tag_buf) here.",
+      "range": {
+        "startLine": 248,
+        "startChar": 40,
+        "endLine": 248,
+        "endChar": 42
+      },
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "643d1f8b_f677ed36",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-12-18T17:01:21Z",
+      "side": 1,
+      "message": "From this I assume sizeof(tag_buf) and tag_len are connected. (sizeof(tag_buf) must be greater or equal to tag_len).\n\nIf this requirement is not met, the code will do out of bounds access to tag_buf. This my or may not result in a crash, but might be worth to be avoided.\nPlease consider adding a check.",
+      "range": {
+        "startLine": 256,
+        "startChar": 11,
+        "endLine": 256,
+        "endChar": 48
+      },
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5afac8ef_f0f1a0dd",
         "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
         "patchSetId": 3
