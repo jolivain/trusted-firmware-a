@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "133efe81_e00c8224",
+        "filename": "docs/components/arm-sip-service.rst",
+        "patchSetId": 24
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-18T08:59:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1172f758_79564f0e",
+      "range": {
+        "startLine": 158,
+        "startChar": 22,
+        "endLine": 158,
+        "endChar": 29
+      },
+      "revId": "19734554e6193010c77b3194cb750b8593a08fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ddd30e6_a9c0696a",
         "filename": "lib/debugfs/debugfs_smc.c",
         "patchSetId": 24
@@ -90,6 +114,24 @@
     },
     {
       "key": {
+        "uuid": "4080cc68_a32dab12",
+        "filename": "lib/debugfs/debugfs_smc.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-18T08:59:42Z",
+      "side": 1,
+      "message": "Oh! Good catch, thanks!",
+      "parentUuid": "0ddd30e6_a9c0696a",
+      "revId": "19734554e6193010c77b3194cb750b8593a08fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ee506eb_5c8fd980",
         "filename": "plat/arm/common/arm_sip_svc.c",
         "patchSetId": 24
@@ -101,6 +143,24 @@
       "writtenOn": "2019-12-17T19:54:31Z",
       "side": 1,
       "message": "Was \u0027cookie\u0027 argument intentionally dropped from this API? I guess it is not used by other frameworks either, but kept for future enhancements.",
+      "revId": "19734554e6193010c77b3194cb750b8593a08fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45b88da2_7fc36d4f",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2019-12-18T08:59:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9ee506eb_5c8fd980",
       "revId": "19734554e6193010c77b3194cb750b8593a08fdc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
