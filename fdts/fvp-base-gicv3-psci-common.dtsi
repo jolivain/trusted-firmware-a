@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <services/sdei_flags.h>
+
 /memreserve/ 0x80000000 0x00010000;
 
 / {
@@ -34,6 +36,21 @@
 		sys_poweroff = <0x84000008>;
 		sys_reset = <0x84000009>;
 		max-pwr-lvl = <2>;
+	};
+
+	firmware {
+		sdei {
+			compatible = "arm,sdei-1.0";
+			method = "smc";
+			private_event_count = <3>;
+			private_events =	<1000 SDEI_DYN_IRQ SDEI_MAPF_DYNAMIC>,
+						<1001 SDEI_DYN_IRQ SDEI_MAPF_DYNAMIC>,
+						<1002 SDEI_DYN_IRQ SDEI_MAPF_DYNAMIC>;
+			shared_event_count = <3>;
+			shared_events =		<2000 SDEI_DYN_IRQ SDEI_MAPF_DYNAMIC>,
+						<2001 SDEI_DYN_IRQ SDEI_MAPF_DYNAMIC>,
+						<2002 SDEI_DYN_IRQ SDEI_MAPF_DYNAMIC>;
+		};
 	};
 
 	cpus {
