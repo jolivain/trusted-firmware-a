@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f1787cda_c5681bdf",
+        "filename": "plat/intel/soc/common/aarch64/plat_helpers.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2019-12-18T00:30:48Z",
+      "side": 1,
+      "message": "Yes you\u0027re right, secondary cpus will be trapped by plat_secondary_cold_boot_setup",
+      "parentUuid": "df5b26ea_dde9ed58",
+      "range": {
+        "startLine": 124,
+        "startChar": 2,
+        "endLine": 125,
+        "endChar": 20
+      },
+      "revId": "2db1e7663db8f94986bea02ade171693abfbdee6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3658bcff_e1260161",
         "filename": "plat/intel/soc/stratix10/bl31_plat_setup.c",
         "patchSetId": 5
