@@ -243,7 +243,7 @@ void arm_bl2_dyn_cfg_init(void)
 
 #ifdef	BL31_BASE
 			/* Ensure the configs don't overlap with BL31 */
-			if ((image_base > BL31_BASE) || ((image_base + image_size) > BL31_BASE))
+			if (image_base >= BL31_BASE && image_base <= BL31_LIMIT)
 				continue;
 #endif
 			/* Ensure the configs are loaded in a valid address */
@@ -263,7 +263,10 @@ void arm_bl2_dyn_cfg_init(void)
 		cfg_mem_params->image_info.image_base = (uintptr_t)image_base;
 		cfg_mem_params->image_info.image_max_size = image_size;
 
-		/* Remove the IMAGE_ATTRIB_SKIP_LOADING attribute from HW_CONFIG node */
+		/*
+		 * Remove the IMAGE_ATTRIB_SKIP_LOADING attribute from
+		 * HW_CONFIG or FW_CONFIG nodes
+		 */
 		cfg_mem_params->image_info.h.attr &= ~IMAGE_ATTRIB_SKIP_LOADING;
 	}
 
