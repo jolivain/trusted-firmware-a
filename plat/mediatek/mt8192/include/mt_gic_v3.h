@@ -20,5 +20,7 @@ void mt_gic_distif_save(void);
 void mt_gic_distif_restore(void);
 void mt_gic_rdistif_save(void);
 void mt_gic_rdistif_restore(void);
+uint32_t mt_irq_get_pending(uint32_t irq);
+void mt_irq_set_pending(uint32_t irq);
 
 #endif /* MT_GIC_V3_H */
