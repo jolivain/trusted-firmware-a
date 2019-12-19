@@ -1,7 +1,7 @@
 /*copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
-*
-* SPDX-License-Identifier: BSD-3-Clause
-*/
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
 
 #ifndef __PLAT_MT_CIRQ_H__
 #define __PLAT_MT_CIRQ_H__
@@ -32,6 +32,7 @@
 #define  CIRQ_CON_EDGE_ONLY_BITS    1
 #define  CIRQ_CON_FLUSH_BITS        2
 #define  CIRQ_CON_EVENT_BITS        31
+#define  CIRQ_CON_SW_RST_BITS       20
 #define  CIRQ_CON_BITS_MASK         0x7
 
 /*
@@ -39,6 +40,7 @@
  */
 #define  CIRQ_CON_EN            0x1
 #define  CIRQ_CON_EDGE_ONLY     0x1
+#define  CIRQ_SW_RESET          0x1
 #define  CIRQ_CON_FLUSH         0x1
 
 /*
@@ -57,8 +59,13 @@
 #define  IRQ_TO_CIRQ_NUM(irq)       ((irq) - (CIRQ_SPI_START))
 #define  CIRQ_TO_IRQ_NUM(cirq)      ((cirq) + (CIRQ_SPI_START))
 /*
- *#define __CHECK_IRQ_TYE
+ *define cirq events
  */
+struct cirq_events {
+	uint32_t spi_start;
+	uint32_t num_of_events;
+	uint32_t *wakeup_events;
+};
 
 /*
  * Define function prototypes.
@@ -67,6 +74,8 @@ void mt_cirq_enable(void);
 void mt_cirq_disable(void);
 void mt_cirq_clone_gic(void);
 void mt_cirq_flush(void);
+void mt_cirq_sw_reset(void);
+void set_wakeup_sources(uint32_t *list, uint32_t num_of_events);
 void mt_cirq_dump_reg(void);
 
 #endif  /*!__CIRQ_H__ */
