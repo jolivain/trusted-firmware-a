@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2ac1dd1c_fa0f996b",
+        "filename": "drivers/ti/uart/aarch64/16550_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-12-20T15:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfacdd99_4cb4fc1e",
+      "revId": "e48db73763c7f25c3e69358f6ace7d451bcaa7e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1da1ee50_64110195",
         "filename": "drivers/ti/uart/aarch64/16550_console.S",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "e48db73763c7f25c3e69358f6ace7d451bcaa7e9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "893648ae_2b540842",
+        "filename": "drivers/ti/uart/aarch64/16550_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2019-12-20T15:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1da1ee50_64110195",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 1
+      },
+      "revId": "e48db73763c7f25c3e69358f6ace7d451bcaa7e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
