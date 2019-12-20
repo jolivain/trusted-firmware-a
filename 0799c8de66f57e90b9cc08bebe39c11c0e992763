@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b33bef4b_6f075605",
+        "filename": "drivers/auth/crypto_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:02:40Z",
+      "side": 1,
+      "message": "Ok will make it an enum.",
+      "parentUuid": "f788bbef_4adbbe67",
+      "range": {
+        "startLine": 118,
+        "startChar": 28,
+        "endLine": 118,
+        "endChar": 49
+      },
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e4e40a7a_db07f613",
         "filename": "drivers/auth/cryptocell/712/cryptocell_crypto.c",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-18T13:39:14Z",
       "side": 1,
       "message": "Won\u0027t that result in a NULL pointer dereference? The crypto lib wrapper (crypto_mod_auth_decrypt()) just assumes this function hook is provided by the crypto lib and does not check whether the pointer is NULL before invoking it.",
+      "range": {
+        "startLine": 304,
+        "startChar": 67,
+        "endLine": 304,
+        "endChar": 71
+      },
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb362ee5_8d6d8a16",
+        "filename": "drivers/auth/cryptocell/712/cryptocell_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:02:40Z",
+      "side": 1,
+      "message": "Ok will add an assert() for crypto_lib_desc.auth_decrypt().",
+      "parentUuid": "e4e40a7a_db07f613",
       "range": {
         "startLine": 304,
         "startChar": 67,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "21fd7e9b_d5847429",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:02:40Z",
+      "side": 1,
+      "message": "Ok will rename it to aes_gcm_decrypt().",
+      "parentUuid": "f04b3e53_e2744238",
+      "range": {
+        "startLine": 209,
+        "startChar": 11,
+        "endLine": 209,
+        "endChar": 22
+      },
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9fd3e7e_dba1f904",
         "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "99b2c1f4_0b2ab692",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:02:40Z",
+      "side": 1,
+      "message": "Yeah this makes sense. Will add a macro definition with comments.",
+      "parentUuid": "c9fd3e7e_dba1f904",
+      "range": {
+        "startLine": 215,
+        "startChar": 19,
+        "endLine": 215,
+        "endChar": 22
+      },
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec82e6d5_a3a39bc9",
         "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
         "patchSetId": 3
@@ -108,6 +204,24 @@
       "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e58c55f2_473628b1",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:02:40Z",
+      "side": 1,
+      "message": "len can\u0027t be zero here as there\u0027s already an assert() check in crypto_mod_auth_decrypt().",
+      "parentUuid": "ec82e6d5_a3a39bc9",
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "f73d0a90_52c75da2",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:02:40Z",
+      "side": 1,
+      "message": "Yeah it relates to buf. Will use sizeof(buf) instead.",
+      "parentUuid": "33bbaeb2_dad0e3f0",
+      "range": {
+        "startLine": 235,
+        "startChar": 16,
+        "endLine": 235,
+        "endChar": 20
+      },
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "995b46eb_6364c496",
         "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
         "patchSetId": 3
@@ -154,6 +292,30 @@
       "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0a7cbfd_7317fad9",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:02:40Z",
+      "side": 1,
+      "message": "Ok.",
+      "parentUuid": "995b46eb_6364c496",
+      "range": {
+        "startLine": 248,
+        "startChar": 40,
+        "endLine": 248,
+        "endChar": 42
+      },
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "650d2da8_9743eb34",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:02:40Z",
+      "side": 1,
+      "message": "Let me extend the asserts in crypto_mod_auth_decrypt() to check for max value of tag_len and iv_len.",
+      "parentUuid": "643d1f8b_f677ed36",
+      "range": {
+        "startLine": 256,
+        "startChar": 11,
+        "endLine": 256,
+        "endChar": 48
+      },
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5afac8ef_f0f1a0dd",
         "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
         "patchSetId": 3
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "c15c3ff8_5d12bc8f",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:02:40Z",
+      "side": 1,
+      "message": "I think it would be more appropriate for mbedTLS to reject those values.",
+      "parentUuid": "5afac8ef_f0f1a0dd",
+      "range": {
+        "startLine": 282,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 14
+      },
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "68939b6f_0a8a012c",
         "filename": "include/drivers/auth/crypto_mod.h",
         "patchSetId": 3
@@ -214,6 +424,30 @@
       "writtenOn": "2019-12-18T13:39:14Z",
       "side": 1,
       "message": "Should \u0027tag\u0027 be a pointer to const data? As far as I understand, it is the reference tag to compare against the one we get out of the authenticated decryption operation, isn\u0027t it? Is there a reason why the function might need to modify it?\n\n\u0027key\u0027 and \u0027iv\u0027 also are input parameters and could be (const void *), I think.",
+      "range": {
+        "startLine": 53,
+        "startChar": 38,
+        "endLine": 53,
+        "endChar": 47
+      },
+      "revId": "0799c8de66f57e90b9cc08bebe39c11c0e992763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72f1968f_491015df",
+        "filename": "include/drivers/auth/crypto_mod.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:02:40Z",
+      "side": 1,
+      "message": "Agree, will add const for tag, key and iv.",
+      "parentUuid": "68939b6f_0a8a012c",
       "range": {
         "startLine": 53,
         "startChar": 38,
