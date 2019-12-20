@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab4b0471_b990d6a1",
+        "filename": "plat/xilinx/zynqmp/pm_service/pm_api_clock.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-12-20T11:52:08Z",
+      "side": 1,
+      "message": "I notice that most (if not all?) of the other functions that take a clock ID in argument in this file use an unsigned int rather than an enum clock_id. Should it be unsigned int here as well for consistency?",
+      "range": {
+        "startLine": 310,
+        "startChar": 48,
+        "endLine": 310,
+        "endChar": 70
+      },
+      "revId": "156acb406f92b46bcb86834cc1eae6b5630ea160",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
