@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c9ee664d_d352d957",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:53:50Z",
+      "side": 1,
+      "message": "Will correct.",
+      "parentUuid": "6d7f4dab_b08f005b",
+      "range": {
+        "startLine": 13,
+        "startChar": 10,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "950ab751_57dc59dc",
         "filename": "drivers/io/io_fip.c",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-18T14:30:17Z",
       "side": 1,
       "message": "(minor) assert(fip_enc_status \u003d\u003d 0) would provide a better assertion message.",
+      "range": {
+        "startLine": 351,
+        "startChar": 3,
+        "endLine": 351,
+        "endChar": 13
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67d9956e_f6c5d700",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:53:50Z",
+      "side": 1,
+      "message": "Ok.",
+      "parentUuid": "950ab751_57dc59dc",
       "range": {
         "startLine": 351,
         "startChar": 3,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4c77ee5b_2f78ec75",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:53:50Z",
+      "side": 1,
+      "message": "Adding a new metadata field to FIP ToC entry struct would break backwards compatibility. Also, its more about how enctool and fiptool function currently. fiptool just sees whole image as encrypted blob (header + cipher text), package it at a particular offset in fip and sets \"encrypted\" flag in FIP ToC entry.",
+      "parentUuid": "5efd5f90_821d9831",
+      "range": {
+        "startLine": 415,
+        "startChar": 2,
+        "endLine": 415,
+        "endChar": 49
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "94a3c236_43aaa107",
         "filename": "include/plat/common/platform.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2019-12-18T14:30:17Z",
       "side": 1,
       "message": "I am not fond of this fic_enc_status name, how about something like \u0027key_type\u0027 instead? Or \u0027key_id\u0027? Or if we want to follow the plat_get_rotpk_info() / plat_get_nv_ctr() naming scheme, this would be \u0027cookie\u0027 (although I don\u0027t quite like it either but at least it would be consistent).",
+      "range": {
+        "startLine": 274,
+        "startChar": 30,
+        "endLine": 274,
+        "endChar": 57
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4b7aa52_aa6ddc5c",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:53:50Z",
+      "side": 1,
+      "message": "Its just used to be consistent with TBBR spec naming scheme (see: Table 3: Table of Content Fields).",
+      "parentUuid": "94a3c236_43aaa107",
       "range": {
         "startLine": 274,
         "startChar": 30,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "2ab55d4c_975fbe1e",
+        "filename": "plat/common/plat_bl_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:53:50Z",
+      "side": 1,
+      "message": "Ok will move it in plat_get_fip_enc_key_info().",
+      "parentUuid": "e209a80e_55a620a8",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 55
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2cf95a3f_cd8f50e9",
         "filename": "plat/common/plat_bl_common.c",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2019-12-18T14:30:17Z",
       "side": 1,
       "message": "(minor) From the point of view of the firmware, I would say this is the *decryption* key. I guess it depends on how you look at it!",
+      "range": {
+        "startLine": 63,
+        "startChar": 40,
+        "endLine": 63,
+        "endChar": 50
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e262ea8_d55ecd1f",
+        "filename": "plat/common/plat_bl_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:53:50Z",
+      "side": 1,
+      "message": "Ok will update.",
+      "parentUuid": "2cf95a3f_cd8f50e9",
       "range": {
         "startLine": 63,
         "startChar": 40,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "da8b7a83_85de3724",
+        "filename": "plat/common/plat_bl_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:53:50Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "da096576_bc303721",
+      "range": {
+        "startLine": 70,
+        "startChar": 1,
+        "endLine": 70,
+        "endChar": 20
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "503da6e8_6b2d0803",
         "filename": "plat/common/plat_bl_common.c",
         "patchSetId": 4
@@ -174,6 +342,30 @@
       "writtenOn": "2019-12-18T14:30:17Z",
       "side": 1,
       "message": "I we move the key byte array in the function as I suggested then I think it is more straightforward to see that using the sizeof() operation on it is fine.",
+      "range": {
+        "startLine": 72,
+        "startChar": 1,
+        "endLine": 72,
+        "endChar": 30
+      },
+      "revId": "da4fd8577c6136508e69a465699f4b4473ac0d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed82452c_ff92bf66",
+        "filename": "plat/common/plat_bl_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2019-12-20T08:53:50Z",
+      "side": 1,
+      "message": "Ok.",
+      "parentUuid": "503da6e8_6b2d0803",
       "range": {
         "startLine": 72,
         "startChar": 1,
