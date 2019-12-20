@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a41d3922_72f7d673",
+        "filename": "fdts/a5ds.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2019-12-20T07:46:59Z",
+      "side": 1,
+      "message": "It looks like this file got granted execution permissions here. The file mode was changed from 644 to 755. Could you please do a chmod 644 on this file and resubmit?",
+      "revId": "7bfbb5740257816930fef734bd92a57aa81b0293",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
