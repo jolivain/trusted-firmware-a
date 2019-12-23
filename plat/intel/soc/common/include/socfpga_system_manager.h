@@ -106,7 +106,6 @@
 #define SOCFPGA_CCU_NOC_CPU0_RAMSPACE0_0			0xf7004688
 #define SOCFPGA_CCU_NOC_IOM_RAMSPACE0_0				0xf7018628
 
-void enable_nonsecure_access(void);
 void enable_ns_peripheral_access(void);
 void enable_ns_bridge_access(void);
 
