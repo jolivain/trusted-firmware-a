@@ -13,6 +13,7 @@
 
 #include "socfpga_mailbox.h"
 #include "socfpga_plat_def.h"
+#include "socfpga_reset_manager.h"
 
 
 
@@ -46,7 +47,7 @@ int socfpga_pwr_domain_on(u_register_t mpidr)
 	mmio_write_64(PLAT_CPUID_RELEASE, cpu_id);
 
 	/* release core reset */
-	mmio_setbits_32(SOCFPGA_RSTMGR_MPUMODRST_OFST, 1 << cpu_id);
+	mmio_setbits_32(SOCFPGA_RSTMGR(MPUMODRST), 1 << cpu_id);
 	return PSCI_E_SUCCESS;
 }
 
@@ -76,7 +77,7 @@ void socfpga_pwr_domain_suspend(const psci_power_state_t *target_state)
 		VERBOSE("%s: target_state->pwr_domain_state[%lu]=%x\n",
 			__func__, i, target_state->pwr_domain_state[i]);
 	/* assert core reset */
-	mmio_setbits_32(SOCFPGA_RSTMGR_MPUMODRST_OFST, 1 << cpu_id);
+	mmio_setbits_32(SOCFPGA_RSTMGR(MPUMODRST), 1 << cpu_id);
 
 }
 
@@ -115,7 +116,7 @@ void socfpga_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
 			__func__, i, target_state->pwr_domain_state[i]);
 
 	/* release core reset */
-	mmio_clrbits_32(SOCFPGA_RSTMGR_MPUMODRST_OFST, 1 << cpu_id);
+	mmio_clrbits_32(SOCFPGA_RSTMGR(MPUMODRST), 1 << cpu_id);
 }
 
 /*******************************************************************************
