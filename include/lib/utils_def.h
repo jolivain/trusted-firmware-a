@@ -127,6 +127,8 @@
  * Import an assembly or linker symbol as a C expression with the specified
  * type
  */
+#pragma GCC diagnostic ignored "-Wredundant-decls"
+
 #define IMPORT_SYM(type, sym, name) \
 	extern char sym[];\
 	static const __attribute__((unused)) type name = (type) sym;
