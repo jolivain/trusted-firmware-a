@@ -39,12 +39,12 @@
 #include "rcar_version.h"
 #include "rom_api.h"
 
-IMPORT_SYM(unsigned long, __RO_START__, BL2_RO_BASE)
-IMPORT_SYM(unsigned long, __RO_END__, BL2_RO_LIMIT)
+uint64_t BL2_RO_BASE		= BL_CODE_BASE;
+uint64_t BL2_RO_LIMIT		= BL_CODE_END;
 
 #if USE_COHERENT_MEM
-IMPORT_SYM(unsigned long, __COHERENT_RAM_START__, BL2_COHERENT_RAM_BASE)
-IMPORT_SYM(unsigned long, __COHERENT_RAM_END__, BL2_COHERENT_RAM_LIMIT)
+uint64_t BL2_COHERENT_RAM_BASE	= BL_COHERENT_RAM_BASE;
+uint64_t BL2_COHERENT_RAM_LIMIT	= BL_COHERENT_RAM_END;
 #endif
 
 extern void plat_rcar_gic_driver_init(void);
