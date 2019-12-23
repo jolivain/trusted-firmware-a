@@ -47,10 +47,9 @@ static entry_point_info_t *spmc_ep_info;
 static int32_t	spmd_init(void);
 static int	spmd_spmc_init(void *rd_base, size_t rd_size);
 static uint64_t	spmd_spci_error_return(void *handle, int error_code);
-static uint64_t	spmd_smc_forward(uint32_t smc_fid, uint32_t in_sstate,
-				 uint32_t out_sstate, uint64_t x1,
-				 uint64_t x2, uint64_t x3, uint64_t x4,
-				 void *handle);
+static uint64_t	spmd_smc_forward(uint32_t smc_fid, bool secure_origin,
+				 uint64_t x1, uint64_t x2, uint64_t x3,
+				 uint64_t x4, void *handle);
 
 /*******************************************************************************
  * SPM Core entry point information get helper.
@@ -344,21 +343,23 @@ int spmd_setup(void)
 /*******************************************************************************
  * Forward SMC to the other security state
  ******************************************************************************/
-static uint64_t spmd_smc_forward(uint32_t smc_fid, uint32_t in_sstate,
-				 uint32_t out_sstate, uint64_t x1,
-				 uint64_t x2, uint64_t x3, uint64_t x4,
-				 void *handle)
+static uint64_t spmd_smc_forward(uint32_t smc_fid, bool secure_origin,
+				 uint64_t x1, uint64_t x2, uint64_t x3,
+				 uint64_t x4, void *handle)
 {
+	uint32_t secure_state_in = (secure_origin) ? SECURE : NON_SECURE;
+	uint32_t secure_state_out = (!secure_origin) ? SECURE : NON_SECURE;
+
 	/* Save incoming security state */
-	cm_el1_sysregs_context_save(in_sstate);
-	cm_el2_sysregs_context_save(in_sstate);
+	cm_el1_sysregs_context_save(secure_state_in);
+	cm_el2_sysregs_context_save(secure_state_in);
 
 	/* Restore outgoing security state */
-	cm_el1_sysregs_context_restore(out_sstate);
-	cm_el2_sysregs_context_restore(out_sstate);
-	cm_set_next_eret_context(out_sstate);
+	cm_el1_sysregs_context_restore(secure_state_out);
+	cm_el2_sysregs_context_restore(secure_state_out);
+	cm_set_next_eret_context(secure_state_out);
 
-	SMC_RET8(cm_get_context(out_sstate), smc_fid, x1, x2, x3, x4,
+	SMC_RET8(cm_get_context(secure_state_out), smc_fid, x1, x2, x3, x4,
 			SMC_GET_GP(handle, CTX_GPREG_X5),
 			SMC_GET_GP(handle, CTX_GPREG_X6),
 			SMC_GET_GP(handle, CTX_GPREG_X7));
@@ -383,19 +384,12 @@ uint64_t spmd_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 			  uint64_t x3, uint64_t x4, void *cookie, void *handle,
 			  uint64_t flags)
 {
-	uint32_t in_sstate;
-	uint32_t out_sstate;
-	int32_t ret;
 	spmd_spm_core_context_t *ctx = &spm_core_context[plat_my_core_pos()];
+	bool secure_origin;
+	int32_t ret;
 
 	/* Determine which security state this SMC originated from */
-	if (is_caller_secure(flags)) {
-		in_sstate = SECURE;
-		out_sstate = NON_SECURE;
-	} else {
-		in_sstate = NON_SECURE;
-		out_sstate = SECURE;
-	}
+	secure_origin = is_caller_secure(flags);
 
 	switch (smc_fid) {
 	case SPCI_ERROR:
@@ -404,12 +398,11 @@ uint64_t spmd_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 		 * this CPU. If so, then indicate that the SPM core initialised
 		 * unsuccessfully.
 		 */
-		if ((in_sstate == SECURE) &&
-		    (ctx->state == AFF_STATE_ON_PENDING)) {
+		if (secure_origin && (ctx->state == AFF_STATE_ON_PENDING)) {
 			spmd_spm_core_sync_exit(x2);
 		}
 
-		return spmd_smc_forward(smc_fid, in_sstate, out_sstate,
+		return spmd_smc_forward(smc_fid, secure_origin,
 					x1, x2, x3, x4, handle);
 		break; /* not reached */
 
@@ -443,8 +436,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 		}
 
 		/* Forward SMC from Normal world to the SPM core */
-		if (in_sstate == NON_SECURE) {
-			return spmd_smc_forward(smc_fid, in_sstate, out_sstate,
+		if (!secure_origin) {
+			return spmd_smc_forward(smc_fid, secure_origin,
 						x1, x2, x3, x4, handle);
 		} else {
 			/*
@@ -466,7 +459,7 @@ uint64_t spmd_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 	case SPCI_RXTX_UNMAP:
 	case SPCI_MSG_RUN:
 		/* This interface must be invoked only by the Normal world */
-		if (in_sstate == SECURE) {
+		if (secure_origin) {
 			return spmd_spci_error_return(handle,
 						      SPCI_ERROR_NOT_SUPPORTED);
 		}
@@ -499,7 +492,7 @@ uint64_t spmd_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 		 * simply forward the call to the Normal world.
 		 */
 
-		return spmd_smc_forward(smc_fid, in_sstate, out_sstate,
+		return spmd_smc_forward(smc_fid, secure_origin,
 					x1, x2, x3, x4, handle);
 		break; /* not reached */
 
@@ -509,8 +502,7 @@ uint64_t spmd_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 		 * this CPU from the Secure world. If so, then indicate that the
 		 * SPM core initialised successfully.
 		 */
-		if ((in_sstate == SECURE) &&
-		    (ctx->state == AFF_STATE_ON_PENDING)) {
+		if (secure_origin && (ctx->state == AFF_STATE_ON_PENDING)) {
 			spmd_spm_core_sync_exit(0);
 		}
 
@@ -518,12 +510,12 @@ uint64_t spmd_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 
 	case SPCI_MSG_YIELD:
 		/* This interface must be invoked only by the Secure world */
-		if (in_sstate == NON_SECURE) {
+		if (!secure_origin) {
 			return spmd_spci_error_return(handle,
 						      SPCI_ERROR_NOT_SUPPORTED);
 		}
 
-		return spmd_smc_forward(smc_fid, in_sstate, out_sstate,
+		return spmd_smc_forward(smc_fid, secure_origin,
 					x1, x2, x3, x4, handle);
 		break; /* not reached */
 
