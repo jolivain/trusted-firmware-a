@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a26869ea_127fd572",
+        "filename": "plat/xilinx/versal/include/versal_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2019-12-23T21:38:16Z",
+      "side": 1,
+      "message": "0xFF330000U -  Can we set the values to be unsigned explicitly since it is base address, default it is `int`",
+      "revId": "3fccbc54e624ee4d3d1aefafea28154308f43f4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
