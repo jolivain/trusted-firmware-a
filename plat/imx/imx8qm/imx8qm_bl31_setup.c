@@ -27,12 +27,19 @@
 #include <sci/sci.h>
 #include <sec_rsrc.h>
 
+#if !(defined(__LINKER__) || defined(__ASSEMBLER__))
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wredundant-decls"
+
 IMPORT_SYM(unsigned long, __COHERENT_RAM_START__, BL31_COHERENT_RAM_START);
 IMPORT_SYM(unsigned long, __COHERENT_RAM_END__, BL31_COHERENT_RAM_END);
 IMPORT_SYM(unsigned long, __RO_START__, BL31_RO_START);
 IMPORT_SYM(unsigned long, __RO_END__, BL31_RO_END);
 IMPORT_SYM(unsigned long, __RW_START__, BL31_RW_START);
 IMPORT_SYM(unsigned long, __RW_END__, BL31_RW_END);
+
+#pragma GCC diagnostic pop
+#endif
 
 static entry_point_info_t bl32_image_ep_info;
 static entry_point_info_t bl33_image_ep_info;

@@ -22,12 +22,19 @@
 #include "rcar_private.h"
 #include "rcar_version.h"
 
+#if !(defined(__LINKER__) || defined(__ASSEMBLER__))
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wredundant-decls"
+
 IMPORT_SYM(uint64_t, __RO_START__, BL31_RO_BASE)
 IMPORT_SYM(uint64_t, __RO_END__, BL31_RO_LIMIT)
 
 #if USE_COHERENT_MEM
 IMPORT_SYM(uint64_t, __COHERENT_RAM_START__, BL31_COHERENT_RAM_BASE)
 IMPORT_SYM(uint64_t, __COHERENT_RAM_END__, BL31_COHERENT_RAM_LIMIT)
+#endif
+
+#pragma GCC diagnostic pop
 #endif
 
 extern void plat_rcar_gic_driver_init(void);
