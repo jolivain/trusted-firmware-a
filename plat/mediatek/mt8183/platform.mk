@@ -45,6 +45,7 @@ BL31_SOURCES    += common/desc_image_load.c                              \
                    ${MTK_PLAT}/common/mtk_plat_common.c                  \
                    ${MTK_PLAT}/common/drivers/pmic_wrap/pmic_wrap_init.c \
                    ${MTK_PLAT}/common/drivers/rtc/rtc_common.c           \
+                   ${MTK_PLAT}/common/mtk_sip_svc.c                      \
                    ${MTK_PLAT}/common/params_setup.c                     \
                    ${MTK_PLAT_SOC}/aarch64/plat_helpers.S                \
                    ${MTK_PLAT_SOC}/aarch64/platform_common.c             \
@@ -66,6 +67,7 @@ BL31_SOURCES    += common/desc_image_load.c                              \
                    ${MTK_PLAT_SOC}/plat_dcm.c                            \
                    ${MTK_PLAT_SOC}/bl31_plat_setup.c                     \
                    ${MTK_PLAT_SOC}/plat_debug.c                          \
+                   ${MTK_PLAT_SOC}/plat_sip_calls.c                      \
                    ${MTK_PLAT_SOC}/scu.c                                 \
                    ${MTK_PLAT_SOC}/drivers/sspm/sspm.c
 
