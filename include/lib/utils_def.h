@@ -123,6 +123,10 @@
 	((ARM_ARCH_MAJOR > (_maj)) || \
 	 ((ARM_ARCH_MAJOR == (_maj)) && (ARM_ARCH_MINOR >= (_min))))
 
+#if !(defined(__LINKER__) || defined(__ASSEMBLER__))
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wredundant-decls"
+
 /*
  * Import an assembly or linker symbol as a C expression with the specified
  * type
@@ -130,6 +134,9 @@
 #define IMPORT_SYM(type, sym, name) \
 	extern char sym[];\
 	static const __attribute__((unused)) type name = (type) sym;
+
+#pragma GCC diagnostic pop
+#endif
 
 /*
  * When the symbol is used to hold a pointer, its alignment can be asserted
