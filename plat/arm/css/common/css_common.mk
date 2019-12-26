@@ -38,6 +38,9 @@ BL31_SOURCES		+=	drivers/arm/css/mhu/css_mhu_doorbell.c		\
 				drivers/arm/css/scp/css_pm_scmi.c
 endif
 
+# Platforms with multi-chip support can override this parameter while building
+BL31_CFLAGS		+=	-DPLAT_ARM_CSS_NUM_CHIPS=1
+
 # Process CSS_LOAD_SCP_IMAGES flag
 $(eval $(call assert_boolean,CSS_LOAD_SCP_IMAGES))
 $(eval $(call add_define,CSS_LOAD_SCP_IMAGES))
