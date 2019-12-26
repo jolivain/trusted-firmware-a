@@ -81,7 +81,7 @@ static int sh_file_open(io_dev_info_t *dev_info __unused,
 
 	sh_result = semihosting_file_open(file_spec->path, file_spec->mode);
 
-	if (sh_result > 0) {
+	if (sh_result >= 0) {
 		entity->info = (uintptr_t)sh_result;
 		result = 0;
 	}
