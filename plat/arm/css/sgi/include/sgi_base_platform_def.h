@@ -22,6 +22,15 @@
 					CSS_SGI_MAX_CPUS_PER_CLUSTER * \
 					CSS_SGI_MAX_PE_PER_CPU)
 
+/*
+ * The default number of chips on a platform is set to one. On multi-chip
+ * platforms, override the 'PLAT_ARM_CSS_NUM_CHIPS' macro using build time
+ * parameters.
+ */
+#ifndef PLAT_ARM_CSS_NUM_CHIPS
+#define PLAT_ARM_CSS_NUM_CHIPS 1
+#endif
+
 #define PLAT_ARM_TRUSTED_SRAM_SIZE	0x00040000	/* 256 KB */
 
 /* Remote chip address offset (4TB per chip) */
