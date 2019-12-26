@@ -24,6 +24,7 @@
 #include <platform_def.h>
 
 #include <lib/cassert.h>
+#include <lib/utils_def.h>
 #include <lib/xlat_tables/xlat_tables_arch.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
 
@@ -148,10 +149,9 @@ struct xlat_ctx {
 		.mmap_num = (_mmap_count),				\
 		.base_level = GET_XLAT_TABLE_LEVEL_BASE(_virt_addr_space_size),\
 		.base_table = _ctx_name##_base_xlat_table,		\
-		.base_table_entries =					\
-			GET_NUM_BASE_LEVEL_ENTRIES(_virt_addr_space_size),\
+		.base_table_entries = ARRAY_SIZE(_ctx_name##_base_xlat_table), \
 		.tables = _ctx_name##_xlat_tables,			\
-		.tables_num = _xlat_tables_count,			\
+		.tables_num = ARRAY_SIZE(_ctx_name##_xlat_tables),	\
 		 XLAT_REGISTER_DYNMAP_STRUCT(_ctx_name)			\
 		.xlat_regime = (_xlat_regime),				\
 		.max_pa = 0U,						\
