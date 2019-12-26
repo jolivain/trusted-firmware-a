@@ -16,6 +16,8 @@ EL3_EXCEPTION_HANDLING		:=	0
 
 HANDLE_EA_EL3_FIRST		:=	0
 
+CSS_SGI_CHIP_COUNT		:=	1
+
 INTERCONNECT_SOURCES	:=	${CSS_ENT_BASE}/sgi_interconnect.c
 
 PLAT_INCLUDES		+=	-I${CSS_ENT_BASE}/include
@@ -51,6 +53,15 @@ ifneq (${RESET_TO_BL31},0)
 endif
 
 $(eval $(call add_define,SGI_PLAT))
+
+$(eval $(call add_define,CSS_SGI_CHIP_COUNT))
+
+ifeq ($(CSS_SGI_CHIP_COUNT), 0)
+ $(error "Chip count for SGI/RD platforms should be atleast 1, currently set to \
+ 0")
+else ifeq ($(shell test $(CSS_SGI_CHIP_COUNT) -gt 2; echo $$?),0)
+ $(error  "Chip count for SGI/RD platforms should be less than 2")
+endif
 
 override CSS_LOAD_SCP_IMAGES	:=	0
 override NEED_BL2U		:=	no
