@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -37,6 +37,9 @@ BL31_SOURCES		+=	drivers/arm/css/mhu/css_mhu_doorbell.c		\
 				drivers/arm/css/scmi/scmi_sys_pwr_proto.c	\
 				drivers/arm/css/scp/css_pm_scmi.c
 endif
+
+# Platforms with multi-chip support can override this parameter while building
+BL31_CFLAGS		+=	-DPLAT_ARM_CSS_NUM_CHIPS=1
 
 # Process CSS_LOAD_SCP_IMAGES flag
 $(eval $(call assert_boolean,CSS_LOAD_SCP_IMAGES))
