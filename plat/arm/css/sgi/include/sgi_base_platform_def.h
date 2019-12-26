@@ -22,6 +22,14 @@
 					CSS_SGI_MAX_CPUS_PER_CLUSTER * \
 					CSS_SGI_MAX_PE_PER_CPU)
 
+/*
+ * Platforms with multi-chip support can define the number of chips as build
+ * flag, otherwise number of chips will be set as 1.
+ */
+#ifndef PLAT_ARM_CSS_NUM_CHIPS
+#define PLAT_ARM_CSS_NUM_CHIPS 1
+#endif
+
 #define PLAT_ARM_TRUSTED_SRAM_SIZE	0x00040000	/* 256 KB */
 
 /* Remote chip address offset (4TB per chip) */
