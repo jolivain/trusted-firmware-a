@@ -199,7 +199,7 @@ Boot trace
 
 Notice that BL31 traces are not accessible via the console and that in
 order to verbose the BL2 output you will have to compile TF-A with
-LOG_LEVEL=50 and DEBUG=1
+LOG_LEVEL=5 and DEBUG=1
 
 ::
 

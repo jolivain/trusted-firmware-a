@@ -377,12 +377,12 @@ Common build options
 
    ::
 
-       0  (LOG_LEVEL_NONE)
-       10 (LOG_LEVEL_ERROR)
-       20 (LOG_LEVEL_NOTICE)
-       30 (LOG_LEVEL_WARNING)
-       40 (LOG_LEVEL_INFO)
-       50 (LOG_LEVEL_VERBOSE)
+       0 (LOG_LEVEL_NONE)
+       1 (LOG_LEVEL_ERROR)
+       2 (LOG_LEVEL_NOTICE)
+       3 (LOG_LEVEL_WARNING)
+       4 (LOG_LEVEL_INFO)
+       5 (LOG_LEVEL_VERBOSE)
 
    All log output up to and including the selected log level is compiled into
    the build. The default value is 40 in debug builds and 20 in release builds.

@@ -62,11 +62,11 @@ There are several build options:
         Defines the level of logging which will be purged to the default output port.
 
         LOG_LEVEL_NONE		0
-        LOG_LEVEL_ERROR		10
-        LOG_LEVEL_NOTICE	20
-        LOG_LEVEL_WARNING	30
-        LOG_LEVEL_INFO		40
-        LOG_LEVEL_VERBOSE	50
+        LOG_LEVEL_ERROR		1
+        LOG_LEVEL_NOTICE	2
+        LOG_LEVEL_WARNING	3
+        LOG_LEVEL_INFO		4
+        LOG_LEVEL_VERBOSE	5
 
 - USE_COHERENT_MEM
 
@@ -165,7 +165,7 @@ There are several build options:
 
     .. code:: shell
 
-        > make DEBUG=1 USE_COHERENT_MEM=0 LOG_LEVEL=20 PLAT=<MARVELL_PLATFORM> all fip
+        > make DEBUG=1 USE_COHERENT_MEM=0 LOG_LEVEL=2 PLAT=<MARVELL_PLATFORM> all fip
 
     And if we want to build a Armada37x0 image in debug mode with log level up to 'notice' level,
     the image has the preset CPU at 1000 MHz, preset DDR3 at 800 MHz, the DDR topology of DDR4 2CS,
@@ -174,7 +174,7 @@ There are several build options:
 
     .. code:: shell
 
-        > make DEBUG=1 USE_COHERENT_MEM=0 LOG_LEVEL=20 CLOCKSPRESET=CPU_1000_DDR_800 \
+        > make DEBUG=1 USE_COHERENT_MEM=0 LOG_LEVEL=2 CLOCKSPRESET=CPU_1000_DDR_800 \
             MARVELL_SECURE_BOOT=0 DDR_TOPOLOGY=3 BOOTDEV=SPINOR PARTNUM=0 PLAT=a3700 all fip
 
     Supported MARVELL_PLATFORM are:

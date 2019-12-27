@@ -492,11 +492,11 @@ Each logging macro has a numerical log level:
 .. code:: c
 
   #define LOG_LEVEL_NONE    0
-  #define LOG_LEVEL_ERROR   10
-  #define LOG_LEVEL_NOTICE  20
-  #define LOG_LEVEL_WARNING 30
-  #define LOG_LEVEL_INFO    40
-  #define LOG_LEVEL_VERBOSE 50
+  #define LOG_LEVEL_ERROR   1
+  #define LOG_LEVEL_NOTICE  2
+  #define LOG_LEVEL_WARNING 3
+  #define LOG_LEVEL_INFO    4
+  #define LOG_LEVEL_VERBOSE 5
 
 
 By default, all logging statements with a log level ``<= LOG_LEVEL_INFO`` will
@@ -506,7 +506,7 @@ overridden from the command line or by the platform makefile (although it may be
 necessary to clean the build directory first). For example, to enable
 ``VERBOSE`` logging on FVP:
 
-``make PLAT=fvp LOG_LEVEL=50 all``
+``make PLAT=fvp LOG_LEVEL=5 all``
 
 Use const data where possible
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
