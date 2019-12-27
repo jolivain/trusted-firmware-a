@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db2e50d4_c13b3d7b",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-12-27T15:00:39Z",
+      "side": 1,
+      "message": "`system` headers should come first.\n\nThe rule is: system, project and platform specific header, in alphabetic order.\nYou can also add blank line between every \"category\"",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 19
+      },
+      "revId": "ba41342ebffd24adcec833d5112d3e28bb1839a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00e75730_7e7dcac9",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2019-12-27T15:00:39Z",
+      "side": 1,
+      "message": "I\u0027m not sure this style is allowed for `multiple-lines` comments.\n\nIt should be:\n\n/*\n * Your comment\n */",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 47
+      },
+      "revId": "ba41342ebffd24adcec833d5112d3e28bb1839a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
