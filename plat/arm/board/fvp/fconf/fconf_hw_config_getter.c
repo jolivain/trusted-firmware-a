@@ -13,6 +13,7 @@
 #include <plat/common/platform.h>
 
 struct gicv3_config_t gicv3_config;
+struct hw_topology_t soc_topology;
 
 int fconf_populate_gicv3_config(uintptr_t config)
 {
@@ -20,7 +21,7 @@ int fconf_populate_gicv3_config(uintptr_t config)
 	int node;
 	int addr[20];
 
-	/* This cast is necessary to work with libfdt APIs */
+	/* Necessary to work with libfdt APIs */
 	const void *hw_config_dtb = (const void *)config;
 
 	/* Find the offset of the node containing "arm,gic-v3" compatible property */
@@ -45,5 +46,107 @@ int fconf_populate_gicv3_config(uintptr_t config)
 	return err;
 }
 
+int fconf_populate_topology(uintptr_t config)
+{
+	int err, node, cluster_node, core_node, max_pwr_lvl = 0;
+	uint32_t cluster_count = 0, max_cpu_per_cluster = 0, total_cpu_count = 0;
+
+	/* Necessary to work with libfdt APIs */
+	const void *hw_config_dtb = (const void *)config;
+
+	/* Find the offset of the node containing "arm,psci-1.0" compatible property */
+	node = fdt_node_offset_by_compatible(hw_config_dtb, -1, "arm,psci-1.0");
+	if (node < 0) {
+		ERROR("FCONF: Unable to locate node with arm,gic-v3 compatible property\n");
+		return node;
+	}
+
+	err = fdtw_read_cells(hw_config_dtb, node, "max-pwr-lvl", 1, &max_pwr_lvl);
+	if (err < 0) {
+		ERROR("FCONF: failed to read max-pwr-lvl property\n");
+		return err;
+	}
+
+	assert(max_pwr_lvl <= MPIDR_AFFLVL2);
+
+	/* Find the offset of the "cpus" node */
+	node = fdt_path_offset(hw_config_dtb, "/cpus");
+	if (node < 0) {
+		ERROR("FCONF: Node '%s' not found in hardware configuration dtb\n", "cpus");
+		return node;
+	}
+
+	/* A typical cpu-map node in a device tree is shown here for reference
+	cpu-map {
+		cluster0 {
+			core0 {
+				cpu = <&CPU0>;
+			};
+			core1 {
+				cpu = <&CPU1>;
+			};
+		};
+
+		cluster1 {
+			core0 {
+				cpu = <&CPU2>;
+			};
+			core1 {
+				cpu = <&CPU3>;
+			};
+		};
+	};
+	*/
+
+	/* Locate the cpu-map child node */
+	node = fdt_subnode_offset(hw_config_dtb, node, "cpu-map");
+	if (node < 0) {
+		ERROR("FCONF: Node '%s' not found in hardware configuration dtb\n", "cpu-map");
+		return node;
+	}
+
+	uint32_t cpus_per_cluster[PLAT_ARM_CLUSTER_COUNT] = {0};
+
+	/* Iterate through cluster nodes */
+	fdt_for_each_subnode(cluster_node, hw_config_dtb, node) {
+		assert(cluster_count < PLAT_ARM_CLUSTER_COUNT);
+
+		/* Iterate through core nodes */
+		fdt_for_each_subnode(core_node, hw_config_dtb, cluster_node) {
+			cpus_per_cluster[cluster_count]++;
+		}
+
+		if ((core_node< 0) && (core_node!= -FDT_ERR_NOTFOUND)) {
+			ERROR("FCONF: Unable to locate the core node in cluster%d\n", cluster_node);
+			return core_node;
+		}
+
+		/* Ensure every cluster node has at least 1 child node */
+		assert(cpus_per_cluster[cluster_count] > 0);
+
+		INFO("CLUSTER ID: %d cpu-count: %d\n", cluster_count, cpus_per_cluster[cluster_count]);
+
+		/* Find the maximum number of cpus in any cluster */
+		max_cpu_per_cluster = MAX(max_cpu_per_cluster, cpus_per_cluster[cluster_count]);
+		total_cpu_count += cpus_per_cluster[cluster_count];
+		cluster_count++;
+	}
+
+	if ((cluster_node < 0) && (cluster_node != -FDT_ERR_NOTFOUND)) {
+		ERROR("FCONF: Unable to locate the cluster node in cpu-map node\n");
+		return cluster_node;
+	}
+
+	/* At least one cluster node is expected in hardware configuration dtb */ 
+	assert(cluster_count > 0);
+
+	soc_topology.plat_max_pwr_level = (uint32_t)max_pwr_lvl;
+	soc_topology.plat_cluster_count = cluster_count;
+	soc_topology.cluster_cpu_count = max_cpu_per_cluster;
+	soc_topology.plat_cpu_count = total_cpu_count;
+
+	return 0;
+}
 
 FCONF_REGISTER_POPULATOR(HW_CONFIG, gicv3_config, fconf_populate_gicv3_config);
+FCONF_REGISTER_POPULATOR(HW_CONFIG, topology, fconf_populate_topology);
