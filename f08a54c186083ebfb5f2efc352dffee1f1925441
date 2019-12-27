@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14687ab1_feeb62ab",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-12-27T16:27:53Z",
+      "side": 1,
+      "message": "I guess the extra tab in lines 26 through 28 is not needed.",
+      "revId": "f08a54c186083ebfb5f2efc352dffee1f1925441",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d140013_7bf92f29",
+        "filename": "include/drivers/arm/scu.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-12-27T16:27:53Z",
+      "side": 1,
+      "message": "Please use SCU_H instead of SBSA_H.",
+      "revId": "f08a54c186083ebfb5f2efc352dffee1f1925441",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f119e27f_a63678f5",
+        "filename": "include/drivers/arm/scu.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-12-27T16:27:53Z",
+      "side": 1,
+      "message": "where is config_snoop_ctrl_unit() function used?",
+      "revId": "f08a54c186083ebfb5f2efc352dffee1f1925441",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
