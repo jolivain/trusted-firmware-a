@@ -24,6 +24,7 @@ BL2_SOURCES		+=	${RDE1EDGE_BASE}/rde1edge_plat.c	\
 
 BL31_SOURCES		+=	${SGI_CPU_SOURCES}			\
 				${RDE1EDGE_BASE}/rde1edge_plat.c	\
+				${RDE1EDGE_BASE}/rde1edge_topology.c	\
 				drivers/cfi/v2m/v2m_flash.c		\
 				lib/utils/mem_region.c			\
 				plat/arm/common/arm_nor_psci_mem_protect.c
