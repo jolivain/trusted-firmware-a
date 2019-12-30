@@ -735,6 +735,24 @@
     },
     {
       "key": {
+        "uuid": "6e7db295_ee37568f",
+        "filename": "include/drivers/arm/scu.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-12-30T19:28:28Z",
+      "side": 1,
+      "message": "will the a5ds platform use this API in future? No other platform uses it now.",
+      "parentUuid": "d47ba731_cd9b0a99",
+      "revId": "f08a54c186083ebfb5f2efc352dffee1f1925441",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1504ff68_03a86cec",
         "filename": "plat/arm/board/a5ds/sp_min/a5ds_sp_min_setup.c",
         "patchSetId": 16
