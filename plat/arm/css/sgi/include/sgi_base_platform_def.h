@@ -240,4 +240,11 @@
 #define SBSA_SECURE_WDOG_BASE		UL(0x2A480000)
 #define SBSA_SECURE_WDOG_TIMEOUT	UL(100)
 
+#ifndef PLAT_ARM_CSS_NUM_CHIPS
+#define PLAT_ARM_CSS_NUM_CHIPS		1
+#endif
+
+/* Number of SCMI channels on the platform */
+#define PLAT_ARM_SCMI_CHANNEL_COUNT				PLAT_ARM_CSS_NUM_CHIPS
+
 #endif /* SGI_BASE_PLATFORM_DEF_H */
