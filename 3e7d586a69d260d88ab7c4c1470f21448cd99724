@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6fbfd91c_3d45bce0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2019-12-31T14:23:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "673639f8_0939a327",
+      "range": {
+        "startLine": 7,
+        "startChar": 34,
+        "endLine": 7,
+        "endChar": 49
+      },
+      "revId": "3e7d586a69d260d88ab7c4c1470f21448cd99724",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4593af27_423a2d20",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-30T15:12:09Z",
       "side": 1,
       "message": "I think explaining here that the reason why it was working on FVP(as it does not cares about these values).",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 17
+      },
+      "revId": "3e7d586a69d260d88ab7c4c1470f21448cd99724",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fa24c97_36d5ad8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2019-12-31T14:23:20Z",
+      "side": 1,
+      "message": "Sounds more like a FVP limitation, I dont think we should be mentioning this here.",
+      "parentUuid": "4593af27_423a2d20",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9a9cd860_d2ca79b9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2019-12-31T14:23:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1519dd3_a2edd859",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 49
+      },
+      "revId": "3e7d586a69d260d88ab7c4c1470f21448cd99724",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3dd79db2_e535289f",
         "filename": "plat/arm/board/a5ds/include/platform_def.h",
         "patchSetId": 2
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "c6ad2045_f793e3b5",
+        "filename": "plat/arm/board/a5ds/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2019-12-31T14:23:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3dd79db2_e535289f",
+      "revId": "3e7d586a69d260d88ab7c4c1470f21448cd99724",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a5d64d2_fc99dc97",
         "filename": "plat/arm/board/a5ds/include/platform_def.h",
         "patchSetId": 2
@@ -99,6 +189,24 @@
       "writtenOn": "2019-12-30T15:12:09Z",
       "side": 1,
       "message": "UL(7500000)",
+      "revId": "3e7d586a69d260d88ab7c4c1470f21448cd99724",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8104167_c496a743",
+        "filename": "plat/arm/board/a5ds/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2019-12-31T14:23:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a5d64d2_fc99dc97",
       "revId": "3e7d586a69d260d88ab7c4c1470f21448cd99724",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
