@@ -557,4 +557,14 @@
 	SDEI_SHARED_EVENT(ARM_SDEI_DS_EVENT_1, SDEI_DYN_IRQ, SDEI_MAPF_DYNAMIC), \
 	SDEI_SHARED_EVENT(ARM_SDEI_DS_EVENT_2, SDEI_DYN_IRQ, SDEI_MAPF_DYNAMIC)
 
+/* Default number of SCMI channels on a ARM Platform */
+#define PLAT_ARM_SCMI_CHANNEL_COUNT				1
+
+/*
+ * Channel ID of the default SCMI channel.
+ * The default channel is used to issue SYSTEM Level SCMI Requests.
+ * Platforms can override the default SCMI channel.
+ */
+#define PLAT_ARM_SCMI_DEFAULT_CHANNEL_ID		0
+
 #endif /* ARM_DEF_H */

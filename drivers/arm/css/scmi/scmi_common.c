@@ -200,7 +200,7 @@ void *scmi_init(scmi_channel_t *ch)
 	VERBOSE("SCMI system power management protocol version 0x%x detected\n",
 						version);
 
-	INFO("SCMI driver initialized\n");
+	INFO("SCMI driver initialized on channel %d\n", ch->channel_id);
 
 	return (void *)ch;
 
