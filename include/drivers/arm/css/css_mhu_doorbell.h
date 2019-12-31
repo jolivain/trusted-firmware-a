@@ -14,6 +14,9 @@
 /* MHUv2 Base Address */
 #define MHUV2_BASE_ADDR		PLAT_MHUV2_BASE
 
+/* MHUv2 Frame Base Mask */
+#define MHU_V2_FRAME_BASE_MASK			0xFFFFFFFFFFFFF000
+
 /* MHUv2 Control Registers Offsets */
 #define MHU_V2_MSG_NO_CAP_OFFSET		0xF80
 #define MHU_V2_ACCESS_REQ_OFFSET		0xF88
