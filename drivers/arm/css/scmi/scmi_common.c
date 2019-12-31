@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -200,7 +200,7 @@ void *scmi_init(scmi_channel_t *ch)
 	VERBOSE("SCMI system power management protocol version 0x%x detected\n",
 						version);
 
-	INFO("SCMI driver initialized\n");
+	INFO("SCMI driver initialized on channel %d\n", ch->channel_id);
 
 	return (void *)ch;
 
