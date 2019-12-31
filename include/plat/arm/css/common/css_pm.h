@@ -44,4 +44,8 @@ int css_node_hw_state(u_register_t mpidr, unsigned int power_level);
  */
 extern const uint32_t plat_css_core_pos_to_scmi_dmn_id_map[];
 
+#define SCMI_DOMAIN_ID_MASK					0x0000FFFF
+#define SCMI_CHANNEL_ID_MASK				0xFFFF0000
+#define SCMI_CHANNEL_ID_SHIFT				U(16)
+
 #endif /* CSS_PM_H */
