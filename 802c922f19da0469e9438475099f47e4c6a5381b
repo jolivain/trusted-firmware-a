@@ -22,6 +22,23 @@
       "revId": "802c922f19da0469e9438475099f47e4c6a5381b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe2d1747_d9163795",
+        "filename": "drivers/arm/gic/v3x/gicv3x_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-01-02T09:35:53Z",
+      "side": 1,
+      "message": "I wonder if this information is still really useful?\nThis is only for printing below, and this optional mode is deprecated from GICv3.0.",
+      "revId": "802c922f19da0469e9438475099f47e4c6a5381b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
