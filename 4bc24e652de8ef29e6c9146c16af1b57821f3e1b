@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57767342_be946678",
+        "filename": "drivers/io/io_memmap.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2020-01-02T16:27:57Z",
+      "side": 1,
+      "message": "error: cast to pointer from integer of different size [-Werror\u003dint-to-pointer-cast]\n09:47:41   memcpy((void *)(fp-\u003ebase + fp-\u003efile_pos), (void *)buffer, length);\n09:47:41          ^\n09:47:41 cc1: all warnings being treated as errors",
+      "revId": "4bc24e652de8ef29e6c9146c16af1b57821f3e1b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeef0232_ba52a4b1",
+        "filename": "drivers/io/io_memmap.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2020-01-02T16:27:57Z",
+      "side": 1,
+      "message": "error: cast to pointer from integer of different size [-Werror\u003dint-to-pointer-cast]\n09:47:12   memcpy((void *)(fp-\u003ebase + fp-\u003efile_pos), (void *)buffer, length);\n09:47:12          ^",
+      "revId": "4bc24e652de8ef29e6c9146c16af1b57821f3e1b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be21db26_eec5b614",
+        "filename": "drivers/renesas/rcar/io/io_emmcdrv.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2020-01-02T16:27:57Z",
+      "side": 1,
+      "message": "file_pos - %llx\n\nnote: format string is defined here\nNOTICE(\"BL2: Load dst\u003d0x%lx src\u003d(p:%d)0x%lx(%d) len\u003d0x%lx(%d)\\n\",\n                                        ~~^\n                                        %llx",
+      "revId": "4bc24e652de8ef29e6c9146c16af1b57821f3e1b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
