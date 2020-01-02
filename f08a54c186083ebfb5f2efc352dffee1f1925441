@@ -753,6 +753,24 @@
     },
     {
       "key": {
+        "uuid": "e5fef7d2_fd434688",
+        "filename": "include/drivers/arm/scu.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2020-01-02T10:15:49Z",
+      "side": 1,
+      "message": "This is the generic API that can be used by any of the platform that has SCU and would like to use know the details as mentioned in scu_conf_desc. I don\u0027t think A5 DesignStart would use this API at the moment, but might use in the future.",
+      "parentUuid": "6e7db295_ee37568f",
+      "revId": "f08a54c186083ebfb5f2efc352dffee1f1925441",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1504ff68_03a86cec",
         "filename": "plat/arm/board/a5ds/sp_min/a5ds_sp_min_setup.c",
         "patchSetId": 16
