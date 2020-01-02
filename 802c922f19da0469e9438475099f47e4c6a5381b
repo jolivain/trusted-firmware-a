@@ -39,6 +39,24 @@
       "revId": "802c922f19da0469e9438475099f47e4c6a5381b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b24a4b2f_ec949fdc",
+        "filename": "drivers/arm/gic/v3x/gicv3x_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T09:59:33Z",
+      "side": 1,
+      "message": "You are right that gicv2_compat is only used for printing debug information (as in the existing GICv3 driver).\n\nRegarding the deprecation from GICv3.0. \n\nFrom \"Arm® Generic Interrupt Controller Architecture Specification GIC architecture version 3 and version 4\":\n\n\"If GICv2 backwards compatibility for Secure state is not implemented, this field is RAO/WI.\nThis field resets to 0.\"\n\nSo, in some implementations this bit can be read as 0.",
+      "parentUuid": "fe2d1747_d9163795",
+      "revId": "802c922f19da0469e9438475099f47e4c6a5381b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
