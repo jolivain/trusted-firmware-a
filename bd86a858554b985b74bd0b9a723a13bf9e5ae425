@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "50010a0c_35f527a0",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2020-01-02T16:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98082eb6_79108cdf",
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8674f65f_00000b20",
         "filename": "drivers/arm/scu/scu.c",
         "patchSetId": 20
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a282377e_03348e8e",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2020-01-02T16:00:47Z",
+      "side": 1,
+      "message": "I haven\u0027t tested double enabling scu, however I think it is still worth checking before enabling.",
+      "parentUuid": "8674f65f_00000b20",
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aff79ee8_aae921fc",
         "filename": "drivers/arm/scu/scu.c",
         "patchSetId": 20
@@ -47,6 +83,24 @@
       "writtenOn": "2020-01-02T14:42:57Z",
       "side": 1,
       "message": "if ((scu_ctrl \u0026 SCU_ENABLE_BIT) !\u003d 0) {\nMISRA Rule 14.4",
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "581dc76f_2edb928b",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2020-01-02T16:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aff79ee8_aae921fc",
       "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
