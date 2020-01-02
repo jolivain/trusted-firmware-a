@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44ecf81b_003d0a17",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-01-02T17:07:55Z",
+      "side": 1,
+      "message": "You can add introduction to SCU like below, \nThe SCU connects between one to four cores in a Cortex-A5/A9 MPCore processor to the memory system.\nThe SCU functions are to:\n    - maintain data cache coherency between the cores\n    - initiate L2 AXI memory accesses\n    - arbitrate between cores requesting L2 accesses\n    - manage Accelerator Coherency Port (ACP) accesses.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "86f72561fddac413e5a059f274fff95bf9b9a24e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
