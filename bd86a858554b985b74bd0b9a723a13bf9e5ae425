@@ -1,0 +1,214 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98082eb6_79108cdf",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T14:42:57Z",
+      "side": 1,
+      "message": "Please align numeric values.\nShouldn\u0027t these definitions be in scu.h?",
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8674f65f_00000b20",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T14:42:57Z",
+      "side": 1,
+      "message": "Is it really required to check if SCU is already enabled? Will it make any harm to re-enable it again?\nIf not, what\u0027s about \nmmio_setbits_32(base + SCU_CTRL_REG, SCU_ENABLE_BIT);\n?",
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aff79ee8_aae921fc",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T14:42:57Z",
+      "side": 1,
+      "message": "if ((scu_ctrl \u0026 SCU_ENABLE_BIT) !\u003d 0) {\nMISRA Rule 14.4",
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1b34585_459601ec",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T14:42:57Z",
+      "side": 1,
+      "message": "contains",
+      "range": {
+        "startLine": 45,
+        "startChar": 3,
+        "endLine": 45,
+        "endChar": 4
+      },
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "922d7f8f_2fade438",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T14:42:57Z",
+      "side": 1,
+      "message": "Could you define 0x3 mask in scu.h?",
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "816661ed_45d8d4d1",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T14:42:57Z",
+      "side": 1,
+      "message": "What\u0027s about\nscu_config_desc.num_cpus \u003d (scu_cfg \u0026 CPU_NUMBER_MASK) + 1;\nand combine both comments?",
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dadee8f_fe5605b2",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T14:42:57Z",
+      "side": 1,
+      "message": "define 4",
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "988d613a_aaa1fdaa",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T14:42:57Z",
+      "side": 1,
+      "message": "add {}",
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb82ea10_c824b67c",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T14:42:57Z",
+      "side": 1,
+      "message": "\"CPU%u\", make it consistent with line #64",
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9a13cac_6b603b0f",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T14:42:57Z",
+      "side": 1,
+      "message": "(((scu_config_desc.cpu_smp \u003e\u003e i) \u0026 1) !\u003d 0)\nMISRA Rule 14.4",
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56e5183f_f5913047",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T14:42:57Z",
+      "side": 1,
+      "message": "Put (scu_cfg \u003e\u003e ACP_PRESENT_BIT) \u0026 CHECK_ACP_PRESENT; on the next line.\n\"...the codebase should generally conform to the 80 character limit\"",
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e780e1e_6bbd81a7",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T14:42:57Z",
+      "side": 1,
+      "message": "The same here",
+      "revId": "bd86a858554b985b74bd0b9a723a13bf9e5ae425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
