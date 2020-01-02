@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03d5cc34_c3b6852e",
+        "filename": "drivers/mtd/nand/core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-01-02T09:16:25Z",
+      "side": 1,
+      "message": "Is it worth adding some parameter checking on offset and length?",
+      "range": {
+        "startLine": 28,
+        "startChar": 27,
+        "endLine": 28,
+        "endChar": 43
+      },
+      "revId": "10bd5728994bf3e39df210c3d8715fd163dd74d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
