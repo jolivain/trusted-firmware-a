@@ -282,6 +282,24 @@
     },
     {
       "key": {
+        "uuid": "35ff8494_795d5f2b",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T12:03:01Z",
+      "side": 1,
+      "message": "{} are required even for 1 statement. See MISRA Rule 15.6.",
+      "parentUuid": "f16fe86b_72bfaaad",
+      "revId": "f08a54c186083ebfb5f2efc352dffee1f1925441",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8757c4b_6a9858ff",
         "filename": "drivers/arm/scu/scu.c",
         "patchSetId": 16
@@ -503,6 +521,24 @@
       "side": 1,
       "message": "for %sMP --\u003e \"S\": \"A\" \ncan you provide a bit more info on how this new way of printing might be more appropriate then the other method of printing",
       "parentUuid": "b1477a5e_2b6ea640",
+      "revId": "f08a54c186083ebfb5f2efc352dffee1f1925441",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0bf5932_56e688bd",
+        "filename": "drivers/arm/scu/scu.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-02T12:03:01Z",
+      "side": 1,
+      "message": "It generates smaller code size compared to the original method.",
+      "parentUuid": "fa98d7fb_d2241cad",
       "revId": "f08a54c186083ebfb5f2efc352dffee1f1925441",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
