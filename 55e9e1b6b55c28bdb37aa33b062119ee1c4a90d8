@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9542667e_4ed18ace",
+        "filename": "drivers/intel/soc/stratix10/io/s10_memmap_qspi.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2020-01-03T19:33:08Z",
+      "side": 1,
+      "message": "My last suggestion was not correct, which I believe results in to MISRA defects.\n\nsize_t - should be changed to `unsigned long long` \nssize_t - to `signed long long` as per the defines in \n\ninclude/lib/libc/aarchxx/stdio_.h and include/lib/libc/aarchxx/stddef_.h",
+      "revId": "55e9e1b6b55c28bdb37aa33b062119ee1c4a90d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
