@@ -99,6 +99,30 @@
     },
     {
       "key": {
+        "uuid": "244176eb_73318488",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-06T13:46:03Z",
+      "side": 1,
+      "message": "Actually Soby suggested calling this as it is called now, see patch 3.\nI will think about naming again and split it into three functions, I agree that it makes sense.",
+      "parentUuid": "83132aa1_bdf5199e",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 27
+      },
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5ee2924f_83cd0d29",
         "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
         "patchSetId": 5
@@ -144,6 +168,30 @@
       "writtenOn": "2020-01-06T13:10:58Z",
       "side": 1,
       "message": "This uses the ROT_KEY file without first checking that it exists. As a result, if ROT_KEY is not specified on the build command line, we get the following error message:\n\n $ make TRUSTED_BOARD_BOOT\u003d1 CREATE_KEYS\u003d1 GENERATE_COT\u003d1 ARM_ROTPK_LOCATION\u003ddevel_rsa bl1 bl2\n Error opening Private Key -pubout\n 139673054906008:error:02001002:system library:fopen:No such file or directory:bss_file.c:398:fopen(\u0027-pubout\u0027,\u0027r\u0027)\n 139673054906008:error:20074002:BIO routines:FILE_CTRL:system lib:bss_file.c:400:\n unable to load Private Key\n \u003csnip\u003e\n\nAnd then some compiler errors:\n\n   CC      plat/arm/board/common/board_arm_trusted_boot.c\n plat/arm/board/common/board_arm_trusted_boot.c:39:53: error: unknown escape sequence: \u0027\\B\u0027 [-Werror]\n static const unsigned char arm_devel_rotpk_hash[] \u003d ARM_ROTPK_HASH;\n                                                     ^~~~~~~~~~~~~~\n plat/arm/board/common/board_arm_trusted_boot.c:39:53: error: unknown escape sequence: \u0027\\C\u0027 [-Werror]\n plat/arm/board/common/board_arm_trusted_boot.c:39:53: error: unknown escape sequence: \u0027\\9\u0027 [-Werror]\n\nThe Uniphier platform port solves this problem by having a dedicated Makefile rule to check the existence of ROT_KEY file and generate it if it doesn\u0027t exist (as a dependency to the ROTPK_HASH rule):\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/socionext/uniphier/platform.mk#n91\n\nThe other advantages I can see is that it is easier to read than this and also does not require to have the hexdump tool installed.\n\nIs there a reason why we could not have the same approach on Arm platforms?",
+      "range": {
+        "startLine": 22,
+        "startChar": 52,
+        "endLine": 22,
+        "endChar": 62
+      },
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad44c329_2c11d26a",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-06T13:46:03Z",
+      "side": 1,
+      "message": "Sorry, I didn\u0027t had a chance to add a comment about that before your review - I am working on what you suggested in Patch 3 comments. Just wanted to make this a separate patch not to confuse myself.",
+      "parentUuid": "c4d56f8c_c1b35f00",
       "range": {
         "startLine": 22,
         "startChar": 52,
@@ -293,6 +341,30 @@
       "writtenOn": "2020-01-06T13:10:58Z",
       "side": 1,
       "message": "I don\u0027t see the point of repeating this information (as it\u0027s already written above plat_get_rotpk_info()). If we want to keep some documentation here, let\u0027s provide meaningful information specific to this function, like the fact that it returns either the built-in development key or the key stored in the trusted key registers (depending on the ROTPK location build flag).",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58e978b7_56efe7cd",
+        "filename": "plat/arm/board/juno/juno_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-06T13:46:03Z",
+      "side": 1,
+      "message": "Yes, I was not sure whether to include it at all. I will probably write specific comments on functions upon refactoring.",
+      "parentUuid": "2440d3d4_4145b2af",
       "range": {
         "startLine": 36,
         "startChar": 0,
