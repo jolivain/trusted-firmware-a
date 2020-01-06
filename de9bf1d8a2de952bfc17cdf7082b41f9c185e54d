@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c7b02eb_1c7e47f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-06T16:21:44Z",
+      "side": 1,
+      "message": "It seems to be developer.arm.com (no www.).",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 11,
+        "endChar": 0
+      },
+      "revId": "de9bf1d8a2de952bfc17cdf7082b41f9c185e54d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11fdabfb_ce93c1c3",
+        "filename": "docs/plat/allwinner.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-06T16:21:44Z",
+      "side": 1,
+      "message": "I am not sure we should update non-Arm platforms documentation in the same patch. Although we build all platforms in the CI and so these updates make sense from our point of view in Arm, the platforms maintainers might have a different opinion and might want to stay with their existing toolchain.\n\nMy suggestion would be to split this patch in 2:\n* Patch 1 for the generic documentation and Arm platforms. I would expect this to be merged soon.\n* Patch 2 for all other platforms updates.\n\nThen send a notice on the TF-A mailing list about the upgrade to GCC 9.2 and the switch to the baremetal toolchain with a link to patch 2. If we don\u0027t hear any concerns from any platform maintainer, we shall merge it in a couple of weeks. How does that sound?",
+      "revId": "de9bf1d8a2de952bfc17cdf7082b41f9c185e54d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
