@@ -36,6 +36,29 @@
     },
     {
       "key": {
+        "uuid": "358e77b0_a2a11030",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-06T13:10:58Z",
+      "side": 1,
+      "message": "(minor) Perhaps move this definition inside arm_regs_get_rotpk_info() (at line 70 just above the memcpy) so that it is more explicit in which context it is used and also gets rid of this extra pre-processor conditional.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 67
+      },
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b74ec154_342c6dab",
         "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
         "patchSetId": 5
@@ -50,6 +73,29 @@
       "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83132aa1_bdf5199e",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-06T13:10:58Z",
+      "side": 1,
+      "message": "The name arm_regs_get_rotpk_info() suggests that it will read the key from the trusted key registers, but right now the implementation also manages the built-in key (if using one of the ARM_ROTPK_DEVEL_* option). I think this should be restructured. Maybe we should have a 3rd variant called arm_builtin_get_rotpk_info() (or arm_fixed_* or something like that) for the ARM_ROTPK_DEVEL_* case. Such an implementation could be reused by the Juno code instead of duplicating it.\n\nEDIT: In fact, I think that\u0027s what Soby suggested earlier. He proposed to name this new function arm_devel_get_rotpk_info(), which I think is better than my suggestions.",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 27
+      },
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
@@ -87,6 +133,29 @@
     },
     {
       "key": {
+        "uuid": "c4d56f8c_c1b35f00",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-06T13:10:58Z",
+      "side": 1,
+      "message": "This uses the ROT_KEY file without first checking that it exists. As a result, if ROT_KEY is not specified on the build command line, we get the following error message:\n\n $ make TRUSTED_BOARD_BOOT\u003d1 CREATE_KEYS\u003d1 GENERATE_COT\u003d1 ARM_ROTPK_LOCATION\u003ddevel_rsa bl1 bl2\n Error opening Private Key -pubout\n 139673054906008:error:02001002:system library:fopen:No such file or directory:bss_file.c:398:fopen(\u0027-pubout\u0027,\u0027r\u0027)\n 139673054906008:error:20074002:BIO routines:FILE_CTRL:system lib:bss_file.c:400:\n unable to load Private Key\n \u003csnip\u003e\n\nAnd then some compiler errors:\n\n   CC      plat/arm/board/common/board_arm_trusted_boot.c\n plat/arm/board/common/board_arm_trusted_boot.c:39:53: error: unknown escape sequence: \u0027\\B\u0027 [-Werror]\n static const unsigned char arm_devel_rotpk_hash[] \u003d ARM_ROTPK_HASH;\n                                                     ^~~~~~~~~~~~~~\n plat/arm/board/common/board_arm_trusted_boot.c:39:53: error: unknown escape sequence: \u0027\\C\u0027 [-Werror]\n plat/arm/board/common/board_arm_trusted_boot.c:39:53: error: unknown escape sequence: \u0027\\9\u0027 [-Werror]\n\nThe Uniphier platform port solves this problem by having a dedicated Makefile rule to check the existence of ROT_KEY file and generate it if it doesn\u0027t exist (as a dependency to the ROTPK_HASH rule):\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/socionext/uniphier/platform.mk#n91\n\nThe other advantages I can see is that it is easier to read than this and also does not require to have the hexdump tool installed.\n\nIs there a reason why we could not have the same approach on Arm platforms?",
+      "range": {
+        "startLine": 22,
+        "startChar": 52,
+        "endLine": 22,
+        "endChar": 62
+      },
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "19b25e9e_0c408300",
         "filename": "plat/arm/board/common/board_common.mk",
         "patchSetId": 5
@@ -121,6 +190,52 @@
     },
     {
       "key": {
+        "uuid": "9f8d7109_369c46b3",
+        "filename": "plat/arm/board/juno/juno_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-06T13:10:58Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem needed, remove?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 24
+      },
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "524342cd_4b5adebe",
+        "filename": "plat/arm/board/juno/juno_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-06T13:10:58Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 33
+      },
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "42a51029_4103269f",
         "filename": "plat/arm/board/juno/juno_trusted_boot.c",
         "patchSetId": 5
@@ -144,6 +259,52 @@
     },
     {
       "key": {
+        "uuid": "51ae4654_0dcfd3c4",
+        "filename": "plat/arm/board/juno/juno_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-06T13:10:58Z",
+      "side": 1,
+      "message": "(minor) Replace tab with 1 space.",
+      "range": {
+        "startLine": 33,
+        "startChar": 52,
+        "endLine": 33,
+        "endChar": 53
+      },
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2440d3d4_4145b2af",
+        "filename": "plat/arm/board/juno/juno_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-06T13:10:58Z",
+      "side": 1,
+      "message": "I don\u0027t see the point of repeating this information (as it\u0027s already written above plat_get_rotpk_info()). If we want to keep some documentation here, let\u0027s provide meaningful information specific to this function, like the fact that it returns either the built-in development key or the key stored in the trusted key registers (depending on the ROTPK location build flag).",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "48c90b46_0a090772",
         "filename": "plat/arm/board/juno/juno_trusted_boot.c",
         "patchSetId": 5
@@ -158,6 +319,29 @@
       "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "811b80bf_15ebf2a5",
+        "filename": "plat/arm/board/juno/juno_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-06T13:10:58Z",
+      "side": 1,
+      "message": "This function should be static.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 23
+      },
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
