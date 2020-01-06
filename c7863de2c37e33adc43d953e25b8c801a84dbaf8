@@ -1,0 +1,180 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3988e356_57382204",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-06T12:06:39Z",
+      "side": 1,
+      "message": "functions?",
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "625a9912_74231e48",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-06T12:06:39Z",
+      "side": 1,
+      "message": "#if (ARM_ROTPK_LOCATION_ID \u003d\u003d ARM_ROTPK_DEVEL_RSA_ID) || \\\n    (ARM_ROTPK_LOCATION_ID \u003d\u003d ARM_ROTPK_DEVEL_ECDSA_ID)\n?",
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b74ec154_342c6dab",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-06T12:06:39Z",
+      "side": 1,
+      "message": "this function always returns 0",
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ee2924f_83cd0d29",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-06T12:06:39Z",
+      "side": 1,
+      "message": "#if (ARM_ROTPK_LOCATION_ID \u003d\u003d ARM_ROTPK_DEVEL_RSA_ID) || \\\n    (ARM_ROTPK_LOCATION_ID \u003d\u003d ARM_ROTPK_DEVEL_ECDSA_ID)",
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e8f059b_3fc40dfa",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-06T12:06:39Z",
+      "side": 1,
+      "message": "align",
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19b25e9e_0c408300",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-06T12:06:39Z",
+      "side": 1,
+      "message": "Development",
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4119cd2_0224d90c",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-06T12:06:39Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42a51029_4103269f",
+        "filename": "plat/arm/board/juno/juno_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-06T12:06:39Z",
+      "side": 1,
+      "message": "What\u0027s about\n#if (ARM_ROTPK_LOCATION_ID \u003d\u003d ARM_ROTPK_DEVEL_RSA_ID) || \\\n    (ARM_ROTPK_LOCATION_ID \u003d\u003d ARM_ROTPK_DEVEL_ECDSA_ID)\nstatic const unsigned char arm_devel_rotpk_hash[] \u003d ARM_ROTPK_HASH;\n#endif\n?",
+      "range": {
+        "startLine": 32,
+        "startChar": 14,
+        "endLine": 32,
+        "endChar": 15
+      },
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48c90b46_0a090772",
+        "filename": "plat/arm/board/juno/juno_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-06T12:06:39Z",
+      "side": 1,
+      "message": "this function always returns 0.",
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26bc02d7_0e23061f",
+        "filename": "plat/arm/board/juno/juno_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-06T12:06:39Z",
+      "side": 1,
+      "message": "#if (ARM_ROTPK_LOCATION_ID \u003d\u003d ARM_ROTPK_DEVEL_RSA_ID) || \\\n    (ARM_ROTPK_LOCATION_ID \u003d\u003d ARM_ROTPK_DEVEL_ECDSA_ID)\n\n?",
+      "revId": "c7863de2c37e33adc43d953e25b8c801a84dbaf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
