@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c482b90d_e2046faa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-01-06T12:31:56Z",
+      "side": 1,
+      "message": "Comments should not exceed 72 char limit.\nFrom what i understood is you are not using flash at all and side loading all the images directly to DRAM(FIP/Linux) from comments it seems like only Linux is being loaded on DRAM.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 78
+      },
+      "revId": "2386a0bd600318eb432267feff8f37d614e5f80a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "333dbbc9_16bf559f",
+        "filename": "plat/arm/board/a5ds/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-01-06T12:31:56Z",
+      "side": 1,
+      "message": "Replace all the occurrences of FLASH1_BASE with something like \"BOOT_BASE\" and point it to DRAM base also use ARM_DRAM1_BASE macro instead.",
+      "revId": "2386a0bd600318eb432267feff8f37d614e5f80a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
