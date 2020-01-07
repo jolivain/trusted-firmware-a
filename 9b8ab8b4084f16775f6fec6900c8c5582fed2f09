@@ -70,6 +70,30 @@
       "revId": "9b8ab8b4084f16775f6fec6900c8c5582fed2f09",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f95d40e_88839f04",
+        "filename": "plat/renesas/rcar/bl31_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-01-07T23:00:54Z",
+      "side": 1,
+      "message": "Deepika also pointed out something similar to what you mentioned. I will make the change.",
+      "parentUuid": "c861bc4b_17677f85",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 47
+      },
+      "revId": "9b8ab8b4084f16775f6fec6900c8c5582fed2f09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
