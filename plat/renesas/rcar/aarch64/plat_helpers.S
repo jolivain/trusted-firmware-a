@@ -189,7 +189,7 @@ func bl2_enter_bl31
 	ldp	x0, x1, [x20, #ENTRY_POINT_INFO_PC_OFFSET]
 	msr	elr_el3, x0
 	msr	spsr_el3, x1
-	eret
+	exception_return
 endfunc bl2_enter_bl31
 
 	/* -----------------------------------------------------
