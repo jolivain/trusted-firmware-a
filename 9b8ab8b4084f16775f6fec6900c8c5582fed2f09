@@ -22,6 +22,30 @@
       "revId": "9b8ab8b4084f16775f6fec6900c8c5582fed2f09",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1604f727_659c0a7a",
+        "filename": "plat/renesas/rcar/bl31_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-01-07T21:55:41Z",
+      "side": 1,
+      "message": "Hi Artsem,\nI am not sure if I understood your comment correctly. Let me try to explain why I put the warning ignore directives here.\nWithout this , here is the error message for rcar platform:\n\nplat/renesas/rcar/bl31_plat_setup.c:28:22: error: redundant redeclaration of ‘__RO_START__’ [-Werror\u003dredundant-decls]\n IMPORT_SYM(uint64_t, __RO_START__, BL31_RO_BASE)\n                      ^~~~~~~~~~~~\ninclude/lib/utils_def.h:131:14: note: in definition of macro ‘IMPORT_SYM’\n  extern char sym[];\\\n              ^~~\ninclude/common/bl_common.h:106:23: note: previous declaration of ‘__RO_START__’ was here\n IMPORT_SYM(uintptr_t, __RO_START__,  BL_CODE_BASE);\n                       ^~~~~~~~~~~~\ninclude/lib/utils_def.h:131:14: note: in definition of macro ‘IMPORT_SYM’\n  extern char sym[];\\\n\nSuppressing the warning in bl31_plat_setup.c file seems appropriate to me because\n1. It is the second instance of declaration\n2. This platform is using this linker symbols in its bl31 code. Putting the pragma in bl_common.h is not required since many platforms dont fail for this flag(-wredundant-decls) as they dont use these symbols.",
+      "parentUuid": "63b54198_14d85307",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 47
+      },
+      "revId": "9b8ab8b4084f16775f6fec6900c8c5582fed2f09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
