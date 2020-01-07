@@ -9,6 +9,20 @@ ifeq (${RESET_TO_BL31}, 0)
 $(error "This is a BL31-only port; RESET_TO_BL31 must be enabled")
 endif
 
+ENABLE_PIE := 1
+ifeq (${ENABLE_PIE}, 0)
+$(error "This port uses position-independent execution; ENABLE_PIE must be enabled")
+endif
+
+SEPARATE_CODE_AND_RODATA := 1
+ifeq (${SEPARATE_CODE_AND_RODATA}, 0)
+$(error "SEPARATE_CODE_AND_RODATA must be enabled")
+endif
+
+ifeq (${RECLAIM_INIT_CODE}, 1)
+$(error "RECLAIM_INIT_CODE must be disabled")
+endif
+
 CTX_INCLUDE_AARCH32_REGS := 0
 ifeq (${CTX_INCLUDE_AARCH32_REGS}, 1)
 $(error "This is an AArch64-only port; CTX_INCLUDE_AARCH32_REGS must be disabled")
