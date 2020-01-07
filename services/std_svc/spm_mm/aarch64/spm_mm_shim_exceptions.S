@@ -87,7 +87,7 @@ vector_entry SynchronousExceptionA64, .spm_shim_exceptions
 do_smc:
 	mrs	x30, tpidr_el1
 	smc	#0
-	eret
+	exception_return
 
 	/* AArch64 system instructions trap are handled as a panic for now */
 handle_sys_trap:

@@ -64,7 +64,7 @@
 	smc	#0
 interrupt_exit_\label:
 	restore_caller_regs_and_lr
-	eret
+	exception_return
 	.endm
 
 	.globl	tsp_exceptions

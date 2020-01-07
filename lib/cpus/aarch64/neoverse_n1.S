@@ -553,7 +553,7 @@ func neoverse_n1_errata_ic_trap_handler
 	 */
 	esb
 #endif
-	eret
+	exception_return
 1:
 	ret
 endfunc neoverse_n1_errata_ic_trap_handler
