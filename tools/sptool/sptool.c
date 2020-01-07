@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, Arm Limited. All rights reserved.
+ * Copyright (c) 2018-2020, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,28 +13,21 @@
 
 #include "sptool.h"
 
-#define PAGE_SIZE		4096
+#define SP_ALIGN		8
 
 /*
- * Linked list of entries describing entries in the secure
- * partition package.
+ * Entry describing Secure Partition package.
  */
-struct sp_entry_info {
+struct sp_pkg_info {
 	/* Location of the files in the host's RAM. */
-	void *sp_data, *rd_data;
+	void *img_data, *pm_data;
 
 	/* Size of the files. */
-	uint64_t sp_size, rd_size;
+	uint32_t img_size, pm_size;
 
 	/* Location of the binary files inside the package output file */
-	uint64_t sp_offset, rd_offset;
-
-	struct sp_entry_info *next;
+	uint32_t img_offset, pm_offset;
 };
-
-static struct sp_entry_info *sp_info_head;
-
-static uint64_t sp_count;
 
 /* Align an address to a power-of-two boundary. */
 static unsigned int align_to(unsigned int address, unsigned int boundary)
@@ -89,26 +82,21 @@ static void xfseek(FILE *fp, long offset, int whence)
 	}
 }
 
-static void cleanup(void)
+static void cleanup(struct sp_pkg_info *sp)
 {
-	struct sp_entry_info *sp = sp_info_head;
 
-	while (sp != NULL) {
-		struct sp_entry_info *next = sp->next;
+	if (sp != NULL) {
+		if (sp->img_data != NULL) {
+			free(sp->img_data);
+		}
 
-		if (sp->sp_data != NULL)
-			free(sp->sp_data);
-
-		if (sp->rd_data != NULL)
-			free(sp->rd_data);
+		if (sp->pm_data != NULL) {
+			free(sp->pm_data);
+		}
 
 		free(sp);
 
-		sp = next;
 	}
-
-	sp_count = 0;
-	sp_info_head = NULL;
 }
 
 /*
@@ -116,7 +104,7 @@ static void cleanup(void)
  * load the file into it. Fill 'size' with the file size. Exit the program on
  * error.
  */
-static void load_file(const char *path, void **ptr, uint64_t *size)
+static void load_file(const char *path, void **ptr, uint32_t *size)
 {
 	FILE *f = fopen(path, "rb");
 	if (f == NULL) {
@@ -147,59 +135,32 @@ static void load_file(const char *path, void **ptr, uint64_t *size)
 	fclose(f);
 }
 
-static void load_sp_rd(char *path)
+static void load_sp_pm(char *path, struct sp_pkg_info **sp_out)
 {
+	struct sp_pkg_info *sp;
+
 	char *split_mark = strstr(path, ":");
 
 	*split_mark = '\0';
 
 	char *sp_path = path;
-	char *rd_path = split_mark + 1;
+	char *pm_path = split_mark + 1;
 
-	struct sp_entry_info *sp;
+	sp = xzalloc(sizeof(struct sp_pkg_info),
+		"Failed to allocate sp_pkg_info struct");
 
-	if (sp_info_head == NULL) {
-		sp_info_head = xzalloc(sizeof(struct sp_entry_info),
-			"Failed to allocate sp_entry_info struct");
+	load_file(sp_path, &sp->img_data, &sp->img_size);
+	printf("\nLoaded SP image file %s (%u bytes)\n", sp_path, sp->img_size);
 
-		sp = sp_info_head;
-	} else {
-		sp = sp_info_head;
+	load_file(pm_path, &sp->pm_data, &sp->pm_size);
+	printf("Loaded SP Manifest file %s (%u bytes)\n", sp_path, sp->pm_size);
 
-		while (sp->next != NULL) {
-			sp = sp->next;
-		}
-
-		sp->next = xzalloc(sizeof(struct sp_entry_info),
-			"Failed to allocate sp_entry_info struct");
-
-		sp = sp->next;
-	}
-
-	load_file(sp_path, &sp->sp_data, &sp->sp_size);
-	printf("Loaded image file %s (%lu bytes)\n", sp_path, sp->sp_size);
-
-	load_file(rd_path, &sp->rd_data, &sp->rd_size);
-	printf("Loaded RD file %s (%lu bytes)\n", rd_path, sp->rd_size);
-
-	sp_count++;
+	*sp_out = sp;
 }
 
-static void output_write(const char *path)
+static void output_write(const char *path, struct sp_pkg_info *sp)
 {
-	struct sp_entry_info *sp;
-
-	if (sp_count == 0) {
-		fprintf(stderr, "error: At least one SP must be provided.\n");
-		exit(1);
-	}
-
-	/* The layout of the structs is specified in the header file sptool.h */
-
-	printf("Writing %lu partitions to output file.\n", sp_count);
-
-	unsigned int header_size = (sizeof(struct sp_pkg_header) * 8)
-				 + (sizeof(struct sp_pkg_entry) * 8 * sp_count);
+	struct sp_pkg_header sp_header_info;
 
 	FILE *f = fopen(path, "wb");
 	if (f == NULL) {
@@ -207,70 +168,44 @@ static void output_write(const char *path)
 		exit(1);
 	}
 
-	unsigned int file_ptr = align_to(header_size, PAGE_SIZE);
+	/* First, save partition image aligned to 8 bytes */
 
-	/* First, save all partition images aligned to page boundaries */
+	unsigned int file_ptr = align_to(sizeof(struct sp_pkg_header), SP_ALIGN);
 
-	sp = sp_info_head;
+	xfseek(f, file_ptr, SEEK_SET);
+	printf("Writing SP Image blob to offset 0x%x (%u bytes)\n",
+	       file_ptr, sp->img_size);
 
-	for (uint64_t i = 0; i < sp_count; i++) {
-		xfseek(f, file_ptr, SEEK_SET);
+	sp->img_offset = file_ptr;
+	xfwrite(sp->img_data, sp->img_size, f);
 
-		printf("Writing image %lu to offset 0x%x (0x%lx bytes)\n",
-		       i, file_ptr, sp->sp_size);
+	/* Now, save partition manifest blob aligned to 8 bytes */
 
-		sp->sp_offset = file_ptr;
-		xfwrite(sp->sp_data, sp->sp_size, f);
-		file_ptr = align_to(file_ptr + sp->sp_size, PAGE_SIZE);
-		sp = sp->next;
-	}
+	file_ptr = align_to(file_ptr + sp->img_size, SP_ALIGN);
+	xfseek(f, file_ptr, SEEK_SET);
+	printf("Writing SP Manifest blob to offset 0x%x (%u bytes)\n",
+	       file_ptr, sp->pm_size);
 
-	/* Now, save resource description blobs aligned to 8 bytes */
-
-	sp = sp_info_head;
-
-	for (uint64_t i = 0; i < sp_count; i++) {
-		xfseek(f, file_ptr, SEEK_SET);
-
-		printf("Writing RD blob %lu to offset 0x%x (0x%lx bytes)\n",
-		       i, file_ptr, sp->rd_size);
-
-		sp->rd_offset = file_ptr;
-		xfwrite(sp->rd_data, sp->rd_size, f);
-		file_ptr = align_to(file_ptr + sp->rd_size, 8);
-		sp = sp->next;
-	}
+	sp->pm_offset = file_ptr;
+	xfwrite(sp->pm_data, sp->pm_size, f);
 
 	/* Finally, write header */
 
-	uint64_t version = 0x1;
-	uint64_t sp_num = sp_count;
+	sp_header_info.magic = SECURE_PARTITION_MAGIC;
+	sp_header_info.version = 0x1;
+	sp_header_info.img_offset = sp->img_offset;
+	sp_header_info.img_size = sp->img_size;
+	sp_header_info.pm_offset = sp->pm_offset;
+	sp_header_info.pm_size = sp->pm_size;
 
 	xfseek(f, 0, SEEK_SET);
 
-	xfwrite(&version, sizeof(uint64_t), f);
-	xfwrite(&sp_num, sizeof(uint64_t), f);
+	printf("Writing package header\n");
 
-	sp = sp_info_head;
-
-	for (unsigned int i = 0; i < sp_count; i++) {
-
-		uint64_t sp_offset, sp_size, rd_offset, rd_size;
-
-		sp_offset = sp->sp_offset;
-		sp_size = align_to(sp->sp_size, PAGE_SIZE);
-		rd_offset = sp->rd_offset;
-		rd_size = sp->rd_size;
-
-		xfwrite(&sp_offset, sizeof(uint64_t), f);
-		xfwrite(&sp_size, sizeof(uint64_t), f);
-		xfwrite(&rd_offset, sizeof(uint64_t), f);
-		xfwrite(&rd_size, sizeof(uint64_t), f);
-
-		sp = sp->next;
-	}
+	xfwrite(&sp_header_info, sizeof(struct sp_pkg_header), f);
 
 	/* All information has been written now */
+	printf("\nsptool: Built Secure Partition blob %s\n", path);
 
 	fclose(f);
 }
@@ -286,13 +221,15 @@ static void usage(void)
 #endif
 	printf(" [<args>]\n\n");
 
-	printf("This tool takes as inputs several image binary files and the\n"
-	       "resource description blobs as input and generates a package\n"
-	       "file that contains them.\n\n");
+	printf("This tool takes as input set of image binary files and the\n"
+	       "partition manifest blobs as input and generates set of\n"
+	       "output package files\n"
+	       "Usage example: sptool -i sp1.bin:sp1.dtb -o sp1.pkg\n"
+	       "                      -i sp2.bin:sp2.dtb -o sp2.pkg ...\n\n");
 	printf("Commands supported:\n");
 	printf("  -o <path>            Set output file path.\n");
-	printf("  -i <sp_path:rd_path> Add Secure Partition image and Resource\n"
-	       "                       Description blob (specified in two paths\n"
+	printf("  -i <sp_path:pm_path> Add Secure Partition image and\n"
+	       "                       Manifest blob (specified in two paths\n"
 	       "                       separated by a colon).\n");
 	printf("  -h                   Show this message.\n");
 	exit(1);
@@ -300,16 +237,22 @@ static void usage(void)
 
 int main(int argc, char *argv[])
 {
+	struct sp_pkg_info *sp_info = NULL;
 	int ch;
-	const char *outname = NULL;
+
+	if (argc <= 1) {
+		fprintf(stderr, "error: File paths must be provided.\n\n");
+		usage();
+		return 1;
+	}
 
 	while ((ch = getopt(argc, argv, "hi:o:")) != -1) {
 		switch (ch) {
 		case 'i':
-			load_sp_rd(optarg);
+			load_sp_pm(optarg, &sp_info);
 			break;
 		case 'o':
-			outname = optarg;
+			output_write(optarg, sp_info);
 			break;
 		case 'h':
 		default:
@@ -320,15 +263,7 @@ int main(int argc, char *argv[])
 	argc -= optind;
 	argv += optind;
 
-	if (outname == NULL) {
-		fprintf(stderr, "error: An output file path must be provided.\n\n");
-		usage();
-		return 1;
-	}
-
-	output_write(outname);
-
-	cleanup();
+	cleanup(sp_info);
 
 	return 0;
 }
