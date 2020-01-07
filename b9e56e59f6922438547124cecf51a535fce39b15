@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7688eac_2a8fdac0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-07T08:17:47Z",
+      "side": 1,
+      "message": "(minor) We could be even more specific and say that the patch is for the FVP platform only (rather than all Arm platforms), as in:\n\n FVP: Stop reclaiming init code with Clang builds",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 3
+      },
+      "revId": "b9e56e59f6922438547124cecf51a535fce39b15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90126d97_df58be77",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-07T08:17:47Z",
+      "side": 1,
+      "message": "(minor) The typical way for multiple people to sign off a patch is to repeat the tag:\n\n Signed-off-by: Ambroise Vincent \u003cambroise.vincent@arm.com\u003e\n Signed-off-by: Zelalem Aweke \u003czelalem.aweke@arm.com\u003e",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 45
+      },
+      "revId": "b9e56e59f6922438547124cecf51a535fce39b15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
