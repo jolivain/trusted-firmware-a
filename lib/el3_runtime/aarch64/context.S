@@ -535,5 +535,7 @@ func el3_exit
 	esb
 #endif
 	eret
+	dsb nsh
+	isb
 
 endfunc el3_exit
