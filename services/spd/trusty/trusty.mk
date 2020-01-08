@@ -4,9 +4,11 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+
 SPD_INCLUDES		:=
 
-SPD_SOURCES		:=	services/spd/trusty/trusty.c		\
+SPD_SOURCES		:=	services/spd/trusty/shared-mem-smcall.c	\
+				services/spd/trusty/trusty.c		\
 				services/spd/trusty/trusty_helpers.S
 
 ifeq (${TRUSTY_SPD_WITH_GENERIC_SERVICES},1)
