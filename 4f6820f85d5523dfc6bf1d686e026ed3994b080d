@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "624de411_626538aa",
+        "filename": "plat/intel/soc/agilex/soc/agilex_reset_manager.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000221
+      },
+      "writtenOn": "2020-01-08T04:27:20Z",
+      "side": 1,
+      "message": "It would be safer to use braces even for single statement.",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 93,
+        "endChar": 11
+      },
+      "revId": "4f6820f85d5523dfc6bf1d686e026ed3994b080d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
