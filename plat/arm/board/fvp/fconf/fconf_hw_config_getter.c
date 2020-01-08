@@ -16,9 +16,9 @@ struct hw_topology_t soc_topology;
 
 int fconf_populate_gicv3_config(uintptr_t config)
 {
-	int err;
-	int node;
-	uintptr_t addr;
+	int err, node;
+	uint32_t interrupt[INTERRUPT_CELL_CNT];
+	uintptr_t addr, size;
 
 	/* Necessary to work with libfdt APIs */
 	const void *hw_config_dtb = (const void *)config;
@@ -33,7 +33,9 @@ int fconf_populate_gicv3_config(uintptr_t config)
 		WARN("FCONF: Unable to locate node with arm,gic-v3 compatible property\n");
 		return 0;
 	}
-	/* The GICv3 DT binding holds at least two address/size pairs,
+
+	/*
+	 * The GICv3 DT binding holds at least two address/size pairs,
 	 * the first describing the distributor, the second the redistributors.
 	 * See: bindings/interrupt-controller/arm,gic-v3.yaml
 	 */
@@ -44,6 +46,13 @@ int fconf_populate_gicv3_config(uintptr_t config)
 	}
 	gicv3_config.gicd_base = addr;
 
+	err = fdt_get_reg_props_by_index(hw_config_dtb, node, 0, NULL, &size);
+	if (err < 0) {
+		ERROR("FCONF: Failed to read GICD reg property of GIC node\n");
+	} else {
+		gicv3_config.gicd_size = size;
+	}
+
 	err = fdt_get_reg_props_by_index(hw_config_dtb, node, 1, &addr, NULL);
 	if (err < 0) {
 		ERROR("FCONF: Failed to read GICR reg property of GIC node\n");
@@ -51,7 +60,81 @@ int fconf_populate_gicv3_config(uintptr_t config)
 		gicv3_config.gicr_base = addr;
 	}
 
-	return err;
+	err = fdt_get_reg_props_by_index(hw_config_dtb, node, 1, NULL, &size);
+	if (err < 0) {
+		ERROR("FCONF: Failed to read GICR reg property of GIC node\n");
+	} else {
+		gicv3_config.gicr_size = size;
+	}
+
+	err = fdt_get_reg_props_by_index(hw_config_dtb, node, 2, &addr, NULL);
+	if (err < 0) {
+		ERROR("FCONF: Failed to read GICC reg property of GIC node\n");
+	} else {
+		gicv3_config.gicc_base = addr;
+	}
+
+	err = fdt_get_reg_props_by_index(hw_config_dtb, node, 2, NULL, &size);
+	if (err < 0) {
+		ERROR("FCONF: Failed to read GICC reg property of GIC node\n");
+	} else {
+		gicv3_config.gicc_size = size;
+	}
+
+	err = fdt_get_reg_props_by_index(hw_config_dtb, node, 3, &addr, NULL);
+	if (err < 0) {
+		ERROR("FCONF: Failed to read GICH reg property of GIC node\n");
+	} else {
+		gicv3_config.gich_base = addr;
+	}
+
+	err = fdt_get_reg_props_by_index(hw_config_dtb, node, 3, NULL, &size);
+	if (err < 0) {
+		ERROR("FCONF: Failed to read GICH reg property of GIC node\n");
+	} else {
+		gicv3_config.gich_size = size;
+	}
+
+	err = fdt_get_reg_props_by_index(hw_config_dtb, node, 4, &addr, NULL);
+	if (err < 0) {
+		ERROR("FCONF: Failed to read GICV reg property of GIC node\n");
+	} else {
+		gicv3_config.gicv_base = addr;
+	}
+
+	err = fdt_get_reg_props_by_index(hw_config_dtb, node, 4, NULL, &size);
+	if (err < 0) {
+		ERROR("FCONF: Failed to read GICV reg property of GIC node\n");
+	} else {
+		gicv3_config.gicv_size = size;
+	}
+
+	/*
+	 * Locate the interrupts cell holding cells needed to encode an interrupt source.
+	 *
+	 * A sample interrupts cell array is shown here: interrupts = <1 9 4>;
+	 *
+	 * The 1st cell is the interrupt type; 0 for SPI interrupts, 1 for PPI interrupts.
+	 * The 2nd cell contains the interrupt number for the interrupt type. SPI interrupts
+	 * are in the range [0-987]. PPI interrupts are in the range [0-15]. The 3rd cell is
+	 * the flags, encoded as follows: bits[3:0] trigger type and level flags. 1 for
+	 * edge triggered and 4 for level triggered.
+	 *
+	 * In this case, #interrupt-cells = 3. The 1st cell is 1 for PPI interrupts. The 2nd
+	 * cell is 9 for the PPI interrupt type. The 3rd cell is 4 for level triggered.
+	 */
+	err = fdt_read_uint32_array((void *)hw_config_dtb, node, "interrupts",
+			INTERRUPT_CELL_CNT, interrupt);
+	if (err < 0) {
+		ERROR("FCONF: Failed to read interrupts property of GIC node\n");
+		return err;
+	}
+
+	gicv3_config.gicv3_intr_config.interrupt_type = interrupt[INTERRUPT_TYPE_CELL];
+	gicv3_config.gicv3_intr_config.interrupt_num = interrupt[INTERRUPT_NUM_CELL];
+	gicv3_config.gicv3_intr_config.interrupt_flags = interrupt[INTERRUPT_FLAGS_CELL];
+
+	return 0;
 }
 
 int fconf_populate_topology(uintptr_t config)
