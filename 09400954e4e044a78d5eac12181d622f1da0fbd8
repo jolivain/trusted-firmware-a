@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f184490_156a15c3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-08T15:34:41Z",
+      "side": 1,
+      "message": "The code misspells this macro, it\u0027s calling it IMPORT_MBEBTLS_DEC_LIB (with a B instead of a D in mbed). Fortunately it\u0027s consistently misspelling it everywhere ;)!\n\nAnyway, I am suggesting a different name for this option, see my other inline comments.",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 23
+      },
+      "revId": "09400954e4e044a78d5eac12181d622f1da0fbd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "399dfc25_43f32ebb",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-08T15:34:41Z",
+      "side": 1,
+      "message": "Actually the source files below can be unconditionally pulled in because they will boil down to an empty file if the corresponding MBEDTLS_* option is not defined. For example, for gcm.c, this won\u0027t pull any code unless MBEDTLS_GCM_C is defined, which is already under the control of IMPORT_MBEBTLS_DEC_LIB flag.\n\nWe use the same approach today for rsa.c. You can see at line 44 that it\u0027s always pulled in, despite the fact that the platform may choose to only use ECDSA algo through TF_MBEDTLS_KEY_ALG/KEY_ALG build options. I\u0027d rather keep things aligned for consistency here if possible.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 34
+      },
+      "revId": "09400954e4e044a78d5eac12181d622f1da0fbd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb90478a_5202dfee",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-08T15:34:41Z",
+      "side": 1,
+      "message": "Could the type of len be size_t instead of unsigned int? This would seem more appropriate to me. Also, I see that mbedtls_gcm_update() expects a size_t argument so this would nicely match. It would also avoid the cast at lines 245/258.",
+      "range": {
+        "startLine": 218,
+        "startChar": 43,
+        "endLine": 218,
+        "endChar": 59
+      },
+      "revId": "09400954e4e044a78d5eac12181d622f1da0fbd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06d47d2a_16c46f68",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-08T15:34:41Z",
+      "side": 1,
+      "message": "As this value is used in crypto_mod_auth_decrypt() as well (to check upfront that tag_len is no greater than that), I think we should define it as a macro and use it in both places.\n\nAlso, I imagine that different block cipher modes of operation might use different tag lengths (?) ; if this is the case, then that\u0027s another reason to make it configurable based on the chosen mode of operation, if we ever add another one than GCM.",
+      "range": {
+        "startLine": 226,
+        "startChar": 23,
+        "endLine": 226,
+        "endChar": 25
+      },
+      "revId": "09400954e4e044a78d5eac12181d622f1da0fbd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0a558f2_f9f9d336",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-08T15:34:41Z",
+      "side": 1,
+      "message": "Unless I\u0027ve missed it, this definition does not look to be part in this patch, I guess it\u0027s provided in a later patch. If it\u0027s not too much churn, could you consider pulling it into this patch instead?",
+      "range": {
+        "startLine": 292,
+        "startChar": 21,
+        "endLine": 292,
+        "endChar": 42
+      },
+      "revId": "09400954e4e044a78d5eac12181d622f1da0fbd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4edc7341_4b40b9dc",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-08T15:34:41Z",
+      "side": 1,
+      "message": "To follow the existing naming pattern in TF-A (see TF_MBEDTLS_USE_ECDSA at line 62, TF_MBEDTLS_USE_RSA at line 67), I would suggest to rename this into TF_MBEDTLS_USE_AES_GCM.",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 26
+      },
+      "revId": "09400954e4e044a78d5eac12181d622f1da0fbd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4aee16e5_a4bae52d",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-08T15:34:41Z",
+      "side": 1,
+      "message": "I\u0027d rather choose a higher-level name that does not depend on any specific cryptographic library. Just like we have KEY_ALG today, I would suggest something like DECRYPT_FIRMWARE or DECRYPTION_SUPPORT. Then TF_MBEDTLS_USE_AES_GCM (see my other comment) in mbedtls config file can be derived from this.",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 28
+      },
+      "revId": "09400954e4e044a78d5eac12181d622f1da0fbd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
