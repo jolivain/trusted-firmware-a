@@ -60,3 +60,6 @@ SKIP_A57_L1_FLUSH_PWR_DWN	:=	1
 
 # Enable higher performance Non-cacheable load forwarding
 A57_ENABLE_NONCACHEABLE_LOAD_FWD	:=	1
+
+# Disable Trusty shared memory because the added code/data does not fit in RAM
+TRUSTY_SPD_WITH_SHARED_MEM := 0
