@@ -16,9 +16,7 @@ struct hw_topology_t soc_topology;
 
 int fconf_populate_gicv3_config(uintptr_t config)
 {
-	int err;
-	int node;
-	int addr[20];
+	int err, node, addr[20];
 
 	/* Necessary to work with libfdt APIs */
 	const void *hw_config_dtb = (const void *)config;
@@ -33,6 +31,7 @@ int fconf_populate_gicv3_config(uintptr_t config)
 		WARN("FCONF: Unable to locate node with arm,gic-v3 compatible property\n");
 		return 0;
 	}
+
 	/* Read the reg cell holding base address of GIC controller modules
 	A sample reg cell array is shown here:
 		reg = <0x0 0x2f000000 0 0x10000>,	// GICD
@@ -40,13 +39,73 @@ int fconf_populate_gicv3_config(uintptr_t config)
 		      <0x0 0x2c000000 0 0x2000>,	// GICC
 		      <0x0 0x2c010000 0 0x2000>,	// GICH
 		      <0x0 0x2c02f000 0 0x2000>;	// GICV
-	*/
 
+	To parse the property we need to understand three things:
+		1. Each cell value is a 32-bit unsigned integer
+		2. The parent node's #address-cells value defines how many cell
+		values constitute a region's base address
+		3. The parent node's #size-cells value defines how many cell values
+		constitute a region's offset
+
+	In this case, #address-cells = #size-cells = <2>. Therefore combining the
+	first 2 cells for a base address and the next 2 cells for a offset, and so
+	on, gives the following regions that the interrupt controller will respond
+	to:
+		GICD: 64-bit address 0x0000_0000_2F00_0000 with 64-bit offset 0x0000_0000_0001_0000
+		GICR: 64-bit address 0x0000_0000_2F10_0000 with 64-bit offset 0x0000_0000_0020_0000
+		GICC: 64-bit address 0x0000_0000_2C00_0000 with 64-bit offset 0x0000_0000_0000_2000
+		GICH: 64-bit address 0x0000_0000_2C01_0000 with 64-bit offset 0x0000_0000_0000_2000
+		GICV: 64-bit address 0x0000_0000_2C02_F000 with 64-bit offset 0x0000_0000_0000_2000
+	*/
 	err = fdtw_read_array(hw_config_dtb, node, "reg", 20, &addr);
 	if (err < 0) {
 		ERROR("FCONF: Failed to read reg property of GIC node\n");
+		return err;
 	}
-	return err;
+
+	gicv3_config.gicd_base = ((uint64_t)addr[0] << 32) | addr[1];
+	gicv3_config.gicd_offset = ((uint64_t)addr[2] << 32) | addr[3];
+
+	gicv3_config.gicr_base = ((uint64_t)addr[4] << 32) | addr[5];
+	gicv3_config.gicr_offset = ((uint64_t)addr[6] << 32) | addr[7];
+
+	gicv3_config.gicc_base = ((uint64_t)addr[8] << 32) | addr[9];
+	gicv3_config.gicc_offset = ((uint64_t)addr[10] << 32) | addr[11];
+
+	gicv3_config.gich_base = ((uint64_t)addr[12] << 32) | addr[13];
+	gicv3_config.gich_offset = ((uint64_t)addr[14] << 32) | addr[15];
+
+	gicv3_config.gicv_base = ((uint64_t)addr[16] << 32) | addr[17];
+	gicv3_config.gicv_offset = ((uint64_t)addr[18] << 32) | addr[19];
+
+	/* Locate the interrupts cell holding cells needed to encode an interrupt source
+	A sample interrupts cell array is shown here:
+		interrupts = <1 9 4>;
+
+	To parse the property we need to understand four things:
+		1. The #interrupt-cells cell specifies the number of cells needed to encode
+		an interrupt source. It must be a single cell with a value of at least 3.
+		2. The 1st cell is the interrupt type; 0 for SPI interrupts, 1 for PPI
+		interrupts.
+		3. The 2nd cell contains the interrupt number for the interrupt type. SPI
+		interrupts are in the range [0-987]. PPI interrupts are in the range [0-15].
+		4. The 3rd cell is the flags, encoded as follows: bits[3:0] trigger type
+		and level flags. 1 for edge triggered and 4 for level triggered.
+
+	In this case, #interrupt-cells = 3. The 1st cell is 1 for PPI interrupts. The 2nd
+	cell is 9 for the PPI interrupt type. The 3rd cell is 4 for level triggered.
+	*/
+	err = fdtw_read_array((void *)hw_config_dtb, node, "interrupts", 3, &addr);
+	if (err < 0) {
+		ERROR("FCONF: Failed to read interrupts property of GIC node\n");
+		return err;
+	}
+
+	gicv3_config.gicv3_intr_config.interrupt_type = addr[0];
+	gicv3_config.gicv3_intr_config.interrupt_num = addr[1];
+	gicv3_config.gicv3_intr_config.interrupt_flags = addr[2];
+
+	return 0;
 }
 
 int fconf_populate_topology(uintptr_t config)

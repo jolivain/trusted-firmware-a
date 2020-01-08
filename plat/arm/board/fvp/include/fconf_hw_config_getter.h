@@ -14,9 +14,24 @@
 
 #define hw_config__topology_getter(prop) soc_topology.prop
 
+struct intr_config_t {
+	uint32_t interrupt_type;
+	uint32_t interrupt_num;
+	uint32_t interrupt_flags;
+};
+
 struct gicv3_config_t {
-	void *gicd_base;
-	void *gicr_base;
+	uint64_t gicd_base;
+	uint64_t gicd_offset;
+	uint64_t gicr_base;
+	uint64_t gicr_offset;
+	uint64_t gicc_base;
+	uint64_t gicc_offset;
+	uint64_t gich_base;
+	uint64_t gich_offset;
+	uint64_t gicv_base;
+	uint64_t gicv_offset;
+	struct intr_config_t gicv3_intr_config;
 };
 
 struct hw_topology_t {
