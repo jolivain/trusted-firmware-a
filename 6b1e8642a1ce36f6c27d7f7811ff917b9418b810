@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df9a4aec_d8c289a7",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-09T13:32:57Z",
+      "side": 1,
+      "message": "Don\u0027t you want to change \"int cpu_idx\" to \"unsigned int cpu_idx\"?",
+      "revId": "6b1e8642a1ce36f6c27d7f7811ff917b9418b810",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e4ccc6d_bc40108b",
+        "filename": "lib/psci/psci_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-09T13:32:57Z",
+      "side": 1,
+      "message": "0U?",
+      "revId": "6b1e8642a1ce36f6c27d7f7811ff917b9418b810",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "438a6297_b4d58ff6",
+        "filename": "lib/psci/psci_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-09T13:32:57Z",
+      "side": 1,
+      "message": "I\u0027d suggest to remove space after cast.",
+      "revId": "6b1e8642a1ce36f6c27d7f7811ff917b9418b810",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e857d9a1_3931d26b",
+        "filename": "plat/arm/board/fvp_ve/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-09T13:32:57Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be\n#define PLATFORM_CORE_COUNT   FVP_VE_CORE_COUNT\n?",
+      "revId": "6b1e8642a1ce36f6c27d7f7811ff917b9418b810",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
