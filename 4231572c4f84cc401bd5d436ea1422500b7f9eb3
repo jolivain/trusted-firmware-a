@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11d50f5a_70379105",
+        "filename": "plat/xilinx/versal/pm_service/pm_client.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-01-09T21:06:59Z",
+      "side": 1,
+      "message": "I was wondering why each SoC of xilinx( versal and zynqmp) have their own header files for PM. I guess they can use the same common header file which has function declarations but each SoC can have its own implementation of corresponding functions. \nFor ex: pm_client.h can be made common. Each platform can have its own pm_client.c file. \n\nI understand each Soc has different constraints. However, other platforms seem to follow this approach. For example, tegra platforms have common power controller file(mce.h)",
+      "revId": "4231572c4f84cc401bd5d436ea1422500b7f9eb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
