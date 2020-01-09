@@ -33,6 +33,23 @@
       "revId": "18c848b88bc0ebc779c003647dac5d5762b4f0d3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b387b4b_5b7a4b58",
+        "filename": "drivers/fconf/fconf.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2020-01-09T23:49:49Z",
+      "side": 1,
+      "message": "To populate start and end from linker files, will IMPORT_SYM() be better here?\n\nIMPORT_SYM(struct fconf_populator , __FCONF_POPULATOR_START__, FCONF_start)",
+      "revId": "18c848b88bc0ebc779c003647dac5d5762b4f0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
