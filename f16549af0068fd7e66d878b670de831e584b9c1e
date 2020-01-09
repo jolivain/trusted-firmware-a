@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5feb13ab_bc9ff805",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-09T08:52:47Z",
+      "side": 1,
+      "message": "Is it really needed to cache this information? AFAIU, it is already accessible through the \u0027entry\u0027 field...",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 21
+      },
+      "revId": "f16549af0068fd7e66d878b670de831e584b9c1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f7888bf_08ef68c8",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-09T08:52:47Z",
+      "side": 1,
+      "message": "enum fip_enc_status would seem more appropriate than unsigned int to me.",
+      "range": {
+        "startLine": 62,
+        "startChar": 7,
+        "endLine": 62,
+        "endChar": 19
+      },
+      "revId": "f16549af0068fd7e66d878b670de831e584b9c1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff6caa68_3087c15a",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-09T08:52:47Z",
+      "side": 1,
+      "message": "Should we add an assertion to check that fip_enc_status is not 3 (which is an invalid value at the moment, reserved for the future)?",
+      "revId": "f16549af0068fd7e66d878b670de831e584b9c1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97a9cbee_06788a8e",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-09T08:52:47Z",
+      "side": 1,
+      "message": "I think this might warrant a comment, something like:\n\n Decryption data prepend the file and are not considered part of the payload.",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 379,
+        "endChar": 40
+      },
+      "revId": "f16549af0068fd7e66d878b670de831e584b9c1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
