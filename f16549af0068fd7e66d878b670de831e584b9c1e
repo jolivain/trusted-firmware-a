@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8ed697da_168f255c",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-09T11:22:01Z",
+      "side": 1,
+      "message": "Its not just entry flag that determines file is encrypted but also top level header flag \u0027fip_enc_status\u0027 too. Have a look at lines 343 to 353.",
+      "parentUuid": "5feb13ab_bc9ff805",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 21
+      },
+      "revId": "f16549af0068fd7e66d878b670de831e584b9c1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0f7888bf_08ef68c8",
         "filename": "drivers/io/io_fip.c",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ec5b009e_46092c72",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-09T11:22:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0f7888bf_08ef68c8",
+      "range": {
+        "startLine": 62,
+        "startChar": 7,
+        "endLine": 62,
+        "endChar": 19
+      },
+      "revId": "f16549af0068fd7e66d878b670de831e584b9c1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff6caa68_3087c15a",
         "filename": "drivers/io/io_fip.c",
         "patchSetId": 5
@@ -59,6 +107,24 @@
       "writtenOn": "2020-01-09T08:52:47Z",
       "side": 1,
       "message": "Should we add an assertion to check that fip_enc_status is not 3 (which is an invalid value at the moment, reserved for the future)?",
+      "revId": "f16549af0068fd7e66d878b670de831e584b9c1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aae92bcf_a777d02d",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-09T11:22:01Z",
+      "side": 1,
+      "message": "Sure will add an assertion check here.",
+      "parentUuid": "ff6caa68_3087c15a",
       "revId": "f16549af0068fd7e66d878b670de831e584b9c1e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -85,6 +151,30 @@
       "revId": "f16549af0068fd7e66d878b670de831e584b9c1e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c264a619_976b7bf1",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-09T11:22:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "97a9cbee_06788a8e",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 379,
+        "endChar": 40
+      },
+      "revId": "f16549af0068fd7e66d878b670de831e584b9c1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
