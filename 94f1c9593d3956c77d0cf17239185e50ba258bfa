@@ -52,6 +52,24 @@
       "revId": "94f1c9593d3956c77d0cf17239185e50ba258bfa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a95af99_aaf0bc94",
+        "filename": "plat/arm/board/fvp/fvp_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-10T17:43:24Z",
+      "side": 1,
+      "message": "Before pushing this patch I looked at other ARM platforms but didn\u0027t find any similar potential clashes between makefiles \u0026 header files.",
+      "parentUuid": "1d6ffa61_96b87597",
+      "revId": "94f1c9593d3956c77d0cf17239185e50ba258bfa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
