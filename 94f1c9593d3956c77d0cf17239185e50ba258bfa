@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f558567c_c88fa935",
+        "filename": "plat/arm/board/fvp/fvp_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2020-01-10T16:06:27Z",
+      "side": 1,
+      "message": "If we simply remove redefinition wouldn\u0027t the build fail saying it is not defined?\n\nInstead of adding #error, should we simply remove the defines?",
+      "revId": "94f1c9593d3956c77d0cf17239185e50ba258bfa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
