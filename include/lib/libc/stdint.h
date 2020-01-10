@@ -4,12 +4,16 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 /*
- * Portions copyright (c) 2018-2019, ARM Limited and Contributors.
+ * Portions copyright (c) 2018-2020, ARM Limited and Contributors.
  * All rights reserved.
  */
 
 #ifndef STDINT_H
 #define STDINT_H
+
+#pragma coverity compliance block \
+		(deviate "MISRA C-2012 Rule 21.1" "libc re-definition allowed") \
+		(deviate "MISRA C-2012 Rule 21.2" "libc re-definition allowed")
 
 #include <limits.h>
 
@@ -134,5 +138,7 @@ typedef unsigned long u_register_t;
 typedef __int128 int128_t;
 typedef unsigned __int128 uint128_t;
 #endif /* __aarch64__ */
+
+#pragma coverity compliance end_block "MISRA C-2012 Rule 21.1" "MISRA C-2012 Rule 21.2"
 
 #endif /* STDINT_H */

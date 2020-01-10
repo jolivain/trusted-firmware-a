@@ -32,12 +32,16 @@
  * $FreeBSD$
  */
 /*
- * Portions copyright (c) 2018, ARM Limited and Contributors.
+ * Portions copyright (c) 2018-2020, ARM Limited and Contributors.
  * All rights reserved.
  */
 
 #ifndef ENDIAN__H
 #define ENDIAN__H
+
+#pragma coverity compliance block \
+		(deviate "MISRA C-2012 Rule 21.1" "libc re-definition allowed") \
+		(deviate "MISRA C-2012 Rule 21.2" "libc re-definition allowed")
 
 #include <stdint.h>
 
@@ -143,4 +147,7 @@ __bswap16_var(uint16_t v)
 #define __bswap32(x)	__bswap32_var(x)
 
 #endif /* __OPTIMIZE__ */
+
+#pragma coverity compliance end_block "MISRA C-2012 Rule 21.1" "MISRA C-2012 Rule 21.2"
+
 #endif /* ENDIAN__H */

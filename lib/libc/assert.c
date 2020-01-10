@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,6 +11,9 @@
 #include <common/debug.h>
 #include <drivers/console.h>
 #include <plat/common/platform.h>
+
+#pragma coverity compliance block \
+		(deviate "MISRA C-2012 Rule 21.2" "Reserved keyword or identifier")
 
 /*
  * Only print the output if PLAT_LOG_LEVEL_ASSERT is higher or equal to
@@ -42,3 +45,5 @@ void __dead2 __assert(void)
 	plat_panic_handler();
 }
 #endif
+
+#pragma coverity compliance end_block "MISRA C-2012 Rule 21.2"

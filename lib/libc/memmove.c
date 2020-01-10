@@ -1,10 +1,13 @@
 /*
- * Copyright (c) 2013-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <string.h>
+
+#pragma coverity compliance block \
+		(deviate "MISRA C-2012 Rule 21.2" "Reserved keyword or identifier")
 
 void *memmove(void *dst, const void *src, size_t len)
 {
@@ -29,3 +32,6 @@ void *memmove(void *dst, const void *src, size_t len)
 	}
 	return dst;
 }
+
+#pragma coverity compliance end_block "MISRA C-2012 Rule 21.2"
+

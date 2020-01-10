@@ -29,11 +29,17 @@
  * SUCH DAMAGE.
  */
 
+/*
+ * Portions copyright (c) 2020, ARM Limited and Contributors.
+ * All rights reserved.
+ */
+
 #include <stddef.h>
 #include <string.h>
 
-char *
-strrchr(const char *p, int ch)
+#pragma coverity compliance \
+		(deviate "MISRA C-2012 Rule 21.2" "Reserved keyword or identifier")
+char *strrchr(const char *p, int ch)
 {
 	char *save;
 	char c;

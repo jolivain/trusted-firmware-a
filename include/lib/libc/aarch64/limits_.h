@@ -1,8 +1,13 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
+
+
+#pragma coverity compliance block \
+	(deviate "MISRA C-2012 Rule 21.1" "libc re-definition allowed") \
+	(deviate "MISRA C-2012 Rule 21.2" "libc re-definition allowed")
 
 #define SCHAR_MAX  0x7F
 #define SCHAR_MIN  (-SCHAR_MIN - 1)
@@ -24,3 +29,5 @@
 
 #define __LONG_BIT 64
 #define __WORD_BIT 32
+
+#pragma coverity compliance end_block "MISRA C-2012 Rule 21.1" "MISRA C-2012 Rule 21.2"

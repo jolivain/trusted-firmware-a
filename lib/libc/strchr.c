@@ -30,15 +30,16 @@
  */
 
 /*
- * Portions copyright (c) 2018, ARM Limited and Contributors.
+ * Portions copyright (c) 2018-2020, ARM Limited and Contributors.
  * All rights reserved.
  */
 
 #include <stddef.h>
 #include <string.h>
 
-char *
-strchr(const char *p, int ch)
+#pragma coverity compliance \
+		(deviate "MISRA C-2012 Rule 21.2" "Reserved keyword or identifier")
+char * strchr(const char *p, int ch)
 {
 	char c;
 

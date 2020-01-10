@@ -1,11 +1,15 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #ifndef SETJMP__H
 #define SETJMP__H
+
+#pragma coverity compliance block \
+		(deviate "MISRA C-2012 Rule 21.1" "libc re-definition allowed") \
+		(deviate "MISRA C-2012 Rule 21.2" "libc re-definition allowed")
 
 #define JMP_CTX_X19	0x0
 #define JMP_CTX_X21	0x10
@@ -26,5 +30,7 @@
 typedef uint64_t jmp_buf[JMP_SIZE] __aligned(16);
 
 #endif /* __ASSEMBLER__ */
+
+#pragma coverity compliance end_block "MISRA C-2012 Rule 21.1" "MISRA C-2012 Rule 21.2"
 
 #endif /* SETJMP__H */

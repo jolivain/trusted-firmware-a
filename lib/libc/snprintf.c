@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -62,6 +62,8 @@ static void unsigned_dec_print(char **s, size_t n, size_t *chars_printed,
  * buffer was big enough. If it returns a value lower than n, the
  * whole string has been written.
  *******************************************************************/
+#pragma coverity compliance \
+		(deviate "MISRA C-2012 Rule 21.2" "Reserved keyword or identifier")
 int snprintf(char *s, size_t n, const char *fmt, ...)
 {
 	va_list args;

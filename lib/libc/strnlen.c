@@ -27,14 +27,15 @@
  */
 
 /*
- * Portions copyright (c) 2018, ARM Limited and Contributors.
+ * Portions copyright (c) 2018-2020, ARM Limited and Contributors.
  * All rights reserved.
  */
 
 #include <string.h>
 
-size_t
-strnlen(const char *s, size_t maxlen)
+#pragma coverity compliance \
+		(deviate "MISRA C-2012 Rule 21.2" "Reserved keyword or identifier")
+size_t strnlen(const char *s, size_t maxlen)
 {
 	size_t len;
 

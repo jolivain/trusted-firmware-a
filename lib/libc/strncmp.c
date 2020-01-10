@@ -30,14 +30,15 @@
  */
 
 /*
- * Portions copyright (c) 2018, ARM Limited and Contributors.
+ * Portions copyright (c) 2018-2020, ARM Limited and Contributors.
  * All rights reserved.
  */
 
 #include <string.h>
 
-int
-strncmp(const char *s1, const char *s2, size_t n)
+#pragma coverity compliance \
+		(deviate "MISRA C-2012 Rule 21.2" "Reserved keyword or identifier")
+int strncmp(const char *s1, const char *s2, size_t n)
 {
 
 	if (n == 0)

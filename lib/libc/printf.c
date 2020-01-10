@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,6 +10,9 @@
 #include <stdint.h>
 
 #include <common/debug.h>
+
+#pragma coverity compliance block \
+		(deviate "MISRA C-2012 Rule 21.2" "Reserved keyword or identifier")
 
 #define get_num_va_args(_args, _lcount)				\
 	(((_lcount) > 1)  ? va_arg(_args, long long int) :	\
@@ -195,3 +198,5 @@ int printf(const char *fmt, ...)
 
 	return count;
 }
+
+#pragma coverity compliance end_block "MISRA C-2012 Rule 21.2"
