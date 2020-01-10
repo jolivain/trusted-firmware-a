@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c7ecf78f_b227b435",
+        "filename": "tools/fiptool/fiptool.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-10T09:26:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c74e4d43_006e6458",
+      "range": {
+        "startLine": 375,
+        "startChar": 40,
+        "endLine": 375,
+        "endChar": 43
+      },
+      "revId": "4d4f23bd5f064c49d0cee68aef1ea03a7f50f3cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d77ee63_f793cc3f",
         "filename": "tools/fiptool/fiptool.c",
         "patchSetId": 5
@@ -36,6 +60,24 @@
       "writtenOn": "2020-01-09T11:56:13Z",
       "side": 1,
       "message": "Can\u0027t we reuse FIP_ENC_STATUS_FLAG_MASK from include/tools_share/firmware_image_package.h here? And if we can I would drop the comment above, as the macro will abstract the bit field size and position so the comment will lose value.",
+      "revId": "4d4f23bd5f064c49d0cee68aef1ea03a7f50f3cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6018523_0ff793d2",
+        "filename": "tools/fiptool/fiptool.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-10T09:26:20Z",
+      "side": 1,
+      "message": "Ok will reuse FIP_ENC_STATUS_FLAG_MASK and remove the comment.",
+      "parentUuid": "4d77ee63_f793cc3f",
       "revId": "4d4f23bd5f064c49d0cee68aef1ea03a7f50f3cc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
