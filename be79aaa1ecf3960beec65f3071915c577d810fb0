@@ -45,6 +45,30 @@
       "revId": "be79aaa1ecf3960beec65f3071915c577d810fb0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49ea83cf_200d6a73",
+        "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000130
+      },
+      "writtenOn": "2020-01-10T03:08:30Z",
+      "side": 1,
+      "message": "The \"channel_id\" gets used when there is more than one SCMI channel on the platform.\nThe information about channels is then given using an array of \"scmi_channel_plat_info_t\"\nIn this patch as you can see above this function the \"rd_n1e1_edge_scmi_plat_info\" is still not an array as by default most platforms are considered to have single channel.\nHowever this patch adds support for dual-chip configuration which has more than channel.\nHence you can see the input being used.\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/3071/1/plat/arm/css/sgi/sgi_bl31_setup.c",
+      "parentUuid": "1bc50f47_06cbc42b",
+      "range": {
+        "startLine": 42,
+        "startChar": 53,
+        "endLine": 42,
+        "endChar": 63
+      },
+      "revId": "be79aaa1ecf3960beec65f3071915c577d810fb0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
