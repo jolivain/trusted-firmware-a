@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56927d13_668f2ff4",
+        "filename": "drivers/io/io_memmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2020-01-10T19:23:04Z",
+      "side": 1,
+      "message": "drivers/io/io_memmap.c\t149\tMISRA C-2012 Rule 10.3 (required)\t208190\tImplicit conversion of \"offset\" from essential type \"signed 64-bit int\" to different or narrower essential type \"unsigned 64-bit int\".",
+      "revId": "1e460c4e7abf4b461ef0f71f5ce992798d2708ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad8d4e36_0659f36f",
+        "filename": "drivers/io/io_memmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2020-01-10T19:23:04Z",
+      "side": 1,
+      "message": "drivers/io/io_memmap.c\t163\tMISRA C-2012 Rule 10.3 (required)\t602729\tImplicit conversion of \"((file_state_t *)entity-\u003einfo)-\u003esize\" from essential type \"unsigned 64-bit int\" to different or narrower essential type \"unsigned 32-bit int\".",
+      "revId": "1e460c4e7abf4b461ef0f71f5ce992798d2708ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7f54e6b_c7974486",
+        "filename": "drivers/io/io_semihosting.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2020-01-10T19:23:04Z",
+      "side": 1,
+      "message": "drivers/io/io_semihosting.c\t101\tMISRA C-2012 Rule 10.3 (required)\t600904\tImplicit conversion of \"offset\" from essential type \"signed 64-bit int\" to different or narrower essential type \"signed 32-bit int\".",
+      "revId": "1e460c4e7abf4b461ef0f71f5ce992798d2708ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
