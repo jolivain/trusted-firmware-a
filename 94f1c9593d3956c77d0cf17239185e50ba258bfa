@@ -16,6 +16,24 @@
       "revId": "94f1c9593d3956c77d0cf17239185e50ba258bfa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c06a20c_80507b22",
+        "filename": "plat/arm/board/fvp/fvp_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-10T16:22:48Z",
+      "side": 1,
+      "message": "That was done in TFTF, but here I\u0027d like to have a meaningful error message to prevent someone from just adding those definitions here or a *.c source.",
+      "parentUuid": "f558567c_c88fa935",
+      "revId": "94f1c9593d3956c77d0cf17239185e50ba258bfa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
