@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e823d654_5bfdc11a",
+        "filename": "bl2/bl2.ld.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-01-10T11:03:43Z",
+      "side": 1,
+      "message": "oh yes ! thanks !",
+      "parentUuid": "a94d7e03_a12374e6",
+      "revId": "18c848b88bc0ebc779c003647dac5d5762b4f0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "323a8914_6bbe083b",
         "filename": "drivers/auth/auth_mod.c",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "39492b9c_da06cbb7",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-01-10T11:03:43Z",
+      "side": 1,
+      "message": "good catch, thanks!",
+      "parentUuid": "323a8914_6bbe083b",
+      "revId": "18c848b88bc0ebc779c003647dac5d5762b4f0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b387b4b_5b7a4b58",
         "filename": "drivers/fconf/fconf.c",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2020-01-09T23:49:49Z",
       "side": 1,
       "message": "To populate start and end from linker files, will IMPORT_SYM() be better here?\n\nIMPORT_SYM(struct fconf_populator , __FCONF_POPULATOR_START__, FCONF_start)",
+      "revId": "18c848b88bc0ebc779c003647dac5d5762b4f0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c88d6dc_41944e19",
+        "filename": "drivers/fconf/fconf.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-01-10T11:03:43Z",
+      "side": 1,
+      "message": "I wasn\u0027t aware of this IMPORT_SYM macro, and it seems to fit perfectly my use-case, thanks \u003d)",
+      "parentUuid": "7b387b4b_5b7a4b58",
       "revId": "18c848b88bc0ebc779c003647dac5d5762b4f0d3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
