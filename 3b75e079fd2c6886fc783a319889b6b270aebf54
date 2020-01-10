@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "73141bc0_d117783f",
+        "filename": "tools/encrypt_fw/Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-10T09:58:27Z",
+      "side": 1,
+      "message": "Sure, will remove any platform specific macro from this patch.",
+      "parentUuid": "a6ccca2f_50cb27cc",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 13
+      },
+      "revId": "3b75e079fd2c6886fc783a319889b6b270aebf54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "56087548_91696684",
         "filename": "tools/encrypt_fw/include/encrypt.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2020-01-09T11:45:54Z",
       "side": 1,
       "message": "Why is this header file needed?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 29
+      },
+      "revId": "3b75e079fd2c6886fc783a319889b6b270aebf54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e2262d0_d9540c46",
+        "filename": "tools/encrypt_fw/include/encrypt.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-10T09:58:27Z",
+      "side": 1,
+      "message": "Not needed, will drop this header include.",
+      "parentUuid": "56087548_91696684",
       "range": {
         "startLine": 11,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "a9db5be6_240c5360",
+        "filename": "tools/encrypt_fw/src/encrypt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-10T09:58:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "78dea8aa_015266df",
+      "revId": "3b75e079fd2c6886fc783a319889b6b270aebf54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "615c8042_a953553c",
         "filename": "tools/encrypt_fw/src/encrypt.c",
         "patchSetId": 5
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "a70a387b_49aa8c64",
+        "filename": "tools/encrypt_fw/src/encrypt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-10T09:58:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "615c8042_a953553c",
+      "range": {
+        "startLine": 103,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 10
+      },
+      "revId": "3b75e079fd2c6886fc783a319889b6b270aebf54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1dd8eebf_d33d9cdd",
         "filename": "tools/encrypt_fw/src/main.c",
         "patchSetId": 5
@@ -99,6 +189,24 @@
       "writtenOn": "2020-01-09T11:45:54Z",
       "side": 1,
       "message": "Could you please add the following in all relevant files:\n\n \"All rights reserved.\"\n\nto comply with the copyright boilerplate of the project (see https://trustedfirmware-a.readthedocs.io/en/latest/license.html)?",
+      "revId": "3b75e079fd2c6886fc783a319889b6b270aebf54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a21fadc0_c3617fc3",
+        "filename": "tools/encrypt_fw/src/main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-10T09:58:27Z",
+      "side": 1,
+      "message": "Ok will update copyright field.",
+      "parentUuid": "1dd8eebf_d33d9cdd",
       "revId": "3b75e079fd2c6886fc783a319889b6b270aebf54",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -125,6 +233,30 @@
       "revId": "3b75e079fd2c6886fc783a319889b6b270aebf54",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a81d7a6_29dc1def",
+        "filename": "tools/encrypt_fw/src/main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-10T09:58:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "33aa5563_183f999e",
+      "range": {
+        "startLine": 197,
+        "startChar": 1,
+        "endLine": 197,
+        "endChar": 13
+      },
+      "revId": "3b75e079fd2c6886fc783a319889b6b270aebf54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
