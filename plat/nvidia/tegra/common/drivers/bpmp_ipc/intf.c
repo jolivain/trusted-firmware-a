@@ -1,18 +1,19 @@
 /*
- * Copyright (c) 2017-2018, NVIDIA CORPORATION. All rights reserved.
+ * Copyright (c) 2017-2020, NVIDIA CORPORATION. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-#include <bpmp_ipc.h>
-#include <debug.h>
-#include <drivers/delay_timer.h>
 #include <errno.h>
-#include <lib/mmio.h>
-#include <lib/utils_def.h>
 #include <stdbool.h>
 #include <string.h>
+
+#include <bpmp_ipc.h>
+#include <common/debug.h>
+#include <drivers/delay_timer.h>
+#include <lib/mmio.h>
+#include <lib/utils_def.h>
 #include <tegra_def.h>
 
 #include "intf.h"
