@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd58c2a8_932d0d53",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-13T17:13:48Z",
+      "side": 1,
+      "message": "I would have thought that if the symbol is already defined in bl_common.h, it should not be redefined in another file. Could we simply remove the redefinition in bl31_plat_setup.c instead? Are the 2 definitions not equivalent?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 52
+      },
+      "revId": "f8f654e9acee0912293fa50fb4b5e7a0967e1d10",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3add71bc_e13abd67",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-13T17:13:48Z",
+      "side": 1,
+      "message": "There\u0027s a slight issue there that this is not strictly equivalent to the IMPORT_SYM() version, which used to mark the BL2_RO_BASE variable as static, const and let the compiler know the variable might be unused.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 41
+      },
+      "revId": "f8f654e9acee0912293fa50fb4b5e7a0967e1d10",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
