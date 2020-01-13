@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a0887c6_0377e7e4",
+        "filename": "drivers/fconf/fconf.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-13T09:55:02Z",
+      "side": 1,
+      "message": "remove space after cast",
+      "revId": "9df2fb89b93489ffc1ea44318b45f82a29b6d941",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "223c80a4_075e2e30",
+        "filename": "drivers/fconf/fconf.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-13T09:55:02Z",
+      "side": 1,
+      "message": "assert((populator-\u003einfo !\u003d NULL) \u0026\u0026 (populator-\u003epopulate !\u003d NULL))",
+      "revId": "9df2fb89b93489ffc1ea44318b45f82a29b6d941",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a4a6798_b741fac6",
+        "filename": "drivers/fconf/fconf.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-13T09:55:02Z",
+      "side": 1,
+      "message": "function",
+      "revId": "9df2fb89b93489ffc1ea44318b45f82a29b6d941",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64c49bb7_b04b15e6",
+        "filename": "drivers/fconf/fconf.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-13T09:55:02Z",
+      "side": 1,
+      "message": "remove empty line at the end",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "9df2fb89b93489ffc1ea44318b45f82a29b6d941",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fda37c75_b4cc0551",
+        "filename": "include/drivers/fconf/fconf.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-13T09:55:02Z",
+      "side": 1,
+      "message": "remove tab",
+      "revId": "9df2fb89b93489ffc1ea44318b45f82a29b6d941",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "acba6375_c74e2da6",
+        "filename": "include/drivers/fconf/fconf.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-13T09:55:02Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "9df2fb89b93489ffc1ea44318b45f82a29b6d941",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40dd0eb7_2314109a",
+        "filename": "include/drivers/fconf/fconf.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-13T09:55:02Z",
+      "side": 1,
+      "message": "you can also remove 2 tabs at these 3 lines to make code look more readable",
+      "revId": "9df2fb89b93489ffc1ea44318b45f82a29b6d941",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
