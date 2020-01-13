@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "83dec4c3_0d06b8ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-01-13T18:37:21Z",
+      "side": 1,
+      "message": "I am not sure I understood your comment. the symbol __RO_START__ is redefined in the bl31_plat_setup.c due to the way the IMPORT_SYM macro is defined. If you are asking if the definitions BL_CODE_BASE and BL2_RO_BASE are not equivalent, I believe the BL2_RO_BASE was probably intended to be more representative of what it means( i.e. start of code/ro region in BL2 image). I think the patch itself is trying to solve the issue you mentioned.",
+      "parentUuid": "fd58c2a8_932d0d53",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 52
+      },
+      "revId": "f8f654e9acee0912293fa50fb4b5e7a0967e1d10",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3add71bc_e13abd67",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2020-01-13T17:13:48Z",
       "side": 1,
       "message": "There\u0027s a slight issue there that this is not strictly equivalent to the IMPORT_SYM() version, which used to mark the BL2_RO_BASE variable as static, const and let the compiler know the variable might be unused.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 41
+      },
+      "revId": "f8f654e9acee0912293fa50fb4b5e7a0967e1d10",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89622f2a_b2b27a4f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-01-13T18:37:21Z",
+      "side": 1,
+      "message": "You are right. My bad. I overlooked the important attributes. I now have a simple idea of covert the 2nd IMPORT_SYM to a new macro called ALIAS_SYM defined as follows:\n\n#define ALIAS_SYM(type, sym, name) \\\n        static const __attribute__((unused)) type name \u003d (type) sym;\n\nThis way there is no need to import the linker symbol (ex: __RO_START_). Let me know your thoughts on this.",
+      "parentUuid": "3add71bc_e13abd67",
       "range": {
         "startLine": 28,
         "startChar": 0,
