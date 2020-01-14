@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d7091ac_44c3f9ee",
+        "filename": "plat/arm/css/sgi/aarch64/sgi_helper.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-01-14T22:40:30Z",
+      "side": 1,
+      "message": "You can\u0027t directly get MAX_PE_PER_CHIP for a given Chip, ideally it should be\ncalculated in hierarchy.\nChipId -\u003e ClusterId -\u003e CPUId -\u003e PE\nSo formula should look lik\n((ChipId * MAX_CLUSTERS_PER_CHIP + ClusterId) *\n MAX_CPUS_PER_CLUSTER * MAX_PE_PER_CPU) +\n (CPUId * MAX_PE_PER_CPU) + ThreadId\n\nYou may refer to n1sdp impelementation",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 29
+      },
+      "revId": "9d75e305d104222fb33c0c0da242a563f38c6122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
