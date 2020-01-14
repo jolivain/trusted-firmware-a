@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06aff366_9b2532b4",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-14T09:41:17Z",
+      "side": 1,
+      "message": "Do you need to panic() here?",
+      "revId": "80107cab60bdd2acba8fc243c65b3cf38c769c90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44085fcb_aa41685b",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-14T09:41:17Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "80107cab60bdd2acba8fc243c65b3cf38c769c90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c1bf769_c5823613",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-14T09:41:17Z",
+      "side": 1,
+      "message": "unsigned int i",
+      "revId": "80107cab60bdd2acba8fc243c65b3cf38c769c90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b4bcd52_4fd0e412",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-14T09:41:17Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "80107cab60bdd2acba8fc243c65b3cf38c769c90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0917731d_ce3cb834",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-14T09:41:17Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "80107cab60bdd2acba8fc243c65b3cf38c769c90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97ab530e_96deb5a1",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-14T09:41:17Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "80107cab60bdd2acba8fc243c65b3cf38c769c90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30b49038_8f1a16c5",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-14T09:41:17Z",
+      "side": 1,
+      "message": "if (scpi_get_css_power_state(mpidr, \u0026cpu_state, \u0026cluster_state) !\u003d 0)\ndon\u0027t you want to return scpi_get_css_power_state() value in case of !\u003d 0?",
+      "revId": "80107cab60bdd2acba8fc243c65b3cf38c769c90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b8ee769_f7b6f6bd",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-14T09:41:17Z",
+      "side": 1,
+      "message": "((cpu_state \u0026 BIT(MPIDR_AFFLVL0_VAL(mpidr)) !\u003d 0)",
+      "revId": "80107cab60bdd2acba8fc243c65b3cf38c769c90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aa0f663_f8d791f9",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-14T09:41:17Z",
+      "side": 1,
+      "message": "remove \",\"",
+      "revId": "80107cab60bdd2acba8fc243c65b3cf38c769c90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "008d9ae2_a88a7a00",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-14T09:41:17Z",
+      "side": 1,
+      "message": "unsigned int i",
+      "revId": "80107cab60bdd2acba8fc243c65b3cf38c769c90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "389bcbf8_828757fd",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-14T09:41:17Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "80107cab60bdd2acba8fc243c65b3cf38c769c90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
