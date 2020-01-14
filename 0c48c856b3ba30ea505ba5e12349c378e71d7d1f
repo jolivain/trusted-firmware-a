@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b81f2206_da43b7f7",
+        "filename": "plat/xilinx/common/pm_service/pm_ipi.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-14T12:54:40Z",
+      "side": 1,
+      "message": "Now that you\u0027re using 1U, I don\u0027t think any of these casts to uint32_t are needed, are they?",
+      "range": {
+        "startLine": 272,
+        "startChar": 11,
+        "endLine": 273,
+        "endChar": 50
+      },
+      "revId": "0c48c856b3ba30ea505ba5e12349c378e71d7d1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
