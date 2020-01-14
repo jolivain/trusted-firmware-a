@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d197a822_be3db455",
+        "filename": "drivers/allwinner/sunxi_msgbox.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-14T09:47:17Z",
+      "side": 1,
+      "message": "unsigned int, because of:\n#define RX_CHAN\t\t\t1\n#define TX_CHAN\t\t\t0",
+      "revId": "50c6ab619f0ccb5871c6f6d822a4a1d7e990ce01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ff6b8a0_c3645518",
+        "filename": "drivers/allwinner/sunxi_msgbox.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-14T09:47:17Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "50c6ab619f0ccb5871c6f6d822a4a1d7e990ce01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
