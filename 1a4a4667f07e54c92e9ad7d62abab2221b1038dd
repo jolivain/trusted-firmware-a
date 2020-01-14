@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0f9b360_6c6d8860",
+        "filename": "plat/xilinx/zynqmp/pm_service/pm_api_sys.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-14T12:49:27Z",
+      "side": 1,
+      "message": "Something that caught my eye, I am not sure whether there is an issue as such... pm_get_callbackdata() gets passed a number of bytes (sizeof(result) at line 420) and passes that further down to pm_ipi_buff_read_callb(). Now, if I read the comment above pm_ipi_buff_read_callb(), it says:\n\n @count       Number of values to return in @value\n\nCould there be a mismatch here, where the function expects a number of elements but instead receives a number of bytes? Or did I overlook something?",
+      "range": {
+        "startLine": 644,
+        "startChar": 1,
+        "endLine": 644,
+        "endChar": 37
+      },
+      "revId": "1a4a4667f07e54c92e9ad7d62abab2221b1038dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
