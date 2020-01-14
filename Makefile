@@ -691,6 +691,7 @@ FIPTOOL			?=	${FIPTOOLPATH}/fiptool${BIN_EXT}
 # Variables for use with sptool
 SPTOOLPATH		?=	tools/sptool
 SPTOOL			?=	${SPTOOLPATH}/sptool${BIN_EXT}
+SP_MK_GEN		?=	${SPTOOLPATH}/sp_mk_generator.py
 
 # Variables for use with ROMLIB
 ROMLIBPATH		?=	lib/romlib
@@ -731,6 +732,12 @@ endif
 
 ifdef FDT_SOURCES
 NEED_FDT := yes
+endif
+
+ifdef SP_LAYOUT_FILE
+-include ${SPTOOLPATH}/sp_gen.mk
+FIP_DEPS += sp
+NEED_SP_PKG := yes
 endif
 
 ################################################################################
@@ -881,7 +888,7 @@ endif
 # Build targets
 ################################################################################
 
-.PHONY:	all msg_start clean realclean distclean cscope locate-checkpatch checkcodebase checkpatch fiptool sptool fip fwu_fip certtool dtbs memmap doc
+.PHONY:	all msg_start clean realclean distclean cscope locate-checkpatch checkcodebase checkpatch fiptool sptool fip sp fwu_fip certtool dtbs memmap doc
 .SUFFIXES:
 
 all: msg_start
@@ -959,6 +966,18 @@ ifeq (${NEED_FDT},yes)
     $(eval $(call MAKE_DTBS,$(BUILD_PLAT)/fdts,$(FDT_SOURCES)))
 endif
 
+# Add Secure Partition packages
+ifeq (${NEED_SP_PKG},yes)
+${SPTOOLPATH}/sp_gen.mk: ${SP_MK_GEN} ${SP_LAYOUT_FILE}
+	${Q}${PYTHON} "$<" "$@" $(filter-out $<,$^) $(BUILD_PLAT)
+sp: $(SPTOOL) dtbs ${SPTOOLPATH}/sp_gen.mk
+	$(SPTOOL) $(SPTOOL_ARGS)
+	@${ECHO_BLANK_LINE}
+	@echo "Built SP Images successfully"
+	${Q}mv ${SPTOOLPATH}/sp_gen.mk $(BUILD_PLAT)/sp_gen.mk
+	@${ECHO_BLANK_LINE}
+endif
+
 locate-checkpatch:
 ifndef CHECKPATCH
 	$(error "Please set CHECKPATCH to point to the Linux checkpatch.pl file, eg: CHECKPATCH=../linux/scripts/checkpatch.pl")
@@ -971,6 +990,7 @@ endif
 clean:
 	@echo "  CLEAN"
 	$(call SHELL_REMOVE_DIR,${BUILD_PLAT})
+	$(call SHELL_DELETE,${SPTOOLPATH}/sp_gen.mk)
 	${Q}${MAKE} --no-print-directory -C ${FIPTOOLPATH} clean
 	${Q}${MAKE} PLAT=${PLAT} --no-print-directory -C ${CRTTOOLPATH} clean
 	${Q}${MAKE} --no-print-directory -C ${ROMLIBPATH} clean
@@ -979,6 +999,7 @@ realclean distclean:
 	@echo "  REALCLEAN"
 	$(call SHELL_REMOVE_DIR,${BUILD_BASE})
 	$(call SHELL_DELETE_ALL, ${CURDIR}/cscope.*)
+	$(call SHELL_DELETE,${SPTOOLPATH}/sp_gen.mk)
 	${Q}${MAKE} --no-print-directory -C ${FIPTOOLPATH} clean
 	${Q}${MAKE} --no-print-directory -C ${SPTOOLPATH} clean
 	${Q}${MAKE} PLAT=${PLAT} --no-print-directory -C ${CRTTOOLPATH} clean
@@ -1120,6 +1141,7 @@ help:
 	@echo "  distclean      Remove all build artifacts for all platforms"
 	@echo "  certtool       Build the Certificate generation tool"
 	@echo "  fiptool        Build the Firmware Image Package (FIP) creation tool"
+	@echo "  sp             Build the Secure Partition Packages"
 	@echo "  sptool         Build the Secure Partition Package creation tool"
 	@echo "  dtbs           Build the Device Tree Blobs (if required for the platform)"
 	@echo "  memmap         Print the memory map of the built binaries"
