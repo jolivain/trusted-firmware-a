@@ -16,6 +16,24 @@
       "revId": "3fccbc54e624ee4d3d1aefafea28154308f43f4a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "591cef93_0089715f",
+        "filename": "plat/xilinx/versal/include/versal_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-14T14:52:07Z",
+      "side": 1,
+      "message": "Being an hexadecimal integer constant that cannot be represented in a signed int, I believe the code as it is is fine, this will be be an unsigned int.",
+      "parentUuid": "a26869ea_127fd572",
+      "revId": "3fccbc54e624ee4d3d1aefafea28154308f43f4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
