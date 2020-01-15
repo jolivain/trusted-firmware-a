@@ -32,7 +32,8 @@ Arm Platform Build Options
    using it. If this option is set to 1, ``ARM_PRELOADED_DTB_BASE`` must be set
    to the location of a device tree blob (DTB) already loaded in memory. The
    Linux Image address must be specified using the ``PRELOADED_BL33_BASE``
-   option.
+   option. The ``qemu`` platform is an exception to the above, as the DTB
+   address is already hardcoded in that case.
 
 -  ``ARM_PLAT_MT``: This flag determines whether the Arm platform layer has to
    cater for the multi-threading ``MT`` bit when accessing MPIDR. When this flag
