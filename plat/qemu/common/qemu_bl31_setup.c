@@ -59,6 +59,19 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 	if (!bl33_image_ep_info.pc)
 		panic();
+
+#if ARM_LINUX_KERNEL_AS_BL33
+	/*
+	 * According to the file ``Documentation/arm64/booting.txt`` of the
+	 * Linux kernel tree, Linux expects the physical address of the device
+	 * tree blob (DTB) in x0, while x1-x3 are reserved for future use and
+	 * must be 0.
+	 */
+	bl33_image_ep_info.args.arg0 = (u_register_t)PLAT_QEMU_DT_BASE;
+	bl33_image_ep_info.args.arg1 = 0U;
+	bl33_image_ep_info.args.arg2 = 0U;
+	bl33_image_ep_info.args.arg3 = 0U;
+#endif
 }
 
 void bl31_plat_arch_setup(void)
