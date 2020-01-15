@@ -152,6 +152,8 @@ BL31_SOURCES		+=	lib/cpus/aarch64/aem_generic.S		\
 				lib/cpus/aarch64/cortex_a53.S		\
 				lib/cpus/aarch64/cortex_a57.S		\
 				plat/common/plat_psci_common.c		\
+				lib/semihosting/semihosting.c		\
+				lib/semihosting/${ARCH}/semihosting_call.S \
 				${PLAT_QEMU_COMMON_PATH}/qemu_pm.c			\
 				${PLAT_QEMU_COMMON_PATH}/topology.c			\
 				${PLAT_QEMU_COMMON_PATH}/aarch64/plat_helpers.S	\

@@ -216,3 +216,15 @@ semihosting_fail:
 	semihosting_file_close(file_handle);
 	return ret;
 }
+
+void semihosting_exit(uint32_t reason, uint32_t subcode)
+{
+#ifdef __aarch64__
+	uint64_t parameters[] = {reason, subcode};
+
+	semihosting_call(SEMIHOSTING_SYS_EXIT, &parameters);
+#else
+	/* The subcode is not supported on AArch32. */
+	semihosting_call(SEMIHOSTING_SYS_EXIT, reason);
+#endif
+}
