@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15d5765d_0e51d296",
+        "filename": "plat/renesas/rcar/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-01-15T22:32:30Z",
+      "side": 1,
+      "message": "Is it possible to use fdt_add_reserved_memory()  instead ?",
+      "range": {
+        "startLine": 418,
+        "startChar": 1,
+        "endLine": 419,
+        "endChar": 42
+      },
+      "revId": "6be71b09c92102ea7aca54cdcda4ef565aa22916",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
