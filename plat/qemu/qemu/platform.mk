@@ -186,5 +186,10 @@ endif
 # Process flags
 $(eval $(call add_define,BL32_RAM_LOCATION_ID))
 
+# Don't have the Linux kernel as a BL33 image by default
+ARM_LINUX_KERNEL_AS_BL33	:=	0
+$(eval $(call assert_boolean,ARM_LINUX_KERNEL_AS_BL33))
+$(eval $(call add_define,ARM_LINUX_KERNEL_AS_BL33))
+
 # Do not enable SVE
 ENABLE_SVE_FOR_NS	:=	0
