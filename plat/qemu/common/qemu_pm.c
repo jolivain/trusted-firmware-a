@@ -10,6 +10,7 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <lib/psci/psci.h>
+#include <lib/semihosting.h>
 #include <plat/common/platform.h>
 
 #include "qemu_private.h"
@@ -191,7 +192,8 @@ void qemu_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
  ******************************************************************************/
 static void __dead2 qemu_system_off(void)
 {
-	ERROR("QEMU System Off: operation not handled.\n");
+	semihosting_exit(0x20026, 0);
+	ERROR("QEMU System Off: semihosting call unexpectedly returned.\n");
 	panic();
 }
 
