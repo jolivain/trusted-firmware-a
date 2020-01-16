@@ -118,6 +118,30 @@
       "revId": "9d75e305d104222fb33c0c0da242a563f38c6122",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5beacb2_c08a7012",
+        "filename": "plat/arm/css/sgi/aarch64/sgi_helper.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-01-16T13:04:16Z",
+      "side": 1,
+      "message": "As discussed over a call, this will be fixed as per your comment.",
+      "parentUuid": "dc53ebe2_860b7231",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 29
+      },
+      "revId": "9d75e305d104222fb33c0c0da242a563f38c6122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
