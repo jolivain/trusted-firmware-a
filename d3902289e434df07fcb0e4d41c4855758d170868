@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec635d6c_2be4d646",
+        "filename": "include/plat/common/common_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-16T08:57:08Z",
+      "side": 1,
+      "message": "2020",
+      "revId": "d3902289e434df07fcb0e4d41c4855758d170868",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa124832_cd48efff",
+        "filename": "plat/arm/board/common/rotpk/arm_dev_rotpk.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-16T08:57:08Z",
+      "side": 1,
+      "message": "delete 1-st tab for lines #25-28, 32",
+      "revId": "d3902289e434df07fcb0e4d41c4855758d170868",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ea0f97e_7192314e",
+        "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-16T08:57:08Z",
+      "side": 1,
+      "message": "remove spaces before #",
+      "revId": "d3902289e434df07fcb0e4d41c4855758d170868",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4385379_1a714ae6",
+        "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-16T08:57:08Z",
+      "side": 1,
+      "message": "add empty line",
+      "revId": "d3902289e434df07fcb0e4d41c4855758d170868",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5889f4_e2c32ac1",
+        "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-16T08:57:08Z",
+      "side": 1,
+      "message": "#endif /* ARM_CRYPTOCELL_INTEG */",
+      "revId": "d3902289e434df07fcb0e4d41c4855758d170868",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06bcbe00_a0842058",
+        "filename": "plat/arm/board/juno/juno_trusted_boot.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-16T08:57:08Z",
+      "side": 1,
+      "message": "remove empty line",
+      "revId": "d3902289e434df07fcb0e4d41c4855758d170868",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c935d0dd_f3379670",
+        "filename": "plat/arm/board/juno/juno_trusted_boot.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-16T08:57:08Z",
+      "side": 1,
+      "message": "see comments for fvp_trusted_boot.c",
+      "revId": "d3902289e434df07fcb0e4d41c4855758d170868",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
