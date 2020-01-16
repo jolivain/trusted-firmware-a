@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad3dc8d_2538e233",
+        "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-01-16T05:14:26Z",
+      "side": 1,
+      "message": "(self-review)\n\nThis should be #if BL2_IN_XIP_MEM.\n\nThe \"#ifdev vs #if\" is often error-prone in TF...\n\nI will fix it.",
+      "revId": "3149c65e5d3eedea9a4bec63147ff436d3d76916",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
