@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50e131ce_cb7b5e52",
+        "filename": "plat/xilinx/zynqmp/pm_service/pm_api_clock.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-16T15:16:53Z",
+      "side": 1,
+      "message": "Although this comment is off-topic in the context of this patch, I just wanted to let you know that the checkpatch script is pointing out that this array (and all subsequent ones) \"should normally be const\". Something you might want to address in a separate patch?",
+      "range": {
+        "startLine": 228,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 51
+      },
+      "revId": "20fdf0b05c950c46688ff6d6ee8dd1e1c99d88d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
