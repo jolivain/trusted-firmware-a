@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29870d85_5a59320c",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-17T15:45:21Z",
+      "side": 1,
+      "message": "Would prefer a function which will return the data like plat_css_get_domain_id_fromcore_pos(unsigned int).",
+      "range": {
+        "startLine": 87,
+        "startChar": 16,
+        "endLine": 87,
+        "endChar": 52
+      },
+      "revId": "e2b793afda88db946623c3e7f1ab9654a64e1537",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6a8bcdd_ed728dd6",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-17T15:45:21Z",
+      "side": 1,
+      "message": "I can see that this call can arrive on any CPU at runtime and you would like to pass this to the primary SCP on the system. Is it not more possible for this SCP to messsage the primary SCP via some internal messaging mechanism ?",
+      "range": {
+        "startLine": 292,
+        "startChar": 43,
+        "endLine": 292,
+        "endChar": 75
+      },
+      "revId": "e2b793afda88db946623c3e7f1ab9654a64e1537",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80baa6e3_cbabccf9",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-17T15:45:21Z",
+      "side": 1,
+      "message": "If we have separate channels, prefer to have separate locks for them ?",
+      "range": {
+        "startLine": 351,
+        "startChar": 28,
+        "endLine": 351,
+        "endChar": 54
+      },
+      "revId": "e2b793afda88db946623c3e7f1ab9654a64e1537",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28c30155_5611c8e7",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-17T15:45:21Z",
+      "side": 1,
+      "message": "this will always be invoked on the primary core. So can we not just use css_scp_core_pos_to_scmi_channel() here and avoid need for this macro ?",
+      "range": {
+        "startLine": 374,
+        "startChar": 34,
+        "endLine": 374,
+        "endChar": 66
+      },
+      "revId": "e2b793afda88db946623c3e7f1ab9654a64e1537",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
