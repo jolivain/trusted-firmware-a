@@ -16,6 +16,24 @@
       "revId": "cfda811931aa618e2c95ca98bcd7aae61e9de8e0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02ad228e_73efb7cf",
+        "filename": "plat/arm/css/sgi/aarch64/sgi_helper.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-17T16:44:46Z",
+      "side": 1,
+      "message": "It follows this calculation:\n\n((((ChipId * PLAT_ARM_CLUSTER_COUNT) + ClusterId) *\nCSS_SGI_MAX_CPUS_PER_CLUSTER) + CPUId) * CSS_SGI_MAX_PE_PER_CPU + ThreadId\n\nI did a boot test on dual-chip and did prints for the core position from mpidr. It works fine.\n\nCan you check once again?",
+      "parentUuid": "918875e8_36d0cf82",
+      "revId": "cfda811931aa618e2c95ca98bcd7aae61e9de8e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
