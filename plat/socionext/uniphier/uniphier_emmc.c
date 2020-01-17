@@ -225,11 +225,7 @@ static size_t uniphier_emmc_read(int lba, uintptr_t buf, size_t size)
 	return ret ? 0 : size;
 }
 
-static const struct io_block_dev_spec uniphier_emmc_dev_spec = {
-	.buffer = {
-		.offset = UNIPHIER_BLOCK_BUF_BASE,
-		.length = UNIPHIER_BLOCK_BUF_SIZE,
-	},
+static struct io_block_dev_spec uniphier_emmc_dev_spec = {
 	.ops = {
 		.read = uniphier_emmc_read,
 	},
@@ -278,7 +274,7 @@ static int uniphier_emmc_hw_init(void)
 	return 0;
 }
 
-int uniphier_emmc_init(uintptr_t *block_dev_spec)
+int uniphier_emmc_init(struct io_block_dev_spec **block_dev_spec)
 {
 	int ret;
 
@@ -286,7 +282,7 @@ int uniphier_emmc_init(uintptr_t *block_dev_spec)
 	if (ret)
 		return ret;
 
-	*block_dev_spec = (uintptr_t)&uniphier_emmc_dev_spec;
+	*block_dev_spec = &uniphier_emmc_dev_spec;
 
 	return 0;
 }
