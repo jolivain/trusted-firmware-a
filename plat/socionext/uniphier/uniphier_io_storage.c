@@ -195,6 +195,13 @@ static int uniphier_io_block_setup(size_t fip_offset, uintptr_t block_dev_spec)
 
 	uniphier_fip_spec.offset = fip_offset;
 
+	ret = mmap_add_dynamic_region(UNIPHIER_BLOCK_BUF_BASE,
+				      UNIPHIER_BLOCK_BUF_BASE,
+				      UNIPHIER_BLOCK_BUF_SIZE,
+				      MT_MEMORY | MT_RW | MT_NS);
+	if (ret)
+		return ret;
+
 	ret = register_io_dev_block(&uniphier_backend_dev_con);
 	if (ret)
 		return ret;
