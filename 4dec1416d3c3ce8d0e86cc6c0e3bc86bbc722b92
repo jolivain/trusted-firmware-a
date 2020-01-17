@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b63d9b1_8ac6567e",
+        "filename": "plat/arm/board/rdn1edge/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-17T16:05:01Z",
+      "side": 1,
+      "message": "usage of undef is frowned upon. Prefer to have a separate build flag for rdn1edge platform saying RDN1_MULTI_CHIP with a default of `0` and detect that build flag here.",
+      "range": {
+        "startLine": 47,
+        "startChar": 1,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "4dec1416d3c3ce8d0e86cc6c0e3bc86bbc722b92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21c096e5_365643d2",
+        "filename": "plat/arm/board/rdn1edge/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-17T16:05:01Z",
+      "side": 1,
+      "message": "override is not needed.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 8
+      },
+      "revId": "4dec1416d3c3ce8d0e86cc6c0e3bc86bbc722b92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1777fd3_547e4845",
+        "filename": "plat/arm/board/rdn1edge/rdn1edge_plat.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-17T16:05:01Z",
+      "side": 1,
+      "message": "why is this needed ?",
+      "range": {
+        "startLine": 13,
+        "startChar": 12,
+        "endLine": 13,
+        "endChar": 22
+      },
+      "revId": "4dec1416d3c3ce8d0e86cc6c0e3bc86bbc722b92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "919d339d_bae26f10",
+        "filename": "plat/arm/board/rdn1edge/rdn1edge_plat.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-17T16:05:01Z",
+      "side": 1,
+      "message": "remove this if not required.",
+      "range": {
+        "startLine": 54,
+        "startChar": 12,
+        "endLine": 54,
+        "endChar": 22
+      },
+      "revId": "4dec1416d3c3ce8d0e86cc6c0e3bc86bbc722b92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9141948d_42f24e5a",
+        "filename": "plat/arm/board/rdn1edge/rdn1edge_plat.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-17T16:05:01Z",
+      "side": 1,
+      "message": "The build config RDN1EDGE_MULTI_CHIP that I mention previously will help here.",
+      "range": {
+        "startLine": 65,
+        "startChar": 3,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "4dec1416d3c3ce8d0e86cc6c0e3bc86bbc722b92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5177185d_1cd1bd2d",
+        "filename": "plat/arm/board/rdn1edge/rdn1edge_topology.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-17T16:05:01Z",
+      "side": 1,
+      "message": "If Affinity level 3 is required, the topology map will look different.",
+      "range": {
+        "startLine": 16,
+        "startChar": 26,
+        "endLine": 16,
+        "endChar": 48
+      },
+      "revId": "4dec1416d3c3ce8d0e86cc6c0e3bc86bbc722b92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b636dd78_7f773813",
+        "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-17T16:05:01Z",
+      "side": 1,
+      "message": "This doesnt look correct.",
+      "range": {
+        "startLine": 42,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 39
+      },
+      "revId": "4dec1416d3c3ce8d0e86cc6c0e3bc86bbc722b92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
