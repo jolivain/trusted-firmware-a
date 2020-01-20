@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "f8f472c1_bf31a271",
+        "filename": "plat/arm/board/rdn1edge/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-20T12:50:32Z",
+      "side": 1,
+      "message": "Will fix in the next series",
+      "parentUuid": "21c096e5_365643d2",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 8
+      },
+      "revId": "4dec1416d3c3ce8d0e86cc6c0e3bc86bbc722b92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1777fd3_547e4845",
         "filename": "plat/arm/board/rdn1edge/rdn1edge_plat.c",
         "patchSetId": 5
@@ -59,6 +83,30 @@
       "writtenOn": "2020-01-17T16:05:01Z",
       "side": 1,
       "message": "why is this needed ?",
+      "range": {
+        "startLine": 13,
+        "startChar": 12,
+        "endLine": 13,
+        "endChar": 22
+      },
+      "revId": "4dec1416d3c3ce8d0e86cc6c0e3bc86bbc722b92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "639cbd3e_4ecc4a00",
+        "filename": "plat/arm/board/rdn1edge/rdn1edge_plat.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-20T12:50:32Z",
+      "side": 1,
+      "message": "The structures get consumed in plat_arm_sgi_bl31_board_setup() function only.  Since plat_arm_sgi_bl31_board_setup() get compiled only for BL31 stage, if we don\u0027t use the flag, unused variable error is thrown for BL1 and BL2 builds.",
+      "parentUuid": "d1777fd3_547e4845",
       "range": {
         "startLine": 13,
         "startChar": 12,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "553870ea_e47050ed",
+        "filename": "plat/arm/board/rdn1edge/rdn1edge_plat.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-20T12:50:32Z",
+      "side": 1,
+      "message": "mmap_add_dynamic_region() function will get compiled only for the BL31 stage. So this is flag is required.",
+      "parentUuid": "919d339d_bae26f10",
+      "range": {
+        "startLine": 54,
+        "startChar": 12,
+        "endLine": 54,
+        "endChar": 22
+      },
+      "revId": "4dec1416d3c3ce8d0e86cc6c0e3bc86bbc722b92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9141948d_42f24e5a",
         "filename": "plat/arm/board/rdn1edge/rdn1edge_plat.c",
         "patchSetId": 5
@@ -105,6 +177,30 @@
       "writtenOn": "2020-01-17T16:05:01Z",
       "side": 1,
       "message": "The build config RDN1EDGE_MULTI_CHIP that I mention previously will help here.",
+      "range": {
+        "startLine": 65,
+        "startChar": 3,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "4dec1416d3c3ce8d0e86cc6c0e3bc86bbc722b92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e883feed_2f19edab",
+        "filename": "plat/arm/board/rdn1edge/rdn1edge_plat.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-20T12:50:32Z",
+      "side": 1,
+      "message": "The flag will still remain the same as PLAT_ARM_CSS_NUM_CHIPS right?",
+      "parentUuid": "9141948d_42f24e5a",
       "range": {
         "startLine": 65,
         "startChar": 3,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "79369273_b2ddee35",
+        "filename": "plat/arm/board/rdn1edge/rdn1edge_topology.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-20T12:50:32Z",
+      "side": 1,
+      "message": "We don\u0027t do any power control on AFF3 level, all happens at cluster power domain. We use AFF3 only for the core position calculation. Hence the max power level is set to cluster domain.",
+      "parentUuid": "5177185d_1cd1bd2d",
+      "range": {
+        "startLine": 16,
+        "startChar": 26,
+        "endLine": 16,
+        "endChar": 48
+      },
+      "revId": "4dec1416d3c3ce8d0e86cc6c0e3bc86bbc722b92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b636dd78_7f773813",
         "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
         "patchSetId": 5
@@ -151,6 +271,30 @@
       "writtenOn": "2020-01-17T16:05:01Z",
       "side": 1,
       "message": "This doesnt look correct.",
+      "range": {
+        "startLine": 42,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 39
+      },
+      "revId": "4dec1416d3c3ce8d0e86cc6c0e3bc86bbc722b92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2845dcb_34e47401",
+        "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-20T12:50:32Z",
+      "side": 1,
+      "message": "Ack. Will fix in the next update.",
+      "parentUuid": "b636dd78_7f773813",
       "range": {
         "startLine": 42,
         "startChar": 18,
