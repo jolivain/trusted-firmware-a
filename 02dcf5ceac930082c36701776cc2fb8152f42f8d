@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e4a07dd4_645eda97",
+        "filename": "plat/arm/board/rde1edge/rde1edge_plat.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-20T12:36:41Z",
+      "side": 1,
+      "message": "This function is specific to BL31 and need to get compiled only for that.",
+      "parentUuid": "6461b274_22d8fc25",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "02dcf5ceac930082c36701776cc2fb8152f42f8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e10a289_8ed6845a",
         "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "153f7b80_097c9278",
+        "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-20T12:36:41Z",
+      "side": 1,
+      "message": "There\u0027s no specific header file for sgi_bl31_setup.c. I can move it to \u003csgi_variant.h\u003e if that is fine.",
+      "parentUuid": "3e10a289_8ed6845a",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 48
+      },
+      "revId": "02dcf5ceac930082c36701776cc2fb8152f42f8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f0934b2_c6fb19c9",
         "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2020-01-17T15:14:28Z",
       "side": 1,
       "message": "Is it better to move this to individual platforms rather than invoke an empty plat_arm_sgi_* API ?",
+      "range": {
+        "startLine": 61,
+        "startChar": 5,
+        "endLine": 61,
+        "endChar": 24
+      },
+      "revId": "02dcf5ceac930082c36701776cc2fb8152f42f8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d52dde6_158730e8",
+        "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-20T12:36:41Z",
+      "side": 1,
+      "message": "The later patch adds to the plat_arm_sgi_bl31_board_setup() api. And for other platforms, the function can be used to do platform specific setups. Functions like sgi_ras_intr_handler_setup() are common to sgi platforms, so it will be good to maintain bl31_platform_setup() in this common file.",
+      "parentUuid": "8f0934b2_c6fb19c9",
       "range": {
         "startLine": 61,
         "startChar": 5,
