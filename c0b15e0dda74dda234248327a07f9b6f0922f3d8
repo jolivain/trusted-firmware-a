@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6bd79c19_ca1715e6",
+        "filename": "lib/semihosting/semihosting.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000309
+      },
+      "writtenOn": "2020-01-20T14:53:53Z",
+      "side": 1,
+      "message": "How do you mean \u0027the service is known to be unsupported on aarch32\u0027? According to the Arm semihosting spec (https://static.docs.arm.com/dui0003/b/semihosting.pdf?_ga\u003d2.85156571.334918264.1578935231-788161481.1537527295) at least, it should be supported on both. The only difference (for some reason) is that a subcode can\u0027t be passed in the aarch32 case.",
+      "parentUuid": "af20afa8_6b143d9b",
+      "range": {
+        "startLine": 228,
+        "startChar": 1,
+        "endLine": 228,
+        "endChar": 17
+      },
+      "revId": "c0b15e0dda74dda234248327a07f9b6f0922f3d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d5bfcc9b_44629896",
         "filename": "plat/qemu/common/qemu_pm.c",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "c0b15e0dda74dda234248327a07f9b6f0922f3d8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a5a1d15_e7c5079b",
+        "filename": "plat/qemu/common/qemu_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000309
+      },
+      "writtenOn": "2020-01-20T14:53:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5bfcc9b_44629896",
+      "range": {
+        "startLine": 195,
+        "startChar": 18,
+        "endLine": 195,
+        "endChar": 25
+      },
+      "revId": "c0b15e0dda74dda234248327a07f9b6f0922f3d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
