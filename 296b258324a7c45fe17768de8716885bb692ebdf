@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e6cd4d11_6d174561",
+        "filename": "docs/plat/arm/arm-build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000309
+      },
+      "writtenOn": "2020-01-20T14:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8ec7dd_a86c69c8",
+      "range": {
+        "startLine": 35,
+        "startChar": 11,
+        "endLine": 36,
+        "endChar": 45
+      },
+      "revId": "296b258324a7c45fe17768de8716885bb692ebdf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc44385b_7480eed8",
         "filename": "plat/qemu/common/qemu_bl31_setup.c",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-01-20T14:22:15Z",
       "side": 1,
       "message": "I wonder if you could just re-use ARM_PRELOADED_DTB_BASE pattern, same as ARM platform,\nby adding to qemu\u0027s platform.mk (just after your change):\n\n    ifeq (${ARM_LINUX_KERNEL_AS_BL33},1)\n      ARM_PRELOADED_DTB_BASE :\u003d PLAT_QEMU_DT_BASE\n      $(eval $(call add_define,ARM_PRELOADED_DTB_BASE))\n    endif\n\nThis leaves the possibility to still override ARM_PRELOADED_DTB_BASE on the command line.",
+      "range": {
+        "startLine": 70,
+        "startChar": 46,
+        "endLine": 70,
+        "endChar": 63
+      },
+      "revId": "296b258324a7c45fe17768de8716885bb692ebdf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75392901_52b8183d",
+        "filename": "plat/qemu/common/qemu_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000309
+      },
+      "writtenOn": "2020-01-20T14:42:55Z",
+      "side": 1,
+      "message": "We presumably want to use the same FDT in BL2 where it is updated and possibly passed to BL32, so we need to use ARM_PRELOADED_DTB_BASE there and define it whether or not ARM_LINUX_KERNEL_AS_BL33 is enabled.",
+      "parentUuid": "dc44385b_7480eed8",
       "range": {
         "startLine": 70,
         "startChar": 46,
