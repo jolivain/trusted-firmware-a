@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af20afa8_6b143d9b",
+        "filename": "lib/semihosting/semihosting.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-01-20T14:32:56Z",
+      "side": 1,
+      "message": "Why calling this function if service is known to be unsupported on aarch32?",
+      "range": {
+        "startLine": 228,
+        "startChar": 1,
+        "endLine": 228,
+        "endChar": 17
+      },
+      "revId": "c0b15e0dda74dda234248327a07f9b6f0922f3d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5bfcc9b_44629896",
+        "filename": "plat/qemu/common/qemu_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-01-20T14:32:56Z",
+      "side": 1,
+      "message": "Can we rather use a define?",
+      "range": {
+        "startLine": 195,
+        "startChar": 18,
+        "endLine": 195,
+        "endChar": 25
+      },
+      "revId": "c0b15e0dda74dda234248327a07f9b6f0922f3d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
