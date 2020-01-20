@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "652922cf_96ef8407",
+        "filename": "plat/arm/board/fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2020-01-20T17:56:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "142fa5e6_0fc7b354",
+      "revId": "b207693cf1363bde8753a7821f9394242c0cdc20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cda01c08_a31dcc9e",
         "filename": "plat/arm/board/fpga/aarch64/fpga_helpers.S",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "788232ab_52936427",
+        "filename": "plat/arm/board/fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2020-01-20T17:56:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cda01c08_a31dcc9e",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 7
+      },
+      "revId": "b207693cf1363bde8753a7821f9394242c0cdc20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7b0a881_38d5ccea",
         "filename": "plat/arm/board/fpga/fpga_def.h",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2020-01-20T17:35:08Z",
       "side": 1,
       "message": "Maybe use the full name (multi-threading) here, just for clarity?",
+      "range": {
+        "startLine": 14,
+        "startChar": 7,
+        "endLine": 14,
+        "endChar": 9
+      },
+      "revId": "b207693cf1363bde8753a7821f9394242c0cdc20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a50bfe32_1f500478",
+        "filename": "plat/arm/board/fpga/fpga_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2020-01-20T17:56:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7b0a881_38d5ccea",
       "range": {
         "startLine": 14,
         "startChar": 7,
