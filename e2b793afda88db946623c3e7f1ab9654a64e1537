@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d56ddde7_9d6e1cb6",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000130
+      },
+      "writtenOn": "2020-01-20T13:29:57Z",
+      "side": 1,
+      "message": "Presently this is how all the CSS platforms obtain the SCMI domain id from core position. \n\nA function can be introduced to do this but that would require introducing changes for all platforms. The focus of this patch is to add support for multiple channels. A function can be introduced for the above as a separate patch in itself when required",
+      "parentUuid": "29870d85_5a59320c",
+      "range": {
+        "startLine": 87,
+        "startChar": 16,
+        "endLine": 87,
+        "endChar": 52
+      },
+      "revId": "e2b793afda88db946623c3e7f1ab9654a64e1537",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6a8bcdd_ed728dd6",
         "filename": "drivers/arm/css/scp/css_pm_scmi.c",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2020-01-17T15:45:21Z",
       "side": 1,
       "message": "I can see that this call can arrive on any CPU at runtime and you would like to pass this to the primary SCP on the system. Is it not more possible for this SCP to messsage the primary SCP via some internal messaging mechanism ?",
+      "range": {
+        "startLine": 292,
+        "startChar": 43,
+        "endLine": 292,
+        "endChar": 75
+      },
+      "revId": "e2b793afda88db946623c3e7f1ab9654a64e1537",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a667a322_cbce11c9",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000130
+      },
+      "writtenOn": "2020-01-20T13:29:57Z",
+      "side": 1,
+      "message": "Yes the call can arrive on any CPU at run time. However, for all platform level SCMI messages, the platform nominates the default channel to handle all the System Level SCMI commands. The SCMI implementation in SCP would then collaborate with other SCP\u0027s to service the SCMI commands.",
+      "parentUuid": "f6a8bcdd_ed728dd6",
       "range": {
         "startLine": 292,
         "startChar": 43,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a9c77337_d28ac20a",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000130
+      },
+      "writtenOn": "2020-01-20T13:29:57Z",
+      "side": 1,
+      "message": "Sorry,\nI did not completely understand this and can you just help me by illustrating why MAX_CS_SCMI_CH_COUNT is better and how exactly \"plat_css_get_scmi_info\" can be used to discover the channels.\nI might be missing something as this comment is not clear to me.\nThanks",
+      "parentUuid": "264f06c2_01846b9c",
+      "range": {
+        "startLine": 348,
+        "startChar": 21,
+        "endLine": 348,
+        "endChar": 48
+      },
+      "revId": "e2b793afda88db946623c3e7f1ab9654a64e1537",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80baa6e3_cbabccf9",
         "filename": "drivers/arm/css/scp/css_pm_scmi.c",
         "patchSetId": 5
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b268281a_8a8758c3",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1000130
+      },
+      "writtenOn": "2020-01-20T13:29:57Z",
+      "side": 1,
+      "message": "The current implementation uses a single lock for synchronization and with this patch intends to maintain it.",
+      "parentUuid": "80baa6e3_cbabccf9",
+      "range": {
+        "startLine": 351,
+        "startChar": 28,
+        "endLine": 351,
+        "endChar": 54
+      },
+      "revId": "e2b793afda88db946623c3e7f1ab9654a64e1537",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28c30155_5611c8e7",
         "filename": "drivers/arm/css/scp/css_pm_scmi.c",
         "patchSetId": 5
@@ -105,6 +201,30 @@
       "writtenOn": "2020-01-17T15:45:21Z",
       "side": 1,
       "message": "this will always be invoked on the primary core. So can we not just use css_scp_core_pos_to_scmi_channel() here and avoid need for this macro ?",
+      "range": {
+        "startLine": 374,
+        "startChar": 34,
+        "endLine": 374,
+        "endChar": 66
+      },
+      "revId": "e2b793afda88db946623c3e7f1ab9654a64e1537",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4acb4de4_1c95040c",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000130
+      },
+      "writtenOn": "2020-01-20T13:29:57Z",
+      "side": 1,
+      "message": "This is again refers to the same point as mentioned in the above comment \"css_scp_system_off\" . It is about tying system level commands to a particular channel",
+      "parentUuid": "28c30155_5611c8e7",
       "range": {
         "startLine": 374,
         "startChar": 34,
