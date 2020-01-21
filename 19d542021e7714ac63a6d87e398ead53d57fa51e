@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc7117e0_86bebccf",
+        "filename": "tools/encrypt_fw/Makefile",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-21T13:37:08Z",
+      "side": 1,
+      "message": "Perhaps rename this variable, as there\u0027s no platform specific header in this directory? Or even simpler, drop this variable altogether and just hard-code the path at line 43? I don\u0027t think we need any configurability for this path so should be OK?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "19d542021e7714ac63a6d87e398ead53d57fa51e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70330039_9b29f250",
+        "filename": "tools/encrypt_fw/src/encrypt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-21T13:37:08Z",
+      "side": 1,
+      "message": "Perhaps a bit overkill but fseek() might fail as well, check against -1? Otherwise we might end up writing data in the wrong place and get a malformed file?",
+      "range": {
+        "startLine": 72,
+        "startChar": 1,
+        "endLine": 73,
+        "endChar": 0
+      },
+      "revId": "19d542021e7714ac63a6d87e398ead53d57fa51e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ada70ae_046628f7",
+        "filename": "tools/encrypt_fw/src/encrypt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-21T13:37:08Z",
+      "side": 1,
+      "message": "Check against NULL and return -1?",
+      "range": {
+        "startLine": 74,
+        "startChar": 1,
+        "endLine": 75,
+        "endChar": 0
+      },
+      "revId": "19d542021e7714ac63a6d87e398ead53d57fa51e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
