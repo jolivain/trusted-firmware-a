@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12cd5d7f_ef79d688",
+        "filename": "drivers/allwinner/sunxi_msgbox.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-01-21T20:52:15Z",
+      "side": 1,
+      "message": "Can you make the comparison explicitly with unsigned zero?\n(stat \u0026 RX_IRQ(chan)) \u003d\u003d 0U",
+      "revId": "879a32e855b377b0d775ca048b1d7f6c86700506",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8250c22d_3b4cc4ee",
+        "filename": "drivers/allwinner/sunxi_msgbox.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-01-21T20:52:15Z",
+      "side": 1,
+      "message": "Is slot_id argument not used intentionally?",
+      "revId": "879a32e855b377b0d775ca048b1d7f6c86700506",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
