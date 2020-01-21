@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78955a17_d14137c8",
+        "filename": "plat/arm/board/fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000296
+      },
+      "writtenOn": "2020-01-21T17:28:24Z",
+      "side": 1,
+      "message": "Line \u003e 80 characters.",
+      "revId": "f5b719ef4ba678606ed0db93e2e9b74991ef1dcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6386dc53_2d0a37c1",
+        "filename": "plat/arm/board/fpga/fpga_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000296
+      },
+      "writtenOn": "2020-01-21T17:28:24Z",
+      "side": 1,
+      "message": "\"not all system configurations\"?",
+      "range": {
+        "startLine": 29,
+        "startChar": 50,
+        "endLine": 29,
+        "endChar": 75
+      },
+      "revId": "f5b719ef4ba678606ed0db93e2e9b74991ef1dcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e981c9af_81e6b468",
+        "filename": "plat/arm/board/fpga/fpga_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000296
+      },
+      "writtenOn": "2020-01-21T17:28:24Z",
+      "side": 1,
+      "message": "Based on the value of PLAT_FPGA_HOLD_ENTRY_SHIFT, the assumption we are making here is that `unsigned long` is 64 bits, but that is up to the compiler. The only assumption we can make is that it is at least 32 bits.\nI think we should use `uint64_t` since it is guaranteed to be exactly 64 bits in size.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "f5b719ef4ba678606ed0db93e2e9b74991ef1dcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
