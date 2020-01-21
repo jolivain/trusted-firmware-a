@@ -16,6 +16,24 @@
       "revId": "f50828d52ec6fc7c20459d5ce581ffa927347030",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "147dbb0b_cbecb188",
+        "filename": "plat/xilinx/versal/pm_service/pm_api_sys.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1000222
+      },
+      "writtenOn": "2020-01-21T22:10:16Z",
+      "side": 1,
+      "message": "Call is routed to fw and parameter validation is taken care in fw.",
+      "parentUuid": "30633e11_4c3767a1",
+      "revId": "f50828d52ec6fc7c20459d5ce581ffa927347030",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
