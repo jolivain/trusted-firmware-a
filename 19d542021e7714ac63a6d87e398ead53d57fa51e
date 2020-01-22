@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "278cfb36_2fa30929",
+        "filename": "tools/encrypt_fw/Makefile",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-22T05:54:55Z",
+      "side": 1,
+      "message": "Ok, will hard-code this include path at line 43.",
+      "parentUuid": "cc7117e0_86bebccf",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "19d542021e7714ac63a6d87e398ead53d57fa51e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "70330039_9b29f250",
         "filename": "tools/encrypt_fw/src/encrypt.c",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "32a47442_31e11756",
+        "filename": "tools/encrypt_fw/src/encrypt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-22T05:54:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "70330039_9b29f250",
+      "range": {
+        "startLine": 72,
+        "startChar": 1,
+        "endLine": 73,
+        "endChar": 0
+      },
+      "revId": "19d542021e7714ac63a6d87e398ead53d57fa51e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ada70ae_046628f7",
         "filename": "tools/encrypt_fw/src/encrypt.c",
         "patchSetId": 6
@@ -68,6 +116,30 @@
       "revId": "19d542021e7714ac63a6d87e398ead53d57fa51e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4eaabed_47e3e9e4",
+        "filename": "tools/encrypt_fw/src/encrypt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-01-22T05:54:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1ada70ae_046628f7",
+      "range": {
+        "startLine": 74,
+        "startChar": 1,
+        "endLine": 75,
+        "endChar": 0
+      },
+      "revId": "19d542021e7714ac63a6d87e398ead53d57fa51e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
