@@ -141,6 +141,30 @@
       "revId": "f8f654e9acee0912293fa50fb4b5e7a0967e1d10",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccade32a_cf0f6c15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-01-22T17:46:48Z",
+      "side": 1,
+      "message": "Thank you for the detailed comments. \nI believe just because some platforms have few false positives, dropping the warning flag which could benefit everyone else may not be the appropriate solution. I don\u0027t mean to disagree with you but the probability of IMPORT_SYM being dropped in future and someone running into trouble with ALIAS_SYM looks slim to me because IMPORT_SYM belongs to framework/central part of tf-a and not any platform-specific code. Moreover, the need to use this macro again in future to add/import linker symbols seems scarce because all the platforms are up and running with necessary memory mapping, initialization and platform setup already done. \n\nBased on your comments, I believe the middle ground would be to use pragma to ignore the warning as there is nothing wrong with importing the linker symbol twice and enable the -wredundant-decls flag. Let me know your thoughts.",
+      "parentUuid": "6e2720ad_74e2276f",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 41
+      },
+      "revId": "f8f654e9acee0912293fa50fb4b5e7a0967e1d10",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
