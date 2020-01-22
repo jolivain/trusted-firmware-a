@@ -33,6 +33,24 @@
       "revId": "879a32e855b377b0d775ca048b1d7f6c86700506",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42d2a57d_4bf53269",
+        "filename": "drivers/allwinner/sunxi_msgbox.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2020-01-22T03:36:37Z",
+      "side": 1,
+      "message": "Yes. The hardware implements a FIFO of 32-bit messages. The slot_id is sent as the contents of the message. So it is only needed when actually sending the message.\n\nIt looks like __unused is the preferred marking, so I\u0027ll add that.",
+      "parentUuid": "8250c22d_3b4cc4ee",
+      "revId": "879a32e855b377b0d775ca048b1d7f6c86700506",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
