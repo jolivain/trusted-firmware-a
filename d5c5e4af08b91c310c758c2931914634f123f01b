@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "932a1712_006b584c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-01-22T12:00:32Z",
+      "side": 1,
+      "message": "Will update this.",
+      "parentUuid": "35120888_46988dcd",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "d5c5e4af08b91c310c758c2931914634f123f01b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4b3da4ae_b8435146",
         "filename": "drivers/brcm/uart/ns16550_uart_console.S",
         "patchSetId": 5
@@ -36,6 +60,24 @@
       "writtenOn": "2020-01-21T21:34:59Z",
       "side": 1,
       "message": "Driver for uart 16550 is already available at drivers/ti/uart/aarch64/16550_console.S, you can include it in your platform(many other platforms has done it) instead copy/paste same content and creating a new file.",
+      "revId": "d5c5e4af08b91c310c758c2931914634f123f01b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fbf993c_a476d7bd",
+        "filename": "drivers/brcm/uart/ns16550_uart_console.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-01-22T12:00:32Z",
+      "side": 1,
+      "message": "Okay will check other platforms and try to reuse it",
+      "parentUuid": "4b3da4ae_b8435146",
       "revId": "d5c5e4af08b91c310c758c2931914634f123f01b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
