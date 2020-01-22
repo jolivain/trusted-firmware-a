@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07e6c8af_660a7b2f",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-22T11:04:56Z",
+      "side": 1,
+      "message": "I havent looked at all the implementations of the functions, but be cautious with the arguments from the SMC handler.",
+      "revId": "ab43d15b9137cf8def6d97ee878d60cad48ae770",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
