@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "401a2342_0e95e1a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-22T14:06:08Z",
+      "side": 1,
+      "message": "Sorry, my question was, why do we need this line in bl31_plat_setup.c:\n\n IMPORT_SYM(unsigned long, __RO_START__, BL2_RO_BASE)\n\nwhen we already have this line in bl_common.h:\n\n IMPORT_SYM(uintptr_t, __RO_START__, BL_CODE_BASE);\n\nBut you\u0027ve answered it, i.e. it is probably because platform maintainers wanted a more explicit name.",
+      "parentUuid": "83dec4c3_0d06b8ce",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 52
+      },
+      "revId": "f8f654e9acee0912293fa50fb4b5e7a0967e1d10",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3add71bc_e13abd67",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "You are right. My bad. I overlooked the important attributes. I now have a simple idea of covert the 2nd IMPORT_SYM to a new macro called ALIAS_SYM defined as follows:\n\n#define ALIAS_SYM(type, sym, name) \\\n        static const __attribute__((unused)) type name \u003d (type) sym;\n\nThis way there is no need to import the linker symbol (ex: __RO_START_). Let me know your thoughts on this.",
       "parentUuid": "3add71bc_e13abd67",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 41
+      },
+      "revId": "f8f654e9acee0912293fa50fb4b5e7a0967e1d10",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e2720ad_74e2276f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-22T14:06:08Z",
+      "side": 1,
+      "message": "Yes, I also thought about this ALIAS_SYM() method but on further thoughts, I am not sure it\u0027s convenient. One would need to know that a previous IMPORT_SYM() macro has been called, possibly through the inclusion of some deep header files chain, to make a call and use the right variant IMPORT_SYM/ALIAS_SYM accordingly. Also, if we ever remove some IMPORT_SYM() calls from bl_common.h, this will suddenly break the users of ALIAS_SYM()...\n\nI can\u0027t think of a satisfying solution to this problem... other than re-considering whether we really want to enable -Wredundant-decls? It seems counter-intuitive to me to have to work around false issues like that. As you\u0027ve mentioned in the commit message, in this specific case there is nothing wrong with importing the linker symbol twice.",
+      "parentUuid": "89622f2a_b2b27a4f",
       "range": {
         "startLine": 28,
         "startChar": 0,
