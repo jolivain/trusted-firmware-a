@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aed59dfc_929a217b",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2020-01-22T03:36:31Z",
+      "side": 1,
+      "message": "No, it falls back to the \"native\" sunxi_power_down() implementation",
+      "parentUuid": "06aff366_9b2532b4",
+      "revId": "80107cab60bdd2acba8fc243c65b3cf38c769c90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44085fcb_aa41685b",
         "filename": "plat/allwinner/common/sunxi_pm.c",
         "patchSetId": 8
@@ -115,6 +133,24 @@
       "writtenOn": "2020-01-14T09:41:17Z",
       "side": 1,
       "message": "if (scpi_get_css_power_state(mpidr, \u0026cpu_state, \u0026cluster_state) !\u003d 0)\ndon\u0027t you want to return scpi_get_css_power_state() value in case of !\u003d 0?",
+      "revId": "80107cab60bdd2acba8fc243c65b3cf38c769c90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3ed5f91_b903edfd",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2020-01-22T03:36:31Z",
+      "side": 1,
+      "message": "No. scpi_get_css_power_state() returns 0 or -1. According to porting-guide.rst about the get_node_hw_state callback:\n\n\"Upon encountering failures, it must return either PSCI_E_INVALID_PARAMS or PSCI_E_NOT_SUPPORTED as appropriate.\"",
+      "parentUuid": "30b49038_8f1a16c5",
       "revId": "80107cab60bdd2acba8fc243c65b3cf38c769c90",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
