@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0b78fa8_6e8fac22",
+        "filename": "docs/plat/xilinx-versal.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-23T09:52:16Z",
+      "side": 1,
+      "message": "ATF -\u003e TF-A?",
+      "revId": "23793dc066e5262b570543ba1ac49cf0bf5e6b39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3365cf1f_86743b6d",
+        "filename": "plat/xilinx/versal/aarch64/versal_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-23T09:52:16Z",
+      "side": 1,
+      "message": "2020",
+      "revId": "23793dc066e5262b570543ba1ac49cf0bf5e6b39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb67079_a6aa1442",
+        "filename": "plat/xilinx/versal/bl31_versal_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-23T09:52:16Z",
+      "side": 1,
+      "message": "2020",
+      "revId": "23793dc066e5262b570543ba1ac49cf0bf5e6b39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95ef12e4_fb7a3b5c",
+        "filename": "plat/xilinx/versal/bl31_versal_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-23T09:52:16Z",
+      "side": 1,
+      "message": "add empty line to make the syntax checking script happy",
+      "revId": "23793dc066e5262b570543ba1ac49cf0bf5e6b39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd2fe5d2_bc1a4b0e",
+        "filename": "plat/xilinx/versal/bl31_versal_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-23T09:52:16Z",
+      "side": 1,
+      "message": "Change acc. to coding guidelines:\n\nif (ret \u003d\u003d FSBL_HANDOFF_NO_STRUCT) {\n\t\tbl31_set_default_config();\n} else if (ret !\u003d FSBL_HANDOFF_SUCCESS) {\n\t\tpanic();\n}",
+      "revId": "23793dc066e5262b570543ba1ac49cf0bf5e6b39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ccd7ce0_4d028533",
+        "filename": "plat/xilinx/versal/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-23T09:52:16Z",
+      "side": 1,
+      "message": "2020",
+      "revId": "23793dc066e5262b570543ba1ac49cf0bf5e6b39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1d27406_4806d920",
+        "filename": "plat/xilinx/versal/include/versal_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-23T09:52:16Z",
+      "side": 1,
+      "message": "2020",
+      "revId": "23793dc066e5262b570543ba1ac49cf0bf5e6b39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27c75769_58d0d54b",
+        "filename": "plat/xilinx/versal/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-23T09:52:16Z",
+      "side": 1,
+      "message": "2020",
+      "revId": "23793dc066e5262b570543ba1ac49cf0bf5e6b39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
