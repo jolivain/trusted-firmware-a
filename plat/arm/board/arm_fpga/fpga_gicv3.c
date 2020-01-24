@@ -7,6 +7,9 @@
 #include <drivers/arm/gicv3.h>
 #include <drivers/arm/gic_common.h>
 
+#include <libfdt.h>
+#include <common/fdt_wrappers.h>
+#include <platform_def.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
@@ -22,9 +25,7 @@ static unsigned int fpga_mpidr_to_core_pos(unsigned long mpidr)
 	return (unsigned int)plat_core_pos_by_mpidr(mpidr);
 }
 
-static const gicv3_driver_data_t fpga_gicv3_driver_data = {
-	.gicd_base = GICD_BASE,
-	.gicr_base = GICR_BASE,
+static gicv3_driver_data_t fpga_gicv3_driver_data = {
 	.interrupt_props = fpga_interrupt_props,
 	.interrupt_props_num = ARRAY_SIZE(fpga_interrupt_props),
 	.rdistif_num = PLATFORM_CORE_COUNT,
@@ -34,6 +35,24 @@ static const gicv3_driver_data_t fpga_gicv3_driver_data = {
 
 void plat_fpga_gic_init(void)
 {
+	const void *fdt = (void *)(uintptr_t)FPGA_PRELOADED_DTB_BASE;
+	int node, ret;
+
+	node = fdt_node_offset_by_compatible(fdt, 0, "arm,gic-v3");
+	if (node < 0)
+		return;
+
+	/* TODO: Assuming only empty "ranges;" properties up the bus path. */
+	ret = fdt_get_reg_props_by_index(fdt, node, 0,
+				 &fpga_gicv3_driver_data.gicd_base, NULL);
+	if (ret < 0)
+		return;
+
+	ret = fdt_get_reg_props_by_index(fdt, node, 1,
+				 &fpga_gicv3_driver_data.gicr_base, NULL);
+	if (ret < 0)
+		return;
+
 	gicv3_driver_init(&fpga_gicv3_driver_data);
 	gicv3_distif_init();
 	gicv3_rdistif_init(plat_my_core_pos());
