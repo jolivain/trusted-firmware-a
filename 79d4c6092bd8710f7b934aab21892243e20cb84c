@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7356e5e_86a4e698",
+        "filename": "docs/design/trusted-board-boot-build.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-24T10:45:44Z",
+      "side": 1,
+      "message": "Did you really mean Juno model? Or Juno board?",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 19
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e33f2ba5_62d51a4b",
+        "filename": "include/plat/common/common_def.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-24T10:45:44Z",
+      "side": 1,
+      "message": "These macros look misplaced to me because the size of the ROTPK hash might defer from platform to platform. Here, ROTPK_HASH_LEN is set to 256 bits but it could be bigger. AFAICS, only Arm platforms use that value right now, perhaps consider moving it to arm_def.h?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 28
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97712935_5f68c96a",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 14
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-24T10:45:44Z",
+      "side": 1,
+      "message": "I think we should document ARM_ROTPK_HASH build option in arm-build-options.rst.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 67
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8842f732_3b11e16c",
+        "filename": "plat/arm/board/common/rotpk/arm_dev_rotpk.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-24T10:45:44Z",
+      "side": 1,
+      "message": "Why is the header embedded twice, here and at line 18? Can we not have only 1 instance?",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4014791_b302cf89",
+        "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-24T10:45:44Z",
+      "side": 1,
+      "message": "I think we need to pass the cookie down to the arm_get_rotpk_info_*() functions. Although it\u0027s not used in the current implementation, it\u0027s meant to identify which specific key (if there are several of them) we want to retrieve. I\u0027d rather keep that flexibility.",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 52
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37d51637_f7aa1be6",
+        "filename": "plat/arm/board/juno/juno_trusted_boot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-24T10:45:44Z",
+      "side": 1,
+      "message": "Could this be moved to the build system instead? First of all, it would unclutter this function code a bit (I find it quite difficult to read with all these preprocessor conditionals right now). Also, I think it\u0027s best if build options dependencies are handled in the build system, as it will simplify the transition to a Kconfig-like system in the future. If some dependencies are buried into the code instead, it will them harder to identify.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 0
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
