@@ -189,6 +189,30 @@
       "revId": "f8f654e9acee0912293fa50fb4b5e7a0967e1d10",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10385843_3f948db9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-24T13:05:57Z",
+      "side": 1,
+      "message": "OK, you\u0027ve both convinced me. I agree with Soby\u0027s solution (which was yours, Madhu, + the addition of static and const qualifiers ; in the end I don\u0027t think we need the attribute(unused) in this case, as it would be weird to have a declaration local to a C file that is not even used in this compilation unit)).\n\nOn further thoughts, I think it is better than the ALIAS_SYM() solution we\u0027ve discussed because the latter would introduce some framework facilities for something that is pretty rare and local to platform code, as pointed out by you both. So it doesn\u0027t sound worth it to me.",
+      "parentUuid": "1d434523_fb305b70",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 41
+      },
+      "revId": "f8f654e9acee0912293fa50fb4b5e7a0967e1d10",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
