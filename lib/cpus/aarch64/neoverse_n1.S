@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -463,6 +463,13 @@ func neoverse_n1_reset_func
 	/* Enable group0 counters */
 	mov	x0, #NEOVERSE_N1_AMU_GROUP0_MASK
 	msr	CPUAMCNTENSET_EL0, x0
+#endif
+
+#if NEOVERSE_N1_EXTERNAL_LLC
+	/* Some system may have External LLC, core needs to be made aware */
+	mrs     x0, NEOVERSE_N1_CPUECTLR_EL1
+	orr     x0, x0, NEOVERSE_N1_CPUECTLR_EL1_EXTLLC_BIT
+	msr     NEOVERSE_N1_CPUECTLR_EL1, x0
 #endif
 
 #if ERRATA_DSU_936184
