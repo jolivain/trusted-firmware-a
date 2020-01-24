@@ -197,7 +197,7 @@ static void plat_cluster_pwron_common(uint64_t mpidr, int cluster)
 
 static void plat_cpu_standby(plat_local_state_t cpu_state)
 {
-	unsigned int scr;
+	u_register_t scr;
 
 	scr = read_scr_el3();
 	write_scr_el3(scr | SCR_IRQ_BIT | SCR_FIQ_BIT);
