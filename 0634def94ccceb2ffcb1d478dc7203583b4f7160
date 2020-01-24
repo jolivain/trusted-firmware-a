@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2582d823_865af8a7",
+        "filename": "plat/arm/board/fpga/fpga_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-01-24T12:27:27Z",
+      "side": 1,
+      "message": "The fact that you need an extra comment here hints at that you should just use 10000000 as the value. Or maybe even (10 * 1000 * 1000).",
+      "revId": "0634def94ccceb2ffcb1d478dc7203583b4f7160",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
