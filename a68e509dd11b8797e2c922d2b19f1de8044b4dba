@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "87f003d0_3109ce2c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2020-01-24T11:53:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "833a6f9b_b10fe795",
+      "range": {
+        "startLine": 26,
+        "startChar": 19,
+        "endLine": 26,
+        "endChar": 27
+      },
+      "revId": "a68e509dd11b8797e2c922d2b19f1de8044b4dba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "623471ea_090749d9",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-01-21T17:29:15Z",
       "side": 1,
       "message": "Typo.",
+      "range": {
+        "startLine": 27,
+        "startChar": 49,
+        "endLine": 27,
+        "endChar": 52
+      },
+      "revId": "a68e509dd11b8797e2c922d2b19f1de8044b4dba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67a91aff_0fc2d9de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2020-01-24T11:53:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "623471ea_090749d9",
       "range": {
         "startLine": 27,
         "startChar": 49,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ce88b37a_5a95efd9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2020-01-24T11:53:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b99a45d8_4b07c3a2",
+      "range": {
+        "startLine": 28,
+        "startChar": 34,
+        "endLine": 28,
+        "endChar": 47
+      },
+      "revId": "a68e509dd11b8797e2c922d2b19f1de8044b4dba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcd02561_9f007479",
         "filename": "plat/arm/board/fpga/fpga_def.h",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2020-01-21T17:29:15Z",
       "side": 1,
       "message": "I think it would be useful to add some explanation here for the increase in cluster/CPU/PE count, about how this is done to account for future changes in FPGA images and PSCI allows empty entries (essentially summarizing the commit message).",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 40
+      },
+      "revId": "a68e509dd11b8797e2c922d2b19f1de8044b4dba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c99bf5d_ed1faebd",
+        "filename": "plat/arm/board/fpga/fpga_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2020-01-24T11:53:26Z",
+      "side": 1,
+      "message": "Thanks for pointing this out, it needs updating",
+      "parentUuid": "dcd02561_9f007479",
       "range": {
         "startLine": 13,
         "startChar": 0,
