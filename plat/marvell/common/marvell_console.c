@@ -50,15 +50,14 @@ void marvell_console_boot_init(void)
 		panic();
 	}
 
-	console_set_scope(&marvell_boot_console.console,
-			  CONSOLE_FLAG_BOOT);
+	console_set_scope(&marvell_boot_console, CONSOLE_FLAG_BOOT);
 }
 
 void marvell_console_boot_end(void)
 {
 	(void)console_flush();
 
-	(void)console_unregister(&marvell_boot_console.console);
+	(void)console_unregister(&marvell_boot_console);
 }
 
 /* Initialize the runtime console */
@@ -77,13 +76,12 @@ void marvell_console_runtime_init(void)
 	if (rc == 0)
 		panic();
 
-	console_set_scope(&marvell_runtime_console.console,
-			  CONSOLE_FLAG_RUNTIME);
+	console_set_scope(&marvell_runtime_console, CONSOLE_FLAG_RUNTIME);
 }
 
 void marvell_console_runtime_end(void)
 {
 	(void)console_flush();
 
-	(void)console_unregister(&marvell_runtime_console.console);
+	(void)console_unregister(&marvell_runtime_console);
 }
