@@ -142,7 +142,7 @@ void sp_min_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 #ifdef DEBUG
 		console_flags |= CONSOLE_FLAG_RUNTIME;
 #endif
-		console_set_scope(&console.console, console_flags);
+		console_set_scope(&console, console_flags);
 	}
 }
 

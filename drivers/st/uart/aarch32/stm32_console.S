@@ -108,7 +108,7 @@ func console_stm32_register
 	mov	r4, r3
 	cmp	r4, #0
 	beq	register_fail
-	str	r0, [r4, #CONSOLE_T_STM32_BASE]
+	str	r0, [r4, #CONSOLE_T_BASE]
 
 	bl console_stm32_core_init
 	cmp	r0, #0
@@ -171,7 +171,7 @@ func console_stm32_putc
 	cmp	r1, #0
 	ASM_ASSERT(ne)
 #endif /* ENABLE_ASSERTIONS */
-	ldr	r1, [r1, #CONSOLE_T_STM32_BASE]
+	ldr	r1, [r1, #CONSOLE_T_BASE]
 	b	console_stm32_core_putc
 endfunc console_stm32_putc
 
@@ -232,6 +232,6 @@ func console_stm32_flush
 	cmp	r0, #0
 	ASM_ASSERT(ne)
 #endif /* ENABLE_ASSERTIONS */
-	ldr	r0, [r0, #CONSOLE_T_STM32_BASE]
+	ldr	r0, [r0, #CONSOLE_T_BASE]
 	b	console_stm32_core_flush
 endfunc console_stm32_flush
