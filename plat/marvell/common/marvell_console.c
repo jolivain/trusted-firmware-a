@@ -20,8 +20,8 @@ static console_a3700_t marvell_runtime_console;
 #else
 #include <drivers/ti/uart/uart_16550.h>
 
-static console_16550_t marvell_boot_console;
-static console_16550_t marvell_runtime_console;
+static console_t marvell_boot_console;
+static console_t marvell_runtime_console;
 #endif
 
 /*******************************************************************************
