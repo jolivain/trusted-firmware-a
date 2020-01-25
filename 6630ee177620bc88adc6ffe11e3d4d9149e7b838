@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21089658_5d66e6be",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-01-25T02:36:52Z",
+      "side": 1,
+      "message": "Nit(ignore if you don\u0027t care) - you can initialize rc \u003d CRYPTO_ERR_DECRYPTION in line 229 and save repeated code at lines 241,250 261 and 270.",
+      "revId": "6630ee177620bc88adc6ffe11e3d4d9149e7b838",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
