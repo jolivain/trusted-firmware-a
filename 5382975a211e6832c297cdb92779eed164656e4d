@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b503908e_7f4a6b1f",
+        "filename": "include/drivers/arm/css/scmi.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-27T13:48:59Z",
+      "side": 1,
+      "message": "Function used in sgm/sgm_bl31_setup.c\nThere should be a follow-up patch to refactor affected platforms.",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 65
+      },
+      "revId": "5382975a211e6832c297cdb92779eed164656e4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
