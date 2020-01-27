@@ -962,6 +962,7 @@ endif
 
 ifeq (${NEED_BL31},yes)
 BL31_SOURCES += ${SPD_SOURCES}
+BL31_SOURCES := $(sort ${BL31_SOURCES})
 $(if ${BL31}, $(eval $(call TOOL_ADD_IMG,bl31,--soc-fw)),\
 	$(eval $(call MAKE_BL,31,soc-fw)))
 endif
@@ -970,7 +971,7 @@ endif
 # build system will call TOOL_ADD_IMG to print a warning message and abort the
 # process. Note that the dependency on BL32 applies to the FIP only.
 ifeq (${NEED_BL32},yes)
-
+BL32_SOURCES := $(sort ${BL32_SOURCES})
 BUILD_BL32 := $(if $(BL32),,$(if $(BL32_SOURCES),1))
 
 $(if ${BUILD_BL32}, $(eval $(call MAKE_BL,32,tos-fw)),\
