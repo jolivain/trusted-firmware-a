@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "54e351ed_82949289",
+        "filename": "docs/design/trusted-board-boot-build.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-27T17:02:02Z",
+      "side": 1,
+      "message": "Let\u0027s change to board. I believe we can\u0027t simulate Juno, so it\u0027s a board.",
+      "parentUuid": "54af5fb6_820fa908",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 19
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e33f2ba5_62d51a4b",
         "filename": "include/plat/common/common_def.h",
         "patchSetId": 14
@@ -191,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "a363e0d2_6fef4700",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 14
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-27T17:02:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1c0c991e_38dd9c07",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 67
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8842f732_3b11e16c",
         "filename": "plat/arm/board/common/rotpk/arm_dev_rotpk.S",
         "patchSetId": 14
@@ -259,6 +307,30 @@
       "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c7c4e18_530c1dac",
+        "filename": "plat/arm/board/common/rotpk/arm_dev_rotpk.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-27T17:02:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c682fb67_54e892f7",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -333,6 +405,30 @@
     },
     {
       "key": {
+        "uuid": "f4e9275b_4bd3fee9",
+        "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-27T17:02:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8123ab36_b3456e36",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 52
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37d51637_f7aa1be6",
         "filename": "plat/arm/board/juno/juno_trusted_boot.c",
         "patchSetId": 14
@@ -401,6 +497,30 @@
       "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccbe1ec9_d9c73ac1",
+        "filename": "plat/arm/board/juno/juno_trusted_boot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-27T17:02:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "162fd97c_a423ab1d",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 0
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
