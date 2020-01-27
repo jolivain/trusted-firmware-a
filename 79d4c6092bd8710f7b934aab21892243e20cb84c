@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f45cfa8b_66ffaece",
+        "filename": "docs/design/trusted-board-boot-build.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-27T11:41:06Z",
+      "side": 1,
+      "message": "It was stated as Juno model before, so I have just removed the FVP option. Should it be board?",
+      "parentUuid": "b7356e5e_86a4e698",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 19
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e33f2ba5_62d51a4b",
         "filename": "include/plat/common/common_def.h",
         "patchSetId": 14
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "df85b2b4_f7387a9f",
+        "filename": "include/plat/common/common_def.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-27T11:41:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e33f2ba5_62d51a4b",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 28
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97712935_5f68c96a",
         "filename": "plat/arm/board/common/board_common.mk",
         "patchSetId": 14
@@ -59,6 +107,30 @@
       "writtenOn": "2020-01-24T10:45:44Z",
       "side": 1,
       "message": "I think we should document ARM_ROTPK_HASH build option in arm-build-options.rst.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 67
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa13b4d1_0d295b94",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 14
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-27T11:41:06Z",
+      "side": 1,
+      "message": "This is not a build option, for now, just a makefile variable. We are either generating a hash from  ROT_KEY if present or using the default one. I don\u0027t think it is necessary to add this as a build option since we would require ROT_KEY anyway and specifying both is prone to user-error (of pointing to non-related private-key/hash pair)",
+      "parentUuid": "97712935_5f68c96a",
       "range": {
         "startLine": 31,
         "startChar": 0,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f078c7c3_c4b6e5bc",
+        "filename": "plat/arm/board/common/rotpk/arm_dev_rotpk.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-27T11:41:06Z",
+      "side": 1,
+      "message": "Since we are defining header in separate section, it is not guaranteed that hash is right next to it in memory. We have to define header separately as there are functions that require only a header. We CAN have only one instance, but implementation would be a bit hacky and not straight-forward to understand in .c file.",
+      "parentUuid": "8842f732_3b11e16c",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d4014791_b302cf89",
         "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
         "patchSetId": 14
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f5f39251_67eb742c",
+        "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-27T11:41:06Z",
+      "side": 1,
+      "message": "Why not add this when we will be using it actually? I feel like adding an unused parameter is confusing and leads someone to believe we are actually using it. (I haven\u0027t noticed for a long time we are not actually using the parameter)",
+      "parentUuid": "d4014791_b302cf89",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 52
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "37d51637_f7aa1be6",
         "filename": "plat/arm/board/juno/juno_trusted_boot.c",
         "patchSetId": 14
@@ -128,6 +248,30 @@
       "writtenOn": "2020-01-24T10:45:44Z",
       "side": 1,
       "message": "Could this be moved to the build system instead? First of all, it would unclutter this function code a bit (I find it quite difficult to read with all these preprocessor conditionals right now). Also, I think it\u0027s best if build options dependencies are handled in the build system, as it will simplify the transition to a Kconfig-like system in the future. If some dependencies are buried into the code instead, it will them harder to identify.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 0
+      },
+      "revId": "79d4c6092bd8710f7b934aab21892243e20cb84c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0a5dd58_077415f2",
+        "filename": "plat/arm/board/juno/juno_trusted_boot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-01-27T11:41:06Z",
+      "side": 1,
+      "message": "I suggest we remove this check in general. We are defining this constant in makefile anyways and there is no way it is not defined if we are not using a cryptocell. Seems like unnecessary check for me.",
+      "parentUuid": "37d51637_f7aa1be6",
       "range": {
         "startLine": 117,
         "startChar": 0,
