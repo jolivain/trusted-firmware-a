@@ -200,6 +200,11 @@ BL31_SOURCES		+=	drivers/arm/fvp/fvp_pwrc.c			\
 				${FVP_INTERCONNECT_SOURCES}			\
 				${FVP_SECURITY_SOURCES}
 
+# Support for fconf
+BL31_SOURCES		+=	common/fdt_wrappers.c				\
+				lib/fconf/fconf.c				\
+				plat/arm/board/fvp/fconf/fconf_hw_config_getter.c
+
 ifeq (${FVP_USE_SP804_TIMER},1)
 BL31_SOURCES		+=	drivers/arm/sp804/sp804_delay_timer.c
 else
