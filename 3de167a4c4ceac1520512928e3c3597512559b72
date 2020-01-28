@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eab84cfc_08bbbb10",
+        "filename": "drivers/arm/css/scpi/css_scpi.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-01-28T11:32:58Z",
+      "side": 1,
+      "message": "Is it intended to fall-back doing the copy from shared mem to cmd (even if \"unexpected protocol\")?\nIf not, can it just return -1 here and avoid declaring rc?\nscpi_get_css_power_state and scpi_sys_power_state call scpi_secure_message_receive but discard the response if return value is non-zero.",
+      "revId": "3de167a4c4ceac1520512928e3c3597512559b72",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
