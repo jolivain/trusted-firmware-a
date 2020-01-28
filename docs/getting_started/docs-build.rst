@@ -57,7 +57,7 @@ Building rendered documentation
 -------------------------------
 
 From the ``docs`` directory of the project, run the following commands. It is
-important to note that you will not get the correct result if the commands are
+important to note that you will not get the correct result if these commands are
 run from the project root directory, as that would invoke the top-level Makefile
 for |TF-A| itself.
 
@@ -65,6 +65,13 @@ for |TF-A| itself.
 
    make clean
    make html
+
+Documents can also be built from project root directory by running the following
+command.
+
+.. code:: shell
+
+   make doc
 
 Output from the build process will be placed in:
 
