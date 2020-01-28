@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ea02fc34_aa1b6713",
+        "filename": "bl31/interrupt_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-01-28T11:11:35Z",
+      "side": 1,
+      "message": "oh yes of course!\nchanging flag to u_register_t will impact more of the code, as it is used in function expecting uint32_t.",
+      "parentUuid": "7c665213_b338cb3f",
+      "range": {
+        "startLine": 106,
+        "startChar": 50,
+        "endLine": 106,
+        "endChar": 58
+      },
+      "revId": "166623968682d56338d9b3d6eb9612290f153704",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67726e20_567a2c9a",
         "filename": "plat/renesas/rcar/plat_pm.c",
         "patchSetId": 3
