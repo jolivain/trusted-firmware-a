@@ -52,6 +52,24 @@
       "revId": "cfda811931aa618e2c95ca98bcd7aae61e9de8e0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7a3c40d_961bdf2f",
+        "filename": "plat/arm/css/sgi/aarch64/sgi_helper.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-28T12:06:19Z",
+      "side": 1,
+      "message": "Ah, you are right. I was expecting to see a CSS_SGI_MAX_CLUSTER_COUNT used in the calculation, but realized that will be inefficient. This is fine.",
+      "parentUuid": "a5226c39_e43d96db",
+      "revId": "cfda811931aa618e2c95ca98bcd7aae61e9de8e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
