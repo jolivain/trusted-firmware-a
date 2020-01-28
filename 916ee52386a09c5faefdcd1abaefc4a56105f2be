@@ -46,6 +46,30 @@
       "revId": "916ee52386a09c5faefdcd1abaefc4a56105f2be",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f9953dc_a0e023af",
+        "filename": "plat/arm/css/sgi/include/sgi_base_platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-28T11:48:21Z",
+      "side": 1,
+      "message": "PLAT_ARM means this is a porting macro to be defined by the board whereas ARM_ convention is used for macros which are common across the boards. This is a common macro which takes an argument. Hence the ARM_AGI_prefix is appropriate.",
+      "parentUuid": "d5d81433_c0d4a834",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 43
+      },
+      "revId": "916ee52386a09c5faefdcd1abaefc4a56105f2be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
