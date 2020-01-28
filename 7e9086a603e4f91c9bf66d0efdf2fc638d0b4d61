@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfd1147b_76f34aa6",
+        "filename": "plat/arm/css/sgi/include/sgi_base_platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-28T12:13:09Z",
+      "side": 1,
+      "message": "If this is only needed for rd-edge then if this can be defined the platform_def.h of that board. and call it RD_EDGE_CHIP_COUNT. Only the makefile of rdedge would then pass it through. \n\nI couldn\u0027t see where this macro is used.",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 31
+      },
+      "revId": "7e9086a603e4f91c9bf66d0efdf2fc638d0b4d61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
