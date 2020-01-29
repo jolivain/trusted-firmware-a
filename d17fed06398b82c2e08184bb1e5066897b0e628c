@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10aab355_dd528512",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-01-29T15:13:09Z",
+      "side": 1,
+      "message": "I don\u0027t know the security model, but it looks like the parameter args is being de-referenced, without ensuring it is pointing to a location from the NS world, from an expected address, and that the memory location is mapped. Does this parameter and len need to be validated ?",
+      "revId": "d17fed06398b82c2e08184bb1e5066897b0e628c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
