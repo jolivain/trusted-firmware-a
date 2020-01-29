@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf0d3fbb_a4624d5b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-29T09:29:57Z",
+      "side": 1,
+      "message": "I would prefer \u0027make doc\u0027. It\u0027s shorter and still unambiguous in my opinion. For example, we don\u0027t use \u0027make build_bl1\u0027 but just \u0027make bl1\u0027 ;)",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 15
+      },
+      "revId": "3c47606f67513ae09f645e01959b9bb2da6400c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fda51fed_fcfcb9da",
+        "filename": "Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-01-29T09:29:57Z",
+      "side": 1,
+      "message": "Why cleaning every time? This will prevent faster, incremental builds of the documentation.",
+      "range": {
+        "startLine": 1075,
+        "startChar": 1,
+        "endLine": 1075,
+        "endChar": 55
+      },
+      "revId": "3c47606f67513ae09f645e01959b9bb2da6400c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
