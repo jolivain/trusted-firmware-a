@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b60000bf_93a0d888",
+        "filename": "plat/arm/common/arm_fconf_io_storage.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-01-29T20:17:28Z",
+      "side": 1,
+      "message": "I see the definitions of the functions below are more or less the same as the definitions in plat/arm/common/arm_io_storage.c. I was wondering if we can somehow split this (and arm_io_storage.c) file into two such that common functions can be placed in a shared source file. The difference btw 2 files seems to be the backend storage entity for structures such as policies (either a static c structure or from a device tree node through FCONF_GETTER). Just a thought. I am okay if we can do it in a different patch and I dont intend to stall this patch.",
+      "revId": "6690d2f4f040c9ceffbf042ea3222c6d15ad2165",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
