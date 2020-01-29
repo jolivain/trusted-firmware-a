@@ -124,6 +124,15 @@ uintptr_t bl2_plat_get_cp_mss_regs(int ap_idx, int cp_idx)
 	return MVEBU_CP_REGS_BASE(cp_idx) + 0x280000;
 }
 
+uintptr_t bl2_plat_get_cp_mss_sram(int ap_idx, int cp_idx)
+{
+	if (is_secure()) {
+		return MVEBU_CP_REGS_BASE(cp_idx) + 0x220000;
+	}
+	
+	return 0; /* SRAM will not be used */
+}
+
 uintptr_t bl2_plat_get_ap_mss_regs(int ap_idx)
 {
 	return MVEBU_REGS_BASE + 0x580000;
