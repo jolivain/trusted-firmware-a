@@ -153,7 +153,6 @@ STM32_DT_BASENAME	:=	$(DTB_FILE_NAME:.dtb=)
 STM32_TF_STM32		:=	${BUILD_PLAT}/tf-a-${STM32_DT_BASENAME}.stm32
 STM32_TF_BINARY		:=	$(STM32_TF_STM32:.stm32=.bin)
 STM32_TF_MAPFILE	:=	$(STM32_TF_STM32:.stm32=.map)
-STM32_TF_LINKERFILE	:=	$(STM32_TF_STM32:.stm32=.ld)
 STM32_TF_ELF		:=	$(STM32_TF_STM32:.stm32=.elf)
 STM32_TF_DTBFILE	:=      ${BUILD_PLAT}/fdts/${DTB_FILE_NAME}
 STM32_TF_OBJS		:=	${BUILD_PLAT}/stm32mp1.o
@@ -199,13 +198,13 @@ ${STM32_TF_OBJS}:	plat/st/stm32mp1/stm32mp1.S bl2 ${BL32_DEP} ${STM32_TF_DTBFILE
 				-DDTB_BIN_PATH=\"${STM32_TF_DTBFILE}\" \
 				-c plat/st/stm32mp1/stm32mp1.S -o $@
 
-${STM32_TF_LINKERFILE}:	plat/st/stm32mp1/stm32mp1.ld.S ${BUILD_PLAT}
+plat/st/stm32mp1/stm32mp1.ld:	plat/st/stm32mp1/stm32mp1.ld.S ${BUILD_PLAT}
 			@echo "  LDS     $<"
 			${Q}${AS} ${ASFLAGS} ${TF_CFLAGS} -P -E $< -o $@
 
-${STM32_TF_ELF}:	${STM32_TF_OBJS} ${STM32_TF_LINKERFILE}
+${STM32_TF_ELF}:	${STM32_TF_OBJS} plat/st/stm32mp1/stm32mp1.ld
 			@echo "  LDS     $<"
-			${Q}${LD} -o $@ ${STM32_TF_ELF_LDFLAGS} -Map=${STM32_TF_MAPFILE} --script ${STM32_TF_LINKERFILE} ${STM32_TF_OBJS}
+			${Q}${LD} -o $@ ${STM32_TF_ELF_LDFLAGS} -Map=${STM32_TF_MAPFILE} --script plat/st/stm32mp1/stm32mp1.ld ${STM32_TF_OBJS}
 
 ${STM32_TF_BINARY}:	${STM32_TF_ELF}
 			${Q}${OC} -O binary ${STM32_TF_ELF} $@
