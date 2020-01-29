@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d57ba8e_903b7d24",
+        "filename": "drivers/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-01-29T18:13:31Z",
+      "side": 1,
+      "message": "I am curious what is the reason for picking the value 5? Does it relfect these dtbs? tb_fw-config, hw-config, soc_fw-config, tos_fw-config and nt_fw-config ?",
+      "revId": "a6aeacc726e760c4e39a12e98753298fd5771c93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cfc31c2_d4d88dd4",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-01-29T18:13:31Z",
+      "side": 1,
+      "message": "Was it intentional to create a node by the name \"tb_fw-config\" under the node \"dtb-registery\" as well a node by the name \"tb_fw-config\" (at the same level as \"dtb-registry\"). I believe the second node should be named as \"tbbr-dyn-config\" since it captures the Trusted board boot configuration parameters.",
+      "revId": "a6aeacc726e760c4e39a12e98753298fd5771c93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
