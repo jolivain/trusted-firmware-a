@@ -16,6 +16,24 @@
       "revId": "b9770c3c4e36af817d0a6d2c1452d7886f834dbb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29851173_6536deb0",
+        "filename": "plat/nvidia/tegra/soc/t132/plat_psci_handlers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-01-30T23:51:46Z",
+      "side": 1,
+      "message": "Its a carry over from the code under tegra_pm.c. But since the return value gets discarded, it does not matter.\n\nIn a future patch series, I will try to clean up the function return codes.",
+      "parentUuid": "e4fa8706_182af89a",
+      "revId": "b9770c3c4e36af817d0a6d2c1452d7886f834dbb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
