@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4fa8706_182af89a",
+        "filename": "plat/nvidia/tegra/soc/t132/plat_psci_handlers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-01-30T22:45:23Z",
+      "side": 1,
+      "message": "Does this function intentionally return success without doing anything? The other 3 platforms have some chunk of code in this function.",
+      "revId": "b9770c3c4e36af817d0a6d2c1452d7886f834dbb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
