@@ -34,6 +34,24 @@
       "revId": "2283cf7f05fb35abdb7bf9958a88c1d0f365eea0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a2f1aad_01d9aae2",
+        "filename": "plat/arm/board/rde1edge/rde1edge_topology.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-30T09:51:49Z",
+      "side": 1,
+      "message": "We ran tests with FVP Neoverse E1 \u0026 Cortex-A65AE models, \u0026 each thread is a separate individual CPU which can be switched off/on independently. \nplat\\arm\\board\\rde1edge\\platform.mk has\nSGI_CPU_SOURCES\t\t:\u003d\tlib/cpus/aarch64/neoverse_e1.S\nIs the real h/w platform different from FVP Neoverse E1 model?",
+      "parentUuid": "7229235d_d19174c3",
+      "revId": "2283cf7f05fb35abdb7bf9958a88c1d0f365eea0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
