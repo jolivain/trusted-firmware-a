@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6002264c_5c366869",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_sip_calls.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-01-30T23:12:55Z",
+      "side": 1,
+      "message": "I am curious to know what does it mean \"(void)smc_fid\" ? why not just return with -ENOTSUP?",
+      "revId": "dcd0ea57889cb5f877c0d198a646d11574d08ee9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
