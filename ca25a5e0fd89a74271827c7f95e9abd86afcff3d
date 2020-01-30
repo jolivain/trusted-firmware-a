@@ -70,6 +70,30 @@
       "revId": "ca25a5e0fd89a74271827c7f95e9abd86afcff3d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30519ae3_e5df7894",
+        "filename": "plat/arm/css/sgi/sgi-common.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-30T15:06:30Z",
+      "side": 1,
+      "message": "We would like to not add patterns which make it difficult to build natively on Windows (not that it builds currently). \n\nPlease look in the main makefile or the arm platform makefiles, you will find something.",
+      "parentUuid": "85efdccd_03c6223b",
+      "range": {
+        "startLine": 62,
+        "startChar": 13,
+        "endLine": 62,
+        "endChar": 51
+      },
+      "revId": "ca25a5e0fd89a74271827c7f95e9abd86afcff3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
