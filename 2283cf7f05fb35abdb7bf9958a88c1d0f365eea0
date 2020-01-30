@@ -16,6 +16,24 @@
       "revId": "2283cf7f05fb35abdb7bf9958a88c1d0f365eea0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7229235d_d19174c3",
+        "filename": "plat/arm/board/rde1edge/rde1edge_topology.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-30T07:00:04Z",
+      "side": 1,
+      "message": "I had a look at the FVP, the tree looks like this:\n\n\u003e {\n\u003e   1 // system power level\n\u003e   2 // cluster power levels\n\u003e  16 // power levels for CPUs and threads in Cluster 0\n\u003e  16 // power levels for CPUs and threads in Cluster 1\n\u003e  }\n\n\nWith this tree, it is not possible to turn off the CPU power level directly. Turning a CPU requires turning off both the treads.\n\nRD-E1-Edge platform don\u0027t control the top system power level, the tree looks like this:\n\n\u003e {\n\u003e   2 // cluster power levels\n\u003e   8 // power levels for CPUs in Cluster 0\n\u003e   8 // power levels for CPUs in Cluster 1\n\u003e   2 // power levels for threads in CPU 0\n\u003e   2 // power levels for threads in CPU 1\n\u003e   2 // power levels for threads in CPU 2\n\u003e   .\n\u003e   .\n\u003e   .\n\u003e   2 // power levels for threads in CPU 14\n\u003e   2 // power levels for threads in CPU 15\n\u003e }\n\nWith this tree, it is possible to control both the CPU and Thread power levels. RD-E1-Edge uses PPU registers in the SCP to do power control and it allows both CPU and Thread level controls.",
+      "parentUuid": "9463ad7e_71ec75db",
+      "revId": "2283cf7f05fb35abdb7bf9958a88c1d0f365eea0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
