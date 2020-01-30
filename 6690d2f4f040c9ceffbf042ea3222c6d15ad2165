@@ -16,6 +16,24 @@
       "revId": "6690d2f4f040c9ceffbf042ea3222c6d15ad2165",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65a30cb4_d1122ecf",
+        "filename": "plat/arm/common/arm_fconf_io_storage.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-01-30T11:28:26Z",
+      "side": 1,
+      "message": "You are right, arm_io_storage.c and this file are exactly the same, apart from how the functions access the io_policies (fconf vs static struct).\nThe idea was to have a smooth transition to fconf, and porting only fvp on a first step. \nThe next step would be to add the static definition of io_policies on this file and use a build option (like ARM_IO_IN_DTB) to decide between the dynamic/static io_policies.\nFVP platform will use dynamic (dtb based IO) and the other arm platform will use the static, (c-structure based) one.",
+      "parentUuid": "b60000bf_93a0d888",
+      "revId": "6690d2f4f040c9ceffbf042ea3222c6d15ad2165",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
