@@ -87,7 +87,12 @@ struct uniphier_mmc_cmd {
 	unsigned int is_data;
 };
 
-static int uniphier_emmc_block_addressing;
+struct uniphier_emmc_host {
+	uintptr_t base;
+	int block_addressing;
+};
+
+struct uniphier_emmc_host uniphier_emmc_host;
 
 static int uniphier_emmc_send_cmd(uintptr_t host_base,
 				  struct uniphier_mmc_cmd *cmd)
@@ -210,15 +215,15 @@ static int uniphier_emmc_load_image(uintptr_t host_base,
 
 static size_t uniphier_emmc_read(int lba, uintptr_t buf, size_t size)
 {
-	uintptr_t host_base = 0x5a000200;
 	int ret;
 
 	inv_dcache_range(buf, size);
 
-	if (!uniphier_emmc_block_addressing)
+	if (!uniphier_emmc_host.block_addressing)
 		lba *= 512;
 
-	ret = uniphier_emmc_load_image(host_base, lba, buf, size / 512);
+	ret = uniphier_emmc_load_image(uniphier_emmc_host.base,
+				       lba, buf, size / 512);
 
 	inv_dcache_range(buf, size);
 
@@ -232,10 +237,10 @@ static struct io_block_dev_spec uniphier_emmc_dev_spec = {
 	.block_size = 512,
 };
 
-static int uniphier_emmc_hw_init(void)
+static int uniphier_emmc_hw_init(struct uniphier_emmc_host *host)
 {
-	uintptr_t host_base = 0x5a000200;
 	struct uniphier_mmc_cmd cmd = {0};
+	uintptr_t host_base = uniphier_emmc_host.base;
 	int ret;
 
 	/*
@@ -257,7 +262,7 @@ static int uniphier_emmc_hw_init(void)
 	if (ret < 0)
 		return ret;
 
-	uniphier_emmc_block_addressing = ret;
+	host->block_addressing = ret;
 
 	cmd.cmdarg = UNIPHIER_EMMC_RCA << 16;
 
@@ -274,11 +279,23 @@ static int uniphier_emmc_hw_init(void)
 	return 0;
 }
 
-int uniphier_emmc_init(struct io_block_dev_spec **block_dev_spec)
+static const uintptr_t uniphier_emmc_base[] = {
+	[UNIPHIER_SOC_LD11] = 0x5a000200,
+	[UNIPHIER_SOC_LD20] = 0x5a000200,
+	[UNIPHIER_SOC_PXS3] = 0x5a000200,
+};
+
+int uniphier_emmc_init(unsigned int soc,
+		       struct io_block_dev_spec **block_dev_spec)
 {
 	int ret;
 
-	ret = uniphier_emmc_hw_init();
+	assert(soc < ARRAY_SIZE(uniphier_emmc_base));
+	uniphier_emmc_host.base = uniphier_emmc_base[soc];
+	if (!uniphier_emmc_host.base)
+		return -ENOTSUP;
+
+	ret = uniphier_emmc_hw_init(&uniphier_emmc_host);
 	if (ret)
 		return ret;
 
