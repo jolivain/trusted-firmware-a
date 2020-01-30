@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e624ec8_500a7273",
+        "filename": "drivers/arm/css/scmi/scmi_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-30T10:19:34Z",
+      "side": 1,
+      "message": "If this print is revmoed then the driver interface need not be changed. Channe_id itself is not useful to the driver whereas the platform may find it useful to print. Hence dont change this line but add a print to caller of this API in platform. Also remove channel_id from driver data structure.",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 65
+      },
+      "revId": "882925caaff16546dbd3f3276bf085a430f08f82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab54e7ad_384ce72d",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-30T10:19:34Z",
+      "side": 1,
+      "message": "As discussed, need a comment mentioning the TODO to have multiple locks for multiple channels.",
+      "revId": "882925caaff16546dbd3f3276bf085a430f08f82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "885abe91_ef115940",
+        "filename": "include/drivers/arm/css/scmi.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-30T10:19:34Z",
+      "side": 1,
+      "message": "Not required for driver. Remove this.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 16
+      },
+      "revId": "882925caaff16546dbd3f3276bf085a430f08f82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c42e626f_02e5df3c",
+        "filename": "include/drivers/arm/css/scmi.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-30T10:19:34Z",
+      "side": 1,
+      "message": "These 2 declaration dont below here in this header. MOve these to css specifc header.",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 0
+      },
+      "revId": "882925caaff16546dbd3f3276bf085a430f08f82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f57b0db3_732d278e",
+        "filename": "include/plat/arm/css/common/css_pm.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-01-30T10:19:34Z",
+      "side": 1,
+      "message": "mask first using 0xFFFF then shift. \n\nAlso instead of this :\n#define SCMI_CHANNEL_ID_MASK\t\t0xFFFF0000\n#define SCMI_CHANNEL_ID_SHIFT\t\tU(16)\n\nsuggest\n\n#define SCMI_CHANNEL_ID_MASK\t\t0xFFFF\n#define SCMI_CHANNEL_ID_SHIFT\t\tU(16)\n\n#define SET_SCMI_CHANNEL_ID(n)\t\t(((n) \u0026 SCMI_CHANNEL_ID_MASK) \u003c\u003c SCMI_CHANNEL_ID_SHIFT)\n#define GET_SCMI_CHANNEL_ID(n)\t\t(((n) \u003e\u003e SCMI_CHANNEL_ID_SHIFT) \u0026 SCMI_CHANNEL_ID_MASK)",
+      "range": {
+        "startLine": 51,
+        "startChar": 34,
+        "endLine": 51,
+        "endChar": 35
+      },
+      "revId": "882925caaff16546dbd3f3276bf085a430f08f82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
