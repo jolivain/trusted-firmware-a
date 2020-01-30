@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6e4c9782_c4b00566",
+        "filename": "drivers/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-01-30T11:15:43Z",
+      "side": 1,
+      "message": "exactly, we currently only have this 5 configuration dtbs.",
+      "parentUuid": "4d57ba8e_903b7d24",
+      "revId": "a6aeacc726e760c4e39a12e98753298fd5771c93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2cfc31c2_d4d88dd4",
         "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
         "patchSetId": 8
@@ -30,6 +48,24 @@
       "writtenOn": "2020-01-29T18:13:31Z",
       "side": 1,
       "message": "Was it intentional to create a node by the name \"tb_fw-config\" under the node \"dtb-registery\" as well a node by the name \"tb_fw-config\" (at the same level as \"dtb-registry\"). I believe the second node should be named as \"tbbr-dyn-config\" since it captures the Trusted board boot configuration parameters.",
+      "revId": "a6aeacc726e760c4e39a12e98753298fd5771c93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "584909be_c8b0464c",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-01-30T11:15:43Z",
+      "side": 1,
+      "message": "tb_fw-config node is currently part of the fconf-config dtb, called \"fw_config\" (Firmware config). This is only the case to simplify the prototype, as \"fw_config\" reuses the \"tb_fw-config\" slot on the FIP. The \"tb_fw-config\" node point to \"itself\" (this dtb) to represent this.\nHaving an entry in dtb-registry for tb_fw-config will allow us to separate these two dtbs if needed in the future.\n\n\"fw_config\" dtb should be considered as the default entrypoint for fconf, as it holds the dtb-registry node, which references the other configs. It holds the configuration info for the full Firmware (bl1, bl2, bl31).\n\ntb_fw stands for \"Trusted Boot Firmware\", which is the name used in TBBR specification, and represents BL2 in TF-A. tb_fw-config is then the configuration for the trusted-boot firmware (BL2).\n\ntbbr-(dyn-config) would be \"Trusted Board Boot Requirements\" Dynamic configuration, which I found less appropriate.\n\nPlease let me know if this explanation is clear enough!",
+      "parentUuid": "2cfc31c2_d4d88dd4",
       "revId": "a6aeacc726e760c4e39a12e98753298fd5771c93",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
