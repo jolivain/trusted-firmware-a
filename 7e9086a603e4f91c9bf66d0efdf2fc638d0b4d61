@@ -22,6 +22,30 @@
       "revId": "7e9086a603e4f91c9bf66d0efdf2fc638d0b4d61",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0051eeb8_84817d4f",
+        "filename": "plat/arm/css/sgi/include/sgi_base_platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-30T09:02:43Z",
+      "side": 1,
+      "message": "Renamed this to CSS_SGI_CHIP_COUNT and moved it to sgi-common.mk file.",
+      "parentUuid": "cfd1147b_76f34aa6",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 31
+      },
+      "revId": "7e9086a603e4f91c9bf66d0efdf2fc638d0b4d61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
