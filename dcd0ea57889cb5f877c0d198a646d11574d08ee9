@@ -16,6 +16,24 @@
       "revId": "dcd0ea57889cb5f877c0d198a646d11574d08ee9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29caa663_c689343a",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_sip_calls.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000208
+      },
+      "writtenOn": "2020-01-30T23:17:40Z",
+      "side": 1,
+      "message": "Read it as (void)arg; it is not related to ret. \nArguments passed to function are not used and compiler will complaint about unused args.",
+      "parentUuid": "6002264c_5c366869",
+      "revId": "dcd0ea57889cb5f877c0d198a646d11574d08ee9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
