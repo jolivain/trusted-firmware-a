@@ -22,6 +22,30 @@
       "revId": "98b0e6ad6758ce553ac3120636043173a82211c1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6409ee31_dbb9c248",
+        "filename": "plat/arm/board/rde1edge/include/platform_def.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-30T10:30:16Z",
+      "side": 1,
+      "message": "CSS_SGI_CHIP_COUNT is the make file flag from https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/3070/10/plat/arm/css/sgi/sgi-common.mk#19\n\nCSS_SGI_MAX_CHIP_COUNT defines the maximum supported Chip count in a CSS platform.",
+      "parentUuid": "9e4f2888_f6a66c74",
+      "range": {
+        "startLine": 14,
+        "startChar": 8,
+        "endLine": 14,
+        "endChar": 32
+      },
+      "revId": "98b0e6ad6758ce553ac3120636043173a82211c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
