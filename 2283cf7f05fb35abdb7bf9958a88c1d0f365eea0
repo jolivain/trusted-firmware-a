@@ -52,6 +52,24 @@
       "revId": "2283cf7f05fb35abdb7bf9958a88c1d0f365eea0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5869c9d7_063e17de",
+        "filename": "plat/arm/board/rde1edge/rde1edge_topology.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-30T10:12:46Z",
+      "side": 1,
+      "message": "RD-E1-Edge uses the Neoverse E1 cores. \n\n\u003e each thread is a separate individual CPU which can be switched off/on independently. \n\nNot sure how is it in FVP, but in RD-E1-Edge, each tread is a processing element (PE) and each CPUs has two PE. So PPU controllers can individually turn on/off an PE (that doesn\u0027t turn on/off CPU), and it can turn on/off CPU too.",
+      "parentUuid": "5a2f1aad_01d9aae2",
+      "revId": "2283cf7f05fb35abdb7bf9958a88c1d0f365eea0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
