@@ -94,6 +94,30 @@
       "revId": "ca25a5e0fd89a74271827c7f95e9abd86afcff3d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fd19957_d5a17681",
+        "filename": "plat/arm/css/sgi/sgi-common.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-31T10:59:40Z",
+      "side": 1,
+      "message": "Ok, Will keep it simple for now to check if the value is either 1 or 2 natively.\n\nOn a lighter note, SGI/RD platform software stack build is supported only on a linux machine. So using an UNIX shell command inside the sgi makefile shouldn\u0027t be a problem.",
+      "parentUuid": "30519ae3_e5df7894",
+      "range": {
+        "startLine": 62,
+        "startChar": 13,
+        "endLine": 62,
+        "endChar": 51
+      },
+      "revId": "ca25a5e0fd89a74271827c7f95e9abd86afcff3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
