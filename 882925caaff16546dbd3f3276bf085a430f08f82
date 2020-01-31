@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "43c814be_8badbc3e",
+        "filename": "drivers/arm/css/scmi/scmi_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-31T11:00:19Z",
+      "side": 1,
+      "message": "Removed this diff.",
+      "parentUuid": "5c901db8_a5db06b7",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 65
+      },
+      "revId": "882925caaff16546dbd3f3276bf085a430f08f82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ab54e7ad_384ce72d",
         "filename": "drivers/arm/css/scp/css_pm_scmi.c",
         "patchSetId": 11
@@ -161,6 +185,30 @@
       "side": 1,
       "message": "Reply to your another comment on this patch includes the reply to this.",
       "parentUuid": "885abe91_ef115940",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 16
+      },
+      "revId": "882925caaff16546dbd3f3276bf085a430f08f82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d25852e_4242bed7",
+        "filename": "include/drivers/arm/css/scmi.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-31T11:00:19Z",
+      "side": 1,
+      "message": "Removed it.",
+      "parentUuid": "a3e0cb30_2ba60a42",
       "range": {
         "startLine": 138,
         "startChar": 0,
@@ -312,6 +360,30 @@
       "revId": "882925caaff16546dbd3f3276bf085a430f08f82",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63c0ff7e_46cbc982",
+        "filename": "include/plat/arm/css/common/css_pm.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-01-31T11:00:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42878af8_5a04f893",
+      "range": {
+        "startLine": 51,
+        "startChar": 34,
+        "endLine": 51,
+        "endChar": 35
+      },
+      "revId": "882925caaff16546dbd3f3276bf085a430f08f82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
