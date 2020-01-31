@@ -22,6 +22,30 @@
       "revId": "c0087e8ce0510442ac4e10f09504e4cc2f8f36a3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "340d10e7_2e4390c0",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-01-31T14:07:52Z",
+      "side": 1,
+      "message": "It will break perfectly aligned \"const char *prop\" with \"const void *data\" :(",
+      "parentUuid": "2d22f318_4d56fa37",
+      "range": {
+        "startLine": 212,
+        "startChar": 3,
+        "endLine": 212,
+        "endChar": 4
+      },
+      "revId": "c0087e8ce0510442ac4e10f09504e4cc2f8f36a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
