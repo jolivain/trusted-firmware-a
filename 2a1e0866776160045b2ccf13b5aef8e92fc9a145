@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3dfd1260_7cc1d7de",
+        "filename": "plat/intel/soc/agilex/bl31_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-01T00:30:13Z",
+      "side": 1,
+      "message": "Hi , I am curious what does \"BL2\u003d U-boot SPL\" mean? If I am not wrong, both BL2 and BL31 images are from Trusted Firmware-a project , not u-boot.",
+      "revId": "2a1e0866776160045b2ccf13b5aef8e92fc9a145",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
