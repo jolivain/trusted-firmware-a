@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f123efab_0fa92d06",
+        "filename": "plat/socionext/uniphier/uniphier_emmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-02-02T01:56:06Z",
+      "side": 1,
+      "message": "This commit retains the original \u0027int\u0027,\nbut I can change it \u0027bool\u0027.",
+      "parentUuid": "e6b59ef6_818b2595",
+      "revId": "a331c8b5b5d26802cd9495698b4dbfe386f2ffa3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ecc16da_ba90560f",
         "filename": "plat/socionext/uniphier/uniphier_emmc.c",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-01-30T13:55:20Z",
       "side": 1,
       "message": "Make MISRA scan happy:\nif (uniphier_emmc_host.block_addressing \u003d\u003d 0)",
+      "revId": "a331c8b5b5d26802cd9495698b4dbfe386f2ffa3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "771c815a_9b835150",
+        "filename": "plat/socionext/uniphier/uniphier_emmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-02-02T01:56:06Z",
+      "side": 1,
+      "message": "I will change the type to \u0027bool\u0027,\nthen the ! operation will be fine.",
+      "parentUuid": "0ecc16da_ba90560f",
       "revId": "a331c8b5b5d26802cd9495698b4dbfe386f2ffa3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "dfb069af_f01eae11",
+        "filename": "plat/socionext/uniphier/uniphier_emmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-02-02T01:56:06Z",
+      "side": 1,
+      "message": "I do not understand you point.\n\nWhen I add a new entry at the end,\nI will end up with changing two lines.\n\nstatic const uintptr_t uniphier_emmc_base[] \u003d {\n\t[UNIPHIER_SOC_LD11] \u003d 0x5a000200,\n\t[UNIPHIER_SOC_LD20] \u003d 0x5a000200,\n\t[UNIPHIER_SOC_PXS3] \u003d 0x5a000200,\n\t[ (next soc)      ] \u003d (base address),\n};\n\n\nSince C99, it is allowed to have a comma at the end.\nThis is helpful for diff\u0027ing the code change.",
+      "parentUuid": "eb98a405_4093f1bf",
+      "revId": "a331c8b5b5d26802cd9495698b4dbfe386f2ffa3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9e4c6ef9_57dee935",
         "filename": "plat/socionext/uniphier/uniphier_emmc.c",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "7a45a59c_f79a4e0f",
+        "filename": "plat/socionext/uniphier/uniphier_emmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-02-02T01:56:06Z",
+      "side": 1,
+      "message": "OK, will change.",
+      "parentUuid": "9e4c6ef9_57dee935",
+      "revId": "a331c8b5b5d26802cd9495698b4dbfe386f2ffa3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "70990a1c_e8495ab8",
         "filename": "plat/socionext/uniphier/uniphier_emmc.c",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2020-01-30T13:55:20Z",
       "side": 1,
       "message": "add {} around return -ENOTSUP;",
+      "revId": "a331c8b5b5d26802cd9495698b4dbfe386f2ffa3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cc8ab69_119e891a",
+        "filename": "plat/socionext/uniphier/uniphier_emmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-02-02T01:56:06Z",
+      "side": 1,
+      "message": "Why?\n\nTF-A adopts Linux kernel\u0027s checkpatch.pl\n\nIt would warn this:\n\n   braces {} are not necessary for single statement blocks\n\nThis is not overridden by docs/process/coding-guidelines.rst\nSo, braces should not be used here.",
+      "parentUuid": "70990a1c_e8495ab8",
       "revId": "a331c8b5b5d26802cd9495698b4dbfe386f2ffa3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
