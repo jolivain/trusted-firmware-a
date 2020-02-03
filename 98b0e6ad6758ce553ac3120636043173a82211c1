@@ -70,6 +70,30 @@
       "revId": "98b0e6ad6758ce553ac3120636043173a82211c1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d79ec86_48139762",
+        "filename": "plat/arm/board/rde1edge/include/platform_def.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-02-03T12:19:10Z",
+      "side": 1,
+      "message": "Will use the CSS_SGI_CHIP_COUNT for PLATFORM_CORE_COUNT calculation. This patch was used when we had the PLAT_ARM_CSS_NUM_CHIPS defined as the BL31_CFLAGS: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/3070/8/plat/arm/css/sgi/include/sgi_base_platform_def.h",
+      "parentUuid": "f491335c_eff22a2c",
+      "range": {
+        "startLine": 14,
+        "startChar": 8,
+        "endLine": 14,
+        "endChar": 32
+      },
+      "revId": "98b0e6ad6758ce553ac3120636043173a82211c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
