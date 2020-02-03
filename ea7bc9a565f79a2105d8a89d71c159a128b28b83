@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "2af727ca_25d9dc25",
+        "filename": "plat/socionext/uniphier/uniphier_boot_device.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-02-03T10:43:22Z",
+      "side": 1,
+      "message": "After checking the code closely,\nI not fixing this.\n\nThis is unrelated change.\n(Obviously, this commit is not touching the \"else\" part.)\n\nAlso, checkpatch.pl allows this form.\n\nSee this Linux kernel commit:\nhttps://github.com/torvalds/linux/commit/840080a08492bd2bb3314077b672b59c88bbe0e6",
+      "parentUuid": "9788258e_b3a3055b",
+      "revId": "ea7bc9a565f79a2105d8a89d71c159a128b28b83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bdd48f44_c48c7930",
         "filename": "plat/socionext/uniphier/uniphier_boot_device.c",
         "patchSetId": 1
