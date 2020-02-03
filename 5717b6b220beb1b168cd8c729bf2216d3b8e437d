@@ -70,6 +70,30 @@
       "revId": "5717b6b220beb1b168cd8c729bf2216d3b8e437d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee1d79bf_5ee3e23b",
+        "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-02-03T16:40:28Z",
+      "side": 1,
+      "message": "what would happen if this SID bit is 0 and CSS_SGI_CHIP_COUNT \u003e 1 ? I would think they have to correspond. If CSS_SGI_CHIP_COUNT  \u003e 1 then this bit has to be enabled in platform, correct?\n\nSo there has to be a runtme check which verifies this dependancy and panic if it fails. Once that is in place, then if CSS_SGI_CHIP_COUNT \u003e 1 , this boolean value can be set directly.\n\nThis will ensure developers cannot build firmware wrongly and run on misocnfigured platform. And it also removes need for a plat_arm_sgi_xxx function.",
+      "parentUuid": "d001658c_d34223f3",
+      "range": {
+        "startLine": 54,
+        "startChar": 33,
+        "endLine": 54,
+        "endChar": 68
+      },
+      "revId": "5717b6b220beb1b168cd8c729bf2216d3b8e437d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
