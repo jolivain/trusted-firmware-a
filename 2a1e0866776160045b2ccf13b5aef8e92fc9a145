@@ -16,6 +16,24 @@
       "revId": "2a1e0866776160045b2ccf13b5aef8e92fc9a145",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3adee198_69a81f0e",
+        "filename": "plat/intel/soc/agilex/bl31_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-02-03T06:33:56Z",
+      "side": 1,
+      "message": "Hi,\n\nthe purpose of this patch is to allow BL2 equivalent image which is u-boot spl to load BL31. BL2 from trusted firmware project didn\u0027t need this.",
+      "parentUuid": "3dfd1260_7cc1d7de",
+      "revId": "2a1e0866776160045b2ccf13b5aef8e92fc9a145",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
