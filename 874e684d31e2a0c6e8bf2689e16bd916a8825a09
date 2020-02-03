@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6261ccc2_d64abd7b",
+        "filename": "plat/arm/board/rde1edge/rde1edge_topology.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-02-03T10:46:30Z",
+      "side": 1,
+      "message": "Just had a chat with Manish regarding this. This should be exposed as \n....\nCSS_SGI_MAX_CPUS_PER_CLUSTER * CSS_SGI_MAX_PE_PER_CPU,\nCSS_SGI_MAX_CPUS_PER_CLUSTER * CSS_SGI_MAX_PE_PER_CPU\n}\n\nThis is because Linux currently only sees 2 power levels : Cluster and CPU. Each thread corresponds to a CPU for linux. The Physical CPU power level is hidden to it. Hence the power domain topology has to look like it has 16 CPUs directly under the cluster.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 23
+      },
+      "revId": "874e684d31e2a0c6e8bf2689e16bd916a8825a09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
