@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "a35a7b4c_3269ea0d",
+        "filename": "drivers/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-02-03T16:41:52Z",
+      "side": 1,
+      "message": "I modified slightly the code to use a single return with a variable. The compiler was complaining with \"werror\u003dreturn-type\"",
+      "parentUuid": "fc4acc2f_60385030",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 13
+      },
+      "revId": "bbf3678a8e02545a7ac7ed4b9563247e272e944d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5dc1a7b2_c0a7707d",
         "filename": "drivers/fconf/fconf_dyn_cfg_getter.c",
         "patchSetId": 9
