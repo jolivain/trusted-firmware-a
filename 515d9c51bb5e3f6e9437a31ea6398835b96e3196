@@ -22,6 +22,30 @@
       "revId": "515d9c51bb5e3f6e9437a31ea6398835b96e3196",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8a047ef_8a88f318",
+        "filename": "drivers/fconf/fconf.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-02-03T13:34:02Z",
+      "side": 1,
+      "message": "There is a similar comment from Madhu here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/3053/8/plat/arm/board/fvp/fdts/fvp_fw_config.dts#14\n\nAs discussed, the \"fw_config\" is supposed to be for the \"full Firmware\" (BL1/BL2/BL31) and not only specific to the Trusted Boot firmware BL2.",
+      "parentUuid": "a9ee3599_caeb82f0",
+      "range": {
+        "startLine": 33,
+        "startChar": 25,
+        "endLine": 33,
+        "endChar": 34
+      },
+      "revId": "515d9c51bb5e3f6e9437a31ea6398835b96e3196",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
