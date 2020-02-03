@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "047335b5_1c774bdf",
+        "filename": "drivers/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-03T13:00:55Z",
+      "side": 1,
+      "message": "Remove \"and contributors\" (this is an entirely new file contributed by Arm).",
+      "range": {
+        "startLine": 2,
+        "startChar": 40,
+        "endLine": 2,
+        "endChar": 56
+      },
+      "revId": "bbf3678a8e02545a7ac7ed4b9563247e272e944d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fd05bc4_86a59ae4",
+        "filename": "drivers/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-03T13:00:55Z",
+      "side": 1,
+      "message": "Perhaps add a comment to explain how this value was chosen.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 25
+      },
+      "revId": "bbf3678a8e02545a7ac7ed4b9563247e272e944d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15880512_e369fb89",
+        "filename": "drivers/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-03T13:00:55Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment (assert?).",
+      "range": {
+        "startLine": 24,
+        "startChar": 1,
+        "endLine": 24,
+        "endChar": 43
+      },
+      "revId": "bbf3678a8e02545a7ac7ed4b9563247e272e944d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "477e4f77_433c999f",
+        "filename": "drivers/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-03T13:00:55Z",
+      "side": 1,
+      "message": "(minor) This line looks useless, either we find a match and exit the loop at line 27 or we don\u0027t and return NULL at line 33, right?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 13
+      },
+      "revId": "bbf3678a8e02545a7ac7ed4b9563247e272e944d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dc1a7b2_c0a7707d",
+        "filename": "drivers/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-03T13:00:55Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment (assert?).",
+      "range": {
+        "startLine": 48,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 85
+      },
+      "revId": "bbf3678a8e02545a7ac7ed4b9563247e272e944d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03b894b9_e897ef8c",
+        "filename": "drivers/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-03T13:00:55Z",
+      "side": 1,
+      "message": "(minor) Use compatible_str?",
+      "range": {
+        "startLine": 50,
+        "startChar": 47,
+        "endLine": 50,
+        "endChar": 73
+      },
+      "revId": "bbf3678a8e02545a7ac7ed4b9563247e272e944d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60f157b4_669e53fb",
+        "filename": "plat/arm/board/a5ds/fdts/a5ds_fw_config.dts",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-03T13:00:55Z",
+      "side": 1,
+      "message": "(minor) contained in?",
+      "range": {
+        "startLine": 13,
+        "startChar": 33,
+        "endLine": 13,
+        "endChar": 41
+      },
+      "revId": "bbf3678a8e02545a7ac7ed4b9563247e272e944d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "714c529f_f89a729e",
+        "filename": "plat/arm/board/a5ds/fdts/a5ds_fw_config.dts",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-03T13:00:55Z",
+      "side": 1,
+      "message": "If I am not mistaken, these are image IDs from tbbr_img_def_exp.h. Can we not include this header file rather than hard-coding the constant here?",
+      "range": {
+        "startLine": 17,
+        "startChar": 9,
+        "endLine": 17,
+        "endChar": 11
+      },
+      "revId": "bbf3678a8e02545a7ac7ed4b9563247e272e944d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
