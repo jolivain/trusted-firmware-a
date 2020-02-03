@@ -53,7 +53,6 @@
 #include <fdt.h>
 #include <libfdt.h>
 
-#include "libfdt_internal.h"
 
 int fdt_address_cells(const void *fdt, int nodeoffset)
 {

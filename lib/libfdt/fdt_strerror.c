@@ -53,7 +53,6 @@
 #include <fdt.h>
 #include <libfdt.h>
 
-#include "libfdt_internal.h"
 
 struct fdt_errtabent {
 	const char *str;

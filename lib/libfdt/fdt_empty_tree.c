@@ -53,7 +53,6 @@
 #include <fdt.h>
 #include <libfdt.h>
 
-#include "libfdt_internal.h"
 
 int fdt_create_empty_tree(void *buf, int bufsize)
 {
