@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2da79a4b_aa251cb9",
+        "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-02-03T09:58:45Z",
+      "side": 1,
+      "message": "Why cant we use the CSS_SGI_CHIP_COUNT macro introduced later in the patch set for this ?",
+      "range": {
+        "startLine": 54,
+        "startChar": 33,
+        "endLine": 54,
+        "endChar": 68
+      },
+      "revId": "5717b6b220beb1b168cd8c729bf2216d3b8e437d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
