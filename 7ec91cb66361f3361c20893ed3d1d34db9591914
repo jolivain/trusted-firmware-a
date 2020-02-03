@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "53f7287e_b3acdac6",
+        "filename": "plat/arm/board/rdn1edge/rdn1edge_plat.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-02-03T11:54:57Z",
+      "side": 1,
+      "message": "Hmm, I see. Can we just just add #if PLAT_XLAT_TABLES_DYNAMIC as the check condition in line 65 (endif in line 86) and also line 14 (endif in 42) ?\n\nAlso add a comment that IMAGE_BL31 sets PLAT_XLAT_TABLES_DYNAMIC as it uses the the dynamic mapping capability for multi-chip mode above the #if",
+      "parentUuid": "c610f6a5_27525a18",
+      "range": {
+        "startLine": 61,
+        "startChar": 12,
+        "endLine": 61,
+        "endChar": 22
+      },
+      "revId": "7ec91cb66361f3361c20893ed3d1d34db9591914",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c65b811b_7711d5a7",
         "filename": "plat/arm/board/rdn1edge/rdn1edge_plat.c",
         "patchSetId": 15
