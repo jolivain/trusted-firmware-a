@@ -429,7 +429,23 @@
 #define PMCR_LP_BIT		(U(1) << 7)
 #define PMCR_LC_BIT		(U(1) << 6)
 #define PMCR_DP_BIT		(U(1) << 5)
+#define PMCR_E_BIT		(U(1) << 0)
 #define	PMCR_RESET_VAL		U(0x0)
+
+/* DBGDIDR definitions */
+#define DBGDIDR_VERSION_SHIFT	U(16)
+#define DBGDIDR_VERSION_LENGTH	U(4)
+#define DBGDIDR_VERSION_MASK	U(0xf)
+#define DBGDIDR_VERSION_BITS	(DBGDIDR_VERSION_MASK << \
+				DBGDIDR_VERSION_SHIFT)
+
+#define DBGDIDR_V7_DEBUG_ARCH		U(3)
+#define DBGDIDR_V7_ONLY_CP14_DEBUG_ARCH	U(4)
+#define DBGDIDR_V7_1_DEBUG_ARCH		U(5)
+#define DBGDIDR_V8_DEBUG_ARCH		U(6)
+#define DBGDIDR_V8_1_DEBUG_ARCH 	U(7)
+#define DBGDIDR_V8_2_DEBUG_ARCH		U(8)
+#define DBGDIDR_V8_4_DEBUG_ARCH		U(9)
 
 /*******************************************************************************
  * Definitions of register offsets, fields and macros for CPU system
@@ -541,6 +557,7 @@
 /* Debug register defines. The format is: coproc, opt1, CRn, CRm, opt2 */
 #define HDCR		p15, 4, c1, c1, 1
 #define PMCR		p15, 0, c9, c12, 0
+#define DBGDIDR		p14, 0, c0, c0, 0
 #define CNTHP_TVAL	p15, 4, c14, c2, 0
 #define CNTHP_CTL	p15, 4, c14, c2, 1
 
