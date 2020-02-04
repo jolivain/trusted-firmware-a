@@ -88,7 +88,7 @@
 #if ARM_ARCH_MAJOR > 7
 	/*
 	 * Check if earlier initialization of SDCR.SCCD to 1
-	 * failed, meaning that ARMv8-PMU is not implemented,
+	 * failed, meaning that ARMv8.5-PMU is not implemented,
 	 * cycle counting is not disabled and PMCR should be
 	 * saved in Non-secure context.
 	 */
@@ -108,7 +108,24 @@
 	str	r5, [sp, #SMC_CTX_PMCR]
 
 	/* Disable cycle counter when event counting is prohibited */
-2:	orr	r5, r5, #PMCR_DP_BIT
+2:	
+#if ARM_ARCH_MAJOR > 7
+	/*
+	 * Check if ARMv8.2-Debug is missing, meaning that SDCR.SPME and
+	 * PMCR.DP will have no effect unless the counting is also
+	 * prohibited by the implementation defined interface
+	 * ExternalSecureNoninvasiveDebugEnabled(). In this case, counting is
+	 * disabled altogether.
+	 *
+	 */
+	ldcopr	r6, DBGDIDR
+	ubfx	r6, r6, #DBGDIDR_VERSION_SHIFT, #DBGDIDR_VERSION_LENGTH
+	cmp	r6, #DBGDIDR_V8_2_DEBUG_ARCH_SUPPORTED
+
+	/* ARMv8.2-Debug is missing, disable counting altogether */
+	bicls	r5, #PMCR_E_BIT
+#endif
+	orr	r5, r5, #PMCR_DP_BIT
 	stcopr	r5, PMCR
 	isb
 1:	str	r4, [sp, #SMC_CTX_SCR]

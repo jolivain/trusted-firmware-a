@@ -69,6 +69,8 @@
 	 * Save general purpose and ARMv8.3-PAuth registers (if enabled).
 	 * If Secure Cycle Counter is not disabled in MDCR_EL3 when
 	 * ARMv8.5-PMU is implemented, save PMCR_EL0 and disable Cycle Counter.
+	 * If ARMv8.2-Debug is missing, then all counting is disabled
+	 * in PMCR_EL0.
 	 */
 	bl	save_gp_pmcr_pauth_regs
 
@@ -131,6 +133,8 @@
 	 * Save general purpose and ARMv8.3-PAuth registers (if enabled).
 	 * If Secure Cycle Counter is not disabled in MDCR_EL3 when
 	 * ARMv8.5-PMU is implemented, save PMCR_EL0 and disable Cycle Counter.
+	 * If ARMv8.2-Debug is missing, then all counting is disabled
+	 * in PMCR_EL0.
 	 */
 	bl	save_gp_pmcr_pauth_regs
 
@@ -365,6 +369,8 @@ smc_handler64:
 	 * Save general purpose and ARMv8.3-PAuth registers (if enabled).
 	 * If Secure Cycle Counter is not disabled in MDCR_EL3 when
 	 * ARMv8.5-PMU is implemented, save PMCR_EL0 and disable Cycle Counter.
+	 * If ARMv8.2-Debug is missing, then all counting is disabled
+	 * in PMCR_EL0.
 	 */
 	bl	save_gp_pmcr_pauth_regs
 

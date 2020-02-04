@@ -704,7 +704,10 @@ endfunc fpregs_context_restore
  * purpose and ARMv8.3-PAuth (if enabled) registers.
  * It also checks if Secure Cycle Counter is not disabled in MDCR_EL3
  * when ARMv8.5-PMU is implemented, and if called from Non-secure
- * state saves PMCR_EL0 and disables Cycle Counter.
+ * state saves PMCR_EL0 and disables Cycle Counter. If ARMv8.2-Debug
+ * is missing, then all counting is disabled in PMCR_EL0 to remove
+ * the possibility of ExternalSecureNoninvasiveDebugEnabled() allowing
+ * PMU counters to increment in Secure state.
  *
  * Ideally we would only save and restore the callee saved registers
  * when a world switch occurs but that type of implementation is more
@@ -755,8 +758,25 @@ func save_gp_pmcr_pauth_regs
 	/* Save PMCR_EL0 if called from Non-secure state */
 	str	x9, [sp, #CTX_EL3STATE_OFFSET + CTX_PMCR_EL0]
 
+	/* ----------------------------------------------------------
+	 * Check if ARMv8.2-Debug is missing, meaning that MDCR_EL3.SPME and
+	 * PMCR_EL0.DP will have no effect unless the counting is also
+	 * prohibited by the implementation defined interface
+	 * ExternalSecureNoninvasiveDebugEnabled(). In this case, counting is
+	 * disabled altogether.
+	 * ----------------------------------------------------------
+	 */
+2:	mrs	x10, id_aa64dfr0_el1
+	ubfx	x10, x10, #ID_AA64DFR0_DEBUG_SHIFT, #ID_AA64DFR0_DEBUG_LENGTH
+	cmp	x10, #ID_AA64DFR0_V8_2_DEBUG_ARCH_SUPPORTED
+	b.hs	3f
+
+	/* ARMv8.2-Debug is missing, disable counting altogether */
+	and	x9, x9, #~PMCR_EL0_E_BIT
+
 	/* Disable cycle counter when event counting is prohibited */
-2:	orr	x9, x9, #PMCR_EL0_DP_BIT
+3:	orr	x9, x9, #PMCR_EL0_DP_BIT
+
 	msr	pmcr_el0, x9
 	isb
 1:
