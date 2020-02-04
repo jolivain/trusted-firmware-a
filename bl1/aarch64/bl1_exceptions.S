@@ -220,7 +220,8 @@ smc_handler:
 	 * Save x0-x29 and ARMv8.3-PAuth (if enabled) registers.
 	 * If Secure Cycle Counter is not disabled in MDCR_EL3
 	 * when ARMv8.5-PMU is implemented, save PMCR_EL0 and
-	 * disable Cycle Counter.
+	 * disable Cycle Counter. If ARMv8.2-Debug is not implemented,
+	 * then all counting is disabled in PMCR_EL0.
 	 * TODO: Revisit to store only SMCCC specified registers.
 	 * -----------------------------------------------------
 	 */
