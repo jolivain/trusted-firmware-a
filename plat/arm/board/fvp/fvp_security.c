@@ -22,5 +22,5 @@ void plat_arm_security_setup(void)
 	 */
 
 	if ((get_arm_config()->flags & ARM_CONFIG_HAS_TZC) != 0U)
-		arm_tzc400_setup(NULL);
+		arm_tzc400_setup(PLAT_ARM_TZC_BASE, NULL);
 }
