@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -72,18 +72,38 @@ endfunc errata_dsu_798953_wa
 	 * This function is called from both assembly and C environment. So it
 	 * follows AAPCS.
 	 *
-	 * Clobbers: x0-x3
+	 * Clobbers: x0-x15
 	 * -----------------------------------------------------------------------
 	 */
 	.globl	check_errata_dsu_936184
 	.globl	errata_dsu_936184_wa
+	.weak	is_scu_present_in_dsu
+
+/*
+ * Default behaviour respresents SCU is always present with DSU.
+ * CPUs can override this definition if required.
+ *
+ * Can clobber only: x0-x14
+ */
+func is_scu_present_in_dsu
+	mov	x0, #1
+	ret
+endfunc is_scu_present_in_dsu
 
 func check_errata_dsu_936184
+	mov	x15, x30
+	bl	is_scu_present_in_dsu
+	mov	x1, x0
+
+	/* default error status */
 	mov	x2, #ERRATA_NOT_APPLIES
 	mov	x3, #ERRATA_APPLIES
+	mov	x0, x2
+
+	/* if SCU is not present, return without applying patch */
+	cbz	x1, 1f
 
 	/* Erratum applies only if DSU has the ACP interface */
-	mov	x0, x2
 	mrs	x1, CLUSTERCFR_EL1
 	ubfx	x1, x1, #CLUSTERCFR_ACP_SHIFT, #1
 	cbz	x1, 1f
@@ -98,7 +118,7 @@ func check_errata_dsu_936184
 	cmp	x0, x1
 	csel	x0, x2, x3, hs
 1:
-	ret
+	ret	x15
 endfunc check_errata_dsu_936184
 
 	/* --------------------------------------------------
