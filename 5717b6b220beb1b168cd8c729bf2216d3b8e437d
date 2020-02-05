@@ -94,6 +94,30 @@
       "revId": "5717b6b220beb1b168cd8c729bf2216d3b8e437d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4d07fc5_b7bdc09d",
+        "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-02-05T12:01:34Z",
+      "side": 1,
+      "message": "\u003e what would happen if this SID bit is 0 and CSS_SGI_CHIP_COUNT \u003e 1\nAdded a check for that in rdn1edge_plat.c file.\n\nBut sgi_plat_info.multi_chip_mode has to be set from the hardware register since this value is been passed to BL33 (uefi) through dtb. So setting sgi_plat_info.multi_chip_mode \u003d CSS_SGI_CHIP_COUNT \u003e 1 doesn\u0027t look correct.",
+      "parentUuid": "ee1d79bf_5ee3e23b",
+      "range": {
+        "startLine": 54,
+        "startChar": 33,
+        "endLine": 54,
+        "endChar": 68
+      },
+      "revId": "5717b6b220beb1b168cd8c729bf2216d3b8e437d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
