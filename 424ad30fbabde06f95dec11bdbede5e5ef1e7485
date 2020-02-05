@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a14a0f3_0c993579",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-02-05T12:49:23Z",
+      "side": 1,
+      "message": "Having a single global variable to the header is not enough. There are several problems that it doesn\u0027t integrate well with the IO layer and wouldn\u0027t scale when multple FIP devices have to be handled. \n\nIf you would like to get the FIP header, suggest to do something using the exisiting IP framework, suggest something like this:\n```\nfip_toc_header_t header;\n\nplat_get_image_source(FIP_IMAGE_ID, \u0026dev_handle, \u0026image_spec);\n\n\t/* Attempt to access the image */\nio_result \u003d io_open(dev_handle, image_spec, \u0026image_handle);\n\nio_result \u003d io_read(image_handle, \u0026header, sizeof(header), \u0026bytes_read);\n```\n\nThis will return the full FIP header which can be inspected for platform flags.",
+      "range": {
+        "startLine": 253,
+        "startChar": 3,
+        "endLine": 253,
+        "endChar": 16
+      },
+      "revId": "424ad30fbabde06f95dec11bdbede5e5ef1e7485",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
