@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99f5fd0c_106ca096",
+        "filename": "plat/socionext/uniphier/tsp/uniphier_tsp_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-05T00:32:33Z",
+      "side": 1,
+      "message": "Why is uniphier_soc of type uintptr_t and not just unsigned int?",
+      "revId": "6604afd0f9da504f606e12b3d72efd0719a08d96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
