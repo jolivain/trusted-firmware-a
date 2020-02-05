@@ -522,7 +522,9 @@ func neoverse_n1_errata_report
 	report_errata ERRATA_N1_1275112, neoverse_n1, 1275112
 	report_errata ERRATA_N1_1315703, neoverse_n1, 1315703
 	report_errata ERRATA_N1_1542419, neoverse_n1, 1542419
+#if ERRATA_DSU_936184
 	report_errata ERRATA_DSU_936184, neoverse_n1, dsu_936184
+#endif
 
 	ldp	x8, x30, [sp], #16
 	ret
