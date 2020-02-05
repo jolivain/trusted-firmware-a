@@ -58,10 +58,19 @@
 
 #define NEOVERSE_N1_CPUACTLR3_EL1_BIT_10	(ULL(1) << 10)
 
+/******************************************************************************
+ * CPU Configuration register definitions.
+ *****************************************************************************/
+#define CPUCFR_EL1			S3_0_C15_C0_0
+
+/* SCU bit of CPU Configuration Register, EL1 */
+#define NEOVERSE_N1_SCU_SHIFT		U(2)
+
 /* Instruction patching registers */
 #define CPUPSELR_EL3	S3_6_C15_C8_0
 #define CPUPCR_EL3	S3_6_C15_C8_1
 #define CPUPOR_EL3	S3_6_C15_C8_2
 #define CPUPMR_EL3	S3_6_C15_C8_3
+
 
 #endif /* NEOVERSE_N1_H */

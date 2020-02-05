@@ -496,6 +496,18 @@ func neoverse_n1_core_pwr_dwn
 	ret
 endfunc neoverse_n1_core_pwr_dwn
 
+/*
+ * Chceck DSU is configured with SCU and L3 unit
+ * 1-> scu present
+ * 0-> scu not present
+ */
+func neoverse_n1_scu_present
+	mrs	x0, CPUCFR_EL1
+	ubfx	x0, x0, #NEOVERSE_N1_SCU_SHIFT, #1
+	eor	x0, x0, #1
+	ret
+endfunc neoverse_n1_scu_present
+
 #if REPORT_ERRATA
 /*
  * Errata printing function for Neoverse N1. Must follow AAPCS.
@@ -522,7 +534,9 @@ func neoverse_n1_errata_report
 	report_errata ERRATA_N1_1275112, neoverse_n1, 1275112
 	report_errata ERRATA_N1_1315703, neoverse_n1, 1315703
 	report_errata ERRATA_N1_1542419, neoverse_n1, 1542419
+#if ERRATA_DSU_936184
 	report_errata ERRATA_DSU_936184, neoverse_n1, dsu_936184
+#endif
 
 	ldp	x8, x30, [sp], #16
 	ret

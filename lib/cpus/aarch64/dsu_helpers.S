@@ -82,8 +82,18 @@ func check_errata_dsu_936184
 	mov	x2, #ERRATA_NOT_APPLIES
 	mov	x3, #ERRATA_APPLIES
 
-	/* Erratum applies only if DSU has the ACP interface */
+	/*
+	 * Check whether SCU unit is present in DSU
+	 * If SCU is present, DSU configuration register will be available else
+	 * skip reading DSU registers as it won't be available
+	 */
+	b .
+	bl neoverse_n1_scu_present
+	mov	x1, x0
 	mov	x0, x2
+	cbz	x1, 1f
+
+	/* Erratum applies only if DSU has the ACP interface */
 	mrs	x1, CLUSTERCFR_EL1
 	ubfx	x1, x1, #CLUSTERCFR_ACP_SHIFT, #1
 	cbz	x1, 1f
