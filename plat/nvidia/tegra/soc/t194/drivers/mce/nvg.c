@@ -6,6 +6,7 @@
 
 #include <arch.h>
 #include <arch_helpers.h>
+#include <assert.h>
 #include <common/debug.h>
 #include <denver.h>
 #include <errno.h>
@@ -210,6 +211,15 @@ void nvg_enable_strict_checking_mode(void)
 				     STRICT_CHECKING_LOCKED_SET);
 
 	nvg_set_request_data((uint64_t)TEGRA_NVG_CHANNEL_SECURITY_CONFIG, params);
+}
+
+void nvg_verify_strict_checking_mode(void)
+{
+	uint64_t params = (uint64_t)(STRICT_CHECKING_ENABLED_SET |
+				     STRICT_CHECKING_LOCKED_SET);
+
+	nvg_set_request((uint64_t)TEGRA_NVG_CHANNEL_SECURITY_CONFIG);
+	assert(params == (uint64_t)nvg_get_result());
 }
 #endif
 
