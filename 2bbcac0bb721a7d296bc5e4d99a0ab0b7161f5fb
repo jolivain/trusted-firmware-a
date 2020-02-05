@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "891700ea_14708bc0",
+        "filename": "docs/plat/meson-axg.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-05T10:04:38Z",
+      "side": 1,
+      "message": "The officially TF-A supported toolchain is now aarch64-none-elf-   (v9.2.1)",
+      "range": {
+        "startLine": 20,
+        "startChar": 18,
+        "endLine": 20,
+        "endChar": 36
+      },
+      "revId": "2bbcac0bb721a7d296bc5e4d99a0ab0b7161f5fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b56a807_1318de9f",
+        "filename": "plat/amlogic/axg/axg_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-05T10:04:38Z",
+      "side": 1,
+      "message": "Cosmetic and if you don\u0027t mind, I would rather suggest scp_bl2_0 and scp_bl2_1 for image info variables namings.",
+      "range": {
+        "startLine": 24,
+        "startChar": 20,
+        "endLine": 24,
+        "endChar": 24
+      },
+      "revId": "2bbcac0bb721a7d296bc5e4d99a0ab0b7161f5fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "101053e0_be8c5d98",
+        "filename": "plat/amlogic/axg/axg_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-05T10:04:38Z",
+      "side": 1,
+      "message": "cosmetic, maybe use defines here and line #112?",
+      "range": {
+        "startLine": 111,
+        "startChar": 36,
+        "endLine": 111,
+        "endChar": 46
+      },
+      "revId": "2bbcac0bb721a7d296bc5e4d99a0ab0b7161f5fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8098c2d1_45038fa9",
+        "filename": "plat/amlogic/axg/axg_pm.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-05T10:04:38Z",
+      "side": 1,
+      "message": "INFO after declarations (and line #68)",
+      "revId": "2bbcac0bb721a7d296bc5e4d99a0ab0b7161f5fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
