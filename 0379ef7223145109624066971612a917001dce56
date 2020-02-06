@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66c5ebfa_562124b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-06T18:21:05Z",
+      "side": 1,
+      "message": "Hi Imre,\nIf I am not mistaken, there is no common DynamIQ dtsi file. There is a common fvp-base-gicv3 dtsi file only which you also included in the newly created device tree.",
+      "revId": "0379ef7223145109624066971612a917001dce56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71a457f0_018992c7",
+        "filename": "fdts/fvp-base-gicv3-psci-dynamiq-8x2t.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-06T18:21:05Z",
+      "side": 1,
+      "message": "since you are adding the description of a multithreaded design through device tree binding, please use \"thread\" as the leaf node in cpu-map. I think using \"core\" as leaf node is not suggested as seen in the example 1 in the page. \nhttps://www.kernel.org/doc/Documentation/devicetree/bindings/cpu/cpu-topology.txt\n\nSo the cluster node might look something like this:\n\ncluster2 {\n\t\t\t\tcore0 {\n\t\t\t\t\tthread0 {\n                                                 cpu \u003d \u003c\u0026CPU8\u003e;\n                                        };\n\t\t\t\t        thread1 {\n\t\t\t\t\t          cpu \u003d \u003c\u0026CPU9\u003e;\n\t\t\t\t        };\n\t\t\t\t};\n\t\t\t\tcore1 {\n\t\t\t\t\tthread0 {\n\t\t\t\t\t          cpu \u003d \u003c\u0026CPU10\u003e;\n\t\t\t\t        };\n\t\t\t\t        thread1 {\n\t\t\t\t\t          cpu \u003d \u003c\u0026CPU11\u003e;\n\t\t\t\t        };\n\t\t\t\t};\n};",
+      "revId": "0379ef7223145109624066971612a917001dce56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
