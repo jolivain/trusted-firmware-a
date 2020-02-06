@@ -14,6 +14,8 @@
 struct gicv3_config_t gicv3_config;
 struct hw_topology_t soc_topology;
 struct uart_serial_config_t uart_serial_config;
+struct cpu_timer_t cpu_timer;
+struct mm_timer_t mm_timer;
 
 #define ILLEGAL_ADDR	ULL(~0)
 
@@ -260,9 +262,90 @@ int fconf_populate_uart_config(uintptr_t config)
 
 	VERBOSE("FCONF: UART serial device clk frequency: %x\n",
 		uart_serial_config.uart_clk);
+
+	return 0;
+}
+
+int fconf_populate_cpu_timer(uintptr_t config)
+{
+	int err = 0, node;
+
+	/* Necessary to work with libfdt APIs */
+	const void *hw_config_dtb = (const void *)config;
+
+	/* Find the node offset point to "arm,armv8-timer" compatible property,
+	 * a per-core architected timer attached to a GIC to deliver its per-processor
+	 * interrupts via PPIs */
+	node = fdt_node_offset_by_compatible(hw_config_dtb, -1, "arm,armv8-timer");
+	if (node < 0) {
+		ERROR("FCONF: Unrecognized hardware configuration dtb (%d)\n", node);
+		return node;
+	}
+
+	/* Locate the cell holding the clock-frequency, an optional field */
+	err = fdt_read_uint32(hw_config_dtb, node, "clock-frequency", &cpu_timer.clock_freq);
+	if (err < 0) {
+		WARN("FCONF failed to read clock-frequency property\n");
+	}
+
+	return 0;
+}
+
+int fconf_populate_mm_timer(uintptr_t config)
+{
+	int err = 0, node, frame_node;
+	uintptr_t addr;
+	uint32_t frame;
+
+	/* Necessary to work with libfdt APIs */
+	const void *hw_config_dtb = (const void *)config;
+
+	/* Assert the node offset point to "arm,armv7-timer-mem" compatible property,
+	 * a memory mapped architected time attached to a GIC to deliver its interrupts
+	 * via SPIs*/
+	node = fdt_node_offset_by_compatible(hw_config_dtb, -1, "arm,armv7-timer-mem");
+	if (node < 0) {
+		ERROR("FCONF: Unrecognized hardware configuration dtb (%d)\n", node);
+		return node;
+	}
+
+	/* Locate the reg cell holding the control frame base address */
+	err = fdt_get_reg_props_by_index(hw_config_dtb, node, 0, &addr, NULL);
+	if (err < 0) {
+		ERROR("FCONF: Failed to read reg property of Mem Timer node\n");
+		return err;
+	}
+	mm_timer.mm_base = addr;
+
+	/* Locate the cell holding the clock-frequency, an optional field */
+	err = fdt_read_uint32(hw_config_dtb, node, "clock-frequency", &mm_timer.clock_freq);
+	if (err < 0) {
+		WARN("FCONF failed to read clock-frequency property\n");
+	}
+
+	fdt_for_each_subnode(frame_node, hw_config_dtb, node) {
+		/* Locate the cell holding the frame-number */
+		err = fdt_read_uint32(hw_config_dtb, frame_node, "frame-number", &frame);
+		if (err < 0) {
+			ERROR("FCONF failed to read frame-number property\n");
+			return err;
+		}
+
+		/* Locate the NS Timer base address */
+		if(frame == 1) {
+			err = fdt_get_reg_props_by_index(hw_config_dtb, frame_node, 0, &addr, NULL);
+			if (err < 0) {
+				ERROR("FCONF failed\n");
+				return err;
+			}
+			mm_timer.ns_base = addr;
+		}
+	}
 	return 0;
 }
 
 FCONF_REGISTER_POPULATOR(HW_CONFIG, gicv3_config, fconf_populate_gicv3_config);
 FCONF_REGISTER_POPULATOR(HW_CONFIG, topology, fconf_populate_topology);
 FCONF_REGISTER_POPULATOR(HW_CONFIG, uart_config, fconf_populate_uart_config);
+FCONF_REGISTER_POPULATOR(HW_CONFIG, cpu_timer, fconf_populate_cpu_timer);
+FCONF_REGISTER_POPULATOR(HW_CONFIG, mm_timer, fconf_populate_mm_timer);

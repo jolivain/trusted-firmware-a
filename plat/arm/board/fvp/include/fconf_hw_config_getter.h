@@ -11,10 +11,10 @@
 
 /* Hardware Config related getter */
 #define hw_config__gicv3_config_getter(prop) gicv3_config.prop
-
 #define hw_config__topology_getter(prop) soc_topology.prop
-
 #define hw_config__uart_serial_config_getter(prop) uart_serial_config.prop
+#define hw_config__cpu_timer_getter(prop) cpu_timer.prop
+#define hw_config__mm_timer_getter(prop) mm_timer.prop
 
 struct gicv3_config_t {
 	uint64_t gicd_base;
@@ -33,12 +33,25 @@ struct uart_serial_config_t {
 	uint32_t uart_clk;
 };
 
+struct cpu_timer_t {
+	uint32_t clock_freq;
+};
+
+struct mm_timer_t {
+	uint64_t mm_base;
+	uint32_t clock_freq;
+	uint64_t ns_base;
+};
+
 int fconf_populate_gicv3_config(uintptr_t config);
 int fconf_populate_topology(uintptr_t config);
 int fconf_populate_uart_config(uintptr_t config);
+int fconf_populate_cpu_timer(uintptr_t config);
+int fconf_populate_mm_timer(uintptr_t config);
 
 extern struct gicv3_config_t gicv3_config;
 extern struct hw_topology_t soc_topology;
 extern struct uart_serial_config_t uart_serial_config;
-
+extern struct cpu_timer_t cpu_timer;
+extern struct mm_timer_t mm_timer;
 #endif /* FCONF_HW_CONFIG_GETTER_H */
