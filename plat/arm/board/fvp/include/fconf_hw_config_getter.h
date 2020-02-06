@@ -11,10 +11,12 @@
 
 /* Hardware Config related getter */
 #define hw_config__gicv3_config_getter(prop) gicv3_config.prop
-
 #define hw_config__topology_getter(prop) soc_topology.prop
+#define hw_config__cpu_timer_getter(prop) soc_cpu_timer.prop
+#define hw_config__mm_timer_getter(prop) soc_mm_timer.prop
 
 #define MAX_GIC 1
+#define MAX_CPU_TIMER 4
 
 struct intr_config_t {
 	uint32_t interrupt_type;
@@ -43,10 +45,31 @@ struct hw_topology_t {
 	uint32_t plat_max_pwr_level;
 };
 
+struct cpu_timer_t {
+	// Secure, Non-Secure, Virtual and Hypervisor Timers
+	struct intr_config_t cputimer_intr_config[MAX_CPU_TIMER];
+	int clock_freq;
+};
+
+struct mm_timer_t {
+	uint64_t cframe_base;
+	uint64_t cframe_offset;
+	int clock_freq;
+	int frame_num;
+	// Physical Timer
+	struct intr_config_t mmtimer_intr_config;
+	uint64_t fframe_base;
+	uint64_t fframe_offset;
+};
+
 int fconf_populate_gicv3_config(uintptr_t config);
 int fconf_populate_topology(uintptr_t config);
+int fconf_populate_cpu_timer(uintptr_t config);
+int fconf_populate_mm_timer(uintptr_t mm_timer);
 
 extern struct gicv3_config_t gicv3_config;
 extern struct hw_topology_t soc_topology;
+extern struct cpu_timer_t cpu_timer;
+extern struct mm_timer_t mm_timer;
 
 #endif /* FCONF_HW_CONFIG_GETTER_H */
