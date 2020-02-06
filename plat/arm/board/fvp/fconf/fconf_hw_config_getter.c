@@ -13,6 +13,8 @@
 
 struct gicv3_config_t gicv3_config;
 struct hw_topology_t soc_topology;
+struct cpu_timer_t cpu_timer;
+struct mm_timer_t mm_timer;
 
 int fconf_populate_gicv3_config(uintptr_t config)
 {
@@ -170,5 +172,120 @@ int fconf_populate_topology(uintptr_t config)
 	return 0;
 }
 
+int fconf_populate_cpu_timer(uintptr_t config)
+{
+	int err = 0, node;
+	uint32_t interrupts[3];
+
+	/* Necessary to work with libfdt APIs */
+	const void *hw_config_dtb = (const void *)config;
+
+	/* Find the node offset point to "arm,armv8-timer" compatible property,
+	 * a per-core architected timer attached to a GIC to deliver its per-processor
+	 * interrupts via PPIs */
+	node = fdt_node_offset_by_compatible(hw_config_dtb, -1, "arm,armv8-timer");
+	if (node < 0) {
+		ERROR("FCONF: Unrecognized hardware configuration dtb (%d)\n", node);
+		return node;
+	}
+
+	/* Locate the interrupts cell holding the interrupt list for secure, non-secure,
+	 * virtual and hypervisor timers, in that order. Find the secure timer interrupt.
+
+	A sample interrupts cell array is shown here:
+		interrupts = <1 13 0xff01>,	//Secure Timer
+			     <1 14 0xff01>,	//Non-Secure Timer
+			     <1 11 0xff01>,	//Virtual Timer
+			     <1 10 0xff01>;	//Hypervisor Timer
+	 */
+	err = fdt_read_uint32_array(hw_config_dtb, node, "interrupts", 3, interrupts);
+	if (err < 0) {
+		ERROR("FCONF: Failed to read interrupts property of CPU Timer node\n");
+		return err;
+	}
+	cpu_timer.cputimer_intr_config.interrupt_type = interrupts[0];
+	cpu_timer.cputimer_intr_config.interrupt_num = interrupts[1];
+	cpu_timer.cputimer_intr_config.interrupt_flags = interrupts[2];
+
+	/* Locate the cell holding the clock-frequency, an optional field */
+	err = fdt_read_uint32(hw_config_dtb, node, "clock-frequency", &cpu_timer.clock_freq);
+	if (err < 0) {
+		WARN("FCONF failed to read clock-frequency property\n");
+	}
+
+	return 0;
+}
+
+int fconf_populate_mm_timer(uintptr_t config)
+{
+	int err = 0, node;
+	uintptr_t addr;
+	uint32_t interrupts[3];
+
+	/* Necessary to work with libfdt APIs */
+	const void *hw_config_dtb = (const void *)config;
+
+	/* Assert the node offset point to "arm,armv7-timer-mem" compatible property,
+	 * a memory mapped architected time attached to a GIC to deliver its interrupts
+	 * via SPIs*/
+	node = fdt_node_offset_by_compatible(hw_config_dtb, -1, "arm,armv7-timer-mem");
+	if (node < 0) {
+		ERROR("FCONF: Unrecognized hardware configuration dtb (%d)\n", node);
+		return node;
+	}
+
+	/* Locate the reg cell holding the control frame base address */
+	err = fdt_get_reg_props_by_index(hw_config_dtb, node, 0, &addr, NULL);
+	if (err < 0) {
+		ERROR("FCONF: Failed to read reg property of Mem Timer node\n");
+		return err;
+	}
+	mm_timer.cframe_base = addr;
+	INFO("FCONF TEST mm_timer.cframe_base=%llx\n", mm_timer.cframe_base);
+
+	/* Locate the cell holding the clock-frequency, an optional field */
+	err = fdt_read_uint32(hw_config_dtb, node, "clock-frequency", &mm_timer.clock_freq);
+	if (err < 0) {
+		WARN("FCONF failed to read clock-frequency property\n");
+	}
+
+	/* Assert the node offset point to subnode frame property */
+	node = fdt_subnode_offset_namelen(hw_config_dtb, node, "frame", 5);
+	if (node < 0) {
+		ERROR("FCONF: Unrecognized hardware configuration dtb (%d)\n", node);
+		return node;
+	}
+
+	/* Locate the cell holding the frame-number */
+	err = fdt_read_uint32(hw_config_dtb, node, "frame-number", &mm_timer.frame_num);
+	if (err < 0) {
+		ERROR("FCONF failed to read frame-number property\n");
+		return err;
+	}
+
+	/* Locate the interrupts cell holding the interrupt list for physical timer*/
+	err = fdt_read_uint32_array(hw_config_dtb, node, "interrupts", 3, interrupts);
+	if (err < 0) {
+		ERROR("FCONF failed\n");
+		return err;
+	}
+	mm_timer.mmtimer_intr_config.interrupt_type = interrupts[0];
+	mm_timer.mmtimer_intr_config.interrupt_num = interrupts[1];
+	mm_timer.mmtimer_intr_config.interrupt_flags = interrupts[2];
+
+	/* Locate the reg cell holding the first view base address */
+	err = fdt_get_reg_props_by_index(hw_config_dtb, node, 0, &addr, NULL);
+	if (err < 0) {
+		ERROR("FCONF failed\n");
+		return err;
+	}
+	mm_timer.fframe_base = addr;
+	INFO("FCONF TEST mm_timer.fframe_base=%llx\n", mm_timer.fframe_base);
+
+	return 0;
+}
+
 FCONF_REGISTER_POPULATOR(HW_CONFIG, gicv3_config, fconf_populate_gicv3_config);
 FCONF_REGISTER_POPULATOR(HW_CONFIG, topology, fconf_populate_topology);
+FCONF_REGISTER_POPULATOR(HW_CONFIG, cpu_timer, fconf_populate_cpu_timer);
+FCONF_REGISTER_POPULATOR(HW_CONFIG, mm_timer, fconf_populate_mm_timer);
