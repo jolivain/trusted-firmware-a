@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -78,6 +78,11 @@ endif
 ifeq (${WORKAROUND_CVE_2017_5715},1)
 BL31_SOURCES		+=	lib/cpus/aarch64/wa_cve_2017_5715_bpiall.S	\
 				lib/cpus/aarch64/wa_cve_2017_5715_mmu.S
+endif
+
+ifeq (${ENABLE_BACKTRACE},0)
+# When ENABLE_BACKTRACE=1, this file is included from backtrace.mk
+BL31_SOURCES		+=	lib/extensions/pauth/pauth_demangle.S
 endif
 
 BL31_LINKERFILE		:=	bl31/bl31.ld.S

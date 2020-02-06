@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,6 +14,9 @@
 
 /* Maximum number of entries in the backtrace to display */
 #define UNWIND_LIMIT	20U
+
+/* Strip PAC from LR value */
+uintptr_t demangle_address(uintptr_t addr, unsigned int el);
 
 /*
  * If -fno-omit-frame-pointer is used:
@@ -36,47 +39,6 @@ struct frame_record {
 	/* Return address of the function at this level */
 	uintptr_t return_addr;
 };
-
-/*
- * Strip the Pointer Authentication Code (PAC) from the address to retrieve the
- * original one.
- *
- * The PAC field is stored on the high bits of the address and defined as:
- * - PAC field = Xn[54:bottom_PAC_bit], when address tagging is used.
- * - PAC field = Xn[63:56, 54:bottom_PAC_bit], without address tagging.
- *
- * With bottom_PAC_bit = 64 - TCR_ELx.TnSZ
- */
-#if ENABLE_PAUTH
-static uintptr_t demangle_address(uintptr_t addr)
-{
-	unsigned int el, t0sz, bottom_pac_bit;
-	uint64_t tcr, pac_mask;
-
-	/*
-	 * Different virtual address space size can be defined for each EL.
-	 * Ensure that we use the proper one by reading the corresponding
-	 * TCR_ELx register.
-	 */
-	el = get_current_el();
-
-	if (el == 3U) {
-		tcr = read_tcr_el3();
-	} else if (el == 2U) {
-		tcr = read_tcr_el2();
-	} else {
-		tcr = read_tcr_el1();
-	}
-
-	/* T0SZ = TCR_ELx[5:0] */
-	t0sz = tcr & 0x1f;
-	bottom_pac_bit = 64 - t0sz;
-	pac_mask = (1ULL << bottom_pac_bit) - 1;
-
-	/* demangle the address with the computed mask */
-	return (addr & pac_mask);
-}
-#endif /* ENABLE_PAUTH */
 
 static const char *get_el_str(unsigned int el)
 {
@@ -104,7 +66,7 @@ static bool is_address_readable(uintptr_t addr)
 	 * stack contains a PAC. It must be stripped to retrieve the return
 	 * address.
 	 */
-	addr = demangle_address(addr);
+	addr = demangle_address(addr, el);
 #endif
 
 	if (el == 3U) {
@@ -257,7 +219,7 @@ static void unwind_stack(struct frame_record *fr, uintptr_t current_pc,
 		 * the stack contains a PAC. It must be stripped to retrieve the
 		 * return address.
 		 */
-		call_site = demangle_address(call_site);
+		call_site = demangle_address(call_site, get_current_el());
 #endif
 
 		/*

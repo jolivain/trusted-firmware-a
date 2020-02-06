@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -15,7 +15,8 @@ ifeq (${ENABLE_BACKTRACE},1)
         # Force the compiler to include the frame pointer
         TF_CFLAGS		+=	-fno-omit-frame-pointer
 
-        BL_COMMON_SOURCES	+=	common/backtrace/backtrace.c
+        BL_COMMON_SOURCES	+=	common/backtrace/backtrace.c \
+					lib/extensions/pauth/pauth_demangle.S
 endif
 
 ifeq (${ARCH},aarch32)
