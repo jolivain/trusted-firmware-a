@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "12cbc202_e50751d8",
+        "filename": "docs/plat/meson-axg.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-02-06T11:08:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "891700ea_14708bc0",
+      "range": {
+        "startLine": 20,
+        "startChar": 18,
+        "endLine": 20,
+        "endChar": 36
+      },
+      "revId": "2bbcac0bb721a7d296bc5e4d99a0ab0b7161f5fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b56a807_1318de9f",
         "filename": "plat/amlogic/axg/axg_bl31_setup.c",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2020-02-05T10:04:38Z",
       "side": 1,
       "message": "Cosmetic and if you don\u0027t mind, I would rather suggest scp_bl2_0 and scp_bl2_1 for image info variables namings.",
+      "range": {
+        "startLine": 24,
+        "startChar": 20,
+        "endLine": 24,
+        "endChar": 24
+      },
+      "revId": "2bbcac0bb721a7d296bc5e4d99a0ab0b7161f5fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7737c90_72541aba",
+        "filename": "plat/amlogic/axg/axg_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-02-06T11:08:34Z",
+      "side": 1,
+      "message": "I would prefer to keep it as bl30 because that\u0027s the \"official\" name of the Amlogic firmware binary file for the SCP.",
+      "parentUuid": "5b56a807_1318de9f",
       "range": {
         "startLine": 24,
         "startChar": 20,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "56b9cf09_18a82aa8",
+        "filename": "plat/amlogic/axg/axg_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-02-06T11:08:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "101053e0_be8c5d98",
+      "range": {
+        "startLine": 111,
+        "startChar": 36,
+        "endLine": 111,
+        "endChar": 46
+      },
+      "revId": "2bbcac0bb721a7d296bc5e4d99a0ab0b7161f5fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8098c2d1_45038fa9",
         "filename": "plat/amlogic/axg/axg_pm.c",
         "patchSetId": 4
@@ -85,6 +157,24 @@
       "revId": "2bbcac0bb721a7d296bc5e4d99a0ab0b7161f5fb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b9ed9d2_d114be3a",
+        "filename": "plat/amlogic/axg/axg_pm.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-02-06T11:08:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8098c2d1_45038fa9",
+      "revId": "2bbcac0bb721a7d296bc5e4d99a0ab0b7161f5fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
