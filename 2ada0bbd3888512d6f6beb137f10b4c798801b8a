@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "023cbf30_85399282",
+        "filename": "common/bl_common.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-07T10:33:59Z",
+      "side": 1,
+      "message": "Actually it does not look like this change is needed, as fconf is called in some other file, while this one still relies on the disable_auth static variable being set by this other file.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 40
+      },
+      "revId": "2ada0bbd3888512d6f6beb137f10b4c798801b8a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "387d61e6_9491a245",
+        "filename": "lib/fconf/fconf_tbbr_getter.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-07T10:33:59Z",
+      "side": 1,
+      "message": "(minor) The indentation looks weird.",
+      "range": {
+        "startLine": 41,
+        "startChar": 53,
+        "endLine": 41,
+        "endChar": 83
+      },
+      "revId": "2ada0bbd3888512d6f6beb137f10b4c798801b8a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
