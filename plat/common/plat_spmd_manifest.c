@@ -11,6 +11,7 @@
 #include <common/debug.h>
 #include <common/fdt_wrappers.h>
 #include <errno.h>
+#include <lib/xlat_tables/xlat_tables_v2.h>
 #include <platform_def.h>
 #include <services/spm_core_manifest.h>
 
@@ -97,29 +98,58 @@ static int manifest_parse_root(spmc_manifest_attribute_t *manifest,
  * Platform handler to parse a SPM core manifest.
  ******************************************************************************/
 int plat_spm_core_manifest_load(spmc_manifest_attribute_t *manifest,
-				const void *ptr,
-				size_t size)
+				const void *pm_addr)
 {
 	int rc;
 	int root_node;
+	uintptr_t pm_base, pm_base_align;
 
 	assert(manifest != NULL);
-	assert(ptr != NULL);
+	assert(pm_addr != NULL);
 
-	INFO("Reading SPM core manifest at address %p\n", ptr);
-
-	rc = fdt_check_header(ptr);
-	if (rc != 0) {
-		ERROR("Wrong format for SPM core manifest (%d).\n", rc);
-		return -EINVAL;
+	pm_base = (uintptr_t) pm_addr;
+	pm_base_align = page_align(pm_base, DOWN);
+	if (pm_base - pm_base_align < sizeof(struct fdt_header)) {
+		ERROR("Error while mapping SPM core manifest.\n");
+		panic();
 	}
 
-	root_node = fdt_node_offset_by_compatible(ptr, -1,
+	/* Map first partition manifest page in the SPMD translation regime */
+	VERBOSE("SPM core manifest base : 0x%lx\n", pm_base_align);
+	rc = mmap_add_dynamic_region((unsigned long long) pm_base_align,
+				     pm_base_align,
+				     PAGE_SIZE,
+				     MT_RO_DATA);
+	if (rc != 0) {
+		ERROR("Error while mapping SPM core manifest (%d).\n", rc);
+		panic();
+	}
+
+	rc = fdt_check_header(pm_addr);
+	if (rc != 0) {
+		ERROR("Wrong format for SPM core manifest (%d).\n", rc);
+		rc = -EINVAL;
+		goto exit_unmap;
+	}
+
+	VERBOSE("Reading SPM core manifest at address %p\n", pm_addr);
+
+	root_node = fdt_node_offset_by_compatible(pm_addr, -1,
 				"arm,spci-core-manifest-1.0");
 	if (root_node < 0) {
 		ERROR("Unrecognized SPM core manifest\n");
-		return -ENOENT;
+		rc = -ENOENT;
+		goto exit_unmap;
 	}
 
-	return manifest_parse_root(manifest, ptr, root_node);
+	rc = manifest_parse_root(manifest, pm_addr, root_node);
+
+exit_unmap:
+	rc = mmap_remove_dynamic_region(pm_base_align, PAGE_SIZE);
+	if (rc != 0) {
+		ERROR("Error while unmapping SPM core manifest (%d).\n", rc);
+		panic();
+	}
+
+	return rc;
 }
