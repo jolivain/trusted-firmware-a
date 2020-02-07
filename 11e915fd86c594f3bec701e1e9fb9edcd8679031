@@ -16,6 +16,24 @@
       "revId": "11e915fd86c594f3bec701e1e9fb9edcd8679031",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65a75076_16a5143c",
+        "filename": "lib/extensions/pauth/pauth_demangle.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-02-07T14:22:44Z",
+      "side": 1,
+      "message": "demangle_address() is also called from do_crash_reporting() and when External Aborts or SError are rooted to EL3 from lower ELx, XPACI or XPACLRI will use TCR_EL3 for stripping PAC, but not TCR_ELx, which caused the exception. For these exceptions the current do_crash_reporting() implementation doesn\u0027t show lower ELx register dump correctly and uses EL3 X30. It should be modified to display the correct data. I can change demangle_address() to use XPACI and then use its current code when do_crash_reporting() is fixed. Let me know what\u0027s your opinion of it.",
+      "parentUuid": "8da57797_fc1e7a43",
+      "revId": "11e915fd86c594f3bec701e1e9fb9edcd8679031",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
