@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe84ce31_e11f97fa",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-07T08:50:36Z",
+      "side": 1,
+      "message": "Do we actually need the full image_desc_t structure? It looks like only the image_info field is used by the rest of the function so I am wondering if we could simply declare that, as in:\n\n struct image_info arm_tb_fw_info \u003d {\n   .image_base \u003d ARM_TB_FW_CONFIG_BASE,\n   .image_max_size \u003d (uint32_t) (ARM_TB_FW_CONFIG_LIMIT - ARM_TB_FW_CONFIG_BASE)\n };",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 3
+      },
+      "revId": "c66127590333361eae3bad590239c4a3991a3c63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
