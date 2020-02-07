@@ -22,6 +22,47 @@
       "revId": "19a2dc6af13949135e9d8c19e93b988884c6ebf4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04ab79ac_55f07f5e",
+        "filename": "docs/plat/arm/arm-build-options.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-02-07T12:13:00Z",
+      "side": 1,
+      "message": "CSS_SGI_CHIP_COUNT will be used by multiple CSS platforms. In dual-chip rd-n1-edge it is limited to maximum of 2 and we can have a check in the rd-n1-edge platform.mk file. rd-daniel will have 4 chip configuration and we cannot say this count is limited to dual-chip in this doc.",
+      "parentUuid": "bfaa7e32_44eb54f2",
+      "range": {
+        "startLine": 118,
+        "startChar": 44,
+        "endLine": 119,
+        "endChar": 30
+      },
+      "revId": "19a2dc6af13949135e9d8c19e93b988884c6ebf4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79596469_8433b26b",
+        "filename": "plat/arm/css/sgi/sgi-common.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-02-07T12:13:00Z",
+      "side": 1,
+      "message": "we can move this check to individual platform.mk file.",
+      "revId": "19a2dc6af13949135e9d8c19e93b988884c6ebf4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
