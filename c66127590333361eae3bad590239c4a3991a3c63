@@ -22,6 +22,29 @@
       "revId": "c66127590333361eae3bad590239c4a3991a3c63",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0aeba455_d45d88b6",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-07T08:53:27Z",
+      "side": 1,
+      "message": "Don\u0027t we want to retrieve the actual file size (instead of the max size)?",
+      "range": {
+        "startLine": 44,
+        "startChar": 55,
+        "endLine": 44,
+        "endChar": 70
+      },
+      "revId": "c66127590333361eae3bad590239c4a3991a3c63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
