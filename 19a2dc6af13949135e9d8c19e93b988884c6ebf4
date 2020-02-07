@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfaa7e32_44eb54f2",
+        "filename": "docs/plat/arm/arm-build-options.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-02-07T11:40:30Z",
+      "side": 1,
+      "message": "As per the code it seems that only dual chip configuration is supported now, You should provide this information here also. Something like \"theoretically it supports any number of chips but currently it is being limited/tested for dual chip\"",
+      "range": {
+        "startLine": 118,
+        "startChar": 44,
+        "endLine": 119,
+        "endChar": 30
+      },
+      "revId": "19a2dc6af13949135e9d8c19e93b988884c6ebf4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
