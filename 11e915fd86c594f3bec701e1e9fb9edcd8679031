@@ -34,6 +34,24 @@
       "revId": "11e915fd86c594f3bec701e1e9fb9edcd8679031",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a54b986_c489f9a2",
+        "filename": "lib/extensions/pauth/pauth_demangle.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-02-07T17:10:07Z",
+      "side": 1,
+      "message": "Thanks Alexei. Not sure i understand your comment about the lower ELx register dump and EL3 x30. I understand that if you get an exception from lower EL\u0027s do_crash_reporting is still dumping EL3 registers. Is this what you are referring to ? Also can you elaborate on the EL3 x30 comment?\n\nI think this patch is fine and need not be changed to use XPAC. Missed the fact that XPAC will use the current EL\u0027s TCR. Might we worth adding a short comment indicating why demangle_address is not using XPAC*.",
+      "parentUuid": "65a75076_16a5143c",
+      "revId": "11e915fd86c594f3bec701e1e9fb9edcd8679031",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
