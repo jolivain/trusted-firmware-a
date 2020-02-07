@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a1e733c_54074e85",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-02-07T11:47:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5a37adf_f70748a1",
+      "range": {
+        "startLine": 15,
+        "startChar": 33,
+        "endLine": 15,
+        "endChar": 41
+      },
+      "revId": "a6a79aeadca8b148e8280725de6c8f0478e4098f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66c19480_80045b09",
         "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
         "patchSetId": 11
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "159c00b1_93007d76",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-02-07T11:47:50Z",
+      "side": 1,
+      "message": "Yes, I wanted to do it, but I had some issues with the include:\nWith include recursion, the dts is polluted with structure definition. This will generate errors during the compilation of the dtb.",
+      "parentUuid": "66c19480_80045b09",
+      "range": {
+        "startLine": 17,
+        "startChar": 23,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "a6a79aeadca8b148e8280725de6c8f0478e4098f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "686a145c_d3df9e55",
         "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
         "patchSetId": 11
@@ -59,6 +107,30 @@
       "writtenOn": "2020-02-07T10:22:22Z",
       "side": 1,
       "message": "And I guess this could be ARM_TB_FW_CONFIG_LIMIT - ARM_TB_FW_CONFIG_BASE?",
+      "range": {
+        "startLine": 18,
+        "startChar": 15,
+        "endLine": 18,
+        "endChar": 20
+      },
+      "revId": "a6a79aeadca8b148e8280725de6c8f0478e4098f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "836dca17_65ce1ff8",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-02-07T11:47:50Z",
+      "side": 1,
+      "message": "yes, but same issue as above.",
+      "parentUuid": "686a145c_d3df9e55",
       "range": {
         "startLine": 18,
         "startChar": 15,
