@@ -166,6 +166,30 @@
       "revId": "5717b6b220beb1b168cd8c729bf2216d3b8e437d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74b3825a_c7ce5da6",
+        "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-02-10T11:19:01Z",
+      "side": 1,
+      "message": "Thanks, That was the answer I was looking for. Regarding the statically filling the values, reading it direclty and preventing the boot based on a static config has the same effect as filling in the value statically. Anyway, I am not too fussed about it.",
+      "parentUuid": "f14480fa_fefcd538",
+      "range": {
+        "startLine": 54,
+        "startChar": 33,
+        "endLine": 54,
+        "endChar": 68
+      },
+      "revId": "5717b6b220beb1b168cd8c729bf2216d3b8e437d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
