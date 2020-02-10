@@ -214,12 +214,14 @@ void populate_next_bl_params_config(bl_params_t *bl2_to_next_bl_params)
 {
 	bl_params_node_t *params_node;
 	unsigned int fw_config_id;
-	uintptr_t hw_config_base = 0, fw_config_base;
-#if defined(SPD_spmd)
+#ifdef SPD_spmd
 	uint32_t fw_config_size = 0;
 #endif
+	uintptr_t fw_config_base;
 	bl_mem_params_node_t *mem_params;
-
+#ifndef SPD_opteed
+	uintptr_t hw_config_base = 0;
+#endif
 	assert(bl2_to_next_bl_params != NULL);
 
 	/*
@@ -227,8 +229,11 @@ void populate_next_bl_params_config(bl_params_t *bl2_to_next_bl_params)
 	 * if available.
 	 */
 	mem_params = get_bl_mem_params_node(HW_CONFIG_ID);
+
+#ifndef SPD_opteed
 	if (mem_params != NULL)
 		hw_config_base = mem_params->image_info.image_base;
+#endif
 
 	for (params_node = bl2_to_next_bl_params->head; params_node != NULL;
 			params_node = params_node->next_params_info) {
@@ -240,8 +245,16 @@ void populate_next_bl_params_config(bl_params_t *bl2_to_next_bl_params)
 			fw_config_id = SOC_FW_CONFIG_ID;
 			break;
 		case BL32_IMAGE_ID:
+		/*
+		 * At the moment, OPTEE cannot accept a DTB in secure memory,
+		 * so fall back and use NT_FW_CONFIG instead.
+		 * This MUST be fixed as soon as OPTEE has support to
+		 * receive DTBs in secure memory.
+		 */
+#ifndef SPD_opteed
 			fw_config_id = TOS_FW_CONFIG_ID;
 			break;
+#endif
 		case BL33_IMAGE_ID:
 			fw_config_id = NT_FW_CONFIG_ID;
 			break;
@@ -254,12 +267,25 @@ void populate_next_bl_params_config(bl_params_t *bl2_to_next_bl_params)
 			mem_params = get_bl_mem_params_node(fw_config_id);
 			if (mem_params != NULL) {
 				fw_config_base = mem_params->image_info.image_base;
-#if defined(SPD_spmd)
+#ifdef SPD_spmd
 				fw_config_size =
 					mem_params->image_info.image_size;
 #endif
 			}
 		}
+
+#ifdef SPD_opteed
+		/*
+		 * If SPD_opteed is enabled, arg[0,2] are populated by
+		 * parse_optee_header(), which is called by
+		 * arm_bl2_handle_post_image_load(). The meaning of the
+		 * arguments are:
+		 * arg0 <-- MODE_RW
+		 * arg1 <-- Paged image base
+		 * arg2 <-- Paged image size
+		 */
+		params_node->ep_info->args.arg3 = fw_config_base;
+#else
 		/*
 		 * Pass hw and tb_fw config addresses to next images. NOTE - for
 		 * EL3 runtime images (BL31 for AArch64 and BL32 for AArch32),
@@ -280,12 +306,13 @@ void populate_next_bl_params_config(bl_params_t *bl2_to_next_bl_params)
 			if (params_node->ep_info->args.arg1 == 0U)
 				params_node->ep_info->args.arg1 =
 								hw_config_base;
-#if defined(SPD_spmd)
+#ifdef SPD_spmd
 			if (params_node->ep_info->args.arg2 == 0U)
 				params_node->ep_info->args.arg2 =
 								fw_config_size;
 #endif
 		}
+#endif
 	}
 }
 
