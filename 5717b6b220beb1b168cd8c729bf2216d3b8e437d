@@ -118,6 +118,30 @@
       "revId": "5717b6b220beb1b168cd8c729bf2216d3b8e437d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "821d9337_2abe37d1",
+        "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-02-10T10:17:29Z",
+      "side": 1,
+      "message": "You haven\u0027t answered the question:\n\n\u003e what would happen if this SID bit is 0 and CSS_SGI_CHIP_COUNT \u003e 1 ? I would think they have to \n\u003e correspond. If CSS_SGI_CHIP_COUNT  \u003e 1 then this bit has to be enabled in platform, correct?\n\n\ni.e can the software built with CSS_SGI_CHIP_COUNT \u003d 2 run on a platform with sgi_plat_info.multi_chip_mode \u003d 0 ?\n\nIf not, a correlation has to be made between the two. I can see 2 ways to do it :\n\n1. Have a assertion checking for the build flag within plat_arm_sgi_get_multi_chip_mode()\n2. Fill the property based on build flag statically and have a assertion checking the SID_REG_BASE + SID_NODE_ID_OFFSET register for the multimode bit.\n\nI prefer the 2nd approach as this will remove the need for plat_arm_sgi_ interface and the assertion can be done within bl31_platform_setup of rde1edge platform. Hope that is clear.",
+      "parentUuid": "a4d07fc5_b7bdc09d",
+      "range": {
+        "startLine": 54,
+        "startChar": 33,
+        "endLine": 54,
+        "endChar": 68
+      },
+      "revId": "5717b6b220beb1b168cd8c729bf2216d3b8e437d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
