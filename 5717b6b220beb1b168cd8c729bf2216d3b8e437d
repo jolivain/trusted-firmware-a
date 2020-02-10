@@ -142,6 +142,30 @@
       "revId": "5717b6b220beb1b168cd8c729bf2216d3b8e437d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f14480fa_fefcd538",
+        "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-02-10T11:09:22Z",
+      "side": 1,
+      "message": "Hi Soby,\n\n\u003e You haven\u0027t answered the question:\n\u003e \n\u003e \u003e what would happen if this SID bit is 0 and CSS_SGI_CHIP_COUNT \u003e 1 ? I would think they have to \n\u003e \u003e correspond. If CSS_SGI_CHIP_COUNT  \u003e 1 then this bit has to be enabled in platform, correct?\n\u003e \n\u003e \n\u003e i.e can the software built with CSS_SGI_CHIP_COUNT \u003d 2 run on a platform with sgi_plat_info.multi_chip_mode \u003d 0 ?\n\nAdded a check for this at the beginning of the bl31 platform setup: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/3071/20/plat/arm/board/rdn1edge/rdn1edge_plat.c#70\n\n\u003e If not, a correlation has to be made between the two. I can see 2 ways to do it :\n\u003e \n\u003e 1. Have a assertion checking for the build flag within plat_arm_sgi_get_multi_chip_mode()\n\u003e 2. Fill the property based on build flag statically and have a assertion checking the SID_REG_BASE + SID_NODE_ID_OFFSET register for the multimode bit.\n\u003e \n\u003e I prefer the 2nd approach as this will remove the need for plat_arm_sgi_ interface and the assertion can be done within bl31_platform_setup of rde1edge platform. Hope that is clear.\n\nOur approach seems to be similar to the 1st approach but with the assertion for {CSS_SGI_CHIP_COUNT \u003d 2 run on a platform with sgi_plat_info.multi_chip_mode \u003d 0} done in the rd*_plat.c file. I am not in favor of populating the sgi_plat_info.multi_chip_mode value statically with the CSS_SGI_CHIP_COUNT build flag as this information is hardware dependent, I feel it is better to avoid populating values statically as much as possible.",
+      "parentUuid": "821d9337_2abe37d1",
+      "range": {
+        "startLine": 54,
+        "startChar": 33,
+        "endLine": 54,
+        "endChar": 68
+      },
+      "revId": "5717b6b220beb1b168cd8c729bf2216d3b8e437d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
