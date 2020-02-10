@@ -52,6 +52,24 @@
       "revId": "11e915fd86c594f3bec701e1e9fb9edcd8679031",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5870a3f0_a08cfeb6",
+        "filename": "lib/extensions/pauth/pauth_demangle.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-02-10T15:21:12Z",
+      "side": 1,
+      "message": "Yes, getting \"exception from lower EL\u0027s do_crash_reporting is still dumping EL3 registers\", \u0026 X30 is EL3 LR. That\u0027s why it is OK for now to use XPACI, but it should be fixed.",
+      "parentUuid": "5a54b986_c489f9a2",
+      "revId": "11e915fd86c594f3bec701e1e9fb9edcd8679031",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
