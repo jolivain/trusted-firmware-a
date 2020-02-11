@@ -90,7 +90,7 @@ ARM_SCMI_INSTANTIATE_LOCK;
  * the Domain ID is encoded in the lower 16 bits in each entry of the mapping
  * array exported by the platform.
  */
-static void css_scp_core_pos_to_scmi_channel(unsigned int core_pos,
+static void css_scp_core_pos_to_scmi_channel(int core_pos,
 		unsigned int *scmi_domain_id, unsigned int *scmi_channel_id)
 {
 	unsigned int composite_id;
@@ -214,8 +214,8 @@ void css_scp_off(const struct psci_power_state *target_state)
  */
 void css_scp_on(u_register_t mpidr)
 {
-	unsigned int lvl = 0, channel_id, core_pos, domain_id;
-	int ret;
+	unsigned int lvl = 0, channel_id, domain_id;
+	int core_pos, ret;
 	uint32_t scmi_pwr_state = 0;
 
 	for (; lvl <= PLAT_MAX_PWR_LVL; lvl++)
