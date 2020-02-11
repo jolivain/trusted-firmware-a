@@ -94,6 +94,30 @@
       "revId": "9d9e7e6f17dd1d91ef73224f47622de65b664528",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab7cebb3_f18a0e31",
+        "filename": "services/spd/trusty/trusty.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000329
+      },
+      "writtenOn": "2020-02-11T22:04:22Z",
+      "side": 1,
+      "message": "RESET_TO_BL31 seems unrelated to this. For qemu BL32 is mapped in bl31_plat_arch_setup. Other platforms may or may not do this, but this decision does not seem to be driven by RESET_TO_BL31. I think it is best to leave LATE_MAPPED_BL32 as a separate flag.",
+      "parentUuid": "73774c1b_fca1b2e3",
+      "range": {
+        "startLine": 420,
+        "startChar": 7,
+        "endLine": 420,
+        "endChar": 23
+      },
+      "revId": "9d9e7e6f17dd1d91ef73224f47622de65b664528",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
