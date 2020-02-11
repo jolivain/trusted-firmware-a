@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6474131_cea82495",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-11T14:28:07Z",
+      "side": 1,
+      "message": "I still don\u0027t understand the issue to the bottom...\n\nIIUC, the issue arises if I want to use an ECDSA ROTPK. So I am compiling with ARM_ROTPK_LOCATION\u003ddevel_ecdsa and ROT_KEY\u003dplat/arm/board/common/rotpk/arm_rotprivk_ecdsa.pem. What happens next is, the hash file is generated from this ECDSA key, except that openssl is told that it is an RSA key. IOW, we execute the following command at line 53:\n\n openssl rsa -in plat/arm/board/common/rotpk/arm_rotprivk_ecdsa.pem -pubout -outform DER | \\\n   openssl dgst -sha256 -binary \u003e plat/arm/board/common/rotpk/arm_rotpk_ecdsa_sha256.bin\n\nIf I type this command, openssl throws an error at me, as it correctly detects that it didn\u0027t get the private key in the expected format:\n\n 140238993356440:error:0607907F:digital envelope routines:EVP_PKEY_get1_RSA:expecting an rsa key:p_lib.c:279:\n\nSo if my understanding is correct so far, I don\u0027t understand why this didn\u0027t fail to build... Can you please help me understand?",
+      "revId": "698e231d928752e7877bfd5482c0fca6509108cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
