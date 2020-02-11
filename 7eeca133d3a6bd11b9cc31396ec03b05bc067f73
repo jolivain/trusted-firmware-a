@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "434329a2_dedb67e6",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-02-11T14:39:49Z",
+      "side": 1,
+      "message": "\"Include sp_gen.mk only if SPD is spmd and SP_LAYOUT_FILE is defined\" ?\n\nI assume SP_LAYOUT_FILE is defined through the command line ?",
+      "parentUuid": "b212a80b_d719aa71",
+      "range": {
+        "startLine": 892,
+        "startChar": 0,
+        "endLine": 892,
+        "endChar": 43
+      },
+      "revId": "7eeca133d3a6bd11b9cc31396ec03b05bc067f73",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "745fb6fe_0a41a69e",
         "filename": "tools/sptool/sp_mk_generator.py",
         "patchSetId": 7
@@ -160,6 +184,24 @@
       "side": 1,
       "message": "Yes you are right but i am planning to have seperate patch for loading, logically i wanted to seperate packaging and loading parts.\nSince the suggested changes are required for loading of images as well as we are not yet decided whether to generate a seperate DT for these info or append it to fconf DT.",
       "parentUuid": "6b480f7e_7466a82a",
+      "revId": "7eeca133d3a6bd11b9cc31396ec03b05bc067f73",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e6026d4_cf08d555",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-02-11T14:39:49Z",
+      "side": 1,
+      "message": "ok sound\u0027s good for me!",
+      "parentUuid": "3e10d657_a4a6be8f",
       "revId": "7eeca133d3a6bd11b9cc31396ec03b05bc067f73",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
