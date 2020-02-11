@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "934c658d_b2a25fed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-11T15:26:05Z",
+      "side": 1,
+      "message": "\u003e Since we are not parsing output of openssl - it is actually indeed failing silently. If you try generating the ECDSA hash in original patch - there is an error at the start of the output: \n\u003e \n\u003e error:0607907F:digital envelope routines:EVP_PKEY_get0_RSA:expecting an rsa key\n\u003e \n\u003e The bad thing about this - it still writes something weird to the file.\n\u003e I tried to address that by getting execution result from OpenSSL. Unfortunately, OpenSSL still returns 0 in this case - the only way to catch this error is to parse stderr.\n\nAh OK, that makes sense, I didn\u0027t notice the openssl tool still returned 0 in this case. It\u0027s unfortunate but makes it more difficult to work around it in a Makefile, as you said...\n\n\u003e I am sure we should do something about this, but I would prefer doing it in a separate patch.\n\nSure, no problem! I would prefer it as well, I was just trying to understand. Thanks for the explanations!",
+      "parentUuid": "99299df1_013cffd7",
+      "revId": "698e231d928752e7877bfd5482c0fca6509108cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "afa8d713_122902fe",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "This was my understanding originally. But KEY_ALG is used only by cert_create as you rightfully mentioned. And we are not using that to generate ROTPK.\nEssentially - only ARM_ROTPK_LOCATION and ROT_KEY have to use the same encryption. We can generate subsequent certificates using another encryption algorithm. This situation is covered in \n\ntf_config/fvp-tbb-mbedtls-rsa-ecdsa-with-rsa-rotpk-ecdsa-cert\ntf_config/fvp-tbb-mbedtls-rsa-ecdsa-with-ecdsa-rotpk-rsa-cert\n\nIf you look at the configuration - we are mixing encryption methods for ROTPK and subsequent keys.\n\nI agree this is not clear at all from documentation and has to be properly documented.",
       "parentUuid": "afa8d713_122902fe",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "698e231d928752e7877bfd5482c0fca6509108cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60c36f66_d9df1ab8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-11T15:26:05Z",
+      "side": 1,
+      "message": "OK, thanks. Indeed we should revisit the documentation. Or revisit the build options. For example, we could consider not specifying the key algo through ARM_ROTPK_LOCATION, only use it for specifying the key location (devel or registers or else) and let us deduce the key algo from the ROT_KEY file (assuming that\u0027s possible). That way, there could not be any mismatch because the info would be specified in one place only.\n\nAnyway, something to look into the future.",
+      "parentUuid": "2282f9e5_40bc3bf1",
       "range": {
         "startLine": 11,
         "startChar": 0,
