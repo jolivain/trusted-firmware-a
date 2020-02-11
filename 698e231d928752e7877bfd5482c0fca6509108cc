@@ -16,6 +16,29 @@
       "revId": "698e231d928752e7877bfd5482c0fca6509108cc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afa8d713_122902fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-11T14:36:50Z",
+      "side": 1,
+      "message": "I also don\u0027t understand that. I thought that KEY_ALG indicated the encryption algorithm to use for generating keys. Now, most of the time, we provide an existing ROTPK (via ROT_KEY\u003dpath/to/key.pem) so cert_create does not need to generate it and KEY_ALG only applies to all other subsidiary keys that cert_create has to generate. But in the event where the ROTPK also has to be generated (which I think is a valid use case in a development environment) then I thought that KEY_ALG would also dictate which algo to use for the ROTPK.\n\nIs my understanding correct? Do we not support generating a development ROTPK?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "698e231d928752e7877bfd5482c0fca6509108cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
