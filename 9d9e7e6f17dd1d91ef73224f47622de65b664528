@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ebace2af_5bed7323",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-11T23:23:49Z",
+      "side": 1,
+      "message": "I think this can be removed from the commit message",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 14
+      },
+      "revId": "9d9e7e6f17dd1d91ef73224f47622de65b664528",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7846d04e_41d0649e",
         "filename": "services/spd/trusty/trusty.c",
         "patchSetId": 1
