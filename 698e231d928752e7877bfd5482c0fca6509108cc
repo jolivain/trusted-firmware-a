@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "99299df1_013cffd7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-02-11T15:07:01Z",
+      "side": 1,
+      "message": "Since we are not parsing output of openssl - it is actually indeed failing silently. If you try generating the ECDSA hash in original patch - there is an error at the start of the output: \n\nerror:0607907F:digital envelope routines:EVP_PKEY_get0_RSA:expecting an rsa key\n\nThe bad thing about this - it still writes something weird to the file.\nI tried to address that by getting execution result from OpenSSL. Unfortunately, OpenSSL still returns 0 in this case - the only way to catch this error is to parse stderr.\n\nI am sure we should do something about this, but I would prefer doing it in a separate patch.",
+      "parentUuid": "a6474131_cea82495",
+      "revId": "698e231d928752e7877bfd5482c0fca6509108cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "afa8d713_122902fe",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2020-02-11T14:36:50Z",
       "side": 1,
       "message": "I also don\u0027t understand that. I thought that KEY_ALG indicated the encryption algorithm to use for generating keys. Now, most of the time, we provide an existing ROTPK (via ROT_KEY\u003dpath/to/key.pem) so cert_create does not need to generate it and KEY_ALG only applies to all other subsidiary keys that cert_create has to generate. But in the event where the ROTPK also has to be generated (which I think is a valid use case in a development environment) then I thought that KEY_ALG would also dictate which algo to use for the ROTPK.\n\nIs my understanding correct? Do we not support generating a development ROTPK?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "698e231d928752e7877bfd5482c0fca6509108cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2282f9e5_40bc3bf1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-02-11T15:07:01Z",
+      "side": 1,
+      "message": "This was my understanding originally. But KEY_ALG is used only by cert_create as you rightfully mentioned. And we are not using that to generate ROTPK.\nEssentially - only ARM_ROTPK_LOCATION and ROT_KEY have to use the same encryption. We can generate subsequent certificates using another encryption algorithm. This situation is covered in \n\ntf_config/fvp-tbb-mbedtls-rsa-ecdsa-with-rsa-rotpk-ecdsa-cert\ntf_config/fvp-tbb-mbedtls-rsa-ecdsa-with-ecdsa-rotpk-rsa-cert\n\nIf you look at the configuration - we are mixing encryption methods for ROTPK and subsequent keys.\n\nI agree this is not clear at all from documentation and has to be properly documented.",
+      "parentUuid": "afa8d713_122902fe",
       "range": {
         "startLine": 11,
         "startChar": 0,
