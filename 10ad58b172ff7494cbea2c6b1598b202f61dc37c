@@ -16,6 +16,24 @@
       "revId": "10ad58b172ff7494cbea2c6b1598b202f61dc37c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "829445c1_49706091",
+        "filename": "lib/xlat_tables_v2/xlat_tables_context.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000296
+      },
+      "writtenOn": "2020-02-12T17:22:14Z",
+      "side": 1,
+      "message": "The tables are created(well, initialized...) by the init_xlat_tables* family of functions. This function simply changes attributes in the page descriptors that resolve address translation to the tables themselves (my head hurts typing this lol). So, if the L2 and L3 tables occupy 5 pages in memory, it changes 5 descriptors to apply read-only permissions to those pages.\nIf we don\u0027t make the base table read-only, then the attacker can simply use that to create new L2 and L3 tables and map whatever memory they want. Why move them to .rodata instead of xlat_table? Because the base table is smaller (has like only 1-2 entries) than a full page table. The xlat_table section must be 4KB aligned, which means that if we put the base table there, the size of the BL image increases by a full 4KB page, whereas .rodata would only become 512B-aligned and thus we pay a smaller price.",
+      "parentUuid": "f4c156b3_8fb60b8f",
+      "revId": "10ad58b172ff7494cbea2c6b1598b202f61dc37c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
