@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edccb21d_8062742a",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-02-12T17:19:38Z",
+      "side": 1,
+      "message": "nit:can perhaps make the 4 lines to save and restore a helper function to avoid repeated code. Also should cm_el2_sysregs_* need to be under the ifdef ? where would the definition of this function be if CTX_INCLUDE_EL2_REGS is 0 ?",
+      "revId": "09e4042686f56b5510eb1bac6d725989c4e3103a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
