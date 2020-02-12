@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -38,7 +38,7 @@ static int bl1_fwu_image_auth(unsigned int image_id,
 static int bl1_fwu_image_execute(unsigned int image_id,
 			void **handle,
 			unsigned int flags);
-static register_t bl1_fwu_image_resume(register_t image_param,
+static u_register_t bl1_fwu_image_resume(u_register_t image_param,
 			void **handle,
 			unsigned int flags);
 static int bl1_fwu_sec_image_done(void **handle,
@@ -55,11 +55,11 @@ static unsigned int sec_exec_image_id = INVALID_IMAGE_ID;
 /*******************************************************************************
  * Top level handler for servicing FWU SMCs.
  ******************************************************************************/
-register_t bl1_fwu_smc_handler(unsigned int smc_fid,
-			register_t x1,
-			register_t x2,
-			register_t x3,
-			register_t x4,
+u_register_t bl1_fwu_smc_handler(unsigned int smc_fid,
+			u_register_t x1,
+			u_register_t x2,
+			u_register_t x3,
+			u_register_t x4,
 			void *cookie,
 			void *handle,
 			unsigned int flags)
@@ -543,7 +543,7 @@ static int bl1_fwu_image_execute(unsigned int image_id,
  * This function is responsible for resuming execution in the other security
  * world
  ******************************************************************************/
-static register_t bl1_fwu_image_resume(register_t image_param,
+static register_t bl1_fwu_image_resume(u_register_t image_param,
 			void **handle,
 			unsigned int flags)
 {
