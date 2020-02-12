@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4c156b3_8fb60b8f",
+        "filename": "lib/xlat_tables_v2/xlat_tables_context.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-12T00:10:54Z",
+      "side": 1,
+      "message": "Using this function, I understand that the pages holding the xlat tables are mapped as read only to stop an attacker from modifying a descriptor that contains the memory attributes of a page in secure memory. I was wondering why the base tables had to be allocated in \".rodata\" section.",
+      "revId": "10ad58b172ff7494cbea2c6b1598b202f61dc37c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
