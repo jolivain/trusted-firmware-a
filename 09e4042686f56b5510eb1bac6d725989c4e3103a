@@ -16,6 +16,24 @@
       "revId": "09e4042686f56b5510eb1bac6d725989c4e3103a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5028f57_c7a3262b",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-02-12T17:25:14Z",
+      "side": 1,
+      "message": "Looks like another change fixed the repeated code.",
+      "parentUuid": "edccb21d_8062742a",
+      "revId": "09e4042686f56b5510eb1bac6d725989c4e3103a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
