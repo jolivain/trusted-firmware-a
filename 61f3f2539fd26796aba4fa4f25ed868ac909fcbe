@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2eae9d4c_08691b8c",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-02-12T17:26:41Z",
+      "side": 1,
+      "message": "should the el2 save and restore be under #if CTX_INCLUDE_EL2_REGS?",
+      "revId": "61f3f2539fd26796aba4fa4f25ed868ac909fcbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
