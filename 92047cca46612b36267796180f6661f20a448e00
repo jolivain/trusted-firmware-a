@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee8d19f2_8c82ba95",
+        "filename": "tools/memory/print_memory_map.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-13T16:50:23Z",
+      "side": 1,
+      "message": "Can you keep lower address at the bottom? It is easy to visualize the memory layout this way. This is also the way it is documented using the figures here:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/design/firmware-design.html#how-to-choose-the-right-base-addresses-for-each-bootloader-stage-image",
+      "revId": "92047cca46612b36267796180f6661f20a448e00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
