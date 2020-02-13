@@ -70,6 +70,24 @@
       "revId": "10ad58b172ff7494cbea2c6b1598b202f61dc37c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa3183f1_b1df3f22",
+        "filename": "lib/xlat_tables_v2/xlat_tables_context.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-13T23:09:42Z",
+      "side": 1,
+      "message": "Thanks for the wonderful explanation. I had a tough time understanding how xlat table library is implemented in TF-A, probably because of the inherent complexity associated with translation tables.",
+      "parentUuid": "22d5e321_0936e195",
+      "revId": "10ad58b172ff7494cbea2c6b1598b202f61dc37c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
