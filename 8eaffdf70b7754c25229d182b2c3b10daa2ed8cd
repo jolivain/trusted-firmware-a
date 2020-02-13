@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8193d5c2_66d2167e",
+        "filename": "plat/socionext/uniphier/uniphier_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-13T09:52:43Z",
+      "side": 1,
+      "message": "(minor) I guess you could replace these 3 lines by a single one now:\n\n  return ret;",
+      "range": {
+        "startLine": 309,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 10
+      },
+      "revId": "8eaffdf70b7754c25229d182b2c3b10daa2ed8cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
