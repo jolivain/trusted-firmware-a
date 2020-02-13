@@ -52,6 +52,24 @@
       "revId": "10ad58b172ff7494cbea2c6b1598b202f61dc37c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22d5e321_0936e195",
+        "filename": "lib/xlat_tables_v2/xlat_tables_context.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000296
+      },
+      "writtenOn": "2020-02-13T15:03:07Z",
+      "side": 1,
+      "message": "The ways in which \"CP15SDISABLE\" can be taken HIGH or LOW is implementation defined, so not under our control. So, for EL3 using AArch32, I don\u0027t think there is something we can do to prevent the secure world from writing to TTBR0/1. However, from my understanding of the manual, the normal world would not be able to write to the secure TTBRx (I see TTBRx_NS and TTBRx_S in the manual pseudo-code for accesses to TTBRx). Therefore, some kind of gadget would still be required. This could also happen on AArch64 - someone with a gadget that can, say, modify TTBR0_EL3 can completely remap the memory (well, they\u0027d probably need another gadget that can invalidate TLB entries to see the actual effects, but you get the idea).\nSo, to sum up, if by \"external\" you mean the Normal world, I believe the Secure TTBR is protected. If it\u0027s coming from the Secure world, then they would need two gadgets (one to modify TTBR, one to invalidate TLB entries to make their mapping changes take effect) on both AArch32 and AArch64 (AArch64 needs more specific gadgets due to the higher number of exception levels).",
+      "parentUuid": "e99e1451_ffc609e5",
+      "revId": "10ad58b172ff7494cbea2c6b1598b202f61dc37c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
