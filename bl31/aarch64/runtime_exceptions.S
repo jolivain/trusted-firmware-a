@@ -78,6 +78,12 @@
 	bl	restore_gp_pmcr_pauth_regs
 1:
 #else
+	/*
+	 * For SoCs which do not implement RAS, use DSB as a barrier to
+	 * synchronize pending external aborts.
+	 */
+	dsb	sy
+
 	/* Unmask the SError interrupt */
 	msr	daifclr, #DAIF_ABT_BIT
 
