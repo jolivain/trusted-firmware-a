@@ -78,9 +78,17 @@
 	bl	restore_gp_pmcr_pauth_regs
 1:
 #else
+	/*
+	 * For SoCs which do not implement RAS, use DSB as a barrier to
+	 * synchronize pending external aborts.
+	 */
+	dsb	sy
+
 	/* Unmask the SError interrupt */
 	msr	daifclr, #DAIF_ABT_BIT
 
+	/* Use ISB for the above unmask operation to take effect immediately */
+	isb
 	str	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
 #endif
 	.endm
@@ -206,6 +214,24 @@ interrupt_exit_\label:
 	.endm
 
 
+	/* ---------------------------------------------------------------------
+	 * This macro handles Asynchronous External Aborts.
+	 * ---------------------------------------------------------------------
+	 */
+	.macro	handle_async_ea
+	/*
+	 * Use a barrier to synchronize pending external aborts.
+	 */
+	dsb	sy
+
+	/* Unmask the SError interrupt */
+	msr	daifclr, #DAIF_ABT_BIT
+
+	/* Use ISB for the above unmask operation to take effect immediately */
+	isb
+	b	enter_lower_el_async_ea
+	.endm
+
 vector_base runtime_exceptions
 
 	/* ---------------------------------------------------------------------
@@ -300,8 +326,7 @@ vector_entry fiq_aarch64
 end_vector_entry fiq_aarch64
 
 vector_entry serror_aarch64
-	msr	daifclr, #DAIF_ABT_BIT
-	b	enter_lower_el_async_ea
+	handle_async_ea
 end_vector_entry serror_aarch64
 
 	/* ---------------------------------------------------------------------
@@ -330,8 +355,7 @@ vector_entry fiq_aarch32
 end_vector_entry fiq_aarch32
 
 vector_entry serror_aarch32
-	msr	daifclr, #DAIF_ABT_BIT
-	b	enter_lower_el_async_ea
+	handle_async_ea
 end_vector_entry serror_aarch32
 
 #ifdef MONITOR_TRAPS

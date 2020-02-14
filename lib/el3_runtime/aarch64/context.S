@@ -923,6 +923,8 @@ func el3_exit
  	 * ----------------------------------------------------------
 	 */
 	esb
+#else
+	dsb	sy
 #endif
 	exception_return
 
