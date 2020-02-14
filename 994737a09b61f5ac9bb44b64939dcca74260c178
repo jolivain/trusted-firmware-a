@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "746616cb_0de151bc",
+        "filename": "tools/memory/print_memory_map.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-02-14T16:13:05Z",
+      "side": 1,
+      "message": "could this be `\u003d false` instead?",
+      "revId": "994737a09b61f5ac9bb44b64939dcca74260c178",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de66f068_63483c43",
+        "filename": "tools/memory/print_memory_map.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-02-14T16:13:05Z",
+      "side": 1,
+      "message": "And this be:\nif inverted_print\n?",
+      "revId": "994737a09b61f5ac9bb44b64939dcca74260c178",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
