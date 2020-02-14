@@ -34,6 +34,24 @@
       "revId": "b34ae9e90e9c7f5405ffd437e9b30bf77ef5898c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "617c017b_549044c9",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-02-14T19:28:27Z",
+      "side": 1,
+      "message": "Would it be possible to confirm or add further clarification in the comments? it seems like an soc pre 8.2, might have DSB implementations that does nothing related to syncing pending aborts(unless somebody can confirm most or all soc\u0027s sync aborts on DSB\u0027s). These SoC\u0027s will be paying a perf penalty on the DSB on almost every entry to EL3(think PSCI etc). Could we put it under a build option ?",
+      "parentUuid": "a1b9ba89_2512daee",
+      "revId": "b34ae9e90e9c7f5405ffd437e9b30bf77ef5898c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
