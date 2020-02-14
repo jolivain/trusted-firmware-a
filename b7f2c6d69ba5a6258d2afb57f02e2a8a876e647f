@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "36f20ab7_14650e0d",
+        "filename": "plat/mediatek/mt8183/drivers/emi_mpu/emi_mpu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000334
+      },
+      "writtenOn": "2020-02-14T03:32:22Z",
+      "side": 1,
+      "message": "i am xixi.chen.\nYes, is_4GB always return false.",
+      "parentUuid": "48a3e3d1_1a9abafe",
+      "revId": "b7f2c6d69ba5a6258d2afb57f02e2a8a876e647f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8884c3c5_9447f229",
         "filename": "plat/mediatek/mt8183/drivers/emi_mpu/emi_mpu.c",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-02-14T03:18:57Z",
       "side": 1,
       "message": "I\u0027ll just post it here:\n\nThe offset there is the virtual address space on the bus side (1-9GB for 8GB RAM), and that emi_mpu_set_region_protection will translate to the physical memory space (0-8GB).\n\n8GB is 33-bit (the memory bus width is 33-bit on this platform), so 0x23FFFFFFFUL-EMI_PHY_OFFSET \u003d 0x1_FFFF_FFFF.",
+      "revId": "b7f2c6d69ba5a6258d2afb57f02e2a8a876e647f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0098c921_676da9d2",
+        "filename": "plat/mediatek/mt8183/drivers/emi_mpu/emi_mpu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000334
+      },
+      "writtenOn": "2020-02-14T03:32:22Z",
+      "side": 1,
+      "message": "Yes, you are right.\ndomain 1 : SCP, domain 2: SPM/SSPM.\ndomain 1 : bit[5:3], domain 2: bit[8:6].\n\nFORBIDDEN \u003c\u003c 3:  domain 1.\n  forbidden SCP  access the last 4GB.\nFORBIDDEN \u003c\u003c 6:  domain 2.\n  forbidden SPM/SSPM access the last 4GB.",
+      "parentUuid": "8884c3c5_9447f229",
       "revId": "b7f2c6d69ba5a6258d2afb57f02e2a8a876e647f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
