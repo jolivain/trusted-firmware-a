@@ -34,6 +34,76 @@
  */
 func el2_sysregs_context_save
 
+/* The following registers are not added.
+ * AMEVCNTVOFF0<n>_EL2
+ * AMEVCNTVOFF1<n>_EL2
+ * ICH_AP0R<n>_EL2
+ * ICH_AP1R<n>_EL2
+ * ICH_LR<n>_EL2
+ * PMSCR_EL2
+ * RVBAR_EL2
+ * TFSR_EL2
+ * TRFCR_EL2
+ */
+#if ARM_ARCH_AT_LEAST(8, 5)
+	mrs	x9, scxtnum_el2
+	str	x9, [x0, #CTX_SCXTNUM_EL2]
+#endif
+#if ARM_ARCH_AT_LEAST(8, 4)
+	mrs	x9, cnthps_ctl_el2
+	str	x9, [x0, #CTX_CNTHPS_CTL_EL2]
+
+	mrs	x9, cnthps_cval_el2
+	str	x9, [x0, #CTX_CNTHPS_CVAL_EL2]
+
+	mrs	x9, cnthps_tval_el2
+	str	x9, [x0, #CTX_CNTHPS_TVAL_EL2]
+
+	mrs	x9, cnthvs_ctl_el2
+	str	x9, [x0, #CTX_CNTHVS_CTL_EL2]
+
+	mrs	x9, cnthvs_cval_el2
+	str	x9, [x0, #CTX_CNTHVS_CVAL_EL2]
+
+	mrs	x9, cnthvs_tval_el2
+	str	x9, [x0, #CTX_CNTHVS_TVAL_EL2]
+
+	mrs	x9, sder32_el2
+	str	x9, [x0, #CTX_SDER32_EL2]
+
+	mrs	x9, vncr_el2
+	str	x9, [x0, #CTX_VNCR_EL2]
+
+	mrs	x9, vstcr_el2
+	str	x9, [x0, #CTX_VSTCR_EL2]
+
+	mrs	x9, vsttbr_el2
+	str	x9, [x0, #CTX_VSTTBR_EL2]
+#endif
+#if ARM_ARCH_AT_LEAST(8, 2)
+	mrs	x9, vdisr_el2
+	str	x9, [x0, #CTX_VDISR_EL2]
+
+	mrs	x9, vsesr_el2
+	str	x9, [x0, #CTX_VSESR_EL2]
+#endif
+#if ARM_ARCH_AT_LEAST(8, 1)
+	mrs	x9, cnthv_ctl_el2
+	str	x9, [x0, #CTX_CNTHV_CTL_EL2]
+
+	mrs	x9, cnthv_cval_el2
+	str	x9, [x0, #CTX_CNTHV_CVAL_EL2]
+
+	mrs	x9, cnthv_tval_el2
+	str	x9, [x0, #CTX_CNTHV_TVAL_EL2]
+
+	mrs	x9, contextidr_el2
+	str	x9, [x0, #CTX_CONTEXTIDR_EL2]
+
+	mrs	x9, ttbr1_el2
+	str	x9, [x0, #CTX_TTBR1_EL2]
+#endif
+
 	mrs	x9, actlr_el2
 	str	x9, [x0, #CTX_ACTLR_EL2]
 
@@ -223,6 +293,76 @@ endfunc el2_sysregs_context_save
  * -----------------------------------------------------
  */
 func el2_sysregs_context_restore
+
+/* The following registers needs to be discussed
+ * AMEVCNTVOFF0<n>_EL2
+ * AMEVCNTVOFF1<n>_EL2
+ * ICH_AP0R<n>_EL2
+ * ICH_AP1R<n>_EL2
+ * ICH_LR<n>_EL2
+ * PMSCR_EL2
+ * RVBAR_EL2
+ * TFSR_EL2
+ * TRFCR_EL2
+ */
+#if ARM_ARCH_AT_LEAST(8, 5)
+	ldr	x9, [x0, #CTX_SCXTNUM_EL2]
+	msr	scxtnum_el2, x9
+#endif
+#if ARM_ARCH_AT_LEAST(8, 4)
+	ldr	x9, [x0, #CTX_CNTHPS_CTL_EL2]
+	msr	cnthps_ctl_el2, x9
+
+	ldr	x9, [x0, #CTX_CNTHPS_CVAL_EL2]
+	msr	cnthps_cval_el2, x9
+
+	ldr	x9, [x0, #CTX_CNTHPS_TVAL_EL2]
+	msr	cnthps_tval_el2, x9
+
+	ldr	x9, [x0, #CTX_CNTHVS_CTL_EL2]
+	msr	cnthvs_ctl_el2, x9
+
+	ldr	x9, [x0, #CTX_CNTHVS_CVAL_EL2]
+	msr	cnthvs_cval_el2, x9
+
+	ldr	x9, [x0, #CTX_CNTHVS_TVAL_EL2]
+	msr	cnthvs_tval_el2, x9
+
+	ldr	x9, [x0, #CTX_SDER32_EL2]
+	msr	sder32_el2, x9
+
+	ldr	x9, [x0, #CTX_VNCR_EL2]
+	msr	vncr_el2, x9
+
+	ldr	x9, [x0, #CTX_VSTCR_EL2]
+	msr	vstcr_el2, x9
+
+	ldr	x9, [x0, #CTX_VSTTBR_EL2]
+	msr	vsttbr_el2, x9
+#endif
+#if ARM_ARCH_AT_LEAST(8, 2)
+	ldr	x9, [x0, #CTX_VDISR_EL2]
+	msr	vdisr_el2, x9
+
+	ldr	x9, [x0, #CTX_VSESR_EL2]
+	msr	vsesr_el2, x9
+#endif
+#if ARM_ARCH_AT_LEAST(8, 1)
+	ldr	x9, [x0, #CTX_CNTHV_CTL_EL2]
+	msr	cnthv_ctl_el2, x9
+
+	ldr	x9, [x0, #CTX_CNTHV_CVAL_EL2]
+	msr	cnthv_cval_el2, x9
+
+	ldr	x9, [x0, #CTX_CNTHV_TVAL_EL2]
+	msr	cnthv_tval_el2, x9
+
+	ldr	x9, [x0, #CTX_CONTEXTIDR_EL2]
+	msr	contextidr_el2, x9
+
+	ldr	x9, [x0, #CTX_TTBR1_EL2]
+	msr	ttbr1_el2, x9
+#endif
 
 	ldr	x9, [x0, #CTX_ACTLR_EL2]
 	msr	actlr_el2, x9
