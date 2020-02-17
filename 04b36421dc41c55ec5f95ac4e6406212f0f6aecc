@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2dc47a6_b82cda37",
+        "filename": "plat/arm/board/corstone700/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-02-17T10:50:56Z",
+      "side": 1,
+      "message": "Where is CORSTONE700_CORE_COUNT used? Do you need it?\nreplace tab with space after *. See line 21",
+      "revId": "04b36421dc41c55ec5f95ac4e6406212f0f6aecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
