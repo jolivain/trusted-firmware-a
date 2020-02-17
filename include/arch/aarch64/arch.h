@@ -121,6 +121,11 @@
 #define MPAMVPM6_EL2		S3_4_C10_C5_6
 #define MPAMVPM7_EL2		S3_4_C10_C5_7
 #define MPAMVPMV_EL2		S3_4_C10_C4_1
+#define TRFCR_EL2		S3_4_C1_C2_1
+#define ZCR_EL2			S3_4_C1_C2_0
+#define RVBAR_EL2		S3_4_C12_C0_1
+#define PMSCR_EL2		S3_4_C9_C9_0
+#define TFSR_EL2		S3_4_C5_C6_0
 
 /*******************************************************************************
  * Generic timer memory mapped registers & offsets
