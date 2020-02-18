@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c6edda0_15c09022",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-18T19:14:34Z",
+      "side": 1,
+      "message": "I think this is concerning part of this patch as it adds latency to all exception returns. IIUC, we need this only when returning from a RAS exception? If yes, then is there a way to do this conditionally?",
+      "range": {
+        "startLine": 537,
+        "startChar": 1,
+        "endLine": 537,
+        "endChar": 7
+      },
+      "revId": "97d03b48dc8e8c81e59e2daf5a1caab2c7671e06",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
