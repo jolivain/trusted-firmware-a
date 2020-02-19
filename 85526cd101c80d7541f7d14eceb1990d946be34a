@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "00d02528_38b153e4",
+        "filename": "Makefile",
+        "patchSetId": 11
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-02-19T17:26:30Z",
+      "side": 1,
+      "message": "sp_gen.mk file appends FIP_ARGS,FDT_SOURCES and SPTOOL_ARGS variables and in the later build stages these variables are used instead of the file itself.\nSo it is safe to move or even delete this file.\n\nThe only reason not to keep inside is the keep the tree clean.",
+      "parentUuid": "c633c983_d28f1d24",
+      "range": {
+        "startLine": 991,
+        "startChar": 1,
+        "endLine": 991,
+        "endChar": 55
+      },
+      "revId": "85526cd101c80d7541f7d14eceb1990d946be34a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b3b482a7_54d0cc51",
         "filename": "Makefile",
         "patchSetId": 11
