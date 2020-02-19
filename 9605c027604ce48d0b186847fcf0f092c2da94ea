@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "4aec7f26_b135f207",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-02-19T09:06:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c90c478f_7419d4f8",
+      "revId": "9605c027604ce48d0b186847fcf0f092c2da94ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "260407e8_4153c873",
         "filename": "drivers/io/io_fip.c",
         "patchSetId": 8
@@ -56,6 +74,24 @@
       "revId": "9605c027604ce48d0b186847fcf0f092c2da94ea",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "315b7699_c076867c",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-02-19T09:06:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "260407e8_4153c873",
+      "revId": "9605c027604ce48d0b186847fcf0f092c2da94ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +130,24 @@
     },
     {
       "key": {
+        "uuid": "58feb723_8b303fa4",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-02-19T09:06:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5666f937_0957ec5e",
+      "revId": "9605c027604ce48d0b186847fcf0f092c2da94ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64c53b2f_854289c0",
         "filename": "drivers/io/io_fip.c",
         "patchSetId": 8
@@ -105,6 +159,30 @@
       "writtenOn": "2020-01-27T16:40:18Z",
       "side": 1,
       "message": "Hmm, having a plat_ api in this driver is not ideal.",
+      "range": {
+        "startLine": 473,
+        "startChar": 11,
+        "endLine": 473,
+        "endChar": 36
+      },
+      "revId": "9605c027604ce48d0b186847fcf0f092c2da94ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb96e50e_a7af8034",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-02-19T09:06:41Z",
+      "side": 1,
+      "message": "I am not sure why it isn\u0027t ideal, there is already another one \"plat_get_image_source()\" in this driver.",
+      "parentUuid": "64c53b2f_854289c0",
       "range": {
         "startLine": 473,
         "startChar": 11,
@@ -134,6 +212,24 @@
     },
     {
       "key": {
+        "uuid": "fc50d641_b7dc6d7a",
+        "filename": "drivers/io/io_fip.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-02-19T09:06:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "69e16542_bcfaec98",
+      "revId": "9605c027604ce48d0b186847fcf0f092c2da94ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e43f9f8_60ac82bf",
         "filename": "plat/common/plat_bl_common.c",
         "patchSetId": 8
@@ -148,6 +244,24 @@
       "revId": "9605c027604ce48d0b186847fcf0f092c2da94ea",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33bdae28_ecfc1b44",
+        "filename": "plat/common/plat_bl_common.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-02-19T09:06:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3e43f9f8_60ac82bf",
+      "revId": "9605c027604ce48d0b186847fcf0f092c2da94ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
