@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04cd67a4_54009675",
+        "filename": "include/drivers/coreboot/cbmem_console.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-20T22:24:22Z",
+      "side": 0,
+      "message": "I think corresponding changes in file lib/coreboot/coreboot_table.c (function: setup_cbmem_console) are missing from this patch.",
+      "revId": "64cdb962383e696ccd30d15a047895530440f909",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
