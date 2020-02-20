@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "da3e0d46_90a7a979",
+        "filename": "include/drivers/io/io_storage.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-02-20T07:11:09Z",
+      "side": 1,
+      "message": "I did consider EP_* flags prior to this implementation. EP_* flags are only limited to BL images and won\u0027t cover other meta-data like certificates, configuration data or any other FIP payload whereas plat IO policy would cover every FIP payload.",
+      "parentUuid": "c087aa8f_562a62c3",
+      "revId": "f89ed6117c733c7bec78a694ae70e1831306a92d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "749a5d59_f58644bd",
         "filename": "include/tools_share/firmware_image_package.h",
         "patchSetId": 9
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a2969170_38a4e204",
+        "filename": "include/tools_share/firmware_image_package.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-02-20T07:11:09Z",
+      "side": 1,
+      "message": "Actually during firmware binding we need to update this bit but having this bit signed would make it immutable.",
+      "parentUuid": "749a5d59_f58644bd",
+      "revId": "f89ed6117c733c7bec78a694ae70e1831306a92d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1183db6_5a637df9",
         "filename": "include/tools_share/firmware_image_package.h",
         "patchSetId": 9
@@ -47,6 +83,24 @@
       "writtenOn": "2020-02-19T21:23:17Z",
       "side": 1,
       "message": "nit:do we really need 32 bits for dec_algo ?",
+      "revId": "f89ed6117c733c7bec78a694ae70e1831306a92d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63fd6211_7bb0a350",
+        "filename": "include/tools_share/firmware_image_package.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-02-20T07:11:09Z",
+      "side": 1,
+      "message": "Its just to keep the struct 4 byte aligned.",
+      "parentUuid": "d1183db6_5a637df9",
       "revId": "f89ed6117c733c7bec78a694ae70e1831306a92d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
