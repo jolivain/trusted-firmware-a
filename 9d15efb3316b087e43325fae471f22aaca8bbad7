@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "777143ad_e26b13f0",
+        "filename": "include/drivers/st/stm32_console.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2020-02-20T17:08:35Z",
+      "side": 1,
+      "message": "this could be removed too?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 2
+      },
+      "revId": "9d15efb3316b087e43325fae471f22aaca8bbad7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0215c4f6_1f3ce587",
+        "filename": "include/drivers/st/stm32_console.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2020-02-20T17:08:35Z",
+      "side": 1,
+      "message": "should be changed to:\nstruct console *console",
+      "revId": "9d15efb3316b087e43325fae471f22aaca8bbad7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd6f0160_95147abc",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2020-02-20T17:08:35Z",
+      "side": 1,
+      "message": "should be changed to:\nstatic struct console console;",
+      "revId": "9d15efb3316b087e43325fae471f22aaca8bbad7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "939c8ac8_2f00e647",
+        "filename": "plat/st/stm32mp1/sp_min/sp_min_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2020-02-20T17:08:35Z",
+      "side": 1,
+      "message": "should be changed to:\nstatic struct console console;",
+      "revId": "9d15efb3316b087e43325fae471f22aaca8bbad7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
