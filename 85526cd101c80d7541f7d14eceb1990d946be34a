@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "eac5362c_05a0826b",
+        "filename": "Makefile",
+        "patchSetId": 11
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-02-20T12:20:18Z",
+      "side": 1,
+      "message": "With the updated patch GNU make will keep track of SP_MK_GEN and SP_LAYOUT_FILE and sp_gen.mk won\u0027t be generated every time.\nAlso, i have generated this file in output directory so no need to move them around.\n\nOnly thing which does not look clean is to specifically creating BUILD_PLAT directory, if you have idea about generating it in another way please let me know.",
+      "parentUuid": "1e7ca366_c0c1fff0",
+      "range": {
+        "startLine": 991,
+        "startChar": 1,
+        "endLine": 991,
+        "endChar": 55
+      },
+      "revId": "85526cd101c80d7541f7d14eceb1990d946be34a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b3b482a7_54d0cc51",
         "filename": "Makefile",
         "patchSetId": 11
