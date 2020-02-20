@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "a97d80ed_6f88950f",
+        "filename": "include/drivers/io/io_storage.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-02-20T14:30:03Z",
+      "side": 1,
+      "message": "Thanks. Fair enough, makes sense. This is one reason why i suggested earlier that we fold this into auth_img_desc_t. You cannot use this feature without TBBR and TBBR requires the COT. You could add an auth method, that calls crypto_mod_auth_decrypt. TBBR and encryption are coupled anyway in your design. Something to consider.",
+      "parentUuid": "da3e0d46_90a7a979",
+      "revId": "f89ed6117c733c7bec78a694ae70e1831306a92d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "749a5d59_f58644bd",
         "filename": "include/tools_share/firmware_image_package.h",
         "patchSetId": 9
@@ -72,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "bae896e7_0944580f",
+        "filename": "include/tools_share/firmware_image_package.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-02-20T14:30:03Z",
+      "side": 1,
+      "message": "Thanks. So are you saying the flag needs to be moved or kept as is ? Not sure i got the answer to my question.",
+      "parentUuid": "a2969170_38a4e204",
+      "revId": "f89ed6117c733c7bec78a694ae70e1831306a92d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1183db6_5a637df9",
         "filename": "include/tools_share/firmware_image_package.h",
         "patchSetId": 9
@@ -101,6 +137,24 @@
       "side": 1,
       "message": "Its just to keep the struct 4 byte aligned.",
       "parentUuid": "d1183db6_5a637df9",
+      "revId": "f89ed6117c733c7bec78a694ae70e1831306a92d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c43c2a42_44c6a46e",
+        "filename": "include/tools_share/firmware_image_package.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-02-20T14:30:03Z",
+      "side": 1,
+      "message": "why does the structure need to be 4 byte aligned? If it is for efficiency, the structure can be aligned to 2 byte aligned and still be just as efficient. Or is there something else ?",
+      "parentUuid": "63fd6211_7bb0a350",
       "revId": "f89ed6117c733c7bec78a694ae70e1831306a92d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
