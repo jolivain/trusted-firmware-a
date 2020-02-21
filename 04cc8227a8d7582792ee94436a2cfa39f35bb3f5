@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "742a9dc2_b6193372",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-02-21T10:50:00Z",
+      "side": 1,
+      "message": "The comment on function fpga_cpu_standby@fpga_pm.c (line 65) states that it is good practice to add a dsb instruction before wfe. Shouldn\u0027t the same apply here?\nI would assume that on a cold boot that wouldn\u0027t be necessary, but have we double checked, just in case?",
+      "range": {
+        "startLine": 52,
+        "startChar": 1,
+        "endLine": 52,
+        "endChar": 4
+      },
+      "revId": "04cc8227a8d7582792ee94436a2cfa39f35bb3f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2953fc1_598c1116",
+        "filename": "plat/arm/board/arm_fpga/fpga_pm.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-02-21T10:50:00Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we add a dsb instruction here before entering the while loop?",
+      "revId": "04cc8227a8d7582792ee94436a2cfa39f35bb3f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91b33a84_4921db5c",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-02-21T10:50:00Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be possible to refactor this a little bit? The assignments to cpu_id and cluster_id seem to be common to both branches.",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 52,
+        "endChar": 2
+      },
+      "revId": "04cc8227a8d7582792ee94436a2cfa39f35bb3f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
