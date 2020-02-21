@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc80392e_bae731ac",
+        "filename": "Makefile",
+        "patchSetId": 14
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-02-21T14:26:53Z",
+      "side": 1,
+      "message": "To make this target execute depending on dependencies changes you should have non-phony target. Otherwise, there is nothing to compare timestamps to - that\u0027s why it\u0027s always executed.\nI would suggest changing SPROOL_ARGS generation to contain `sp1.img:sp1.dtb`, in that case \nthe rule would be something along these lines:\n${SPTOOLPATH)/sp1.bin: $(SPTOOL) dtbs $(BUILD_PLAT)/sp_gen.mk\n    ${Q}${SPTOOL} -i ${SPTOOL_ARGS} -o $@",
+      "range": {
+        "startLine": 990,
+        "startChar": 0,
+        "endLine": 994,
+        "endChar": 20
+      },
+      "revId": "5856c19fa596d120ce1bde2c0eec9218db82be96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
