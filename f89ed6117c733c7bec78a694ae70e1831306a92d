@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "caa4545b_09ab37bd",
+        "filename": "include/tools_share/firmware_image_package.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-02-21T05:03:39Z",
+      "side": 1,
+      "message": "Sorry if I wasn\u0027t clear in my earlier reply. I mean to say we should keep this flag as it is (unsigned) as it needs to be updated during firmware binding.",
+      "parentUuid": "bae896e7_0944580f",
+      "revId": "f89ed6117c733c7bec78a694ae70e1831306a92d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1183db6_5a637df9",
         "filename": "include/tools_share/firmware_image_package.h",
         "patchSetId": 9
@@ -155,6 +173,24 @@
       "side": 1,
       "message": "why does the structure need to be 4 byte aligned? If it is for efficiency, the structure can be aligned to 2 byte aligned and still be just as efficient. Or is there something else ?",
       "parentUuid": "63fd6211_7bb0a350",
+      "revId": "f89ed6117c733c7bec78a694ae70e1831306a92d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "862ee4b6_06ac1360",
+        "filename": "include/tools_share/firmware_image_package.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-02-21T05:03:39Z",
+      "side": 1,
+      "message": "Okay fair enough, will update it as a 16 bit param.",
+      "parentUuid": "c43c2a42_44c6a46e",
       "revId": "f89ed6117c733c7bec78a694ae70e1831306a92d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
