@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -23,6 +23,161 @@
 /* Constants to indicate the status of the RWP bit */
 #define RWP_TRUE		U(1)
 #define RWP_FALSE		U(0)
+
+/* Calculate GIC register bit number corresponding to its interrupt ID */
+#define	CALC_BIT_NUM(REG, id)				\
+	unsigned int bit_num = id & ((1U << REG##_SHIFT) - 1U)
+
+/* Calculate 8-bit GICD register offset corresponding to its interrupt ID */
+#define	GICD_OFFSET_8(REG, id)				\
+	unsigned int offset = GICD_##REG + id
+
+/* Calculate 32-bit GICD register offset corresponding to its interrupt ID */
+#define	GICD_OFFSET(REG, id)				\
+	unsigned int offset = GICD_##REG + ((id >> REG##_SHIFT) << 2)
+
+/* Calculate 64-bit GICD register offset corresponding to its interrupt ID */
+#define	GICD_OFFSET_64(REG, id)				\
+	unsigned int offset = GICD_##REG + ((id >> REG##_SHIFT) << 3)
+
+/* Read 32-bit GIC Distributor register corresponding to its interrupt ID */
+#define GICD_READ(REG, base, id)			\
+	do {						\
+		GICD_OFFSET(REG, id);			\
+		return mmio_read_32(base + offset);	\
+	} while (false)
+
+/* Read 64-bit GIC Distributor register corresponding to its interrupt ID */
+#define GICD_READ_64(REG, base, id)			\
+	do {						\
+		GICD_OFFSET_64(REG, id);		\
+		return mmio_read_64(base + offset);	\
+	} while (false)
+
+/* Write to 64-bit GIC Distributor register corresponding to its interrupt ID */
+#define GICD_WRITE_64(REG, base, id, val)		\
+	do {						\
+		GICD_OFFSET_64(REG, id);		\
+		mmio_write_64(base + offset, val);	\
+	} while (false)
+
+/* Write to 32-bit GIC Distributor register corresponding to its interrupt ID */
+#define GICD_WRITE(REG, base, id, val)			\
+	do {						\
+		GICD_OFFSET(REG, id);			\
+		mmio_write_32(base + offset, val);	\
+	} while (false)
+
+/* Write to 8-bit GIC Distributor register corresponding to its interrupt ID */
+#define GICD_WRITE_8(REG, base, id, val)		\
+	do {						\
+		GICD_OFFSET_8(REG, id);			\
+		mmio_write_8(base + offset, val);	\
+	} while (false)
+
+/*
+ * Bit operations on GIC Distributor register corresponding
+ * to its interrupt ID
+ */
+/* Set bit in GIC Distributor register */
+#define GICD_GET_BIT(REG, base, id)					\
+	do {								\
+		CALC_BIT_NUM(REG, id);					\
+		GICD_OFFSET(REG, id);					\
+		return (mmio_read_32(base + offset) >> bit_num) & 1U;	\
+	} while (false)
+
+/* Get bit in GIC Distributor register */
+#define GICD_SET_BIT(REG, base, id)				\
+	do {							\
+		CALC_BIT_NUM(REG, id);				\
+		GICD_OFFSET(REG, id);				\
+		mmio_setbits_32(base + offset, 1U << bit_num);	\
+	} while (false)
+
+/* Clear bit in GIC Distributor register */
+#define GICD_CLR_BIT(REG, base, id)				\
+	do {							\
+		CALC_BIT_NUM(REG, id);				\
+		GICD_OFFSET(REG, id);				\
+		mmio_clrbits_32(base + offset, 1U << bit_num);	\
+	} while (false)
+
+/* Clear and set bits in GIC Distributor register */
+#define GICD_CLR_SET_BIT(REG, base, id, mask, val)		\
+	do {							\
+		CALC_BIT_NUM(REG, id);				\
+		GICD_OFFSET(REG, id);				\
+		unsigned int bit_shift = bit_num << 1;		\
+		uint32_t clear = mask << bit_shift;		\
+		uint32_t set = (val & mask) << bit_shift;	\
+		mmio_clrsetbits_32(base + offset, clear, set);	\
+	} while (false)
+
+/* Write bit in GIC Distributor register */
+#define	GICD_WRITE_BIT(REG, base, id)				\
+	do {							\
+		CALC_BIT_NUM(REG, id);				\
+		GICD_OFFSET(REG, id);				\
+		mmio_write_32(base + offset, 1U << bit_num);	\
+	} while (false)
+
+/*
+ * Calculate GICv3 GICR register offset
+ */
+#define GICR_OFFSET(REG, id)					\
+	unsigned int offset = GICR_##REG + ((id >> REG##_SHIFT) << 2)
+
+/* Write to GIC Redistributor register corresponding to its interrupt ID */
+#define GICR_WRITE_8(REG, base, id, val)			\
+	mmio_write_8(base + GICR_##REG + id, val)
+
+/*
+ * Bit operations on GIC Redistributor register
+ * corresponding to its interrupt ID
+ */
+/* Get bit in GIC Redistributor register */
+#define GICR_GET_BIT(REG, base, id)					\
+	do {								\
+		CALC_BIT_NUM(REG, id);					\
+		GICR_OFFSET(REG, id);					\
+		return (mmio_read_32(base + offset) >> bit_num) & 1U;	\
+	} while (false)
+
+/* Write bit in GIC Redistributor register */
+#define	GICR_WRITE_BIT(REG, base, id)				\
+	do {							\
+		CALC_BIT_NUM(REG, id);				\
+		GICR_OFFSET(REG, id);				\
+		mmio_write_32(base + offset, 1U << bit_num);	\
+	} while (false)
+
+/* Set bit in GIC Redistributor register */
+#define	GICR_SET_BIT(REG, base, id)				\
+	do {							\
+		CALC_BIT_NUM(REG, id);				\
+		GICR_OFFSET(REG, id);				\
+		mmio_setbits_32(base + offset, 1U << bit_num);	\
+	} while (false)
+
+/* Clear bit in GIC Redistributor register */
+#define	GICR_CLR_BIT(REG, base, id)				\
+	do {							\
+		CALC_BIT_NUM(REG, id);				\
+		GICR_OFFSET(REG, id);				\
+		mmio_clrbits_32(base + offset, 1U << bit_num);	\
+	} while (false)
+
+/* Clear and set bits in GIC Redistributor register */
+#define GICR_CLR_SET_BIT(REG, base, id, mask, val)		\
+	do {							\
+		CALC_BIT_NUM(REG, id);				\
+		GICR_OFFSET(REG, id);				\
+		unsigned int bit_shift = bit_num << 1;		\
+		uint32_t clear = mask << bit_shift;		\
+		uint32_t set = (val & mask) << bit_shift;	\
+		mmio_clrsetbits_32(base + + offset, clear, set);\
+	} while (false)
 
 /*
  * Macro to convert an mpidr to a value suitable for programming into a
@@ -121,27 +276,27 @@ void gicv3_rdistif_mark_core_asleep(uintptr_t gicr_base);
  */
 static inline void gicd_wait_for_pending_write(uintptr_t gicd_base)
 {
-	while ((gicd_read_ctlr(gicd_base) & GICD_CTLR_RWP_BIT) != 0U)
-		;
+	while ((gicd_read_ctlr(gicd_base) & GICD_CTLR_RWP_BIT) != 0U) {
+	}
 }
 
-static inline unsigned int gicd_read_pidr2(uintptr_t base)
+static inline uint32_t gicd_read_pidr2(uintptr_t base)
 {
 	return mmio_read_32(base + GICD_PIDR2_GICV3);
 }
 
-static inline unsigned long long gicd_read_irouter(uintptr_t base, unsigned int id)
+static inline uint64_t gicd_read_irouter(uintptr_t base, unsigned int id)
 {
 	assert(id >= MIN_SPI_ID);
-	return mmio_read_64(base + GICD_IROUTER + (id << 3));
+	GICD_READ_64(IROUTER, base, id);
 }
 
 static inline void gicd_write_irouter(uintptr_t base,
 				      unsigned int id,
-				      unsigned long long affinity)
+				      uint64_t affinity)
 {
 	assert(id >= MIN_SPI_ID);
-	mmio_write_64(base + GICD_IROUTER + (id << 3), affinity);
+	GICD_WRITE_64(IROUTER, base, id, affinity);
 }
 
 static inline void gicd_clr_ctlr(uintptr_t base,
@@ -149,8 +304,9 @@ static inline void gicd_clr_ctlr(uintptr_t base,
 				 unsigned int rwp)
 {
 	gicd_write_ctlr(base, gicd_read_ctlr(base) & ~bitmap);
-	if (rwp != 0U)
+	if (rwp != 0U) {
 		gicd_wait_for_pending_write(base);
+	}
 }
 
 static inline void gicd_set_ctlr(uintptr_t base,
@@ -158,8 +314,9 @@ static inline void gicd_set_ctlr(uintptr_t base,
 				 unsigned int rwp)
 {
 	gicd_write_ctlr(base, gicd_read_ctlr(base) | bitmap);
-	if (rwp != 0U)
+	if (rwp != 0U) {
 		gicd_wait_for_pending_write(base);
+	}
 }
 
 /*******************************************************************************
@@ -175,17 +332,17 @@ static inline void gicr_write_ctlr(uintptr_t base, uint32_t val)
 	mmio_write_32(base + GICR_CTLR, val);
 }
 
-static inline unsigned long long gicr_read_typer(uintptr_t base)
+static inline uint64_t gicr_read_typer(uintptr_t base)
 {
 	return mmio_read_64(base + GICR_TYPER);
 }
 
-static inline unsigned int gicr_read_waker(uintptr_t base)
+static inline uint32_t gicr_read_waker(uintptr_t base)
 {
 	return mmio_read_32(base + GICR_WAKER);
 }
 
-static inline void gicr_write_waker(uintptr_t base, unsigned int val)
+static inline void gicr_write_waker(uintptr_t base, uint32_t val)
 {
 	mmio_write_32(base + GICR_WAKER, val);
 }
@@ -199,14 +356,14 @@ static inline void gicr_write_waker(uintptr_t base, unsigned int val)
  */
 static inline void gicr_wait_for_pending_write(uintptr_t gicr_base)
 {
-	while ((gicr_read_ctlr(gicr_base) & GICR_CTLR_RWP_BIT) != 0U)
-		;
+	while ((gicr_read_ctlr(gicr_base) & GICR_CTLR_RWP_BIT) != 0U) {
+	}
 }
 
 static inline void gicr_wait_for_upstream_pending_write(uintptr_t gicr_base)
 {
-	while ((gicr_read_ctlr(gicr_base) & GICR_CTLR_UWP_BIT) != 0U)
-		;
+	while ((gicr_read_ctlr(gicr_base) & GICR_CTLR_UWP_BIT) != 0U) {
+	}
 }
 
 /* Private implementation of Distributor power control hooks */
@@ -214,7 +371,7 @@ void arm_gicv3_distif_pre_save(unsigned int rdist_proc_num);
 void arm_gicv3_distif_post_restore(unsigned int rdist_proc_num);
 
 /*******************************************************************************
- * GIC Re-distributor functions for accessing entire registers.
+ * GIC Redistributor functions for accessing entire registers.
  * Note: The raw register values correspond to multiple interrupt IDs and
  * the number of interrupt IDs involved depends on the register accessed.
  ******************************************************************************/
@@ -341,7 +498,7 @@ static inline uint32_t gits_read_ctlr(uintptr_t base)
 	return mmio_read_32(base + GITS_CTLR);
 }
 
-static inline void gits_write_ctlr(uintptr_t base, unsigned int val)
+static inline void gits_write_ctlr(uintptr_t base, uint32_t val)
 {
 	mmio_write_32(base + GITS_CTLR, val);
 }
@@ -366,13 +523,15 @@ static inline void gits_write_cwriter(uintptr_t base, uint64_t val)
 	mmio_write_64(base + GITS_CWRITER, val);
 }
 
-static inline uint64_t gits_read_baser(uintptr_t base, unsigned int its_table_id)
+static inline uint64_t gits_read_baser(uintptr_t base,
+					unsigned int its_table_id)
 {
 	assert(its_table_id < 8U);
 	return mmio_read_64(base + GITS_BASER + (8U * its_table_id));
 }
 
-static inline void gits_write_baser(uintptr_t base, unsigned int its_table_id, uint64_t val)
+static inline void gits_write_baser(uintptr_t base, unsigned int its_table_id,
+					uint64_t val)
 {
 	assert(its_table_id < 8U);
 	mmio_write_64(base + GITS_BASER + (8U * its_table_id), val);
@@ -384,9 +543,8 @@ static inline void gits_write_baser(uintptr_t base, unsigned int its_table_id, u
 static inline void gits_wait_for_quiescent_bit(uintptr_t gits_base)
 {
 	assert((gits_read_ctlr(gits_base) & GITS_CTLR_ENABLED_BIT) == 0U);
-	while ((gits_read_ctlr(gits_base) & GITS_CTLR_QUIESCENT_BIT) == 0U)
-		;
+	while ((gits_read_ctlr(gits_base) & GITS_CTLR_QUIESCENT_BIT) == 0U) {
+	}
 }
-
 
 #endif /* GICV3_PRIVATE_H */
