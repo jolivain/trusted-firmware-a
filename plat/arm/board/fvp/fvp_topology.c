@@ -4,10 +4,12 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <assert.h>
 #include <platform_def.h>
 
 #include <arch.h>
 #include <drivers/arm/fvp/fvp_pwrc.h>
+#include <fconf_hw_config_getter.h>
 #include <lib/cassert.h>
 #include <plat/arm/common/arm_config.h>
 #include <plat/arm/common/plat_arm.h>
@@ -18,27 +20,30 @@ static unsigned char fvp_power_domain_tree_desc[FVP_CLUSTER_COUNT + 2];
 
 
 CASSERT(((FVP_CLUSTER_COUNT > 0) && (FVP_CLUSTER_COUNT <= 256)),
-			assert_invalid_fvp_cluster_count);
+			assert_invalid_FVP_CLUSTER_COUNT);
 
 /*******************************************************************************
- * This function dynamically constructs the topology according to
- * FVP_CLUSTER_COUNT and returns it.
+ * This function dynamically constructs the topology according to cpu-map node
+ * in HW_CONFIG dtb and returns it.
  ******************************************************************************/
 const unsigned char *plat_get_power_domain_tree_desc(void)
 {
 	int i;
+	int cluster_count = FCONF_GET_PROPERTY(hw_config,topology,plat_cluster_count);
+	int cpus_per_cluster = FCONF_GET_PROPERTY(hw_config,topology,cluster_cpu_count);
+
+	assert(cluster_count <= FVP_CLUSTER_COUNT);
+	assert(cpus_per_cluster <= FVP_MAX_CPUS_PER_CLUSTER * FVP_MAX_PE_PER_CPU);
 
 	/*
 	 * The highest level is the system level. The next level is constituted
 	 * by clusters and then cores in clusters.
 	 */
 	fvp_power_domain_tree_desc[0] = 1;
-	fvp_power_domain_tree_desc[1] = FVP_CLUSTER_COUNT;
+	fvp_power_domain_tree_desc[1] = cluster_count;
 
-	for (i = 0; i < FVP_CLUSTER_COUNT; i++)
-		fvp_power_domain_tree_desc[i + 2] =
-			FVP_MAX_CPUS_PER_CLUSTER * FVP_MAX_PE_PER_CPU;
-
+	for (i = 0; i < cluster_count; i++)
+		fvp_power_domain_tree_desc[i + 2] = cpus_per_cluster;
 
 	return fvp_power_domain_tree_desc;
 }
