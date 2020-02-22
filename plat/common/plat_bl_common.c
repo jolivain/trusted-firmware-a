@@ -11,6 +11,7 @@
 #include <common/debug.h>
 #include <lib/xlat_tables/xlat_tables_compat.h>
 #include <plat/common/platform.h>
+#include <smccc_helpers.h>
 
 /*
  * The following platform functions are weakly defined. The Platforms
@@ -22,6 +23,25 @@
 #pragma weak bl2_plat_handle_pre_image_load
 #pragma weak bl2_plat_handle_post_image_load
 #pragma weak plat_try_next_boot_source
+#pragma weak plat_get_soc_id
+#pragma weak plat_get_soc_version
+#pragma weak plat_get_soc_revision
+
+/* Always return SOC-ID 0 if it is not defined for platform */
+int32_t plat_get_soc_id(void)
+{
+	return 0;
+}
+
+int32_t plat_get_soc_version(void)
+{
+	return SMC_ARCH_CALL_NOT_SUPPORTED;
+}
+
+int32_t plat_get_soc_revision(void)
+{
+	return SMC_ARCH_CALL_NOT_SUPPORTED;
+}
 
 void bl2_el3_plat_prepare_exit(void)
 {
