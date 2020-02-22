@@ -231,3 +231,11 @@ int plat_sdei_validate_entry_point(uintptr_t ep, unsigned int client_mode)
 	return arm_validate_ns_entrypoint(pa);
 }
 #endif
+
+/* Get SOC version */
+int32_t plat_get_soc_version(void)
+{
+	return ((int32_t)(ARM_SOC_IDENTIFICATION_CODE << ARM_SOC_IDENTIFICATION_SHIFT)
+		 | (int32_t)(ARM_SOC_CONTINUATION_CODE << ARM_SOC_CONTINUATION_SHIFT)
+		 | plat_get_soc_id());
+}
