@@ -16,6 +16,23 @@
       "revId": "959aafd321fcc2de8012db95c91eb413daa22081",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2efb73f3_61d1210e",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-24T16:27:48Z",
+      "side": 1,
+      "message": "you may use \tcm_setup_context(\u0026spm_ctx-\u003ecpu_ctx, spmc_ep_info);",
+      "revId": "959aafd321fcc2de8012db95c91eb413daa22081",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
