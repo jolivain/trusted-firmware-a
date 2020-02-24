@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b512a67a_8a04974e",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-24T16:10:49Z",
+      "side": 1,
+      "message": "You can remove this function for now, it might be re-introduced later when implementing PM/PSCI support.",
+      "revId": "959aafd321fcc2de8012db95c91eb413daa22081",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
