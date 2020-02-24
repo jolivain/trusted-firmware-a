@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "085edc44_3f25cf1e",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000317
+      },
+      "writtenOn": "2020-02-24T16:57:19Z",
+      "side": 1,
+      "message": "Maybe uint64_t? Otherwise len_bits_msb always computes to 0.",
+      "range": {
+        "startLine": 154,
+        "startChar": 18,
+        "endLine": 154,
+        "endChar": 28
+      },
+      "revId": "2047151fc4e146bbc89f6ebcf09d805710aa3020",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22800631_8f9cc0a8",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000317
+      },
+      "writtenOn": "2020-02-24T16:57:19Z",
+      "side": 1,
+      "message": "Is this intentional? (Reading and writing back to the same register)",
+      "range": {
+        "startLine": 210,
+        "startChar": 4,
+        "endLine": 211,
+        "endChar": 14
+      },
+      "revId": "2047151fc4e146bbc89f6ebcf09d805710aa3020",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
