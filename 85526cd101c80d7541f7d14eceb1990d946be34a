@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "15ab09d3_a00af2cd",
+        "filename": "Makefile",
+        "patchSetId": 11
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-02-24T14:44:09Z",
+      "side": 1,
+      "message": "\u003e \u003e With the updated patch GNU make will keep track of SP_MK_GEN and SP_LAYOUT_FILE and sp_gen.mk won\u0027t be generated every time.\n\u003e \u003e Also, i have generated this file in output directory so no need to move them around.\n\u003e \n\u003e Great, thanks!\n\u003e \n\u003e \u003e Only thing which does not look clean is to specifically creating BUILD_PLAT directory, if you have idea about generating it in another way please let me know.\n\u003e \n\u003e I guess you could use order-only prerequisite, just like we do for blx directories:\n\u003e http://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/make_helpers/build_macros.mk#n420\n\u003e \n\u003e I tried the following line:\n\u003e \n\u003e  $(BUILD_PLAT)/sp_gen.mk: ${SP_MK_GEN} ${SP_LAYOUT_FILE} | ${BUILD_PLAT}\n\u003e \n\u003e and it seems to work fine for me.\n\u003e \n\nThanks!\n\n\u003e Although you\u0027ve removed most of the unneeded steps, it seems like the sptool is still invoked every time. Second time I invoke \u0027make sp\u0027, I still get the following output:\n\u003e \n\u003e  Including services/std_svc/spmd/spmd.mk\n\u003e  make CPPFLAGS\u003d\"-DVERSION\u003d\u0027\\\"v2.2(release):v2.2-711-g6ea99a3-dirty\\\"\u0027\" --no-print-directory -C tools/sptool\n\u003e  make[1]: Nothing to be done for \u0027all\u0027.\n\u003e  mkdir -p  \"./build/fvp/release/bl2u\"\n\u003e  tools/sptool/sptool -i /tmp/sp1.bin:build/fvp/release/fdts/sp1.dtb -o build/fvp/release/SP1.pkg\n\u003e \n\u003e  Loaded SP Manifest file build/fvp/release/fdts/sp1.dtb (1327 bytes)\n\u003e  Loaded SP Image file /tmp/sp1.bin (5 bytes)\n\u003e  Writing SP Manifest at offset 0x18 (1327 bytes)\n\u003e  Writing SP Image at offset 0x1000 (5 bytes)\n\u003e  Writing package header\n\u003e \n\u003e  sptool: Built Secure Partition blob build/fvp/release/SP1.pkg\n\u003e \n\u003e  Built SP Images successfully\n\u003e \n\u003e Any chance we could further improve this and reinvoke sptool only when some of the SP binaries or DTBs are more recent than the SP package?",
+      "parentUuid": "964cdb6b_bdea2a9f",
+      "range": {
+        "startLine": 991,
+        "startChar": 1,
+        "endLine": 991,
+        "endChar": 55
+      },
+      "revId": "85526cd101c80d7541f7d14eceb1990d946be34a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b3b482a7_54d0cc51",
         "filename": "Makefile",
         "patchSetId": 11
