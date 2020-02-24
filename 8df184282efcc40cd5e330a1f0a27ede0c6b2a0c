@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9887ba55_398e8ca8",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-24T15:42:04Z",
+      "side": 1,
+      "message": "suggest tlbialle1is() or tlbialle1()?",
+      "range": {
+        "startLine": 80,
+        "startChar": 1,
+        "endLine": 80,
+        "endChar": 12
+      },
+      "revId": "8df184282efcc40cd5e330a1f0a27ede0c6b2a0c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61598f2d_c931734d",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-24T15:42:04Z",
+      "side": 1,
+      "message": "tlbivmalle2 macro does not exist and will lead to build failure. Also I wonder why we use the VMID-tagged TLBI instruction.\n\nI think Raghu meant to perform EL2 TLB inv in a #else statement (aka SPMD_SPM_AT_SEL2\u003d\u003d1 case)? That is perform EL2 maintenance when S-EL2 exists.\n\nNow I wonder if this operation is really necessary on each and every SPMC entry (performance wise). At the very least, it may have to be done once before initial SPMC init (line #128), but not at run-time (using tlbialle2is or tlbialle2). SPMC would take care of the TLB invalidations by VMID when handling VMs as necessary.\n\nTLBs are tagged S/NS and by VMID so NS-EL2/S-EL2 TLB translations are disjoint. Translations for one world/a given VM can remain in the TLB while the other world is executing another VM back and forth.",
+      "revId": "8df184282efcc40cd5e330a1f0a27ede0c6b2a0c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
