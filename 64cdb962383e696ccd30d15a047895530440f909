@@ -16,6 +16,24 @@
       "revId": "64cdb962383e696ccd30d15a047895530440f909",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "594b810b_ea23c9a9",
+        "filename": "include/drivers/coreboot/cbmem_console.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-24T15:49:59Z",
+      "side": 0,
+      "message": "Indeed. This patch fails to build for the Rockchip platforms right now. For example:\n\n  \u003e make COREBOOT\u003d1 CROSS_COMPILE\u003daarch64-none-elf- PLAT\u003drk3328 DEBUG\u003d1\n Building rk3328\n  CC      lib/coreboot/coreboot_table.c\n In file included from lib/coreboot/coreboot_table.c:7:\n lib/coreboot/coreboot_table.c: In function \u0027setup_cbmem_console\u0027:\n lib/coreboot/coreboot_table.c:78:17: error: \u0027console_cbmc_t\u0027 {aka \u0027struct \u003canonymous\u003e\u0027} has no member named \u0027base\u0027\n   78 |  assert(!console.base);  /* should only have one CBMEM console */\n      |                 ^\n include/lib/libc/assert.h:24:23: note: in definition of macro \u0027assert\u0027\n   24 | #  define assert(e) ((e) ? (void)0 : __assert(__FILE__, __LINE__))\n      |                       ^\n Makefile:944: recipe for target \u0027build/rk3328/debug/bl31/coreboot_table.o\u0027 failed",
+      "parentUuid": "04cd67a4_54009675",
+      "revId": "64cdb962383e696ccd30d15a047895530440f909",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
