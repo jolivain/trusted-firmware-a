@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abab60f1_fde771da",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-25T20:44:05Z",
+      "side": 1,
+      "message": "I am curious why would SCP be not ready at this point of time given that a valid scp firmware exists\nand it has been taken out of reset?",
+      "revId": "e382c88e2a26995099bb931d49e754dcaebc5593",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
