@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b23ab759_3cf92c70",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2020-02-25T08:33:35Z",
+      "side": 1,
+      "message": "I prefer you keep this generated file in the build directory. That would change to:\n${BUILD_PLAT}/stm32mp1.ld:\tplat/st/stm32mp1/stm32mp1.ld.S ${BUILD_PLAT}\n\nor to avoid too much changes:\nSTM32_TF_LINKERFILE\t:\u003d\t${BUILD_PLAT}/stm32mp1.ld\nand keep lines 201, 205 and 207 the same",
+      "revId": "8fdcd6e4a1ed00f682002a5dc628ae4d54f9e79d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
