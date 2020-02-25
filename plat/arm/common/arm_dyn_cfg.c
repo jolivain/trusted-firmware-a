@@ -13,6 +13,10 @@
 #include <common/debug.h>
 #include <common/desc_image_load.h>
 #include <common/tbbr/tbbr_img_def.h>
+#if MEASURED_BOOT
+#include <drivers/auth/crypto_mod.h>
+#include <mbedtls/md.h>
+#endif
 #if TRUSTED_BOARD_BOOT
 #include <drivers/auth/mbedtls/mbedtls_config.h>
 #endif
@@ -27,6 +31,10 @@
 
 static void *mbedtls_heap_addr;
 static size_t mbedtls_heap_size;
+
+#if MEASURED_BOOT
+static void *dtb;
+#endif
 
 /*
  * This function is the implementation of the shared Mbed TLS heap between
@@ -88,28 +96,79 @@ void arm_bl1_set_mbedtls_heap(void)
 	 * the default heap's address and size.
 	 */
 
-	/* fconf FW_CONFIG and TB_FW_CONFIG are currently the same DTB*/
+	/* fconf FW_CONFIG and TB_FW_CONFIG are currently the same DTB */
 	tb_fw_cfg_dtb = FCONF_GET_PROPERTY(fconf, dtb, base_addr);
 
 	if ((tb_fw_cfg_dtb != 0UL) && (mbedtls_heap_addr != NULL)) {
 		/* As libfdt use void *, we can't avoid this cast */
+#if MEASURED_BOOT
+		dtb = (void *)tb_fw_cfg_dtb;
+#else
 		void *dtb = (void *)tb_fw_cfg_dtb;
-
+#endif
 		err = arm_set_dtb_mbedtls_heap_info(dtb,
 			mbedtls_heap_addr, mbedtls_heap_size);
 		if (err < 0) {
 			ERROR("BL1: unable to write shared Mbed TLS heap information to DTB\n");
 			panic();
 		}
+#if !MEASURED_BOOT
 		/*
 		 * Ensure that the info written to the DTB is visible to other
 		 * images. It's critical because BL2 won't be able to proceed
 		 * without the heap info.
+		 *
+		 * In MEASURED_BOOT case flushing is done in
+		 * arm_bl1_set_bl2_hash() function which is called after heap
+		 * information is written in the DTB.
 		 */
 		flush_dcache_range(tb_fw_cfg_dtb, fdt_totalsize(dtb));
+#endif /* !MEASURED_BOOT */
 	}
 }
 
+#if MEASURED_BOOT
+/*
+ * Puts the BL2 hash data to TB_FW_CONFIG DTB.
+ * Executed only from BL1.
+ */
+void arm_bl1_set_bl2_hash(image_desc_t *image_desc)
+{
+	unsigned char hash_data[MBEDTLS_MD_MAX_SIZE];
+	image_info_t image_info = image_desc->image_info;
+	int err;
+
+	/*
+	 * If tb_fw_cfg_dtb==NULL then DTB is not present for the current
+	 * platform. As such, we don't attempt to write to the DTB at all.
+	 */
+	if (dtb == NULL) {
+		return;
+	}
+
+	/* Calculate hash */
+	err = crypto_mod_calc_hash(MBEDTLS_MD_ID,
+					(void *)image_info.image_base,
+					image_info.image_size, hash_data);
+	if (err < 0) {
+		ERROR("BL1: unable to calculate BL2 hash\n");
+		panic();
+	}
+
+	err = arm_set_bl2_hash_info(dtb, hash_data);
+	if (err < 0) {
+		ERROR("BL1: unable to write BL2 hash data to DTB\n");
+		panic();
+	}
+
+	/*
+	 * Ensure that the info written to the DTB is visible to other
+	 * images. It's critical because BL2 won't be able to proceed
+	 * without the heap info and its hash data.
+	 */
+	flush_dcache_range((uintptr_t)dtb, fdt_totalsize(dtb));
+}
+#endif /* MEASURED_BOOT */
 #endif /* TRUSTED_BOARD_BOOT */
 
 /*
