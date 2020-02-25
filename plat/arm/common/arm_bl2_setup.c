@@ -205,7 +205,16 @@ int arm_bl2_handle_post_image_load(unsigned int image_id)
  ******************************************************************************/
 int arm_bl2_plat_handle_post_image_load(unsigned int image_id)
 {
+#if defined(SPD_spmd)
+	/* For Secure Partitions we don't need post processing */
+	if (image_id >= (MAX_NUMBER_IDS - MAX_SP_IDS) && image_id < MAX_NUMBER_IDS) {
+		return 0;
+	} else {
+		return arm_bl2_handle_post_image_load(image_id);
+	}
+#else
 	return arm_bl2_handle_post_image_load(image_id);
+#endif
 }
 
 int bl2_plat_handle_post_image_load(unsigned int image_id)
