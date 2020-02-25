@@ -16,6 +16,24 @@
       "revId": "5ab8b7170e2ba6649cc856778a517c0c686c653a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29e53d33_1dd9e3dd",
+        "filename": "drivers/auth/dualroot/cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-25T09:01:42Z",
+      "side": 1,
+      "message": "I think that both NON_TRUSTED_* and PLATFORM_* names make sense. The former expresses the type of image and its usage in the software stack (it is the certificate authenticating the normal world bootloader), while the latter expresses the owner of this image. Both pieces of information sound complementary to me but not necessarily contradictory.\n\nI\u0027d rather keep the existing NON_TRUSTED_FW_CONTENT_CERT_ID name because image IDs are not defined in the chain of trust, they are in another generic layer in the firmware (see include/export/common/tbbr/tbbr_img_def_exp.h). Also they are used by other layers of the firmware, for example the I/O storage layer uses image IDs to correlate with image UUIDs. In other words, changing this name here would have repercussions outside of the TBBR/CoT code and I\u0027d rather not do that as part of this patch stack.",
+      "parentUuid": "5fa974b8_901548e4",
+      "revId": "5ab8b7170e2ba6649cc856778a517c0c686c653a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
