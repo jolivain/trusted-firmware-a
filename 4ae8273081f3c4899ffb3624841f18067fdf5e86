@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "784ab114_baea95b1",
+        "filename": "drivers/arm/gic/v3/gicv3_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-02-25T13:09:14Z",
+      "side": 1,
+      "message": "I am unwary of macros which define variable outside the parameter list. Makes the macro less re-usable. prefer to define this macro as \n\n#define\tCALC_BIT_NUM(REG, id)\tid \u0026 ((1U \u003c\u003c REG##_SHIFT) - 1U)\n\n#define\tGICD_OFFSET(REG, id)  GICD_##REG + ((id \u003e\u003e REG##_SHIFT) \u003c\u003c 2)\n\nSo the below macros become :\n\n#define GICD_READ(REG, base, id)\t\t\t\\\n\tdo {\t\t\t\t\t\t\\\n\t\tunsigned int offset \u003d GICD_OFFSET(REG, id);\t\t\\\n\t\treturn mmio_read_32(base + offset);\t\\\n\t} while (false)\n\nor even :\n\n#define GICD_READ(REG, base, id)    mmio_read_32(base + GICD_OFFSET(REG, id))",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 55
+      },
+      "revId": "4ae8273081f3c4899ffb3624841f18067fdf5e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca2bcc9b_1b5f8123",
+        "filename": "drivers/arm/gic/v3/gicv3_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-02-25T13:09:14Z",
+      "side": 1,
+      "message": "needs arguments to be wrapped by ().",
+      "range": {
+        "startLine": 33,
+        "startChar": 36,
+        "endLine": 33,
+        "endChar": 38
+      },
+      "revId": "4ae8273081f3c4899ffb3624841f18067fdf5e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "edf40bf2_149e3d88",
         "filename": "drivers/arm/gic/v3/gicv3_private.h",
         "patchSetId": 1
@@ -36,6 +82,30 @@
       "writtenOn": "2020-02-25T11:46:53Z",
       "side": 1,
       "message": "The comment says \"Get\" whilst the function is a set.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 16
+      },
+      "revId": "4ae8273081f3c4899ffb3624841f18067fdf5e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3623ef15_71858932",
+        "filename": "drivers/arm/gic/v3/gicv3_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-02-25T13:09:14Z",
+      "side": 1,
+      "message": "This can be done within the helper function rather than a macro. As long as the read and write accessors are implemented, the generic helps in utils_def.h can used to define the function. For example :\n\nunsigned int gicd_get_igrpmodr(uintptr_t base, unsigned int id)\n{\n\tunsigned int bit_num \u003d CALC_BIT_NUM(IGRPMODR, id);\n\tunsigned int reg_val \u003d GICD_READ(IGRPMODR, base, id);\n\n\treturn (reg_val \u003e\u003e bit_num) \u0026 0x1U;\n}\n\nI suspect you will also need variants for setting 2 bits as well. As long the basic accessors do the abstraction of int_id which is what you need, then the rest need not be hidden in macros. Also less custom macros is good for readability IMO.",
+      "parentUuid": "edf40bf2_149e3d88",
       "range": {
         "startLine": 90,
         "startChar": 0,
