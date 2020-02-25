@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "96c1b0d1_95a25bbb",
+        "filename": "plat/arm/board/rddaniel/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-02-25T12:16:08Z",
+      "side": 1,
+      "message": "If it is specific to RD-Daniel, can we not have a platform Prefix (just to keep it distinguishable for people who may use this platform as reference implementation).\n\nTZC400_OFFSET, from the code it seems that it is the size of a TZ controller can you replace OFFSET with SIZE?",
+      "parentUuid": "f606bd08_dddbb1d8",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 21
+      },
+      "revId": "28d7663c1084dc1368152d9452ef8f740f69026c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "241302c0_64db9e3b",
         "filename": "plat/arm/board/rddaniel/include/platform_def.h",
         "patchSetId": 2
