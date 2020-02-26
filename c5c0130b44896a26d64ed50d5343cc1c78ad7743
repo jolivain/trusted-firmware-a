@@ -104,6 +104,24 @@
       "revId": "c5c0130b44896a26d64ed50d5343cc1c78ad7743",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7780ef7_277fb65e",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-02-26T17:21:24Z",
+      "side": 1,
+      "message": "Oops! I thought you were asserting on dtb(the input parameter, not dtb_root) which is a void *. Sorry. My mistake! What about fixed size input for data, something line data[TCG_DIGEST_SIZE]? Is the length checked somewhere for data?",
+      "parentUuid": "1aa7cd88_652d690e",
+      "revId": "c5c0130b44896a26d64ed50d5343cc1c78ad7743",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
