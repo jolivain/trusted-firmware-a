@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6d4ac66_0cb5e93c",
+        "filename": "lib/locks/bakery/bakery_lock_normal.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-26T09:59:29Z",
+      "side": 1,
+      "message": "The logic is confusing. If cached is false, it will just execute dmb.\nShould dmb follow dc operation in the if statement? And do nothing if cached is false?",
+      "revId": "4c9c64b8ad0ec9ccb36a8c82c41d23618c9986bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
