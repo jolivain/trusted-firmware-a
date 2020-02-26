@@ -16,6 +16,24 @@
       "revId": "4c9c64b8ad0ec9ccb36a8c82c41d23618c9986bc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b5198c3_c3990ec7",
+        "filename": "lib/locks/bakery/bakery_lock_normal.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-02-26T16:50:11Z",
+      "side": 1,
+      "message": "Do we not need to execute the dmbish() even if cached is false ? If we have normal non-cacheable memory, you could have reordering in the loop. Is it necessary for correctness, that the tickets of all other CPU\u0027s be read in order ? Looking it at it again, i think not so we may be able to get away with it being in the if (cached) block. Also can you elaborate on why you thought it confusing? Usually you have barrier pairing on the write side and read side so it looks quite natural.",
+      "parentUuid": "c6d4ac66_0cb5e93c",
+      "revId": "4c9c64b8ad0ec9ccb36a8c82c41d23618c9986bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
