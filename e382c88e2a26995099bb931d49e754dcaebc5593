@@ -16,6 +16,24 @@
       "revId": "e382c88e2a26995099bb931d49e754dcaebc5593",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dea7d96c_a6699c95",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2020-02-26T03:14:06Z",
+      "side": 1,
+      "message": "Since the SCP firmware is optional and is still in development:\n- The SCP firmware may fail to boot, or it may not properly drive the hardware needed for SCPI communication.\n- The (extremely unlikely) case that no firmware is present, but the random data in SRAM after SoC reset contains the magic value.\n\nSince most users will be running without SCP firmware in the near future, a no-firmware fallback is already necessary. This boot-failure fallback should become unnecessary as the SCP firmware matures, but for now it provides additional safety margin at no extra cost.",
+      "parentUuid": "abab60f1_fde771da",
+      "revId": "e382c88e2a26995099bb931d49e754dcaebc5593",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
