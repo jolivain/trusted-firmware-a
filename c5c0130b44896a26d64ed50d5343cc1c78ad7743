@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3c697699_d54cd84e",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-02-26T17:11:05Z",
+      "side": 1,
+      "message": "In that case I\u0027d have to use a global variables for dtb \u0026 dtb_root or make the code less optimized. I prefer to have (TB)_FW_CONFIG data set/get functionality in the same file for clarity.",
+      "parentUuid": "405a98a4_54eb9eca",
+      "revId": "c5c0130b44896a26d64ed50d5343cc1c78ad7743",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c933ec50_80e96d8c",
         "filename": "plat/arm/common/arm_dyn_cfg.c",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "d1fcc264_e05f918c",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-02-26T17:11:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c933ec50_80e96d8c",
+      "revId": "c5c0130b44896a26d64ed50d5343cc1c78ad7743",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01c42b30_3c3b4acc",
         "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2020-02-26T16:32:24Z",
       "side": 1,
       "message": "nit:this might generate static analysis warnings. Compare to NULL? Also assert on data ? Might be a good idea for this function to take a size or make \u0027data\u0027 a fixed size array of TCG_DIGEST_SZIE. That way the compiler can enforce the size and also the expected size is clear to the caller.",
+      "revId": "c5c0130b44896a26d64ed50d5343cc1c78ad7743",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1aa7cd88_652d690e",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-02-26T17:11:05Z",
+      "side": 1,
+      "message": "Sorry, I didn\u0027t get it.\nWhat kind of statis analysis warning this assert might generate?\ndtb_root is int, why would it be compared to NULL?\nIf you mean to add assertions for (dtb !\u003d NULL) \u0026\u0026 (data !\u003d NULL), then take a look @arm_set_dtb_mbedtls_heap_info() which doesn\u0027t have assertions dtb \u0026 head_addr.\nAlso see:\nint fdtw_write_inplace_bytes(void *dtb, int node, const char *prop,\n\t\t\t     unsigned int length, const void *data)\n{\n\tconst void *ptr;\n\tint namelen, value_len, err;\n\n\tassert(dtb !\u003d NULL);\n\tassert(prop !\u003d NULL);\n\tassert(data !\u003d NULL);\n\tassert(node \u003e\u003d 0);\n...\nwhich already has these assertions.",
+      "parentUuid": "01c42b30_3c3b4acc",
       "revId": "c5c0130b44896a26d64ed50d5343cc1c78ad7743",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
