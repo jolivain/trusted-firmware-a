@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ef874f5_529fe78b",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2020-02-27T08:31:50Z",
+      "side": 1,
+      "message": "After some tests, it appears we could improve this with:\n${STM32_TF_LINKERFILE}:\tplat/st/stm32mp1/stm32mp1.ld.S | ${BUILD_PLAT}\nThis way the rule won\u0027t be called if ${BUILD_PLAT} folder changes",
+      "revId": "fc4fdf71e2bcc70b338541948093c3093ccbeafd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
