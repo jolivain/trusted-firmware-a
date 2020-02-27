@@ -22,6 +22,30 @@
       "revId": "56e5ec438c85491276440b4ecccec33e96c9a392",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27c168de_5c77b806",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1000327
+      },
+      "writtenOn": "2020-02-27T13:39:06Z",
+      "side": 1,
+      "message": "Hi Louis,\n\nEvery errata inside first checks whether this errata applies on the particular IP or not. For checking that it needs to read a few registers to know it. but if those registers itself are not present then it will hang. Same this case here. While errat goes inside and call check_errata_dsu_936184 function in the expansion of the macro, it fails as it reads register inside-\n\nfunc check_errata_dsu_936184                                                                                  \n»·······mov»····x2, #ERRATA_NOT_APPLIES                                                                       \n»·······mov»····x3, #ERRATA_APPLIES                                                                           \n                                                                                \n»·······/* Erratum applies only if DSU has the ACP interface */                                               \n»·······mov»····x0, x2                                                                                        \n»·······mrs»····x1, CLUSTERCFR_EL1                                                                            \n»·······ubfx»···x1, x1, #CLUSTERCFR_ACP_SHIFT, #1                                                             \n»·······cbz»····x1, 1f                                                                                        \n                                                                                \n»·······/* If ACP is present, check if DSU is older than r2p0 */                                              \n»·······mrs»····x1, CLUSTERIDR_EL1                                                                            \n                                                                                \n»·······/* DSU variant and revision bitfields in CLUSTERIDR are adjacent */                                   \n»·······ubfx»···x0, x1, #CLUSTERIDR_REV_SHIFT,\\                                 \n»·······»·······»·······#(CLUSTERIDR_REV_BITS + CLUSTERIDR_VAR_BITS)            \n»·······mov»····x1, #(0x2 \u003c\u003c CLUSTERIDR_VAR_SHIFT)                                                            \n»·······cmp»····x0, x1                                                                                        \n»·······csel»···x0, x2, x3, hs                                                                                \n1:                                                                                                            \n»·······ret                                                                                                   \nendfunc check_errata_dsu_936184                                                 \n\nThe moment Core tries to access CLUSTERCFR_EL1 register which is not present because of \"DIRECT CONNECT\" methods, cores hangs. This macros itself should be guarded via macros to not even check the configuration register.                                    \n\nBut I have a question from you. is IP design itself is bad? In my opinion, at least the configuration register should be present does not matter what method has been used for connecting the L3 subsystem, whether its full L3/partial L3 for DIRECT CONNECT methods.",
+      "parentUuid": "a5180285_f3982422",
+      "range": {
+        "startLine": 525,
+        "startChar": 0,
+        "endLine": 525,
+        "endChar": 1
+      },
+      "revId": "56e5ec438c85491276440b4ecccec33e96c9a392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
