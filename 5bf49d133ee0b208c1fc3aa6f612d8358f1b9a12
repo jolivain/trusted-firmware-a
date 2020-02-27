@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e0f6bc0_dc3a777a",
+        "filename": "include/lib/libfdt/libfdt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-27T15:51:01Z",
+      "side": 1,
+      "message": "Is it necessary to make change in this file since libfdt is an independent open source project that we adopt in TF-A, just to satisfy coverity ?",
+      "revId": "5bf49d133ee0b208c1fc3aa6f612d8358f1b9a12",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
