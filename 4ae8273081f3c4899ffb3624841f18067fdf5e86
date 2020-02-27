@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "954fdb7e_0fb88ed7",
+        "filename": "drivers/arm/gic/v3/gicrv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-02-27T13:35:26Z",
+      "side": 1,
+      "message": "GICR_ICPENDR0, Interrupt Clear-Pending Register 0\n...\nClear_pending_bit\u003cx\u003e, bit [x], for x \u003d 0 to 31\nRemoves the pending state from interrupt number x. Reads and writes have the following behavior:\n0b0 If read, indicates that the corresponding interrupt is not pending.\nIf written, has no effect.\n0b1 If read, indicates that the corresponding interrupt is pending, or active and pending.\nIf written, changes the state of the corresponding interrupt from pending to inactive, or\nfrom active and pending to active.",
+      "parentUuid": "adbd7afd_8b68d988",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 1
+      },
+      "revId": "4ae8273081f3c4899ffb3624841f18067fdf5e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "784ab114_baea95b1",
         "filename": "drivers/arm/gic/v3/gicv3_private.h",
         "patchSetId": 1
