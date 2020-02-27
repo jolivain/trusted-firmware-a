@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01b2638b_48417e30",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "I am confused, I don\u0027t see any node being added in fdts/fvp-base-gicv3-psci-common.dtsi and \nfdts/fvp-base-gicv3-psci-dynamiq-common.dtsi as part of this patch, only new attributes/properties (not sure what the right terminology is) being added in existing nodes. Besides, I am not sure to understand the purpose of these new attributes in the context of this fconf patch.\n\nCould you please elaborate?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 22
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8dd74f0_ae324c4c",
+        "filename": "fdts/fvp-base-gicv3-psci-dynamiq-common.dtsi",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "Why do we need this?",
+      "range": {
+        "startLine": 14,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 24
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b52f62d9_0bc49132",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "(minor) remove space",
+      "range": {
+        "startLine": 58,
+        "startChar": 5,
+        "endLine": 58,
+        "endChar": 6
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb4a15e1_b51696fc",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "(minor) Just as in the previous patch, I would prefer if this message referred to an unrecognized node or property, rather than an unrecognized DTB.",
+      "range": {
+        "startLine": 59,
+        "startChar": 8,
+        "endLine": 59,
+        "endChar": 55
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c76848ac_d39ce03b",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "(minor) Add a colon? i.e. FCONF: blah. This is just for consistency with other FCONF messages.",
+      "range": {
+        "startLine": 66,
+        "startChar": 9,
+        "endLine": 66,
+        "endChar": 14
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf581914_5bb4045b",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "This does not seem accurate, we\u0027ve just attempted to read max-pwr-lvl property.",
+      "range": {
+        "startLine": 66,
+        "startChar": 30,
+        "endLine": 66,
+        "endChar": 43
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3de0eb52_3ede02a0",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "Prefix with \"FCONF:\" ?",
+      "range": {
+        "startLine": 73,
+        "startChar": 7,
+        "endLine": 73,
+        "endChar": 14
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14115777_a4a4d487",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "(minor) Just a small trick that someone explained in another Gerrit review. If you rewrote this message as:\n\n ERROR(\"Node \u0027%s\u0027 not found in hardware configuration dtb\\n\", \"cpu-map\");\n\nand similarly at line 73, then the string would only appear once in the binary, instead of having 2 slightly different copies in the ROdata, making the binary a bit smaller. This is not much but as it\u0027s an error message it will be compiled for release binaries as well.",
+      "range": {
+        "startLine": 80,
+        "startChar": 2,
+        "endLine": 80,
+        "endChar": 69
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca7324b3_13aae5ca",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "(minor) Would this comment be better placed at line 76 before we try to read the cpu-map node?",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 3
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13fd6bb6_bc1d7335",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "Should this be an unsigned int?",
+      "range": {
+        "startLine": 106,
+        "startChar": 1,
+        "endLine": 106,
+        "endChar": 21
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc72c50b_33dd3786",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "There does not seem to be any check that cluster_node does not go beyond the end of the cpus_per_cluster[] array (i.e. cluster_node \u003c PLAT_ARM_CLUSTER_COUNT)... Or did I miss it?",
+      "range": {
+        "startLine": 109,
+        "startChar": 1,
+        "endLine": 109,
+        "endChar": 58
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5f0ab13_6ced642a",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "I think we could do with a better error message. I don\u0027t understand what this says exactly. Remember that ERROR() messages are printed even in release builds, and I think that we should avoid specific code line references in these, these should only appear in debug (INFO/VERBOSE) messages IMO.",
+      "range": {
+        "startLine": 116,
+        "startChar": 3,
+        "endLine": 116,
+        "endChar": 69
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77beeb8c_a6217eb3",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "Is it possible that this returns 0, hence violating the contract that populate() functions must return !\u003d 0 on error? Like if the first cluster node is present but its core subnodes are invalid?",
+      "range": {
+        "startLine": 117,
+        "startChar": 3,
+        "endLine": 117,
+        "endChar": 22
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "525375d8_4cc0f3eb",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "I would rename this variable into something like max_cpus_per_cluster, as I did not understand its purpose at first.",
+      "range": {
+        "startLine": 124,
+        "startChar": 3,
+        "endLine": 124,
+        "endChar": 12
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d373d58_07dedd44",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "Perhaps use the MAX() macro here?",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 47
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36fd714e_497f52bc",
+        "filename": "plat/arm/board/fvp/include/fconf_hw_config_getter.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "All 3 other fields are named plat_*, why the difference here? Should it be plat_cluster_cpu_count?",
+      "range": {
+        "startLine": 24,
+        "startChar": 1,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b87939ad_ab24237f",
+        "filename": "plat/arm/board/fvp/include/fconf_hw_config_getter.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-27T13:50:48Z",
+      "side": 1,
+      "message": "Should these be unsigned values instead?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 24
+      },
+      "revId": "6cc3c20467aa34ff7a2f2f7252dde4d842584945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
