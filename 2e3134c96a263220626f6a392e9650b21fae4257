@@ -137,6 +137,29 @@
       "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a7a781c_2a3c2677",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-02-28T09:24:25Z",
+      "side": 1,
+      "message": "I am worried that we might have a bug in the way we use FDT iterators in general for fconf. I don\u0027t know the libfdt APIs very well so maybe that\u0027s actually safe but I\u0027d rather double-check with you.\n\nIf I have a look at the fdt_for_each_subnode() macro, I can see that it returns -FDT_ERR_NOTFOUND once it has iterated over all subnodes and there are no more. This is fine. However, if there is no subnode at all then my understanding is that fdt_first_subnode() will return -FDT_ERR_NOTFOUND as well. In this case, this won\u0027t be caught by the test at line 128 and the rest of the code will continue as normal. So we have to be prepared that no information was actually extracted from the subnodes at all.\n\nIn this specific example, you\u0027ve initialised most of the variables (cluster_count, max_cpu_per_cluster, total_cpu_count) that would have been populated out of subnodes information to 0 at the beginning of the function. So my expectation would be that the SoC topology information will report no CPUs/clusters and I guess this will be rejected as an invalid topology in some code path later (?).\n\nBut there is the issue of max_pwr_lvl which would be uninitialized and would contain garbage (as it\u0027s a stack-allocated variable).\n\nIf I am correct, a possible solution would be to simply initialize max_pwr_lvl at the top of the function. But if I feel we need a more robust solution and we should check that there is at least 1 cluster subnode, as otherwise the DTB is invalid. And we should apply this pattern throughout the code base. I am really worried that we might have garbage in some fconf C structures in presence of malformed DTBs...",
+      "range": {
+        "startLine": 128,
+        "startChar": 1,
+        "endLine": 128,
+        "endChar": 65
+      },
+      "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
