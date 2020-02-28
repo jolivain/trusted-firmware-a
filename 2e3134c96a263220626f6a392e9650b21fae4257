@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e1fec394_bfb71002",
+        "filename": "fdts/fvp-base-gicv3-psci-dynamiq-common.dtsi",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-28T17:04:47Z",
+      "side": 1,
+      "message": "You are absolutely correct. The delete-node line is required to remove the 2nd cluster node from dtb since the DynamIQ fvp base model only has one cluster. It can contain up to 8 cores. After doing some investigation locally, I found that I need to delete cluster0 to redefine it. I was under the wrong impression that we don\u0027t need to explicitly delete cluster0 node because we are overwriting it completely in this dts. What it was doing is actually was simply over-laying the new definition over the old one, which could lead to wrong results. However , any such behaviour would be caught by the assertions in our code base. But as you mentioned, I should fix the issue here.",
+      "parentUuid": "a900e519_563fd648",
+      "range": {
+        "startLine": 14,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 24
+      },
+      "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "75476d7f_b19b49a0",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de323ec0_e97613c9",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-28T17:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75476d7f_b19b49a0",
+      "range": {
+        "startLine": 53,
+        "startChar": 29,
+        "endLine": 53,
+        "endChar": 37
+      },
+      "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f652e236_70c3e2c9",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-28T17:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea705446_5eb3b4b0",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 10
+      },
+      "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6fd02d3e_0776d413",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 4
@@ -91,6 +163,30 @@
       "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee519e23_4f5453df",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-28T17:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fd02d3e_0776d413",
+      "range": {
+        "startLine": 70,
+        "startChar": 5,
+        "endLine": 70,
+        "endChar": 6
+      },
+      "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b9bc603c_608a3a09",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-28T17:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcce1ec1_e1fd5799",
+      "range": {
+        "startLine": 99,
+        "startChar": 5,
+        "endLine": 99,
+        "endChar": 6
+      },
+      "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d703cc6_bb18b3d0",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 4
@@ -137,6 +257,30 @@
       "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "960b2cbe_9f8ffd5d",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-28T17:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d703cc6_bb18b3d0",
+      "range": {
+        "startLine": 125,
+        "startChar": 38,
+        "endLine": 125,
+        "endChar": 51
+      },
+      "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -223,6 +367,30 @@
       "side": 1,
       "message": "I agree that adding debug assertions costs nothing and will help prevent platform integrator to includes trivial mistakes in the dtb.\nAsserts should be used when possible.",
       "parentUuid": "f058c18d_e61aedf5",
+      "range": {
+        "startLine": 128,
+        "startChar": 1,
+        "endLine": 128,
+        "endChar": 65
+      },
+      "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "089fec9d_37222e9c",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-02-28T17:04:47Z",
+      "side": 1,
+      "message": "Hi Sandrine, Louis\nThank you for such detailed comments. Yes, it is assumed that the hw_config dtb is well-formed and valid. I agree there should be regular checks(asserts) to make sure the dtb has at least one cluster node with a minimum of 1 child (core or cpu) nodes. I have made necessary changes in the amended patch.  I have also put assertions for upper limits of these properties in later patch.",
+      "parentUuid": "ea4527b4_1a95fcb9",
       "range": {
         "startLine": 128,
         "startChar": 1,
