@@ -68,6 +68,97 @@
       "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef55ccba_3ede0672",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-28T15:16:51Z",
+      "side": 1,
+      "message": "It looks unconventional to check index within a for condition.\nShould you use another construct such as while or do-while?",
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4911157d_acfd25b1",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-28T15:16:51Z",
+      "side": 1,
+      "message": "You can avoid else statement and indentation by just checking sp_mem_params_descs[index + 1].image_id is zero and break the loop at this stage if true.",
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3a192e9_3028c288",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-28T15:16:51Z",
+      "side": 1,
+      "message": "blank line",
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31e6a9b8_a7bc3034",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-28T15:16:51Z",
+      "side": 1,
+      "message": "remove blank line",
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5fcd6d9_e5bb8ea1",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-28T15:16:51Z",
+      "side": 1,
+      "message": "interestingly this passed the build, but should have been a semicolon",
+      "range": {
+        "startLine": 77,
+        "startChar": 22,
+        "endLine": 77,
+        "endChar": 23
+      },
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
