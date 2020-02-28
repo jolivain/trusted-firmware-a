@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "110723ed_b38eaa30",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-02-28T13:15:14Z",
+      "side": 1,
+      "message": "I think coverity would complain about paracentesis.\n((MAX_NUMBER_IDS - MAX_SP_IDS) \u0026\u0026 (image_id \u003c MAX_NUMBER_IDS))",
+      "range": {
+        "startLine": 210,
+        "startChar": 1,
+        "endLine": 210,
+        "endChar": 78
+      },
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96d75f98_7f291799",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-02-28T13:15:14Z",
+      "side": 1,
+      "message": "Year",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15975fc0_4cab5fc1",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-02-28T13:15:14Z",
+      "side": 1,
+      "message": "not needed. Coverity would complain.",
+      "range": {
+        "startLine": 51,
+        "startChar": 6,
+        "endLine": 51,
+        "endChar": 15
+      },
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
