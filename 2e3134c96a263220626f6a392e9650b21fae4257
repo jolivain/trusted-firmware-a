@@ -208,6 +208,30 @@
       "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea4527b4_1a95fcb9",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-02-28T13:39:03Z",
+      "side": 1,
+      "message": "I agree that adding debug assertions costs nothing and will help prevent platform integrator to includes trivial mistakes in the dtb.\nAsserts should be used when possible.",
+      "parentUuid": "f058c18d_e61aedf5",
+      "range": {
+        "startLine": 128,
+        "startChar": 1,
+        "endLine": 128,
+        "endChar": 65
+      },
+      "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
