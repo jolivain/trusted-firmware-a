@@ -177,12 +177,8 @@ include lib/xlat_tables_v2/xlat_tables.mk
 PLAT_BL_COMMON_SOURCES	+=	${XLAT_TABLES_LIB_SRCS}
 endif
 
-ifeq (${USE_FCONF_BASED_IO}, 0)
-ARM_IO_SOURCES		+=	plat/arm/common/arm_io_storage.c
-else
-ARM_IO_SOURCES		+=	plat/arm/common/arm_fconf_io_storage.c		\
+ARM_IO_SOURCES		+=	plat/arm/common/arm_io_storage.c		\
 				plat/arm/common/fconf/arm_fconf_io.c
-endif
 
 BL1_SOURCES		+=	drivers/io/io_fip.c				\
 				drivers/io/io_memmap.c				\
