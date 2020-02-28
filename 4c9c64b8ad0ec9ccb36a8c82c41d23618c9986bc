@@ -34,6 +34,24 @@
       "revId": "4c9c64b8ad0ec9ccb36a8c82c41d23618c9986bc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a0bd356_40b70338",
+        "filename": "lib/locks/bakery/bakery_lock_normal.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-28T08:58:30Z",
+      "side": 1,
+      "message": "Never mind, I thought at first if cached is false that the function would do \"nothing\" but dmb.\nBut this barrier might still be required by the upper layer logic, as you say to make read/write symmetric.\nSo you can just ignore my statement here.",
+      "parentUuid": "9b5198c3_c3990ec7",
+      "revId": "4c9c64b8ad0ec9ccb36a8c82c41d23618c9986bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
