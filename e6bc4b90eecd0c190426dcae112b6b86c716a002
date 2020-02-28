@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c625c1af_84aa6e22",
+        "filename": "plat/nvidia/tegra/soc/t186/plat_memctrl.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-28T09:41:53Z",
+      "side": 1,
+      "message": "Can you do a bounds check here?",
+      "range": {
+        "startLine": 551,
+        "startChar": 29,
+        "endLine": 551,
+        "endChar": 58
+      },
+      "revId": "e6bc4b90eecd0c190426dcae112b6b86c716a002",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
