@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e5e34ba_614865a1",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-28T14:53:19Z",
+      "side": 1,
+      "message": "Can you pls use 0x7100000?\nThis is an arbitrary address though this leave more space for cactus workspace.",
+      "range": {
+        "startLine": 112,
+        "startChar": 18,
+        "endLine": 112,
+        "endChar": 25
+      },
+      "revId": "a33725bba484f234324734e89741b32d451192f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
