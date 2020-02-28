@@ -160,6 +160,30 @@
       "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfd3c32e_1c7ae3a2",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-02-28T10:12:15Z",
+      "side": 1,
+      "message": "I think we are using the two following assumptions here:\n1) we assume that the configuration dtb is valid and well-formed.\n2) before the \"for_each_subnode\", we use the \"subnode offset\" to cpu-map. Wouldn\u0027t it be strange to have this node with no \"cluster\" node inside? And if it is the case, it will break the first assumption...\n\nI don\u0027t think we can avoid the first assumption. Even if we have a valid, well-formed dtb, but with wrong/garbage value inside, we have no real way to verify them.",
+      "parentUuid": "3a7a781c_2a3c2677",
+      "range": {
+        "startLine": 128,
+        "startChar": 1,
+        "endLine": 128,
+        "endChar": 65
+      },
+      "revId": "2e3134c96a263220626f6a392e9650b21fae4257",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
