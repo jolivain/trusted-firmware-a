@@ -16,6 +16,115 @@
       "revId": "ed9bc2b7fe9e1244a78d99e79d16afa1c0d52ac6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93e43600_3099eaa2",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-28T13:53:59Z",
+      "side": 1,
+      "message": "you can put EL2 here, in fact this register list is not S-EL2 specific",
+      "range": {
+        "startLine": 139,
+        "startChar": 3,
+        "endLine": 139,
+        "endChar": 8
+      },
+      "revId": "ed9bc2b7fe9e1244a78d99e79d16afa1c0d52ac6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90741aa7_42bf3692",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-28T13:53:59Z",
+      "side": 1,
+      "message": "0x1D0?",
+      "range": {
+        "startLine": 208,
+        "startChar": 47,
+        "endLine": 208,
+        "endChar": 50
+      },
+      "revId": "ed9bc2b7fe9e1244a78d99e79d16afa1c0d52ac6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e59519f3_0f28defa",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-28T13:53:59Z",
+      "side": 1,
+      "message": "0x1D8?",
+      "range": {
+        "startLine": 211,
+        "startChar": 51,
+        "endLine": 211,
+        "endChar": 54
+      },
+      "revId": "ed9bc2b7fe9e1244a78d99e79d16afa1c0d52ac6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b43c88de_2b550a8c",
+        "filename": "include/lib/el3_runtime/context_mgmt.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-28T13:53:59Z",
+      "side": 1,
+      "message": "Should lines 39-40 be conditioned by CTX_INCLUDE_EL2_REGS ?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 61
+      },
+      "revId": "ed9bc2b7fe9e1244a78d99e79d16afa1c0d52ac6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b56e16d7_c4cd6a72",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-28T13:53:59Z",
+      "side": 1,
+      "message": "Move .global statements into CTX_INCLUDE_EL2_REGS block ?",
+      "revId": "ed9bc2b7fe9e1244a78d99e79d16afa1c0d52ac6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
