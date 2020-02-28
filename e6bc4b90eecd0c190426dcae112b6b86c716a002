@@ -22,6 +22,30 @@
       "revId": "e6bc4b90eecd0c190426dcae112b6b86c716a002",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4eac159d_57ac6412",
+        "filename": "plat/nvidia/tegra/soc/t186/plat_memctrl.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-28T17:47:44Z",
+      "side": 1,
+      "message": "I changed the statement to use linker variables instead.",
+      "parentUuid": "c625c1af_84aa6e22",
+      "range": {
+        "startLine": 551,
+        "startChar": 29,
+        "endLine": 551,
+        "endChar": 58
+      },
+      "revId": "e6bc4b90eecd0c190426dcae112b6b86c716a002",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
