@@ -88,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "ef866166_470393c6",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-02-28T15:17:30Z",
+      "side": 1,
+      "message": "I meant \"check index within a for-statement\"",
+      "parentUuid": "ef55ccba_3ede0672",
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4911157d_acfd25b1",
         "filename": "plat/arm/common/arm_image_load.c",
         "patchSetId": 1
