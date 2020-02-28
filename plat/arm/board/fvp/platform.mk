@@ -12,7 +12,7 @@ FVP_USE_SP804_TIMER	:= 0
 
 # Use fconf based io for FVP
 ifeq ($(BL2_AT_EL3), 0)
-USE_FCONF_BASED_IO	:= 1
+ARM_IO_IN_DTB	:= 0
 endif
 
 # Default cluster count for FVP
