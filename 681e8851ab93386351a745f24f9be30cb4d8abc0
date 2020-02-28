@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "51229e43_913c24c9",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-28T17:24:54Z",
+      "side": 1,
+      "message": "This was added to fix MISRA defects at the time.",
+      "parentUuid": "839c81ee_505f7040",
+      "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1338c9d4_1d71bf93",
         "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2020-02-28T09:39:12Z",
       "side": 1,
       "message": "return -ETIMEDOUT ?",
+      "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9224555_f5ce73b7",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-28T17:24:54Z",
+      "side": 1,
+      "message": "This was added to fix MISRA defects at the time.",
+      "parentUuid": "1338c9d4_1d71bf93",
       "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "63240eca_f320b782",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-28T17:24:54Z",
+      "side": 1,
+      "message": "This was added to fix MISRA defects at the time.",
+      "parentUuid": "feb489bf_333eba85",
+      "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef96b82b_bf42a3f9",
         "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
         "patchSetId": 5
@@ -64,6 +118,24 @@
       "writtenOn": "2020-02-28T09:39:12Z",
       "side": 1,
       "message": "return -EINVAL, this will help with indentation below",
+      "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "099e136d_4e562fdc",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-28T17:24:54Z",
+      "side": 1,
+      "message": "This was added to fix MISRA defects at the time.",
+      "parentUuid": "ef96b82b_bf42a3f9",
       "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -93,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "f18ff438_4d598196",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-28T17:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b71a42f_3d314f00",
+      "range": {
+        "startLine": 125,
+        "startChar": 11,
+        "endLine": 125,
+        "endChar": 17
+      },
+      "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "496243f9_0bbe5ef2",
         "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
         "patchSetId": 5
@@ -113,6 +209,30 @@
       "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71180105_cb771b86",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-28T17:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "496243f9_0bbe5ef2",
+      "range": {
+        "startLine": 152,
+        "startChar": 13,
+        "endLine": 152,
+        "endChar": 14
+      },
+      "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -139,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "4c1c1f62_0adfaea0",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-28T17:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c271f4d9_0354a34e",
+      "range": {
+        "startLine": 154,
+        "startChar": 19,
+        "endLine": 154,
+        "endChar": 27
+      },
+      "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ba079c1_c9d34e17",
         "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
         "patchSetId": 5
@@ -159,6 +303,30 @@
       "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58010cd4_daf014be",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-28T17:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ba079c1_c9d34e17",
+      "range": {
+        "startLine": 156,
+        "startChar": 26,
+        "endLine": 156,
+        "endChar": 40
+      },
+      "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -185,6 +353,30 @@
     },
     {
       "key": {
+        "uuid": "6a065fae_07ca4375",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-28T17:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04273257_d5bbfb6e",
+      "range": {
+        "startLine": 159,
+        "startChar": 9,
+        "endLine": 159,
+        "endChar": 17
+      },
+      "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17e62b40_d72b0782",
         "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
         "patchSetId": 5
@@ -205,6 +397,30 @@
       "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ba7e6d4_8e4f00fd",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-28T17:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17e62b40_d72b0782",
+      "range": {
+        "startLine": 175,
+        "startChar": 24,
+        "endLine": 175,
+        "endChar": 25
+      },
+      "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -231,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "7040409b_2d44f278",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-28T17:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0942e14_3dfdba0f",
+      "range": {
+        "startLine": 176,
+        "startChar": 19,
+        "endLine": 176,
+        "endChar": 20
+      },
+      "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8646593c_c4e3e656",
         "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
         "patchSetId": 5
@@ -251,6 +491,30 @@
       "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5056bf42_b77232f7",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-28T17:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8646593c_c4e3e656",
+      "range": {
+        "startLine": 252,
+        "startChar": 17,
+        "endLine": 252,
+        "endChar": 25
+      },
+      "revId": "681e8851ab93386351a745f24f9be30cb4d8abc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
