@@ -124,6 +124,24 @@
       "revId": "7c953417c138206568fee3111fe2d3f802c8783a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcadae3e_d29619e0",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-03-02T15:39:52Z",
+      "side": 1,
+      "message": "\"The enctool in its current implementation only supports encryption key to be provided in plain format. A typical implementation can very well extend this tool to support custom techniques to protect encryption key.\" - Alright. Would you mind adding a short note to the documentation and a comment around this line that mentions this limitation, and perhaps the fact that a user can set ENC_KEY\u003d\u0027cat \u003cfilename\u003e` in case they have a file?",
+      "parentUuid": "3342cb27_3a71c830",
+      "revId": "7c953417c138206568fee3111fe2d3f802c8783a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
