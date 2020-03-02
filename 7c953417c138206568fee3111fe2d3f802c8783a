@@ -34,6 +34,24 @@
       "revId": "7c953417c138206568fee3111fe2d3f802c8783a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56de8a24_ca528e6d",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-03-02T13:52:09Z",
+      "side": 1,
+      "message": "Okay. What advantage does it give us to not have an example file? Using `cat filename` is not intuitive from a usability standpoint(at least for me)and this behavior is different from ROTPK and other keys used during signing. Are there other examples of using cat filename for a makefile variable in trusted firmware?",
+      "parentUuid": "8d7b51f8_74d06d16",
+      "revId": "7c953417c138206568fee3111fe2d3f802c8783a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
