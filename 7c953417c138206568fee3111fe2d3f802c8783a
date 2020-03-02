@@ -88,6 +88,24 @@
       "revId": "7c953417c138206568fee3111fe2d3f802c8783a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73e3ae85_666466e7",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-03-02T15:34:44Z",
+      "side": 1,
+      "message": "\u003e Another problem is that typically encryption keys are password protected(and encrypted through PBKDF2 or some other means) when they are generated. So cat will not work on such files.\n\nThe enctool in its current implementation only supports encryption key to be provided in plain format. A typical implementation can very well extend this tool to support custom techniques to protect encryption key.",
+      "parentUuid": "3d69d82c_93cd22c7",
+      "revId": "7c953417c138206568fee3111fe2d3f802c8783a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
