@@ -70,6 +70,24 @@
       "revId": "7c953417c138206568fee3111fe2d3f802c8783a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d69d82c_93cd22c7",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-03-02T15:25:07Z",
+      "side": 1,
+      "message": "AFAIK, generally a symmetric key or a nonce is represented as random HEX string rather than a particular file format whereas a signing key (ROTPK) is represented via a particular file format eg. \".pem\", \".der\" etc.\n\nSo binding the symmetric key or a nonce to a particular file format seems limiting to me and also could cause confusion on user\u0027s behalf. Consider a case where the tool is expecting a symmetric key or a nonce stored in binary format file whereas user provides ascii format file.\n\nAlso, IMO, having the secret key stored in a file in plain format gives false sense of security. Generally the secret key should be protected via hardware backed security modules.\n\nAnd regarding usage of `cat filename`, you can find its usage with \"keyctl\" [1] Linux user-space utility.\n\n[1] https://www.kernel.org/doc/Documentation/security/keys-trusted-encrypted.txt",
+      "parentUuid": "56de8a24_ca528e6d",
+      "revId": "7c953417c138206568fee3111fe2d3f802c8783a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
