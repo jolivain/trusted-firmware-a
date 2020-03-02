@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "96cc55b6_dcf9c20a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-03-02T10:50:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc7ecae1_ea09b463",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "2dc67f6334999d6ceb6e40a68be690cd7b0d705a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ba707ef_b477926d",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 12
@@ -45,6 +69,30 @@
       "revId": "2dc67f6334999d6ceb6e40a68be690cd7b0d705a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f1da215_581bf3f9",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-03-02T10:50:36Z",
+      "side": 1,
+      "message": "Fixed in the top patch",
+      "parentUuid": "1ba707ef_b477926d",
+      "range": {
+        "startLine": 76,
+        "startChar": 10,
+        "endLine": 76,
+        "endChar": 26
+      },
+      "revId": "2dc67f6334999d6ceb6e40a68be690cd7b0d705a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
