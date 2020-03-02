@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "38acfc49_6e981860",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-03-02T14:59:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "110723ed_b38eaa30",
+      "range": {
+        "startLine": 210,
+        "startChar": 1,
+        "endLine": 210,
+        "endChar": 78
+      },
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96d75f98_7f291799",
         "filename": "plat/arm/common/arm_image_load.c",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cb338b32_642eda9f",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-03-02T14:59:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96d75f98_7f291799",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15975fc0_4cab5fc1",
         "filename": "plat/arm/common/arm_image_load.c",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38c28104_1804a458",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-03-02T14:59:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15975fc0_4cab5fc1",
+      "range": {
+        "startLine": 51,
+        "startChar": 6,
+        "endLine": 51,
+        "endChar": 15
+      },
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -106,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "bd78c0fd_469b76eb",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-03-02T14:59:29Z",
+      "side": 1,
+      "message": "The first part of the loop fills in the information about current image and the second half of loop is preparing for next iteration and that is why i have to use \"index + 1\" to make sure that we do not add unwanted information in the list.",
+      "parentUuid": "ef866166_470393c6",
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4911157d_acfd25b1",
         "filename": "plat/arm/common/arm_image_load.c",
         "patchSetId": 1
@@ -120,6 +210,24 @@
       "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fd1dea1_7c9cafe4",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-03-02T14:59:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4911157d_acfd25b1",
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +248,24 @@
     },
     {
       "key": {
+        "uuid": "a0fafeb7_eed2b89e",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-03-02T14:59:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3a192e9_3028c288",
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31e6a9b8_a7bc3034",
         "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
         "patchSetId": 1
@@ -157,6 +283,24 @@
     },
     {
       "key": {
+        "uuid": "8ee5f1d0_315cb9da",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-03-02T14:59:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31e6a9b8_a7bc3034",
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5fcd6d9_e5bb8ea1",
         "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
         "patchSetId": 1
@@ -168,6 +312,30 @@
       "writtenOn": "2020-02-28T15:16:51Z",
       "side": 1,
       "message": "interestingly this passed the build, but should have been a semicolon",
+      "range": {
+        "startLine": 77,
+        "startChar": 22,
+        "endLine": 77,
+        "endChar": 23
+      },
+      "revId": "b087cf4f6a2c6636366a7aaca60538cd23b33ad0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6e3c1a0_665aff1d",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-03-02T14:59:29Z",
+      "side": 1,
+      "message": "Very interesting :)",
+      "parentUuid": "d5fcd6d9_e5bb8ea1",
       "range": {
         "startLine": 77,
         "startChar": 22,
