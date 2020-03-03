@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c3c77160_5df6c179",
+        "filename": "tools/encrypt_fw/src/main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-03T15:17:14Z",
+      "side": 1,
+      "message": "I think FW_ENC_STATUS_FLAG_MASK would be too much of a stretch here. A mask just indicates how many bits encode a value but it does not necessarily correspond to the maximum value. If say tomorrow we add a 3rd type of key, the allowed value range would be [0-2] while the mask would be 3. So then this test would reject values greater than 3 and would miss rejecting the value 3 itself. I think we need a separate dedicated macro for that.",
+      "parentUuid": "9bd99dac_30dc3225",
+      "range": {
+        "startLine": 93,
+        "startChar": 31,
+        "endLine": 93,
+        "endChar": 34
+      },
+      "revId": "3b7a9f7868819bbdd14d7b0001676f61bf2f387a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "11507022_1e5c20a0",
         "filename": "tools/encrypt_fw/src/main.c",
         "patchSetId": 11
