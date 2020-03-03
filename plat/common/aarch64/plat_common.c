@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,6 +13,8 @@
 #endif
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
 #include <plat/common/platform.h>
+
+const char *get_el_str(unsigned int el);
 
 /*
  * The following platform setup functions are weakly defined. They
@@ -74,9 +76,17 @@ void plat_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
 	if (handled != 0)
 		return;
 #endif
+	unsigned int level = GET_EL(read_spsr_el3());
 
-	ERROR("Unhandled External Abort received on 0x%lx at EL3!\n",
-			read_mpidr_el1());
-	ERROR(" exception reason=%u syndrome=0x%llx\n", ea_reason, syndrome);
+	ERROR("Unhandled External Abort received on 0x%lx from %s\n",
+		read_mpidr_el1(), get_el_str(level));
+	ERROR("exception reason=%u syndrome=0x%llx\n", ea_reason, syndrome);
+#if HANDLE_EA_EL3_FIRST
+	/* Skip backtrace for lower EL */
+	if (level != MODE_EL3) {
+		(void)console_flush();
+		do_panic();
+	}
+#endif
 	panic();
 }
