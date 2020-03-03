@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba3e9e68_da036cb6",
+        "filename": "tools/encrypt_fw/src/main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-03T12:47:25Z",
+      "side": 1,
+      "message": "Could we introduce a macro for this literal value?",
+      "range": {
+        "startLine": 93,
+        "startChar": 31,
+        "endLine": 93,
+        "endChar": 34
+      },
+      "revId": "3b7a9f7868819bbdd14d7b0001676f61bf2f387a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11507022_1e5c20a0",
+        "filename": "tools/encrypt_fw/src/main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-03T12:47:25Z",
+      "side": 1,
+      "message": "Did you mean arg? Both are equivalent at this point but as arg is passed in argument to this function, it would seem more natural to me to use it rather than the optarg global variable.",
+      "range": {
+        "startLine": 94,
+        "startChar": 40,
+        "endLine": 94,
+        "endChar": 46
+      },
+      "revId": "3b7a9f7868819bbdd14d7b0001676f61bf2f387a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90176907_510237d3",
+        "filename": "tools/encrypt_fw/src/main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-03T12:47:25Z",
+      "side": 1,
+      "message": "Perhaps make the help message say what values SSK and BSSK are? Otherwise I am worried that the user might not know what value to supply to the -f flag...",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 49
+      },
+      "revId": "3b7a9f7868819bbdd14d7b0001676f61bf2f387a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbe5a00b_7e50f183",
+        "filename": "tools/encrypt_fw/src/main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-03T12:47:25Z",
+      "side": 1,
+      "message": "Is this line there on purpose? I thought that -f was simply used to specify which encryption key (SSK/BSSK) is used but the key itself would be provided using the -k flag...\n\nIf I am not mistaken, if I want the tool to encrypt firmware images with the SSK, I would invoke it with -f 0. So then optarg would be the string \"0\", which is a bit strange, isn\u0027t it? What if I supply both -k \"12345...\" and -f 0 (in this order)? Would -f not override -k in this case?",
+      "range": {
+        "startLine": 176,
+        "startChar": 3,
+        "endLine": 176,
+        "endChar": 16
+      },
+      "revId": "3b7a9f7868819bbdd14d7b0001676f61bf2f387a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
