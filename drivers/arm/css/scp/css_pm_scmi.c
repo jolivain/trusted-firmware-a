@@ -225,7 +225,7 @@ void css_scp_on(u_register_t mpidr)
 	SCMI_SET_PWR_STATE_MAX_PWR_LVL(scmi_pwr_state, lvl - 1);
 
 	core_pos = plat_core_pos_by_mpidr(mpidr);
-	assert(core_pos >= 0 && (core_pos < PLATFORM_CORE_COUNT));
+	assert(core_pos < PLATFORM_CORE_COUNT);
 
 	css_scp_core_pos_to_scmi_channel(core_pos, &domain_id,
 			&channel_id);
@@ -257,7 +257,7 @@ int css_scp_get_power_state(u_register_t mpidr, unsigned int power_level)
 	}
 
 	cpu_idx = plat_core_pos_by_mpidr(mpidr);
-	assert(cpu_idx > -1);
+	assert(cpu_idx < PLATFORM_CORE_COUNT);
 
 	css_scp_core_pos_to_scmi_channel(cpu_idx, &domain_id, &channel_id);
 	ret = scmi_pwr_state_get(scmi_handles[channel_id],
