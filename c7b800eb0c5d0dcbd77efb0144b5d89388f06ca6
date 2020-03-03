@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc7474e9_82721413",
+        "filename": "drivers/io/io_encrypted.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-03T12:29:33Z",
+      "side": 1,
+      "message": "Why is this initialization required?\n\nIt seems to me that it is fetched from the header flags at line 181 and is not used before that so it seems safe to me to leave the variable uninitialized until then.",
+      "range": {
+        "startLine": 158,
+        "startChar": 34,
+        "endLine": 158,
+        "endChar": 51
+      },
+      "revId": "c7b800eb0c5d0dcbd77efb0144b5d89388f06ca6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "699cefdb_d3df4aac",
+        "filename": "drivers/io/io_encrypted.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-03T12:29:33Z",
+      "side": 1,
+      "message": "MISRA will require this to have further parentheses:\n\n\tif ((header.iv_len \u003e ENC_MAX_IV_SIZE) ||\n\t    (header.tag_len \u003e ENC_MAX_TAG_SIZE))\n\nAs it\u0027s in common code, we thrive not to violate MISRA guidelines.",
+      "range": {
+        "startLine": 183,
+        "startChar": 1,
+        "endLine": 184,
+        "endChar": 41
+      },
+      "revId": "c7b800eb0c5d0dcbd77efb0144b5d89388f06ca6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b6af0c8_3798f96e",
+        "filename": "include/tools_share/firmware_encrypted.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-03T12:29:33Z",
+      "side": 1,
+      "message": "Are these macros not redundant with the ones in include/drivers/auth/crypto_mod.h (CRYPTO_MAX_IV_SIZE and CRYPTO_MAX_TAG_SIZE)?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 29
+      },
+      "revId": "c7b800eb0c5d0dcbd77efb0144b5d89388f06ca6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e816de02_10d6e618",
+        "filename": "include/tools_share/firmware_encrypted.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-03T12:29:33Z",
+      "side": 1,
+      "message": "The coding style in TF-A advocates not to typedef structures, see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#typedefs\n\nCould you please remove the typedef and simply export struct fw_enc_hdr?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 7
+      },
+      "revId": "c7b800eb0c5d0dcbd77efb0144b5d89388f06ca6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
