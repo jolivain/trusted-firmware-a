@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "04d67b1e_534773e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-03T21:34:18Z",
+      "side": 1,
+      "message": "If",
+      "range": {
+        "startLine": 10,
+        "startChar": 42,
+        "endLine": 10,
+        "endChar": 44
+      },
+      "revId": "4f7bec02f2bb617d530401e567ec233e784f54bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b03f9c5_96c2b811",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-03T21:34:18Z",
+      "side": 1,
+      "message": "Is this valid only for the Neoverse N1 CPU?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 15
+      },
+      "revId": "4f7bec02f2bb617d530401e567ec233e784f54bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d064138d_bd241c1a",
         "filename": "include/lib/cpus/aarch64/neoverse_n1.h",
         "patchSetId": 2
@@ -58,6 +104,29 @@
         "startChar": 4,
         "endLine": 91,
         "endChar": 27
+      },
+      "revId": "4f7bec02f2bb617d530401e567ec233e784f54bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaea9e12_cc26311f",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-03T21:34:18Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 500,
+        "startChar": 3,
+        "endLine": 500,
+        "endChar": 9
       },
       "revId": "4f7bec02f2bb617d530401e567ec233e784f54bb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
