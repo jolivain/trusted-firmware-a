@@ -25,6 +25,53 @@
     },
     {
       "key": {
+        "uuid": "3743724f_b4d7adc3",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-03-03T11:47:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef79d955_ada08320",
+      "range": {
+        "startLine": 68,
+        "startChar": 5,
+        "endLine": 68,
+        "endChar": 13
+      },
+      "revId": "8e5aff835c14623386bc8f6dfdd265ec08694b97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc35cb8_a8137c91",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-03-03T11:47:02Z",
+      "side": 1,
+      "message": "Changed to str since we ran out of available offset for stp",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 35
+      },
+      "revId": "8e5aff835c14623386bc8f6dfdd265ec08694b97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bf0d2d2d_f767196b",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 5
@@ -41,6 +88,53 @@
         "startChar": 5,
         "endLine": 248,
         "endChar": 13
+      },
+      "revId": "8e5aff835c14623386bc8f6dfdd265ec08694b97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ec9fc50_3a67c7a8",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-03-03T11:47:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf0d2d2d_f767196b",
+      "range": {
+        "startLine": 248,
+        "startChar": 5,
+        "endLine": 248,
+        "endChar": 13
+      },
+      "revId": "8e5aff835c14623386bc8f6dfdd265ec08694b97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f499fdd_de1c23a6",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-03-03T11:47:02Z",
+      "side": 1,
+      "message": "Changed to ldr since we ran out of allowed offset for ldp",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 378,
+        "endChar": 20
       },
       "revId": "8e5aff835c14623386bc8f6dfdd265ec08694b97",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
