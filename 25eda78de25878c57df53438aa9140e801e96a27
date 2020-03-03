@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41a4e694_acb86922",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-03T11:43:20Z",
+      "side": 1,
+      "message": "I think a better solution would be to use the sort coreutil program. It will remove duplicate files without us having to worry about which files are pulled in by which build options. See https://git.trustedfirmware.org/TF-A/tf-a-tests.git/tree/tftf/tests/tests.mk#n37 for an example.",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 0
+      },
+      "revId": "25eda78de25878c57df53438aa9140e801e96a27",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4966f632_f56a6caf",
+        "filename": "plat/arm/board/fvp/sp_min/fvp_sp_min_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-03T11:43:20Z",
+      "side": 1,
+      "message": "Don\u0027t we need the same kind of things in BL31 if RESET_TO_BL31\u003d1? I don\u0027t see anything along these lines in plat/arm/board/fvp/fvp_bl31_setup.c right now but I might have missed it.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 20
+      },
+      "revId": "25eda78de25878c57df53438aa9140e801e96a27",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
