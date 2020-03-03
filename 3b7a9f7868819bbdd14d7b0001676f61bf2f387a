@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "dc3aa2b2_170844f9",
+        "filename": "tools/encrypt_fw/src/main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-03T15:58:34Z",
+      "side": 1,
+      "message": "FW_ENC_WITH_BSSK sounds fine to me.",
+      "parentUuid": "f8a254fd_766d95d0",
+      "range": {
+        "startLine": 93,
+        "startChar": 31,
+        "endLine": 93,
+        "endChar": 34
+      },
+      "revId": "3b7a9f7868819bbdd14d7b0001676f61bf2f387a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "11507022_1e5c20a0",
         "filename": "tools/encrypt_fw/src/main.c",
         "patchSetId": 11
