@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5bd21a5_b22be709",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-04T09:59:56Z",
+      "side": 1,
+      "message": "This prototype does not exactly match the signature in plat/common/plat_bl_common.c. There is a mismatch on the type of the first argument.\n\nThis got picked up by our CI loop in all AArch32 configurations, not sure why. Maybe because we\u0027re using a different compiler (arm-none-eabi-gcc), which may be more picky on that kind of things.\n\nYou may reproduce it using:\n\n \u003e make AARCH32_SP\u003doptee ARCH\u003daarch32 ARM_ARCH_MAJOR\u003d7 CROSS_COMPILE\u003darm-none-eabi- PLAT\u003dqemu fiptool all\n ...\n   CC      plat/common/plat_bl_common.c\n plat/common/plat_bl_common.c:62:5: error: conflicting types for \u0027plat_get_enc_key_info\u0027\n   62 | int plat_get_enc_key_info(enum fw_enc_status fw_enc_status, uint8_t *key,\n      |     ^~~~~~~~~~~~~~~~~~~~~\n In file included from plat/common/plat_bl_common.c:13:\n include/plat/common/platform.h:277:5: note: previous declaration of \u0027plat_get_enc_key_info\u0027 was here\n  277 | int plat_get_enc_key_info(unsigned int fip_enc_status, uint8_t *key,\n      |     ^~~~~~~~~~~~~~~~~~~~~\n Makefile:971: recipe for target \u0027build/qemu/release/bl1/plat_bl_common.o\u0027 failed",
+      "range": {
+        "startLine": 277,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 41
+      },
+      "revId": "e04c15d411ad78512af289d6aac6c32f1c82246a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
