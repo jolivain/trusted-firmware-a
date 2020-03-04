@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad8e1640_34c201b1",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-03-04T13:43:05Z",
+      "side": 1,
+      "message": "Yes firmware binding is the major use-case for BSSK. But I can also think of another scenario where scalability during device provisioning is NOT much of a concern.\n\nConsider a case during provisioning device specific key (BSSK) in one time programmable fuses, one chooses to pre-encrypt firmware with that device specific key and flash the encrypted firmware. This way one doesn\u0027t have to include the complexity of firmware binding built into the firmware.\n\nSo I would like to keep this flexibility for BSSK usage open for user.",
+      "parentUuid": "766465bb_0b2a80ef",
+      "range": {
+        "startLine": 271,
+        "startChar": 20,
+        "endLine": 271,
+        "endChar": 24
+      },
+      "revId": "0805a9b5d24dce475981076ef4877fe013f8ecba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "16576174_7fcae2c6",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 16
@@ -36,6 +60,30 @@
       "writtenOn": "2020-03-04T12:36:17Z",
       "side": 1,
       "message": "Suggest to remove this option. The firmware will always be deployed with SSk.",
+      "range": {
+        "startLine": 300,
+        "startChar": 5,
+        "endLine": 300,
+        "endChar": 18
+      },
+      "revId": "0805a9b5d24dce475981076ef4877fe013f8ecba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89899dba_ccde1a4a",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-03-04T13:43:05Z",
+      "side": 1,
+      "message": "Please see my reply above.",
+      "parentUuid": "16576174_7fcae2c6",
       "range": {
         "startLine": 300,
         "startChar": 5,
