@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ed4d13b7_39c5e303",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-04T23:10:37Z",
+      "side": 1,
+      "message": "I like the idea of dynamic selection of key to use, but I would treat this as a cookie value to be passed down to the platform layer which can then decide which key to select based on the cookie. In fact, this could even be a seed value to be passed to be used for deriving the key based on HUK. Currently this build flag is restrictive in that sense as it allows only 2 values. But since you are marking this as experimental, I am OK for this and can be expanded in future.",
+      "parentUuid": "ad8e1640_34c201b1",
+      "range": {
+        "startLine": 271,
+        "startChar": 20,
+        "endLine": 271,
+        "endChar": 24
+      },
+      "revId": "0805a9b5d24dce475981076ef4877fe013f8ecba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "16576174_7fcae2c6",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 16
