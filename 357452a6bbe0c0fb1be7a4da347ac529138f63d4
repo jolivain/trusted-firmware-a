@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9502c5ea_1ed391d4",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-03-04T14:06:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "312f68f6_0d2649ee",
+      "revId": "357452a6bbe0c0fb1be7a4da347ac529138f63d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddfee56c_6ff2317e",
         "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "357452a6bbe0c0fb1be7a4da347ac529138f63d4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c47fb777_70102aa3",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-03-04T14:06:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddfee56c_6ff2317e",
+      "revId": "357452a6bbe0c0fb1be7a4da347ac529138f63d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
