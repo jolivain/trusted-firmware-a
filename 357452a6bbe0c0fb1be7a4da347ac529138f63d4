@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "312f68f6_0d2649ee",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-04T13:17:00Z",
+      "side": 1,
+      "message": "else statement is obsolete, just use\n#if defined(SPD_spmd)\n\t\t/* For Secure Partitions we don\u0027t need post processing */\n\t\tif ((image_id \u003e\u003d (MAX_NUMBER_IDS - MAX_SP_IDS)) \u0026\u0026\n\t\t\t(image_id \u003c MAX_NUMBER_IDS)) {\n\t\t\treturn 0;\n                }\n#endif",
+      "revId": "357452a6bbe0c0fb1be7a4da347ac529138f63d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddfee56c_6ff2317e",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-04T13:17:00Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "357452a6bbe0c0fb1be7a4da347ac529138f63d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
