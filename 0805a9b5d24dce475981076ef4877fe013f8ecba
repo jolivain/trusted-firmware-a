@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "766465bb_0b2a80ef",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-04T12:36:17Z",
+      "side": 1,
+      "message": "This is only valid in the Fimware bind scenario in which case the device is the one re-encrypting and the key will not be available outside the device. Suggest to remove this.",
+      "range": {
+        "startLine": 271,
+        "startChar": 20,
+        "endLine": 271,
+        "endChar": 24
+      },
+      "revId": "0805a9b5d24dce475981076ef4877fe013f8ecba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16576174_7fcae2c6",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-04T12:36:17Z",
+      "side": 1,
+      "message": "Suggest to remove this option. The firmware will always be deployed with SSk.",
+      "range": {
+        "startLine": 300,
+        "startChar": 5,
+        "endLine": 300,
+        "endChar": 18
+      },
+      "revId": "0805a9b5d24dce475981076ef4877fe013f8ecba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
