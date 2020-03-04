@@ -22,6 +22,30 @@
       "revId": "fde78f4af2a41edcb87ff213e378b64541822205",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bb25ff6_5adfdbe9",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-04T18:16:54Z",
+      "side": 1,
+      "message": "Since plat_core_pos_by_mpidr() returns \"int\" (specifically -1 if mpidr is invalid), I was wondering if it is correct to directly assign the return value to cpu_idx without explicit typecasting.  May be something like this:\nint cpu_idx \u003d plat_core_pos_by_mpidr(mpidr);\nassert(cpu_idx \u003e\u003d 0 \u0026\u0026 (cpu_idx \u003c PLATFORM_CORE_COUNT));\ncss_scp_core_pos_to_scmi_channel((unsigned int)cpu_idx, \u0026domain_id, \u0026channel_id);",
+      "parentUuid": "fec6e2b2_b7904ae3",
+      "range": {
+        "startLine": 260,
+        "startChar": 8,
+        "endLine": 260,
+        "endChar": 20
+      },
+      "revId": "fde78f4af2a41edcb87ff213e378b64541822205",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
