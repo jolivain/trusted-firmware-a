@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3aee1a0_08068d9a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-04T21:12:50Z",
+      "side": 1,
+      "message": "Apart from a small concern, I am okay with this patch.\nI am unable to justify using #if macro to include or discard a node in dtb. I think the\ninformation(node) can just be present in dtb always. It doesn\u0027t do any harm. You have already\nused this compile time macro(ARM_IO_IN_DTB) to either use or discard the corresponding\npopulate function as well as the backing structures. Let me know your thoughts on this.",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 71
+      },
+      "revId": "70e51fe5ed5417f001c6b52abdda78f88bd59f2f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
