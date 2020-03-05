@@ -273,6 +273,30 @@
     },
     {
       "key": {
+        "uuid": "566cc8c3_e80be3ce",
+        "filename": "lib/cpus/aarch64/dsu_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-03-05T04:39:52Z",
+      "side": 1,
+      "message": "@Louis, Is there a mention somewhere in reference manual or other guide which tells\nCPUCFR_EL1 register must always be present when DSU is present ? I can see these are implementation defined registers. If there is no mandate should we have weak is_scu_present() returning \u0027true\u0027 by default.  is_scu_present() can be implemented by core or plat as applicable.",
+      "parentUuid": "08e006a5_c2ff2ce7",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 27
+      },
+      "revId": "4f7bec02f2bb617d530401e567ec233e784f54bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aaea9e12_cc26311f",
         "filename": "lib/cpus/aarch64/neoverse_n1.S",
         "patchSetId": 2
