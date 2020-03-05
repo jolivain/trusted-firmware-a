@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7177d932_5ee96983",
+        "filename": "docs/design/trusted-board-boot.rst",
+        "patchSetId": 18
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-03-05T05:53:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ceaf2407_7ce2ef18",
+      "revId": "af9c1eea00b0de19b9fc24013868b8d282dbba6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0891dba6_24bdc5eb",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 18
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "211f0815_4b5219cd",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 18
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-03-05T05:53:15Z",
+      "side": 1,
+      "message": "I simply can\u0027t understand the rationale behind calling specific build configurations or APIs as experimental. These are here just to support DECRYPTION_SUPPORT build option which enables this feature and marked as experimental which make these options experimental as well. Also, these build flags doesn\u0027t have any affect on TF-A build with DECRYPTION_SUPPORT disabled.",
+      "parentUuid": "0891dba6_24bdc5eb",
+      "revId": "af9c1eea00b0de19b9fc24013868b8d282dbba6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9eb58307_3ecf6c42",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 18
@@ -47,6 +83,24 @@
       "writtenOn": "2020-03-04T23:14:25Z",
       "side": 1,
       "message": "Please call out this API as experimental",
+      "revId": "af9c1eea00b0de19b9fc24013868b8d282dbba6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7361f94b_ad466a75",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 18
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-03-05T05:53:15Z",
+      "side": 1,
+      "message": "Please see my response above.",
+      "parentUuid": "9eb58307_3ecf6c42",
       "revId": "af9c1eea00b0de19b9fc24013868b8d282dbba6b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
