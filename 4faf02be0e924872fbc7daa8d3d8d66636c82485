@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "37d78c44_75a6da29",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-05T19:12:37Z",
+      "side": 1,
+      "message": "The SE driver was developed after working closely with the hardware team. I see this as a good improvement, but we will have to do some verification and sync up with hardware to change this. I propose doing this enhancement in another patch.",
+      "parentUuid": "f8323a1f_d784c175",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 40
+      },
+      "revId": "4faf02be0e924872fbc7daa8d3d8d66636c82485",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2393a52f_0aa9ba4b",
         "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "50b1d491_c721398e",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-05T19:12:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2393a52f_0aa9ba4b",
+      "range": {
+        "startLine": 120,
+        "startChar": 10,
+        "endLine": 120,
+        "endChar": 19
+      },
+      "revId": "4faf02be0e924872fbc7daa8d3d8d66636c82485",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbf14cc9_72f688c7",
         "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
         "patchSetId": 7
@@ -68,6 +116,30 @@
       "revId": "4faf02be0e924872fbc7daa8d3d8d66636c82485",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "262bd11d_b820280a",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-05T19:12:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbf14cc9_72f688c7",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 6
+      },
+      "revId": "4faf02be0e924872fbc7daa8d3d8d66636c82485",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
