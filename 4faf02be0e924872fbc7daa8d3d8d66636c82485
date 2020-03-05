@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8323a1f_d784c175",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-05T10:44:18Z",
+      "side": 1,
+      "message": "Instead of this fixed wait delay, Can we poll SE-operation periodically with maximum timeout\u003dSE0_MAX_BUSY_TIMEOUT_MS? Something like below, not specifically you follow same style:\n1. get current timestamp value:time1\n2. do\n   { \n       time2 \u003d get current timestamp\n       ret \u003d read status\n       if (ret \u003d\u003d 0)\n           break;\n       /* add small delay if require */\n   } while ((time2 - time1) \u003c SE0_MAX_BUSY_TIMEOUT_MS))",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 40
+      },
+      "revId": "4faf02be0e924872fbc7daa8d3d8d66636c82485",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2393a52f_0aa9ba4b",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-05T10:44:18Z",
+      "side": 1,
+      "message": "Here, \"ret\" value get override with timeout. Can we not return same \"ret\" value received from \"tegra_se_operation_complete\" ?",
+      "range": {
+        "startLine": 120,
+        "startChar": 10,
+        "endLine": 120,
+        "endChar": 19
+      },
+      "revId": "4faf02be0e924872fbc7daa8d3d8d66636c82485",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbf14cc9_72f688c7",
+        "filename": "plat/nvidia/tegra/soc/t186/drivers/se/se.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-05T10:44:18Z",
+      "side": 1,
+      "message": "Function header missing",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 6
+      },
+      "revId": "4faf02be0e924872fbc7daa8d3d8d66636c82485",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
