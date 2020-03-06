@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "c04acf59_20706f5e",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 18
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-06T10:38:25Z",
+      "side": 1,
+      "message": "If this is a dependant build option, please denote the same in the description of the options ie. \"This flag depends on DECRYPTION_SUPPORT build flag which is marked as experimental\". This makes the dependancy clear.\n\nWe are trying to mave away from BLxx naming convention and we refrain from adding new ones which are image specific. Ideally this is something that the platform would can feed into the build system as part of building with TBBR enabled and hence avoid exposing this as a configuration to the main makefile.\n\nWe could try to resolve all of them while in review, but I feel that this is a complicated change affecting various layers and hence it is better to get it merged and then we might get a better feel which is the best direction to take.\n\nMarking the options as experimental indicates that these can be changed without worrying about compatibility. But if you add a statement indicating dependancy on the DECRYPTION_SUPPORT flag, that is also sufficient.",
+      "parentUuid": "211f0815_4b5219cd",
+      "revId": "af9c1eea00b0de19b9fc24013868b8d282dbba6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9eb58307_3ecf6c42",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 18
@@ -101,6 +119,24 @@
       "side": 1,
       "message": "Please see my response above.",
       "parentUuid": "9eb58307_3ecf6c42",
+      "revId": "af9c1eea00b0de19b9fc24013868b8d282dbba6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6df77b5_6971e729",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 18
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-06T10:38:25Z",
+      "side": 1,
+      "message": "Again, the function signature of the API is something I would like to make more generic in future. You could indicate the dependancy on the DECRYPTION_SUPPORT build flag in the description here similar to the build options.",
+      "parentUuid": "7361f94b_ad466a75",
       "revId": "af9c1eea00b0de19b9fc24013868b8d282dbba6b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
