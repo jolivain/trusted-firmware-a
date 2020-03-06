@@ -16,6 +16,24 @@
       "revId": "d7c6505577f8ca468260cfd9418b3e97cd7f342a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0b7bc98_d5a00075",
+        "filename": "plat/arm/board/arm_fpga/fpga_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2020-03-06T16:21:13Z",
+      "side": 1,
+      "message": "While the overwhelming majority of systems use 1/2 clusters, this was originally larger than 8 and chosen with respect to the maximum values that can be represented in the MPIDR affinity fields, in this way the port would be prepared for any future FPGA images that configure larger-than-standard systems\n\nI agree 8 seems somewhat infeasible (our internal FPGA team may be able to confirm this), it could be lowered further from 8 to reduce the size of the array representing the PSCI domain topology tree?",
+      "parentUuid": "dbf0aede_995dab58",
+      "revId": "d7c6505577f8ca468260cfd9418b3e97cd7f342a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
