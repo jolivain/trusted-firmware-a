@@ -166,12 +166,14 @@ typedef struct xlat_ctx xlat_ctx_t;
  *   BL image currently executing.
  */
 #define REGISTER_XLAT_CONTEXT(_ctx_name, _mmap_count, _xlat_tables_count, \
-			_virt_addr_space_size, _phy_addr_space_size)	\
+			      _virt_addr_space_size, _phy_addr_space_size, \
+			      _base_table_section)			\
 	REGISTER_XLAT_CONTEXT_FULL_SPEC(_ctx_name, (_mmap_count),	\
 					 (_xlat_tables_count),		\
 					 (_virt_addr_space_size),	\
 					 (_phy_addr_space_size),	\
-					 EL_REGIME_INVALID, "xlat_table")
+					 EL_REGIME_INVALID,		\
+					 "xlat_table", _base_table_section)
 
 /*
  * Same as REGISTER_XLAT_CONTEXT plus the additional parameters:
@@ -191,7 +193,9 @@ typedef struct xlat_ctx xlat_ctx_t;
 					 (_xlat_tables_count),		\
 					 (_virt_addr_space_size),	\
 					 (_phy_addr_space_size),	\
-					 (_xlat_regime), (_section_name))
+					 (_xlat_regime),		\
+					 (_section_name), ".bss"	\
+)
 
 /******************************************************************************
  * Generic translation table APIs.
