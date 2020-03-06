@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "16ccb1fe_7129da27",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2020-03-06T16:05:01Z",
+      "side": 1,
+      "message": "Does this apply to the wfi-loop placeholder implementation of fpga_pwr_domain_off()? I believe that we were trying to make fewer assumptions about the system\u0027s power management, and leaving hotplug unimplemented for now",
+      "parentUuid": "76149a40_6ce22ae4",
+      "revId": "be2b048c51fbf656cd49a588eaac4451db34cca8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "35457ae2_ec5076ad",
         "filename": "plat/arm/board/arm_fpga/fpga_gicv3.c",
         "patchSetId": 8
@@ -30,6 +48,24 @@
       "writtenOn": "2020-02-26T23:54:30Z",
       "side": 1,
       "message": "I am curious why this platform cannot use the functions defined in plat/arm/common/arm_gicv3.c. If I am not mistaken, all other Arm platforms use arm_gicv3.c driver.",
+      "revId": "be2b048c51fbf656cd49a588eaac4451db34cca8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c001fcd_d069fbc9",
+        "filename": "plat/arm/board/arm_fpga/fpga_gicv3.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2020-03-06T16:05:01Z",
+      "side": 1,
+      "message": "The original iteration of this port conformed to the ARM Standard Platform layer, but this introduced lots of mandatory definitions of constants and functions, many of which did not apply to BL31 nor this boot sequence, and would have greatly increased the port\u0027s complexity; the Arm GIC driver interface is part of that layer and cannot be used on its own (AFAIK)",
+      "parentUuid": "35457ae2_ec5076ad",
       "revId": "be2b048c51fbf656cd49a588eaac4451db34cca8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
