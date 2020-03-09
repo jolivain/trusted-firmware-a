@@ -124,6 +124,24 @@
       "revId": "404350b2d56bc151fa44b468baeb50865d66ae50",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c5abab5_245ae6d6",
+        "filename": "lib/locks/bakery/bakery_lock_normal.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-09T13:35:27Z",
+      "side": 1,
+      "message": "I still think a dsbish is required. This is just to ensure that the dccivac() is completed before the read is executed. \n\nSo perhaps this would be better way:\n\n\nstatic inline void read_cache_op(uintptr_t addr, bool cached)\n{\n\tif (cached) {\n\t\tdccivac(addr);\n\t\tdsbish();\n\t} else {\n\t\tdmbish();\n\t}\n}",
+      "parentUuid": "7cfa065e_0cbe9a89",
+      "revId": "404350b2d56bc151fa44b468baeb50865d66ae50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
