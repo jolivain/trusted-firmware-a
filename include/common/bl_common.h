@@ -144,6 +144,9 @@ IMPORT_SYM(uintptr_t, __COHERENT_RAM_START__,	BL_COHERENT_RAM_BASE);
 IMPORT_SYM(uintptr_t, __COHERENT_RAM_END__,	BL_COHERENT_RAM_END);
 #endif
 
+IMPORT_SYM(uintptr_t, __XLAT_TABLE_START__,	BL_XLAT_TABLE_BASE);
+IMPORT_SYM(uintptr_t, __XLAT_TABLE_END__,	BL_XLAT_TABLE_END);
+
 /*******************************************************************************
  * Structure used for telling the next BL how much of a particular type of
  * memory is available for its use and how much is already used.
