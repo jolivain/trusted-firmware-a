@@ -34,6 +34,24 @@
       "revId": "d7c6505577f8ca468260cfd9418b3e97cd7f342a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be488c75_bdbfd764",
+        "filename": "plat/arm/board/arm_fpga/fpga_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-09T17:42:10Z",
+      "side": 1,
+      "message": "To begin with, I believe a value of 2 would be ideal and would reduce the PSCI data structure size.",
+      "parentUuid": "a0b7bc98_d5a00075",
+      "revId": "d7c6505577f8ca468260cfd9418b3e97cd7f342a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
