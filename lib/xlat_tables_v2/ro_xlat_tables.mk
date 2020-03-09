@@ -4,6 +4,15 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+# TODO:
+# Check whether this limitation is remaining.
+#
+# ALLOW_RO_XLAT_TABLES can be enabled along with the dynamic translation
+# library. The xlat table is writable until you explicitely call
+# xlat_make_tables_readonly(). If you want to make them work toghther,
+# please make sure to call xlat_make_tables_readonly() after all
+# mmap_add_dynamic_region() calls are finished.
+
 ifeq (${USE_DEBUGFS}, 1)
     $(error "Debugfs requires functionality from the dynamic translation \
              library and is incompatible with ALLOW_RO_XLAT_TABLES.")

@@ -26,7 +26,7 @@ uint64_t mmu_cfg_params[MMU_CFG_PARAM_MAX];
  * currently executing.
  */
 #if PLAT_RO_XLAT_TABLES
-#define BASE_XLAT_TABLE_SECTION		".rodata"
+#define BASE_XLAT_TABLE_SECTION		"xlat_table"
 #else
 #define BASE_XLAT_TABLE_SECTION		".bss"
 #endif
@@ -173,8 +173,8 @@ int xlat_make_tables_readonly(void)
 #endif
 
 	int rc = xlat_change_mem_attributes_ctx(&tf_xlat_ctx,
-				(uintptr_t)tf_xlat_ctx.tables,
-				tf_xlat_ctx.tables_num * XLAT_TABLE_SIZE,
+				BL_XLAT_TABLE_BASE,
+				BL_XLAT_TABLE_END - BL_XLAT_TABLE_BASE,
 				MT_RO_DATA | MT_SECURE);
 
 #ifdef __aarch64__
