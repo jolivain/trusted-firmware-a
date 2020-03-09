@@ -82,4 +82,31 @@ can be used to fill the C data structure with the data from the config |DTB|.
 This function will call all the ``populate()`` callbacks which have been
 registered with ``FCONF_REGISTER_POPULATOR()``.
 
+Namespace guidance
+~~~~~~~~~~~~~~~~~~
+
+As mentioned above, properties are logically grouped around namespaces and
+sub-namespaces. The following concepts should be considered when adding new
+properties/namespaces.
+
+The framework differentiates two types of properties:
+ - Properties used inside common code.
+ - Properties used inside platform specific code.
+
+The first category applies to properties being part of the firmware and shared
+across multiple platforms. They should be globally accessible and defined
+inside the lib/fconf directory. The namespace must be chosen to reflect the
+feature/data abstracted.
+Example:
+ - |TBBR| related properties.
+ - Dynamic configuration information.
+
+The second category should represent the majority of the properties defined
+within the framework: Platfrom specific properties. They must be accessed only
+within the platform API and are defined only inside the platform scope. The
+namespace must contain the platform name under which the properties defined
+belong.
+Example:
+ - Arm io framework.
+
 .. uml:: ../resources/diagrams/plantuml/fconf_bl2_populate.puml
