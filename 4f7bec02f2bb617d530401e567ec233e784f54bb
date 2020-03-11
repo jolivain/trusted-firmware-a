@@ -369,6 +369,30 @@
     },
     {
       "key": {
+        "uuid": "dfd5b68b_0a79b6d1",
+        "filename": "lib/cpus/aarch64/dsu_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-03-11T17:49:17Z",
+      "side": 1,
+      "message": "Since there is a register for the purpose it will be good to detect dynamically.\nHowever some cores (may be the ones where direct connect is not an option) does not\nimplement this SCU bit. eg: Cortex-A76\n\nA weak definition here \u0027is_scu_present() which returns \u0027true\u0027 should be good for now.\nThen the definition gets overridden in cores implementation.",
+      "parentUuid": "d3c5f135_7f29685e",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 27
+      },
+      "revId": "4f7bec02f2bb617d530401e567ec233e784f54bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aaea9e12_cc26311f",
         "filename": "lib/cpus/aarch64/neoverse_n1.S",
         "patchSetId": 2
