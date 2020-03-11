@@ -100,7 +100,7 @@ uint8_t fdt_get_status(int node)
  * - a default value if undefined #address-cells property as per libfdt
  *   implementation.
  ******************************************************************************/
-int fdt_get_node_parent_address_cells(int node)
+static int fdt_get_node_parent_address_cells(int node)
 {
 	int parent;
 
@@ -120,7 +120,7 @@ int fdt_get_node_parent_address_cells(int node)
  * - a default value if undefined #size-cells property as per libfdt
  *   implementation.
  ******************************************************************************/
-int fdt_get_node_parent_size_cells(int node)
+static int fdt_get_node_parent_size_cells(int node)
 {
 	int parent;
 
