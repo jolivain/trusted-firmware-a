@@ -16,6 +16,24 @@
       "revId": "0159eef6a3aabb52e81bd08472d2569050d3ee4c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7831c08c_9f5917b1",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-11T17:34:37Z",
+      "side": 1,
+      "message": "Yes, I also saw that MBEDTLS_MD_MAX_SIZE is 32 for sha256, but is 64 for both sha384 and sha512 nad don\u0027t know the reason for that.\nI also tested\nvoid arm_bl1_set_bl2_hash(image_desc_t *image_desc)\n{\n\tunsigned char hash_data[MBEDTLS_MD_MAX_SIZE];\n..\nwith MBEDTLS_MD_MAX_SIZE changed to 48 for sha384 and the code worked. Checking hash_data[64] content for sha384 also shows that only first 48 bytes are used and others aren\u0027t changed by mbedtls.",
+      "parentUuid": "9473cf10_a93d86ec",
+      "revId": "0159eef6a3aabb52e81bd08472d2569050d3ee4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
