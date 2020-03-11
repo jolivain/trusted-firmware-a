@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "faeabbce_3b6a7d1f",
+        "filename": "services/spd/tlkd/tlkd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-11T12:52:41Z",
+      "side": 1,
+      "message": "Should this happen before line\n\n bl31_register_bl32_init(\u0026tlkd_init);\n\n?",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 2
+      },
+      "revId": "01cb030cfa18afdf295ab688f74335b3929950f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
