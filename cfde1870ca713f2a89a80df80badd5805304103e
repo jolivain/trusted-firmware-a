@@ -22,6 +22,30 @@
       "revId": "cfde1870ca713f2a89a80df80badd5805304103e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99b9e280_3822d8e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2020-03-11T02:52:01Z",
+      "side": 1,
+      "message": "Hi,\n\nNo, SW2201 switch is on the back of the board.  We need to manually set these three switches to 0, especially for switch 1 we must set to 0 so can avoid the auto booting.\n\nIn other word, if we set SW2201\u0027s three switches to 1/0/0 (this is the common configuration for Hikey960), the board will keep \"auto booting\" mode; after applying this patch, we cannot see any difference and the board will reboot rather than turned off when we execute Debian\u0027s command \"shutdown -h now\" or Android\u0027s command \"reboot -p\".",
+      "parentUuid": "3bf6cc2b_24586f06",
+      "range": {
+        "startLine": 10,
+        "startChar": 17,
+        "endLine": 11,
+        "endChar": 67
+      },
+      "revId": "cfde1870ca713f2a89a80df80badd5805304103e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
