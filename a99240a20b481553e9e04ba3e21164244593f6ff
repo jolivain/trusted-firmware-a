@@ -22,6 +22,30 @@
       "revId": "a99240a20b481553e9e04ba3e21164244593f6ff",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "662ecb67_6893bfa0",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-11T20:33:31Z",
+      "side": 1,
+      "message": "I will add an assert to catch this issue.",
+      "parentUuid": "2aa806b5_440edbae",
+      "range": {
+        "startLine": 311,
+        "startChar": 5,
+        "endLine": 311,
+        "endChar": 31
+      },
+      "revId": "a99240a20b481553e9e04ba3e21164244593f6ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
