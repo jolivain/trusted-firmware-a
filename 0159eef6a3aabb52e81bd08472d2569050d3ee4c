@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9473cf10_a93d86ec",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-11T17:24:01Z",
+      "side": 1,
+      "message": "I have a very limited understanding of mbedTLS project and the cryptographic algorithms. Please take my comments with a pinch of salt. \nAs seen here https://github.com/ARMmbed/mbedtls/blob/mbedtls-2.18.0/include/mbedtls/md.h#L74, MBEDTLS_MD_MAX_SIZE is 32 for any hash algorithm other than sha512. Hence for sha384, MBEDTLS_MD_MAX_SIZE is 32 but TCG_DIGEST_SIZE is 48. Is it intentional?",
+      "revId": "0159eef6a3aabb52e81bd08472d2569050d3ee4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
