@@ -34,6 +34,24 @@
       "revId": "0159eef6a3aabb52e81bd08472d2569050d3ee4c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c9838df_676817e3",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-11T19:25:49Z",
+      "side": 1,
+      "message": "MBEDTLS_MD_MAX_SIZE is 32 for sha384, not 64. You mentioned 48 bytes are used in hash_data for calculating hash but statically hash_data is declared with a size of 32. Doesn\u0027t it mean there is an overflow?",
+      "parentUuid": "7831c08c_9f5917b1",
+      "revId": "0159eef6a3aabb52e81bd08472d2569050d3ee4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
