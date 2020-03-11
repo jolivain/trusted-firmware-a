@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "39c3b0ff_d9d1866c",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-11T11:59:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3e1c5de2_6610333c",
+      "revId": "9ddc29bbde45bbc52e74856d1687dd18c8762070",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "296c6dc0_69a9a372",
         "filename": "include/plat/common/platform.h",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2020-03-11T09:46:32Z",
       "side": 1,
       "message": "uint32_t for all added functions.",
+      "revId": "9ddc29bbde45bbc52e74856d1687dd18c8762070",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12c22bb5_2c33ea98",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-11T11:59:41Z",
+      "side": 1,
+      "message": "Can not change return type to uint32_t for functions \"plat_get_soc_version\" and \"plat_get_soc_revision\" as these functions may return negative values.\n\nChanging return type to uint32_t results in below MISRA error:\n17:02:40 plat/common/plat_bl_common.c:40:[MISRA C-2012 Rule 10.3 (required)]\u003c661058\u003e Implicit conversion of \"-1\" from essential type \"signed 64-bit int\" to different or narrower essential type \"unsigned 32-bit int\".\n17:02:40 plat/common/plat_bl_common.c:45:[MISRA C-2012 Rule 10.3 (required)]\u003c661059\u003e Implicit conversion of \"-1\" from essential type \"signed 64-bit int\" to different or narrower essential type \"unsigned 32-bit int\".",
+      "parentUuid": "296c6dc0_69a9a372",
       "revId": "9ddc29bbde45bbc52e74856d1687dd18c8762070",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0cea6e5c_5676ce2a",
+        "filename": "plat/arm/common/arm_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-11T11:59:41Z",
+      "side": 1,
+      "message": "We can not change it to uint32_t as this function may return negative values and assigning negative values(int values) to unsigned variable cause implicit conversion and leads to MISRA error.\nAlso, this function\u0027s return is return of \"smccc_arch_features\" function and return type \"smccc_arch_features\" is int32_t.",
+      "parentUuid": "9d30ff95_6bcf4d93",
+      "revId": "9ddc29bbde45bbc52e74856d1687dd18c8762070",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "500b7eee_b9d24cfd",
         "filename": "plat/common/plat_bl_common.c",
         "patchSetId": 3
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "a9c48927_ccc04d98",
+        "filename": "plat/common/plat_bl_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-11T11:59:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "500b7eee_b9d24cfd",
+      "revId": "9ddc29bbde45bbc52e74856d1687dd18c8762070",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58ee0fbd_1eb70b7a",
         "filename": "services/arm_arch_svc/arm_arch_svc_setup.c",
         "patchSetId": 3
@@ -81,6 +153,24 @@
       "writtenOn": "2020-03-11T09:46:32Z",
       "side": 1,
       "message": "remove else",
+      "revId": "9ddc29bbde45bbc52e74856d1687dd18c8762070",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8010ea7d_156fa4f7",
+        "filename": "services/arm_arch_svc/arm_arch_svc_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-11T11:59:41Z",
+      "side": 1,
+      "message": "without this else leads to below MISRA error:\n17:02:40 services/arm_arch_svc/arm_arch_svc_setup.c:30:[MISRA C-2012 Rule 15.7 (required)]\u003c234403\u003e No non-empty terminating \"else\" statement.",
+      "parentUuid": "58ee0fbd_1eb70b7a",
       "revId": "9ddc29bbde45bbc52e74856d1687dd18c8762070",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
