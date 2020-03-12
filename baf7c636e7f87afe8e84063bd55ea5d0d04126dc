@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c15e1ef4_6607e4e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-12T13:56:26Z",
+      "side": 1,
+      "message": "Dynamic translations will not be available at runtime although this change allows even the base tables to be modified for a brief period during cold boot prior to setting them RO.\n\nUsually the base tables (being L1/L0) are usually unmodified when dynamic mappings are added because the chunks being mapped are usually within the existing base table mappings. So the initial thinking was this would not be a huge limitation to the brief period where some additional mappings need to be added.\n\nThe memory footprint increase will make this quite unattractive to platforms which do not have need for dynamic xlat tables.\n\nIf the intention is to remove the warning , I did a small experiment like below and that seemed to have removed the warning:\n\ndiff --git a/lib/xlat_tables_v2/xlat_tables_context.c b/lib/xlat_tables_v2/xlat_tables_context.c\nindex a1c974ec0..cfb8be97b 100644\n--- a/lib/xlat_tables_v2/xlat_tables_context.c\n+++ b/lib/xlat_tables_v2/xlat_tables_context.c\n@@ -26,7 +26,7 @@ uint64_t mmu_cfg_params[MMU_CFG_PARAM_MAX];\n  * currently executing.\n  */\n #if PLAT_RO_XLAT_TABLES\n-#define BASE_XLAT_TABLE_SECTION                \".rodata\"\n+#define BASE_XLAT_TABLE_SECTION                \"base_xlat_table\"\n #else\n #define BASE_XLAT_TABLE_SECTION                \".bss\"\n #endif\n\nAnd included it within the RO section by specifying it ld script.\nIt seems the compiler is only worried about the `rodata` section name but is not worried if there is a custom section name which is then placed in the RO by the linker.\n\nPerhaps that is a way to go while accepting the limitation that the base tables cannot be modified.",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 53
+      },
+      "revId": "baf7c636e7f87afe8e84063bd55ea5d0d04126dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a12d71c5_35cc1f40",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-12T13:56:26Z",
+      "side": 1,
+      "message": "This could be a killer for many platforms to use this feature as they may not have the extra page to dedicate for base tables.",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 33
+      },
+      "revId": "baf7c636e7f87afe8e84063bd55ea5d0d04126dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
