@@ -16,6 +16,24 @@
       "revId": "b0a62e4dcebf45580ad4f755273515abe7e25985",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dd68c5b_bb4c314e",
+        "filename": "plat/rpi/rpi3/include/rpi_hw.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-03-12T21:48:43Z",
+      "side": 1,
+      "message": "Ah, many thanks for spotting this! Indeed this fixes PL011 on RPi3 for me, which I thought was broken because of an insufficient baudrate:\n...\nMESS:00:00:05.676813:0: Loading \u0027kernel8.img\u0027 to 0x280000 size 0xc61200\nMESS:00:00:05.683159:0: Device tree loaded to 0x1bfe9100 (size 0x6e3a)\nMESS:00:00:05.691068:0: uart: Set PL011 baud rate to 103448.300000 Hz\n                                                     ^^^^^^\n\nBut now it works:\n....\nMESS:00:00:05.691068:0: uart: Set PL011 baud rate to 103448.300000 Hz\nMESS:00:00:05.697365:0: uart: Baud rate change done...\nMESS:00:00:05.700793:0: uart: Baud rate change done...\nMESS:00:00:05.706432:0: gpioman: gpioman_get_pin_num: pin SDCARD_CONTROL_POWER not defined\nINFO:    Using PL011\nNOTICE:  Booting Trusted Firmware\nNOTICE:  BL1: v2.2(debug):v2.2-881-gbec2ea75f-dirty\nNOTICE:  BL1: Built : 21:39:25, Mar 12 2020\n....",
+      "parentUuid": "82f8cf73_b0582665",
+      "revId": "b0a62e4dcebf45580ad4f755273515abe7e25985",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
