@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f49f0077_9cfc1553",
+        "filename": "plat/arm/board/fvp/fvp_topology.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-03-12T11:22:25Z",
+      "side": 1,
+      "message": "Implicit conversion of \"cluster_count\" from essential type \"unsigned 32-bit int\" to different or narrower essential type \"unsigned 8-bit int\".\n\nyou add a (usigned char) cast here.",
+      "range": {
+        "startLine": 64,
+        "startChar": 33,
+        "endLine": 64,
+        "endChar": 46
+      },
+      "revId": "706097b3349c44463908bfb38df972fe755eaabf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ad81b9f_658d2b97",
+        "filename": "plat/arm/board/fvp/fvp_topology.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-03-12T11:22:25Z",
+      "side": 1,
+      "message": "Essential type of the left hand operand \"i\" (signed) is not the same as that of the right operand \"cluster_count\"(unsigned).\n\nYou can change int i to unsigned int i",
+      "range": {
+        "startLine": 66,
+        "startChar": 1,
+        "endLine": 66,
+        "endChar": 7
+      },
+      "revId": "706097b3349c44463908bfb38df972fe755eaabf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6976ff61_e2ec0501",
+        "filename": "plat/arm/board/fvp/fvp_topology.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-03-12T11:22:25Z",
+      "side": 1,
+      "message": "Implicit conversion of \"cpus_per_cluster\" from essential type \"unsigned 32-bit int\" to different or narrower essential type \"unsigned 8-bit int\".\n\nYou can cast to (unsigned char)",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 7
+      },
+      "revId": "706097b3349c44463908bfb38df972fe755eaabf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
