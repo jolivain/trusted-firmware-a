@@ -55,6 +55,29 @@
     },
     {
       "key": {
+        "uuid": "ad537b89_98f2d67b",
+        "filename": "plat/arm/board/fvp/fvp_bl1_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-12T12:31:45Z",
+      "side": 1,
+      "message": "Looks like this function always return 0, Why return value is needed here? (Is it generic function?)",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 35
+      },
+      "revId": "0159eef6a3aabb52e81bd08472d2569050d3ee4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f01c0322_966ea5a0",
         "filename": "plat/arm/common/arm_dyn_cfg.c",
         "patchSetId": 8
