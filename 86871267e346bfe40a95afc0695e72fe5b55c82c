@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24602c68_d6921c7f",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-12T11:15:05Z",
+      "side": 1,
+      "message": "can be removed from here and declare plat_arm_get_soc_id in plat_arm.h",
+      "range": {
+        "startLine": 328,
+        "startChar": 9,
+        "endLine": 328,
+        "endChar": 24
+      },
+      "revId": "86871267e346bfe40a95afc0695e72fe5b55c82c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb61ceb0_71f4d984",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-12T11:15:05Z",
+      "side": 1,
+      "message": "This needs to be documented in porting guide.",
+      "range": {
+        "startLine": 333,
+        "startChar": 8,
+        "endLine": 333,
+        "endChar": 28
+      },
+      "revId": "86871267e346bfe40a95afc0695e72fe5b55c82c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b7dae75_7f4dcd4e",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-12T11:15:05Z",
+      "side": 1,
+      "message": "This needs to be documented in porting guide.",
+      "range": {
+        "startLine": 338,
+        "startChar": 8,
+        "endLine": 338,
+        "endChar": 29
+      },
+      "revId": "86871267e346bfe40a95afc0695e72fe5b55c82c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7ce43c3_e90dc75c",
+        "filename": "plat/arm/common/arm_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-12T11:15:05Z",
+      "side": 1,
+      "message": "This function should be a plat_arm_get_soc_id and declated in plat_arm.h",
+      "range": {
+        "startLine": 241,
+        "startChar": 5,
+        "endLine": 241,
+        "endChar": 20
+      },
+      "revId": "86871267e346bfe40a95afc0695e72fe5b55c82c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9da0a6d_48260f7d",
+        "filename": "plat/common/plat_bl_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-12T11:15:05Z",
+      "side": 1,
+      "message": "this function is not called from gerneric code. can be removed.",
+      "range": {
+        "startLine": 33,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 24
+      },
+      "revId": "86871267e346bfe40a95afc0695e72fe5b55c82c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
