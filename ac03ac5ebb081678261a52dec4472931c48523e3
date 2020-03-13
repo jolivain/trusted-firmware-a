@@ -16,6 +16,24 @@
       "revId": "ac03ac5ebb081678261a52dec4472931c48523e3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79ae8e8e_e1deae65",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-03-13T14:28:33Z",
+      "side": 1,
+      "message": "I will try to implement it and will see how it looks. Regardless - we would prefer to make this kind of cleanup in subsequent patches.",
+      "parentUuid": "2200325d_14d14732",
+      "revId": "ac03ac5ebb081678261a52dec4472931c48523e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
