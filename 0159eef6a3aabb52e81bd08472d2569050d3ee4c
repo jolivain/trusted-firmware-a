@@ -125,6 +125,30 @@
     },
     {
       "key": {
+        "uuid": "38c32402_bf2e3775",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-13T11:08:54Z",
+      "side": 1,
+      "message": "Do you also want to modify this function to call FCONF_GET_PROPERTY(fconf, dtb, base_addr)?\nWhat\u0027s wrong with cast?\nflush_dcache_range() uses uintptr_t tb_fw_cfg_dtb in this function and\nflush_dcache_range((uintptr_t)dtb in arm_bl1_set_bl2_hash()",
+      "parentUuid": "f01c0322_966ea5a0",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 104,
+        "endChar": 5
+      },
+      "revId": "0159eef6a3aabb52e81bd08472d2569050d3ee4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b46a2b4e_511f5578",
         "filename": "plat/arm/common/arm_dyn_cfg.c",
         "patchSetId": 8
