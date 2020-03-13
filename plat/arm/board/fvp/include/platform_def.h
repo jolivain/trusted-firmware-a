@@ -52,6 +52,13 @@
 #define PLAT_ARM_DRAM2_BASE		ULL(0x880000000)
 #define PLAT_ARM_DRAM2_SIZE		UL(0x80000000)
 
+#define FVP_HW_CONFIG_DTB_BASE		ULL(0x82000000)
+#define FVP_HW_CONFIG_DTB_SIZE		ULL(0x01000000)
+
+#define DTB_DRAM_NS			MAP_REGION_FLAT(		\
+					FVP_HW_CONFIG_DTB_BASE,		\
+					FVP_HW_CONFIG_DTB_SIZE,		\
+					MT_MEMORY | MT_RW | MT_NS)
 /*
  * Load address of BL33 for this platform port
  */
@@ -70,14 +77,14 @@
 # else
 #  define PLAT_ARM_MMAP_ENTRIES		9
 #  if USE_DEBUGFS
-#   define MAX_XLAT_TABLES		6
+#   define MAX_XLAT_TABLES		7
 #  else
-#   define MAX_XLAT_TABLES		5
+#   define MAX_XLAT_TABLES		6
 #  endif
 # endif
 #elif defined(IMAGE_BL32)
 # define PLAT_ARM_MMAP_ENTRIES		9
-# define MAX_XLAT_TABLES		5
+# define MAX_XLAT_TABLES		6
 #elif !USE_ROMLIB
 # define PLAT_ARM_MMAP_ENTRIES		11
 # define MAX_XLAT_TABLES		5
