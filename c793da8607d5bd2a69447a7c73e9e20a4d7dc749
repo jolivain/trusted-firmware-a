@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "48a68fad_482c0a1a",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-16T17:50:50Z",
+      "side": 1,
+      "message": "Moving these defines in arm_def.h and then include arm_def.h in arm_common.c results in so many redefine errors such as below:\ninclude/plat/arm/common/arm_def.h:303: error: \"MAX_MMAP_REGIONS\" redefined [-Werror]\n  303 | #define MAX_MMAP_REGIONS  (PLAT_ARM_MMAP_ENTRIES + \\\n      | \nIn file included from include/lib/libc/assert.h:12,\n                 from plat/arm/common/arm_common.c:7:\nplat/xilinx/zynqmp/include/platform_def.h:88: note: this is the location of the previous definition\n   88 | #define MAX_MMAP_REGIONS  7\n      | \nIn file included from plat/arm/common/arm_common.c:17:\ninclude/plat/arm/common/arm_def.h:332: error: \"PLAT_MAX_RET_STATE\" redefined [-Werror]\n  332 | #define PLAT_MAX_RET_STATE  ARM_LOCAL_STATE_RET\n      | \nIn file included from include/lib/libc/assert.h:12,\n                 from plat/arm/common/arm_common.c:7:\nplat/xilinx/zynqmp/include/platform_def.h:27: note: this is the location of the previous definition\n   27 | #define PLAT_MAX_RET_STATE  U(1) \n.......\n\nBelow defines are constant across all ARM platform hence IMO, it is better to define it is plat_arm.h.\n\nOtherwise, we want to move these defines to every ARM\u0027s platform_def.h file.",
+      "parentUuid": "2cf6c62b_867d60ca",
+      "revId": "c793da8607d5bd2a69447a7c73e9e20a4d7dc749",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a87902f5_6116b9ae",
         "filename": "include/services/arm_arch_svc.h",
         "patchSetId": 6
@@ -39,6 +57,30 @@
       "revId": "c793da8607d5bd2a69447a7c73e9e20a4d7dc749",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c61c3d1b_d0ec8469",
+        "filename": "include/services/arm_arch_svc.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-16T17:50:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a87902f5_6116b9ae",
+      "range": {
+        "startLine": 12,
+        "startChar": 8,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "c793da8607d5bd2a69447a7c73e9e20a4d7dc749",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
