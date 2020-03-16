@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30ac69d8_f17fbb04",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-03-16T22:09:36Z",
+      "side": 1,
+      "message": "might be worth expanding on why you need to increase MAX_XLAT_TABLES. It seems like you are mapping a smaller region so it seems counter-intuitive that you need to increase MAX_XLAT_TABLES. I assume this is because you are drilling down an extra level due to the smaller region size ?",
+      "revId": "bd4162f1f5d2a79ab551ab436e38c0168e3aaad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
