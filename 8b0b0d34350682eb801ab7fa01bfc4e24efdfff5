@@ -22,6 +22,30 @@
       "revId": "8b0b0d34350682eb801ab7fa01bfc4e24efdfff5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5eecf4bd_91e0ccb8",
+        "filename": "plat/nvidia/tegra/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-17T16:21:25Z",
+      "side": 1,
+      "message": "The build system does not pass the value to platform.mk at this point. I tried printing the value of LOG_LEVEL_VERBOSE and it always prints blank. So, we have to keep using the actual number.",
+      "parentUuid": "994b6aab_13853149",
+      "range": {
+        "startLine": 16,
+        "startChar": 25,
+        "endLine": 16,
+        "endChar": 27
+      },
+      "revId": "8b0b0d34350682eb801ab7fa01bfc4e24efdfff5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
