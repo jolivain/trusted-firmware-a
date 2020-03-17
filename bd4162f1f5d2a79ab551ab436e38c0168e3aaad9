@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f5b1fb5a_b3b6af49",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-17T14:25:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "76abca7b_19c1f442",
+      "range": {
+        "startLine": 10,
+        "startChar": 27,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "bd4162f1f5d2a79ab551ab436e38c0168e3aaad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30ac69d8_f17fbb04",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "1042a1f1_bd071e8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-17T14:25:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "30ac69d8_f17fbb04",
+      "revId": "bd4162f1f5d2a79ab551ab436e38c0168e3aaad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73f5eff3_cb2d2e8d",
         "filename": "plat/arm/board/fvp/include/platform_def.h",
         "patchSetId": 3
@@ -53,6 +95,30 @@
       "writtenOn": "2020-03-17T08:48:02Z",
       "side": 1,
       "message": "Maybe in a next iteration, the region should be dynamically allocated. The HW config dtb address is already passed to BL31 entry point as shown in the logs:\nINFO:    BL31 FCONF: HW_CONFIG address \u003d 0x82000000\n\nand https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/fvp/fvp_bl31_setup.c?h\u003dintegration line #49",
+      "range": {
+        "startLine": 55,
+        "startChar": 37,
+        "endLine": 55,
+        "endChar": 47
+      },
+      "revId": "bd4162f1f5d2a79ab551ab436e38c0168e3aaad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "594bb499_ac7433eb",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-17T14:25:31Z",
+      "side": 1,
+      "message": "Hi Olivier,\nI tried using dynamic approach (mmap_add_dynamic_region() API) but noticed that it depends on the build flag PLAT_XLAT_TABLES_DYNAMIC which is not enabled by default. I will explore further.",
+      "parentUuid": "73f5eff3_cb2d2e8d",
       "range": {
         "startLine": 55,
         "startChar": 37,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "1e99d16b_2eb88604",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-17T14:25:31Z",
+      "side": 1,
+      "message": "I picked this specific value because it was specified here https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/fvp/fdts/fvp_fw_config.dts?h\u003dintegration#n24 . I knew it was too large but I could not provide a justification for picking a random value for the max size. I will pick 32KB for now to make progress with this patch as it is critical.",
+      "parentUuid": "ca43ac70_2a94f692",
+      "range": {
+        "startLine": 56,
+        "startChar": 37,
+        "endLine": 56,
+        "endChar": 47
+      },
+      "revId": "bd4162f1f5d2a79ab551ab436e38c0168e3aaad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "151be076_b2975c76",
         "filename": "plat/arm/board/fvp/include/platform_def.h",
         "patchSetId": 3
@@ -108,6 +198,30 @@
       "revId": "bd4162f1f5d2a79ab551ab436e38c0168e3aaad9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50e31c32_57bf9838",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-17T14:25:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "151be076_b2975c76",
+      "range": {
+        "startLine": 61,
+        "startChar": 17,
+        "endLine": 61,
+        "endChar": 22
+      },
+      "revId": "bd4162f1f5d2a79ab551ab436e38c0168e3aaad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
