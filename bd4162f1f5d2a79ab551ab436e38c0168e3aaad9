@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "76abca7b_19c1f442",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-03-17T08:48:02Z",
+      "side": 1,
+      "message": "SP_MIN?",
+      "range": {
+        "startLine": 10,
+        "startChar": 27,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "bd4162f1f5d2a79ab551ab436e38c0168e3aaad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30ac69d8_f17fbb04",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -13,6 +36,75 @@
       "writtenOn": "2020-03-16T22:09:36Z",
       "side": 1,
       "message": "might be worth expanding on why you need to increase MAX_XLAT_TABLES. It seems like you are mapping a smaller region so it seems counter-intuitive that you need to increase MAX_XLAT_TABLES. I assume this is because you are drilling down an extra level due to the smaller region size ?",
+      "revId": "bd4162f1f5d2a79ab551ab436e38c0168e3aaad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73f5eff3_cb2d2e8d",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-03-17T08:48:02Z",
+      "side": 1,
+      "message": "Maybe in a next iteration, the region should be dynamically allocated. The HW config dtb address is already passed to BL31 entry point as shown in the logs:\nINFO:    BL31 FCONF: HW_CONFIG address \u003d 0x82000000\n\nand https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/fvp/fvp_bl31_setup.c?h\u003dintegration line #49",
+      "range": {
+        "startLine": 55,
+        "startChar": 37,
+        "endLine": 55,
+        "endChar": 47
+      },
+      "revId": "bd4162f1f5d2a79ab551ab436e38c0168e3aaad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca43ac70_2a94f692",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-03-17T08:48:02Z",
+      "side": 1,
+      "message": "This looks a very large size for the HW config dtb\nOn FVP reference platform, it\u0027s looks to be around ~8KB ... So more reasonable stretched size might be e.g. 32KB (0x8000)?",
+      "range": {
+        "startLine": 56,
+        "startChar": 37,
+        "endLine": 56,
+        "endChar": 47
+      },
+      "revId": "bd4162f1f5d2a79ab551ab436e38c0168e3aaad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "151be076_b2975c76",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-03-17T08:48:02Z",
+      "side": 1,
+      "message": "Maybe prefer MT_RO?",
+      "range": {
+        "startLine": 61,
+        "startChar": 17,
+        "endLine": 61,
+        "endChar": 22
+      },
       "revId": "bd4162f1f5d2a79ab551ab436e38c0168e3aaad9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
