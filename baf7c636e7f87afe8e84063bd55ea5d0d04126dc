@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2dd0188b_521eea22",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-17T19:37:02Z",
+      "side": 1,
+      "message": "Ideally, the xlat lib can lock the page tables when MMU is enabled during cold boot. I image platforms wont update page tables once MMU is enabled during cold boot. The dynamic changes might happen at runtime (i.e. TF-A completed cold boot sequence and NS world has started booting).\n\nThe library can then lock and unlock behind the dynamic update functions, transparent to the platforms. The only problem I see platforms dynamically adding memory regions for a use case. We should poll the community to see if this is really a concern",
+      "parentUuid": "a2376bf9_a348e55c",
+      "range": {
+        "startLine": 41,
+        "startChar": 43,
+        "endLine": 42,
+        "endChar": 61
+      },
+      "revId": "baf7c636e7f87afe8e84063bd55ea5d0d04126dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a12d71c5_35cc1f40",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
