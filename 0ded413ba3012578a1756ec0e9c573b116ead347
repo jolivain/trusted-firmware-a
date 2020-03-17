@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73a5d4e7_83e2f9cd",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-03-17T22:12:47Z",
+      "side": 1,
+      "message": "Core pos should be unsgined.",
+      "range": {
+        "startLine": 93,
+        "startChar": 45,
+        "endLine": 93,
+        "endChar": 48
+      },
+      "revId": "0ded413ba3012578a1756ec0e9c573b116ead347",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
