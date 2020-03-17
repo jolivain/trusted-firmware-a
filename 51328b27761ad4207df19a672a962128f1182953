@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "598d7166_9f3ce4c3",
+        "filename": "services/arm_arch_svc/arm_arch_svc_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-03-17T09:42:22Z",
+      "side": 1,
+      "message": "this should be catch by the static-checks:\nplatform headers must be at the bottom",
+      "range": {
+        "startLine": 13,
+        "startChar": 11,
+        "endLine": 13,
+        "endChar": 33
+      },
+      "revId": "51328b27761ad4207df19a672a962128f1182953",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
