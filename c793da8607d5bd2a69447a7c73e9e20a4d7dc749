@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "52c74ab3_a0c59ab8",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-17T10:45:18Z",
+      "side": 1,
+      "message": "I tried initially same as you suggested here:\nAdded defines in arm_def.h and do not include arm_def.h file in arm_common.c file.\n\nBut, seems like it work for all fvp platform as fvp:platform_def.h include arm_def.h but it failed for all other platform which do not include arm_def.h file. such platforms are as below:\n\n1. zynqmp-tspd\n2. versal-virt\n3. a5ds \n4. versal-default\n5. zynqmp-tspd-tdram\n6. corstone700-default\n7. zynqmp-default\n8. fvp_ve-a7",
+      "parentUuid": "c494ccf4_8c7758c4",
+      "revId": "c793da8607d5bd2a69447a7c73e9e20a4d7dc749",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a87902f5_6116b9ae",
         "filename": "include/services/arm_arch_svc.h",
         "patchSetId": 6
