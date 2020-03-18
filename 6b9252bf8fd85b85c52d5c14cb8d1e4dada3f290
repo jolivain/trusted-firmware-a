@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7f4bcb1_78973cd4",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_psci_handlers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-18T14:57:45Z",
+      "side": 1,
+      "message": "Do you need an ISB barrier to ensure these system registers updates get reflected before carrying on?",
+      "revId": "6b9252bf8fd85b85c52d5c14cb8d1e4dada3f290",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
