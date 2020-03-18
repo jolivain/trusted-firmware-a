@@ -22,6 +22,30 @@
       "revId": "bd5f5f343c082b68129cd735cbe87a7a2879318a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33e7951e_fbc578e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-18T16:19:21Z",
+      "side": 1,
+      "message": "Internally teams using TF-A, compile it with three different compilers. Since the earlier code was in C, the C compiler is free to use any registers it wants. Each compiler generates different assembly code. IIRC, we saw that x8 ws definitely getting used by one of the compilers. I dont remember the register getting over written in the other two cases. Instead of adding ugly hacks in the code, we moved the code to assembly. This makes it scalable and the API can be used throughout the firmware without any issues.",
+      "parentUuid": "e39db94c_a0983507",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "bd5f5f343c082b68129cd735cbe87a7a2879318a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
