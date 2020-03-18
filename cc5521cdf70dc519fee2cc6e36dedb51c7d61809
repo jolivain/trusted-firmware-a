@@ -34,6 +34,41 @@
       "revId": "cc5521cdf70dc519fee2cc6e36dedb51c7d61809",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "230aa22e_49db65c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-18T23:17:01Z",
+      "side": 1,
+      "message": "I would appreciate if you could remove MTS usage. Thanks!",
+      "parentUuid": "d8b3d788_2d40e4e1",
+      "revId": "cc5521cdf70dc519fee2cc6e36dedb51c7d61809",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33a3525f_6d4c160b",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/include/t194_nvg.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-18T23:17:01Z",
+      "side": 1,
+      "message": "Was it intentional to make this structure anonymous?",
+      "revId": "cc5521cdf70dc519fee2cc6e36dedb51c7d61809",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
