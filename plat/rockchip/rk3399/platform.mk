@@ -24,8 +24,7 @@ PLAT_INCLUDES		:=	-I${RK_PLAT_COMMON}/			\
 				-I${RK_PLAT_SOC}/include/		\
 				-I${RK_PLAT_SOC}/include/shared/	\
 
-RK_GIC_SOURCES		:=	drivers/arm/gic/common/gic_common.c	\
-				drivers/arm/gic/v3/arm_gicv3_common.c	\
+RK_GIC_SOURCES		:=	drivers/arm/gic/v3/arm_gicv3_common.c	\
 				drivers/arm/gic/v3/gic500.c		\
 				drivers/arm/gic/v3/gicv3_main.c		\
 				drivers/arm/gic/v3/gicv3_helpers.c	\

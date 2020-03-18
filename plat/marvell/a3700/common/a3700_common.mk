@@ -78,8 +78,7 @@ $(eval $(call add_define,CONFIG_GICV3))
 # CCI-400
 $(eval $(call add_define,USE_CCI))
 
-MARVELL_GIC_SOURCES	:=	drivers/arm/gic/common/gic_common.c	\
-				drivers/arm/gic/v3/gicv3_main.c		\
+MARVELL_GIC_SOURCES	:=	drivers/arm/gic/v3/gicv3_main.c		\
 				drivers/arm/gic/v3/gicv3_helpers.c	\
 				drivers/arm/gic/v3/gicdv3_helpers.c	\
 				drivers/arm/gic/v3/gicrv3_helpers.c	\
