@@ -28,7 +28,6 @@ PLAT_BL_COMMON_SOURCES := lib/xlat_tables/aarch64/xlat_tables.c       \
 
 BL31_SOURCES    += common/desc_image_load.c                              \
                    drivers/arm/cci/cci.c                                 \
-                   drivers/arm/gic/common/gic_common.c                   \
                    drivers/arm/gic/v3/arm_gicv3_common.c                 \
                    drivers/arm/gic/v3/gicv3_helpers.c                    \
                    drivers/arm/gic/v3/gicdv3_helpers.c			 \

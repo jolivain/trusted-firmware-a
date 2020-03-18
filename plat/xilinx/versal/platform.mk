@@ -47,7 +47,6 @@ PLAT_BL_COMMON_SOURCES	:=	lib/xlat_tables/xlat_tables_common.c		\
 				lib/xlat_tables/aarch64/xlat_tables.c		\
 				drivers/delay_timer/delay_timer.c		\
 				drivers/delay_timer/generic_delay_timer.c	\
-				drivers/arm/gic/common/gic_common.c		\
 				drivers/arm/gic/v3/arm_gicv3_common.c		\
 				drivers/arm/gic/v3/gic500.c			\
 				drivers/arm/gic/v3/gicv3_main.c			\
