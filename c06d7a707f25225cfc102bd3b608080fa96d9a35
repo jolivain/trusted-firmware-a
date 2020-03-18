@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61272afc_2c9ec3aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-18T15:22:56Z",
+      "side": 1,
+      "message": "I didn\u0027t quite get why you would disable PROGRAMMABLE_RESET_ADDRESS\u003d1 (which is meant to be an optimization of the boot path) if your platform supports it. The sentence I highlighted seems to provide the rationale but I don\u0027t understand what \"locking the CPU reset vector during cold boot\" means... Could you please elaborate?",
+      "range": {
+        "startLine": 12,
+        "startChar": 66,
+        "endLine": 14,
+        "endChar": 10
+      },
+      "revId": "c06d7a707f25225cfc102bd3b608080fa96d9a35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
