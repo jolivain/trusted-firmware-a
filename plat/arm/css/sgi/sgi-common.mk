@@ -22,8 +22,7 @@ INTERCONNECT_SOURCES	:=	${CSS_ENT_BASE}/sgi_interconnect.c
 
 PLAT_INCLUDES		+=	-I${CSS_ENT_BASE}/include
 
-ENT_GIC_SOURCES		:=	drivers/arm/gic/common/gic_common.c	\
-				drivers/arm/gic/v3/gicv3_main.c		\
+ENT_GIC_SOURCES		:=	drivers/arm/gic/v3/gicv3_main.c		\
 				drivers/arm/gic/v3/gicv3_helpers.c	\
 				drivers/arm/gic/v3/gicdv3_helpers.c	\
 				drivers/arm/gic/v3/gicrv3_helpers.c	\

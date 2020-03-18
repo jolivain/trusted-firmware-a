@@ -146,6 +146,9 @@ GENERATE_COT			:= 0
 # default, they are for Secure EL1.
 GICV2_G0_FOR_EL3		:= 0
 
+# GICv3 with no extended PPI and SPI range by default
+GICV3_EXT_INTID			:= 0
+
 # Route External Aborts to EL3. Disabled by default; External Aborts are handled
 # by lower ELs.
 HANDLE_EA_EL3_FIRST		:= 0

@@ -54,7 +54,6 @@ K3_CONSOLE_SOURCES	+=	\
 				${PLAT_PATH}/common/k3_console.c	\
 
 K3_GIC_SOURCES		+=	\
-				drivers/arm/gic/common/gic_common.c	\
 				drivers/arm/gic/v3/gicv3_main.c		\
 				drivers/arm/gic/v3/gicv3_helpers.c	\
 				drivers/arm/gic/v3/gicdv3_helpers.c	\
