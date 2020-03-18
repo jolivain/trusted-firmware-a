@@ -31,7 +31,6 @@ PLAT_BL_COMMON_SOURCES	+=	$(PLAT_PATH)/sq_helpers.S		\
 				${XLAT_TABLES_LIB_SRCS}
 
 BL31_SOURCES		+=	drivers/arm/ccn/ccn.c			\
-				drivers/arm/gic/common/gic_common.c	\
 				drivers/arm/gic/v3/gicv3_helpers.c	\
 				drivers/arm/gic/v3/gicdv3_helpers.c	\
 				drivers/arm/gic/v3/gicrv3_helpers.c	\

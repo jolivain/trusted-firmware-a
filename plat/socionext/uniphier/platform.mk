@@ -56,7 +56,6 @@ BL2_SOURCES		+=	common/desc_image_load.c		\
 				$(PLAT_PATH)/uniphier_usb.c
 
 BL31_SOURCES		+=	drivers/arm/cci/cci.c			\
-				drivers/arm/gic/common/gic_common.c	\
 				drivers/arm/gic/v3/gicv3_helpers.c	\
 				drivers/arm/gic/v3/gicdv3_helpers.c	\
 				drivers/arm/gic/v3/gicrv3_helpers.c	\
