@@ -46,6 +46,30 @@
       "revId": "c06d7a707f25225cfc102bd3b608080fa96d9a35",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f91b5d2a_d6141a1f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-18T18:16:56Z",
+      "side": 1,
+      "message": "Oops, I wanted to say PROGRAMMABLE_RESET_ADDRESS\u003d1 expects secondary CPUs to use a different entry point.\n\n@Sandrine",
+      "parentUuid": "52fb882a_74a4e8cf",
+      "range": {
+        "startLine": 12,
+        "startChar": 66,
+        "endLine": 14,
+        "endChar": 10
+      },
+      "revId": "c06d7a707f25225cfc102bd3b608080fa96d9a35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
