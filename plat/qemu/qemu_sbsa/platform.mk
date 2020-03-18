@@ -66,7 +66,6 @@ QEMU_GIC_SOURCES	:=	drivers/arm/gic/v3/gicv3_helpers.c		\
 				drivers/arm/gic/v3/gicdv3_helpers.c		\
 				drivers/arm/gic/v3/gicrv3_helpers.c		\
 				drivers/arm/gic/v3/gicv3_main.c			\
-				drivers/arm/gic/common/gic_common.c		\
 				plat/common/plat_gicv3.c			\
 				${PLAT_QEMU_COMMON_PATH}/qemu_gicv3.c
 
