@@ -15,8 +15,7 @@ PLAT_INCLUDES		:=	-I${N1SDP_BASE}/include
 N1SDP_CPU_SOURCES	:=	lib/cpus/aarch64/neoverse_n1.S
 
 
-N1SDP_GIC_SOURCES	:=	drivers/arm/gic/common/gic_common.c	\
-				drivers/arm/gic/v3/gicv3_main.c		\
+N1SDP_GIC_SOURCES	:=	drivers/arm/gic/v3/gicv3_main.c		\
 				drivers/arm/gic/v3/gicv3_helpers.c	\
 				drivers/arm/gic/v3/gicdv3_helpers.c	\
 				drivers/arm/gic/v3/gicrv3_helpers.c	\
