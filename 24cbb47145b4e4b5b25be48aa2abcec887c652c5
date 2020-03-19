@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f5fb782_59472a89",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-19T10:09:36Z",
+      "side": 1,
+      "message": "This need to be changed after updating structure and logic can be updated \u003cprobably using for loop\u003e to set interrupt configuration of all timers.",
+      "range": {
+        "startLine": 259,
+        "startChar": 1,
+        "endLine": 273,
+        "endChar": 39
+      },
+      "revId": "24cbb47145b4e4b5b25be48aa2abcec887c652c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a54c685b_9178f412",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-19T10:09:36Z",
+      "side": 1,
+      "message": "same as above applicable here",
+      "range": {
+        "startLine": 342,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 0
+      },
+      "revId": "24cbb47145b4e4b5b25be48aa2abcec887c652c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0deedacf_0c0d4edd",
+        "filename": "plat/arm/board/fvp/include/fconf_hw_config_getter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-19T10:09:36Z",
+      "side": 1,
+      "message": "These seems like repeating variables. Can this structure be modified as below \u003cmay not be in same way\u003e:\n\n\u003cThis can be common structure and moved to some interrupt header file\u003e\nstruct intr_config_t {\n      uint32_t interrupt_type;\n      uint32_t interrupt_num;\n      uint32_t interrupt_flags;\n}\nstruct cpu_timer_t {\n      # \u003csecure,non-secure,virtual and hypervisor\u003e\n      struct intr_config_t timer_intr_config[MAX_TIMER];\n      int clock_freq;\n}\n\nYou can set this structure accordingly by parsing dt file.",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 26
+      },
+      "revId": "24cbb47145b4e4b5b25be48aa2abcec887c652c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5d2c53f_10a787ed",
+        "filename": "plat/arm/board/fvp/include/fconf_hw_config_getter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-19T10:09:36Z",
+      "side": 1,
+      "message": "above comment applicable here.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "24cbb47145b4e4b5b25be48aa2abcec887c652c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
