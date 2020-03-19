@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "549374c6_f22dc384",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-19T15:11:20Z",
+      "side": 1,
+      "message": "TF-A:\ninclude\\drivers\\auth\\mbedtls\\mbedtls_config.h:\n\n#define MBEDTLS_SHA256_C\n#if (TF_MBEDTLS_HASH_ALG_ID !\u003d TF_MBEDTLS_SHA256)\n#define MBEDTLS_SHA512_C\n#endif\n\nMbedTLS:\ninclude\\mbedtls\\md.h:\n#if defined(MBEDTLS_SHA512_C)\n#define MBEDTLS_MD_MAX_SIZE         64  /* longest known is SHA512 */\n#else\n#define MBEDTLS_MD_MAX_SIZE         32  /* longest known is SHA256 or less */\n#endif\n\nSo MBEDTLS_MD_MAX_SIZE is 64 for sha384, not 32.",
+      "parentUuid": "5c9838df_676817e3",
+      "revId": "0159eef6a3aabb52e81bd08472d2569050d3ee4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ad537b89_98f2d67b",
         "filename": "plat/arm/board/fvp/fvp_bl1_setup.c",
         "patchSetId": 8
