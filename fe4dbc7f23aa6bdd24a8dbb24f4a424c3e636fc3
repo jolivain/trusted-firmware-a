@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "4ee0be2d_02aa29b0",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-20T00:09:58Z",
+      "side": 1,
+      "message": "Based on the above comment, we cannot return a negative value (node) here. If we do so, the fconf_populator will panic().",
+      "revId": "fe4dbc7f23aa6bdd24a8dbb24f4a424c3e636fc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8f390ae8_990e6c0e",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 1
@@ -46,6 +63,57 @@
       "revId": "fe4dbc7f23aa6bdd24a8dbb24f4a424c3e636fc3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40d7b371_404c1344",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-20T00:09:58Z",
+      "side": 1,
+      "message": "typo: specifies",
+      "revId": "fe4dbc7f23aa6bdd24a8dbb24f4a424c3e636fc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3cd1297_0a0ea008",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-20T00:09:58Z",
+      "side": 1,
+      "message": "Can you double-check if the ranges are correct?\nhttps://developer.arm.com/architectures/learn-the-architecture/arm-corelink-generic-interrupt-controller-v3-and-v4-overview/arm-corelink-gic-fundamentals",
+      "revId": "fe4dbc7f23aa6bdd24a8dbb24f4a424c3e636fc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e4040ec_7153b899",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-20T00:09:58Z",
+      "side": 1,
+      "message": "Please provide a more descriptive message. Something like\n\"FCONF: Failed to read interrupt property of GIC node\"",
+      "revId": "fe4dbc7f23aa6bdd24a8dbb24f4a424c3e636fc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
