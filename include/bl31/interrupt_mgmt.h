@@ -36,32 +36,32 @@
  * type
  ******************************************************************************/
 #define INTR_RM_FLAGS_SHIFT		U(0x0)
-#define INTR_RM_FLAGS_MASK		U(0x3)
+#define INTR_RM_FLAGS_MASK		UL(0x3)
 /* Routed to EL3 from NS. Taken to S-EL1 from Secure */
-#define INTR_SEL1_VALID_RM0		U(0x2)
+#define INTR_SEL1_VALID_RM0		UL(0x2)
 /* Routed to EL3 from NS and Secure */
-#define INTR_SEL1_VALID_RM1		U(0x3)
+#define INTR_SEL1_VALID_RM1		UL(0x3)
 /* Routed to EL1/EL2 from NS and to S-EL1 from Secure */
-#define INTR_NS_VALID_RM0		U(0x0)
+#define INTR_NS_VALID_RM0		UL(0x0)
 /* Routed to EL1/EL2 from NS and to EL3 from Secure */
-#define INTR_NS_VALID_RM1		U(0x1)
+#define INTR_NS_VALID_RM1		UL(0x1)
 /* Routed to EL3 from NS. Taken to S-EL1 from Secure and handed over to EL3 */
-#define INTR_EL3_VALID_RM0		U(0x2)
+#define INTR_EL3_VALID_RM0		UL(0x2)
 /* Routed to EL3 from NS and Secure */
-#define INTR_EL3_VALID_RM1		U(0x3)
+#define INTR_EL3_VALID_RM1		UL(0x3)
 /* This is the default routing model */
-#define INTR_DEFAULT_RM			U(0x0)
+#define INTR_DEFAULT_RM			UL(0x0)
 
 /*******************************************************************************
  * Constants for the _individual_ routing model bits in the 'flags' field for
  * each interrupt type and mask to validate the 'flags' parameter while
  * registering an interrupt handler
  ******************************************************************************/
-#define INTR_TYPE_FLAGS_MASK		U(0xFFFFFFFC)
+#define INTR_TYPE_FLAGS_MASK		UL(0xFFFFFFFC)
 
 #define INTR_RM_FROM_SEC_SHIFT		SECURE		/* BIT[0] */
 #define INTR_RM_FROM_NS_SHIFT		NON_SECURE	/* BIT[1] */
-#define INTR_RM_FROM_FLAG_MASK		U(1)
+#define INTR_RM_FROM_FLAG_MASK		UL(1)
 #define get_interrupt_rm_flag(flag, ss) \
 	((((flag) >> INTR_RM_FLAGS_SHIFT) >> (ss)) & INTR_RM_FROM_FLAG_MASK)
 #define set_interrupt_rm_flag(flag, ss)	((flag) |= U(1) << (ss))
