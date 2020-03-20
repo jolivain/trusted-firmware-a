@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "355506c3_5f806b8b",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-03-20T08:02:05Z",
+      "side": 1,
+      "message": "It has no functional usage although required for booting SPMC. This will be removed later.",
+      "parentUuid": "fe5744bc_b4567692",
+      "range": {
+        "startLine": 20,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 3
+      },
+      "revId": "3d5ed6dee2d9a8dfbba160193b27f064dc1754e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1aeb218a_de1abc81",
         "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2020-03-20T06:10:48Z",
       "side": 1,
       "message": "this line explains a lot. :p",
+      "revId": "3d5ed6dee2d9a8dfbba160193b27f064dc1754e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9e1a68d_f97158e9",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-03-20T08:02:05Z",
+      "side": 1,
+      "message": "well, hum, yeah",
+      "parentUuid": "1aeb218a_de1abc81",
       "revId": "3d5ed6dee2d9a8dfbba160193b27f064dc1754e7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
