@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "65b7d3b5_58155ba3",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-20T00:27:42Z",
+      "side": 1,
+      "message": "I am curious if you if it is feasible to look up the subnode based on just its name? I mean \"frame\" instead of \"frame@2a830000\". I think we cannot assume the unit address of a node.",
+      "revId": "24cbb47145b4e4b5b25be48aa2abcec887c652c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a54c685b_9178f412",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 2
