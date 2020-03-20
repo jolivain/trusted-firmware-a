@@ -264,8 +264,8 @@
 			 (U(1) << 22) | (U(1) << 18) | (U(1) << 16) | \
 			 (U(1) << 11) | (U(1) << 5) | (U(1) << 4))
 
-#define SCTLR_EL1_RES1	((U(1) << 29) | (U(1) << 28) | (U(1) << 23) | \
-			 (U(1) << 22) | (U(1) << 20) | (U(1) << 11))
+#define SCTLR_EL1_RES1	((UL(1) << 29) | (UL(1) << 28) | (UL(1) << 23) | \
+			 (UL(1) << 22) | (UL(1) << 20) | (UL(1) << 11))
 #define SCTLR_AARCH32_EL1_RES1 \
 			((U(1) << 23) | (U(1) << 22) | (U(1) << 11) | \
 			 (U(1) << 4) | (U(1) << 3))
@@ -311,24 +311,24 @@
 #define CPACR_EL1_FP_TRAP_NONE	U(0x3)
 
 /* SCR definitions */
-#define SCR_RES1_BITS		((U(1) << 4) | (U(1) << 5))
-#define SCR_ATA_BIT		(U(1) << 26)
-#define SCR_FIEN_BIT		(U(1) << 21)
-#define SCR_EEL2_BIT		(U(1) << 18)
-#define SCR_API_BIT		(U(1) << 17)
-#define SCR_APK_BIT		(U(1) << 16)
-#define SCR_TWE_BIT		(U(1) << 13)
-#define SCR_TWI_BIT		(U(1) << 12)
-#define SCR_ST_BIT		(U(1) << 11)
-#define SCR_RW_BIT		(U(1) << 10)
-#define SCR_SIF_BIT		(U(1) << 9)
-#define SCR_HCE_BIT		(U(1) << 8)
-#define SCR_SMD_BIT		(U(1) << 7)
-#define SCR_EA_BIT		(U(1) << 3)
-#define SCR_FIQ_BIT		(U(1) << 2)
-#define SCR_IRQ_BIT		(U(1) << 1)
-#define SCR_NS_BIT		(U(1) << 0)
-#define SCR_VALID_BIT_MASK	U(0x2f8f)
+#define SCR_RES1_BITS		((UL(1) << 4) | (U(1) << 5))
+#define SCR_ATA_BIT		(UL(1) << 26)
+#define SCR_FIEN_BIT		(UL(1) << 21)
+#define SCR_EEL2_BIT		(UL(1) << 18)
+#define SCR_API_BIT		(UL(1) << 17)
+#define SCR_APK_BIT		(UL(1) << 16)
+#define SCR_TWE_BIT		(UL(1) << 13)
+#define SCR_TWI_BIT		(UL(1) << 12)
+#define SCR_ST_BIT		(UL(1) << 11)
+#define SCR_RW_BIT		(UL(1) << 10)
+#define SCR_SIF_BIT		(UL(1) << 9)
+#define SCR_HCE_BIT		(UL(1) << 8)
+#define SCR_SMD_BIT		(UL(1) << 7)
+#define SCR_EA_BIT		(UL(1) << 3)
+#define SCR_FIQ_BIT		(UL(1) << 2)
+#define SCR_IRQ_BIT		(UL(1) << 1)
+#define SCR_NS_BIT		(UL(1) << 0)
+#define SCR_VALID_BIT_MASK	UL(0x2f8f)
 #define SCR_RESET_VAL		SCR_RES1_BITS
 
 /* MDCR_EL3 definitions */
@@ -588,7 +588,7 @@
 	(((el) & MODE_EL_MASK) << MODE_EL_SHIFT) |		\
 	(((sp) & MODE_SP_MASK) << MODE_SP_SHIFT) |		\
 	(((daif) & SPSR_DAIF_MASK) << SPSR_DAIF_SHIFT)) &	\
-	(~(SPSR_SSBS_BIT_AARCH64)))
+	(~(UL(SPSR_SSBS_BIT_AARCH64))))
 
 #define SPSR_MODE32(mode, isa, endian, aif)		\
 	(((MODE_RW_32 << MODE_RW_SHIFT) |		\
