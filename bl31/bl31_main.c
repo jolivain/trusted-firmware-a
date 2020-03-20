@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -140,7 +140,7 @@ void bl31_main(void)
 	 */
 	bl31_prepare_next_image_entry();
 
-	console_flush();
+	(void)console_flush();
 
 	/*
 	 * Perform any platform specific runtime setup prior to cold boot exit

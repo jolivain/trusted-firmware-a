@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -106,7 +106,7 @@ void bl2_main(void)
 	disable_mmu_icache_secure();
 #endif /* !__aarch64__ */
 
-	console_flush();
+	(void)console_flush();
 
 #if ENABLE_PAUTH
 	/*

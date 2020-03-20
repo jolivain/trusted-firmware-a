@@ -24,10 +24,15 @@
 
 #include "bl1_private.h"
 
-/* BL1 Service UUID */
-DEFINE_SVC_UUID2(bl1_svc_uid,
-	U(0xd46739fd), 0xcb72, 0x9a4d, 0xb5, 0x75,
-	0x67, 0x15, 0xd6, 0xf4, 0xbb, 0x4a);
+/* BL1 service UUID is d46739fd-cb72-9a4d-b575-6715d6f4bb4a */
+static const uuid_t bl1_svc_uid =
+{
+	{0xd4, 0x67, 0x39, 0xfd},
+	{0xcb, 0x72},
+	{0x9a, 0x4d},
+	0xb5, 0x75,
+	{0x67, 0x15, 0xd6, 0xf4, 0xbb, 0x4a}
+};
 
 static void bl1_load_bl2(void);
 
@@ -90,8 +95,7 @@ void bl1_main(void)
 	NOTICE("BL1: %s\n", version_string);
 	NOTICE("BL1: %s\n", build_message);
 
-	INFO("BL1: RAM %p - %p\n", (void *)BL1_RAM_BASE,
-					(void *)BL1_RAM_LIMIT);
+	INFO("BL1: RAM %p - %p\n", (void *)BL1_RAM_BASE, (void *)BL1_RAM_LIMIT);
 
 	print_errata_status();
 
@@ -105,9 +109,9 @@ void bl1_main(void)
 #else
 	val = read_sctlr();
 #endif
-	assert(val & SCTLR_M_BIT);
-	assert(val & SCTLR_C_BIT);
-	assert(val & SCTLR_I_BIT);
+	assert((val & SCTLR_M_BIT) != 0);
+	assert((val & SCTLR_C_BIT) != 0);
+	assert((val & SCTLR_I_BIT) != 0);
 	/*
 	 * Check that Cache Writeback Granule (CWG) in CTR_EL0 matches the
 	 * provided platform value
@@ -155,7 +159,7 @@ void bl1_main(void)
 
 	bl1_prepare_next_image(image_id);
 
-	console_flush();
+	(void)console_flush();
 }
 
 /*******************************************************************************
@@ -166,33 +170,33 @@ void bl1_main(void)
  ******************************************************************************/
 static void bl1_load_bl2(void)
 {
-	image_desc_t *image_desc;
-	image_info_t *image_info;
+	image_desc_t *desc;
+	image_info_t *info;
 	int err;
 
 	/* Get the image descriptor */
-	image_desc = bl1_plat_get_image_desc(BL2_IMAGE_ID);
-	assert(image_desc != NULL);
+	desc = bl1_plat_get_image_desc(BL2_IMAGE_ID);
+	assert(desc != NULL);
 
 	/* Get the image info */
-	image_info = &image_desc->image_info;
+	info = &desc->image_info;
 	INFO("BL1: Loading BL2\n");
 
 	err = bl1_plat_handle_pre_image_load(BL2_IMAGE_ID);
-	if (err) {
+	if (err != 0) {
 		ERROR("Failure in pre image load handling of BL2 (%d)\n", err);
 		plat_error_handler(err);
 	}
 
-	err = load_auth_image(BL2_IMAGE_ID, image_info);
-	if (err) {
+	err = load_auth_image(BL2_IMAGE_ID, info);
+	if (err != 0) {
 		ERROR("Failed to load BL2 firmware.\n");
 		plat_error_handler(err);
 	}
 
 	/* Allow platform to handle image information. */
 	err = bl1_plat_handle_post_image_load(BL2_IMAGE_ID);
-	if (err) {
+	if (err != 0) {
 		ERROR("Failure in post image load handling of BL2 (%d)\n", err);
 		plat_error_handler(err);
 	}
@@ -258,11 +262,9 @@ u_register_t bl1_smc_handler(unsigned int smc_fid,
 		SMC_RET1(handle, BL1_SMC_MAJOR_VER | BL1_SMC_MINOR_VER);
 
 	default:
-		break;
+		WARN("Unimplemented BL1 SMC Call: 0x%x \n", smc_fid);
+		SMC_RET1(handle, SMC_UNK);
 	}
-
-	WARN("Unimplemented BL1 SMC Call: 0x%x \n", smc_fid);
-	SMC_RET1(handle, SMC_UNK);
 }
 
 /*******************************************************************************
