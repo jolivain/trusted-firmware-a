@@ -152,7 +152,7 @@ int disable_intr_rm_local(uint32_t type, uint32_t security_state)
 
 	assert(intr_type_descs[type].handler != NULL);
 
-	flag = get_interrupt_rm_flag(INTR_DEFAULT_RM, security_state);
+	flag = (uint32_t)get_interrupt_rm_flag(INTR_DEFAULT_RM, security_state);
 
 	bit_pos = plat_interrupt_type_to_line(type, security_state);
 	cm_write_scr_el3_bit(security_state, bit_pos, flag);
