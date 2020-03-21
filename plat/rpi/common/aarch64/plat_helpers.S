@@ -88,12 +88,14 @@ func plat_secondary_cold_boot_setup
 
 	/* Wait until we have a go */
 poll_mailbox:
-	wfe
 	ldr	x1, [x0]
 	cmp	x1, PLAT_RPI3_TM_HOLD_STATE_GO
-	bne	poll_mailbox
+	beq	1f
 
-	/* Jump to the provided entrypoint */
+	wfe
+	b	poll_mailbox
+
+1:	/* Jump to the provided entrypoint */
 	mov_imm	x0, PLAT_RPI3_TM_ENTRYPOINT
 	ldr	x1, [x0]
 	br	x1
