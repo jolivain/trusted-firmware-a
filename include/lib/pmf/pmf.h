@@ -25,7 +25,7 @@
 /*
  * Flags passed to PMF_REGISTER_SERVICE
  */
-#define PMF_STORE_ENABLE	(1 << 0)
+#define PMF_STORE_ENABLE	(1)
 #define PMF_DUMP_ENABLE		(1 << 1)
 
 /*
