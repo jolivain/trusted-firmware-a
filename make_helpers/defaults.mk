@@ -288,3 +288,7 @@ ENABLE_LTO			:= 0
 # S-EL2 firmware entry/exit. This flag is to be used with SPD=spmd option.
 # Default is 0.
 CTX_INCLUDE_EL2_REGS		:= 0
+
+# Enable Memory tag extension which is supported for ARMv8.5+ architecture
+# By default it is set to "no"
+SUPPORT_STACK_MEMTAG		:= no
