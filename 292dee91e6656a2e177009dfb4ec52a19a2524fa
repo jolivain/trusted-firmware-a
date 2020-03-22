@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26109e1a_539e74a2",
+        "filename": "drivers/brcm/spi/iproc_qspi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-22T15:34:34Z",
+      "side": 1,
+      "message": "Can this be moved to appropriate header file?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 0
+      },
+      "revId": "292dee91e6656a2e177009dfb4ec52a19a2524fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa4b4740_1715c3bd",
+        "filename": "drivers/brcm/spi/iproc_qspi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-22T15:34:34Z",
+      "side": 1,
+      "message": "Please provide function description for better readability",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 19
+      },
+      "revId": "292dee91e6656a2e177009dfb4ec52a19a2524fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc055a46_36b01665",
+        "filename": "drivers/brcm/spi/iproc_qspi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-22T15:34:34Z",
+      "side": 1,
+      "message": "Better to move these fixed values to proper defines",
+      "range": {
+        "startLine": 106,
+        "startChar": 1,
+        "endLine": 108,
+        "endChar": 0
+      },
+      "revId": "292dee91e6656a2e177009dfb4ec52a19a2524fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "338080c5_a1021bc1",
+        "filename": "drivers/brcm/spi/iproc_qspi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-22T15:34:34Z",
+      "side": 1,
+      "message": "Same here, move these values to proper define",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 42
+      },
+      "revId": "292dee91e6656a2e177009dfb4ec52a19a2524fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2efe4d4c_b6494e3e",
+        "filename": "drivers/brcm/spi/iproc_qspi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-22T15:34:34Z",
+      "side": 1,
+      "message": "Why this return is needed? this function does not return any error.",
+      "range": {
+        "startLine": 160,
+        "startChar": 1,
+        "endLine": 160,
+        "endChar": 10
+      },
+      "revId": "292dee91e6656a2e177009dfb4ec52a19a2524fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8315de40_b357804e",
+        "filename": "drivers/brcm/spi/iproc_spi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-22T15:34:34Z",
+      "side": 1,
+      "message": "Just curious to know, why all new file is with 2017-2020 copyright?",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 2,
+        "endChar": 38
+      },
+      "revId": "292dee91e6656a2e177009dfb4ec52a19a2524fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
