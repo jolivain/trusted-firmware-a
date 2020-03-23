@@ -52,6 +52,24 @@
       "revId": "034a45aaf67bd3397d66499f3640af52cd720180",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "672a66a1_fa97a411",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-23T16:04:19Z",
+      "side": 1,
+      "message": "Yes, it should, when DTB is not present, Measured Boot driver will fail and execution will stop. Where is the backdoor here?",
+      "parentUuid": "aa5c09ba_38ab48aa",
+      "revId": "034a45aaf67bd3397d66499f3640af52cd720180",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
