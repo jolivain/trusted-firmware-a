@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d3c9bb53_8fcf1b7e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-23T16:12:31Z",
+      "side": 1,
+      "message": "Can you a brief description here of issues you resolved in this patch? Like renaming parameters to avoid conflict with variables, explicit type casts, comparison with NULL , using boolean false instead of zero etc. This will serve as a guideline for good programming practices with respect to MISRA standards.",
+      "revId": "a6ef3874a221b4d8317e0313440475570d670c80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b4fed295_142fe050",
         "filename": "bl1/aarch32/bl1_context_mgmt.c",
         "patchSetId": 1
