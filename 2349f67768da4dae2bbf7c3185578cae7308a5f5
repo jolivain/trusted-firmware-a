@@ -45,6 +45,109 @@
       "revId": "2349f67768da4dae2bbf7c3185578cae7308a5f5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6adedfa7_8fb1a764",
+        "filename": "docs/components/spci-manifest-binding.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-03-23T11:11:36Z",
+      "side": 1,
+      "message": "same as memory-region, with \"arm,spci-manifest-rx_tx-buffer\" compatible string",
+      "range": {
+        "startLine": 108,
+        "startChar": 5,
+        "endLine": 108,
+        "endChar": 29
+      },
+      "revId": "2349f67768da4dae2bbf7c3185578cae7308a5f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bf60299_8a9e2a17",
+        "filename": "docs/components/spci-manifest-binding.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-03-23T11:11:36Z",
+      "side": 1,
+      "message": "add \"arm,spci-manifest-mem-regions\" compatible",
+      "revId": "2349f67768da4dae2bbf7c3185578cae7308a5f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6aedc62_47f380ed",
+        "filename": "docs/components/spci-manifest-binding.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-03-23T11:11:36Z",
+      "side": 1,
+      "message": "device-regions?",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 1
+      },
+      "revId": "2349f67768da4dae2bbf7c3185578cae7308a5f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef9f3363_b152e743",
+        "filename": "docs/components/spci-manifest-binding.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-03-23T11:11:36Z",
+      "side": 1,
+      "message": "add \"arm,spci-manifest-device-regions\" compatible string",
+      "revId": "2349f67768da4dae2bbf7c3185578cae7308a5f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cf02b6e_96ae29b6",
+        "filename": "docs/components/spci-manifest-binding.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-03-23T11:11:36Z",
+      "side": 1,
+      "message": "stream-ids",
+      "range": {
+        "startLine": 203,
+        "startChar": 2,
+        "endLine": 203,
+        "endChar": 11
+      },
+      "revId": "2349f67768da4dae2bbf7c3185578cae7308a5f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
