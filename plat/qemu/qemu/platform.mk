@@ -139,11 +139,14 @@ QEMU_GICV2_SOURCES	:=	drivers/arm/gic/v2/gicv2_helpers.c	\
 				plat/common/plat_gicv2.c		\
 				${PLAT_QEMU_COMMON_PATH}/qemu_gicv2.c
 
-QEMU_GICV3_SOURCES	:=	drivers/arm/gic/v3/gicv3_helpers.c	\
-				drivers/arm/gic/v3/gicdv3_helpers.c	\
-				drivers/arm/gic/v3/gicrv3_helpers.c	\
-				drivers/arm/gic/v3/gicv3_main.c		\
-				drivers/arm/gic/common/gic_common.c	\
+# GICv3 configuration
+GICV3_IMPL_GIC500		:=	0
+GICV3_OVERRIDE_DISTIF_PWR_OPS	:=	1
+
+# Include GICv3 driver files
+include drivers/arm/gic/v3/gicv3.mk
+
+QEMU_GICV3_SOURCES	:=	${GICV3_SOURCES}			\
 				plat/common/plat_gicv3.c		\
 				${PLAT_QEMU_COMMON_PATH}/qemu_gicv3.c
 

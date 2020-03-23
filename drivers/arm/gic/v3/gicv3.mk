@@ -1,0 +1,32 @@
+#
+# Copyright (c) 2013-2020, Arm Limited and Contributors. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
+# Default configuration values
+GICV3_IMPL_GIC500		?=	1
+GICV3_IMPL_GIC600		?=	0
+GICV3_IMPL_GIC600_MULTICHIP	?=	0
+GICV3_OVERRIDE_DISTIF_PWR_OPS	?=	0
+
+GICV3_SOURCES	+=	drivers/arm/gic/common/gic_common.c	\
+			drivers/arm/gic/v3/gicv3_main.c		\
+			drivers/arm/gic/v3/gicv3_helpers.c	\
+			drivers/arm/gic/v3/gicdv3_helpers.c	\
+			drivers/arm/gic/v3/gicrv3_helpers.c
+
+ifeq (${GICV3_OVERRIDE_DISTIF_PWR_OPS}, 0)
+GICV3_SOURCES	+=	drivers/arm/gic/v3/arm_gicv3_common.c
+endif
+
+ifeq (${GICV3_IMPL_GIC600}, 1)
+# GIC-600 sources
+GICV3_SOURCES	+=	drivers/arm/gic/v3/gic600.c
+ifeq (${GICV3_IMPL_GIC600_MULTICHIP}, 1)
+GICV3_SOURCES	+=	drivers/arm/gic/v3/gic600_multichip.c
+endif
+else ifeq (${GICV3_IMPL_GIC500}, 1)
+# GIC-500 sources
+GICV3_SOURCES	+=	drivers/arm/gic/v3/gic500.c
+endif
