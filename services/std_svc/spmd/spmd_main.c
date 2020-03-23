@@ -137,7 +137,8 @@ static int32_t spmd_init(void)
 	unsigned int core_id;
 
 	VERBOSE("SPM Core init start.\n");
-	ctx->state = SPMC_STATE_RESET;
+
+	ctx->state = SPMC_STATE_ON_PENDING;
 
 	/* Set the SPMC context state on other CPUs to OFF */
 	for (core_id = 0U; core_id < PLATFORM_CORE_COUNT; core_id++) {
@@ -376,9 +377,9 @@ static bool spmd_is_spmc_message(unsigned int ep)
 /******************************************************************************
  * spmd_handle_spmc_message
  *****************************************************************************/
-static int32_t spmd_handle_spmc_message(uint64_t msg, uint64_t parm1,
-					uint64_t parm2, uint64_t parm3,
-					uint64_t parm4)
+static int spmd_handle_spmc_message(unsigned long long msg,
+		unsigned long long parm1, unsigned long long parm2,
+		unsigned long long parm3, unsigned long long parm4)
 {
 	VERBOSE("%s %llx %llx %llx %llx %llx\n", __func__,
 		msg, parm1, parm2, parm3, parm4);
