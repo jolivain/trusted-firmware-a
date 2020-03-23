@@ -34,6 +34,24 @@
       "revId": "034a45aaf67bd3397d66499f3640af52cd720180",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa5c09ba_38ab48aa",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-03-23T15:15:13Z",
+      "side": 1,
+      "message": "Alright, that makes sense for the heap. Doesn\u0027t this become a sort of a backdoor to disable measured boot? The presence or absence of the dtb file dictates whether a measurement will be written by the ROM or not. ROM should unconditionally write the measurement of BL2, when measured boot is enabled, no?",
+      "parentUuid": "89eaef5f_451d679c",
+      "revId": "034a45aaf67bd3397d66499f3640af52cd720180",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
