@@ -62,12 +62,10 @@ BL2_SOURCES		+=	${PLAT_QEMU_COMMON_PATH}/qemu_bl2_mem_params_desc.c	\
 				common/desc_image_load.c
 endif
 
-QEMU_GIC_SOURCES	:=	drivers/arm/gic/v3/gicv3_helpers.c		\
-				drivers/arm/gic/v3/gicdv3_helpers.c		\
-				drivers/arm/gic/v3/gicrv3_helpers.c		\
-				drivers/arm/gic/v3/gicv3_main.c			\
-				drivers/arm/gic/common/gic_common.c		\
-				plat/common/plat_gicv3.c			\
+# Include GICv3 driver files
+include drivers/arm/gic/v3/gicv3.mk
+
+QEMU_GIC_SOURCES	:=	${GICV3_SOURCES}				\
 				${PLAT_QEMU_COMMON_PATH}/qemu_gicv3.c
 
 BL31_SOURCES		+=	lib/cpus/aarch64/aem_generic.S			\

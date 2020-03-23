@@ -26,15 +26,14 @@ PLAT_BL_COMMON_SOURCES := lib/xlat_tables/aarch64/xlat_tables.c       \
                           plat/common/plat_psci_common.c              \
                           plat/common/aarch64/crash_console_helpers.S
 
+# Include GICv3 driver files
+include drivers/arm/gic/v3/gicv3.mk
+
 BL31_SOURCES    += common/desc_image_load.c                              \
                    drivers/arm/cci/cci.c                                 \
-                   drivers/arm/gic/common/gic_common.c                   \
+                   ${GICV3_SOURCES}					 \
                    drivers/arm/gic/v3/arm_gicv3_common.c                 \
-                   drivers/arm/gic/v3/gicv3_helpers.c                    \
-                   drivers/arm/gic/v3/gicdv3_helpers.c			 \
-                   drivers/arm/gic/v3/gicrv3_helpers.c			 \
                    drivers/arm/gic/v3/gic500.c                           \
-                   drivers/arm/gic/v3/gicv3_main.c                       \
                    drivers/delay_timer/delay_timer.c                     \
                    drivers/delay_timer/generic_delay_timer.c             \
                    drivers/gpio/gpio.c                                   \
@@ -43,7 +42,6 @@ BL31_SOURCES    += common/desc_image_load.c                              \
                    lib/cpus/aarch64/aem_generic.S                        \
                    lib/cpus/aarch64/cortex_a53.S                         \
                    lib/cpus/aarch64/cortex_a73.S                         \
-                   plat/common/plat_gicv3.c                              \
                    ${MTK_PLAT}/common/mtk_plat_common.c                  \
                    ${MTK_PLAT}/common/drivers/pmic_wrap/pmic_wrap_init.c \
                    ${MTK_PLAT}/common/drivers/rtc/rtc_common.c           \

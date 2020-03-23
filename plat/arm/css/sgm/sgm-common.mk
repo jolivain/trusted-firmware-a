@@ -22,15 +22,13 @@ SGM_CPU_SOURCES		:=	lib/cpus/aarch64/cortex_a55.S		\
 
 INTERCONNECT_SOURCES	:=	${CSS_SGM_BASE}/sgm_interconnect.c
 
-SGM_GIC_SOURCES		:=	drivers/arm/gic/common/gic_common.c	\
-				drivers/arm/gic/v3/gicv3_main.c		\
-				drivers/arm/gic/v3/gicv3_helpers.c	\
-				drivers/arm/gic/v3/gicdv3_helpers.c	\
-				drivers/arm/gic/v3/gicrv3_helpers.c	\
-				plat/common/plat_gicv3.c		\
-				plat/arm/common/arm_gicv3.c		\
+# Include GICv3 driver files
+include drivers/arm/gic/v3/gicv3.mk
+
+SGM_GIC_SOURCES		:=	${GICV3_SOURCES}			\
 				drivers/arm/gic/v3/gic600.c		\
-				drivers/arm/gic/v3/arm_gicv3_common.c
+				drivers/arm/gic/v3/arm_gicv3_common.c	\
+				plat/arm/common/arm_gicv3.c
 
 BL1_SOURCES		+=	$(SGM_CPU_SOURCES)			\
 				${INTERCONNECT_SOURCES}			\
