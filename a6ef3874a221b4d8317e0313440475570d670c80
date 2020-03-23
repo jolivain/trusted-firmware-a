@@ -16,6 +16,80 @@
       "revId": "a6ef3874a221b4d8317e0313440475570d670c80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf930887_3e89257f",
+        "filename": "bl1/aarch32/bl1_context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-23T15:58:03Z",
+      "side": 1,
+      "message": "The same curiosity here.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 3
+      },
+      "revId": "a6ef3874a221b4d8317e0313440475570d670c80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d64c7d2d_3a9f7c92",
+        "filename": "bl1/bl1_fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-23T15:58:03Z",
+      "side": 1,
+      "message": "what is the line length here?\nshould it be also (uint32_t) for AARCH64?",
+      "revId": "a6ef3874a221b4d8317e0313440475570d670c80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "991c402a_8cb78103",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-23T15:58:03Z",
+      "side": 1,
+      "message": "It won\u0027t stop MISRA complaining, unfortunately.",
+      "revId": "a6ef3874a221b4d8317e0313440475570d670c80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce0c20f3_753ef485",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-23T15:58:03Z",
+      "side": 1,
+      "message": "also remove space before \\n",
+      "revId": "a6ef3874a221b4d8317e0313440475570d670c80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
