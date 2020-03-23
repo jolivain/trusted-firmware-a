@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ecfd3fa8_94e102f9",
+        "filename": "docs/components/spci-manifest-binding.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-03-23T11:36:23Z",
+      "side": 1,
+      "message": "I would say yes.\nWe use 4x u32 to store the value, but you have to follow the RFC to interpret the data as a UUID. The same would be true if you store the UUID as a string: you have to re-interpret the string as a UUID defined according to the RFC.",
+      "parentUuid": "140adc25_1aa587b2",
+      "range": {
+        "startLine": 34,
+        "startChar": 67,
+        "endLine": 34,
+        "endChar": 76
+      },
+      "revId": "2349f67768da4dae2bbf7c3185578cae7308a5f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46669834_5dec9a11",
         "filename": "docs/components/spci-manifest-binding.rst",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-03-18T16:54:57Z",
       "side": 1,
       "message": "By HLOS do you mean Hight Level OS? can change it to Rich OS",
+      "range": {
+        "startLine": 39,
+        "startChar": 30,
+        "endLine": 39,
+        "endChar": 35
+      },
+      "revId": "2349f67768da4dae2bbf7c3185578cae7308a5f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65f7abf8_ce0d48a9",
+        "filename": "docs/components/spci-manifest-binding.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-03-23T11:36:23Z",
+      "side": 1,
+      "message": "I used the same word used in the specs.\nI would like to avoid as much as possible to re-write property\u0027s description, as this can be a source of confusion for people and an extra work-load for us.\nIf possible, It would be better to just say at the top of the document: \"please refer to the specification for the description of the property\"",
+      "parentUuid": "46669834_5dec9a11",
       "range": {
         "startLine": 39,
         "startChar": 30,
