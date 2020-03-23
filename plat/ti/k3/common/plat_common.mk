@@ -53,13 +53,14 @@ K3_CONSOLE_SOURCES	+=	\
 				drivers/ti/uart/aarch64/16550_console.S	\
 				${PLAT_PATH}/common/k3_console.c	\
 
+# GICv3 configuration
+GICV3_OVERRIDE_DISTIF_PWR_OPS	:=	1
+
+# Include GICv3 driver files
+include drivers/arm/gic/v3/gicv3.mk
+
 K3_GIC_SOURCES		+=	\
-				drivers/arm/gic/common/gic_common.c	\
-				drivers/arm/gic/v3/gicv3_main.c		\
-				drivers/arm/gic/v3/gicv3_helpers.c	\
-				drivers/arm/gic/v3/gicdv3_helpers.c	\
-				drivers/arm/gic/v3/gicrv3_helpers.c	\
-				plat/common/plat_gicv3.c		\
+				${GICV3_SOURCES}			\
 				${PLAT_PATH}/common/k3_gicv3.c		\
 
 K3_PSCI_SOURCES		+=	\
