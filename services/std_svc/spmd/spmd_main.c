@@ -378,9 +378,9 @@ static bool spmd_is_spmc_message(unsigned int ep)
 /******************************************************************************
  * spmd_handle_spmc_message
  *****************************************************************************/
-static int32_t spmd_handle_spmc_message(uint64_t msg, uint64_t parm1,
-					uint64_t parm2, uint64_t parm3,
-					uint64_t parm4)
+static int spmd_handle_spmc_message(unsigned long long msg,
+		unsigned long long parm1, unsigned long long parm2,
+		unsigned long long parm3, unsigned long long parm4)
 {
 	int32_t ret = 0;
 
