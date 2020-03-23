@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "15c0a478_9eaeba3b",
+        "filename": "bl1/aarch32/bl1_context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-03-23T18:58:44Z",
+      "side": 1,
+      "message": "I changed the name of the argument from cpu_context to context to make this function definition match it\u0027s prototype.",
+      "parentUuid": "b4fed295_142fe050",
+      "revId": "a6ef3874a221b4d8317e0313440475570d670c80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf930887_3e89257f",
         "filename": "bl1/aarch32/bl1_context_mgmt.c",
         "patchSetId": 1
@@ -47,6 +65,30 @@
       "writtenOn": "2020-03-23T15:58:03Z",
       "side": 1,
       "message": "The same curiosity here.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 3
+      },
+      "revId": "a6ef3874a221b4d8317e0313440475570d670c80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73bcaa75_3b609bc2",
+        "filename": "bl1/aarch32/bl1_context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-03-23T18:58:44Z",
+      "side": 1,
+      "message": "The variable name image_desc is also a type name (struct image_desc) so Misra was complaining.",
+      "parentUuid": "cf930887_3e89257f",
       "range": {
         "startLine": 106,
         "startChar": 0,
@@ -76,6 +118,24 @@
     },
     {
       "key": {
+        "uuid": "7717c777_3faa3eaa",
+        "filename": "bl1/bl1_fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-03-23T18:58:44Z",
+      "side": 1,
+      "message": "\u003e what is the line length here?\n\u003e should it be also (uint32_t) for AARCH64?\n\nRegardless of architecture, the arguments where I added the casts are 32 bit type unsigned int while u_register_t is either 32 or 64 bits depending on AARCH32 or AARCH64, so to keep Misra happy when compiling for AARCH64 happy I added explicit casts to 32 bits.\n\nFixed line length.",
+      "parentUuid": "d64c7d2d_3a9f7c92",
+      "revId": "a6ef3874a221b4d8317e0313440475570d670c80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "06f1b5f8_e43d4033",
         "filename": "bl1/bl1_main.c",
         "patchSetId": 1
@@ -87,6 +147,24 @@
       "writtenOn": "2020-03-23T16:18:13Z",
       "side": 1,
       "message": "Is skipping curly brackets around 0xb5, 0x75 intentional?",
+      "revId": "a6ef3874a221b4d8317e0313440475570d670c80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "730adcad_743fc721",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-03-23T18:58:44Z",
+      "side": 1,
+      "message": "\u003e Is skipping curly brackets around 0xb5, 0x75 intentional?\n\nYes, for whatever reason those two are individual entries in the uuid_t structure.",
+      "parentUuid": "06f1b5f8_e43d4033",
       "revId": "a6ef3874a221b4d8317e0313440475570d670c80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -121,6 +199,24 @@
       "writtenOn": "2020-03-23T15:58:03Z",
       "side": 1,
       "message": "also remove space before \\n",
+      "revId": "a6ef3874a221b4d8317e0313440475570d670c80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "542c8dc8_5d156d03",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-03-23T18:58:44Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "ce0c20f3_753ef485",
       "revId": "a6ef3874a221b4d8317e0313440475570d670c80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
