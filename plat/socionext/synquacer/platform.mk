@@ -30,14 +30,15 @@ PLAT_BL_COMMON_SOURCES	+=	$(PLAT_PATH)/sq_helpers.S		\
 				drivers/delay_timer/generic_delay_timer.c \
 				${XLAT_TABLES_LIB_SRCS}
 
+# GICv3 configuration
+GICV3_OVERRIDE_DISTIF_PWR_OPS	:=	1
+
+# Include GICv3 driver files
+include drivers/arm/gic/v3/gicv3.mk
+
 BL31_SOURCES		+=	drivers/arm/ccn/ccn.c			\
-				drivers/arm/gic/common/gic_common.c	\
-				drivers/arm/gic/v3/gicv3_helpers.c	\
-				drivers/arm/gic/v3/gicdv3_helpers.c	\
-				drivers/arm/gic/v3/gicrv3_helpers.c	\
-				drivers/arm/gic/v3/gicv3_main.c		\
+				${GICV3_SOURCES}			\
 				lib/cpus/aarch64/cortex_a53.S		\
-				plat/common/plat_gicv3.c		\
 				plat/common/plat_psci_common.c		\
 				$(PLAT_PATH)/sq_bl31_setup.c		\
 				$(PLAT_PATH)/sq_ccn.c			\

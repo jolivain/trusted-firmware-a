@@ -7,14 +7,13 @@
 PLAT_INCLUDES		:=	-Iplat/imx/imx8qm/include		\
 				-Iplat/imx/common/include		\
 
-IMX_GIC_SOURCES	:=		drivers/arm/gic/v3/gicv3_helpers.c	\
-				drivers/arm/gic/v3/gicdv3_helpers.c	\
-				drivers/arm/gic/v3/gicrv3_helpers.c	\
-				drivers/arm/gic/v3/arm_gicv3_common.c   \
-				drivers/arm/gic/v3/gic500.c             \
-				drivers/arm/gic/v3/gicv3_main.c		\
-				drivers/arm/gic/common/gic_common.c	\
-				plat/common/plat_gicv3.c		\
+# GICv3 configuration
+GICV3_IMPL_GIC500	:=	1
+
+# Include GICv3 driver files
+include drivers/arm/gic/v3/gicv3.mk
+
+IMX_GIC_SOURCES	:=		${GICV3_SOURCES}			\
 				plat/common/plat_psci_common.c		\
 				plat/imx/common/plat_imx8_gic.c
 
