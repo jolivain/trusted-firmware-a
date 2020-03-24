@@ -34,4 +34,14 @@ int fdt_get_reg_props_by_name(const void *dtb, int node, const char *name,
 			      uintptr_t *base, size_t *size);
 int fdt_get_stdout_node_offset(const void *dtb);
 
+int find_mapping(const uint32_t *value, int child_addr_size,
+		 int parent_addr_size, 	uint64_t base_address,
+		uint64_t *translated_addr);
+int search_all_xlat_entries(const uint32_t *value, int child_addr_size,
+				int parent_addr_size, uint64_t base_address,
+				uint64_t *translated_addr, int xlat_cells,
+				int num_entries);
+uint64_t fdtw_translate_address(const void *dtb, int bus_node,
+				uint64_t base_address);
+
 #endif /* FDT_WRAPPERS_H */
