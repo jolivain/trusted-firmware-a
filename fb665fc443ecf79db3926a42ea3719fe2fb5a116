@@ -93,6 +93,30 @@
       "revId": "fb665fc443ecf79db3926a42ea3719fe2fb5a116",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6abd35b_2011ee69",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-24T13:41:40Z",
+      "side": 1,
+      "message": "You are suggesting to introduce new build flags for 3rd party platforms which we don\u0027t own.\nWhat\u0027s about the following files which are used by some platforms and not used by others:\nplat/arm/common/arm_gicv3.c\ndrivers/arm/gic/v3/gic600_multichip.c\ndrivers/arm/gic/v3/arm_gicv3_common.c\nDo they require 3 additional build flags?",
+      "parentUuid": "8de6aced_ca8ea1e7",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 31
+      },
+      "revId": "fb665fc443ecf79db3926a42ea3719fe2fb5a116",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
