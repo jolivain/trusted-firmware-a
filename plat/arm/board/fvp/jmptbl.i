@@ -24,6 +24,12 @@ fdt     fdt_first_subnode
 fdt     fdt_next_subnode
 fdt     fdt_path_offset
 fdt     fdt_subnode_offset
+fdt     fdt_get_name
+fdt     fdt_parent_offset
+fdt     fdt_getprop
+fdt     fdt_address_cells
+fdt     fdt_size_cells
+fdt     fdt_node_offset_by_phandle
 mbedtls mbedtls_asn1_get_alg
 mbedtls mbedtls_asn1_get_alg_null
 mbedtls mbedtls_asn1_get_bitstring_null

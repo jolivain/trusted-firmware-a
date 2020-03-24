@@ -26,10 +26,17 @@ struct hw_topology_t {
 	uint32_t plat_max_pwr_level;
 };
 
+struct uart_serial_config_t {
+	uint64_t uart_base;
+	uint32_t uart_clk;
+};
+
 int fconf_populate_gicv3_config(uintptr_t config);
 int fconf_populate_topology(uintptr_t config);
+int fconf_populate_uart_config(uintptr_t config);
 
 extern struct gicv3_config_t gicv3_config;
 extern struct hw_topology_t soc_topology;
+extern struct uart_serial_config_t uart_serial_config;
 
 #endif /* FCONF_HW_CONFIG_GETTER_H */
