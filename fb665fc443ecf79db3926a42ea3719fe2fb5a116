@@ -117,6 +117,30 @@
       "revId": "fb665fc443ecf79db3926a42ea3719fe2fb5a116",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a5808e7_ca4e078c",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-24T15:48:06Z",
+      "side": 1,
+      "message": "Good finding.\n\nThese are more like config to the driver rather than \"user\" build flag. So the platform makefile will set these config directly. It will not affect the platform build commands. \n\nInfact the GIC500 should be default, so most external platforms will not need to set it. \n\nThe plat/arm/ file is platform speicific, so not required to have a config.\nGIC600_MULTICHIP is another config to the driver to select the gic600_multichip.c file.\n\narm_gicv3_common.c should be included by all platforms except FVP. The fact that it is not included means that people are finding difficult to understand which files to include.\n\nSo define another config GICV3_OVERRIDE_DISTIF_PWR_OPS which only FVP platform will use to override arm_gicv3_distif_pre_save() and arm_gicv3_distif_post_restore() fns.\n\nMost of these configs will be set by ARM platfoms. For external platforms, since GIC500 is default, none of them will be required.\n\nThe trouble is till now there was no need to have config flags in the GIC driver and the changes for GICv3.1 and GICv4 forces us to have build flags. So, since we need to have config flags, we need to do it the right way, tackling some of the technical debt we accumalated.",
+      "parentUuid": "b6abd35b_2011ee69",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 31
+      },
+      "revId": "fb665fc443ecf79db3926a42ea3719fe2fb5a116",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
