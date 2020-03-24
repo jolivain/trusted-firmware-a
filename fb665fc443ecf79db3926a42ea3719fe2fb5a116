@@ -141,6 +141,30 @@
       "revId": "fb665fc443ecf79db3926a42ea3719fe2fb5a116",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c74402a0_b3b931eb",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-24T16:21:35Z",
+      "side": 1,
+      "message": "We also need a flag for\nplat/arm/common/arm_gicv3.c\nwhich is used by FVP, N1SDP, SGI and SGM.\nSGM uses both arm_gicv3.c and\ndrivers/arm/gic/v3/arm_gicv3_common.c",
+      "parentUuid": "1a5808e7_ca4e078c",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 31
+      },
+      "revId": "fb665fc443ecf79db3926a42ea3719fe2fb5a116",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
