@@ -69,6 +69,30 @@
       "revId": "fb665fc443ecf79db3926a42ea3719fe2fb5a116",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8de6aced_ca8ea1e7",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-24T13:26:00Z",
+      "side": 1,
+      "message": "All the GICv3 files should be included by GICv3 makefile without involvement by platform.\n\nWhat I meant is to add generic GICv3 build options and this is not platform specific. You will need to introduce a build option for GIC500 and GIC600 say like GICV3_IMPL_GIC500 and GICV3_IMPL_GIC600.\n\nSo plat\\imx\\imx8m\\imx8mm\\platform.mk\nplat\\imx\\imx8m\\imx8mq\\platform.mk\nplat\\imx\\imx8qm\\platform.mk\nplat\\imx\\imx8qx\\platform.mk\nplat\\marvell\\a3700\\common\\a3700_common.mk\nplat\\mediatek\\mt8183\\platform.mk\nplat\\rockchip\\rk3399\\platform.mk\nplat\\xilinx\\versal\\platform.mk\nneed to set the GICV3_IMPL_GIC500 flag.\n\nSimilarly N1SDP, SGI, SGM would set GICV3_IMPL_GIC600 flag.\n\nFor the FVP, it would be driven based on value of FVP_USE_GIC_DRIVER flag.",
+      "parentUuid": "65742c98_d7eae650",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 31
+      },
+      "revId": "fb665fc443ecf79db3926a42ea3719fe2fb5a116",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
