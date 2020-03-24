@@ -8,11 +8,13 @@
 #include <common/debug.h>
 #include <common/fdt_wrappers.h>
 #include <fconf_hw_config_getter.h>
+#include <fconf_hw_config_helpers.h>
 #include <libfdt.h>
 #include <plat/common/platform.h>
 
 struct gicv3_config_t gicv3_config;
 struct hw_topology_t soc_topology;
+struct uart_serial_config_t uart_serial_config;
 
 int fconf_populate_gicv3_config(uintptr_t config)
 {
@@ -141,7 +143,8 @@ int fconf_populate_topology(uintptr_t config)
 			return -1;
 		}
 
-		INFO("CLUSTER ID: %d cpu-count: %d\n", cluster_count, cpus_per_cluster[cluster_count]);
+		VERBOSE("CLUSTER ID: %d cpu-count: %d\n", cluster_count,
+					cpus_per_cluster[cluster_count]);
 
 		/* Find the maximum number of cpus in any cluster */
 		max_cpu_per_cluster = MAX(max_cpu_per_cluster, cpus_per_cluster[cluster_count]);
@@ -164,5 +167,83 @@ int fconf_populate_topology(uintptr_t config)
 	return 0;
 }
 
+int fconf_populate_uart_config(uintptr_t config)
+{
+	int node, err, parent_node, addr[2];
+	const char *path;
+	const uint32_t *phandle, *clk_freq;
+	uint64_t base_addr = 0, offset_addr;
+
+	/* Necessary to work with libfdt APIs */
+	const void *hw_config_dtb = (const void *)config;
+
+	/*
+	 * uart child node is indirectly referenced through its path which is specified
+	 * in the `serial0` property of the "aliases" node.
+	 */
+
+	path = fdt_get_alias(hw_config_dtb, "serial0");
+	if (path == NULL) {
+		ERROR("FCONF: Could not read serial0 property in aliases node\n");
+		return -1;
+	}
+
+	/* Find the offset of the uart serial node */
+	node = fdt_path_offset(hw_config_dtb, path);
+	if (node < 0) {
+		ERROR("FCONF: Failed to locate uart serial node using its path\n");
+		return -1;
+	}
+
+	/* uart serial node has its offset and size of address in reg property */
+	err = fdtw_read_array(hw_config_dtb, node, "reg", 2, &addr);
+	if (err < 0) {
+		ERROR("FCONF: Failed to read reg property of '%s' node\n", "uart serial");
+		return err;
+	}
+	VERBOSE("FCONF: UART node address offset: %x size: %x\n", addr[0], addr[1]);
+
+	offset_addr = (uint64_t)addr[0];
+
+	/* Only the devices which are direct children of root node use CPU address domain. All
+	 * other devices use addresses that are local to the device node and cannot be directly
+	 * used by CPU. Device tree provides an address translation mechanism through "ranges"
+	 * property which provides mappings from local address space to parent address space.
+	 * Since a device could be a child of a child node to the root node, there can be more
+	 * than one level of address translation needed to map the device local address space
+	 * to CPU address space.
+	 */
+	parent_node = fdt_parent_offset(hw_config_dtb, node);
+	base_addr = translate_address(hw_config_dtb, parent_node, base_addr);
+	uart_serial_config.uart_base = base_addr + offset_addr;
+	VERBOSE("FCONF: UART serial device base address: %llx\n", uart_serial_config.uart_base);
+
+	/* The device tree node which captures the clock information of uart serial node is
+	 * specified in the "clocks" property.
+	 */
+	phandle = fdt_getprop(hw_config_dtb, node, "clocks", NULL);
+	if (phandle == NULL) {
+		ERROR("FCONF: Could not read clocks property in uart serial node\n");
+		return -1;
+	}
+
+	node = fdt_node_offset_by_phandle(hw_config_dtb, fdt32_to_cpu(*phandle));
+	if (node < 0) {
+		ERROR("FCONF: Failed to locate clk node using its path\n");
+		return node;
+	}
+
+	clk_freq = fdt_getprop(hw_config_dtb, node, "clock-frequency", NULL);
+	if (clk_freq == NULL) {
+		ERROR("FCONF: Could not read clock-frequency property in clk node\n");
+		return -1;
+	}
+
+	uart_serial_config.uart_clk = fdt32_to_cpu(*clk_freq);
+	VERBOSE("FCONF: UART serial device clk frequency: %x\n", uart_serial_config.uart_clk);
+	return 0;
+}
+
 FCONF_REGISTER_POPULATOR(HW_CONFIG, gicv3_config, fconf_populate_gicv3_config);
 FCONF_REGISTER_POPULATOR(HW_CONFIG, topology, fconf_populate_topology);
+FCONF_REGISTER_POPULATOR(HW_CONFIG, uart_config, fconf_populate_uart_config);
