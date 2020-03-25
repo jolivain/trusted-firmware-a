@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d86db6e0_02a4c525",
+        "filename": "drivers/brcm/spi/iproc_qspi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-03-25T09:20:31Z",
+      "side": 1,
+      "message": "Just an Initialization \u0026 setup function.",
+      "parentUuid": "aa4b4740_1715c3bd",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 19
+      },
+      "revId": "292dee91e6656a2e177009dfb4ec52a19a2524fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bc055a46_36b01665",
         "filename": "drivers/brcm/spi/iproc_qspi.c",
         "patchSetId": 4
