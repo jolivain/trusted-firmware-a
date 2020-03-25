@@ -427,6 +427,30 @@
     },
     {
       "key": {
+        "uuid": "f3fca47b_da65a385",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-25T15:56:28Z",
+      "side": 1,
+      "message": "On rethinking, I think just setting GICV3_IMPL_GIC500 default to one and QEMU can override it to zero.",
+      "parentUuid": "4cc5d20d_5ee67a47",
+      "range": {
+        "startLine": 27,
+        "startChar": 13,
+        "endLine": 27,
+        "endChar": 30
+      },
+      "revId": "97db3c96a6cf30aba114d11f2a48cc70af265054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aef9d4d2_2654bfc3",
         "filename": "drivers/arm/gic/v3/gicv3.mk",
         "patchSetId": 3
