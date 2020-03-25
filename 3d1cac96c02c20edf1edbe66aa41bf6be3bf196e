@@ -46,6 +46,30 @@
       "revId": "3d1cac96c02c20edf1edbe66aa41bf6be3bf196e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3deab678_70037cbc",
+        "filename": "plat/nvidia/tegra/soc/t194/drivers/se/se.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-25T18:15:28Z",
+      "side": 1,
+      "message": "Agree. Just want to highlight that timeout++ is not getting incremented by 1ms if by any chance MAX_TIMEOUT_MS is decided by taking into consideration of this timeout count.\n\nBut as you mentioned it is more of safety net and not valid for all scenarios then this change looks good to me.",
+      "parentUuid": "b256da03_512ae5c8",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 22
+      },
+      "revId": "3d1cac96c02c20edf1edbe66aa41bf6be3bf196e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
