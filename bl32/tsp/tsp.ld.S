@@ -38,15 +38,7 @@ SECTIONS
         __RODATA_START__ = .;
         *(.rodata*)
 
-        /*
-         * Keep the .got section in the RO section as it is patched
-         * prior to enabling the MMU and having the .got in RO is better for
-         * security. GOT is a table of addresses so ensure 8-byte alignment.
-         */
-        . = ALIGN(8);
-        __GOT_START__ = .;
-        *(.got)
-        __GOT_END__ = .;
+	GOT
 
         . = ALIGN(PAGE_SIZE);
         __RODATA_END__ = .;
@@ -58,15 +50,7 @@ SECTIONS
         *(.text*)
         *(.rodata*)
 
-        /*
-         * Keep the .got section in the RO section as it is patched
-         * prior to enabling the MMU and having the .got in RO is better for
-         * security. GOT is a table of addresses so ensure 8-byte alignment.
-         */
-        . = ALIGN(8);
-        __GOT_START__ = .;
-        *(.got)
-        __GOT_END__ = .;
+	GOT
 
         *(.vectors)
 
