@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2820ba45_0caacf41",
+        "filename": "Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-25T15:59:33Z",
+      "side": 1,
+      "message": "This option gets defined only for architecture ARMv8.5-a+ and also, this option is not exported to build. Do you see any issue here?",
+      "parentUuid": "69a3d723_a73155c0",
+      "revId": "6693c3938d20dbd915f13e14a97d4ad0de8bdf96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4386bf7_589b4021",
         "filename": "Makefile",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-03-25T15:44:42Z",
       "side": 1,
       "message": "I am curious if specifying ARM_ARCH_MINOR is necessary. Based on this blog https://llvm.org/docs/MemTagSanitizer.html#usage , is the flag -march\u003darmv8+memtag not sufficient?",
+      "revId": "6693c3938d20dbd915f13e14a97d4ad0de8bdf96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "add484f0_a10c7b73",
+        "filename": "Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-03-25T15:59:33Z",
+      "side": 1,
+      "message": "DSG team provided this information to use -march\u003darm8.5-a+memtag option. It may not be necessary as per blog you provided but even if we add MINOR version it will not harm the build.\nAlso, armaclang documentation here:http://infocenter.arm.com/help/index.jsp?topic\u003d/com.arm.doc.100067_0612_00_en/lnk1549304794624.html mentioned to us -march\u003darm8.5-a+memtag so it will be consistent",
+      "parentUuid": "c4386bf7_589b4021",
       "revId": "6693c3938d20dbd915f13e14a97d4ad0de8bdf96",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
