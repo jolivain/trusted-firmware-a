@@ -47,8 +47,7 @@ SECTIONS
         __RODATA_START__ = .;
         *(SORT_BY_ALIGNMENT(.rodata*))
 
-	PARSER_LIB_DESCS
-	CPU_OPS
+	RODATA_COMMON
 
         /*
          * No need to pad out the .rodata section to a page boundary. Next is
@@ -69,8 +68,7 @@ SECTIONS
         *(SORT_BY_ALIGNMENT(.text*))
         *(SORT_BY_ALIGNMENT(.rodata*))
 
-	PARSER_LIB_DESCS
-	CPU_OPS
+	RODATA_COMMON
 
         *(.vectors)
         __RO_END__ = .;

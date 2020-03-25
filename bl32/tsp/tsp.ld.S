@@ -38,7 +38,7 @@ SECTIONS
         __RODATA_START__ = .;
         *(.rodata*)
 
-	GOT
+	RODATA_COMMON
 
         . = ALIGN(PAGE_SIZE);
         __RODATA_END__ = .;
@@ -50,7 +50,7 @@ SECTIONS
         *(.text*)
         *(.rodata*)
 
-	GOT
+	RODATA_COMMON
 
         *(.vectors)
 
