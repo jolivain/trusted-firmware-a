@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1107c5d_8021ac7e",
+        "filename": "bl1/bl1.ld.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-25T15:36:42Z",
+      "side": 0,
+      "message": "I noticed that BL1 linker script had a dot here to force the stacks position. We will lose it with the STACK_SECTION macro. I am worried that it might serve a specific purpose. Apparently I added it on purpose in the following patch a while ago: https://github.com/ARM-software/arm-trusted-firmware/pull/101/commits/4f59d8359f97e031c212032afeb57124ac4fcd94 I can\u0027t recall the exact reason and the commit message does not help much...\n\nDid you notice any difference in the stacks position for BL1 with this patch?",
+      "range": {
+        "startLine": 134,
+        "startChar": 11,
+        "endLine": 134,
+        "endChar": 12
+      },
+      "revId": "2f396d699e94fb42ccbab96e97b764f8569a5ebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
