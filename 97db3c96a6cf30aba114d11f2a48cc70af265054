@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "0e695de8_e738ba36",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-25T15:48:11Z",
+      "side": 1,
+      "message": "Sorry, I meant all options need to have defaults defined here in this Makefile.",
+      "parentUuid": "6ba70e1d_3b4d000d",
+      "range": {
+        "startLine": 14,
+        "startChar": 9,
+        "endLine": 14,
+        "endChar": 38
+      },
+      "revId": "97db3c96a6cf30aba114d11f2a48cc70af265054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e624bee5_36c73e29",
         "filename": "drivers/arm/gic/v3/gicv3.mk",
         "patchSetId": 3
@@ -308,6 +332,30 @@
     },
     {
       "key": {
+        "uuid": "136eb005_db623089",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-25T15:48:11Z",
+      "side": 1,
+      "message": "Yeah, I realized that. How about GICV3_IMPL_GIC600_MULTICHIP ?",
+      "parentUuid": "8e2d1d79_eb9924cd",
+      "range": {
+        "startLine": 23,
+        "startChar": 8,
+        "endLine": 23,
+        "endChar": 24
+      },
+      "revId": "97db3c96a6cf30aba114d11f2a48cc70af265054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "40a3106c_3eff3a2c",
         "filename": "drivers/arm/gic/v3/gicv3.mk",
         "patchSetId": 3
@@ -343,6 +391,30 @@
       "side": 1,
       "message": "It cannot \"be default case if GIC-600 is not defined.\", because \nplat\\qemu\\qemu_sbsa\\platform.mk \u0026\nplat\\qemu\\qemu\\platform.mk\nboth have neither gic500.c nor gic600.c:\nQEMU_GIC_SOURCES\t:\u003d\tdrivers/arm/gic/v3/gicv3_helpers.c\t\t\\\n\t\t\t\tdrivers/arm/gic/v3/gicdv3_helpers.c\t\t\\\n\t\t\t\tdrivers/arm/gic/v3/gicrv3_helpers.c\t\t\\\n\t\t\t\tdrivers/arm/gic/v3/gicv3_main.c\t\t\t\\\n\t\t\t\tdrivers/arm/gic/common/gic_common.c\t\t\\\n\t\t\t\tplat/common/plat_gicv3.c\t\t\t\\\n\t\t\t\t${PLAT_QEMU_COMMON_PATH}/qemu_gicv3.c",
       "parentUuid": "40a3106c_3eff3a2c",
+      "range": {
+        "startLine": 27,
+        "startChar": 13,
+        "endLine": 27,
+        "endChar": 30
+      },
+      "revId": "97db3c96a6cf30aba114d11f2a48cc70af265054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cc5d20d_5ee67a47",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-03-25T15:48:11Z",
+      "side": 1,
+      "message": "I think it will not affect Qemu even it is included. The QEMU will not use the implementation related aspects for GIC-500 which has mostly to do with power management.\n\nThe linker will garbage collect the unreferenced sections so it will not affect the QEMU build.\nYou can verify this by building QEMU and comparing the generated dump files.\n\nThere is also option that we could a similar approach to FVP and define the GICV3_OVERRIDE_DISTIF_PWR_OPS and stub out the power ops in QEMU. What do you think ?",
+      "parentUuid": "92c5988f_d0be51ad",
       "range": {
         "startLine": 27,
         "startChar": 13,
