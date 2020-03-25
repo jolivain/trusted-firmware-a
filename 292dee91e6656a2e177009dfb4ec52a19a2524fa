@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "015e54fd_b957937b",
+        "filename": "drivers/brcm/spi/iproc_qspi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-03-25T09:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26109e1a_539e74a2",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 0
+      },
+      "revId": "292dee91e6656a2e177009dfb4ec52a19a2524fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa4b4740_1715c3bd",
         "filename": "drivers/brcm/spi/iproc_qspi.c",
         "patchSetId": 4
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "a8ebf10b_a7e00c8d",
+        "filename": "drivers/brcm/spi/iproc_qspi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-03-25T09:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc055a46_36b01665",
+      "range": {
+        "startLine": 106,
+        "startChar": 1,
+        "endLine": 108,
+        "endChar": 0
+      },
+      "revId": "292dee91e6656a2e177009dfb4ec52a19a2524fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "338080c5_a1021bc1",
         "filename": "drivers/brcm/spi/iproc_qspi.c",
         "patchSetId": 4
@@ -91,6 +139,30 @@
       "revId": "292dee91e6656a2e177009dfb4ec52a19a2524fa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b034bd26_7021fedb",
+        "filename": "drivers/brcm/spi/iproc_qspi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-03-25T09:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "338080c5_a1021bc1",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 42
+      },
+      "revId": "292dee91e6656a2e177009dfb4ec52a19a2524fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "cd2f3a2c_8c36febd",
+        "filename": "drivers/brcm/spi/iproc_qspi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-03-25T09:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2efe4d4c_b6494e3e",
+      "range": {
+        "startLine": 160,
+        "startChar": 1,
+        "endLine": 160,
+        "endChar": 10
+      },
+      "revId": "292dee91e6656a2e177009dfb4ec52a19a2524fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8315de40_b357804e",
         "filename": "drivers/brcm/spi/iproc_spi.c",
         "patchSetId": 4
@@ -128,6 +224,30 @@
       "writtenOn": "2020-03-22T15:34:34Z",
       "side": 1,
       "message": "Just curious to know, why all new file is with 2017-2020 copyright?",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 2,
+        "endChar": 38
+      },
+      "revId": "292dee91e6656a2e177009dfb4ec52a19a2524fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75679752_ad30f7e3",
+        "filename": "drivers/brcm/spi/iproc_spi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-03-25T09:19:37Z",
+      "side": 1,
+      "message": "Internally we have this since 2017, just updated it to have 2020,",
+      "parentUuid": "8315de40_b357804e",
       "range": {
         "startLine": 1,
         "startChar": 2,
