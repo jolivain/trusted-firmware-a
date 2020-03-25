@@ -14,8 +14,7 @@
 #include <io.h>
 #include "ddr.h"
 #include <i2c.h>
-
-extern uint64_t get_timer_val(uint64_t start);
+#include <nxp_timer.h>
 
 struct dynamic_odt {
 	unsigned int odt_rd_cfg;
