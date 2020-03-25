@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1e69a2a4_8ad797d7",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-25T13:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8159dea9_24fec9af",
+      "range": {
+        "startLine": 7,
+        "startChar": 14,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "97db3c96a6cf30aba114d11f2a48cc70af265054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a24084b_7a5f3c1a",
         "filename": "drivers/arm/gic/v3/gicv3.mk",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-03-25T13:17:52Z",
       "side": 1,
       "message": "Do not include this. This is a platform interface and platforms need to include it within platform makefile.",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "97db3c96a6cf30aba114d11f2a48cc70af265054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b0464fc_cc29bcb2",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-25T13:53:42Z",
+      "side": 1,
+      "message": "All the platforms have this file included, will remove \u0026 add back to platforms\u0027 makefiles.",
+      "parentUuid": "3a24084b_7a5f3c1a",
       "range": {
         "startLine": 12,
         "startChar": 3,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6ba70e1d_3b4d000d",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-25T13:53:42Z",
+      "side": 1,
+      "message": "if GICV3_OVERRIDE_DISTIF_PWR_OPS not defined, \"ifneq\" condition will be met, so no default value is not needed in that case. Why default values aren\u0027t required for other options: GICV3_IMPL_GIC500/600 and GIC600_MULTICHIP?",
+      "parentUuid": "bcd91bc9_de816822",
+      "range": {
+        "startLine": 14,
+        "startChar": 9,
+        "endLine": 14,
+        "endChar": 38
+      },
+      "revId": "97db3c96a6cf30aba114d11f2a48cc70af265054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e624bee5_36c73e29",
         "filename": "drivers/arm/gic/v3/gicv3.mk",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2020-03-25T13:17:52Z",
       "side": 1,
       "message": "Not required.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "97db3c96a6cf30aba114d11f2a48cc70af265054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "527c2ca2_bb55d3bd",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-25T13:53:42Z",
+      "side": 1,
+      "message": "This was added for testing when building ARM platforms. I will remove all the warnings.",
+      "parentUuid": "e624bee5_36c73e29",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "a0875431_a6064a51",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-25T13:53:42Z",
+      "side": 1,
+      "message": "Will remove all warnings.",
+      "parentUuid": "f666584c_e433bafd",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 10
+      },
+      "revId": "97db3c96a6cf30aba114d11f2a48cc70af265054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d94ceb4a_8b5ddfd3",
         "filename": "drivers/arm/gic/v3/gicv3.mk",
         "patchSetId": 3
@@ -152,6 +272,30 @@
       "writtenOn": "2020-03-25T13:17:52Z",
       "side": 1,
       "message": "Prefix all GICV3 options with `GICV3_`",
+      "range": {
+        "startLine": 23,
+        "startChar": 8,
+        "endLine": 23,
+        "endChar": 24
+      },
+      "revId": "97db3c96a6cf30aba114d11f2a48cc70af265054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e2d1d79_eb9924cd",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-25T13:53:42Z",
+      "side": 1,
+      "message": "This name was suggested by you:\n\"GIC600_MULTICHIP is another config to the driver to select the gic600_multichip.c file\"\nShould it be \"GICV3_600_MULTICHIP\" or \"GICV3_GIC600_MULTICHIP\"?",
+      "parentUuid": "d94ceb4a_8b5ddfd3",
       "range": {
         "startLine": 23,
         "startChar": 8,
@@ -187,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "92c5988f_d0be51ad",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-25T13:53:42Z",
+      "side": 1,
+      "message": "It cannot \"be default case if GIC-600 is not defined.\", because \nplat\\qemu\\qemu_sbsa\\platform.mk \u0026\nplat\\qemu\\qemu\\platform.mk\nboth have neither gic500.c nor gic600.c:\nQEMU_GIC_SOURCES\t:\u003d\tdrivers/arm/gic/v3/gicv3_helpers.c\t\t\\\n\t\t\t\tdrivers/arm/gic/v3/gicdv3_helpers.c\t\t\\\n\t\t\t\tdrivers/arm/gic/v3/gicrv3_helpers.c\t\t\\\n\t\t\t\tdrivers/arm/gic/v3/gicv3_main.c\t\t\t\\\n\t\t\t\tdrivers/arm/gic/common/gic_common.c\t\t\\\n\t\t\t\tplat/common/plat_gicv3.c\t\t\t\\\n\t\t\t\t${PLAT_QEMU_COMMON_PATH}/qemu_gicv3.c",
+      "parentUuid": "40a3106c_3eff3a2c",
+      "range": {
+        "startLine": 27,
+        "startChar": 13,
+        "endLine": 27,
+        "endChar": 30
+      },
+      "revId": "97db3c96a6cf30aba114d11f2a48cc70af265054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aef9d4d2_2654bfc3",
         "filename": "drivers/arm/gic/v3/gicv3.mk",
         "patchSetId": 3
@@ -207,6 +375,30 @@
       "revId": "97db3c96a6cf30aba114d11f2a48cc70af265054",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f10b60f9_acd9ab44",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-25T13:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aef9d4d2_2654bfc3",
+      "range": {
+        "startLine": 34,
+        "startChar": 17,
+        "endLine": 34,
+        "endChar": 44
+      },
+      "revId": "97db3c96a6cf30aba114d11f2a48cc70af265054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
