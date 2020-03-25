@@ -8,5 +8,6 @@
 #define LINKAGE_H
 
 #define STRUCT_ALIGN	4
+#define BSS_ALIGN	8
 
 #endif /* LINKAGE_H */
