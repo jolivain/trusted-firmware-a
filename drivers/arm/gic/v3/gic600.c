@@ -103,10 +103,7 @@ void gicv3_distif_post_restore(unsigned int proc_num)
 	arm_gicv3_distif_post_restore(proc_num);
 }
 
-/*
- * Power off GIC-600 redistributor
- */
-void gicv3_rdistif_off(unsigned int proc_num)
+static uintptr_t get_gicr_base(unsigned int proc_num)
 {
 	uintptr_t gicr_base;
 
@@ -117,8 +114,27 @@ void gicv3_rdistif_off(unsigned int proc_num)
 	gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
 	assert(gicr_base);
 
+	return gicr_base;
+}
+
+static bool gicv3_is_gic600(uintptr_t gicr_base)
+{
+	uint32_t reg = mmio_read_32(gicr_base + GICR_IIDR);
+
+	return (reg & 0xff000fff) == 0x0200043b;
+}
+
+/*
+ * Power off GIC-600 redistributor
+ */
+void gicv3_rdistif_off(unsigned int proc_num)
+{
+	uintptr_t gicr_base = get_gicr_base(proc_num);
+
 	/* Attempt to power redistributor off */
-	gic600_pwr_off(gicr_base);
+	if (gicv3_is_gic600(gicr_base)) {
+		gic600_pwr_off(gicr_base);
+	}
 }
 
 /*
@@ -126,15 +142,10 @@ void gicv3_rdistif_off(unsigned int proc_num)
  */
 void gicv3_rdistif_on(unsigned int proc_num)
 {
-	uintptr_t gicr_base;
-
-	assert(gicv3_driver_data);
-	assert(proc_num < gicv3_driver_data->rdistif_num);
-	assert(gicv3_driver_data->rdistif_base_addrs);
-
-	gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
-	assert(gicr_base);
+	uintptr_t gicr_base = get_gicr_base(proc_num);
 
 	/* Power redistributor on */
-	gic600_pwr_on(gicr_base);
+	if (gicv3_is_gic600(gicr_base)) {
+		gic600_pwr_on(gicr_base);
+	}
 }
