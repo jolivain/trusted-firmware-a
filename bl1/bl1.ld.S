@@ -131,11 +131,7 @@ SECTIONS
         __DATA_RAM_END__ = .;
     } >RAM AT>ROM
 
-    stacks . (NOLOAD) : {
-        __STACKS_START__ = .;
-        *(tzfw_normal_stacks)
-        __STACKS_END__ = .;
-    } >RAM
+    STACK_SECTION >RAM
 
     /*
      * The .bss section gets initialised to 0 at runtime.

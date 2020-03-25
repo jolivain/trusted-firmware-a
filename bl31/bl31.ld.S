@@ -232,11 +232,7 @@ SECTIONS
     __NOBITS_START__ = .;
 #endif
 
-    stacks (NOLOAD) : {
-        __STACKS_START__ = .;
-        *(tzfw_normal_stacks)
-        __STACKS_END__ = .;
-    } >NOBITS
+    STACK_SECTION >NOBITS
 
     /*
      * The .bss section gets initialised to 0 at runtime.

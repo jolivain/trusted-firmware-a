@@ -7,6 +7,13 @@
 #ifndef BL_COMMON_LD_H
 #define BL_COMMON_LD_H
 
+#define STACK_SECTION					\
+	stacks (NOLOAD) : {				\
+		__STACKS_START__ = .;			\
+		*(tzfw_normal_stacks)			\
+		__STACKS_END__ = .;			\
+	}
+
 /*
  * The xlat_table section is for full, aligned page tables (4K).
  * Removing them from .bss avoids forcing 4K alignment on

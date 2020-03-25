@@ -171,11 +171,7 @@ SECTIONS
     } >RAM
     __RELA_END__ = .;
 
-    stacks (NOLOAD) : {
-        __STACKS_START__ = .;
-        *(tzfw_normal_stacks)
-        __STACKS_END__ = .;
-    } >RAM
+    STACK_SECTION >RAM
 
     /*
      * The .bss section gets initialised to 0 at runtime.
