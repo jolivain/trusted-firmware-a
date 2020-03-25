@@ -152,7 +152,7 @@ STM32_TF_ELF_LDFLAGS	:=	--hash-style=gnu --as-needed
 STM32_TF_STM32		:=	$(addprefix ${BUILD_PLAT}/tf-a-, $(patsubst %.dtb,%.stm32,$(DTB_FILE_NAME)))
 STM32_TF_LINKERFILE	:=	${BUILD_PLAT}/stm32mp1.ld
 
-BL2_CFLAGS	+=	-DPLAT_XLAT_TABLES_DYNAMIC=1
+BL2_CPPFLAGS	+=	-DPLAT_XLAT_TABLES_DYNAMIC=1
 
 # Variables for use with stm32image
 STM32IMAGEPATH		?= tools/stm32image
