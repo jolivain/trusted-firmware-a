@@ -10,6 +10,7 @@
 #include <platform_def.h>
 
 #define STRUCT_ALIGN		(__SIZEOF_POINTER__)
+#define BSS_ALIGN		((__SIZEOF_POINTER__) * 2)
 
 #define CPU_OPS						\
 	. = ALIGN(STRUCT_ALIGN);			\
@@ -122,6 +123,22 @@
 	__PERCPU_TIMESTAMP_SIZE__ = ABSOLUTE(. - __PMF_TIMESTAMP_START__); \
 	. = . + (__PERCPU_TIMESTAMP_SIZE__ * (PLATFORM_CORE_COUNT - 1)); \
 	__PMF_TIMESTAMP_END__ = .;
+
+
+/*
+ * The .bss section gets initialised to 0 at runtime.
+ * Its base address has bigger alignment for better performance of the
+ * zero-initialization code.
+ */
+#define BSS_SECTION					\
+	.bss (NOLOAD) : ALIGN(BSS_ALIGN) {		\
+		__BSS_START__ = .;			\
+		*(SORT_BY_ALIGNMENT(.bss*))		\
+		*(COMMON)				\
+		BAKERY_LOCK_NORMAL			\
+		PMF_TIMESTAMP				\
+		__BSS_END__ = .;			\
+	}
 
 /*
  * The xlat_table section is for full, aligned page tables (4K).
