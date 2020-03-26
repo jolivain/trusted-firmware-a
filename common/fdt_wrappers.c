@@ -226,3 +226,52 @@ int fdtw_write_inplace_bytes(void *dtb, int node, const char *prop,
 
 	return err;
 }
+
+static uint64_t fdt_read_prop_cells(const fdt32_t *prop, int nr_cells)
+{
+	uint64_t reg = fdt32_to_cpu(prop[0]);
+
+	if (nr_cells > 1) {
+		reg = (reg << 32) | fdt32_to_cpu(prop[1]);
+	}
+
+	return reg;
+}
+
+int fdt_get_reg_props_by_index(const void *fdt, int node, int index,
+			       uintptr_t *base, size_t *size)
+{
+	const fdt32_t *prop;
+	int parent, len;
+	int ac, sc;
+
+	parent = fdt_parent_offset(fdt, node);
+	if (parent < 0) {
+		return -FDT_ERR_BADOFFSET;
+	}
+
+	ac = fdt_address_cells(fdt, parent);
+	sc = fdt_size_cells(fdt, parent);
+
+	index *= ac + sc;
+
+	prop = fdt_getprop(fdt, node, "reg", &len);
+	if (prop == NULL) {
+		WARN("Couldn't find \"reg\" property in dtb\n");
+		return -FDT_ERR_NOTFOUND;
+	}
+
+	if (((index + ac + sc) * sizeof(uint32_t)) > len) {
+		return -FDT_ERR_BADVALUE;
+	}
+
+	if (base != NULL) {
+		*base = fdt_read_prop_cells(prop + index, ac);
+	}
+
+	if (size != NULL) {
+		*size = fdt_read_prop_cells(prop + index + ac, sc);
+	}
+
+	return 0;
+}
