@@ -52,6 +52,24 @@
       "revId": "03bb779ea886f2ee221b3df8c4acf110db931caa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed11fad7_2a3c2281",
+        "filename": "plat/rpi/common/aarch64/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-03-26T16:20:13Z",
+      "side": 1,
+      "message": "OK, so those kind of race conditions can get tricky, so maybe people can confirm:\n- There is a benign race here between a CPU_OFF and a CPU_ON on another core. And there is not much we can do about it. If an OS tries to do something stupid, we can\u0027t help it, it can\u0027t expect a particular action to win.\n- This patch indeed doesn\u0027t change that (it can\u0027t). A \"GO\" write will always be followed by a SEV, whether this happens before or after the WFE doesn\u0027t matter. In the first case (SEV before WFE), the WFE should return immediately. I think this would make it clear that this patch doesn\u0027t help.\n\nIf people can confirm, I will drop this patch.",
+      "parentUuid": "847d02f6_7c5353cd",
+      "revId": "03bb779ea886f2ee221b3df8c4acf110db931caa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
