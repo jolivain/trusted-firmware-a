@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c376eb8_9d1f78e9",
+        "filename": "bl2u/bl2u.ld.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-26T13:33:33Z",
+      "side": 1,
+      "message": "Are changes in this file really worth it? I am guessing you wanted to make all linker scripts consistent but doesn\u0027t this make this one more complex for no purpose?",
+      "revId": "f8804bea9a462e8f5a6e288a2f16dfe76f15d567",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd9a906f_537724cb",
+        "filename": "bl2u/bl2u.ld.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-26T13:33:33Z",
+      "side": 1,
+      "message": "(minor) Remove trailing tab.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 1
+      },
+      "revId": "f8804bea9a462e8f5a6e288a2f16dfe76f15d567",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
