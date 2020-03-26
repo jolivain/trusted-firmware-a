@@ -22,10 +22,17 @@ New Features
 - Arm Architecture
    - Example: "Add support for Branch Target Identification (BTI)"
 
+- Boot flow
+   - Enhanced BL2 bootloader flow to load secure partitions based on firmware
+     configuration data (fconf).
+
 - Build System
    - Add support for documentation build as a target in Makefile
    - Add ``COT`` build option to select the chain of trust to use when the
      Trusted Boot feature is enabled (default: ``tbbr``).
+   - Flow updates allowing creation and injection of secure partition packages
+     into the FIP
+   - Build options to support SPMC component loading and run at S-EL1 or S-EL2
 
 - CPU Support
    - Example: "cortex-a55: Workaround for erratum 1221012"
@@ -53,7 +60,11 @@ New Features
    - Add support for optional firmware encryption feature (experimental).
    - Introduce a new `dualroot` chain of trust.
 
+- SPCI
+    - Introduced SPM Dispatcher component
+
 - Tools
+   - sptool updated to accomodate secure partition packages
    - Example: "fiptool: Add support to build fiptool on Windows."
 
 
