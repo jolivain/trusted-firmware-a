@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f351550_85f5ae73",
+        "filename": "plat/brcm/board/common/bcm_console.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-26T23:58:17Z",
+      "side": 1,
+      "message": "There has been some changes in console driver data structures as part of commit ac71344e9eca1f7d1e0ce4a67aca776470639b1c. Please make appropriate changes.",
+      "revId": "80ab6bde2b1870931efdbe0c42a06f41195ee7f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "467be68d_7aa374f5",
+        "filename": "plat/brcm/board/common/board_common.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-26T23:58:17Z",
+      "side": 1,
+      "message": "nit: This is a new file introduced in this patch. Why copyright from 2015 ?",
+      "revId": "80ab6bde2b1870931efdbe0c42a06f41195ee7f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "988b395f_4be4d707",
+        "filename": "plat/brcm/board/stingray/include/platform_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-26T23:58:17Z",
+      "side": 1,
+      "message": "Looks like BL31 is at bottom of TZC secured DRAM.",
+      "revId": "80ab6bde2b1870931efdbe0c42a06f41195ee7f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74975507_955e1c5b",
+        "filename": "plat/brcm/board/stingray/include/sr_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-26T23:58:17Z",
+      "side": 1,
+      "message": "BRCM_BL31_PLAT_PARAM_VAL might be appropriate.",
+      "revId": "80ab6bde2b1870931efdbe0c42a06f41195ee7f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7ca1144_ea5d0756",
+        "filename": "plat/brcm/common/brcm_bl2_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-26T23:58:17Z",
+      "side": 1,
+      "message": "Symbols __COHERENT_RAM_START_ and __COHERENT_RAM_END_ are already imported into TF-A as seen in the file include/common/bl_common.h. Please directly use BL_COHERENT_RAM_BASE instead of defining new macro BL2_COHERENT_RAM_BASE.",
+      "revId": "80ab6bde2b1870931efdbe0c42a06f41195ee7f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
