@@ -55,9 +55,7 @@ SECTIONS
         __RODATA_START__ = .;
         *(SORT_BY_ALIGNMENT(.rodata*))
 
-	PARSER_LIB_DESCS
-	CPU_OPS
-	GOT
+	RODATA_COMMON
 
         . = ALIGN(PAGE_SIZE);
         __RODATA_END__ = .;
@@ -75,9 +73,7 @@ SECTIONS
         *(SORT_BY_ALIGNMENT(.text*))
         *(SORT_BY_ALIGNMENT(.rodata*))
 
-	CPU_OPS
-	PARSER_LIB_DESCS
-	GOT
+	RODATA_COMMON
 
         *(.vectors)
         __RO_END_UNALIGNED__ = .;
