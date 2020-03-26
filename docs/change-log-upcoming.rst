@@ -31,6 +31,7 @@ New Features
    - Example: "cortex-a55: Workaround for erratum 1221012"
 
 - Drivers
+   - Add DebugFS functionality
    - Example: "console: Allow the console to register multiple times"
 
 - Libraries
