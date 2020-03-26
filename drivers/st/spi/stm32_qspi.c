@@ -465,13 +465,13 @@ int stm32_qspi_init(void)
 		return -FDT_ERR_NOTFOUND;
 	}
 
-	ret = fdt_get_reg_props_by_name(qspi_node, "qspi",
+	ret = fdt_get_reg_props_by_name(fdt, qspi_node, "qspi",
 					&stm32_qspi.reg_base, &size);
 	if (ret != 0) {
 		return ret;
 	}
 
-	ret = fdt_get_reg_props_by_name(qspi_node, "qspi_mm",
+	ret = fdt_get_reg_props_by_name(fdt, qspi_node, "qspi_mm",
 					&stm32_qspi.mm_base,
 					&stm32_qspi.mm_size);
 	if (ret != 0) {
