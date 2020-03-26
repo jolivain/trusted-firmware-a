@@ -47,16 +47,8 @@ SECTIONS
         __RODATA_START__ = .;
         *(SORT_BY_ALIGNMENT(.rodata*))
 
-       . = ALIGN(8);
-        __FCONF_POPULATOR_START__ = .;
-        KEEP(*(.fconf_populator))
-        __FCONF_POPULATOR_END__ = .;
-
-        /* Ensure 8-byte alignment for descriptors and ensure inclusion */
-        . = ALIGN(8);
-        __PARSER_LIB_DESCS_START__ = .;
-        KEEP(*(.img_parser_lib_descs))
-        __PARSER_LIB_DESCS_END__ = .;
+	FCONF_POPULATOR
+	PARSER_LIB_DESCS
 
         . = ALIGN(PAGE_SIZE);
         __RODATA_END__ = .;
@@ -68,16 +60,8 @@ SECTIONS
         *(SORT_BY_ALIGNMENT(.text*))
         *(SORT_BY_ALIGNMENT(.rodata*))
 
-	. = ALIGN(8);
-         __FCONF_POPULATOR_START__ = .;
-         KEEP(*(.fconf_populator))
-         __FCONF_POPULATOR_END__ = .;
-
-        /* Ensure 8-byte alignment for descriptors and ensure inclusion */
-        . = ALIGN(8);
-        __PARSER_LIB_DESCS_START__ = .;
-        KEEP(*(.img_parser_lib_descs))
-        __PARSER_LIB_DESCS_END__ = .;
+	FCONF_POPULATOR
+	PARSER_LIB_DESCS
 
         *(.vectors)
         __RO_END_UNALIGNED__ = .;
