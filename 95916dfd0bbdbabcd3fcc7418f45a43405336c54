@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "40dd61d3_ae1dd518",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-27T18:54:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "41ee3d5b_9d55b5f3",
+      "range": {
+        "startLine": 146,
+        "startChar": 2,
+        "endLine": 146,
+        "endChar": 92
+      },
+      "revId": "95916dfd0bbdbabcd3fcc7418f45a43405336c54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e80278fd_85d67ad7",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "95916dfd0bbdbabcd3fcc7418f45a43405336c54",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb174c9d_61b05b7c",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-27T18:54:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e80278fd_85d67ad7",
+      "range": {
+        "startLine": 230,
+        "startChar": 1,
+        "endLine": 232,
+        "endChar": 2
+      },
+      "revId": "95916dfd0bbdbabcd3fcc7418f45a43405336c54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f9ec0a13_e3cd09a9",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-27T18:54:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4acb7277_3b087b9d",
+      "range": {
+        "startLine": 234,
+        "startChar": 64,
+        "endLine": 234,
+        "endChar": 71
+      },
+      "revId": "95916dfd0bbdbabcd3fcc7418f45a43405336c54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c2eeb9c_87ab596d",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_helpers.c",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2020-03-27T10:54:04Z",
       "side": 1,
       "message": "Static variable not initialized",
+      "range": {
+        "startLine": 132,
+        "startChar": 12,
+        "endLine": 132,
+        "endChar": 22
+      },
+      "revId": "95916dfd0bbdbabcd3fcc7418f45a43405336c54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf7d9842_840c95fa",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-27T18:54:07Z",
+      "side": 1,
+      "message": "Static variables need not be initialized if the value is 0. This was suggested by the static-check scripts in our CI.",
+      "parentUuid": "0c2eeb9c_87ab596d",
       "range": {
         "startLine": 132,
         "startChar": 12,
