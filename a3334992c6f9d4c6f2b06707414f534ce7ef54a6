@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "407c2ede_5d193f40",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-27T17:21:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "18ae901d_e9533b95",
+      "range": {
+        "startLine": 7,
+        "startChar": 42,
+        "endLine": 7,
+        "endChar": 54
+      },
+      "revId": "a3334992c6f9d4c6f2b06707414f534ce7ef54a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70c51090_7cb17648",
         "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
         "patchSetId": 1
