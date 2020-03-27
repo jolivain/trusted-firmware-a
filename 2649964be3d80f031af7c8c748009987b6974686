@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "3ecffa6b_e184ab13",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-27T15:17:12Z",
+      "side": 1,
+      "message": "Do you mean FVP platform only or n1sdp and SGI?",
+      "parentUuid": "69824975_c124df75",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 29
+      },
+      "revId": "2649964be3d80f031af7c8c748009987b6974686",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65a933e8_45de400f",
         "filename": "drivers/arm/gic/v3/gicv3.mk",
         "patchSetId": 4
