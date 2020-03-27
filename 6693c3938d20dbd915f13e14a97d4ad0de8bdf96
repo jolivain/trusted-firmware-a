@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "9ec09812_4c5ee9d3",
+        "filename": "Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-27T17:45:04Z",
+      "side": 1,
+      "message": "add space after # for the comments",
+      "revId": "6693c3938d20dbd915f13e14a97d4ad0de8bdf96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b6ecb5a_6f989265",
+        "filename": "Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-27T17:45:04Z",
+      "side": 1,
+      "message": "removal of 1 tab will increase readability.",
+      "revId": "6693c3938d20dbd915f13e14a97d4ad0de8bdf96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69a3d723_a73155c0",
         "filename": "Makefile",
         "patchSetId": 2
@@ -161,6 +195,30 @@
       "side": 1,
       "message": "No specific reason as such. Just followed some of build options specified in Makefile for.e.g. NEED_BL32",
       "parentUuid": "3871511f_491127ba",
+      "range": {
+        "startLine": 653,
+        "startChar": 50,
+        "endLine": 653,
+        "endChar": 68
+      },
+      "revId": "6693c3938d20dbd915f13e14a97d4ad0de8bdf96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c530fdba_6e8037f1",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-27T17:45:04Z",
+      "side": 1,
+      "message": "I agree with Maksim. Also having just 0 and 1 instead of \"yes\" and \"no\" is less error/typo proof. What happens if \"Yes\" build option is passed instead of \"yes\"?",
+      "parentUuid": "9ab05d4c_617fb4f4",
       "range": {
         "startLine": 653,
         "startChar": 50,
