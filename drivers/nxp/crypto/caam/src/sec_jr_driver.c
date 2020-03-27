@@ -17,8 +17,8 @@
 #include <sec_hw_specific.h>
 #include <sec_jr_driver.h>
 
-uint64_t get_timer_val(uint64_t start);
 #define CAAM_TIMEOUT   200000	/* ms */
+
 /* Job rings used for communication with SEC HW  */
 struct sec_job_ring_t g_job_rings[MAX_SEC_JOB_RINGS];
 
