@@ -190,6 +190,15 @@ NXP i.MX 8 platform port
 :F: docs/plat/imx8.rst
 :F: plat/imx/
 
+NXP QorIQ Layerscape platform ports and SoC drivers
+---------------------------------------------------
+:M: Pankaj Gupta <pankaj.gupta@nxp.com>
+:G: `pangupta`_
+:F: docs/plat/nxp/
+:F: plat/nxp/
+:F: drivers/nxp/
+:F: tools/nxp/
+
 NXP i.MX8M platform port
 ------------------------
 :M: Jacky Bai <ping.bai@nxp.com>
