@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f900d5f6_206ee04b",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-03-30T11:34:33Z",
+      "side": 1,
+      "message": "While this is a correct analysis of *this particular .dtb*, this is a wrong approach of DT semantics in general: Ideally the DT is provided along with the hardware, so we can\u0027t rely on anything, apart from the contract the official DT binding defines (currently held in the Linux kernel source tree: Documentation/devicetree/bindings/). The fact that TF-A provides the DT here for this particular platform is just an implementation detail.\nSo apart from the (already mentioned) fact that #address-cells and #size-cells need to be read *at runtime* from the DT, it ignores that GICC,GICH and GICV are optional, for instance.\n\nActually reading indexed address/size pairs from a \"reg\" property is a *very* common DT operation, that\u0027s why typical DT consumers (Linux kernel, U-Boot) have functions for doing this properly.\n\nI have a patch series in the work to provide this functionality, because it will be needed elsewhere (FPGA). So please hold back these patches for now, because a fix for this function (in *much* fewer lines) is part of my series.",
+      "revId": "10ae008260623be0275446f41ea00bc0d191df22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
