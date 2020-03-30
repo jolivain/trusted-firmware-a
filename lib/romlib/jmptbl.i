@@ -13,6 +13,7 @@
 # The jump table will contain an invalid instruction instead of branch
 
 rom	rom_lib_init
+fdt	fdt_getprop
 fdt	fdt_getprop_namelen
 fdt	fdt_setprop_inplace
 fdt	fdt_check_header
