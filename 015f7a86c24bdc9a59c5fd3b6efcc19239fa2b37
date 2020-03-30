@@ -16,6 +16,24 @@
       "revId": "015f7a86c24bdc9a59c5fd3b6efcc19239fa2b37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "066e258a_92bb6b24",
+        "filename": "plat/arm/board/fvp/include/fconf_hw_config_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-30T20:58:51Z",
+      "side": 1,
+      "message": "As of this moment, these helper functions are only used in fconf_hw_config_helpers.c file but I anticipate they will be very useful in the fconf_hw_config_getter.c file as well because we are in the process of implementing more driver code to extract hw device configuration info from DTB such as timer, GICv3 etc.",
+      "parentUuid": "bd80c308_b9558f65",
+      "revId": "015f7a86c24bdc9a59c5fd3b6efcc19239fa2b37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
