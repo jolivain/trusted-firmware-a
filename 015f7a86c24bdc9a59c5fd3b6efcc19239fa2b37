@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd80c308_b9558f65",
+        "filename": "plat/arm/board/fvp/include/fconf_hw_config_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-03-30T19:14:20Z",
+      "side": 1,
+      "message": "do these really need to be exposed ? seems like they are used only in the helper c file and they can static functions.",
+      "revId": "015f7a86c24bdc9a59c5fd3b6efcc19239fa2b37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
