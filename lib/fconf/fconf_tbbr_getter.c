@@ -25,20 +25,24 @@ int fconf_populate_tbbr_dyn_config(uintptr_t config)
 	const char *compatible_str = "arm,tb_fw";
 	node = fdt_node_offset_by_compatible(dtb, -1, compatible_str);
 	if (node < 0) {
-		ERROR("FCONF: Can't find %s compatible in dtb\n", compatible_str);
+		ERROR("FCONF: Can't find %s compatible in dtb\n",
+			compatible_str);
 		return node;
 	}
 
 	/* Locate the disable_auth cell and read the value */
-	err = fdtw_read_cells(dtb, node, "disable_auth", 1, &tbbr_dyn_config.disable_auth);
+	err = fdtw_read_cells(dtb, node, "disable_auth", 1,
+				&tbbr_dyn_config.disable_auth);
 	if (err < 0) {
 		WARN("FCONF: Read cell failed for `disable_auth`\n");
 		return err;
 	}
 
 	/* Check if the value is boolean */
-	if ((tbbr_dyn_config.disable_auth != 0U) && (tbbr_dyn_config.disable_auth != 1U)) {
-		WARN("Invalid value for `disable_auth` cell %d\n", tbbr_dyn_config.disable_auth);
+	if ((tbbr_dyn_config.disable_auth != 0U) &&
+	    (tbbr_dyn_config.disable_auth != 1U)) {
+		WARN("Invalid value for `disable_auth` cell %d\n",
+				tbbr_dyn_config.disable_auth);
 		return -1;
 	}
 
@@ -51,16 +55,26 @@ int fconf_populate_tbbr_dyn_config(uintptr_t config)
 	err = fdtw_read_cells(dtb, node,
 		"mbedtls_heap_addr", 2, &tbbr_dyn_config.mbedtls_heap_addr);
 	if (err < 0) {
-		ERROR("FCONF: Read cell failed for mbedtls_heap\n");
+		ERROR("FCONF: Read cell failed for 'mbedtls_heap'\n");
 		return err;
 	}
 
 	err = fdtw_read_cells(dtb, node,
 		"mbedtls_heap_size", 1, &tbbr_dyn_config.mbedtls_heap_size);
 	if (err < 0) {
-		ERROR("FCONF: Read cell failed for mbedtls_heap\n");
+		ERROR("FCONF: Read cell failed for 'mbedtls_heap'\n");
 		return err;
 	}
+
+#if MEASURED_BOOT
+	/* Retrieve BL2 hash data details from the DTB */
+	err = fdtw_read_bytes(dtb, node, "bl2_hash_data", TCG_DIGEST_SIZE,
+				&tbbr_dyn_config.bl2_hash_data);
+	if (err < 0) {
+		ERROR("FCONF: Read bytes failed for 'bl2_hash_data'\n");
+		return err;
+	}
+#endif
 
 	VERBOSE("FCONF:tbbr.disable_auth cell found with value = %d\n",
 					tbbr_dyn_config.disable_auth);
@@ -68,7 +82,10 @@ int fconf_populate_tbbr_dyn_config(uintptr_t config)
 					tbbr_dyn_config.mbedtls_heap_addr);
 	VERBOSE("FCONF:tbbr.mbedtls_heap_size cell found with value = %zu\n",
 					tbbr_dyn_config.mbedtls_heap_size);
-
+#if MEASURED_BOOT
+	VERBOSE("FCONF:tbbr.bl2_hash_data array found at address = %p\n",
+					tbbr_dyn_config.bl2_hash_data);
+#endif
 	return 0;
 }
 

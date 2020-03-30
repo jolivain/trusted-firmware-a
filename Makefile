@@ -397,6 +397,9 @@ DTC_CPPFLAGS		+=	-P -nostdinc -Iinclude -Ifdts -undef \
 
 ifeq ($(MEASURED_BOOT),1)
 DTC_CPPFLAGS		+=	-DMEASURED_BOOT -DBL2_HASH_SIZE=${TCG_DIGEST_SIZE}
+ifeq (${SPD},opteed)
+DTC_CPPFLAGS		+=	-DEVENT_LOG_SM_ADDR
+endif
 endif
 
 ################################################################################
