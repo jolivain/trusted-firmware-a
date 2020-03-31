@@ -16,6 +16,24 @@
       "revId": "a1b0d8de3e070a93212e4b10e5e2f0dea1c68707",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "464c1e63_969daf8a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-31T15:04:40Z",
+      "side": 1,
+      "message": "Both work but IIRC, refs/publish is getting deprecated in favour of refs/for/. This could be double-checked in Gerrit doc.",
+      "parentUuid": "70e62efb_77d5bb15",
+      "revId": "a1b0d8de3e070a93212e4b10e5e2f0dea1c68707",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
