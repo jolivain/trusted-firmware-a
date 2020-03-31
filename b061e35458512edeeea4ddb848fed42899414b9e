@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e7ff5592_fac5f7de",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "typo?",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 12
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "717aea6b_4423f051",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -18,6 +41,356 @@
         "startChar": 2,
         "endLine": 56,
         "endChar": 41
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91e86725_ceef3636",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "Can you please double confirm that this is not a typo?",
+      "range": {
+        "startLine": 65,
+        "startChar": 3,
+        "endLine": 65,
+        "endChar": 8
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "567b9ea2_e788cd9a",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "Is there a CASSERT in place to make sure that this macro captures the actual sizeof(event2_header_t)?",
+      "range": {
+        "startLine": 97,
+        "startChar": 22,
+        "endLine": 97,
+        "endChar": 37
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebc348de_45bc1adf",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "should this be plat_bl2_get_hash(), to allow non-arm platforms to participate?\n\nPlus, it is dangerous to pass \u0027ptr\u0027 directly to another function this way. For all we know, ptr might move past the end of the array.\n\nWe should validate \u0027ptr\u0027 to still be the same value once we return.",
+      "range": {
+        "startLine": 134,
+        "startChar": 2,
+        "endLine": 134,
+        "endChar": 18
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a3cb77c_d39f6b30",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "this was never checked to be non-NULL, before use",
+      "range": {
+        "startLine": 145,
+        "startChar": 46,
+        "endLine": 145,
+        "endChar": 50
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48f13193_9877b9de",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "We should sanity check the amount of memory we plan to copy. The same it is done in add_event2()",
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2305e49_f85d3a2c",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "what is the purpose of an assert and a panic? Should we use just a panic()? panic() will cover all the builds - even the ones that do not use asserts.",
+      "range": {
+        "startLine": 162,
+        "startChar": 2,
+        "endLine": 163,
+        "endChar": 10
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8a71cf8_6baf4363",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "Should we just use panic()?",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 10
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51b72eae_8de1a471",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "Are you relying on the compiler to replace this with strcpy()? Is this a restriction on the compiler version we can use?",
+      "range": {
+        "startLine": 250,
+        "startChar": 3,
+        "endLine": 250,
+        "endChar": 36
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8bfb0ce_0433dcfc",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "ARRAY_SIZE(images_data) ?",
+      "range": {
+        "startLine": 255,
+        "startChar": 10,
+        "endLine": 255,
+        "endChar": 52
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fddf5917_abd9df8d",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "please sanity check input pointers before use",
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7efeab2_c8a2b5fe",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "should this be a generic function to allow other platforms to participate?",
+      "range": {
+        "startLine": 288,
+        "startChar": 7,
+        "endLine": 288,
+        "endChar": 26
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4573e290_3ad8a09e",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "should this be a generic function to allow other platforms to participate?",
+      "range": {
+        "startLine": 307,
+        "startChar": 6,
+        "endLine": 307,
+        "endChar": 24
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9611d265_ac91892b",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "should there be a sanity check before using this pointer? Is there a way to verify that the pointer is valid and points to large enough memory?",
+      "range": {
+        "startLine": 318,
+        "startChar": 14,
+        "endLine": 318,
+        "endChar": 24
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0c75857_8c12adbf",
+        "filename": "drivers/measured_boot/event_print.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "please sanity check input pointers before use",
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d10b5c87_bd73cf3d",
+        "filename": "drivers/measured_boot/event_print.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "Im not a big fan of this design choice where we rely on event2_print() to control log_size. Was this done due to some design limitation or restriction?",
+      "range": {
+        "startLine": 277,
+        "startChar": 7,
+        "endLine": 277,
+        "endChar": 42
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b66ec37a_63a06306",
+        "filename": "drivers/measured_boot/measured_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-03-31T18:53:11Z",
+      "side": 1,
+      "message": "Does it make sense to provide return codes? It is easy to handle to init failures than having to work through multiple asserts/panics later. Thoughts?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 4
       },
       "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
