@@ -96,10 +96,7 @@ void gicv3_rdistif_base_addrs_probe(uintptr_t *rdistif_base_addrs,
  ******************************************************************************/
 void gicv3_spis_config_defaults(uintptr_t gicd_base)
 {
-	unsigned int i, num_ints;
-#if GIC_EXT_INTID
-	unsigned int num_eints;
-#endif
+	unsigned int i, num_ints, num_eints = 0U;
 	unsigned int typer_reg = gicd_read_typer(gicd_base);
 
 	/* Maximum SPI INTID is 32 * (GICD_TYPER.ITLinesNumber + 1) - 1 */
@@ -123,22 +120,19 @@ void gicv3_spis_config_defaults(uintptr_t gicd_base)
 					i += (1U << IGROUPR_SHIFT)) {
 			gicd_write_igroupr(gicd_base, i, ~0U);
 		}
-	} else {
-		num_eints = 0U;
 	}
-#endif
+#endif /* GIC_EXT_INTID */
 
 	/* Setup the default (E)SPI priorities doing four at a time */
 	for (i = MIN_SPI_ID; i < num_ints; i += (1U << IPRIORITYR_SHIFT)) {
 		gicd_write_ipriorityr(gicd_base, i, GICD_IPRIORITYR_DEF_VAL);
 	}
 
-#if GIC_EXT_INTID
 	for (i = MIN_ESPI_ID; i < num_eints;
 					i += (1U << IPRIORITYR_SHIFT)) {
 		gicd_write_ipriorityr(gicd_base, i, GICD_IPRIORITYR_DEF_VAL);
 	}
-#endif
+
 	/*
 	 * Treat all (E)SPIs as level triggered by default, write 16 at a time
 	 */
@@ -146,11 +140,9 @@ void gicv3_spis_config_defaults(uintptr_t gicd_base)
 		gicd_write_icfgr(gicd_base, i, 0U);
 	}
 
-#if GIC_EXT_INTID
 	for (i = MIN_ESPI_ID; i < num_eints; i += (1U << ICFGR_SHIFT)) {
 		gicd_write_icfgr(gicd_base, i, 0U);
 	}
-#endif
 }
 
 /*******************************************************************************
@@ -226,6 +218,10 @@ void gicv3_ppi_sgi_config_defaults(uintptr_t gicr_base)
 	/* Calculate number of PPI registers */
 	ppi_regs_num = (unsigned int)((gicr_read_typer(gicr_base) >>
 			TYPER_PPI_NUM_SHIFT) & TYPER_PPI_NUM_MASK) + 1;
+	/* All other values except PPInum [0-2] are reserved */
+	if (ppi_regs_num > 3) {
+		ppi_regs_num = 1U;
+	}
 #else
 	ppi_regs_num = 1U;
 #endif
