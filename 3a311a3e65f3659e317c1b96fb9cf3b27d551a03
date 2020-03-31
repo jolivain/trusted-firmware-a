@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0a9e6b7_078f6c74",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-03-31T15:48:18Z",
+      "side": 1,
+      "message": "ARMv8.5-MemTag when referring to the ARM ARM",
+      "range": {
+        "startLine": 10,
+        "startChar": 35,
+        "endLine": 10,
+        "endChar": 51
+      },
+      "revId": "3a311a3e65f3659e317c1b96fb9cf3b27d551a03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "885467d0_1722a3c6",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-03-31T15:48:18Z",
+      "side": 1,
+      "message": "Armv8.5-A AArch64",
+      "range": {
+        "startLine": 190,
+        "startChar": 46,
+        "endLine": 190,
+        "endChar": 63
+      },
+      "revId": "3a311a3e65f3659e317c1b96fb9cf3b27d551a03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fab6f10_92225aa8",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-03-31T15:48:18Z",
+      "side": 1,
+      "message": "Should this be \"none\" to be consistent with other options?",
+      "range": {
+        "startLine": 671,
+        "startChar": 64,
+        "endLine": 671,
+        "endChar": 66
+      },
+      "revId": "3a311a3e65f3659e317c1b96fb9cf3b27d551a03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "398dcc8f_1b12e186",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-03-31T15:48:18Z",
+      "side": 1,
+      "message": "greater than Armv8.5-A",
+      "range": {
+        "startLine": 673,
+        "startChar": 24,
+        "endLine": 673,
+        "endChar": 34
+      },
+      "revId": "3a311a3e65f3659e317c1b96fb9cf3b27d551a03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e20cc8b8_4decad2b",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-03-31T15:48:18Z",
+      "side": 1,
+      "message": "greater than Armv8.5-A",
+      "range": {
+        "startLine": 292,
+        "startChar": 53,
+        "endLine": 292,
+        "endChar": 61
+      },
+      "revId": "3a311a3e65f3659e317c1b96fb9cf3b27d551a03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
