@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a4f4a759_1a2127f9",
+        "filename": "bl2u/bl2u.ld.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-03-31T06:05:29Z",
+      "side": 1,
+      "message": "There is a good reason to do this.\n\nThe last commit in this series will put\nthe base xlat table selectively to RODATA_COMMON or BSS_SECTION.\n\nSo, all linker scripts of the image with xlat table v2\nmust have RODATA_COMMON even if it was previously empty.",
+      "parentUuid": "2c376eb8_9d1f78e9",
+      "revId": "f8804bea9a462e8f5a6e288a2f16dfe76f15d567",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fd9a906f_537724cb",
         "filename": "bl2u/bl2u.ld.S",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2020-03-26T13:33:33Z",
       "side": 1,
       "message": "(minor) Remove trailing tab.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 1
+      },
+      "revId": "f8804bea9a462e8f5a6e288a2f16dfe76f15d567",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8889dc6_f5ae90ff",
+        "filename": "bl2u/bl2u.ld.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-03-31T06:05:29Z",
+      "side": 1,
+      "message": "Will fix.",
+      "parentUuid": "fd9a906f_537724cb",
       "range": {
         "startLine": 63,
         "startChar": 0,
