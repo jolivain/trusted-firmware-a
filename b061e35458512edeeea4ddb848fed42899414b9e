@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cfe1633b_e1eeeb51",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-31T20:50:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e7ff5592_fac5f7de",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 12
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "717aea6b_4423f051",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6f608655_bf29d866",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-31T20:50:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "717aea6b_4423f051",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 41
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91e86725_ceef3636",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2020-03-31T18:53:11Z",
       "side": 1,
       "message": "Can you please double confirm that this is not a typo?",
+      "range": {
+        "startLine": 65,
+        "startChar": 3,
+        "endLine": 65,
+        "endChar": 8
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "739fd246_bf7d70e9",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-31T20:50:46Z",
+      "side": 1,
+      "message": "This field is named \"TCG_EfiSpecIdEvent.uintnSize\" in TCG PC Client Platform Firmware Profile\nSpecification",
+      "parentUuid": "91e86725_ceef3636",
       "range": {
         "startLine": 65,
         "startChar": 3,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "838439c5_ccbe6216",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-31T20:50:46Z",
+      "side": 1,
+      "message": "EVENT2_HDR_SIZE is defined as:\n#define EVENT2_HDR_SIZE\tsizeof(event2_header_t) + \\\n\t\t\tsizeof(tpmt_ha) + TCG_DIGEST_SIZE + \\\n\t\t\tsizeof(event2_data_t)\n\nPlease explain what you mean by \"captures the actual sizeof(event2_header_t)\".",
+      "parentUuid": "567b9ea2_e788cd9a",
+      "range": {
+        "startLine": 97,
+        "startChar": 22,
+        "endLine": 97,
+        "endChar": 37
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ebc348de_45bc1adf",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "34fb1608_cca33a9d",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-31T20:50:46Z",
+      "side": 1,
+      "message": "All Dyn Cfg code and this function is currently in \\plat\\arm\\common\\arm_dyn_cfg.c \u0026 arm_dyn_cfg_helpers.c. I can rename it \u0026 add a new function in a platform layer.\n\u0027ptr\u0027 is the pointer and is passed by value. Please explain what you mean.",
+      "parentUuid": "ebc348de_45bc1adf",
+      "range": {
+        "startLine": 134,
+        "startChar": 2,
+        "endLine": 134,
+        "endChar": 18
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a3cb77c_d39f6b30",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2020-03-31T18:53:11Z",
       "side": 1,
       "message": "this was never checked to be non-NULL, before use",
+      "range": {
+        "startLine": 145,
+        "startChar": 46,
+        "endLine": 145,
+        "endChar": 50
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c9c835d_7e8a66e2",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-31T20:50:46Z",
+      "side": 1,
+      "message": "add_even2() function gets \u0027name\u0027 parameter as BL2_STRING or from record_measurement() which passes it from the array below:\nstatic const image_data_t images_data[] \u003d {\n\t{ BL31_IMAGE_ID, BL31_STRING },\n\t{ BL32_IMAGE_ID, BL32_STRING },\n\t{ BL32_EXTRA1_IMAGE_ID, BL32_EXTRA1_IMAGE_STRING },\n\t{ BL32_EXTRA2_IMAGE_ID, BL32_EXTRA2_IMAGE_STRING },\n\t{ BL33_IMAGE_ID, BL33_STRING },\n\t{ HW_CONFIG_ID, HW_CONFIG_STRING },\n\t{ NT_FW_CONFIG_ID, NT_FW_CONFIG_STRING },\n\t{ SCP_BL2_IMAGE_ID, SCP_BL2_IMAGE_STRING },\n\t{ SOC_FW_CONFIG_ID, SOC_FW_CONFIG_STRING },\n\t{ TOS_FW_CONFIG_ID, TOS_FW_CONFIG_STRING }\nif the imageId is found, so \u0027name\u0027 can never be NULL.",
+      "parentUuid": "0a3cb77c_d39f6b30",
       "range": {
         "startLine": 145,
         "startChar": 46,
@@ -168,6 +312,30 @@
       "writtenOn": "2020-03-31T18:53:11Z",
       "side": 1,
       "message": "what is the purpose of an assert and a panic? Should we use just a panic()? panic() will cover all the builds - even the ones that do not use asserts.",
+      "range": {
+        "startLine": 162,
+        "startChar": 2,
+        "endLine": 163,
+        "endChar": 10
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffcbb81e_8d9e0c0a",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-31T20:50:46Z",
+      "side": 1,
+      "message": "assert() prints file name and line number in DEBUG builds. Please justify its removal.",
+      "parentUuid": "e2305e49_f85d3a2c",
       "range": {
         "startLine": 162,
         "startChar": 2,
@@ -386,6 +554,30 @@
       "writtenOn": "2020-03-31T18:53:11Z",
       "side": 1,
       "message": "Does it make sense to provide return codes? It is easy to handle to init failures than having to work through multiple asserts/panics later. Thoughts?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 4
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16c092cb_6237508f",
+        "filename": "drivers/measured_boot/measured_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-31T20:50:46Z",
+      "side": 1,
+      "message": "This function is called from \"void bl2_main(void)\" which doesn\u0027t expect/check any error codes from all the functions it calls, so use of panic() is the only practical choice now.",
+      "parentUuid": "b66ec37a_63a06306",
       "range": {
         "startLine": 14,
         "startChar": 0,
