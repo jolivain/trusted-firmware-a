@@ -16,11 +16,6 @@
 
 #include "../common/gic_common_private.h"
 
-#ifdef NSACR
-/* Fix for NSACR definition in \include\arch\aarch32\arch.h */
-#undef NSACR
-#endif
-
 /*******************************************************************************
  * GICv3 private macro definitions
  ******************************************************************************/

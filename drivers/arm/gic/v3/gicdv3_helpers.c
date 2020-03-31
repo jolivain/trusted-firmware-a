@@ -235,10 +235,10 @@ void gicd_write_ispendr(uintptr_t base, unsigned int id, unsigned int val)
  */
 unsigned int gicd_read_nsacr(uintptr_t base, unsigned int id)
 {
-	return GICD_READ(NSACR, base, id);
+	return mmio_read_32(base + GICD_OFFSET(NSACR, id));
 }
 
 void gicd_write_nsacr(uintptr_t base, unsigned int id, unsigned int val)
 {
-	GICD_WRITE(NSACR, base, id, val);
+	mmio_write_32(base + GICD_OFFSET(NSACR, id), val);
 }
