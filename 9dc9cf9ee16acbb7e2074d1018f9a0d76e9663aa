@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3b5e041f_373f1d0f",
+        "filename": "include/arch/aarch32/linkage.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-31T07:24:16Z",
+      "side": 1,
+      "message": "One advantage of this solution is that we could get rid of the aarch32/aarch64 versions of this file and keep a common one. But I guess the same argument applies if we go for REGSZ.\n\nOn the other hand, I wonder whether __SIZEOF_POINTER__ is the right macro to use here. If I am not mistaken, the chosen BSS alignement value comes from the way the zeromem() asm function from lib/aarch??/misc_helpers.S is implemented, i.e. which instructions it uses (stmia for aarch32, stp for aarch64). Also zeromem() might be called before the MMU is enabled so unaligned accesses are prohibited (they would generate an exception).\n\nFrom this perspective, it\u0027s not so much related to the size of a pointer. The register size is a better candidate, as both stmia and stp write a pair or registers.\n\nThe structure alignment value might be a different matter, I have not looked into the exact reason why we chose this specific value. Perhaps __SIZEOF_POINTER__ would be appropriate there.\n\nIn any case, I am starting to think that it would be good to add comments for these macros to explain where these values are coming from...",
+      "parentUuid": "a9da931d_72ff2d60",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 22
+      },
+      "revId": "9dc9cf9ee16acbb7e2074d1018f9a0d76e9663aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f005ef46_23efc30d",
         "filename": "include/common/bl_common.ld.h",
         "patchSetId": 2
@@ -154,6 +178,30 @@
       "side": 1,
       "message": "I think you meant platform_def.h, not platform.h\n\nOK, will include \u003cplatform.h\u003e",
       "parentUuid": "f005ef46_23efc30d",
+      "range": {
+        "startLine": 85,
+        "startChar": 11,
+        "endLine": 85,
+        "endChar": 34
+      },
+      "revId": "9dc9cf9ee16acbb7e2074d1018f9a0d76e9663aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99845767_d1dd4948",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-03-31T07:24:16Z",
+      "side": 1,
+      "message": "Yes sorry, I meant platform_def.h.",
+      "parentUuid": "b12283db_86e53df5",
       "range": {
         "startLine": 85,
         "startChar": 11,
