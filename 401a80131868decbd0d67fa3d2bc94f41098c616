@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0248da66_009d51f6",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-03-31T15:33:58Z",
+      "side": 1,
+      "message": "Yes, because most other projects extend libfdt by functions also starting with fdt_, if they provide generic functionality. Also I found this fdtw_ prefix somewhat confusing. But if people insist on it, I have no problem with changing this part.",
+      "parentUuid": "371a5bc2_a747bb2b",
+      "revId": "401a80131868decbd0d67fa3d2bc94f41098c616",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a3434d28_08f7cfc1",
         "filename": "include/common/fdt_wrappers.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-03-31T15:20:40Z",
       "side": 1,
       "message": "\"uint32_t *\" is not consistent with \"void *\" used in all other functions.",
+      "revId": "401a80131868decbd0d67fa3d2bc94f41098c616",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f34d3c3_7dbeb677",
+        "filename": "include/common/fdt_wrappers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-03-31T15:33:58Z",
+      "side": 1,
+      "message": "Because void* is honestly wrong, and an invitation for trouble, since it disables type checking. And particularly in this case we were reading chunks of uint32_t values, and converting their endianess, so it definitely should be uint32_t * here.",
+      "parentUuid": "a3434d28_08f7cfc1",
       "revId": "401a80131868decbd0d67fa3d2bc94f41098c616",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
