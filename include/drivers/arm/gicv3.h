@@ -33,6 +33,8 @@
 /* GICv3.1 extended PPIs INTIDs 1056-1119 */
 #define MIN_EPPI_ID		U(1056)
 #define MAX_EPPI_ID		U(1119)
+
+/* Total number of GICv3.1 EPPIs */
 #define TOTAL_EPPI_INTR_NUM	(MAX_EPPI_ID - MIN_EPPI_ID + U(1))
 
 /* Total number of GICv3.1 PPIs and EPPIs */
@@ -41,6 +43,8 @@
 /* GICv3.1 extended SPIs INTIDs 4096 - 5119 */
 #define MIN_ESPI_ID		U(4096)
 #define MAX_ESPI_ID		U(5119)
+
+/* Total number of GICv3.1 ESPIs */
 #define TOTAL_ESPI_INTR_NUM	(MAX_ESPI_ID - MIN_ESPI_ID + U(1))
 
 /* Total number of GICv3.1 SPIs and ESPIs */

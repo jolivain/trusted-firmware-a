@@ -126,7 +126,7 @@ void gicv3_spis_config_defaults(uintptr_t gicd_base)
 	} else {
 		num_eints = 0U;
 	}
-#endif
+#endif /* GIC_EXT_INTID */
 
 	/* Setup the default (E)SPI priorities doing four at a time */
 	for (i = MIN_SPI_ID; i < num_ints; i += (1U << IPRIORITYR_SHIFT)) {
@@ -226,6 +226,10 @@ void gicv3_ppi_sgi_config_defaults(uintptr_t gicr_base)
 	/* Calculate number of PPI registers */
 	ppi_regs_num = (unsigned int)((gicr_read_typer(gicr_base) >>
 			TYPER_PPI_NUM_SHIFT) & TYPER_PPI_NUM_MASK) + 1;
+	/* All other values except PPInum [0-2] are reserved */
+	if (ppi_regs_num > 3U) {
+		ppi_regs_num = 1U;
+	}
 #else
 	ppi_regs_num = 1U;
 #endif
