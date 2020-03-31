@@ -28,19 +28,22 @@
 /* PPIs INTIDs 16-31 */
 #define MAX_PPI_ID		U(31)
 
-#if GIC_EXT_INTID
-
 /* GICv3.1 extended PPIs INTIDs 1056-1119 */
 #define MIN_EPPI_ID		U(1056)
 #define MAX_EPPI_ID		U(1119)
+
+/* GICv3.1 extended SPIs INTIDs 4096 - 5119 */
+#define MIN_ESPI_ID		U(4096)
+#define MAX_ESPI_ID		U(5119)
+
+#if GIC_EXT_INTID
+
 #define TOTAL_EPPI_INTR_NUM	(MAX_EPPI_ID - MIN_EPPI_ID + U(1))
 
 /* Total number of GICv3.1 PPIs and EPPIs */
 #define TOTAL_PRIVATE_INTR_NUM	(TOTAL_PCPU_INTR_NUM + TOTAL_EPPI_INTR_NUM)
 
-/* GICv3.1 extended SPIs INTIDs 4096 - 5119 */
-#define MIN_ESPI_ID		U(4096)
-#define MAX_ESPI_ID		U(5119)
+/* Total number of GICv3.1 ESPIs */
 #define TOTAL_ESPI_INTR_NUM	(MAX_ESPI_ID - MIN_ESPI_ID + U(1))
 
 /* Total number of GICv3.1 SPIs and ESPIs */
