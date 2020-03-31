@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c38a4247_88ff77ed",
+        "filename": "include/drivers/brcm/dmu.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-31T19:43:57Z",
+      "side": 1,
+      "message": "what is the acronym for DMU?",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc2a15ce_e1a11d2f",
+        "filename": "plat/brcm/board/stingray/driver/ihost_pll_config.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-31T19:43:57Z",
+      "side": 1,
+      "message": "what is the acronym for ARMCOE_crm?",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e1f4bc7_bb5f5c83",
+        "filename": "plat/brcm/board/stingray/driver/ihost_pll_config.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-31T19:43:57Z",
+      "side": 1,
+      "message": "unsigned int?",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55d2402a_dfc5901a",
+        "filename": "plat/brcm/board/stingray/driver/ihost_pll_config.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-31T19:43:57Z",
+      "side": 1,
+      "message": "what are the units for delay? milliseconds vs microseconds?",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0741f55c_080a6bab",
+        "filename": "plat/brcm/board/stingray/driver/ihost_pll_config.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-31T19:43:57Z",
+      "side": 1,
+      "message": "Is it intentionally empty? why not use udelay() or mdelay() API?",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a83d434_dbae16a9",
+        "filename": "plat/brcm/board/stingray/platform.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-31T19:43:57Z",
+      "side": 1,
+      "message": "Please refer to changes in this patch and make necessary changes to include gicv3 makefile here. \nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/3754",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f542fb4_ae4f3084",
+        "filename": "plat/brcm/board/stingray/src/topology.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-31T19:43:57Z",
+      "side": 1,
+      "message": "nit: stingray",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1863c898_2cf849a0",
+        "filename": "plat/brcm/board/stingray/src/topology.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-31T19:43:57Z",
+      "side": 1,
+      "message": "PLAT_BRCM_CLUSTER_COUNT is 4. Is there a 5th cluster?",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81257964_66372cd4",
+        "filename": "plat/brcm/common/brcm_bl31_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-03-31T19:43:57Z",
+      "side": 1,
+      "message": "I think you use the symbols BL_COHERENT_RAM_BASE/END directly rather than defining new ones.",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
