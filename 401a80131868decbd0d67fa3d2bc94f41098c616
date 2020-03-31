@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "371a5bc2_a747bb2b",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-31T15:20:40Z",
+      "side": 1,
+      "message": "In TF-A functions names\"fdtw\" stands for FDT Wrapper, why did you decide to change to \"fdt\" to \"align the code more with other DT users\"?",
+      "revId": "401a80131868decbd0d67fa3d2bc94f41098c616",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3434d28_08f7cfc1",
+        "filename": "include/common/fdt_wrappers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-03-31T15:20:40Z",
+      "side": 1,
+      "message": "\"uint32_t *\" is not consistent with \"void *\" used in all other functions.",
+      "revId": "401a80131868decbd0d67fa3d2bc94f41098c616",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
