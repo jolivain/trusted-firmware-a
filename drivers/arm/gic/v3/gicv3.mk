@@ -8,6 +8,8 @@
 GICV3_IMPL			?=	GIC500
 GICV3_IMPL_GIC600_MULTICHIP	?=	0
 GICV3_OVERRIDE_DISTIF_PWR_OPS	?=	0
+GIC_EXT_INTID			?=	0
+
 
 GICV3_SOURCES	+=	drivers/arm/gic/v3/gicv3_main.c		\
 			drivers/arm/gic/v3/gicv3_helpers.c	\
@@ -31,3 +33,6 @@ GICV3_SOURCES	+=	drivers/arm/gic/v3/gic500.c
 else
 $(error "Incorrect GICV3_IMPL value ${GICV3_IMPL}")
 endif
+
+# Set support for extended PPI and SPI range
+$(eval $(call add_define,GIC_EXT_INTID))

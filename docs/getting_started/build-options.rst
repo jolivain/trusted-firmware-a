@@ -649,6 +649,11 @@ Common build options
    cluster platforms). If this option is enabled, then warm boot path
    enables D-caches immediately after enabling MMU. This option defaults to 0.
 
+-  ``SUPPORT_STACK_MEMTAG``: This flag determines whether to enable memory
+   tagging for stack or not. It accepts 2 values: ``yes`` and ``no``. The
+   default value of this flag is ``no``. Note this option must be enabled only
+   for ARM architecture greater than Armv8.5-A.
+
 GICv3 driver options
 --------------------
 
@@ -669,6 +674,9 @@ makefile:
    of ``arm_gicv3_distif_pre_save`` and ``arm_gicv3_distif_post_restore``
    functions. This is required for FVP platform which need to simulate GIC save
    and restore during SYSTEM_SUSPEND without powering down GIC. Default is 0.
+
+-  ``GIC_EXT_INTID``: When set to ``1``, GICv3 driver will support extended
+   PPI (1056-1119) and SPI (4096-5119) range. This option defaults to 0.
 
 Debugging options
 -----------------
