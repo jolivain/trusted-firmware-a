@@ -92,7 +92,7 @@ void mt_gic_rdistif_init(void)
 	mmio_write_32(gicr_base + GICR_IGRPMODR0, 0x0);
 
 	/* setup the default PPI/SGI priorities */
-	for (index = 0; index < TOTAL_PCPU_INTR_NUM; index += 4U)
+	for (index = 0; index < TOTAL_PCPU_INTR_NUM / 4; index++)
 		gicr_write_ipriorityr(gicr_base, index,
 				GICD_IPRIORITYR_DEF_VAL);
 }
