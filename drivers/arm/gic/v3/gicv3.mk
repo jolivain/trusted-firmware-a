@@ -9,8 +9,7 @@ GICV3_IMPL			?=	GIC500
 GICV3_IMPL_GIC600_MULTICHIP	?=	0
 GICV3_OVERRIDE_DISTIF_PWR_OPS	?=	0
 
-GICV3_SOURCES	+=	drivers/arm/gic/common/gic_common.c	\
-			drivers/arm/gic/v3/gicv3_main.c		\
+GICV3_SOURCES	+=	drivers/arm/gic/v3/gicv3_main.c		\
 			drivers/arm/gic/v3/gicv3_helpers.c	\
 			drivers/arm/gic/v3/gicdv3_helpers.c	\
 			drivers/arm/gic/v3/gicrv3_helpers.c
