@@ -347,6 +347,9 @@ Common build options
    .. __: platform-interrupt-controller-API.rst
    .. __: interrupt-framework-design.rst
 
+-  ``GIC_EXT_INTID``: When set to ``1``, GICv3 driver will support extended
+   PPI (1056-1119) and SPI (4096-5119) range. This option defaults to 0.
+
 -  ``HANDLE_EA_EL3_FIRST``: When set to ``1``, External Aborts and SError
    Interrupts will be always trapped in EL3 i.e. in BL31 at runtime. When set to
    ``0`` (default), these exceptions will be trapped in the current exception
@@ -648,6 +651,11 @@ Common build options
    require interconnect programming to enable cache coherency (eg: single
    cluster platforms). If this option is enabled, then warm boot path
    enables D-caches immediately after enabling MMU. This option defaults to 0.
+
+-  ``SUPPORT_STACK_MEMTAG``: This flag determines whether to enable memory
+   tagging for stack or not. It accepts 2 values: ``yes`` and ``no``. The
+   default value of this flag is ``no``. Note this option must be enabled only
+   for ARM architecture greater than Armv8.5-A.
 
 GICv3 driver options
 --------------------

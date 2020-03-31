@@ -142,6 +142,9 @@ FW_ENC_STATUS			:= 0
 # For Chain of Trust
 GENERATE_COT			:= 0
 
+# GICv3 and 4 driver with no extended PPI and SPI range by default
+GIC_EXT_INTID			:= 0
+
 # Hint platform interrupt control layer that Group 0 interrupts are for EL3. By
 # default, they are for Secure EL1.
 GICV2_G0_FOR_EL3		:= 0
