@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "717aea6b_4423f051",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-03-31T18:05:03Z",
+      "side": 1,
+      "message": "The last member of id_event_struct_header_t is an array of id_event_algorithm_size_t, so its size needs to be added here as well:\n\n.event_size \u003d sizeof(id_event_struct_t) + sizeof(id_event_algorithm_size_t) * HASH_ALG_COUNT",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 41
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f765859_55d2a01c",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-03-31T18:05:03Z",
+      "side": 1,
+      "message": "sm_log_addr",
+      "range": {
+        "startLine": 182,
+        "startChar": 32,
+        "endLine": 182,
+        "endChar": 40
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76614352_6fae0080",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-03-31T18:05:03Z",
+      "side": 1,
+      "message": "This \"and\" does not make sense here to me.",
+      "range": {
+        "startLine": 216,
+        "startChar": 58,
+        "endLine": 216,
+        "endChar": 62
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
