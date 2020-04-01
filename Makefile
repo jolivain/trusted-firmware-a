@@ -461,7 +461,6 @@ SPDS			:=	$(sort $(filter-out none, $(patsubst services/spd/%,%,$(wildcard servi
 # Platforms providing their own TBB makefile may override this value
 INCLUDE_TBBR_MK		:=	1
 
-
 ################################################################################
 # Include SPD Makefile if one has been specified
 ################################################################################
@@ -485,6 +484,10 @@ ifneq (${SPD},none)
             ifeq ($(CTX_INCLUDE_EL2_REGS),0)
                 $(error SPMD with SPM at S-EL2 requires CTX_INCLUDE_EL2_REGS option)
             endif
+        endif
+
+        ifeq ($(findstring optee_sp,$(SPMC_MANIFEST_DTS)),optee_sp)
+            DTC_CPPFLAGS		+=	-DOPTEE_SP_FW_CONFIG
         endif
     else
         # All other SPDs in spd directory
