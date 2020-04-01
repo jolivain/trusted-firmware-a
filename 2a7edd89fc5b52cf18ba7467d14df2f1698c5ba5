@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "7b1b4f8b_d1867eb1",
+        "filename": "plat/nxp/common/ddr_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2020-04-01T06:58:34Z",
+      "side": 1,
+      "message": "The open_ddr_fip is actually a check function which is meant to return 0 of this fip handle is valid. This is part of plat_io_policy.",
+      "parentUuid": "725bef92_168fd0d1",
+      "range": {
+        "startLine": 139,
+        "startChar": 3,
+        "endLine": 139,
+        "endChar": 31
+      },
+      "revId": "2a7edd89fc5b52cf18ba7467d14df2f1698c5ba5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6df92d18_9badea31",
         "filename": "plat/nxp/common/ls_bl2_el3_setup.c",
         "patchSetId": 1
