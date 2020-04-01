@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9943c3a_68dfee2c",
+        "filename": "include/lib/el3_runtime/context_mgmt.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-01T07:37:35Z",
+      "side": 1,
+      "message": "I don\u0027t believe this is the right way to fix the issue. As you can see at line 21, there\u0027s a forward declaration of the entry_point_info struct. This was added to avoid pulling a potentially deep nested chain of other header files. Other prototypes in this file (cm_init_my_context() and cm_init_context_by_index()) use a struct entry_point_info rather than an entry_point_info_t. It looks like cm_setup_context() was missed.\n\nSo I suggest removing the inclusion of ep_info.h in this file and changing the prototype cm_setup_context() to use struct entry_point_info rather than the typedef\u0027ed version of it.",
+      "revId": "7655b0ab5f72eaa570c85193a40994657b98a4b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55d8b750_cf5c7370",
+        "filename": "include/lib/el3_runtime/context_mgmt.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-01T07:37:35Z",
+      "side": 1,
+      "message": "(minor) I don\u0027t think such a small change warrants an update to the copyright header...",
+      "range": {
+        "startLine": 3,
+        "startChar": 3,
+        "endLine": 3,
+        "endChar": 63
+      },
+      "revId": "7655b0ab5f72eaa570c85193a40994657b98a4b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
