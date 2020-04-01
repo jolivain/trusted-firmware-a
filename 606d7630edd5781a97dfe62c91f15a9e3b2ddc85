@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6962c10a_fc2275ad",
+        "filename": "plat/nvidia/tegra/common/tegra_fiq_glue.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-01T21:25:37Z",
+      "side": 1,
+      "message": "Why was plat_ic_end_of_interrupt removed ? You will still have an FIQ storm if you dont mark it no?",
+      "range": {
+        "startLine": 97,
+        "startChar": 1,
+        "endLine": 97,
+        "endChar": 6
+      },
+      "revId": "606d7630edd5781a97dfe62c91f15a9e3b2ddc85",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
