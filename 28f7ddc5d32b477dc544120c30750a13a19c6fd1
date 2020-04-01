@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc6f587b_d5066e35",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-01T11:03:03Z",
+      "side": 1,
+      "message": "Sorry, just saw that I missed to write the result into gicv3_config here, just like the original code ;-) Must be a rebase artifact, since this was the original purpose of this patch.\nJust fixed this. (same below for the redist)",
+      "revId": "28f7ddc5d32b477dc544120c30750a13a19c6fd1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
