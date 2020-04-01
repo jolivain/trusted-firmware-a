@@ -348,6 +348,30 @@
     },
     {
       "key": {
+        "uuid": "df6dc276_6e879164",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-01T13:15:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ffcbb81e_8d9e0c0a",
+      "range": {
+        "startLine": 162,
+        "startChar": 2,
+        "endLine": 163,
+        "endChar": 10
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8a71cf8_6baf4363",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -368,6 +392,30 @@
       "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a37a6e8_09420c43",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-01T13:15:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f8a71cf8_6baf4363",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 10
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -475,6 +523,24 @@
     },
     {
       "key": {
+        "uuid": "88563dbe_fe002bd5",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-01T13:15:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fddf5917_abd9df8d",
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7efeab2_c8a2b5fe",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -495,6 +561,30 @@
       "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb0649b8_7202d5cf",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-01T13:15:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c7efeab2_c8a2b5fe",
+      "range": {
+        "startLine": 288,
+        "startChar": 7,
+        "endLine": 288,
+        "endChar": 26
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -521,6 +611,30 @@
     },
     {
       "key": {
+        "uuid": "c637359c_324c9866",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-01T13:15:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4573e290_3ad8a09e",
+      "range": {
+        "startLine": 307,
+        "startChar": 6,
+        "endLine": 307,
+        "endChar": 24
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9611d265_ac91892b",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -532,6 +646,30 @@
       "writtenOn": "2020-03-31T18:53:11Z",
       "side": 1,
       "message": "should there be a sanity check before using this pointer? Is there a way to verify that the pointer is valid and points to large enough memory?",
+      "range": {
+        "startLine": 318,
+        "startChar": 14,
+        "endLine": 318,
+        "endChar": 24
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "683d8a73_6456bd88",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-01T13:15:42Z",
+      "side": 1,
+      "message": "\u0027ns_log_addr\u0027 is calculated in platform layer. In case of an error plat_set_nt_fw_info() will set \u0027ns_log_addr\u0027 to NULL and return \u0027rc \u003c 0\u0027 which is checked at line #312, NULL pointer won\u0027t be accessed.",
+      "parentUuid": "9611d265_ac91892b",
       "range": {
         "startLine": 318,
         "startChar": 14,
