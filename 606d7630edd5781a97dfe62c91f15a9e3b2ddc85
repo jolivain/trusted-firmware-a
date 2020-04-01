@@ -70,6 +70,30 @@
       "revId": "606d7630edd5781a97dfe62c91f15a9e3b2ddc85",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed65563a_4e58a926",
+        "filename": "plat/nvidia/tegra/common/tegra_fiq_glue.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T21:45:31Z",
+      "side": 1,
+      "message": "You are right. I tested this change again and I dont get an interrupt storm. But it makes sense to add the EOI back for completeness.",
+      "parentUuid": "dae68952_2aa05b42",
+      "range": {
+        "startLine": 97,
+        "startChar": 1,
+        "endLine": 97,
+        "endChar": 6
+      },
+      "revId": "606d7630edd5781a97dfe62c91f15a9e3b2ddc85",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
