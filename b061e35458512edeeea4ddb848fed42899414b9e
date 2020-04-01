@@ -477,6 +477,30 @@
     },
     {
       "key": {
+        "uuid": "3ea17017_4379f4b4",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-01T16:09:56Z",
+      "side": 1,
+      "message": "As this is just a pointer assignment, there is no any \"strcpy()\" or other copy operations involved, so there is no any \"restriction on the compiler version we can use\".\nFor optimisation I removed \u0027image_name\u0027 variable and now pass \u0027images_data[i].name\u0027 to add_event2() directly.",
+      "parentUuid": "51b72eae_8de1a471",
+      "range": {
+        "startLine": 250,
+        "startChar": 3,
+        "endLine": 250,
+        "endChar": 36
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b8bfb0ce_0433dcfc",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
