@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f39c5574_3596bf3a",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-01T13:30:06Z",
+      "side": 1,
+      "message": "Why this change?\n\nIf it\u0027s needed, please make sure it does not revert changes made in commit 033648652f2d66abe2454a75ded891a47cb13446 (\"Make TF UUID RFC 4122 compliant\"), it might be fine but I\u0027d rather double-check with you.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 2
+      },
+      "revId": "baa0e9a550e5248690ba5b9ddd98b3b678ec9f16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "536609b7_f5bfa51c",
+        "filename": "bl31/interrupt_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-01T13:30:06Z",
+      "side": 1,
+      "message": "I can\u0027t figure out what part of this macro made this evaluate to anything else than a 32-bit value, could you please elaborate?",
+      "range": {
+        "startLine": 155,
+        "startChar": 18,
+        "endLine": 155,
+        "endChar": 73
+      },
+      "revId": "baa0e9a550e5248690ba5b9ddd98b3b678ec9f16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8233a421_5adabcce",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-01T13:30:06Z",
+      "side": 1,
+      "message": "Why is this change needed only for SCTLR_EL1 but not for other SCTLR_ELx (which all seem to be 64 bit registers in AArch64 state)?",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 50
+      },
+      "revId": "baa0e9a550e5248690ba5b9ddd98b3b678ec9f16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
