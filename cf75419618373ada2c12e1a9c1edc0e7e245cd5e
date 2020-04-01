@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4b274871_4460ef1b",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "295ddc47_4abd2afd",
+      "range": {
+        "startLine": 80,
+        "startChar": 14,
+        "endLine": 80,
+        "endChar": 18
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d08c6ac9_0e15bac8",
         "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2020-03-30T16:04:10Z",
       "side": 1,
       "message": "Is returning SD_INVALID_HANDLE more appropriate here? That\u0027s what the other functions below returns if handle is NULL.",
+      "range": {
+        "startLine": 84,
+        "startChar": 9,
+        "endLine": 84,
+        "endChar": 13
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1aa78ed6_b5fc116c",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "Yes. Will update this.",
+      "parentUuid": "d08c6ac9_0e15bac8",
       "range": {
         "startLine": 84,
         "startChar": 9,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "646b34a7_3c9b6344",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "I think it will get casted automatically.",
+      "parentUuid": "70b1024a_faf61359",
+      "range": {
+        "startLine": 168,
+        "startChar": 60,
+        "endLine": 168,
+        "endChar": 68
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "83066f7b_646404a6",
         "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "8f8d4c20_09f2f82e",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "same as above",
+      "parentUuid": "83066f7b_646404a6",
+      "range": {
+        "startLine": 169,
+        "startChar": 9,
+        "endLine": 169,
+        "endChar": 17
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "377495fe_e73a160b",
         "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2020-03-30T16:04:10Z",
       "side": 1,
       "message": "Nit: remove space.",
+      "range": {
+        "startLine": 199,
+        "startChar": 24,
+        "endLine": 199,
+        "endChar": 25
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76679024_691e32aa",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "Not sure why? but this cast is similar to typecasts used in other places[grep \"(struct.*\\*)\"]",
+      "parentUuid": "377495fe_e73a160b",
       "range": {
         "startLine": 199,
         "startChar": 24,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "a33a855c_e08c115c",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "Made to void",
+      "parentUuid": "d33e4ad6_e6049242",
+      "range": {
+        "startLine": 319,
+        "startChar": 34,
+        "endLine": 319,
+        "endChar": 43
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "664381b9_151d89ad",
         "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
         "patchSetId": 4
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "ccc807d5_fb5ce413",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "664381b9_151d89ad",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 338,
+        "endChar": 8
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9a97632_488beecb",
         "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
         "patchSetId": 4
@@ -197,6 +365,30 @@
       "writtenOn": "2020-03-30T16:04:10Z",
       "side": 1,
       "message": "Maybe return SD_OK here to make it more consistent. Not sure what the return code should be for \u0027return 1\u0027 above though. May be add 1 in the list of return codes.",
+      "range": {
+        "startLine": 351,
+        "startChar": 9,
+        "endLine": 351,
+        "endChar": 10
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6910c8e_8dee4c29",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "The API returns -ve value on error, 0 if the capability not supported else 1",
+      "parentUuid": "c9a97632_488beecb",
       "range": {
         "startLine": 351,
         "startChar": 9,
@@ -232,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "1581b94e_42a82356",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e8b5726_52a18ae5",
+      "range": {
+        "startLine": 355,
+        "startChar": 8,
+        "endLine": 355,
+        "endChar": 15
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90439a6f_2a0e42bb",
         "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
         "patchSetId": 4
@@ -243,6 +459,30 @@
       "writtenOn": "2020-03-30T16:04:10Z",
       "side": 1,
       "message": "This value is unsigned. Need some kind of conversion.",
+      "range": {
+        "startLine": 396,
+        "startChar": 1,
+        "endLine": 396,
+        "endChar": 7
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7e52cc7_eef90038",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "changed return type to uint32_t",
+      "parentUuid": "90439a6f_2a0e42bb",
       "range": {
         "startLine": 396,
         "startChar": 1,
@@ -278,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "102ba1cd_7b195762",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "changed return type",
+      "parentUuid": "daba2ef5_232ea3c2",
+      "range": {
+        "startLine": 412,
+        "startChar": 1,
+        "endLine": 412,
+        "endChar": 7
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0e2021d4_0aaabb1d",
         "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
         "patchSetId": 4
@@ -298,6 +562,30 @@
       "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72d08105_a2b35063",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e2021d4_0aaabb1d",
+      "range": {
+        "startLine": 453,
+        "startChar": 8,
+        "endLine": 453,
+        "endChar": 9
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -324,6 +612,30 @@
     },
     {
       "key": {
+        "uuid": "69899d9b_541a5928",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f1984c3_f29e6a38",
+      "range": {
+        "startLine": 459,
+        "startChar": 48,
+        "endLine": 459,
+        "endChar": 55
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43b7cabf_2ee7ae97",
         "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
         "patchSetId": 4
@@ -344,6 +656,30 @@
       "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cc6668c_0a3093ce",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43b7cabf_2ee7ae97",
+      "range": {
+        "startLine": 505,
+        "startChar": 1,
+        "endLine": 505,
+        "endChar": 7
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -370,6 +706,30 @@
     },
     {
       "key": {
+        "uuid": "40dc2510_ca09f1ca",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a36c00e9_272736c4",
+      "range": {
+        "startLine": 588,
+        "startChar": 41,
+        "endLine": 588,
+        "endChar": 53
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e22c6dc_cdf6daa5",
         "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
         "patchSetId": 4
@@ -381,6 +741,30 @@
       "writtenOn": "2020-03-30T16:04:10Z",
       "side": 1,
       "message": "same here.",
+      "range": {
+        "startLine": 590,
+        "startChar": 36,
+        "endLine": 590,
+        "endChar": 52
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77d6dd50_f3474882",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "I think this is not needed",
+      "parentUuid": "7e22c6dc_cdf6daa5",
       "range": {
         "startLine": 590,
         "startChar": 36,
@@ -416,6 +800,30 @@
     },
     {
       "key": {
+        "uuid": "751fad7c_b10dc2ce",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "will rearrange the code",
+      "parentUuid": "b8070d93_bd5cb97c",
+      "range": {
+        "startLine": 701,
+        "startChar": 9,
+        "endLine": 701,
+        "endChar": 14
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "007f129d_66908ffb",
         "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
         "patchSetId": 4
@@ -427,6 +835,30 @@
       "writtenOn": "2020-03-30T16:04:10Z",
       "side": 1,
       "message": "Is it possible this value might always be 1? If I understand correctly we are Anding \u0027mask\u0027 with itself.",
+      "range": {
+        "startLine": 934,
+        "startChar": 10,
+        "endLine": 936,
+        "endChar": 34
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96357250_7e00f4de",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "The register is W1C, So on writing mask will clear the bit",
+      "parentUuid": "007f129d_66908ffb",
       "range": {
         "startLine": 934,
         "startChar": 10,
@@ -462,6 +894,30 @@
     },
     {
       "key": {
+        "uuid": "a6ab8150_22c9f675",
+        "filename": "drivers/brcm/emmc/emmc_csl_sdcmd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "added check with msg",
+      "parentUuid": "e2fadca9_1c8832fa",
+      "range": {
+        "startLine": 47,
+        "startChar": 3,
+        "endLine": 47,
+        "endChar": 13
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "93be47a8_ecfc52cd",
         "filename": "drivers/brcm/emmc/emmc_pboot_hal_memory_drv.c",
         "patchSetId": 4
@@ -473,6 +929,30 @@
       "writtenOn": "2020-03-30T16:04:10Z",
       "side": 1,
       "message": "It\u0027s a good idea to do NULL pointer check before using sd_handle.",
+      "range": {
+        "startLine": 59,
+        "startChar": 5,
+        "endLine": 59,
+        "endChar": 14
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2213a750_f0c8e5a2",
+        "filename": "drivers/brcm/emmc/emmc_pboot_hal_memory_drv.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "Not needed I think, since sdio_gethandle() will always return addr of global var \u0027emmc_global_buf.sd_handle\u0027",
+      "parentUuid": "93be47a8_ecfc52cd",
       "range": {
         "startLine": 59,
         "startChar": 5,
@@ -508,6 +988,30 @@
     },
     {
       "key": {
+        "uuid": "12dcac0e_a6699350",
+        "filename": "drivers/brcm/emmc/emmc_pboot_hal_memory_drv.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35a93662_88f522e8",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 22
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f266a20_2d6ad9a4",
         "filename": "include/drivers/brcm/emmc/emmc_chal_sd.h",
         "patchSetId": 4
@@ -528,6 +1032,30 @@
       "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2f31b93_c48cab83",
+        "filename": "include/drivers/brcm/emmc/emmc_chal_sd.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f266a20_2d6ad9a4",
+      "range": {
+        "startLine": 141,
+        "startChar": 1,
+        "endLine": 142,
+        "endChar": 24
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
