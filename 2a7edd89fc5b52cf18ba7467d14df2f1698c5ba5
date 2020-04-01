@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "93c495f3_3da9ccbc",
+        "filename": "docs/plat/nxp/nxp-layerscape.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T05:09:06Z",
+      "side": 1,
+      "message": "Are there any apps running in S-EL0? Are they initialized during cold boot?",
+      "range": {
+        "startLine": 29,
+        "startChar": 32,
+        "endLine": 29,
+        "endChar": 44
+      },
+      "revId": "2a7edd89fc5b52cf18ba7467d14df2f1698c5ba5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79017cf2_003c371f",
+        "filename": "drivers/nxp/timer/nxp_timer.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T05:09:06Z",
+      "side": 1,
+      "message": "should this be static?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 4
+      },
+      "revId": "2a7edd89fc5b52cf18ba7467d14df2f1698c5ba5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b7663bc_a3cf4798",
+        "filename": "plat/nxp/common/console_pl011.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T05:09:06Z",
+      "side": 1,
+      "message": "should we sanity check \u0027sys\u0027 after it is populated?",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 17
+      },
+      "revId": "2a7edd89fc5b52cf18ba7467d14df2f1698c5ba5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "725bef92_168fd0d1",
+        "filename": "plat/nxp/common/ddr_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T05:09:06Z",
+      "side": 1,
+      "message": "what\u0027s the reason to close the file? IIUC, result \u003d 0 means that io_open passed",
+      "range": {
+        "startLine": 139,
+        "startChar": 3,
+        "endLine": 139,
+        "endChar": 31
+      },
+      "revId": "2a7edd89fc5b52cf18ba7467d14df2f1698c5ba5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6df92d18_9badea31",
         "filename": "plat/nxp/common/ls_bl2_el3_setup.c",
         "patchSetId": 1
