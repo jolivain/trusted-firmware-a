@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b45a477_3b7b3169",
+        "filename": "plat/rpi/common/rpi3_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-01T12:52:43Z",
+      "side": 1,
+      "message": "checkpatch complained about the lack of space between the while keyword and the open parenthese. Something you might want to \"fix\" in a subsequent patch.",
+      "range": {
+        "startLine": 198,
+        "startChar": 1,
+        "endLine": 198,
+        "endChar": 10
+      },
+      "revId": "170c079bd16ebf173d7a7b777cbfeae466c85406",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
