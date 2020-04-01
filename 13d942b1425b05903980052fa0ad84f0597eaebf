@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0381b4c3_1a38c456",
+        "filename": "include/drivers/brcm/dmu.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:43Z",
+      "side": 1,
+      "message": "Name retained from internal asic team",
+      "parentUuid": "c38a4247_88ff77ed",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc2a15ce_e1a11d2f",
         "filename": "plat/brcm/board/stingray/driver/ihost_pll_config.c",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2020-03-31T19:43:57Z",
       "side": 1,
       "message": "what is the acronym for ARMCOE_crm?",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e50f88c_da7eb953",
+        "filename": "plat/brcm/board/stingray/driver/ihost_pll_config.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:43Z",
+      "side": 1,
+      "message": "ARMCOE is a hardware team naming convention, I have retained it as this part of code is received from hardware team.",
+      "parentUuid": "dc2a15ce_e1a11d2f",
       "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -50,6 +86,24 @@
       "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbc745b6_d67442e7",
+        "filename": "plat/brcm/board/stingray/driver/ihost_pll_config.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e1f4bc7_bb5f5c83",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -104,6 +158,24 @@
     },
     {
       "key": {
+        "uuid": "311752ae_dc958f99",
+        "filename": "plat/brcm/board/stingray/platform.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a83d434_dbae16a9",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f542fb4_ae4f3084",
         "filename": "plat/brcm/board/stingray/src/topology.c",
         "patchSetId": 6
@@ -118,6 +190,24 @@
       "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3ff7025_6a3afa50",
+        "filename": "plat/brcm/board/stingray/src/topology.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f542fb4_ae4f3084",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -138,6 +228,24 @@
     },
     {
       "key": {
+        "uuid": "c2e9f608_a90e87a4",
+        "filename": "plat/brcm/board/stingray/src/topology.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:43Z",
+      "side": 1,
+      "message": "No. Only 4 Clusters. I\u0027ll remove this.",
+      "parentUuid": "1863c898_2cf849a0",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "81257964_66372cd4",
         "filename": "plat/brcm/common/brcm_bl31_setup.c",
         "patchSetId": 6
@@ -152,6 +260,24 @@
       "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "668b36f2_ac03f901",
+        "filename": "plat/brcm/common/brcm_bl31_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-01T12:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81257964_66372cd4",
+      "revId": "13d942b1425b05903980052fa0ad84f0597eaebf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
