@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d60960a8_ccb78a3c",
+        "filename": "docs/plat/nxp/nxp-layerscape.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2020-04-01T19:22:28Z",
+      "side": 1,
+      "message": "\u003e Are there any apps running in S-EL0? Are they initialized during cold boot?\n\nNo.",
+      "parentUuid": "93c495f3_3da9ccbc",
+      "range": {
+        "startLine": 29,
+        "startChar": 32,
+        "endLine": 29,
+        "endChar": 44
+      },
+      "revId": "2a7edd89fc5b52cf18ba7467d14df2f1698c5ba5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "79017cf2_003c371f",
         "filename": "drivers/nxp/timer/nxp_timer.c",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f79f5bb2_53e1c3ee",
+        "filename": "drivers/nxp/timer/nxp_timer.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2020-04-01T19:22:28Z",
+      "side": 1,
+      "message": "yes.",
+      "parentUuid": "79017cf2_003c371f",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 4
+      },
+      "revId": "2a7edd89fc5b52cf18ba7467d14df2f1698c5ba5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b7663bc_a3cf4798",
         "filename": "plat/nxp/common/console_pl011.c",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "2a7edd89fc5b52cf18ba7467d14df2f1698c5ba5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd973ca1_da23abb6",
+        "filename": "plat/nxp/common/console_pl011.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2020-04-01T19:22:28Z",
+      "side": 1,
+      "message": "accepted and added.",
+      "parentUuid": "6b7663bc_a3cf4798",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 17
+      },
+      "revId": "2a7edd89fc5b52cf18ba7467d14df2f1698c5ba5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -132,6 +204,24 @@
       "revId": "2a7edd89fc5b52cf18ba7467d14df2f1698c5ba5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d4c67f7_da5f7a06",
+        "filename": "plat/nxp/common/ls_bl2_el3_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2020-04-01T19:22:28Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "6df92d18_9badea31",
+      "revId": "2a7edd89fc5b52cf18ba7467d14df2f1698c5ba5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
