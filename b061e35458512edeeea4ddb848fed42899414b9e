@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "63661e89_97d7bef5",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T23:19:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "739fd246_bf7d70e9",
+      "range": {
+        "startLine": 65,
+        "startChar": 3,
+        "endLine": 65,
+        "endChar": 8
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "567b9ea2_e788cd9a",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "EVENT2_HDR_SIZE is defined as:\n#define EVENT2_HDR_SIZE\tsizeof(event2_header_t) + \\\n\t\t\tsizeof(tpmt_ha) + TCG_DIGEST_SIZE + \\\n\t\t\tsizeof(event2_data_t)\n\nPlease explain what you mean by \"captures the actual sizeof(event2_header_t)\".",
       "parentUuid": "567b9ea2_e788cd9a",
+      "range": {
+        "startLine": 97,
+        "startChar": 22,
+        "endLine": 97,
+        "endChar": 37
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25835074_a428e24e",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T23:19:27Z",
+      "side": 1,
+      "message": "I wanted to make sure that in the future if we add more data to the to log, EVENT2_HDR_SIZE would still be able to reflect the size of the new data. This would be clear if we have a CASSERT. Makes it future proof and avoid nasty bugs.",
+      "parentUuid": "838439c5_ccbe6216",
       "range": {
         "startLine": 97,
         "startChar": 22,
@@ -237,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "436b41a9_2f159b43",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T23:19:27Z",
+      "side": 1,
+      "message": "I think renaming this function to plat_bl2* would be helpful to other platforms to implement. You can disregard my previous comment about \u0027ptr\u0027.",
+      "parentUuid": "34fb1608_cca33a9d",
+      "range": {
+        "startLine": 134,
+        "startChar": 2,
+        "endLine": 134,
+        "endChar": 18
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a3cb77c_d39f6b30",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -284,6 +356,30 @@
     },
     {
       "key": {
+        "uuid": "3f46757a_6c6cfa06",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T23:19:27Z",
+      "side": 1,
+      "message": "Adding a sanity check to pointer before use would make it future proof IMO",
+      "parentUuid": "3c9c835d_7e8a66e2",
+      "range": {
+        "startLine": 145,
+        "startChar": 46,
+        "endLine": 145,
+        "endChar": 50
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "48f13193_9877b9de",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -316,6 +412,24 @@
       "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f564e15_98a0298f",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T23:19:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1ff5d90b_5137f745",
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -378,6 +492,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "ffcbb81e_8d9e0c0a",
+      "range": {
+        "startLine": 162,
+        "startChar": 2,
+        "endLine": 163,
+        "endChar": 10
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bcf8430_bc517b9a",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T23:19:27Z",
+      "side": 1,
+      "message": "Thanks for clarifying the intent.",
+      "parentUuid": "df6dc276_6e879164",
       "range": {
         "startLine": 162,
         "startChar": 2,
@@ -498,6 +636,30 @@
       "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1de2019_975878aa",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T23:19:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3ea17017_4379f4b4",
+      "range": {
+        "startLine": 250,
+        "startChar": 3,
+        "endLine": 250,
+        "endChar": 36
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -724,6 +886,30 @@
     },
     {
       "key": {
+        "uuid": "e8a07048_dee814d1",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T23:19:27Z",
+      "side": 1,
+      "message": "Is it prudent to rely on the platform code to do the right thing? I assume more platforms will use this in the future and it would be impossible to check very platform implementation",
+      "parentUuid": "683d8a73_6456bd88",
+      "range": {
+        "startLine": 318,
+        "startChar": 14,
+        "endLine": 318,
+        "endChar": 24
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f0c75857_8c12adbf",
         "filename": "drivers/measured_boot/event_print.c",
         "patchSetId": 4
@@ -788,6 +974,30 @@
     },
     {
       "key": {
+        "uuid": "3d4ef490_54e8fd2b",
+        "filename": "drivers/measured_boot/event_print.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T23:19:27Z",
+      "side": 1,
+      "message": "I usually prefer to control the size or counter or index value to be decremented outside of such function, by the caller. When we look at this code, it is amply clear how much size would be written in one iteration with that approach.",
+      "parentUuid": "0a77863a_8e732fc4",
+      "range": {
+        "startLine": 277,
+        "startChar": 7,
+        "endLine": 277,
+        "endChar": 42
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b66ec37a_63a06306",
         "filename": "drivers/measured_boot/measured_boot.c",
         "patchSetId": 4
@@ -832,6 +1042,30 @@
       "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eff096e7_0c5f44b6",
+        "filename": "drivers/measured_boot/measured_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-01T23:19:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "16c092cb_6237508f",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 4
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
