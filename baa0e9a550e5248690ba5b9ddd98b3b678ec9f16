@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ce579f46_3c303943",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-04-01T21:31:26Z",
+      "side": 1,
+      "message": "With what that macro does, there isn\u0027t really a way to correct the Misra errors so I removed it.  But it\u0027s probably better to keep the macro functionality and just have the errors since they don\u0027t hurt anything.",
+      "parentUuid": "f39c5574_3596bf3a",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 2
+      },
+      "revId": "baa0e9a550e5248690ba5b9ddd98b3b678ec9f16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "536609b7_f5bfa51c",
         "filename": "bl31/interrupt_mgmt.c",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "137893dd_ff2ca423",
+        "filename": "bl31/interrupt_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-04-01T21:31:26Z",
+      "side": 1,
+      "message": "The values that are shifted to create the result of get_interrupt_rm_flag are all 8 bit values, so Misra complains without the cast.  I tried a different approach of changing the definitions used to UL instead of U so that might fix it without having a cast here.",
+      "parentUuid": "536609b7_f5bfa51c",
+      "range": {
+        "startLine": 155,
+        "startChar": 18,
+        "endLine": 155,
+        "endChar": 73
+      },
+      "revId": "baa0e9a550e5248690ba5b9ddd98b3b678ec9f16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8233a421_5adabcce",
         "filename": "include/arch/aarch64/arch.h",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2020-04-01T13:30:06Z",
       "side": 1,
       "message": "Why is this change needed only for SCTLR_EL1 but not for other SCTLR_ELx (which all seem to be 64 bit registers in AArch64 state)?",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 50
+      },
+      "revId": "baa0e9a550e5248690ba5b9ddd98b3b678ec9f16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a7ea7b0_0e43813e",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-04-01T21:31:26Z",
+      "side": 1,
+      "message": "This particular patch was only intended to fix Misra errors in the Bl1/BL2/BL31 files and their includes to keep the patch size reasonable, the other SCTLR macros were not used in those files so weren\u0027t creating any errors.  If you\u0027d like I can apply the same changes to those macros though.",
+      "parentUuid": "8233a421_5adabcce",
       "range": {
         "startLine": 267,
         "startChar": 0,
