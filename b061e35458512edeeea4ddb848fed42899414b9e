@@ -301,6 +301,24 @@
     },
     {
       "key": {
+        "uuid": "1ff5d90b_5137f745",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-01T13:30:22Z",
+      "side": 1,
+      "message": "Line #161 checks for a minimum size of Event Log during initialisation. \nLOG_MIN_SIZE is 132 bytes, length data copied by memcpy():\nid_event_headers 60\nlocality_event_header 12\nTCG_STARTUP_LOCALITY_SIGNATURE 16",
+      "parentUuid": "48f13193_9877b9de",
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e2305e49_f85d3a2c",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
