@@ -140,6 +140,30 @@
       "revId": "baa0e9a550e5248690ba5b9ddd98b3b678ec9f16",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "908fe2c1_0b55f70a",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-02T07:08:49Z",
+      "side": 1,
+      "message": "OK, fair enough. Let\u0027s keep this patch as is. But I think it would be good to fix the other SCTRL_ELx values in a subsequent patch then.",
+      "parentUuid": "4a7ea7b0_0e43813e",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 50
+      },
+      "revId": "baa0e9a550e5248690ba5b9ddd98b3b678ec9f16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
