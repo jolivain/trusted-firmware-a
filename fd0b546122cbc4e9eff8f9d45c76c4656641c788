@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "d4480eb5_75393ac4",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-02T18:41:55Z",
+      "side": 1,
+      "message": "I wasn\u0027t part of that original discussion, but I am sorry if you had a rough time. I feel with you when it comes to writing GIC code (I needed 11 revisions for the KVM ITS emulation code).\n\nAs mentioned below, a build time option might make sense, but we should at least limit the #ifdef\u0027s *in function bodies*, because it\u0027s hard to read, error prone, hard to debug and begs for compile time errors. I think we get away with just one #ifdef (below), while still keeping the same functionality.",
+      "parentUuid": "74347735_2bea1da2",
+      "revId": "fd0b546122cbc4e9eff8f9d45c76c4656641c788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a7da46d_fb3d44a7",
         "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
         "patchSetId": 2
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "It could go, but \"num_eints \u003d 0U\" is still needed as TRM reads that ESPI range is implemented when TYPER_ESPI \u003d 1.",
       "parentUuid": "5a7da46d_fb3d44a7",
+      "revId": "fd0b546122cbc4e9eff8f9d45c76c4656641c788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d9e43f0_967c24c1",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-02T18:41:55Z",
+      "side": 1,
+      "message": "Yes, that\u0027s why I recommended to initialise num_eints to 0 above, in the declaration. If you do this and keep the #ifdef in this one place here, you get all the benefits of a build time option, without the side effects of #ifdef\u0027s (missing compile time coverage and harder-to-read code). The compiler will see that the variable is always 0 and will remove the loop.",
+      "parentUuid": "4a0f866f_0994e6b0",
       "revId": "fd0b546122cbc4e9eff8f9d45c76c4656641c788",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -171,6 +207,24 @@
       "side": 1,
       "message": "Does it assert if the value is not 1 or 2?",
       "parentUuid": "612b6c9a_d5e9d7f8",
+      "revId": "fd0b546122cbc4e9eff8f9d45c76c4656641c788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adac0a06_ac48d05b",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-02T18:41:55Z",
+      "side": 1,
+      "message": "Yes, \"assert\" in the sense of falling back to the safe GICv3.0 value of 16 PPIs. To hide this nastiness, it\u0027s a macro.",
+      "parentUuid": "e91321d9_80e525a7",
       "revId": "fd0b546122cbc4e9eff8f9d45c76c4656641c788",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
