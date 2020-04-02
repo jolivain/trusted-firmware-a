@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -170,11 +170,7 @@ void bakery_lock_get(bakery_lock_t *lock)
 	unsigned int their_bakery_data;
 
 	me = plat_my_core_pos();
-#ifdef __aarch64__
-	is_cached = read_sctlr_el3() & SCTLR_C_BIT;
-#else
-	is_cached = read_sctlr() & SCTLR_C_BIT;
-#endif
+	is_cached = is_dcache_enabled();
 
 	/* Get a ticket */
 	my_ticket = bakery_get_ticket(lock, me, is_cached);
@@ -232,11 +228,7 @@ void bakery_lock_get(bakery_lock_t *lock)
 void bakery_lock_release(bakery_lock_t *lock)
 {
 	bakery_info_t *my_bakery_info;
-#ifdef __aarch64__
-	unsigned int is_cached = read_sctlr_el3() & SCTLR_C_BIT;
-#else
-	unsigned int is_cached = read_sctlr() & SCTLR_C_BIT;
-#endif
+	unsigned int is_cached = is_dcache_enabled();
 
 	my_bakery_info = get_bakery_info(plat_my_core_pos(), lock);
 
