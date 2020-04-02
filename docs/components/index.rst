@@ -16,6 +16,6 @@ Components
    ras
    romlib-design
    sdei
-   secure-partition-manager-design
+   secure-partition-manager
    psa-ffa-manifest-binding
    xlat-tables-lib-v2-design
