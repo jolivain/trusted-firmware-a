@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0906fa3f_2d5ffc19",
+        "filename": "drivers/arm/gic/v3/gicv3_private.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-02T17:12:42Z",
+      "side": 1,
+      "message": "gicv3_main.c still calls gicr_get_igroupr0 function.",
+      "revId": "989830f0154c028239a1b4cc5a5f10ca5c67fc62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
