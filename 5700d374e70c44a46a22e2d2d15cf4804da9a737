@@ -1,0 +1,293 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bab42ea_45985f6e",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "why is 1024 bytes enough ? how was this calculated ?",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c70d20a_6e21621e",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "this can be an assert. Both LOG_MIN_SIZE and sizeof(event_log)are constants so the compiler will likely remove it anyway. I think an assert documents this better.",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e4218a2_67cd1fa6",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "can the memcpy\u0027s in this function be entirely avoided ? Just create a packed wrapper struct, that contains, id_event_headers, locality event headers. etc. Seems like only add_even2 at the end is required unless i\u0027m missing something.",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d2d2e2e_1617db66",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "image_data may need a provision to support platform specific image id\u0027s and image_data. It is not necessary that a platform only supports the images in this table. A FIP can contain platform specific images, that may need to be measured too. If this was considered and not included, could you explain the reason? Could be done in the future btw. You could maybe invoke the platform to see if it can give you back image_data for an image id not recognized by default.",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcbf54e7_bb3074d0",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "message is too generic. Might be good to use __func__.",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4554492d_1ca2f61d",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "use __func__? message too generic.",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec430d70_eb5acd5d",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "message too generic. __func__?",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51337628_ada8007a",
+        "filename": "drivers/measured_boot/event_print.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "why does a higher level driver have a dependency on plat_arm.h ? Perhaps this should be platform.h ? Platforms can be built without dependency on this header file and might even require not to have this dependency.",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33b6bcee_599137d6",
+        "filename": "drivers/measured_boot/event_print.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "better if this is an assert. Isnt TCG_EfiSpecIDEvent constant ?",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ed60bc0_d6818c36",
+        "filename": "drivers/measured_boot/event_print.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "same here. assert as opposed to erroring out. These things should not happen, ie they are invariant.",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d673c52_9ec60d10",
+        "filename": "drivers/measured_boot/measured_boot.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "Not sure why you need to have an error code on dumping event log. It appears that you are performing correctness checks when dumping event logs. Ideally, dump should just assert on invariants, and should never fail. I would suggest you rewrite dump_event_log to never fail on release builds(ie use asserts as opposed to error codes).",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c112375_9fcef833",
+        "filename": "include/drivers/measured_boot/event_log.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "set",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64529207_0e2e833c",
+        "filename": "include/drivers/measured_boot/event_log.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "can we move away from using weak function ? It makes it hard to tell which function is actually linked in without looking at the dump.",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8c08d26_3fc4d3ca",
+        "filename": "include/drivers/measured_boot/measured_boot.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "more descriptive names ? tcg_event_log_init ? perhaps event_log.c should be tcg_event_log.c.",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ebec38c_aca9ba29",
+        "filename": "include/drivers/measured_boot/measured_boot.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "again, not sure if the name is appropriate. You can record_measurement for other events too(see table 9). This should perhaps be record_image_measurement to make it more specific.\nWould also be nice if these drivers have prefixes. for example, the io dirvers have a nice io_ prefix for all API\u0027s.\nAlso measured_boot_init and finish are public API\u0027;s. event_log_* seem internal. Would be good if they are in separate header files.",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b743d9ea_454450a4",
+        "filename": "include/drivers/measured_boot/tcg.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "tcg.h includes event_log.h and event_log.h includes tcg.h. I think only event_log.h needs to include tcg.h. No?",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bfd7952_1df4ef4a",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-02T04:05:14Z",
+      "side": 1,
+      "message": "the caller has no indication as to what the size of the buffer to be passed is without looking at the code. Recommend you pass pointer to an array[TCG_DIGEST_SIZE].",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
