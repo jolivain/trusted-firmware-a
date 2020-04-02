@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d0ef2d23_d3e20512",
+        "filename": "drivers/arm/gic/v3/gicdv3_helpers.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-02T19:10:56Z",
+      "side": 1,
+      "message": "I see that, in this patch, you have provided function definitions for few helper functions like gicd_set_icenabler which were originally defined in drivers/arm/gic/common/gic_common.c file. This essentially means that gic_common.c doesn\u0027t have common utilities shared between GICv2 and GICv3. I am of the opinion that the file gic_common.c should be renamed to something like gicd_v2_helpers.c. Let me know your thoughts.",
+      "revId": "989830f0154c028239a1b4cc5a5f10ca5c67fc62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0906fa3f_2d5ffc19",
         "filename": "drivers/arm/gic/v3/gicv3_private.h",
         "patchSetId": 5
