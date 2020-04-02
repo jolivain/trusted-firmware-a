@@ -495,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "3b6f98f3_aa20477f",
+        "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2020-04-02T15:29:20Z",
+      "side": 1,
+      "message": "Hi Sheetal, but SD_INVALID_HANDLE is a negative value.I think return type should be signed.",
+      "parentUuid": "c7e52cc7_eef90038",
+      "range": {
+        "startLine": 396,
+        "startChar": 1,
+        "endLine": 396,
+        "endChar": 7
+      },
+      "revId": "cf75419618373ada2c12e1a9c1edc0e7e245cd5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "daba2ef5_232ea3c2",
         "filename": "drivers/brcm/emmc/emmc_chal_sd.c",
         "patchSetId": 4
