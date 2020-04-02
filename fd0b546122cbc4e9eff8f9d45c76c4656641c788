@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e46a8a3_e472139a",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-02T16:23:04Z",
+      "side": 1,
+      "message": "Do we really need a build time symbol to protect this code? The GIC extension is architected to be runtime detectable, any older GIC will report 0 for the extended range.\nSo what about we remove the #ifdef, and initialise this to 0 here?\nThen ...",
+      "revId": "fd0b546122cbc4e9eff8f9d45c76c4656641c788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a7da46d_fb3d44a7",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-02T16:23:04Z",
+      "side": 1,
+      "message": "... this \"else\" branch could go. If you want to be paranoid and avoid any extended range code to sneak into legacy platforms, you could keep the #ifdef, but only here. Though for the sake of code coverage and future-proof code I would get rid of it. Older GICs will have the TYPER_ESPI bit cleared.",
+      "revId": "fd0b546122cbc4e9eff8f9d45c76c4656641c788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee3d5608_bf99373b",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-02T16:23:04Z",
+      "side": 1,
+      "message": "If you initialise num_eints to 0 above, and never set it, it would be safe to keep this code always in, without the #ifdef. If you use the #ifdef above in the setter code, the compiler should remove this loop entirely.",
+      "revId": "fd0b546122cbc4e9eff8f9d45c76c4656641c788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feeb9371_560d37b8",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-02T16:23:04Z",
+      "side": 1,
+      "message": "Same here, the #ifdef can go, the loop will never iterate on an older GIC.",
+      "revId": "fd0b546122cbc4e9eff8f9d45c76c4656641c788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "612b6c9a_d5e9d7f8",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-02T16:23:04Z",
+      "side": 1,
+      "message": "That is tempting, but the spec says that only \"0b00001\" and \"0b00010\" are defined, other values are reserved. The Linux kernel has some special code to only cover those two values:\nhttps://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/include/linux/irqchip/arm-gic-v3.h#n140",
+      "revId": "fd0b546122cbc4e9eff8f9d45c76c4656641c788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
