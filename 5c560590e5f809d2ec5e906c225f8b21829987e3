@@ -22,6 +22,30 @@
       "revId": "5c560590e5f809d2ec5e906c225f8b21829987e3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d65aef1a_4c95113a",
+        "filename": "plat/brcm/board/common/board_common.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-04-02T17:30:48Z",
+      "side": 1,
+      "message": "Yes. Few blocks of memory can be accessed at a time over the AXI slave address range. However\nunlike the nand read interface it does not support BBM. Its raw read. Good enough for boot blocks.",
+      "parentUuid": "ab10be25_e4e7f340",
+      "range": {
+        "startLine": 60,
+        "startChar": 1,
+        "endLine": 60,
+        "endChar": 19
+      },
+      "revId": "5c560590e5f809d2ec5e906c225f8b21829987e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
