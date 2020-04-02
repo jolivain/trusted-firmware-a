@@ -33,6 +33,24 @@
       "revId": "35b2ea406fb09af2db86941e93616be8df4323c8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89919a8c_9d03d0c6",
+        "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000319
+      },
+      "writtenOn": "2020-04-02T21:41:05Z",
+      "side": 1,
+      "message": "Hi Alexei,\nI\u0027m look at the coding guidelines here:\nhttps://github.com/ARM-software/arm-trusted-firmware/blob/master/docs/process/coding-guidelines.rst\n\nCould you please point me at the ATF coding guidelines which describe such requirements (vs. standard Linux coding style guidelines?)",
+      "parentUuid": "5fdf3cc4_fced2c72",
+      "revId": "35b2ea406fb09af2db86941e93616be8df4323c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
