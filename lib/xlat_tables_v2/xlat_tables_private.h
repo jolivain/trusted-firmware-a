@@ -99,9 +99,6 @@ unsigned long long xlat_arch_get_max_supported_pa(void);
  */
 bool is_mmu_enabled_ctx(const xlat_ctx_t *ctx);
 
-/* Returns true if the data cache is enabled at the current EL. */
-bool is_dcache_enabled(void);
-
 /*
  * Returns minimum virtual address space size supported by the architecture
  */
