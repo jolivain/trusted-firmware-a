@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42b6c657_0d60ba12",
+        "filename": "include/plat/brcm/common/brcm_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-02T20:59:45Z",
+      "side": 1,
+      "message": "nit: please use tabs to align the fields",
+      "revId": "7ea41c9751635408ce0a748e3688404bf2ad287a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f64e6cd_be7d9d2e",
+        "filename": "include/plat/brcm/common/brcm_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-02T20:59:45Z",
+      "side": 1,
+      "message": "nit: please use tabs to align the fields",
+      "revId": "7ea41c9751635408ce0a748e3688404bf2ad287a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3db45770_e30075aa",
+        "filename": "plat/brcm/board/common/err.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-02T20:59:45Z",
+      "side": 1,
+      "message": "nit: why not while(1)",
+      "revId": "7ea41c9751635408ce0a748e3688404bf2ad287a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6356e0c_efbe3ac6",
+        "filename": "plat/brcm/board/common/platform_common.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-02T20:59:45Z",
+      "side": 1,
+      "message": "use braces:\nwhile(1){\n}",
+      "revId": "7ea41c9751635408ce0a748e3688404bf2ad287a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
