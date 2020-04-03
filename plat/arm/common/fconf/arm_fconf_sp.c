@@ -44,6 +44,11 @@ int fconf_populate_arm_sp(uintptr_t config)
 	}
 
 	fdt_for_each_subnode(sp_node, dtb, node) {
+		if (index >= MAX_SP_IDS) {
+			ERROR("FCONF: reached max number of SPs. Max= %d\n", MAX_SP_IDS);
+			return -1;
+		}
+
 		err = fdtw_read_array(dtb, sp_node, "uuid", 4,
 				      &uuid_helper.word);
 		if (err < 0) {
@@ -86,11 +91,6 @@ int fconf_populate_arm_sp(uintptr_t config)
 		policies[sp_start_index + index].check = open_fip;
 
 		index++;
-
-		if (index >= MAX_SP_IDS) {
-			ERROR("FCONF: reached max number of SPs\n");
-			return -1;
-		}
 	}
 
 	if ((sp_node < 0) && (sp_node != -FDT_ERR_NOTFOUND)) {
