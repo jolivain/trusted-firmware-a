@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d12b6924_4237d05e",
+        "filename": "lib/locks/bakery/bakery_lock_normal.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-04-03T12:04:36Z",
+      "side": 1,
+      "message": "OK, I think the right fix is to change \u0027is_cached\u0027 to bool.",
+      "parentUuid": "c90e3029_cee4f5fa",
+      "range": {
+        "startLine": 173,
+        "startChar": 1,
+        "endLine": 173,
+        "endChar": 33
+      },
+      "revId": "c780a358dd7f61e3623ae5f466076183dfb80fb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5e5777fa_afb6c5a7",
         "filename": "lib/locks/bakery/bakery_lock_normal.c",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-04-03T09:53:09Z",
       "side": 1,
       "message": "Same here.",
+      "range": {
+        "startLine": 231,
+        "startChar": 1,
+        "endLine": 231,
+        "endChar": 46
+      },
+      "revId": "c780a358dd7f61e3623ae5f466076183dfb80fb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caa9d774_350b9022",
+        "filename": "lib/locks/bakery/bakery_lock_normal.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-04-03T12:04:36Z",
+      "side": 1,
+      "message": "Same here.",
+      "parentUuid": "5e5777fa_afb6c5a7",
       "range": {
         "startLine": 231,
         "startChar": 1,
