@@ -150,9 +150,13 @@
 #define	TYPER_ESPI_RANGE	U(TYPER_ESPI_MASK << TYPER_ESPI_SHIFT)
 
 /*******************************************************************************
- * GICv3 and 3.1 Redistributor interface registers & constants
+ * GIC Redistributor interface registers & constants
  ******************************************************************************/
+#if GIC_VERSION == 4
+#define GICR_PCPUBASE_SHIFT	0x12
+#else
 #define GICR_PCPUBASE_SHIFT	0x11
+#endif
 #define GICR_SGIBASE_OFFSET	U(65536)	/* 64 KB */
 #define GICR_CTLR		U(0x0)
 #define GICR_IIDR		U(0x04)
