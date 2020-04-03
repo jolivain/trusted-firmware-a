@@ -16,6 +16,24 @@
       "revId": "77d156227ab00e0d2e7b590c45e9dcdfef139db1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf319769_bb08e9af",
+        "filename": "plat/arm/css/sgi/include/sgi_base_platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-03T04:58:26Z",
+      "side": 1,
+      "message": "I tried building platform \"sgi575\" with no-compiler optimization \u003cCROSS_COMPILE\u003daarch64-none-elf- make PLAT\u003dsgi575 DEBUG\u003d1 V\u003d1 LOG_LEVEL\u003d20 CFLAGS\u003d\u0027-O0\u0027 bl2\u003e using BL2_SIZE\u003d0x12000 \nbut that leads to below error:\naarch64-none-elf-ld.bfd: build/sgi575/debug/bl2/bl2.elf section `xlat_table\u0027 will not fit in region `RAM\u0027\naarch64-none-elf-ld.bfd: BL2 image has exceeded its limit.\naarch64-none-elf-ld.bfd: region `RAM\u0027 overflowed by 8192 bytes\nmake: *** [Makefile:1055: build/sgi575/debug/bl2/bl2.elf] Error 1",
+      "parentUuid": "dad09fd2_71c987b3",
+      "revId": "77d156227ab00e0d2e7b590c45e9dcdfef139db1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
