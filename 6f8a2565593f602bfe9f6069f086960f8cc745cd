@@ -16,6 +16,24 @@
       "revId": "6f8a2565593f602bfe9f6069f086960f8cc745cd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88fc8a8b_a63580b0",
+        "filename": "include/lib/fconf/fconf_tbbr_getter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-03T06:50:31Z",
+      "side": 1,
+      "message": "I\u0027ve added it as part of this patch in file include/drivers/auth/auth_mod.h as a constant variable.\nIt won\u0027t be in bytes because I\u0027ve used the ARRAY_SIZE() macro.",
+      "parentUuid": "9a77e65c_f5874835",
+      "revId": "6f8a2565593f602bfe9f6069f086960f8cc745cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
