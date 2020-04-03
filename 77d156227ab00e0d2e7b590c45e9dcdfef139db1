@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dad09fd2_71c987b3",
+        "filename": "plat/arm/css/sgi/include/sgi_base_platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-03T04:36:37Z",
+      "side": 1,
+      "message": "I am curious how did you reach the conclusion that value of max BL2 size to be 0x14000? I see for another platform, the increase was 0x1000.",
+      "revId": "77d156227ab00e0d2e7b590c45e9dcdfef139db1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
