@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "da964460_6e507845",
+        "filename": "plat/brcm/board/stingray/driver/ihost_pll_config.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-03T07:11:48Z",
+      "side": 1,
+      "message": "Sorry I missed it earlier, the driver code is obtained from hw team. will check with the team and update this with proper delay count/time and API(udelay/mdelay) in next patches.",
+      "parentUuid": "901ca795_46af674d",
+      "revId": "0cf6f5b1cadf31ca267d4d0c2f7228b33f086d5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "551a364a_910dfb9b",
         "filename": "plat/brcm/board/stingray/src/tz_sec.c",
         "patchSetId": 7
@@ -33,6 +51,24 @@
       "revId": "0cf6f5b1cadf31ca267d4d0c2f7228b33f086d5b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9e54517_9244f3a9",
+        "filename": "plat/brcm/board/stingray/src/tz_sec.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-03T07:11:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "551a364a_910dfb9b",
+      "revId": "0cf6f5b1cadf31ca267d4d0c2f7228b33f086d5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "dd03fdde_3972fc75",
+        "filename": "plat/brcm/board/stingray/src/tz_sec.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-03T07:11:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfdbb2fc_9279f8e8",
+      "revId": "0cf6f5b1cadf31ca267d4d0c2f7228b33f086d5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c974bc4_25f4ec23",
         "filename": "plat/brcm/common/brcm_bl31_setup.c",
         "patchSetId": 7
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "de3863a1_8db07321",
+        "filename": "plat/brcm/common/brcm_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-03T07:11:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c974bc4_25f4ec23",
+      "revId": "0cf6f5b1cadf31ca267d4d0c2f7228b33f086d5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bcdaad2_055bcebe",
         "filename": "plat/brcm/common/brcm_bl31_setup.c",
         "patchSetId": 7
@@ -84,6 +156,24 @@
       "revId": "0cf6f5b1cadf31ca267d4d0c2f7228b33f086d5b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90c22a52_25bdb93d",
+        "filename": "plat/brcm/common/brcm_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000113
+      },
+      "writtenOn": "2020-04-03T07:11:48Z",
+      "side": 1,
+      "message": "Stingray TZC400 default security setup is done once during bootstage1.\nThere are other platforms yet to be upstreamed where TZC configs are done here.\n\nIn future Stingray also may override the settings. Hence the provision.",
+      "parentUuid": "5bcdaad2_055bcebe",
+      "revId": "0cf6f5b1cadf31ca267d4d0c2f7228b33f086d5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
