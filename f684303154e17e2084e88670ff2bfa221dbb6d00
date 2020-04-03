@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c1c485f_bd7c0aa6",
+        "filename": "plat/brcm/board/stingray/driver/ihost_pll_config.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-04-03T11:16:39Z",
+      "side": 1,
+      "message": "Build fails \nplat/brcm/board/stingray/driver/ihost_pll_config.c:153:10: error: ‘A72_CRM_PLL0_CTRL4__PLL0_KI_R’ undeclared (first use in this function); did you mean ‘A72_CRM_PLL0_CTRL4__PLL0_KA_R’?\n    (2 \u003c\u003c A72_CRM_PLL0_CTRL4__PLL0_KI_R) |\n\nI think R is missing at the end.\n\nMake sure to build before pushing the patches.",
+      "range": {
+        "startLine": 35,
+        "startChar": 8,
+        "endLine": 35,
+        "endChar": 39
+      },
+      "revId": "f684303154e17e2084e88670ff2bfa221dbb6d00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
