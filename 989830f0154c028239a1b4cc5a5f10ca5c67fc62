@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1f9ea0f4_eb3fc24c",
+        "filename": "drivers/arm/gic/v3/gicdv3_helpers.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-03T11:06:41Z",
+      "side": 1,
+      "message": "Yes, you are right. But changing name of gic_common.c to gicd_v2_helpers.c will require modifications in 30 platforms\u0027 makefiles. Which can be also done by introducing new gicv2.mk file as for gicv3.mk in the merged patch. This change must also be announced in TF.org mailing list \u0026 approved by other platforms\u0027 maintainers.\nThis change should be done in the separate patch but not in that one.",
+      "parentUuid": "d0ef2d23_d3e20512",
+      "revId": "989830f0154c028239a1b4cc5a5f10ca5c67fc62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0906fa3f_2d5ffc19",
         "filename": "drivers/arm/gic/v3/gicv3_private.h",
         "patchSetId": 5
