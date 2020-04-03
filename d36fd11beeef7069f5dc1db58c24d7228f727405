@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b5fb76f_03f46117",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-03T08:03:24Z",
+      "side": 1,
+      "message": "We discussed something similar here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/3492/4/plat/arm/board/fvp/fconf/fconf_hw_config_getter.c#128\n\nThe outcome of the discussion was that debug assertions were enough because we assume that the configuration dtb is valid and well-formed. The idea is, DTB config files are included in the FIP and so if TBB is enabled, they are signed and thus can be trusted. Assertions are merely there to help the platform integrator getting the config files right during the development phase but can be discarded in a production build.\n\nIf we want to revisit this approach, I\u0027d like to involve a broader audience. Perhaps we should start a discussion around that on the mailing list?",
+      "range": {
+        "startLine": 10,
+        "startChar": 51,
+        "endLine": 13,
+        "endChar": 24
+      },
+      "revId": "d36fd11beeef7069f5dc1db58c24d7228f727405",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
