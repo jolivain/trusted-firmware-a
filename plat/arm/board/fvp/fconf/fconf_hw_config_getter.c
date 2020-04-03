@@ -118,6 +118,12 @@ int fconf_populate_topology(uintptr_t config)
 	fdt_for_each_subnode(cluster_node, hw_config_dtb, node) {
 		assert(cluster_count < PLAT_ARM_CLUSTER_COUNT);
 
+		if (cluster_count >= PLAT_ARM_CLUSTER_COUNT) {
+			ERROR("FCONF: Unexpected number of clusters. Max = %d\n",
+					  PLAT_ARM_CLUSTER_COUNT);
+			return -1;
+		}
+
 		/* Iterate through core nodes */
 		fdt_for_each_subnode(core_node, hw_config_dtb, cluster_node) {
 			/* core nodes may have child nodes i.e., "thread" nodes */
