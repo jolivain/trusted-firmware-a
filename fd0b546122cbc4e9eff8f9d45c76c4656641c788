@@ -214,6 +214,24 @@
     },
     {
       "key": {
+        "uuid": "dc8932a9_f149bf8d",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-04T16:58:49Z",
+      "side": 1,
+      "message": "Removal of #if GIC_EXT_INTID and relying on compiler optimisation now gives MISRA errors:\n\ndrivers/arm/gic/v3/gicv3_helpers.c \t133 \tDEADCODE \t667637 \tExecution cannot reach this statement: \"gicd_write_ipriorityr(gicd_...\".\ndrivers/arm/gic/v3/gicv3_helpers.c \t133 \tMISRA C-2012 Rule 14.3 (required) \t667640 \tExecution cannot reach this statement: \"gicd_write_ipriorityr(gicd_...\".\ndrivers/arm/gic/v3/gicv3_helpers.c \t144 \tDEADCODE \t667637 \tExecution cannot reach this statement: \"gicd_write_icfgr(gicd_base,...\".\ndrivers/arm/gic/v3/gicv3_helpers.c \t144 \tMISRA C-2012 Rule 14.3 (required) \t667640 \tExecution cannot reach this statement: \"gicd_write_icfgr(gicd_base,...\".",
+      "parentUuid": "7bdbda01_9af880d4",
+      "revId": "fd0b546122cbc4e9eff8f9d45c76c4656641c788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "612b6c9a_d5e9d7f8",
         "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
         "patchSetId": 2
