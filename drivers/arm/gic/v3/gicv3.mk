@@ -5,6 +5,7 @@
 #
 
 # Default configuration values
+GIC_VERSION			?=	3
 GICV3_IMPL			?=	GIC500
 GICV3_IMPL_GIC600_MULTICHIP	?=	0
 GICV3_OVERRIDE_DISTIF_PWR_OPS	?=	0
@@ -31,3 +32,6 @@ GICV3_SOURCES	+=	drivers/arm/gic/v3/gic500.c
 else
 $(error "Incorrect GICV3_IMPL value ${GICV3_IMPL}")
 endif
+
+# Set GIC driver version
+$(eval $(call add_define,GIC_VERSION))
