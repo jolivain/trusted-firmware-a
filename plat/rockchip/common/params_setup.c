@@ -138,8 +138,18 @@ static int dt_process_fdt(u_register_t param_from_bl2)
 	int ret;
 
 	ret = fdt_open_into((void *)param_from_bl2, fdt, FDT_BUFFER_SIZE);
-	if (ret < 0)
+	if (ret == -FDT_ERR_NOSPACE) {
+		/*
+		 * If we found an FDT but don't have enough space to parse it,
+		 * report that we succeeded so we don't attempt to parse the
+		 * param as something else. Since all we're doing is setting
+		 * up UART, this doesn't need to be fatal.
+		 */
+		WARN("%s: provided FDT too large, cannot parse\n", __func__);
+		return 0;
+	} else if (ret < 0) {
 		return ret;
+	}
 
 	plat_rockchip_dt_process_fdt_uart(fdt);
 
