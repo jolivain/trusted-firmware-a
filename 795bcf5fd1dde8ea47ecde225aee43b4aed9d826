@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "575e4a5a_09d5f9a4",
+        "filename": "include/drivers/arm/gic_common.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-06T17:41:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d0ca591d_5fecdfc0",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 68
+      },
+      "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e96a4e68_f9ba29bd",
         "filename": "include/drivers/arm/gic_common.h",
         "patchSetId": 9
@@ -45,6 +69,30 @@
       "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a15d4afa_35e3e1e4",
+        "filename": "include/drivers/arm/gic_common.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-06T17:41:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e96a4e68_f9ba29bd",
+      "range": {
+        "startLine": 65,
+        "startChar": 3,
+        "endLine": 65,
+        "endChar": 70
+      },
+      "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a85bef5f_c1e670d0",
+        "filename": "include/drivers/arm/gic_common.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-06T17:41:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5425bfe9_083d0055",
+      "range": {
+        "startLine": 70,
+        "startChar": 36,
+        "endLine": 70,
+        "endChar": 51
+      },
+      "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48c2fe06_8bb68ede",
         "filename": "plat/arm/board/fvp/fvp_def.h",
         "patchSetId": 9
@@ -82,6 +154,24 @@
       "writtenOn": "2020-04-06T10:11:43Z",
       "side": 1,
       "message": "The platform changes should be in a different patch.",
+      "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d031654_eead2a51",
+        "filename": "plat/arm/board/fvp/fvp_def.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-06T17:41:03Z",
+      "side": 1,
+      "message": "Ack. I\u0027ll provide a separate patch which will also include paltform.mk",
+      "parentUuid": "48c2fe06_8bb68ede",
       "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "2bd112cb_85617e8e",
+        "filename": "plat/arm/board/fvp/fvp_def.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-06T17:41:03Z",
+      "side": 1,
+      "message": "It will require to include gicv3.h and can break FVP with GICv2",
+      "parentUuid": "9474d441_ce850603",
+      "range": {
+        "startLine": 60,
+        "startChar": 29,
+        "endLine": 60,
+        "endChar": 36
+      },
+      "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c3b3fad_d355d9b4",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 9
@@ -122,6 +236,24 @@
       "writtenOn": "2020-04-06T10:05:33Z",
       "side": 1,
       "message": "should this just move after the if statement and remove from gicv3.mk ?",
+      "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "143c920d_e70dbf48",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-06T17:41:03Z",
+      "side": 1,
+      "message": "No. It is the same case as with GIC_EXT_INTID, which should be set in gicv3.mk. Otherwise all the platforms\u0027 makefiles must be modified. Having this macro here is a workaround of not having gicv2.mk.",
+      "parentUuid": "9c3b3fad_d355d9b4",
       "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
