@@ -71,6 +71,23 @@
     },
     {
       "key": {
+        "uuid": "48c2fe06_8bb68ede",
+        "filename": "plat/arm/board/fvp/fvp_def.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-04-06T10:11:43Z",
+      "side": 1,
+      "message": "The platform changes should be in a different patch.",
+      "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c3b3fad_d355d9b4",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 9
