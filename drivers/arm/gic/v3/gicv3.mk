@@ -5,6 +5,7 @@
 #
 
 # Default configuration values
+GIC_VERSION			?=	3
 GICV3_IMPL			?=	GIC500
 GICV3_IMPL_GIC600_MULTICHIP	?=	0
 GICV3_OVERRIDE_DISTIF_PWR_OPS	?=	0
@@ -36,3 +37,10 @@ endif
 # Set support for extended PPI and SPI range
 $(eval $(call assert_boolean,GIC_EXT_INTID))
 $(eval $(call add_define,GIC_EXT_INTID))
+
+# Set GIC driver version
+ifeq (${GIC_VERSION},$(filter ${GIC_VERSION},3 4))
+$(eval $(call add_define,GIC_VERSION))
+else
+$(error "Incorrect GIC_VERSION ${GIC_VERSION}")
+endif

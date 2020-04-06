@@ -672,8 +672,8 @@ Common build options
    default value of this flag is ``no``. Note this option must be enabled only
    for ARM architecture greater than Armv8.5-A.
 
-GICv3 driver options
---------------------
+GICv3 and GICv4 driver options
+------------------------------
 
 GICv3 driver files are included using directive:
 
@@ -693,8 +693,8 @@ makefile:
    functions. This is required for FVP platform which need to simulate GIC save
    and restore during SYSTEM_SUSPEND without powering down GIC. Default is 0.
 
--  ``GIC_EXT_INTID``: When set to ``1``, GICv3 driver will support extended
-   PPI (1056-1119) and SPI (4096-5119) range. This option defaults to 0.
+-  ``GIC_VERSION``: Selects GICv4 when set to 4, otherwise defaults to 3 for
+   GICv3 driver.
 
 Debugging options
 -----------------
