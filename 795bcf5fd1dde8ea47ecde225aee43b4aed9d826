@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0ca591d_5fecdfc0",
+        "filename": "include/drivers/arm/gic_common.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-04-06T10:05:33Z",
+      "side": 1,
+      "message": "Common GIC Distributor register offsets",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 68
+      },
+      "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e96a4e68_f9ba29bd",
+        "filename": "include/drivers/arm/gic_common.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-04-06T10:05:33Z",
+      "side": 1,
+      "message": "Common GIC Distributor register constants",
+      "range": {
+        "startLine": 65,
+        "startChar": 3,
+        "endLine": 65,
+        "endChar": 70
+      },
+      "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5425bfe9_083d0055",
+        "filename": "include/drivers/arm/gic_common.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-04-06T10:05:33Z",
+      "side": 1,
+      "message": "PIDR2.ArchRev register field",
+      "range": {
+        "startLine": 70,
+        "startChar": 36,
+        "endLine": 70,
+        "endChar": 51
+      },
+      "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c3b3fad_d355d9b4",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-04-06T10:05:33Z",
+      "side": 1,
+      "message": "should this just move after the if statement and remove from gicv3.mk ?",
+      "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
