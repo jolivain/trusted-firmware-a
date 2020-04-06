@@ -154,6 +154,24 @@
     },
     {
       "key": {
+        "uuid": "7d238e8e_a452fe88",
+        "filename": "drivers/arm/gic/v3/gicv3_private.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-06T12:48:59Z",
+      "side": 1,
+      "message": "Fixed by removal of 1 macro level.",
+      "parentUuid": "2a4eaf1e_701ad251",
+      "revId": "4c8be08f72267747e47b816031e58eba422c213e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7fcae0cd_3286d231",
         "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
         "patchSetId": 13
@@ -168,6 +186,24 @@
       "revId": "4c8be08f72267747e47b816031e58eba422c213e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f4a914d_597fc593",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-06T12:48:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7fcae0cd_3286d231",
+      "revId": "4c8be08f72267747e47b816031e58eba422c213e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
