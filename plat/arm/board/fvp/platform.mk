@@ -49,7 +49,12 @@ endif
 $(eval $(call add_define,FVP_INTERCONNECT_DRIVER))
 
 # Choose the GIC sources depending upon the how the FVP will be invoked
-ifeq (${FVP_USE_GIC_DRIVER},$(filter ${FVP_USE_GIC_DRIVER},FVP_GICV3 FVP_GIC600))
+ifeq (${FVP_USE_GIC_DRIVER},$(filter ${FVP_USE_GIC_DRIVER},FVP_GICV4 FVP_GICV3 FVP_GIC600))
+	# The default GIC_VERSION is 3 in case it is not set
+	ifeq (${FVP_USE_GIC_DRIVER}, FVP_GICV4)
+		GIC_VERSION	:=	4
+	endif
+
 	ifeq (${FVP_USE_GIC_DRIVER}, FVP_GIC600)
 		GICV3_IMPL	:=	GIC600
 	endif
@@ -66,6 +71,15 @@ FVP_GIC_SOURCES		:=	${GICV3_SOURCES}			\
 				plat/arm/common/arm_gicv3.c
 
 else ifeq (${FVP_USE_GIC_DRIVER}, FVP_GICV2)
+
+# Set GIC driver version
+GIC_VERSION		:=	2
+$(eval $(call add_define,GIC_VERSION))
+
+# No support for extended PPI and SPI range
+GIC_EXT_INTID		:=	0
+$(eval $(call add_define,GIC_EXT_INTID))
+
 FVP_GIC_SOURCES		:=	drivers/arm/gic/common/gic_common.c	\
 				drivers/arm/gic/v2/gicv2_main.c		\
 				drivers/arm/gic/v2/gicv2_helpers.c	\
