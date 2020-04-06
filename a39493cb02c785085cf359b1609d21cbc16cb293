@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "460d3289_09ddd5af",
+        "filename": "plat/brcm/board/stingray/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-04-06T11:01:35Z",
+      "side": 1,
+      "message": "Also this is confusing. Should there be USE_FRU :\u003d yes?",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 5
+      },
+      "revId": "a39493cb02c785085cf359b1609d21cbc16cb293",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
