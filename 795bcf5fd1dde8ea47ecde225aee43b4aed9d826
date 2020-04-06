@@ -88,6 +88,29 @@
     },
     {
       "key": {
+        "uuid": "9474d441_ce850603",
+        "filename": "plat/arm/board/fvp/fvp_def.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-04-06T17:05:11Z",
+      "side": 1,
+      "message": "Can this re-use GICR_PCPUBASE_SHIFT?\ne.g. (PLATFORM_CORE_COUNT * (64 * GICR_PCPUBASE_SHIFT))",
+      "range": {
+        "startLine": 60,
+        "startChar": 29,
+        "endLine": 60,
+        "endChar": 36
+      },
+      "revId": "795bcf5fd1dde8ea47ecde225aee43b4aed9d826",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c3b3fad_d355d9b4",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 9
