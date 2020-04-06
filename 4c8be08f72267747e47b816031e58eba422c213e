@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e51aaaf4_90fed5de",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-04-06T08:50:02Z",
+      "side": 1,
+      "message": "nit: and LPIs?",
+      "range": {
+        "startLine": 178,
+        "startChar": 5,
+        "endLine": 178,
+        "endChar": 34
+      },
+      "revId": "4c8be08f72267747e47b816031e58eba422c213e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac5c9c25_1554f6e1",
+        "filename": "drivers/arm/gic/v3/gicv3_private.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-04-06T08:50:02Z",
+      "side": 1,
+      "message": "Should we just rename GICR_NSACR to avoid this trick (e.g. GICR_SGI_NSACR)?\n(or rename the legacy AArch32 system register?)",
+      "revId": "4c8be08f72267747e47b816031e58eba422c213e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
