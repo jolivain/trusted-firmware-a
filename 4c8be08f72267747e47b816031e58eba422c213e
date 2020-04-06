@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "345cd519_b84eae2d",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-04-06T10:04:15Z",
+      "side": 1,
+      "message": "This will have to be defined in the gicv3.mk makefile.\n\nPrepend with GICV3 prefix similar to be other build options. Need build_option.rst to be updated with the description.",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 17
+      },
+      "revId": "4c8be08f72267747e47b816031e58eba422c213e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e51aaaf4_90fed5de",
         "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
         "patchSetId": 13
@@ -25,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "31028c1d_0de832b9",
+        "filename": "drivers/arm/gic/v3/gicv3_private.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-04-06T10:04:15Z",
+      "side": 1,
+      "message": "Do not undef. We can rename as Olivier suggests.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 12
+      },
+      "revId": "4c8be08f72267747e47b816031e58eba422c213e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac5c9c25_1554f6e1",
         "filename": "drivers/arm/gic/v3/gicv3_private.h",
         "patchSetId": 13
@@ -36,6 +82,23 @@
       "writtenOn": "2020-04-06T08:50:02Z",
       "side": 1,
       "message": "Should we just rename GICR_NSACR to avoid this trick (e.g. GICR_SGI_NSACR)?\n(or rename the legacy AArch32 system register?)",
+      "revId": "4c8be08f72267747e47b816031e58eba422c213e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fcae0cd_3286d231",
+        "filename": "plat/mediatek/mt8183/plat_mt_gic.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-04-06T10:04:15Z",
+      "side": 1,
+      "message": "Do not include this change in this patch. this can be separate.",
       "revId": "4c8be08f72267747e47b816031e58eba422c213e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
