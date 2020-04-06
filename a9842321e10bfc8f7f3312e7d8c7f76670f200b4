@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "325c05eb_0d92bc6b",
+        "filename": "lib/coreboot/coreboot_table.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-06T07:23:47Z",
+      "side": 1,
+      "message": "Is the fall-through intended or are we missing a break statement here?",
+      "range": {
+        "startLine": 136,
+        "startChar": 3,
+        "endLine": 137,
+        "endChar": 21
+      },
+      "revId": "a9842321e10bfc8f7f3312e7d8c7f76670f200b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
