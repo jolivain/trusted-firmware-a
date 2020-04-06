@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e44345f5_01f2ff18",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-06T08:33:56Z",
+      "side": 1,
+      "message": "Can you include specific header for this instead of forward declaration?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 46
+      },
+      "revId": "198fae642bb96c8c3805b7f0f2505ff7ddd4162e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c2dcaf0_b6849005",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-06T08:33:56Z",
+      "side": 1,
+      "message": "IMO, you need to validate input parameters. for e.g. \"alen\" can be 7bit or 10bit depend upon addressing mode right? If it is any other value then return error immediately.",
+      "revId": "198fae642bb96c8c3805b7f0f2505ff7ddd4162e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79486393_68d2231a",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-06T08:33:56Z",
+      "side": 1,
+      "message": "Comment will be helpful. Why there is a need to update command register(assuming cr\u003dcommand register) with I2C_CR_TX_NAK?",
+      "range": {
+        "startLine": 155,
+        "startChar": 1,
+        "endLine": 156,
+        "endChar": 23
+      },
+      "revId": "198fae642bb96c8c3805b7f0f2505ff7ddd4162e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e5fbd40_8bf39ad8",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-06T08:33:56Z",
+      "side": 1,
+      "message": "Is there any limit on len value? Can there be possibility of buffer overflow if buf passed is not of \"len\" value?",
+      "revId": "198fae642bb96c8c3805b7f0f2505ff7ddd4162e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fbe9093_ec981502",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-06T08:33:56Z",
+      "side": 1,
+      "message": "Is there any limit on len value? Can there be possibility of buffer overflow if buf passed is not of \"len\" value?",
+      "revId": "198fae642bb96c8c3805b7f0f2505ff7ddd4162e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2f7d89f_86a6b2ae",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-06T08:33:56Z",
+      "side": 1,
+      "message": "Why \"gen_stop\" does not return? It should return successful otherwise further I2C request may not get served properly right?",
+      "range": {
+        "startLine": 233,
+        "startChar": 1,
+        "endLine": 233,
+        "endChar": 9
+      },
+      "revId": "198fae642bb96c8c3805b7f0f2505ff7ddd4162e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
