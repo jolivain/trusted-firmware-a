@@ -574,7 +574,7 @@ void gicv3_rdistif_save(unsigned int proc_num,
 	rdist_ctx->gicr_pendbaser = gicr_read_pendbaser(gicr_base);
 
 	/* 32 interrupt IDs per register */
-	for (i = 0U; i < ppi_regs_num; ++i) {
+	for (i = MIN_SGI_ID; i < ppi_regs_num; ++i) {
 		SAVE_GICR_REG(gicr_base, rdist_ctx, igroupr, i);
 		SAVE_GICR_REG(gicr_base, rdist_ctx, isenabler, i);
 		SAVE_GICR_REG(gicr_base, rdist_ctx, ispendr, i);
@@ -593,7 +593,8 @@ void gicv3_rdistif_save(unsigned int proc_num,
 	/* 4 interrupt IDs per GICR_IPRIORITYR register */
 	regs_num = ppi_regs_num << 3;
 	for (i = 0U; i < regs_num; ++i) {
-		SAVE_GICR_REG(gicr_base, rdist_ctx, ipriorityr, i);
+		rdist_ctx->gicr_ipriorityr[i] =
+		gicr_ipriorityr_read(gicr_base, i);
 	}
 
 	/*
@@ -678,7 +679,8 @@ void gicv3_rdistif_init_restore(unsigned int proc_num,
 	/* 4 interrupt IDs per GICR_IPRIORITYR register */
 	regs_num = ppi_regs_num << 3;
 	for (i = 0U; i < regs_num; ++i) {
-		RESTORE_GICR_REG(gicr_base, rdist_ctx, ipriorityr, i);
+		gicr_ipriorityr_write(gicr_base, i,
+					rdist_ctx->gicr_ipriorityr[i]);
 	}
 
 	/* 16 interrupt IDs per GICR_ICFGR register */
