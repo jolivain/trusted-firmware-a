@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "6e525e37_f35e2bf1",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-07T09:33:14Z",
+      "side": 1,
+      "message": "Yes, Olivier, you are right. All the new GICv4 features when needed can be added in #if GIC_VERSION \u003d\u003d 4/#endif sections in the existing code or in new GICv4 specific files.",
+      "parentUuid": "99d3d100_74f0e594",
+      "range": {
+        "startLine": 675,
+        "startChar": 6,
+        "endLine": 675,
+        "endChar": 16
+      },
+      "revId": "a1e087424b63dd375293debb879845171cc52644",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1d0a28b6_26a76d99",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 1
@@ -147,6 +171,24 @@
       "revId": "a1e087424b63dd375293debb879845171cc52644",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e320df9_4ccd8256",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-07T09:33:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a094abc6_0e3b083f",
+      "revId": "a1e087424b63dd375293debb879845171cc52644",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
