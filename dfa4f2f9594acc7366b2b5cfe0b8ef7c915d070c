@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa746311_3de40b19",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-07T09:31:22Z",
+      "side": 1,
+      "message": "I don\u0027t understand either why the LMAs got changed by this patch and that makes me nervous. That said, I\u0027ve run all our CI tests on FVP and Juno and could not see any agression (just like you did on QEMU)...\n\nStill, I think we should leave this patch out of the v2.3 release. The fact that we do not understand it to the bottom raises the risk of introducing a bug. What\u0027s your opinion on this?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 43
+      },
+      "revId": "dfa4f2f9594acc7366b2b5cfe0b8ef7c915d070c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
