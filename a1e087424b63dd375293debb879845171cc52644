@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "22a1e357_766b973e",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-04-07T08:11:47Z",
+      "side": 1,
+      "message": "The base driver in software is still GICv3. the v4 is an extension to GICv3 driver (In fact it just an offset change for a redist page as seen from the chnages).",
+      "parentUuid": "63f5842f_78c4d192",
+      "range": {
+        "startLine": 675,
+        "startChar": 6,
+        "endLine": 675,
+        "endChar": 16
+      },
+      "revId": "a1e087424b63dd375293debb879845171cc52644",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1d0a28b6_26a76d99",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 1
@@ -78,6 +102,24 @@
       "side": 1,
       "message": "What previous change did we lose? It is not just enabling GICv4 extension. GIC_VERSION is checked during initialisation and asserts if version doesn\u0027t match. If it were just extension, then why would GIC had versions 3 and 4?",
       "parentUuid": "1d0a28b6_26a76d99",
+      "revId": "a1e087424b63dd375293debb879845171cc52644",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a094abc6_0e3b083f",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-04-07T08:11:47Z",
+      "side": 1,
+      "message": "You replaced the explanation for GIC_EXT_INTID here. \n\nThe GIC hardware IP exposes 2 different versions 3 and 4 but in software the GIC base driver is still GICv3 and v4 is just an extension of the base driver. Hence the explanation.",
+      "parentUuid": "4faaf112_201b69bb",
       "revId": "a1e087424b63dd375293debb879845171cc52644",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -119,6 +161,30 @@
       "side": 1,
       "message": "In my first GICV3X driver implementation this function printed max PPIs and SPIs values were printed, but this was rejected.",
       "parentUuid": "5ed430a2_60d7c9e6",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 1
+      },
+      "revId": "a1e087424b63dd375293debb879845171cc52644",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f70ae1d_547ddbb6",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-04-07T08:11:47Z",
+      "side": 1,
+      "message": "The Max Id print is not essential , but it is useful to know whether the extended interrupt IDs is being supported in software as it is possible to run a unmodified GICv3 driver when the extended Interrupt ID support is present and the logs provide an easy to know. Something on the lines of :\n\n\"GICv3 with GICv2 legacy and extended interrupt ID support detected.\"\n\nAnyway, I dont have any strong opinion for this. We can do this later.",
+      "parentUuid": "96c52f77_1e44f8d9",
       "range": {
         "startLine": 179,
         "startChar": 0,
