@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "99d3d100_74f0e594",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-04-07T08:13:57Z",
+      "side": 1,
+      "message": "Trying to elaborate Soby\u0027s comment (correct me if I\u0027m wrong) I guess this patch is more ground base/framework (for the good) for a future GICv4 implementation. Currently there is no functional change more than checking version and DVIS feature is available. As LPIs and virtualization are barely supported at the moment it\u0027s difficult to state that we fully support GICv4.",
+      "parentUuid": "63f5842f_78c4d192",
+      "range": {
+        "startLine": 675,
+        "startChar": 6,
+        "endLine": 675,
+        "endChar": 16
+      },
+      "revId": "a1e087424b63dd375293debb879845171cc52644",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1d0a28b6_26a76d99",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 1
