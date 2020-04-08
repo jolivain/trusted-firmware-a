@@ -75,9 +75,6 @@ psa-ffa-manifest-partition
       - 0x0: EL1
       - 0x1: S_EL0
       - 0x2: S_EL1
-      - 0x3: EL2
-      - 0x4: Supervisor mode
-      - 0x5: Secure User mode
 
 - execution-state [mandatory]
    - value type: <u32>
@@ -104,7 +101,7 @@ psa-ffa-manifest-partition
 
       - 0x0: 4k
       - 0x1: 16k
-      - 0x2: 32k
+      - 0x2: 64k
 
 - boot-order
    - value type: <u32>
@@ -177,7 +174,7 @@ memory-regions
 
 - attributes [mandatory]
    - value type: <u32>
-   - ?? TO DEFINE
+   - TBD
 
 - base-address
    - value type: <u64>
@@ -213,7 +210,7 @@ device-regions
 
 - attributes [mandatory]
    - value type: <u32>
-   - ?? TO DEFINE
+   - TBD
 
 - smmu-id
    - value type: <u32>
@@ -222,19 +219,18 @@ device-regions
      upstream of. If the field is omitted then it is assumed that the device is
      not upstream of any SMMU.
 
-- stream-ids [mandatory]
+- stream-ids
    - value type: <prop-encoded-array>
    - A list of (id, mem-manage) pair, where:
 
       - id: A unique <u32> value amongst all devices assigned to the partition.
-      - mem-manage: A <u32> value used in memory management operations.
 
 - interrupts [mandatory]
    - value type: <prop-encoded-array>
    - A list of (id, attributes) pair describing the device interrupts, where:
 
       - id: The <u32> interrupt IDs.
-      - attributes: A ?? TO DEFINE value,
+      - attributes: A <u32> value,
         containing the attributes for each interrupt ID:
 
          - Interrupt type: SPI, PPI, SGI
