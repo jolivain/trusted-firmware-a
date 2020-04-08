@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "e7458834_e412d43b",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-08T15:55:19Z",
+      "side": 1,
+      "message": "Ack. Requires new API for passing platform specific ‘image_data’ to Measured Boot driver.",
+      "parentUuid": "2d2d2e2e_1617db66",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fcbf54e7_bb3074d0",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 7
@@ -155,6 +173,24 @@
     },
     {
       "key": {
+        "uuid": "957544b9_acc60504",
+        "filename": "drivers/measured_boot/event_print.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-08T15:55:19Z",
+      "side": 1,
+      "message": "TCG_EfiSpecIDEvent is a data structure. What do you mean by \"constant\" here? assert() will do nothing in release build with no error reported.",
+      "parentUuid": "33b6bcee_599137d6",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ed60bc0_d6818c36",
         "filename": "drivers/measured_boot/event_print.c",
         "patchSetId": 7
@@ -166,6 +202,24 @@
       "writtenOn": "2020-04-02T04:05:14Z",
       "side": 1,
       "message": "same here. assert as opposed to erroring out. These things should not happen, ie they are invariant.",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bd37307_33ad6e4a",
+        "filename": "drivers/measured_boot/event_print.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-08T15:55:19Z",
+      "side": 1,
+      "message": "Same as above. Should not, but might happen.",
+      "parentUuid": "9ed60bc0_d6818c36",
       "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -189,6 +243,24 @@
     },
     {
       "key": {
+        "uuid": "5539a50d_51a5942f",
+        "filename": "drivers/measured_boot/measured_boot.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-08T15:55:19Z",
+      "side": 1,
+      "message": "assert() does nothing in release build. If data are incorrect, e.g. the field length, it can cause exception/data abort when accessing the data. It is more safe to return an error in that case.",
+      "parentUuid": "9d673c52_9ec60d10",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c112375_9fcef833",
         "filename": "include/drivers/measured_boot/event_log.h",
         "patchSetId": 7
@@ -203,6 +275,24 @@
       "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70a77729_90475dc0",
+        "filename": "include/drivers/measured_boot/event_log.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-08T15:55:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6c112375_9fcef833",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -223,6 +313,24 @@
     },
     {
       "key": {
+        "uuid": "66d6f26d_5ac1a98c",
+        "filename": "include/drivers/measured_boot/event_log.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-08T15:55:19Z",
+      "side": 1,
+      "message": "There are 254 cases of using \"weak\" functions attribute in TF-A C code and 41 in assember files.\nPlease feel free to discuss this problem in TF-A code of making \"it hard to tell which function is actually linked\" on TF-A mailing list and submit a patch which provides a better solution for replacing generic code with the platform specific one.",
+      "parentUuid": "64529207_0e2e833c",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b8c08d26_3fc4d3ca",
         "filename": "include/drivers/measured_boot/measured_boot.h",
         "patchSetId": 7
@@ -234,6 +342,24 @@
       "writtenOn": "2020-04-02T04:05:14Z",
       "side": 1,
       "message": "more descriptive names ? tcg_event_log_init ? perhaps event_log.c should be tcg_event_log.c.",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a89ab4a_1f4239b6",
+        "filename": "include/drivers/measured_boot/measured_boot.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-08T15:55:19Z",
+      "side": 1,
+      "message": "Event log is named \"even log\" in TCG PC Client Platform Firmware Profile\nSpecification and TCG EFI Protocol Specification. The code follows this namig convention.",
+      "parentUuid": "b8c08d26_3fc4d3ca",
       "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -285,6 +411,24 @@
       "writtenOn": "2020-04-02T04:05:14Z",
       "side": 1,
       "message": "the caller has no indication as to what the size of the buffer to be passed is without looking at the code. Recommend you pass pointer to an array[TCG_DIGEST_SIZE].",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1568268_9e054d0a",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-08T15:55:19Z",
+      "side": 1,
+      "message": "Passing \"pointer to an array[TCG_DIGEST_SIZE]\" doesn\u0027t guarantee that no data will be accessed out of the array boundaries. What is the problem of using TCG_DIGEST_SIZE in memcpy()?",
+      "parentUuid": "3bfd7952_1df4ef4a",
       "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
