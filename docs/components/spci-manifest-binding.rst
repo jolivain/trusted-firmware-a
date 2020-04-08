@@ -75,9 +75,9 @@ spci-manifest-partition
       - 0x0: EL1
       - 0x1: S_EL0
       - 0x2: S_EL1
-      - 0x3: EL2
-      - 0x4: Supervisor mode
-      - 0x5: Secure User mode
+      - 0x3: Supervisor mode
+      - 0x4: Secure User mode
+      - 0x5: Secure Supervisor mode
 
 - execution-state [mandatory]
    - value type: <u32>
@@ -104,7 +104,7 @@ spci-manifest-partition
 
       - 0x0: 4k
       - 0x1: 16k
-      - 0x2: 32k
+      - 0x2: 64k
 
 - boot-order
    - value type: <u32>
