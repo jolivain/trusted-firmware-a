@@ -73,6 +73,8 @@ Current features
    to be configured at runtime if required by the platform. It also enables
    loading of a hardware configuration (for example, a kernel device tree)
    as part of the FIP, to be passed through the firmware stages.
+   This feature is now incorporated inside the firmware configuration framework
+   (fconf), which is still flagged as experimental.
 
 -  Support for alternative boot flows, for example to support platforms where
    the EL3 Runtime Software is loaded using other firmware or a separate
@@ -124,4 +126,4 @@ Still to come
 
 --------------
 
-*Copyright (c) 2019, Arm Limited. All rights reserved.*
+*Copyright (c) 2019-2020, Arm Limited. All rights reserved.*
