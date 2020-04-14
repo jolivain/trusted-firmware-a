@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca066758_99982bc2",
+        "filename": "plat/imx/imx8m/imx8mn/gpc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-14T09:45:44Z",
+      "side": 1,
+      "message": "According to the project\u0027s license documentation [1], this line is not well-formatted. It should be:\n\n Copyright (c) 2019-2020, NXP. All rights reserved.\n\nPlease update in all relevant files.\n\n[1] https://trustedfirmware-a.readthedocs.io/en/latest/license.html",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "db706b1e09b0ddbc315917ac69370acb8da0c3ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ae4b2be_65846521",
+        "filename": "plat/imx/imx8m/imx8mn/imx8mn_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-14T09:45:44Z",
+      "side": 1,
+      "message": "Does this function need to be exported? It does not seem to be used outside of this C file...",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 28
+      },
+      "revId": "db706b1e09b0ddbc315917ac69370acb8da0c3ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b412189_ede686ff",
+        "filename": "plat/imx/imx8m/imx8mn/imx8mn_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-14T09:45:44Z",
+      "side": 1,
+      "message": "Is this comment accurate? I can\u0027t see the code it relates to and also it\u0027s referring to i.mx8mm platform.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 4
+      },
+      "revId": "db706b1e09b0ddbc315917ac69370acb8da0c3ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fc26a51_3e520c4d",
+        "filename": "plat/imx/imx8m/imx8mn/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-14T09:45:44Z",
+      "side": 1,
+      "message": "Use ULL(1) instead of 1ull, as this header file might get included from assembly files.",
+      "range": {
+        "startLine": 44,
+        "startChar": 35,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "db706b1e09b0ddbc315917ac69370acb8da0c3ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cb1e0ed_dc0984f2",
+        "filename": "plat/imx/imx8m/imx8mn/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-14T09:45:44Z",
+      "side": 1,
+      "message": "utils_def.h should be included in this header file to get the definition of the BIT() macro.",
+      "range": {
+        "startLine": 90,
+        "startChar": 25,
+        "endLine": 90,
+        "endChar": 28
+      },
+      "revId": "db706b1e09b0ddbc315917ac69370acb8da0c3ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9b57b0f_4fe71c5a",
+        "filename": "plat/imx/imx8m/imx8mn/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-14T09:45:44Z",
+      "side": 1,
+      "message": "xlat_tables.h (or xlat_tables_v2.h if you\u0027re switching to xlat lib v2) should be included to get the definition of the MAP_REGION() macro.",
+      "range": {
+        "startLine": 127,
+        "startChar": 17,
+        "endLine": 127,
+        "endChar": 32
+      },
+      "revId": "db706b1e09b0ddbc315917ac69370acb8da0c3ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9adb7f3a_bcaa75e5",
+        "filename": "plat/imx/imx8m/imx8mn/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-14T09:45:44Z",
+      "side": 1,
+      "message": "Any reason why you need to use the translation table library v1 for this platform? Could you use the v2 of this library instead? v1 is deprecated and will most likely be removed in the future so any new development should use v2 if possible.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 43
+      },
+      "revId": "db706b1e09b0ddbc315917ac69370acb8da0c3ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
