@@ -346,6 +346,52 @@
     },
     {
       "key": {
+        "uuid": "5d0dd90f_e3db208c",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-04-15T10:42:09Z",
+      "side": 1,
+      "message": "Is the Tegra194 a new Tegra platform that should be listed? I notice in root/plat/nvidia/tegra/soc there is a new t194 directory that was not there in the v2.2 release. maybe its a variation of an existing platform so should not be listed but then again maybe it should...",
+      "range": {
+        "startLine": 194,
+        "startChar": 5,
+        "endLine": 198,
+        "endChar": 75
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d125808_8b305600",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-04-15T10:42:09Z",
+      "side": 1,
+      "message": "Maybe spell out what SPM is Secure Partition Manager is as this is the first release that has some support?",
+      "range": {
+        "startLine": 258,
+        "startChar": 20,
+        "endLine": 258,
+        "endChar": 23
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "55634930_aee534b9",
         "filename": "docs/change-log.rst",
         "patchSetId": 1
@@ -438,6 +484,29 @@
       "writtenOn": "2020-04-14T22:56:10Z",
       "side": 1,
       "message": "Please put \"Read-only xlat tables for BL31 memory\" under New Features.",
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "408ea28b_e47f1301",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-04-15T10:42:09Z",
+      "side": 1,
+      "message": "Is this really changed if it was not in the previous release in root/plat/nvidia/tegra/soc?",
+      "range": {
+        "startLine": 380,
+        "startChar": 5,
+        "endLine": 383,
+        "endChar": 64
+      },
       "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -563,6 +632,52 @@
         "startChar": 5,
         "endLine": 475,
         "endChar": 9
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7775cb86_b0ac092c",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-04-15T10:42:09Z",
+      "side": 1,
+      "message": "Same as previous Tegra194 comments. Is it new or fixed existing?",
+      "range": {
+        "startLine": 528,
+        "startChar": 5,
+        "endLine": 529,
+        "endChar": 54
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "894daa3b_5f26a4ca",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-04-15T10:42:09Z",
+      "side": 1,
+      "message": "Should mention the two new defects (see dashboard for details)\n1) Intermittent ASSERT: services/spd/tspd/tspd_main.c:105\n2) Intermittent Race condition in Coverity Jenkins Build Job",
+      "range": {
+        "startLine": 543,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 12
       },
       "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
