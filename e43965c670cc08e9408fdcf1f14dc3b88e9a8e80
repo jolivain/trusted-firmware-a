@@ -19,6 +19,144 @@
     },
     {
       "key": {
+        "uuid": "c67dd498_80dc5198",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "This sounds too detailed to me. How about just saying:\n\n - Add support for SMCCC v1.2 (introducing the new SMCCC_ARCH_SOC_ID SMC).\n\nThe rest of the items look like code refactoring bits we did along the way to add this support and do not warrant mentioning in the change log IMO.",
+      "range": {
+        "startLine": 20,
+        "startChar": 5,
+        "endLine": 23,
+        "endChar": 9
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9db3b86_144b7889",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "Might be worth expanding the acronym, as in \"Add Position Independent Execution support\" to avoid any confusion. \n\nBTW, I believe some of the BL images were already PIE before this release. Doesn\u0027t this change log item apply to a couple of them only?",
+      "range": {
+        "startLine": 31,
+        "startChar": 11,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78fdfb85_8138add3",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "I would remove this one. It\u0027s not a feature per se, just a specific implementation detail.",
+      "range": {
+        "startLine": 33,
+        "startChar": 3,
+        "endLine": 33,
+        "endChar": 32
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4301a5b6_cc87eac4",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "This one is borderline IMO, not sure I would keep it here.",
+      "range": {
+        "startLine": 58,
+        "startChar": 3,
+        "endLine": 58,
+        "endChar": 61
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e2a24e9_cbd1a1bb",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "Merge with \"Introduce per-BL CPPFLAGS and ASFLAGS\" item above?",
+      "range": {
+        "startLine": 60,
+        "startChar": 5,
+        "endLine": 60,
+        "endChar": 27
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4edb92a6_80917c6e",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "I don\u0027t understand what this means. Suggest either elaborating/rewording or removing altogether.",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 54
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7bc0e6b_e8617338",
         "filename": "docs/change-log.rst",
         "patchSetId": 1
@@ -36,6 +174,121 @@
     },
     {
       "key": {
+        "uuid": "845e3cb7_f6d145e9",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "Should this be part of the allwinner platform change log instead?",
+      "range": {
+        "startLine": 74,
+        "startChar": 5,
+        "endLine": 74,
+        "endChar": 28
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58466bb0_b2565fdf",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "Suggest something like:\n\n Add function for hash calculation. Used for authentication of images\n when measured boot is enabled.\n\nAnd perhaps worth specifying which hash function was used.",
+      "range": {
+        "startLine": 76,
+        "startChar": 5,
+        "endLine": 76,
+        "endChar": 59
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26677e17_703b0aec",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "Move to platform change log?",
+      "range": {
+        "startLine": 78,
+        "startChar": 5,
+        "endLine": 79,
+        "endChar": 43
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f167c53_bec8d997",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "CryptoCell-713",
+      "range": {
+        "startLine": 82,
+        "startChar": 9,
+        "endLine": 82,
+        "endChar": 23
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6b3fb9f_d71db0ad",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "CryptoCell-712",
+      "range": {
+        "startLine": 82,
+        "startChar": 28,
+        "endLine": 82,
+        "endChar": 42
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a24eee67_02a3de46",
         "filename": "docs/change-log.rst",
         "patchSetId": 1
@@ -47,6 +300,29 @@
       "writtenOn": "2020-04-14T22:56:10Z",
       "side": 1,
       "message": "please put under CPU support.",
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "635d3184_dc3e6d3a",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "Too detailed IMO, I would drop it.",
+      "range": {
+        "startLine": 120,
+        "startChar": 3,
+        "endLine": 120,
+        "endChar": 31
+      },
       "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -87,6 +363,70 @@
     },
     {
       "key": {
+        "uuid": "168405f9_5800c74b",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "Yes I agree.",
+      "parentUuid": "55634930_aee534b9",
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c48a7748_50d18776",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "This sentence seem incomplete. Not sure I would include it in the change log.",
+      "range": {
+        "startLine": 283,
+        "startChar": 4,
+        "endLine": 283,
+        "endChar": 36
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "154c85fe_6900a599",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "Suggest:\n\n Unify BL linker scripts and reduce code duplication.",
+      "range": {
+        "startLine": 285,
+        "startChar": 5,
+        "endLine": 287,
+        "endChar": 19
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c5970364_32a5aad6",
         "filename": "docs/change-log.rst",
         "patchSetId": 1
@@ -98,6 +438,29 @@
       "writtenOn": "2020-04-14T22:56:10Z",
       "side": 1,
       "message": "Please put \"Read-only xlat tables for BL31 memory\" under New Features.",
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6aaf383_6efce14b",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "Too detailed IMO, I would remove it.",
+      "range": {
+        "startLine": 437,
+        "startChar": 3,
+        "endLine": 438,
+        "endChar": 28
+      },
       "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -121,6 +484,52 @@
     },
     {
       "key": {
+        "uuid": "e04d2b06_4ba0e452",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "Can this be squashed with the previous item?",
+      "range": {
+        "startLine": 467,
+        "startChar": 5,
+        "endLine": 468,
+        "endChar": 22
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "154ee237_f1d9690a",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "This sounds weird to me, is this supposed to refer to a change in the coding guidelines? IIRC, the corresponding patch was actually aligning the code base with this rule, consider rewording to make this clearer in the change log.",
+      "range": {
+        "startLine": 470,
+        "startChar": 5,
+        "endLine": 470,
+        "endChar": 54
+      },
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f1ed9e76_b86f4708",
         "filename": "docs/change-log.rst",
         "patchSetId": 1
@@ -132,6 +541,29 @@
       "writtenOn": "2020-04-14T22:56:10Z",
       "side": 1,
       "message": "this patch is more like upgrade. Can you put it under Changed?",
+      "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93fcecda_d474f324",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-15T09:01:03Z",
+      "side": 1,
+      "message": "authentication:",
+      "range": {
+        "startLine": 475,
+        "startChar": 5,
+        "endLine": 475,
+        "endChar": 9
+      },
       "revId": "e43965c670cc08e9408fdcf1f14dc3b88e9a8e80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
