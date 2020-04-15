@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80d849f2_96b1abfe",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T10:18:40Z",
+      "side": 1,
+      "message": "Neat: remove 1 tab to align with lines #945-948",
+      "revId": "9e49d41464dcbc685ff984beaddd0accb44d031b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d197e4d5_6e6d5f11",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T10:18:40Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "9e49d41464dcbc685ff984beaddd0accb44d031b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02621ca5_894791a8",
+        "filename": "plat/arm/board/fvp/fvp_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T10:18:40Z",
+      "side": 1,
+      "message": "Actually it is clearing bit 0, see:\n#define DSU_CLUSTER_PWR_OFF\t\t0",
+      "revId": "9e49d41464dcbc685ff984beaddd0accb44d031b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97705cf2_0100e19f",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T10:18:40Z",
+      "side": 1,
+      "message": "remove empty line",
+      "revId": "9e49d41464dcbc685ff984beaddd0accb44d031b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
