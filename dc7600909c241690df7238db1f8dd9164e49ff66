@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "181fb088_a67f34c4",
+        "filename": "bl1/aarch64/bl1_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a4652e0_24584c56",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98cf7b0a_81683aeb",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe98b554_0f29ec00",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98cf7b0a_81683aeb",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "fd90f69c_0ce67526",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c418390_e6becd2e",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a79663b_6f562337",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a98a723d_11b35447",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a79663b_6f562337",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "92077e31_c93f2188",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "664c2af9_deb55ffe",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31f9584e_1462d6eb",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 1
@@ -101,6 +191,24 @@
       "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec36729d_1fc5dc1c",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31f9584e_1462d6eb",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "42a88426_eab8d64e",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ca40a61_9db18eb3",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd40022d_413db82e",
         "filename": "include/arch/aarch32/arch.h",
         "patchSetId": 1
@@ -135,6 +261,24 @@
       "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "293454ba_9e9165ed",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd40022d_413db82e",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "a10d1502_68261841",
+        "filename": "include/arch/aarch32/smccc_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4f4cd92_24cad162",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f39ce524_36eaa071",
         "filename": "include/arch/aarch32/smccc_macros.S",
         "patchSetId": 1
@@ -169,6 +331,24 @@
       "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57b43c6f_10b8ae95",
+        "filename": "include/arch/aarch32/smccc_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f39ce524_36eaa071",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "07f13ca5_a41b321c",
+        "filename": "include/arch/aarch32/smccc_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dca7b5d0_70aab5a1",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "755eb80c_0e941f89",
         "filename": "include/arch/aarch32/smccc_macros.S",
         "patchSetId": 1
@@ -200,6 +398,24 @@
       "writtenOn": "2020-04-15T11:17:01Z",
       "side": 1,
       "message": "This must be \"biclo r5, r5, #PMCR_E_BIT\"",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abf97f71_610ed100",
+        "filename": "include/arch/aarch32/smccc_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Made the change to control flow in a manner similar to aarch64 version.",
+      "parentUuid": "755eb80c_0e941f89",
       "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -223,6 +439,24 @@
     },
     {
       "key": {
+        "uuid": "d9f7a234_3e4842cc",
+        "filename": "include/arch/aarch32/smccc_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Okay. skipped setting DP bit, Made the change to control flow in a manner similar to aarch64 version.",
+      "parentUuid": "eed98186_5098effb",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "225b20ab_62f921ab",
         "filename": "include/arch/aarch64/arch.h",
         "patchSetId": 1
@@ -237,6 +471,24 @@
       "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "978e0a1d_2b08fb87",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "225b20ab_62f921ab",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -257,6 +509,24 @@
     },
     {
       "key": {
+        "uuid": "da393564_523553b1",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15025019_836e8741",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bdeca57_e74cc25b",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
@@ -274,6 +544,24 @@
     },
     {
       "key": {
+        "uuid": "070fbdd9_9add3d73",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bdeca57_e74cc25b",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "515557e6_4513c815",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
@@ -288,6 +576,24 @@
       "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba154fdc_c5391a6f",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-15T19:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "515557e6_4513c815",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
