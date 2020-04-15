@@ -1,0 +1,293 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a4652e0_24584c56",
+        "filename": "bl1/aarch64/bl1_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "please change to \"is not implemented\"",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98cf7b0a_81683aeb",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "is not implemented",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c418390_e6becd2e",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a79663b_6f562337",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "664c2af9_deb55ffe",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31f9584e_1462d6eb",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ca40a61_9db18eb3",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "I\u0027d suggest to remove \"_SUPPORTED\" to match with naming in Arm ARM",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd40022d_413db82e",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "change to \"DBGDIDR_V8_1_DEBUG_ARCH\" to match Arm ARM",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4f4cd92_24cad162",
+        "filename": "include/arch/aarch32/smccc_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "This code will also work and should be applied for ARMv7 architecture.\nSee \"Table C12-1 Behavior of Performance Monitors when non-invasive debug not permitted\" of ARM® Architecture Reference Manual\nARMv7-A and ARMv7-R edition",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f39ce524_36eaa071",
+        "filename": "include/arch/aarch32/smccc_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "is not implemented",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dca7b5d0_70aab5a1",
+        "filename": "include/arch/aarch32/smccc_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "755eb80c_0e941f89",
+        "filename": "include/arch/aarch32/smccc_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "This must be \"biclo r5, r5, #PMCR_E_BIT\"",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eed98186_5098effb",
+        "filename": "include/arch/aarch32/smccc_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "when E_BIT is cleared, do you need to set DP bit?\n\"E\u003d 0b0 All event counters in the range [0..(PMN-1)] and PMCCNTR_EL0, are disabled.\"",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "225b20ab_62f921ab",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "Please see similar comments about naming",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15025019_836e8741",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "is not implemented",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bdeca57_e74cc25b",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "515557e6_4513c815",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-15T11:17:01Z",
+      "side": 1,
+      "message": "I\u0027d prefer \"bic x9,x9,#PMCR_EL0_E_BIT\"",
+      "revId": "dc7600909c241690df7238db1f8dd9164e49ff66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
