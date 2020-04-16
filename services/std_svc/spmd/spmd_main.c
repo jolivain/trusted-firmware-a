@@ -28,18 +28,28 @@
 /*******************************************************************************
  * SPM Core context information.
  ******************************************************************************/
-spmd_spm_core_context_t spm_core_context[PLATFORM_CORE_COUNT];
+static spmd_spm_core_context_t spm_core_context[PLATFORM_CORE_COUNT];
 
 /*******************************************************************************
  * SPM Core attribute information read from its manifest.
  ******************************************************************************/
-static spmc_manifest_sect_attribute_t spmc_attrs;
+static spmc_manifest_attribute_t spmc_attrs;
 
 /*******************************************************************************
  * SPM Core entry point information. Discovered on the primary core and reused
  * on secondary cores.
  ******************************************************************************/
 static entry_point_info_t *spmc_ep_info;
+
+/*******************************************************************************
+ * SPM Core context on current CPU get helper.
+ ******************************************************************************/
+spmd_spm_core_context_t *spmd_get_context(void)
+{
+	uint32_t linear_id = plat_my_core_pos();
+
+	return &spm_core_context[linear_id];
+}
 
 /*******************************************************************************
  * Static function declaration.
@@ -52,8 +62,8 @@ static uint64_t	spmd_smc_forward(uint32_t smc_fid, bool secure_origin,
 				 uint64_t x4, void *handle);
 
 /*******************************************************************************
- * This function takes an SP context pointer and performs a synchronous entry
- * into it.
+ * This function takes an SPMC context pointer and performs a synchronous
+ * SPMC entry.
  ******************************************************************************/
 uint64_t spmd_spm_core_sync_entry(spmd_spm_core_context_t *spmc_ctx)
 {
@@ -83,14 +93,14 @@ uint64_t spmd_spm_core_sync_entry(spmd_spm_core_context_t *spmc_ctx)
 }
 
 /*******************************************************************************
- * This function returns to the place where spm_sp_synchronous_entry() was
+ * This function returns to the place where spmd_spm_core_sync_entry() was
  * called originally.
  ******************************************************************************/
 __dead2 void spmd_spm_core_sync_exit(uint64_t rc)
 {
-	spmd_spm_core_context_t *ctx = &spm_core_context[plat_my_core_pos()];
+	spmd_spm_core_context_t *ctx = spmd_get_context();
 
-	/* Get context of the SP in use by this CPU. */
+	/* Get current cpu context from SPMC context */
 	assert(cm_get_context(SECURE) == &(ctx->cpu_ctx));
 
 	/*
@@ -104,14 +114,14 @@ __dead2 void spmd_spm_core_sync_exit(uint64_t rc)
 }
 
 /*******************************************************************************
- * Jump to the SPM core for the first time.
+ * Jump to the SPM Core for the first time.
  ******************************************************************************/
 static int32_t spmd_init(void)
 {
+	spmd_spm_core_context_t *ctx = spmd_get_context();
 	uint64_t rc = 0;
-	spmd_spm_core_context_t *ctx = &spm_core_context[plat_my_core_pos()];
 
-	INFO("SPM Core init start.\n");
+	VERBOSE("SPM Core init start.\n");
 	ctx->state = SPMC_STATE_RESET;
 
 	rc = spmd_spm_core_sync_entry(ctx);
@@ -121,67 +131,62 @@ static int32_t spmd_init(void)
 	}
 
 	ctx->state = SPMC_STATE_IDLE;
-	INFO("SPM Core init end.\n");
+	VERBOSE("SPM Core init end.\n");
 
 	return 1;
 }
 
 /*******************************************************************************
- * Load SPMC manifest, init SPMC.
+ * Loads SPMC manifest and inits SPMC.
  ******************************************************************************/
 static int spmd_spmc_init(void *rd_base, size_t rd_size)
 {
-	int rc;
+	spmd_spm_core_context_t *spm_ctx = spmd_get_context();
 	uint32_t ep_attr;
-	unsigned int linear_id = plat_my_core_pos();
-	spmd_spm_core_context_t *spm_ctx = &spm_core_context[linear_id];
+	int rc;
 
-	/* Load the SPM core manifest */
+	/* Load the SPM Core manifest */
 	rc = plat_spm_core_manifest_load(&spmc_attrs, rd_base, rd_size);
 	if (rc != 0) {
-		WARN("No or invalid SPM core manifest image provided by BL2 "
-		     "boot loader. ");
+		WARN("No or invalid SPM core manifest image provided by BL2\n");
 		return 1;
 	}
 
 	/*
-	 * Ensure that the SPM core version is compatible with the SPM
-	 * dispatcher version
+	 * Ensure that the SPM Core version is compatible with the SPM
+	 * Dispatcher version.
 	 */
 	if ((spmc_attrs.major_version != SPCI_VERSION_MAJOR) ||
 	    (spmc_attrs.minor_version > SPCI_VERSION_MINOR)) {
-		WARN("Unsupported SPCI version (%x.%x) specified in SPM core "
-		     "manifest image provided by BL2 boot loader.\n",
+		WARN("Unsupported SPCI version (%x.%x)\n",
 		     spmc_attrs.major_version, spmc_attrs.minor_version);
 		return 1;
 	}
 
-	INFO("SPCI version (%x.%x).\n", spmc_attrs.major_version,
+	VERBOSE("SPCI version (%x.%x).\n", spmc_attrs.major_version,
 	     spmc_attrs.minor_version);
 
-	INFO("SPM core run time EL%x.\n",
+	VERBOSE("SPM core run time EL%x.\n",
 	     SPMD_SPM_AT_SEL2 ? MODE_EL2 : MODE_EL1);
 
 	/* Validate the SPMC ID, Ensure high bit is set */
 	if (!(spmc_attrs.spmc_id >> SPMC_SECURE_ID_SHIFT) &
 			SPMC_SECURE_ID_MASK) {
-		WARN("Invalid ID (0x%x) for SPMC.\n",
-		     spmc_attrs.spmc_id);
+		WARN("Invalid ID (0x%x) for SPMC.\n", spmc_attrs.spmc_id);
 		return 1;
 	}
 
-	INFO("SPMC ID %x.\n", spmc_attrs.spmc_id);
+	VERBOSE("SPMC ID %x.\n", spmc_attrs.spmc_id);
 
-	/* Validate the SPM core execution state */
+	/* Validate the SPM Core execution state */
 	if ((spmc_attrs.exec_state != MODE_RW_64) &&
 	    (spmc_attrs.exec_state != MODE_RW_32)) {
-		WARN("Unsupported SPM core execution state %x specified in "
-		     "manifest image provided by BL2 boot loader.\n",
+		WARN("Unsupported SPM core execution state %x.\n",
 		     spmc_attrs.exec_state);
 		return 1;
 	}
 
-	INFO("SPM core execution state %x.\n", spmc_attrs.exec_state);
+	VERBOSE("SPM core execution state %x.\n", spmc_attrs.exec_state);
 
 #if SPMD_SPM_AT_SEL2
 	/* Ensure manifest has not requested AArch32 state in S-EL2 */
@@ -200,7 +205,7 @@ static int spmd_spmc_init(void *rd_base, size_t rd_size)
 	sel2 &= ID_AA64PFR0_SEL2_MASK;
 
 	if (!sel2) {
-		WARN("SPM core run time S-EL2 is not supported.");
+		WARN("SPM Core run time S-EL2 is not supported.\n");
 		return 1;
 	}
 #endif /* SPMD_SPM_AT_SEL2 */
@@ -215,8 +220,8 @@ static int spmd_spmc_init(void *rd_base, size_t rd_size)
 	assert(spmc_ep_info->pc == BL32_BASE);
 
 	/*
-	 * Populate SPSR for SPM core based upon validated parameters from the
-	 * manifest
+	 * Populate SPSR for SPM Core based upon validated parameters from the
+	 * manifest.
 	 */
 	if (spmc_attrs.exec_state == MODE_RW_32) {
 		spmc_ep_info->spsr = SPSR_MODE32(MODE32_svc, SPSR_T_ARM,
@@ -236,7 +241,7 @@ static int spmd_spmc_init(void *rd_base, size_t rd_size)
 					     DISABLE_ALL_EXCEPTIONS);
 	}
 
-	/* Initialise SPM core context with this entry point information */
+	/* Initialise SPM Core context with this entry point information */
 	cm_setup_context(&spm_ctx->cpu_ctx, spmc_ep_info);
 
 	/* Reuse PSCI affinity states to mark this SPMC context as off */
@@ -244,14 +249,14 @@ static int spmd_spmc_init(void *rd_base, size_t rd_size)
 
 	INFO("SPM core setup done.\n");
 
-	/* Register init function for deferred init.  */
+	/* Register init function for deferred init. */
 	bl31_register_bl32_init(&spmd_init);
 
 	return 0;
 }
 
 /*******************************************************************************
- * Initialize context of SPM core.
+ * Initialize context of SPM Core.
  ******************************************************************************/
 int spmd_setup(void)
 {
@@ -263,9 +268,7 @@ int spmd_setup(void)
 
 	spmc_ep_info = bl31_plat_get_next_image_ep_info(SECURE);
 	if (!spmc_ep_info) {
-		WARN("No SPM core image provided by BL2 boot loader, Booting "
-		     "device without SP initialization. SMC`s destined for SPM "
-		     "core will return SMC_UNK\n");
+		WARN("No SPM core image provided by BL2 boot loader\n");
 		return 1;
 	}
 
@@ -274,14 +277,14 @@ int spmd_setup(void)
 
 	/*
 	 * Check if BL32 ep_info has a reference to 'tos_fw_config'. This will
-	 * be used as a manifest for the SPM core at the next lower EL/mode.
+	 * be used as a manifest for the SPM Core at the next lower EL/mode.
 	 */
 	if (spmc_ep_info->args.arg0 == 0U || spmc_ep_info->args.arg2 == 0U) {
 		ERROR("Invalid or absent SPM core manifest\n");
 		panic();
 	}
 
-	/* Obtain whereabouts of SPM core manifest */
+	/* Obtain whereabouts of SPM Core manifest */
 	rd_base = (void *) spmc_ep_info->args.arg0;
 	rd_size = spmc_ep_info->args.arg2;
 
@@ -305,9 +308,7 @@ int spmd_setup(void)
 	if (rc != 0) {
 		int mmap_rc;
 
-		WARN("Booting device without SPM initialization. "
-		     "SPCI SMCs destined for SPM core will return "
-		     "ENOTSUPPORTED\n");
+		WARN("Booting device without SPM initialization.\n");
 
 		mmap_rc = mmap_remove_dynamic_region(rd_base_align,
 						     rd_size_align);
@@ -371,7 +372,7 @@ uint64_t spmd_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 			  uint64_t x3, uint64_t x4, void *cookie, void *handle,
 			  uint64_t flags)
 {
-	spmd_spm_core_context_t *ctx = &spm_core_context[plat_my_core_pos()];
+	spmd_spm_core_context_t *ctx = spmd_get_context();
 	bool secure_origin;
 	int32_t ret;
 
