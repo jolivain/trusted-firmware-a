@@ -36,6 +36,29 @@
     },
     {
       "key": {
+        "uuid": "ea0919d0_4de03925",
+        "filename": "docs/about/features.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-16T07:10:26Z",
+      "side": 1,
+      "message": "We need to update this link, this is not the latest version of the SMCCC spec. This is particularly important given the SMCCC v1.2 support introduced in this version of TF-A. Should point to https://static.docs.arm.com/den0028/c/Q1-ARM-DEN-0028_SMC_Calling_Convention_v1_2_Non_Conf_EAC.pdf?_ga\u003d2.182272676.2044723422.1586858278-1985220966.1581334126 (or maybe the parent page, whose URL won\u0027t change over time I guess: https://developer.arm.com/docs/den0028/latest)",
+      "range": {
+        "startLine": 120,
+        "startChar": 28,
+        "endLine": 120,
+        "endChar": 125
+      },
+      "revId": "495553d5725a9ea7f9b1c651144e2278e1518c44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "409429a0_b5c98764",
         "filename": "docs/about/features.rst",
         "patchSetId": 1
