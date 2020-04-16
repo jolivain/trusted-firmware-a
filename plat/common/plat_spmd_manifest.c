@@ -15,9 +15,9 @@
 #include <services/spm_core_manifest.h>
 
 /*******************************************************************************
- * Attribute section handler
+ * SPMC attribute node parser
  ******************************************************************************/
-static int manifest_parse_attribute(spmc_manifest_sect_attribute_t *attr,
+static int manifest_parse_attribute(spmc_manifest_attribute_t *attr,
 				    const void *fdt,
 				    int node)
 {
@@ -27,13 +27,15 @@ static int manifest_parse_attribute(spmc_manifest_sect_attribute_t *attr,
 
 	rc = fdtw_read_cells(fdt, node, "maj_ver", 1, &attr->major_version);
 	if (rc) {
-		ERROR("Missing SPCI major version in SPM core manifest.\n");
+		ERROR("Missing SPCI %s version in SPM Core manifest.\n",
+			"major");
 		return -ENOENT;
 	}
 
 	rc = fdtw_read_cells(fdt, node, "min_ver", 1, &attr->minor_version);
 	if (rc) {
-		ERROR("Missing SPCI minor version in SPM core manifest.\n");
+		ERROR("Missing SPCI %s version in SPM Core manifest.\n",
+			"minor");
 		return -ENOENT;
 	}
 
@@ -44,22 +46,30 @@ static int manifest_parse_attribute(spmc_manifest_sect_attribute_t *attr,
 	}
 
 	rc = fdtw_read_cells(fdt, node, "exec_state", 1, &attr->exec_state);
-	if (rc)
-		NOTICE("Execution state not specified in SPM core manifest.\n");
+	if (rc) {
+		NOTICE("%s not specified in SPM Core manifest.\n",
+			"Execution state");
+	}
 
 	rc = fdtw_read_cells(fdt, node, "binary_size", 1, &attr->binary_size);
-	if (rc)
-		NOTICE("Binary size not specified in SPM core manifest.\n");
+	if (rc) {
+		NOTICE("%s not specified in SPM Core manifest.\n",
+			"Binary size");
+	}
 
 	rc = fdtw_read_cells(fdt, node, "load_address", 2, &attr->load_address);
-	if (rc)
-		NOTICE("Load address not specified in SPM core manifest.\n");
+	if (rc) {
+		NOTICE("%s not specified in SPM Core manifest.\n",
+			"Load address");
+	}
 
 	rc = fdtw_read_cells(fdt, node, "entrypoint", 2, &attr->entrypoint);
-	if (rc)
-		NOTICE("Entrypoint not specified in SPM core manifest.\n");
+	if (rc) {
+		NOTICE("%s not specified in SPM Core manifest.\n",
+			"Entry point");
+	}
 
-	VERBOSE("SPM core manifest attribute section:\n");
+	VERBOSE("SPM Core manifest attribute section:\n");
 	VERBOSE("  version: %x.%x\n", attr->major_version, attr->minor_version);
 	VERBOSE("  spmc_id: %x\n", attr->spmc_id);
 	VERBOSE("  binary_size: 0x%x\n", attr->binary_size);
@@ -72,9 +82,9 @@ static int manifest_parse_attribute(spmc_manifest_sect_attribute_t *attr,
 /*******************************************************************************
  * Root node handler
  ******************************************************************************/
-static int manifest_parse_root(spmc_manifest_sect_attribute_t *manifest,
-				const void *fdt,
-				int root)
+static int manifest_parse_root(spmc_manifest_attribute_t *manifest,
+			       const void *fdt,
+			       int root)
 {
 	int node;
 	char *str;
@@ -90,9 +100,9 @@ static int manifest_parse_root(spmc_manifest_sect_attribute_t *manifest,
 }
 
 /*******************************************************************************
- * Platform handler to parse a SPM core manifest.
+ * Platform handler to parse a SPM Core manifest.
  ******************************************************************************/
-int plat_spm_core_manifest_load(spmc_manifest_sect_attribute_t *manifest,
+int plat_spm_core_manifest_load(spmc_manifest_attribute_t *manifest,
 				const void *ptr,
 				size_t size)
 {
@@ -102,23 +112,20 @@ int plat_spm_core_manifest_load(spmc_manifest_sect_attribute_t *manifest,
 	assert(manifest != NULL);
 	assert(ptr != NULL);
 
-	INFO("Reading SPM core manifest at address %p\n", ptr);
+	INFO("Reading SPM Core manifest at address %p\n", ptr);
 
 	rc = fdt_check_header(ptr);
 	if (rc != 0) {
-		ERROR("Wrong format for SPM core manifest (%d).\n", rc);
+		ERROR("Wrong format for SPM Core manifest (%d).\n", rc);
 		return -EINVAL;
 	}
-
-	INFO("Reading SPM core manifest at address %p\n", ptr);
 
 	root_node = fdt_node_offset_by_compatible(ptr, -1,
 				"arm,spci-core-manifest-1.0");
 	if (root_node < 0) {
-		ERROR("Unrecognized SPM core manifest\n");
+		ERROR("Unrecognized SPM Core manifest\n");
 		return -ENOENT;
 	}
 
-	INFO("Reading SPM core manifest at address %p\n", ptr);
 	return manifest_parse_root(manifest, ptr, root_node);
 }
