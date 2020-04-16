@@ -140,7 +140,7 @@ static int32_t spmd_init(void)
 	ctx->state = SPMC_STATE_RESET;
 
 	/* Set the SPMC context state on other CPUs to OFF */
-	for (core_id = 0; core_id < PLATFORM_CORE_COUNT; core_id++) {
+	for (core_id = 0U; core_id < PLATFORM_CORE_COUNT; core_id++) {
 		if (core_id != linear_id) {
 			spm_core_context[core_id].state = SPMC_STATE_OFF;
 		}
@@ -355,6 +355,15 @@ static uint64_t spmd_ffa_error_return(void *handle, int error_code)
 		 FFA_PARAM_MBZ, FFA_PARAM_MBZ);
 }
 
+/*******************************************************************************
+ * spmd_check_address_in_binary_image
+ ******************************************************************************/
+bool spmd_check_address_in_binary_image(uint64_t address)
+{
+	return ((address >= spmc_attrs.load_address) &&
+		(address < (spmc_attrs.load_address + spmc_attrs.binary_size)));
+}
+
 /******************************************************************************
  * ffa_endpoint_destination
  *****************************************************************************/
@@ -388,16 +397,16 @@ static bool spmd_is_notification_message(unsigned int ep)
 static int32_t spmd_handle_notification_message(uint64_t msg, uint64_t parm1,
 					     uint64_t parm2, uint64_t parm3)
 {
-	int32_t ret = 0;
-
 	VERBOSE("%s %llx %llx %llx %llx\n", __func__, msg, parm1, parm2, parm3);
 
 	switch (msg) {
+	case SPMD_DIRECT_MSG_SET_ENTRY_POINT:
+		return spmd_pm_secondary_core_set_ep(parm1, parm2, parm3);
 	default:
 		break;
 	}
 
-	return ret;
+	return -1;
 }
 
 /*******************************************************************************
