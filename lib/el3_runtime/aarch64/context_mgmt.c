@@ -174,6 +174,9 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 	 * next mode is Hyp.
 	 * SCR_EL3.FGTEn: Enable Fine Grained Virtualization Traps under the same
 	 * conditions as HVC instructions and when the processor supports FGVT.
+	 * SCR_EL3.ECVEn: Enable Enhanced Counter Virtualization(ECV) CNTPOFF_EL2
+	 * register under the same conditions as HVC instructions and when the
+	 * processor supports ECV.
 	 */
 	if (((GET_RW(ep->spsr) == MODE_RW_64) && (GET_EL(ep->spsr) == MODE_EL2))
 	    || ((GET_RW(ep->spsr) != MODE_RW_64)
@@ -181,6 +184,9 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 		scr_el3 |= SCR_HCE_BIT;
 		if (is_armv8_6_fgvt_present()) {
 			scr_el3 |= SCR_FGTEN_BIT;
+		}
+		if (get_armv8_6_ecv_support() == ID_AA64MMFR0_EL1_ECV_SELF_SYNCH) {
+			scr_el3 |= SCR_ECVEN_BIT;
 		}
 	}
 
