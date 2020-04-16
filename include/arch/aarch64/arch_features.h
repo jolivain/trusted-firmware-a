@@ -58,4 +58,10 @@ static inline bool is_armv8_6_fgt_present(void)
 		ID_AA64MMFR0_EL1_FGT_MASK) == ID_AA64MMFR0_EL1_FGT_SUPPORTED;
 }
 
+static inline unsigned long int get_armv8_6_ecv_support(void)
+{
+	return ((read_id_aa64mmfr0_el1() >> ID_AA64MMFR0_EL1_ECV_SHIFT) &
+		ID_AA64MMFR0_EL1_ECV_MASK);
+}
+
 #endif /* ARCH_FEATURES_H */
