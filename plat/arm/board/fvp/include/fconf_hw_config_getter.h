@@ -14,6 +14,8 @@
 
 #define hw_config__topology_getter(prop) soc_topology.prop
 
+#define hw_config__uart_serial_config_getter(prop) uart_serial_config.prop
+
 struct gicv3_config_t {
 	void *gicd_base;
 	void *gicr_base;
