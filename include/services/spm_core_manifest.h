@@ -48,6 +48,6 @@ typedef struct spm_core_manifest_sect_attribute {
 	 */
 	uint16_t spmc_id;
 
-} spmc_manifest_sect_attribute_t;
+} spmc_manifest_attribute_t;
 
 #endif /* SPMC_MANIFEST_H */
