@@ -30,10 +30,10 @@
 #define SPMD_C_RT_CTX_ENTRIES		(SPMD_C_RT_CTX_SIZE >> DWORD_SHIFT)
 
 #ifndef __ASSEMBLER__
+#include <stdint.h>
 #include <lib/psci/psci_lib.h>
 #include <plat/common/platform.h>
 #include <services/ffa_svc.h>
-#include <stdint.h>
 
 typedef enum spmc_state {
 	SPMC_STATE_RESET = 0,
@@ -55,11 +55,19 @@ typedef struct spmd_spm_core_context {
 /*
  * Reserve ID for NS physical FFA Endpoint.
  */
-#define FFA_NS_ENDPOINT_ID		U(0)
+#define FFA_NS_ENDPOINT_ID			U(0)
 
-/* Mask and shift to check valid secure FFA Endpoint ID. */
-#define SPMC_SECURE_ID_MASK		U(1)
-#define SPMC_SECURE_ID_SHIFT		U(15)
+/* Mask and shift to check valid secure FF-A Endpoint ID. */
+#define FFA_ENDPOINT_ID_MAX			U(1 << 16)
+#define FFA_DIRECT_MSG_ENDPOINT_ID_MASK		U(0xffff)
+#define FFA_DIRECT_MSG_DESTINATION_SHIFT	U(0)
+#define FFA_DIRECT_MSG_SOURCE_SHIFT		U(16)
+
+#define SPMC_SECURE_ID_MASK			U(1)
+#define SPMC_SECURE_ID_SHIFT			U(15)
+
+#define SPMD_DIRECT_MSG_ENDPOINT_ID		U(FFA_ENDPOINT_ID_MAX - 1)
+#define SPMD_DIRECT_MSG_SET_ENTRY_POINT		U(1)
 
 /* Functions used to enter/exit SPMC synchronously */
 uint64_t spmd_spm_core_sync_entry(spmd_spm_core_context_t *ctx);

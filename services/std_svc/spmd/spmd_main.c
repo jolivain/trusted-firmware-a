@@ -322,8 +322,8 @@ static uint64_t spmd_smc_forward(uint32_t smc_fid,
 				 uint64_t x4,
 				 void *handle)
 {
-	uint32_t secure_state_in = (secure_origin) ? SECURE : NON_SECURE;
-	uint32_t secure_state_out = (!secure_origin) ? SECURE : NON_SECURE;
+	unsigned int secure_state_in = (secure_origin) ? SECURE : NON_SECURE;
+	unsigned int secure_state_out = (!secure_origin) ? SECURE : NON_SECURE;
 
 	/* Save incoming security state */
 	cm_el1_sysregs_context_save(secure_state_in);
@@ -353,6 +353,51 @@ static uint64_t spmd_ffa_error_return(void *handle, int error_code)
 		 FFA_TARGET_INFO_MBZ, error_code,
 		 FFA_PARAM_MBZ, FFA_PARAM_MBZ, FFA_PARAM_MBZ,
 		 FFA_PARAM_MBZ, FFA_PARAM_MBZ);
+}
+
+/******************************************************************************
+ * ffa_endpoint_destination
+ *****************************************************************************/
+static unsigned short ffa_endpoint_destination(unsigned int ep)
+{
+	return (ep >> FFA_DIRECT_MSG_DESTINATION_SHIFT) &
+		FFA_DIRECT_MSG_ENDPOINT_ID_MASK;
+}
+
+/******************************************************************************
+ * ffa_endpoint_source
+ *****************************************************************************/
+static unsigned short ffa_endpoint_source(unsigned int ep)
+{
+	return (ep >> FFA_DIRECT_MSG_SOURCE_SHIFT) &
+		FFA_DIRECT_MSG_ENDPOINT_ID_MASK;
+}
+
+/******************************************************************************
+ * spmd_is_notification_message
+ *****************************************************************************/
+static bool spmd_is_notification_message(unsigned int ep)
+{
+	return ((ffa_endpoint_destination(ep) == SPMD_DIRECT_MSG_ENDPOINT_ID)
+		&& (ffa_endpoint_source(ep) == spmc_attrs.spmc_id));
+}
+
+/******************************************************************************
+ * spmd_handle_notification_message
+ *****************************************************************************/
+static int32_t spmd_handle_notification_message(uint64_t msg, uint64_t parm1,
+					     uint64_t parm2, uint64_t parm3)
+{
+	int32_t ret = 0;
+
+	VERBOSE("%s %llx %llx %llx %llx\n", __func__, msg, parm1, parm2, parm3);
+
+	switch (msg) {
+	default:
+		break;
+	}
+
+	return ret;
 }
 
 /*******************************************************************************
@@ -472,6 +517,24 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 
 		break; /* not reached */
 
+	case FFA_MSG_SEND_DIRECT_REQ_SMC32:
+		if (secure_origin && spmd_is_notification_message(x1)) {
+			ret = spmd_handle_notification_message(x3, x4,
+				SMC_GET_GP(handle, CTX_GPREG_X5),
+				SMC_GET_GP(handle, CTX_GPREG_X6));
+
+			SMC_RET8(handle, FFA_SUCCESS_SMC32,
+				FFA_TARGET_INFO_MBZ, ret,
+				FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+				FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+				FFA_PARAM_MBZ);
+		} else {
+			/* Forward direct message to the other world */
+			return spmd_smc_forward(smc_fid, secure_origin,
+				x1, x2, x3, x4, handle);
+		}
+		break; /* Not reached */
+
 	case FFA_RX_RELEASE:
 	case FFA_RXTX_MAP_SMC32:
 	case FFA_RXTX_MAP_SMC64:
@@ -487,7 +550,6 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 
 	case FFA_PARTITION_INFO_GET:
 	case FFA_MSG_SEND:
-	case FFA_MSG_SEND_DIRECT_REQ_SMC32:
 	case FFA_MSG_SEND_DIRECT_REQ_SMC64:
 	case FFA_MSG_SEND_DIRECT_RESP_SMC32:
 	case FFA_MSG_SEND_DIRECT_RESP_SMC64:
