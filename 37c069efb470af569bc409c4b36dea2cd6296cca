@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "a0092ac2_58291a92",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-17T16:48:57Z",
+      "side": 1,
+      "message": "At the moment, Lauren, Andre and myself are all working on these fconf functions. The patches are in review. I think it will take some time before our patches are approved. Please go ahead and push your changes. We can co-ordinate our patches such that we don\u0027t step on each other toes.",
+      "parentUuid": "402480ef_558d190e",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 49
+      },
+      "revId": "37c069efb470af569bc409c4b36dea2cd6296cca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f67143ea_a148875a",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_helpers.c",
         "patchSetId": 4
