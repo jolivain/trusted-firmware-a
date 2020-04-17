@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8318214_6301f46b",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-04-17T12:36:18Z",
+      "side": 1,
+      "message": "Many of these functions could be reused for other platforms. For instance, I could use this one or fconf_populate_topology() for the ARM_FPGA platform in order to configure the GIC based on the DTB. Have you considered moving this code to the FCONF library or any other common area instead?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 49
+      },
+      "revId": "37c069efb470af569bc409c4b36dea2cd6296cca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f67143ea_a148875a",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_helpers.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-04-17T12:36:18Z",
+      "side": 1,
+      "message": "How can you distinguish between an error or a return address of 0?",
+      "range": {
+        "startLine": 67,
+        "startChar": 1,
+        "endLine": 67,
+        "endChar": 9
+      },
+      "revId": "37c069efb470af569bc409c4b36dea2cd6296cca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a45c8b2_3e221185",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_helpers.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-04-17T12:36:18Z",
+      "side": 1,
+      "message": "Same question as above",
+      "range": {
+        "startLine": 85,
+        "startChar": 1,
+        "endLine": 85,
+        "endChar": 10
+      },
+      "revId": "37c069efb470af569bc409c4b36dea2cd6296cca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
