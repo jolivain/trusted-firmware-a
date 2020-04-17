@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "402480ef_558d190e",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-04-17T16:42:57Z",
+      "side": 1,
+      "message": "Thanks for the explanation.\n\nI think, as you pointed out, that some parts of these functions might go to fdt_wrappers, such as the code that iterates over the clusters (I actually need to implement the same for the FPGA port). \n\nMaybe I could move that code and any other that I consider useful to the wrappers as part of the FPGA work and later you can adapt your code if you are busy now?",
+      "parentUuid": "5a081eca_10b9c5c2",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 49
+      },
+      "revId": "37c069efb470af569bc409c4b36dea2cd6296cca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f67143ea_a148875a",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_helpers.c",
         "patchSetId": 4
@@ -117,6 +141,30 @@
       "revId": "37c069efb470af569bc409c4b36dea2cd6296cca",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "393be7f5_9b0b0a95",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_helpers.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-04-17T16:42:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d4a88e4d_226d7a8e",
+      "range": {
+        "startLine": 67,
+        "startChar": 1,
+        "endLine": 67,
+        "endChar": 9
+      },
+      "revId": "37c069efb470af569bc409c4b36dea2cd6296cca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
