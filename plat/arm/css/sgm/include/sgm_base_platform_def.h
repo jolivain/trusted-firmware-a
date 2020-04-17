@@ -137,7 +137,8 @@
  * anything else in this memory region and is handed over to the SCP before
  * BL31 is loaded over the top.
  */
-#define PLAT_CSS_MAX_SCP_BL2_SIZE	(SCP_BL2_LIMIT - ARM_TB_FW_CONFIG_LIMIT)
+#define PLAT_CSS_MAX_SCP_BL2_SIZE \
+	round_down(SCP_BL2_LIMIT - ARM_TB_FW_CONFIG_LIMIT, PAGE_SIZE)
 #define PLAT_CSS_MAX_SCP_BL2U_SIZE	PLAT_CSS_MAX_SCP_BL2_SIZE
 
 /*
