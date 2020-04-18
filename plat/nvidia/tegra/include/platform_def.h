@@ -87,9 +87,16 @@
 #define MAX_IO_HANDLES			U(0)
 
 /*******************************************************************************
+ * Platforms macros to support SDEI
+ ******************************************************************************/
+#define TEGRA_SDEI_SGI_PRIVATE		U(8)
+
+/*******************************************************************************
  * Platform macros to support exception handling framework
  ******************************************************************************/
 #define PLAT_PRI_BITS			U(3)
+#define PLAT_SDEI_CRITICAL_PRI		U(0x20)
+#define PLAT_SDEI_NORMAL_PRI		U(0x30)
 #define PLAT_TEGRA_WDT_PRIO		U(0x40)
 
 #endif /* PLATFORM_DEF_H */

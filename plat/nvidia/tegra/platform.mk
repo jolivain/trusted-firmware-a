@@ -49,6 +49,9 @@ ENABLE_TEGRA_WDT_LEGACY_FIQ_HANDLING	?= 0
 # Flag to allow relocation of BL32 image to TZDRAM during boot
 RELOCATE_BL32_IMAGE		?= 0
 
+# Enable SDEI
+SDEI_SUPPORT			:= 1
+
 include plat/nvidia/tegra/common/tegra_common.mk
 include ${SOC_DIR}/platform_${TARGET_SOC}.mk
 
@@ -63,6 +66,7 @@ TF_CFLAGS	+= -Wsign-compare -nostdlib
 
 # override with necessary libc files for the Tegra platform
 override LIBC_SRCS :=	$(addprefix lib/libc/,		\
+			aarch64/setjmp.S		\
 			assert.c			\
 			memcpy.c			\
 			memmove.c			\
