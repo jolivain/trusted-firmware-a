@@ -84,6 +84,23 @@
       "revId": "8951cc93739f60faa9bad74caac8b61963935299",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7cd6c3b_fcc23e54",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-18T15:46:49Z",
+      "side": 1,
+      "message": "what\u0027s about:\n       bic     x10, x9, #PMCR_EL0_E_BIT\n       orr     x9, x9, #PMCR_EL0_DP_BIT\n       csel    x9, x9, x10, hs\n?",
+      "revId": "8951cc93739f60faa9bad74caac8b61963935299",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
