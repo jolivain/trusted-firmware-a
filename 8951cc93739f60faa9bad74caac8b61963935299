@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e59956bd_99cb2c9d",
+        "filename": "bl1/aarch64/bl1_exceptions.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-18T13:15:30Z",
+      "side": 1,
+      "message": "neat: move implemented on the next line to keep comment inside ----",
+      "revId": "8951cc93739f60faa9bad74caac8b61963935299",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f9e5599_5afd61a6",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-18T13:15:30Z",
+      "side": 1,
+      "message": "neat: remove 1 tab to align with previous line above.",
+      "revId": "8951cc93739f60faa9bad74caac8b61963935299",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25d6e0a4_55b95c51",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-18T13:15:30Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "8951cc93739f60faa9bad74caac8b61963935299",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df263b26_1fc0bc54",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-18T13:15:30Z",
+      "side": 1,
+      "message": "add V7 definitions for consistency:\n0b0011 ARMv7, v7 Debug architecture, with all CP14 registers implemented.\n0b0100 ARMv7, v7 Debug architecture, with only the baseline CP14 registers implemented\n0b0101 ARMv7, v7.1 Debug architecture.",
+      "revId": "8951cc93739f60faa9bad74caac8b61963935299",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc02f979_bab83931",
+        "filename": "include/arch/aarch32/smccc_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-18T13:15:30Z",
+      "side": 1,
+      "message": "why don\u0027t you want use:\n      biclo    r5, r5, #PMCR_E_BIT\n      orrhs    r5, r5, #PMCR_DP_BIT",
+      "revId": "8951cc93739f60faa9bad74caac8b61963935299",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
