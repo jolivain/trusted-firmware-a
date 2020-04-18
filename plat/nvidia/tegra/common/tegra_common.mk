@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -27,8 +27,10 @@ BL31_SOURCES		+=	drivers/delay_timer/delay_timer.c		\
 				${COMMON_DIR}/lib/debug/profiler.c		\
 				${COMMON_DIR}/tegra_bl31_setup.c		\
 				${COMMON_DIR}/tegra_delay_timer.c		\
+				${COMMON_DIR}/tegra_ehf.c			\
 				${COMMON_DIR}/tegra_fiq_glue.c			\
 				${COMMON_DIR}/tegra_io_storage.c		\
 				${COMMON_DIR}/tegra_platform.c			\
 				${COMMON_DIR}/tegra_pm.c			\
-				${COMMON_DIR}/tegra_sip_calls.c
+				${COMMON_DIR}/tegra_sip_calls.c			\
+				${COMMON_DIR}/tegra_sdei.c
