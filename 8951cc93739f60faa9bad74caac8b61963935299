@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "060f3201_b45880b9",
+        "filename": "bl1/aarch64/bl1_exceptions.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-20T17:27:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e59956bd_99cb2c9d",
+      "revId": "8951cc93739f60faa9bad74caac8b61963935299",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f9e5599_5afd61a6",
         "filename": "include/arch/aarch32/arch.h",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "8951cc93739f60faa9bad74caac8b61963935299",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7da1ca98_29ba10d0",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-20T17:27:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f9e5599_5afd61a6",
+      "revId": "8951cc93739f60faa9bad74caac8b61963935299",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "35047cd2_7b5c5897",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-20T17:27:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25d6e0a4_55b95c51",
+      "revId": "8951cc93739f60faa9bad74caac8b61963935299",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df263b26_1fc0bc54",
         "filename": "include/arch/aarch32/arch.h",
         "patchSetId": 2
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "d4b455a2_6d8f03b3",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-20T17:27:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df263b26_1fc0bc54",
+      "revId": "8951cc93739f60faa9bad74caac8b61963935299",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc02f979_bab83931",
         "filename": "include/arch/aarch32/smccc_macros.S",
         "patchSetId": 2
@@ -81,6 +153,24 @@
       "writtenOn": "2020-04-18T13:15:30Z",
       "side": 1,
       "message": "why don\u0027t you want use:\n      biclo    r5, r5, #PMCR_E_BIT\n      orrhs    r5, r5, #PMCR_DP_BIT",
+      "revId": "8951cc93739f60faa9bad74caac8b61963935299",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0510e501_e5e63dd2",
+        "filename": "include/arch/aarch32/smccc_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-20T17:27:59Z",
+      "side": 1,
+      "message": "Honestly, the patch author is Petre. Moreover, I too don\u0027t prefer to use conditional execution instructions even though they could lead to fewer instructions in the assembly. I like to keep basic blocks simple using conditional instructions (branch instructions). The comments in 125-126 align well with this. I verified this patch works by dumping the instruction trace from AEM. Is using a minimum number of instructions mandatory?",
+      "parentUuid": "bc02f979_bab83931",
       "revId": "8951cc93739f60faa9bad74caac8b61963935299",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
