@@ -867,7 +867,7 @@ endfunc restore_gp_pmcr_pauth_regs
  * registers can be retrieved.
  * ------------------------------------------------------------------
  */
-func el3_exit
+func_noabi el3_exit
 #if ENABLE_ASSERTIONS
 	/* el3_exit assumes SP_EL0 on entry */
 	mrs	x17, spsel
@@ -926,4 +926,4 @@ func el3_exit
 #endif
 	exception_return
 
-endfunc el3_exit
+endfunc_noabi el3_exit
