@@ -353,7 +353,7 @@ brk_message:
 	 * Note that x30 has been explicitly saved and can be used here
 	 * ---------------------------------------------------------------------
 	 */
-func smc_handler
+func_noabi smc_handler
 smc_handler32:
 	/* Check whether aarch32 issued an SMC64 */
 	tbnz	x0, #FUNCID_CC_SHIFT, smc_prohibited
@@ -465,7 +465,7 @@ rt_svc_fw_critical_error:
 	msr	spsel, #MODE_SP_ELX
 	no_ret	report_unhandled_exception
 #endif
-endfunc smc_handler
+endfunc_noabi smc_handler
 
 	/* ---------------------------------------------------------------------
 	 * The following code handles exceptions caused by BRK instructions.

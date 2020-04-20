@@ -78,6 +78,34 @@
 #endif
 
 	/*
+	 * Theses macros are used to create function labels for non-ABI
+	 * conformant functions e.g. routines that return into a lower
+	 * ELx.
+	 * Do not generate Call Frame Information (CFI) as these routines
+	 * do not comply with the ABI.
+	 * Callstack printing is depends on debug tool features.
+	 */
+	.macro func_noabi _name, _align=2
+	.section .text.asm.\_name, "ax"
+	.type \_name, %function
+	.align \_align
+	\_name:
+#if ENABLE_BTI
+	/* When Branch Target Identification is enabled, insert "bti jc"
+	 * instruction to enable indirect calls and branches
+	 */
+	 bti	jc
+#endif
+	.endm
+
+	/*
+	 * This macro is used to mark the end of a non-abi conformant function.
+	 */
+	.macro endfunc_noabi _name
+	.size \_name, . - \_name
+	.endm
+
+	/*
 	 * Helper assembler macro to count trailing zeros. The output is
 	 * populated in the `TZ_COUNT` symbol.
 	 */
