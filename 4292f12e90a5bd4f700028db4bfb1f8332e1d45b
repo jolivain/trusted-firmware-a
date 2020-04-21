@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "1ddcfa43_a202b449",
+        "filename": "plat/arm/board/rddanielxlr/include/platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-21T19:30:56Z",
+      "side": 1,
+      "message": "Please clarify the topology hierarchy. If I understood this correctly, there can be up to 4 CHIPs. Each CHIP has 4 clusters and each cluster has 4 neoverse cores. If true, please rename this macro to PLAT_ARM_CLUSTER_COUNT_PER_CHIP",
+      "revId": "4292f12e90a5bd4f700028db4bfb1f8332e1d45b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9571ab0_f76effae",
+        "filename": "plat/arm/board/rddanielxlr/rddanielxlr_security.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-21T19:30:56Z",
+      "side": 1,
+      "message": "I am curious why trustzone controller is not enabled for this platform?",
+      "revId": "4292f12e90a5bd4f700028db4bfb1f8332e1d45b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fb77334d_3ff9937d",
         "filename": "plat/arm/board/rddanielxlr/rddanielxlr_topology.c",
         "patchSetId": 4
