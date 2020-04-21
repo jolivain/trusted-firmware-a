@@ -170,6 +170,30 @@
       "revId": "2fdae0dbef1ef865b5a29b921dbb489cf7ceaaff",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caae7007_e5c82c8e",
+        "filename": "include/common/asm_macros_common.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2020-04-21T15:02:44Z",
+      "side": 1,
+      "message": "\u003e Looking at your new proposal below, I think it\u0027s the latter, but just wanted to double-check.\nYou are right. Passing the same optional arguments to \u0027func\u0027 and \u0027endfunc\u0027 is error prone.\n\u003e What error message are you referring to?\nWell the compilers error message about \u0027.cfi_endproc\u0027 without \u0027.cfi_startproc\u0027. I don\u0027t remember the exact gcc message.\n\n\u003eI get the idea (although I am slightly confused by the ifc/else/endif which do not seem to match, there seems to be an extra endif so not sure how to split the branches)\nYou are right. Looks like I killed one line when removing the comments.\nThe idea is to create a hidden symbol \u0027_\u003cname\u003e_nocfi\u0027 that is used by endfunc to detect if the \u0027.cfi_endproc\u0027 is required or not.\n\u003e\t.macro func _name, _align\u003d2, _abi\u003dcompliant\n\u003e\t.ifc compliant, \\_abi\n\u003e\t  .cfi_sections .debug_frame\n\u003e\t.endif\n\u003e\t.section .text.asm.\\_name, \"ax\"\n\u003e\t.type \\_name, %function\n\u003e\t.ifc compliant, \\_abi\n\u003e\t  .cfi_startproc\n\u003e\t.else\n\u003e\t  .hidden _\\_name\\()_nocfi\n\u003e\t  _\\_name\\()_nocfi:\n\u003e\t.endif\n\u003e\t.align \\_align\n\u003e\t\\_name:\n\u003e#if ENABLE_BTI\n\u003e\t bti\tjc\n\u003e#endif\n\u003e\t.endm\n\u003e\n\u003e\t.macro endfunc _name\n\u003e\t.ifndef _\\_name\\()_nocfi\n\u003e\t.cfi_endproc\n\u003e\t.endif\n\u003e\t.size \\_name, . - \\_name\n\u003e\t.endm\nIt that is ok, I will start to adapt the comments and push.",
+      "parentUuid": "58796d33_27a2d9e4",
+      "range": {
+        "startLine": 88,
+        "startChar": 1,
+        "endLine": 88,
+        "endChar": 34
+      },
+      "revId": "2fdae0dbef1ef865b5a29b921dbb489cf7ceaaff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
