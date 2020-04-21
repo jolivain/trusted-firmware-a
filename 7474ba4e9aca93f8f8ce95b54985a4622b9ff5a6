@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e72b26d9_d9b2cba2",
+        "filename": "drivers/nxp/timer/nxp_timer.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2020-04-21T20:32:26Z",
+      "side": 1,
+      "message": "This macro is already defined in nxp_timer.h",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 30
+      },
+      "revId": "7474ba4e9aca93f8f8ce95b54985a4622b9ff5a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
