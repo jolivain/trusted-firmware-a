@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "3eced690_b8d92d40",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-21T14:13:01Z",
+      "side": 1,
+      "message": "\u003e I can take a look at that, but not now. I do not have access to an ARMv7 platform at the moment.\n\nActually there is no need for an Armv7 platform, it is possible to use an Armv8 one running in AArch32 execution state. For example, the FVP_Base_AEMv8A-AEMv8A software model supports this, see https://trustedfirmware-a.readthedocs.io/en/latest/plat/arm/fvp/index.html\n\n\u003e \u003e Any plans to extend this to other BL images\n\u003e Well, as far as I understood bl1/bl2 are bootloaders. Callstack investigations while booting/the system is not fully set up is tricky anyway. As these codes finish/delete themselve after their work is done. I do not see a big profit.\n\nGood point. We can always revisit this in a subsequent patch later anyway.\n\n\u003e I have only experience values with bl31 (Secure World Monitor).\n\u003e My patch allows callstack analysis e.g.\n\u003e   bl31 -\u003e uBoot\n\u003e   bl31 -\u003e Linux\n\u003e Not tested\n\u003e  [bl31 -\u003e Secure World e.g. Optee]\n\u003e What are the usecases for bl32/bl33 - I never used those.\n\nBL32 is typically the Trusted OS. We have a test implementation, called TSP (Test Secure Payload), that exercises the communication between the EL3 runtime (BL31) and the TSP running at S-EL1. So you could use that to test the [BL31 -\u003e Secure World] transition. See https://trustedfirmware-a.readthedocs.io/en/latest/perf/tsp.html\n\nBL33 is the normal world bootloader (UEFI/U-Boot/some other bootloader) and is out of the scope of the TF-A project.",
+      "parentUuid": "a3f06417_48333f97",
+      "revId": "2fdae0dbef1ef865b5a29b921dbb489cf7ceaaff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5cd7a21e_5b20ad5b",
         "filename": "include/common/asm_macros_common.S",
         "patchSetId": 3
@@ -119,6 +137,30 @@
       "side": 1,
       "message": "Well passing a parameter to \u0027func\u0027 and to \u0027endfunc\u0027 is uncomfortable and error-prone. The resuling error message is also not intentional.\nI therefore extended your proposal with the generation of a hidden symbol which instructs \u0027endfunc\u0027 not to generate .cfi_endproc .\n\n\u003e .macro func _name, _align\u003d2, _abi\u003dcompliant\n\u003e \t.ifc compliant, \\_abi\n\u003e \t.cfi_sections .debug_frame\n\u003e \t.endif\n\u003e \t.section .text.asm.\\_name, \"ax\"\n\u003e \t.type \\_name, %function\n\u003e \t.cfi_startproc\n\u003e \t.else\n\u003e \t.hidden _\\_name\\()_nocfi\n\u003e \t_\\_name\\()_nocfi:\n\u003e \t.endif\n\u003e \t.align \\_align\n\u003e \t\\_name:\n\u003e #if ENABLE_BTI\n\u003e \t bti\tjc\n\u003e #endif\n\u003e \t.endm\n\u003e\n\u003e \t/*\n\u003e \t * This macro is used to mark the end of a function.\n\u003e \t */\n\u003e \t.macro endfunc _name\n\u003e \t.ifndef _\\_name\\()_nocfi\n\u003e \t.cfi_endproc\n\u003e \t.endif\n\u003e \t.size \\_name, . - \\_name\n\u003e \t.endm\n\nUsage:\nfunc el3_exit _abi\u003dnone\n   (...)\nendfunc",
       "parentUuid": "01ff0453_fefc9cf5",
+      "range": {
+        "startLine": 88,
+        "startChar": 1,
+        "endLine": 88,
+        "endChar": 34
+      },
+      "revId": "2fdae0dbef1ef865b5a29b921dbb489cf7ceaaff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58796d33_27a2d9e4",
+        "filename": "include/common/asm_macros_common.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-04-21T14:13:01Z",
+      "side": 1,
+      "message": "\u003e Well passing a parameter to \u0027func\u0027 and to \u0027endfunc\u0027 is uncomfortable and error-prone.\n\nDo you mean that passing parameters to macros in general is error-prone, or just passing it to both func and endfunc? Looking at your new proposal below, I think it\u0027s the latter, but just wanted to double-check.\n\n\u003e The resuling error message is also not intentional.\n\nWhat error message are you referring to?\n\n\u003e I therefore extended your proposal with the generation of a hidden symbol which instructs \u0027endfunc\u0027 not to generate .cfi_endproc .\n\u003e \n\u003e \u003e .macro func _name, _align\u003d2, _abi\u003dcompliant\n\u003e \u003e \t.ifc compliant, \\_abi\n\u003e \u003e \t.cfi_sections .debug_frame\n\u003e \u003e \t.endif\n\u003e \u003e \t.section .text.asm.\\_name, \"ax\"\n\u003e \u003e \t.type \\_name, %function\n\u003e \u003e \t.cfi_startproc\n\u003e \u003e \t.else\n\u003e \u003e \t.hidden _\\_name\\()_nocfi\n\u003e \u003e \t_\\_name\\()_nocfi:\n\u003e \u003e \t.endif\n\u003e \u003e \t.align \\_align\n\u003e \u003e \t\\_name:\n\u003e \u003e #if ENABLE_BTI\n\u003e \u003e \t bti\tjc\n\u003e \u003e #endif\n\u003e \u003e \t.endm\n\u003e \u003e\n\u003e \u003e \t/*\n\u003e \u003e \t * This macro is used to mark the end of a function.\n\u003e \u003e \t */\n\u003e \u003e \t.macro endfunc _name\n\u003e \u003e \t.ifndef _\\_name\\()_nocfi\n\u003e \u003e \t.cfi_endproc\n\u003e \u003e \t.endif\n\u003e \u003e \t.size \\_name, . - \\_name\n\u003e \u003e \t.endm\n\u003e \n\u003e Usage:\n\u003e func el3_exit _abi\u003dnone\n\u003e    (...)\n\u003e endfunc\n\nI get the idea (although I am slightly confused by the ifc/else/endif which do not seem to match, there seems to be an extra endif so not sure how to split the branches). Otherwise this looks good to me!",
+      "parentUuid": "bd1ba8df_f437e128",
       "range": {
         "startLine": 88,
         "startChar": 1,
