@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a3f06417_48333f97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2020-04-21T09:53:21Z",
+      "side": 1,
+      "message": "\u003e to AArch32 assembly code\nI can take a look at that, but not now. I do not have access to an ARMv7 platform at the moment.\n\n\u003e Any plans to extend this to other BL images\nWell, as far as I understood bl1/bl2 are bootloaders. Callstack investigations while booting/the system is not fully set up is tricky anyway. As these codes finish/delete themselve after their work is done. I do not see a big profit.\n\nI have only experience values with bl31 (Secure World Monitor).\nMy patch allows callstack analysis e.g.\n  bl31 -\u003e uBoot\n  bl31 -\u003e Linux\nNot tested\n [bl31 -\u003e Secure World e.g. Optee]\nWhat are the usecases for bl32/bl33 - I never used those.",
+      "parentUuid": "90fa8f83_824d1b9d",
+      "revId": "2fdae0dbef1ef865b5a29b921dbb489cf7ceaaff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5cd7a21e_5b20ad5b",
         "filename": "include/common/asm_macros_common.S",
         "patchSetId": 3
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "ee8fa7bc_f95a6908",
+        "filename": "include/common/asm_macros_common.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2020-04-21T09:53:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5cd7a21e_5b20ad5b",
+      "range": {
+        "startLine": 86,
+        "startChar": 23,
+        "endLine": 86,
+        "endChar": 25
+      },
+      "revId": "2fdae0dbef1ef865b5a29b921dbb489cf7ceaaff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01ff0453_fefc9cf5",
         "filename": "include/common/asm_macros_common.S",
         "patchSetId": 3
@@ -53,6 +95,30 @@
       "writtenOn": "2020-04-20T09:32:12Z",
       "side": 1,
       "message": "This new macro is almost identical to the existing \u0027func\u0027 macro (let alone the removal of the CFI directives of course). It might be better to remove this macro and instead patch the \u0027func\u0027 one, in the intent of avoid code duplication. We could add an extra, optional macro argument to the \u0027func\u0027 to allow specifying whether the function is ABI-compliant. We would need to make this parameter default to \"compliant\" to not break existing users of the macro.\n\nWhat do you think?",
+      "range": {
+        "startLine": 88,
+        "startChar": 1,
+        "endLine": 88,
+        "endChar": 34
+      },
+      "revId": "2fdae0dbef1ef865b5a29b921dbb489cf7ceaaff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd1ba8df_f437e128",
+        "filename": "include/common/asm_macros_common.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2020-04-21T09:53:21Z",
+      "side": 1,
+      "message": "Well passing a parameter to \u0027func\u0027 and to \u0027endfunc\u0027 is uncomfortable and error-prone. The resuling error message is also not intentional.\nI therefore extended your proposal with the generation of a hidden symbol which instructs \u0027endfunc\u0027 not to generate .cfi_endproc .\n\n\u003e .macro func _name, _align\u003d2, _abi\u003dcompliant\n\u003e \t.ifc compliant, \\_abi\n\u003e \t.cfi_sections .debug_frame\n\u003e \t.endif\n\u003e \t.section .text.asm.\\_name, \"ax\"\n\u003e \t.type \\_name, %function\n\u003e \t.cfi_startproc\n\u003e \t.else\n\u003e \t.hidden _\\_name\\()_nocfi\n\u003e \t_\\_name\\()_nocfi:\n\u003e \t.endif\n\u003e \t.align \\_align\n\u003e \t\\_name:\n\u003e #if ENABLE_BTI\n\u003e \t bti\tjc\n\u003e #endif\n\u003e \t.endm\n\u003e\n\u003e \t/*\n\u003e \t * This macro is used to mark the end of a function.\n\u003e \t */\n\u003e \t.macro endfunc _name\n\u003e \t.ifndef _\\_name\\()_nocfi\n\u003e \t.cfi_endproc\n\u003e \t.endif\n\u003e \t.size \\_name, . - \\_name\n\u003e \t.endm\n\nUsage:\nfunc el3_exit _abi\u003dnone\n   (...)\nendfunc",
+      "parentUuid": "01ff0453_fefc9cf5",
       "range": {
         "startLine": 88,
         "startChar": 1,
