@@ -22,6 +22,7 @@
 #include <lib/extensions/mpam.h>
 #include <lib/extensions/spe.h>
 #include <lib/extensions/sve.h>
+#include <lib/extensions/twede.h>
 #include <lib/utils.h>
 
 
@@ -187,6 +188,34 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 		}
 
 		scr_el3 |= SCR_EEL2_BIT;
+	}
+
+	/* Enable configurable WFE delay if supported and configured. */
+	if (get_armv8_6_twede_support() == ID_AA64MMFR1_EL1_TWEDE_SUPPORTED)
+	{
+		unsigned int delay = plat_arm_set_twedel_scr_el3();
+		if (delay != 0)
+		{
+			/* Set delay value in SCR_EL3 */
+			scr_el3 &= ~(SCR_TWEDEL_MASK << SCR_TWEDEL_SHIFT);
+			scr_el3 |= ((delay & SCR_TWEDEL_MASK)
+			             << SCR_TWEDEL_SHIFT);
+
+			/* Enable WFE delays */
+			scr_el3 |= SCR_TWEDEn_BIT;
+		}
+
+		delay = plat_arm_set_twedel_sctlr_elx();
+		if (delay != 0)
+		{
+			/* Set delay value in SCTLR_ELx registers */
+			sctlr_elx &= ~(SCTLR_TWEDEL_MASK << SCTLR_TWEDEL_SHIFT);
+			sctlr_elx |= ((delay & SCTLR_TWEDEL_MASK)
+			               << SCTLR_TWEDEL_SHIFT);
+
+			/* Enable WFE delays */
+			sctlr_elx |= SCTLR_TWEDEn_BIT;
+		}
 	}
 
 	/*
@@ -368,6 +397,22 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			 * pointer authentication instructions from lower ELs.
 			 */
 			hcr_el2 |= (HCR_API_BIT | HCR_APK_BIT);
+
+			/* Enable configurable WFE delay if supported and configured. */
+			if (get_armv8_6_twede_support() == ID_AA64MMFR1_EL1_TWEDE_SUPPORTED)
+			{
+				unsigned int delay = plat_arm_set_twedel_hcr_el2();
+				if (delay != 0)
+				{
+					/* Configure delay value field in HCR_EL2 register */
+					hcr_el2 &= ~(HCR_TWEDEL_MASK << HCR_TWEDEL_SHIFT);
+					hcr_el2 |= ((delay & HCR_TWEDEL_MASK)
+					             << HCR_TWEDEL_SHIFT);
+
+					/* Enable delays in HCR_EL2. */
+					hcr_el2 |= HCR_TWEDEn_BIT;
+				}
+			}
 
 			write_hcr_el2(hcr_el2);
 
