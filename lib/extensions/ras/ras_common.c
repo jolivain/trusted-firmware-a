@@ -139,7 +139,7 @@ static int ras_interrupt_handler(uint32_t intr_raw, uint32_t flags,
 	assert(ras_interrupt_mappings.num_intrs > 0UL);
 
 	start = 0;
-	end = (int) ras_interrupt_mappings.num_intrs;
+	end = (int) ras_interrupt_mappings.num_intrs - 1;
 	while (start <= end) {
 		mid = ((end + start) / 2);
 		if (intr_raw == ras_inrs[mid].intr_number) {
