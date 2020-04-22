@@ -11,6 +11,7 @@
 #if RAS_EXTENSION
 #include <lib/extensions/ras.h>
 #endif
+#include <lib/extensions/twed.h>
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
 #include <plat/common/platform.h>
 
@@ -20,6 +21,10 @@
  * platforms but may also be overridden by a platform if required.
  */
 #pragma weak bl31_plat_runtime_setup
+#pragma weak plat_arm_set_twedel_scr_el3
+#pragma weak plat_arm_set_twedel_hcr_el2
+#pragma weak plat_arm_set_twedel_sctlr_el2
+#pragma weak plat_arm_set_twedel_sctlr_el1
 
 #if SDEI_SUPPORT
 #pragma weak plat_sdei_handle_masked_trigger
@@ -99,4 +104,32 @@ void plat_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
 	}
 #endif
 	panic();
+}
+
+/*******************************************************************************
+ * In v8.6+ platforms with delayed trapping of WFE this hook sets the delay. It
+ * is a weak function definition so can be overridden depending on the
+ * requirements of a platform.  These default functions return TWED_DISABLED so
+ * this feature is disabled unless they are replaced by platform-specific
+ * functions returning valid values.
+ ******************************************************************************/
+
+uint32_t plat_arm_set_twedel_scr_el3(void)
+{
+	return TWED_DISABLED;
+}
+
+uint32_t plat_arm_set_twedel_hcr_el2(void)
+{
+	return TWED_DISABLED;
+}
+
+uint32_t plat_arm_set_twedel_sctlr_el2(void)
+{
+	return TWED_DISABLED;
+}
+
+uint32_t plat_arm_set_twedel_sctlr_el1(void)
+{
+	return TWED_DISABLED;
 }
