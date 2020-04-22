@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50b846e1_dc85550f",
+        "filename": "plat/arm/board/rddanielxlr/rddanielxlr_err.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-22T12:01:25Z",
+      "side": 1,
+      "message": "while (true)",
+      "revId": "9efe32c1257b0d1925ee5c143ebe650640a4c168",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88918120_a1810cfd",
+        "filename": "plat/arm/board/rddanielxlr/rddanielxlr_plat.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-22T12:01:25Z",
+      "side": 1,
+      "message": "unsigned int i;",
+      "revId": "9efe32c1257b0d1925ee5c143ebe650640a4c168",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a89583d0_38c1e77f",
+        "filename": "plat/arm/board/rddanielxlr/rddanielxlr_plat.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-22T12:01:25Z",
+      "side": 1,
+      "message": "use extra () around logical opertaions",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 5
+      },
+      "revId": "9efe32c1257b0d1925ee5c143ebe650640a4c168",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5683fa7_d700f3b4",
+        "filename": "plat/arm/board/rddanielxlr/rddanielxlr_plat.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-22T12:01:25Z",
+      "side": 1,
+      "message": "CSS_SGI_CHIP_COUNT is positive number, use %u",
+      "revId": "9efe32c1257b0d1925ee5c143ebe650640a4c168",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b734bdf8_98d6d9fe",
+        "filename": "plat/arm/board/rddanielxlr/rddanielxlr_plat.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-22T12:01:25Z",
+      "side": 1,
+      "message": "use extra ()",
+      "revId": "9efe32c1257b0d1925ee5c143ebe650640a4c168",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a7a36c8_3b4444b0",
+        "filename": "plat/arm/board/rddanielxlr/rddanielxlr_plat.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-22T12:01:25Z",
+      "side": 1,
+      "message": "print ret value",
+      "revId": "9efe32c1257b0d1925ee5c143ebe650640a4c168",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "650bf89a_c884ec84",
+        "filename": "plat/arm/board/rddanielxlr/rddanielxlr_topology.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-22T12:01:25Z",
+      "side": 1,
+      "message": "remove space",
+      "revId": "9efe32c1257b0d1925ee5c143ebe650640a4c168",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2867d6d5_71b0ef2f",
+        "filename": "plat/arm/board/rddanielxlr/rddanielxlr_topology.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-22T12:01:25Z",
+      "side": 1,
+      "message": "can you return NULL here and then check return value in caller?",
+      "revId": "9efe32c1257b0d1925ee5c143ebe650640a4c168",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
