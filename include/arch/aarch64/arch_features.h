@@ -1,5 +1,9 @@
 /*
+<<<<<<< HEAD
  * Copyright (c) 2019-2020, Arm Limited. All rights reserved.
+=======
+ * Copyright (c) 2020, Arm Limited. All rights reserved.
+>>>>>>> 987ba89f0... Enable v8.6 WFE trap delays
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -56,6 +60,12 @@ static inline bool is_armv8_4_sel2_present(void)
 {
 	return ((read_id_aa64pfr0_el1() >> ID_AA64PFR0_SEL2_SHIFT) &
 		ID_AA64PFR0_SEL2_MASK) == 1ULL;
+}
+
+static inline bool is_armv8_6_twed_present(void)
+{
+	return (((read_id_aa64mmfr1_el1() >> ID_AA64MMFR1_EL1_TWED_SHIFT) &
+		ID_AA64MMFR1_EL1_TWED_MASK) == ID_AA64MMFR1_EL1_TWED_SUPPORTED);
 }
 
 #endif /* ARCH_FEATURES_H */
