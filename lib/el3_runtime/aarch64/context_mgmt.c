@@ -22,6 +22,7 @@
 #include <lib/extensions/mpam.h>
 #include <lib/extensions/spe.h>
 #include <lib/extensions/sve.h>
+#include <lib/extensions/twed.h>
 #include <lib/utils.h>
 
 
@@ -68,6 +69,7 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 	el3_state_t *state;
 	gp_regs_t *gp_regs;
 	u_register_t sctlr_elx, actlr_elx;
+	uint32_t delay;
 
 	assert(ctx != NULL);
 
@@ -187,6 +189,39 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 		}
 
 		scr_el3 |= SCR_EEL2_BIT;
+	}
+
+	/* Enable configurable WFE delay if supported and configured */
+	if (is_armv8_6_twed_present()) {
+		delay = plat_arm_set_twedel_scr_el3();
+
+		if (delay != TWED_DISABLED) {
+			/* Make sure delay value fits in the TWEDEL field */
+			assert((delay & ~SCR_TWEDEL_MASK) == 0U);
+
+			/* Set delay value in SCR_EL3 */
+			scr_el3 &= ~(SCR_TWEDEL_MASK << SCR_TWEDEL_SHIFT);
+			scr_el3 |= ((delay & SCR_TWEDEL_MASK)
+			             << SCR_TWEDEL_SHIFT);
+
+			/* Enable WFE delays */
+			scr_el3 |= SCR_TWEDEn_BIT;
+		}
+
+		delay = plat_arm_set_twedel_sctlr_el1();
+
+		if (delay != TWED_DISABLED) {
+			/* Make sure delay value fits in the TWEDEL field */
+			assert((delay & ~SCTLR_TWEDEL_MASK) == 0U);
+
+			/* Set delay value in SCTLR_ELx registers */
+			sctlr_elx &= ~(SCTLR_TWEDEL_MASK << SCTLR_TWEDEL_SHIFT);
+			sctlr_elx |= ((delay & SCTLR_TWEDEL_MASK)
+			               << SCTLR_TWEDEL_SHIFT);
+
+			/* Enable WFE delays */
+			sctlr_elx |= SCTLR_TWEDEn_BIT;
+		}
 	}
 
 	/*
@@ -328,6 +363,7 @@ void cm_prepare_el3_exit(uint32_t security_state)
 	cpu_context_t *ctx = cm_get_context(security_state);
 	bool el2_unused = false;
 	uint64_t hcr_el2 = 0U;
+	uint32_t delay;
 
 	assert(ctx != NULL);
 
@@ -348,6 +384,25 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			 */
 			sctlr_elx |= SCTLR_IESB_BIT;
 #endif
+
+			/* Enable configurable WFE delay if supported and configured */
+			if (is_armv8_6_twed_present()) {
+				delay = plat_arm_set_twedel_sctlr_el2();
+
+				if (delay != TWED_DISABLED) {
+					/* Make sure delay value fits in the TWEDEL field */
+					assert((delay & ~SCTLR_TWEDEL_MASK) == 0U);
+
+					/* Set delay value in SCTLR_ELx registers */
+					sctlr_elx &= ~(SCTLR_TWEDEL_MASK << SCTLR_TWEDEL_SHIFT);
+					sctlr_elx |= ((delay & SCTLR_TWEDEL_MASK)
+					               << SCTLR_TWEDEL_SHIFT);
+
+					/* Enable WFE delays */
+					sctlr_elx |= SCTLR_TWEDEn_BIT;
+				}
+			}
+
 			write_sctlr_el2(sctlr_elx);
 		} else if (el_implemented(2) != EL_IMPL_NONE) {
 			el2_unused = true;
@@ -368,6 +423,24 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			 * pointer authentication instructions from lower ELs.
 			 */
 			hcr_el2 |= (HCR_API_BIT | HCR_APK_BIT);
+
+			/* Enable configurable WFE delay if supported and configured */
+			if (is_armv8_6_twed_present()) {
+				delay = plat_arm_set_twedel_hcr_el2();
+
+				if (delay != TWED_DISABLED) {
+					/* Make sure delay value fits in the TWEDEL field */
+					assert((delay & ~HCR_TWEDEL_MASK) == 0U);
+
+					/* Configure delay value field in HCR_EL2 register */
+					hcr_el2 &= ~(HCR_TWEDEL_MASK << HCR_TWEDEL_SHIFT);
+					hcr_el2 |= ((delay & HCR_TWEDEL_MASK)
+					             << HCR_TWEDEL_SHIFT);
+
+					/* Enable delays in HCR_EL2. */
+					hcr_el2 |= HCR_TWEDEn_BIT;
+				}
+			}
 
 			write_hcr_el2(hcr_el2);
 
