@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c128a97_70f9d05a",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-22T23:26:26Z",
+      "side": 1,
+      "message": "Coverity gives the following error:\nUsing uninitialized value \"array[0]\"\n\nPerhaps ret can be initialized to dflt_value.",
+      "revId": "4d6673ae1e04b44107ddd3762a73cbc0a46d211b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
