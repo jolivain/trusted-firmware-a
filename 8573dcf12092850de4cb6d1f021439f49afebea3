@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45a9e0d2_4d32355c",
+        "filename": "plat/arm/board/rddanielxlr/rddanielxlr_plat.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-04-22T16:58:24Z",
+      "side": 1,
+      "message": "This should be written as\n\nERROR(\"Failed to add dynamic mmap entry \"\n            (ret\u003d%d)\\n\", ret);",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 119,
+        "endChar": 35
+      },
+      "revId": "8573dcf12092850de4cb6d1f021439f49afebea3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
