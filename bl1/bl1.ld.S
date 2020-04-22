@@ -92,16 +92,12 @@ SECTIONS
      * Its LMA should be 16-byte aligned to allow efficient copying of 16-bytes
      * aligned regions in it.
      * Its VMA must be page-aligned as it marks the first read/write page.
-     *
-     * It must be placed at a lower address than the stacks if the stack
-     * protector is enabled. Alternatively, the .data.stack_protector_canary
-     * section can be placed independently of the main .data section.
      */
-    .data . : ALIGN(16) {
-        __DATA_RAM_START__ = .;
-        *(SORT_BY_ALIGNMENT(.data*))
-        __DATA_RAM_END__ = .;
-    } >RAM AT>ROM
+    . = ALIGN(16);
+
+    DATA_SECTION >RAM AT>ROM
+    __DATA_RAM_START__ = __DATA_START__;
+    __DATA_RAM_END__ = __DATA_END__;
 
     STACK_SECTION >RAM
     BSS_SECTION >RAM
