@@ -1980,6 +1980,39 @@ interrupt and the interrupt ID are passed as parameters.
 
 The default implementation only prints out a warning message.
 
+Function : uint32_t plat_arm_set_twedel_scr_el3(void) [optional]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Return : uint32_t
+
+This function is used in v8.6+ systems to set the WFE trap delay value in
+SCR_EL3. If this function returns zero or is left unimplemented, this feature is
+not enabled.
+
+Function : uint32_t plat_arm_set_twedel_hcr_el2(void) [optional]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Return : uint32_t
+
+This function is used in v8.6+ systems to set the WFE trap delay value in
+HCR_EL2. If this function returns zero or is left unimplemented, this feature is
+not enabled.
+
+Function : uint32_t plat_arm_set_twedel_sctlr_elx(void) [optional]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Return : uint32_t
+
+This function is used in v8.6+ systems to set the WFE trap delay value in
+SCTLR_ELx. If this function returns zero or is left unimplemented, this feature
+is not enabled.
+
 Power State Coordination Interface (in BL31)
 --------------------------------------------
 
