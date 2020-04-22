@@ -1890,6 +1890,18 @@ frequency for the CPU's generic timer. This value will be programmed into the
 of the system counter, which is retrieved from the first entry in the frequency
 modes table.
 
+Function : plat_arm_set_twedel_scr_el3() [optional]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : void
+    Return   : uint32_t
+
+This function is used in v8.6+ systems to set the WFE trap delay value in
+SCR_EL3. If this function returns TWED_DISABLED or is left unimplemented, this
+feature is not enabled.
+
 #define : PLAT_PERCPU_BAKERY_LOCK_SIZE [optional]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
