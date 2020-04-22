@@ -20,6 +20,9 @@
 /* Weak definitions may be overridden in specific ARM standard platform */
 #pragma weak plat_get_ns_image_entrypoint
 #pragma weak plat_arm_get_mmap
+#pragma weak plat_arm_set_twedel_scr_el3
+#pragma weak plat_arm_set_twedel_hcr_el2
+#pragma weak plat_arm_set_twedel_sctlr_elx
 
 /* Conditionally provide a weak definition of plat_get_syscnt_freq2 to avoid
  * conflicts with the definition in plat/common. */
@@ -167,6 +170,28 @@ void arm_configure_sys_timer(void)
 const mmap_region_t *plat_arm_get_mmap(void)
 {
 	return plat_arm_mmap;
+}
+
+/*******************************************************************************
+ * In v8.6+ platforms with delayed trapping of WFE this hook sets the delay. It
+ * is a weak function definition so can be overridden depending on the
+ * requirements of a platform.  These default functions are weakly defined and
+ * return zero so this feature is disabled unless they are replaced by platform-
+ * specific functions returning non-zero values.
+ ******************************************************************************/
+unsigned int plat_arm_set_twedel_scr_el3 (void)
+{
+	return 0;
+}
+
+unsigned int plat_arm_set_twedel_hcr_el2 (void)
+{
+	return 0;
+}
+
+unsigned int plat_arm_set_twedel_sctlr_elx (void)
+{
+	return 0;
 }
 
 #ifdef ARM_SYS_CNTCTL_BASE

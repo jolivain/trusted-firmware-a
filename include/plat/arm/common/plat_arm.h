@@ -320,6 +320,11 @@ int arm_execution_state_switch(unsigned int smc_fid,
 void plat_arm_sp_min_early_platform_setup(u_register_t arg0, u_register_t arg1,
 			u_register_t arg2, u_register_t arg3);
 
+/* set wfe trap delay cycles (v8.6+) */
+unsigned int plat_arm_set_twedel_scr_el3 (void);
+unsigned int plat_arm_set_twedel_hcr_el2 (void);
+unsigned int plat_arm_set_twedel_sctlr_elx (void);
+
 /* global variables */
 extern plat_psci_ops_t plat_arm_psci_pm_ops;
 extern const mmap_region_t plat_arm_mmap[];
