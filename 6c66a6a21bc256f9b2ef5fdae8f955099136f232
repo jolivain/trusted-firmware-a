@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98d6f145_835f144d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-23T03:41:09Z",
+      "side": 1,
+      "message": "This need to be documented in appropriate doc file.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "6c66a6a21bc256f9b2ef5fdae8f955099136f232",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8265b989_e7435c8d",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-23T03:41:09Z",
+      "side": 1,
+      "message": "remove extra blank line",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 0
+      },
+      "revId": "6c66a6a21bc256f9b2ef5fdae8f955099136f232",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04694bfb_126daf52",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-23T03:41:09Z",
+      "side": 1,
+      "message": "Just to understand, is WFE delay need to set only during context management?",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 1
+      },
+      "revId": "6c66a6a21bc256f9b2ef5fdae8f955099136f232",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2863d46_0891c3ce",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-23T03:41:09Z",
+      "side": 1,
+      "message": "Align this as below:\nscr_el3 |\u003d ((delay \u0026 SCR_TWEDEL_MASK)\n             \u003c\u003c SCR_TWEDEL_SHIFT);\n\nSame for below assignments wherever needed.",
+      "range": {
+        "startLine": 202,
+        "startChar": 4,
+        "endLine": 202,
+        "endChar": 25
+      },
+      "revId": "6c66a6a21bc256f9b2ef5fdae8f955099136f232",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
