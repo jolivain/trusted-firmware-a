@@ -1,0 +1,1119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95022443_a9997164",
+        "filename": "plat/qti/common/inc/qti_uart_console.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "This changed in https://review.trustedfirmware.org/3497, there\u0027s a base pointer field in the generic structure now, you no longer need to make a custom structure for that.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ea485ec_11f3b092",
+        "filename": "plat/qti/common/src/aarch64/qti_kryo4_gold.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Well, you got code for this workaround but then you disable it in your platform.mk, and you enable DYNAMIC_WORKAROUND_CVE_2018_3639 but you don\u0027t have any code for that. I think you should be reusing the standard A76 code as much as possible rather than trying to reimplement all the complicated workaround logic yourself. In this case, all you want to do is call your custom qtiseclib function from this reset_handler... so just do that and then tail call into cortex_a76_reset_func so that it can do all the rest (e.g. the workaround setup).",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b14051eb_9ec17c88",
+        "filename": "plat/qti/common/src/aarch64/qti_kryo4_gold.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "I think you also need to use declare_cpu_ops_wa here and pass cortex_a76_disable_wa_cve_2018_3639 as the \u0027extra2\u0027 pointer, so that that workaround fully works.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d9ad993_f341337e",
+        "filename": "plat/qti/common/src/aarch64/qti_uart2_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "This file doesn\u0027t seem to be built -- what\u0027s it for? (I\u0027m not against adding common code for platforms other than SC7180 if you have it already, but you should probably pick better names to make the difference clearer. For example, qti_uart_console.S could be named qti_console_qupv3.S or something like that, and this could be qti_console_msm.S or whatever it is.)",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6fc7d7f_326ccd7a",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 41,
+        "startChar": 25,
+        "endLine": 41,
+        "endChar": 29
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e53c5a3_c778be8e",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "nit: pointless function (could just call bl_aux_params_parse() from bl31_early_platform_setup())",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f370013f_c8cf22b7",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be necessary. BL2 should have set this correctly already.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a38cfc4f_b39a3834",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "This is not an Arm development platform.",
+      "range": {
+        "startLine": 133,
+        "startChar": 30,
+        "endLine": 133,
+        "endChar": 55
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c5518ac_b8c6d4ab",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "This comment doesn\u0027t apply to this platform anymore. You could put the comment from g_qti_cpu_cntfrq here instead.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ecc382c_c9dc38b4",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Why do we need a global to store this? Executing read_cntfrq_el0() should be faster than any access to memory, you can just call it every time in here.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5729952_b0bbd102",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "I don\u0027t really understand this comment? I believe the round_up() and round_down() functions from \u003clib/utils_def.h\u003e should already do what you need.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51c7e168_f82ff9c1",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "nit: line length",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b0af5c3_b54f8df0",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "If you\u0027re only ever using this to make identity mappings, maybe just merge these two arguments?",
+      "range": {
+        "startLine": 133,
+        "startChar": 32,
+        "endLine": 133,
+        "endChar": 77
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbb019e0_6b079b01",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "line length again",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d7e9909_5b40dc90",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "This doesn\u0027t 100% work because you\u0027re not adjusting \u0027size\u0027 after you potentially adjusted the bases. For example, if base is 0xfff and size is 0xfff then base will be adjusted to 0x0 and size to 0x1000, but you really need size to be 0x2000 to cover the whole area you were interested in.\n\nShould do something like\n\n unsigned long long adjusted_pa \u003d round_down(base_pa, PAGE_SIZE);\n uintptr_t adjusted_va \u003d round_down(base_va, PAGE_SIZE);\n assert(base_pa - adjusted_pa \u003d\u003d base_va - adjusted_va);\n size \u003d qti_page_align(base_pa - adjusted_pa + size);",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f20ade1b_a730a632",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Probably better to factor out the base/size adjustment stuff from above into a separate function so you don\u0027t need it twice.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67c0e362_68e1595c",
+        "filename": "plat/qti/common/src/qti_gic_v2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "I\u0027m somewhat confused that there is both GICv2 and GICv3 code. Don\u0027t all the platforms we\u0027re planning to support here have GICv3?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac690f5d_b580f611",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "I don\u0027t think you should directly include Arm platform code here, this is not an Arm platform and there\u0027s no guarantee that that code won\u0027t change without taking the effect on your platform into account. You can either duplicate the relevant macros here or upload a separate CL to propose factoring that whole functionality out into common code (e.g. plat/common/something_about_power_states...).",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c36e6779_5d2bcce0",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Since you set PSCI_EXTENDED_STATE_ID, pwr_level isn\u0027t used anyway, right? Might as well set this to 0, or if you duplicate these macros for qti you don\u0027t need to include that part at all.",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a7e2681_2087de85",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "This could use some comments about what each power level represents and what the different states (e.g. OFF vs DEEPOFF) mean for each level.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b3e168f_84450a86",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "I think it would be better to do this from the cpu_ops pwr_dwn function, that seems to be where the default A76 and A55 CPU drivers do it. In fact, I think you should try to reuse those drivers as much as possible -- for example, since for kryo4_gold you only seem to care about providing a custom reset_func, you can probably just put cortex_a76_core_pwr_dwn as your pwr_down function in your cpu_ops there.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60ae6a12_98a1c7ad",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Is this actually necessary? It seems that on a normal A76 this register always comes back up cleared when the CPU resumes from power down, I doubt your version would be different in that regard?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b051b84c_ce9ae4ca",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "I think it would be better to just chain call into psci_power_down_wfi() here (which already makes sure it cannot return).",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc12de93_110c3e72",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Just use ARRAY_SIZE()",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c36102bb_76f74bdb",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "I am confused why the deepest state is [size - 2]? What about [size - 1]? Are we just not using that state?",
+      "range": {
+        "startLine": 208,
+        "startChar": 41,
+        "endLine": 208,
+        "endChar": 42
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aca01e2e_2595a9b2",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Not an Arm platform.",
+      "range": {
+        "startLine": 236,
+        "startChar": 7,
+        "endLine": 236,
+        "endChar": 28
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4394bdc_994344a0",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47ae1bcf_6fafd81c",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Prefer goto if you\u0027re just doing this for error handling.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc3a7a08_163cb5b2",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Not 100% sure what you\u0027re doing here, but are you sure this is supposed to be an \u0026\u0026, not an || ?",
+      "range": {
+        "startLine": 95,
+        "startChar": 46,
+        "endLine": 95,
+        "endChar": 48
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45f9a2d5_2c6595cc",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "nit: MT_RO_DATA as a shorthand?",
+      "range": {
+        "startLine": 104,
+        "startChar": 28,
+        "endLine": 104,
+        "endChar": 52
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25cdea70_08c0b924",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "This is not the version we discussed before. Can you please update this to the latest?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4045d4c4_e19d7983",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "nit: technically not \"unknown\" because we understood the request and just denied it, so maybe return something else (e.g. -3)?",
+      "range": {
+        "startLine": 210,
+        "startChar": 20,
+        "endLine": 210,
+        "endChar": 27
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5f01be6_3293d2b3",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02e92f11_53f44e5d",
+        "filename": "plat/qti/oem/oem_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "What is this interface used for? I don\u0027t think any of this is needed on this platform?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1dd6eae_609fcadd",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Looks like these two are unused?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7b1340f_c513bf61",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Maybe just add this address as a parameter to qtiseclib_psci_init(), rather than needing a separate callback?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4497491c_742eeff3",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Didn\u0027t we talk about removing this or limiting it to debug builds?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73a63334_4e5fdff1",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "I think this one is no longer needed?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a22b5c4f_de438479",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Neither is this...",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "421b2b56_bd8c4abe",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Unused",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c3b202a_1862cfe6",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Can limit to debug build?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91e2b308_2635374f",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Unused",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62168ced_3fcc2c66",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "These two seem unused?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78ef32a7_fd449709",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Limit to debug?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c91b35f5_d2c075b9",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 3
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f5461b0_3c328df4",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "I don\u0027t think we need these three on this platform?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24e6fd04_5e5b129a",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Unused?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a5617fa_41e4b36a",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "No longer used",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e93bdcb2_ea44ebda",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "This is duplicated with qti_common.c, I don\u0027t think you need it twice (and again, I think you can just use round_up()/round_down() so you shouldn\u0027t need it at all).",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e06f19d_150d6544",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "When are you going to support this? Should be as simple as checking (loglvl \u003c LOG_LEVEL).",
+      "range": {
+        "startLine": 44,
+        "startChar": 35,
+        "endLine": 44,
+        "endChar": 41
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99a58e6a_2952541c",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Line length and spacing",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c79e6176_247bc8ab",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Why? You seem to be already including a newline in `fmt`.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41d95638_2c00079b",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Does this really have to be called from within qtiseclib? Can\u0027t you just call it at the end of qti_cpu_power_on_finish()?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6392687_0ea2376e",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "This doesn\u0027t do what you think it does and you shouldn\u0027t need to call it. If you want the messages to appear on the crash console (UART), you should call console_switch_state(CONSOLE_FLAG_CRASH);",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee5054dc_d60666d6",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "We\u0027re printing a character at a time anyway so I really doubt it\u0027s important that you can flush explicitly here.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a80fcd8c_5c566f01",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_interface_stub.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "There should be an explanation somewhere what this file is for.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47dcb468_72a684c9",
+        "filename": "plat/qti/sc7180/inc/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "Is this actually used anywhere?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f130e12_bc9ea3f6",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "sc7180?",
+      "range": {
+        "startLine": 8,
+        "startChar": 11,
+        "endLine": 8,
+        "endChar": 17
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5861f35a_c7f4842b",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "What does this do?",
+      "range": {
+        "startLine": 12,
+        "startChar": 11,
+        "endLine": 12,
+        "endChar": 24
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0b8b133_035a9dfd",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "It looks like you copied this from Arm platform code, you shouldn\u0027t need to. If this is always true for your platforms, just take out the corresponding #if from your code.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50df3458_3433cdcd",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-04-23T19:58:19Z",
+      "side": 1,
+      "message": "This still assumes that the library is placed inside this repository. I think we want to change this to a mechanism where the path to the library is passed in on the Makefile command line. So you want to do something like\n\n # Override this on the command line to point to the qtiseclib library which\n # can be downloaded from [TODO: point to coreboot blob repository path]\n QTISECLIB_PATH ?\u003d \n\n ifeq ($(QTISECLIB_PATH),)\n $(warning No QTISECLIB_PATH\u003d provided, using stub implementation for build testing. THIS FIRMWARE WILL NOT BOOT!)\n BL31_SOURCES +\u003d plat/qti/qtiseclib/src/qtiseclib_interface_stub.c\n else\n LDFLAGS +\u003d -L $(dir $(QTISECLIB_PATH))\n LDLIBS +\u003d -l:$(notdir $(QTISECLIB_PATH))\n endif\n\n(The debug/not-debug side should just be handled by whatever is passing the command line parameter.)",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
