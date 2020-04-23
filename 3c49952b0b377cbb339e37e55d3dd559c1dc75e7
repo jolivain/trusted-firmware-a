@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0585b054_13f2c10d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-04-23T07:35:29Z",
+      "side": 1,
+      "message": "nit: you may call it ARMv8.6-ECV as defined in ARM ARM",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 3
+      },
+      "revId": "3c49952b0b377cbb339e37e55d3dd559c1dc75e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d604e28_4fe00f63",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-04-23T07:35:29Z",
+      "side": 1,
+      "message": "nit remove 1 blank",
+      "revId": "3c49952b0b377cbb339e37e55d3dd559c1dc75e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
