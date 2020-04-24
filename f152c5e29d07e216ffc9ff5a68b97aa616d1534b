@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b343d3a6_5982434b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-04-24T09:58:12Z",
+      "side": 1,
+      "message": "Right. Will do so.",
+      "parentUuid": "3e2e1aa8_aa27548f",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 59
+      },
+      "revId": "f152c5e29d07e216ffc9ff5a68b97aa616d1534b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7104e98_1c753cfa",
         "filename": "bl1/bl1.ld.S",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-04-23T13:05:15Z",
       "side": 1,
       "message": "I am not sure this is equivalent. objdump -h shows different alignment constraints on the .data section with your patch, it reduces it down from 16 bytes to 8:\n\n @@ -7,7 +7,7 @@\n                   CONTENTS, ALLOC, LOAD, READONLY, CODE\n    1 .rodata       00000ad0  0000000000004000  0000000000004000  00014000  2**3\n                    CONTENTS, ALLOC, LOAD, READONLY, DATA\n -  2 .data         000003cd  0000000004035000  0000000000004ad0  00015000  2**4\n +  2 .data         000003cd  0000000004035000  0000000000004ad0  00015000  2**3\n                    CONTENTS, ALLOC, LOAD, DATA\n    3 stacks        00000500  0000000004035400  0000000000004e9d  00015400  2**6\n                    ALLOC\n\nI am not quite sure whether this alignment constraint applies to the LMA, VMA, or both. I presume it\u0027s for both.\n\nWhat worries me is this sentence extracted from GNU ld documentation (see https://sourceware.org/binutils/docs/ld/Output-Section-LMA.html#Output-Section-LMA):\n\n \u003e The AT\u003e keyword takes the name of a memory region as an argument. See MEMORY. The load address of the section is set to the next free address in the region, aligned to the section’s alignment requirements.\n\nLine 96 aligns \u0027dot\u0027 but that is different from setting a section\u0027s alignment requirement. We used to have this 16-byte alignment constraint on the section, now it\u0027s gone. Could it prevent the LMA from being 16-byte aligned?\n\nOn the other hand, I notice that the previous section has:\n\n       /*\n         * Pad out to 16 bytes as .data section needs to be 16 byte aligned and\n         * lld does not align the LMA to the aligment specified on the .data\n         * section.\n         */\n         . \u003d ALIGN(16);\n\nSo if LLD already ignored the ALIGN(16) alignment constraint on the .data section, it might be better to unify this and remove it like you\u0027ve done in this patch, and even get rid of \". \u003d ALIGN(16);\" at line 96. AFAIU, this line does not serve any purpose anyway, because \u0027dot\u0027 has already been aligned to a page boundary (thus to a 16-byte boundary) a few lines before.\n\nThanks to this padding at the end of the previous section, the \"next free address in the region\" (ROM here) is necessarily 16-byte aligned.\n\nAll in all, it might be fine after all. This whole thing just seems a little fragile to me.\n\nNote that I\u0027ve compared the output of BL1 sections on FVP platform and I did not see any difference.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 28
+      },
+      "revId": "f152c5e29d07e216ffc9ff5a68b97aa616d1534b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab42879e_08aaa82f",
+        "filename": "bl1/bl1.ld.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-04-24T09:58:12Z",
+      "side": 1,
+      "message": "I did not notice 412865907699c67d16274e3e474969eebf83e99c.\nThanks.\n\nThis issue seems to happen for LLD \u003c\u003d 10.0, but\ndoes not happen for the trunk.\n\n\n\u003e I am not quite sure whether this alignment constraint applies to the LMA, VMA, or both. I presume it\u0027s for both.\n\n\n- For BFD linker, it applies to both LMA and VMA\n\n- For LLD \u003c\u003d 10, it only applies to VMA. (bug ?)\n\n- For LLD \u003e\u003d 11, it applied to both.\n\n\nSo, \u0027. \u003d ALIGN(16)\u0027 I added is meaningless.\nIt is only effective to VMA, but is is asserted by \nASSERT(BL1_RW_BASE \u003d\u003d ALIGN(PAGE_SIZE),\n\n\nBut, keeping ALIGN(16) for .data section might be\nfuture proof.",
+      "parentUuid": "c7104e98_1c753cfa",
       "range": {
         "startLine": 96,
         "startChar": 0,
