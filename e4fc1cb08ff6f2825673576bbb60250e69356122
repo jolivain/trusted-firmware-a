@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15eeae5e_ed0e5bd8",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-24T11:44:46Z",
+      "side": 1,
+      "message": "This field is named \"TWED\":\n\"TWED, bits [35:32]\nIndicates support for the configurable delayed trapping of WFE. Defined values are:\nTWED Meaning\n0b0000 Configurable delayed trapping of WFE is not supported.\n0b0001 Configurable delayed trapping of WFE is supported.\"",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3698eac_1f5a06c0",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-24T11:44:46Z",
+      "side": 1,
+      "message": "-2020",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29d35018_34b47d53",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-24T11:44:46Z",
+      "side": 1,
+      "message": "why not bool is_armv8_6_twed_present()?",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1672f7d_e1eb81d8",
+        "filename": "include/lib/extensions/twede.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-24T11:44:46Z",
+      "side": 1,
+      "message": "2020\n\nWhy twede.h not twed.h?",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4e3b47b_b7ccfc68",
+        "filename": "include/lib/extensions/twede.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-24T11:44:46Z",
+      "side": 1,
+      "message": "remove _",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c59a02d8_790c6954",
+        "filename": "include/lib/extensions/twede.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-24T11:44:46Z",
+      "side": 1,
+      "message": "remove spaces before (",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9b6e267_0ef9a026",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-24T11:44:46Z",
+      "side": 1,
+      "message": "remove .",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c94e650_8bc6c55e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-24T11:44:46Z",
+      "side": 1,
+      "message": "use is_armv8_6_twed_present()\n{ should be on the same line as if, also for all other cases.",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1dc4a17_e2f7f9aa",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-24T11:44:46Z",
+      "side": 1,
+      "message": "plat_arm_set_twedel_scr_el3() returns uint32_t",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "119a000f_3f4466ec",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-24T11:44:46Z",
+      "side": 1,
+      "message": "0U",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a9d9a87_07d12059",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-24T11:44:46Z",
+      "side": 1,
+      "message": "see comments above",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dab9b3c1_7b8b9cb8",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-24T11:44:46Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6938638_ddbc232c",
+        "filename": "plat/arm/common/arm_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-24T11:44:46Z",
+      "side": 1,
+      "message": "remove space before (\n0 is a valid number.\n\"delay in taking a trap of WFE caused by the nTWE bit in this register as 2^(TWEDEL + 8) cycles when the configurable delay is enabled.\"",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b83aafd9_82f57578",
+        "filename": "plat/common/aarch64/plat_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-24T11:44:46Z",
+      "side": 1,
+      "message": "see comment for arm_common.c",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
