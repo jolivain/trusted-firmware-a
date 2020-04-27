@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ba7770c6_12d9d188",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-27T10:21:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "53141ce8_3b6ab346",
+      "range": {
+        "startLine": 85,
+        "startChar": 1,
+        "endLine": 86,
+        "endChar": 38
+      },
+      "revId": "6cb25aba023c7fa19ac671108d9a06edcc597577",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f578678_775a3662",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-04-27T09:06:12Z",
       "side": 1,
       "message": "The image\u0027s DT with the \"arm,armv8-timer\" can be obtained from your (external) DT generator tool, by configuring for specific images and with the \"clock-frequency\" specified as an argument.\nIs it a requirement in the tool to use this specific binding for the frequency, or could other IDs, e.g. \u0027frequency\u0027, \u0027clock\u0027 also generate the DT? The user might need to be aware of this requirement",
+      "range": {
+        "startLine": 88,
+        "startChar": 43,
+        "endLine": 88,
+        "endChar": 60
+      },
+      "revId": "6cb25aba023c7fa19ac671108d9a06edcc597577",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4fbd1c3_d39c63b6",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-27T10:21:55Z",
+      "side": 1,
+      "message": "The official binding sets the stage:\nhttps://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/timer/arm,arch_timer.yaml\nArchitecturally any \"normal\" arch timer users should read the frequency from the CNTFRQ system register, this clock-frequency property here is merely a hack for broken firmware. In our case I took the freedom of using this property to transport this information into BL31, so that it can properly program the system register in the first place.\nI would expect any users of this firmware to have the DT populated with the right value in this property. If not then there is the fallback value.",
+      "parentUuid": "4f578678_775a3662",
       "range": {
         "startLine": 88,
         "startChar": 43,
