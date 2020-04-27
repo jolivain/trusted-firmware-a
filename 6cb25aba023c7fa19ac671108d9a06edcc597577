@@ -34,6 +34,24 @@
       "revId": "6cb25aba023c7fa19ac671108d9a06edcc597577",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9612d5a_86c645ac",
+        "filename": "plat/arm/board/arm_fpga/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2020-04-27T10:38:18Z",
+      "side": 0,
+      "message": "Ok, I guess there could be an error message instead? If the DT is missing the GIC node for whatever reason",
+      "parentUuid": "08cd5603_714229d9",
+      "revId": "6cb25aba023c7fa19ac671108d9a06edcc597577",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
