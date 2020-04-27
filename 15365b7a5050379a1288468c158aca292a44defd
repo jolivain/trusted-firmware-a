@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36dd0184_fb310e56",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T12:34:11Z",
+      "side": 1,
+      "message": "add empty line to supress MISRA warning.",
+      "revId": "15365b7a5050379a1288468c158aca292a44defd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c0cbcc0_58ab5eaf",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T12:34:11Z",
+      "side": 1,
+      "message": "TWED_DISABLED is UL, should it be \u003d\u003d 0UL in that case?",
+      "revId": "15365b7a5050379a1288468c158aca292a44defd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e64805c_460d7022",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T12:34:11Z",
+      "side": 1,
+      "message": "0UL?",
+      "revId": "15365b7a5050379a1288468c158aca292a44defd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70b1d1ce_51a7cd23",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T12:34:11Z",
+      "side": 1,
+      "message": "remove uint32_t",
+      "revId": "15365b7a5050379a1288468c158aca292a44defd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46a33c50_b86400c1",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T12:34:11Z",
+      "side": 1,
+      "message": "0UL?",
+      "revId": "15365b7a5050379a1288468c158aca292a44defd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
