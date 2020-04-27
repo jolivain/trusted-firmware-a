@@ -22,6 +22,30 @@
       "revId": "3e585c637f230067a5181292ef7c0b024a7f1232",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25a59644_a74f0770",
+        "filename": "plat/arm/board/arm_fpga/fpga_gicv3.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-27T17:23:47Z",
+      "side": 1,
+      "message": "I don\u0027t want to make this fatal unless necessary. Yes, a Linux kernel wouldn\u0027t work, but the message is pretty clear:\nNOTICE:  BL31: v2.3():v2.3-24-g679489b79\nNOTICE:  BL31: Built : 17:00:50, Apr 27 2020\nWARNING: No \"arm,gic-v3\" compatible node found in DT, no GIC support.\nINFO:    BL31: Initializing runtime services\nINFO:    BL31: Preparing for EL3 exit to normal world\nINFO:    Entry point address \u003d 0x82080000\nINFO:    SPSR \u003d 0x3c9\n(and then it ends, the kernel does not even output anything, strangely).\nOn the other hand some bare-metal code disguised at the kernel, not needing the GIC, runs perfectly fine. U-Boot for instance typically does not touch the GIC, either.",
+      "parentUuid": "e6d75e28_71680262",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 6
+      },
+      "revId": "3e585c637f230067a5181292ef7c0b024a7f1232",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
