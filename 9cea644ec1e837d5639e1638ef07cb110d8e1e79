@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "3587e903_290e187c",
+        "filename": "Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "add message that SDEI_IN_FCONF is an experimental feature",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13bea1e6_e9aa7b9d",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "capital C",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "163a449c_d8b94ac4",
         "filename": "fdts/fvp-base-gicv3-psci-common.dtsi",
         "patchSetId": 2
@@ -89,6 +123,227 @@
     },
     {
       "key": {
+        "uuid": "94bc2d55_906a5248",
+        "filename": "include/services/sdei_flags.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "Why do you use \"_\"? Can it be removed?",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aac63b3f_59f695db",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "would be neat to align this line and #226 with previous and following lines.",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71e0bda9_df6ff969",
+        "filename": "plat/arm/common/aarch64/arm_sdei.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "Could you swap !SDEI_IN_FCONF and SDEI_IN_FCONF cases?",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8aedb17b_fa234db2",
+        "filename": "plat/arm/common/aarch64/arm_sdei.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "unsigned int i;",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7b43ca6_8ffc8204",
+        "filename": "plat/arm/common/aarch64/arm_sdei.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "replace tab in \"\u003d 0\" with space, see line #47",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12f5d4d6_04f1e368",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "unsigned int i;",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "766f2dd9_306f4151",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "\"Check that the node...\"?",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a14f218f_af6307b3",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "add extra tab",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf3f8680_ca7ed7ba",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "print err value",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c00ba7f6_68622f46",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "sdei_dyn_config.private_ev_cnt is positive, use %u",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfa6eda7_bd6cb80e",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "what is err value?",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2060b96a_6fe7c9e3",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "extra tab?",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1422cc8_e011e705",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "print err value",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b959e19_fb91e02d",
         "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
         "patchSetId": 2
@@ -106,6 +361,108 @@
         "endLine": 57,
         "endChar": 66
       },
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aab28457_a46a2f2e",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "extra tab",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b99e812_1887c625",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "print err",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcebfc17_eee501eb",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "%u",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97edc6bc_8648a02b",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "what err is returned here?",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85790447_1ce1246b",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "+ tab",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e6436ca_c324f30a",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-27T14:09:35Z",
+      "side": 1,
+      "message": "print err",
       "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
