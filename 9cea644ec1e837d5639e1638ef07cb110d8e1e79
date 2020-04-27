@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "a1f6144c_b5e3a298",
+        "filename": "fdts/fvp-base-gicv3-psci-common.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "163a449c_d8b94ac4",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2b55141_51dc478f",
         "filename": "fdts/fvp-base-gicv3-psci-common.dtsi",
         "patchSetId": 2
@@ -123,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "7e5d6b12_cc0ef015",
+        "filename": "fdts/fvp-base-gicv3-psci-common.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a90dd129_12165f63",
+      "range": {
+        "startLine": 46,
+        "startChar": 20,
+        "endLine": 48,
+        "endChar": 44
+      },
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94bc2d55_906a5248",
         "filename": "include/services/sdei_flags.h",
         "patchSetId": 2
@@ -174,6 +216,24 @@
     },
     {
       "key": {
+        "uuid": "9fd17d57_ea0c004e",
+        "filename": "plat/arm/common/aarch64/arm_sdei.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71e0bda9_df6ff969",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8aedb17b_fa234db2",
         "filename": "plat/arm/common/aarch64/arm_sdei.c",
         "patchSetId": 2
@@ -188,6 +248,24 @@
       "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a69f25d_ff4d3b96",
+        "filename": "plat/arm/common/aarch64/arm_sdei.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8aedb17b_fa234db2",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -208,6 +286,24 @@
     },
     {
       "key": {
+        "uuid": "7e993757_a05104b0",
+        "filename": "plat/arm/common/aarch64/arm_sdei.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7b43ca6_8ffc8204",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12f5d4d6_04f1e368",
         "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
         "patchSetId": 2
@@ -222,6 +318,24 @@
       "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9abc2796_c1c87ddd",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12f5d4d6_04f1e368",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -242,6 +356,24 @@
     },
     {
       "key": {
+        "uuid": "2306c7e9_fd1d7338",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "766f2dd9_306f4151",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a14f218f_af6307b3",
         "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
         "patchSetId": 2
@@ -259,6 +391,24 @@
     },
     {
       "key": {
+        "uuid": "7093ac20_c98e61ae",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a14f218f_af6307b3",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf3f8680_ca7ed7ba",
         "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
         "patchSetId": 2
@@ -273,6 +423,24 @@
       "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4829868_d7e9b361",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf3f8680_ca7ed7ba",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -310,6 +478,24 @@
     },
     {
       "key": {
+        "uuid": "5d32667c_615a2d67",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Made the return value to -1.",
+      "parentUuid": "bfa6eda7_bd6cb80e",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2060b96a_6fe7c9e3",
         "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
         "patchSetId": 2
@@ -321,6 +507,24 @@
       "writtenOn": "2020-04-27T14:09:35Z",
       "side": 1,
       "message": "extra tab?",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83273608_5fc800cd",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Curious: what is the rule of thumb for number of tabs in such scenarios?",
+      "parentUuid": "2060b96a_6fe7c9e3",
       "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -367,6 +571,30 @@
     },
     {
       "key": {
+        "uuid": "3f0729aa_3bbe162d",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b959e19_fb91e02d",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 66
+      },
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aab28457_a46a2f2e",
         "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
         "patchSetId": 2
@@ -381,6 +609,24 @@
       "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0a5b6ac_9e2aedde",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aab28457_a46a2f2e",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -418,6 +664,24 @@
     },
     {
       "key": {
+        "uuid": "04dfd3ad_24c4e36c",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcebfc17_eee501eb",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97edc6bc_8648a02b",
         "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
         "patchSetId": 2
@@ -432,6 +696,24 @@
       "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b970c431_214ade35",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97edc6bc_8648a02b",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -452,6 +734,24 @@
     },
     {
       "key": {
+        "uuid": "646eb783_aee13b2c",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85790447_1ce1246b",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e6436ca_c324f30a",
         "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
         "patchSetId": 2
@@ -466,6 +766,24 @@
       "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3481e917_6b112ba0",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-27T17:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e6436ca_c324f30a",
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
