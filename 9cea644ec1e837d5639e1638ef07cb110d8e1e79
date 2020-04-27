@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "e062f29a_ddc374bd",
+        "filename": "fdts/fvp-base-gicv3-psci-common.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000160
+      },
+      "writtenOn": "2020-04-27T08:17:16Z",
+      "side": 1,
+      "message": "This is required by the device tree bindings in Linux:\nhttps://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/arm/firmware/sdei.txt",
+      "parentUuid": "a2b55141_51dc478f",
+      "range": {
+        "startLine": 44,
+        "startChar": 3,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "9cea644ec1e837d5639e1638ef07cb110d8e1e79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a90dd129_12165f63",
         "filename": "fdts/fvp-base-gicv3-psci-common.dtsi",
         "patchSetId": 2
