@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6d75e28_71680262",
+        "filename": "plat/arm/board/arm_fpga/fpga_gicv3.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2020-04-27T16:28:10Z",
+      "side": 1,
+      "message": "Thanks for adding these warning messages\n\nIn the (hopefully rare) instance of a broken DT that has a missing GIC node, I was wondering if an ERROR(..) followed by panic() is more suitable, I guess it depends on if we want to allow the setup to continue without the GIC even though issues would inevitably occur later on",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 6
+      },
+      "revId": "3e585c637f230067a5181292ef7c0b024a7f1232",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
