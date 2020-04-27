@@ -22,6 +22,30 @@
       "revId": "ee0da41a2f1453ce16c1e3fada4858b71025992d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3fe258c_c7e4649a",
+        "filename": "plat/arm/board/arm_fpga/fpga_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-27T15:49:13Z",
+      "side": 1,
+      "message": "That\u0027s why I put the \"CRASH\" name in here, to signify that this is some hardcoded address for special purposes. We can\u0027t fix that address, I believe, because it\u0027s used quite early, before we are able to parse the DT. But as it says on the tin, it\u0027s just for crash output, normally it\u0027s not used at all. I put a wrong address in there, for testing, and it worked fine. I consider this the equivalent for the kernel\u0027s earlyprintk/earlycon mechanism.",
+      "parentUuid": "c4a1f521_5687be5c",
+      "range": {
+        "startLine": 33,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 45
+      },
+      "revId": "ee0da41a2f1453ce16c1e3fada4858b71025992d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
