@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c792767_35081aaa",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-04-28T13:58:16Z",
+      "side": 1,
+      "message": "The transition here is abrupt. How about we reverse the order of the sentence fragements:\n\n\"This flag disables page table walk during context stave and restore as\nspeculative AT instructions using an out-of-order translation regime could\ncause subsequent requests to translate incorrectly.\"\n\nAlso, you needed an \"an\" before \"out-of-order\" and I removed a few words in the process (\"generate an\" specifically)",
+      "revId": "bdd45f6330c760303d3a40558e97222a0f292201",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
