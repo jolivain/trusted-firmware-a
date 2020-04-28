@@ -536,6 +536,24 @@
     },
     {
       "key": {
+        "uuid": "7b9e0131_426498f2",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-04-28T10:30:06Z",
+      "side": 1,
+      "message": "I see few platform does include ARM\u0027s plat_arm.h file, but i think we should be ok to remove this and replicate required stuff here.\n\ni will remove this header.",
+      "parentUuid": "ac690f5d_b580f611",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c36e6779_5d2bcce0",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 1
@@ -559,6 +577,30 @@
     },
     {
       "key": {
+        "uuid": "5e2405e6_35431ffc",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-04-28T10:30:06Z",
+      "side": 1,
+      "message": "Ok, yes pwr_lvl is not used. i didn\u0027t include this part when duplicating macros.",
+      "parentUuid": "c36e6779_5d2bcce0",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a7e2681_2087de85",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 1
@@ -573,6 +615,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e704635_e9f81d05",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-04-28T10:30:06Z",
+      "side": 1,
+      "message": "sure, included description for them in plat/qti/sc7180/inc/platform_def.h",
+      "parentUuid": "0a7e2681_2087de85",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -593,6 +653,24 @@
     },
     {
       "key": {
+        "uuid": "79b042c7_659f1b19",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-04-28T10:30:06Z",
+      "side": 1,
+      "message": "We may need to implement it for each cpu type (qti_kryo4_gold, qti_kryo4_silver etc and call into cortex a* APIs accordingly) Agree that it seems other platfrom implementation does this from cpu_ops, but cpu ops are called earlier in psci (before pwr_domain_suspend())\n\nThe implementation currently is following the recommanded SW sequence to program this on QTI platform (pasted the sequence)\n1. program the firmware first (done by calling qtiseclib_psci_node_suspend() )\n2. configure GIC distributer (done by calling qtiseclib_cb_gic_cpuif_disable())\n3. program cpupwrctrl (done by qti_set_cpupwrctlr_val() at the end)\n4. run dsb() followed by wfi() (done by qti_domain_power_down_wfi())",
+      "parentUuid": "7b3e168f_84450a86",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60ae6a12_98a1c7ad",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 1
@@ -607,6 +685,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b495087c_6c116e4a",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-04-28T10:30:06Z",
+      "side": 1,
+      "message": "yes, this also calls qtiseclib_cb_gic_cpuif_enable() when waking up, apart from setting the cpu pwrctrl register.",
+      "parentUuid": "60ae6a12_98a1c7ad",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -627,6 +723,24 @@
     },
     {
       "key": {
+        "uuid": "398c1d57_9d0e3433",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-04-28T10:30:06Z",
+      "side": 1,
+      "message": "Sure, i will update to use psci_power_down_wfi()",
+      "parentUuid": "b051b84c_ce9ae4ca",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc12de93_110c3e72",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 1
@@ -641,6 +755,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11566829_ef9ad247",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-04-28T10:30:06Z",
+      "side": 1,
+      "message": "ok, updated to use ARRAY_SIZE()",
+      "parentUuid": "dc12de93_110c3e72",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -667,6 +799,30 @@
     },
     {
       "key": {
+        "uuid": "7a1c4548_ea0fa716",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-04-28T10:30:06Z",
+      "side": 1,
+      "message": "The arm_pm_idle_states[] array has last element by default 0.\nso the real deepest state is second last element of that array.",
+      "parentUuid": "c36102bb_76f74bdb",
+      "range": {
+        "startLine": 208,
+        "startChar": 41,
+        "endLine": 208,
+        "endChar": 42
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aca01e2e_2595a9b2",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 1
@@ -687,6 +843,30 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f315b832_15850cbd",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-04-28T10:30:06Z",
+      "side": 1,
+      "message": "I will update to comment.",
+      "parentUuid": "aca01e2e_2595a9b2",
+      "range": {
+        "startLine": 236,
+        "startChar": 7,
+        "endLine": 236,
+        "endChar": 28
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -1439,6 +1619,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d988a6f_6c93d373",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-04-28T10:30:06Z",
+      "side": 1,
+      "message": "ok, i have taken out #if from code",
+      "parentUuid": "f0b8b133_035a9dfd",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
