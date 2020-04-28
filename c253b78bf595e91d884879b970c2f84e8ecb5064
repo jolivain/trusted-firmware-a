@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7d8937c_80445803",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-28T19:20:28Z",
+      "side": 1,
+      "message": "It will be worth while to provide a detailed commit message for such fixes. The errata numbers are good but we should probably explain a little bit about what the errata is and how the fix provided actually fixes the issue. We have had a discussion on the mailing list and it might be worth pointing readers of the commit message to that as well. I understand code comments will have details but this should be a good place to contain a summary when somebody explores the patch.",
+      "revId": "c253b78bf595e91d884879b970c2f84e8ecb5064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "007c187b_ddec9b86",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-28T19:20:28Z",
+      "side": 1,
+      "message": "Are we sure we only need to disable PTW during context switches ? Can you point to the errata document that limits the scope to \"context-switches\"?",
+      "revId": "c253b78bf595e91d884879b970c2f84e8ecb5064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e7856f0_4292aa57",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-28T19:20:28Z",
+      "side": 1,
+      "message": "So i don\u0027t understand how this fixes the issue.. Firstly, TCR_EL2 does not have the EPD0 and EPD1 bits unless ARMv8.1.VHE is enabled and HCR_EL2.E2H is 1. TCR_EL2 has different views based on the version extensions implemented.\nAlso you are unconditionally disabling page table walks for EL2 here. It is possible that you enter into this function with EPDx bits already cleared in which case at the end of this function you unconditionally set it and are potentially changing the state. This does not seem correct.\nI also dont understand how this fixes the issue. You are only disabling PTW during el2_sysregs_context_save. The rest of EL3 code is free to speculatively execute AT instructions and still cause the issue.",
+      "revId": "c253b78bf595e91d884879b970c2f84e8ecb5064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddf7a908_92956283",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-28T19:20:28Z",
+      "side": 1,
+      "message": "Why is this being enabled for EVERY platform by default ? The errata only applies to particular CPU\u0027s. The fix should probably attempt to use the errata framework in some way.",
+      "revId": "c253b78bf595e91d884879b970c2f84e8ecb5064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
