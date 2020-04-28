@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "015b1bf5_62ee1089",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-28T13:57:38Z",
+      "side": 1,
+      "message": "If I am not mistaken, there is no existing test in tf-a-tests to test this. It would be good to have such test.",
+      "revId": "992f4ae88697499b2cbbe135145defb06f276ec0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9e54256_3554d755",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-28T13:57:38Z",
+      "side": 1,
+      "message": "I am curious how did you test this over Linux. Is there an API that wraps SMC calls with appropriate function ID and other parameters?",
+      "revId": "992f4ae88697499b2cbbe135145defb06f276ec0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
