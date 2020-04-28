@@ -26,13 +26,7 @@ static int32_t smccc_arch_features(u_register_t arg1, u_register_t arg2)
 	case SMCCC_ARCH_FEATURES:
 		return SMC_OK;
 	case SMCCC_ARCH_SOC_ID:
-		if (arg2 == SMCCC_GET_SOC_REVISION) {
-			return plat_get_soc_revision();
-		}
-		if (arg2 == SMCCC_GET_SOC_VERSION) {
-			return plat_get_soc_version();
-		}
-		return SMC_ARCH_CALL_INVAL_PARAM;
+		return SMC_OK;
 #if WORKAROUND_CVE_2017_5715
 	case SMCCC_ARCH_WORKAROUND_1:
 		if (check_wa_cve_2017_5715() == ERRATA_NOT_APPLIES)
@@ -104,6 +98,14 @@ static uintptr_t arm_arch_svc_smc_handler(uint32_t smc_fid,
 		SMC_RET1(handle, smccc_version());
 	case SMCCC_ARCH_FEATURES:
 		SMC_RET1(handle, smccc_arch_features(x1, x2));
+	case SMCCC_ARCH_SOC_ID:
+		if (x1 == SMCCC_GET_SOC_REVISION) {
+			SMC_RET1(handle, plat_get_soc_revision());
+		}
+		if (x1 == SMCCC_GET_SOC_VERSION) {
+			SMC_RET1(handle, plat_get_soc_version());
+		}
+		SMC_RET1(handle, SMC_ARCH_CALL_INVAL_PARAM);
 #if WORKAROUND_CVE_2017_5715
 	case SMCCC_ARCH_WORKAROUND_1:
 		/*
