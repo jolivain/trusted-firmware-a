@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a093b7d8_01fcb11b",
+        "filename": "plat/qti/common/inc/qti_uart_console.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "sure will move to console_t structure instead",
+      "parentUuid": "95022443_a9997164",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ea485ec_11f3b092",
         "filename": "plat/qti/common/src/aarch64/qti_kryo4_gold.S",
         "patchSetId": 1
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "de523e8d_52930864",
+        "filename": "plat/qti/common/src/aarch64/qti_uart2_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "This is not build so we will remove it.",
+      "parentUuid": "5d9ad993_f341337e",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6fc7d7f_326ccd7a",
         "filename": "plat/qti/common/src/qti_bl31_setup.c",
         "patchSetId": 1
@@ -81,6 +117,30 @@
       "writtenOn": "2020-04-23T19:58:19Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 41,
+        "startChar": 25,
+        "endLine": 41,
+        "endChar": 29
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed2f941b_aedf4249",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "will update it.",
+      "parentUuid": "c6fc7d7f_326ccd7a",
       "range": {
         "startLine": 41,
         "startChar": 25,
@@ -127,6 +187,24 @@
     },
     {
       "key": {
+        "uuid": "f0044ad4_20e2c587",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "better to set rather then making assumption.",
+      "parentUuid": "f370013f_c8cf22b7",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a38cfc4f_b39a3834",
         "filename": "plat/qti/common/src/qti_bl31_setup.c",
         "patchSetId": 1
@@ -167,6 +245,24 @@
     },
     {
       "key": {
+        "uuid": "b458f971_0d0b871c",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "we are using psci based common implementation which will follow same flow as suggested by above.",
+      "parentUuid": "4c5518ac_b8c6d4ab",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7ecc382c_c9dc38b4",
         "filename": "plat/qti/common/src/qti_bl31_setup.c",
         "patchSetId": 1
@@ -184,6 +280,24 @@
     },
     {
       "key": {
+        "uuid": "5e18ee8a_d8833e89",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "write_cntfrq_el0 will be done based on above API so in warm sequences read_cntfrq_el0 will not have value before plat_get_syscnt_freq2 will be called.",
+      "parentUuid": "7ecc382c_c9dc38b4",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b5729952_b0bbd102",
         "filename": "plat/qti/common/src/qti_common.c",
         "patchSetId": 1
@@ -195,6 +309,24 @@
       "writtenOn": "2020-04-23T19:58:19Z",
       "side": 1,
       "message": "I don\u0027t really understand this comment? I believe the round_up() and round_down() functions from \u003clib/utils_def.h\u003e should already do what you need.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2560d93_9b6d2333",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "page_align in bl_common.c is not supporting 64 bit address as PAGE_SIZE is not upcasted to uintptr_t value as done in our implementation.",
+      "parentUuid": "b5729952_b0bbd102",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -241,6 +373,30 @@
     },
     {
       "key": {
+        "uuid": "8bde2f2b_0925f4ff",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "This was kept in mind futuristic approach where we may need va !\u003d pa",
+      "parentUuid": "4b0af5c3_b54f8df0",
+      "range": {
+        "startLine": 133,
+        "startChar": 32,
+        "endLine": 133,
+        "endChar": 77
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cbb019e0_6b079b01",
         "filename": "plat/qti/common/src/qti_common.c",
         "patchSetId": 1
@@ -258,6 +414,24 @@
     },
     {
       "key": {
+        "uuid": "5ce49862_232d3617",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbb019e0_6b079b01",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d7e9909_5b40dc90",
         "filename": "plat/qti/common/src/qti_common.c",
         "patchSetId": 1
@@ -272,6 +446,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83a61b16_ee1e0bac",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d7e9909_5b40dc90",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -303,6 +495,24 @@
       "writtenOn": "2020-04-23T19:58:19Z",
       "side": 1,
       "message": "I\u0027m somewhat confused that there is both GICv2 and GICv3 code. Don\u0027t all the platforms we\u0027re planning to support here have GICv3?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "883b6d19_fefc0408",
+        "filename": "plat/qti/common/src/qti_gic_v2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "yes , will remove gicv2 code",
+      "parentUuid": "67c0e362_68e1595c",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -577,6 +787,24 @@
     },
     {
       "key": {
+        "uuid": "71d0960d_d21a76fb",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "sure , will do.",
+      "parentUuid": "25cdea70_08c0b924",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4045d4c4_e19d7983",
         "filename": "plat/qti/common/src/qti_syscall.c",
         "patchSetId": 1
@@ -634,6 +862,24 @@
     },
     {
       "key": {
+        "uuid": "0b584495_64919fcc",
+        "filename": "plat/qti/oem/oem_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "yeah , we can remove this for current platform.",
+      "parentUuid": "02e92f11_53f44e5d",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e1dd6eae_609fcadd",
         "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
         "patchSetId": 1
@@ -645,6 +891,24 @@
       "writtenOn": "2020-04-23T19:58:19Z",
       "side": 1,
       "message": "Looks like these two are unused?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa933378_d741070f",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "yes , we can remove from current platform.",
+      "parentUuid": "e1dd6eae_609fcadd",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -702,6 +966,24 @@
     },
     {
       "key": {
+        "uuid": "8df9c7bd_ca3a8504",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "yes, will remove it.",
+      "parentUuid": "73a63334_4e5fdff1",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a22b5c4f_de438479",
         "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
         "patchSetId": 1
@@ -747,6 +1029,24 @@
       "writtenOn": "2020-04-23T19:58:19Z",
       "side": 1,
       "message": "Can limit to debug build?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5434a29d_05073ce6",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "yes will make it in debug build alone.",
+      "parentUuid": "6c3b202a_1862cfe6",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -889,6 +1189,24 @@
       "writtenOn": "2020-04-23T19:58:19Z",
       "side": 1,
       "message": "This is duplicated with qti_common.c, I don\u0027t think you need it twice (and again, I think you can just use round_up()/round_down() so you shouldn\u0027t need it at all).",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "095bd924_0bc873fe",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "page_align don\u0027t support 64 bit address.",
+      "parentUuid": "e93bdcb2_ea44ebda",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -1071,6 +1389,30 @@
       "writtenOn": "2020-04-23T19:58:19Z",
       "side": 1,
       "message": "What does this do?",
+      "range": {
+        "startLine": 12,
+        "startChar": 11,
+        "endLine": 12,
+        "endChar": 24
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abe86c36_a1f364e4",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-04-28T08:11:44Z",
+      "side": 1,
+      "message": "unused, will remove",
+      "parentUuid": "5861f35a_c7f4842b",
       "range": {
         "startLine": 12,
         "startChar": 11,
