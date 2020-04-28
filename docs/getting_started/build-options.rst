@@ -673,6 +673,25 @@ Common build options
    default value of this flag is ``no``. Note this option must be enabled only
    for ARM architecture greater than Armv8.5-A.
 
+-  ``ERRATA_SPECULATIVE_AT`` : Speculative AT instruction using out-of-context
+   translation regime could cause subsequent request to generate an incorrect
+   translation hence disabled page table walk during context save and restore.
+   This boolean option enables errata for all below CPUs.
+
+   +---------+--------------+
+   | Errata  |      CPU     |
+   +=========+==============+
+   | 1165522 |  Cortex-A76  |
+   +---------+--------------+
+   | 1319367 |  Cortex-A72  |
+   +---------+--------------+
+   | 1319537 |  Cortex-A57  |
+   +---------+--------------+
+   | 1530923 |  Cortex-A55  |
+   +---------+--------------+
+   | 1530924 |  Cortex-A53  |
+   +---------+--------------+
+
 GICv3 driver options
 --------------------
 

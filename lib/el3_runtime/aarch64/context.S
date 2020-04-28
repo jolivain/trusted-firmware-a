@@ -43,6 +43,14 @@
  */
 
 func el2_sysregs_context_save
+
+#if ERRATA_SPECULATIVE_AT
+	mrs 	x9, tcr_el2
+	orr	x9, x9, #TCR_EPD0_BIT
+	orr     x9, x9, #TCR_EPD1_BIT
+	msr 	tcr_el2, x9
+#endif
+
 	mrs	x9, actlr_el2
 	mrs	x10, afsr0_el2
 	stp	x9, x10, [x0, #CTX_ACTLR_EL2]
@@ -98,10 +106,6 @@ func el2_sysregs_context_save
 	mrs	x10, spsr_el2
 	mrs	x11, sp_el2
 	stp	x10, x11, [x0, #CTX_SPSR_EL2]
-
-	mrs	x12, tcr_el2
-	mrs	x13, tpidr_el2
-	stp	x12, x13, [x0, #CTX_TCR_EL2]
 
 	mrs	x14, ttbr0_el2
 	mrs	x15, vbar_el2
@@ -214,6 +218,14 @@ func el2_sysregs_context_save
 	str	x9, [x0, #CTX_SCXTNUM_EL2]
 #endif
 
+	mrs	x12, tcr_el2
+#if ERRATA_SPECULATIVE_AT
+	bic 	x12, x12, #TCR_EPD0_BIT
+	bic 	x12, x12, #TCR_EPD1_BIT
+#endif
+	mrs	x13, tpidr_el2
+	stp	x12, x13, [x0, #CTX_TCR_EL2]
+
 	ret
 endfunc el2_sysregs_context_save
 
@@ -233,6 +245,13 @@ endfunc el2_sysregs_context_save
  * -----------------------------------------------------
  */
 func el2_sysregs_context_restore
+
+#if ERRATA_SPECULATIVE_AT
+	mrs 	x9, tcr_el2
+	orr	x9, x9, #TCR_EPD0_BIT
+	orr     x9, x9, #TCR_EPD1_BIT
+	msr 	tcr_el2, x9
+#endif
 
 	ldp	x9, x10, [x0, #CTX_ACTLR_EL2]
 	msr	actlr_el2, x9
@@ -289,10 +308,6 @@ func el2_sysregs_context_restore
 	ldp	x10, x11, [x0, #CTX_SPSR_EL2]
 	msr	spsr_el2, x10
 	msr	sp_el2, x11
-
-	ldp	x12, x13, [x0, #CTX_TCR_EL2]
-	msr	tcr_el2, x12
-	msr	tpidr_el2, x13
 
 	ldp	x14, x15, [x0, #CTX_TTBR0_EL2]
 	msr	ttbr0_el2, x14
@@ -403,6 +418,9 @@ func el2_sysregs_context_restore
 	ldr	x9, [x0, #CTX_SCXTNUM_EL2]
 	msr	scxtnum_el2, x9
 #endif
+	ldp	x12, x13, [x0, #CTX_TCR_EL2]
+	msr	tcr_el2, x12
+	msr	tpidr_el2, x13
 
 	ret
 endfunc el2_sysregs_context_restore
@@ -417,6 +435,13 @@ endfunc el2_sysregs_context_restore
  * ------------------------------------------------------------------
  */
 func el1_sysregs_context_save
+
+#if ERRATA_SPECULATIVE_AT
+	mrs 	x9, tcr_el1
+	orr 	x9, x9, #TCR_EPD0_BIT
+	orr     x9, x9, #TCR_EPD1_BIT
+	msr 	tcr_el1, x9
+#endif
 
 	mrs	x9, spsr_el1
 	mrs	x10, elr_el1
@@ -441,10 +466,6 @@ func el1_sysregs_context_save
 	mrs	x14, mair_el1
 	mrs	x15, amair_el1
 	stp	x14, x15, [x0, #CTX_MAIR_EL1]
-
-	mrs	x16, tcr_el1
-	mrs	x17, tpidr_el1
-	stp	x16, x17, [x0, #CTX_TCR_EL1]
 
 	mrs	x9, tpidr_el0
 	mrs	x10, tpidrro_el0
@@ -502,6 +523,14 @@ func el1_sysregs_context_save
 	stp	x9, x10, [x0, #CTX_RGSR_EL1]
 #endif
 
+	mrs	x16, tcr_el1
+#if ERRATA_SPECULATIVE_AT
+	bic 	x16, x16, #TCR_EPD0_BIT
+	bic 	x16, x16, #TCR_EPD1_BIT
+#endif
+	mrs	x17, tpidr_el1
+	stp	x16, x17, [x0, #CTX_TCR_EL1]
+
 	ret
 endfunc el1_sysregs_context_save
 
@@ -514,6 +543,13 @@ endfunc el1_sysregs_context_save
  * ------------------------------------------------------------------
  */
 func el1_sysregs_context_restore
+
+#if ERRATA_SPECULATIVE_AT
+	mrs 	x9, tcr_el1
+	orr	x9, x9, #TCR_EPD0_BIT
+	orr     x9, x9, #TCR_EPD1_BIT
+	msr 	tcr_el1, x9
+#endif
 
 	ldp	x9, x10, [x0, #CTX_SPSR_EL1]
 	msr	spsr_el1, x9
@@ -538,10 +574,6 @@ func el1_sysregs_context_restore
 	ldp	x14, x15, [x0, #CTX_MAIR_EL1]
 	msr	mair_el1, x14
 	msr	amair_el1, x15
-
-	ldp	x16, x17, [x0, #CTX_TCR_EL1]
-	msr	tcr_el1, x16
-	msr	tpidr_el1, x17
 
 	ldp	x9, x10, [x0, #CTX_TPIDR_EL0]
 	msr	tpidr_el0, x9
@@ -597,6 +629,9 @@ func el1_sysregs_context_restore
 	msr	GCR_EL1, x14
 #endif
 
+	ldp	x16, x17, [x0, #CTX_TCR_EL1]
+	msr	tcr_el1, x16
+	msr	tpidr_el1, x17
 	/* No explict ISB required here as ERET covers it */
 	ret
 endfunc el1_sysregs_context_restore
