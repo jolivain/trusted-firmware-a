@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c89a33d0_2265325a",
+        "filename": "plat/arm/board/arm_fpga/fpga_console.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-04-28T16:39:39Z",
+      "side": 1,
+      "message": "System includes and project includes must be separated by an empty line: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#headers-and-inclusion",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 19
+      },
+      "revId": "47290a9576e4095e6fce86f5ff7faf3a1e7b6ac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
