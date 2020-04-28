@@ -16,6 +16,24 @@
       "revId": "bdd45f6330c760303d3a40558e97222a0f292201",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26d3e7bc_aa58d22f",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-04-28T14:06:55Z",
+      "side": 1,
+      "message": "I misread this, so my edit contains \"out-of-order\" not \"out-of-context\"\n\nCorrected:\nThis flag disables page table walk during context stave and restore as\nspeculative AT instructions using an out-of-context translation regime could\ncause subsequent requests to translate incorrectly.\"",
+      "parentUuid": "0c792767_35081aaa",
+      "revId": "bdd45f6330c760303d3a40558e97222a0f292201",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
