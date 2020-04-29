@@ -1,0 +1,407 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e236d155_61ffe41e",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "remove \"\u003d 0\"",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef6b9f93_d410d0b4",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "MISRA will report this as error, because attr and fdt aren\u0027t boolean",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7a9c5cb_65cac7ef",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "if (rc !\u003d 0), see all other cases",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ec3e56a_fbbea9f0",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "why not reurn rc?",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d09c9820_6f9d5525",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "Do you need\nassert(manifest !\u003d NULL);\n? See line #112",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bd5c210_bdb500e1",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "const char *str;",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ad75821_dce81c18",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "Why not return node?",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cfd5cc9_8476a00f",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "return rc?",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6700beb0_ffa0f42d",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "return root_node?",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86d23d3b_88e3c639",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "CPU",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c0e4afb_451e2959",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "remove \u003d 0\ndo you really need return code to be uint64_t?",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97492432_e2ea8359",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "rc !\u003d 0ULL",
+      "range": {
+        "startLine": 128,
+        "startChar": 4,
+        "endLine": 128,
+        "endChar": 5
+      },
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96bad5bd_aa811d5e",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "1UL",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9757085f_7fde672a",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "why \"int\"? This function returns either 0 or 1. Why not return meaningfull negative numbers, eg. -ENOENT, etc.?",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f34d57b_b0f38219",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "Make MISRA happy:\nif (((spmc_attrs.spmc_id \u003e\u003e SPMC_SECURE_ID_SHIFT) \u0026\n     SPMC_SECURE_ID_MASK) \u003d\u003d 0)",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f547415_423c1f39",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "sel2 \u003d\u003d 0ULL",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c30e58b8_6a8188a4",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "I\u0027d prefer to get rid of sel2 variable and use \nif (((read_id_aa64pfr0_el1() \u003e\u003e ID_AA64PFR0_SEL2_SHIFT) \u0026\n      ID_AA64PFR0_SEL2_MASK) \u003d\u003d 0ULL)\n\nor better to add and use is_armv8_4_sel2_present() function in arch_features.h",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 4
+      },
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10ffcc88_51656c47",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "if ((read_sctlr_el3() \u0026 SCTLR_EE_BIT) !\u003d 0ULL)",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a5f3432_bf6aca21",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "\u003d\u003d NULL",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "591206ee_66ec3e4e",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "return meaningful negative value",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98146501_4c4f8fe9",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "0UL",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79cf5673_bfa76549",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "0ULL\nadd extra ()",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "908806f8_9ca50e86",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:19:22Z",
+      "side": 1,
+      "message": "remove space after cast",
+      "revId": "29d43268a03ea3c4ea957bd8dadd8eb3eb9289f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
