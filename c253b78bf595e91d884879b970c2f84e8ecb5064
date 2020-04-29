@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8b9eb6d0_de1e7bf3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-29T10:49:54Z",
+      "side": 1,
+      "message": "Ack, will add more details in the commit message and add link that points to mailing list discussion on this topic",
+      "parentUuid": "d7d8937c_80445803",
+      "revId": "c253b78bf595e91d884879b970c2f84e8ecb5064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "007c187b_ddec9b86",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-04-28T19:20:28Z",
       "side": 1,
       "message": "Are we sure we only need to disable PTW during context switches ? Can you point to the errata document that limits the scope to \"context-switches\"?",
+      "revId": "c253b78bf595e91d884879b970c2f84e8ecb5064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2f71fd4_bdc9ab06",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-29T10:49:54Z",
+      "side": 1,
+      "message": "This is purely on discussion basis we had internally though errata document does not directly mention about context switch.\n\nWe only have below errata document (mentioned in table) that gives details about this issue and suggested workaround.",
+      "parentUuid": "007c187b_ddec9b86",
       "revId": "c253b78bf595e91d884879b970c2f84e8ecb5064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "79576ba2_75bed9f6",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-29T10:49:54Z",
+      "side": 1,
+      "message": "Yes, thats correct tcr_el2 has different copies depends upon HCR_EL2.E2H\u003d0 or 1 when HCR_EL2.E2H\u003d0 then bit[31:0] are mapped to HCR[31:0] where bit 7 and bit 23 are reserved.\nIMO, writing to these reserve bits does not make any problem and its also easier in the code handle tcr_el2 register irrespective of its copy.\n\nAssuming PTW always enabled this code was implemented but it make sense to save copy of it before updating EPD bits of TCR and saved copy can be restored during at context_restore.\n\nAfter disabling PTW, any speculative AT instruction execution for lower ELs in EL3 does not results in page table walk and hence there will be no incorrect translation being cached in TLB.",
+      "parentUuid": "8e7856f0_4292aa57",
+      "revId": "c253b78bf595e91d884879b970c2f84e8ecb5064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ddf7a908_92956283",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2020-04-28T19:20:28Z",
       "side": 1,
       "message": "Why is this being enabled for EVERY platform by default ? The errata only applies to particular CPU\u0027s. The fix should probably attempt to use the errata framework in some way.",
+      "revId": "c253b78bf595e91d884879b970c2f84e8ecb5064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "140a405d_e8b7917b",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-04-29T10:49:54Z",
+      "side": 1,
+      "message": "This errata is applicable for most of CPUs so we decided to default enable it as it does not cause much penalty.",
+      "parentUuid": "ddf7a908_92956283",
       "revId": "c253b78bf595e91d884879b970c2f84e8ecb5064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
