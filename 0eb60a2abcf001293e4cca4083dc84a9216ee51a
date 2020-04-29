@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6c4c3702_75fdd9de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "Could you use capitals for abbreviations?",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f09ba5d_91ade248",
         "filename": "plat/common/plat_spmd_manifest.c",
         "patchSetId": 4
@@ -19,6 +36,363 @@
         "endLine": 13,
         "endChar": 18
       },
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1f5ebba_fb063119",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "remove space after cast",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "103f0574_2321c740",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "Is panic() needed? Is returning error code sufficient to make the caller decide what to do?",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb42068c_67439619",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "526bcf16_8ee79e50",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "rc value is overriden on line #171, and if it is set to 0, function will return 0.",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7983f36c_beeeecc9",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbdf7938_4f50e3bf",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08b229b4_0c93ef7c",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "Is panic() needed? Is returning error code sufficient to make the caller decide what to do?",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba47919b_66d513fb",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "1ULL",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4baf4e5_db63ee4c",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "why int? It returns 1 or 0.",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ba11ff0_34a95f67",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "return rc;",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8b4faf8_521c00c4",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "Return meaningful negative error.",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95162d93_78aff3f6",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "use proper boolean expression",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82640dfd_ab1d77b4",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "Return meaningful negative error.",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42f9b65e_190bdaa8",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "Return meaningful negative error.",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "610fa0a5_1d150cb0",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6545edbf_6b07ee33",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "See\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/3967/4/services/std_svc/spmd/spmd_main.c#207",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26a1b0ef_b5e92f75",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "Return meaningful negative error.",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebe79028_6aa944a4",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "use proper boolean",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba89e93c_d504e16f",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "use boolean",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dff00dd_7a06f448",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "Return meaningful negative error.",
+      "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "936f6d35_3689cd05",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-04-29T11:35:24Z",
+      "side": 1,
+      "message": "Why panic()? Why not return error code?",
       "revId": "0eb60a2abcf001293e4cca4083dc84a9216ee51a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
