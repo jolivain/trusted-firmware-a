@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "972e7755_545c05de",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-04-30T16:37:25Z",
+      "side": 1,
+      "message": "Lauren is working on a patch that will be using these addresses. In case the base address of GICD is 64 bit irrespective of architectural data width, I can ask her to make these addresses as uint64_t.",
+      "parentUuid": "2ee6d615_e61582cd",
+      "revId": "9a2e5e61b7f138af9ea0abb3d268ae730c6b8300",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70798b7a_7768d5db",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 7
