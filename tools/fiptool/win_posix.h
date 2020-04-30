@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,6 +11,7 @@
 
 #include <direct.h>
 #include <io.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
