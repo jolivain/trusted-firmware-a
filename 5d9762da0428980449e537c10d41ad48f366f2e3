@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f7cc3dc4_48a8002e",
+        "filename": "docs/components/fconf/fconf_properties.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-04-30T08:33:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b25ceb2f_1f3a904c",
+      "revId": "5d9762da0428980449e537c10d41ad48f366f2e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5b62457_59a7c105",
         "filename": "docs/components/fconf/fconf_properties.rst",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "f046f506_10a9b992",
+        "filename": "docs/components/fconf/fconf_properties.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-04-30T08:33:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5b62457_59a7c105",
+      "revId": "5d9762da0428980449e537c10d41ad48f366f2e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a591475_7a78aac5",
         "filename": "docs/components/fconf/fconf_properties.rst",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2020-04-30T04:02:12Z",
       "side": 1,
       "message": "I think it should be \u003cu32 u32\u003e to reflect that each cell is of size uint32_t.",
+      "revId": "5d9762da0428980449e537c10d41ad48f366f2e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61fb097a_6a0581d5",
+        "filename": "docs/components/fconf/fconf_properties.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-04-30T08:33:18Z",
+      "side": 1,
+      "message": "I don\u0027t agree. According to the devicetree specification, \u003cu64\u003e is represented as two cells of 32 bits: \u003c0x11223344 0x55667788\u003e.\nAn address is 64 bits (uint64_t / uintptr_t), and not two different 32 bits value. This should be reflected in the binding document, even if the final encoding in dts is similar.\n\nhttps://github.com/devicetree-org/devicetree-specification/releases/tag/v0.3",
+      "parentUuid": "9a591475_7a78aac5",
       "revId": "5d9762da0428980449e537c10d41ad48f366f2e3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
