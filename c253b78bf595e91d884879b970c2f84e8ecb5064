@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "2a88778c_61fa1b3e",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-04-30T01:38:09Z",
+      "side": 1,
+      "message": "Reserved bits are reserved in the architecture for a reason. They can be changed/updated/repurposed at any time. If you write to reserved bits and a future arch version re-purposes these bits, this code would break on those architectures.",
+      "parentUuid": "79576ba2_75bed9f6",
+      "revId": "c253b78bf595e91d884879b970c2f84e8ecb5064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ddf7a908_92956283",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 2
