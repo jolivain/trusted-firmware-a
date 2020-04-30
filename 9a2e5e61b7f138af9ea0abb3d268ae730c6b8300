@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2c15878f_690dd6cb",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-30T09:06:12Z",
+      "side": 1,
+      "message": "Sigh ...\nI saw this, but don\u0027t really know what\u0027s wrong with that, but I know that MISRA has a (non-disputable) explanation for everything. So I use an extra variable now. Grrr.",
+      "parentUuid": "901aa9a7_aaad83e5",
+      "revId": "9a2e5e61b7f138af9ea0abb3d268ae730c6b8300",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4af0e86e_57210415",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 7
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "2ee6d615_e61582cd",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-30T09:06:12Z",
+      "side": 1,
+      "message": "Yeah, I figured the same, those addresses should not be pointers in the first place. I am a bit puzzled because nobody actually uses them, so didn\u0027t dare to change that.\nBut you seem to suggest that this is fine, so I will try to fix this properly.",
+      "parentUuid": "4af0e86e_57210415",
+      "revId": "9a2e5e61b7f138af9ea0abb3d268ae730c6b8300",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70798b7a_7768d5db",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 7
@@ -50,6 +86,24 @@
       "revId": "9a2e5e61b7f138af9ea0abb3d268ae730c6b8300",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a229d9c7_f23ced0e",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-04-30T09:06:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70798b7a_7768d5db",
+      "revId": "9a2e5e61b7f138af9ea0abb3d268ae730c6b8300",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
