@@ -2,6 +2,57 @@
   "comments": [
     {
       "key": {
+        "uuid": "b34f028d_c99be97f",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "0ULL",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d183658e_d9814d48",
+        "filename": "include/services/spm_core_manifest.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "SPM_CORE_MANIFEST_H",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48464608_dca7f931",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l2/1266/\nThis job is deleted. Can you provide MISRA results for the 1st patch which introduced this assert statement? See\nMISRA Rule 10.1 Rationale for Boolean type and 14.4 with examples",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "29768c05_7cceea80",
         "filename": "plat/common/plat_spmd_manifest.c",
         "patchSetId": 7
@@ -49,6 +100,23 @@
     },
     {
       "key": {
+        "uuid": "f5017b44_df0b5e93",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "#define STR \"attribute\"\nuse STR and \"sizeof (STR) - 1\" to get rid of extra strlen() call.",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e056b015_361fad9e",
         "filename": "plat/common/plat_spmd_manifest.c",
         "patchSetId": 7
@@ -66,6 +134,199 @@
         "endLine": 96,
         "endChar": 46
       },
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb9f464b_6cb603e5",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "0U",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "680a0dcc_158ee64b",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "use the same format as in line #176",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2d78af1_344f560c",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "if (!is_armv8_4_sel2_present())",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5edf75a_dc0520be",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "remove space after cast",
+      "range": {
+        "startLine": 293,
+        "startChar": 6,
+        "endLine": 293,
+        "endChar": 29
+      },
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e7d1d4b_ad3357e8",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "remove space after cast",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "820af2e0_7d616731",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a156a356_e79158cb",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "return rc;",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa7d1b3c_e290a86f",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "} else { is obsolete\nSee line #523",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cc499f9_56aeafdc",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f1f8305_91027411",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b13f3114_5365ab0f",
+        "filename": "services/std_svc/spmd/spmd_private.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-04T11:22:42Z",
+      "side": 1,
+      "message": "U(1) for consistency with previous and next lines",
       "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
