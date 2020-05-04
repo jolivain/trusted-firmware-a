@@ -1,6 +1,8 @@
 Trusted Firmware-A
 ==================
 
+foo
+
 Trusted Firmware-A (TF-A) is a reference implementation of secure world software
 for `Arm A-Profile architectures`_ (Armv8-A and Armv7-A), including an Exception
 Level 3 (EL3) `Secure Monitor`_. It provides a suitable starting point for
