@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "517ecbb5_a2e8c95e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-05T02:21:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "de037818_f3901c81",
+      "range": {
+        "startLine": 11,
+        "startChar": 12,
+        "endLine": 11,
+        "endChar": 18
+      },
+      "revId": "cb9d1e62c7cbda024f8029b4b134987b41f022a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36218a7f_1f6fd005",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 3
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "f01df8a1_cd201ce6",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-05T02:21:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "36218a7f_1f6fd005",
+      "revId": "cb9d1e62c7cbda024f8029b4b134987b41f022a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffc490d_d8d5d57d",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 3
@@ -53,6 +95,24 @@
       "writtenOn": "2020-05-04T20:09:11Z",
       "side": 1,
       "message": "Would you not need an ISB after the write to sctlr_el2 ? If there is code added after this instruction that does a branch or has an AT instruction for whatever reason in the future, you could still end up with the same issue. I think you need an ISB here as well, since you want all instructions following the disabling of EPD/MMU to see that PTW has been disabled.",
+      "revId": "cb9d1e62c7cbda024f8029b4b134987b41f022a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8a0183b_1abf5794",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-05T02:21:56Z",
+      "side": 1,
+      "message": "Thought of this to execute isb but as per theory all system register writes are strongly order and hence write will be completed before executing next instruction hence avoided isb execution.\n\nBut it can be implementation specific behaviour and does not ensure such behaviour for all CPUs hence it is is better to add isb here.",
+      "parentUuid": "3ffc490d_d8d5d57d",
       "revId": "cb9d1e62c7cbda024f8029b4b134987b41f022a7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "c27e6465_18f4d7a4",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-05T02:21:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b7cb8934_1457ab82",
+      "range": {
+        "startLine": 550,
+        "startChar": 11,
+        "endLine": 550,
+        "endChar": 12
+      },
+      "revId": "cb9d1e62c7cbda024f8029b4b134987b41f022a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e99d14c_9b0b2daa",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 3
@@ -96,6 +180,24 @@
       "revId": "cb9d1e62c7cbda024f8029b4b134987b41f022a7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34694209_0405bc84",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-05T02:21:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9e99d14c_9b0b2daa",
+      "revId": "cb9d1e62c7cbda024f8029b4b134987b41f022a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
