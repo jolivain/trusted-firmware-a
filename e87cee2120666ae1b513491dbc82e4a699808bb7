@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0fcafbb3_2ed9ff4b",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b34f028d_c99be97f",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d183658e_d9814d48",
         "filename": "include/services/spm_core_manifest.h",
         "patchSetId": 7
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "1b562c07_31052bcd",
+        "filename": "include/services/spm_core_manifest.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d183658e_d9814d48",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48464608_dca7f931",
         "filename": "plat/common/plat_spmd_manifest.c",
         "patchSetId": 7
@@ -47,6 +83,24 @@
       "writtenOn": "2020-05-04T11:22:42Z",
       "side": 1,
       "message": "https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l2/1266/\nThis job is deleted. Can you provide MISRA results for the 1st patch which introduced this assert statement? See\nMISRA Rule 10.1 Rationale for Boolean type and 14.4 with examples",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a81d6c7_efbcb4b1",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "As discussed, TFA\u0027s assert macro has to be revisited to comply with MISRA\u0027s expectations.\nAlthough I provided a tentative fix for this assert in next patch.",
+      "parentUuid": "48464608_dca7f931",
       "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -117,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "e83f6c7a_60046ac5",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5017b44_df0b5e93",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e056b015_361fad9e",
         "filename": "plat/common/plat_spmd_manifest.c",
         "patchSetId": 7
@@ -140,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "1854640d_ba5f9268",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e056b015_361fad9e",
+      "range": {
+        "startLine": 96,
+        "startChar": 44,
+        "endLine": 96,
+        "endChar": 46
+      },
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2d1a097_c7af72e8",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 7
@@ -151,6 +247,24 @@
       "writtenOn": "2020-05-04T11:51:59Z",
       "side": 1,
       "message": "why int32_t? This function always returns 1",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "954340f3_1b4a24fc",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "this function is an input to bl31_register_bl32_init mandating such prototype",
+      "parentUuid": "a2d1a097_c7af72e8",
       "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -174,6 +288,24 @@
     },
     {
       "key": {
+        "uuid": "a19892c7_eb3ec240",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f819d22b_161bf08f",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb9f464b_6cb603e5",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 7
@@ -191,6 +323,24 @@
     },
     {
       "key": {
+        "uuid": "bd59dddf_10c35b20",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb9f464b_6cb603e5",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "680a0dcc_158ee64b",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 7
@@ -202,6 +352,24 @@
       "writtenOn": "2020-05-04T11:22:42Z",
       "side": 1,
       "message": "use the same format as in line #176",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e948bea6_497126e9",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "680a0dcc_158ee64b",
       "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -225,6 +393,24 @@
     },
     {
       "key": {
+        "uuid": "7767abee_956d759c",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2d78af1_344f560c",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5edf75a_dc0520be",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 7
@@ -236,6 +422,30 @@
       "writtenOn": "2020-05-04T11:22:42Z",
       "side": 1,
       "message": "remove space after cast",
+      "range": {
+        "startLine": 293,
+        "startChar": 6,
+        "endLine": 293,
+        "endChar": 29
+      },
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd32cbc2_31865af6",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "done in next patch",
+      "parentUuid": "f5edf75a_dc0520be",
       "range": {
         "startLine": 293,
         "startChar": 6,
@@ -265,6 +475,24 @@
     },
     {
       "key": {
+        "uuid": "680c87ab_d935a651",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "no cast in next patch",
+      "parentUuid": "6e7d1d4b_ad3357e8",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "820af2e0_7d616731",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 7
@@ -279,6 +507,24 @@
       "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "979e0ad4_c7262b84",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "done in next patch",
+      "parentUuid": "820af2e0_7d616731",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -299,6 +545,24 @@
     },
     {
       "key": {
+        "uuid": "8e3d4b82_e1242c1e",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "done in next patch",
+      "parentUuid": "a156a356_e79158cb",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa7d1b3c_e290a86f",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 7
@@ -313,6 +577,24 @@
       "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6e5164d_687d2c96",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa7d1b3c_e290a86f",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -333,6 +615,24 @@
     },
     {
       "key": {
+        "uuid": "a5b84128_5982b5b3",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8cc499f9_56aeafdc",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f1f8305_91027411",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 7
@@ -350,6 +650,24 @@
     },
     {
       "key": {
+        "uuid": "b89ffa6a_950abea7",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f1f8305_91027411",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b13f3114_5365ab0f",
         "filename": "services/std_svc/spmd/spmd_private.h",
         "patchSetId": 7
@@ -364,6 +682,24 @@
       "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30db5dc2_5d30212e",
+        "filename": "services/std_svc/spmd/spmd_private.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-05T16:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b13f3114_5365ab0f",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
