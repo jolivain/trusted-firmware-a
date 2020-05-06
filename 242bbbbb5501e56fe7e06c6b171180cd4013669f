@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "a496a6e1_9509942c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-06T17:42:29Z",
+      "side": 1,
+      "message": "With the introduction of this patch, as the same code can be used for GIC-500 and GIC-600, there is no need for GIC-500 driver file (drivers/arm/gic/v3/gic500.c). Can you make the appropriate changes in makefile drivers/arm/gic/v3/gicv3.mk such as making GIC-500 as default etc.\n\nHowever, I have a fundamental question about this. If I am not mistaken, the choice of which GIC implementation to use is taken at design time. The system integrator picks either GIC-500 or GIC-600 for integrating the SoC. Hence, using compile time options to pick either one in TF-A seems beneficial to me because using GIC-600 driver for GIC-500 seems like additional overhead.",
+      "revId": "242bbbbb5501e56fe7e06c6b171180cd4013669f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a0fb460b_4e9a3e3e",
         "filename": "drivers/arm/gic/v3/gic600.c",
         "patchSetId": 6
