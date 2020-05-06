@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "451c1f00_7d86870e",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-06T16:22:27Z",
+      "side": 1,
+      "message": "can this function named as s/fdt_get_stdout_node_offset/fdtw_get_stdout_node_offset as per\nnaming convention in this file?\nI saw some other function also mentioned in similar way. Better to s/fdt/fdtw.",
+      "range": {
+        "startLine": 303,
+        "startChar": 4,
+        "endLine": 303,
+        "endChar": 30
+      },
+      "revId": "60e2e27db51df2b819ad10521a0821544f2f8ce0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0662aed2_7fd2f799",
         "filename": "common/fdt_wrappers.c",
         "patchSetId": 6
