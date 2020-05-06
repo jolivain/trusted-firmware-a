@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "15f88b3a_f86a6026",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-06T10:49:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0fcafbb3_2ed9ff4b",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d183658e_d9814d48",
         "filename": "include/services/spm_core_manifest.h",
         "patchSetId": 7
@@ -72,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "13b39298_337fcd68",
+        "filename": "include/services/spm_core_manifest.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-06T10:49:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1b562c07_31052bcd",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48464608_dca7f931",
         "filename": "plat/common/plat_spmd_manifest.c",
         "patchSetId": 7
@@ -101,6 +137,24 @@
       "side": 1,
       "message": "As discussed, TFA\u0027s assert macro has to be revisited to comply with MISRA\u0027s expectations.\nAlthough I provided a tentative fix for this assert in next patch.",
       "parentUuid": "48464608_dca7f931",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86ba710d_8561645c",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-06T10:49:31Z",
+      "side": 1,
+      "message": "Your modified implementation:\nassert((attr !\u003d NULL) \u0026\u0026 (fdt !\u003d NULL));\nis correct and won\u0027t cause MISRA warning.",
+      "parentUuid": "8a81d6c7_efbcb4b1",
       "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -189,6 +243,24 @@
     },
     {
       "key": {
+        "uuid": "c154884f_95e214b1",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-06T10:49:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e83f6c7a_60046ac5",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e056b015_361fad9e",
         "filename": "plat/common/plat_spmd_manifest.c",
         "patchSetId": 7
@@ -236,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "d9f95303_6a8d5bb5",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-06T10:49:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1854640d_ba5f9268",
+      "range": {
+        "startLine": 96,
+        "startChar": 44,
+        "endLine": 96,
+        "endChar": 46
+      },
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2d1a097_c7af72e8",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 7
@@ -271,6 +367,24 @@
     },
     {
       "key": {
+        "uuid": "4e14166b_9fe1dc1c",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-06T10:49:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "954340f3_1b4a24fc",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f819d22b_161bf08f",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 7
@@ -300,6 +414,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f819d22b_161bf08f",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e2f7aee_490da16b",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-06T10:49:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a19892c7_eb3ec240",
       "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -341,6 +473,24 @@
     },
     {
       "key": {
+        "uuid": "8a8fead2_dfec5e50",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-06T10:49:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bd59dddf_10c35b20",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "680a0dcc_158ee64b",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 7
@@ -376,6 +526,24 @@
     },
     {
       "key": {
+        "uuid": "53aae64e_893f6e15",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-06T10:49:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e948bea6_497126e9",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2d78af1_344f560c",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 7
@@ -405,6 +573,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f2d78af1_344f560c",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a25d47bc_9ba68e04",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-06T10:49:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7767abee_956d759c",
       "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -598,6 +784,24 @@
     },
     {
       "key": {
+        "uuid": "932cc919_fb63ffcd",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-06T10:49:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f6e5164d_687d2c96",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cc499f9_56aeafdc",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 7
@@ -627,6 +831,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "8cc499f9_56aeafdc",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8647d10_c2766378",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-06T10:49:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a5b84128_5982b5b3",
       "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -668,6 +890,24 @@
     },
     {
       "key": {
+        "uuid": "d91814e5_a045d096",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-06T10:49:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b89ffa6a_950abea7",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b13f3114_5365ab0f",
         "filename": "services/std_svc/spmd/spmd_private.h",
         "patchSetId": 7
@@ -697,6 +937,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "b13f3114_5365ab0f",
+      "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce467e85_929bde75",
+        "filename": "services/std_svc/spmd/spmd_private.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-06T10:49:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "30db5dc2_5d30212e",
       "revId": "e87cee2120666ae1b513491dbc82e4a699808bb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
