@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0fb460b_4e9a3e3e",
+        "filename": "drivers/arm/gic/v3/gic600.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-06T16:45:33Z",
+      "side": 1,
+      "message": "Looks like hardcoding check here. Can we have proper define for mask and expected value?",
+      "range": {
+        "startLine": 124,
+        "startChar": 7,
+        "endLine": 124,
+        "endChar": 41
+      },
+      "revId": "242bbbbb5501e56fe7e06c6b171180cd4013669f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
