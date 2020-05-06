@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94691326_93ec086d",
+        "filename": "plat/arm/board/arm_fpga/fpga_console.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-06T16:43:19Z",
+      "side": 1,
+      "message": "Though we fall backing on crash console address. IMO its worth to have log statement here on failure of this function",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 28
+      },
+      "revId": "dee3042cd6cfcd7b6995260a944d741bb93adce0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
