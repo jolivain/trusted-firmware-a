@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c7408e24_c08008be",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-06T16:22:11Z",
+      "side": 1,
+      "message": "This is honestly silly. strchr() is an ancient C library function, with that exact prototype. I don\u0027t see the point of explicitly casting a character to an int here. Also I don\u0027t see the problem, this conversion is always possible without data loss.\nThere might be some value in pointing out those implicit type conversions in general, in an audit, for instance, but there are so many false positives in MISRA that\u0027s it\u0027s questionable to use in an automated fashion, IMHO.",
+      "parentUuid": "0662aed2_7fd2f799",
+      "revId": "60e2e27db51df2b819ad10521a0821544f2f8ce0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "414b531e_9aef29f0",
         "filename": "common/fdt_wrappers.c",
         "patchSetId": 6
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "04da2d42_8fa38abb",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-06T16:22:11Z",
+      "side": 1,
+      "message": "I think there are earlier limits that prevent a DTB to be larger than 2GB. Definitely there is a 32-bit limit in the whole DT world, not sure about the signedness here. But \"int\" is the type to be used in libfdt for further operation, so not sure how to fix this here other than explicitly casting (which does not add any value and would raise another MISRA complaint, I guess?)",
+      "parentUuid": "414b531e_9aef29f0",
+      "revId": "60e2e27db51df2b819ad10521a0821544f2f8ce0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c36cc9b2_76e679c9",
         "filename": "common/fdt_wrappers.c",
         "patchSetId": 6
@@ -47,6 +83,24 @@
       "writtenOn": "2020-05-05T20:08:09Z",
       "side": 1,
       "message": "Implicit conversion of \"path - prop\" from essential type \"signed 64-bit int\" to different or narrower essential type \"signed 32-bit int\".",
+      "revId": "60e2e27db51df2b819ad10521a0821544f2f8ce0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b6a0ae8_860035b9",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-06T16:22:11Z",
+      "side": 1,
+      "message": "Same story as above, I think.",
+      "parentUuid": "c36cc9b2_76e679c9",
       "revId": "60e2e27db51df2b819ad10521a0821544f2f8ce0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
