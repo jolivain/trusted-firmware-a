@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "1dff419f_cba2aaca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-06T22:14:02Z",
+      "side": 1,
+      "message": "That\u0027s one important goal of the FPGA port: there should be *one* binary build for BL31, which runs on a multitude of possible FPGA bitfiles. The configuration is done at runtime via the DT, or, like in this case, by reading hardware ID registers.\nThis will simplify using the FPGA, as people just need to \"cat\" some fixed files together, instead of building the whole \"firmware\" from scratch with every change of the kernel or initrd.",
+      "parentUuid": "072d18ce_76e823f4",
+      "revId": "242bbbbb5501e56fe7e06c6b171180cd4013669f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a0fb460b_4e9a3e3e",
         "filename": "drivers/arm/gic/v3/gic600.c",
         "patchSetId": 6
