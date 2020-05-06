@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d6a11750_fc4cd492",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-06T18:00:01Z",
+      "side": 1,
+      "message": "\u003e \"using compile time options ... seems beneficial\"\n\nAnd for exactly that reason I kept the old GIC-500 \"driver\" around.\nThe idea was the following:\n- If you know you have a GIC-500, you select GIC-500 at build time and get the same (minimal) support as before.\n- If you know you have a GIC-600, you select GIC-600 at build time, and now get that tiny extra check, but it doesn\u0027t really hurt.\n- If you don\u0027t know your GIC type (fastmodel or FPGA), you select GIC-600, and get support for both.\n\nYes, I thought about ditching the GIC-500 driver altogether, since it\u0027s indeed redundant, but then some people really want the exact minimal hardware support for their platform.\nHappy to remove the driver, though, if others agree. But that can also be done later.",
+      "parentUuid": "a496a6e1_9509942c",
+      "revId": "242bbbbb5501e56fe7e06c6b171180cd4013669f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a0fb460b_4e9a3e3e",
         "filename": "drivers/arm/gic/v3/gic600.c",
         "patchSetId": 6
@@ -30,6 +48,30 @@
       "writtenOn": "2020-05-06T16:45:33Z",
       "side": 1,
       "message": "Looks like hardcoding check here. Can we have proper define for mask and expected value?",
+      "range": {
+        "startLine": 124,
+        "startChar": 7,
+        "endLine": 124,
+        "endChar": 41
+      },
+      "revId": "242bbbbb5501e56fe7e06c6b171180cd4013669f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5cb2d60_1e66c434",
+        "filename": "drivers/arm/gic/v3/gic600.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-06T18:00:01Z",
+      "side": 1,
+      "message": "will do.",
+      "parentUuid": "a0fb460b_4e9a3e3e",
       "range": {
         "startLine": 124,
         "startChar": 7,
