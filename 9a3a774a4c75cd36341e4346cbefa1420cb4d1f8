@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eae8b15e_81fe399c",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-06T01:14:18Z",
+      "side": 1,
+      "message": "You can actually pass both \u0026addr and \u0026size in one function call. I just made both optional, since typically only the base address is interesting.\nWhich brings me to the more important question: Why do we read all those values? The size of the register region is architected in the GICv3 spec, it\u0027s just in the DT because \"reg\" is a generic DT property and always contains the size.",
+      "revId": "9a3a774a4c75cd36341e4346cbefa1420cb4d1f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0896e90_82c19b25",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-06T01:14:18Z",
+      "side": 1,
+      "message": "First: those indices \u003e 1 are optional, and they only exist if the GIC supports GICv2 compatibility mode. This is further limited by the CPU cores being required to support the GICv2 CPU interface, which recent CPU cores from Arm Ltd. do *not* do anymore (I think anything supporting \u003e\u003d v8.2). So any failure here must not be fatal, or the code will fail on any halfway recent system.\nSecondly: What do we need those values for? TF-A has definitely no interest whatsoever in those registers, especially not index 3 and 4, which are purely virtualisation related.\nSo why do we store those values at all?\n\nMy point is that there is no need for this whole patch, as all relevant information (GICD and GICR base) is already read by the current code.",
+      "revId": "9a3a774a4c75cd36341e4346cbefa1420cb4d1f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d056e4a_526ab5f0",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-06T01:14:18Z",
+      "side": 1,
+      "message": "Why do we need the interrupt number? This is the GIC maintenance interrupt, only interesting for a hypervisor. TF-A does not have any use for that.",
+      "revId": "9a3a774a4c75cd36341e4346cbefa1420cb4d1f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
