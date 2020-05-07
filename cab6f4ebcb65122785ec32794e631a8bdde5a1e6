@@ -111,6 +111,29 @@
     },
     {
       "key": {
+        "uuid": "e4ffcd9d_5eab4509",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-05-07T20:24:03Z",
+      "side": 1,
+      "message": "Enhanced readability:\nstatic int32_t spmd_init(void);\nstatic int spmd_spmc_init(void *rd_base,\n\t\t\t  size_t rd_size);\nstatic uint64_t\tspmd_spci_error_return(void *handle,\n\t\t\t\t       int error_code);\nstatic uint64_t\tspmd_smc_forward(uint32_t smc_fid,\n\t\t\t\t bool secure_origin,\n\t\t\t\t uint64_t x1,\n\t\t\t\t uint64_t x2,\n\t\t\t\t uint64_t x3,\n\t\t\t\t uint64_t x4,\n\t\t\t\t void *handle);",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 32
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bc6c6736_51167f48",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 9
@@ -127,6 +150,98 @@
         "startChar": 4,
         "endLine": 255,
         "endChar": 14
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bb2316a_134e79da",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-05-07T20:24:03Z",
+      "side": 1,
+      "message": "Enhanced readability:\nstatic uint64_t spmd_smc_forward(uint32_t smc_fid,\n\t\t\t\t bool secure_origin,\n\t\t\t\t uint64_t x1,\n\t\t\t\t uint64_t x2,\n\t\t\t\t uint64_t x3,\n\t\t\t\t uint64_t x4,\n\t\t\t\t void *handle)",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 31
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a83ad470_d9daee7d",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-05-07T20:24:03Z",
+      "side": 1,
+      "message": "Enhanced readability:\nuint64_t spmd_smc_handler(uint32_t smc_fid,\n\t\t\t  uint64_t x1,\n\t\t\t  uint64_t x2,\n\t\t\t  uint64_t x3,\n\t\t\t  uint64_t x4,\n\t\t\t  void *cookie,\n\t\t\t  void *handle,\n\t\t\t  uint64_t flags)",
+      "range": {
+        "startLine": 365,
+        "startChar": 0,
+        "endLine": 367,
+        "endChar": 20
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdba566c_d8b34110",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-05-07T20:24:03Z",
+      "side": 1,
+      "message": "quoted string split across lines",
+      "range": {
+        "startLine": 376,
+        "startChar": 50,
+        "endLine": 376,
+        "endChar": 51
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1db35ac_b09bcff7",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-05-07T20:24:03Z",
+      "side": 1,
+      "message": "Should align *?",
+      "range": {
+        "startLine": 447,
+        "startChar": 2,
+        "endLine": 447,
+        "endChar": 4
       },
       "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
