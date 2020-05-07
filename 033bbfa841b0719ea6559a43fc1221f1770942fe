@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bae4d0ab_0430957f",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-07T15:36:29Z",
+      "side": 1,
+      "message": "now that only the plat_arm_set_twedel_scr_el3() weak function is defined, are these bit/mask definitions needed?",
+      "revId": "033bbfa841b0719ea6559a43fc1221f1770942fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bbf7a3a_3253dc01",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-07T15:36:29Z",
+      "side": 1,
+      "message": "now that only the plat_arm_set_twedel_scr_el3() weak function is defined, are these bit/mask definitions needed?",
+      "revId": "033bbfa841b0719ea6559a43fc1221f1770942fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
