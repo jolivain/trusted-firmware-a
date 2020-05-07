@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "371c9c4e_f3967ee1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-07T18:19:33Z",
+      "side": 1,
+      "message": "nit: rephrase \nContext switching from higher EL (EL2 or higher) to lower EL can cause incorrect translation ...",
+      "revId": "810f668c468adfff29fc2e803a5c53a4834583e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea41d165_d4e36307",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-07T18:19:33Z",
+      "side": 1,
+      "message": "nit: rephrase \nSystem registers are not updated during context save, hence this workaround need not be applied in the context save path.",
+      "revId": "810f668c468adfff29fc2e803a5c53a4834583e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c71f1e1f_e356a344",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-07T18:19:33Z",
+      "side": 1,
+      "message": "use tab consistently between instruction opcode and arguments.",
+      "revId": "810f668c468adfff29fc2e803a5c53a4834583e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8ff0271_b3a3c7bc",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-07T18:19:33Z",
+      "side": 1,
+      "message": "use tab instead of spaces",
+      "revId": "810f668c468adfff29fc2e803a5c53a4834583e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f45cc50_3b18b091",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-07T18:19:33Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be enabled for Arm platforms in their respective makefiles?",
+      "revId": "810f668c468adfff29fc2e803a5c53a4834583e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
