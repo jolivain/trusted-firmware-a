@@ -22,6 +22,30 @@
       "revId": "dee3042cd6cfcd7b6995260a944d741bb93adce0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71642504_c2d19103",
+        "filename": "plat/arm/board/arm_fpga/fpga_console.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-07T10:11:12Z",
+      "side": 1,
+      "message": "I am not sure how useful it is to output something when the UART is only initialised in the next line. We could just have a warning after the initialisation, but actually I don\u0027t want to use that fallback address unless really necessary (because it could lead to a *silent* SError crash in case the address is wrong).\nI would hope that on \"no output\" people would check the UART first.",
+      "parentUuid": "94691326_93ec086d",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 28
+      },
+      "revId": "dee3042cd6cfcd7b6995260a944d741bb93adce0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
