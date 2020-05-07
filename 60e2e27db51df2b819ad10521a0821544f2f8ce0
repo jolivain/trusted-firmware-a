@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "decb6d6b_007faad6",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-07T10:47:11Z",
+      "side": 1,
+      "message": "But other DT consumers (U-Boot) tend to use the same fdt_ prefix, even for functions that *extend* libfdt, as long as they are generic enough:\nhttps://gitlab.denx.de/u-boot/u-boot/-/blob/master/common/fdt_support.c\nThis particular function here might be a corner case, but I would just keep the fdt_ prefix.",
+      "parentUuid": "b74ac7b5_0701e555",
+      "range": {
+        "startLine": 303,
+        "startChar": 4,
+        "endLine": 303,
+        "endChar": 30
+      },
+      "revId": "60e2e27db51df2b819ad10521a0821544f2f8ce0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0662aed2_7fd2f799",
         "filename": "common/fdt_wrappers.c",
         "patchSetId": 6
