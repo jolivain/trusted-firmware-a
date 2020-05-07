@@ -125,8 +125,8 @@ Deprecations
    - Example: "console: Remove deprecated finish_console_register"
 
 - Secure Partition Manager (SPM):
-   - Example: "Prototype SPCI-based SPM (services/std_svc/spm) will be replaced
-     with alternative methods of secure partitioning support."
+   - Example: "Prototype SPM based on PSA-FF-A specification (services/std_svc/spm)
+     will be replaced with alternative methods of secure partitioning support."
 
 Known Issues
 ^^^^^^^^^^^^
