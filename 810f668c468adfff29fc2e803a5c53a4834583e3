@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "49c8597e_08ac0473",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-07T19:08:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "371c9c4e_f3967ee1",
+      "revId": "810f668c468adfff29fc2e803a5c53a4834583e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea41d165_d4e36307",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "810f668c468adfff29fc2e803a5c53a4834583e3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ea21f09_e229c658",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-07T19:08:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea41d165_d4e36307",
+      "revId": "810f668c468adfff29fc2e803a5c53a4834583e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "2e3e45fe_ec0a078d",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-07T19:08:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c71f1e1f_e356a344",
+      "revId": "810f668c468adfff29fc2e803a5c53a4834583e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8ff0271_b3a3c7bc",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 4
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "6e0d6406_310ab219",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-07T19:08:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8ff0271_b3a3c7bc",
+      "revId": "810f668c468adfff29fc2e803a5c53a4834583e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f45cc50_3b18b091",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 4
@@ -81,6 +153,24 @@
       "writtenOn": "2020-05-07T18:19:33Z",
       "side": 1,
       "message": "Shouldn\u0027t this be enabled for Arm platforms in their respective makefiles?",
+      "revId": "810f668c468adfff29fc2e803a5c53a4834583e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db8eeb1e_0202052b",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-07T19:08:13Z",
+      "side": 1,
+      "message": "Yes, indeed needed to enable for ARM platform (but not for all CPU revs). \nNeed common solution to runtime detect whether errata workarounds need to be applied in minimal time. Patch for this will come soon.\n\nHence as of now we disabled this options for all platform whoever need can enable it explicitly.",
+      "parentUuid": "5f45cc50_3b18b091",
       "revId": "810f668c468adfff29fc2e803a5c53a4834583e3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
