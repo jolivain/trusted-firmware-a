@@ -51,6 +51,9 @@ You can find additional definitions in the `Arm Glossary`_.
    EHF
       Exception Handling Framework
 
+   FFA
+      Firmware Framework for A-class processors
+
    FCONF
       Firmware Configuration Framework
 
@@ -149,9 +152,6 @@ You can find additional definitions in the `Arm Glossary`_.
    SP
       Secure Partition
 
-   SPCI
-      Secure Partition Client Interface
-
    SPD
       Secure Payload Dispatcher
 
@@ -165,6 +165,9 @@ You can find additional definitions in the `Arm Glossary`_.
 
    SVE
       Scalable Vector Extension
+
+   PSA
+      Platform Security Architecture
 
    TBB
       Trusted Board Boot
