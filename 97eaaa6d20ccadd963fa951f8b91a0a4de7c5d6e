@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec0173a8_1a4f3adb",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-05-07T14:03:21Z",
+      "side": 1,
+      "message": "Loop not needed as it will be a single entry.",
+      "range": {
+        "startLine": 259,
+        "startChar": 1,
+        "endLine": 263,
+        "endChar": 2
+      },
+      "revId": "97eaaa6d20ccadd963fa951f8b91a0a4de7c5d6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78a89d4d_ede1a5ef",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-05-07T14:03:21Z",
+      "side": 1,
+      "message": "Its an optional field, should silently ignore if not present.",
+      "range": {
+        "startLine": 266,
+        "startChar": 1,
+        "endLine": 267,
+        "endChar": 25
+      },
+      "revId": "97eaaa6d20ccadd963fa951f8b91a0a4de7c5d6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e1445a9_832ec174",
+        "filename": "plat/arm/board/fvp/include/fconf_hw_config_getter.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-05-07T14:03:21Z",
+      "side": 1,
+      "message": "Not needed only one Arch timer in a system.",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 22
+      },
+      "revId": "97eaaa6d20ccadd963fa951f8b91a0a4de7c5d6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4962bccf_fef0b0d7",
+        "filename": "plat/arm/board/fvp/include/fconf_hw_config_getter.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-05-07T14:03:21Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 49,
+        "startChar": 43,
+        "endLine": 49,
+        "endChar": 56
+      },
+      "revId": "97eaaa6d20ccadd963fa951f8b91a0a4de7c5d6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8520e652_5474aa9f",
+        "filename": "plat/arm/board/fvp/include/fconf_hw_config_getter.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-05-07T14:03:21Z",
+      "side": 1,
+      "message": "there could be maximum 8 frames.",
+      "range": {
+        "startLine": 57,
+        "startChar": 5,
+        "endLine": 57,
+        "endChar": 14
+      },
+      "revId": "97eaaa6d20ccadd963fa951f8b91a0a4de7c5d6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be71b8c3_63057ba0",
+        "filename": "plat/arm/board/fvp/include/fconf_hw_config_getter.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-05-07T14:03:21Z",
+      "side": 1,
+      "message": "should be included in the frame array.",
+      "range": {
+        "startLine": 59,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 24
+      },
+      "revId": "97eaaa6d20ccadd963fa951f8b91a0a4de7c5d6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
