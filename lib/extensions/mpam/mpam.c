@@ -12,7 +12,7 @@
 
 bool mpam_supported(void)
 {
-	uint64_t features = read_id_aa64dfr0_el1() >> ID_AA64PFR0_MPAM_SHIFT;
+	uint64_t features = read_id_aa64pfr0_el1() >> ID_AA64PFR0_MPAM_SHIFT;
 
 	return ((features & ID_AA64PFR0_MPAM_MASK) != 0U);
 }
