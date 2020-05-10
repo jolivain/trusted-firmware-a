@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2020, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -51,5 +51,20 @@ static inline unsigned int get_armv8_5_mte_support(void)
 	return ((read_id_aa64pfr1_el1() >> ID_AA64PFR1_EL1_MTE_SHIFT) &
 		ID_AA64PFR1_EL1_MTE_MASK);
 }
+
+/* Return MPAM version:
+ * 0x00: None Armv8.0 or later
+ * 0x01: v0.1 Armv8.4 or later
+ * 0x10: v1.0 Armv8.2 or later
+ * 0x11: v1.1 Armv8.4 or later
+ */
+static inline unsigned int get_mpam_version(void)
+{
+	return (((read_id_aa64pfr0_el1() >> ID_AA64PFR0_MPAM_SHIFT) &
+						ID_AA64PFR0_MPAM_MASK) << 4) |
+		((read_id_aa64pfr1_el1() >> ID_AA64PFR1_MPAM_FRAC_SHIFT) &
+						ID_AA64PFR1_MPAM_FRAC_MASK);
+}
+
 
 #endif /* ARCH_FEATURES_H */
