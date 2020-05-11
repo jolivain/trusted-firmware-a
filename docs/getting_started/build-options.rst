@@ -673,6 +673,13 @@ Common build options
    default value of this flag is ``no``. Note this option must be enabled only
    for ARM architecture greater than Armv8.5-A.
 
+-  ``TBBR_COT_DESC_IN_DTB``: This flag determines whether to use TBBR COT
+   descriptor based on the firmware configuration framework. This will move
+   static COT descriptor structures in the code base to device tree.
+   This is currently an experimental feature.
+   Currently, TBBR COT descriptors used by BL2 moved to device tree and
+   TBBR COT descriptors structures used by BL1 retained in the code base.
+
 GICv3 driver options
 --------------------
 

@@ -350,7 +350,11 @@
  * and limit. Leave enough space of BL2 meminfo.
  */
 #define ARM_TB_FW_CONFIG_BASE		(ARM_BL_RAM_BASE + sizeof(meminfo_t))
-#define ARM_TB_FW_CONFIG_LIMIT		(ARM_BL_RAM_BASE + (PAGE_SIZE / 2U))
+/*
+ * Limit is calculated to accomodate device tree blob of maximum size 4K
+ * i.e. 0x04001000-0x04002000
+ */
+#define ARM_TB_FW_CONFIG_LIMIT		(ARM_BL_RAM_BASE + PAGE_SIZE)
 
 /*
  * Boot parameters passed from BL2 to BL31/BL32 are stored here

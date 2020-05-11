@@ -127,4 +127,8 @@
 			load-address = <0x7100000>;
 		};
 	};
+
+#if TBBR_COT_DESC_IN_DTB
+	#include "tbbr_cot_descriptors.dtsi"
+#endif /* TBBR_COT_DESC_IN_DTB */
 };

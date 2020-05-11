@@ -148,7 +148,7 @@
  * BL2 and BL1-RW.  SCP_BL2 image is loaded into the space BL31 -> BL2_BASE.
  * Hence the BL31 PROGBITS size should be >= PLAT_CSS_MAX_SCP_BL2_SIZE.
  */
-#define PLAT_ARM_MAX_BL31_SIZE		UL(0x3E000)
+#define PLAT_ARM_MAX_BL31_SIZE		UL(0x3D000)
 
 #if JUNO_AARCH32_EL3_RUNTIME
 /*

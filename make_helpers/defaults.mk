@@ -293,3 +293,6 @@ CTX_INCLUDE_EL2_REGS		:= 0
 # than Armv8.5-A
 # By default it is set to "no"
 SUPPORT_STACK_MEMTAG		:= no
+
+#Build option to use fconf based tbbr cot descriptors
+TBBR_COT_DESC_IN_DTB		:= 0
