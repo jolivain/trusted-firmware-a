@@ -10,6 +10,7 @@ MTK_PLAT_SOC  := ${MTK_PLAT}/${PLAT}
 PLAT_INCLUDES := -I${MTK_PLAT}/common/                            \
                  -I${MTK_PLAT_SOC}/include/
 
+GICV3_IMPL    := GIC600
 include drivers/arm/gic/v3/gicv3.mk
 include lib/xlat_tables_v2/xlat_tables.mk
 

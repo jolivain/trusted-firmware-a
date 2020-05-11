@@ -8,13 +8,30 @@
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/desc_image_load.h>
+#include <drivers/arm/gicv3.h>
 #include <drivers/ti/uart/uart_16550.h>
 #include <lib/coreboot.h>
 #include <plat_params.h>
 #include <plat_private.h>
+#include <plat/arm/common/plat_arm.h>
+#include <plat/common/platform.h>
 
 static entry_point_info_t bl32_ep_info;
 static entry_point_info_t bl33_ep_info;
+
+static uintptr_t rdistif_base_addrs[PLATFORM_CORE_COUNT];
+static unsigned int mt_mpidr_to_core_pos(u_register_t mpidr)
+{
+	return plat_core_pos_by_mpidr(mpidr);
+}
+
+static gicv3_driver_data_t mt_gicv3_data = {
+	.gicd_base = MT_GIC_BASE,
+	.gicr_base = MT_GIC_RDIST_BASE,
+	.rdistif_num = PLATFORM_CORE_COUNT,
+	.rdistif_base_addrs = rdistif_base_addrs,
+	.mpidr_to_core_pos = mt_mpidr_to_core_pos,
+};
 
 /*******************************************************************************
  * Return a pointer to the 'entry_point_info' structure of the next image for
@@ -72,6 +89,10 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
  ******************************************************************************/
 void bl31_platform_setup(void)
 {
+	gicv3_driver_init(&mt_gicv3_data);
+	gicv3_distif_init();
+	gicv3_rdistif_init(plat_my_core_pos());
+	gicv3_cpuif_enable(plat_my_core_pos());
 }
 
 /*******************************************************************************
