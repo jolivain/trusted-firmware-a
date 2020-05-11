@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8f671e70_d35bd316",
+        "filename": "include/services/sdei.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-11T20:10:56Z",
+      "side": 1,
+      "message": "That would be out of the scope of this patch.",
+      "parentUuid": "6e2a4359_65990e01",
+      "range": {
+        "startLine": 101,
+        "startChar": 8,
+        "endLine": 101,
+        "endChar": 15
+      },
+      "revId": "ff413d917deb1dffd2d79fcf057afeaf610d650a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "37f0d41b_1ecbbf7d",
         "filename": "include/services/sdei.h",
         "patchSetId": 6
@@ -118,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "057dfc49_b2da4160",
+        "filename": "plat/arm/common/aarch64/arm_sdei.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-11T20:10:56Z",
+      "side": 1,
+      "message": "Removed them.",
+      "parentUuid": "c4c4c06e_f5e37b3f",
+      "range": {
+        "startLine": 34,
+        "startChar": 63,
+        "endLine": 34,
+        "endChar": 64
+      },
+      "revId": "ff413d917deb1dffd2d79fcf057afeaf610d650a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a59c892_0d000865",
         "filename": "plat/arm/common/aarch64/arm_sdei.c",
         "patchSetId": 6
@@ -141,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "996298bd_113f930f",
+        "filename": "plat/arm/common/aarch64/arm_sdei.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-11T20:10:56Z",
+      "side": 1,
+      "message": "Removed them.",
+      "parentUuid": "5a59c892_0d000865",
+      "range": {
+        "startLine": 41,
+        "startChar": 57,
+        "endLine": 41,
+        "endChar": 5
+      },
+      "revId": "ff413d917deb1dffd2d79fcf057afeaf610d650a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0778771c_465806d9",
         "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
         "patchSetId": 6
@@ -152,6 +224,30 @@
       "writtenOn": "2020-05-08T19:03:29Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 7
+      },
+      "revId": "ff413d917deb1dffd2d79fcf057afeaf610d650a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f70c6160_4e43b9b2",
+        "filename": "plat/arm/common/fconf/fconf_sdei_getter.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-11T20:10:56Z",
+      "side": 1,
+      "message": "The member fields of this structure are populated in runtime. Making this as constant will lead to compilation errors.",
+      "parentUuid": "0778771c_465806d9",
       "range": {
         "startLine": 21,
         "startChar": 0,
