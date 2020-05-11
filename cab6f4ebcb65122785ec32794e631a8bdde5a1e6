@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "361d56f2_e82150c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-11T09:48:23Z",
+      "side": 1,
+      "message": "This patch is just code clean up, it\u0027s not introducing anything new. The original commit introducing the feature is:\n\ncommit bdd2596d42f1e96f0135be23d2bd936cc7eb30e5\nAuthor: Achin Gupta \u003cachin.gupta@arm.com\u003e\nDate:   Fri Oct 11 15:41:16 2019 +0100\n\n    SPMD: add SPM dispatcher based upon SPCI Beta 0 spec\n    \n    This patch adds a rudimentary SPM dispatcher component in EL3.\n    It does the following:\n    \n    - Consumes the TOS_FW_CONFIG to determine properties of the SPM core\n      component\n    - Initialises the SPM core component which resides in the BL32 image\n    - Implements a handler for SPCI calls from either security state. Some\n      basic validation is done for each call but in most cases it is simply\n      forwarded as-is to the \"other\" security state.\n    \n    Signed-off-by: Achin Gupta \u003cachin.gupta@arm.com\u003e\n    Signed-off-by: Artsem Artsemenka \u003cartsem.artsemenka@arm.com\u003e\n    Change-Id: I7d116814557f7255f4f4ebb797d1619d4fbab590",
+      "parentUuid": "095c9596_ef1a878c",
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ccf3fec5_39673c4a",
         "filename": "include/services/spm_core_manifest.h",
         "patchSetId": 9
@@ -39,6 +57,30 @@
       "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07c0bfcd_a051ede4",
+        "filename": "include/services/spm_core_manifest.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-11T09:48:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccf3fec5_39673c4a",
+      "range": {
+        "startLine": 31,
+        "startChar": 47,
+        "endLine": 31,
+        "endChar": 57
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "ad98e047_1c4e81fa",
+        "filename": "include/services/spm_core_manifest.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-11T09:48:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51b8df42_81b72f4f",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 27
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51ed84c6_30a89a8a",
         "filename": "plat/common/plat_spmd_manifest.c",
         "patchSetId": 9
@@ -85,6 +151,30 @@
       "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a00ca15_acd8898c",
+        "filename": "plat/common/plat_spmd_manifest.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-11T09:48:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51ed84c6_30a89a8a",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 13
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "e0d87d97_1b19f4b1",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-11T09:48:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48f714ac_293f973d",
+      "range": {
+        "startLine": 50,
+        "startChar": 1,
+        "endLine": 50,
+        "endChar": 9
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4ffcd9d_5eab4509",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 9
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "073d4e09_ae603667",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-11T09:48:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4ffcd9d_5eab4509",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 32
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc6c6736_51167f48",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 9
@@ -145,6 +283,30 @@
       "writtenOn": "2020-05-07T09:46:46Z",
       "side": 1,
       "message": "should we rename it something else? \"spmc_context_int()\" ??",
+      "range": {
+        "startLine": 255,
+        "startChar": 4,
+        "endLine": 255,
+        "endChar": 14
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89ec2690_fa932580",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-11T09:48:23Z",
+      "side": 1,
+      "message": "It\u0027s consistent with what is invoked from std_svc_setup: psci_setup, spm_mm_setup ...",
+      "parentUuid": "bc6c6736_51167f48",
       "range": {
         "startLine": 255,
         "startChar": 4,
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "1f257135_55c5186e",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-11T09:48:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bb2316a_134e79da",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 31
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a83ad470_d9daee7d",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 9
@@ -200,6 +386,30 @@
       "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20f7eddd_3c003172",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-11T09:48:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a83ad470_d9daee7d",
+      "range": {
+        "startLine": 365,
+        "startChar": 0,
+        "endLine": 367,
+        "endChar": 20
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -226,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "ae343baa_1bc320e0",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-11T09:48:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdba566c_d8b34110",
+      "range": {
+        "startLine": 376,
+        "startChar": 50,
+        "endLine": 376,
+        "endChar": 51
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1db35ac_b09bcff7",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 9
@@ -246,6 +480,30 @@
       "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61656ea2_c05e1d0c",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-11T09:48:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1db35ac_b09bcff7",
+      "range": {
+        "startLine": 447,
+        "startChar": 2,
+        "endLine": 447,
+        "endChar": 4
+      },
+      "revId": "cab6f4ebcb65122785ec32794e631a8bdde5a1e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
