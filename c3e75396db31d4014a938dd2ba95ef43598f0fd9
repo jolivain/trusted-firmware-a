@@ -85,6 +85,30 @@
       "revId": "c3e75396db31d4014a938dd2ba95ef43598f0fd9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7c6b283_ddbd9e98",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-11T08:24:57Z",
+      "side": 1,
+      "message": "Detecting MPAM availability seems a bit more complex than I originally thought, looking at section 1.5.1 in doc [1]. It seems like we need not only to read ID_AA64PRF0_EL1.MPAM but also ID_AA64PRF1_EL1.MPAM_frac. And it seems that the values queried from these registers mean different things depending on whether you are on Armv8.0, v8.2 or v8.4.\n\nI don\u0027t see any such logic in the patch, I guess this needs revisiting?\n\n[1] https://static.docs.arm.com/ddi0598/ba/DDI0598B_a_MPAM_supp_armv8ba.pdf?_ga\u003d2.2531184.1376226271.1589179713-1985220966.1581334126",
+      "parentUuid": "b86afc81_b4df617f",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 46,
+        "endChar": 31
+      },
+      "revId": "c3e75396db31d4014a938dd2ba95ef43598f0fd9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
