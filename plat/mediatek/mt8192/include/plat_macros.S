@@ -35,6 +35,7 @@ cci_iface_regs:
 	 */
 	.macro plat_crash_print_regs
 	mov_imm x26, BASE_GICD_BASE
+#if 0
 	mov_imm x27, BASE_GICC_BASE
 	/* Load the gicc reg list to x6 */
 	adr	x6, gicc_regs
@@ -44,6 +45,7 @@ cci_iface_regs:
 	ldr	w10, [x27, #GICC_CTLR]
 	/* Store to the crash buf and print to console */
 	bl	str_in_crash_buf_print
+#endif
 
 	/* Print the GICD_ISPENDR regs */
 	add	x7, x26, #GICD_ISPENDR
