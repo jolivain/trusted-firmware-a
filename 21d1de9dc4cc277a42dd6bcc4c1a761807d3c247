@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fe41579_6571dc49",
+        "filename": "plat/mediatek/mt8192/include/plat_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-12T23:22:22Z",
+      "side": 1,
+      "message": "Any reason why not just delete these lines rather than putting in a conditional guard that evaluates to false?",
+      "revId": "21d1de9dc4cc277a42dd6bcc4c1a761807d3c247",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
