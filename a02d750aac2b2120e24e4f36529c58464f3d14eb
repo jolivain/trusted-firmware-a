@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aae9417_6ac87742",
+        "filename": "lib/extensions/mpam/mpam.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-12T13:32:26Z",
+      "side": 1,
+      "message": "I think it\u0027d be more readable if we consider id_aarch64pfr0_el1.mpam as major version and id_aarch64pfr1_el1.mpam_frac as minor version. So can we just extract the version such as:\n\nID_AA64PFR0_EL1.MPAM      ID_AA64PFR1_EL1.MPAM_frac       Version\n(version_major)           (version_minor)\n       0                             0                    MPAM not implemented (0x00000000)\n       0                             1                    MPAM v0.1 (0x00000001)\n       1                             0                    MPAM v1.0 (0x00010000)\n       1                             1                    MPAM v1.1 (0x00010001)\n\nmpam_enable returns if version \u003c 1",
+      "range": {
+        "startLine": 16,
+        "startChar": 5,
+        "endLine": 16,
+        "endChar": 61
+      },
+      "revId": "a02d750aac2b2120e24e4f36529c58464f3d14eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
