@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f310bd49_c7fbe121",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-05-12T00:17:08Z",
+      "side": 1,
+      "message": "In the existing part of this file multiline comments start with a blank line, like at line 17. Theres a couple more instances of this further down.  If it\u0027s intentional feel free to ignore this.",
+      "range": {
+        "startLine": 458,
+        "startChar": 1,
+        "endLine": 458,
+        "endChar": 5
+      },
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd5e218a_0876663d",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-05-12T00:17:08Z",
+      "side": 1,
+      "message": "Lots of lines \u003e80 characters in this function.",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 48
+      },
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
