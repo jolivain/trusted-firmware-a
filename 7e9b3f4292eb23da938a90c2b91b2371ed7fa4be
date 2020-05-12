@@ -16,6 +16,24 @@
       "revId": "7e9b3f4292eb23da938a90c2b91b2371ed7fa4be",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efd794be_bb999150",
+        "filename": "plat/nvidia/tegra/common/tegra_platform.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-05-12T22:41:45Z",
+      "side": 1,
+      "message": "Looks like I didnt read the spec properly. The manufacturer ID is 6B. The continuation code part of bank 3. I will push an update.",
+      "parentUuid": "f8e831e4_dd987e8e",
+      "revId": "7e9b3f4292eb23da938a90c2b91b2371ed7fa4be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
