@@ -271,6 +271,8 @@ void plat_early_platform_setup(void)
 		actlr_elx |= DENVER_CPU_ENABLE_DUAL_EXEC_EL1;
 		write_actlr_el1(actlr_elx);
 	}
+
+	/* */
 }
 
 /* Secure IRQs for Tegra194 */
