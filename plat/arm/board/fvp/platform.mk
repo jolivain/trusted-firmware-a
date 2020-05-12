@@ -63,6 +63,7 @@ include drivers/arm/gic/v3/gicv3.mk
 
 FVP_GIC_SOURCES		:=	${GICV3_SOURCES}			\
 				plat/common/plat_gicv3.c		\
+				plat/arm/board/fvp/fvp_gicv3.c		\
 				plat/arm/common/arm_gicv3.c
 
 else ifeq (${FVP_USE_GIC_DRIVER}, FVP_GICV2)
