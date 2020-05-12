@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8e831e4_dd987e8e",
+        "filename": "plat/nvidia/tegra/common/tegra_platform.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-12T21:54:53Z",
+      "side": 1,
+      "message": "The identification code should be shifted by 16, not 24. Also, the continuation code is not populated. Is this intentional?",
+      "revId": "7e9b3f4292eb23da938a90c2b91b2371ed7fa4be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
