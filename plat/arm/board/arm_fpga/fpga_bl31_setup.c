@@ -7,6 +7,8 @@
 #include <assert.h>
 
 #include <common/fdt_wrappers.h>
+#include <lib/mmio.h>
+#include <drivers/delay_timer.h>
 #include <drivers/generic_delay_timer.h>
 #include <lib/mmio.h>
 #include <libfdt.h>
@@ -17,6 +19,7 @@
 #include "fpga_private.h"
 
 static entry_point_info_t bl33_image_ep_info;
+volatile uint32_t secondary_core_spinlock;
 
 uintptr_t plat_get_ns_image_entrypoint(void)
 {
@@ -35,6 +38,14 @@ uint32_t fpga_get_spsr_for_bl33_entry(void)
 void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 				u_register_t arg2, u_register_t arg3)
 {
+	/*
+	 * Notify the secondary CPUs that the C runtime is ready
+	 * so they can populate the topology tree.
+	 */
+	secondary_core_spinlock = C_RUNTIME_READY_KEY;
+	dmbsy();
+	sev();
+
 	fpga_console_init();
 
 	bl33_image_ep_info.pc = plat_get_ns_image_entrypoint();
@@ -46,6 +57,17 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	bl33_image_ep_info.args.arg1 = 0U;
 	bl33_image_ep_info.args.arg2 = 0U;
 	bl33_image_ep_info.args.arg3 = 0U;
+
+	/*
+	 * On the event of a cold reset issued by, for instance, a reset pin
+	 * assertion, we cannot guarantee memory to be initialized to zero.
+	 * In such scenario, if the secondary cores reached
+	 * plat_secondary_cold_boot_setup before the primary one initialized
+	 * bss, we could end up having a race condition in which the topology
+	 * tree is initialized by the secondary cores before the bss segment is
+	 * cleared. By clearing the spinlock here, we avoid the race condition.
+	 */
+	secondary_core_spinlock = 0UL;
 }
 
 void bl31_plat_arch_setup(void)
@@ -54,11 +76,19 @@ void bl31_plat_arch_setup(void)
 
 void bl31_platform_setup(void)
 {
-	/* Initialize the GIC driver, cpu and distributor interfaces */
-	plat_fpga_gic_init();
-
 	/* Write frequency to CNTCRL and initialize timer */
 	generic_delay_timer_init();
+
+	/*
+	 * Before doing anything else, wait for some time to ensure that
+	 * the secondary CPUs have populated the topology tree.
+	 * As the number of secondary cores is unknown, it is not possible to
+	 * rely on any signal from the secondary cores, so use a delay instead.
+	 */
+	mdelay(5);
+
+	/* Initialize the GIC driver, cpu and distributor interfaces */
+	plat_fpga_gic_init();
 }
 
 entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
