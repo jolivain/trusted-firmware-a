@@ -29,8 +29,8 @@ typedef struct auth_img_desc_s {
 	unsigned int img_id;
 	img_type_t img_type;
 	const struct auth_img_desc_s *parent;
-	const auth_method_desc_t *const img_auth_methods;
-	const auth_param_desc_t *const authenticated_data;
+	const auth_method_desc_t *img_auth_methods;
+	const auth_param_desc_t *authenticated_data;
 } auth_img_desc_t;
 
 /* Public functions */
