@@ -21,6 +21,14 @@
 #define CACHE_WRITEBACK_SHIFT		U(6)
 #define CACHE_WRITEBACK_GRANULE		(U(1) << CACHE_WRITEBACK_SHIFT)
 
+#if (FPGA_MAX_PE_PER_CPU == 0)
+/*
+ * Let FPGA_MAX_PE_PER_CPU be at least 1, as a Single Threaded CPU
+ * would have one thread.
+ */
+#define FPGA_MAX_PE_PER_CPU		1
+#endif
+
 #define PLATFORM_CORE_COUNT \
 	(FPGA_MAX_CLUSTER_COUNT * FPGA_MAX_CPUS_PER_CLUSTER * FPGA_MAX_PE_PER_CPU)
 
