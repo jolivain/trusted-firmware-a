@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "387c94f8_9a909797",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-13T10:27:04Z",
+      "side": 1,
+      "message": "(minor) Replace tab with space (to align with the rest of the file).",
+      "range": {
+        "startLine": 256,
+        "startChar": 7,
+        "endLine": 256,
+        "endChar": 8
+      },
+      "revId": "a02d750aac2b2120e24e4f36529c58464f3d14eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9aae9417_6ac87742",
         "filename": "lib/extensions/mpam/mpam.c",
         "patchSetId": 2
