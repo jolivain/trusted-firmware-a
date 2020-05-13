@@ -47,6 +47,9 @@
 	 * due to a NULL TPIDR_EL3.
 	 * ---------------------------------------------------------------------
 	 */
+
+	/* Clear tpidr_el3 to point out that the system is booting up */
+	msr	tpidr_el3, xzr
 	bl	init_cpu_data_ptr
 #endif /* IMAGE_BL31 */
 

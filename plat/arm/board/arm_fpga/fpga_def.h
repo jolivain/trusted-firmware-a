@@ -18,9 +18,14 @@
  * that are present will still be indexed appropriately regardless of any empty
  * entries in the array used to represent the topology.
  */
-#define FPGA_MAX_CLUSTER_COUNT			2
-#define FPGA_MAX_CPUS_PER_CLUSTER		8
-#define FPGA_MAX_PE_PER_CPU			4
+
+#define FPGA_MAX_CLUSTER_COUNT_SHIFT		1
+#define FPGA_MAX_CPUS_PER_CLUSTER_SHIFT		3
+#define FPGA_MAX_PE_PER_CPU_SHIFT		2
+
+#define FPGA_MAX_CLUSTER_COUNT		(1 << FPGA_MAX_CLUSTER_COUNT_SHIFT)
+#define FPGA_MAX_CPUS_PER_CLUSTER	(1 << FPGA_MAX_CPUS_PER_CLUSTER_SHIFT)
+#define FPGA_MAX_PE_PER_CPU		(1 << FPGA_MAX_PE_PER_CPU_SHIFT)
 
 #define FPGA_PRIMARY_CPU			0x0
 /*******************************************************************************
