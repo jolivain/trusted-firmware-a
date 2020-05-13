@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d79bc446_6e9bae17",
+        "filename": "plat/nvidia/tegra/common/tegra_platform.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-13T05:18:48Z",
+      "side": 1,
+      "message": "Nit: do we need masking here? As already 8bit chip_id extracted using CHIP_ID_MASK",
+      "range": {
+        "startLine": 276,
+        "startChar": 38,
+        "endLine": 276,
+        "endChar": 44
+      },
+      "revId": "b5b2923d9d1676d6f4395cb64d6fe6ca3f4109d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
