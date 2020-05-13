@@ -71,9 +71,8 @@ func el2_sysregs_context_save
 	mrs	x15, far_el2
 	stp	x14, x15, [x0, #CTX_ESR_EL2]
 
-	mrs	x16, fpexc32_el2
-	mrs	x17, hacr_el2
-	stp	x16, x17, [x0, #CTX_FPEXC32_EL2]
+	mrs	x16, hacr_el2
+	str	x16, [x0, #CTX_HACR_EL2]
 
 	mrs	x9, hcr_el2
 	mrs	x10, hpfar_el2
@@ -262,9 +261,8 @@ func el2_sysregs_context_restore
 	msr	esr_el2, x14
 	msr	far_el2, x15
 
-	ldp	x16, x17, [x0, #CTX_FPEXC32_EL2]
-	msr	fpexc32_el2, x16
-	msr	hacr_el2, x17
+	ldr	x16, [x0, #CTX_HACR_EL2]
+	msr	hacr_el2, x16
 
 	ldp	x9, x10, [x0, #CTX_HCR_EL2]
 	msr	hcr_el2, x9
