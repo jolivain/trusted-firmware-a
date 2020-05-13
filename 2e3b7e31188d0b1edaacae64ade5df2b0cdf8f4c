@@ -2,6 +2,74 @@
   "comments": [
     {
       "key": {
+        "uuid": "e767876d_1fe12354",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-13T17:09:57Z",
+      "side": 1,
+      "message": "That\u0027s a pretty generic name, especially given that it\u0027s exported. Can you at least add \"fdt\" somewhere?\nActually, can this be static? I don\u0027t see it used outside of this file. Or do you plan on using this in a future patch?",
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d911d1c_270af5ef",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-13T17:09:57Z",
+      "side": 1,
+      "message": "What about negating this comparison and returning directly? Would make it easier to understand what\u0027s going on.\n\nBut more importantly: shouldn\u0027t this match against a range of addresses, not just a direct \"hit\" at the base address of a range region?",
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "069f6792_7e013fbc",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-13T17:09:57Z",
+      "side": 1,
+      "message": "Shouldn\u0027t the return type be a \"bool\" instead? Or maybe even a uint64_t, replacing *translated_addr?",
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64e59b90_9a828d95",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-13T17:09:57Z",
+      "side": 1,
+      "message": "Same comment about generic naming and export vs. static.",
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f310bd49_c7fbe121",
         "filename": "common/fdt_wrappers.c",
         "patchSetId": 8
@@ -42,6 +110,40 @@
         "endLine": 175,
         "endChar": 48
       },
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30d4a03b_8abe92fb",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-13T17:09:57Z",
+      "side": 1,
+      "message": "You should use fdt_get_reg_props_by_index() instead, this checks for the proper #address-cells size. Index is 0, and the size pointer can be NULL.\nAnd maybe we should actually integrate the address translation into this function now.",
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbb31228_ffa04955",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-13T17:09:57Z",
+      "side": 1,
+      "message": "this should be using fdt_read_uint32() now.",
       "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
