@@ -176,6 +176,11 @@ void tzc400_configure_region(unsigned int filters,
 {
 	assert(tzc400.base != 0U);
 
+	/* Adjust filter mask by real filter number */
+	if (filters == TZC_400_REGION_ATTR_FILTER_BIT_ALL) {
+		filters = (1U << tzc400.num_filters) - 1;
+	}
+
 	/* Do range checks on filters and regions. */
 	assert(((filters >> tzc400.num_filters) == 0U) &&
 	       (region < tzc400.num_regions));
