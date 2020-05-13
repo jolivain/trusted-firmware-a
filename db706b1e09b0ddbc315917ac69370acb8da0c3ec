@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "990dae83_f19f16d2",
+        "filename": "plat/imx/imx8m/imx8mn/gpc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2020-05-13T02:58:52Z",
+      "side": 1,
+      "message": "sorry for later replay.\n According to NXP OSS license \u0026 copyright policy, the copyright format should not include a \u0027(C)\u0027. So any suggestion?",
+      "parentUuid": "ca066758_99982bc2",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "db706b1e09b0ddbc315917ac69370acb8da0c3ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ae4b2be_65846521",
         "filename": "plat/imx/imx8m/imx8mn/imx8mn_bl31_setup.c",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-04-14T09:45:44Z",
       "side": 1,
       "message": "Does this function need to be exported? It does not seem to be used outside of this C file...",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 28
+      },
+      "revId": "db706b1e09b0ddbc315917ac69370acb8da0c3ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bdae859_8d150180",
+        "filename": "plat/imx/imx8m/imx8mn/imx8mn_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2020-05-13T02:58:52Z",
+      "side": 1,
+      "message": "not used outside of this file, I will change it to static.",
+      "parentUuid": "0ae4b2be_65846521",
       "range": {
         "startLine": 78,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2269285a_41f6fd72",
+        "filename": "plat/imx/imx8m/imx8mn/imx8mn_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2020-05-13T02:58:52Z",
+      "side": 1,
+      "message": "ooh, sorry, I will correct the comment.",
+      "parentUuid": "2b412189_ede686ff",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 4
+      },
+      "revId": "db706b1e09b0ddbc315917ac69370acb8da0c3ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4fc26a51_3e520c4d",
         "filename": "plat/imx/imx8m/imx8mn/include/platform_def.h",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2020-04-14T09:45:44Z",
       "side": 1,
       "message": "Use ULL(1) instead of 1ull, as this header file might get included from assembly files.",
+      "range": {
+        "startLine": 44,
+        "startChar": 35,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "db706b1e09b0ddbc315917ac69370acb8da0c3ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61861d53_da4ea00d",
+        "filename": "plat/imx/imx8m/imx8mn/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2020-05-13T02:58:52Z",
+      "side": 1,
+      "message": "ok, will correct it.",
+      "parentUuid": "4fc26a51_3e520c4d",
       "range": {
         "startLine": 44,
         "startChar": 35,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "67e81005_dc347f0a",
+        "filename": "plat/imx/imx8m/imx8mn/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2020-05-13T02:58:52Z",
+      "side": 1,
+      "message": "thx, will fix it.",
+      "parentUuid": "8cb1e0ed_dc0984f2",
+      "range": {
+        "startLine": 90,
+        "startChar": 25,
+        "endLine": 90,
+        "endChar": 28
+      },
+      "revId": "db706b1e09b0ddbc315917ac69370acb8da0c3ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9b57b0f_4fe71c5a",
         "filename": "plat/imx/imx8m/imx8mn/include/platform_def.h",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2020-04-14T09:45:44Z",
       "side": 1,
       "message": "xlat_tables.h (or xlat_tables_v2.h if you\u0027re switching to xlat lib v2) should be included to get the definition of the MAP_REGION() macro.",
+      "range": {
+        "startLine": 127,
+        "startChar": 17,
+        "endLine": 127,
+        "endChar": 32
+      },
+      "revId": "db706b1e09b0ddbc315917ac69370acb8da0c3ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d67d2182_e35605c6",
+        "filename": "plat/imx/imx8m/imx8mn/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2020-05-13T02:58:52Z",
+      "side": 1,
+      "message": "thx, will fix it",
+      "parentUuid": "d9b57b0f_4fe71c5a",
       "range": {
         "startLine": 127,
         "startChar": 17,
