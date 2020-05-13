@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1705aadc_f66f2d82",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-13T16:33:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2573f7f2_8c85830b",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 2
+      },
+      "revId": "015f7a86c24bdc9a59c5fd3b6efcc19239fa2b37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ebd521db_2c3bfda2",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7a34b58a_2449176d",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-13T16:33:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebd521db_2c3bfda2",
+      "range": {
+        "startLine": 211,
+        "startChar": 1,
+        "endLine": 211,
+        "endChar": 74
+      },
+      "revId": "015f7a86c24bdc9a59c5fd3b6efcc19239fa2b37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be46e503_39d6eadf",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_helpers.c",
         "patchSetId": 3
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "b487ddbf_5782ff8a",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_helpers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-13T16:33:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be46e503_39d6eadf",
+      "revId": "015f7a86c24bdc9a59c5fd3b6efcc19239fa2b37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3a053de_31efd0d3",
         "filename": "plat/arm/board/fvp/include/fconf_hw_config_helpers.h",
         "patchSetId": 3
@@ -76,6 +142,24 @@
       "writtenOn": "2020-04-03T13:22:39Z",
       "side": 1,
       "message": "Could you please add some documentation for these functions?",
+      "revId": "015f7a86c24bdc9a59c5fd3b6efcc19239fa2b37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "643d0246_da58e9aa",
+        "filename": "plat/arm/board/fvp/include/fconf_hw_config_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-13T16:33:49Z",
+      "side": 1,
+      "message": "I have provided exhaustive documentation in the updated patch.",
+      "parentUuid": "e3a053de_31efd0d3",
       "revId": "015f7a86c24bdc9a59c5fd3b6efcc19239fa2b37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -129,6 +213,24 @@
       "side": 1,
       "message": "It looks like some of these functions are not used at all right now. I understand they are introduced for the future, but at this moment in time it means there are essentially dead code. Are we confident they have been sufficiently tested?",
       "parentUuid": "066e258a_92bb6b24",
+      "revId": "015f7a86c24bdc9a59c5fd3b6efcc19239fa2b37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49786485_f54f6728",
+        "filename": "plat/arm/board/fvp/include/fconf_hw_config_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-13T16:33:49Z",
+      "side": 1,
+      "message": "Okay, i have deleted these two helper functions.",
+      "parentUuid": "f2bd03b9_57b269a8",
       "revId": "015f7a86c24bdc9a59c5fd3b6efcc19239fa2b37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
