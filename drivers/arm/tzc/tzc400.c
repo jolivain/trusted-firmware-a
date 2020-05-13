@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -175,6 +175,11 @@ void tzc400_configure_region(unsigned int filters,
 			  unsigned int nsaid_permissions)
 {
 	assert(tzc400.base != 0U);
+
+	/* Adjust filter mask by real filter number */
+	if (filters == TZC_400_REGION_ATTR_FILTER_BIT_ALL) {
+		filters = (1U << tzc400.num_filters) - 1U;
+	}
 
 	/* Do range checks on filters and regions. */
 	assert(((filters >> tzc400.num_filters) == 0U) &&
