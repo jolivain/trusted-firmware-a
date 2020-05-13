@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "16637b5b_a5a07398",
+        "filename": "fdts/fvp-base-gicv3-psci-common.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-13T13:43:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c82c05db_3bde9fef",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "3685bc5ff7d4febd96e2b7c40f5a08683b4e1102",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c1ff3b0_924b697f",
         "filename": "fdts/fvp-base-gicv3-psci.dts",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ff95db06_57172372",
+        "filename": "fdts/fvp-base-gicv3-psci.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-13T13:43:18Z",
+      "side": 1,
+      "message": "Copied from the existing code. I\u0027ll fix it. Thanks.",
+      "parentUuid": "7c1ff3b0_924b697f",
+      "range": {
+        "startLine": 7,
+        "startChar": 38,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "3685bc5ff7d4febd96e2b7c40f5a08683b4e1102",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ad836508_dc17e36f",
         "filename": "fdts/fvp-defs.dtsi",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2020-05-13T13:19:15Z",
       "side": 1,
       "message": "just curious can\u0027t CPU_0 be built with CPU macro?",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 19
+      },
+      "revId": "3685bc5ff7d4febd96e2b7c40f5a08683b4e1102",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3fbf3bc_81d84f07",
+        "filename": "fdts/fvp-defs.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-13T13:43:18Z",
+      "side": 1,
+      "message": "Yes, it can, but for 1t configuration it would produce\nCPU0:cpu@000 {\n device_type \u003d \"cpu\";\n compatible \u003d \"arm,armv8\";\n reg \u003d \u003c0x0 0x000\u003e\n\ninstead of\n\nCPU0:cpu@0 {\n device_type \u003d \"cpu\";\n compatible \u003d \"arm,armv8\";\n reg \u003d \u003c0x0 0x0\u003e\n\nand I wanted to keep the output matching the existing implementation.",
+      "parentUuid": "ad836508_dc17e36f",
       "range": {
         "startLine": 62,
         "startChar": 0,
