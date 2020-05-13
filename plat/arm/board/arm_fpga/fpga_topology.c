@@ -6,14 +6,16 @@
 
 #include <arch_helpers.h>
 
+#include <common/debug.h>
 #include "fpga_private.h"
 #include <platform_def.h>
 
-static unsigned char fpga_power_domain_tree_desc[FPGA_MAX_CLUSTER_COUNT + 2];
+unsigned char fpga_power_domain_tree_desc[FPGA_MAX_CLUSTER_COUNT + 2];
 
 const unsigned char *plat_get_power_domain_tree_desc(void)
 {
-	int i;
+	unsigned int i;
+
 	/*
 	* The highest level is the system level. The next level is constituted
 	* by clusters and then cores in clusters.
@@ -22,11 +24,43 @@ const unsigned char *plat_get_power_domain_tree_desc(void)
 	* indices returned by the plat_core_pos_by_mpidr() and plat_my_core_pos()
 	* APIs.
 	*/
-	fpga_power_domain_tree_desc[0] = 1;
-	fpga_power_domain_tree_desc[1] = FPGA_MAX_CLUSTER_COUNT;
+	if (fpga_power_domain_tree_desc[0] == 0U) {
+		/*
+		 * As fpga_power_domain_tree_desc[0] == 0, assume that the
+		 * first two levels have not been initialized and neither has
+		 * the primary CPU information, so perform the initialization
+		 * here.
+		 */
 
-	for (i = 0; i < FPGA_MAX_CLUSTER_COUNT; i++) {
-		fpga_power_domain_tree_desc[i + 2] = FPGA_MAX_CPUS_PER_CLUSTER;
+		dmbsy(); /* Ensure all writes by other cores are commited. */
+
+		fpga_power_domain_tree_desc[0] = 1;
+
+		/* Get the cluster to which this CPU belongs */
+		i = fpga_get_cpu_cluster();
+
+		if (i >= FPGA_MAX_CLUSTER_COUNT) {
+			panic();
+		}
+		if (++fpga_power_domain_tree_desc[i + 2] >=
+		    FPGA_MAX_CPUS_PER_CLUSTER) {
+			panic();
+		}
+
+		/*
+		 * Find out the number of clusters on the system by walking
+		 * through the array of clusters and assuming that they are not
+		 * sparse, so as soon as we find an empty one, stop.
+		 */
+		for (i = 0; i < FPGA_MAX_CLUSTER_COUNT; i++) {
+			if (fpga_power_domain_tree_desc[i + 2] == 0U) {
+				break;
+			}
+			fpga_power_domain_tree_desc[1]++;
+		}
+		if (fpga_power_domain_tree_desc[1] == 0U) {
+			panic();
+		}
 	}
 
 	return fpga_power_domain_tree_desc;
