@@ -8,6 +8,7 @@
 #include <asm_macros.S>
 #include <common/bl_common.h>
 #include <platform_def.h>
+#include "../fpga_private.h"
 
 	.globl	plat_get_my_entrypoint
 	.globl	plat_secondary_cold_boot_setup
@@ -15,9 +16,13 @@
 	.globl	platform_mem_init
 	.globl	plat_my_core_pos
 	.globl	plat_fpga_calc_core_pos
+	.globl	fpga_get_cpu_cluster
 	.globl	plat_crash_console_init
 	.globl	plat_crash_console_putc
 	.globl	plat_crash_console_flush
+
+.section .data
+	define_asm_spinlock topology_tree_spinlock
 
 /* -----------------------------------------------------------------------
  * Indicate a cold boot for every CPU - warm boot is unsupported for the
@@ -34,6 +39,54 @@ endfunc plat_get_my_entrypoint
  * -----------------------------------------------------------------------
  */
 func plat_secondary_cold_boot_setup
+
+	/*
+	 * Secondary processors cannot populate the topology tree
+	 * until the primary one has finished seting up the C runtime or
+	 * otherwise the topology tree would be erased. It is therefore
+	 * necessary to keep them waiting in a spin-lock until the C runtime
+	 * is ready. We cannot use the current spin-lock implementation until
+	 * runtime is up and we should not rely on sevl/wfe instructions as
+	 * it is optional whether they are implemented or not, so we use
+	 * a global variable as lock and wait for the primary processor to
+	 * finish the C runtime bring-up.
+	 */
+
+	ldr	w0, =C_RUNTIME_READY_KEY
+	adrp	x1, secondary_core_spinlock
+	add	x1, x1, :lo12:secondary_core_spinlock
+1:
+	wfe
+	ldr	w2, [x1]
+	cmp	w2, w0
+	b.ne	1b
+	dmb	sy
+
+	/*
+	 * Populate the topology tree with the information of this core.
+	 */
+	bl	fpga_get_cpu_cluster
+	cmp	x0, #FPGA_MAX_CLUSTER_COUNT
+	b.ge	el3_panic /* Panic if the number of clusters is exceeded */
+
+	/*
+	 * Use the CPU cluster as index for the power domain tree.
+	 * First element is the system level, second one, the clusters
+	 * and from the third on, the cores in clusters.
+	 */
+	add	x3, x0, #2
+	adrp	x4, fpga_power_domain_tree_desc
+	add	x4, x4, :lo12:fpga_power_domain_tree_desc
+	adrp	x0, topology_tree_spinlock
+	add	x0, x0, :lo12:topology_tree_spinlock
+	bl	spin_lock
+	ldrb	w5, [x4, x3]
+	add	x5, x5, #1 /* Add this core to its cluster */
+	cmp	x5, #FPGA_MAX_CPUS_PER_CLUSTER
+	b.hi 	el3_panic /* Panic if the max CPUs per cluster is exceeded */
+	strb	w5, [x4, x3]
+	bl	spin_unlock
+
 	/*
 	 * Poll the CPU's hold entry until it indicates to jump
 	 * to the entrypoint address.
@@ -76,6 +129,30 @@ func plat_my_core_pos
 	mrs	x0, mpidr_el1
 	b	plat_fpga_calc_core_pos
 endfunc plat_my_core_pos
+
+/* -----------------------------------------------------------------------
+ * unsigned int fpga_get_cpu_cluster(void)
+ * -----------------------------------------------------------------------
+ */
+func fpga_get_cpu_cluster
+	mrs	x0, mpidr_el1
+
+	/*
+	 * Check for MT bit in MPIDR, which may be either value for images
+	 * running on the FPGA.
+	 *
+	 * If not set, shift MPIDR to left to make it look as if in a
+	 * multi-threaded implementation.
+	 */
+	tst	x0, #MPIDR_MT_MASK
+	lsl	x3, x0, #MPIDR_AFFINITY_BITS
+	csel	x3, x3, x0, eq
+
+	/* Extract individual affinity fields from MPIDR */
+	ubfx	x0, x3, #MPIDR_AFF1_SHIFT, #MPIDR_AFFINITY_BITS
+
+	ret
+endfunc fpga_get_cpu_cluster
 
 /* -----------------------------------------------------------------------
  * unsigned int plat_fpga_calc_core_pos(u_register_t mpidr)
