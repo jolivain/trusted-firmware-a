@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e58f1947_0a614f16",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-13T22:39:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e767876d_1fe12354",
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d911d1c_270af5ef",
         "filename": "common/fdt_wrappers.c",
         "patchSetId": 8
@@ -30,6 +48,24 @@
       "writtenOn": "2020-05-13T17:09:57Z",
       "side": 1,
       "message": "What about negating this comparison and returning directly? Would make it easier to understand what\u0027s going on.\n\nBut more importantly: shouldn\u0027t this match against a range of addresses, not just a direct \"hit\" at the base address of a range region?",
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80012ad4_9eeb18b4",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-13T22:39:27Z",
+      "side": 1,
+      "message": "Thank you for the detailed comments. I have changed the comparison for easier understanding. \nRegarding the direct hit: If I understood the DT correctly, I don\u0027t need to factor in the range here.\nFor example, UART node\u0027s parent(iofpga) has one entry. Considering it as the base address,\nAddress 0x0 is mapped to 0x300000000 (Line:430)\nIdentity mapping (Line: 424)\nAddress 0x300000000 is then mapped to 0x1c000000(Line:415)\n\nI see iofpga bus has a range(size) of 0x200000. Do I need to ensure that UART offset(0x0a0000) is \nindeed less than the range?",
+      "parentUuid": "0d911d1c_270af5ef",
       "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "c27dcce2_ba4aec02",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-13T22:39:27Z",
+      "side": 1,
+      "message": "okay, made the return type as bool.",
+      "parentUuid": "069f6792_7e013fbc",
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "64e59b90_9a828d95",
         "filename": "common/fdt_wrappers.c",
         "patchSetId": 8
@@ -67,6 +121,24 @@
       "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfa13033_7a325212",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-13T22:39:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64e59b90_9a828d95",
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -93,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "c22a1803_0e34204f",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-13T22:39:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f310bd49_c7fbe121",
+      "range": {
+        "startLine": 458,
+        "startChar": 1,
+        "endLine": 458,
+        "endChar": 5
+      },
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd5e218a_0876663d",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 8
@@ -116,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "83b6daf4_1477728f",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-13T22:39:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd5e218a_0876663d",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 48
+      },
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30d4a03b_8abe92fb",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 8
@@ -127,6 +247,24 @@
       "writtenOn": "2020-05-13T17:09:57Z",
       "side": 1,
       "message": "You should use fdt_get_reg_props_by_index() instead, this checks for the proper #address-cells size. Index is 0, and the size pointer can be NULL.\nAnd maybe we should actually integrate the address translation into this function now.",
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "001e35e9_ac012ee5",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-13T22:39:27Z",
+      "side": 1,
+      "message": "Okay, I have changed to fdt_get_reg_props_by_index().\nI would like to work on integrating address translation into fdt_get_reg_props_by_index()  in another\nseparate patch as this function is used in other places and I need some time to ensure the suggested\nchange doesn\u0027t break things.",
+      "parentUuid": "30d4a03b_8abe92fb",
       "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -147,6 +285,24 @@
       "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47105cf8_db474bd9",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-13T22:39:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbb31228_ffa04955",
+      "revId": "2e3b7e31188d0b1edaacae64ade5df2b0cdf8f4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
