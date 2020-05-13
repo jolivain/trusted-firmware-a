@@ -52,6 +52,12 @@ func bl31_entrypoint
 		_pie_fixup_size=BL31_LIMIT - BL31_BASE
 #else
 
+	/*
+	 * Set tpidr_el3 to 0 to inform the secondary processors that this is
+	 * a cold reboot, in case it is needed during initialisation.
+	 */
+	msr	tpidr_el3, xzr
+
 	/* ---------------------------------------------------------------------
 	 * For RESET_TO_BL31 systems which have a programmable reset address,
 	 * bl31_entrypoint() is executed only on the cold boot path so we can
