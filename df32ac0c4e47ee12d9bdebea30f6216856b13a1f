@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6fd25f00_1289a76b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-14T10:59:04Z",
+      "side": 1,
+      "message": "nit: SPCI is renamed PSA-FF-A",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "df32ac0c4e47ee12d9bdebea30f6216856b13a1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e486209_cf3db303",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-14T10:59:04Z",
+      "side": 1,
+      "message": "major version now 1",
+      "range": {
+        "startLine": 32,
+        "startChar": 29,
+        "endLine": 32,
+        "endChar": 30
+      },
+      "revId": "df32ac0c4e47ee12d9bdebea30f6216856b13a1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e8dce5e_2a9697d6",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-14T10:59:04Z",
+      "side": 1,
+      "message": "minor version now 0",
+      "range": {
+        "startLine": 35,
+        "startChar": 29,
+        "endLine": 35,
+        "endChar": 30
+      },
+      "revId": "df32ac0c4e47ee12d9bdebea30f6216856b13a1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad1ef86f_d70c98d3",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-14T10:59:04Z",
+      "side": 1,
+      "message": "maj_ver\u003d1 min_ver\u003d0",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 16,
+        "endChar": 18
+      },
+      "revId": "df32ac0c4e47ee12d9bdebea30f6216856b13a1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
