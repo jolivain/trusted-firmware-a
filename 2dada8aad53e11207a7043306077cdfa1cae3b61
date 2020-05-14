@@ -142,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "fc2b4f74_04631c40",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-14T22:52:56Z",
+      "side": 1,
+      "message": "I am not very familiar with various native libfdt APIs. Can you advise why fdt_get_property() should be used rather than fdt_getprop? I tried it locally but my runs crashed, probably due to arithmetic on the ptr(next_entry for iterating through entries in \"ranges\").",
+      "parentUuid": "753f51a0_04c5356a",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ad4aca4_7e84f574",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 9
