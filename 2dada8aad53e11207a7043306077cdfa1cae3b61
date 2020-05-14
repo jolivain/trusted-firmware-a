@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fdb057a5_7dd4e3d3",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-14T22:28:02Z",
+      "side": 1,
+      "message": "I renamed the function. I felt the need to keep it as it does the following tasks:\nCompute local address, parent address, address translation range, perform bound check of the current address being translated and few debug messages.\nI felt folding this into search_all_xlat_entries might make the code less readable. Let me know if you disagree.",
+      "parentUuid": "eb1c48c3_1f3e23a2",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "55c007e3_1d39a836",
         "filename": "common/fdt_wrappers.c",
         "patchSetId": 9
@@ -33,6 +51,24 @@
       "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e07fa9cc_27d385e0",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-14T22:28:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55c007e3_1d39a836",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "a8270517_051eac47",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-14T22:28:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "624d0dbd_6782912b",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b772558_aa073830",
         "filename": "common/fdt_wrappers.c",
         "patchSetId": 9
@@ -67,6 +121,24 @@
       "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "753f51a0_04c5356a",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-14T22:28:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b772558_aa073830",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "b8bbe1b6_9f7b3448",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-14T22:28:02Z",
+      "side": 1,
+      "message": "Thanks a lot for the detailed algorithm steps. I have made the necessary changes.",
+      "parentUuid": "8ad4aca4_7e84f574",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "41b7ea85_ab4de940",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 9
@@ -98,6 +188,24 @@
       "writtenOn": "2020-05-14T09:06:54Z",
       "side": 1,
       "message": "The should be fdt_read_uint32() again.",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "547800a8_671773d5",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-14T22:28:02Z",
+      "side": 1,
+      "message": "For some reason, that leads to compilation error:\nplat/arm/board/fvp/fconf/fconf_hw_config_getter.c:231:8: error: \u0027phandle\u0027 may be used uninitialized in this function [-Werror\u003dmaybe-uninitialized]\n  231 |  err \u003d fdt_read_uint32(hw_config_dtb, uart_node, \"clocks\", phandle);\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\ncc1: all warnings being treated as errors",
+      "parentUuid": "41b7ea85_ab4de940",
       "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
