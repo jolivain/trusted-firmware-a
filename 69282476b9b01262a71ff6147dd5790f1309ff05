@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "566c482a_5f5691ea",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-05-14T17:08:04Z",
+      "side": 1,
+      "message": "Suggestion: Feel free to ignore. It might be worth exploring having this in a fconf_tbbr_cot.c file and avoid all the #ifdef\u0027ery and include the appropriate file during build. Code will look cleaner, easier to review and i believe other things such as topology, io storage follow this pattern as well.",
+      "range": {
+        "startLine": 10,
+        "startChar": 25,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5201f6f2_e73cb5d9",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-05-14T17:08:04Z",
+      "side": 1,
+      "message": "nit: space between the constants and the *",
+      "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9d9a4af6_28bdfdcd",
         "filename": "drivers/auth/tbbr/tbbr_cot.c",
         "patchSetId": 1
@@ -19,6 +59,74 @@
         "endLine": 164,
         "endChar": 38
       },
+      "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94b4e316_bee323ac",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-05-14T17:08:04Z",
+      "side": 1,
+      "message": "comment is confusing. how about \"Table of per-image buffers, used to store authenticated image hashes\"",
+      "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7440612c_edba31fe",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-05-14T17:08:04Z",
+      "side": 1,
+      "message": "I think these descriptors need to be pushed into the DTB as well and constructed in code. The COT is already hard to read and this makes it even more hard to read since this is dependent on the platform and depends on how the DTB is written. Part of the reason to move to the DTB is that you can get rid of tables in code. Removing some tables and creating new ones does not seem right. Most of these tables should be constructed dynamically from the DTB by using OBJECT_POOLS like you have done. The obvious trade off here is the memory used is always for the maximum number of images since object pools have to be allocated for the worst case.\nIn summary, i think if we are moving to DTB, it should not introduce more tables. There should be code, and all other information should be encoded in the DTB.",
+      "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39d5d5f8_bfdc023d",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-05-14T17:08:04Z",
+      "side": 1,
+      "message": "can this not be a table as well ? and the other functions below with the switch statement ?",
+      "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaf6535b_d13053c7",
+        "filename": "include/drivers/auth/auth_mod.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-05-14T17:08:04Z",
+      "side": 1,
+      "message": "you should probably put the const back and add the non-const version inside an ifdef. You will lose the const check on builds that don\u0027t use DTB for COT.",
       "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
