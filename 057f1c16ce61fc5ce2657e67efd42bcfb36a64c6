@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "418ff9f8_03a241c6",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-14T12:10:11Z",
+      "side": 1,
+      "message": "don\u0027t you want to save 2 registers with stp and save 1 register with str at the end for consistency?",
+      "revId": "057f1c16ce61fc5ce2657e67efd42bcfb36a64c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2e43429_13a935de",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-14T12:10:11Z",
+      "side": 1,
+      "message": "same here. use ldp and the last ldr",
+      "revId": "057f1c16ce61fc5ce2657e67efd42bcfb36a64c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
