@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4e8013cd_817deb1b",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-14T18:49:09Z",
+      "side": 1,
+      "message": "Yes, will look in proper solution to remove #ifdef\u0027ery.",
+      "parentUuid": "566c482a_5f5691ea",
+      "range": {
+        "startLine": 10,
+        "startChar": 25,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5201f6f2_e73cb5d9",
         "filename": "drivers/auth/tbbr/tbbr_cot.c",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "39a7830c_952b332a",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-14T18:49:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5201f6f2_e73cb5d9",
+      "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d9a4af6_28bdfdcd",
         "filename": "drivers/auth/tbbr/tbbr_cot.c",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2020-05-14T15:17:09Z",
       "side": 1,
       "message": "This code becomes really hard to read with all these new preprocessor directives IMO. I think it might be time to rework this file. We could have the BL1 chain of trust defined in a file (say bl1_tbbr_cot.c) and the BL2 CoT defined in another one (say bl2_tbbr_cot.c). Some of the buffers in this file are used by both CoTs so we\u0027ll probably need a third file for that.\n\nOnce we\u0027ve got this cleaned up, we can look at adding the support for this new TBBR_COT_DESC_IN_DTB on top of it. I think it might be more manageable this way.\n\nHow does that sound?",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 38
+      },
+      "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51b99fd0_635624ed",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-14T18:49:09Z",
+      "side": 1,
+      "message": "This sound good approach and that will help in reducing #ifdef in the code",
+      "parentUuid": "9d9a4af6_28bdfdcd",
       "range": {
         "startLine": 164,
         "startChar": 0,
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "9083f9e4_d1f51d7b",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-14T18:49:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "94b4e316_bee323ac",
+      "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7440612c_edba31fe",
         "filename": "drivers/auth/tbbr/tbbr_cot.c",
         "patchSetId": 1
@@ -93,6 +177,24 @@
       "writtenOn": "2020-05-14T17:08:04Z",
       "side": 1,
       "message": "I think these descriptors need to be pushed into the DTB as well and constructed in code. The COT is already hard to read and this makes it even more hard to read since this is dependent on the platform and depends on how the DTB is written. Part of the reason to move to the DTB is that you can get rid of tables in code. Removing some tables and creating new ones does not seem right. Most of these tables should be constructed dynamically from the DTB by using OBJECT_POOLS like you have done. The obvious trade off here is the memory used is always for the maximum number of images since object pools have to be allocated for the worst case.\nIn summary, i think if we are moving to DTB, it should not introduce more tables. There should be code, and all other information should be encoded in the DTB.",
+      "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a10fbf5_06183038",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-14T18:49:09Z",
+      "side": 1,
+      "message": "Yes.working on this push descriptors in more readable format in DTB. Initially thought these descriptor types are static in nature but its worth making these runtime using DTB information with penalty of memory.",
+      "parentUuid": "7440612c_edba31fe",
       "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -113,6 +215,24 @@
       "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "816dee6a_a5357469",
+        "filename": "drivers/auth/tbbr/tbbr_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-14T18:49:09Z",
+      "side": 1,
+      "message": "As per previous comment\u0027s reply line 908, will make descriptors runtime.\n\nAs common descriptors being used by most of the certificate images hence used switch case here instead of table that saves some memory.",
+      "parentUuid": "39d5d5f8_bfdc023d",
+      "revId": "69282476b9b01262a71ff6147dd5790f1309ff05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
