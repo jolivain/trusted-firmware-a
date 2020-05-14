@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "dc84a7b6_c5153e6a",
+        "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-14T14:59:34Z",
+      "side": 1,
+      "message": "Instead of having each image node specify its type, it might be better to have a certificates nodes that contains all relevant image nodes. See my other comment.",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 24
+      },
+      "revId": "03dc50ea9d1f6d5bde74e1855c68fd938cf208a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b2c4e174_2ee22751",
         "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
         "patchSetId": 1
