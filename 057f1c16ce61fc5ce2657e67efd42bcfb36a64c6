@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b0554205_6374dd9a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-14T12:12:21Z",
+      "side": 1,
+      "message": "It\u0027s not strictly related to SPMD but rather aarch64 context save/restore.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 5
+      },
+      "revId": "057f1c16ce61fc5ce2657e67efd42bcfb36a64c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "418ff9f8_03a241c6",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
