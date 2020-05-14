@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2dba1e6_bccc3674",
+        "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-14T14:24:40Z",
+      "side": 1,
+      "message": "Not sure we want this in the device tree. Perhaps this should be kept in the firmware as the static maximum number of nodes we expect to find.",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 41,
+        "endChar": 24
+      },
+      "revId": "03dc50ea9d1f6d5bde74e1855c68fd938cf208a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2c4e174_2ee22751",
+        "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-14T14:24:40Z",
+      "side": 1,
+      "message": "If an image has no parent, can we simply omit this property instead? The parser code could search for the presence of this property and deduce that it\u0027s a root image if not found.\n\nAlternatively, if we want to make things more explicit, we could define a boolean property named root_image, which would default to false and be specifically set to true for root images. That might be better.",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 33
+      },
+      "revId": "03dc50ea9d1f6d5bde74e1855c68fd938cf208a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da6a9b17_1a05a5bd",
+        "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-14T14:24:40Z",
+      "side": 1,
+      "message": "Do we need this information? Can this not be deduced from the number of elements in the auth_method_types node?",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 27
+      },
+      "revId": "03dc50ea9d1f6d5bde74e1855c68fd938cf208a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e47c13f_7420af6d",
+        "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-14T14:24:40Z",
+      "side": 1,
+      "message": "What does this property correspond to?\n\nIf I were to make a guess and try to find a match in the auth_img_desc structure based on its name, I\u0027d say you wanted to represent the size of the .authenticated_data[] array. But here it doesn\u0027t seem to store the same information. The Trusted Boot Firmware Certificate contains 3 pieces of data to be extracted (not 1):\n\n- BL2 hash\n- TB_FW config hash\n- HW config hash\n\nI also expected another property to list these data.",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 24
+      },
+      "revId": "03dc50ea9d1f6d5bde74e1855c68fd938cf208a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21d3af68_73cd7f9c",
+        "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-14T14:24:40Z",
+      "side": 1,
+      "message": "We already have the reverse link (child image -\u003e parent image) in the form of the parent_id property, why do we need this one as well? We didn\u0027t need it in the C code.",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 36
+      },
+      "revId": "03dc50ea9d1f6d5bde74e1855c68fd938cf208a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69bbf668_05ad6b62",
+        "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-14T14:24:40Z",
+      "side": 1,
+      "message": "I think it would be more readable (and perhaps more aligned with the DTB philosophy) if this property referred to the parent image by its node name (trusted_boot_fw_cert in the present case) rather than its TF-A image ID.",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 40
+      },
+      "revId": "03dc50ea9d1f6d5bde74e1855c68fd938cf208a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
