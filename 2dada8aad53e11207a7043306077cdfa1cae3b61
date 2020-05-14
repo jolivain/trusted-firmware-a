@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb1c48c3_1f3e23a2",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-14T09:06:54Z",
+      "side": 1,
+      "message": "On a closer look, this function does not seem very useful, or is at least misnamed, as it does not find anything, but merely checks exactly one entry. I would fold it into search_all_xlat_entries().",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55c007e3_1d39a836",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-14T09:06:54Z",
+      "side": 1,
+      "message": "So, as hinted before, this is not right. You need to check against a range. It just happens to work because of the particular layout of this DT.\nI detailed the algorithm in the comment in fconf_hw_config_getter.c.",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "624d0dbd_6782912b",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-14T09:06:54Z",
+      "side": 1,
+      "message": "That\u0027s a lot of parameters to pass on, looks like something is off here. You seem to generate those arguments below just for this function, and never use them again down there. So I would actually move that part after the longer comment into that function here, so that the prototype looks like:\nuint64_t search_all_xlat_entries(const void *dtb, const property *ranges, int local_bus_node, uint64_t address);",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b772558_aa073830",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-14T09:06:54Z",
+      "side": 1,
+      "message": "I would move the code below, till the call to fdtw_search_all_xlat_entries(), into that function. That would save you from passing all those variables. You should use fdt_get_property() above, then.",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ad4aca4_7e84f574",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-14T09:06:54Z",
+      "side": 1,
+      "message": "I think there is some misconception here of how this translation works. It should go like this:\n- You read \u003cn\u003e cells from the reg property, with \u003cn\u003e being the #address-cells of the parent. This is what fdt_get_reg_props_by_index() does for you, so that\u0027s fine.\n- *This* is start address for the translation process. There is nothing like a base address or an offset at this point, there is only one number.\n- You walk up the tree, as you do, and iterate over \"ranges\" entries, if you find them. That part seems correct so far.\n- Now, for each entry, you check whether your address falls into [child_base, child_base + size]. This is missing currently.\n- If you hit something, you subtract your address from child_base, and add this offset to the parent\u0027s base address. Also missing.\n- This becomes the next address to translate, up the tree. That part seems fine again.\n\nSo you would need to drop this base_addr/offset_addr concept from here, instead just go with one address, that you pass to the translate function. Then do a range check instead of a simple comparison when checking a \"ranges\" entry.",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41b7ea85_ab4de940",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-14T09:06:54Z",
+      "side": 1,
+      "message": "The should be fdt_read_uint32() again.",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
