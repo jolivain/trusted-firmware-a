@@ -56,6 +56,24 @@
       "revId": "057f1c16ce61fc5ce2657e67efd42bcfb36a64c6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1a6832f_18ff4093",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-05-14T13:09:52Z",
+      "side": 1,
+      "message": "Was a bit lazy to overhaul the whole function. :) Done now.",
+      "parentUuid": "f2e43429_13a935de",
+      "revId": "057f1c16ce61fc5ce2657e67efd42bcfb36a64c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
