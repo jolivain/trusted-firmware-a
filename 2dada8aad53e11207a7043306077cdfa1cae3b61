@@ -160,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "9840bad8_1d590710",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-15T00:36:45Z",
+      "side": 1,
+      "message": "fdt_get_property() returns a pointer to a struct fdt_property, which also contains the length. So you can pass this one pointer, and get the data and the length, so can calculate the number of entries without passing this explicitly. For getting to the actual values, you would need to use prop-\u003edata then.",
+      "parentUuid": "fc2b4f74_04631c40",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ad4aca4_7e84f574",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 9
