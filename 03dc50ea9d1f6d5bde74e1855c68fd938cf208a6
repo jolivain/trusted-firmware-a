@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30f785fe_b9ae06bd",
+        "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-15T02:22:20Z",
+      "side": 1,
+      "message": "Agree that we should remove this.\nThought behind adding this property to check that no of nodes added in DT should not go beyond maximum number of nodes(which is defined in the code). This is just for sanity check.\nThis property does not play any role apart from this.",
+      "parentUuid": "d2dba1e6_bccc3674",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 41,
+        "endChar": 24
+      },
+      "revId": "03dc50ea9d1f6d5bde74e1855c68fd938cf208a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc84a7b6_c5153e6a",
         "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-05-14T14:59:34Z",
       "side": 1,
       "message": "Instead of having each image node specify its type, it might be better to have a certificates nodes that contains all relevant image nodes. See my other comment.",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 24
+      },
+      "revId": "03dc50ea9d1f6d5bde74e1855c68fd938cf208a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a5acefa_36e6885f",
+        "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-15T02:22:20Z",
+      "side": 1,
+      "message": "Yes, as per new design suggested we need to certificate node that contains relevant image nodes. Will rework on patch accordingly.",
+      "parentUuid": "dc84a7b6_c5153e6a",
       "range": {
         "startLine": 45,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d0a16479_13ddee88",
+        "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-15T02:22:20Z",
+      "side": 1,
+      "message": "As per new design suggested, need to check whether we can move all ROT as a part of separate node \"Keys\"",
+      "parentUuid": "b2c4e174_2ee22751",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 33
+      },
+      "revId": "03dc50ea9d1f6d5bde74e1855c68fd938cf208a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "da6a9b17_1a05a5bd",
         "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2020-05-14T14:24:40Z",
       "side": 1,
       "message": "Do we need this information? Can this not be deduced from the number of elements in the auth_method_types node?",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 27
+      },
+      "revId": "03dc50ea9d1f6d5bde74e1855c68fd938cf208a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "487ed54e_0c8d37bb",
+        "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-15T02:22:20Z",
+      "side": 1,
+      "message": "As per fdt api: fdt_read_uint32_array, We should know beforehand the number of cells to read hence introduced this property. \nNeed to check API (may be fdt_getprop) that deduce size of cell/number of cells",
+      "parentUuid": "da6a9b17_1a05a5bd",
       "range": {
         "startLine": 47,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "9fcf5790_63ca9fa6",
+        "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-15T02:22:20Z",
+      "side": 1,
+      "message": "BL2 hash and TB_FW config hash used by BL1 which are still static in the code.\nThis property correspond how many images authenticated using this certificate node bu BL2. Again, as per new design this may or may not be needed.",
+      "parentUuid": "8e47c13f_7420af6d",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 24
+      },
+      "revId": "03dc50ea9d1f6d5bde74e1855c68fd938cf208a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21d3af68_73cd7f9c",
         "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
         "patchSetId": 1
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "8d49973f_ca171fec",
+        "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-15T02:22:20Z",
+      "side": 1,
+      "message": "This is basically used to find out descriptor of child node in the code and eventually fills authentication data structure",
+      "parentUuid": "21d3af68_73cd7f9c",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 36
+      },
+      "revId": "03dc50ea9d1f6d5bde74e1855c68fd938cf208a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69bbf668_05ad6b62",
         "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
         "patchSetId": 1
@@ -151,6 +295,30 @@
       "writtenOn": "2020-05-14T14:24:40Z",
       "side": 1,
       "message": "I think it would be more readable (and perhaps more aligned with the DTB philosophy) if this property referred to the parent image by its node name (trusted_boot_fw_cert in the present case) rather than its TF-A image ID.",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 40
+      },
+      "revId": "03dc50ea9d1f6d5bde74e1855c68fd938cf208a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc674877_a41e3adf",
+        "filename": "plat/arm/board/fvp/fdts/tbbr_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-15T02:22:20Z",
+      "side": 1,
+      "message": "It depend on how we want to represent the device tree IMO.\nRepresenting this property in readable format possible in both ways either by \"TF-A image id\" or \"node name\" with proper documentation though agree that putting \"node_name\" to parent is more aligned towards DTB philosophy.\nAnyways, this need to be re-worked again with newer design approach,",
+      "parentUuid": "69bbf668_05ad6b62",
       "range": {
         "startLine": 56,
         "startChar": 2,
