@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "556342f7_7de1ecd3",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-16T10:54:30Z",
+      "side": 1,
+      "message": "No, what you did is fine. Indeed it makes sense to have this in this function, especially now with range check. Thanks for the rename!",
+      "parentUuid": "fdb057a5_7dd4e3d3",
+      "revId": "2dada8aad53e11207a7043306077cdfa1cae3b61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "55c007e3_1d39a836",
         "filename": "common/fdt_wrappers.c",
         "patchSetId": 9

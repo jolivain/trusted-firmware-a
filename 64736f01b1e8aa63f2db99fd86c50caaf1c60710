@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63b08598_2a7ec7c8",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-16T10:54:30Z",
+      "side": 1,
+      "message": "I don\u0027t think you need \"found\" here at all. Just: if (fdtw_xlat_hit(...",
+      "revId": "64736f01b1e8aa63f2db99fd86c50caaf1c60710",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6627d8c9_a0d5ef46",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-16T10:54:30Z",
+      "side": 1,
+      "message": "Is that for the debug output only? And does this really work? I mean if you call fdtw_translate_address() a second time it wouldn\u0027t be initialised to 0, if I am not mistaken.",
+      "revId": "64736f01b1e8aa63f2db99fd86c50caaf1c60710",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e9536ed_6a26510c",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-16T10:54:30Z",
+      "side": 1,
+      "message": "Is 0 really an indication of having reached the root node? The documentation doesn\u0027t say, and I didn\u0027t check, so that\u0027s an honest question.",
+      "revId": "64736f01b1e8aa63f2db99fd86c50caaf1c60710",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d45a9b8_601e902d",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-16T10:54:30Z",
+      "side": 1,
+      "message": "It might be worth noting (in a comment) that his only works if the clock provider is a fixed clock. This is true for the model and some other easy platforms, but not in general.\nBut we can\u0027t do much about this anyway, and certainly don\u0027t need to for fvp, so the code is fine.",
+      "revId": "64736f01b1e8aa63f2db99fd86c50caaf1c60710",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
