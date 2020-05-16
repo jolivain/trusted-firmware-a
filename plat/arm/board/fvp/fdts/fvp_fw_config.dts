@@ -5,6 +5,7 @@
  */
 
 #include <export/common/tbbr/tbbr_img_def_exp.h>
+#include <tools_share/tbbr_oid.h>
 
 /dts-v1/;
 
@@ -53,6 +54,7 @@
 	tb_fw-config {
 		compatible = "arm,tb_fw";
 
+		auth-oid = TRUSTED_FW_NVCOUNTER_OID;
 		/* Disable authentication for development */
 		disable_auth = <0x0>;
 
