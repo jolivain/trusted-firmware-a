@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "73d0946a_44507c20",
+        "filename": "plat/qti/common/src/aarch64/qti_kryo4_gold.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "I tried to do it but looks like if i compile a76 code HW COHERENCY has to be enabled of it and so on.\nAlso cortex_a76_reset_func is not exposed to be called by outside",
+      "parentUuid": "8ea485ec_11f3b092",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b14051eb_9ec17c88",
         "filename": "plat/qti/common/src/aarch64/qti_kryo4_gold.S",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "writtenOn": "2020-04-23T19:58:19Z",
       "side": 1,
       "message": "I think you also need to use declare_cpu_ops_wa here and pass cortex_a76_disable_wa_cve_2018_3639 as the \u0027extra2\u0027 pointer, so that that workaround fully works.",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fda9363_04642991",
+        "filename": "plat/qti/common/src/aarch64/qti_kryo4_gold.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "same as above",
+      "parentUuid": "b14051eb_9ec17c88",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -153,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "ff837d0d_6da4c6b0",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed2f941b_aedf4249",
+      "range": {
+        "startLine": 41,
+        "startChar": 25,
+        "endLine": 41,
+        "endChar": 29
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e53c5a3_c778be8e",
         "filename": "plat/qti/common/src/qti_bl31_setup.c",
         "patchSetId": 1
@@ -167,6 +227,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc8fe1a9_639e8b86",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e53c5a3_c778be8e",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -223,6 +301,24 @@
     },
     {
       "key": {
+        "uuid": "dd17a65d_0a4588d5",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63d9e7fc_e8f6dd76",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a38cfc4f_b39a3834",
         "filename": "plat/qti/common/src/qti_bl31_setup.c",
         "patchSetId": 1
@@ -243,6 +339,30 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9640eb6e_e47d3395",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a38cfc4f_b39a3834",
+      "range": {
+        "startLine": 133,
+        "startChar": 30,
+        "endLine": 133,
+        "endChar": 55
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -352,6 +472,24 @@
     },
     {
       "key": {
+        "uuid": "fc749646_7f826492",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b85bd73_c4a1ef38",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5729952_b0bbd102",
         "filename": "plat/qti/common/src/qti_common.c",
         "patchSetId": 1
@@ -405,6 +543,24 @@
     },
     {
       "key": {
+        "uuid": "67c3c5e6_eaf38947",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "we will keep till that change gets merged.",
+      "parentUuid": "a1f12070_bdc60765",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "51c7e168_f82ff9c1",
         "filename": "plat/qti/common/src/qti_common.c",
         "patchSetId": 1
@@ -419,6 +575,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7e41871_1a951b19",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51c7e168_f82ff9c1",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -553,6 +727,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee81f369_3f280c7e",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f20ade1b_a730a632",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -1019,6 +1211,24 @@
     },
     {
       "key": {
+        "uuid": "70873df1_69fd932f",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4394bdc_994344a0",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47ae1bcf_6fafd81c",
         "filename": "plat/qti/common/src/qti_syscall.c",
         "patchSetId": 1
@@ -1079,6 +1289,30 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb55e8ec_a077aab5",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45f9a2d5_2c6595cc",
+      "range": {
+        "startLine": 104,
+        "startChar": 28,
+        "endLine": 104,
+        "endChar": 52
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -1192,6 +1426,24 @@
     },
     {
       "key": {
+        "uuid": "b1618787_b78aa8cb",
+        "filename": "plat/qti/oem/oem_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b584495_64919fcc",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1dd6eae_609fcadd",
         "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
         "patchSetId": 1
@@ -1227,6 +1479,24 @@
     },
     {
       "key": {
+        "uuid": "2351a464_1aaf9e75",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa933378_d741070f",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b1340f_c513bf61",
         "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
         "patchSetId": 1
@@ -1238,6 +1508,24 @@
       "writtenOn": "2020-04-23T19:58:19Z",
       "side": 1,
       "message": "Maybe just add this address as a parameter to qtiseclib_psci_init(), rather than needing a separate callback?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bda804e0_ebc55409",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "This is called in cold path once which will set in apss registers to be referred for warm sequences.",
+      "parentUuid": "b7b1340f_c513bf61",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -1382,6 +1670,24 @@
     },
     {
       "key": {
+        "uuid": "57d1693b_e8da4789",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91e2b308_2635374f",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62168ced_3fcc2c66",
         "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
         "patchSetId": 1
@@ -1393,6 +1699,24 @@
       "writtenOn": "2020-04-23T19:58:19Z",
       "side": 1,
       "message": "These two seem unused?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a84a37f0_08c73737",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "those are getting used.",
+      "parentUuid": "62168ced_3fcc2c66",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -1416,6 +1740,24 @@
     },
     {
       "key": {
+        "uuid": "c2293dd8_8f1bf006",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78ef32a7_fd449709",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c91b35f5_d2c075b9",
         "filename": "plat/qti/qtiseclib/inc/qtiseclib_defs.h",
         "patchSetId": 1
@@ -1436,6 +1778,30 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd25398e_3cdefe49",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c91b35f5_d2c075b9",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 3
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -1582,6 +1948,24 @@
     },
     {
       "key": {
+        "uuid": "2d05152c_b0e9c71f",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "if we keep here no need to have \\n in every log.",
+      "parentUuid": "c79e6176_247bc8ab",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "41d95638_2c00079b",
         "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
         "patchSetId": 1
@@ -1650,6 +2034,24 @@
     },
     {
       "key": {
+        "uuid": "92935c25_52a19619",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_interface_stub.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a80fcd8c_5c566f01",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47dcb468_72a684c9",
         "filename": "plat/qti/sc7180/inc/platform_def.h",
         "patchSetId": 1
@@ -1661,6 +2063,24 @@
       "writtenOn": "2020-04-23T19:58:19Z",
       "side": 1,
       "message": "Is this actually used anywhere?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "166a5f72_36aed765",
+        "filename": "plat/qti/sc7180/inc/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "NO, will remove it.",
+      "parentUuid": "47dcb468_72a684c9",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -1684,6 +2104,24 @@
     },
     {
       "key": {
+        "uuid": "abe600bf_0be620c4",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b113b781_b03f3eda",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f130e12_bc9ea3f6",
         "filename": "plat/qti/sc7180/platform.mk",
         "patchSetId": 1
@@ -1704,6 +2142,30 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bec80e55_6be946ab",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f130e12_bc9ea3f6",
+      "range": {
+        "startLine": 8,
+        "startChar": 11,
+        "endLine": 8,
+        "endChar": 17
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -1751,6 +2213,30 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f76aea1_2c981174",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abe86c36_a1f364e4",
+      "range": {
+        "startLine": 12,
+        "startChar": 11,
+        "endLine": 12,
+        "endChar": 24
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -1803,6 +2289,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae82350b_d1056748",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-05-18T11:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50df3458_3433cdcd",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
