@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "230975fc_ad9224b4",
+        "filename": "plat/ti/k3/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2020-05-18T13:55:01Z",
+      "side": 1,
+      "message": "With this, anyone wanting to use the second UART will still either have to make their own \"flavor\", or claim they are a IOT2050 board. That\u0027s not necessarily a problem, but I wonder if it would be simple enough to allow at build time a flag like UART\u003dx on the make command line.\n\nThis might all have to get factored away when/if we add DT parsing support, then the default UART can be selected from a chosen node.",
+      "revId": "46ca98a398b1eb92a42db5b71707b0d3286c1950",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
