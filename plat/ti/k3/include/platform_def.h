@@ -89,9 +89,17 @@
 #define CACHE_WRITEBACK_SHIFT		6
 #define CACHE_WRITEBACK_GRANULE		(1 << CACHE_WRITEBACK_SHIFT)
 
+#define K3_USART0_BASE			0x02800000
+#define K3_USART1_BASE			0x02810000
+#define K3_USART2_BASE			0x02820000
+
 /* Platform default console definitions */
 #ifndef K3_USART_BASE
-#define K3_USART_BASE 0x02800000
+#ifdef PLAT_FLAVOR_iot2050
+#define K3_USART_BASE			K3_USART1_BASE
+#else
+#define K3_USART_BASE			K3_USART0_BASE
+#endif
 #endif
 
 /* USART has a default size for address space */
