@@ -63,6 +63,24 @@
       "revId": "255c7cc78df554e81db59673918d94944d37c658",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a07bf12f_68715036",
+        "filename": "fdts/fvp-defs.dtsi",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-05-18T12:30:05Z",
+      "side": 1,
+      "message": "Thanks for spotting this! I\u0027ve removed this line because CPU#3 cannot be in cluster #2.\nI also modified and simplified cases for other CPUs.",
+      "parentUuid": "bee1c594_0f28c0ea",
+      "revId": "255c7cc78df554e81db59673918d94944d37c658",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
