@@ -33,6 +33,13 @@ ENABLE_ASSERTIONS		:= ${DEBUG}
 ENABLE_PMF			:= ${ENABLE_RUNTIME_INSTRUMENTATION}
 PLAT				:= ${DEFAULT_PLAT}
 
+# If ${PLAT} is defined and contains a hyphen, parse it as
+# $(PLAT)-$(PLAT_FLAVOR) for convenience
+ifneq (,$(findstring -,${PLAT}))
+ops := $(join PLAT PLAT_FLAVOR,$(addprefix =,$(subst -, ,${PLAT})))
+$(foreach op,$(ops),$(eval override $(op)))
+endif
+
 ################################################################################
 # Checkpatch script options
 ################################################################################
@@ -969,6 +976,10 @@ $(eval $(call add_define,BL2_IN_XIP_MEM))
 $(eval $(call add_define,BL2_INV_DCACHE))
 $(eval $(call add_define,USE_SPINLOCK_CAS))
 $(eval $(call add_define,ERRATA_SPECULATIVE_AT))
+
+ifneq (${PLAT_FLAVOR},)
+        $(eval $(call add_define,PLAT_FLAVOR_${PLAT_FLAVOR}))
+endif
 
 ifeq (${SANITIZE_UB},trap)
         $(eval $(call add_define,MONITOR_TRAPS))
