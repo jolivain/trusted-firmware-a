@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "2b40c2e9_85d3585b",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-05-19T16:08:10Z",
+      "side": 1,
+      "message": "Thanks.. if you don\u0027t have a barrier here, the instructions below including bl fpga_get_cpu_cluster and onwards could execute and complete out-of-order  before the primary core sets the flag and you may still end up writing to the tree_desc before the C run time is initialized.",
+      "parentUuid": "04d05718_5028aafd",
+      "revId": "ad91cd5c7a51e0d95a71d5e3c3119936ca7035c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78b5bd52_22d82f63",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 1
@@ -72,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "c31fcb1a_ce12dd77",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-05-19T16:08:10Z",
+      "side": 1,
+      "message": "So spin_unlock uses the STLR(store-release) instruction, which has an implicit barrier that ensures all loads/stores before the store that writes to the spin lock is visible to other PE\u0027s. So i don\u0027t think dmb sy is required if that was the reasoning.",
+      "parentUuid": "836821ef_11d16643",
+      "revId": "ad91cd5c7a51e0d95a71d5e3c3119936ca7035c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5ff6e41b_11e2804f",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 1
@@ -101,6 +137,24 @@
       "side": 1,
       "message": "\u003e\u003e once again, you likely need a barrier to ensure the store is visible,\nYes, you are right. I need this change to be visible to other PEs before the variable is set back to 0. I will fix it on the next patchset\n\n\u003e\u003e Not sure why this is set to 0 at the end of the function too. Can you explain the race on a reset ?\nWhen the system resets, the .bss section is initialized to all zeroes by the primary processor at the end of el3_entrypoint_common macro. If any of the secondary processors enters into plat_secondary_cold_boot_setup before secondary_core_spinlock has been initialized to 0, chances are that it will start populating the topology tree before the C runtime is ready, which would lead to its corruption (for instance if it is cleared afterwards as part of the .bss initialization by the primary processor). Setting secondary_core_spinlock to 0 after we know that all the secondary processors have stopped spinning around it, would avoid that.",
       "parentUuid": "5ff6e41b_11e2804f",
+      "revId": "ad91cd5c7a51e0d95a71d5e3c3119936ca7035c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5ef61db_c992bd2a",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-05-19T16:08:10Z",
+      "side": 1,
+      "message": "Thanks. What code between setting secondary_core_spinlock to SECONDARY_CORE_KEY and setting it to 0 ensures that all secondary processors have stopped spinning ? sorry, it is not obvious to me. Also not sure i understand why it is necessary to set it back to 0. I guess i\u0027m not seeing the sequence of events between the primary and secondary cores clearly.",
+      "parentUuid": "a6383ee1_06321a92",
       "revId": "ad91cd5c7a51e0d95a71d5e3c3119936ca7035c3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
