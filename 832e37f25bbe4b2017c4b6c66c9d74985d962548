@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9df9385b_4fbfcbb7",
+        "filename": "plat/arm/board/fvp/fvp_gicv3.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-05-19T19:54:28Z",
+      "side": 1,
+      "message": "Missing blank line after declaration",
+      "range": {
+        "startLine": 47,
+        "startChar": 1,
+        "endLine": 47,
+        "endChar": 33
+      },
+      "revId": "832e37f25bbe4b2017c4b6c66c9d74985d962548",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "741d414e_293f12e4",
+        "filename": "plat/arm/board/fvp/fvp_gicv3.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-05-19T19:54:28Z",
+      "side": 1,
+      "message": "\u003e80 and providing enhanced readability:\n\tfvp_gic_data.gicd_base \u003d (uintptr_t)FCONF_GET_PROPERTY(hw_config,\n\t\t\t\t\t\t\t       gicv3_config,\n\t\t\t\t\t\t\t       gicd_base);\n\tfvp_gicr_base_addrs[0] \u003d FCONF_GET_PROPERTY(hw_config, gicv3_config,\n\t\t\t\t\t\t    gicr_base);",
+      "range": {
+        "startLine": 66,
+        "startChar": 1,
+        "endLine": 67,
+        "endChar": 81
+      },
+      "revId": "832e37f25bbe4b2017c4b6c66c9d74985d962548",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
