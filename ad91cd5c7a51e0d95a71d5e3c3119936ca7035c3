@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "482de514_ba6fa144",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-05-19T18:44:07Z",
+      "side": 1,
+      "message": "I am not sure of understanding you here, so please let me know if I am missing something. This function is executed during cold boot and this loop waits until secondary_core_spinlock has the value SECONDARY_CORE_KEY, which is unlikely to happen by chance at power on. So once in bl31_early_platform_setup2() the spinlock variable is set allowing all the cores to move forward. They do not need to follow any particular order as long as it is done after the .bss section has been initialized (which should be enforced by setting the spinlock variable inside bl31_early_platform_setup2()).\n\nfpga_get_cpu_cluster only access to the affinity registers of the CPU to find out the cluster to which the CPU belongs and further accesses to memory are ordered by the call to spin_lock on line 80",
+      "parentUuid": "2b40c2e9_85d3585b",
+      "revId": "ad91cd5c7a51e0d95a71d5e3c3119936ca7035c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78b5bd52_22d82f63",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 1
@@ -108,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "2478ea51_b0f3b00d",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-05-19T18:44:07Z",
+      "side": 1,
+      "message": "Yes, you are right. I totally missed that. Thanks for pointing it out. I will correct it on the next patchset.",
+      "parentUuid": "c31fcb1a_ce12dd77",
+      "revId": "ad91cd5c7a51e0d95a71d5e3c3119936ca7035c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5ff6e41b_11e2804f",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 1
@@ -155,6 +191,24 @@
       "side": 1,
       "message": "Thanks. What code between setting secondary_core_spinlock to SECONDARY_CORE_KEY and setting it to 0 ensures that all secondary processors have stopped spinning ? sorry, it is not obvious to me. Also not sure i understand why it is necessary to set it back to 0. I guess i\u0027m not seeing the sequence of events between the primary and secondary cores clearly.",
       "parentUuid": "a6383ee1_06321a92",
+      "revId": "ad91cd5c7a51e0d95a71d5e3c3119936ca7035c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0c94c69_6a67e67e",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-05-19T18:44:07Z",
+      "side": 1,
+      "message": "I think my previous explanation was misleading. Sorry about that. Let me try to explain again more in detail:\n\n1.- When the system boots up (after a cold reset) the secondary CPUs (if any) will execute plat_secondary_cold_boot_setup almost immediately, where they will start populating the topology tree (whose memory is located in the .bss section). In the meantime, the primary CPU will start performing some system initialization, which includes clearing the .bss section. If this happens after one of the secondary CPUs has written his topology information into the tree, this will be corrupted, hence the use of secondary_core_spinlock to make the secondary CPUs to wait until the .bss has been initialized. When we set it here to a specific value (SECONDARY_CORE_KEY) we allow the secondary cores to start populating the topology tree, as by the time the execution reaches here, the .bss section is already cleared.\n\n2.- If, at this point, there were a cold reset caused for instance by a RESET pin assertion, we could not guarantee that the memory would have been cleared by the Reset pin, therefore if the secondary cores reach plat_secondary_cold_boot_setup before the primary one has cleared the .bss section, they could find secondary_core_spinlock set to SECONDARY_CORE_KEY by the previous execution, causing a race condition here. Therefore, clearing this variable after a short period of time (to minimize the chances of a reset in between) should avoid this problem.\n\nHope this is clearer now.\n\nP.S: I just realized that SECONDARY_CORE_KEY might not be a very appropriate name, so I will change it as well.",
+      "parentUuid": "b5ef61db_c992bd2a",
       "revId": "ad91cd5c7a51e0d95a71d5e3c3119936ca7035c3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
