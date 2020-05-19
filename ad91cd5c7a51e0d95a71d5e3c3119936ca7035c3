@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcbb0393_168005ce",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-05-19T01:44:17Z",
+      "side": 1,
+      "message": "Do you not need a barrier here? Independent instructions after this can execute and commit before the loop completes.",
+      "revId": "ad91cd5c7a51e0d95a71d5e3c3119936ca7035c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78b5bd52_22d82f63",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-05-19T01:44:17Z",
+      "side": 1,
+      "message": "Why do you need the dmb sy here ?spin_unlock should take care to ensure all memory ops in the critical section complete.",
+      "revId": "ad91cd5c7a51e0d95a71d5e3c3119936ca7035c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ff6e41b_11e2804f",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-05-19T01:44:17Z",
+      "side": 1,
+      "message": "once again, you likely need a barrier to ensure the store is visible, Not sure why this is set to 0 at the end of the function too. Can you explain the race on a reset ?",
+      "revId": "ad91cd5c7a51e0d95a71d5e3c3119936ca7035c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f1040f1_365b376c",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-05-19T01:44:17Z",
+      "side": 1,
+      "message": "It is generally a bad idea to use delays even thought it may work 99% of the times. You might be better off having the secondary CPU\u0027s send a message back indicating event completion.",
+      "revId": "ad91cd5c7a51e0d95a71d5e3c3119936ca7035c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
