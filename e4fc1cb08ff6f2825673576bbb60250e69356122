@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "d510cb6b_8591230d",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-05-19T20:23:12Z",
+      "side": 1,
+      "message": "4 bits are present for this feature in mmfr1_el1, if this feature is expanded or changed the value of the field will change and a simple boolean won\u0027t be enough to properly identify it.  If you think it would be better to use a bool now though I can change it.",
+      "parentUuid": "29d35018_34b47d53",
+      "revId": "e4fc1cb08ff6f2825673576bbb60250e69356122",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c1672f7d_e1eb81d8",
         "filename": "include/lib/extensions/twede.h",
         "patchSetId": 5
