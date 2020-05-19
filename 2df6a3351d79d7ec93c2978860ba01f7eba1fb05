@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66d54388_4676c87a",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-19T16:19:42Z",
+      "side": 1,
+      "message": "This is stored in big endian mode. The result will be usually pretty big, meaning it will walk far beyond the mapping entry if no mapping matches (as happened in my unit testing).\nPlease use fdt32_to_cpu() on the result.",
+      "revId": "2df6a3351d79d7ec93c2978860ba01f7eba1fb05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1fb15ad_9366bd47",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-19T16:19:42Z",
+      "side": 1,
+      "message": "Is panic() really the right reaction? Ideally this function will be called in a wider context, I think we should allow the driver to gracefully fail, doing the panic instead, if desired.\nEither we return an error value, and use uint64_t * (also in  fdtw_translate_address() below), or we use \"~0\" as an illegal address value. Something like Linux\u0027 ERR_PTR macro.",
+      "revId": "2df6a3351d79d7ec93c2978860ba01f7eba1fb05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef69a1db_7a86231b",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-05-19T16:19:42Z",
+      "side": 1,
+      "message": "Please use fdt_read_uint32() here as well, that does more checking and cares about the endianess translation already.",
+      "revId": "2df6a3351d79d7ec93c2978860ba01f7eba1fb05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
