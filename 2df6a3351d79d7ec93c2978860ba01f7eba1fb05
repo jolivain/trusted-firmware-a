@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3ed3afbc_d5f4190c",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-19T23:23:28Z",
+      "side": 1,
+      "message": "Thanks for the heads-up. I ran the unit tests and found that it leads to segmentation fault. I will make this change.",
+      "parentUuid": "66d54388_4676c87a",
+      "revId": "2df6a3351d79d7ec93c2978860ba01f7eba1fb05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1fb15ad_9366bd47",
         "filename": "common/fdt_wrappers.c",
         "patchSetId": 12
@@ -30,6 +48,24 @@
       "writtenOn": "2020-05-19T16:19:42Z",
       "side": 1,
       "message": "Is panic() really the right reaction? Ideally this function will be called in a wider context, I think we should allow the driver to gracefully fail, doing the panic instead, if desired.\nEither we return an error value, and use uint64_t * (also in  fdtw_translate_address() below), or we use \"~0\" as an illegal address value. Something like Linux\u0027 ERR_PTR macro.",
+      "revId": "2df6a3351d79d7ec93c2978860ba01f7eba1fb05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9a39997_23b90fa8",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-19T23:23:28Z",
+      "side": 1,
+      "message": "Okay, I will remove the panic and return a large value which is illegal (~0) as you suggested.",
+      "parentUuid": "d1fb15ad_9366bd47",
       "revId": "2df6a3351d79d7ec93c2978860ba01f7eba1fb05",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
