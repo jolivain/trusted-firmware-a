@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d5287388_6b05a89d",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-19T00:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63b08598_2a7ec7c8",
+      "revId": "64736f01b1e8aa63f2db99fd86c50caaf1c60710",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6627d8c9_a0d5ef46",
         "filename": "common/fdt_wrappers.c",
         "patchSetId": 11
@@ -30,6 +48,24 @@
       "writtenOn": "2020-05-16T10:54:30Z",
       "side": 1,
       "message": "Is that for the debug output only? And does this really work? I mean if you call fdtw_translate_address() a second time it wouldn\u0027t be initialised to 0, if I am not mistaken.",
+      "revId": "64736f01b1e8aa63f2db99fd86c50caaf1c60710",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c4c4010_614a90b8",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-19T00:15:06Z",
+      "side": 1,
+      "message": "It was for initial debugging purposes. But you are right. It doesn\u0027t work when the function is invoked independently for the second time. I will remove it as there is not much benefit.",
+      "parentUuid": "6627d8c9_a0d5ef46",
       "revId": "64736f01b1e8aa63f2db99fd86c50caaf1c60710",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "5e676528_abd54e03",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-19T00:15:06Z",
+      "side": 1,
+      "message": "I believe in the flattened device tree, the root node has an offset of 0. I added some debug prints to confirm it. I found some comments in the file libfdt.h which suggests the same. I don\u0027t know if the device tree specification mandates the root node to have an offset of 0.",
+      "parentUuid": "6e9536ed_6a26510c",
+      "revId": "64736f01b1e8aa63f2db99fd86c50caaf1c60710",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3d45a9b8_601e902d",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 11
@@ -64,6 +118,24 @@
       "writtenOn": "2020-05-16T10:54:30Z",
       "side": 1,
       "message": "It might be worth noting (in a comment) that his only works if the clock provider is a fixed clock. This is true for the model and some other easy platforms, but not in general.\nBut we can\u0027t do much about this anyway, and certainly don\u0027t need to for fvp, so the code is fine.",
+      "revId": "64736f01b1e8aa63f2db99fd86c50caaf1c60710",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e438412_89cd1da2",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-19T00:15:06Z",
+      "side": 1,
+      "message": "Thanks for the input. I will add a comment.",
+      "parentUuid": "3d45a9b8_601e902d",
       "revId": "64736f01b1e8aa63f2db99fd86c50caaf1c60710",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
