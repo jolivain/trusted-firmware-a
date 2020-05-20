@@ -32,6 +32,7 @@ include ${MAKE_HELPERS_DIRECTORY}defaults.mk
 ENABLE_ASSERTIONS		:= ${DEBUG}
 ENABLE_PMF			:= ${ENABLE_RUNTIME_INSTRUMENTATION}
 PLAT				:= ${DEFAULT_PLAT}
+UART				:= ${DEFAULT_UART}
 
 ################################################################################
 # Checkpatch script options
@@ -897,6 +898,7 @@ $(eval $(call assert_numeric,ARM_ARCH_MAJOR))
 $(eval $(call assert_numeric,ARM_ARCH_MINOR))
 $(eval $(call assert_numeric,BRANCH_PROTECTION))
 $(eval $(call assert_numeric,FW_ENC_STATUS))
+$(eval $(call assert_numeric,UART))
 
 ifdef KEY_SIZE
         $(eval $(call assert_numeric,KEY_SIZE))
@@ -969,6 +971,7 @@ $(eval $(call add_define,BL2_IN_XIP_MEM))
 $(eval $(call add_define,BL2_INV_DCACHE))
 $(eval $(call add_define,USE_SPINLOCK_CAS))
 $(eval $(call add_define,ERRATA_SPECULATIVE_AT))
+$(eval $(call add_define,UART))
 
 ifeq (${SANITIZE_UB},trap)
         $(eval $(call add_define,MONITOR_TRAPS))

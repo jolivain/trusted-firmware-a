@@ -296,3 +296,6 @@ SUPPORT_STACK_MEMTAG		:= no
 
 # Select workaround for AT speculative behaviour.
 ERRATA_SPECULATIVE_AT           := 0
+
+# Default output UART number if platform supports selection
+DEFAULT_UART			:= 0
