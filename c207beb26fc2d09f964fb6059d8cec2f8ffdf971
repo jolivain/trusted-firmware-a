@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0640e5b6_fbb298c6",
+        "filename": "docs/plat/arm/tc0/index.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-21T22:07:07Z",
+      "side": 1,
+      "message": "repetition of abstract",
+      "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc14c7e7_dd963c20",
+        "filename": "docs/plat/arm/tc0/index.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-21T22:07:07Z",
+      "side": 1,
+      "message": "hands off execution",
+      "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0db48145_5b442085",
+        "filename": "docs/plat/arm/tc0/index.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-21T22:07:07Z",
+      "side": 1,
+      "message": "why do you need to specify ARCH\u003d\u003daarch64 explicitly?",
+      "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "077bbd09_3276e280",
+        "filename": "fdts/tc0.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-21T22:07:07Z",
+      "side": 1,
+      "message": "This node doesnt seem to follow the device tree binding for cpu https://www.kernel.org/doc/Documentation/devicetree/bindings/cpu/cpu-topology.txt\nCan you restructure it as follows:\n\ncpus {\n\t#size-cells \u003d \u003c0\u003e;\n\t#address-cells \u003d \u003c1\u003e;\n\n\tcpu-map {\n\t\tcluster0 {\n\t\t\tcore0 {\n\t\t\t\tcpu \u003d \u003c\u0026CPU0\u003e;\n\t\t\t};\n\t\t\tcore1 {\n\t\t\t\tcpu \u003d \u003c\u0026CPU1\u003e;\n\t\t\t};\n\t\t\tcore2 {\n\t\t\t\tcpu \u003d \u003c\u0026CPU2\u003e;\n\t\t\t};\n\t\t\tcore3 {\n\t\t\t\tcpu \u003d \u003c\u0026CPU3\u003e;\n\t\t\t};\n\t\t};\n};",
+      "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbd7c877_d2493bc5",
+        "filename": "fdts/tc0.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-21T22:07:07Z",
+      "side": 1,
+      "message": "why is the phandle needed? other nodes can link to this node using \u003c\u0026gic\u003e right?",
+      "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aac1ce75_a34063e3",
+        "filename": "plat/arm/board/tc0/include/tc0_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-21T22:07:07Z",
+      "side": 1,
+      "message": "Is chipID applicable for TC0?",
+      "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81c3a0e2_e505d97e",
+        "filename": "plat/arm/board/tc0/include/tc0_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-21T22:07:07Z",
+      "side": 1,
+      "message": "Is this comment applicable for TC0 platform?",
+      "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
