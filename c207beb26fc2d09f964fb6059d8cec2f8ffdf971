@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dd443460_9c5a0621",
+        "filename": "docs/plat/arm/tc0/index.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-05-21T22:47:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0640e5b6_fbb298c6",
+      "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc14c7e7_dd963c20",
         "filename": "docs/plat/arm/tc0/index.rst",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c26330d_97c7c8ec",
+        "filename": "docs/plat/arm/tc0/index.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-05-21T22:47:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc14c7e7_dd963c20",
+      "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b9195661_f724fbbb",
+        "filename": "docs/plat/arm/tc0/index.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-05-21T22:47:43Z",
+      "side": 1,
+      "message": "Done\n\nNot needed",
+      "parentUuid": "0db48145_5b442085",
+      "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "077bbd09_3276e280",
         "filename": "fdts/tc0.dts",
         "patchSetId": 3
@@ -67,6 +121,24 @@
       "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac938e5a_fbe44bcd",
+        "filename": "fdts/tc0.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-05-21T22:47:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "077bbd09_3276e280",
+      "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "98f5a329_d52096ff",
+        "filename": "fdts/tc0.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-05-21T22:47:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbd7c877_d2493bc5",
+      "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac1ce75_a34063e3",
         "filename": "plat/arm/board/tc0/include/tc0_helpers.S",
         "patchSetId": 3
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "4278fd51_99dce679",
+        "filename": "plat/arm/board/tc0/include/tc0_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-05-21T22:47:43Z",
+      "side": 1,
+      "message": "Done\n\nNo, its single chip so have removed the code that involves using chip id for calculation as chip id is 0",
+      "parentUuid": "aac1ce75_a34063e3",
+      "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81c3a0e2_e505d97e",
         "filename": "plat/arm/board/tc0/include/tc0_helpers.S",
         "patchSetId": 3
@@ -118,6 +226,24 @@
       "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79deb4fb_45793af5",
+        "filename": "plat/arm/board/tc0/include/tc0_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-05-21T22:47:43Z",
+      "side": 1,
+      "message": "Done\n\nMT bit now checked if it is set. But it is set for the cores currently used.",
+      "parentUuid": "81c3a0e2_e505d97e",
+      "revId": "c207beb26fc2d09f964fb6059d8cec2f8ffdf971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
