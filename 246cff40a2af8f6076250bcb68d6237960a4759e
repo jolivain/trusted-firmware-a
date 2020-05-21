@@ -16,6 +16,24 @@
       "revId": "246cff40a2af8f6076250bcb68d6237960a4759e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a56bfae6_0b7b85ed",
+        "filename": "plat/intel/soc/common/socfpga_delay_timer.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000168
+      },
+      "writtenOn": "2020-05-21T08:45:43Z",
+      "side": 1,
+      "message": "Yes I should probably use the function instead of calling an asm, will do fix. Thanks.",
+      "parentUuid": "d4752e4e_9eec4a18",
+      "revId": "246cff40a2af8f6076250bcb68d6237960a4759e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
