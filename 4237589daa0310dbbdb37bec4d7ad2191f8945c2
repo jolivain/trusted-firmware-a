@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7046d3bc_b7b0b486",
+        "filename": "fdts/tc0.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-22T15:01:53Z",
+      "side": 1,
+      "message": "Not sure intent behind putting unit address for CPU1 as 100. CPU2 as 200 and CPU3 as 3?\nCan you provide CPU unit address in sequential manner as all CPUs are present in same cluster?\nCPU0:cpu@0 {\n};\nCPU1:cpu@1 {\n};\nCPU2:cpu@2 {\n};\nCPU3:cpu@3 {\n};",
+      "range": {
+        "startLine": 52,
+        "startChar": 10,
+        "endLine": 52,
+        "endChar": 15
+      },
+      "revId": "4237589daa0310dbbdb37bec4d7ad2191f8945c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
