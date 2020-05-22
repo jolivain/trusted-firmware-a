@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "47178452_46b1c0fd",
+        "filename": "docs/plat/arm/tc0/index.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-05-22T17:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ea84f1e_2910b161",
+      "revId": "6060954e333d78abf2057bb335acd22ca631b070",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01167e66_9beb7db3",
         "filename": "docs/plat/arm/tc0/index.rst",
         "patchSetId": 6
@@ -33,6 +51,24 @@
       "revId": "6060954e333d78abf2057bb335acd22ca631b070",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b501df68_5b8e3e03",
+        "filename": "docs/plat/arm/tc0/index.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-05-22T17:08:31Z",
+      "side": 1,
+      "message": "yes, after the patch is merged.",
+      "parentUuid": "01167e66_9beb7db3",
+      "revId": "6060954e333d78abf2057bb335acd22ca631b070",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "9971cf90_d5d297f6",
+        "filename": "fdts/tc0.dts",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-05-22T17:08:31Z",
+      "side": 1,
+      "message": "Done\n\nNone of the psci v1 features had been tested, but the platform is compatible so changed it to add both.",
+      "parentUuid": "7058e2e4_647fb405",
+      "revId": "6060954e333d78abf2057bb335acd22ca631b070",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83d3ada1_46303c6b",
         "filename": "plat/arm/board/tc0/tc0_security.c",
         "patchSetId": 6
@@ -67,6 +121,24 @@
       "revId": "6060954e333d78abf2057bb335acd22ca631b070",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2b948f5_7915548e",
+        "filename": "plat/arm/board/tc0/tc0_security.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-05-22T17:08:31Z",
+      "side": 1,
+      "message": "yes, there is no TZC currently.\n\nand the function is needed as you get a build error.\n\ntrusted-firmware-a_up/plat/arm/common/arm_bl2_setup.c:93: undefined reference to `plat_arm_security_setup\u0027\n\nI needed to do the same empty function for a5ds as well. https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/1384/14/plat/arm/board/a5ds/a5ds_security.c",
+      "parentUuid": "83d3ada1_46303c6b",
+      "revId": "6060954e333d78abf2057bb335acd22ca631b070",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
