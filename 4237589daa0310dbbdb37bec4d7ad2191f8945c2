@@ -22,6 +22,30 @@
       "revId": "4237589daa0310dbbdb37bec4d7ad2191f8945c2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9af76a37_c096d40e",
+        "filename": "fdts/tc0.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-05-22T15:24:36Z",
+      "side": 1,
+      "message": "Not sure if you mean just the name of the node or the reg value as well, but both need to be 100 for CPU1 200 for CPU2, etc. Below is the explanations for both.\n\n\nThe reg value is derived from MPIDR_EL1, which is 0x100 for cpu1, 0x200 for cpu2, etc. Therefore if you change the reg value to 0x1 for cpu1, then it wont boot. Further info here https://www.kernel.org/doc/Documentation/devicetree/bindings/arm/cpus.txt\n\nThe value after @ is always derived from reg value. Its not supposed to be sequential and is not dependent on if the cpu is from same cluster. You can see examples in https://www.kernel.org/doc/Documentation/devicetree/bindings/arm/cpus.txt \n\n\nExample 4 (ARM Cortex-A57 64-bit system):\n\ncpus {\n\t#size-cells \u003d \u003c0\u003e;\n\t#address-cells \u003d \u003c2\u003e;\n\n\tcpu@0 {\n\t\tdevice_type \u003d \"cpu\";\n\t\tcompatible \u003d \"arm,cortex-a57\";\n\t\treg \u003d \u003c0x0 0x0\u003e;\n\t\tenable-method \u003d \"spin-table\";\n\t\tcpu-release-addr \u003d \u003c0 0x20000000\u003e;\n\t};\n\n\tcpu@1 {\n\t\tdevice_type \u003d \"cpu\";\n\t\tcompatible \u003d \"arm,cortex-a57\";\n\t\treg \u003d \u003c0x0 0x1\u003e;\n\t\tenable-method \u003d \"spin-table\";\n\t\tcpu-release-addr \u003d \u003c0 0x20000000\u003e;\n\t};\n\n\tcpu@100 {\n\t\tdevice_type \u003d \"cpu\";\n\t\tcompatible \u003d \"arm,cortex-a57\";\n\t\treg \u003d \u003c0x0 0x100\u003e;\n\t\tenable-method \u003d \"spin-table\";\n\t\tcpu-release-addr \u003d \u003c0 0x20000000\u003e;\n\t};\n\n\tcpu@101 {\n\t\tdevice_type \u003d \"cpu\";\n\t\tcompatible \u003d \"arm,cortex-a57\";\n\t\treg \u003d \u003c0x0 0x101\u003e;\n\t\tenable-method \u003d \"spin-table\";\n\t\tcpu-release-addr \u003d \u003c0 0x20000000\u003e;\n\t};\n\n\tcpu@10000 {\n\t\tdevice_type \u003d \"cpu\";\n\t\tcompatible \u003d \"arm,cortex-a57\";\n\t\treg \u003d \u003c0x0 0x10000\u003e;\n\t\tenable-method \u003d \"spin-table\";\n\t\tcpu-release-addr \u003d \u003c0 0x20000000\u003e;\n\t};\n\n\tcpu@10001 {\n\t\tdevice_type \u003d \"cpu\";\n\t\tcompatible \u003d \"arm,cortex-a57\";\n\t\treg \u003d \u003c0x0 0x10001\u003e;\n\t\tenable-method \u003d \"spin-table\";\n\t\tcpu-release-addr \u003d \u003c0 0x20000000\u003e;\n\t};\n\n\tcpu@10100 {\n\t\tdevice_type \u003d \"cpu\";\n\t\tcompatible \u003d \"arm,cortex-a57\";\n\t\treg \u003d \u003c0x0 0x10100\u003e;\n\t\tenable-method \u003d \"spin-table\";\n\t\tcpu-release-addr \u003d \u003c0 0x20000000\u003e;\n\t};\n\n\tcpu@10101 {\n\t\tdevice_type \u003d \"cpu\";\n\t\tcompatible \u003d \"arm,cortex-a57\";\n\t\treg \u003d \u003c0x0 0x10101\u003e;\n\t\tenable-method \u003d \"spin-table\";\n\t\tcpu-release-addr \u003d \u003c0 0x20000000\u003e;\n\t};\n\n\tcpu@100000000 {\n\t\tdevice_type \u003d \"cpu\";\n\t\tcompatible \u003d \"arm,cortex-a57\";\n\t\treg \u003d \u003c0x1 0x0\u003e;\n\t\tenable-method \u003d \"spin-table\";\n\t\tcpu-release-addr \u003d \u003c0 0x20000000\u003e;\n\t};",
+      "parentUuid": "7046d3bc_b7b0b486",
+      "range": {
+        "startLine": 52,
+        "startChar": 10,
+        "endLine": 52,
+        "endChar": 15
+      },
+      "revId": "4237589daa0310dbbdb37bec4d7ad2191f8945c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
