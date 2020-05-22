@@ -164,6 +164,27 @@ static cert_t tbb_certs[] = {
 		},
 		.num_ext = 3
 	},
+	[SECURE_PARTITION_CONTENT_CERT] = {
+		.id = SECURE_PARTITION_CONTENT_CERT,
+		.opt = "secure-partition-cert",
+		.help_msg = "Secure Partition Content Certificate (output file)",
+		.fn = NULL,
+		.cn = "Secure Partition Content Certificate",
+		.key = TRUSTED_WORLD_KEY,
+		.issuer = SECURE_PARTITION_CONTENT_CERT,
+		.ext = {
+			TRUSTED_FW_NVCOUNTER_EXT,
+			SP_PKG1_HASH_EXT,
+			SP_PKG2_HASH_EXT,
+			SP_PKG3_HASH_EXT,
+			SP_PKG4_HASH_EXT,
+			SP_PKG5_HASH_EXT,
+			SP_PKG6_HASH_EXT,
+			SP_PKG7_HASH_EXT,
+			SP_PKG8_HASH_EXT,
+		},
+		.num_ext = 9
+	},
 	[FWU_CERT] = {
 		.id = FWU_CERT,
 		.opt = "fwu-cert",
