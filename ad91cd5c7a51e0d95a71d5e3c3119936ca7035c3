@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "f2195fa9_c777a7a6",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-05-22T18:35:50Z",
+      "side": 1,
+      "message": "Hi Raghu,\n\nI tried SEVL to have the register in a known state during booting up but I had inconsistent results, which is why I decided to go with the spinlock approach. Although now that you mention it, I might have used sev instead of sevl and that might have been the cause of my problem... I will try again, making sure this time that I use the right instruction, just to be sure.\n\nwrt how the event register gets initialized for later use, in this particular case I assumed it was done on the loop on line 108. In the case the event register were not clear ant the wfe returns on the first iteration, it would suspend on the next one.\n\nThanks!!\nJavier",
+      "parentUuid": "b7fc961c_ee2b2b0f",
+      "revId": "ad91cd5c7a51e0d95a71d5e3c3119936ca7035c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78b5bd52_22d82f63",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 1
