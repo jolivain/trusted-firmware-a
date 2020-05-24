@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -33,6 +34,12 @@ vector_base workaround_bpflush_runtime_exceptions
 	.macro	apply_workaround
 	stp	x0, x1, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X0]
 
+	/* Disable cycle counter when event counting is prohibited */
+	mrs	x1, pmcr_el0
+	orr	x0, x1, #PMCR_EL0_DP_BIT
+	msr	pmcr_el0, x0
+	isb
+
 	/* -------------------------------------------------
 	 * A new write-only system register where a write of
 	 * 1 to bit 0 will cause the indirect branch predictor
@@ -46,7 +53,15 @@ vector_base workaround_bpflush_runtime_exceptions
 	msr	s3_0_c15_c0_6, x0
 	isb
 
-	ldp	x0, x1, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X0]
+	/* Check caller's security state */
+	mrs	x0, scr_el3
+	tst	x0, #SCR_NS_BIT
+	beq	1f
+
+	/* Save PMCR_EL0 if called from Non-secure state */
+	str	x1, [sp, #CTX_EL3STATE_OFFSET + CTX_PMCR_EL0]
+
+1:	ldp	x0, x1, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X0]
 	.endm
 
 	/* ---------------------------------------------------------------------
