@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -100,7 +101,7 @@ static struct smc_args trusty_context_switch(uint32_t security_state, uint64_t r
 	args.r3 = r3;
 	args.r2 = r2;
 	args.r1 = r1;
-	args.r0 = r0;
+	args.r0 = (r0 == (uint64_t)SM_ERR_NOT_SUPPORTED) ? (uint64_t)SMC_UNK : r0;
 
 	/*
 	 * To avoid the additional overhead in PSCI flow, skip FP context
