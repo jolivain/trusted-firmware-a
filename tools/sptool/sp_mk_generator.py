@@ -59,7 +59,7 @@ dtb_dir = out_dir + "/fdts/"
 print(dtb_dir)
 
 with open(gen_file, 'w') as out_file:
-    for key in data.keys():
+    for idx, key in enumerate(data.keys()):
 
         """
         Append FDT_SOURCES
@@ -97,4 +97,9 @@ with open(gen_file, 'w') as out_file:
         Append FIP_ARGS
         """
         out_file.write("FIP_ARGS += --blob uuid=" + uuid_std + ",file=" + dst + "\n")
+
+        """
+        Append CRT_ARGS
+        """
+        out_file.write("CRT_ARGS += --sp-pkg" + str(idx + 1) + " " + dst + "\n")
         out_file.write("\n")
