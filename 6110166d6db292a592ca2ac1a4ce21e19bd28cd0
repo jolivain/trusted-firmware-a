@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cca184f6_7130ed97",
+        "filename": "docs/plat/arm/tc0/index.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-05-26T22:58:48Z",
+      "side": 1,
+      "message": "FIP in flash",
+      "range": {
+        "startLine": 9,
+        "startChar": 21,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "6110166d6db292a592ca2ac1a4ce21e19bd28cd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "745746e9_de0357d4",
+        "filename": "docs/plat/arm/tc0/index.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-05-26T22:58:48Z",
+      "side": 1,
+      "message": "for copying by SCP: what does that mean ?",
+      "range": {
+        "startLine": 9,
+        "startChar": 42,
+        "endLine": 9,
+        "endChar": 60
+      },
+      "revId": "6110166d6db292a592ca2ac1a4ce21e19bd28cd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad39694d_786282d5",
+        "filename": "docs/plat/arm/tc0/index.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-05-26T22:58:48Z",
+      "side": 1,
+      "message": "Is this naming convention common? or SCP ROM/RAM FW ??",
+      "range": {
+        "startLine": 18,
+        "startChar": 25,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "6110166d6db292a592ca2ac1a4ce21e19bd28cd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "844eae2f_cc9a3565",
+        "filename": "docs/plat/arm/tc0/index.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-05-26T22:58:48Z",
+      "side": 1,
+      "message": "Understood till BL2 loading SCP into SRAM, but could not understand why you are using SDS ? can you explain it more clearly ??",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 25
+      },
+      "revId": "6110166d6db292a592ca2ac1a4ce21e19bd28cd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78292e2b_8b0f2929",
+        "filename": "plat/arm/board/tc0/tc0_plat.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-05-26T22:58:48Z",
+      "side": 1,
+      "message": "Just to confirm, you are using SPM_MM not SPM_spmd for this platform?",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 10
+      },
+      "revId": "6110166d6db292a592ca2ac1a4ce21e19bd28cd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
