@@ -43,13 +43,45 @@ Code owners
 Core Code
 ~~~~~~~~~
 
-.. note::
-   This section is incomplete right now.
-
 Armv7-A architecture port
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 :M: Etienne Carriere <etienne.carriere@linaro.org>
 :G: `etienne-lms`_
+
+Software Delegated Exception Interface (SDEI)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:M: Mark Dykes <mark.dykes@arm.com>
+:G: `mardyk01`_
+:M: John Powell <John.Powell@arm.com>
+:F: services/std_svc/sdei/
+
+Trusted Boot
+^^^^^^^^^^^^
+:M: Sandrine Bailleux <sandrine.bailleux@arm.com>
+:G: `sandrine-bailleux-arm`_
+:M: Manish Pandey <manish.pandey2@arm.com>
+:G: `manish-pandey-arm`_
+:M: Manish Badarkhe <manish.badarkhe@arm.com>
+:G: `ManishVB-Arm`_
+:F: drivers/auth/
+
+Secure Partition Manager (SPM)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:M: Olivier Deprez <olivier.deprez@arm.com>
+:G: `odeprez`_
+:M: Manish Pandey <manish.pandey2@arm.com>
+:G: `manish-pandey-arm`_
+:M: Maksims Svecovs <maksims.svecovs@arm.com>
+:G: `max-shvetsov`_
+:M: Joao Alves <Joao.Alves@arm.com>
+:F: services/std_svc/spm\*
+
+Exception Handling Framework (EHF)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:M: Manish Badarkhe <manish.badarkhe@arm.com>
+:G: `ManishVB-Arm`_
+:M: John Powell <John.Powell@arm.com>
+:F: bl31/ehf.c
 
 
 Drivers, Libraries and Framework Code
@@ -83,6 +115,130 @@ eMMC/UFS drivers
 :F: include/drivers/dw_ufs.h
 :F: include/drivers/ufs.h
 :F: include/drivers/synopsys/dw_mmc.h
+
+Power State Coordination Interface (PSCI)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:M: Javier Almansa Sobrino <Javier.AlmansaSobrino@arm.com>
+:G: `javieralso-arm`_
+:M: Madhukar Pappireddy <Madhukar.Pappireddy@arm.com>
+:M: Lauren Wehrmeister <Lauren.Wehrmeister@arm.com>
+:G: `laurenw-arm`_
+:M: Zelalem Aweke <Zelalem.Aweke@arm.com>
+:G: `zelalem-aweke`_
+:F: lib/psci/
+
+DebugFS
+^^^^^^^
+:M: Olivier Deprez <olivier.deprez@arm.com>
+:G: `odeprez`_
+:F: lib/debugfs/
+
+Firmware Configuration Framework (FCONF)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:M: Madhukar Pappireddy <Madhukar.Pappireddy@arm.com>
+:M: Manish Badarkhe <manish.badarkhe@arm.com>
+:G: `ManishVB-Arm`_
+:M: Lauren Wehrmeister <Lauren.Wehrmeister@arm.com>
+:G: `laurenw-arm`_
+:F: lib/fconf/
+
+Performance Measurement Framework (PMF)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:M: Joao Alves <Joao.Alves@arm.com>
+:M: Jimmy Brisson <Jimmy.Brisson@arm.com>
+:F: lib/pmf/
+
+Arm CPU libraries
+^^^^^^^^^^^^^^^^^
+:M: Lauren Wehrmeister <Lauren.Wehrmeister@arm.com>
+:G: `laurenw-arm`_
+:M: John Powell <John.Powell@arm.com>
+:F: lib/cpus/
+
+Reliability Availability Serviceabilty (RAS) framework
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:M: Olivier Deprez <olivier.deprez@arm.com>
+:G: `odeprez`_
+:M: Manish Pandey <manish.pandey2@arm.com>
+:G: `manish-pandey-arm`_
+:F: lib/extensions/ras/
+
+Activity Monitors Unit (AMU) extensions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:M: Alexei Fedorov <alexei.fedorov@arm.com>
+:G: `AlexeiFedorov`_
+:F: lib/extensions/amu/
+
+Memory Partitioning And Monitoring (MPAM) extensions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:M: Zelalem Aweke <Zelalem.Aweke@arm.com>
+:G: `zelalem-aweke`_
+:M: Jimmy Brisson <Jimmy.Brisson@arm.com>
+:F: lib/extensions/mpam/
+
+Pointer Authentication (PAuth) and Branch Target Identification (BTI) extensions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:M: Alexei Fedorov <alexei.fedorov@arm.com>
+:G: `AlexeiFedorov`_
+:M: Zelalem Aweke <Zelalem.Aweke@arm.com>
+:G: `zelalem-aweke`_
+:F: lib/extensions/pauth/
+
+Statistical Profiling Extension (SPE)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:M: Zelalem Aweke <Zelalem.Aweke@arm.com>
+:G: `zelalem-aweke`_
+:M: Jimmy Brisson <Jimmy.Brisson@arm.com>
+:F: lib/extensions/spe/
+
+Scalable Vector Extension (SVE)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:M: Jimmy Brisson <Jimmy.Brisson@arm.com>
+:F: lib/extensions/sve/
+
+Standard C library
+^^^^^^^^^^^^^^^^^^
+:M: Alexei Fedorov <alexei.fedorov@arm.com>
+:G: `AlexeiFedorov`_
+:M: John Powell <John.Powell@arm.com>
+:F: lib/libc/
+
+Library At ROM (ROMlib)
+^^^^^^^^^^^^^^^^^^^^^^^
+:M: Madhukar Pappireddy <Madhukar.Pappireddy@arm.com>
+:F: lib/romlib/
+
+Translation tables (``xlat_tables``) library
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:M: Javier Almansa Sobrino <Javier.AlmansaSobrino@arm.com>
+:M: Joao Alves <Joao.Alves@arm.com>
+:F: lib/xlat\_tables_\*/
+
+IO abstraction layer
+^^^^^^^^^^^^^^^^^^^^
+:M: Manish Pandey <manish.pandey2@arm.com>
+:G: `manish-pandey-arm`_
+:M: Olivier Deprez <olivier.deprez@arm.com>
+:G: `odeprez`_
+:F: drivers/io/
+
+GIC driver
+^^^^^^^^^^
+:M: Alexei Fedorov <alexei.fedorov@arm.com>
+:G: `AlexeiFedorov`_
+:M: Manish Pandey <manish.pandey2@arm.com>
+:G: `manish-pandey-arm`_
+:M: Madhukar Pappireddy <Madhukar.Pappireddy@arm.com>
+:M: Olivier Deprez <olivier.deprez@arm.com>
+:G: `odeprez`_
+:F: drivers/arm/gic/
+
+Libfdt wrappers
+^^^^^^^^^^^^^^^
+:M: Madhukar Pappireddy <Madhukar.Pappireddy@arm.com>
+:M: Manish Badarkhe <manish.badarkhe@arm.com>
+:G: `ManishVB-Arm`_
+:F: common/fdt_wrappers.c
 
 
 Platform Ports
@@ -309,8 +465,8 @@ Xilinx platform port
 :F: plat/xilinx/
 
 
-Secure Payload Dispatchers
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Secure Payloads and Dispatchers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 OP-TEE dispatcher
 ^^^^^^^^^^^^^^^^^
@@ -329,6 +485,44 @@ TLK/Trusty secure payloads
 :F: services/spd/tlkd/
 :F: services/spd/trusty/
 
+Test Secure Payload (TSP)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+:M: Manish Badarkhe <manish.badarkhe@arm.com>
+:G: `ManishVB-Arm`_
+:F: bl32/tsp/
+:F: services/spd/tspd/
+
+Tools
+~~~~~
+
+Fiptool
+^^^^^^^
+:M: Joao Alves <Joao.Alves@arm.com>
+:F: tools/fiptool/
+
+Cert_create tool
+^^^^^^^^^^^^^^^^
+:M: Sandrine Bailleux <sandrine.bailleux@arm.com>
+:G: `sandrine-bailleux-arm`_
+:F: tools/cert_create/
+
+Encrypt_fw tool
+^^^^^^^^^^^^^^^
+:M: Sumit Garg <sumit.garg@linaro.org>
+:F: tools/encrypt_fw/
+
+Sptool
+^^^^^^
+:M: Manish Pandey <manish.pandey2@arm.com>
+:G: `manish-pandey-arm`_
+:F: tools/sptool/
+
+Build system
+^^^^^^^^^^^^
+:M: Manish Pandey <manish.pandey2@arm.com>
+:G: `manish-pandey-arm`_
+:F: Makefile
+:F: make_helpers/
 
 .. _AlexeiFedorov: https://github.com/AlexeiFedorov
 .. _Andre-ARM: https://github.com/Andre-ARM
@@ -370,5 +564,10 @@ TLK/Trusty secure payloads
 .. _odeprez: https://github.com/odeprez
 .. _bipinravi-arm: https://github.com/bipinravi-arm
 .. _joannafarley-arm: https://github.com/joannafarley-arm
+.. _ManishVB-Arm: https://github.com/ManishVB-Arm
+.. _max-shvetsov: https://github.com/max-shvetsov
+.. _javieralso-arm: https://github.com/javieralso-arm
+.. _laurenw-arm: https://github.com/laurenw-arm
+.. _zelalem-aweke: https://github.com/zelalem-aweke
 
 .. _Project Maintenance Process: https://developer.trustedfirmware.org/w/collaboration/project-maintenance-process/
