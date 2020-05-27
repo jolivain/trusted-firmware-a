@@ -22,6 +22,30 @@
       "revId": "3a015c7682b9832c1ea75261d88a595ac42cb7fd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f17d66cf_ad521b5b",
+        "filename": "docs/about/maintainers.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-27T12:41:01Z",
+      "side": 1,
+      "message": "Indeed, the people you mention don\u0027t seem to have a Github account (or I could not find it) so I chose to leave it unspecified for the time being.\n\nTBH I wanted to remove these Github IDs because I think they are not so relevant today, as the project is now hosted on tf.org. But then I found out that we still have some scripts and CI jobs that rely on this information to be present in this file to add relevant reviewers to patches based on the list of files modified.\n\nSo I temporarily gave up on removing these Github IDs for the time being and would like to see whether we could make our scripts use some other user information (perhaps the email address) or remove these scripts altogether. That would be preferable IMO, especially as I think it is not mandatory to create a Github account to access this Gerrit server (it is mandatory for developer.trustefirmware.org, though), as can be seen today with John and other folks.\n\nI\u0027ve also heard about a Gerrit plugin that could suggest reviewers, not sure exactly how that works under the hood and on what criteria it bases its suggestions. That might be a better solution that having to maintain some CI scripts.\n\nI would also like to choose a format that is easier to read in raw form and renders better on ReadTheDocs (I find the rendering of :M: and :G: pretty ugly), and document that format in this file.\n\nThat\u0027s follow up work but I don\u0027t think any of these items are urgent.",
+      "parentUuid": "58ca161a_87ecf6ef",
+      "range": {
+        "startLine": 55,
+        "startChar": 1,
+        "endLine": 55,
+        "endChar": 37
+      },
+      "revId": "3a015c7682b9832c1ea75261d88a595ac42cb7fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
