@@ -34,6 +34,24 @@
       "revId": "0c392673dd786222ddd853e6b7c581744589617f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "556490ed_4bc9fd55",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-27T17:28:12Z",
+      "side": 1,
+      "message": "I think the comment is not accurate. If MDCR_EL3.SCCD is not 1, it indicates ARMv8.5-PMU is not implemented. I guess the comment mistakenly says ARMv8-PMU is not implemented. Please help to advise what is the value of the following field of the register ID_AA64DFR0_EL1 for your platform:\n1. PMUVer bit [11:8] \n2. DebugVer, bits [3:0]",
+      "parentUuid": "9d852e5a_6f41ffa5",
+      "revId": "0c392673dd786222ddd853e6b7c581744589617f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
