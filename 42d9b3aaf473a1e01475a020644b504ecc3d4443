@@ -22,6 +22,30 @@
       "revId": "42d9b3aaf473a1e01475a020644b504ecc3d4443",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f73960fc_935c5317",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000306
+      },
+      "writtenOn": "2020-05-27T09:24:15Z",
+      "side": 1,
+      "message": "This is a common pattern across the codebase. I see no reason yet why the compiler should swallow this loop. And then it would have to be addressed by changing the wfi definition, not this loop.",
+      "parentUuid": "3f2f0352_2bda1116",
+      "range": {
+        "startLine": 209,
+        "startChar": 8,
+        "endLine": 209,
+        "endChar": 12
+      },
+      "revId": "42d9b3aaf473a1e01475a020644b504ecc3d4443",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
