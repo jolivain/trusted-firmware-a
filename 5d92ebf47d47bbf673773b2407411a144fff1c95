@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c5ec60f_a0e74192",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-05-27T21:51:57Z",
+      "side": 1,
+      "message": "Only primary cpu will call plat_get_power_domain_tree_desc() as part of psci_setup(). As CPU0 is the primary cpu, is it necessary to get the cluster number explicitly? I am assuming CPU0 is always in cluster0.",
+      "revId": "5d92ebf47d47bbf673773b2407411a144fff1c95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
