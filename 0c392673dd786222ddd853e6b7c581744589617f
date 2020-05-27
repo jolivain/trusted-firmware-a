@@ -16,6 +16,24 @@
       "revId": "0c392673dd786222ddd853e6b7c581744589617f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d852e5a_6f41ffa5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-05-27T04:10:00Z",
+      "side": 1,
+      "message": "Denver CPUs do not support MDCR_EL3.SCCD bit to indicate support for ARMv8-PMU. This means that the PMCR_EL0 needs to saved.\n\nComment from context.S\n\n\t/* ----------------------------------------------------------\n\t * Check if earlier initialization MDCR_EL3.SCCD to 1 failed,\n\t * meaning that ARMv8-PMU is not implemented and PMCR_EL0\n\t * should be saved in non-secure context.\n\t * ----------------------------------------------------------\n\t */",
+      "parentUuid": "4ebdf620_fcdd9321",
+      "revId": "0c392673dd786222ddd853e6b7c581744589617f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
