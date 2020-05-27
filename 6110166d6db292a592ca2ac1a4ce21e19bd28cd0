@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "7cacaf33_e571b166",
+        "filename": "docs/plat/arm/tc0/index.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-05-27T10:13:50Z",
+      "side": 1,
+      "message": "The comment makes it clear but is not mentioned anywhere in the document?\nFollowing is my understanding, correct me if i am wrong.\nAP_BL2 loads SCP_BL2 to SRAM(accessible to both AP and SCP) and provides its base address/size to SCP_BL1 using SDS, SCP_BL1 then copies SCP_BL2 from SRAM to SCP\u0027s internal RAM.\nSince you know the platform inside out you can understand the boot process but for someone who is unknown to platform should digest the boot process of it reading through your document.",
+      "parentUuid": "1008ce2e_85726bc7",
+      "range": {
+        "startLine": 9,
+        "startChar": 42,
+        "endLine": 9,
+        "endChar": 60
+      },
+      "revId": "6110166d6db292a592ca2ac1a4ce21e19bd28cd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad39694d_786282d5",
         "filename": "docs/plat/arm/tc0/index.rst",
         "patchSetId": 7
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "SDS is shared data storage between SCP and AP. SDS has an element called BOOTLOADER, which can be used to communicate where the SCP RAM firmware is. \nFurther explanation of how SDS works can be seen by looking at the code in drivers/arm/css/sds/sds.c.\n\nI shouldnt explain in platform port how sds works, the platform just uses the driver which was written by TF-A team.",
       "parentUuid": "844eae2f_cc9a3565",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 25
+      },
+      "revId": "6110166d6db292a592ca2ac1a4ce21e19bd28cd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f29a97c3_751db6b8",
+        "filename": "docs/plat/arm/tc0/index.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-05-27T10:13:50Z",
+      "side": 1,
+      "message": "I know what SDS are used for and i was not asking you to explain SDS functionality(trivial).\nMy concern was related with the meaning of the line \"AP_BL2 loads the SCP_BL2 from FIP to SRAM using SDS\" Why AP_BL2 needs SDS to copy image from FIP to SRAM. Maybe breaking this in two separate statement will help.",
+      "parentUuid": "44dd79d5_fc943001",
       "range": {
         "startLine": 20,
         "startChar": 6,
