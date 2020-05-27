@@ -390,7 +390,7 @@ static ext_t cot_ext[] = {
 		.optional = 1
 	},
 	[SP_PKG5_HASH_EXT] = {
-		.oid = SP_PKG2_HASH_OID,
+		.oid = SP_PKG5_HASH_OID,
 		.opt = "sp-pkg5",
 		.help_msg = "Secure Partition Package5 file",
 		.sn = "SPPkg5Hash",
