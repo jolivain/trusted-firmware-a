@@ -90,8 +90,9 @@
 
 /* Define size of the array */
 #if defined(SPD_spmd)
+#define SP_CONTENT_CERT_ID		U(31)
 #define MAX_SP_IDS			U(8)
-#define MAX_NUMBER_IDS			MAX_SP_IDS + U(31)
+#define MAX_NUMBER_IDS			SP_CONTENT_CERT_ID + MAX_SP_IDS + 1
 #else
 #define MAX_NUMBER_IDS			U(31)
 #endif
