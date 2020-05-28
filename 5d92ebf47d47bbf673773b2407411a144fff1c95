@@ -16,6 +16,24 @@
       "revId": "5d92ebf47d47bbf673773b2407411a144fff1c95",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "935748a4_c9eef0d9",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-05-28T09:32:17Z",
+      "side": 1,
+      "message": "Yes, that is something that I considered, however I think it might be better to make the topology layer completely agnostic about which one is the primary CPU to reduce coupling. I guess the overload introduced by fpga_get_cpu_cluster is negligible, specially since this function is not called very often.\n\nBesides, if, for instance, it is decided to change FPGA_PRIMARY_CPU in the future for some reason, it would also be necessary to find out the cluster to which the new primary core belongs. As we should not make assumptions about the system topology for this platform, we would need to calculate the cluster dynamically anyway.",
+      "parentUuid": "8c5ec60f_a0e74192",
+      "revId": "5d92ebf47d47bbf673773b2407411a144fff1c95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
