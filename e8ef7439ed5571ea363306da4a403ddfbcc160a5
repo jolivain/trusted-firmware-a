@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65fb4b69_7fd3f364",
+        "filename": "plat/nvidia/tegra/include/t194/tegra194_ras_private.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-28T14:26:28Z",
+      "side": 1,
+      "message": "As these error codes and descriptions are architecturally-defined, I think they don\u0027t belong in a platform header file and should be moved to the RAS framework.\n\nSame goes for the tegra194_ras_serr2str() function.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 59
+      },
+      "revId": "e8ef7439ed5571ea363306da4a403ddfbcc160a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6a9b44b_86ec39d0",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-28T14:26:28Z",
+      "side": 1,
+      "message": "I question some uses of the assert() macro, where it seems to be used sometimes to check unexpected hardware state. IMO assert() should be reserved to programming errors (e.g. the ones that check that there are suitable auxiliary data associated to RAS nodes are fine).",
+      "revId": "e8ef7439ed5571ea363306da4a403ddfbcc160a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "871f7f96_62379740",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-28T14:26:28Z",
+      "side": 1,
+      "message": "What is the purpose of this lock? Are you trying to protect against multiple RAS nodes signaling errors at the same time on different CPUs? Even so, I guess a lock is only needed if this handler accesses data shared across CPUs, what are they in this case?",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 12
+      },
+      "revId": "e8ef7439ed5571ea363306da4a403ddfbcc160a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e9f0a78_635e8402",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-28T14:26:28Z",
+      "side": 1,
+      "message": "This function always return 0 at the moment. Should it return void instead?",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 10
+      },
+      "revId": "e8ef7439ed5571ea363306da4a403ddfbcc160a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ed1cbd5_19c9bf7e",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-28T14:26:28Z",
+      "side": 1,
+      "message": "Could these be const structures?",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 2
+      },
+      "revId": "e8ef7439ed5571ea363306da4a403ddfbcc160a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
