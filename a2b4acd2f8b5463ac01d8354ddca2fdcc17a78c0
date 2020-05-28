@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "fb4d8043_fd3d20fb",
+        "filename": "plat/qti/common/src/aarch64/qti_kryo4_gold.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "You mean because it\u0027s not marked .global? I think that\u0027s something we could fix for all the core CPU library files (in a separate patch) -- unless the folks from Arm would disagree? I think there\u0027s definitely value in trying to allow these sorts of derivative CPUs to reuse as much code as possible from the base CPU.\n\nI don\u0027t really understand the HW_ASSISTED_COHERENCY issue... why is sc7180 not using HW_ASSISTED_COHERENCY? It sounds like this is a feature that\u0027s just about whether the CPU supports it, and if it does it is purely beneficial so you would always want to enable it? So if Kryo4 is based of Cortex-A76, and Cortex-A76 can support HW_ASSISTED_COHERENCY, why can\u0027t we support it with Kryo4? Did you take out the hardware pieces needed for that when you adapted the CPU?\n\nOr is HW_ASSISTED_COHERENCY a feature that the whole system needs to support, so you could also have normal Cortex-A76 systems that don\u0027t support it? In that case, it sounds like just nobody has added the #if !HW_ASSISTED_COHERENCY support to cortex_a76.S, and we should do that now?",
+      "parentUuid": "73d0946a_44507c20",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b14051eb_9ec17c88",
         "filename": "plat/qti/common/src/aarch64/qti_kryo4_gold.S",
         "patchSetId": 1
@@ -561,6 +579,24 @@
     },
     {
       "key": {
+        "uuid": "cbc80e17_4001d01d",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "Sorry, I\u0027m not sure you understood what I meant... I\u0027m asking you to please upload a patch to fix this (if it is a generic bug in that function). I don\u0027t think anybody else is doing it yet. (If you write that patch in a local Git branch, then cherry-pick this sc7180 patch on top of it and upload that branch to Gerrit, Gerrit will automatically recognize there\u0027s an implicit dependency between the patches. That way you can develop the sc7180 patch with that fix in it already without having to wait for it to land.)",
+      "parentUuid": "67c3c5e6_eaf38947",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "51c7e168_f82ff9c1",
         "filename": "plat/qti/common/src/qti_common.c",
         "patchSetId": 1
@@ -631,6 +667,30 @@
       "side": 1,
       "message": "This was kept in mind futuristic approach where we may need va !\u003d pa",
       "parentUuid": "4b0af5c3_b54f8df0",
+      "range": {
+        "startLine": 133,
+        "startChar": 32,
+        "endLine": 133,
+        "endChar": 77
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "beda3611_4115b126",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "Let\u0027s not design APIs for use cases we don\u0027t have yet and just keep it simple for now. We can always add more complications later when we actually need it.",
+      "parentUuid": "8bde2f2b_0925f4ff",
       "range": {
         "startLine": 133,
         "startChar": 32,
@@ -953,6 +1013,24 @@
     },
     {
       "key": {
+        "uuid": "28ddf1b1_ae133084",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "(clarify not resolved yet)",
+      "parentUuid": "e9e19b86_d0a3ac62",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60ae6a12_98a1c7ad",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 1
@@ -1003,6 +1081,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcffc209_3df51d2f",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "(clarify not resolved yet)",
+      "parentUuid": "59e2ec44_9ce38f72",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
@@ -1532,6 +1628,24 @@
     },
     {
       "key": {
+        "uuid": "72d072dd_2791e288",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "Yeah, I know, but so is qtiseclib_psci_init()? It\u0027s called once before any non-boot CPUs is taken out of reset. So I\u0027m saying we could just add a (uintptr_t warmboot_entry) parameter to qtiseclib_psci_init(), then qtiseclib_psci_init() would write the passed value to those APSS registers (or call another function in qtiseclib to do it). That would just allow us to get rid of one more callback by bundling two things that are related anyway together, making this interface a little bit less complicated.",
+      "parentUuid": "bda804e0_ebc55409",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4497491c_742eeff3",
         "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
         "patchSetId": 1
@@ -1717,6 +1831,24 @@
       "side": 1,
       "message": "those are getting used.",
       "parentUuid": "62168ced_3fcc2c66",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27951083_9cb68f31",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "Yes, but not by qtiseclib, only by TF-A itself. So they don\u0027t need to be qtiseclib callbacks, they can be normal functions internal to TF-A.",
+      "parentUuid": "a84a37f0_08c73737",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true

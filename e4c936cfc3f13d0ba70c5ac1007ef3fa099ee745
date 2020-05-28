@@ -107,6 +107,47 @@
     },
     {
       "key": {
+        "uuid": "59ec61a1_5fc59ddd",
+        "filename": "docs/plat/qti.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "Please provide a link to where the real qtiseclib binary can be downloaded from (e.g. https://review.coreboot.org/cgit/blobs.git/tree/soc/qualcomm/sc7180/qtiseclib/ or wherever T.mike ends up putting it). Also, maybe one or two more sentences about what this is and why it is needed (proprietary code library implementing some important hardware initialization that isn\u0027t available in open source).",
+      "parentUuid": "c9b5de0f_c0c00e19",
+      "revId": "e4c936cfc3f13d0ba70c5ac1007ef3fa099ee745",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfc8d3bf_5cfb4271",
+        "filename": "plat/qti/common/inc/qti_uart_console.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "Like discussed over email, this needs to be CONSOLE_T_BASE now. I think it would be better to just get rid of QTI_CONSOLE_T_UART_BASE_OFF and use CONSOLE_T_BASE directly everywhere in the assembly code.",
+      "range": {
+        "startLine": 13,
+        "startChar": 38,
+        "endLine": 13,
+        "endChar": 55
+      },
+      "revId": "e4c936cfc3f13d0ba70c5ac1007ef3fa099ee745",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4d70ff33_f7bc1f81",
         "filename": "plat/qti/common/src/aarch64/qti_helpers.S",
         "patchSetId": 4
@@ -387,6 +428,23 @@
     },
     {
       "key": {
+        "uuid": "65e40808_fafe6980",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "This looks like dead code? In my version of qtiseclib, this call isn\u0027t even implemented.",
+      "revId": "e4c936cfc3f13d0ba70c5ac1007ef3fa099ee745",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a47bc68_e22a1e12",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 4
@@ -419,6 +477,91 @@
       "revId": "e4c936cfc3f13d0ba70c5ac1007ef3fa099ee745",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f46bb163_80793136",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_interface_stub.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "Please put something like\n\n ERROR(\"TF-A built without libqtisec.a proprietary library.\\n\");\n ERROR(\"See docs/plat/qti.rst for details.\\n\");\n ERROR(\"This firmware cannot boot. Hanging now...\\n\");\n while (1);\n\nhere to help people that run into this.",
+      "revId": "e4c936cfc3f13d0ba70c5ac1007ef3fa099ee745",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c00eb43_64b3396f",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_interface_stub.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "Need to return 1 (or anything other than 0) here then so that the boot process can proceed until qtiseclib_bl31_platform_setup() is able to display a message.",
+      "revId": "e4c936cfc3f13d0ba70c5ac1007ef3fa099ee745",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56088a88_e0146714",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "Please don\u0027t tie this to the normal ${DEBUG} flag which already controls a dozen other things. Let\u0027s pass QTI_DEBUG_BUILD\u003d1 explicitly on the make command line to enable this and check for that here.",
+      "revId": "e4c936cfc3f13d0ba70c5ac1007ef3fa099ee745",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a79653c_305c92ef",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "Build options in TF-A should always be defined and either be 1 or 0. So just do:\n\n QTI_DEBUG_BUILD :\u003d 0\n $(eval $(call assert_boolean,QTI_DEBUG_BUILD))\n $(eval $(call add_define,QTI_DEBUG_BUILD))\n\nThen it should be 0 by default but can be overridden by passing QTI_DEBUG_BUILD\u003d1 on the make command line.\n\nThis means you will have to change all #ifdef QTI_DEBUG_BUILD to #if QTI_DEBUG_BUILD.",
+      "revId": "e4c936cfc3f13d0ba70c5ac1007ef3fa099ee745",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd2023b3_5a200850",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-05-28T02:17:52Z",
+      "side": 1,
+      "message": "Should also refer to docs/plat/qti.rst here so we can centralize the explanation how to find qtiseclib in one place.",
+      "revId": "e4c936cfc3f13d0ba70c5ac1007ef3fa099ee745",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
