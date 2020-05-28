@@ -168,6 +168,11 @@ Common build options
    Note that Pointer Authentication is enabled for Non-secure world irrespective
    of the value of this flag if the CPU supports it.
 
+- ``CTX_INCLUDE_NEVE_REGS``: Boolean option that, when set to 1, enables
+  Nested Virtualization extensions for Secure world. This will cause the
+  Armv8.4-NV registers to be included when entering/exiting an EL2 execution
+  context. Default value is 0.
+
 -  ``DEBUG``: Chooses between a debug and release build. It can take either 0
    (release) or 1 (debug) as values. 0 is the default.
 
