@@ -197,6 +197,8 @@ static int intel_fpga_config_start(uint32_t type)
 
 	if (config == FULL_CONFIG) {
 		is_full_reconfig = true;
+	} else if (config == BITSTREAM_AUTH) {
+		size = 1;
 	}
 
 	mailbox_clear_response();
