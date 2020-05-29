@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "33e626a1_584175a7",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-29T12:45:41Z",
+      "side": 1,
+      "message": "\u003e I guess, you are talking about the assert on line 113.\n\nYes, as well as lines 200 and 201.\n\n\u003e This was introduced to catch scenarios where the register did not register the writes. It has been immensely helpful for pre-silicon platforms during development and debugging issues at the HW level.\n\nAlright, I just thought I would point it out, in case you\u0027d like to change the error handling in these cases. But if they\u0027ve proved useful and you think it\u0027s best to keep them, it\u0027s your call!",
+      "parentUuid": "a1e8aafc_686e8116",
+      "revId": "e8ef7439ed5571ea363306da4a403ddfbcc160a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "871f7f96_62379740",
         "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
         "patchSetId": 8
@@ -119,6 +137,30 @@
       "side": 1,
       "message": "The SERR is received by all CPUs at the same time and we want to serialize the error record reads.",
       "parentUuid": "871f7f96_62379740",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 12
+      },
+      "revId": "e8ef7439ed5571ea363306da4a403ddfbcc160a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b49ca910_431f1385",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-05-29T12:45:41Z",
+      "side": 1,
+      "message": "OK, perhaps this is worth mentioning in a comment at line 28?\n\nIs this specific to your platform or way of configuring the RAS nodes, or is it always the case that all CPUs receive the SError at the same time? Sorry for the naive question, I am not very familiar with the RAS framework and still ramping up.\n\nI was originally worried that other platforms using RAS might have the same requirement but forget the lock. Although on second thoughts, I guess it would show very quickly and would not be very hard to debug.\n\nAlso, it seems like the other upstream platforms enabling RAS support (Renesas rcar, Marvell a3700) do not read the error records and just process the arguments passed to the EA hander (syndrome and the like) so I guess they\u0027re fine.",
+      "parentUuid": "3b27e446_eedc0bb0",
       "range": {
         "startLine": 42,
         "startChar": 0,
