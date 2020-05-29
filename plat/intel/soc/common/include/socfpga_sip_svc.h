@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, Intel Corporation. All rights reserved.
+ * Copyright (c) 2019-2022, Intel Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -65,6 +65,11 @@ struct fpga_config_info {
 	int subblocks_sent;
 	int block_number;
 };
+
+typedef enum {
+	FULL_CONFIG = 0,
+	PARTIAL_CONFIG,
+} config_type;
 
 /* Function Definitions */
 
