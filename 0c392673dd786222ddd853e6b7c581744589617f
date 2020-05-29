@@ -52,6 +52,24 @@
       "revId": "0c392673dd786222ddd853e6b7c581744589617f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b940ccf8_c3973df4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-05-29T21:38:19Z",
+      "side": 1,
+      "message": "ID_AA64DFR0_EL1 \u003d 0x10305408 on Tegra194 platforms, which translates to\n\nPMUVer, bits [11:8] \u003d 4 (PMUv3 for Armv8.1)\nDebugVer, bits [3:0] \u003d 8 (Armv8.2 debug architecture)",
+      "parentUuid": "556490ed_4bc9fd55",
+      "revId": "0c392673dd786222ddd853e6b7c581744589617f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
