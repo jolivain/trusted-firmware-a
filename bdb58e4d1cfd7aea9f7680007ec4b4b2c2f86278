@@ -22,6 +22,29 @@
       "revId": "bdb58e4d1cfd7aea9f7680007ec4b4b2c2f86278",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dfee61f_ea746b6c",
+        "filename": "drivers/arm/gic/v3/gic600.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-05-29T14:06:39Z",
+      "side": 1,
+      "message": "Define a gicr_read_iidr access function in gicv3_private.h?\nsimilar to gicr_read_ctlr, gicr_read_typer, gicr_read_waker",
+      "range": {
+        "startLine": 125,
+        "startChar": 16,
+        "endLine": 125,
+        "endChar": 52
+      },
+      "revId": "bdb58e4d1cfd7aea9f7680007ec4b4b2c2f86278",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
