@@ -94,7 +94,7 @@ struct entry_point_info *bl31_plat_get_next_image_ep_info(uint32_t type)
  * while creating page tables. BL2 has flushed this information to memory, so
  * we are guaranteed to pick up good data.
  ******************************************************************************/
-void __init arm_bl31_early_platform_setup(void *from_bl2, uintptr_t soc_fw_config,
+void __init arm_bl31_early_platform_setup(void *from_bl2, uintptr_t fw_config,
 				uintptr_t hw_config, void *plat_params_from_bl2)
 {
 	/* Initialize the console to provide early debug support */

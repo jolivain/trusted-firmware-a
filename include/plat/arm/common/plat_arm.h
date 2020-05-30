@@ -23,6 +23,7 @@
 struct meminfo;
 struct image_info;
 struct bl_params;
+struct bl_mem_params_node;
 
 typedef struct arm_tzc_regions_info {
 	unsigned long long base;
@@ -198,6 +199,7 @@ uint32_t arm_get_spsr_for_bl33_entry(void);
 int arm_bl2_plat_handle_post_image_load(unsigned int image_id);
 int arm_bl2_handle_post_image_load(unsigned int image_id);
 struct bl_params *arm_get_next_bl_params(void);
+struct bl_mem_params_node *arm_plat_get_image_node(unsigned int image_id);
 
 /* BL2 at EL3 functions */
 void arm_bl2_el3_early_platform_setup(void);
@@ -210,7 +212,7 @@ void arm_bl2u_platform_setup(void);
 void arm_bl2u_plat_arch_setup(void);
 
 /* BL31 utility functions */
-void arm_bl31_early_platform_setup(void *from_bl2, uintptr_t soc_fw_config,
+void arm_bl31_early_platform_setup(void *from_bl2, uintptr_t fw_config,
 				uintptr_t hw_config, void *plat_params_from_bl2);
 void arm_bl31_platform_setup(void);
 void arm_bl31_plat_runtime_setup(void);
