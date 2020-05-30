@@ -10,6 +10,8 @@
 #include <common/bl_common.h>
 #include <common/desc_image_load.h>
 #include <common/tbbr/tbbr_img_def.h>
+#include <lib/fconf/fconf.h>
+#include <lib/fconf/fconf_dyn_cfg_getter.h>
 
 static bl_load_info_t bl_load_info;
 static bl_params_t next_bl_params;
@@ -217,6 +219,7 @@ void populate_next_bl_params_config(bl_params_t *bl2_to_next_bl_params)
 	uintptr_t fw_config_base;
 	bl_mem_params_node_t *mem_params;
 	uintptr_t hw_config_base = 0;
+	struct dyn_cfg_dtb_info_t *fw_config_info;
 
 	assert(bl2_to_next_bl_params != NULL);
 
@@ -236,7 +239,7 @@ void populate_next_bl_params_config(bl_params_t *bl2_to_next_bl_params)
 
 		switch (params_node->image_id) {
 		case BL31_IMAGE_ID:
-			fw_config_id = SOC_FW_CONFIG_ID;
+			fw_config_id = FW_CONFIG_ID;
 			break;
 		case BL32_IMAGE_ID:
 		/*
@@ -261,6 +264,13 @@ void populate_next_bl_params_config(bl_params_t *bl2_to_next_bl_params)
 			mem_params = get_bl_mem_params_node(fw_config_id);
 			if (mem_params != NULL) {
 				fw_config_base = mem_params->image_info.image_base;
+			}
+		}
+
+		if (fw_config_id == FW_CONFIG_ID) {
+			fw_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, FW_CONFIG_ID);
+			if (fw_config_info != NULL) {
+				fw_config_base = fw_config_info->config_addr;
 			}
 		}
 
