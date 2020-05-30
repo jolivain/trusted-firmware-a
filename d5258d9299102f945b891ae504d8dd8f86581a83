@@ -70,6 +70,30 @@
       "revId": "d5258d9299102f945b891ae504d8dd8f86581a83",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eea11112_c6470402",
+        "filename": "lib/cpus/aarch64/dsu_helpers.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-05-30T16:15:37Z",
+      "side": 1,
+      "message": "Previously, ret defaults to x30 value as it was not mentioned explicitly with x0 updated to status whether to apply errata or not.\n\nAs you introduced function call\u003cis_scu_present_in_dsu\u003e, Just nice to have comment to mention that this function returns to LR value stored in x8.",
+      "parentUuid": "171a9140_81dd3aa0",
+      "range": {
+        "startLine": 120,
+        "startChar": 1,
+        "endLine": 120,
+        "endChar": 7
+      },
+      "revId": "d5258d9299102f945b891ae504d8dd8f86581a83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
