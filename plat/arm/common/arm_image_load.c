@@ -141,3 +141,22 @@ struct bl_params *plat_get_next_bl_params(void)
 	return arm_get_next_bl_params();
 }
 
+/*******************************************************************************
+ * arm_plat_get_image_node() -  Linear search for the image_id and returns its
+ *				param_node
+ * @image_id:		image_id for which param_node to be retrieved
+ *
+ * Return the param_node of given image_id or NULL on error.
+ ******************************************************************************/
+struct bl_mem_params_node *arm_plat_get_image_node(unsigned int image_id)
+{
+	unsigned int index = 0;
+
+	while (bl_mem_params_desc_ptr[index].image_id != INVALID_IMAGE_ID) {
+		if (bl_mem_params_desc_ptr[index].image_id == image_id)
+			return &bl_mem_params_desc_ptr[index];
+		index++;
+	}
+
+	return NULL;
+}
