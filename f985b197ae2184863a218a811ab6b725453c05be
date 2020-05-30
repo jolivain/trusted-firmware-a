@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "201a8f8c_4f970374",
+        "filename": "drivers/st/fmc/stm32_fmc2_nand.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-05-30T12:13:10Z",
+      "side": 1,
+      "message": "You\u0027re right. Thanks.\nI\u0027ll add a panic() in case of timeout.",
+      "parentUuid": "1935c9cd_9be084d1",
+      "range": {
+        "startLine": 868,
+        "startChar": 1,
+        "endLine": 868,
+        "endChar": 23
+      },
+      "revId": "f985b197ae2184863a218a811ab6b725453c05be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c716346_7a12a407",
         "filename": "drivers/st/spi/stm32_qspi.c",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-05-27T19:20:36Z",
       "side": 1,
       "message": "No error handling here in case of timeout?",
+      "range": {
+        "startLine": 498,
+        "startChar": 1,
+        "endLine": 498,
+        "endChar": 23
+      },
+      "revId": "f985b197ae2184863a218a811ab6b725453c05be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e614b682_e2877e46",
+        "filename": "drivers/st/spi/stm32_qspi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-05-30T12:13:10Z",
+      "side": 1,
+      "message": "indeed, will fix.\nthanks.",
+      "parentUuid": "9c716346_7a12a407",
       "range": {
         "startLine": 498,
         "startChar": 1,
