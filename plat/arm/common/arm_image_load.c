@@ -140,4 +140,3 @@ struct bl_params *plat_get_next_bl_params(void)
 {
 	return arm_get_next_bl_params();
 }
-

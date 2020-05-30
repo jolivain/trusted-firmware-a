@@ -8,17 +8,29 @@
 #include <common/debug.h>
 #include <drivers/arm/smmu_v3.h>
 #include <lib/fconf/fconf.h>
+#include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <plat/arm/common/arm_config.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 
 #include "fvp_private.h"
 
-uintptr_t hw_config_dtb;
-
 void __init bl31_early_platform_setup2(u_register_t arg0,
 		u_register_t arg1, u_register_t arg2, u_register_t arg3)
 {
+#if !RESET_TO_BL31 && !BL2_AT_EL3
+	const struct dyn_cfg_dtb_info_t *soc_fw_config_info;
+
+	INFO("BL31 FCONF: FW_CONFIG address = %lx\n", (uintptr_t)arg1);
+	/* Fill the properties struct with the info from the config dtb */
+	fconf_populate("FW_CONFIG", arg1);
+
+	soc_fw_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, SOC_FW_CONFIG_ID);
+	if (soc_fw_config_info != NULL) {
+		arg1 = soc_fw_config_info->config_addr;
+	}
+#endif /* !RESET_TO_BL31 && !BL2_AT_EL3 */
+
 	arm_bl31_early_platform_setup((void *)arg0, arg1, arg2, (void *)arg3);
 
 	/* Initialize the platform config for future decision making */
@@ -45,8 +57,6 @@ void __init bl31_early_platform_setup2(u_register_t arg0,
 	/* On FVP RevC, initialize SMMUv3 */
 	if ((arm_config.flags & ARM_CONFIG_FVP_HAS_SMMUV3) != 0U)
 		smmuv3_init(PLAT_FVP_SMMUV3_BASE);
-
-	hw_config_dtb = arg2;
 }
 
 void __init bl31_plat_arch_setup(void)
@@ -59,9 +69,12 @@ void __init bl31_plat_arch_setup(void)
 	 * control is passed to BL31.
 	 */
 #if !RESET_TO_BL31 && !BL2_AT_EL3
-	assert(hw_config_dtb != 0U);
+	/* HW_CONFIG was also loaded by BL2 */
+	struct dyn_cfg_dtb_info_t *hw_config_info;
 
-	INFO("BL31 FCONF: HW_CONFIG address = %p\n", (void *)hw_config_dtb);
-	fconf_populate("HW_CONFIG", hw_config_dtb);
+	hw_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, HW_CONFIG_ID);
+	if (hw_config_info != NULL) {
+		fconf_populate("HW_CONFIG", hw_config_info->config_addr);
+	}
 #endif
 }
