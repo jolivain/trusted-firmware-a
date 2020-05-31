@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd7c52c6_02eee12d",
+        "filename": "drivers/st/scmi-msg/base.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-05-31T00:14:54Z",
+      "side": 1,
+      "message": "Is this required? Since this is the first contribution to the file, does it make sense to use only the Linaro copyright?",
+      "range": {
+        "startLine": 3,
+        "startChar": 3,
+        "endLine": 3,
+        "endChar": 78
+      },
+      "revId": "9e46930cd8e1ca0aa1c28004b261c54b4f487292",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
