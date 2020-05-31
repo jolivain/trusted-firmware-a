@@ -118,6 +118,23 @@
       "revId": "d5258d9299102f945b891ae504d8dd8f86581a83",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e72834ee_78edabf0",
+        "filename": "lib/cpus/aarch64/dsu_helpers.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-05-31T10:08:03Z",
+      "side": 1,
+      "message": "@Pramod please use \u0027x19\u0027(callee saved register) to stash \u0027x30\u0027 to be ABI complaint. We cant assume implementation of the overriding function.",
+      "revId": "d5258d9299102f945b891ae504d8dd8f86581a83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
