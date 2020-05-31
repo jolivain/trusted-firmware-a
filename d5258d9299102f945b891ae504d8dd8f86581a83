@@ -94,6 +94,30 @@
       "revId": "d5258d9299102f945b891ae504d8dd8f86581a83",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af4f8c2f_39bd3e73",
+        "filename": "lib/cpus/aarch64/dsu_helpers.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000327
+      },
+      "writtenOn": "2020-05-31T07:21:06Z",
+      "side": 1,
+      "message": "Thanks for review, Manish. I don\u0027t feel its worth of commenting as its general practice. I\u0027ve not seen anyone/anywhere doing this. See below function errata_dsu_936184_wa.",
+      "parentUuid": "eea11112_c6470402",
+      "range": {
+        "startLine": 120,
+        "startChar": 1,
+        "endLine": 120,
+        "endChar": 7
+      },
+      "revId": "d5258d9299102f945b891ae504d8dd8f86581a83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
