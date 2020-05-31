@@ -14,7 +14,7 @@
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
-void fconf_load_config(unsigned int image_id)
+int fconf_load_config(unsigned int image_id)
 {
 	int err;
 	struct dyn_cfg_dtb_info_t *config_info;
@@ -34,9 +34,8 @@ void fconf_load_config(unsigned int image_id)
 	err = load_auth_image(image_id, &image_info);
 	if (err != 0) {
 		/* Return if FW_CONFIG is not loaded */
-		VERBOSE("Failed to load config %d, continuing without it\n",
-			image_id);
-		return;
+		VERBOSE("Failed to load config %d\n", image_id);
+		return err;
 	}
 
 #ifdef IMAGE_BL1
@@ -49,7 +48,7 @@ void fconf_load_config(unsigned int image_id)
 		desc->ep_info.args.arg0 = image_info.image_base;
 	}
 #endif
-
+	return 0;
 }
 
 void fconf_populate(const char *config_type, uintptr_t config)

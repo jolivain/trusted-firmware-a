@@ -44,7 +44,7 @@ struct fconf_populator {
 };
 
 /* Load a firmware configuration dtb */
-void fconf_load_config(unsigned int config_id);
+int fconf_load_config(unsigned int config_id);
 
 /* Top level populate function
  *

@@ -12,6 +12,7 @@
 #include <bl1/bl1.h>
 #include <common/bl_common.h>
 #include <lib/fconf/fconf.h>
+#include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables_compat.h>
 #include <plat/arm/common/plat_arm.h>
@@ -142,11 +143,40 @@ void bl1_plat_arch_setup(void)
  */
 void arm_bl1_platform_setup(void)
 {
+	struct dyn_cfg_dtb_info_t *fw_config_info;
+	int err;
+
 	/* Initialise the IO layer and register platform IO devices */
 	plat_arm_io_setup();
 
-	/* Fill the properties struct with the info from the config dtb */
-	fconf_load_config(FW_CONFIG_ID);
+	/* Fill the device tree information struct with the info from the config dtb */
+	err = fconf_load_config(FW_CONFIG_ID);
+	if (err < 0) {
+		ERROR("Loading of FW_CONFIG failed %d\n", err);
+		return;
+	}
+
+	/*
+	 * FW_CONFIG loaded successfully. If FW_CONFIG device tree parsing
+	 * is successful then load TB_FW_CONFIG device tree.
+	 */
+	fw_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, FW_CONFIG_ID);
+	if (fw_config_info != NULL) {
+		err = populate_dtb_registry(fw_config_info->config_addr);
+		if (err < 0) {
+			ERROR("Parsing of FW_CONFIG failed %d\n", err);
+			return;
+		}
+		/* load TB_FW_CONFIG */
+		err = fconf_load_config(TB_FW_CONFIG_ID);
+		if (err < 0) {
+			ERROR("Loading of TB_FW_CONFIG failed %d\n", err);
+			return;
+		}
+	} else {
+		ERROR("Invalid FW_CONFIG address\n");
+		return;
+	}
 
 #if TRUSTED_BOARD_BOOT
 	/* Share the Mbed TLS heap info with other images */
