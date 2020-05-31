@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "31284539_1c81b864",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000306
+      },
+      "writtenOn": "2020-05-31T05:22:36Z",
+      "side": 1,
+      "message": "It is bug to return an error from a PSCI service call that does not allow to return at all. It\u0027s spec incompliant.",
+      "parentUuid": "b38e1ab4_cf41a57e",
+      "range": {
+        "startLine": 9,
+        "startChar": 46,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "42d9b3aaf473a1e01475a020644b504ecc3d4443",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3f2f0352_2bda1116",
         "filename": "plat/ti/k3/common/k3_psci.c",
         "patchSetId": 2
