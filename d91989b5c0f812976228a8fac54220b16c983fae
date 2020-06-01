@@ -22,6 +22,30 @@
       "revId": "d91989b5c0f812976228a8fac54220b16c983fae",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4ffffe3_72608ca4",
+        "filename": "lib/psci/aarch64/psci_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-06-01T21:34:59Z",
+      "side": 1,
+      "message": "Moreover, I believe this platform specific makefile parameter has no effect here. In my local builds, toggling BL31_CACHE_DISABLE between 0 and 1 had no difference in the output assembly code.",
+      "parentUuid": "0ded3c82_904f8e62",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 23
+      },
+      "revId": "d91989b5c0f812976228a8fac54220b16c983fae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
