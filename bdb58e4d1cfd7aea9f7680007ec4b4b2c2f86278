@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c3495b3e_2d08a559",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-01T17:24:41Z",
+      "side": 1,
+      "message": "Sorry, but I fail to see the need for this change until we unify the drivers. Platforms using gic600.c have already made the decision to remove all support for gic500. So adding a runtime check to detect gic600 from gic600.c doesnt make sense to me.",
+      "parentUuid": "8a6b4576_12468a96",
+      "range": {
+        "startLine": 14,
+        "startChar": 21,
+        "endLine": 14,
+        "endChar": 68
+      },
+      "revId": "bdb58e4d1cfd7aea9f7680007ec4b4b2c2f86278",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "757aa3b2_b70aad80",
         "filename": "drivers/arm/gic/v3/gic600.c",
         "patchSetId": 7
@@ -191,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "204d7f36_67457229",
+        "filename": "drivers/arm/gic/v3/gic600.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-01T17:24:41Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "279076bd_ea9dc804",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 48
+      },
+      "revId": "bdb58e4d1cfd7aea9f7680007ec4b4b2c2f86278",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1dfee61f_ea746b6c",
         "filename": "drivers/arm/gic/v3/gic600.c",
         "patchSetId": 7
@@ -297,6 +345,30 @@
       "side": 1,
       "message": "There are platforms like the FPGA or the fastmodel where we DO NOT necessarily know which GIC implementation we have. The idea is to have a generic BL31 binary, which can be used to boot a variety of FPGA bitfiles, for instance. We already read the MMIO base addresses (for UART and GIC) from the DT.\nAnd as this patch shows, it\u0027s very easy to do this autodetection, as a GIC implementation identifies itself.\n\nIn the long run this platform might become a truly generic target, either for simple platforms like custom emulators, or as a starting point for a proper platform port. We can now support multiple UART models (see rpi4), so could cover 8250s (or Tegra UARTs) as well, for instance.",
       "parentUuid": "b8412fb1_d657cc25",
+      "range": {
+        "startLine": 138,
+        "startChar": 1,
+        "endLine": 140,
+        "endChar": 2
+      },
+      "revId": "bdb58e4d1cfd7aea9f7680007ec4b4b2c2f86278",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e621907_8ed5ae33",
+        "filename": "drivers/arm/gic/v3/gic600.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-01T17:24:41Z",
+      "side": 1,
+      "message": "I understand the plan. But I disagree with the execution. I believe, the best approach would be to unify the drivers and then add this auto-detection logic there. There would be some churn, but I dont see a way around it.",
+      "parentUuid": "9ac20471_6ba0dab5",
       "range": {
         "startLine": 138,
         "startChar": 1,
