@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d812899_8d8bb3f4",
+        "filename": "plat/common/aarch64/platform_mp_stack.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-06-01T12:35:38Z",
+      "side": 1,
+      "message": "I don\u0027t think it would be good to assume that CPU 0 is always the primary one. Wouldn\u0027t it be safer to use plat_is_my_cpu_primary() here, rather than plat_my_core_pos() and assume that the primary CPU might have any index?",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 8
+      },
+      "revId": "34dd1e96fdae59d56d19a8d1270a03860af9f015",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
