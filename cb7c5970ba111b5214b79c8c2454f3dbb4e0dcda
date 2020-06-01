@@ -68,6 +68,30 @@
       "revId": "cb7c5970ba111b5214b79c8c2454f3dbb4e0dcda",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7699649_0defb0d0",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-01T21:37:46Z",
+      "side": 1,
+      "message": "Ignore above comment, just realized that its not the correct way.",
+      "parentUuid": "f4c7a27c_c7b71bce",
+      "range": {
+        "startLine": 34,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 15
+      },
+      "revId": "cb7c5970ba111b5214b79c8c2454f3dbb4e0dcda",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
