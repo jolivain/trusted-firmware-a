@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8a6b4576_12468a96",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-06-01T08:58:46Z",
+      "side": 1,
+      "message": "But the whole reason this file exists and all the code in there is still the GIC-600. I honestly believe the whole GIC \"driver\" idea in TF-A needs some overhaul, but wanted to keep the churn low for this patch.\nThere were ideas to unify the GIC-500 and GIC-600 driver, but traditionally some users want the most minimal platform support in their firmware, so strongly push for code that just fits their purpose.\nAnyway we can always unify this code later, once it has received more testing.",
+      "parentUuid": "6e42554e_d9d09c1b",
+      "range": {
+        "startLine": 14,
+        "startChar": 21,
+        "endLine": 14,
+        "endChar": 68
+      },
+      "revId": "bdb58e4d1cfd7aea9f7680007ec4b4b2c2f86278",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "757aa3b2_b70aad80",
         "filename": "drivers/arm/gic/v3/gic600.c",
         "patchSetId": 7
@@ -143,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "279076bd_ea9dc804",
+        "filename": "drivers/arm/gic/v3/gic600.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-06-01T08:58:46Z",
+      "side": 1,
+      "message": "Yeah, I moved PRODUCT_MASK into the header, and the ARM product ID up this file.",
+      "parentUuid": "a3fd2553_3a437d15",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 48
+      },
+      "revId": "bdb58e4d1cfd7aea9f7680007ec4b4b2c2f86278",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1dfee61f_ea746b6c",
         "filename": "drivers/arm/gic/v3/gic600.c",
         "patchSetId": 7
@@ -225,6 +273,30 @@
       "writtenOn": "2020-05-30T23:06:48Z",
       "side": 1,
       "message": "I am not sure, I understand. This code resides inside the gic600.c file, so why do we need this check? Platforms using gic500 should not be compiling this code anyways. Am I missing something?",
+      "range": {
+        "startLine": 138,
+        "startChar": 1,
+        "endLine": 140,
+        "endChar": 2
+      },
+      "revId": "bdb58e4d1cfd7aea9f7680007ec4b4b2c2f86278",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ac20471_6ba0dab5",
+        "filename": "drivers/arm/gic/v3/gic600.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-06-01T08:58:46Z",
+      "side": 1,
+      "message": "There are platforms like the FPGA or the fastmodel where we DO NOT necessarily know which GIC implementation we have. The idea is to have a generic BL31 binary, which can be used to boot a variety of FPGA bitfiles, for instance. We already read the MMIO base addresses (for UART and GIC) from the DT.\nAnd as this patch shows, it\u0027s very easy to do this autodetection, as a GIC implementation identifies itself.\n\nIn the long run this platform might become a truly generic target, either for simple platforms like custom emulators, or as a starting point for a proper platform port. We can now support multiple UART models (see rpi4), so could cover 8250s (or Tegra UARTs) as well, for instance.",
+      "parentUuid": "b8412fb1_d657cc25",
       "range": {
         "startLine": 138,
         "startChar": 1,
