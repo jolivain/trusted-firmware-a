@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0e1e1f50_a72773f8",
+        "filename": "drivers/st/etzpc/etzpc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-06-02T10:46:59Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t see what\u0027s wrong with this ordering.\nCould you help me understanding the issue?",
+      "parentUuid": "d0cdfeaf_82c32409",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "1707a1307b3000a836916ed8f4952e259c061464",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15e305d3_e863802a",
         "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-06-02T10:20:29Z",
       "side": 1,
       "message": "Static check failed, change it to 2017-2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "1707a1307b3000a836916ed8f4952e259c061464",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7917811_679d263c",
+        "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-06-02T10:46:59Z",
+      "side": 1,
+      "message": "ok, I\u0027ll fix that. \nThanks",
+      "parentUuid": "15e305d3_e863802a",
       "range": {
         "startLine": 2,
         "startChar": 17,
