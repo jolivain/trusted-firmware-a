@@ -12,6 +12,7 @@
 #include <fconf_hw_config_getter.h>
 #include <lib/utils.h>
 #include <plat/arm/common/plat_arm.h>
+#include <plat/arm/common/fconf_sec_intr_config.h>
 #include <plat/common/platform.h>
 
 /* The GICv3 driver only needs to be initialized in EL3 */
@@ -61,7 +62,10 @@ static gicv3_driver_data_t fvp_gic_data = {
 
 void plat_arm_gic_driver_init(void)
 {
-	/* Get GICD and GICR base addressed through FCONF APIs */
+	/*
+	 * Get GICD and GICR base addressed through FCONF APIs.
+	 * FCONF is not supported in BL32 for FVP.
+	 */
 #if (!defined(__aarch64__) && defined(IMAGE_BL32)) || \
 	(defined(__aarch64__) && defined(IMAGE_BL31))
 	fvp_gic_data.gicd_base = (uintptr_t)FCONF_GET_PROPERTY(hw_config,
@@ -69,6 +73,12 @@ void plat_arm_gic_driver_init(void)
 							       gicd_base);
 	fvp_gicr_base_addrs[0] = FCONF_GET_PROPERTY(hw_config, gicv3_config,
 						    gicr_base);
+#if SEC_INT_DESC_IN_FCONF
+	fvp_gic_data.interrupt_props = FCONF_GET_PROPERTY(hw_config,
+					sec_intr_prop, descriptor);
+	fvp_gic_data.interrupt_props_num = FCONF_GET_PROPERTY(hw_config,
+					sec_intr_prop, count);
+#endif
 #else
 	fvp_gic_data.gicd_base = PLAT_ARM_GICD_BASE;
 	fvp_gicr_base_addrs[0] = PLAT_ARM_GICR_BASE;
