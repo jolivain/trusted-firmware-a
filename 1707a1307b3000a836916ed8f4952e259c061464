@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "154232b4_09336805",
+        "filename": "drivers/st/etzpc/etzpc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-06-03T06:57:23Z",
+      "side": 1,
+      "message": "ok, thanks. \ni will update the change accordingly.",
+      "parentUuid": "c17c0268_9f944add",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "1707a1307b3000a836916ed8f4952e259c061464",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15e305d3_e863802a",
         "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
         "patchSetId": 1
