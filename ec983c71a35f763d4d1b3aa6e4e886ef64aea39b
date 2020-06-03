@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3aca8eef_95826cb0",
+        "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-03T11:19:08Z",
+      "side": 1,
+      "message": "Static check again failed, failure message \n\"ERROR: License ID error in include/dt-bindings/soc/st,stm32-etzpc.h\"\n\nFrom the static check script it appears either you can have\n\"GPL-2.0+ OR BSD-2-Clause-FreeBSD\" or  \"GPL-2.0+ OR BSD-3-Clause\"(in many ST files) \n\nRefer to docs/license.rst line 74.\n\nIf you prefer to keep it as is then i need to add exception in script?",
+      "range": {
+        "startLine": 4,
+        "startChar": 3,
+        "endLine": 4,
+        "endChar": 52
+      },
+      "revId": "ec983c71a35f763d4d1b3aa6e4e886ef64aea39b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
