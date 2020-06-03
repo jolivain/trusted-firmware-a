@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59c84076_f77de229",
+        "filename": "drivers/arm/gic/v3/gic-x00.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-03T00:53:01Z",
+      "side": 1,
+      "message": "Hi. I dont fully understand the need for this macro. Is this required to reduce the code size for platforms using gic500?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 24
+      },
+      "revId": "ee1b534fcd82d4e6c0c5a8cf079043cd5c2986a1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
