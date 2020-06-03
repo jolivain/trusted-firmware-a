@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "52a285ba_a9b1cc94",
+        "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-06-03T13:43:15Z",
+      "side": 1,
+      "message": "By the way, despite TF-A\u0027s style goes like the current patchset, I think I should use here the informally agreed DT bindngs header file way:\n\n/* SPDX-License-Identifier: GPL-2.0+ OR BSD-3-Clause */\n/*\n * Copyright (C) 2017-2020, STMicroelectronics - All Rights Reserved\n */\n\n\nYou opinion on this: I preserved current patchset proposal?\nor i used the multi-comment dt-bindings/*/*.h way ?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 2
+      },
+      "revId": "ec983c71a35f763d4d1b3aa6e4e886ef64aea39b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3aca8eef_95826cb0",
         "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
         "patchSetId": 4
@@ -43,6 +66,46 @@
         "endLine": 4,
         "endChar": 52
       },
+      "revId": "ec983c71a35f763d4d1b3aa6e4e886ef64aea39b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "563d2215_c4acf3c8",
+        "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-06-03T13:43:15Z",
+      "side": 1,
+      "message": "dual spaces... here and there, arrrg!\nI\u0027ll fix.",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 4
+      },
+      "revId": "ec983c71a35f763d4d1b3aa6e4e886ef64aea39b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf407303_04d2f812",
+        "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-06-03T13:43:15Z",
+      "side": 1,
+      "message": "looks like I should remove empty lines...",
       "revId": "ec983c71a35f763d4d1b3aa6e4e886ef64aea39b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
