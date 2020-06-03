@@ -22,6 +22,30 @@
       "revId": "ec983c71a35f763d4d1b3aa6e4e886ef64aea39b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c19c8e6_730cb771",
+        "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-06-03T12:54:10Z",
+      "side": 1,
+      "message": "I think the script should be updated.\n\nEspecially regarding dt-bindings header files. Looking into Linux kernel v5.5 source tree, over 465 header files found in include/dt-bindings/, 34 are GPLv2.0(+) OR MIT, 2 are GPLv2.0(+) OR BSD-2-Clause and 11 are GPLv2.0(+) OR BSD-2-Clause.\nSuch header files are generic and TF-A should not impose a specific license as soon as the license model complies with TF-A licensing model, which MIT and BSD-2-Clause license models do.\n\nThat said, maybe this specific st,stm32-etzpc.h could be released under GPLv2.0+ OR BSD-3-Clause.\n@Yann Gautier, your opinion on this?",
+      "parentUuid": "3aca8eef_95826cb0",
+      "range": {
+        "startLine": 4,
+        "startChar": 3,
+        "endLine": 4,
+        "endChar": 52
+      },
+      "revId": "ec983c71a35f763d4d1b3aa6e4e886ef64aea39b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
