@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "daadeb0c_b210f1f6",
+        "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-06-03T14:23:32Z",
+      "side": 1,
+      "message": "Slightly different than libfdt in that dt-bindings files can have various licensing models.\nOf course, files imported in TF-A should be in a permissive compliant license to match TF-A, even if OR\u0027ed with some other license(s).",
+      "parentUuid": "9ed90872_9726d001",
+      "range": {
+        "startLine": 4,
+        "startChar": 3,
+        "endLine": 4,
+        "endChar": 52
+      },
+      "revId": "ec983c71a35f763d4d1b3aa6e4e886ef64aea39b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "563d2215_c4acf3c8",
         "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
         "patchSetId": 4
