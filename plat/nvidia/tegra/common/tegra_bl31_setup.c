@@ -370,13 +370,22 @@ int32_t bl31_check_ns_address(uint64_t base, uint64_t size_in_bytes)
 	int32_t ret = 0;
 
 	/*
+	 * Sanity check the input values
+	 */
+	if ((base == 0U) || (size_in_bytes == 0U)) {
+		ERROR("NS address 0x%llx (%lld bytes) is invalid\n",
+			base, size_in_bytes);
+		return -EINVAL;
+	}
+
+	/*
 	 * Check if the NS DRAM address is valid
 	 */
 	if ((base < TEGRA_DRAM_BASE) || (base >= TEGRA_DRAM_END) ||
 	    (end > TEGRA_DRAM_END)) {
 
 		ERROR("NS address 0x%llx is out-of-bounds!\n", base);
-		ret = -EFAULT;
+		return -EFAULT;
 	}
 
 	/*
@@ -385,7 +394,7 @@ int32_t bl31_check_ns_address(uint64_t base, uint64_t size_in_bytes)
 	 */
 	if ((base < (uint64_t)TZDRAM_END) && (end > tegra_bl31_phys_base)) {
 		ERROR("NS address 0x%llx overlaps TZDRAM!\n", base);
-		ret = -ENOTSUP;
+		return -ENOTSUP;
 	}
 
 	/* valid NS address */
