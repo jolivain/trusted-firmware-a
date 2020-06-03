@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b735eea0_6e923a63",
+        "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-06-03T14:02:32Z",
+      "side": 1,
+      "message": "I\u0027ve have fixed the issue, as the right license i should have used is indeed \"GPL-2.0+ OR BSD-3-Clause\".\n\nCase closed. I\u0027ll tag this comment thread as resolved.\n\nHowever, I think the static check should consider files from include/dt-bindings as specific regarding the license identified tag.",
+      "parentUuid": "9c19c8e6_730cb771",
+      "range": {
+        "startLine": 4,
+        "startChar": 3,
+        "endLine": 4,
+        "endChar": 52
+      },
+      "revId": "ec983c71a35f763d4d1b3aa6e4e886ef64aea39b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "563d2215_c4acf3c8",
         "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
         "patchSetId": 4
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7db961ab_9a40735b",
+        "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-06-03T14:02:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "563d2215_c4acf3c8",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 4
+      },
+      "revId": "ec983c71a35f763d4d1b3aa6e4e886ef64aea39b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf407303_04d2f812",
         "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
         "patchSetId": 4
@@ -109,6 +157,24 @@
       "revId": "ec983c71a35f763d4d1b3aa6e4e886ef64aea39b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7737fa91_41938e02",
+        "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-06-03T14:02:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf407303_04d2f812",
+      "revId": "ec983c71a35f763d4d1b3aa6e4e886ef64aea39b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
