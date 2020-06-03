@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "9ed90872_9726d001",
+        "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-03T14:12:19Z",
+      "side": 1,
+      "message": "Do you think \"include/dt-bindings\" can be classified similar to that of libfdt, as far as licence is concerned? \nRefer to line 60 in docs/license.rst",
+      "parentUuid": "b735eea0_6e923a63",
+      "range": {
+        "startLine": 4,
+        "startChar": 3,
+        "endLine": 4,
+        "endChar": 52
+      },
+      "revId": "ec983c71a35f763d4d1b3aa6e4e886ef64aea39b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "563d2215_c4acf3c8",
         "filename": "include/dt-bindings/soc/st,stm32-etzpc.h",
         "patchSetId": 4
