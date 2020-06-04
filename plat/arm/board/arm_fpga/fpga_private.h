@@ -7,9 +7,13 @@
 #ifndef FPGA_PRIVATE_H
 #define FPGA_PRIVATE_H
 
+#include "../fpga_def.h"
+
 #define C_RUNTIME_READY_KEY (0xaa55aa55)
 
 #ifndef __ASSEMBLER__
+extern unsigned char fpga_power_domain_tree_desc[FPGA_MAX_CLUSTER_COUNT + 2];
+
 unsigned int plat_fpga_calc_core_pos(u_register_t mpidr);
 
 void fpga_console_init(void);
