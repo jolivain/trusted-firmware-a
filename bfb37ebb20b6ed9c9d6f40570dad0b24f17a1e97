@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c797b61f_20cc2b37",
+        "filename": "tools/cert_create/include/dualroot/cot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-04T08:22:15Z",
+      "side": 1,
+      "message": "Just thinking ahead... For now, this patch deals with secure partitions owned by the SiP only. At some point, I guess we\u0027ll add support for SPs owned by the platform owner as well. What will we call its certificate then? SECURE_PARTITION_CONTENT_CERT is pretty generic and does not mention the owner. Should we perhaps anticipate the name conflict and call it something like SIP_SECURE_PARTITION_CONTENT_CERT (vs PLAT_SECURE_PARTITION_CONTENT_CERT for example)?",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 31
+      },
+      "revId": "bfb37ebb20b6ed9c9d6f40570dad0b24f17a1e97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37f09838_fc31850d",
+        "filename": "tools/fiptool/tbbr_config.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-04T08:22:15Z",
+      "side": 1,
+      "message": "(minor) Should we choose a shorter option name, like --sp-cert? It\u0027s just for consistency with other options, which abbreviate image names.",
+      "range": {
+        "startLine": 157,
+        "startChar": 19,
+        "endLine": 157,
+        "endChar": 40
+      },
+      "revId": "bfb37ebb20b6ed9c9d6f40570dad0b24f17a1e97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
