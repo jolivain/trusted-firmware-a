@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7334505_193852da",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:57:26Z",
+      "side": 1,
+      "message": "If I understand correctly this arrow should point to \"Trusted World Public Key\" which mentions that \"Trusted Key Certificate\" contains \"Trusted World Public Key\".",
+      "range": {
+        "startLine": 24,
+        "startChar": 29,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "3047350900f76b437d4b15ea06b4b3a315f8e788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "297907a2_ee19980f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:57:26Z",
+      "side": 1,
+      "message": "What this indicate?",
+      "range": {
+        "startLine": 39,
+        "startChar": 21,
+        "endLine": 39,
+        "endChar": 22
+      },
+      "revId": "3047350900f76b437d4b15ea06b4b3a315f8e788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b905280f_23554f33",
+        "filename": "drivers/auth/dualroot/cot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:57:26Z",
+      "side": 1,
+      "message": "nit: Can we remove this extra line?",
+      "revId": "3047350900f76b437d4b15ea06b4b3a315f8e788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b31a87d5_75d194e2",
+        "filename": "drivers/auth/tbbr/tbbr_cot_bl2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:57:26Z",
+      "side": 1,
+      "message": "nit: Can we remove this extra line?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 0
+      },
+      "revId": "3047350900f76b437d4b15ea06b4b3a315f8e788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31d2c9da_b90a3900",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:57:26Z",
+      "side": 1,
+      "message": "nit: Can this be guarded under define? Though I can see populate of this property inside the code is guarded under \"SPD_spmd\".",
+      "range": {
+        "startLine": 114,
+        "startChar": 3,
+        "endLine": 114,
+        "endChar": 23
+      },
+      "revId": "3047350900f76b437d4b15ea06b4b3a315f8e788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
