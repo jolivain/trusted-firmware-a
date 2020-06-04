@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ea75102_90e26215",
+        "filename": "fdts/fvp-base-gicv3-psci-common.dtsi",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:19:02Z",
+      "side": 1,
+      "message": "nit: Please provide comment for these properties. Ignore if you think it is not needed.",
+      "range": {
+        "startLine": 73,
+        "startChar": 3,
+        "endLine": 74,
+        "endChar": 22
+      },
+      "revId": "e78f1970884700e8a73cecbe0946b127bf965fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70774b93_b4318f39",
+        "filename": "include/plat/arm/common/fconf_sec_intr_config.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:19:02Z",
+      "side": 1,
+      "message": "Just curious to know, how this count is decided?",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 28
+      },
+      "revId": "e78f1970884700e8a73cecbe0946b127bf965fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9720f7f_a9ee170b",
+        "filename": "plat/arm/board/fvp/fvp_gicv3.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:19:02Z",
+      "side": 1,
+      "message": "IMO, we need to avoid this static assignment when SEC_INT_DESC_IN_FCONF is defined.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 56
+      },
+      "revId": "e78f1970884700e8a73cecbe0946b127bf965fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b5745d9_415ee892",
+        "filename": "plat/arm/common/fconf/fconf_sec_intr_config.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:19:02Z",
+      "side": 1,
+      "message": "return \u0027node\u0027 instead?\nAs \u0027node\u0027 value gives error code instead of offset when error occured.",
+      "range": {
+        "startLine": 44,
+        "startChar": 9,
+        "endLine": 44,
+        "endChar": 11
+      },
+      "revId": "e78f1970884700e8a73cecbe0946b127bf965fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48c2492b_ec66e57f",
+        "filename": "plat/arm/common/fconf/fconf_sec_intr_config.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:19:02Z",
+      "side": 1,
+      "message": "return \u0027err\u0027 instead?",
+      "range": {
+        "startLine": 51,
+        "startChar": 9,
+        "endLine": 51,
+        "endChar": 11
+      },
+      "revId": "e78f1970884700e8a73cecbe0946b127bf965fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5388ce9a_956ba522",
+        "filename": "plat/arm/common/fconf/fconf_sec_intr_config.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:19:02Z",
+      "side": 1,
+      "message": "return \u0027err\u0027 instead?",
+      "range": {
+        "startLine": 65,
+        "startChar": 9,
+        "endLine": 65,
+        "endChar": 11
+      },
+      "revId": "e78f1970884700e8a73cecbe0946b127bf965fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7bba9dd_d6592afe",
+        "filename": "plat/arm/common/fconf/fconf_sec_intr_config.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:19:02Z",
+      "side": 1,
+      "message": "nit: Remove extra blank line",
+      "revId": "e78f1970884700e8a73cecbe0946b127bf965fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47971f4d_dcc4c064",
+        "filename": "plat/arm/common/fconf/fconf_sec_intr_config.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:19:02Z",
+      "side": 1,
+      "message": "Just curious to know, do we have any rule to declare variable inside the loop? \n\nAs I can see declaring variable inside the loop seems to be less error-prone and restrict its usage inside the loop. It is always best practice to declare variable within smallest scope.\n\nIs it mandatory to declare the variable inside the loop when we know the variable is not getting used outside of the loop?",
+      "range": {
+        "startLine": 118,
+        "startChar": 2,
+        "endLine": 118,
+        "endChar": 37
+      },
+      "revId": "e78f1970884700e8a73cecbe0946b127bf965fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b79bdd04_c7ae8b37",
+        "filename": "plat/arm/common/fconf/fconf_sec_intr_config.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:19:02Z",
+      "side": 1,
+      "message": "nit: Can you return \u0027err\u0027 just for completeness?",
+      "range": {
+        "startLine": 129,
+        "startChar": 8,
+        "endLine": 129,
+        "endChar": 9
+      },
+      "revId": "e78f1970884700e8a73cecbe0946b127bf965fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc53fd7f_2f7e68e7",
+        "filename": "plat/arm/common/fconf/fconf_sec_intr_config.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-04T03:19:02Z",
+      "side": 1,
+      "message": "nit: Remove extra blank line",
+      "revId": "e78f1970884700e8a73cecbe0946b127bf965fdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
