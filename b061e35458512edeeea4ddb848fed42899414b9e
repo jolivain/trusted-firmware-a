@@ -333,6 +333,30 @@
     },
     {
       "key": {
+        "uuid": "fc042dc8_57059e8e",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-04T16:18:24Z",
+      "side": 1,
+      "message": "arm_bl2_get_hash() renamed to bl2_plat_get_hash(). Your previous comment about \u0027ptr\u0027 disregarded.",
+      "parentUuid": "436b41a9_2f159b43",
+      "range": {
+        "startLine": 134,
+        "startChar": 2,
+        "endLine": 134,
+        "endChar": 18
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a3cb77c_d39f6b30",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -404,6 +428,30 @@
     },
     {
       "key": {
+        "uuid": "ed05ca86_0ec0a1e0",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-04T16:18:24Z",
+      "side": 1,
+      "message": "Added\nassert(name !\u003d NULL);",
+      "parentUuid": "3f46757a_6c6cfa06",
+      "range": {
+        "startLine": 145,
+        "startChar": 46,
+        "endLine": 145,
+        "endChar": 50
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "48f13193_9877b9de",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -451,6 +499,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "1ff5d90b_5137f745",
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22b3e0f6_c725a157",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-04T16:18:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9f564e15_98a0298f",
       "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -552,6 +618,30 @@
     },
     {
       "key": {
+        "uuid": "f223f734_1e81ce79",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-04T16:18:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0bcf8430_bc517b9a",
+      "range": {
+        "startLine": 162,
+        "startChar": 2,
+        "endLine": 163,
+        "endChar": 10
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8a71cf8_6baf4363",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -599,6 +689,30 @@
     },
     {
       "key": {
+        "uuid": "17615a72_2df21f76",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-04T16:18:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a37a6e8_09420c43",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 10
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b2d1095_0025b08a",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -613,6 +727,24 @@
       "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88ce997f_9da3c84a",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-04T16:18:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b2d1095_0025b08a",
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -687,6 +819,30 @@
     },
     {
       "key": {
+        "uuid": "4c147081_98c27c96",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-04T16:18:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a1de2019_975878aa",
+      "range": {
+        "startLine": 250,
+        "startChar": 3,
+        "endLine": 250,
+        "endChar": 36
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8bfb0ce_0433dcfc",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -734,6 +890,30 @@
     },
     {
       "key": {
+        "uuid": "bbd313a3_23cee889",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-04T16:18:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8635bceb_ba45937e",
+      "range": {
+        "startLine": 255,
+        "startChar": 10,
+        "endLine": 255,
+        "endChar": 52
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fddf5917_abd9df8d",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -763,6 +943,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "fddf5917_abd9df8d",
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebe8aa78_fb7135dc",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-04T16:18:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88563dbe_fe002bd5",
       "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -816,6 +1014,30 @@
     },
     {
       "key": {
+        "uuid": "cbf4783c_3dcc8a3c",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-04T16:18:24Z",
+      "side": 1,
+      "message": "renamed to plat_set_tos_fw_info()",
+      "parentUuid": "fb0649b8_7202d5cf",
+      "range": {
+        "startLine": 288,
+        "startChar": 7,
+        "endLine": 288,
+        "endChar": 26
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4573e290_3ad8a09e",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 4
@@ -851,6 +1073,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "4573e290_3ad8a09e",
+      "range": {
+        "startLine": 307,
+        "startChar": 6,
+        "endLine": 307,
+        "endChar": 24
+      },
+      "revId": "b061e35458512edeeea4ddb848fed42899414b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f98f1e2_45d242a5",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-04T16:18:24Z",
+      "side": 1,
+      "message": "renamed to plat_set_nt_fw_info()",
+      "parentUuid": "c637359c_324c9866",
       "range": {
         "startLine": 307,
         "startChar": 6,
