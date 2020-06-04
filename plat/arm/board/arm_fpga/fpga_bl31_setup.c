@@ -6,6 +6,7 @@
 
 #include <assert.h>
 
+#include <common/fdt_fixup.h>
 #include <common/fdt_wrappers.h>
 #include <drivers/delay_timer.h>
 #include <drivers/generic_delay_timer.h>
@@ -191,6 +192,12 @@ static void fpga_prepare_dtb(void)
 				ERROR("Could not set command line: %d\n", err);
 			}
 		}
+	}
+
+	err = fdt_add_topology_tree(fdt, plat_get_power_domain_tree_desc());
+	if (err < 0) {
+		ERROR("Error %d extending Device Tree\n", err);
+		panic();
 	}
 
 	err = fdt_pack(fdt);

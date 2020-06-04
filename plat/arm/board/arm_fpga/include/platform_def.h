@@ -85,4 +85,18 @@
 #define PLAT_FPGA_HOLD_STATE_WAIT	0
 #define PLAT_FPGA_HOLD_STATE_GO		1
 
-#endif
+#ifndef __ASSEMBLER__
+
+/*******************************************************************************
+ * plat_get_mpidr_by_core_pos() - Calculate an MPIDR based on a CPUID
+ * @id:			Id of the node.
+ *
+ * Return the MPIDR of of the requested node or INVALID_NODE if the node
+ * does not exist.
+ *
+ * TODO: Move this function the the platform mandatory functions?
+ */
+uint32_t plat_get_mpidr_by_core_pos(unsigned int id);
+
+#endif /* __ASSEMBLER__ */
+#endif /* PLATFORM_DEF_H */

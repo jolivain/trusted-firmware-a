@@ -75,3 +75,28 @@ int plat_core_pos_by_mpidr(u_register_t mpidr)
 
 	return core_pos;
 }
+
+uint32_t plat_get_mpidr_by_core_pos(unsigned int id)
+{
+	unsigned int afflv0, afflv1, afflv2;
+	uint32_t mpidr;
+
+	if (id > PLATFORM_CORE_COUNT) {
+		return INVALID_MPID;
+	}
+
+	if (fpga_valid_mpids[id] != VALID_MPID) {
+		return INVALID_MPID;
+	}
+
+	afflv0 = id % FPGA_MAX_PE_PER_CPU;
+	afflv1 = (id / FPGA_MAX_PE_PER_CPU) % FPGA_MAX_CPUS_PER_CLUSTER;
+	afflv2 = id % (FPGA_MAX_PE_PER_CPU * FPGA_MAX_CPUS_PER_CLUSTER);
+
+	mpidr = (afflv0 << MPIDR_AFF0_SHIFT) |
+		(afflv1 << MPIDR_AFF1_SHIFT) |
+		(afflv2 << MPIDR_AFF2_SHIFT) |
+		(read_mpidr_el1() & MPIDR_MT_MASK);
+
+	return mpidr;
+}
