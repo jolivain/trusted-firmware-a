@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "da9cbeb3_e39705b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-04T09:11:33Z",
+      "side": 1,
+      "message": "(minor) Perhaps you could also mention that the SP Content Certificate is protected against anti-rollback using the Trusted Non-Volatile Counter.",
+      "revId": "3047350900f76b437d4b15ea06b4b3a315f8e788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7334505_193852da",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -48,6 +65,23 @@
     },
     {
       "key": {
+        "uuid": "64260b9a_52f1bef6",
+        "filename": "drivers/auth/dualroot/cot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-04T09:11:33Z",
+      "side": 1,
+      "message": "(minor) We could probably reduce the amount of code added in this file if we used some preprocessor magic that generates some of the SP packages information (as most of the time, only the SP package number differs across the lines).",
+      "revId": "3047350900f76b437d4b15ea06b4b3a315f8e788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b905280f_23554f33",
         "filename": "drivers/auth/dualroot/cot.c",
         "patchSetId": 4
@@ -59,6 +93,23 @@
       "writtenOn": "2020-06-04T03:57:26Z",
       "side": 1,
       "message": "nit: Can we remove this extra line?",
+      "revId": "3047350900f76b437d4b15ea06b4b3a315f8e788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf033c7c_cd8b4931",
+        "filename": "drivers/auth/tbbr/tbbr_cot_bl2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-04T09:11:33Z",
+      "side": 1,
+      "message": "Same concern as I raised in the 1st patch in the series, I think we should leave the TBBR CoT unchanged, as the TBBR specifications makes no mention of secure partitions.",
       "revId": "3047350900f76b437d4b15ea06b4b3a315f8e788",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -81,6 +132,52 @@
         "startChar": 0,
         "endLine": 40,
         "endChar": 0
+      },
+      "revId": "3047350900f76b437d4b15ea06b4b3a315f8e788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37977bb6_c1020e66",
+        "filename": "include/export/common/tbbr/tbbr_img_def_exp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-04T09:11:33Z",
+      "side": 1,
+      "message": "This is not something introduced in this patch but I\u0027ve just noticed this line... This header file is an export header intended to be included in 3rd-party code which needs to interact with TF-A data structures or interfaces. As such, it should not have dependencies on TF-A build options. See the README file in include/export/:\n\n They must not rely on any macro definitions other than those which are\n pre-defined by all common compilers (e.g. __ASSEMBLER__ or __aarch64__).\n\nIf we really need to redefine some of these macros based on SPD_spmd, I believe the right approach would be to do that in common/tbbr/tbbr_img_def.h. We could do something like:\n\n #include \u003cexport/common/tbbr/tbbr_img_def_exp.h\u003e\n \n #if defined(SPD_spmd)\n #undef MAX_NUMBER_IDS\n #define SP_CONTENT_CERT_ID\t\tU(31)\n #define MAX_SP_IDS\t\t\tU(8)\n #define MAX_NUMBER_IDS\t\t\t(SP_CONTENT_CERT_ID + MAX_SP_IDS + 1)\n #endif",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 21
+      },
+      "revId": "3047350900f76b437d4b15ea06b4b3a315f8e788",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3790845f_36edce86",
+        "filename": "include/export/common/tbbr/tbbr_img_def_exp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-04T09:11:33Z",
+      "side": 1,
+      "message": "Enclose this in parentheses.",
+      "range": {
+        "startLine": 95,
+        "startChar": 25,
+        "endLine": 95,
+        "endChar": 60
       },
       "revId": "3047350900f76b437d4b15ea06b4b3a315f8e788",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
