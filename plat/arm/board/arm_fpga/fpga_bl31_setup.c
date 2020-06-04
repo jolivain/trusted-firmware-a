@@ -6,6 +6,7 @@
 
 #include <assert.h>
 
+#include <common/fdt_fixup.h>
 #include <common/fdt_wrappers.h>
 #include <drivers/delay_timer.h>
 #include <drivers/generic_delay_timer.h>
@@ -126,6 +127,30 @@ unsigned int plat_get_syscnt_freq2(void)
 
 	return fdt_read_uint32_default(fdt, node, "clock-frequency",
 				       FPGA_DEFAULT_TIMER_FREQUENCY);
+}
+
+static void fpga_prepare_dtb(void)
+{
+	int err;
+	void *fdt = (void *)(uintptr_t)FPGA_PRELOADED_DTB_BASE;
+
+	/* TODO: Parametrize the size of the new fdt buffer */
+	err = fdt_open_into(fdt, fdt, 0x100000);
+	if (err < 0) {
+		ERROR("Invalid Device Tree at %p: error %d\n", fdt, err);
+		panic();
+	}
+
+	err = fdt_add_topology_tree(fdt, plat_get_power_domain_tree_desc());
+	if (err < 0) {
+		ERROR("Error %d extending Device Tree\n", err);
+		panic();
+	}
+}
+
+void bl31_plat_runtime_setup(void)
+{
+	fpga_prepare_dtb();
 }
 
 void bl31_plat_enable_mmu(uint32_t flags)
