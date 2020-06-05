@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e5acd0d_c115df49",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-05T17:19:32Z",
+      "side": 1,
+      "message": "Why do you need this? No data are written here.",
+      "revId": "388aa922816122d5a8ef17ca741f4063b7cdc083",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a57ead93_04bc881d",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-05T17:19:32Z",
+      "side": 1,
+      "message": "ls \u003d \"Unsigned lower or same\". It should panic if x5 \u003d FPGA_MAX_CPUS_PER_CLUSTER.",
+      "revId": "388aa922816122d5a8ef17ca741f4063b7cdc083",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c51b6c8_9f2680a2",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-05T17:19:32Z",
+      "side": 1,
+      "message": "\u003d 0UL",
+      "revId": "388aa922816122d5a8ef17ca741f4063b7cdc083",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
