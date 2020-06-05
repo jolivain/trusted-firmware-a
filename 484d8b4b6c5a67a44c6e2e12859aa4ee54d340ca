@@ -34,6 +34,24 @@
       "revId": "484d8b4b6c5a67a44c6e2e12859aa4ee54d340ca",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32949d06_f9bc0c00",
+        "filename": "include/tools_share/firmware_image_package.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-06-05T16:03:34Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s part of CI+2, so this would escape to daily CI.\nYes I think you can add this way.",
+      "parentUuid": "6744fa59_e58a1b38",
+      "revId": "484d8b4b6c5a67a44c6e2e12859aa4ee54d340ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
