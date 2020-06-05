@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7f22aba4_a7ee17df",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-05T17:41:17Z",
+      "side": 1,
+      "message": "I am not sure if i understood clearly your comments but the reason why i kept it under SPM flag is not to unnecssary increase the static memory usage in non SPM cases.\n\nEnabling SPM requires to increase number image hashes in a certificate.\nYes i agree that it will increase auth_get_param() in tbbr case because COT_MAX_VERIFIED_PARAMS  is currently being shared by both tbbr and dualroot, if you want i can think of defining it for both cases differently.\n\nPlease let me know if i completly misunderstood your comments.",
+      "parentUuid": "2ce96bd1_37b1369a",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 6
+      },
+      "revId": "1a16f4e2f67c7aaa2b687ce65f9ec598ddc65a93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "476ece80_891d4ec7",
         "filename": "include/common/tbbr/tbbr_img_def.h",
         "patchSetId": 7
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "6e4d099d_848d5a26",
+        "filename": "include/common/tbbr/tbbr_img_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-05T17:41:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1526f770_83b1710a",
+      "range": {
+        "startLine": 13,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 6
+      },
+      "revId": "1a16f4e2f67c7aaa2b687ce65f9ec598ddc65a93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "086f7437_7878b3c0",
         "filename": "include/drivers/auth/auth_mod.h",
         "patchSetId": 7
@@ -116,6 +164,30 @@
       "revId": "1a16f4e2f67c7aaa2b687ce65f9ec598ddc65a93",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e17bcd9_32067902",
+        "filename": "include/drivers/auth/auth_mod.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-05T17:41:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "086f7437_7878b3c0",
+      "range": {
+        "startLine": 56,
+        "startChar": 33,
+        "endLine": 56,
+        "endChar": 34
+      },
+      "revId": "1a16f4e2f67c7aaa2b687ce65f9ec598ddc65a93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
