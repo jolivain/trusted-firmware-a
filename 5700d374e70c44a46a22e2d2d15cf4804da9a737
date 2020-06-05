@@ -778,6 +778,24 @@
     },
     {
       "key": {
+        "uuid": "dd6729a8_560485d8",
+        "filename": "include/drivers/measured_boot/tcg.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-05T14:58:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60f4c11e_79bea800",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bfd7952_1df4ef4a",
         "filename": "plat/arm/common/arm_dyn_cfg.c",
         "patchSetId": 7
@@ -825,6 +843,24 @@
       "side": 1,
       "message": "Imagine if this c file was a library, and a caller had only a header file. How would the caller know what size the buffer should be ? There is no issue with the memcpy. if you pass void *data[TCG_DIGEST_SIZE], the compiler has a chance of catching it, if a caller uses any other size.",
       "parentUuid": "f1568268_9e054d0a",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29aea4a8_a9cf4aa4",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-05T14:58:15Z",
+      "side": 1,
+      "message": "\"void *data[TCG_DIGEST_SIZE]\" is an array of TCG_DIGEST_SIZE void pointers.\n\nThe correct type is \"uint8_t (*data)[TCG_DIGEST_SIZE]\", but because arm_bl2_get_hash() is called from bl2_plat_get_hash(void *data) which gets called from add_event2():\n\tif (hash \u003d\u003d NULL) {\n\t\t/* Get BL2 hash from DTB */\n\t\tbl2_plat_get_hash(ptr);\n...\nwith\n        uint8_t *ptr \u003d log_ptr;\n\nwhich later set to point to \n\t/* TCG_PCR_EVENT2.Digests[].Digest[] */\n\tptr +\u003d offsetof(tpmt_ha, digest);\n\ncompiler has no way to check that ptr points to \"uint8_t buffer[TCG_DIGEST_SIZE]\" and does not generate any errors/warnings.",
+      "parentUuid": "846b2415_382b328d",
       "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
