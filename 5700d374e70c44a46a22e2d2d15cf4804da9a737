@@ -178,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "125e9fba_3d41e388",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-05T12:29:59Z",
+      "side": 1,
+      "message": "Now record_measurement() has parameter \u003cconst image_data_t images_data[]\u003e to pass platform specific image ids and image_data.",
+      "parentUuid": "23042383_2f94effb",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcbf54e7_bb3074d0",
         "filename": "drivers/measured_boot/event_log.c",
         "patchSetId": 7
