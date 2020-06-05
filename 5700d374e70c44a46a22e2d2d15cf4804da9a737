@@ -407,6 +407,24 @@
     },
     {
       "key": {
+        "uuid": "89cc19db_d3bda276",
+        "filename": "drivers/measured_boot/event_print.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-05T15:18:44Z",
+      "side": 1,
+      "message": "Returns of error codes are replaced with assert().",
+      "parentUuid": "bab92a12_7e513380",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ed60bc0_d6818c36",
         "filename": "drivers/measured_boot/event_print.c",
         "patchSetId": 7
@@ -475,6 +493,24 @@
       "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e880c6a_7f4a4b71",
+        "filename": "drivers/measured_boot/event_print.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-05T15:18:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63e0ee6f_c7b3a932",
+      "revId": "5700d374e70c44a46a22e2d2d15cf4804da9a737",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
