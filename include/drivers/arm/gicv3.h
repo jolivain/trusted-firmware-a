@@ -332,6 +332,16 @@ static inline uint32_t gicv3_get_pending_interrupt_id_sel1(void)
 
 static inline void gicv3_end_of_interrupt_sel1(unsigned int id)
 {
+	/*
+	 * Interrupt request deassertion from peripheral to GIC happens
+	 * by clearing interrupt condition by a write to the peripheral
+	 * register. It is desired that the write transfer is complete
+	 * before the core tries to change GIC state from 'AP/Active' to
+	 * a new state on seeing 'EOI write'.
+	 * Since ICC interface writes are not ordered against Device
+	 * memory writes, a barrier is required to ensure the ordering.
+	 */
+	dsbishst();
 	write_icc_eoir1_el1(id);
 }
 
@@ -345,6 +355,16 @@ static inline uint32_t gicv3_acknowledge_interrupt(void)
 
 static inline void gicv3_end_of_interrupt(unsigned int id)
 {
+	/*
+	 * Interrupt request deassertion from peripheral to GIC happens
+	 * by clearing interrupt condition by a write to the peripheral
+	 * register. It is desired that the write transfer is complete
+	 * before the core tries to change GIC state from 'AP/Active' to
+	 * a new state on seeing 'EOI write'.
+	 * Since ICC interface writes are not ordered against Device
+	 * memory writes, a barrier is required to ensure the ordering.
+	 */
+	dsbishst();
 	return write_icc_eoir0_el1(id);
 }
 
