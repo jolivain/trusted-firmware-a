@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb7a4460_a22c14d6",
+        "filename": "plat/arm/common/fconf/fconf_sec_intr_config.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-06-05T20:59:12Z",
+      "side": 1,
+      "message": "Misra might complain about this since it\u0027s an unsigned variable being compared to a signed value.",
+      "range": {
+        "startLine": 55,
+        "startChar": 5,
+        "endLine": 55,
+        "endChar": 22
+      },
+      "revId": "2006d71ac1a36c1279fd304cbb0027dd81482e52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
