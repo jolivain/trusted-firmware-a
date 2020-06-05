@@ -16,6 +16,24 @@
       "revId": "484d8b4b6c5a67a44c6e2e12859aa4ee54d340ca",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6744fa59_e58a1b38",
+        "filename": "include/tools_share/firmware_image_package.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-05T15:56:19Z",
+      "side": 1,
+      "message": "Are debugfs tests part of CI+2? if yes then it passed\nYou meant to add here ? \n        {\"soc-fw.cfg\",          UUID_SOC_FW_CONFIG},\n        {\"tos-fw.cfg\",          UUID_TOS_FW_CONFIG},\n        {\"nt-fw.cfg\",           UUID_NT_FW_CONFIG},\n        {\"rot-k.crt\",           UUID_ROT_KEY_CERT},\n        {\"nt-k.crt\",            UUID_NON_TRUSTED_WORLD_KEY_CERT}\n        {\"sip-sp.crt\",          UUID_SIP_SECURE_PARTITION_CONTENT_CERT }",
+      "parentUuid": "60a41827_84e26479",
+      "revId": "484d8b4b6c5a67a44c6e2e12859aa4ee54d340ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
