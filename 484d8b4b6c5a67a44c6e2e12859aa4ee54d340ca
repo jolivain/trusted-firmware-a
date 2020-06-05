@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60a41827_84e26479",
+        "filename": "include/tools_share/firmware_image_package.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-06-05T15:43:08Z",
+      "side": 1,
+      "message": "This is annoying but I think you will hit a failure with debugfs test because you need to add a corresponding \"filename\" in devfip.c",
+      "revId": "484d8b4b6c5a67a44c6e2e12859aa4ee54d340ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
