@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2ce96bd1_37b1369a",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-05T16:14:06Z",
+      "side": 1,
+      "message": "Won\u0027t that increase COT_MAX_VERIFIED_PARAMS for the TBBR CoT? And unnecessarily slow down auth_get_param() in this case?\n\nBesides, I think it\u0027s more accurate to say that COT_MAX_VERIFIED_PARAMS is a property of the chain of trust you use. It\u0027s not directly decided by whether you enable SPM or not.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 6
+      },
+      "revId": "1a16f4e2f67c7aaa2b687ce65f9ec598ddc65a93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "476ece80_891d4ec7",
         "filename": "include/common/tbbr/tbbr_img_def.h",
         "patchSetId": 7
@@ -46,6 +69,53 @@
       "revId": "1a16f4e2f67c7aaa2b687ce65f9ec598ddc65a93",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1526f770_83b1710a",
+        "filename": "include/common/tbbr/tbbr_img_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-05T16:14:06Z",
+      "side": 1,
+      "message": "OK in this case, I guess we could do something like:\n\n1. In this file:\n\n #define SP_CONTENT_CERT_ID\t\tU(31)\n #define MAX_SP_IDS\t\t\tU(8)\n #define SPM_IMAGES                     (U(1) + MAX_SP_IDS)\n\n #include #include \u003cexport/common/tbbr/tbbr_img_def_exp.h\u003e\n\n2. In file tbbr_img_def_exp.h:\n\n #ifndef SPM_IMAGES\n #define SPM_IMAGES 0\n #endif\n\n #define MAX_NUMBER_IDS\t(U(31) + SPM_IMAGES)",
+      "parentUuid": "476ece80_891d4ec7",
+      "range": {
+        "startLine": 13,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 6
+      },
+      "revId": "1a16f4e2f67c7aaa2b687ce65f9ec598ddc65a93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "086f7437_7878b3c0",
+        "filename": "include/drivers/auth/auth_mod.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-05T16:14:06Z",
+      "side": 1,
+      "message": "n should be enclosed in parentheses.",
+      "range": {
+        "startLine": 56,
+        "startChar": 33,
+        "endLine": 56,
+        "endChar": 34
+      },
+      "revId": "1a16f4e2f67c7aaa2b687ce65f9ec598ddc65a93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
