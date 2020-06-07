@@ -175,6 +175,13 @@ __dead2 void bl1_plat_fwu_done(void *client_cookie, void *reserved);
 int bl1_plat_handle_pre_image_load(unsigned int image_id);
 int bl1_plat_handle_post_image_load(unsigned int image_id);
 
+#if MEASURED_BOOT
+/*
+ * Calculates and writes BL2 hash data to TB_FW_CONFIG DTB.
+ */
+void bl1_plat_set_bl2_hash(image_desc_t *image_desc);
+#endif
+
 /*******************************************************************************
  * Mandatory BL2 functions
  ******************************************************************************/
@@ -190,11 +197,13 @@ struct meminfo *bl2_plat_sec_mem_layout(void);
 int bl2_plat_handle_pre_image_load(unsigned int image_id);
 int bl2_plat_handle_post_image_load(unsigned int image_id);
 
-
 /*******************************************************************************
  * Optional BL2 functions (may be overridden)
  ******************************************************************************/
-
+#if MEASURED_BOOT
+/* Read BL2 hash data from the DTB */
+void bl2_plat_get_hash(void *data);
+#endif
 
 /*******************************************************************************
  * Mandatory BL2 at EL3 functions: Must be implemented if BL2_AT_EL3 image is
@@ -203,7 +212,6 @@ int bl2_plat_handle_post_image_load(unsigned int image_id);
 void bl2_el3_early_platform_setup(u_register_t arg0, u_register_t arg1,
 				  u_register_t arg2, u_register_t arg3);
 void bl2_el3_plat_arch_setup(void);
-
 
 /*******************************************************************************
  * Optional BL2 at EL3 functions (may be overridden)
