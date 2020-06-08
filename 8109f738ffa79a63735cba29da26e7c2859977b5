@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9f78175_9ee0a9e4",
+        "filename": "plat/rockchip/common/params_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-08T23:56:23Z",
+      "side": 1,
+      "message": "Does this function use the stack memory for this?",
+      "range": {
+        "startLine": 140,
+        "startChar": 50,
+        "endLine": 140,
+        "endChar": 67
+      },
+      "revId": "8109f738ffa79a63735cba29da26e7c2859977b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
