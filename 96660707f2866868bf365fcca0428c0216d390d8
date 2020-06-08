@@ -22,6 +22,30 @@
       "revId": "96660707f2866868bf365fcca0428c0216d390d8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43529c43_eb6b052a",
+        "filename": "include/export/common/tbbr/tbbr_img_def_exp.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-08T11:13:12Z",
+      "side": 1,
+      "message": "The reason why i did was to avoid redefnition problem, i will look for alternative way to do it.\nNot sure if it is straight forward (we might need undef and adding MISRA exception).\n\ninclude/common/tbbr/tbbr_img_def.h:15: error: \"SPM_IMAGES\" redefined [-Werror]\n   15 | #define SPM_IMAGES   (MAX_SP_IDS + U(1))\n      |\nIn file included from include/common/tbbr/tbbr_img_def.h:10,\n                 from include/plat/arm/common/arm_def.h:11,\n                 from plat/arm/board/fvp/include/platform_def.h:13,\n                 from include/lib/libc/assert.h:12,\n                 from plat/common/aarch64/plat_common.c:7:\ninclude/export/common/tbbr/tbbr_img_def_exp.h:92: note: this is the location of the previous definition\n   92 | #define SPM_IMAGES   0",
+      "parentUuid": "10ef4e5f_6fe6a967",
+      "range": {
+        "startLine": 92,
+        "startChar": 34,
+        "endLine": 92,
+        "endChar": 44
+      },
+      "revId": "96660707f2866868bf365fcca0428c0216d390d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
