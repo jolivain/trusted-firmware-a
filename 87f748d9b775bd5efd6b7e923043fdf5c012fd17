@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5d91a357_1e084ed3",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-08T16:03:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "504794ad_284f669c",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 244,
+        "endChar": 6
+      },
+      "revId": "87f748d9b775bd5efd6b7e923043fdf5c012fd17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc966c1a_6bed3571",
         "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
         "patchSetId": 10
@@ -45,6 +69,30 @@
       "revId": "87f748d9b775bd5efd6b7e923043fdf5c012fd17",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5668502_631a0506",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-08T16:03:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc966c1a_6bed3571",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 55
+      },
+      "revId": "87f748d9b775bd5efd6b7e923043fdf5c012fd17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
