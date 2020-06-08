@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10ef4e5f_6fe6a967",
+        "filename": "include/export/common/tbbr/tbbr_img_def_exp.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-08T08:08:08Z",
+      "side": 1,
+      "message": "For users that directly include this header file (instead of going through tbbr_img_def.h that defines SPM_IMAGES for them), won\u0027t that cause issues? Don\u0027t we need:\n\n #ifndef SPM_IMAGES\n #define SPM_IMAGES 0\n #endif\n\nin this file?",
+      "range": {
+        "startLine": 92,
+        "startChar": 34,
+        "endLine": 92,
+        "endChar": 44
+      },
+      "revId": "96660707f2866868bf365fcca0428c0216d390d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}

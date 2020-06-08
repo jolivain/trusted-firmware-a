@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "aec9a121_b421c123",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-08T08:08:08Z",
+      "side": 1,
+      "message": "On further thoughts, I think it\u0027s fine as is. What I originally had in mind was something like:\n\n #if defined(ARM_COT_dualroot)\n #define COT_MAX_VERIFIED_PARAMS\t\t8\n #else\n #define COT_MAX_VERIFIED_PARAMS\t\t4\n #endif\n\ni.e. base COT_MAX_VERIFIED_PARAMS on the chain of trust used. But I now realize that it won\u0027t work, as one can use the dualroot chain of trust with no secure partition support so you\u0027d need to check both ARM_COT_dualroot and SPD_spmd.\n\nThus, as I said, I am happy for the code in this file to stay as is.",
+      "parentUuid": "7f22aba4_a7ee17df",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 6
+      },
+      "revId": "1a16f4e2f67c7aaa2b687ce65f9ec598ddc65a93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "476ece80_891d4ec7",
         "filename": "include/common/tbbr/tbbr_img_def.h",
         "patchSetId": 7
