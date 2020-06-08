@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "745fac75_2594cc7d",
+        "filename": "drivers/measured_boot/event_print.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-06-08T17:32:42Z",
+      "side": 1,
+      "message": "Is it necessary to do these checks here? If this function is only to print the event log the checks should be done somewhere else",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 42
+      },
+      "revId": "b4de24e8b0fafc6a512c566cacfc3f1131eac790",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
