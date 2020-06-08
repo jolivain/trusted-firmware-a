@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,5 +7,15 @@
 /dts-v1/;
 
 / {
-
+#if MEASURED_BOOT
+	/* TPM Event Log Config */
+	tpm_event_log {
+		compatible = "arm,nt_fw";
+#ifdef SPD_opteed
+		tpm_event_log_sm_addr = <0x0 0x0>;
+#endif
+		tpm_event_log_addr = <0x0 0x0>;
+		tpm_event_log_size = <0x0>;
+	};
+#endif /* MEASURED_BOOT */
 };
