@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "504794ad_284f669c",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-06-08T12:26:54Z",
+      "side": 1,
+      "message": "This is needed as so far OPTEE does not have support to get DTBs from trusted memory and it should be removed as soon as OPTEE includes that feature. So I guess there should be a \"TODO\" comment here pointing that out.",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 244,
+        "endChar": 6
+      },
+      "revId": "87f748d9b775bd5efd6b7e923043fdf5c012fd17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc966c1a_6bed3571",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-06-08T12:26:54Z",
+      "side": 1,
+      "message": "See my comment on include/plat/arm/common/plat_arm.h",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 55
+      },
+      "revId": "87f748d9b775bd5efd6b7e923043fdf5c012fd17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
