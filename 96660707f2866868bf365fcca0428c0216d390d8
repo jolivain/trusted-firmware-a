@@ -46,6 +46,30 @@
       "revId": "96660707f2866868bf365fcca0428c0216d390d8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cca685c7_55f28772",
+        "filename": "include/export/common/tbbr/tbbr_img_def_exp.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-08T17:21:50Z",
+      "side": 1,
+      "message": "To avoid usage of undef and get rid of redefinition problem, I have intrudouced a new Macro MAX_IMAGE_IDS which will be defined here and can be used when this is used with third party software. For TF-A purposes MAX_NUMBER_IDS(which also takes care of SPs) will be used as before.",
+      "parentUuid": "43529c43_eb6b052a",
+      "range": {
+        "startLine": 92,
+        "startChar": 34,
+        "endLine": 92,
+        "endChar": 44
+      },
+      "revId": "96660707f2866868bf365fcca0428c0216d390d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
