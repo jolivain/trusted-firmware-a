@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "2f356163_decc7f77",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-08T14:26:58Z",
+      "side": 1,
+      "message": "What\u0027s about to get rid of label 1 and b.ls, using:\n     b.hi    el3_panic\n?",
+      "parentUuid": "78baa4c9_edb0dcbb",
+      "revId": "388aa922816122d5a8ef17ca741f4063b7cdc083",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7c51b6c8_9f2680a2",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 8
