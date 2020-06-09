@@ -247,6 +247,24 @@
       "revId": "d5258d9299102f945b891ae504d8dd8f86581a83",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cfb8b62_f9c3ecff",
+        "filename": "lib/cpus/aarch64/dsu_helpers.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000327
+      },
+      "writtenOn": "2020-06-09T12:42:58Z",
+      "side": 1,
+      "message": "\u003e\u003e\u003eBut to consider call from C environment it looks little odd to use \u0027x16\u0027/\u0027x17\u0027.\nDoes it mean we considering that it could be used by compiler in c environment? hence you reccomends me to use x15. I don\u0027t see any issue. I\u0027ll use it and change the clobber register comment for check_errata api above.",
+      "parentUuid": "083233c1_8e28bcc4",
+      "revId": "d5258d9299102f945b891ae504d8dd8f86581a83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
