@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0d2924d4_4f2c3b80",
+        "filename": "lib/cpus/aarch64/dsu_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000327
+      },
+      "writtenOn": "2020-06-09T16:47:09Z",
+      "side": 1,
+      "message": "this is weak function hence hence used only x0. but idea behind clobber list x0 - x14 is giving every architecture flexibility to modify as many register as they want to find out scu availability.",
+      "parentUuid": "5db11d05_2fd91378",
+      "revId": "9269bda7835bade1704e98df56c173a0b5ccaaa8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3eff3a98_fa2041f4",
         "filename": "lib/cpus/aarch64/dsu_helpers.S",
         "patchSetId": 8
@@ -30,6 +48,24 @@
       "writtenOn": "2020-06-09T15:17:19Z",
       "side": 1,
       "message": "why here but not after line #95?",
+      "revId": "9269bda7835bade1704e98df56c173a0b5ccaaa8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e008934_d93cccb4",
+        "filename": "lib/cpus/aarch64/dsu_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000327
+      },
+      "writtenOn": "2020-06-09T16:47:09Z",
+      "side": 1,
+      "message": "in case patch is not being applied, return value should be as in register x2, ERRATA_NOT_APPIES.\nhence not at #95. I could have program differently but did not want to change much in logic. wanted to keep same as much as possible like before.",
+      "parentUuid": "3eff3a98_fa2041f4",
       "revId": "9269bda7835bade1704e98df56c173a0b5ccaaa8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
