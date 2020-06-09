@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37e7d23c_b48b7ee8",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-09T16:33:04Z",
+      "side": 1,
+      "message": "nit:it looks like the current implementation supports only recording of measurements of images. Is this a temporary choice ? You can measure config data and other things in different PCR\u0027s(as you have refer\u0027d to already in tcg.h). I assume that is left for future changes?",
+      "revId": "86fde12edcf7387493f1bfb6f76d86f28369be2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
