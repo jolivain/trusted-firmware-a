@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6128962f_ba3accbf",
+        "filename": "plat/arm/board/fvp/fdts/fvp_tb_fw_config.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-09T17:31:59Z",
+      "side": 1,
+      "message": "should this be in tb_fw? wont arm_io_policies be valid even in non tbbr builds ?",
+      "revId": "83e1d8e6db672f2d33d2bf451c7164ff1bc3dec3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
