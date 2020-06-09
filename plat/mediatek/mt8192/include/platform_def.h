@@ -46,22 +46,7 @@
 
 /* Base MTK_platform compatible GIC memory map */
 #define BASE_GICD_BASE        MT_GIC_BASE
-#define BASE_GICC_BASE        (MT_GIC_BASE + 0x400000)
-#define MT_GIC_RDIST_BASE     (MT_GIC_BASE + 0x100000)
-#define BASE_GICR_BASE        (MT_GIC_BASE + 0x100000)
-#define BASE_GICH_BASE        (MT_GIC_BASE + 0x4000)
-#define BASE_GICV_BASE        (MT_GIC_BASE + 0x6000)
-#define INT_POL_CTL0          (MCUCFG_BASE + 0xa80)
-#define SEC_POL_CTL_EN0       (MCUCFG_BASE + 0xa00)
-#define GIC_SYNC_DCM          (MCUCFG_BASE + 0x758)
-#define GIC_SYNC_DCM_MASK     0x3
-#define GIC_SYNC_DCM_ON       0x3
-#define GIC_SYNC_DCM_OFF      0x0
-#define GIC_PRIVATE_SIGNALS   32
-
-#define PLAT_ARM_GICD_BASE BASE_GICD_BASE
-#define PLAT_ARM_GICC_BASE BASE_GICC_BASE
-
+#define MT_GIC_RDIST_BASE     (MT_GIC_BASE + 0x40000)
 
 /*******************************************************************************
  * CCI-400 related constants
