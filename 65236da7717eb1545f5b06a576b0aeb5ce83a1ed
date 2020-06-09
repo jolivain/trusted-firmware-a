@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64ac0fc6_47f5d8f2",
+        "filename": "plat/arm/common/arm_bl1_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-09T18:09:00Z",
+      "side": 1,
+      "message": "this should may be be a warning. Does not make sense to me that you check the error code, print an error and proceed. What are the downstream effects of failing to load the config in BL1? Is it even valid to proceed without loading config files ?",
+      "revId": "65236da7717eb1545f5b06a576b0aeb5ce83a1ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
