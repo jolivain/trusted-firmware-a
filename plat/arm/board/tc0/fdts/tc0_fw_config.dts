@@ -13,7 +13,7 @@
 		compatible = "fconf,dyn_cfg-dtb_registry";
 
 		tb_fw-config {
-			load-address = <0x0 0x2001300>;
+			load-address = <0x0 0x4001300>;
 			max-size = <0x200>;
 			id = <TB_FW_CONFIG_ID>;
 		};
