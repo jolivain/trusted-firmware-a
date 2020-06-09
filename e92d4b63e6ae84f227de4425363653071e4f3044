@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea805816_56e4ecd4",
+        "filename": "common/desc_image_load.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-09T18:13:56Z",
+      "side": 1,
+      "message": "does this not break other platforms ? or is this safe because only fvp is using this as of today ?",
+      "revId": "e92d4b63e6ae84f227de4425363653071e4f3044",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
