@@ -13,7 +13,7 @@
 
 		/* tb_fw_config is temporarily contained on this dtb */
 		tb_fw-config {
-			load-address = <0x0 0x80001300>;
+			load-address = <0x0 0x04001300>;
 			max-size = <0x200>;
 			id = <TB_FW_CONFIG_ID>;
 		};
