@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "54de39d8_819b766b",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-06-09T16:34:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95a4a352_a026ab4c",
+      "revId": "388aa922816122d5a8ef17ca741f4063b7cdc083",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c51b6c8_9f2680a2",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 8
@@ -140,6 +158,24 @@
       "revId": "388aa922816122d5a8ef17ca741f4063b7cdc083",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31c6755b_fb2094d5",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-06-09T16:34:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6cfef07_06898859",
+      "revId": "388aa922816122d5a8ef17ca741f4063b7cdc083",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
