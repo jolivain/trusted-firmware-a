@@ -175,7 +175,7 @@ void __init gicv3_driver_init(const gicv3_driver_data_t *plat_driver_data)
 #endif
 	INFO("GICv%u with%s legacy support detected.\n", gic_version,
 				(gicv2_compat == 0U) ? "" : "out");
-	INFO("ARM GICv%u driver initialized in EL3\n", gic_version);
+	INFO("Greta ARM GICv%u driver initialized in EL3\n", gic_version);
 }
 
 /*******************************************************************************
