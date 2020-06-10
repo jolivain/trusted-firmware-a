@@ -16,6 +16,24 @@
       "revId": "86fde12edcf7387493f1bfb6f76d86f28369be2a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e96ab197_cde8bfb9",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-10T12:11:43Z",
+      "side": 1,
+      "message": "This function doesn\u0027t limit its usage for images only and parameters can also refer to any kind of data, which also have base address, size of data and ID for getting the name to be placed in Event Log.",
+      "parentUuid": "37e7d23c_b48b7ee8",
+      "revId": "86fde12edcf7387493f1bfb6f76d86f28369be2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
