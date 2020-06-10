@@ -16,6 +16,24 @@
       "revId": "e92d4b63e6ae84f227de4425363653071e4f3044",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50292241_0d4f2909",
+        "filename": "common/desc_image_load.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-10T04:52:05Z",
+      "side": 1,
+      "message": "Thanks for pointing this out.\nCurrently, FCONF is used by many ARM platforms and not only the fvp specifically.\nI think it is safe in that case and also, this patch is tested on many ARM platform.\n\nI have to look into the platform who are not using this fconf.",
+      "parentUuid": "ea805816_56e4ecd4",
+      "revId": "e92d4b63e6ae84f227de4425363653071e4f3044",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
