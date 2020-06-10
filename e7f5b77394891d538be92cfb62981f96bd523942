@@ -142,6 +142,24 @@
       "revId": "e7f5b77394891d538be92cfb62981f96bd523942",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed9c3b18_cf7ba1a8",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-10T18:28:37Z",
+      "side": 1,
+      "message": "What is the problem with:\nuint8_t bl2_hash_data[TCG_DIGEST_SIZE];\n(void)memcpy(data, bl2_hash, TCG_DIGEST_SIZE);\n?\nThe only reasonable solution is to add:\n    assert (ptr - event_log + TCG_DIGEST_SIZE \u003c\u003d sizeof(event_log));\nbefore calling\n    bl2_plat_get_hash(ptr);",
+      "parentUuid": "bfbfa6af_e0dc9725",
+      "revId": "e7f5b77394891d538be92cfb62981f96bd523942",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
