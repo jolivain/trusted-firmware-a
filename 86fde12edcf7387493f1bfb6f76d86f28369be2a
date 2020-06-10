@@ -34,6 +34,24 @@
       "revId": "86fde12edcf7387493f1bfb6f76d86f28369be2a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0eef14c0_84ca0cfd",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-10T14:56:53Z",
+      "side": 1,
+      "message": "understood. As someone who wants to use the API and who may not know the details, i look for clues/intent/meaning through variable/parameter names! Nobody other than you, who wrote the code, would know for sure without studying it closely that you can legally use this for data. There are no comments, the parameter names talk about only images.",
+      "parentUuid": "e96ab197_cde8bfb9",
+      "revId": "86fde12edcf7387493f1bfb6f76d86f28369be2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
