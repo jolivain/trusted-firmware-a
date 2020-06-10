@@ -34,6 +34,24 @@
       "revId": "e7f5b77394891d538be92cfb62981f96bd523942",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "078dacc2_4e7e4466",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-10T17:14:19Z",
+      "side": 1,
+      "message": "lets say a caller passes a size of TCG_DIGEST_SIZE * 5(programming error, or purposely). The memcpy will copy data past the end of the bl2_hash into data, which can cause crash or the memcpy would leak unnecessary data into the callers buffer.\nThe checks are as follows; if (size \u003c buffer length of bl2_hash) error out, or copy only size bytes of data.\nif (size \u003e buffer length of bl2_hash) copy only buffer length of bl2_hash.\nYou at least need an assert to catch these conditions in debug builds given that this api is not to be used during boot, so the asserts will catch programming errors. Is that clear ?",
+      "parentUuid": "785334fb_e8c4a2b4",
+      "revId": "e7f5b77394891d538be92cfb62981f96bd523942",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
