@@ -68,17 +68,10 @@ FVP_GIC_SOURCES		:=	${GICV3_SOURCES}			\
 
 else ifeq (${FVP_USE_GIC_DRIVER}, FVP_GICV2)
 
-# No GICv4 extension
-GIC_ENABLE_V4_EXTN	:=	0
-$(eval $(call add_define,GIC_ENABLE_V4_EXTN))
+# Include GICv2 driver files
+include drivers/arm/gic/v2/gicv2.mk
 
-# No support for extended PPI and SPI range
-GIC_EXT_INTID		:=	0
-$(eval $(call add_define,GIC_EXT_INTID))
-
-FVP_GIC_SOURCES		:=	drivers/arm/gic/common/gic_common.c	\
-				drivers/arm/gic/v2/gicv2_main.c		\
-				drivers/arm/gic/v2/gicv2_helpers.c	\
+FVP_GIC_SOURCES		:=	${GICV2_SOURCES}			\
 				plat/common/plat_gicv2.c		\
 				plat/arm/common/arm_gicv2.c
 
