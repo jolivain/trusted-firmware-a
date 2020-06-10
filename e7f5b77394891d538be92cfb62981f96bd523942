@@ -106,6 +106,24 @@
       "revId": "e7f5b77394891d538be92cfb62981f96bd523942",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8827cff_4466806c",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-10T18:13:29Z",
+      "side": 1,
+      "message": "The only one which comes to my mind is \nCASSERT(sizeof(bl2_hash_data) \u003d\u003d TCG_DIGEST_SIZE, assert_bl2_hash_size_mismatch);\nwhich is nonsense.",
+      "parentUuid": "6fc8fca5_f3a7f0a1",
+      "revId": "e7f5b77394891d538be92cfb62981f96bd523942",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
