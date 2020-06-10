@@ -16,6 +16,24 @@
       "revId": "534fc7eaf32896e559329973a93cfe4d53b0873e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd5397ce_ab99d8ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-10T04:35:43Z",
+      "side": 1,
+      "message": "This patch increased firmware configuration area in SRAM hence I categorised this patch in fconf series only.\nThough agree that this patch does not do any changes in firmware configuration framework.",
+      "parentUuid": "2af48999_3bed1205",
+      "revId": "534fc7eaf32896e559329973a93cfe4d53b0873e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
