@@ -70,6 +70,24 @@
       "revId": "86fde12edcf7387493f1bfb6f76d86f28369be2a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbb1ef42_a3503769",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-10T17:27:41Z",
+      "side": 1,
+      "message": "sure. but then what would base, size and id mean then ? Whether or not you remove it, i think there needs to be a comment above the function that describes that it can be used for and how it can be used(or in the header file).",
+      "parentUuid": "c90a82d5_776b3b4f",
+      "revId": "86fde12edcf7387493f1bfb6f76d86f28369be2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
