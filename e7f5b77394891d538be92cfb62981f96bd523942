@@ -124,6 +124,24 @@
       "revId": "e7f5b77394891d538be92cfb62981f96bd523942",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfbfa6af_e0dc9725",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-10T18:17:34Z",
+      "side": 1,
+      "message": "A version that does not take size is a problem, and a version that takes size and does not do any checks on it is also a problem. You need to have both. Not sure i understand your point above.",
+      "parentUuid": "c8827cff_4466806c",
+      "revId": "e7f5b77394891d538be92cfb62981f96bd523942",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
