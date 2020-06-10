@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "916a284b_dc9129e9",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-10T01:18:58Z",
+      "side": 1,
+      "message": "I assume this was not meant to be part of the change",
+      "range": {
+        "startLine": 178,
+        "startChar": 6,
+        "endLine": 178,
+        "endChar": 13
+      },
+      "revId": "f76c0f642490b1221129b1b59efb5a76243b633a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2056aa2d_c4d7a844",
+        "filename": "plat/mediatek/mt8192/include/mt_gic_v3.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-10T01:18:58Z",
+      "side": 1,
+      "message": "You can use your own license if you want. That\u0027s encouraged AFAIK.",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "f76c0f642490b1221129b1b59efb5a76243b633a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
