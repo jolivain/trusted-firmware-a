@@ -124,7 +124,6 @@ uint32_t arm_get_spsr_for_bl33_entry(void)
 /*******************************************************************************
  * Configures access to the system counter timer module.
  ******************************************************************************/
-#ifdef ARM_SYS_TIMCTL_BASE
 void arm_configure_sys_timer(void)
 {
 	unsigned int reg_val;
@@ -159,7 +158,6 @@ void arm_configure_sys_timer(void)
 	mmio_write_32(ARM_SYS_CNT_BASE_NS + CNTBASEN_CNTFRQ, freq_val);
 #endif
 }
-#endif /* ARM_SYS_TIMCTL_BASE */
 
 /*******************************************************************************
  * Returns ARM platform specific memory map regions.
