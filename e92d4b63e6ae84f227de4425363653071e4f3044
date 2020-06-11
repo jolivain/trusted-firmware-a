@@ -70,6 +70,24 @@
       "revId": "e92d4b63e6ae84f227de4425363653071e4f3044",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9437c32_b7e9f294",
+        "filename": "common/desc_image_load.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-11T10:42:41Z",
+      "side": 1,
+      "message": "What you suggested for only FW_CONFIG_ID/SOC_FW_CONFIG_ID can be extended to all type of images by introducing a function like \"plat_get_config_id(image_id)\", and then you can override it using weak function implementation.",
+      "parentUuid": "fa159057_5ea4900d",
+      "revId": "e92d4b63e6ae84f227de4425363653071e4f3044",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
