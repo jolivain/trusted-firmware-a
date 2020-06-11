@@ -29,6 +29,14 @@ int fconf_load_config(unsigned int image_id)
 	};
 
 	config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, image_id);
+	assert(config_info != NULL);
+
+	if (config_info != NULL) {
+		config_image_info.image_base = config_info->config_addr;
+		config_image_info.image_max_size =
+			(uint32_t)config_info->config_max_size;
+	}
+
 	config_image_info.image_base = config_info->config_addr;
 	config_image_info.image_max_size = (uint32_t)config_info->config_max_size;
 
