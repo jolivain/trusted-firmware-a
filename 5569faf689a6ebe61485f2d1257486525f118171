@@ -81,6 +81,30 @@
       "revId": "5569faf689a6ebe61485f2d1257486525f118171",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49ba6d48_31bbe922",
+        "filename": "plat/arm/board/rdn1edge/fdts/rdn1edge_fw_config.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-11T16:26:41Z",
+      "side": 1,
+      "message": "As part of this patch-set we divided fw_config device tree in 2 parts:\n1. fw_config -\u003e contains description of all device trees for the platform (load address, size etc)\n2. tb_fw_config -\u003e trusted boot firmware config device tree.\n\nIn case of RD-platform and TC0, BL1 loads fw_config at address 0x4001010 (same as previously used for tb_fw_config) and tb_fw_config at 0x04001300.",
+      "parentUuid": "6a542a84_e366e46b",
+      "range": {
+        "startLine": 16,
+        "startChar": 23,
+        "endLine": 16,
+        "endChar": 33
+      },
+      "revId": "5569faf689a6ebe61485f2d1257486525f118171",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
