@@ -19,6 +19,6 @@ struct dyn_cfg_dtb_info_t {
 };
 
 struct dyn_cfg_dtb_info_t *dyn_cfg_dtb_info_getter(unsigned int config_id);
-int fconf_populate_dtb_registry(uintptr_t config);
+int populate_dtb_registry(uintptr_t config);
 
 #endif /* FCONF_DYN_CFG_GETTER_H */

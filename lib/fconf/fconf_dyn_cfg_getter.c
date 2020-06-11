@@ -53,7 +53,7 @@ struct dyn_cfg_dtb_info_t *dyn_cfg_dtb_info_getter(unsigned int config_id)
 	return info;
 }
 
-int fconf_populate_dtb_registry(uintptr_t config)
+int populate_dtb_registry(uintptr_t config)
 {
 	int rc;
 	int node, child;
@@ -121,4 +121,4 @@ int fconf_populate_dtb_registry(uintptr_t config)
 	return 0;
 }
 
-FCONF_REGISTER_POPULATOR(FW_CONFIG, dyn_cfg, fconf_populate_dtb_registry);
+FCONF_REGISTER_POPULATOR(FW_CONFIG, dyn_cfg, populate_dtb_registry);
