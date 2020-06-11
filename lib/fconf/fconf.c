@@ -14,7 +14,6 @@
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
-#ifdef IMAGE_BL1
 int fconf_load_config(unsigned int image_id)
 {
 	int err;
