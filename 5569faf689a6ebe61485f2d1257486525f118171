@@ -105,6 +105,30 @@
       "revId": "5569faf689a6ebe61485f2d1257486525f118171",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e33fe4f_287afe5e",
+        "filename": "plat/arm/board/rdn1edge/fdts/rdn1edge_fw_config.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2020-06-11T18:40:08Z",
+      "side": 1,
+      "message": "Ah Ok, I didn\u0027t notice the first patch in this series.\n\nIn the first path, the change was from 0x80001010 to 0x80001300 and in this patch 0x80001300 to 0x04001300. In case of tc0 from 0x2001010 to 0x2001300 in the first patch and 0x2001300 to 0x4001300 in this patch.\n\nHow about moving this patch to first one in the series and do:\n0x80001010 to 0x4001010 in rdn1edge\n0x2001010 to 0x4001010 in tc0\n\nand in the \"fconf: Introduce tb_fw_config device tree\" patch\nchange 0x4001010 to 0x04001300 for both rdn1edge and tc0. This will make the changes in \"fconf: Introduce tb_fw_config device tree\" to look uniform in all the platform file.",
+      "parentUuid": "49ba6d48_31bbe922",
+      "range": {
+        "startLine": 16,
+        "startChar": 23,
+        "endLine": 16,
+        "endChar": 33
+      },
+      "revId": "5569faf689a6ebe61485f2d1257486525f118171",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
