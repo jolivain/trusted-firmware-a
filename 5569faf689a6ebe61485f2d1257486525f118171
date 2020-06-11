@@ -129,6 +129,30 @@
       "revId": "5569faf689a6ebe61485f2d1257486525f118171",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e4e96ea_4c51c780",
+        "filename": "plat/arm/board/rdn1edge/fdts/rdn1edge_fw_config.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-11T18:54:47Z",
+      "side": 1,
+      "message": "First patch is more towards separation of fw_config device tree without any functional changes.\nAlso, first patch can not work individually. Build/run possible only after taking all the patches in this series.\n\nIMO, Let\u0027s have this fix as separate patch. Let me know your thoughts?",
+      "parentUuid": "5e33fe4f_287afe5e",
+      "range": {
+        "startLine": 16,
+        "startChar": 23,
+        "endLine": 16,
+        "endChar": 33
+      },
+      "revId": "5569faf689a6ebe61485f2d1257486525f118171",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
