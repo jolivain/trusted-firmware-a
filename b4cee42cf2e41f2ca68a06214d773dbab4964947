@@ -1,0 +1,334 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "766a5a8f_2829adf1",
+        "filename": "plat/qemu/common/qemu_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "2020",
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb264370_5f089aa4",
+        "filename": "plat/qemu/common/qemu_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "Why not:\n#if SPM_MM\n\tQEMU_SP_IMAGE_MMAP,\n#else\n\tMAP_BL32_MEM,\n#endif\n?",
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab4716fe_fed1ad36",
+        "filename": "plat/qemu/common/qemu_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "The same",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 95,
+        "endChar": 4
+      },
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95f87f1e_d871fb82",
+        "filename": "plat/qemu/common/qemu_spm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "Put Linear on the next line to make the comment more readable",
+      "range": {
+        "startLine": 27,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 8
+      },
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2e78767_d000cd5a",
+        "filename": "plat/qemu/common/qemu_spm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "remove \",\"",
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3db3ee1c_83af5582",
+        "filename": "plat/qemu/common/qemu_spm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "\u003d sp_mp_info\nand remove \",\"",
+      "range": {
+        "startLine": 60,
+        "startChar": 37,
+        "endLine": 60,
+        "endChar": 39
+      },
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b3eb04a_61ff8a18",
+        "filename": "plat/qemu/common/qemu_spm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "move before functions\u0027 definitions and remove \",\"",
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "610ad697_558041b0",
+        "filename": "plat/qemu/common/qemu_spm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21323f2d_5a37fe77",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "2020",
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b65bdbf2_c149d82c",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#header-guards",
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e2c66ee_f91c5126",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "remove extra tab foe alignment",
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c12cc87_e46d6f58",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "the same",
+      "range": {
+        "startLine": 149,
+        "startChar": 1,
+        "endLine": 149,
+        "endChar": 8
+      },
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dceefb26_b7e4c6b7",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "#elif IMAGE_BL31",
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4013fa1f_79eed9ac",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "Shared",
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce3e0628_bc756c33",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "remove extra tab for alignment",
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ad4fd9c_02cd011d",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43a968b2_d381189f",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "850b9205_89d4797e",
+        "filename": "plat/qemu/qemu_sbsa/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-11T13:36:26Z",
+      "side": 1,
+      "message": "2020",
+      "revId": "b4cee42cf2e41f2ca68a06214d773dbab4964947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
