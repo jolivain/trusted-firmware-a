@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "98be40bf_3b9eea21",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-06-12T23:57:39Z",
+      "side": 1,
+      "message": "The onus is on the programmer calling this driver to make sure it\u0027s only called from functions that don\u0027t run concurrently with the kernel. I don\u0027t think there\u0027s an easy way to check this programmatically in TF-A. All cases we want to use the driver for here conform to this.",
+      "parentUuid": "5704413a_213c943e",
+      "range": {
+        "startLine": 11,
+        "startChar": 22,
+        "endLine": 12,
+        "endChar": 21
+      },
+      "revId": "1133e2dcc923b291e2181c108a54e25035ab94d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "14b83b33_94222d47",
         "filename": "plat/qti/common/src/spmi_arb.c",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-06-12T05:41:05Z",
       "side": 1,
       "message": "I feel, we should use macros instead of magic numbers.",
+      "range": {
+        "startLine": 74,
+        "startChar": 18,
+        "endLine": 74,
+        "endChar": 20
+      },
+      "revId": "1133e2dcc923b291e2181c108a54e25035ab94d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a27f56c0_2e40d7fe",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-06-12T23:57:39Z",
+      "side": 1,
+      "message": "I mean... this function is the only one that deals with the format of these opcodes, I don\u0027t think there\u0027s much of a difference in readability in putting the numbers here or in an extra #define at the top. But I can change it if you want to.",
+      "parentUuid": "14b83b33_94222d47",
       "range": {
         "startLine": 74,
         "startChar": 18,
