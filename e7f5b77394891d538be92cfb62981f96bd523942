@@ -304,6 +304,24 @@
       "revId": "e7f5b77394891d538be92cfb62981f96bd523942",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e96ebe1_75be46f8",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-12T13:57:49Z",
+      "side": 1,
+      "message": "@varunw-nvidia\nYou proposed:\nvoid arm_bl2_get_hash(void *data, int size)\n{\n...\n        assert(size \u003e\u003d TCG_DIGEST_SIZE);\n...\n        (void)memcpy(data, bl2_hash, TCG_DIGEST_SIZE);\n\n1. As I already mentioned \"size\" must be of size_t type but not int\n2. What can prevent the caller of always passing size \u003d (-1)U and bypass assertion?\n3. assert() is dummy for release builds, and GCC/MISRA will report an error on unused variable.\n4. This function is only called once from only 1 place in add_event2() \nand the check for availability of at least TCG_DIGEST_SIZE bytes in memory space pointed by ptr was added:\n\t/* Check for space in Event Log buffer */\n\tif (ptr - event_log + TCG_DIGEST_SIZE \u003e sizeof(event_log)) {\n\t\tERROR(\"%s(): Event Log is short of memory for %lu bytes\",\n\t\t\t__func__, TCG_DIGEST_SIZE -\n\t\t\t(sizeof(event_log) - (ptr - event_log)));\n\t\treturn -ENOMEM;\n\t}\n\t\n\tif (hash \u003d\u003d NULL) {\n\t\t/* Get BL2 hash from DTB */\n\t\tbl2_plat_get_hash(ptr);\n\t} else {\n\t\t/* Copy digest */\n\t\t(void)memcpy(ptr, hash, TCG_DIGEST_SIZE);\n\t}\n5. bl2_plat_get_hash() does the same as the memcpy() call below, but the hash is read from DTB and no extra \"size\" parameter is required.",
+      "parentUuid": "8ed414ec_02df171b",
+      "revId": "e7f5b77394891d538be92cfb62981f96bd523942",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
