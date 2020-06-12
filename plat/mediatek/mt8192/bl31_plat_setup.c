@@ -9,6 +9,7 @@
 #include <common/debug.h>
 #include <common/desc_image_load.h>
 #include <drivers/ti/uart/uart_16550.h>
+#include <gpio/mtgpio.h>
 #include <lib/coreboot.h>
 #include <mt_gic_v3.h>
 #include <plat_params.h>
@@ -78,6 +79,7 @@ void bl31_platform_setup(void)
 	/* Initialize the GIC driver, CPU and distributor interfaces */
 	mt_gic_driver_init();
 	mt_gic_init();
+	mt_gpio_init();
 }
 
 /*******************************************************************************
