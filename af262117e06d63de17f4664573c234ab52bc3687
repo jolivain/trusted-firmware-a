@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "594ad543_4c0a6b1a",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-06-12T21:52:53Z",
+      "side": 1,
+      "message": "Please change it to : \n\nVERBOSE(\"FCONF: Loading config with image ID: %d\\n\", image_id);",
+      "revId": "af262117e06d63de17f4664573c234ab52bc3687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89e2a4a4_2f51b842",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-06-12T21:52:53Z",
+      "side": 1,
+      "message": "Can you add a debug print here:\nINFO(\"FCONF: Configuration file loaded at address \u003d 0x%lx\\n\", image_info.image_base);",
+      "revId": "af262117e06d63de17f4664573c234ab52bc3687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
