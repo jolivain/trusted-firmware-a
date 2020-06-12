@@ -13,6 +13,8 @@
 #include <mt_gic_v3.h>
 #include <plat_params.h>
 #include <plat_private.h>
+#include <drivers/gpio.h>
+#include <gpio/mtgpio.h>
 
 static entry_point_info_t bl32_ep_info;
 static entry_point_info_t bl33_ep_info;
@@ -76,6 +78,7 @@ void bl31_platform_setup(void)
 	/* Initialize the GIC driver, CPU and distributor interfaces */
 	mt_gic_driver_init();
 	mt_gic_init();
+	gpio_test();
 }
 
 /*******************************************************************************
