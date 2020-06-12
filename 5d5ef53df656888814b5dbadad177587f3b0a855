@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abc31caf_c337a9bc",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-06-12T05:01:11Z",
+      "side": 1,
+      "message": "For Delay part, I think in case of warm reset MSM undergoes preparation sequence before resetting so the delay is expected. To avoid having incorrect delay added, you can use while(1) after asserting ps hold low.\nstatic __dead2 void assert_ps_hold(void)\n{\n        mmio_write_32(QTI_PS_HOLD_REG, 0);\n        -- mdelay(1000);\n       ++ while(1);\n}",
+      "revId": "5d5ef53df656888814b5dbadad177587f3b0a855",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
