@@ -16,6 +16,24 @@
       "revId": "967a6d162d9dc1c5ae154f289bcdecc03cb9eb7c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aea84936_36db8adf",
+        "filename": "plat/marvell/armada/a3700/a3700/plat_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000104
+      },
+      "writtenOn": "2020-06-12T13:06:15Z",
+      "side": 0,
+      "message": "Hi Manish,\n\nAs you can see I did not change the original hierarchy, but only put everything under plat/marvell/armada. Afaik, the original concept was to provide similar way to handle board-specific part to what we have under plat/marvell/armada/a8k/\u003cPLAT\u003e. Under plat/marvell/armada/a3700 we have only single target PLAT available, but it may be extended in future.\n\nTherefore I\u0027d rather not change the overall structure, but in order to remove this small awkwardness, how about:\ngit mv plat/marvell/armada/a3700 plat/marvell/armada/a3k\nand keep all under as-is\n?",
+      "parentUuid": "0847ac33_703ea079",
+      "revId": "967a6d162d9dc1c5ae154f289bcdecc03cb9eb7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
