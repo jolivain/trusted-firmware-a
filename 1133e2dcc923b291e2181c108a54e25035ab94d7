@@ -49,6 +49,131 @@
     },
     {
       "key": {
+        "uuid": "827ffde9_5765d37a",
+        "filename": "plat/qti/common/inc/spmi_arb.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-15T12:41:07Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "revId": "1133e2dcc923b291e2181c108a54e25035ab94d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24930fb9_d98ea216",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-15T12:41:07Z",
+      "side": 1,
+      "message": "unsigned",
+      "revId": "1133e2dcc923b291e2181c108a54e25035ab94d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89ecfa18_32abc017",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-15T12:41:07Z",
+      "side": 1,
+      "message": "MISRA will complain about using extra () around logical expressions.",
+      "revId": "1133e2dcc923b291e2181c108a54e25035ab94d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4db6aa5d_1b7ccd21",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-15T12:41:07Z",
+      "side": 1,
+      "message": "unsigned",
+      "revId": "1133e2dcc923b291e2181c108a54e25035ab94d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51d17719_2eb7c7d0",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-15T12:41:07Z",
+      "side": 1,
+      "message": "add extra empty line.\nwhile (timeout-- !\u003d 0)",
+      "revId": "1133e2dcc923b291e2181c108a54e25035ab94d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba458d8e_95bb8b45",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-15T12:41:07Z",
+      "side": 1,
+      "message": "if ((status \u0026 ARB_STATUS_DONE) !\u003d 0)",
+      "revId": "1133e2dcc923b291e2181c108a54e25035ab94d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ff1b5e1_f8c90259",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-15T12:41:07Z",
+      "side": 1,
+      "message": "same here\nadd {} around \n    return status \u0026 0xff;\nstatement",
+      "range": {
+        "startLine": 58,
+        "startChar": 3,
+        "endLine": 58,
+        "endChar": 6
+      },
+      "revId": "1133e2dcc923b291e2181c108a54e25035ab94d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "14b83b33_94222d47",
         "filename": "plat/qti/common/src/spmi_arb.c",
         "patchSetId": 1
@@ -117,6 +242,74 @@
       "revId": "1133e2dcc923b291e2181c108a54e25035ab94d7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94e1d007_dba4fcff",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-15T12:41:07Z",
+      "side": 1,
+      "message": "add extra empty line.",
+      "revId": "1133e2dcc923b291e2181c108a54e25035ab94d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90e621ba_2a1586c0",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-15T12:41:07Z",
+      "side": 1,
+      "message": "Read\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies\nbefore posting patches.",
+      "revId": "1133e2dcc923b291e2181c108a54e25035ab94d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ab7856f_b9a1e4a6",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-15T12:41:07Z",
+      "side": 1,
+      "message": "Read MISRA Rule 14.4.",
+      "revId": "1133e2dcc923b291e2181c108a54e25035ab94d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f55b5b38_17f019eb",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-15T12:41:07Z",
+      "side": 1,
+      "message": "See all the comments above.",
+      "revId": "1133e2dcc923b291e2181c108a54e25035ab94d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
