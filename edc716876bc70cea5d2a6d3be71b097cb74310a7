@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4914671_7ccdafeb",
+        "filename": "tools/cert_create/include/tbbr/tbb_cert.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-15T22:20:24Z",
+      "side": 1,
+      "message": "Only copyright header changed?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "edc716876bc70cea5d2a6d3be71b097cb74310a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d02a93c0_92821163",
+        "filename": "tools/cert_create/src/tbbr/tbb_ext.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-15T22:20:24Z",
+      "side": 1,
+      "message": "Move below \"HW_CONFIG_HASH_EXT\" to keep in same order as mentioned in tbb_cert.c",
+      "range": {
+        "startLine": 52,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 3
+      },
+      "revId": "edc716876bc70cea5d2a6d3be71b097cb74310a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
