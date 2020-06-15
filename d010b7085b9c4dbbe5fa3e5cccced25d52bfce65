@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72dd78ba_f0b974fa",
+        "filename": "plat/nvidia/tegra/common/tegra_gicv3.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-06-15T21:20:20Z",
+      "side": 1,
+      "message": "Are lines 44-48 needed? tegra_gic_data is statically configured at lines 27-32.",
+      "revId": "d010b7085b9c4dbbe5fa3e5cccced25d52bfce65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fcae9c3_de974e66",
+        "filename": "plat/nvidia/tegra/common/tegra_gicv3.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-06-15T21:20:20Z",
+      "side": 1,
+      "message": "I dont think this is needed. tegra_gic_init() is explicitly invoked in plat_gic_setup()",
+      "revId": "d010b7085b9c4dbbe5fa3e5cccced25d52bfce65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
