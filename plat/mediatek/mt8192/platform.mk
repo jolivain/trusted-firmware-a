@@ -45,6 +45,13 @@ BL31_SOURCES    += common/desc_image_load.c                              \
 PLAT_INCLUDES += -I${MTK_PLAT_SOC}/drivers/spmc/
 PLAT_BL_COMMON_SOURCES += ${MTK_PLAT_SOC}/drivers/spmc/mtspmc.c
 
+# MCDI
+PLAT_INCLUDES += -I${MTK_PLAT_SOC}/drivers/mcdi/
+PLAT_BL_COMMON_SOURCES +=                                                \
+                   ${MTK_PLAT_SOC}/drivers/mcdi/mt_cpu_pm.c              \
+                   ${MTK_PLAT_SOC}/drivers/mcdi/mt_cpu_pm_cpc.c          \
+                   ${MTK_PLAT_SOC}/drivers/mcdi/mt_mcdi.c
+
 # Configs for A76 and A55
 HW_ASSISTED_COHERENCY := 1
 USE_COHERENT_MEM := 0
