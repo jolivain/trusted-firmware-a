@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1e01d95_050078c6",
+        "filename": "plat/mediatek/mt8192/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-06-15T14:59:48Z",
+      "side": 1,
+      "message": "The GICv3 driver and makefile have been recently modified as part of commit b4ad365a4642fb8b2ecb1df73dd69ee4caf58bd2. GICV3_IMPL flag is replaced with GICV3_SUPPORT_GIC600.",
+      "revId": "81a596af20beda6d429a1202cb4861802f057661",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
