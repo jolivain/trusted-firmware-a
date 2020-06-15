@@ -88,6 +88,24 @@
       "revId": "e92d4b63e6ae84f227de4425363653071e4f3044",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "303e33eb_9249f5a7",
+        "filename": "common/desc_image_load.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-15T14:22:53Z",
+      "side": 1,
+      "message": "As generally we prefer to discourage weak function hence not taken this approach and\nUpdated the code with help of existing platform API to set entrypoint information of BL31 in case of ARM FVP platform only.",
+      "parentUuid": "c9437c32_b7e9f294",
+      "revId": "e92d4b63e6ae84f227de4425363653071e4f3044",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
