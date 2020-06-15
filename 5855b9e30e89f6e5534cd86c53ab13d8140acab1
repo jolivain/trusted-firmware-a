@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6fd46c2e_ee319efd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-15T13:40:28Z",
+      "side": 1,
+      "message": "As commit 44f1aa8 specifically mentioned in the commit message that \"To avoid deviating from TBBR spec, support for SP CoT is only provided in dualroot\", I think it would be worth explaining why we changed our minds here (i.e. TBBR being a *minimal* set of requirements that can be extended as long as we don\u0027t violate any of the \"musts\").",
+      "revId": "5855b9e30e89f6e5534cd86c53ab13d8140acab1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
