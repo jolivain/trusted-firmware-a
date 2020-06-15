@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bbe56cc_3804069c",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-06-15T20:24:21Z",
+      "side": 1,
+      "message": "The second argument of arm_bl31_early_platform_setup should be soc_fw_config as indicated by function declaration. However, with this patch, as arg1 is fw_config, the address passed to arm_bl31_early_platform_setup() is fw_config rather than soc_fw_config.",
+      "revId": "497ccadf5221dc856083ee45de00b6fdf0a8725e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
