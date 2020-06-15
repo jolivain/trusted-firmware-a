@@ -22,6 +22,30 @@
       "revId": "248e8e6456e3d0f8e5ed25b600da6e807639d53f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64a798bd_08746aa6",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-15T23:56:49Z",
+      "side": 1,
+      "message": "image_id is an unsigned int and you want to be passing only valid FW config id\u0027s. Passing in BL31_IMAGE_ID for example, is okay but is not the purpose of this function. It is not a generic image loading function, but a generic config image loader.",
+      "parentUuid": "fa4ddda4_25d8fea2",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 69
+      },
+      "revId": "248e8e6456e3d0f8e5ed25b600da6e807639d53f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
