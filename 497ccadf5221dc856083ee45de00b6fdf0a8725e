@@ -34,6 +34,24 @@
       "revId": "497ccadf5221dc856083ee45de00b6fdf0a8725e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5745256f_48f52d61",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-06-16T15:12:25Z",
+      "side": 1,
+      "message": "arm_bl31_early_platform_setup is common across Arm platforms. So I think we should not modify its function declaration. What you can do is obtain soc_fw_config address using fconf and pass it to the function.",
+      "parentUuid": "28b4c53e_f3faa9ee",
+      "revId": "497ccadf5221dc856083ee45de00b6fdf0a8725e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
