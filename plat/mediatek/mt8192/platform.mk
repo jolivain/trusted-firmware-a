@@ -39,6 +39,9 @@ BL31_SOURCES    += common/desc_image_load.c                              \
                    ${MTK_PLAT_SOC}/plat_mt_cirq.c                        \
                    ${MTK_PLAT_SOC}/drivers/gpio/mtgpio.c
 
+# CPU hotplug
+PLAT_INCLUDES += -I${MTK_PLAT_SOC}/drivers/spmc/
+PLAT_BL_COMMON_SOURCES += ${MTK_PLAT_SOC}/drivers/spmc/mtspmc.c
 
 # Configs for A76 and A55
 HW_ASSISTED_COHERENCY := 1
