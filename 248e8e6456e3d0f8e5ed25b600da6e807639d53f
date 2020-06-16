@@ -46,6 +46,30 @@
       "revId": "248e8e6456e3d0f8e5ed25b600da6e807639d53f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8ecc189_c8bc090e",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-16T22:55:02Z",
+      "side": 1,
+      "message": "I was thinking about other config images e.g. HW_CONFIG/SOC_FW_CONFIG etc, but i suppose they are left intentionally as these are not used during BL stages?",
+      "parentUuid": "64a798bd_08746aa6",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 69
+      },
+      "revId": "248e8e6456e3d0f8e5ed25b600da6e807639d53f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
