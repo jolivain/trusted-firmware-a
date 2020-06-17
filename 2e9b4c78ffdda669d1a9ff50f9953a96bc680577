@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "665c1a3c_ab34cf82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-17T14:19:12Z",
+      "side": 1,
+      "message": "(minor) Perhaps \"Reintroduce\" would be more correct, as the tb_fw_config device tree used to exist prior to commit 25ac87940cd3db8036f967d01653c0db64e4c136.",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "2e9b4c78ffdda669d1a9ff50f9953a96bc680577",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d01f7c1_71d8b192",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-17T14:19:12Z",
+      "side": 1,
+      "message": "(minor) \"Trusted boot configuration nodes\" suggests chain of trust data and the like to me, whereas here we\u0027re talking about \"Trusted boot firmware\" (i.e. BL2) configuration nodes.\n\nSuggest rewording either as \"Moved trusted boot firmware configuration nodes from fw_config\" or \"Moved BL2 configuration nodes from fw_config\" (the latter sounds clearer to me).",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 38
+      },
+      "revId": "2e9b4c78ffdda669d1a9ff50f9953a96bc680577",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1645ee9a_203554e3",
+        "filename": "plat/arm/board/juno/fdts/juno_tb_fw_config.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-17T14:19:12Z",
+      "side": 1,
+      "message": "(minor) I can\u0027t make sense of this comment... Should we remove it?",
+      "range": {
+        "startLine": 11,
+        "startChar": 2,
+        "endLine": 11,
+        "endChar": 23
+      },
+      "revId": "2e9b4c78ffdda669d1a9ff50f9953a96bc680577",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3dcf7c97_258fc1cb",
+        "filename": "plat/arm/css/sgm/fdts/sgm_tb_fw_config.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-17T14:19:12Z",
+      "side": 1,
+      "message": "Should this node not be called tb_fw-config, like for all other platforms?\n\nI guess we search for this node using the compatible property below, which is correct here, so this might explain why this is not an issue in practice? Still I would be prefer we unify this node name if possible.",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 13
+      },
+      "revId": "2e9b4c78ffdda669d1a9ff50f9953a96bc680577",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
