@@ -70,6 +70,30 @@
       "revId": "248e8e6456e3d0f8e5ed25b600da6e807639d53f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5251b867_c0b64768",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-17T03:11:28Z",
+      "side": 1,
+      "message": "Yes, HW_CONFIG/SOC_FW_CONFIG images are intentionally avoided. As this function suppose to load either TB_FW_CONFIG_ID or FW_CONFIG_ID image.",
+      "parentUuid": "a8ecc189_c8bc090e",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 69
+      },
+      "revId": "248e8e6456e3d0f8e5ed25b600da6e807639d53f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
