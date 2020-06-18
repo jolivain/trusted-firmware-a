@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56356930_4ac2f472",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-18T01:37:58Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering has some guidelines on the header inclusions. IIUC, we need a blank line before spmi_arb.h",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "6840fab82ab4eb9b9758981b17004440ee507890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
