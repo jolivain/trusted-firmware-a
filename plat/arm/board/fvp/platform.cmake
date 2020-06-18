@@ -122,17 +122,6 @@ stgt_add_src_param(NAME bl31 KEY ARCH SRC
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/aarch64/fvp_helpers.S
 	${TFA_ROOT_DIR}/plat/arm/common/arm_nor_psci_mem_protect.c
 
-	#GICv3 sources
-	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicv3_main.c
-	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicv3_helpers.c
-	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicdv3_helpers.c
-	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicrv3_helpers.c
-	${TFA_ROOT_DIR}/plat/common/plat_gicv3.c
-	${TFA_ROOT_DIR}/plat/arm/common/arm_gicv3.c
-
-	#TODO: select GIC model
-	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gic-x00.c
-
 	#TODO: select interconnect
 	${TFA_ROOT_DIR}/drivers/arm/cci/cci.c
 
@@ -147,6 +136,24 @@ stgt_add_src_param(NAME bl31 KEY ARCH SRC
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/fconf/fconf_hw_config_getter.c
 
 	#TODO: if RAS_EXTENSION=1
+)
+
+#add appropriate sources for GIC driver
+stgt_add_src_cond(NAME bl31 KEY FVP_USE_GIC_DRIVER VAL FVP_GICV3 SRC
+	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicv3_main.c
+	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicv3_helpers.c
+	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicdv3_helpers.c
+	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicrv3_helpers.c
+	${TFA_ROOT_DIR}/plat/common/plat_gicv3.c
+	${TFA_ROOT_DIR}/plat/arm/common/arm_gicv3.c
+	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gic-x00.c
+)
+stgt_add_src_cond(NAME bl31 KEY FVP_USE_GIC_DRIVER VAL FVP_GICV2 SRC
+	${TFA_ROOT_DIR}/drivers/arm/gic/common/gic_common.c
+	${TFA_ROOT_DIR}/drivers/arm/gic/v2/gicv2_main.c
+	${TFA_ROOT_DIR}/drivers/arm/gic/v2/gicv2_helpers.c
+	${TFA_ROOT_DIR}/plat/common/plat_gicv2.c
+	${TFA_ROOT_DIR}/plat/arm/common/arm_gicv2.c
 )
 
 stgt_add_src_cond(NAME bl31 KEY ENABLE_AMU VAL 1 SRC
