@@ -34,6 +34,24 @@
       "revId": "72d3626f181914e1cb1e612f4afd8bf0b23b30bc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88c03a0c_b37abf43",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-18T16:09:39Z",
+      "side": 1,
+      "message": "Thanks for explaining. I would leave the name as is, unless you or others have a strong preference to change the name. The prefix helps identify the module it belongs to(for ex all xlat_table functions are usually prefixed with xlat_table). I\u0027m fine either way with a slight preference to leave it as is.",
+      "parentUuid": "47d9dee7_97f519f2",
+      "revId": "72d3626f181914e1cb1e612f4afd8bf0b23b30bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
