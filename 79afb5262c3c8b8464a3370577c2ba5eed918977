@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8427e7ba_664a96f2",
+        "filename": "include/lib/fconf/fconf.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-18T09:58:29Z",
+      "side": 1,
+      "message": "(minor) supports",
+      "range": {
+        "startLine": 46,
+        "startChar": 17,
+        "endLine": 46,
+        "endChar": 24
+      },
+      "revId": "79afb5262c3c8b8464a3370577c2ba5eed918977",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d59cb61_693a695b",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-18T09:58:29Z",
+      "side": 1,
+      "message": "I don\u0027t quite understand all changes in this file...\n\nMy understanding is that, before this patch, fconf_load_config() would only handle the FW_CONFIG file. It would load \u0026 authenticate it, keeping the loading information in the arm_tb_fw_info structure allocated on the stack. Then it would extract some information (base address and size) out of arm_tb_fw_info and would copy them across in the global fconf_dtb_info variable for future retrieval.\n\nNow, with fconf_load_config() handling both FW_CONFIG and TB_FW_CONFIG files, the loading information is still kept in a variable on the stack (image_info), that doesn\u0027t change. But AFAICS the step where the loading information would be copied from the stack to global data has been removed. At least for BL1, we pass the base address of the config file to BL2 (through its arguments) so this information is kept alive but it seems to me that the rest of them is lost on return from this function, it is abandoned on the function\u0027s stack.\n\nIn this case, what\u0027s the point of loading the config file image in the first place, if there is no remnant of the loading information? Does that just serve as an early sanity check, to ensure that the image can be properly loaded and authenticated?",
+      "revId": "79afb5262c3c8b8464a3370577c2ba5eed918977",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7be12623_a00d69c7",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-18T09:58:29Z",
+      "side": 1,
+      "message": "(minor) This comment is now inaccurate (could be the TB_FW_CONFIG we failed to load). Suggest removing it, as I don\u0027t think it added much value anyway.",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 41
+      },
+      "revId": "79afb5262c3c8b8464a3370577c2ba5eed918977",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13e2f8bf_3cc6afe9",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-18T09:58:29Z",
+      "side": 1,
+      "message": "(minor) Consider improving this info message to say *which* config file was loaded.",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 60
+      },
+      "revId": "79afb5262c3c8b8464a3370577c2ba5eed918977",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
