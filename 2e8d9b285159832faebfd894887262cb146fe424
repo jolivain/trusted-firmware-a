@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e2b0da6_c600caea",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-18T14:49:37Z",
+      "side": 1,
+      "message": "seems like GET_PROPERTY for dyn_cfg__dtb can return NULL. Do we need to check/panic/assert here ?",
+      "revId": "2e8d9b285159832faebfd894887262cb146fe424",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd480c38_097ed3cb",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-18T14:49:37Z",
+      "side": 1,
+      "message": "question: is it a fatal error if the config file is not loaded ? Is it possible that not loading a config file could lead to downstream code reading junk values/zeroes or do we panic if we find that the pointers to the configs are null in all code paths? From what i can see in code, there are only asserts to verify the pointers are non-null so in release builds, if load_auth_image fails due to maybe IO error, we would not catch it. Am i missing something ?",
+      "revId": "2e8d9b285159832faebfd894887262cb146fe424",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d730b4a5_8f0378f1",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-18T14:49:37Z",
+      "side": 1,
+      "message": "Do all platforms using BL1 now have to define ARM_FW_CONFIG_BASE? This is in common lib files.",
+      "revId": "2e8d9b285159832faebfd894887262cb146fe424",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
