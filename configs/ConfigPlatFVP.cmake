@@ -35,8 +35,6 @@ group_add(NAME hw_plat TYPE DEFINE KEY FVP_MAX_PE_PER_CPU VAL 1)
 
 group_add(NAME hw_plat TYPE CONFIG KEY FVP_DT_PREFIX VAL fvp-base-gicv3-psci)
 
-group_add(NAME hw_plat TYPE CONFIG DEFINE KEY FVP_INTERCONNECT_DRIVER VAL FVP_CCI)
-
 # Enable Activity Monitor Unit extensions by default
 group_add(NAME hw_plat TYPE CONFIG DEFINE KEY ENABLE_AMU VAL 1)
 

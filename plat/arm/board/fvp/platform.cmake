@@ -9,6 +9,18 @@ if(NOT DEFINED TFA_ROOT_DIR)
 	message(FATAL_ERROR "TF-A root dir not defined")
 endif()
 
+# Select interconnect driver based on cluster count
+stgt_get_param(NAME bl1 KEY FVP_CLUSTER_COUNT RET _fvp_cluster_count)
+group_new(NAME fvp_interconnect_driver)
+if (_fvp_cluster_count GREATER 2)
+	group_add(NAME fvp_interconnect_driver TYPE CONFIG DEFINE KEY FVP_INTERCONNECT_DRIVER VAL FVP_CCN)
+else()
+	group_add(NAME fvp_interconnect_driver TYPE CONFIG DEFINE KEY FVP_INTERCONNECT_DRIVER VAL FVP_CCI)
+endif()
+group_apply(NAME fvp_interconnect_driver TARGETS bl1 bl2 bl31)
+unset(_fvp_cluster_count)
+
+
 #plat_bl_common
 stgt_add_src(NAME bl1 bl2 bl31 SRC
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_common.c
@@ -62,6 +74,15 @@ endif()
 unset(_arch)
 unset(_ctx_include_aarch32_regs)
 
+#add appropriate sources for the interconnect driver
+stgt_add_src_cond(NAME bl1 bl31 KEY FVP_INTERCONNECT_DRIVER VAL FVP_CCI SRC
+	${TFA_ROOT_DIR}/drivers/arm/cci/cci.c
+)
+stgt_add_src_cond(NAME bl1 bl31 KEY FVP_INTERCONNECT_DRIVER VAL FVP_CCN SRC
+	${TFA_ROOT_DIR}/drivers/arm/ccn/ccn.c
+	${TFA_ROOT_DIR}/plat/arm/common/arm_ccn.c
+)
+
 #plat_bl1
 stgt_add_src_param(NAME bl1 KEY ARCH SRC
 	${TFA_ROOT_DIR}/drivers/arm/smmu/smmu_v3.c
@@ -74,9 +95,6 @@ stgt_add_src_param(NAME bl1 KEY ARCH SRC
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_bl1_setup.c
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_err.c
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_io_storage.c
-
-	#TODO: select interconnect
-	${TFA_ROOT_DIR}/drivers/arm/cci/cci.c
 )
 
 stgt_add_src_cond(NAME bl1 KEY FVP_USE_SP804_TIMER VAL 0 SRC
@@ -121,9 +139,6 @@ stgt_add_src_param(NAME bl31 KEY ARCH SRC
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_topology.c
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/aarch64/fvp_helpers.S
 	${TFA_ROOT_DIR}/plat/arm/common/arm_nor_psci_mem_protect.c
-
-	#TODO: select interconnect
-	${TFA_ROOT_DIR}/drivers/arm/cci/cci.c
 
 	#FVP security sources
 	${TFA_ROOT_DIR}/drivers/arm/tzc/tzc400.c
