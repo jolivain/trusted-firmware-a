@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "60a93a18_69a359f7",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-18T10:07:03Z",
+      "side": 1,
+      "message": "Ah I think I might have figured it out on my own... The TB_FW_CONFIG file is loaded at the address indicated in the tb_fw-config node of the FW_CONFIG file. Thus, BL2 can just retrieve this address from the FW_CONFIG file on its own and that way find the TB_FW_CONFIG file loaded by BL1.\n\nIs that the idea?",
+      "parentUuid": "5d59cb61_693a695b",
+      "revId": "79afb5262c3c8b8464a3370577c2ba5eed918977",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7be12623_a00d69c7",
         "filename": "lib/fconf/fconf.c",
         "patchSetId": 9
