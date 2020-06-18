@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04014e36_ed61ec00",
+        "filename": "include/lib/libfdt/fdt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2020-06-18T09:20:50Z",
+      "side": 1,
+      "message": "I think this should be kept as __ASSEMBLER__, it was done on purpose with the previous version, to try to get rid of the -D__ASSEMBY__.",
+      "revId": "5acaeeb8a5cc7c6608233bfc4418c6586c6fae8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
