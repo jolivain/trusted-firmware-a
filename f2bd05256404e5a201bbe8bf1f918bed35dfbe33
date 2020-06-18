@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e23fb46_e6e5fed4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-06-18T07:43:48Z",
+      "side": 1,
+      "message": "check patch reports \n:1: WARNING: Possible unwrapped commit description (prefer a maximum 75 chars per line)\nsettings and clear the non-overlapping memory was faulty. The sequence locked\n\n\ncan you restrict commit msg line length to 75 chars for cleanliness? Thanks.",
+      "revId": "f2bd05256404e5a201bbe8bf1f918bed35dfbe33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa2a6d54_21cdbae5",
+        "filename": "plat/nvidia/tegra/common/drivers/memctrl/memctrl_v2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-06-18T07:43:48Z",
+      "side": 1,
+      "message": "Why changing to uint64_t as to represent a memory pointer address?\nmmap_add_dynamic_region inputs are (unsigned long long, uintptr_t, size_t, unsigned int)\nShould you stick to those types as they are directly passed to this function?",
+      "range": {
+        "startLine": 278,
+        "startChar": 33,
+        "endLine": 278,
+        "endChar": 42
+      },
+      "revId": "f2bd05256404e5a201bbe8bf1f918bed35dfbe33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c1fd5b2_a182ab0e",
+        "filename": "plat/nvidia/tegra/common/drivers/memctrl/memctrl_v2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-06-18T07:43:48Z",
+      "side": 1,
+      "message": "Did you experience specific issues with return value, leading to removing the assert?",
+      "range": {
+        "startLine": 299,
+        "startChar": 1,
+        "endLine": 299,
+        "endChar": 18
+      },
+      "revId": "f2bd05256404e5a201bbe8bf1f918bed35dfbe33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f26079fe_4674703c",
+        "filename": "plat/nvidia/tegra/common/drivers/memctrl/memctrl_v2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-06-18T07:43:48Z",
+      "side": 1,
+      "message": "Same here, is there a reason to using uint64_t everywhere?\nAlso coding rules mandate to prefer using native C types .",
+      "range": {
+        "startLine": 305,
+        "startChar": 1,
+        "endLine": 305,
+        "endChar": 9
+      },
+      "revId": "f2bd05256404e5a201bbe8bf1f918bed35dfbe33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58c23743_6bc3bdca",
+        "filename": "plat/nvidia/tegra/common/drivers/memctrl/memctrl_v2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-06-18T07:43:48Z",
+      "side": 1,
+      "message": "This comment seems inaccurate now.",
+      "range": {
+        "startLine": 348,
+        "startChar": 4,
+        "endLine": 348,
+        "endChar": 60
+      },
+      "revId": "f2bd05256404e5a201bbe8bf1f918bed35dfbe33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63ae2be8_6230d630",
+        "filename": "plat/nvidia/tegra/common/drivers/memctrl/memctrl_v2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-06-18T07:43:48Z",
+      "side": 1,
+      "message": "This pattern with checking video_mem_base !\u003d 0 twice seems inelegant.\nShould you split this function into init and setup where init is the core of the configuration (lines 361-371 and 379-381).\ninit is called at boot time when video_mem_base \u003d\u003d 0\nsetup calls lock, init, unlock and is called at run-time when video_mem_base !\u003d 0?",
+      "revId": "f2bd05256404e5a201bbe8bf1f918bed35dfbe33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
