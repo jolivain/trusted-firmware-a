@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "55ea3c3b_d205cd41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-18T08:34:07Z",
+      "side": 1,
+      "message": "@Alexei: What would it take to upgrade all platforms using the GICv2 driver? I expect these platforms\u0027 makefiles would need similar changes as what you\u0027ve done for Arm platforms, is that correct? If yes then I think the nature of the changes is quite mechanical and I wouldn\u0027t think it\u0027s a lot work. Besides, this would be build system changes, which we can quite easily test on our side. The CI already has build tests for all platforms so you would have some confidence that your changes did not break anything. We should also add affected platform owners as reviewers of the patch for them to confirm they are ok with the changes.\n\nIf all the above makes sense to you and that my understanding is correct, then I agree with Varun and think we should do the work in this specific case. Whenever someone makes breaking changes in the platform interface that affect everyone, I think the guideline should be that they fix all platforms if it\u0027s not too much work. If it is, then we would need to piggy-back on every platform owner making the changes on their end but this requires coordination and agreement with them, it doesn\u0027t seem fair to me to break things and go away without consensus.",
+      "parentUuid": "6d8efa01_428ce7a5",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 16
+      },
+      "revId": "1e600574df2c33439e21bf8eaeec0e634007af7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a83be735_4450280c",
         "filename": "drivers/arm/gic/common/gic_common.c",
         "patchSetId": 2
