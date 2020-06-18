@@ -22,6 +22,30 @@
       "revId": "c7081286e5905c18af700797ef8d77d45c5ea534",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "001b7062_06f94c35",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-18T12:41:51Z",
+      "side": 1,
+      "message": "Yes, I too not in favour of defines use in lib (though some instance already exist in the lib directory hence taken this approach). \n\nIMO, there are 2 ways to have this as generic function:\n1. Remove #ifdef IMAGE_BL1 from this function assuming function to be called only from BL1 and make it generic. (as per fconf design perspective)\n2. As you suggested, we can retain the code till line 42 and then move rest of the code to arm_bl1_platform_setup. We can use GETTER function in arm_bl1_platform_setup to retrieve \naddress of fw_config.(so no need to return address from this function).\n\nIMO, option 2 is better. Again, can it be done as part of later on patches as this function currently really meant for ARM platform and did not break any other platform.",
+      "parentUuid": "dedc7d52_0d8b28ec",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "c7081286e5905c18af700797ef8d77d45c5ea534",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
