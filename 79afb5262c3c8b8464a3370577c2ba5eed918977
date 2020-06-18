@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a662880_e01abb67",
+        "filename": "include/lib/fconf/fconf.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-18T10:25:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8427e7ba_664a96f2",
+      "range": {
+        "startLine": 46,
+        "startChar": 17,
+        "endLine": 46,
+        "endChar": 24
+      },
+      "revId": "79afb5262c3c8b8464a3370577c2ba5eed918977",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d59cb61_693a695b",
         "filename": "lib/fconf/fconf.c",
         "patchSetId": 9
@@ -60,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "4e677279_84eeeaa8",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-18T10:25:27Z",
+      "side": 1,
+      "message": "Yes, that\u0027s correct Sandrine. BL2 just need to know where TB_FW_CONFIG is loaded.\nFW_CONFIG and TB_FW_CONFIG loading is done by BL1 only.",
+      "parentUuid": "60a93a18_69a359f7",
+      "revId": "79afb5262c3c8b8464a3370577c2ba5eed918977",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7be12623_a00d69c7",
         "filename": "lib/fconf/fconf.c",
         "patchSetId": 9
@@ -83,6 +125,30 @@
     },
     {
       "key": {
+        "uuid": "c546ddaa_8a9f2cba",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-18T10:25:27Z",
+      "side": 1,
+      "message": "Ack, missed to remove this comment.",
+      "parentUuid": "7be12623_a00d69c7",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 41
+      },
+      "revId": "79afb5262c3c8b8464a3370577c2ba5eed918977",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13e2f8bf_3cc6afe9",
         "filename": "lib/fconf/fconf.c",
         "patchSetId": 9
@@ -103,6 +169,30 @@
       "revId": "79afb5262c3c8b8464a3370577c2ba5eed918977",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c71111ed_f2f3c47c",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-18T10:25:27Z",
+      "side": 1,
+      "message": "Ack, will add update this info message with \"which\" config.",
+      "parentUuid": "13e2f8bf_3cc6afe9",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 60
+      },
+      "revId": "79afb5262c3c8b8464a3370577c2ba5eed918977",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
