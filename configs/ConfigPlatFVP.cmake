@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Copyright (c) 2019, Arm Limited. All rights reserved.
+# Copyright (c) 2019-2020, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -18,6 +18,8 @@ group_add(NAME hw_plat TYPE CONFIG KEY DTS_NT_FW_CONFIG VAL ${TFA_ROOT_DIR}/plat
 
 # Use the GICv3 driver on the FVP by default
 group_add(NAME hw_plat TYPE CONFIG DEFINE KEY FVP_USE_GIC_DRIVER VAL FVP_GICV3)
+
+group_add(NAME hw_plat TYPE DEFINE KEY GICV3_SUPPORT_GIC600 VAL 1)
 
 # Use the SP804 timer instead of the generic one
 group_add(NAME hw_plat TYPE CONFIG DEFINE KEY FVP_USE_SP804_TIMER VAL 0)
