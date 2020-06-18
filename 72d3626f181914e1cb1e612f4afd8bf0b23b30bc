@@ -16,6 +16,24 @@
       "revId": "72d3626f181914e1cb1e612f4afd8bf0b23b30bc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47d9dee7_97f519f2",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-18T16:06:25Z",
+      "side": 1,
+      "message": "This function is getting used in 2 ways as below:\n1. As a direct call without using fconf_populate framework in BL1 only.\n2. In rest of the BLs, this function gets called from populate framework.\n\nAs it is direct call from BL1, we thought changing its name to populate_dtb_registry.",
+      "parentUuid": "61c2f6f1_51550930",
+      "revId": "72d3626f181914e1cb1e612f4afd8bf0b23b30bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
