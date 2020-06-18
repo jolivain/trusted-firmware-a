@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "1e01159f_91649622",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-18T12:31:43Z",
+      "side": 1,
+      "message": "Ah I see, sorry about that, I didn\u0027t look close enough to the patch. If it\u0027s not a breaking change, this slightly changes the deal indeed.\n\nIf we decide to migrate all platforms nonetheless, I think this should not be part of the present patch, it would delay things too much. Whether we do 1 single patch for all 30 platforms or 30 independent patches is up to you IMO. There are pros and cons to each approach. 1 single patch is probably a bit less work for you (although you could probably quite easily create the 30 patches using a tiny bit of scripting) but you\u0027d have to wait for all 30 platform owners to review it before merging it ideally ; with 30 independent patches, each can be merged as soon as it\u0027s been reviewed, which is easier to manage IMO.",
+      "parentUuid": "58b8ee54_5076e7f5",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 16
+      },
+      "revId": "1e600574df2c33439e21bf8eaeec0e634007af7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a83be735_4450280c",
         "filename": "drivers/arm/gic/common/gic_common.c",
         "patchSetId": 2
