@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "38b00ad5_33c0c83d",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-18T16:15:10Z",
+      "side": 1,
+      "message": "Yep that works. The review linked below does not seem like it is checking for the condition. Might want to update that patch, if not already done.",
+      "parentUuid": "f56b423c_a2fc9fda",
+      "revId": "2e8d9b285159832faebfd894887262cb146fe424",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cd480c38_097ed3cb",
         "filename": "lib/fconf/fconf.c",
         "patchSetId": 11
@@ -72,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "4e502a39_356dac72",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-18T16:15:10Z",
+      "side": 1,
+      "message": "Apologize. did not see the patch before posting the comment. That works.",
+      "parentUuid": "7c89523e_63e7a94c",
+      "revId": "2e8d9b285159832faebfd894887262cb146fe424",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d730b4a5_8f0378f1",
         "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
         "patchSetId": 11
@@ -101,6 +137,24 @@
       "side": 1,
       "message": "Agree this need to be generic across all platforms. How about adding new API which fills data for FW_CONFIG in global dtb_infos array? (Note: this data should be static always and can\u0027t be populated).",
       "parentUuid": "d730b4a5_8f0378f1",
+      "revId": "2e8d9b285159832faebfd894887262cb146fe424",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1215d480_b4fb8d0c",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-18T16:15:10Z",
+      "side": 1,
+      "message": "yes. that works, or if it is simpler, the macro could be PLAT_FW_CONFIG_BASE/LIMIT. i think that might work too..",
+      "parentUuid": "638bb68e_cc3420f5",
       "revId": "2e8d9b285159832faebfd894887262cb146fe424",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
