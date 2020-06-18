@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "6a3630a5_b6655a6b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-18T18:08:11Z",
+      "side": 1,
+      "message": "I disagree with some parts of that argument @Sandrine. The first approach should always be to fix other platforms. Even if some changes do not break other platforms, it makes sense to keep every platform current. If not, then we just have people working in silos and one developer\u0027s work does not benefit others. IIRC, there has been precedent where developers have updated all platforms in the tree. If it gets too complicated, then a courtesy email on the mailing list should be sent announcing that some platforms would be using legacy features.",
+      "parentUuid": "1e01159f_91649622",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 16
+      },
+      "revId": "1e600574df2c33439e21bf8eaeec0e634007af7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a83be735_4450280c",
         "filename": "drivers/arm/gic/common/gic_common.c",
         "patchSetId": 2
