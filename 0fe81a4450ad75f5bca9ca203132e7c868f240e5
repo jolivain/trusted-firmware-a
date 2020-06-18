@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e9fd448_378c7ffb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-06-18T00:09:32Z",
+      "side": 1,
+      "message": "Please write a real commit message. Commit messages should contain a one-line subject, then a blank line, then a full-sentence description of what the patch does. They\u0027re not supposed to be a changelog for incremental updates you did to the patch while it was in review (if you want to provide that information, just use a Gerrit comment.",
+      "revId": "0fe81a4450ad75f5bca9ca203132e7c868f240e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1f9f5be_e1f86759",
+        "filename": "plat/qti/common/inc/qti_board_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-06-18T00:09:32Z",
+      "side": 1,
+      "message": "Where did this whitespace come from? There should just be a single space here. (Applies to other files as well...)",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 10
+      },
+      "revId": "0fe81a4450ad75f5bca9ca203132e7c868f240e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8265f0f6_afefd3b6",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-06-18T00:09:32Z",
+      "side": 1,
+      "message": "If you want to indent this you should use a full tab. I think it\u0027s also acceptable to put the attribute in a line above the type and identifier, without indentation.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 4
+      },
+      "revId": "0fe81a4450ad75f5bca9ca203132e7c868f240e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
