@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, Intel Corporation. All rights reserved.
+ * Copyright (c) 2019-2022, Intel Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -35,6 +35,9 @@
 #define INTEL_SIP_SMC_RSU_UPDATE			0xC200000C
 #define INTEL_SIP_SMC_RSU_NOTIFY			0xC200000E
 #define INTEL_SIP_SMC_RSU_RETRY_COUNTER			0xC200000F
+
+/* Generic Command */
+#define INTEL_SIP_SMC_HPS_SET_BRIDGES			0xC2000032
 
 /* Send Mailbox Command */
 #define INTEL_SIP_SMC_MBOX_SEND_CMD			0xC200001E

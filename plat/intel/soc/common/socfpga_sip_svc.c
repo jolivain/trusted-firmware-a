@@ -416,6 +416,17 @@ static uint32_t intel_mbox_send_cmd(uint32_t cmd, uint32_t *args,
 	return INTEL_SIP_SMC_STATUS_OK;
 }
 
+/* Miscellaneous HPS services */
+static uint32_t intel_hps_set_bridges(uint64_t enable)
+{
+	if (enable)
+		socfpga_bridges_enable();
+	else
+		socfpga_bridges_disable();
+
+	return INTEL_SIP_SMC_STATUS_OK;
+}
+
 /*
  * This function is responsible for handling all SiP calls from the NS world
  */
@@ -534,6 +545,10 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 					     (uint32_t *)x5, x6, &mbox_status,
 					     &len_in_resp);
 		SMC_RET3(handle, status, mbox_status, len_in_resp);
+
+	case INTEL_SIP_SMC_HPS_SET_BRIDGES:
+		status = intel_hps_set_bridges(x1);
+		SMC_RET1(handle, status);
 
 	default:
 		return socfpga_sip_handler(smc_fid, x1, x2, x3, x4,
