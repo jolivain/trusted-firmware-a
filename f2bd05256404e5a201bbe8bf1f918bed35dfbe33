@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "d583420f_e8ebfa2e",
+        "filename": "plat/nvidia/tegra/common/drivers/memctrl/memctrl_v2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-18T17:58:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fa2a6d54_21cdbae5",
+      "range": {
+        "startLine": 278,
+        "startChar": 33,
+        "endLine": 278,
+        "endChar": 42
+      },
+      "revId": "f2bd05256404e5a201bbe8bf1f918bed35dfbe33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c1fd5b2_a182ab0e",
         "filename": "plat/nvidia/tegra/common/drivers/memctrl/memctrl_v2.c",
         "patchSetId": 1
@@ -53,6 +77,30 @@
       "writtenOn": "2020-06-18T07:43:48Z",
       "side": 1,
       "message": "Did you experience specific issues with return value, leading to removing the assert?",
+      "range": {
+        "startLine": 299,
+        "startChar": 1,
+        "endLine": 299,
+        "endChar": 18
+      },
+      "revId": "f2bd05256404e5a201bbe8bf1f918bed35dfbe33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce8544a1_0781d825",
+        "filename": "plat/nvidia/tegra/common/drivers/memctrl/memctrl_v2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-18T17:58:52Z",
+      "side": 1,
+      "message": "I guess, you were talking about assert addition instead of removal. During my testing I saw that  this assert caught issues with the test and test data. Found it beneficial to retain it in production code",
+      "parentUuid": "1c1fd5b2_a182ab0e",
       "range": {
         "startLine": 299,
         "startChar": 1,
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "fb235617_b0ded20f",
+        "filename": "plat/nvidia/tegra/common/drivers/memctrl/memctrl_v2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-18T17:58:52Z",
+      "side": 1,
+      "message": "I think this was done to fix some MISRA defects in the past.",
+      "parentUuid": "f26079fe_4674703c",
+      "range": {
+        "startLine": 305,
+        "startChar": 1,
+        "endLine": 305,
+        "endChar": 9
+      },
+      "revId": "f2bd05256404e5a201bbe8bf1f918bed35dfbe33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "58c23743_6bc3bdca",
         "filename": "plat/nvidia/tegra/common/drivers/memctrl/memctrl_v2.c",
         "patchSetId": 1
@@ -111,6 +183,30 @@
     },
     {
       "key": {
+        "uuid": "39dcd8e9_e9df81c2",
+        "filename": "plat/nvidia/tegra/common/drivers/memctrl/memctrl_v2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-18T17:58:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "58c23743_6bc3bdca",
+      "range": {
+        "startLine": 348,
+        "startChar": 4,
+        "endLine": 348,
+        "endChar": 60
+      },
+      "revId": "f2bd05256404e5a201bbe8bf1f918bed35dfbe33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63ae2be8_6230d630",
         "filename": "plat/nvidia/tegra/common/drivers/memctrl/memctrl_v2.c",
         "patchSetId": 1
@@ -122,6 +218,24 @@
       "writtenOn": "2020-06-18T07:43:48Z",
       "side": 1,
       "message": "This pattern with checking video_mem_base !\u003d 0 twice seems inelegant.\nShould you split this function into init and setup where init is the core of the configuration (lines 361-371 and 379-381).\ninit is called at boot time when video_mem_base \u003d\u003d 0\nsetup calls lock, init, unlock and is called at run-time when video_mem_base !\u003d 0?",
+      "revId": "f2bd05256404e5a201bbe8bf1f918bed35dfbe33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6ab04a5_7c0d6adc",
+        "filename": "plat/nvidia/tegra/common/drivers/memctrl/memctrl_v2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-18T17:58:52Z",
+      "side": 1,
+      "message": "Introducing init and setup would mean replicating code or introducing smaller functions. That might be inelegant for someone else.",
+      "parentUuid": "63ae2be8_6230d630",
       "revId": "f2bd05256404e5a201bbe8bf1f918bed35dfbe33",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
