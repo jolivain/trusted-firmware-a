@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dedc7d52_0d8b28ec",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-18T12:00:58Z",
+      "side": 1,
+      "message": "I don\u0027t like the fact that this function is only meant to be called by BL1, despite being in lib/fconf, which makes it sound like it should be generic.\n\nI suggest we restrict the responsibility of fconf_load_config to just loading the specified config file, i.e. until line 42. The rest of the code, which is specific to BL1, could be moved to the call site in arm_bl1_platform_setup(). This would also have the benefit of eliminating the \"if (image_id \u003d\u003d FW_CONFIG_ID)\" condition because we would already know which config file we\u0027ve just loaded. For this to work, arm_bl1_platform_setup() needs to know the address where the config file has been loaded, for that we could make fconf_load_config() return image_info.image_base.\n\nHow does that sound?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "c7081286e5905c18af700797ef8d77d45c5ea534",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
