@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ef9bbe38_d3364f80",
+        "filename": "plat/arm/common/arm_bl1_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-18T18:55:14Z",
+      "side": 1,
+      "message": "Yes, There may be chances of fw_config image/FIP TOC header corruption which will be checked later after this function and provide opportunity to go for FW update process.",
+      "parentUuid": "fac3c89f_dadbbba3",
+      "revId": "64d4676e14ef771d82e81dda4328f8c4a03ed679",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7ff6ac23_88d0becb",
         "filename": "plat/arm/common/arm_bl1_setup.c",
         "patchSetId": 9
@@ -30,6 +48,24 @@
       "writtenOn": "2020-06-18T18:20:05Z",
       "side": 1,
       "message": "is it safe to run without FW_CONFIG? should this be a panic?",
+      "revId": "64d4676e14ef771d82e81dda4328f8c4a03ed679",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de989d83_61964582",
+        "filename": "plat/arm/common/arm_bl1_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-18T18:55:14Z",
+      "side": 1,
+      "message": "This is very unlikely case as FW_CONFIG load address is always present statically in BL1.\nHence just thrown error to indicate BL is continuing without FW_CONFIG and provide opportunity to BL1 to check for fw update use case.",
+      "parentUuid": "7ff6ac23_88d0becb",
       "revId": "64d4676e14ef771d82e81dda4328f8c4a03ed679",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
