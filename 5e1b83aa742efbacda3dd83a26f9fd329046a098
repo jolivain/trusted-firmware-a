@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12af3f76_b20bf9d3",
+        "filename": "plat/nvidia/tegra/common/tegra_gicv3.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-06-19T06:48:14Z",
+      "side": 1,
+      "message": "Sorry to come back on earlier\u0027s comment from Madhu.\nI think a better pattern would be to have a static const declaration at top of the file like this:\n\nstatic const gicv3_driver_data_t tegra_gic_data \u003d {\n\t.gicd_base \u003d TEGRA_GICD_BASE,\t\n\t.gicr_base \u003d TEGRA_GICR_BASE,\n\t.rdistif_num \u003d PLATFORM_CORE_COUNT,\n\t.rdistif_base_addrs \u003d rdistif_base_addrs,\n\t.mpidr_to_core_pos \u003d plat_tegra_mpidr_to_core_pos,\n[...]\n};\n\n\nand remove lines 40-46?",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 58
+      },
+      "revId": "5e1b83aa742efbacda3dd83a26f9fd329046a098",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
