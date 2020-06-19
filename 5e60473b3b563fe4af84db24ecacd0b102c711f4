@@ -19,6 +19,47 @@
     },
     {
       "key": {
+        "uuid": "6590e587_e4d22165",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-19T15:48:16Z",
+      "side": 1,
+      "message": "Better will retain assert here. Avoided else because  load_auth_image checks for config_info and return error.",
+      "parentUuid": "8848da9c_9c8d5f70",
+      "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "037b65c5_6b4ef009",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-19T15:48:16Z",
+      "side": 1,
+      "message": "I need to remove this. Its mistakenly added during rebase.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 75
+      },
+      "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cdb8d95d_5928ee88",
         "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
         "patchSetId": 11
@@ -30,6 +71,24 @@
       "writtenOn": "2020-06-19T15:28:25Z",
       "side": 1,
       "message": "this looks like it should be an assert. In what case can dtb_infos[0].config_id not be FW_CONFIG_ID?",
+      "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d2b1dcc_3815a91c",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-19T15:48:16Z",
+      "side": 1,
+      "message": "For BL2 and onwards BL, execution suppose to go inside hence avoid assert here.",
+      "parentUuid": "cdb8d95d_5928ee88",
       "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
