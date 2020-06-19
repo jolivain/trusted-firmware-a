@@ -63,6 +63,24 @@
       "revId": "5e1b83aa742efbacda3dd83a26f9fd329046a098",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "699d27b5_dd6d146b",
+        "filename": "plat/nvidia/tegra/common/tegra_gicv3.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-19T15:56:24Z",
+      "side": 1,
+      "message": "The general idea is to funnel all calls through this driver. I dont think we have a call to gicv3_rdistif_probe() outside of this driver. So I will add it here.\n\nI think I used some platform code as reference while developing this patch. Maybe that platform calls it from somewhere else.",
+      "parentUuid": "a6643c5d_c7265d0d",
+      "revId": "5e1b83aa742efbacda3dd83a26f9fd329046a098",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
