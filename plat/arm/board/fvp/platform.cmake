@@ -171,11 +171,21 @@ stgt_add_src_cond(NAME bl31 KEY FVP_USE_GIC_DRIVER VAL FVP_GICV2 SRC
 	${TFA_ROOT_DIR}/plat/arm/common/arm_gicv2.c
 )
 
+#conditionally add AMU sources
 stgt_add_src_cond(NAME bl31 KEY ENABLE_AMU VAL 1 SRC
 	${TFA_ROOT_DIR}/lib/cpus/aarch64/cpuamu.c
 	${TFA_ROOT_DIR}/lib/cpus/aarch64/cpuamu_helpers.S
-	#TODO: HW_ASSISTED_COHERENCY AMU sources
 )
+
+#additional sources when AMU enabled, and HW_ASSISTED_COHERENCY = 1
+stgt_get_param(NAME bl31 KEY ENABLE_AMU RET _enable_amu)
+if (_enable_amu EQUAL 1)
+	stgt_add_src_cond(NAME bl31 KEY HW_ASSISTED_COHERENCY VAL 1 SRC
+		${TFA_ROOT_DIR}/lib/cpus/aarch64/cortex_a75_pubsub.c
+		${TFA_ROOT_DIR}/lib/cpus/aarch64/neoverse_n1_pubsub.c
+	)
+endif()
+unset(_enable_amu)
 
 stgt_add_src_cond(NAME bl31 KEY FVP_USE_SP804_TIMER VAL 0 SRC
 	${TFA_ROOT_DIR}/drivers/delay_timer/generic_delay_timer.c
