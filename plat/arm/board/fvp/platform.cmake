@@ -171,10 +171,20 @@ stgt_add_src_cond(NAME bl31 KEY FVP_USE_GIC_DRIVER VAL FVP_GICV2 SRC
 	${PROJECT_SOURCE_DIR}/plat/arm/common/arm_gicv2.c
 )
 
+#conditionally add AMU sources
 stgt_add_src_cond(NAME bl31 KEY ENABLE_AMU VAL 1 SRC
 	${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cpuamu.c
 	${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cpuamu_helpers.S
-	#TODO: HW_ASSISTED_COHERENCY AMU sources
+)
+
+#additional sources when ENABLE_AMU = HW_ASSISTED_COHERENCY = 1
+stgt_add_src_cond(
+	NAME bl31
+	KEY ENABLE_AMU HW_ASSISTED_COHERENCY
+	VAL 1          1
+	SRC
+	${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a75_pubsub.c
+	${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/neoverse_n1_pubsub.c
 )
 
 stgt_add_src_cond(NAME bl31 KEY FVP_USE_SP804_TIMER VAL 0 SRC
