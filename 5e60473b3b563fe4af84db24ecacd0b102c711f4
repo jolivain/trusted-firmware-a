@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "555e5426_785c3a63",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-19T16:15:44Z",
+      "side": 1,
+      "message": "Sorry. i dont agree with this here. see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html#using-assert-to-check-for-programming-errors. \nWhat this code is telling a reader is that i expect this to never happen(assert) and then the code goes ahead and checks it anyway and that tells the reader it can happen. I cant think of a reason why both should exist. You have one or the other. Either you assert in debug builds that it never happens, or you take the approach that it may happen in both debug and release builds.",
+      "parentUuid": "6590e587_e4d22165",
+      "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "037b65c5_6b4ef009",
         "filename": "lib/fconf/fconf.c",
         "patchSetId": 11
@@ -89,6 +107,24 @@
       "side": 1,
       "message": "For BL2 and onwards BL, execution suppose to go inside hence avoid assert here.",
       "parentUuid": "cdb8d95d_5928ee88",
+      "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "379666ef_40c4809f",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-19T16:15:44Z",
+      "side": 1,
+      "message": "why is dtb_infos[0] FW_CONFIG_ID for BL1 and not BL2 etc? It isn\u0027t apparent to someone who reads the code why this is the case. WOuld it be better to put it under ifdef IMAGE_BL1 #else ? THat atleast documents that the behavior is different for different BLs and a comment explaining why the behavior is different would be helpful.",
+      "parentUuid": "6d2b1dcc_3815a91c",
       "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
