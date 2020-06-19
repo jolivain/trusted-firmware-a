@@ -206,6 +206,24 @@
       "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d8a53c6_a94a3198",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-19T17:44:43Z",
+      "side": 1,
+      "message": "fw_config dtb information is present statically in the platform. BL1 sets this information in global DTB array explicitly using \u0027set_fw_config_info\u0027 function. Need fw_config information beforehand which is used during the loading of fw_config in SRAM.\nHence subsequent \u0027populate_dtb_registry\u0027 function call from BL1 does not need to populate fw_config information again in global DTB array. \n\nBL2 and onward BLs call \u0027populate_dtb_registry\u0027 function to populate fw_config (static information) and other device trees information (dynamic info in fw_config dtb) in global DTB array.\n\nIMHO, Let me put more verbose comment to mention how BL1 already puts fw_config information\nthe global DTB array. \n\nStill, I think wherever possible we can avoid use of #ifdef in the library but I too don\u0027t have any strong opinion on this.",
+      "parentUuid": "62226358_5bbcef19",
+      "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
