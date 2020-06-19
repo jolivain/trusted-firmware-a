@@ -153,6 +153,24 @@
       "revId": "5e1b83aa742efbacda3dd83a26f9fd329046a098",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99b6009a_c1e9df5f",
+        "filename": "plat/nvidia/tegra/common/tegra_gicv3.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-06-19T16:40:02Z",
+      "side": 1,
+      "message": "Hi Olivier,\nSome background information about this. Originally, platforms specified GICR_BASE address statically using a define macro such as PLAT_GICR_BASE. Even fvp did the same. Primary cpu populated the gicr_base address of every cpu in the SoC. Please see gicv3_rdistif_base_addrs_probe(). However, I introduced support for dynamic probe of re-distributor address in a distributed way. What this means is each cpu is now responsible to find its own re-distributor base address. This done using the gicv3_rdistif_probe() helper API. \n\nThis dynamic approach currently is only taken by FVP. So I believe, this patch should work as it is, except my original concern that tegra_gic_init() is being called twice.",
+      "parentUuid": "d05c16a4_50e30bc4",
+      "revId": "5e1b83aa742efbacda3dd83a26f9fd329046a098",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
