@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8848da9c_9c8d5f70",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-19T15:28:25Z",
+      "side": 1,
+      "message": "no point in having both the assert and the if (confing_info !\u003d NULL). assert usually means that it should never happen. If statements mean that it can happen sometimes. If you are sure it should never happen, an assert will suffice. If you think it can happen sometimes, it should be an if, and the else should handle the case where it is NULL, perhaps return an error or panic.",
+      "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdb8d95d_5928ee88",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-19T15:28:25Z",
+      "side": 1,
+      "message": "this looks like it should be an assert. In what case can dtb_infos[0].config_id not be FW_CONFIG_ID?",
+      "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
