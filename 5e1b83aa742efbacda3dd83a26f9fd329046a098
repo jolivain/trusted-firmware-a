@@ -22,6 +22,30 @@
       "revId": "5e1b83aa742efbacda3dd83a26f9fd329046a098",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c670cabf_e7d86a32",
+        "filename": "plat/nvidia/tegra/common/tegra_gicv3.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-06-19T07:00:04Z",
+      "side": 1,
+      "message": "Hum, eventually, that may not be possible provided interrupt_props/props_num are passed as function parameters.... Never mind.",
+      "parentUuid": "12af3f76_b20bf9d3",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 58
+      },
+      "revId": "5e1b83aa742efbacda3dd83a26f9fd329046a098",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
