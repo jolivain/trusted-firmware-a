@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "279c6535_d848d15a",
+        "filename": "plat/arm/common/arm_bl1_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-19T10:22:37Z",
+      "side": 1,
+      "message": "We can skip bl1 setup on FWU detection. I updated the code accordingly and will post new version.",
+      "parentUuid": "88329335_5f1061a2",
+      "revId": "64d4676e14ef771d82e81dda4328f8c4a03ed679",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7ff6ac23_88d0becb",
         "filename": "plat/arm/common/arm_bl1_setup.c",
         "patchSetId": 9
