@@ -189,6 +189,24 @@
       "revId": "5e1b83aa742efbacda3dd83a26f9fd329046a098",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8859f3e5_f366e700",
+        "filename": "plat/nvidia/tegra/common/tegra_gicv3.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-06-19T17:37:10Z",
+      "side": 1,
+      "message": "Thanks for the info varun. \nOne thing I want to say is in order to thoroughly test an interrupt controller such GICv3, it would be good to run tftf in a multicpu environment because tests rely on existence of more than one cpu. \n\nYes, I believe the gicv3 base driver should take care of it.",
+      "parentUuid": "a96b47c0_3ed6fc27",
+      "revId": "5e1b83aa742efbacda3dd83a26f9fd329046a098",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
