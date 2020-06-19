@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "5ec9a16b_a43a294a",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-19T16:41:24Z",
+      "side": 1,
+      "message": "Thanks for the link. Yes already posted the code with only assert.",
+      "parentUuid": "555e5426_785c3a63",
+      "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "037b65c5_6b4ef009",
         "filename": "lib/fconf/fconf.c",
         "patchSetId": 11
@@ -75,6 +93,30 @@
       "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "048347db_cfaceaf2",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-19T16:41:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "037b65c5_6b4ef009",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 75
+      },
+      "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -125,6 +167,24 @@
       "side": 1,
       "message": "why is dtb_infos[0] FW_CONFIG_ID for BL1 and not BL2 etc? It isn\u0027t apparent to someone who reads the code why this is the case. WOuld it be better to put it under ifdef IMAGE_BL1 #else ? THat atleast documents that the behavior is different for different BLs and a comment explaining why the behavior is different would be helpful.",
       "parentUuid": "6d2b1dcc_3815a91c",
+      "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f14acf1f_6d2e1944",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-19T16:41:24Z",
+      "side": 1,
+      "message": "Is it good to have #ifdef in LIB? Already added comment that if execution is needed for BL2 and onwards BL.\nAlso, explicit comment present for this function \"set_fw_config_info\" which is getting used by BL1 to populate fw_config information.",
+      "parentUuid": "379666ef_40c4809f",
       "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
