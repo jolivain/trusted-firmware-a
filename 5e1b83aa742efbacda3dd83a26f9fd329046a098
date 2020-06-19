@@ -117,6 +117,24 @@
       "revId": "5e1b83aa742efbacda3dd83a26f9fd329046a098",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f13fa85e_02307ebb",
+        "filename": "plat/nvidia/tegra/common/tegra_gicv3.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-06-19T16:28:32Z",
+      "side": 1,
+      "message": "@Madhu, I didn\u0027t see that in FVP (see plat/arm/common/arm_gicv3.c: plat_arm_gic_driver_init) but maybe the order of the function calls is different on other platforms?",
+      "parentUuid": "04a14a69_33de52ef",
+      "revId": "5e1b83aa742efbacda3dd83a26f9fd329046a098",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
