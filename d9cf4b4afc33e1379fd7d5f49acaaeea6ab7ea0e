@@ -22,6 +22,30 @@
       "revId": "d9cf4b4afc33e1379fd7d5f49acaaeea6ab7ea0e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb7d47ef_11047fe7",
+        "filename": "plat/rockchip/common/params_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000399
+      },
+      "writtenOn": "2020-06-20T01:51:04Z",
+      "side": 1,
+      "message": "To answer your first question, we will use the defaults when the DT is too large because we won\u0027t call plat_rockchip_dt_process_fdt_uart() to override them.\n\nThe situation I\u0027m trying to avoid with this change is one where the defaults wouldn\u0027t cause a crash but where TF-A crashes anyway because the passed DT is too large. In the case where the defaults cause a crash and the DT is also too large, we\u0027ll crash either with or without this change, so nothing regresses.\n\nAs for why we care about parsing a DT at all when the defaults don\u0027t cause a crash, that\u0027s because it\u0027s perfectly possible to have defaults that don\u0027t cause a crash but produce no usable output. That\u0027s the case with my RK3399 board, where SPL and U-Boot run at a baud rate of 1500000 which differs from the TF-A Rockchip default of 115200. It could also happen if the defaults specify a different UART than the one the debug adapter is hooked up to.\n\nIn that case, this change will let TF-A will run with no output when the passed DT is too large instead of just crashing, which seems to me like the least surprising outcome.",
+      "parentUuid": "6b88dc28_55c012f7",
+      "range": {
+        "startLine": 143,
+        "startChar": 5,
+        "endLine": 146,
+        "endChar": 44
+      },
+      "revId": "d9cf4b4afc33e1379fd7d5f49acaaeea6ab7ea0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
