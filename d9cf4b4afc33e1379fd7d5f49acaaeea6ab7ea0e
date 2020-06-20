@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b88dc28_55c012f7",
+        "filename": "plat/rockchip/common/params_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-20T01:28:52Z",
+      "side": 1,
+      "message": "Just curious. When we return success here, do we assume default values for UART ID? Is there a possibility that the default UART ID might cause issues (e.g. hangs)? If not, do you think the code can just assume the default value always? What\u0027s the role of DT in that case?",
+      "range": {
+        "startLine": 143,
+        "startChar": 5,
+        "endLine": 146,
+        "endChar": 44
+      },
+      "revId": "d9cf4b4afc33e1379fd7d5f49acaaeea6ab7ea0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
