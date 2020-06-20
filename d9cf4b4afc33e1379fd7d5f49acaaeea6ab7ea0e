@@ -70,6 +70,30 @@
       "revId": "d9cf4b4afc33e1379fd7d5f49acaaeea6ab7ea0e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "289cc1fd_64e01483",
+        "filename": "plat/rockchip/common/params_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000399
+      },
+      "writtenOn": "2020-06-20T06:06:05Z",
+      "side": 1,
+      "message": "My goal here is to stop a too-large DTB from being a fatal error. It sounds like you disagree with that goal and think that a too-large DTB should be fatal. Is that right? If so, let me justify my position a bit more.\n\nTo my knowledge, all RK3399 boards use the same UART for debug output; I assume (but have not verified) that the situation is similar for other Rockchip chips. As a result, the only thing that the FDT will in practice override is the UART baud rate (and this does happen on many RK3399 boards, including mine). A misconfigured baud rate is not inherently a fatal error: it\u0027s perfectly possible for TF-A to boot and function properly after falling back to the default. It will make it harder to read the debug output, but that\u0027s the only effect.\n\nHowever, our current code treats it as fatal. This means that a DTS change that happens to push the DTB size over the edge will cause a total failure to boot that\u0027s very hard to debug, especially if all one has is serial access. This is what I\u0027m trying to avoid with this patch. It\u0027s much easier to debug an incorrect baud rate in a specific bootloader stage than it is to debug a total failure to boot.\n\nI acknowledge that there\u0027s value in keeping abnormal conditions like this fatal, so that they\u0027re guaranteed to be found and fixed when they happen. However, there are two reasons I don\u0027t want to do that here. The first is that, like I mention above, this will be triggered by DTS changes that are totally unrelated to TF-A in any way, meaning that debugging it in its current state is certain to be quite time consuming. The second is is that this failure mode really isn\u0027t that harmful. A bad baud rate on an early boot stage that doesn\u0027t produce much output anyway is not likely to adversely affect anyone if it goes unfixed, and seems clearly superior to (what will appear to be) random boot failures.",
+      "parentUuid": "486dac8a_ff629e53",
+      "range": {
+        "startLine": 143,
+        "startChar": 5,
+        "endLine": 146,
+        "endChar": 44
+      },
+      "revId": "d9cf4b4afc33e1379fd7d5f49acaaeea6ab7ea0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
