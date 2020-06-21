@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8eacb510_e63a8b0a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-06-21T23:16:54Z",
+      "side": 1,
+      "message": "Can you post the relevant DT snippets for the device that causes you problems? If you check commit d93eb4467a0c, there are boards that need DRIVEVBUS for USB to work in U-Boot. So far it wasn\u0027t a problem to enable the rail if DRIVEVBUS is just mentioned in the DT. If this now isn\u0027t good enough anymore, we might now dig deeper into the DT to cover all cases.",
+      "revId": "34c8b2799305867850ba55ff0a4c6ca02b122140",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b49f5d9c_5a618cac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-06-21T23:16:54Z",
+      "side": 1,
+      "message": "Yes, but Linux might set it, and this was causing actual problems after reboots in the past on some boards. So I needed to explicitly clear it. Do you see actual issues with clearing the bit?",
+      "revId": "34c8b2799305867850ba55ff0a4c6ca02b122140",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
