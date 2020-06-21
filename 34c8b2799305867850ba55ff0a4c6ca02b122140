@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "73063423_eff947c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2020-06-21T23:41:36Z",
+      "side": 1,
+      "message": "Note that x-powers,drive-vbus-en !\u003d reg_drivevbus. x-powers,drive-vbus-en only controls the pinmux. It doesn\u0027t mean that the regulator should be turned on at boot, or ever.\n\nIf setting the value of DRIVEVBUS is really necessary, it should be based on the regulator, not the pinmux property (either using the existing should_enable_regulator() logic, or a specific property, such as regulator-boot-on).",
+      "parentUuid": "8eacb510_e63a8b0a",
+      "revId": "34c8b2799305867850ba55ff0a4c6ca02b122140",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b49f5d9c_5a618cac",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
