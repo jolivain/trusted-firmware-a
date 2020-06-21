@@ -118,6 +118,30 @@
       "revId": "d9cf4b4afc33e1379fd7d5f49acaaeea6ab7ea0e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c6a7549_6a7a7078",
+        "filename": "plat/rockchip/common/params_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000399
+      },
+      "writtenOn": "2020-06-21T20:49:52Z",
+      "side": 1,
+      "message": "Sure. For the record, if/when Rockchip starts parsing information from the DTB that\u0027s more critical than UART config, I fully support changing this into a panic.",
+      "parentUuid": "02e9d0da_438723f5",
+      "range": {
+        "startLine": 143,
+        "startChar": 5,
+        "endLine": 146,
+        "endChar": 44
+      },
+      "revId": "d9cf4b4afc33e1379fd7d5f49acaaeea6ab7ea0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
