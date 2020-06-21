@@ -94,6 +94,30 @@
       "revId": "d9cf4b4afc33e1379fd7d5f49acaaeea6ab7ea0e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02e9d0da_438723f5",
+        "filename": "plat/rockchip/common/params_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-21T20:46:46Z",
+      "side": 1,
+      "message": "I understand the reasoning behind the UART baud rate settings and using the default values. I find it a bit odd that an error for a large DTB is not flagged. In future, the DTB might contain more settings and this piece of the code would let it slide. So the only way to catch that issue would be with an eventual crash if we are lucky. The last thing any platform would want is to execute with incorrect settings because we did not flag the large DTB.\n\nAs a platform owner, I would want to catch that issue. We should see if the rockchip platforms think otherwise.",
+      "parentUuid": "289cc1fd_64e01483",
+      "range": {
+        "startLine": 143,
+        "startChar": 5,
+        "endLine": 146,
+        "endChar": 44
+      },
+      "revId": "d9cf4b4afc33e1379fd7d5f49acaaeea6ab7ea0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
