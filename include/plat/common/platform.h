@@ -13,6 +13,9 @@
 #if defined(SPD_spmd)
  #include <services/spm_core_manifest.h>
 #endif
+#if TRNG_SUPPORT
+#include "plat_trng.h"
+#endif
 
 /*******************************************************************************
  * Forward declarations
