@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e3951398_4f9fa078",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-06-22T21:59:13Z",
+      "side": 1,
+      "message": "I added a link to the commit message.",
+      "parentUuid": "cde60caa_5f25151d",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "3599c3d0b7937c9f8a0cfd4ea56e719a32823e5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "68db9535_af3f1c55",
         "filename": "include/lib/cpus/aarch64/cortex_a76.h",
         "patchSetId": 3
