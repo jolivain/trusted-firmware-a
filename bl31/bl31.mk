@@ -68,6 +68,11 @@ BL31_SOURCES		+=	services/std_svc/sdei/sdei_dispatch.S	\
 				services/std_svc/sdei/sdei_state.c
 endif
 
+ifeq (${TRNG_SUPPORT},1)
+BL31_SOURCES		+=	services/std_svc/trng/trng_main.c	\
+				services/std_svc/trng/trng_entropy_pool.c
+endif
+
 ifeq (${ENABLE_SPE_FOR_LOWER_ELS},1)
 BL31_SOURCES		+=	lib/extensions/spe/spe.c
 endif
