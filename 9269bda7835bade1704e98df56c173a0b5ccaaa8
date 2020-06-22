@@ -104,6 +104,24 @@
       "revId": "9269bda7835bade1704e98df56c173a0b5ccaaa8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e242e25a_ba7b8bbb",
+        "filename": "lib/cpus/aarch64/dsu_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-06-22T12:06:11Z",
+      "side": 1,
+      "message": "@Alexei I feel this is readable considering we need to map the return from \u0027is_scu_present_in_dsu\u0027 to ERRATA_NOT_APPLIES/APPLIES.",
+      "parentUuid": "d310af49_13009ed1",
+      "revId": "9269bda7835bade1704e98df56c173a0b5ccaaa8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
