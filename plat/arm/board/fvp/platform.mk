@@ -206,6 +206,10 @@ BL31_SOURCES		+=	drivers/arm/fvp/fvp_pwrc.c			\
 				${FVP_INTERCONNECT_SOURCES}			\
 				${FVP_SECURITY_SOURCES}
 
+ifeq (${TRNG_SUPPORT},1)
+BL31_SOURCES		+= 	drivers/arm/fvp/bad_trng.c
+endif
+
 # Support for fconf in BL31
 # Added separately from the above list for better readability
 ifeq ($(filter 1,${BL2_AT_EL3} ${RESET_TO_BL31}),)
