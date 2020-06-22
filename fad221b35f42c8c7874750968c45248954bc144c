@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e70fb1dd_a9b5b672",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-22T12:40:27Z",
+      "side": 1,
+      "message": "A comment explaining why we need this code only for BL1 would be good.\n\nI believe it\u0027s because BL1 is the first image to run so we need to hardcode the address the FW_CONFIG file, right? Whereas BL2 is getting passed this information by BL1 so it passes it down as an argument to fconf_populate_dtb_registry(), which records it in the dtb_info_pool?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 2
+      },
+      "revId": "fad221b35f42c8c7874750968c45248954bc144c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}

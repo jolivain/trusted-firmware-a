@@ -70,6 +70,29 @@
       "revId": "c7081286e5905c18af700797ef8d77d45c5ea534",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c232c272_35d37a56",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-22T12:40:27Z",
+      "side": 1,
+      "message": "I am confused... I see this code being deleted from this function between patch sets #10 and #12 (as discussed) but I don\u0027t see where it\u0027s being moved. I expected this code to move to arm_bl1_platform_setup(). Did I miss/misunderstand anything? Perhaps it\u0027s reintroduced in a subsequent patch (I haven\u0027t looked at them again yet)?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 1
+      },
+      "revId": "c7081286e5905c18af700797ef8d77d45c5ea534",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
