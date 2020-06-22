@@ -2009,6 +2009,52 @@ interrupt and the interrupt ID are passed as parameters.
 
 The default implementation only prints out a warning message.
 
+.. _porting_guide_trng_requirements:
+
+TRNG porting requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The |TRNG| backend requires the platform to provide the following values
+and mandatory functions.
+
+Values
+......
+
+value: uuid_t plat_trng_uuid [mandatory]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This value must be defined to the UUID of the TRNG backend that is specific to
+the hardware after ``plat_trng_setup`` function is called. This value must
+conform to the SMCCC calling convention; The most significant 32 bits of the
+UUID must not equal ``0xffffffff`` or the signed integer ``-1`` as this value in
+w0 indicates failure to get a TRNG source.
+
+Functions
+.........
+
+Function: void plat_entropy_setup(void) [mandatory]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+  Argument: none
+  Return: none
+
+This function is expected to do platform-specific initialization of any TRNG
+hardware. This may include generating a UUID from a hardware-specific seed.
+
+Function: bool plat_get_entropy(uint64_t *out) [mandatory]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+  Return: success flag
+  Out : when the success flag is true, the entropy is written into the storage
+  pointed to
+
+This function writes entropy into storage provided by the caller. If no entropy
+is available, valid must be set to false and the storage must not be written.
+
 Power State Coordination Interface (in BL31)
 --------------------------------------------
 

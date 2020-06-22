@@ -989,6 +989,7 @@ $(eval $(call add_defines,\
         SPM_MM \
         SPMD_SPM_AT_SEL2 \
         TRUSTED_BOARD_BOOT \
+        TRNG_SUPPORT \
         USE_COHERENT_MEM \
         USE_DEBUGFS \
         ARM_IO_IN_DTB \
