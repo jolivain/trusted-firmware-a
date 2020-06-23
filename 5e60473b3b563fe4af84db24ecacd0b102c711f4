@@ -224,6 +224,24 @@
       "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fdf0b49_17d988ee",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-23T12:51:22Z",
+      "side": 1,
+      "message": "As it is library code, would it help to make this more generic, like so:\n\n /* Populate DTB info (if it has not already been done). */\n if (dtb_infos[0].config_id !\u003d 0) {\n   /* ... */\n\nThis still relies on the fact that none of the config files have id 0, which we might want to document with a compile-time assertion, as I said previously.",
+      "parentUuid": "2d8a53c6_a94a3198",
+      "revId": "5e60473b3b563fe4af84db24ecacd0b102c711f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }

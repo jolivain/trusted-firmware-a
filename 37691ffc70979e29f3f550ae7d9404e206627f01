@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "af064ddd_a0fc8432",
+        "filename": "plat/arm/common/arm_bl1_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-23T12:51:22Z",
+      "side": 1,
+      "message": "Ah, I should have read the review comments before posting this, I now see this was suggested by Raghu (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/4530/9/plat/arm/common/arm_bl1_setup.c#156).\n\nI think I understand the rationale now. If the FIP is corrupted then we cannot trust the configuration files within it so there\u0027s no point parsing them. Still, I now question the implementation of bl1_plat_get_next_image_id() below, which at the moment checks the FIP integrity again to decide whether it should hand over to BL2 (normal boot flow) or NS_BL1U (FWU flow). I can\u0027t see a reason why a FIP would get corrupted between arm_bl1_platform_setup() and bl1_plat_get_next_image_id(). Once we\u0027ve checked the integrity of the FIP image here at line 155, could we cache this information so as to avoid doing the work twice?\n\nThis is just an optimisation so can be done in a later patch.",
+      "parentUuid": "62341cb3_844973e6",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 2
+      },
+      "revId": "37691ffc70979e29f3f550ae7d9404e206627f01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d627aec0_46c9d2d1",
         "filename": "plat/arm/common/arm_bl2_setup.c",
         "patchSetId": 13
