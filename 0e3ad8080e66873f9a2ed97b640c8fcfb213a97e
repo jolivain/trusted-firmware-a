@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1749301b_21ae2b26",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-23T11:34:04Z",
+      "side": 1,
+      "message": "Unless I misunderstood something, I think this commit message doesn\u0027t accurately describe what this patch actually does.\n\nIIUC, the patch migrates the Arm platforms to the API changes introduced in the previous patches by fixing the call to fconf_load_config() and writes the mbedTLS heap address and BL2 hash data in the appropriate DTB (which used to be the common firmware config file but now is the BL2 fw config file). Is that right?",
+      "revId": "0e3ad8080e66873f9a2ed97b640c8fcfb213a97e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
