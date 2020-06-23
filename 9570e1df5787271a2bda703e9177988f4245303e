@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d54a267d_5c01ba7c",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-23T11:45:43Z",
+      "side": 1,
+      "message": "nit: one more tab to align",
+      "range": {
+        "startLine": 38,
+        "startChar": 31,
+        "endLine": 38,
+        "endChar": 32
+      },
+      "revId": "9570e1df5787271a2bda703e9177988f4245303e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e54a759_b24b37ea",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-23T11:45:43Z",
+      "side": 1,
+      "message": "MISRA might complain, braces around",
+      "range": {
+        "startLine": 387,
+        "startChar": 6,
+        "endLine": 387,
+        "endChar": 44
+      },
+      "revId": "9570e1df5787271a2bda703e9177988f4245303e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c482747_9141878e",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-06-23T11:45:43Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 388,
+        "startChar": 3,
+        "endLine": 388,
+        "endChar": 33
+      },
+      "revId": "9570e1df5787271a2bda703e9177988f4245303e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
