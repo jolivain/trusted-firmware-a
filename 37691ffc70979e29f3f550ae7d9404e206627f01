@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6c28e382_8ba8fbc1",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-23T13:34:29Z",
+      "side": 1,
+      "message": "As this function name itself specifies that it is for fw_config set only. IMO, we should not expose this function for multiple config info set. Try to restrict this function only for \"FW_CONFIG_ID\" Let me know your opinion",
+      "parentUuid": "509a85b6_2e2fd258",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 42
+      },
+      "revId": "37691ffc70979e29f3f550ae7d9404e206627f01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "82fc14c7_e785c786",
         "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
         "patchSetId": 13
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bc18d10c_cad53457",
+        "filename": "plat/arm/common/arm_bl1_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-23T13:34:29Z",
+      "side": 1,
+      "message": "Yes, your understanding is right, \nI too though of this that FIP integrity check is done twice but it should not harm much to do check twice if BL goes for fw_update finally.\nBut agree this check is redundant in case of normal flow (i.e. FIP header is not corrupted)\n\nMay be we can check header corruption way early and set some global variable which can be retrieved here and during bl1_plat_get_next_image_id.\n\nThis can be done as separate patch same as you mentioned.",
+      "parentUuid": "af064ddd_a0fc8432",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 2
+      },
+      "revId": "37691ffc70979e29f3f550ae7d9404e206627f01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d627aec0_46c9d2d1",
         "filename": "plat/arm/common/arm_bl2_setup.c",
         "patchSetId": 13
@@ -109,6 +157,24 @@
       "revId": "37691ffc70979e29f3f550ae7d9404e206627f01",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44771329_3b0bd106",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-23T13:34:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d627aec0_46c9d2d1",
+      "revId": "37691ffc70979e29f3f550ae7d9404e206627f01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
