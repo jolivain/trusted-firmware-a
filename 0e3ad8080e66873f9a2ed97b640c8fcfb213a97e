@@ -16,6 +16,24 @@
       "revId": "0e3ad8080e66873f9a2ed97b640c8fcfb213a97e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "863d42bb_d7c4a4e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-23T12:58:49Z",
+      "side": 1,
+      "message": "Yes your explanation is right. I will update the commit as below:\n\nplat/arm: Update the fw_config load call and populate it\u0027s information\n\n1. Migrates the Arm platforms to the API changes introduced in the \n   previous patches by fixing the fconf_load_config() call. \n2. Retrieve dynamically the address of tb_fw_config using fconf \n   getter api which is subsequently used to write mbedTLS heap \n   address and BL2 hash data in the tb_fw_config DTB.",
+      "parentUuid": "1749301b_21ae2b26",
+      "revId": "0e3ad8080e66873f9a2ed97b640c8fcfb213a97e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
