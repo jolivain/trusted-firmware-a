@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f9061ed3_e60f60cf",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2020-06-23T18:17:38Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "d8f753a7_c2b17e17",
+      "range": {
+        "startLine": 270,
+        "startChar": 5,
+        "endLine": 270,
+        "endChar": 12
+      },
+      "revId": "20051758c49d8fb9df82428ce180e0c77c57405e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "101fcb3b_cdcb20da",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 9
@@ -45,6 +69,30 @@
       "revId": "20051758c49d8fb9df82428ce180e0c77c57405e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7767b4b1_6b98ca69",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2020-06-23T18:17:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "101fcb3b_cdcb20da",
+      "range": {
+        "startLine": 284,
+        "startChar": 32,
+        "endLine": 284,
+        "endChar": 66
+      },
+      "revId": "20051758c49d8fb9df82428ce180e0c77c57405e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
