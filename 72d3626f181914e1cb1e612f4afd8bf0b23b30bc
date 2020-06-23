@@ -70,6 +70,24 @@
       "revId": "72d3626f181914e1cb1e612f4afd8bf0b23b30bc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e1d0455_3f68aec7",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-23T11:58:05Z",
+      "side": 1,
+      "message": "I agree with Raghu, I would have preferred the name to stay as is. Even if it is called by BL1, it is still a function provided by the fconf framework. In my mind, fconf is about configuring the firmware based on some configuration data. This configuration data might come from dynamically populated information extracted from some config file, or it could just be coming from statically defined data in the platform layer. From the caller\u0027s point of view, it\u0027s the same because fconf acts as an abstraction layer on top of that. BL1 is just using the 2nd approach underneath.",
+      "parentUuid": "de66fd3a_57f3ea2a",
+      "revId": "72d3626f181914e1cb1e612f4afd8bf0b23b30bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
