@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5b5292da_b38dae98",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-23T12:29:27Z",
+      "side": 1,
+      "message": "Yes will move this to next patch. Done this change to resolve MISRA issue but in wrong patch",
+      "parentUuid": "30a76e7b_813638cb",
+      "revId": "f97d45e62c5794e641d4c114c0d30cf5312f5552",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cd7dbb34_043cde95",
         "filename": "lib/fconf/fconf.c",
         "patchSetId": 10
@@ -30,6 +48,30 @@
       "writtenOn": "2020-06-23T11:58:05Z",
       "side": 1,
       "message": "Ideally struct dyn_cfg_dtb_info_t and struct image_info should use the same type for the maximum size of the file. If the image loader cannot load images bigger than 4GB then I don\u0027t see the point for fconf to cater for config files bigger than that. 4GB should be more than enough for config files anyway.\n\nI am not requesting this to be changed as part of this patch but it would be good to write it down somewhere, in some list of remaining fconf cleanups.",
+      "range": {
+        "startLine": 33,
+        "startChar": 36,
+        "endLine": 33,
+        "endChar": 75
+      },
+      "revId": "f97d45e62c5794e641d4c114c0d30cf5312f5552",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "387d7113_754aad6c",
+        "filename": "lib/fconf/fconf.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-23T12:29:27Z",
+      "side": 1,
+      "message": "Yes, I agree and noted. Will take care of this in clean-up patches.\nChanges are done to be in sync with previous implementation.",
+      "parentUuid": "cd7dbb34_043cde95",
       "range": {
         "startLine": 33,
         "startChar": 36,
