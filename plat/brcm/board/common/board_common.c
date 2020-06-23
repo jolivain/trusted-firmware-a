@@ -21,7 +21,7 @@ const mmap_region_t plat_brcm_mmap[] = {
 #endif
 #ifdef USE_DDR
 	BRCM_MAP_NS_DRAM1,
-#if BRCM_BL31_IN_DRAM
+#if ARM_BL31_IN_DRAM
 	BRCM_MAP_BL31_SEC_DRAM,
 #endif
 #else
