@@ -24,7 +24,10 @@ unset(_fvp_cluster_count)
 #plat_bl_common
 stgt_add_src(NAME bl1 bl2 bl31 SRC
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_common.c
-	#TODO: stack protector
+)
+
+stgt_add_src_cond(NAME bl1 bl2 bl31 KEY ENABLE_STACK_PROTECTOR VAL 1 SRC
+	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_stack_protector.c
 )
 
 #FVP CPU libs
