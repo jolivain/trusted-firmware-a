@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "09283e84_8efa2ba2",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-23T14:07:23Z",
+      "side": 1,
+      "message": "This is quite unlikely but yes, we can add compile time assertion here.",
+      "parentUuid": "82fc14c7_e785c786",
+      "range": {
+        "startLine": 75,
+        "startChar": 1,
+        "endLine": 75,
+        "endChar": 46
+      },
+      "revId": "37691ffc70979e29f3f550ae7d9404e206627f01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "62341cb3_844973e6",
         "filename": "plat/arm/common/arm_bl1_setup.c",
         "patchSetId": 13
