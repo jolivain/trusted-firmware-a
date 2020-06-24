@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "33a70672_4bd2a4d5",
+        "filename": "plat/mediatek/mt8192/bl31_plat_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000362
+      },
+      "writtenOn": "2020-06-24T01:02:07Z",
+      "side": 1,
+      "message": "The gic part will be uploaded as another patch",
+      "parentUuid": "f2133e7a_a23c75de",
+      "revId": "e819991902cc1126472a2db8255dd1081d62fa4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4719d5f8_ab9db24b",
         "filename": "plat/mediatek/mt8192/include/plat_macros.S",
         "patchSetId": 5
@@ -53,6 +71,42 @@
     },
     {
       "key": {
+        "uuid": "38896c0d_40cba216",
+        "filename": "plat/mediatek/mt8192/include/plat_macros.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000362
+      },
+      "writtenOn": "2020-06-24T01:02:07Z",
+      "side": 1,
+      "message": "gic part will be fixed in another patch\nplease check I30c08c531e705debc029071e4e970048e261c386",
+      "parentUuid": "4719d5f8_ab9db24b",
+      "revId": "e819991902cc1126472a2db8255dd1081d62fa4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d110df3c_5d216a4c",
+        "filename": "plat/mediatek/mt8192/include/plat_macros.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000362
+      },
+      "writtenOn": "2020-06-24T01:02:07Z",
+      "side": 1,
+      "message": "gic part will be fixed in another patch\nplease check I30c08c531e705debc029071e4e970048e261c386",
+      "parentUuid": "650c30af_84464ddd",
+      "revId": "e819991902cc1126472a2db8255dd1081d62fa4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "620ec7c6_025197d6",
         "filename": "plat/mediatek/mt8192/include/platform_def.h",
         "patchSetId": 5
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "4337f217_ae7b356e",
+        "filename": "plat/mediatek/mt8192/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000362
+      },
+      "writtenOn": "2020-06-24T01:02:07Z",
+      "side": 1,
+      "message": "the gic part is fixed in \nI30c08c531e705debc029071e4e970048e261c386\nOther un-used parts will be removed",
+      "parentUuid": "620ec7c6_025197d6",
+      "revId": "e819991902cc1126472a2db8255dd1081d62fa4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "944c071c_29272902",
         "filename": "plat/mediatek/mt8192/platform.mk",
         "patchSetId": 5
@@ -81,6 +153,24 @@
       "writtenOn": "2020-05-11T06:20:54Z",
       "side": 1,
       "message": "please add \"GICV3_IMPL :\u003d GIC600\" here.",
+      "revId": "e819991902cc1126472a2db8255dd1081d62fa4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05ef892c_65f0b0f9",
+        "filename": "plat/mediatek/mt8192/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000362
+      },
+      "writtenOn": "2020-06-24T01:02:07Z",
+      "side": 1,
+      "message": "the gic part is added in \nI30c08c531e705debc029071e4e970048e261c386",
+      "parentUuid": "944c071c_29272902",
       "revId": "e819991902cc1126472a2db8255dd1081d62fa4a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
