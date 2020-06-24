@@ -22,6 +22,30 @@
       "revId": "967c43f40ee539c7331dcede25265c84dc59598b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a6f51b5_a87b7dc0",
+        "filename": "docs/process/security.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-24T12:13:44Z",
+      "side": 1,
+      "message": "True, there is some redundancy but I meant to stress out in this second instance that the tf.org process provides a timeline for fixes. IOW, in the paragraph at line 23 I meant to refer to the \"Reporting\" section of [1], whereas here at line 30 it was more about the \"Disclosure\" section.\n\nI\u0027ll try to reword it and reconcile both paragraphs. Thanks. \n\nhttps://developer.trustedfirmware.org/w/collaboration/security_incident_process/reporting/",
+      "parentUuid": "756685a1_cfd425e1",
+      "range": {
+        "startLine": 30,
+        "startChar": 50,
+        "endLine": 32,
+        "endChar": 39
+      },
+      "revId": "967c43f40ee539c7331dcede25265c84dc59598b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
