@@ -36,10 +36,13 @@ stgt_add_src(NAME bl31 SRC
 	#TODO: SPM sources
 	#TODO: SPMD sources
 	#TODO: debugfs sources
-	#TODO: if EL3_EXCEPTION_HANDLING=1
 	#TODO: if SDEI_SUPPORT=1
 	#TODO: if ENABLE_SVE_FOR_NS=1
 	#TODO: if ENABLE_MPAM_FOR_LOWER_ELS=1
+)
+
+stgt_add_src_cond(NAME bl31 KEY EL3_EXCEPTION_HANDLING VAL 1 SRC
+	${PROJECT_SOURCE_DIR}/bl31/ehf.c
 )
 
 stgt_add_src_cond(NAME bl31 KEY ENABLE_AMU VAL 1 SRC
