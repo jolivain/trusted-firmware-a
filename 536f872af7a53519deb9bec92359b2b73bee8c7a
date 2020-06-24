@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd98fee9_7c10dc9a",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-24T10:19:39Z",
+      "side": 1,
+      "message": "I was looking at this function documentation in the porting guide and noticed it still says:\n\n arg1 - Points to load address of SOC_FW_CONFIG if present\n\nIf I am not mistaken, this is no longer the case. bl31_early_platform_setup2() now receives the load address of the FW_CONFIG file in arg1 (at least when BL31 is not the first image to run). Could you please confirm whether the doc is indeed wrong/out-dated and fix it if needed?",
+      "range": {
+        "startLine": 24,
+        "startChar": 1,
+        "endLine": 24,
+        "endChar": 64
+      },
+      "revId": "536f872af7a53519deb9bec92359b2b73bee8c7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f96f9cf2_7532daee",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-24T10:19:39Z",
+      "side": 1,
+      "message": "If I am not mistaken, bl31_early_platform_setup2() runs before the MMU is enabled. It doesn\u0027t sound like a good idea to me to parse device trees with the MMU off (and thus caches off), this is likely to be very slow... Could we delay this and move this code later in the boot flow?",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 35
+      },
+      "revId": "536f872af7a53519deb9bec92359b2b73bee8c7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b31f3a2_dff97ad9",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-24T10:19:39Z",
+      "side": 1,
+      "message": "Is that not a duplicate of get_bl_params_node_index() (see common/desc_image_load.c)? It looks very similar.",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 73
+      },
+      "revId": "536f872af7a53519deb9bec92359b2b73bee8c7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
