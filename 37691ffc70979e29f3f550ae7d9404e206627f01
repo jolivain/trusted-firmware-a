@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "8672f766_29022f33",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-24T09:21:52Z",
+      "side": 1,
+      "message": "Initial creation of this function is to use it for static parameters but agree as you suggested this function can be made generic by extending its usage in populate function. \nCan it be done as part of clean-up patch later?",
+      "parentUuid": "afdade61_30b3710f",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 42
+      },
+      "revId": "37691ffc70979e29f3f550ae7d9404e206627f01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "82fc14c7_e785c786",
         "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
         "patchSetId": 13
