@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "afdade61_30b3710f",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-24T08:52:14Z",
+      "side": 1,
+      "message": "I agree that the function name leaves no room for doubt, it clearly indicates that this function only works for the FW_CONFIG file. Still, I see no harm in making it more generic. It\u0027s library code, as such providing a constructor for any dyn_cfg_dtb_info_t sounds like a good idea to me. And you could use it in this file further down at line 76 and for other types of config files at line 94 (provided that you reorganize the code a bit by first extracting the addr/max_size/id from the DTB then call the constructor with this information).",
+      "parentUuid": "6c28e382_8ba8fbc1",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 42
+      },
+      "revId": "37691ffc70979e29f3f550ae7d9404e206627f01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "82fc14c7_e785c786",
         "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
         "patchSetId": 13
