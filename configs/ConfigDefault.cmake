@@ -86,7 +86,10 @@ group_add(NAME default TYPE DEFINE KEY PROGRAMMABLE_RESET_ADDRESS VAL 0)
 group_add(NAME default TYPE DEFINE KEY PSCI_EXTENDED_STATE_ID VAL 0)
 
 # Enable RAS support
-group_add(NAME default TYPE DEFINE KEY RAS_EXTENSION VAL 0)
+group_add(NAME default TYPE CONFIG DEFINE KEY RAS_EXTENSION VAL 0)
+
+# Flag to enable exception handling in EL3
+group_add(NAME default TYPE CONFIG DEFINE KEY EL3_EXCEPTION_HANDLING VAL 0)
 
 # By default, BL1 acts as the reset handler, not BL31
 group_add(NAME default TYPE DEFINE KEY RESET_TO_BL31 VAL 0)
