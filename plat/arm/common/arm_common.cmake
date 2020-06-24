@@ -78,10 +78,17 @@ stgt_add_src(NAME bl31 SRC
 	${PROJECT_SOURCE_DIR}/plat/arm/common/arm_topology.c
 	${PROJECT_SOURCE_DIR}/plat/common/plat_psci_common.c
 
-	#TODO: if EL3_EXCEPTION_HANDLING=1
 	#TODO: if SDEI_SUPPORT=1
-	#TODO: if RAS_EXTENSION=1
 	#TODO: if ENABLE_SPM=1
+)
+
+stgt_add_src_cond(NAME bl31 KEY RAS_EXTENSION VAL 1 SRC
+	${PROJECT_SOURCE_DIR}/lib/extensions/ras/std_err_record.c
+	${PROJECT_SOURCE_DIR}/lib/extensions/ras/ras_common.c
+)
+
+stgt_add_src_cond(NAME bl31 KEY EL3_EXCEPTION_HANDLING VAL 1 SRC
+	${PROJECT_SOURCE_DIR}/plat/arm/common/aarch64/arm_ehf.c
 )
 
 stgt_add_src_cond(NAME bl31 KEY ENABLE_PMF VAL 1 SRC

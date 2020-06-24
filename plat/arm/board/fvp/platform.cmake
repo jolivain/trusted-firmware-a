@@ -152,8 +152,10 @@ stgt_add_src_param(NAME bl31 KEY ARCH SRC
 	${PROJECT_SOURCE_DIR}/common/fdt_wrappers.c
 	${PROJECT_SOURCE_DIR}/lib/fconf/fconf.c
 	${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/fconf/fconf_hw_config_getter.c
+)
 
-	#TODO: if RAS_EXTENSION=1
+stgt_add_src_cond(NAME bl31 KEY RAS_EXTENSION VAL 1 SRC
+	${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/aarch64/fvp_ras.c
 )
 
 #add appropriate sources for GIC driver
