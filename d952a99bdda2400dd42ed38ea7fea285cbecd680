@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7073853d_443236ba",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-24T08:59:29Z",
+      "side": 1,
+      "message": "If I am not mistaken, the condition should be the other way around, as in:\n\n if (dtb_infos[0].config_id \u003d\u003d 0)\n\nIOW, if the first entry is uninitialized (0) then go ahead and populate it with the FW_CONFIG info. I realize I was the one who misled you (as I suggested this incorrect line in PS11) but I guess this bug should have broken BL2\u0027s flow, did your tests not pick this up?",
+      "range": {
+        "startLine": 83,
+        "startChar": 1,
+        "endLine": 83,
+        "endChar": 35
+      },
+      "revId": "d952a99bdda2400dd42ed38ea7fea285cbecd680",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
