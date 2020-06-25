@@ -1,0 +1,418 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b43e9c9_eb1edb14",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "this makes it sound like hafnium is required even in the normal world, which obviously is not the case. May be say \"for example\".",
+      "range": {
+        "startLine": 395,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 65
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9e0b892_bdff58ef",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "this statement is not clear in what it is trying to say. What is the expected behavior for hafnium in secure world ? Does this mean hafnium in the secure world cannot call PSCI version?\nAnd does the second statement mean that when an SP makes a PSCI_CPU_ON call, it reaches hafnium in the secure world but not EL3 PSCI layer?",
+      "range": {
+        "startLine": 404,
+        "startChar": 48,
+        "endLine": 407,
+        "endChar": 38
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89c8dac4_f8ad13a9",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "might be worth mentioning if they are mapped in the secure stage 2 tables or non-secure stage 2 tables. Can you map memory regions in the NS stage 2 tables through the DTB?",
+      "range": {
+        "startLine": 415,
+        "startChar": 0,
+        "endLine": 415,
+        "endChar": 60
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "328433f6_0118aa1b",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "i think it is worth calling out explicitly for stage-2 space, if it is secure IPA space or NS stage 2 IPA space.",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 432,
+        "endChar": 13
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27a9f8a0_3ded7964",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "Disclaimer: I understand this is WIP but i think this is important to keep this in mind for future evolution to make sure this problem is solved(if it is not already). Also apologize for lots of questions!\n\ni assume this is currently only for MP pinned contexts? For UP\u0027s this sounds like a don\u0027t care?\nSo lets say i have a system where i have only cores 4, 7,9,10 active and my primary physical core is 4. Would this scheme still work ? Do the physical cores 4,7,9,10 map to logical cores 0,1,2,3 for MP contexts ?\nThis will likely be a problem on server systems, where there will be many sku\u0027s of the same SoC, with the same firmware, which dynamically determine based on fuse values, what cores are enabled. On those systems, it will not be possible to run MP SP\u0027s since we don\u0027t know ahead of time during compilation, how many cores there will be. I think this is definitely worth solving in the near future than much later.\nAlso why the decision to only have pinned MP contexts and not migratable MP contexts? If an SP is running in a VM, does it or should it really care about what physical PE it is running on ?",
+      "range": {
+        "startLine": 454,
+        "startChar": 21,
+        "endLine": 454,
+        "endChar": 63
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19f36eef_e9acb4f7",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "impdef ? I don\u0027t see this in the FFA spec.",
+      "range": {
+        "startLine": 468,
+        "startChar": 9,
+        "endLine": 468,
+        "endChar": 26
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "996d6a50_5704049f",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "of",
+      "range": {
+        "startLine": 473,
+        "startChar": 39,
+        "endLine": 473,
+        "endChar": 41
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a09fb108_d676273e",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "This sounds like it assumes hafnium is running the normal world. Might want to reword if to say, for example, if hafnium is running the normal world, \u003cinsert text\u003e. and then a short statement about what happens if there is a normal hypervisor or OS in the nwd.\n\nAlso are we saying that we cannot have an MP SP without a secondary VM in the normal world?\nHow do you turn on a secondary vCPU in an MP SP if there is just, lets say, linux running in the normal world?",
+      "range": {
+        "startLine": 479,
+        "startChar": 21,
+        "endLine": 479,
+        "endChar": 69
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a061fcd_f9d93392",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "I assume the SPMC will reject direct message request to a secondary EC if it has not been turned off ? I imagine that the typical use case would be for a primary EC to turn on all the secondary EC\u0027s during primary virtual core boot up by calling one of the two options below ?",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 17
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bfdb8ce_9aea9c46",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "VM mailboxes or SP ? Not sure i understand what mailbox is repurposed. Again this sounds hafnium specific things to the normal world.",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 550,
+        "endChar": 12
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66fa1af2_279c2b6a",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "do you mean SPM to hypervisor? How can SPM initiate a call to Hypervisor?",
+      "range": {
+        "startLine": 560,
+        "startChar": 30,
+        "endLine": 560,
+        "endChar": 40
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7883648d_19883b49",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "fix to 0 or zero",
+      "range": {
+        "startLine": 569,
+        "startChar": 13,
+        "endLine": 569,
+        "endChar": 19
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f0cc8b8_29c4ea61",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "why do we care ? Also do we have a way to differentiate ? i assume this is based on partition id\u0027s?",
+      "range": {
+        "startLine": 579,
+        "startChar": 3,
+        "endLine": 579,
+        "endChar": 40
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ae9af21_10e660fc",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "is this accurate ? Based on the below statements, if an SP can receive a direct message response from another SP, an SP must be able to issue a direct message response right?",
+      "range": {
+        "startLine": 581,
+        "startChar": 8,
+        "endLine": 581,
+        "endChar": 21
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7fc7e62_8cf12e20",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "should or does not exit ?",
+      "range": {
+        "startLine": 583,
+        "startChar": 17,
+        "endLine": 583,
+        "endChar": 23
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c40c8c0_3e6af289",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "To clarify, this is the same mechanism used in NWd(except for group0 group1 complications)?",
+      "range": {
+        "startLine": 635,
+        "startChar": 0,
+        "endLine": 636,
+        "endChar": 44
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8a7c161_969922c1",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "how is this possible ? Did not think that SPMD at EL3 could be a sender of a direct message.",
+      "range": {
+        "startLine": 657,
+        "startChar": 1,
+        "endLine": 657,
+        "endChar": 17
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "121c4915_8d278407",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-06-25T20:18:33Z",
+      "side": 1,
+      "message": "Not sure i understand what this is trying to say. Is it possible to reword this?",
+      "range": {
+        "startLine": 659,
+        "startChar": 0,
+        "endLine": 661,
+        "endChar": 50
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
