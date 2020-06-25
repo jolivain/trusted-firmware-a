@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "185af18d_5d7eb804",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-25T23:19:28Z",
+      "side": 1,
+      "message": "Can these be specified by the platform makefile instead?",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 172,
+        "endChar": 22
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0560bb1c_e6571437",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-25T23:19:28Z",
+      "side": 1,
+      "message": "Is this mandatory? Can OEMs use custom interfaces?",
+      "range": {
+        "startLine": 372,
+        "startChar": 0,
+        "endLine": 374,
+        "endChar": 9
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b43e9c9_eb1edb14",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -59,6 +105,30 @@
       "writtenOn": "2020-06-25T20:18:33Z",
       "side": 1,
       "message": "might be worth mentioning if they are mapped in the secure stage 2 tables or non-secure stage 2 tables. Can you map memory regions in the NS stage 2 tables through the DTB?",
+      "range": {
+        "startLine": 415,
+        "startChar": 0,
+        "endLine": 415,
+        "endChar": 60
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4b2dc03_6e1cee82",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-25T23:19:28Z",
+      "side": 1,
+      "message": "Are these actual physical addresses?",
+      "parentUuid": "89c8dac4_f8ad13a9",
       "range": {
         "startLine": 415,
         "startChar": 0,
@@ -347,6 +417,29 @@
     },
     {
       "key": {
+        "uuid": "e2975305_7b7b0314",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-25T23:19:28Z",
+      "side": 1,
+      "message": "The current SPM-MM implementation expects EL3 to manage memory for the SP. This makes it difficult to share memory with the normal world as it is now hidden and cannot be re-used by non-secure world when it is not interacting with the SP. Is there provision in the FFA spec to pass NS world memory? I would like it, if we can move away from static allocations.",
+      "range": {
+        "startLine": 596,
+        "startChar": 0,
+        "endLine": 596,
+        "endChar": 17
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5c40c8c0_3e6af289",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -363,6 +456,29 @@
         "startChar": 0,
         "endLine": 636,
         "endChar": 44
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8156fd30_25f4bc44",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-25T23:19:28Z",
+      "side": 1,
+      "message": "What is the advantage of using FF-A APIs instead of eret\u0027ing with the PSCI FID? Are we saying that SPMD and SPMC can only communicate using FF-A APIs?",
+      "range": {
+        "startLine": 655,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 72
       },
       "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
@@ -409,6 +525,29 @@
         "startChar": 0,
         "endLine": 661,
         "endChar": 50
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4aea055_885ecd9b",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-06-25T23:19:28Z",
+      "side": 1,
+      "message": "Is this up to the SPMC? Does the FFA spec mandate specific fields in the manifest for this?",
+      "range": {
+        "startLine": 671,
+        "startChar": 3,
+        "endLine": 671,
+        "endChar": 43
       },
       "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
