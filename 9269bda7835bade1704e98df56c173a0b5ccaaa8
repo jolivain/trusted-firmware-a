@@ -176,6 +176,24 @@
       "revId": "9269bda7835bade1704e98df56c173a0b5ccaaa8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebc2df01_96193d7d",
+        "filename": "lib/cpus/aarch64/dsu_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-06-25T19:02:11Z",
+      "side": 1,
+      "message": "It will be even better if you move\nmov\tx3, #ERRATA_APPLIES\nsomewhere after \n        cbz\tx1, 1f\nand before\n        csel\tx0, x0, x3, hs\n\nor you could get rid of \"mov\tx3, #ERRATA_APPLIES\" with\n        cmp\tx2, x1\n        b.hs    1f\n        mov     x0, #ERRATA_APPLIES  \n1:\n\tret\tx15",
+      "parentUuid": "b002401b_4b0c3e23",
+      "revId": "9269bda7835bade1704e98df56c173a0b5ccaaa8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
