@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2650a027_6bd4d4a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-25T12:32:04Z",
+      "side": 1,
+      "message": "Looking at the dtc repo today, I see there\u0027s been a few commits merged recently. There is 1 commit that seems particularly important to me:\n\nhttps://git.kernel.org/pub/scm/utils/dtc/dtc.git/commit/?id\u003d7be250b4d059771c47be00ec8d4df7f47e4ac77c\n\nIt seems to be a bug fix in the fdt_open_into() API, which is used by a couple of platforms in TF-A (QEMU, Rockchip and rpi4). Thus I think we should pull it into this upgrade.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 61
+      },
+      "revId": "a6c6289c5ff2e8745cca2e04081084852c84e115",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
