@@ -120,6 +120,29 @@
     },
     {
       "key": {
+        "uuid": "96ff496b_59f976e6",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-25T03:33:17Z",
+      "side": 1,
+      "message": "Also, \u0027arm_bl31_early_platform_setup\u0027 function expect \u0027soc_fw_config\u0027 address as argument and hence \u0027soc_fw_config\u0027 address need to be retrieved at earliest i.e. before MMU on as per current architecture of the code.\n\nIMO, we need to re-architect this code so that we can delay \u0027fconf_populate\u0027 after MMU gets ON. Let me know your thoughts?",
+      "range": {
+        "startLine": 34,
+        "startChar": 1,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "536f872af7a53519deb9bec92359b2b73bee8c7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3b31f3a2_dff97ad9",
         "filename": "plat/arm/common/arm_image_load.c",
         "patchSetId": 14
