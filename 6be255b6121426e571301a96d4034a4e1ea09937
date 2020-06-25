@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1ec7e39f_8f802734",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-25T03:50:29Z",
+      "side": 1,
+      "message": "Agreed. Will move this to assert.",
+      "parentUuid": "e760197d_5cae0b7b",
+      "revId": "6be255b6121426e571301a96d4034a4e1ea09937",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "75db8ee0_a23da25a",
         "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
         "patchSetId": 16
@@ -30,6 +48,24 @@
       "writtenOn": "2020-06-24T18:40:58Z",
       "side": 1,
       "message": "can these configs legitimately be null and can you run if they are not provided? If the answers are no, you might want to switch them to asserts.",
+      "revId": "6be255b6121426e571301a96d4034a4e1ea09937",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "335af32d_283d5488",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-25T03:50:29Z",
+      "side": 1,
+      "message": "Yes, run is possible in current case without soc_fw_config_info hence will retain this check as it is",
+      "parentUuid": "75db8ee0_a23da25a",
       "revId": "6be255b6121426e571301a96d4034a4e1ea09937",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
