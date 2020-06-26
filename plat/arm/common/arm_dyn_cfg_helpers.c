@@ -49,18 +49,19 @@ int arm_dyn_tb_fw_cfg_init(void *dtb, int *node)
 
 	/* Check if the pointer to DT is correct */
 	if (fdt_check_header(dtb) != 0) {
-		WARN("Invalid DTB file passed as TB_FW_CONFIG\n");
+		WARN("Invalid DTB file passed as%s\n", " TB_FW_CONFIG");
 		return -1;
 	}
 
 	/* Assert the node offset point to "arm,tb_fw" compatible property */
 	*node = fdt_node_offset_by_compatible(dtb, -1, "arm,tb_fw");
 	if (*node < 0) {
-		WARN("The compatible property `arm,tb_fw` not found in the config\n");
+		WARN("The compatible property '%s' not%s", "arm,tb_fw",
+			" found in the config\n");
 		return -1;
 	}
 
-	VERBOSE("Dyn cfg: Found \"arm,tb_fw\" in the config\n");
+	VERBOSE("Dyn cfg: '%s'%s", "arm,tb_fw", " found in the config\n");
 	return 0;
 }
 
@@ -88,7 +89,8 @@ int arm_set_dtb_mbedtls_heap_info(void *dtb, void *heap_addr, size_t heap_size)
 	 */
 	int err = arm_dyn_tb_fw_cfg_init(dtb, &dtb_root);
 	if (err < 0) {
-		ERROR("Invalid TB_FW_CONFIG loaded. Unable to get root node\n");
+		ERROR("Invalid%s loaded. Unable to get root node\n",
+			" TB_FW_CONFIG");
 		return -1;
 	}
 
@@ -102,7 +104,7 @@ int arm_set_dtb_mbedtls_heap_info(void *dtb, void *heap_addr, size_t heap_size)
 	err = fdtw_write_inplace_cells(dtb, dtb_root,
 		DTB_PROP_MBEDTLS_HEAP_ADDR, 2, &heap_addr);
 	if (err < 0) {
-		ERROR("Unable to write DTB property %s\n",
+		ERROR("Unable to write DTB property '%s'\n",
 			DTB_PROP_MBEDTLS_HEAP_ADDR);
 		return -1;
 	}
@@ -110,7 +112,7 @@ int arm_set_dtb_mbedtls_heap_info(void *dtb, void *heap_addr, size_t heap_size)
 	err = fdtw_write_inplace_cells(dtb, dtb_root,
 		DTB_PROP_MBEDTLS_HEAP_SIZE, 1, &heap_size);
 	if (err < 0) {
-		ERROR("Unable to write DTB property %s\n",
+		ERROR("Unable to write DTB property '%s'\n",
 			DTB_PROP_MBEDTLS_HEAP_SIZE);
 		return -1;
 	}
@@ -173,12 +175,12 @@ static int arm_set_event_log_info(void *dtb, const char *compatible,
 	/* Assert the node offset point to compatible property */
 	node = fdt_node_offset_by_compatible(dtb, -1, compatible);
 	if (node < 0) {
-		WARN("The compatible property '%s' not found in the config\n",
-			compatible);
+		WARN("The compatible property '%s' not%s", compatible,
+			" found in the config\n");
 		return node;
 	}
 
-	VERBOSE("Dyn cfg: Found '%s' in the config\n", compatible);
+	VERBOSE("Dyn cfg: '%s'%s", compatible, " found in the config\n");
 
 #ifdef SPD_opteed
 	if (sm_log_addr != NULL) {
@@ -205,7 +207,6 @@ static int arm_set_event_log_info(void *dtb, const char *compatible,
 		ERROR("Unable to write DTB property '%s'\n",
 			DTB_PROP_HW_LOG_SIZE);
 	} else {
-
 		/*
 		 * Ensure that the info written to the DTB is visible
 		 * to other images.
@@ -255,11 +256,12 @@ int arm_set_nt_fw_info(void *dtb,
 #endif
 			size_t log_size, void **ns_log_addr)
 {
-	int err;
 	void *ns_addr;
 	bl_mem_params_node_t *cfg_mem_params;
+	int err;
 
 	assert(dtb != NULL);
+	assert(ns_log_addr != NULL);
 
 	/* Get the config load address and size from NT_FW_CONFIG */
 	cfg_mem_params = get_bl_mem_params_node(NT_FW_CONFIG_ID);
@@ -268,6 +270,11 @@ int arm_set_nt_fw_info(void *dtb,
 	/* Calculate Event Log address in Non-secure memory */
 	ns_addr = (void *)cfg_mem_params->image_info.image_base +
 			  cfg_mem_params->image_info.image_max_size;
+
+	/* Check for memory space */
+	if ((unsigned long)ns_addr + log_size > ARM_NS_DRAM1_END) {
+		return -1;
+	}
 
 	/* Write the Event Log address and its size in the DTB */
 	err = arm_set_event_log_info(dtb, "arm,nt_fw",
