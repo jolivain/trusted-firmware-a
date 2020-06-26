@@ -8,6 +8,9 @@
 
 #include <libfdt.h>
 
+#if MEASURED_BOOT
+#include <common/desc_image_load.h>
+#endif
 #include <common/fdt_wrappers.h>
 #include <plat/arm/common/arm_dyn_cfg_helpers.h>
 #include <plat/arm/common/plat_arm.h>
@@ -17,6 +20,15 @@
 
 #if MEASURED_BOOT
 #define DTB_PROP_BL2_HASH_DATA	"bl2_hash_data"
+#ifdef SPD_opteed
+/*
+ * Currently OP-TEE does not support reading DTBs from Secure memory
+ * and this property should be removed when this feature is supported.
+ */
+#define DTB_PROP_HW_SM_LOG_ADDR	"tpm_event_log_sm_addr"
+#endif
+#define DTB_PROP_HW_LOG_ADDR	"tpm_event_log_addr"
+#define DTB_PROP_HW_LOG_SIZE    "tpm_event_log_size"
 
 static int dtb_root = -1;
 #endif /* MEASURED_BOOT */
@@ -124,7 +136,148 @@ int arm_set_bl2_hash_info(void *dtb, void *data)
 	/*
 	 * Write the BL2 hash data in the DTB.
 	 */
-	return fdtw_write_inplace_bytes(dtb, dtb_root, DTB_PROP_BL2_HASH_DATA,
+	return fdtw_write_inplace_bytes(dtb, dtb_root,
+					DTB_PROP_BL2_HASH_DATA,
 					TCG_DIGEST_SIZE, data);
+}
+
+/*
+ * Write the Event Log address and its size in the DTB.
+ *
+ * This function is supposed to be called only by BL2.
+ *
+ * Returns:
+ *	0 = success
+ *    < 0 = error
+ */
+static int arm_set_event_log_info(void *dtb, const char *compatible,
+#ifdef SPD_opteed
+				  void *sm_log_addr,
+#endif
+				  void *log_addr, size_t log_size)
+{
+	int err, node;
+
+	/*
+	 * Verify that the DTB is valid, before attempting to write to it,
+	 * and get the DTB root node.
+	 */
+
+	/* Check if the pointer to DT is correct */
+	err = fdt_check_header(dtb);
+	if (err < 0) {
+		WARN("Invalid DTB file passed\n");
+		return err;
+	}
+
+	/* Assert the node offset point to compatible property */
+	node = fdt_node_offset_by_compatible(dtb, -1, compatible);
+	if (node < 0) {
+		WARN("The compatible property '%s' not found in the config\n",
+			compatible);
+		return node;
+	}
+
+	VERBOSE("Dyn cfg: Found '%s' in the config\n", compatible);
+
+#ifdef SPD_opteed
+	if (sm_log_addr != NULL) {
+		err = fdtw_write_inplace_cells(dtb, node,
+			DTB_PROP_HW_SM_LOG_ADDR, 2, &sm_log_addr);
+		if (err < 0) {
+			ERROR("Unable to write DTB property '%s'\n",
+				DTB_PROP_HW_SM_LOG_ADDR);
+			return err;
+		}
+	}
+#endif
+	err = fdtw_write_inplace_cells(dtb, node,
+		DTB_PROP_HW_LOG_ADDR, 2, &log_addr);
+	if (err < 0) {
+		ERROR("Unable to write DTB property '%s'\n",
+			DTB_PROP_HW_LOG_ADDR);
+		return err;
+	}
+
+	err = fdtw_write_inplace_cells(dtb, node,
+		DTB_PROP_HW_LOG_SIZE, 1, &log_size);
+	if (err < 0) {
+		ERROR("Unable to write DTB property '%s'\n",
+			DTB_PROP_HW_LOG_SIZE);
+	} else {
+
+		/*
+		 * Ensure that the info written to the DTB is visible
+		 * to other images.
+		 */
+		flush_dcache_range((uintptr_t)dtb, fdt_totalsize(dtb));
+	}
+
+	return err;
+}
+
+/*
+ * This function writes the Event Log address and its size
+ * in the TOS_FW_CONFIG DTB.
+ *
+ * This function is supposed to be called only by BL2.
+ *
+ * Returns:
+ *	0 = success
+ *    < 0 = error
+ */
+int arm_set_tos_fw_info(void *dtb, void *log_addr, size_t log_size)
+{
+	assert(dtb != NULL);
+	assert(log_addr != NULL);
+
+	/* Write the Event Log address and its size in the DTB */
+	return arm_set_event_log_info(dtb, "arm,tos_fw",
+#ifdef SPD_opteed
+					NULL,
+#endif
+					log_addr, log_size);
+}
+
+/*
+ * This function writes the Event Log address and its size
+ * in the NT_FW_CONFIG DTB.
+ *
+ * This function is supposed to be called only by BL2.
+ *
+ * Returns:
+ *	0 = success
+ *    < 0 = error
+ */
+int arm_set_nt_fw_info(void *dtb,
+#ifdef SPD_opteed
+			void *log_addr,
+#endif
+			size_t log_size, void **ns_log_addr)
+{
+	int err;
+	void *ns_addr;
+	bl_mem_params_node_t *cfg_mem_params;
+
+	assert(dtb != NULL);
+
+	/* Get the config load address and size from NT_FW_CONFIG */
+	cfg_mem_params = get_bl_mem_params_node(NT_FW_CONFIG_ID);
+	assert(cfg_mem_params != NULL);
+
+	/* Calculate Event Log address in Non-secure memory */
+	ns_addr = (void *)cfg_mem_params->image_info.image_base +
+			  cfg_mem_params->image_info.image_max_size;
+
+	/* Write the Event Log address and its size in the DTB */
+	err = arm_set_event_log_info(dtb, "arm,nt_fw",
+#ifdef SPD_opteed
+					log_addr,
+#endif
+					ns_addr, log_size);
+
+	/* Return Event Log address in Non-secure memory */
+	*ns_log_addr = (err < 0) ? NULL : ns_addr;
+	return err;
 }
 #endif /* MEASURED_BOOT */
