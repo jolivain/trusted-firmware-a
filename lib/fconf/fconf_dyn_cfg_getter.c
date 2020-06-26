@@ -12,8 +12,8 @@
 #include <lib/object_pool.h>
 #include <libfdt.h>
 
-/* We currently use TB_FW, SOC_FW, TOS_FW, NS_fw and HW configs  */
-#define MAX_DTB_INFO	U(5)
+/* We currently use FW, TB_FW, SOC_FW, TOS_FW, NT_FW and HW configs  */
+#define MAX_DTB_INFO	U(6)
 
 static struct dyn_cfg_dtb_info_t dtb_infos[MAX_DTB_INFO];
 static OBJECT_POOL_ARRAY(dtb_info_pool, dtb_infos);
