@@ -122,7 +122,7 @@ void arm_bl1_set_mbedtls_heap(void)
 
 #if MEASURED_BOOT
 /*
- * Puts the BL2 hash data to TB_FW_CONFIG DTB.
+ * Calculates and writes BL2 hash data to TB_FW_CONFIG DTB.
  * Executed only from BL1.
  */
 void arm_bl1_set_bl2_hash(image_desc_t *image_desc)
@@ -166,6 +166,19 @@ void arm_bl1_set_bl2_hash(image_desc_t *image_desc)
 	 * without the heap info and its hash data.
 	 */
 	flush_dcache_range(tb_fw_cfg_dtb, fdt_totalsize((void *)tb_fw_cfg_dtb));
+}
+
+/*
+ * Reads BL2 hash data from the DTB.
+ * Executed only from BL2.
+ */
+void arm_bl2_get_hash(void *data)
+{
+	assert(data != NULL);
+
+	/* Retrieve the BL2 hash data from the DTB */
+	void *bl2_hash = FCONF_GET_PROPERTY(tbbr, dyn_config, bl2_hash_data);
+	(void)memcpy(data, bl2_hash, TCG_DIGEST_SIZE);
 }
 #endif /* MEASURED_BOOT */
 #endif /* TRUSTED_BOARD_BOOT */
