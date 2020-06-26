@@ -177,7 +177,8 @@ int bl1_plat_handle_post_image_load(unsigned int image_id);
 
 #if MEASURED_BOOT
 /*
- * Calculates and writes BL2 hash data to TB_FW_CONFIG DTB.
+ * Calculates and writes BL2 hash data to the platform's defined location.
+ * For ARM platforms the data are written to TB_FW_CONFIG DTB.
  */
 void bl1_plat_set_bl2_hash(image_desc_t *image_desc);
 #endif
@@ -201,7 +202,7 @@ int bl2_plat_handle_post_image_load(unsigned int image_id);
  * Optional BL2 functions (may be overridden)
  ******************************************************************************/
 #if MEASURED_BOOT
-/* Read BL2 hash data from the DTB */
+/* Read TCG_DIGEST_SIZE bytes of BL2 hash data */
 void bl2_plat_get_hash(void *data);
 #endif
 

@@ -224,7 +224,7 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 }
 
 #if MEASURED_BOOT
-/* Read BL2 hash data from the DTB */
+/* Read TCG_DIGEST_SIZE bytes of BL2 hash data */
 void bl2_plat_get_hash(void *data)
 {
 	arm_bl2_get_hash(data);
