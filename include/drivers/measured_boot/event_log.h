@@ -91,6 +91,6 @@ typedef struct {
 /* Functions' declarations */
 void event_log_init(void);
 int event_log_finalise(uint8_t **log_addr, size_t *log_size);
-int tpm_record_measurement(uintptr_t image_base, uint32_t image_size,
-			   uint32_t image_id);
+int tpm_record_measurement(uintptr_t data_base, uint32_t data_size,
+			   uint32_t data_id);
 #endif /* EVENT_LOG_H */

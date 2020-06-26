@@ -222,6 +222,14 @@
 #define TYPER_PPI_NUM_SHIFT	U(27)
 #define TYPER_PPI_NUM_MASK	U(0x1f)
 
+/* GICR_IIDR bit definitions */
+#define IIDR_PRODUCT_ID_MASK	0xff000000
+#define IIDR_VARIANT_MASK	0x000f0000
+#define IIDR_REVISION_MASK	0x0000f000
+#define IIDR_IMPLEMENTER_MASK	0x00000fff
+#define IIDR_MODEL_MASK		(IIDR_PRODUCT_ID_MASK | \
+				 IIDR_IMPLEMENTER_MASK)
+
 /*******************************************************************************
  * GICv3 and 3.1 CPU interface registers & constants
  ******************************************************************************/
@@ -324,6 +332,18 @@ static inline uint32_t gicv3_get_pending_interrupt_id_sel1(void)
 
 static inline void gicv3_end_of_interrupt_sel1(unsigned int id)
 {
+	/*
+	 * Interrupt request deassertion from peripheral to GIC happens
+	 * by clearing interrupt condition by a write to the peripheral
+	 * register. It is desired that the write transfer is complete
+	 * before the core tries to change GIC state from 'AP/Active' to
+	 * a new state on seeing 'EOI write'.
+	 * Since ICC interface writes are not ordered against Device
+	 * memory writes, a barrier is required to ensure the ordering.
+	 * The dsb will also ensure *completion* of previous writes with
+	 * DEVICE nGnRnE attribute.
+	 */
+	dsbishst();
 	write_icc_eoir1_el1(id);
 }
 
@@ -337,6 +357,18 @@ static inline uint32_t gicv3_acknowledge_interrupt(void)
 
 static inline void gicv3_end_of_interrupt(unsigned int id)
 {
+	/*
+	 * Interrupt request deassertion from peripheral to GIC happens
+	 * by clearing interrupt condition by a write to the peripheral
+	 * register. It is desired that the write transfer is complete
+	 * before the core tries to change GIC state from 'AP/Active' to
+	 * a new state on seeing 'EOI write'.
+	 * Since ICC interface writes are not ordered against Device
+	 * memory writes, a barrier is required to ensure the ordering.
+	 * The dsb will also ensure *completion* of previous writes with
+	 * DEVICE nGnRnE attribute.
+	 */
+	dsbishst();
 	return write_icc_eoir0_el1(id);
 }
 

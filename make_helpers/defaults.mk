@@ -226,7 +226,10 @@ USE_DEBUGFS			:= 0
 ARM_IO_IN_DTB			:= 0
 
 # Build option to support SDEI through fconf
-SDEI_IN_FCONF			:=0
+SDEI_IN_FCONF			:= 0
+
+# Build option to support Secure Interrupt descriptors through fconf
+SEC_INT_DESC_IN_FCONF		:= 0
 
 # Build option to choose whether Trusted Firmware uses library at ROM
 USE_ROMLIB			:= 0
@@ -299,3 +302,6 @@ SUPPORT_STACK_MEMTAG		:= no
 
 # Select workaround for AT speculative behaviour.
 ERRATA_SPECULATIVE_AT           := 0
+
+# Trap RAS error record access from lower EL
+RAS_TRAP_LOWER_EL_ERR_ACCESS	:= 0

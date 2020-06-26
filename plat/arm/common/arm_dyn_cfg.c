@@ -101,7 +101,8 @@ void arm_bl1_set_mbedtls_heap(void)
 		err = arm_set_dtb_mbedtls_heap_info(dtb,
 			mbedtls_heap_addr, mbedtls_heap_size);
 		if (err < 0) {
-			ERROR("BL1: unable to write shared Mbed TLS heap information to DTB\n");
+			ERROR("%swrite shared Mbed TLS heap information to DTB\n",
+				"BL1: unable to ");
 			panic();
 		}
 #if !MEASURED_BOOT
@@ -148,13 +149,13 @@ void arm_bl1_set_bl2_hash(image_desc_t *image_desc)
 					(void *)image_info.image_base,
 					image_info.image_size, hash_data);
 	if (err != 0) {
-		ERROR("BL1: unable to calculate BL2 hash\n");
+		ERROR("%scalculate%s\n", "BL1: unable to ", " BL2 hash");
 		panic();
 	}
 
 	err = arm_set_bl2_hash_info((void *)tb_fw_cfg_dtb, hash_data);
 	if (err < 0) {
-		ERROR("BL1: unable to write BL2 hash data to DTB\n");
+		ERROR("%swrite%sdata to DTB\n", "BL1: unable to ", " BL2 hash ");
 		panic();
 	}
 
@@ -167,14 +168,14 @@ void arm_bl1_set_bl2_hash(image_desc_t *image_desc)
 }
 
 /*
- * Reads BL2 hash data from the DTB.
+ * Reads TCG_DIGEST_SIZE bytes of BL2 hash data from the DTB.
  * Executed only from BL2.
  */
 void arm_bl2_get_hash(void *data)
 {
 	assert(data != NULL);
 
-	/* Retrieve the BL2 hash data from the DTB */
+	/* Retrieve TCG_DIGEST_SIZE bytes of BL2 hash data from the DTB */
 	void *bl2_hash = FCONF_GET_PROPERTY(tbbr, dyn_config, bl2_hash_data);
 	(void)memcpy(data, bl2_hash, TCG_DIGEST_SIZE);
 }
@@ -209,14 +210,15 @@ void arm_bl2_dyn_cfg_init(void)
 		/* Get the config load address and size from TB_FW_CONFIG */
 		cfg_mem_params = get_bl_mem_params_node(config_ids[i]);
 		if (cfg_mem_params == NULL) {
-			VERBOSE("Couldn't find HW_CONFIG in bl_mem_params_node\n");
+			VERBOSE("%sHW_CONFIG in bl_mem_params_node\n",
+				"Couldn't find ");
 			continue;
 		}
 
 		dtb_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, config_ids[i]);
 		if (dtb_info == NULL) {
-			VERBOSE("Couldn't find config_id %d load info in TB_FW_CONFIG\n",
-					config_ids[i]);
+			VERBOSE("%sconfig_id %d load info in TB_FW_CONFIG\n",
+				"Couldn't find ", config_ids[i]);
 			continue;
 		}
 
@@ -230,29 +232,31 @@ void arm_bl2_dyn_cfg_init(void)
 		 */
 		if (config_ids[i] != HW_CONFIG_ID) {
 
-			if (check_uptr_overflow(image_base, image_size))
+			if (check_uptr_overflow(image_base, image_size)) {
 				continue;
-
+			}
 #ifdef	BL31_BASE
 			/* Ensure the configs don't overlap with BL31 */
 			if ((image_base >= BL31_BASE) &&
-			    (image_base <= BL31_LIMIT))
+			    (image_base <= BL31_LIMIT)) {
 				continue;
+			}
 #endif
 			/* Ensure the configs are loaded in a valid address */
-			if (image_base < ARM_BL_RAM_BASE)
+			if (image_base < ARM_BL_RAM_BASE) {
 				continue;
+			}
 #ifdef BL32_BASE
 			/*
 			 * If BL32 is present, ensure that the configs don't
 			 * overlap with it.
 			 */
 			if ((image_base >= BL32_BASE) &&
-			    (image_base <= BL32_LIMIT))
+			    (image_base <= BL32_LIMIT)) {
 				continue;
+			}
 #endif
 		}
-
 
 		cfg_mem_params->image_info.image_base = image_base;
 		cfg_mem_params->image_info.image_max_size = (uint32_t)image_size;

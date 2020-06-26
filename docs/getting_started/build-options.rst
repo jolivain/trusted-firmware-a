@@ -88,6 +88,7 @@ Common build options
 -  1: Enables all types of branch protection features
 -  2: Return address signing to its standard level
 -  3: Extend the signing to include leaf functions
+-  4: Turn on branch target identification mechanism
 
    The table below summarizes ``BRANCH_PROTECTION`` values, GCC compilation options
    and resulting PAuth/BTI features.
@@ -102,6 +103,8 @@ Common build options
    |   2   |   pac-ret    |   Y   |  N  |
    +-------+--------------+-------+-----+
    |   3   | pac-ret+leaf |   Y   |  N  |
+   +-------+--------------+-------+-----+
+   |   4   |     bti      |   N   |  Y  |
    +-------+--------------+-------+-----+
 
    This option defaults to 0 and this is an experimental feature.
@@ -651,6 +654,12 @@ Common build options
    than static C structures at compile time. This is currently an experimental
    feature and is only supported if SDEI_SUPPORT build flag is enabled.
 
+-  ``SEC_INT_DESC_IN_FCONF``: This flag determines whether to configure Group 0
+   and Group1 secure interrupts using the firmware configuration framework. The
+   platform specific secure interrupt property descriptor is retrieved from
+   device tree in runtime rather than depending on static C structure at compile
+   time. This is currently an experimental feature.
+
 -  ``USE_ROMLIB``: This flag determines whether library at ROM will be used.
    This feature creates a library of functions to be placed in ROM and thus
    reduces SRAM usage. Refer to :ref:`Library at ROM` for further details. Default
@@ -701,6 +710,10 @@ Common build options
    | 1530924 |  Cortex-A53  |
    +---------+--------------+
 
+- ``RAS_TRAP_LOWER_EL_ERR_ACCESS``: This flag enables/disables the SCR_EL3.TERR
+  bit, to trap access to the RAS ERR and RAS ERX registers from lower ELs.
+  This flag is disabled by default.
+
 GICv3 driver options
 --------------------
 
@@ -711,8 +724,10 @@ GICv3 driver files are included using directive:
 The driver can be configured with the following options set in the platform
 makefile:
 
--  ``GICV3_IMPL``: Selects between GIC-500 and GIC-600 variants of GICv3.
-   This option can take values GIC500 and GIC600 with default set to GIC500.
+-  ``GICV3_SUPPORT_GIC600``: Add support for the GIC-600 variants of GICv3.
+   Enabling this option will add runtime detection support for the
+   GIC-600, so is safe to select even for a GIC500 implementation.
+   This option defaults to 0.
 
 -  ``GICV3_IMPL_GIC600_MULTICHIP``: Selects GIC-600 variant with multichip
    functionality. This option defaults to 0

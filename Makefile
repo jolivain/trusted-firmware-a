@@ -121,6 +121,10 @@ else ifeq (${BRANCH_PROTECTION},3)
 	# Extend the signing to include leaf functions
 	BP_OPTION := pac-ret+leaf
 	ENABLE_PAUTH := 1
+else ifeq (${BRANCH_PROTECTION},4)
+	# Turn on branch target identification mechanism
+	BP_OPTION := bti
+	ENABLE_BTI := 1
 else
         $(error Unknown BRANCH_PROTECTION value ${BRANCH_PROTECTION})
 endif
@@ -889,6 +893,7 @@ $(eval $(call assert_boolean,USE_COHERENT_MEM))
 $(eval $(call assert_boolean,USE_DEBUGFS))
 $(eval $(call assert_boolean,ARM_IO_IN_DTB))
 $(eval $(call assert_boolean,SDEI_IN_FCONF))
+$(eval $(call assert_boolean,SEC_INT_DESC_IN_FCONF))
 $(eval $(call assert_boolean,USE_ROMLIB))
 $(eval $(call assert_boolean,USE_TBBR_DEFS))
 $(eval $(call assert_boolean,WARMBOOT_ENABLE_DCACHE_EARLY))
@@ -899,6 +904,7 @@ $(eval $(call assert_boolean,USE_SPINLOCK_CAS))
 $(eval $(call assert_boolean,ENCRYPT_BL31))
 $(eval $(call assert_boolean,ENCRYPT_BL32))
 $(eval $(call assert_boolean,ERRATA_SPECULATIVE_AT))
+$(eval $(call assert_boolean,RAS_TRAP_LOWER_EL_ERR_ACCESS))
 
 $(eval $(call assert_numeric,ARM_ARCH_MAJOR))
 $(eval $(call assert_numeric,ARM_ARCH_MINOR))
@@ -969,6 +975,7 @@ $(eval $(call add_define,USE_COHERENT_MEM))
 $(eval $(call add_define,USE_DEBUGFS))
 $(eval $(call add_define,ARM_IO_IN_DTB))
 $(eval $(call add_define,SDEI_IN_FCONF))
+$(eval $(call add_define,SEC_INT_DESC_IN_FCONF))
 $(eval $(call add_define,USE_ROMLIB))
 $(eval $(call add_define,USE_TBBR_DEFS))
 $(eval $(call add_define,WARMBOOT_ENABLE_DCACHE_EARLY))
@@ -977,6 +984,7 @@ $(eval $(call add_define,BL2_IN_XIP_MEM))
 $(eval $(call add_define,BL2_INV_DCACHE))
 $(eval $(call add_define,USE_SPINLOCK_CAS))
 $(eval $(call add_define,ERRATA_SPECULATIVE_AT))
+$(eval $(call add_define,RAS_TRAP_LOWER_EL_ERR_ACCESS))
 
 ifeq (${SANITIZE_UB},trap)
         $(eval $(call add_define,MONITOR_TRAPS))
@@ -1010,6 +1018,7 @@ ifdef SP_LAYOUT_FILE
         endif
         -include $(BUILD_PLAT)/sp_gen.mk
         FIP_DEPS += sp
+        CRT_DEPS += sp
         NEED_SP_PKG := yes
 else
         ifeq (${SPMD_SPM_AT_SEL2},1)

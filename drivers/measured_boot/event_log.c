@@ -150,6 +150,14 @@ static int add_event2(uint8_t *hash, const image_data_t *image_ptr)
 	/* TCG_PCR_EVENT2.Digests[].Digest[] */
 	ptr += offsetof(tpmt_ha, digest);
 
+	/* Check for space in Event Log buffer */
+	if (ptr - event_log + TCG_DIGEST_SIZE > sizeof(event_log)) {
+		ERROR("%s(): Event Log is short of memory for %lu bytes",
+			__func__, TCG_DIGEST_SIZE -
+			(sizeof(event_log) - (ptr - event_log)));
+		return -ENOMEM;
+	}
+
 	if (hash == NULL) {
 		/* Get BL2 hash from DTB */
 		bl2_plat_get_hash(ptr);
@@ -167,9 +175,7 @@ static int add_event2(uint8_t *hash, const image_data_t *image_ptr)
 			image_ptr->name, name_len);
 
 	/* End of event data */
-	ptr += offsetof(event2_data_t, event) + name_len;
-
-	log_ptr = ptr;
+	log_ptr = ptr + offsetof(event2_data_t, event) + name_len;
 
 	return 0;
 }
@@ -251,36 +257,47 @@ void event_log_init(void)
 	}
 }
 
-int tpm_record_measurement(uintptr_t image_base, uint32_t image_size,
-			   uint32_t image_id)
+/*
+ * Calculate and write hash of image, configuration data, etc.
+ * to Event Log.
+ *
+ * @param[in] data_base		Address of data
+ * @param[in] data_size		Size of data
+ * @param[in] data_id		Data ID
+ * @return:
+ *	0 = success
+ *    < 0 = error
+ */
+int tpm_record_measurement(uintptr_t data_base, uint32_t data_size,
+			   uint32_t data_id)
 {
-	const image_data_t *image_ptr = plat_data_ptr->images_data;
+	const image_data_t *data_ptr = plat_data_ptr->images_data;
 	unsigned char hash_data[MBEDTLS_MD_MAX_SIZE];
 	int rc;
 
 	/* Check if image_id is supported */
-	while (image_ptr->id != image_id) {
-		if ((image_ptr++)->id == INVALID_ID) {
+	while (data_ptr->id != data_id) {
+		if ((data_ptr++)->id == INVALID_ID) {
 			ERROR("%s(): image_id %u not supported\n",
-				__func__, image_id);
+				__func__, data_id);
 			return -EINVAL;
 		}
 	}
 
-	if (image_id == TOS_FW_CONFIG_ID) {
-		tos_fw_config_base = image_base;
-	} else if (image_id == NT_FW_CONFIG_ID) {
-		nt_fw_config_base = image_base;
+	if (data_id == TOS_FW_CONFIG_ID) {
+		tos_fw_config_base = data_base;
+	} else if (data_id == NT_FW_CONFIG_ID) {
+		nt_fw_config_base = data_base;
 	}
 
 	/* Calculate hash */
-	rc = crypto_mod_calc_hash(MBEDTLS_MD_ID, (void *)image_base,
-					image_size, hash_data);
+	rc = crypto_mod_calc_hash(MBEDTLS_MD_ID, (void *)data_base,
+					data_size, hash_data);
 	if (rc != 0) {
 		return rc;
 	}
 
-	return add_event2(hash_data, image_ptr);
+	return add_event2(hash_data, data_ptr);
 }
 
 int event_log_finalise(uint8_t **log_addr, size_t *log_size)
