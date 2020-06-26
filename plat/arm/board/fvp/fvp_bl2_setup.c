@@ -7,9 +7,14 @@
 #include <assert.h>
 
 #include <common/desc_image_load.h>
+#include <common/debug.h>
 #include <drivers/arm/sp804_delay_timer.h>
 #include <lib/fconf/fconf.h>
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
+#include <drivers/arm/sp804_delay_timer.h>
+#if MEASURED_BOOT
+#include <drivers/measured_boot/measured_boot.h>
+#endif
 
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
@@ -69,3 +74,29 @@ struct bl_params *plat_get_next_bl_params(void)
 
 	return arm_bl_params;
 }
+#if MEASURED_BOOT
+int fvp_bl2_plat_handle_post_image_load(unsigned int image_id)
+{
+	bl_mem_params_node_t *bl_mem_params = get_bl_mem_params_node(image_id);
+	image_info_t image_info = bl_mem_params->image_info;
+	int err;
+
+	if ((image_info.h.attr & IMAGE_ATTRIB_SKIP_LOADING) == 0) {
+		/* Calculate image hash and record data in Event Log */
+		err = tpm_record_measurement(image_info.image_base,
+					     image_info.image_size, image_id);
+		if (err != 0) {
+			ERROR("BL2: Failed to record image id %u (%i)\n",
+							image_id, err);
+			return err;
+		}
+	}
+
+	return arm_bl2_handle_post_image_load(image_id);
+}
+
+int arm_bl2_plat_handle_post_image_load(unsigned int image_id)
+{
+	return fvp_bl2_plat_handle_post_image_load(image_id);
+}
+#endif	/* MEASURED_BOOT */
