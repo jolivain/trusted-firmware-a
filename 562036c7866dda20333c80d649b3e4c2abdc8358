@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "64c181aa_aa8e483f",
+        "filename": "fdts/cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-29T17:48:41Z",
+      "side": 1,
+      "message": "Thanks for pointing this out.\n\nThought that \"antirollback-counter\" property is not going to be used by child certificate/image hence put this property as part of certificate node itself.\n\nBut as per certificate (X.509) documentation, nv-counter is part of extension so better keep this property inside extension node. Will do the modifications and also, update the binding document accordingly.",
+      "parentUuid": "6b0f5669_3de34147",
+      "revId": "562036c7866dda20333c80d649b3e4c2abdc8358",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "09c5a6cf_ecdabc7a",
         "filename": "fdts/cot_descriptors.dtsi",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2020-06-29T16:55:51Z",
       "side": 1,
       "message": "can this be called issuer key to be more accurate? sign-key is not clear. It could be read as signed-key(subject key) or signing-key(issuer key)..",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 10
+      },
+      "revId": "562036c7866dda20333c80d649b3e4c2abdc8358",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a03fbf64_c4a54b6d",
+        "filename": "fdts/cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-29T17:48:41Z",
+      "side": 1,
+      "message": "Make sense. Will do the modifications and also, update binding accordingly.",
+      "parentUuid": "09c5a6cf_ecdabc7a",
       "range": {
         "startLine": 50,
         "startChar": 2,
