@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "13916681_898d2076",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-06-29T06:50:26Z",
+      "side": 1,
+      "message": "\u003e We need to update this comment, as it will now be aligned on 4 bytes on AArch32.\n\nOK. I will remove this comment.\n\n\u003e I suspect we might not be using the same toolchain version, which could result in sections layouts differences I guess. I am using the GCC version indicated in the TF-A doc at [2], i.e.:\n\n\nI do not think so.\nI compiled 511046eaa^ with the toolchain you suggested,\nI still get .dynsym and .dynstr at the head of BL31.\n\n$ git checkout 511046eaa^\n$ make PLAT\u003duniphier CROSS_COMPILE\u003daarch64-none-elf- ENABLE_PIE\u003d1 bl31",
+      "parentUuid": "d3232ec2_060cd3f8",
+      "range": {
+        "startLine": 106,
+        "startChar": 27,
+        "endLine": 106,
+        "endChar": 50
+      },
+      "revId": "75a42aa3171041fa155782492d2c1a3fb3fab3ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69109df4_e31b80fb",
         "filename": "include/common/bl_common.ld.h",
         "patchSetId": 6
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I think we might be talking about 2 different things here.\n\nAs you know, the existing linker scripts use the following pattern:\n\n    . \u003d ALIGN(8);\n    __RELA_START__ \u003d .;\n    .rela.dyn . : {\n    } \u003eRAM\n    __RELA_END__ \u003d .;\n\nI now realize they are defining the __RELA_START/END__ symbols *outside* of the section, which is what you pointed out in your answer. Understood, I am OK with this change. So with this change, this would become:\n\n    .rela.dyn : ALIGN(8) {\n        __RELA_START__ \u003d .;\n        __RELA_END__ \u003d .;\n    } \u003eRAM\n\nThis still specifies no input section to pull into section .rela.dyn. Instead I think you\u0027re proposing in this patch:\n\n    .rela.dyn : ALIGN(8) {\n        __RELA_START__ \u003d .;\n        *(.rela*)\n        __RELA_END__ \u003d .;\n    } \u003eRAM\n\nMy original question was around line 112 specifically. I am wondering why it was OK to specify no input section before, and now we\u0027re specifying *(.rela*) explicitly.",
       "parentUuid": "4361966f_240b36df",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 11
+      },
+      "revId": "75a42aa3171041fa155782492d2c1a3fb3fab3ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e2593f9_e1cac95e",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-06-29T06:50:26Z",
+      "side": 1,
+      "message": "I really do not know why it was working without the explicit input section.\n\n.rela.dyn : ALIGN(8) {\n        __RELA_START__ \u003d .;\n        __RELA_END__ \u003d .;\n} \u003eRAM\n\nObviously, this does not work since __RELA_START__ and __RELA_END__\nare set to the same address.\n\nSo, we need to have *(.rela*) between them.\n\nAnd, I think it is natural to specify the input section.\nFor example, see the linker script of Linux kernel:\nhttps://github.com/torvalds/linux/blob/v5.7/arch/arm64/kernel/vmlinux.lds.S#L205",
+      "parentUuid": "a1c074a7_c219dfa2",
       "range": {
         "startLine": 112,
         "startChar": 2,
