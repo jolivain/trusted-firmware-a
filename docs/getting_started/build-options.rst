@@ -714,6 +714,13 @@ Common build options
   bit, to trap access to the RAS ERR and RAS ERX registers from lower ELs.
   This flag is disabled by default.
 
+-  ``COT_DESC_IN_DTB``: This flag determines whether to create COT descriptors
+   runtime using the firmware configuration framework by populating device
+   tree data for COT descriptors.
+   Currently, COT descriptors used by BL2 moved to the device tree and COT
+   descriptors used by BL1 retained in the code base statically.
+   This is currently an experimental feature.
+
 GICv3 driver options
 --------------------
 
