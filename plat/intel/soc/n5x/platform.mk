@@ -46,4 +46,19 @@ PROGRAMMABLE_RESET_ADDRESS	:= 0
 BL2_AT_EL3			:= 1
 BL2_INV_DCACHE			:= 0
 MULTI_CONSOLE_API		:= 1
+SIMICS_BUILD			:= 0
 USE_COHERENT_MEM		:= 1
+
+# Defination of SIMICS flag
+SIMICS_BUILD ?= 0
+
+# Enable flags for C files
+$(eval $(call assert_booleans,\
+$(sort \
+SIMICS_BUILD \
+)))
+
+$(eval $(call add_defines,\
+$(sort \
+SIMICS_BUILD \
+)))
