@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "96d819ea_8b9f5676",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-29T08:49:19Z",
+      "side": 1,
+      "message": "\u003e I do not think so.\n\u003e I compiled 511046eaa^ with the toolchain you suggested,\n\u003e I still get .dynsym and .dynstr at the head of BL31.\n\u003e \n\u003e $ git checkout 511046eaa^\n\u003e $ make PLAT\u003duniphier CROSS_COMPILE\u003daarch64-none-elf- ENABLE_PIE\u003d1 bl31\n\nRight, this seems to happen only when SEPARATE_CODE_AND_RODATA\u003d0, which is the case on the Uniphier platform, contrarily to the FVP platform I was looking at.\n\nNot sure why this makes a difference. I suspect this just changes the sections layout and as we let the freedom to the linker to place the .dynsym and .dynstr sections wherever it wants, it just chooses to put it before the .text section for the uniphier platform.",
+      "parentUuid": "13916681_898d2076",
+      "range": {
+        "startLine": 106,
+        "startChar": 27,
+        "endLine": 106,
+        "endChar": 50
+      },
+      "revId": "75a42aa3171041fa155782492d2c1a3fb3fab3ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69109df4_e31b80fb",
         "filename": "include/common/bl_common.ld.h",
         "patchSetId": 6
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "I really do not know why it was working without the explicit input section.\n\n.rela.dyn : ALIGN(8) {\n        __RELA_START__ \u003d .;\n        __RELA_END__ \u003d .;\n} \u003eRAM\n\nObviously, this does not work since __RELA_START__ and __RELA_END__\nare set to the same address.\n\nSo, we need to have *(.rela*) between them.\n\nAnd, I think it is natural to specify the input section.\nFor example, see the linker script of Linux kernel:\nhttps://github.com/torvalds/linux/blob/v5.7/arch/arm64/kernel/vmlinux.lds.S#L205",
       "parentUuid": "a1c074a7_c219dfa2",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 11
+      },
+      "revId": "75a42aa3171041fa155782492d2c1a3fb3fab3ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "677e8e4e_f000efd0",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-29T08:49:19Z",
+      "side": 1,
+      "message": "\u003e I really do not know why it was working without the explicit input section.\n\nMe neither...\n\n\u003e .rela.dyn : ALIGN(8) {\n\u003e         __RELA_START__ \u003d .;\n\u003e         __RELA_END__ \u003d .;\n\u003e } \u003eRAM\n\u003e \n\u003e Obviously, this does not work since __RELA_START__ and __RELA_END__\n\u003e are set to the same address.\n\u003e \n\u003e So, we need to have *(.rela*) between them.\n\u003e \n\u003e And, I think it is natural to specify the input section.\n\u003e For example, see the linker script of Linux kernel:\n\u003e https://github.com/torvalds/linux/blob/v5.7/arch/arm64/kernel/vmlinux.lds.S#L205\n\nYes, I think so too. I am just trying to figure out how it was working before, to better understand the consequences of your changes.",
+      "parentUuid": "2e2593f9_e1cac95e",
       "range": {
         "startLine": 112,
         "startChar": 2,
