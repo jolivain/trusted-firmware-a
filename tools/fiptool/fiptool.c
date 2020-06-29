@@ -22,6 +22,7 @@
 #define OPT_TOC_ENTRY 0
 #define OPT_PLAT_TOC_FLAGS 1
 #define OPT_ALIGN 2
+#define USAGE_EXIT_RETURN_STATUS 0
 
 static int info_cmd(int argc, char *argv[]);
 static void info_usage(void);
@@ -490,7 +491,7 @@ static int info_cmd(int argc, char *argv[])
 static void info_usage(void)
 {
 	printf("fiptool info FIP_FILENAME\n");
-	exit(1);
+	exit(USAGE_EXIT_RETURN_STATUS);
 }
 
 static int pack_images(const char *filename, uint64_t toc_flags, unsigned long align)
@@ -753,7 +754,7 @@ static void create_usage(void)
 	for (; toc_entry->cmdline_name != NULL; toc_entry++)
 		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
 		    toc_entry->name);
-	exit(1);
+	exit(USAGE_EXIT_RETURN_STATUS);
 }
 
 static int update_cmd(int argc, char *argv[])
@@ -867,7 +868,7 @@ static void update_usage(void)
 	for (; toc_entry->cmdline_name != NULL; toc_entry++)
 		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
 		    toc_entry->name);
-	exit(1);
+	exit(USAGE_EXIT_RETURN_STATUS);
 }
 
 static int unpack_cmd(int argc, char *argv[])
@@ -1003,7 +1004,7 @@ static void unpack_usage(void)
 		    toc_entry->name);
 	printf("\n");
 	printf("If no options are provided, all images will be unpacked.\n");
-	exit(1);
+	exit(USAGE_EXIT_RETURN_STATUS);
 }
 
 static int remove_cmd(int argc, char *argv[])
@@ -1126,7 +1127,7 @@ static void remove_usage(void)
 	for (; toc_entry->cmdline_name != NULL; toc_entry++)
 		printf("  --%-16s\t%s\n", toc_entry->cmdline_name,
 		    toc_entry->name);
-	exit(1);
+	exit(USAGE_EXIT_RETURN_STATUS);
 }
 
 static int version_cmd(int argc, char *argv[])
@@ -1143,7 +1144,7 @@ static int version_cmd(int argc, char *argv[])
 static void version_usage(void)
 {
 	printf("fiptool version\n");
-	exit(1);
+	exit(USAGE_EXIT_RETURN_STATUS);
 }
 
 static int help_cmd(int argc, char *argv[])
@@ -1178,7 +1179,7 @@ static void usage(void)
 	printf("  remove\tRemove images from FIP.\n");
 	printf("  version\tShow fiptool version.\n");
 	printf("  help\t\tShow help for given command.\n");
-	exit(1);
+	exit(USAGE_EXIT_RETURN_STATUS);
 }
 
 int main(int argc, char *argv[])
