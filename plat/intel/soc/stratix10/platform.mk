@@ -1,6 +1,6 @@
 #
-# Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
-# Copyright (c) 2019-2020, Intel Corporation. All rights reserved.
+# Copyright (c) 2019-2022, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2019-2022, Intel Corporation. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -69,4 +69,19 @@ BL31_SOURCES	+=	\
 
 PROGRAMMABLE_RESET_ADDRESS	:= 0
 BL2_AT_EL3			:= 1
+SIMICS_BUILD			:= 0
 USE_COHERENT_MEM		:= 1
+
+# Defination of SIMICS flag
+SIMICS_BUILD	?=	0
+
+# Enable flags for C files
+$(eval $(call assert_booleans,\
+	$(sort \
+		SIMICS_BUILD \
+)))
+
+$(eval $(call add_defines,\
+	$(sort \
+		SIMICS_BUILD \
+)))
