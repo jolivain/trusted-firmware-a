@@ -7,6 +7,7 @@
 #ifndef SUSPEND_H
 #define SUSPEND_H
 
+#include <stdint.h>
 #include <dram.h>
 
 #define KHz (1000)
@@ -22,5 +23,6 @@
 
 void dmc_suspend(void);
 __pmusramfunc void dmc_resume(void);
+extern __pmusramdata uint8_t pmu_enable_watchdog0;
 
 #endif /* SUSPEND_H */
