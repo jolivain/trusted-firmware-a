@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90e820fb_0db41bde",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-06-29T16:12:17Z",
+      "side": 1,
+      "message": "This doesnt sound good grammatically. If possible, please rephrase it as follows. I might be wrong about how this flag works:\n\nThis build flag determines whether to create COT descriptors in runtime using fconf. If this flag is enabled, COT descriptors are statically captured in various firmware configuration files in the form of device tree nodes and properties.\n\nCurrently, COT descriptors used by BL2 are moved to device tree source file and COT descriptors used by BL1 are retained in the code base statically.",
+      "revId": "cd732ec8b89a13113da4eec2164718dd1a351fed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
