@@ -46,9 +46,7 @@ Platform APIs
 
 The RAS framework allows the platform to define handlers for External Abort,
 Uncontainable Errors, Double Fault, and errors rising from EL3 execution. Please
-refer to the porting guide for the `RAS platform API descriptions`__.
-
-.. __: ../getting_started/porting-guide.rst#external-abort-handling-and-ras-support
+refer to :ref:`Porting_Guide <External Abort handling and RAS Support>`.
 
 Registering RAS error records
 -----------------------------
