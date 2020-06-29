@@ -237,6 +237,30 @@
       "revId": "75a42aa3171041fa155782492d2c1a3fb3fab3ad",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeed2008_94d9209b",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-06-29T10:25:40Z",
+      "side": 1,
+      "message": "I think this was a mistake in the first patch which is now corrected by this patch, although the linker seems to do the right thing even without  *(.rela*).",
+      "parentUuid": "677e8e4e_f000efd0",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 11
+      },
+      "revId": "75a42aa3171041fa155782492d2c1a3fb3fab3ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
