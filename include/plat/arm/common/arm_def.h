@@ -355,9 +355,8 @@
 /*
  * Boot parameters passed from BL2 to BL31/BL32 are stored here
  */
-#define ARM_BL2_MEM_DESC_BASE		ARM_FW_CONFIG_LIMIT
-#define ARM_BL2_MEM_DESC_LIMIT		(ARM_BL2_MEM_DESC_BASE +	\
-							(PAGE_SIZE / 2U))
+#define ARM_BL2_MEM_DESC_BASE		(ARM_FW_CONFIG_LIMIT + (PAGE_SIZE / 2U))
+#define ARM_BL2_MEM_DESC_LIMIT		(ARM_BL2_MEM_DESC_BASE + PAGE_SIZE)
 
 /*
  * Define limit of firmware configuration memory:

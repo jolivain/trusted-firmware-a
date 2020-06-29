@@ -13,12 +13,14 @@
 		compatible = "fconf,dyn_cfg-dtb_registry";
 
 		tb_fw-config {
+			img-id = <(TB_FW_CONFIG_ID + 1)>;
 			load-address = <0x0 0x4001300>;
-			max-size = <0x200>;
+			max-size = <0x1800>;
 			id = <TB_FW_CONFIG_ID>;
 		};
 
 		hw-config {
+			img-id = <(TB_FW_CONFIG_ID + 2)>;
 			load-address = <0x0 0x82000000>;
 			max-size = <0x01000000>;
 			id = <HW_CONFIG_ID>;
@@ -31,18 +33,21 @@
 		 * is loaded at base of DRAM.
 		 */
 		soc_fw-config {
+			img-id = <(TB_FW_CONFIG_ID + 3)>;
 			load-address = <0x0 0x04001300>;
 			max-size = <0x200>;
 			id = <SOC_FW_CONFIG_ID>;
 		};
 
 		tos_fw-config {
+			img-id = <(TB_FW_CONFIG_ID + 4)>;
 			load-address = <0x0 0x04001500>;
 			max-size = <0xB00>;
 			id = <TOS_FW_CONFIG_ID>;
 		};
 
 		nt_fw-config {
+			img-id = <(TB_FW_CONFIG_ID + 5)>;
 			load-address = <0x0 0x80000000>;
 			max-size = <0x200>;
 			id = <NT_FW_CONFIG_ID>;
