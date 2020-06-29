@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06c5f914_8b728567",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-29T08:17:10Z",
+      "side": 1,
+      "message": "Might be worth mentioning that this patch fixes Coverity defect 360213.",
+      "revId": "0ca8376bbf72e1e9917c7a132a68444f618c5837",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4868c926_91bda27a",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-29T08:17:10Z",
+      "side": 1,
+      "message": "(off-topic) Should this code be moved under the if statement at line 65? I believe there\u0027s no point trying to extract the base address of TB_FW_CONFIG out of FW_CONFIG if we did not parse it in the first place, right?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 57
+      },
+      "revId": "0ca8376bbf72e1e9917c7a132a68444f618c5837",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
