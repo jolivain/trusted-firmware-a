@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "573ef2cf_07d92c72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-30T19:55:26Z",
+      "side": 1,
+      "message": "It will be good if you change this to plat/arm. fvp",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "b08f55e45e5aa358308d130e1970c81fb743d876",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7247b5d4_42db2d5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-30T19:55:26Z",
+      "side": 1,
+      "message": "Can you add little more description about the patch. Seen in patch that it adds new node for measured boot in various device trees.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 0
+      },
+      "revId": "b08f55e45e5aa358308d130e1970c81fb743d876",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb88b5bb_42d1919c",
+        "filename": "plat/arm/board/fvp/fconf/fconf_nt_config_getter.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-30T19:55:26Z",
+      "side": 1,
+      "message": "Not sure where this file added for the compilation?",
+      "revId": "b08f55e45e5aa358308d130e1970c81fb743d876",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1504c56c_c0713557",
+        "filename": "plat/arm/board/fvp/fdts/fvp_nt_fw_config.dts",
+        "patchSetId": 24
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-30T19:55:26Z",
+      "side": 1,
+      "message": "Please add binding document for this node and properties",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 3
+      },
+      "revId": "b08f55e45e5aa358308d130e1970c81fb743d876",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfe223a6_3eadd9f3",
+        "filename": "plat/arm/board/fvp/fdts/fvp_tsp_fw_config.dts",
+        "patchSetId": 24
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-30T19:55:26Z",
+      "side": 1,
+      "message": "Observed similar node present in nt_fw_config with different compatible string. IMO compatible string for the node should remain same irrespective of its placement in the device tree.",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 28
+      },
+      "revId": "b08f55e45e5aa358308d130e1970c81fb743d876",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca09af8d_0b749966",
+        "filename": "plat/arm/board/fvp/fvp_measured_boot.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-30T19:55:26Z",
+      "side": 1,
+      "message": "Should be only Arm Limited on every new file.",
+      "range": {
+        "startLine": 2,
+        "startChar": 35,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "b08f55e45e5aa358308d130e1970c81fb743d876",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
