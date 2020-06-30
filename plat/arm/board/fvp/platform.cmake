@@ -151,6 +151,7 @@ stgt_add_src_param(NAME bl31 KEY ARCH SRC
 	#fconf support
 	${TFA_ROOT_DIR}/common/fdt_wrappers.c
 	${TFA_ROOT_DIR}/lib/fconf/fconf.c
+	${TFA_ROOT_DIR}/lib/fconf/fconf_dyn_cfg_getter.c
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/fconf/fconf_hw_config_getter.c
 )
 
