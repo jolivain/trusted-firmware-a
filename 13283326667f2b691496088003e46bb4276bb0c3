@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "62c5f46b_95b8b57b",
+        "filename": "fdts/cot_descriptors.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-30T09:05:16Z",
+      "side": 1,
+      "message": "oops, missed to update the compatible string",
+      "parentUuid": "bc8e027e_c4b1adfa",
+      "range": {
+        "startLine": 11,
+        "startChar": 15,
+        "endLine": 11,
+        "endChar": 44
+      },
+      "revId": "13283326667f2b691496088003e46bb4276bb0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4d361707_885b31f3",
         "filename": "fdts/cot_descriptors.dtsi",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-06-30T08:48:33Z",
       "side": 1,
       "message": "The bindings document says this should be:\n\n arm, image-descriptors",
+      "range": {
+        "startLine": 195,
+        "startChar": 15,
+        "endLine": 195,
+        "endChar": 44
+      },
+      "revId": "13283326667f2b691496088003e46bb4276bb0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50838a9c_c542a7a5",
+        "filename": "fdts/cot_descriptors.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-30T09:05:16Z",
+      "side": 1,
+      "message": "oops, missed to update the compatible string",
+      "parentUuid": "4d361707_885b31f3",
       "range": {
         "startLine": 195,
         "startChar": 15,
