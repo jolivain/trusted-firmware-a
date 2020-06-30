@@ -2,9 +2,9 @@ Chain of trust bindings
 =======================
 
 The device tree allows to describes the chain of trust with the help of
-certificates and images nodes, which in turn contains number of sub-nodes
-(i.e. certificate and image) mentioning properties for every certificate
-and image respectively.
+cot node which contains manifests and images as sub-nodes.
+Manifests and images nodes contains number of sub-nodes (i.e. certificate
+and image) mentioning properties of the certificate and image respectively.
 Also, this binding allows to describe OID of non-volatile counters, memory
 mapped address and size of non-volatile counter register.
 
@@ -14,10 +14,15 @@ Convention used in this document
 This document follows the conventions described in the Device-tree
 Specification
 
-certificates, certificate and extension node bindings definition
+cot
+------------------------------------------------------------------
+This is root node which contains manifests and images as sub-nodes
+
+
+Manifests and Certificate node bindings definition
 ----------------------------------------------------------------
 
-- Certificates node
+- Manifests node
         Description: Container of certificate nodes.
 
         PROPERTIES
@@ -27,7 +32,7 @@ certificates, certificate and extension node bindings definition
 
                 Value type: <string>
 
-                Definition: must be "arm, certificate-descriptors"
+                Definition: must be "arm, cert-descs"
 
 - Certificate node
         Description: Describes certificate properties which are used
@@ -37,7 +42,7 @@ certificates, certificate and extension node bindings definition
 
         - root-certificate
                 Usage: Required for the certificate with no parent.
-                       In other words, Certificates which are validated
+                       In other words, Manifests which are validated
                        using root of trust public key.
 
                 Value type: <boolean>
@@ -53,13 +58,13 @@ certificates, certificate and extension node bindings definition
                        This property is required for all non-root certificates.
 
                        This property is not required for root-certificates
-                       as it is validated using root of trust public key
-                       provided by platform.
+                       as root-certificates are validated using root of trust
+                       public key provided by platform.
 
                 Value type: <phandle>
 
         - signing-key
-                Usage: This property is used to refer extension node present in
+                Usage: This property is used to refer public key node present in
                        parent certificate and it is required property for all non-
                        root certificates which are authenticated using public-key
                        present in parent certificate.
@@ -71,76 +76,86 @@ certificates, certificate and extension node bindings definition
                 Value type: <phandle>
 
         - antirollback-counter
-                Usage: This property is used by all certificates which are protected
-                       against rollback attacks using a non-volatile counter and it
-                       is optional property.
+                Usage: This property is used by all certificates which are
+                       protected against rollback attacks using a non-volatile
+                       counter and it is an optional property.
 
                        This property is used to refer trusted or non-trusted
                        non-volatile counter node.
 
                 Value type: <phandle>
 
+
         SUBNODES
+            Description: Hash and public key information present in the certificate
+                         are shown by these nodes.
 
-        - extensions node
-                Description: This is sub-node of certificate node.
-                             Describes OIDs present in the certificate which will
-                             be used during authentication process to extract
-                             hash/public key information from this certificate.
-                             OIDs in extension node are represented using number of
-                             sub-nodes which contains 'oid' as property
+            - public key node
+                  Description: Provide public key information in the certificate.
 
-                PROPERTIES
+                  PROPERTIES
 
-                - oid
-                        Usage: This property provides the Object ID of an extension
-                               provided in the certificate.
+                  - oid
+                     Usage: This property provides the Object ID of public key
+                            provided in the certificate which the help of which
+                            public key information can be extracted.
 
-                        Value type: <string>
+                     Value type: <string>
+
+            - hash node
+                 Description: Provide the hash information in the certificate.
+
+                 PROPERTIES
+
+                 - oid
+                     Usage: This property provides the Object ID of hash provided in
+                            the certificate which the help of which hash information
+                            can be extracted.
+
+                     Value type: <string>
 
 Example:
 
 .. code:: c
 
-   certificates {
-         compatible = "arm, certificate-descriptors”
+   cot {
+      manifests {
+         compatible = "arm, cert-descs”
 
          trusted-key-cert: trusted-key-cert {
-                  root-certificate;
-                  image-id = <TRUSTED_KEY_CERT_ID>;
-                  antirollback-counter = <&trusted_nv_counter>;
-                  extensions {
-                        trusted-world-pk: trusted-world-pk {
-                              oid = TRUSTED_WORLD_PK_OID;
-                        };
-                        non-trusted-world-pk: non-trusted-world-pk {
-                              oid = NON_TRUSTED_WORLD_PK_OID;
-                        };
-                };
-        };
+            root-certificate;
+            image-id = <TRUSTED_KEY_CERT_ID>;
+            antirollback-counter = <&trusted_nv_counter>;
 
-        scp_fw_key_cert: scp_fw_key_cert {
-                image-id = <SCP_FW_KEY_CERT_ID>;
-                parent = <&trusted-key-cert>;
-                signing-key = <&trusted_world_pk>;
-                antirollback-counter = <&trusted_nv_counter>;
-                extensions {
-                        scp_fw_content_pk: scp_fw_content_pk {
-                              oid = SCP_FW_CONTENT_CERT_PK_OID;
-                        };
-                };
-        };
+            trusted-world-pk: trusted-world-pk {
+               oid = TRUSTED_WORLD_PK_OID;
+            };
+            non-trusted-world-pk: non-trusted-world-pk {
+               oid = NON_TRUSTED_WORLD_PK_OID;
+            };
+         };
 
-        .
-        .
-        .
+         scp_fw_key_cert: scp_fw_key_cert {
+            image-id = <SCP_FW_KEY_CERT_ID>;
+            parent = <&trusted-key-cert>;
+            signing-key = <&trusted_world_pk>;
+            antirollback-counter = <&trusted_nv_counter>;
 
-        next-cert {
+            scp_fw_content_pk: scp_fw_content_pk {
+               oid = SCP_FW_CONTENT_CERT_PK_OID;
+            };
+         };
+         .
+         .
+         .
 
-        };
+         next-certificate {
+
+         };
+      };
    };
 
-Images and image node bindings definition
+Images and Image node bindings definition
 -----------------------------------------
 
 - Images node
@@ -153,7 +168,7 @@ Images and image node bindings definition
 
                 Value type: <string>
 
-                Definition: must be "arm, image-descriptors"
+                Definition: must be "arm, img-descs"
 
 - Image node
         Description: Describes image properties which will be used during
@@ -175,7 +190,7 @@ Images and image node bindings definition
 
         - hash
                 Usage: Required for all images which are validated using
-                       hash method. This property is used to refer extension
+                       hash method. This property is used to refer hash
                        node present in parent certificate and it is required
                        property for all images.
 
@@ -189,13 +204,14 @@ Example:
 
 .. code:: c
 
-   images {
-         compatible = "arm, imgage-descriptors";
+   cot {
+      images {
+         compatible = "arm, img-descs";
 
          scp_bl2_image {
-               image-id = <SCP_BL2_IMAGE_ID>;
-               parent = <&scp_fw_content_cert>;
-               hash = <&scp_fw_hash>;
+            image-id = <SCP_BL2_IMAGE_ID>;
+            parent = <&scp_fw_content_cert>;
+            hash = <&scp_fw_hash>;
          };
 
          .
@@ -203,7 +219,9 @@ Example:
          .
 
          next-img {
+
          };
+      };
    };
 
 non-volatile counter node binding definition
@@ -281,7 +299,6 @@ Future update to chain of trust binding
 ---------------------------------------
 
 This binding document need to be revisited to generalise some terminologies
-like Object IDs, extensions etc which are currently specific to X.509
-certificates.
+which are currently specific to X.509 certificates for e.g. Object IDs.
 
-*Copyright (c) 2020, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2020, Arm Limited. All rights reserved.*
