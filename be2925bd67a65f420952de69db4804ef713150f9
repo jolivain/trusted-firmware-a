@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "43eb03c5_3d70718e",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-30T09:48:38Z",
+      "side": 1,
+      "message": "Ok, will update commit message for this change",
+      "parentUuid": "987d1c63_02443666",
+      "range": {
+        "startLine": 358,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 67
+      },
+      "revId": "be2925bd67a65f420952de69db4804ef713150f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40215fc1_83d9faf9",
         "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2020-06-30T09:15:47Z",
       "side": 1,
       "message": "This property is not mentioned in the bindings document (https://trustedfirmware-a.readthedocs.io/en/latest/components/fconf/fconf_properties.html)\n\nWhat does it correspond to?",
+      "range": {
+        "startLine": 16,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 36
+      },
+      "revId": "be2925bd67a65f420952de69db4804ef713150f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7b2616c_d3a1b356",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-30T09:48:38Z",
+      "side": 1,
+      "message": "This is wrongly being added here will remove it.",
+      "parentUuid": "40215fc1_83d9faf9",
       "range": {
         "startLine": 16,
         "startChar": 3,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3ccc9650_f6691a99",
+        "filename": "plat/arm/board/fvp/fdts/fvp_nv_cntr.dtsi",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-30T09:48:38Z",
+      "side": 1,
+      "message": "Thought of creating dtsi file to add defines for the nv-counter which will be used by another dts file. \nNot sure as of now, what are the kind of defines or properties may get included in this file in future.\n\nAgree if I can include fvp_defs in the dts file which serves the purpose but then we should not extend fvp_defs.h in future with any enums/structures which leads to the error while compiling device tree.\n\nAs of now, will go ahead with fvp_def.h inclusion and we can revisit later to check if there is a need to add separate dtsi file for nv-counter.",
+      "parentUuid": "c55414d7_b0fd22e8",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "be2925bd67a65f420952de69db4804ef713150f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e02f1bc_a670f67c",
         "filename": "plat/arm/board/fvp/fdts/fvp_tb_fw_config.dts",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2020-06-30T09:15:47Z",
       "side": 1,
       "message": "Why are these nodes not under the root node, like all others?",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 2
+      },
+      "revId": "be2925bd67a65f420952de69db4804ef713150f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "987a82c5_8721a67b",
+        "filename": "plat/arm/board/fvp/fdts/fvp_tb_fw_config.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-06-30T09:48:38Z",
+      "side": 1,
+      "message": "No, these nodes should be outside of the root node as these node serve the purpose of override/extension as per the device tree specification.",
+      "parentUuid": "2e02f1bc_a670f67c",
       "range": {
         "startLine": 97,
         "startChar": 0,
