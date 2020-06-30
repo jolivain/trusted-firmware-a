@@ -6,9 +6,11 @@
 
 /* Project Includes */
 #include <arch.h>
+#include <arch_helpers.h>
 #include <lib/psci/psci.h>
 
 /* Platform Includes */
+#include <plat_helpers.h>
 #include <platform_def.h>
 
 const unsigned char mtk_power_domain_tree_desc[] = {
@@ -39,6 +41,14 @@ const unsigned char *plat_get_power_domain_tree_desc(void)
 int plat_core_pos_by_mpidr(u_register_t mpidr)
 {
 	unsigned int cluster_id, cpu_id;
+
+	if (read_mpidr() & MPIDR_MT_MASK) {
+		/* ARMv8.2 arch */
+		if (mpidr & (MPIDR_AFFLVL_MASK << MPIDR_AFF0_SHIFT)) {
+			return -1;
+		}
+		return plat_mediatek_calc_core_pos(mpidr);
+	}
 
 	mpidr &= MPIDR_AFFINITY_MASK;
 
