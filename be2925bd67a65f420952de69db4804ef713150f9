@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "c4b6f9ee_5b6475a2",
+        "filename": "plat/arm/board/fvp/fdts/fvp_nv_cntr.dtsi",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-30T14:26:01Z",
+      "side": 1,
+      "message": "\u003e Agree if I can include fvp_defs in the dts file which serves the purpose but then we should not extend fvp_defs.h in future with any enums/structures which leads to the error while compiling device tree.\n\nThis is unlikely to happen. platform_def.h (and by extension fvp_def.h) is meant to provide macros only, IOW only constructs that the C preprocessor is able to understand. All function definitions, typedefs, structures and so on would be in fvp_private.h or plat_arm.h for example.\n\nToday we already rely on this assumption for assembly code. Assembly files might include platform_def.h, see for example bl31/aarch64/bl31_entrypoint.S.",
+      "parentUuid": "3ccc9650_f6691a99",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "be2925bd67a65f420952de69db4804ef713150f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e02f1bc_a670f67c",
         "filename": "plat/arm/board/fvp/fdts/fvp_tb_fw_config.dts",
         "patchSetId": 5
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "No, these nodes should be outside of the root node as these node serve the purpose of override/extension as per the device tree specification.",
       "parentUuid": "2e02f1bc_a670f67c",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 2
+      },
+      "revId": "be2925bd67a65f420952de69db4804ef713150f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac12756b_f43ef95b",
+        "filename": "plat/arm/board/fvp/fdts/fvp_tb_fw_config.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-06-30T14:26:01Z",
+      "side": 1,
+      "message": "In this case, where are the definitions we are overriding coming from? Could you please point me to the specific part of the device tree specification you\u0027re referring to?",
+      "parentUuid": "987a82c5_8721a67b",
       "range": {
         "startLine": 97,
         "startChar": 0,
