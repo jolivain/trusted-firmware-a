@@ -70,16 +70,6 @@ certificates, certificate and extension node bindings definition
 
                 Value type: <phandle>
 
-        - antirollback-counter
-                Usage: This property is used by all certificates which are protected
-                       against rollback attacks using a non-volatile counter and it
-                       is optional property.
-
-                       This property is used to refer trusted or non-trusted
-                       non-volatile counter node.
-
-                Value type: <phandle>
-
         SUBNODES
 
         - extensions node
@@ -91,6 +81,17 @@ certificates, certificate and extension node bindings definition
                              sub-nodes which contains 'oid' as property
 
                 PROPERTIES
+
+                - antirollback-counter
+                        Usage: This property is used by all certificates which are
+                               protected against rollback attacks using a non-volatile
+                               counter and it is an optional property.
+
+                               This property is used to refer trusted or non-trusted
+                               non-volatile counter node.
+
+                        Value type: <phandle>
+
 
                 - oid
                         Usage: This property provides the Object ID of an extension
@@ -108,8 +109,8 @@ Example:
          trusted-key-cert: trusted-key-cert {
                   root-certificate;
                   image-id = <TRUSTED_KEY_CERT_ID>;
-                  antirollback-counter = <&trusted_nv_counter>;
                   extensions {
+                        antirollback-counter = <&trusted_nv_counter>;
                         trusted-world-pk: trusted-world-pk {
                               oid = TRUSTED_WORLD_PK_OID;
                         };
@@ -123,8 +124,8 @@ Example:
                 image-id = <SCP_FW_KEY_CERT_ID>;
                 parent = <&trusted-key-cert>;
                 signing-key = <&trusted_world_pk>;
-                antirollback-counter = <&trusted_nv_counter>;
                 extensions {
+                        antirollback-counter = <&trusted_nv_counter>;
                         scp_fw_content_pk: scp_fw_content_pk {
                               oid = SCP_FW_CONTENT_CERT_PK_OID;
                         };
