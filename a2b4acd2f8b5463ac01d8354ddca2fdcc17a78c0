@@ -1031,6 +1031,24 @@
     },
     {
       "key": {
+        "uuid": "4dd4f298_b753b190",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-07-01T06:25:12Z",
+      "side": 1,
+      "message": "Hi Julius,\n\nWe should follow the recommended SW sequence, i quickly tried setting this from cpu ops and it seems doesn\u0027t work. the observation is by setting this bit earlier (in cpu_ops), cpu doesn\u0027t go to power collapse and it exits the WFI instruction and executes next one (which is leading to panic), since once power collapsed its expected to start from warmboot.\n\nThanks,\nMaulik",
+      "parentUuid": "28ddf1b1_ae133084",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60ae6a12_98a1c7ad",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 1
@@ -1099,6 +1117,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cab3394c_4f6c3703",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-07-01T06:25:12Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "fcffc209_3df51d2f",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
