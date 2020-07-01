@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "2e55cb3d_29b101ec",
+        "filename": "fdts/cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-07-01T14:55:06Z",
+      "side": 1,
+      "message": "OK perhaps we need to rename the extensions node then. In my mind (and looking at the first part of Manish\u0027s answer, I think he was originally thinking along the same lines), properties under the current \u0027extensions\u0027 sub-node were pieces of information to extract out of the certificates in order to authenticate children images. IOW, what we have in the .authenticated_data field of a struct auth_img_desc.\n\nOn the other hand, properties one level upper (signing-key, antirollback-counter) were pieces of information required to verify the certificate itself. IOW, what we have in the .img_auth_methods field.\n\nWe need to decide which way of organizing the data in the DTS file makes the more sense. I tend to think that the \"authenticated_data VS img_auth_methods\" approach makes more sense from a chain of trust point of view. It is more focused on expressing the relationship between the different images involved, rather than where to find each piece of information in the certificate format.\n\nAnother reason why \u0027extensions\u0027 might not be a good node name is that it is terminology specific to X.509 certificates, AFAIK. Right now, TF-A only uses such certificates but people are free to use other types of formats. For example, the TBFU specification (see R20_TBFU_MANIFEST on page 24) talks more generally about \"image manifests\" and mentions the IETF SUIT manifest format as a more lightweight alternative (mainly for IoT constrained devices but still this hopefully illustrates my point).",
+      "parentUuid": "64c181aa_aa8e483f",
+      "revId": "562036c7866dda20333c80d649b3e4c2abdc8358",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "09c5a6cf_ecdabc7a",
         "filename": "fdts/cot_descriptors.dtsi",
         "patchSetId": 1
