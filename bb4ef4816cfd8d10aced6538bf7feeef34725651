@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "145b9517_1519a2b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-01T22:59:25Z",
+      "side": 1,
+      "message": "Adding a line explaining why FVP and FPGA has diverged, and any plans in future for consolidating them.",
+      "revId": "bb4ef4816cfd8d10aced6538bf7feeef34725651",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1df623e3_c6f6b0a4",
+        "filename": "plat/arm/board/corstone700/common/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-01T22:59:25Z",
+      "side": 1,
+      "message": "can replace \"TARGET_SOC\" with \"TARGE_TYPE\" also remove corstone700 and change fvp/fpgs to upper case.\n\nSo this can be written as below\n\n#ifdef TARGET_TYPE_FVP\n#define SYS_COUNTER_FREQ_IN_TICKS\tUL(50000000) /* 50MHz */\n#elif TARGET_TYPE_FPGA\t\n#define SYS_COUNTER_FREQ_IN_TICKS\tUL(32000000) /* 32MHz */\n#endif",
+      "range": {
+        "startLine": 118,
+        "startChar": 7,
+        "endLine": 118,
+        "endChar": 17
+      },
+      "revId": "bb4ef4816cfd8d10aced6538bf7feeef34725651",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76ea29fc_6865acf2",
+        "filename": "plat/arm/board/corstone700/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-01T22:59:25Z",
+      "side": 1,
+      "message": "You can choose a default type if nothing is provided, lets say if FVP is going to be most common configuration then you can do\n\nifneq (${TARGET_TYPE},FPGA)\t\n      TARGET_TYPE     :\u003d    FVP\nendif\n\t\n$(eval $(call add_define,TARGET_TYPE_${TARGET_TYPE}))",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 51
+      },
+      "revId": "bb4ef4816cfd8d10aced6538bf7feeef34725651",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0811e6f_d48bc53e",
+        "filename": "plat/arm/board/corstone700/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-01T22:59:25Z",
+      "side": 1,
+      "message": "corstone700_${TARGET_SOC}.dts",
+      "range": {
+        "startLine": 48,
+        "startChar": 34,
+        "endLine": 48,
+        "endChar": 47
+      },
+      "revId": "bb4ef4816cfd8d10aced6538bf7feeef34725651",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5468aac3_00de20df",
+        "filename": "plat/arm/board/corstone700/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-01T22:59:25Z",
+      "side": 1,
+      "message": "corstone700_${TARGET_SOC}.dtb",
+      "range": {
+        "startLine": 49,
+        "startChar": 45,
+        "endLine": 49,
+        "endChar": 58
+      },
+      "revId": "bb4ef4816cfd8d10aced6538bf7feeef34725651",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
