@@ -3,17 +3,14 @@
   description = Helper dashboard for tracking progress of incoming reviews for TF-A
   foreach = project:TF-A/trusted-firmware-a is:open -is:draft -is:wip
 
-[section "Pending +1"]
-  query = -label:Code-Review=1 -label:Code-Review=2 -label:Code-Review=-1 -label:Code-Review=-2 branch:integration
+[section "Pending code owner review"]
+  query = label:Code-Owner-Review=need
 
-[section "Pending +2"]
-  query = label:Code-Review=1 -label:Code-Review=2 -label:Code-Review=-1 -label:Code-Review=-2 branch:integration
+[section "Pending maintainer review"]
+  query = label:Maintainer-Review=need
 
-[section "-1/-2: waiting for rework"]
-  query = label:Code-Review<=-1 branch:integration
+[section "Waiting for rework"]
+  query = (label:Code-Owner-Review=-1 OR label:Maintainer-Review=-1)
 
 [section "Pending merge"]
-  query = label:Code-Review=2 -label:Code-Review=-1 branch:integration
-
-[section "Targeted against master: retarget against integration"]
-  query = branch:master
+  query = is:submittable

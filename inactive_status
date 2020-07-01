@@ -3,14 +3,14 @@
   description = Status of inactive patches
   foreach = is:open -is:draft -is:wip
 
-[section "TF-A: inactive for >21 days"]
+[section "TF-A: Inactive for >21 days"]
   query = age:21d branch:integration project:TF-A/trusted-firmware-a
 
-[section "TF-A: +2ed & pending merge for >7 days"]
-  query = age:7d label:Code-Review=2 -label:Code-Review=-1 branch:integration project:TF-A/trusted-firmware-a
+[section "TF-A: Pending merge for >7 days"]
+  query = age:7d branch:integration project:TF-A/trusted-firmware-a is:submittable
 
-[section "TF-A-Tests: inactive for >21 days"]
+[section "TF-A-Tests: Inactive for >21 days"]
   query = age:21d branch:master project:TF-A/tf-a-tests
 
-[section "TF-A-Tests: +2ed & pending merge for >7 days"]
-  query = age:7d label:Code-Review=2 -label:Code-Review=-1 branch:master project:TF-A/tf-a-tests
+[section "TF-A-Tests: Pending merge for >7 days"]
+  query = age:7d branch:master project:TF-A/tf-a-tests is:submittable
