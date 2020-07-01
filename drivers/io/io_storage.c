@@ -71,7 +71,7 @@ static int is_valid_seek_mode(io_seek_mode_t mode)
 
 
 /* Open a connection to a specific device */
-static int dev_open(const io_dev_connector_t *dev_con, const uintptr_t dev_spec,
+static int io_storage_dev_open(const io_dev_connector_t *dev_con, const uintptr_t dev_spec,
 		io_dev_info_t **dev_info)
 {
 	int result;
@@ -116,7 +116,8 @@ static int allocate_entity(io_entity_t **entity)
 		unsigned int index = 0;
 		result = find_first_entity(NULL, &index);
 		assert(result == 0);
-		*entity = entity_map[index] = &entity_pool[index];
+		*entity = &entity_pool[index];
+		entity_map[index] = &entity_pool[index];
 		++entity_count;
 	}
 
@@ -166,7 +167,7 @@ int io_dev_open(const io_dev_connector_t *dev_con, const uintptr_t dev_spec,
 	int result;
 	assert(handle != NULL);
 
-	result = dev_open(dev_con, dev_spec, (io_dev_info_t **)handle);
+	result = io_storage_dev_open(dev_con, dev_spec, (io_dev_info_t **)handle);
 	return result;
 }
 
