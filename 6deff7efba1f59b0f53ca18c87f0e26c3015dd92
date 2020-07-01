@@ -19,6 +19,87 @@
     },
     {
       "key": {
+        "uuid": "7ed5e5e2_2865fc35",
+        "filename": "docs/components/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-01T21:58:07Z",
+      "side": 1,
+      "message": "Without this entry \"make doc\" will fail with following warning\nsecure-partition-manager-mm.rst:document isn\u0027t included in any toctree",
+      "parentUuid": "8d6de121_896808b4",
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a6da5ec_408a7cc4",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-01T21:58:07Z",
+      "side": 1,
+      "message": "I have generated the rendered version of document and it seems that most of the links are not correctly re-directing. I have mentioned some of them but its better to check them again.",
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aced264e_a0c5db94",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-01T21:58:07Z",
+      "side": 1,
+      "message": "This does not links to mm document.",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 85
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "378da07b_655d1a85",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-01T21:58:07Z",
+      "side": 1,
+      "message": "Is the intention is direct to the specification location(on developer.arm.com) or to [1] in this document, it seems this link is broken, clicking here points to the top of this document.",
+      "range": {
+        "startLine": 76,
+        "startChar": 44,
+        "endLine": 76,
+        "endChar": 61
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "185af18d_5d7eb804",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -1094,6 +1175,40 @@
         "endLine": 671,
         "endChar": 43
       },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ea82a18_cb97ffec",
+        "filename": "docs/resources/diagrams/Pictures/bl2-loading-sp.png",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-01T21:58:07Z",
+      "side": 1,
+      "message": "Is reference to FW_CONFIG necessary? if yes then we should mention that its an example on fvp and platforms not using FW_CONFIG needs a different approach.",
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34fd03ec_ec45b863",
+        "filename": "docs/resources/diagrams/Pictures/fip-secure-partitions.png",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-01T21:58:07Z",
+      "side": 1,
+      "message": "nit: CERT_ARGS missing",
       "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
