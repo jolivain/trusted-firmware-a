@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1e3d99f4_29617be7",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-01T11:15:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "68fc6837_07323215",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 29
+      },
+      "revId": "489dd03675f4881f35fad3029fbf1ba090eba957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94388533_fd37c0bb",
         "filename": "drivers/measured_boot/event_print.c",
         "patchSetId": 20
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "49242a1c_794688d7",
+        "filename": "drivers/measured_boot/event_print.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-01T11:15:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "94388533_fd37c0bb",
+      "range": {
+        "startLine": 253,
+        "startChar": 1,
+        "endLine": 253,
+        "endChar": 26
+      },
+      "revId": "489dd03675f4881f35fad3029fbf1ba090eba957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d19af352_b4d21357",
         "filename": "include/drivers/measured_boot/event_log.h",
         "patchSetId": 20
@@ -59,6 +107,30 @@
       "writtenOn": "2020-07-01T10:54:54Z",
       "side": 1,
       "message": "Shouldn\u0027t it be a line of separation between these two includes?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 25
+      },
+      "revId": "489dd03675f4881f35fad3029fbf1ba090eba957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6c7bb04_14afb72e",
+        "filename": "include/drivers/measured_boot/event_log.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-01T11:15:09Z",
+      "side": 1,
+      "message": "Yes. According to https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering\n\"Groups must be separated by a single blank line for clarity.\"",
+      "parentUuid": "d19af352_b4d21357",
       "range": {
         "startLine": 10,
         "startChar": 0,
