@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ef9172c7_1ee17385",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "That\u0027s not obvious. I\u0027d say this is to cover all use cases starting with above (line 156) where SPD\u003dspmd is used but does not require EL2 save/restore in SWd.\n\nSPD\u003dspmd requires CTX_INCLUDE_EL2_REGS\nCTX_INCLUDE_EL2_REGS affects context save/restore routines and may be enabled independently from SPD\u003dspmd\nARM_ARCH_MINOR\u003d4 makes sure the EL2 context save/restore comprehends registers up to v8.4.\n\nDo you think moving to platform Makefile would ease later porting to other platforms?",
+      "parentUuid": "185af18d_5d7eb804",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 172,
+        "endChar": 22
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0560bb1c_e6571437",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-06-25T23:19:28Z",
       "side": 1,
       "message": "Is this mandatory? Can OEMs use custom interfaces?",
+      "range": {
+        "startLine": 372,
+        "startChar": 0,
+        "endLine": 374,
+        "endChar": 9
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a530df4_ed095ac2",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "It depends what you mean by custom interface. PSA FF-A spec has flexibility e.g. the primary scheduler can be in a VM or in the NWd hypervisor. What is recommended though is to stick to FF-A direct/indirect messaging semantics.",
+      "parentUuid": "0560bb1c_e6571437",
       "range": {
         "startLine": 372,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4ce8d8f2_8c02a623",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6b43e9c9_eb1edb14",
+      "range": {
+        "startLine": 395,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 65
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9e0b892_bdff58ef",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2020-06-25T20:18:33Z",
       "side": 1,
       "message": "this statement is not clear in what it is trying to say. What is the expected behavior for hafnium in secure world ? Does this mean hafnium in the secure world cannot call PSCI version?\nAnd does the second statement mean that when an SP makes a PSCI_CPU_ON call, it reaches hafnium in the secure world but not EL3 PSCI layer?",
+      "range": {
+        "startLine": 404,
+        "startChar": 48,
+        "endLine": 407,
+        "endChar": 38
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fc995c1_4c07ff2e",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "Agree to reword this. The current state is that a SWd component at physical FF-A interface cannot call PSCI services directly (https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/psci/psci_main.c#n387). I was stating PSCI_VERSION because this is the first call that NWd Hafnium does when it boots. Obviously there are others like relaying PSCI_CPU_ON from PVM to EL3. So it means in the SWd we should have an impdef SPMC to SPMD interface (e.g. to specify SPMC secondary core EPs) and either way to relay PSCI events from SPMD to SPMC.\nAn SP at virtual FF-A interface may use PSCI calls or another impdef interface to specify secondary EC entry points (under discussion), although indeed this reaches SPMC but not EL3.",
+      "parentUuid": "d9e0b892_bdff58ef",
       "range": {
         "startLine": 404,
         "startChar": 48,
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "95627fa6_37e15c0a",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "@Raghu: currently both VTTBR_EL2 and VSTTBR_EL2 resolve to the same set of page tables (https://review.trustedfirmware.org/c/hafnium/hafnium/+/4711). I agree that\u0027s not an ideal configuration although it works for the early prototype. It is still open whether we need to provide two sets of page tables per SP but I tend to think that\u0027s what we should do indeed. The memory region node as defined in the spec (section 3.1 Table 10) provides a memory security attribute so I believe that\u0027s what hints to map either to the S or NS stage-2 table.\n\n@Varun: in Hafnium there is a design choice to always have IPA\u003dPA. What is in memory/device region nodes should then be IPA (from the SP/VM perspective). The SP/VM can map this IPA to any VA in its Stage-1 regime.",
+      "parentUuid": "c4b2dc03_6e1cee82",
+      "range": {
+        "startLine": 415,
+        "startChar": 0,
+        "endLine": 415,
+        "endChar": 60
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "328433f6_0118aa1b",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -152,6 +272,30 @@
       "writtenOn": "2020-06-25T20:18:33Z",
       "side": 1,
       "message": "i think it is worth calling out explicitly for stage-2 space, if it is secure IPA space or NS stage 2 IPA space.",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 432,
+        "endChar": 13
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "def974b4_355981a9",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "Should be secure in this case, indeed with current prototype this is implicit. But you\u0027re right I will add it.",
+      "parentUuid": "328433f6_0118aa1b",
       "range": {
         "startLine": 432,
         "startChar": 0,
@@ -187,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "2acadd8d_3cba5705",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "\u003e i assume this is currently only for MP pinned contexts? For UP\u0027s this sounds like a don\u0027t care?\n\nYes. An UP SP is migratable and can receive a direct message request on any physical core.\n\n\u003e i have a system where i have only cores 4, 7,9,10 active and my primary physical core is 4. Would this scheme still work ? Do the physical cores 4,7,9,10 map to logical cores 0,1,2,3 for MP contexts ?\n\nNo I think the SP would still declare 10 ECs and a request issued from NWd on core 4,7,9,10 would map to ECs 4,7,9,10. Other ECs just remain unused logical structures.\n\n\u003e there will be many sku\u0027s of the same SoC, with the same firmware, which dynamically determine based on fuse values, what cores are enabled. \n\nAn SP declares in its manifest as many ECs as the maximum number of physical PE the system can bring up.\n\n\u003e Also why the decision to only have pinned MP contexts and not migratable MP contexts? If an SP is running in a VM, does it or should it really care about what physical PE it is running on ?\n\nI believe this is related to the direct messaging semantics and in any case specified by the PSA FF-A EAC spec (section 4.4.1).",
+      "parentUuid": "27a9f8a0_3ded7964",
+      "range": {
+        "startLine": 454,
+        "startChar": 21,
+        "endLine": 454,
+        "endChar": 63
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "19f36eef_e9acb4f7",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -198,6 +366,30 @@
       "writtenOn": "2020-06-25T20:18:33Z",
       "side": 1,
       "message": "impdef ? I don\u0027t see this in the FFA spec.",
+      "range": {
+        "startLine": 468,
+        "startChar": 9,
+        "endLine": 468,
+        "endChar": 26
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd55da1d_0c157ad2",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "Yes this became impdef in latest EAC version. As stated above related to PSCI, it\u0027s not yet obvious we can re-use PSCI FIDs straight.\nAt secure physical FF-A instance because of what is mentioned above.\nAt virtual FF-A instance, re-use of PSCI FIDs makes sense in NWd VMs as invoking this interface traps into Hafnium which returns to the PVM driver to schedule the newly woken-up VM vCPU.\nThis is not immediately transposed to the SWd as an SP invoking PSCI_CPU_ON traps into SWd Hafnium but the latter would \"only\" initialize the targeted EC and not immediately schedule the EC. So that\u0027s a break in the strict definition of PSCI_CPU_ON by the standard. Because of this, it may be that we provide an adhoc interface doing exactly what it is meant for aka specify a secondary EC entry point. Also AFAIK invoking PSCI services from legacy TEEs (now becoming SPs) is not a really common habit.",
+      "parentUuid": "19f36eef_e9acb4f7",
       "range": {
         "startLine": 468,
         "startChar": 9,
@@ -233,6 +425,30 @@
     },
     {
       "key": {
+        "uuid": "319bd562_8f4e8e9d",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "996d6a50_5704049f",
+      "range": {
+        "startLine": 473,
+        "startChar": 39,
+        "endLine": 473,
+        "endChar": 41
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a09fb108_d676273e",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -244,6 +460,30 @@
       "writtenOn": "2020-06-25T20:18:33Z",
       "side": 1,
       "message": "This sounds like it assumes hafnium is running the normal world. Might want to reword if to say, for example, if hafnium is running the normal world, \u003cinsert text\u003e. and then a short statement about what happens if there is a normal hypervisor or OS in the nwd.\n\nAlso are we saying that we cannot have an MP SP without a secondary VM in the normal world?\nHow do you turn on a secondary vCPU in an MP SP if there is just, lets say, linux running in the normal world?",
+      "range": {
+        "startLine": 479,
+        "startChar": 21,
+        "endLine": 479,
+        "endChar": 69
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dedf64b8_38063a7c",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "Ok for reworking.\n\nSPs are always scheduled from the NWd, this paradigm did not change from legacy TEEs. There must always be some logic (or driver) in the NWd to actually relinquish CPU cycles to the SWd.\nIf primary core is 0, an SP EC[x\u003e0] entry point is supplied by the SP EC[0] when the system boots in SWd. But this EC[x] is not immediately entered at boot.\nLater in the boot process when NWd is up, a direct message request issued from physical core 1 ends up in SP EC[1], and only at this stage this context is effectively scheduled.",
+      "parentUuid": "a09fb108_d676273e",
       "range": {
         "startLine": 479,
         "startChar": 21,
@@ -279,6 +519,30 @@
     },
     {
       "key": {
+        "uuid": "79ce76f2_d5bacf3d",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "At boot time, it\u0027s not actually turning secondary contexts ON, but passing an entry point.\nSecondary contexts cannot be entered until NWd is up to schedule them.\nAt boot time, only setup and discovery intefaces are allowed, so a direct message request cannot occur so early.",
+      "parentUuid": "6a061fcd_f9d93392",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 17
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9bfdb8ce_9aea9c46",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -290,6 +554,30 @@
       "writtenOn": "2020-06-25T20:18:33Z",
       "side": 1,
       "message": "VM mailboxes or SP ? Not sure i understand what mailbox is repurposed. Again this sounds hafnium specific things to the normal world.",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 550,
+        "endChar": 12
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ddd6c71_e6205b86",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "Hafnium defines VMs (in the NWd) and their attributes as logical structures, including a mailbox used for FF-A indirect messaging.\nIntent of this section is to say that this same mailbox structure is re-used in the SWd Hafnium context.\nIn the EAC spec version only direct messaging is allowed to SPs, so RX/TX buffers are not immediately necessary but to allow implementation of the partition info get API.",
+      "parentUuid": "9bfdb8ce_9aea9c46",
       "range": {
         "startLine": 550,
         "startChar": 0,
@@ -325,6 +613,30 @@
     },
     {
       "key": {
+        "uuid": "d98eda0b_cbfde765",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "Right, will remove this.",
+      "parentUuid": "66fa1af2_279c2b6a",
+      "range": {
+        "startLine": 560,
+        "startChar": 30,
+        "endLine": 560,
+        "endChar": 40
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7883648d_19883b49",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -336,6 +648,30 @@
       "writtenOn": "2020-06-25T20:18:33Z",
       "side": 1,
       "message": "fix to 0 or zero",
+      "range": {
+        "startLine": 569,
+        "startChar": 13,
+        "endLine": 569,
+        "endChar": 19
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b606785_24967de3",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7883648d_19883b49",
       "range": {
         "startLine": 569,
         "startChar": 13,
@@ -394,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "1502135b_513b7939",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "By the spec the wording is really VM applies to NWd, SP applies to SWd.\nVM and SP are quite equivalent in the sense they run on top of either an Hypervisor or the SPMC.\nHere it\u0027s explicit about VMs. Such restriction is necessary based on how VMs are scheduled in the NWd.",
+      "parentUuid": "9ae9af21_10e660fc",
+      "range": {
+        "startLine": 581,
+        "startChar": 8,
+        "endLine": 581,
+        "endChar": 21
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b7fc7e62_8cf12e20",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -405,6 +765,30 @@
       "writtenOn": "2020-06-25T20:18:33Z",
       "side": 1,
       "message": "should or does not exit ?",
+      "range": {
+        "startLine": 583,
+        "startChar": 17,
+        "endLine": 583,
+        "endChar": 23
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02b041a4_a3265def",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "Well for now it\u0027s \"should not\" because direct messaging in the SWd is WIP and not submitted, so I suspect it\u0027s design can evolve as we progress.\nWhat we have is direct messaging in the NWd (that you know already) here: https://hafnium-review.googlesource.com/c/hafnium/+/7644 with constraints mentioned above on VMs.\nThe intent, when this patch gets merged, is to add on top the support for direct messaging in the SWd.",
+      "parentUuid": "b7fc7e62_8cf12e20",
       "range": {
         "startLine": 583,
         "startChar": 17,
@@ -440,6 +824,30 @@
     },
     {
       "key": {
+        "uuid": "f53816a5_f43f9c0f",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "I tend to say yes that\u0027s solved by the FF-A memory sharing interfaces, but Achin would better answer here.",
+      "parentUuid": "e2975305_7b7b0314",
+      "range": {
+        "startLine": 596,
+        "startChar": 0,
+        "endLine": 596,
+        "endChar": 17
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5c40c8c0_3e6af289",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -451,6 +859,30 @@
       "writtenOn": "2020-06-25T20:18:33Z",
       "side": 1,
       "message": "To clarify, this is the same mechanism used in NWd(except for group0 group1 complications)?",
+      "range": {
+        "startLine": 635,
+        "startChar": 0,
+        "endLine": 636,
+        "endChar": 44
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "545bae8a_a853ae70",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "Not exactly. In the NWd, the PVM is delegated to inject interrupts to secondary VMs through HF_INTERRUPT_INJECT hypervisor call.\nIn the SWd, we intend to let Hafnium injects the interrupt to the proper SP.\nThe SP retrieves the interrupt ID by using HF_INTERRUPT_GET hypervisor call (this does not change).",
+      "parentUuid": "5c40c8c0_3e6af289",
       "range": {
         "startLine": 635,
         "startChar": 0,
@@ -486,6 +918,30 @@
     },
     {
       "key": {
+        "uuid": "d6a75fb3_17b1edb9",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "The problem with using PSCI FIDs is about what to use as the return code from the SPMC.\nIf the function ID used by the SPMC is not an FF-A ID when doing SMC, then the EL3 std svc handler won\u0027t route the response to the SPMD.\nThat\u0027s where comes the idea to embed the notification into an FF-A message. The SPMC can discriminate this message as being a PSCI event, process it, and reply with an FF-A return message that the SPMD receives as an acknowledgement.",
+      "parentUuid": "8156fd30_25f4bc44",
+      "range": {
+        "startLine": 655,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 72
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d8a7c161_969922c1",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -497,6 +953,30 @@
       "writtenOn": "2020-06-25T20:18:33Z",
       "side": 1,
       "message": "how is this possible ? Did not think that SPMD at EL3 could be a sender of a direct message.",
+      "range": {
+        "startLine": 657,
+        "startChar": 1,
+        "endLine": 657,
+        "endChar": 17
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06248074_ab982274",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "We may allocate specific endpoint IDs to the SPMC (see https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/services/spm_core_manifest.h#n49) and SPMD.\n\nReferring those IDs in source/destination fields of a direct message request/response permits SPMD to SPMC messaging back and forth.",
+      "parentUuid": "d8a7c161_969922c1",
       "range": {
         "startLine": 657,
         "startChar": 1,
@@ -532,6 +1012,30 @@
     },
     {
       "key": {
+        "uuid": "333110dd_13020a0d",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "121c4915_8d278407",
+      "range": {
+        "startLine": 659,
+        "startChar": 0,
+        "endLine": 661,
+        "endChar": 50
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b4aea055_885ecd9b",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -543,6 +1047,30 @@
       "writtenOn": "2020-06-25T23:19:28Z",
       "side": 1,
       "message": "Is this up to the SPMC? Does the FFA spec mandate specific fields in the manifest for this?",
+      "range": {
+        "startLine": 671,
+        "startChar": 3,
+        "endLine": 671,
+        "endChar": 43
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8dd51fb_6536049d",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-01T09:33:15Z",
+      "side": 1,
+      "message": "FF-A spec does not provide fields for PM events in SP manifests.\n\nSPMC is the first to be notified about PM events from the SPMD.\nIt is up to the SPMC to arbitrate to which SP it needs to send PM events.\nThe current thinking is that an SP would register to receive notifications to specific PM events.",
+      "parentUuid": "b4aea055_885ecd9b",
       "range": {
         "startLine": 671,
         "startChar": 3,
