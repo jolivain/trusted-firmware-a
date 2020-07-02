@@ -178,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "127aa140_6228f950",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-02T17:22:35Z",
+      "side": 1,
+      "message": "Thank you very much for the comments. Now it is clearer to me why the barrier is needed.",
+      "parentUuid": "7d4db6db_7e3f08ea",
+      "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2517b99_a55a298b",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 13
