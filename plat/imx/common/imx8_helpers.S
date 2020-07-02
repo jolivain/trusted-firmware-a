@@ -86,6 +86,31 @@ func plat_calc_core_pos
 	ret
 endfunc plat_calc_core_pos
 
+	/* ----------------------------------------------
+	 * function to handle platform specific reset.
+	 * ----------------------------------------------
+	 */
+func plat_reset_handler
+#if defined(PLAT_imx8ulp)
+	mrs	x0, CORTEX_A35_CPUECTLR_EL1
+	orr     x0, x0, #(0x1 << 0)
+	orr     x0, x0, #(0x1 << 3)
+	msr	CORTEX_A35_CPUECTLR_EL1, x0
+
+	mrs	x0, CORTEX_A35_L2ECTLR_EL1
+	orr     x0, x0, #(0x1 << 0)
+	msr	CORTEX_A35_L2ECTLR_EL1, x0
+	isb
+#endif
+	/* enable EL2 cpuectlr RW access */
+	mov	x0, #0x73
+	msr	actlr_el3, x0
+	msr	actlr_el2, x0
+	isb
+
+	ret
+endfunc plat_reset_handler
+
 	/* ---------------------------------------------
 	 * function to get the entrypoint.
 	 * ---------------------------------------------
