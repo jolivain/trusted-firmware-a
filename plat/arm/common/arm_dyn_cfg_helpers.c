@@ -237,7 +237,7 @@ int arm_set_tos_fw_info(uintptr_t config_base, uintptr_t log_addr, size_t log_si
 	assert(log_addr != 0UL);
 
 	/* Write the Event Log address and its size in the DTB */
-	err = arm_set_event_log_info(config_base, "arm,tos_fw",
+	err = arm_set_event_log_info(config_base, "arm,tpm_event_log",
 #ifdef SPD_opteed
 					NULL,
 #endif
@@ -287,7 +287,7 @@ int arm_set_nt_fw_info(uintptr_t config_base,
 	}
 
 	/* Write the Event Log address and its size in the DTB */
-	err = arm_set_event_log_info(config_base, "arm,nt_fw",
+	err = arm_set_event_log_info(config_base, "arm,tpm_event_log",
 #ifdef SPD_opteed
 					log_addr,
 #endif
