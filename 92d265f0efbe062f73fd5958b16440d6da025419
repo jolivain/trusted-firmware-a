@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05ae419f_78c8e6f3",
+        "filename": "plat/mediatek/mt8192/drivers/gpio/mtgpio.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000362
+      },
+      "writtenOn": "2020-07-02T04:00:13Z",
+      "side": 1,
+      "message": "if you use the common gpio interface,\nthen you may not need to export the mtgpio.h interface for users.\nThe functions in this file can be declared as static.",
+      "revId": "92d265f0efbe062f73fd5958b16440d6da025419",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
