@@ -142,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "1ec5891d_6eec8eaa",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-02T11:45:30Z",
+      "side": 1,
+      "message": "So first I thought it\u0027s not needed, at least not there, but I think there might be a case with  the memory accesses in spin_lock: we don\u0027t want to reorder that. But I am not sure if the sevl/wfe/casa already introduce some barrier here. Also: while \"sy\" is always a safe bet, I think you only need read/r-w and inner shareable, so \"dmb ishld\".\nAnd in any case it\u0027s complicated enough to warrant a comment on what this is ordering.",
+      "parentUuid": "03ff3a3a_81baf0b4",
+      "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2517b99_a55a298b",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 13
