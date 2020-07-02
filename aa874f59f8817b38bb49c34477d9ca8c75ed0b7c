@@ -160,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "7d4db6db_7e3f08ea",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-02T15:46:09Z",
+      "side": 1,
+      "message": "Agree with the comment about not using sy. You can use ish instead. ishld is not sufficient. The problem is we are trying to invent a spin lock here without using load acquire/store release. So, you really have to implement an arm v7 style spin lock here and ensure you have all the ordering guarantees that it provides. You need to ensure that all loads AND stores after line 125(after acquire occurred, acquire sematincs) occur only after b.ne 1b resolves architecturally to not taken and not before, and the way to do that is through a DMB ISH.",
+      "parentUuid": "1ec5891d_6eec8eaa",
+      "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2517b99_a55a298b",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 13
@@ -224,6 +242,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "5c79d9dc_314fccb1",
+      "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a71aec49_4b325043",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-02T15:46:09Z",
+      "side": 1,
+      "message": "Thanks for pointing this out. It does two things. One it ensures that the write to secondary_core_spinlock is visible to all observers, for which dmbish would have been sufficient. But you do need a DSB to ensure SEV is not reordered before.",
+      "parentUuid": "225ff415_b91897ef",
       "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
