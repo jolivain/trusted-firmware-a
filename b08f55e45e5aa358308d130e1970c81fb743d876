@@ -65,6 +65,24 @@
     },
     {
       "key": {
+        "uuid": "0cf1f0ac_784e8dac",
+        "filename": "plat/arm/board/fvp/fconf/fconf_nt_config_getter.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-02T20:17:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cb88b5bb_42d1919c",
+      "revId": "b08f55e45e5aa358308d130e1970c81fb743d876",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1504c56c_c0713557",
         "filename": "plat/arm/board/fvp/fdts/fvp_nt_fw_config.dts",
         "patchSetId": 24
@@ -76,6 +94,30 @@
       "writtenOn": "2020-06-30T19:55:26Z",
       "side": 1,
       "message": "Please add binding document for this node and properties",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 3
+      },
+      "revId": "b08f55e45e5aa358308d130e1970c81fb743d876",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84c35443_a4bd15aa",
+        "filename": "plat/arm/board/fvp/fdts/fvp_nt_fw_config.dts",
+        "patchSetId": 24
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-02T20:17:53Z",
+      "side": 1,
+      "message": "Please explain what you mean by that. The documentation updates will be provided later in a separate patch if required.",
+      "parentUuid": "1504c56c_c0713557",
       "range": {
         "startLine": 12,
         "startChar": 0,
@@ -111,6 +153,30 @@
     },
     {
       "key": {
+        "uuid": "3fe5ed44_1d13dd61",
+        "filename": "plat/arm/board/fvp/fdts/fvp_tsp_fw_config.dts",
+        "patchSetId": 24
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-02T20:17:53Z",
+      "side": 1,
+      "message": "Are you suggesting to use \"arm, xxx_fw\" name for both DTS files? nt_fw_config can have extra tpm_event_log_sm_addr property? Does it matter?",
+      "parentUuid": "cfe223a6_3eadd9f3",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 28
+      },
+      "revId": "b08f55e45e5aa358308d130e1970c81fb743d876",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ca09af8d_0b749966",
         "filename": "plat/arm/board/fvp/fvp_measured_boot.c",
         "patchSetId": 24
@@ -131,6 +197,30 @@
       "revId": "b08f55e45e5aa358308d130e1970c81fb743d876",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25cb8d1e_b04005f0",
+        "filename": "plat/arm/board/fvp/fvp_measured_boot.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-02T20:17:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca09af8d_0b749966",
+      "range": {
+        "startLine": 2,
+        "startChar": 35,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "b08f55e45e5aa358308d130e1970c81fb743d876",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
