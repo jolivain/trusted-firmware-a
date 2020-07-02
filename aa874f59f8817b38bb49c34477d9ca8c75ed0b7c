@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9ee76501_05fd37dd",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-02T11:33:37Z",
+      "side": 1,
+      "message": "You are right, I had x0 and x1 swapped.",
+      "parentUuid": "b00971ee_5962271b",
+      "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5058f186_ff03b441",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 13
@@ -33,6 +51,24 @@
       "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82fe4c6a_5a8dc8d0",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-02T11:33:37Z",
+      "side": 1,
+      "message": "The first draft that I wrote for this function kept the count rather than a max value. I guess I skipped that part when I refactored. Thanks for spotting it.",
+      "parentUuid": "5058f186_ff03b441",
+      "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "d5fee34a_f2af0d3d",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-02T11:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7bf21e7_f5a38e0c",
+      "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48355d84_669ba9bd",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 13
@@ -64,6 +118,24 @@
       "writtenOn": "2020-07-02T08:46:51Z",
       "side": 1,
       "message": "Still having the dmb here looks awkward. What is the memory operation after this barrier that we want to force an order on? Can you add a comment here explaining that?",
+      "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03ff3a3a_81baf0b4",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-02T11:33:37Z",
+      "side": 1,
+      "message": "The first patchset didn\u0027t include a barrier here as I never though it was necessary. A discussion on https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/4125/1/plat/arm/board/arm_fpga/aarch64/fpga_helpers.S#60 suggested that it was, so I added it although I still am not quite sure about it, so I was awaiting for more feedback on this.",
+      "parentUuid": "48355d84_669ba9bd",
       "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "2fd30f25_034053d0",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-02T11:33:37Z",
+      "side": 1,
+      "message": "Yes, you are all right. I removed it and I refactored the code.",
+      "parentUuid": "f2517b99_a55a298b",
+      "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c79d9dc_314fccb1",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 13
@@ -101,6 +191,24 @@
       "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "225ff415_b91897ef",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-02T11:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c79d9dc_314fccb1",
+      "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
