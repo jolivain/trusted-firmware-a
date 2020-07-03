@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "9542c149_6775afd3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-03T12:17:47Z",
+      "side": 1,
+      "message": "Its your wish, but an ideal commit message should explain why a change is necessary along with what and how (which you already provided)?",
+      "parentUuid": "fb49b659_3c149f52",
+      "revId": "bb4ef4816cfd8d10aced6538bf7feeef34725651",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39cc8e10_fb4d7721",
         "filename": "fdts/corstone700_fpga.dts",
         "patchSetId": 2
@@ -177,6 +195,30 @@
     },
     {
       "key": {
+        "uuid": "a4a87039_3264a3b5",
+        "filename": "plat/arm/board/corstone700/common/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-03T12:17:47Z",
+      "side": 1,
+      "message": "@Alexei, I was trying to explain through pseudo code 😊.\n@Abdellatif: I am okay with TARGET_PLATFORM",
+      "parentUuid": "56760763_768df4ca",
+      "range": {
+        "startLine": 118,
+        "startChar": 7,
+        "endLine": 118,
+        "endChar": 17
+      },
+      "revId": "bb4ef4816cfd8d10aced6538bf7feeef34725651",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "823cb5c6_b8597c98",
         "filename": "plat/arm/board/corstone700/common/include/platform_def.h",
         "patchSetId": 2
@@ -259,6 +301,30 @@
     },
     {
       "key": {
+        "uuid": "2d49b68c_999de3ca",
+        "filename": "plat/arm/board/corstone700/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-03T12:17:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fa064316_7718848e",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 51
+      },
+      "revId": "bb4ef4816cfd8d10aced6538bf7feeef34725651",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0811e6f_d48bc53e",
         "filename": "plat/arm/board/corstone700/platform.mk",
         "patchSetId": 2
@@ -306,6 +372,30 @@
     },
     {
       "key": {
+        "uuid": "c30129e6_d599afbb",
+        "filename": "plat/arm/board/corstone700/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-03T12:17:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0d187bc9_46893d97",
+      "range": {
+        "startLine": 48,
+        "startChar": 34,
+        "endLine": 48,
+        "endChar": 47
+      },
+      "revId": "bb4ef4816cfd8d10aced6538bf7feeef34725651",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5468aac3_00de20df",
         "filename": "plat/arm/board/corstone700/platform.mk",
         "patchSetId": 2
@@ -341,6 +431,30 @@
       "side": 1,
       "message": "I will set that to: corstone700_${TARGET_PLATFORM}.dtb",
       "parentUuid": "5468aac3_00de20df",
+      "range": {
+        "startLine": 49,
+        "startChar": 45,
+        "endLine": 49,
+        "endChar": 58
+      },
+      "revId": "bb4ef4816cfd8d10aced6538bf7feeef34725651",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73e0a3ac_f3d5198a",
+        "filename": "plat/arm/board/corstone700/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-03T12:17:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9de48aea_3030036a",
       "range": {
         "startLine": 49,
         "startChar": 45,
