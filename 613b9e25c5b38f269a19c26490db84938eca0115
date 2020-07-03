@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9b419e76_3382daf0",
+        "filename": "plat/st/common/include/stm32mp_shared_resources.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-07-03T16:42:48Z",
+      "side": 1,
+      "message": "Ok to move enum stm32mp_shres; below line 14.\n\nAs for conditionnally including this header, i\u0027m not found of that.\nIt make it a bit ugly to have #ifdef/#endif around #include directives. I prefer this header to be flexible enough so that it is harmless if included while the related feature is not embedded.",
+      "parentUuid": "60f79051_69ce8678",
+      "revId": "613b9e25c5b38f269a19c26490db84938eca0115",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7bb25b1_877cf350",
         "filename": "plat/st/stm32mp1/stm32mp1_shared_resources.c",
         "patchSetId": 1
