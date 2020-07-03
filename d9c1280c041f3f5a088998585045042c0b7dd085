@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "80870156_033cc5c5",
+        "filename": "fdts/corstone700_fpga.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-03T18:26:23Z",
+      "side": 1,
+      "message": "Arm",
+      "revId": "d9c1280c041f3f5a088998585045042c0b7dd085",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c86f112b_0eb670ac",
         "filename": "plat/arm/board/corstone700/common/include/platform_def.h",
         "patchSetId": 3
@@ -42,6 +59,23 @@
         "endLine": 174,
         "endChar": 15
       },
+      "revId": "d9c1280c041f3f5a088998585045042c0b7dd085",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "631554af_55742f41",
+        "filename": "plat/arm/board/corstone700/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-03T18:26:23Z",
+      "side": 1,
+      "message": "ifeq ($(filter ${TARGET_PLATFORM}, fpga fvp),)",
       "revId": "d9c1280c041f3f5a088998585045042c0b7dd085",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
