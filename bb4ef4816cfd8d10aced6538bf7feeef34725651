@@ -37,6 +37,40 @@
     },
     {
       "key": {
+        "uuid": "39cc8e10_fb4d7721",
+        "filename": "fdts/corstone700_fpga.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-03T11:30:34Z",
+      "side": 1,
+      "message": "New files should have \"Arm Limited.\" only",
+      "revId": "bb4ef4816cfd8d10aced6538bf7feeef34725651",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42d24c9f_7283fdd4",
+        "filename": "fdts/corstone700_fvp.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-03T11:30:34Z",
+      "side": 1,
+      "message": "Arm Limited.",
+      "revId": "bb4ef4816cfd8d10aced6538bf7feeef34725651",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4ee94dba_8f97466d",
         "filename": "fdts/corstone700_fvp.dts",
         "patchSetId": 2
@@ -107,6 +141,30 @@
       "side": 1,
       "message": "I think TARGET_PLATFORM is closer to the real meaning. It is OK regarding FVP/FPGA comment.",
       "parentUuid": "1df623e3_c6f6b0a4",
+      "range": {
+        "startLine": 118,
+        "startChar": 7,
+        "endLine": 118,
+        "endChar": 17
+      },
+      "revId": "bb4ef4816cfd8d10aced6538bf7feeef34725651",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56760763_768df4ca",
+        "filename": "plat/arm/board/corstone700/common/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-03T11:30:34Z",
+      "side": 1,
+      "message": "@Manish: it is either #ifdef or #if, but not\n#ifdef TARGET_TYPE_FVP\n#elif TARGET_TYPE_FPGA\n\nMay be\n#if TARGET_PLATFORM \u003d\u003d FVP\n..\n#elif TARGET_PLATFORM \u003d\u003d FPGA\n..\n?",
+      "parentUuid": "2c9a06b0_572bb909",
       "range": {
         "startLine": 118,
         "startChar": 7,
