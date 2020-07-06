@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e02a5152_d3d6ae1a",
+        "filename": "plat/arm/board/fvp/fdts/event_log.dtsi",
+        "patchSetId": 28
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-06T13:19:14Z",
+      "side": 1,
+      "message": "Remove this property to make \u0027tpm_event_log\u0027 node common across device trees wherever this dtsi file get included and extend this node in the fvp_nt_fw_config.dts for this additional property.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 6
+      },
+      "revId": "8cfb8a9ea141475f0f6a18b4d6c5c2349af5092c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bebc1d4_48f0c7d9",
+        "filename": "plat/arm/board/fvp/fdts/fvp_nt_fw_config.dts",
+        "patchSetId": 28
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-06T13:19:14Z",
+      "side": 1,
+      "message": "Remove this and extend the node as below.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "8cfb8a9ea141475f0f6a18b4d6c5c2349af5092c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61e7e336_b92c9978",
+        "filename": "plat/arm/board/fvp/fdts/fvp_nt_fw_config.dts",
+        "patchSetId": 28
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-06T13:19:14Z",
+      "side": 1,
+      "message": "You can extend this node as below for the additional property\n\n\u0026tpm_event_log {\n#if defined(SPD_opteed)\n\ttpm_event_log_sm_addr \u003d \u003c0x0 0x0\u003e;\n#endif\n}",
+      "range": {
+        "startLine": 10,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 2
+      },
+      "revId": "8cfb8a9ea141475f0f6a18b4d6c5c2349af5092c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
