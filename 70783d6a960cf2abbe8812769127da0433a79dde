@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "5b8821aa_5d610a29",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-06T19:26:45Z",
+      "side": 1,
+      "message": "can you use an appropriate name for this variable? something like cpu_node_name?",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce04adbd_a6b645c1",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 13
@@ -47,6 +64,23 @@
       "writtenOn": "2020-07-06T16:47:29Z",
       "side": 1,
       "message": "Those two names don\u0027t match the actual function parameter names below.",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87b582e3_333d5d67",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-06T19:26:45Z",
+      "side": 1,
+      "message": "can you use a more appropriate name than string? may be cluster_name or node_name?",
       "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -104,6 +138,41 @@
     },
     {
       "key": {
+        "uuid": "ec89ab4f_c01464be",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-06T19:26:45Z",
+      "side": 1,
+      "message": "Yes, root node has offset 0.",
+      "parentUuid": "7cdce333_19b4ea92",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6630bc6c_e1ad2b68",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-06T19:26:45Z",
+      "side": 1,
+      "message": "Before returning an error value from any of the helper APIs you created, can you put a debug message similar to this:\nVERBOSE(\"FDT: write to %s property of node at offset %d\\n failed\", \"#address-cells\", offs);",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3217b40_99df25c9",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 13
@@ -132,6 +201,23 @@
       "writtenOn": "2020-07-06T16:47:29Z",
       "side": 1,
       "message": "Same thing as above? The phandle is not needed, just use the node offset?",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdac6432_c46dc1d3",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-06T19:26:45Z",
+      "side": 1,
+      "message": "Is it always guaranteed that a LLC(L3) cache exists for FPGA port? I am curious why it has to be populated in device tree. Is it not possible to detect presence of LLC through some Feature Identification register?",
       "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
