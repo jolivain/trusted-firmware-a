@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ab633fe_99c31a44",
+        "filename": "drivers/arm/gic/v3/gic-x00.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-06T06:53:05Z",
+      "side": 1,
+      "message": "r0p0 indicates 2 for ProductID (not sure if this is a typo or what the IP really returns).\nr0p1 indicates 3.\nIs it fair to assume there won\u0027t be designs out with r0p0 (I guess so but just checking)?",
+      "revId": "99e5048cc504b7da594400069ee37ee725ed92aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
