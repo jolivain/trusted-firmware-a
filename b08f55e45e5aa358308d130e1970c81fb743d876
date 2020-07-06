@@ -130,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "06274e09_115a2c02",
+        "filename": "plat/arm/board/fvp/fdts/fvp_nt_fw_config.dts",
+        "patchSetId": 24
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-06T11:00:40Z",
+      "side": 1,
+      "message": "Generally, We provide provide binding document which explains about nodes and their properties.\nYou can refer already existing binding document in our source tree: https://trustedfirmware-a.readthedocs.io/en/latest/components/fconf/fconf_properties.html?highlight\u003dfconf%20binding to create similar one for this node \u0027tpm_event_log\u0027 and it\u0027s properties",
+      "parentUuid": "84c35443_a4bd15aa",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 3
+      },
+      "revId": "b08f55e45e5aa358308d130e1970c81fb743d876",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cfe223a6_3eadd9f3",
         "filename": "plat/arm/board/fvp/fdts/fvp_tsp_fw_config.dts",
         "patchSetId": 24
@@ -165,6 +189,30 @@
       "side": 1,
       "message": "Are you suggesting to use \"arm, xxx_fw\" name for both DTS files? nt_fw_config can have extra tpm_event_log_sm_addr property? Does it matter?",
       "parentUuid": "cfe223a6_3eadd9f3",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 28
+      },
+      "revId": "b08f55e45e5aa358308d130e1970c81fb743d876",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89d71bca_e9cae1d9",
+        "filename": "plat/arm/board/fvp/fdts/fvp_tsp_fw_config.dts",
+        "patchSetId": 24
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-06T11:00:40Z",
+      "side": 1,
+      "message": "IMO you can make this node as generic by creating one dtsi file (mentioning all common properties). \nInclude created dtsi file and extend that node in the device tree wherever required.\nCan you not make this node as OS agnostic and name it as \"arm, tpm_event_log\u0027 simply?",
+      "parentUuid": "3fe5ed44_1d13dd61",
       "range": {
         "startLine": 13,
         "startChar": 2,
