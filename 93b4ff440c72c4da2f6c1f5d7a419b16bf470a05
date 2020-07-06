@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70291a97_5967d729",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-06T11:25:54Z",
+      "side": 1,
+      "message": "nit: can we change it \"current_id\" as linear_id is bit misleading.",
+      "range": {
+        "startLine": 136,
+        "startChar": 14,
+        "endLine": 136,
+        "endChar": 24
+      },
+      "revId": "93b4ff440c72c4da2f6c1f5d7a419b16bf470a05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
