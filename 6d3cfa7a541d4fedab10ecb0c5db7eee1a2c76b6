@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f74960d_66661638",
+        "filename": "tools/fiptool/fiptool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-07-06T11:50:14Z",
+      "side": 1,
+      "message": "Aren\u0027t these macros already provided by stdlib.h?\n\nhttps://pubs.opengroup.org/onlinepubs/9699919799/\n\nWere you getting a compilation error if you didn\u0027t redefine them?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "6d3cfa7a541d4fedab10ecb0c5db7eee1a2c76b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
