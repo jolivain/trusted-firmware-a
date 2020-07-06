@@ -281,6 +281,24 @@
       "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9406394d_1b203469",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-06T17:32:49Z",
+      "side": 1,
+      "message": "@Raghu: How would \"write to secondary_core_spinlock is visible to all observers\" be ensured by a dmb, when this just makes sure that there is no reordering happening between this write and memory accesses following the dmb? You need a dsb to make sure other cores can observe this. (Just to make sure there is no misunderstanding, the code seems now fine to me.)",
+      "parentUuid": "a71aec49_4b325043",
+      "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }

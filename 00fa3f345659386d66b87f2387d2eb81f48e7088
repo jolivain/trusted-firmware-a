@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "324d5d1c_2d7f5127",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-06T17:32:49Z",
+      "side": 1,
+      "message": "Can you please add a comment here, saying that this is needed to order the ldr above against any memory instructions in the spin_lock routine? Otherwise it will always look awkward to any astute reader later on.",
+      "revId": "00fa3f345659386d66b87f2387d2eb81f48e7088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c4a128e_e52e0f38",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-06T17:32:49Z",
+      "side": 1,
+      "message": "But you need to do the shift depending on the MT bit, to support both older and newer cores.",
+      "revId": "00fa3f345659386d66b87f2387d2eb81f48e7088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c75d44b5_7a488ef5",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-06T17:32:49Z",
+      "side": 1,
+      "message": "Why revisit? I think we can always treat single threaded CPUs as ones with having one thread, as some kind of special case of MT. So why would we need to change this? It seems like recent Cortex/Neoverse cores all set the MT bit, for instance, even though most of them are single-threaded.",
+      "revId": "00fa3f345659386d66b87f2387d2eb81f48e7088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa3df1de_13a439c6",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-06T17:32:49Z",
+      "side": 1,
+      "message": "Doesn\u0027t this need adjustment regarding the MT bit as well? Maybe you can write this (read and possibly shift MPIDR) in assembly and put it in fpga_helpers.S?",
+      "revId": "00fa3f345659386d66b87f2387d2eb81f48e7088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
