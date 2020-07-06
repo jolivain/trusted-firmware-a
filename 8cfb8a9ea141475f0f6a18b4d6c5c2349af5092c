@@ -92,6 +92,30 @@
       "revId": "8cfb8a9ea141475f0f6a18b4d6c5c2349af5092c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7baf7335_2d6f4bc2",
+        "filename": "plat/arm/board/fvp/fdts/fvp_nt_fw_config.dts",
+        "patchSetId": 28
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-06T16:50:32Z",
+      "side": 1,
+      "message": "Yes, you need to use label to extend the properties in the node which I missed to mention earlier.\nI tried as below in one of the configuration file and it compiled successfully.\n\ndts:\n\n/dts-v1/;\n\n/ {\n....\n#include \"event_log.dtsi\"\n};\n\n\u0026evt_log {\n#if SPD_opteed\n        tpm_event_log_sm_addr \u003d \u003c0x0 0x0\u003e;\n#endif\n};\n\ndtsi:\nevt_log: tpm_event_log {\n        compatible \u003d \"arm,tpm_event_log\";\n\n        tpm_event_log_addr \u003d \u003c0x0 0x0\u003e;\n        tpm_event_log_size \u003d \u003c0x0\u003e;\n};",
+      "parentUuid": "a49daec7_c2ebfd85",
+      "range": {
+        "startLine": 10,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 2
+      },
+      "revId": "8cfb8a9ea141475f0f6a18b4d6c5c2349af5092c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
