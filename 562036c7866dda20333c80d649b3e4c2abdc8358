@@ -199,6 +199,24 @@
     },
     {
       "key": {
+        "uuid": "38970c20_b1090915",
+        "filename": "fdts/cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-06T17:06:46Z",
+      "side": 1,
+      "message": "Agree! Let me update compatible string as below:\n1. compatible \u003d \"arm, manifest-descs\"\n2. compatible \u003d \"arm, img-descs\"\n\nConst data is bound to increase as we keep on moving modules to fconf. \nAgree, We can do the exercise at some point to check const data with and without fconf but how useful that data will be to do the size reduction.",
+      "parentUuid": "2abecb8f_f6dad445",
+      "revId": "562036c7866dda20333c80d649b3e4c2abdc8358",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "09c5a6cf_ecdabc7a",
         "filename": "fdts/cot_descriptors.dtsi",
         "patchSetId": 1
