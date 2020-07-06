@@ -1,0 +1,199 @@
+/*
+ * Copyright (c) 2020, Arm Limited. All rights reserved.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+/dts-v1/;
+
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+
+/ {
+	compatible = "arm,neoverse-n1-sdp", "arm,neoverse-n1-soc";
+
+	interrupt-parent = <&gic>;
+	#address-cells = <2>;
+	#size-cells = <2>;
+
+	aliases {
+		serial0 = &soc_uart0;
+	};
+
+	gic: interrupt-controller@2c010000 {
+		compatible = "arm,gic-600", "arm,gic-v3";
+		#address-cells = <2>;
+		#interrupt-cells = <3>;
+		#size-cells = <2>;
+		ranges;
+		interrupt-controller;
+	};
+
+	pmu {
+		compatible = "arm,armv8-pmuv3";
+		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+	};
+
+	spe-pmu {
+		compatible = "arm,statistical-profiling-extension-v1";
+		interrupts = <GIC_PPI 5 IRQ_TYPE_LEVEL_HIGH>;
+	};
+
+	psci {
+		compatible = "arm,psci-0.2";
+		method = "smc";
+	};
+
+	timer {
+		compatible = "arm,armv8-timer";
+		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+	};
+
+	smmu_ccix: iommu@4f000000 {
+		compatible = "arm,mmu-600", "arm,smmu-v3";
+		reg = <0 0x4f000000 0 0x40000>;
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+		interrupts = <GIC_SPI 228 IRQ_TYPE_EDGE_RISING>,
+				<GIC_SPI 229 IRQ_TYPE_EDGE_RISING>,
+				<GIC_SPI 230 IRQ_TYPE_EDGE_RISING>;
+		interrupt-names = "eventq", "cmdq-sync", "gerror";
+		msi-parent = <&its1 0>;
+		#iommu-cells = <1>;
+		dma-coherent;
+		status = "okay";
+	};
+
+	smmu_pcie: iommu@4f400000 {
+		compatible = "arm,mmu-600", "arm,smmu-v3";
+		reg = <0 0x4f400000 0 0x40000>;
+		interrupts = <GIC_SPI 235 IRQ_TYPE_EDGE_RISING>,
+				<GIC_SPI 236 IRQ_TYPE_EDGE_RISING>,
+				<GIC_SPI 237 IRQ_TYPE_EDGE_RISING>;
+		interrupt-names = "eventq", "cmdq-sync", "gerror";
+		msi-parent = <&its2 0>;
+		#iommu-cells = <1>;
+		dma-coherent;
+		status = "okay";
+	};
+
+	pcie_ctlr: pcie@70000000 {
+		compatible = "arm,n1sdp-pcie";
+		device_type = "pci";
+		reg = <0 0x70000000 0 0x1200000>;
+		bus-range = <0 17>;
+		linux,pci-domain = <0>;
+		#address-cells = <3>;
+		#size-cells = <2>;
+		dma-coherent;
+		ranges = <0x01000000 0x00 0x00000000 0x00 0x75200000 0x00 0x00010000>,
+			 <0x02000000 0x00 0x71200000 0x00 0x71200000 0x00 0x04000000>,
+			 <0x42000000 0x09 0x00000000 0x09 0x00000000 0x20 0x00000000>;
+		#interrupt-cells = <1>;
+		interrupt-map-mask = <0 0 0 7>;
+		interrupt-map = <0 0 0 1 &gic 0 0 0 169 IRQ_TYPE_LEVEL_HIGH>,
+				<0 0 0 2 &gic 0 0 0 170 IRQ_TYPE_LEVEL_HIGH>,
+				<0 0 0 3 &gic 0 0 0 171 IRQ_TYPE_LEVEL_HIGH>,
+				<0 0 0 4 &gic 0 0 0 172 IRQ_TYPE_LEVEL_HIGH>;
+		msi-map = <0 &its_pcie 0 0x10000>;
+		iommu-map = <0 &smmu_pcie 0 0x10000>;
+		status = "okay";
+	};
+
+	ccix_pcie_ctlr: pcie@68000000 {
+		compatible = "arm,n1sdp-pcie";
+		device_type = "pci";
+		reg = <0 0x68000000 0 0x1200000>;
+		bus-range = <0 17>;
+		linux,pci-domain = <1>;
+		#address-cells = <3>;
+		#size-cells = <2>;
+		dma-coherent;
+		ranges = <0x01000000 0x00 0x00000000 0x00 0x6d200000 0x00 0x00010000>,
+			 <0x02000000 0x00 0x69200000 0x00 0x69200000 0x00 0x04000000>,
+			 <0x42000000 0x29 0x00000000 0x29 0x00000000 0x20 0x00000000>;
+		#interrupt-cells = <1>;
+		interrupt-map-mask = <0 0 0 7>;
+		interrupt-map = <0 0 0 1 &gic 0 0 0 201 IRQ_TYPE_LEVEL_HIGH>,
+				<0 0 0 2 &gic 0 0 0 202 IRQ_TYPE_LEVEL_HIGH>,
+				<0 0 0 3 &gic 0 0 0 203 IRQ_TYPE_LEVEL_HIGH>,
+				<0 0 0 4 &gic 0 0 0 204 IRQ_TYPE_LEVEL_HIGH>;
+		msi-map = <0 &its_ccix 0 0x10000>;
+		iommu-map = <0 &smmu_ccix 0 0x10000>;
+		status = "okay";
+	};
+
+	hdlcd: hdlcd@1c050000 {
+		compatible = "arm,hdlcd";
+		reg = <0 0x1c050000 0 0x1000>;
+		interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
+		clocks = <&soc_hdlcdclk>;
+		clock-names = "pxlclk";
+
+		port {
+			hdlcd0_output: endpoint {
+				remote-endpoint = <&tda998x_0_input>;
+			};
+		};
+	};
+
+	i2c@1c0f0000 {
+		compatible = "arm,versatile-i2c";
+		reg = <0x0 0x1c0f0000 0x0 0x1000>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		clock-frequency = <400000>;
+		i2c-sda-hold-time-ns = <500>;
+		clocks = <&soc_refclk60mhz>;
+
+		hdmi-transmitter@70 {
+			compatible = "nxp,tda998x";
+			reg = <0x70>;
+			port {
+				tda998x_0_input: endpoint {
+					remote-endpoint = <&hdlcd0_output>;
+				};
+			};
+		};
+	};
+
+	soc_refclk100mhz: refclk100mhz {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <100000000>;
+		clock-output-names = "apb_pclk";
+	};
+
+	soc_refclk60mhz: refclk60mhz {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <60000000>;
+		clock-output-names = "iofpga_clk";
+	};
+
+	soc_uartclk:  uartclk {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <50000000>;
+		clock-output-names = "uartclk";
+	};
+
+	soc_hdlcdclk:  hdlcdclk {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <23750000>;
+		clock-output-names = "hdlcdclk";
+	};
+
+	soc_uart0: uart@2a400000 {
+		compatible = "arm,pl011", "arm,primecell";
+		reg = <0x0 0x2a400000 0x0 0x1000>;
+		interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
+		clocks = <&soc_uartclk>, <&soc_refclk100mhz>;
+		clock-names = "uartclk", "apb_pclk";
+		status = "okay";
+	};
+};
