@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce04adbd_a6b645c1",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-06T16:47:29Z",
+      "side": 1,
+      "message": "Does MISRA ask for the return value of snprintf to be checked? Because I think string will always be able to hold the biggest u32 value (10 digits + \"cpu\" + \"@\" + \\0).",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc1b1a35_5a04a3fe",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-06T16:47:29Z",
+      "side": 1,
+      "message": "Mmh, don\u0027t you need to convert the endianess before writing the property?",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c7a2645_6980b824",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-06T16:47:29Z",
+      "side": 1,
+      "message": "Those two names don\u0027t match the actual function parameter names below.",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9026464b_eacc91d1",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-06T16:47:29Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be easier to let fdt_get_phandle() return the phandle instead? You just seem to use tmp_offs for that purpose?",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f6727fa_e1b1bfef",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-06T16:47:29Z",
+      "side": 1,
+      "message": "Similar thing here: let fdt_add_cpu_node() return the phandle.",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cdce333_19b4ea92",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-06T16:47:29Z",
+      "side": 1,
+      "message": "I think that\u0027s not needed, most fdt_ functions interpret offset\u003d0 as the root node. But please double check that.",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3217b40_99df25c9",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-06T16:47:29Z",
+      "side": 1,
+      "message": "Do you just need the phandle for getting the /cpus node later? I don\u0027t think it\u0027s needed in the eventual DTB. What about storing the node offset when creating the \"cpus\" node above, then passing this on to fdt_add_cluster()?",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1ad7f36_a87678de",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-06T16:47:29Z",
+      "side": 1,
+      "message": "Same thing as above? The phandle is not needed, just use the node offset?",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f12a9c3_972f45a1",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-06T16:47:29Z",
+      "side": 1,
+      "message": "Yeah, so in my current setup I reserve 64KB for the DT, putting it just before the kernel. Currently the typical DTB is around 3KB, so plenty of room, even with a sophisticated topology.",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
