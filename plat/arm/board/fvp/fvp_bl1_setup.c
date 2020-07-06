@@ -70,6 +70,14 @@ __dead2 void bl1_plat_fwu_done(void *client_cookie, void *reserved)
 
 #if MEASURED_BOOT
 /*
+ * Calculates and writes BL2 hash data to TB_FW_CONFIG DTB.
+ */
+void bl1_plat_set_bl2_hash(const image_desc_t *image_desc)
+{
+	arm_bl1_set_bl2_hash(image_desc);
+}
+
+/*
  * Implementation for bl1_plat_handle_post_image_load(). This function
  * populates the default arguments to BL2. The BL2 memory layout structure
  * is allocated and the calculated layout is populated in arg1 to BL2.
@@ -78,7 +86,7 @@ int bl1_plat_handle_post_image_load(unsigned int image_id)
 {
 	meminfo_t *bl2_tzram_layout;
 	meminfo_t *bl1_tzram_layout;
-	image_desc_t *image_desc;
+	const image_desc_t *image_desc;
 	entry_point_info_t *ep_info;
 
 	if (image_id != BL2_IMAGE_ID) {
@@ -90,10 +98,10 @@ int bl1_plat_handle_post_image_load(unsigned int image_id)
 	assert(image_desc != NULL);
 
 	/* Calculate BL2 hash and set it in TB_FW_CONFIG */
-	arm_bl1_set_bl2_hash(image_desc);
+	bl1_plat_set_bl2_hash(image_desc);
 
 	/* Get the entry point info */
-	ep_info = &image_desc->ep_info;
+	ep_info = (entry_point_info_t *)&image_desc->ep_info;
 
 	/* Find out how much free trusted ram remains after BL1 load */
 	bl1_tzram_layout = bl1_plat_sec_mem_layout();
