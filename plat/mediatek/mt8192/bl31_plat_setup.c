@@ -14,6 +14,7 @@
 #include <drivers/ti/uart/uart_16550.h>
 #include <gpio/mtgpio.h>
 #include <lib/coreboot.h>
+#include <mt_timer.h>
 
 /* Platform Includes */
 #include <mt_gic_v3.h>
@@ -84,7 +85,10 @@ void bl31_platform_setup(void)
 	/* Initialize the GIC driver, CPU and distributor interfaces */
 	mt_gic_driver_init();
 	mt_gic_init();
+
 	plat_mt8192_gpio_init();
+
+	mt_systimer_init();
 }
 
 /*******************************************************************************
