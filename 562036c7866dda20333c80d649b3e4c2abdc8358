@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "ccfa5f08_32645f41",
+        "filename": "fdts/cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-07-06T11:34:35Z",
+      "side": 1,
+      "message": "A top-level node sounds like a good idea to me. Regarding its name, \u0027cot_manifest\u0027 does not sound too good to me, as we actually want to describe a set of manifests and images. I like \u0027cot_data\u0027  better but I would like to suggest simply \u0027cot\u0027, as I don\u0027t think the word \u0027data\u0027 adds much in this case.\n\nHowever, I still think there might be value in keeping manifests (certificates) and images under separate subnodes, as in:\n\n cot {\n   manifests { ... }\n   images { ... }\n }\n\nThey are different beasts IMO. Either that or we add a \u0027type\u0027 property within each image descriptor.\n\nNote that I am using the terminology \u0027manifests\u0027 and \u0027images\u0027 here, which aligns with the TBFU specification (see sections 2.4 and 2.5).\n\nSeems like we are on the same page for the \"authenticated_data VS img_auth_methods\" split. I am starting to think we don\u0027t necessarily need to put the 2 types of data onto separate subnodes, we could list them all at the image/manifest level. IOW, the skeleton could look like so:\n\n cot {\n    manifests {\n        certificate1 {\n            /* Properties used to authenticate the certificate itself. */\n\t    signing-key \u003d \u003c\u0026key\u003e;\n\t    antirollback-counter \u003d \u003c\u0026nv_counter\u003e;\n\n            /* Properties used to authenticate children images of this certificate. */\n            hash1 { ... };\n\t    hash2 { ... };\n\t    key1 { ... };\n\t};\n\n        certificate2 { ... };\n    };\n\n    images {\n        image1 { ... };\n\timage2 { ... };\n    };\n };\n\nHow does that sound?",
+      "parentUuid": "51485d4a_7f8a73ec",
+      "revId": "562036c7866dda20333c80d649b3e4c2abdc8358",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "09c5a6cf_ecdabc7a",
         "filename": "fdts/cot_descriptors.dtsi",
         "patchSetId": 1
