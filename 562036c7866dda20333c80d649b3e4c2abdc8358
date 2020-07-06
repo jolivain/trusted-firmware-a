@@ -181,6 +181,24 @@
     },
     {
       "key": {
+        "uuid": "2abecb8f_f6dad445",
+        "filename": "fdts/cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-06T16:28:53Z",
+      "side": 1,
+      "message": "looks good to me. This is a general comment. For the compatible strings, i would generally recommend keeping it short. These strings all turn into constant data in the final image and increase the size of the image. Having long strings as we move more and more to fconf, could start increasing image sizes. Might be interesting to see how much const data increases with and without fconf by using the \"size\" tool.",
+      "parentUuid": "53c2cda6_6d797b62",
+      "revId": "562036c7866dda20333c80d649b3e4c2abdc8358",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "09c5a6cf_ecdabc7a",
         "filename": "fdts/cot_descriptors.dtsi",
         "patchSetId": 1
