@@ -34,6 +34,24 @@
       "revId": "99e5048cc504b7da594400069ee37ee725ed92aa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "808529f3_c8258f31",
+        "filename": "drivers/arm/gic/v3/gic-x00.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-06T16:42:24Z",
+      "side": 1,
+      "message": "Yes you\u0027re right, in any case GIC600 flavor is detected which is what matters.",
+      "parentUuid": "366f4259_ecc3b303",
+      "revId": "99e5048cc504b7da594400069ee37ee725ed92aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
