@@ -299,6 +299,24 @@
       "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb3e985e_460cda36",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-06T19:15:27Z",
+      "side": 1,
+      "message": "Apologize, i should have said: \"dmb would have been sufficient to ensure that the write to secondary_core_spinlock is visible to other observers BEFORE any loads/stores later in program order are visible to other observers\". Here, we need ensure that the write to secondary_core_spinlock is observed by all observers, before the SEV can execute, and for that you need a DSB.",
+      "parentUuid": "9406394d_1b203469",
+      "revId": "aa874f59f8817b38bb49c34477d9ca8c75ed0b7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
