@@ -68,6 +68,10 @@ stgt_add_src_param(NAME bl2 KEY ARCH SRC
 	#TODO: TBBR
 )
 
+stgt_add_src_cond(NAME bl2 KEY BL2_AT_EL3 VAL 1 SRC
+	${TFA_ROOT_DIR}/plat/arm/common/arm_bl2_el3_setup.c
+)
+
 #plat_bl31
 stgt_add_src(NAME bl31 SRC
 	${TFA_ROOT_DIR}/plat/arm/common/arm_bl31_setup.c
