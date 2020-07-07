@@ -238,6 +238,23 @@
       "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74e578a3_8b210a9d",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-07T08:59:34Z",
+      "side": 1,
+      "message": "Other users (qemu/rpi4) use fdt_pack() here, apparently to close the gaps in the blob. I need to check whether this is really necessary and what it does exactly, but it\u0027s probably good to follow suit here.\n\nPlus we should clean the cache here. Not doing so caused actual issues on the RPi4. At the moment this doesn\u0027t matter, but I think there were plans to enable the MMU in the future.",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
