@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "83fa5e52_4e8ed217",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-07T13:40:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "324d5d1c_2d7f5127",
+      "revId": "00fa3f345659386d66b87f2387d2eb81f48e7088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c4a128e_e52e0f38",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 19
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "49357064_3d78855c",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-07T13:40:05Z",
+      "side": 1,
+      "message": "I wasn\u0027t completely sure whether it would be right to treat single thread cores as mt ones with one thread so I wanted some opinions from PSCI code owners on this, that is why I add this TODO.",
+      "parentUuid": "c75d44b5_7a488ef5",
+      "revId": "00fa3f345659386d66b87f2387d2eb81f48e7088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa3df1de_13a439c6",
         "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
         "patchSetId": 19
@@ -67,6 +103,24 @@
       "revId": "00fa3f345659386d66b87f2387d2eb81f48e7088",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17dfe7e0_c3d257e4",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-07T13:40:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aa3df1de_13a439c6",
+      "revId": "00fa3f345659386d66b87f2387d2eb81f48e7088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
