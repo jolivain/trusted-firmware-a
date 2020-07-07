@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "675ce57a_608d2c98",
+        "filename": "plat/imx/imx8m/imx8mp/gpc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-07T07:20:38Z",
+      "side": 1,
+      "message": "We discussed this internally and concluded it\u0027s ok to keep as is.",
+      "parentUuid": "0ea20e7e_e88b22f7",
+      "revId": "4a5e1389852f437103da8a91786f6b9d2d6eea56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b1660d8_9646abbc",
         "filename": "plat/imx/imx8m/imx8mp/gpc.c",
         "patchSetId": 1
@@ -127,6 +145,30 @@
       "revId": "4a5e1389852f437103da8a91786f6b9d2d6eea56",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9406554e_4e3e6d35",
+        "filename": "plat/imx/imx8m/imx8mp/gpc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-07T07:20:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "670574e0_b2cd3c31",
+      "range": {
+        "startLine": 132,
+        "startChar": 43,
+        "endLine": 132,
+        "endChar": 50
+      },
+      "revId": "4a5e1389852f437103da8a91786f6b9d2d6eea56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
