@@ -7,6 +7,8 @@
 #ifndef FPGA_PRIVATE_H
 #define FPGA_PRIVATE_H
 
+#define FPGA_MAX_DTB_SIZE	0x10000
+
 unsigned int plat_fpga_calc_core_pos(u_register_t mpidr);
 
 void fpga_console_init(void);
