@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea1eb98a_64a45521",
+        "filename": "drivers/arm/gic/v3/gic-x00.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-07T15:51:52Z",
+      "side": 1,
+      "message": "Patch set 2 still fails for coverity test with the following message:\ndrivers/arm/gic/v3/gic-x00.c\t120\tMISRA C-2012 Rule 12.1 (advisory)\t852461\tMissing explicit parentheses on sub-expression: \"(reg \u0026 0xff000fffU) \u003d\u003d 0x300043bU\"\n\nCan you put additional parentheses? something like this:\nreturn ( ((reg \u0026 IIDR_MODEL_MASK) \u003d\u003d IIDR_MODEL_ARM_GIC_600) ||\n\t\t((reg \u0026 IIDR_MODEL_MASK) \u003d\u003d IIDR_MODEL_ARM_GIC_600AE) );",
+      "revId": "0efac3d8c790f24b3665ce2807d072db2b8e43dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
