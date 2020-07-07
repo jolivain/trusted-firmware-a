@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "e181cd3a_4ebed6ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2020-07-07T01:43:07Z",
+      "side": 1,
+      "message": "thx, will fix these typos.",
+      "parentUuid": "9997e08e_ad95675a",
+      "range": {
+        "startLine": 9,
+        "startChar": 17,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "58114e0168e91c3b0da2ba63c287fb0c1231afa9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cae3b428_5e917098",
         "filename": "plat/imx/imx8m/imx8mm/include/gpc_reg.h",
         "patchSetId": 1
@@ -65,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b30433bc_3acded70",
+        "filename": "plat/imx/imx8m/imx8mm/include/gpc_reg.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2020-07-07T01:43:07Z",
+      "side": 1,
+      "message": "ok, will fix it.",
+      "parentUuid": "cae3b428_5e917098",
+      "revId": "58114e0168e91c3b0da2ba63c287fb0c1231afa9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "147772b0_a7ada00b",
         "filename": "plat/imx/imx8m/include/gpc.h",
         "patchSetId": 1
@@ -76,6 +118,30 @@
       "writtenOn": "2020-07-06T07:58:37Z",
       "side": 1,
       "message": "nit: use tabs?",
+      "range": {
+        "startLine": 19,
+        "startChar": 26,
+        "endLine": 19,
+        "endChar": 39
+      },
+      "revId": "58114e0168e91c3b0da2ba63c287fb0c1231afa9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1dc928d_3f65b19a",
+        "filename": "plat/imx/imx8m/include/gpc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2020-07-07T01:43:07Z",
+      "side": 1,
+      "message": "will fix it.",
+      "parentUuid": "147772b0_a7ada00b",
       "range": {
         "startLine": 19,
         "startChar": 26,
