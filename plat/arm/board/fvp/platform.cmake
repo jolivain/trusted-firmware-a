@@ -35,12 +35,12 @@ stgt_add_src_param(NAME bl1 bl31 KEY ARCH SRC
 	${PROJECT_SOURCE_DIR}/lib/cpus/@ARCH@/aem_generic.S
 )
 
+set(FVP_CPU_LIBS)
 stgt_get_param(NAME bl1 KEY ARCH RET _arch)
 stgt_get_param(NAME bl1 KEY HW_ASSISTED_COHERENCY RET _hw_assisted_coherency)
-
 if(_arch STREQUAL aarch64)
 	if(_hw_assisted_coherency EQUAL 0)
-		stgt_add_src(NAME bl1 bl31 SRC
+		list(APPEND FVP_CPU_LIBS
 			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a35.S
 			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a53.S
 			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a57.S
@@ -48,43 +48,56 @@ if(_arch STREQUAL aarch64)
 			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a73.S
 		)
 	else()
-		stgt_add_src(NAME bl1 bl31 SRC
+		list(APPEND FVP_CPU_LIBS
 			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a55.S
 			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a75.S
 		)
 
-		stgt_add_src_cond(NAME bl1 bl31 KEY CTX_INCLUDE_AARCH32_REGS VAL 0 SRC
-			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a76.S
-			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a76ae.S
-			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a77.S
-			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a78.S
-			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/neoverse_n1.S
-			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/neoverse_e1.S
-			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/neoverse_zeus.S
-			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_hercules_ae.S
-			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_klein.S
-			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_matterhorn.S
-			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a65.S
-			${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a65ae.S
-		)
+		stgt_get_param(NAME bl1 KEY CTX_INCLUDE_AARCH32_REGS RET _ctx_include_aarch32_regs)
+		if(_ctx_include_aarch32_regs EQUAL 0)
+			list(APPEND FVP_CPU_LIBS
+				${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a76.S
+				${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a76ae.S
+				${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a77.S
+				${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a78.S
+				${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/neoverse_n1.S
+				${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/neoverse_e1.S
+				${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/neoverse_zeus.S
+				${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_hercules_ae.S
+				${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_klein.S
+				${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_matterhorn.S
+				${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a65.S
+				${PROJECT_SOURCE_DIR}/lib/cpus/aarch64/cortex_a65ae.S
+			)
+		endif()
+		unset(_ctx_include_aarch32_regs)
 	endif()
 elseif(_arch STREQUAL aarch32)
-	stgt_add_src(NAME bl1 bl31 SRC
+	list(APPEND FVP_CPU_LIBS
 		${PROJECT_SOURCE_DIR}/lib/cpus/aarch32/cortex_a32.S
 	)
 endif()
-
 unset(_arch)
+unset(_hw_assisted_coherency)
 unset(_ctx_include_aarch32_regs)
 
+stgt_add_src(NAME bl1 bl31 SRC ${FVP_CPU_LIBS})
+
 #add appropriate sources for the interconnect driver
-stgt_add_src_cond(NAME bl1 bl31 KEY FVP_INTERCONNECT_DRIVER VAL FVP_CCI SRC
-	${PROJECT_SOURCE_DIR}/drivers/arm/cci/cci.c
-)
-stgt_add_src_cond(NAME bl1 bl31 KEY FVP_INTERCONNECT_DRIVER VAL FVP_CCN SRC
-	${PROJECT_SOURCE_DIR}/drivers/arm/ccn/ccn.c
-	${PROJECT_SOURCE_DIR}/plat/arm/common/arm_ccn.c
-)
+set(FVP_INTERCONNECT_SOURCES)
+stgt_get_param(NAME bl1 KEY FVP_INTERCONNECT_DRIVER RET _fvp_interconnect_driver)
+if(_fvp_interconnect_driver STREQUAL FVP_CCI)
+	list(APPEND FVP_INTERCONNECT_SOURCES
+		${PROJECT_SOURCE_DIR}/drivers/arm/cci/cci.c
+	)
+elseif(_fvp_interconnect_driver STREQUAL FVP_CCN)
+	list(APPEND FVP_INTERCONNECT_SOURCES
+		${PROJECT_SOURCE_DIR}/drivers/arm/ccn/ccn.c
+		${PROJECT_SOURCE_DIR}/plat/arm/common/arm_ccn.c
+	)
+endif()
+unset(_fvp_interconnect_driver)
+stgt_add_src(NAME bl1 bl31 SRC ${FVP_INTERCONNECT_SOURCES})
 
 #plat_bl1
 stgt_add_src_param(NAME bl1 KEY ARCH SRC
@@ -123,13 +136,21 @@ stgt_add_src_param(NAME bl2 KEY ARCH SRC
 	${PROJECT_SOURCE_DIR}/drivers/arm/tzc/tzc400.c
 	${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/fvp_security.c
 	${PROJECT_SOURCE_DIR}/plat/arm/common/arm_tzc400.c
-
-	#TODO: if BL2_AT_EL3=1
 )
 
 stgt_add_src_cond(NAME bl2 KEY FVP_USE_SP804_TIMER VAL 1 SRC
 	${PROJECT_SOURCE_DIR}/drivers/arm/sp804/sp804_delay_timer.c
 )
+
+stgt_get_param(NAME bl2 KEY BL2_AT_EL3 RET _bl2_at_el3)
+if(_bl2_at_el3 EQUAL 1)
+	stgt_add_src_param(NAME bl2 KEY ARCH SRC
+		${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/@ARCH@/fvp_helpers.S
+		${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/fvp_bl2_el3_setup.c
+	)
+	stgt_add_src(NAME bl2 SRC ${FVP_CPU_LIBS} ${FVP_INTERCONNECT_SOURCES})
+endif()
+unset(_bl2_at_el3)
 
 #plat_bl31
 stgt_add_src_param(NAME bl31 KEY ARCH SRC
@@ -147,8 +168,14 @@ stgt_add_src_param(NAME bl31 KEY ARCH SRC
 	${PROJECT_SOURCE_DIR}/drivers/arm/tzc/tzc400.c
 	${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/fvp_security.c
 	${PROJECT_SOURCE_DIR}/plat/arm/common/arm_tzc400.c
+)
 
-	#fconf support
+#fconf support
+stgt_add_src_cond(
+	NAME bl31
+	KEY  BL2_AT_EL3 RESET_TO_BL31
+	VAL  0          0
+	SRC
 	${PROJECT_SOURCE_DIR}/common/fdt_wrappers.c
 	${PROJECT_SOURCE_DIR}/lib/fconf/fconf.c
 	${PROJECT_SOURCE_DIR}/lib/fconf/fconf_dyn_cfg_getter.c
@@ -204,3 +231,4 @@ include(${PROJECT_SOURCE_DIR}/plat/arm/board/common/board_common.cmake)
 include(${PROJECT_SOURCE_DIR}/plat/arm/common/arm_common.cmake)
 
 #TODO: TRUSTED_BOARD_BOOT
+#TODO: implement way to reset BL1 sources when BL2_AT_EL3=1
