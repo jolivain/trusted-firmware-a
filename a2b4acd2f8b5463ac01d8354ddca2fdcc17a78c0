@@ -960,6 +960,40 @@
     },
     {
       "key": {
+        "uuid": "bf334209_9b7864bb",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-07T01:02:20Z",
+      "side": 1,
+      "message": "Please use CORTEX_A76_CPUPWRCTLR_EL1 and CORTEX_A76_CORE_PWRDN_EN_MASK from include/lib/cpus/aarch64/cortex_a76.h for this. (Maybe add a comment that those constants happen to be correct for A55 too.)",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e210764_7f7d439a",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-07T01:02:20Z",
+      "side": 1,
+      "message": "Does the enable here even make sense? Doesn\u0027t this mean you call enable every time you try to suspend into a power state that\u0027s not quite OFF?\n\nDon\u0027t you rather want to only disable on node_suspend() (if the suspend is deep enough) and only enable on node_suspend_finish() (if resumed from a deep enough state)?",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7b3e168f_84450a86",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 1
@@ -1049,6 +1083,24 @@
     },
     {
       "key": {
+        "uuid": "aafbd3e9_2efa311e",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-07T01:02:20Z",
+      "side": 1,
+      "message": "Well, I\u0027m still pretty skeptical but okay, we can leave that for later patches. When we want to reuse the existing cortex_a76.S code it will try to do this too and it would be weird to do it twice.\n\nBut if we keep it please at least clean it up... hiding everything (including GIC handling) in a function called set_cpupwrctlr isn\u0027t very straightforward. The way other platforms usually do this is to test the suspend state they\u0027re going into right here in the node_suspend() function, so something like:\n\n psci_power_state_t cpu_pwrlvl \u003d target_state-\u003epwr_domain_state[ARM_PWR_LVL0];\n if (cpu_pwrlvl \u003e\u003d QTI_LOCAL_STATE_OFF) {\n   qtiseclib_cb_gic_cpuif_disable();\n   qti_set_cpupwrctlr_val(1);\n }",
+      "parentUuid": "4dd4f298_b753b190",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60ae6a12_98a1c7ad",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 1
@@ -1132,6 +1184,24 @@
       "side": 1,
       "message": "Same as above.",
       "parentUuid": "fcffc209_3df51d2f",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8fd5436_baf59ad2",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-07T01:02:20Z",
+      "side": 1,
+      "message": "Still no need to clear the pwrctl explicitly here (unless your core handles that differently than others for some reason)? Could still just call plat_qti_gic_cpuif_enable() here.",
+      "parentUuid": "cab3394c_4f6c3703",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -2199,6 +2269,24 @@
       "side": 1,
       "message": "Hi,\n\nWe are calling this once per core during first boot up. Moving this to qti_cpu_power_on_finish()\nwill lead to this getting called during every on.",
       "parentUuid": "41d95638_2c00079b",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e47069a_cf5ac5e1",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-07T01:02:20Z",
+      "side": 1,
+      "message": "Hmmm... and you don\u0027t have to do that? Looking at other platforms with GICv3 (e.g. Rockchip) they call this on every CPU on. Even the Arm boards do that. What\u0027s special about your SoC that you don\u0027t need to? (Are we sure we\u0027re already testing this path with how far we\u0027ve brought stuff up on the kernel side for now?) Or do the others just do it redundantly because it\u0027s harmless?\n\nAnyway, if you care about this only happening once, you can easily set up a global variable to track that somewhere (maybe just use another bit in g_qti_bl31_cold_booted and use that as a global per-CPU information tracking thing). There\u0027s no need to hide this in closed source just for that.",
+      "parentUuid": "93aa15cf_c9a469b0",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
