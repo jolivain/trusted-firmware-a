@@ -91,6 +91,57 @@ unsigned int plat_get_syscnt_freq2(void)
 				       FPGA_DEFAULT_TIMER_FREQUENCY);
 }
 
+static void fpga_prepare_dtb(void)
+{
+	void *fdt = (void *)(uintptr_t)FPGA_PRELOADED_DTB_BASE;
+	const char *cmdline = (void *)(uintptr_t)FPGA_PRELOADED_CMD_LINE;
+	char buffer[256];
+	int err;
+
+	err = fdt_open_into(fdt, fdt, FPGA_MAX_DTB_SIZE);
+	if (err < 0) {
+		ERROR("cannot open devicetree at %p: %d\n", fdt, err);
+		panic();
+	}
+
+	/* Check for the command line signature. */
+	if (!strncmp(cmdline, "CMD:", 4)) {
+		const char *eol;
+		int chosen;
+		int slen;
+
+		INFO("using command line at 0x%x\n", FPGA_PRELOADED_CMD_LINE);
+		eol = strchr(cmdline, '\n');
+		if (!eol)
+			eol = strchr(cmdline, 0);
+		slen = eol - (cmdline + 4);
+		if (slen >= sizeof(buffer))
+			slen = sizeof(buffer) - 1;
+		memcpy(buffer, cmdline + 4, slen);
+		buffer[slen] = 0;
+		chosen = fdt_add_subnode(fdt, 0, "chosen");
+		if (chosen == -FDT_ERR_EXISTS) {
+			chosen = fdt_path_offset(fdt, "/chosen");
+		}
+		if (chosen < 0) {
+			ERROR("cannot find /chosen node: %d\n", chosen);
+		} else {
+			fdt_setprop(fdt, chosen, "bootargs", buffer, slen + 1);
+		}
+	}
+
+	err = fdt_pack(fdt);
+	if (err < 0)
+		ERROR("Failed to pack Device Tree at %p: error %d\n", fdt, err);
+
+	clean_dcache_range((uintptr_t)fdt, fdt_blob_size(fdt));
+}
+
+void bl31_plat_runtime_setup(void)
+{
+	fpga_prepare_dtb();
+}
+
 void bl31_plat_enable_mmu(uint32_t flags)
 {
 	/* TODO: determine if MMU needs to be enabled */
