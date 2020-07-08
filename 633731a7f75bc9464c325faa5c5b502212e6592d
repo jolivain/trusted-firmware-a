@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "932cde6c_a07beffd",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 20
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-08T00:33:07Z",
+      "side": 1,
+      "message": "Can\u0027t you use ubfx here, and then don\u0027t need the initialisation above?",
+      "revId": "633731a7f75bc9464c325faa5c5b502212e6592d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2317b12f_d404ccb5",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 20
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-08T00:33:07Z",
+      "side": 1,
+      "message": "lsl, you mean? And I\u0027d say this sequence justifies a comment (for instance \"generate byte position and bitmask\"). But you may get rid of this altogether, see below.",
+      "revId": "633731a7f75bc9464c325faa5c5b502212e6592d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24f53186_1387497d",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 20
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-08T00:33:07Z",
+      "side": 1,
+      "message": "Do we really need to be so miserly and use an actual bitmap? If we use one byte per possible MPIDR, this read-modify-write sequence becomes a single strb. Which probably means we don\u0027t need the lock anymore, because each core only writes to its private location. And I bet this simplifies handling on the C side also.",
+      "revId": "633731a7f75bc9464c325faa5c5b502212e6592d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
