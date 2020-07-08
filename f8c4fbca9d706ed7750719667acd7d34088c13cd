@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d4f76749_b6604b22",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-08T12:29:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "819a9f74_7260c557",
+      "range": {
+        "startLine": 4,
+        "startChar": 26,
+        "endLine": 4,
+        "endChar": 35
+      },
+      "revId": "f8c4fbca9d706ed7750719667acd7d34088c13cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "354a3344_3cf1eb5b",
         "filename": "docs/components/cot-binding.rst",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2020-07-08T12:03:38Z",
       "side": 1,
       "message": "Perhaps enclose this between backquotes such that it is typographically clear we are referring to some node name.\n\nSame comment for `manifests` and `images` below (there might be other occurrences throughout the document, I haven\u0027t checked).",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 3
+      },
+      "revId": "f8c4fbca9d706ed7750719667acd7d34088c13cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9cf1f73_463eb14c",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-08T12:29:06Z",
+      "side": 1,
+      "message": "Ok let me add backquotes for every node name in this document.",
+      "parentUuid": "354a3344_3cf1eb5b",
       "range": {
         "startLine": 5,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "496d0be6_587b9958",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-08T12:29:06Z",
+      "side": 1,
+      "message": "Let me explicitly mention node name which describe about non-volatile counters.",
+      "parentUuid": "36355efd_8a922dcf",
+      "range": {
+        "startLine": 8,
+        "startChar": 6,
+        "endLine": 8,
+        "endChar": 18
+      },
+      "revId": "f8c4fbca9d706ed7750719667acd7d34088c13cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5e7370fb_81c8459c",
         "filename": "docs/components/cot-binding.rst",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2020-07-08T12:03:38Z",
       "side": 1,
       "message": "Is this necessary? I would guess this will apply to all of our bindings document. Are we planning to repeat this in each one of them?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 13
+      },
+      "revId": "f8c4fbca9d706ed7750719667acd7d34088c13cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12d113ae_094102d5",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-08T12:29:06Z",
+      "side": 1,
+      "message": "Same is followed in the binding documents present in the linux kernel.\nI am OK to remove this section as it is understood that binding document is created with the help of device tree specification.",
+      "parentUuid": "5e7370fb_81c8459c",
       "range": {
         "startLine": 14,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b1bc6baf_38cc075d",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-08T12:29:06Z",
+      "side": 1,
+      "message": "Let me fix this.",
+      "parentUuid": "43d56ae8_6d37ca63",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 55
+      },
+      "revId": "f8c4fbca9d706ed7750719667acd7d34088c13cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "23046f6d_0e4f110f",
         "filename": "docs/components/cot-binding.rst",
         "patchSetId": 6
@@ -137,6 +257,30 @@
       "revId": "f8c4fbca9d706ed7750719667acd7d34088c13cd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f12b695_851d32a2",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-08T12:29:06Z",
+      "side": 1,
+      "message": "Ack, Added because in current case we have only 2 counter but make sense to remove this otherwise we need to update this document for any future addition of nv-counter.",
+      "parentUuid": "23046f6d_0e4f110f",
+      "range": {
+        "startLine": 83,
+        "startChar": 23,
+        "endLine": 84,
+        "endChar": 49
+      },
+      "revId": "f8c4fbca9d706ed7750719667acd7d34088c13cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "adba17a8_9dd0a172",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-08T12:29:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "265b2d19_0cde11b8",
+      "range": {
+        "startLine": 186,
+        "startChar": 23,
+        "endLine": 186,
+        "endChar": 27
+      },
+      "revId": "f8c4fbca9d706ed7750719667acd7d34088c13cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f05da12_5fae13d7",
         "filename": "docs/components/cot-binding.rst",
         "patchSetId": 6
@@ -183,6 +351,30 @@
       "revId": "f8c4fbca9d706ed7750719667acd7d34088c13cd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e74b3cc9_7d8deaf6",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-08T12:29:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4f05da12_5fae13d7",
+      "range": {
+        "startLine": 194,
+        "startChar": 62,
+        "endLine": 195,
+        "endChar": 47
+      },
+      "revId": "f8c4fbca9d706ed7750719667acd7d34088c13cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
