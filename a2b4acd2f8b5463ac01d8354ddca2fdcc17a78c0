@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "b355da69_643bd7ef",
+        "filename": "plat/qti/common/inc/qti_uart_console.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a093b7d8_01fcb11b",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ea485ec_11f3b092",
         "filename": "plat/qti/common/src/aarch64/qti_kryo4_gold.S",
         "patchSetId": 1
@@ -157,6 +175,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "011470b9_6a8c851e",
+        "filename": "plat/qti/common/src/aarch64/qti_uart2_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de523e8d_52930864",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -437,6 +473,42 @@
     },
     {
       "key": {
+        "uuid": "8b49c0cf_48182f28",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90528ef1_e3411ba2",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6804545_c82ac4b2",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90528ef1_e3411ba2",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ecc382c_c9dc38b4",
         "filename": "plat/qti/common/src/qti_bl31_setup.c",
         "patchSetId": 1
@@ -597,6 +669,24 @@
     },
     {
       "key": {
+        "uuid": "4b9d89ca_7f5e5c20",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Removed it and using roundup/down.",
+      "parentUuid": "cbc80e17_4001d01d",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51c7e168_f82ff9c1",
         "filename": "plat/qti/common/src/qti_common.c",
         "patchSetId": 1
@@ -700,6 +790,54 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54ada4ad_d3a8c000",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "beda3611_4115b126",
+      "range": {
+        "startLine": 133,
+        "startChar": 32,
+        "endLine": 133,
+        "endChar": 77
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3106a402_d2725e56",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "beda3611_4115b126",
+      "range": {
+        "startLine": 133,
+        "startChar": 32,
+        "endLine": 133,
+        "endChar": 77
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -840,6 +978,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7fcfea6_85b969cc",
+        "filename": "plat/qti/common/src/qti_gic_v2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "883b6d19_fefc0408",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -1448,6 +1604,24 @@
     },
     {
       "key": {
+        "uuid": "0bda858d_3a371273",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "compiler will take care of it, right?\nits easy to read as well",
+      "parentUuid": "47ae1bcf_6fafd81c",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc3a7a08_163cb5b2",
         "filename": "plat/qti/common/src/qti_syscall.c",
         "patchSetId": 1
@@ -1468,6 +1642,30 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75b3c7da_91f6b1af",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc3a7a08_163cb5b2",
+      "range": {
+        "startLine": 95,
+        "startChar": 46,
+        "endLine": 95,
+        "endChar": 48
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -1553,6 +1751,24 @@
     },
     {
       "key": {
+        "uuid": "9258ef1b_44de10fa",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71d0960d_d21a76fb",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4045d4c4_e19d7983",
         "filename": "plat/qti/common/src/qti_syscall.c",
         "patchSetId": 1
@@ -1576,6 +1792,30 @@
     },
     {
       "key": {
+        "uuid": "2d0b4b8f_45196a00",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4045d4c4_e19d7983",
+      "range": {
+        "startLine": 210,
+        "startChar": 20,
+        "endLine": 210,
+        "endChar": 27
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5f01be6_3293d2b3",
         "filename": "plat/qti/common/src/qti_syscall.c",
         "patchSetId": 1
@@ -1590,6 +1830,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "109af141_d77c7451",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5f01be6_3293d2b3",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -1787,6 +2045,24 @@
     },
     {
       "key": {
+        "uuid": "e63daae2_94ff5d60",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "cmd_db_init uses it to map certain region which contains the data related to allowed voltage corners for all rails",
+      "parentUuid": "4497491c_742eeff3",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73a63334_4e5fdff1",
         "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
         "patchSetId": 1
@@ -1822,6 +2098,24 @@
     },
     {
       "key": {
+        "uuid": "be1df2ec_9cb269a6",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8df9c7bd_ca3a8504",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a22b5c4f_de438479",
         "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
         "patchSetId": 1
@@ -1839,6 +2133,24 @@
     },
     {
       "key": {
+        "uuid": "2401cffe_0dc98078",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a22b5c4f_de438479",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "421b2b56_bd8c4abe",
         "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
         "patchSetId": 1
@@ -1853,6 +2165,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bdfc29e_f85a19fd",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "421b2b56_bd8c4abe",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -1888,6 +2218,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34e1a68f_dfc467cb",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5434a29d_05073ce6",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -2096,6 +2444,24 @@
     },
     {
       "key": {
+        "uuid": "727fdaf7_730d4cdc",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f5461b0_3c328df4",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24e6fd04_5e5b129a",
         "filename": "plat/qti/qtiseclib/inc/qtiseclib_interface.h",
         "patchSetId": 1
@@ -2113,6 +2479,24 @@
     },
     {
       "key": {
+        "uuid": "7e2bbb9c_ab986214",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24e6fd04_5e5b129a",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a5617fa_41e4b36a",
         "filename": "plat/qti/qtiseclib/inc/qtiseclib_interface.h",
         "patchSetId": 1
@@ -2127,6 +2511,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "732d6847_fa855123",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a5617fa_41e4b36a",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -2165,6 +2567,24 @@
     },
     {
       "key": {
+        "uuid": "436ea2b6_1b602535",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "moving to round_up/down",
+      "parentUuid": "095bd924_0bc873fe",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e06f19d_150d6544",
         "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
         "patchSetId": 1
@@ -2188,6 +2608,30 @@
     },
     {
       "key": {
+        "uuid": "b36d56bd_d218522b",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e06f19d_150d6544",
+      "range": {
+        "startLine": 44,
+        "startChar": 35,
+        "endLine": 44,
+        "endChar": 41
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99a58e6a_2952541c",
         "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
         "patchSetId": 1
@@ -2202,6 +2646,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "135d34a4_fa98ac8b",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99a58e6a_2952541c",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -2237,6 +2699,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2a022f4_ab71c62b",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d05152c_b0e9c71f",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -2310,6 +2790,24 @@
     },
     {
       "key": {
+        "uuid": "7c819713_d280722c",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6392687_0ea2376e",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee5054dc_d60666d6",
         "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
         "patchSetId": 1
@@ -2324,6 +2822,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a57eb573_ef1d8cce",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee5054dc_d60666d6",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -2394,6 +2910,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14d396ae_cee8de6c",
+        "filename": "plat/qti/sc7180/inc/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-08T20:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "166a5f72_36aed765",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
