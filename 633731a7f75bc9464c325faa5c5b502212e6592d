@@ -104,6 +104,57 @@
       "revId": "633731a7f75bc9464c325faa5c5b502212e6592d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4dbb11bc_cbfc52c0",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 20
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000408
+      },
+      "writtenOn": "2020-07-08T14:38:22Z",
+      "side": 1,
+      "message": "I think we can skip all this: *Architecturally* there seems to be indeed no guarantee that the MT bit is uniform in a system, but all the v8.2 Arm Ltd. cores have this bit set, regardless of actually being MT or not (see the comment in the MPIDR_EL1 description in any recent TRM). So for the scope of this port we can safely assume that MT is either clear or set on *all* cores in the system. We should just document this.",
+      "revId": "633731a7f75bc9464c325faa5c5b502212e6592d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "192ae6d6_d44627af",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 20
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000408
+      },
+      "writtenOn": "2020-07-08T14:38:22Z",
+      "side": 1,
+      "message": "That\u0027s a bit puzzling, why is core 0 special? And should you return FPGA_PRIMARY_CPU instead, if you make to effort to support that the MPIDR might NOT be 0?",
+      "revId": "633731a7f75bc9464c325faa5c5b502212e6592d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4b22a05_46f41847",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000408
+      },
+      "writtenOn": "2020-07-08T14:38:22Z",
+      "side": 1,
+      "message": "Is that introducing a race condition: if a secondary takes a bit longer with \"waking up\", it reads the spinlock as 0 again, and doesn\u0027t do its job?",
+      "revId": "633731a7f75bc9464c325faa5c5b502212e6592d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
