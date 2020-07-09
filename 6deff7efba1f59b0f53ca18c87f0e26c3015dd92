@@ -833,6 +833,30 @@
     },
     {
       "key": {
+        "uuid": "2fcb784e_242d1ec3",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-09T15:03:52Z",
+      "side": 1,
+      "message": "Thanks Oliver, makes sense. Apologize for the EC/vCPU terminology. I\u0027m not sure if vCPU is the right term for the SPMC context held by SPMD which is why i used EC(Page 60 of spec uses this terminology). When i think of vCPU, i tend to think of it as S-EL1/VM EC\u0027s. Might be worth clarifying the terminology in the spec.",
+      "parentUuid": "1af5bf0c_99446f36",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 17
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9bfdb8ce_9aea9c46",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -1444,6 +1468,30 @@
       "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c9137f8_ff99362a",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-09T15:03:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "66821d2c_155f2919",
+      "range": {
+        "startLine": 657,
+        "startChar": 1,
+        "endLine": 657,
+        "endChar": 17
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
