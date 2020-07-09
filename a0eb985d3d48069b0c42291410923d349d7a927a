@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1dbe8772_932e1786",
+        "filename": "plat/arm/board/fvp/fdts/fvp_tb_fw_config.dts",
+        "patchSetId": 10
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-07-09T11:23:10Z",
+      "side": 1,
+      "message": "Should this flag be enabled by default for Arm platforms (i.e. through the Arm platforms makefile)?",
+      "range": {
+        "startLine": 95,
+        "startChar": 4,
+        "endLine": 95,
+        "endChar": 19
+      },
+      "revId": "a0eb985d3d48069b0c42291410923d349d7a927a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
