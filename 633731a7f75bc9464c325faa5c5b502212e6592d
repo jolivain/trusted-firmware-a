@@ -141,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "8a9ef5ec_479b2fa8",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 20
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-09T12:29:18Z",
+      "side": 1,
+      "message": "With regards to the question of why is core 0 special, someone (I don\u0027t remember who) explained to me some time ago that RESET_TO_BL31 only supports core 0 as the primary one and no other should be used for that purpose.\n\nOn the other hand, I also noticed that core 0 calls plat_my_core_pos() at least twice before the power topology tree is ready, so in this case I returned 0 (it should be FPGA_PRIMARY_CPU as you pointed out) if the calling core is the primary one, as I know that this will always be its ID.",
+      "parentUuid": "192ae6d6_d44627af",
+      "revId": "633731a7f75bc9464c325faa5c5b502212e6592d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e4b22a05_46f41847",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 20
@@ -152,6 +170,24 @@
       "writtenOn": "2020-07-08T14:38:22Z",
       "side": 1,
       "message": "Is that introducing a race condition: if a secondary takes a bit longer with \"waking up\", it reads the spinlock as 0 again, and doesn\u0027t do its job?",
+      "revId": "633731a7f75bc9464c325faa5c5b502212e6592d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5633ce4_05e59af7",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-09T12:29:18Z",
+      "side": 1,
+      "message": "That is actually the reason why I added this at the end of bl31_early_platform_setup2(), to give them time to wake up whilst the primary core is executing this function. Bear in mind that this variable should be set back to 0 as soon as possible to reduce the chances of a reset whist the lock is \"unlocked\" which would also lead to a race condition, so I had to make a compromise here.",
+      "parentUuid": "e4b22a05_46f41847",
       "revId": "633731a7f75bc9464c325faa5c5b502212e6592d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
