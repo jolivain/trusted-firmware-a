@@ -809,6 +809,30 @@
     },
     {
       "key": {
+        "uuid": "1af5bf0c_99446f36",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-09T14:31:47Z",
+      "side": 1,
+      "message": "A bit of erratum before answering your questions. It seems FF-A interface is not restricted for SPs during boot. In theory an SP can call into another SP through direct message provided the latter SP has been booted already. The \"boot-order\" field in partition manifests fulfills the dependency towards availability of a service within an SP offered to another SP.\n\nThere are early bits of implementation for steps 1) and 6) in this review that you know about:\nhttps://review.trustedfirmware.org/q/topic:%22spm-secondary-cores%22+(status:open%20OR%20status:merged)\n\n\u003e 1)\n\nYes. It\u0027s not really worded EC because occurring on physical cores for SPMC at S-EL2. If I recall EC by the spec is the \"vCPU\" logical structure used for SPs.\n\n\u003e 2)\n\nRight.\n\n\u003e 3) \n\nRight.\n\n\u003e 4)\n\nRight, as said, it\u0027s not EC at this level strictly speaking if you refer to the spec. But I understand what you mean.\n\n\u003e 5) 6) Mostly right with following clarification:\n\u003e SPMC calls into all SP using SP EC corresponding to this PE.\n\nThis is not yet fully decided. As a first step I think SPMC would update its internal states reflecting current physical core is being turned on and return straight to SPMD. We are indeed envisioning a possibility that an SP can register \"PM events\" (during primary EC boot stage) through an ad-hoc interface similar to the entry point registering service. Such events would be relayed by SPMC to one or more registered SPs on need basis. But that may not be true for all events, because SPs might not necessarily need to be notified about all physical core/system states. That\u0027s conceptual thoughts of what a virtual machine should really \"observe\".\n\n\u003e 7)\n\nRight.",
+      "parentUuid": "2d85f235_1de8d042",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 17
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9bfdb8ce_9aea9c46",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -1056,6 +1080,30 @@
       "side": 1,
       "message": "Thanks Olivier. I\u0027m not sure talking about secondary VM\u0027s add value in the secure-partition-manager document. FF-A spec already calls this out so it would be useful to keep this document focused on what secure world can and cannot do.",
       "parentUuid": "1502135b_513b7939",
+      "range": {
+        "startLine": 581,
+        "startChar": 8,
+        "endLine": 581,
+        "endChar": 21
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33bc4641_3c1b96cc",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-09T14:31:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f3b69dd0_d221a26c",
       "range": {
         "startLine": 581,
         "startChar": 8,
@@ -1363,6 +1411,30 @@
       "side": 1,
       "message": "@olivier: Thanks. I assume ERET is the conduit in this case? Also is this called out in the spec? couldn\u0027t find it(i\u0027m sure it is hiding in a place where i did not look).",
       "parentUuid": "06248074_ab982274",
+      "range": {
+        "startLine": 657,
+        "startChar": 1,
+        "endLine": 657,
+        "endChar": 17
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66821d2c_155f2919",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-09T14:31:47Z",
+      "side": 1,
+      "message": "Table 114 Config No. 1 (physical FF-A instance)\nSPMC\u003d\u003eSPMD direct message request uses SMC conduit\nSPMD\u003d\u003eSPMC direct message request uses ERET conduit\n\nTable 118 Config No. 1 (physical FF-A instance)\nSPMC\u003d\u003eSPMD direct message response uses SMC conduit\nSPMD\u003d\u003eSPMC direct message response uses ERET conduit",
+      "parentUuid": "bc205005_a144cf2f",
       "range": {
         "startLine": 657,
         "startChar": 1,
