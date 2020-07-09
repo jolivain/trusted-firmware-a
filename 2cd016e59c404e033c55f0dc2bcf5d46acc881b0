@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a6410a88_23e12251",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-09T10:20:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "92549f28_b54b4f5e",
+      "range": {
+        "startLine": 6,
+        "startChar": 31,
+        "endLine": 6,
+        "endChar": 39
+      },
+      "revId": "2cd016e59c404e033c55f0dc2bcf5d46acc881b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e90bd318_902f6e3b",
         "filename": "docs/components/cot-binding.rst",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2020-07-09T10:12:10Z",
       "side": 1,
       "message": "That\u0027s not necessarily true. The device tree does not necessarily need to enumerate all non-volatile counters on the platform, only those that are used in the chain of trust.",
+      "range": {
+        "startLine": 10,
+        "startChar": 35,
+        "endLine": 10,
+        "endChar": 84
+      },
+      "revId": "2cd016e59c404e033c55f0dc2bcf5d46acc881b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9eb7aee_3ce6e664",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-09T10:20:13Z",
+      "side": 1,
+      "message": "Ack, will modify statement as below:\n\u0027.. all non-volatile-counters used in the chain of trust\u0027",
+      "parentUuid": "e90bd318_902f6e3b",
       "range": {
         "startLine": 10,
         "startChar": 35,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5a96534e_05387762",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-09T10:20:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "181e223f_07b98c9e",
+      "range": {
+        "startLine": 44,
+        "startChar": 31,
+        "endLine": 44,
+        "endChar": 43
+      },
+      "revId": "2cd016e59c404e033c55f0dc2bcf5d46acc881b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20af720b_c7bf0205",
         "filename": "docs/components/cot-binding.rst",
         "patchSetId": 7
@@ -91,6 +163,30 @@
       "revId": "2cd016e59c404e033c55f0dc2bcf5d46acc881b0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4d16234_401ba8c5",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-09T10:20:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "20af720b_c7bf0205",
+      "range": {
+        "startLine": 325,
+        "startChar": 22,
+        "endLine": 325,
+        "endChar": 26
+      },
+      "revId": "2cd016e59c404e033c55f0dc2bcf5d46acc881b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
