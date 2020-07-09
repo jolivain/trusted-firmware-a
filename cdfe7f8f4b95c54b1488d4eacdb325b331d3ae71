@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c3b1304_eb3ed868",
+        "filename": "Makefile",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-09T11:23:28Z",
+      "side": 1,
+      "message": "As you mentioned in your comment that it is an experimental feature, it will be good if you print this during build, Info/warning during build \nifeq ($(COT_DESC_IN_DTB),1)\n    $(info CoT in device tree is an experimental feature)\nendif",
+      "revId": "cdfe7f8f4b95c54b1488d4eacdb325b331d3ae71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
