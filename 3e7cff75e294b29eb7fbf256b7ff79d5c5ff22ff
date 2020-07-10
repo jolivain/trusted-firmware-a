@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46901985_0bf7a4ee",
+        "filename": "plat/nvidia/tegra/common/tegra_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-10T18:46:41Z",
+      "side": 1,
+      "message": "might also want to make this const to have it in RO sections, that way an attacker cannot overwrite the table.",
+      "revId": "3e7cff75e294b29eb7fbf256b7ff79d5c5ff22ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
