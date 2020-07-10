@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2358895d_a3fdd60e",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-07-10T14:17:28Z",
+      "side": 1,
+      "message": "Given that this change is not done for a TBB-enabled firmware, I am guessing we\u0027ll still hit the issue when attempting to perform a TBBR build without optimisations, right? But maybe that was already the case before, as I believe we don\u0027t have any such build config in the CI right now...",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 74
+      },
+      "revId": "fdf50a25ec8014378937e0a8d535d3f7d5753cc9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
