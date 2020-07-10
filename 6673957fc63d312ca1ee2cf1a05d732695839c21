@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fc0e895_99309471",
+        "filename": "plat/nvidia/tegra/soc/t132/plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-10T18:36:22Z",
+      "side": 1,
+      "message": "i assume the intent was this happens only in debug builds ? or do we build tegra platforms with ENABLE_ASSERTIONS?",
+      "revId": "6673957fc63d312ca1ee2cf1a05d732695839c21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
