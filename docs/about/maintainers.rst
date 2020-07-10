@@ -320,6 +320,13 @@ Amlogic Meson A113D (AXG) platform port
 :F: docs/plat/meson-axg.rst
 :F: plat/amlogic/axg/
 
+Arm FPGA platform port
+^^^^^^^^^^^^^^^^^^^^^^
+:M: Andre Przywara <andre.przywara@arm.com>
+:G: `Andre-ARM`_
+:M: Javier Almansa Sobrino <Javier.AlmansaSobrino@arm.com>
+:G: `javieralso-arm`_
+
 Arm System Guidance for Infrastructure / Mobile FVP platforms
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 :M: Nariman Poushin <nariman.poushin@linaro.org>
