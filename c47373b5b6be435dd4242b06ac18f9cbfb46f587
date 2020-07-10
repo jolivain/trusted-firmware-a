@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c659a21f_033cebb4",
+        "filename": "docs/plat/qti.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-10T02:15:06Z",
+      "side": 1,
+      "message": "You said \u0027Done\u0027 but you didn\u0027t change anything here? Please actually address my previous comment. The binary has been uploaded now so you can give the link here: https://review.coreboot.org/cgit/qc_blobs.git/plain/sc7180/qtiseclib/libqtisec.a",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76333b26_f167fd97",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-10T02:15:06Z",
+      "side": 1,
+      "message": "Actually, is this kind of lock safe to use here? I have to admit I\u0027m not that much of an expert on all the multiprocessor coherency stuff... but from my understanding of the \u0027Coherent memory usage in PSCI implementation\u0027 section of docs/design/firmware-design.rst, spinlocks are not safe to use when cores are not coherent (like right during plat_reset_handler). Do we need to use a bakery lock here instead? (Or are the cores actually already coherent there which again brings up the question why we\u0027re not just using HW_ASSISTED_COHERENCY?)",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85e383d5_ebd16231",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-10T02:15:06Z",
+      "side": 1,
+      "message": "No, I was asking for this specifically for readability, I know the compiler does the same thing out of it.\n\n do {\n   if (failed)\n     break;\n   return SUCCESS;\n } while (0);\n \n cleanup();\n return ERROR;\n\nis not a common code pattern to do cleanup in error cases in TF-A (or pretty much anywhere else, e.g. in the Linux kernel). The most common pattern is\n\n if (failed)\n   goto fail;\n return SUCCESS;\n\n fail:\n cleanup();\n return ERROR;\n\n(e.g. see lib/psci/psci_off.c or just grep for \u0027goto\u0027 to find dozens of instances). Please use the common pattern.",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14145d48_a1c68c7f",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-10T02:15:06Z",
+      "side": 1,
+      "message": "You said you would limit this to the debug build, so please actually move it under the #if below.",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44f1b519_ac6b2cf3",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-10T02:15:06Z",
+      "side": 1,
+      "message": "You said \"Done\" here but you didn\u0027t do anything.",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2902fbe_c2e69fbf",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_cb_interface.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-10T02:15:06Z",
+      "side": 1,
+      "message": "Please put this block at the end of the file with a blank line in between so it\u0027s a bit more separated.",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7be70672_c754e98f",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-10T02:15:06Z",
+      "side": 1,
+      "message": "Please move this block to the end of the file as well.",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "990e7011_dc8295f9",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_interface_stub.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-10T02:15:06Z",
+      "side": 1,
+      "message": "Please reference the docs/ file that explains this in more detail here.",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71a64958_f469cf4c",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-10T02:15:06Z",
+      "side": 1,
+      "message": "No, add_define is supposed to be called in either case, both when the option is on and when it is of. That is the standard way to define a compile time option in TF-A. Please write it the way I originally suggested and change all the #ifdef QTI_DEBUG_BUILD to #if.\n\nI still think this should not be tied to the DEBUG flag, the DEBUG flag controls a ton of other stuff already (e.g. whether assertions are enabled) that we don\u0027t necessarily want to tie to this. coreboot (which is passing these flags) already has a Kconfig to track whether SDI debug mode is enabled or not, this should be tied to that and nothing else. Please ask T.mike to write you a coreboot patch that adds this option to BL31_MAKEARGS based on whether $(CONFIG_QC_SDI_ENABLE) is set or not.",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
