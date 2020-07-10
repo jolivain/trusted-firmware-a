@@ -113,6 +113,30 @@
     },
     {
       "key": {
+        "uuid": "1262bad3_b62e569a",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-10T09:07:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aced264e_a0c5db94",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 85
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "378da07b_655d1a85",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -1105,6 +1129,30 @@
     },
     {
       "key": {
+        "uuid": "8043fa3d_fd662b67",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-10T09:07:52Z",
+      "side": 1,
+      "message": "That\u0027s still under definition but yes can be done through FF-A ids. I added a note in FFA_ID_GET section.",
+      "parentUuid": "2f0cc8b8_29c4ea61",
+      "range": {
+        "startLine": 579,
+        "startChar": 3,
+        "endLine": 579,
+        "endChar": 40
+      },
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ae9af21_10e660fc",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -1666,6 +1714,24 @@
     },
     {
       "key": {
+        "uuid": "cb8a5957_ff41bac2",
+        "filename": "docs/resources/diagrams/Pictures/bl2-loading-sp.png",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-10T09:07:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ea82a18_cb97ffec",
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34fd03ec_ec45b863",
         "filename": "docs/resources/diagrams/Pictures/fip-secure-partitions.png",
         "patchSetId": 1
@@ -1677,6 +1743,24 @@
       "writtenOn": "2020-07-01T21:58:07Z",
       "side": 1,
       "message": "nit: CERT_ARGS missing",
+      "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7939252a_9cdccce2",
+        "filename": "docs/resources/diagrams/Pictures/fip-secure-partitions.png",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-10T09:07:52Z",
+      "side": 1,
+      "message": "Can you please correct on the Arm internal page? I can pick it up from there. Thanks.",
+      "parentUuid": "34fd03ec_ec45b863",
       "revId": "6deff7efba1f59b0f53ca18c87f0e26c3015dd92",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
