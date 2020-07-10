@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23ad3f53_79cebd4a",
+        "filename": "plat/marvell/armada/common/mss/mss_scp_bootloader.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-10T11:17:05Z",
+      "side": 1,
+      "message": "Not in alphabetical order, static check may fail",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "0081cdd1c6d52b2d8b8ae15e16e096f428e2c499",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
