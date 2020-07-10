@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15060b68_f71355fb",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-10T20:44:05Z",
+      "side": 1,
+      "message": "what is the primary SP? Is it like primary VM in NWd or did you mean the \"SP\u0027s primary Execution Context exits through...\"?",
+      "range": {
+        "startLine": 497,
+        "startChar": 4,
+        "endLine": 497,
+        "endChar": 16
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "724e401a_38d76efa",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-10T20:44:05Z",
+      "side": 1,
+      "message": "The primary EC of *an* SP ?",
+      "range": {
+        "startLine": 537,
+        "startChar": 20,
+        "endLine": 537,
+        "endChar": 34
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "826c4c4c_12baa38d",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-10T20:44:05Z",
+      "side": 1,
+      "message": "i assume this is because we dont have the memory management messages still ?",
+      "range": {
+        "startLine": 621,
+        "startChar": 19,
+        "endLine": 621,
+        "endChar": 80
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2380aeaf_052f5f69",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-10T20:44:05Z",
+      "side": 1,
+      "message": "i assume this will be validated through CPU architectural state since the id specified cannot be trusted implicitly?",
+      "range": {
+        "startLine": 649,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 69
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba3d9c09_3bd8f4f1",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-10T20:44:05Z",
+      "side": 1,
+      "message": "if an SP cannot send a direct message to a VM, can it or should it be allowed to receive a direct message response from a VM?",
+      "range": {
+        "startLine": 669,
+        "startChar": 6,
+        "endLine": 669,
+        "endChar": 56
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
