@@ -70,6 +70,30 @@
       "revId": "32ac2347dcb50e91370f792181af6d65fd08fd5c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0346b62_3c4ad9e8",
+        "filename": "plat/nvidia/tegra/soc/t186/plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-07-11T01:52:18Z",
+      "side": 1,
+      "message": "No. There is a window when theoretically the payload can be attacked, but at this point in the boot, no other processors are running. And we are limited by the hardware due to which we have to copy the payload from BL31.",
+      "parentUuid": "2d2fbc30_ad3f1551",
+      "range": {
+        "startLine": 218,
+        "startChar": 4,
+        "endLine": 219,
+        "endChar": 22
+      },
+      "revId": "32ac2347dcb50e91370f792181af6d65fd08fd5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
