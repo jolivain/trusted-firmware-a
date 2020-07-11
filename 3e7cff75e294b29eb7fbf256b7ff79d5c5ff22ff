@@ -16,6 +16,24 @@
       "revId": "3e7cff75e294b29eb7fbf256b7ff79d5c5ff22ff",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca39b0e1_c0e04fb9",
+        "filename": "plat/nvidia/tegra/common/tegra_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-07-11T00:30:49Z",
+      "side": 1,
+      "message": "Unfortunately, we cannot do that. Lines 304-306 need to update this struct",
+      "parentUuid": "46901985_0bf7a4ee",
+      "revId": "3e7cff75e294b29eb7fbf256b7ff79d5c5ff22ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
