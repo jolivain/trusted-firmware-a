@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c082b6c5_dae85d4f",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-13T20:52:16Z",
+      "side": 1,
+      "message": "In case the \"if\" condition in line 108 was false, do you still need to perform fdt_pack followed by dcache clean?",
+      "revId": "6509555cd97eb0858607c795b63ca7c3f17b4ed3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
