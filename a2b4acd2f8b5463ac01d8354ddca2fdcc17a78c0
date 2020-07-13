@@ -1133,6 +1133,24 @@
     },
     {
       "key": {
+        "uuid": "34d3c2f3_a75ce9fe",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-07-13T04:40:44Z",
+      "side": 1,
+      "message": "Sure, instead of directly using __asm__ call, i used _DEFINE_SYSREG_WRITE_FUNC() to define for writing into cpu pwr ctlr. That way we don\u0027t need to include any A76/A55 related headers as well.",
+      "parentUuid": "bf334209_9b7864bb",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e210764_7f7d439a",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 1
@@ -1147,6 +1165,24 @@
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aaccf01_03102282",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-07-13T04:40:44Z",
+      "side": 1,
+      "message": "we do check in above if condition that state is either QTI_LOCAL_STATE_OFF or QTI_LOCAL_STATE_DEEPOFF.",
+      "parentUuid": "6e210764_7f7d439a",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -1257,6 +1293,24 @@
     },
     {
       "key": {
+        "uuid": "2d4ff4c3_eb62669a",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-07-13T04:40:44Z",
+      "side": 1,
+      "message": "Sure, i cleaned it up as per above comment.",
+      "parentUuid": "aafbd3e9_2efa311e",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60ae6a12_98a1c7ad",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 1
@@ -1358,6 +1412,24 @@
       "side": 1,
       "message": "Still no need to clear the pwrctl explicitly here (unless your core handles that differently than others for some reason)? Could still just call plat_qti_gic_cpuif_enable() here.",
       "parentUuid": "cab3394c_4f6c3703",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e78ea06_6ec9855a",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-07-13T04:40:44Z",
+      "side": 1,
+      "message": "ok, addressed it.",
+      "parentUuid": "e8fd5436_baf59ad2",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
