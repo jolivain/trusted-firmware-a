@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "59975680_1880ce7b",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-13T15:22:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b2d5a364_6017a00d",
+      "range": {
+        "startLine": 497,
+        "startChar": 4,
+        "endLine": 497,
+        "endChar": 16
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "724e401a_38d76efa",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 3
@@ -93,6 +117,30 @@
       "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "534a297b_031cd77c",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-13T15:22:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "db1d7b27_bfb7e8e8",
+      "range": {
+        "startLine": 537,
+        "startChar": 20,
+        "endLine": 537,
+        "endChar": 34
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "61e95e42_0bb1e40a",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-13T15:22:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b1683b9a_1e17374d",
+      "range": {
+        "startLine": 621,
+        "startChar": 19,
+        "endLine": 621,
+        "endChar": 80
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2380aeaf_052f5f69",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 3
@@ -178,6 +250,30 @@
       "side": 1,
       "message": "I\u0027m not sure I see your point, but I\u0027m sure there\u0027s a sensible reason for your question, can you elaborate a bit more?\nIndeed we don\u0027t trust the id, but as soon as the running instance (Hypervisor or SPMC) \"knows\" it is running in NWd or SWd, then it can filter the IDs appropriately. Such knowledge is not inferred by architectural state (actually I don\u0027t know of a way to identify the running security state as EL2/EL1 states are \"virtualized\" by the EL3 monitor). The chosen method for now is adopting a SECURE_WORLD macro and make the code conditional: https://review.trustedfirmware.org/c/hafnium/hafnium/+/4708",
       "parentUuid": "2380aeaf_052f5f69",
+      "range": {
+        "startLine": 649,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 69
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d7d8b36_f1a168a6",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-13T15:22:27Z",
+      "side": 1,
+      "message": "Understood. I guess i was asking how does SPMC(hafnium with SECURE_WORLD macro) enforce/police that a VM/SP is not lying about it\u0027s origin world. I was thinking about SCR_EL3.NS bit when i was talking about CPU architectural state and was thinking about using things like is_secure_caller(), secure_origin flags etc which are derived from SCR_EL3 at the lowest layer, to ensure that, for example, a VM cannot claim to be of secure origin.",
+      "parentUuid": "27f06fc6_16e862c8",
       "range": {
         "startLine": 649,
         "startChar": 0,
@@ -234,6 +330,30 @@
       "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d3d22ef_5bc9e99e",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-13T15:22:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c86a50c2_951ea24b",
+      "range": {
+        "startLine": 669,
+        "startChar": 6,
+        "endLine": 669,
+        "endChar": 56
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
