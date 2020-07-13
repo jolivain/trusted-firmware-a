@@ -46,6 +46,30 @@
       "revId": "fdf50a25ec8014378937e0a8d535d3f7d5753cc9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "936d85b6_22e79c21",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-13T14:10:24Z",
+      "side": 1,
+      "message": "I believe the demand for increase in BL size will always exist as TF-A grows. Rather than doing on a need basis, can we find the theoretical max allowed size for BL2 and set the PLAT_ARM_MAX_BL2_SIZE macro?",
+      "parentUuid": "cb91c973_85b85baa",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 74
+      },
+      "revId": "fdf50a25ec8014378937e0a8d535d3f7d5753cc9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
