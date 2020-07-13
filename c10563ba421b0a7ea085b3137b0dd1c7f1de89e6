@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05991595_a4a9fea1",
+        "filename": "drivers/brcm/rng.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-13T23:44:11Z",
+      "side": 1,
+      "message": "I see you are setting the bits and then immediately clearing them. Is this intentional? shouldnt it be the other way?",
+      "revId": "c10563ba421b0a7ea085b3137b0dd1c7f1de89e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
