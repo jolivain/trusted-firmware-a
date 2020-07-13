@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b2d5a364_6017a00d",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-13T12:17:45Z",
+      "side": 1,
+      "message": "No I meant the EC corresponding the the primary core in the given SP, that is the EC used when the partition is booted (knowing we map EC# \u003d PE#).\nI will reword this.",
+      "parentUuid": "15060b68_f71355fb",
+      "range": {
+        "startLine": 497,
+        "startChar": 4,
+        "endLine": 497,
+        "endChar": 16
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "724e401a_38d76efa",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-07-10T20:44:05Z",
       "side": 1,
       "message": "The primary EC of *an* SP ?",
+      "range": {
+        "startLine": 537,
+        "startChar": 20,
+        "endLine": 537,
+        "endChar": 34
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db1d7b27_bfb7e8e8",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-13T12:17:45Z",
+      "side": 1,
+      "message": "Yes, the EC used when booting within the given SP.",
+      "parentUuid": "724e401a_38d76efa",
       "range": {
         "startLine": 537,
         "startChar": 20,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b1683b9a_1e17374d",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-13T12:17:45Z",
+      "side": 1,
+      "message": "Hum, right, I think that\u0027s an overlook! I will correct this.",
+      "parentUuid": "826c4c4c_12baa38d",
+      "range": {
+        "startLine": 621,
+        "startChar": 19,
+        "endLine": 621,
+        "endChar": 80
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2380aeaf_052f5f69",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "27f06fc6_16e862c8",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-13T12:17:45Z",
+      "side": 1,
+      "message": "I\u0027m not sure I see your point, but I\u0027m sure there\u0027s a sensible reason for your question, can you elaborate a bit more?\nIndeed we don\u0027t trust the id, but as soon as the running instance (Hypervisor or SPMC) \"knows\" it is running in NWd or SWd, then it can filter the IDs appropriately. Such knowledge is not inferred by architectural state (actually I don\u0027t know of a way to identify the running security state as EL2/EL1 states are \"virtualized\" by the EL3 monitor). The chosen method for now is adopting a SECURE_WORLD macro and make the code conditional: https://review.trustedfirmware.org/c/hafnium/hafnium/+/4708",
+      "parentUuid": "2380aeaf_052f5f69",
+      "range": {
+        "startLine": 649,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 69
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba3d9c09_3bd8f4f1",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2020-07-10T20:44:05Z",
       "side": 1,
       "message": "if an SP cannot send a direct message to a VM, can it or should it be allowed to receive a direct message response from a VM?",
+      "range": {
+        "startLine": 669,
+        "startChar": 6,
+        "endLine": 669,
+        "endChar": 56
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c86a50c2_951ea24b",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-13T12:17:45Z",
+      "side": 1,
+      "message": "You\u0027re right, that\u0027s a mistake I will correct this.\nWe should have: \"An SP can send a direct message response to a VM\"\n\nIn fact this is currently even more restrictive as current direct message req/resp implementation in NWd only permits the PVM to send direct message requests (https://review.trustedfirmware.org/c/hafnium/hafnium/+/4090)\n\nSo I suspect this section will evolve as the development goes on this front.\n\nUltimately we\u0027d not want restrictions on direct messaging at least for SPs. Although the Hafnium based implementation hardly scales to direct messaging semantics and might require a sensible amount of changes to achieve this goal. As a an interim plan, what is mentioned here is a minimum set of rules to permit early bring up of a TEE like OP-TEE.",
+      "parentUuid": "ba3d9c09_3bd8f4f1",
       "range": {
         "startLine": 669,
         "startChar": 6,
