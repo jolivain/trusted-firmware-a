@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "aa879b47_afaa561a",
+        "filename": "fdts/optee_sp_manifest.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-13T10:21:24Z",
+      "side": 1,
+      "message": "This is an enum, there are 3 possibilities EL1, S-EL0 or S-EL1.\nsee https://trustedfirmware-a.readthedocs.io/en/latest/components/psa-ffa-manifest-binding.html\n\nand FF-A spec section 3.1 Table 9 \"Run-Time EL\"",
+      "parentUuid": "84fc97bb_16da543b",
+      "range": {
+        "startLine": 22,
+        "startChar": 20,
+        "endLine": 22,
+        "endChar": 21
+      },
+      "revId": "ffd07af2ed23b285a7ee43a2e2cc5dd1ff4e7f8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7a87c7a_4dd4b20d",
         "filename": "fdts/optee_sp_manifest.dts",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4a39b387_d20e1b18",
+        "filename": "fdts/optee_sp_manifest.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-13T10:21:24Z",
+      "side": 1,
+      "message": "Right, ideally it should be 1 here, I will do the change.\nThe truth is Hafnium/SPMC does not reflect this (yet) and is just ignored.",
+      "parentUuid": "c7a87c7a_4dd4b20d",
+      "range": {
+        "startLine": 29,
+        "startChar": 26,
+        "endLine": 29,
+        "endChar": 43
+      },
+      "revId": "ffd07af2ed23b285a7ee43a2e2cc5dd1ff4e7f8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "72a4ee32_8f1bebeb",
         "filename": "plat/arm/board/fvp/fdts/fvp_spmc_optee_sp_manifest.dts",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2020-07-10T20:58:36Z",
       "side": 1,
       "message": "what is this block conveying to the SPMC ?",
+      "range": {
+        "startLine": 41,
+        "startChar": 3,
+        "endLine": 47,
+        "endChar": 4
+      },
+      "revId": "ffd07af2ed23b285a7ee43a2e2cc5dd1ff4e7f8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff0ab557_50856034",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_optee_sp_manifest.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-13T10:21:24Z",
+      "side": 1,
+      "message": "For now this declares a single physical core to Hafnium.\nShortly this should evolve to:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/4854/2/plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+      "parentUuid": "72a4ee32_8f1bebeb",
       "range": {
         "startLine": 41,
         "startChar": 3,
