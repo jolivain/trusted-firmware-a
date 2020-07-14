@@ -97,6 +97,10 @@ void __init gicv3_driver_init(const gicv3_driver_data_t *plat_driver_data)
 	unsigned int gic_version;
 	unsigned int gicv2_compat;
 
+	/* TEST */
+	if (plat_driver_data == NULL) {
+		assert(false);
+	}
 	assert(plat_driver_data != NULL);
 	assert(plat_driver_data->gicd_base != 0U);
 	assert(plat_driver_data->rdistif_num != 0U);
