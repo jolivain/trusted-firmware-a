@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73a90b3b_001a748d",
+        "filename": "plat/imx/common/imx_sip_handler.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-14T23:58:41Z",
+      "side": 1,
+      "message": "Shouldn\u0027t there be a check to ensure x1 points to a legal instruction address range?",
+      "revId": "c3205033053a80aaffc741cb00e17071699fb589",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
