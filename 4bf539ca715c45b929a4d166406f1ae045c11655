@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "920a9344_1dfb2cc6",
+        "filename": "fdts/n1sdp-multi-chip.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-14T16:18:02Z",
+      "side": 1,
+      "message": "So up until here this is all the same between single and multi, right? So this should be unified in one file. Either this goes into n1sdp.dtsi or (preferably) we include the whole -single.dts here and just amend and complement it for multi-chip, accordingly.\nSame applies to the other common nodes below, for the common memory nodes (which me might omit except the first one, see the comment), and for the GIC nodes, which are almost identical.",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
