@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "ca4c564f_fed243f6",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-14T04:32:42Z",
+      "side": 1,
+      "message": "We will enable HW_ASSISTED_COHERENCY with work on using arm core/WA usage for A76",
+      "parentUuid": "76333b26_f167fd97",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85e383d5_ebd16231",
         "filename": "plat/qti/common/src/qti_syscall.c",
         "patchSetId": 7
@@ -149,6 +167,24 @@
       "writtenOn": "2020-07-10T02:15:06Z",
       "side": 1,
       "message": "No, add_define is supposed to be called in either case, both when the option is on and when it is of. That is the standard way to define a compile time option in TF-A. Please write it the way I originally suggested and change all the #ifdef QTI_DEBUG_BUILD to #if.\n\nI still think this should not be tied to the DEBUG flag, the DEBUG flag controls a ton of other stuff already (e.g. whether assertions are enabled) that we don\u0027t necessarily want to tie to this. coreboot (which is passing these flags) already has a Kconfig to track whether SDI debug mode is enabled or not, this should be tied to that and nothing else. Please ask T.mike to write you a coreboot patch that adds this option to BL31_MAKEARGS based on whether $(CONFIG_QC_SDI_ENABLE) is set or not.",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87f4e81c_27414c05",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-14T04:32:42Z",
+      "side": 1,
+      "message": "Talking to Mike on this. mean while adding provision for passing QTI_SDI_BUILD from command line. i am thinking of setting default value as 0. and let it get enabled if passed in command line, so that coreboot can take decision based on its config flag.\n\nPlease let me know if its OK.",
+      "parentUuid": "71a64958_f469cf4c",
       "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
