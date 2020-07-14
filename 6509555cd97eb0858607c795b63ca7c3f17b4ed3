@@ -16,6 +16,24 @@
       "revId": "6509555cd97eb0858607c795b63ca7c3f17b4ed3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8150feba_b8845088",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-14T00:08:09Z",
+      "side": 1,
+      "message": "No, we don\u0027t, but it also doesn\u0027t hurt. Javier has patches in the making that unconditionally change the DT, so we *will* need it in the future. Since I had this patch originally on top of Javier\u0027s, I left it to this way, to make this more future-proof. Leave it up to you whether you want to move it inside the if statement, just for now.\n\nBtw: If anyway knows of a better way of replacing the trailing newline with a 0 byte (to terminate the command line), without copying the whole thing, I am all ears. We can\u0027t overwrite the command line in place, since this memory is write-protected, after the FPGA tool has uploaded all payloads.",
+      "parentUuid": "c082b6c5_dae85d4f",
+      "revId": "6509555cd97eb0858607c795b63ca7c3f17b4ed3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
