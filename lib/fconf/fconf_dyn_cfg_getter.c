@@ -19,18 +19,18 @@ static struct dyn_cfg_dtb_info_t dtb_infos[MAX_DTB_INFO];
 static OBJECT_POOL_ARRAY(dtb_info_pool, dtb_infos);
 
 /*
- * This function is used to alloc memory for fw config information from
- * global pool and set fw configuration information.
- * Specifically used by BL1 to set fw_config information in global array
+ * This function is used to alloc memory for config information from
+ * global pool and set the configuration information.
  */
-void set_fw_config_info(uintptr_t config_addr, uint32_t config_max_size)
+void set_config_info(uintptr_t config_addr, uint32_t config_max_size,
+			unsigned int config_id)
 {
 	struct dyn_cfg_dtb_info_t *dtb_info;
 
 	dtb_info = pool_alloc(&dtb_info_pool);
 	dtb_info->config_addr = config_addr;
 	dtb_info->config_max_size = config_max_size;
-	dtb_info->config_id = FW_CONFIG_ID;
+	dtb_info->config_id = config_id;
 }
 
 struct dyn_cfg_dtb_info_t *dyn_cfg_dtb_info_getter(unsigned int config_id)
@@ -58,7 +58,6 @@ int fconf_populate_dtb_registry(uintptr_t config)
 {
 	int rc;
 	int node, child;
-	struct dyn_cfg_dtb_info_t *dtb_info;
 
 	/* As libfdt use void *, we can't avoid this cast */
 	const void *dtb = (void *)config;
@@ -80,11 +79,9 @@ int fconf_populate_dtb_registry(uintptr_t config)
 	 * Other BLs, satisfy below check and populate fw_config information
 	 * in global dtb_infos array.
 	 */
-	if (dtb_infos[0].config_id == 0) {
-		dtb_info = pool_alloc(&dtb_info_pool);
-		dtb_info->config_addr = config;
-		dtb_info->config_max_size = fdt_totalsize(dtb);
-		dtb_info->config_id = FW_CONFIG_ID;
+	if (dtb_infos[0].config_id == 0U) {
+		uint32_t config_max_size = fdt_totalsize(dtb);
+		set_config_info(config, config_max_size, FW_CONFIG_ID);
 	}
 
 	/* Find the node offset point to "fconf,dyn_cfg-dtb_registry" compatible property */
@@ -96,10 +93,9 @@ int fconf_populate_dtb_registry(uintptr_t config)
 	}
 
 	fdt_for_each_subnode(child, dtb, node) {
-		uint32_t val32;
+		uint32_t config_max_size, config_id;
+		uintptr_t config_addr;
 		uint64_t val64;
-
-		dtb_info = pool_alloc(&dtb_info_pool);
 
 		/* Read configuration dtb information */
 		rc = fdt_read_uint64(dtb, child, "load-address", &val64);
@@ -107,26 +103,26 @@ int fconf_populate_dtb_registry(uintptr_t config)
 			ERROR("FCONF: Incomplete configuration property in dtb-registry.\n");
 			return rc;
 		}
-		dtb_info->config_addr = (uintptr_t)val64;
+		config_addr = (uintptr_t)val64;
 
-		rc = fdt_read_uint32(dtb, child, "max-size", &val32);
+		rc = fdt_read_uint32(dtb, child, "max-size", &config_max_size);
 		if (rc < 0) {
 			ERROR("FCONF: Incomplete configuration property in dtb-registry.\n");
 			return rc;
 		}
-		dtb_info->config_max_size = val32;
 
-		rc = fdt_read_uint32(dtb, child, "id", &val32);
+		rc = fdt_read_uint32(dtb, child, "id", &config_id);
 		if (rc < 0) {
 			ERROR("FCONF: Incomplete configuration property in dtb-registry.\n");
 			return rc;
 		}
-		dtb_info->config_id = val32;
 
 		VERBOSE("FCONF: dyn_cfg.dtb_registry cell found with:\n");
-		VERBOSE("\tload-address = %lx\n", dtb_info->config_addr);
-		VERBOSE("\tmax-size = 0x%x\n", dtb_info->config_max_size);
-		VERBOSE("\tconfig-id = %u\n", dtb_info->config_id);
+		VERBOSE("\tload-address = %lx\n", config_addr);
+		VERBOSE("\tmax-size = 0x%x\n", config_max_size);
+		VERBOSE("\tconfig-id = %u\n", config_id);
+
+		set_config_info(config_addr, config_max_size, config_id);
 	}
 
 	if ((child < 0) && (child != -FDT_ERR_NOTFOUND)) {
