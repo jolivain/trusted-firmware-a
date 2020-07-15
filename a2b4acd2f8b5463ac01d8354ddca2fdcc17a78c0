@@ -1151,6 +1151,24 @@
     },
     {
       "key": {
+        "uuid": "719225de_ed22cdff",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-15T02:02:03Z",
+      "side": 1,
+      "message": "Yes, using that function sounds good, but where to you get the \"S3_0_C15_C2_7\" from? I would still prefer you to use a predefined constant from any appropriate header for that, rather than redefining it in this file.",
+      "parentUuid": "34d3c2f3_a75ce9fe",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e210764_7f7d439a",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 1
@@ -1180,6 +1198,24 @@
       "side": 1,
       "message": "we do check in above if condition that state is either QTI_LOCAL_STATE_OFF or QTI_LOCAL_STATE_DEEPOFF.",
       "parentUuid": "6e210764_7f7d439a",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8f1ade8_939eaa2e",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-15T02:02:03Z",
+      "side": 1,
+      "message": "Sorry, I misread the if-soup. I can see that it should work but I\u0027d still prefer you to do these checks in the caller function instead, I think that would be easier to read.",
+      "parentUuid": "9aaccf01_03102282",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
