@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "cca86333_857019d8",
+        "filename": "fdts/n1sdp-multi-chip.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-15T09:23:57Z",
+      "side": 1,
+      "message": "Please honour the work that has been done a year ago on this, under the GPL, and re-add the GPL license. To be in line with the kernel, which is the most canonical DT source these days, the header (also in the other two files) should read:\n// SPDX-License-Identifier: (GPL-2.0 or BSD-3-Clause)\n/*\n * Copyright (c) 2019-2020, Arm Limited.\n */\n(\"All rights reserved.\" is not needed)",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "248807f4_0898fd4f",
+        "filename": "fdts/n1sdp-multi-chip.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-15T09:23:57Z",
+      "side": 1,
+      "message": "This comment is literally what the next line says, so please remove it. I see that the binding example has this as well, but it\u0027s really redundant.",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "920a9344_1dfb2cc6",
         "filename": "fdts/n1sdp-multi-chip.dts",
         "patchSetId": 2
@@ -31,6 +65,41 @@
       "side": 1,
       "message": "Thanks for your suggestions.\n\nAs of now the CPU, MEMORY and GIC nodes are the nodes, which are having changes between multichip and singlechip configuration.\n\nI will prefer to have n1sdp.dtsi as common SOC file and single-chip.dts/multi-chip.dts as board variants.\n\nFor CPU, CPU0-3 nodes can be pushed to n1sdp.dtsi and rest CPU4-7 node details can be caputured in multi-chip.dts as following -\ncpus {\n                cpu4@100000000 {\n                        compatible \u003d \"arm,neoverse-n1\";\n                        reg \u003d \u003c0x1 0x0\u003e;\n                        device_type \u003d \"cpu\";\n                        enable-method \u003d \"psci\";\n                        /* node 1 */\n                        numa-node-id \u003d \u003c1\u003e;\n                };\n                cpu5@100000100 {\n                        compatible \u003d \"arm,neoverse-n1\";\n                        reg \u003d \u003c0x1 0x00000100\u003e;\n                        device_type \u003d \"cpu\";\n                        enable-method \u003d \"psci\";\n                        /* node 1 */\n                        numa-node-id \u003d \u003c1\u003e;\n                };\n                cpu6@100010000 {\n                        compatible \u003d \"arm,neoverse-n1\";\n                        reg \u003d \u003c0x1 0x00010000\u003e;\n                        device_type \u003d \"cpu\";\n                        enable-method \u003d \"psci\";\n                        /* node 1 */\n                        numa-node-id \u003d \u003c1\u003e;\n                };\n                cpu7@100010100 {\n                        compatible \u003d \"arm,neoverse-n1\";\n                        reg \u003d \u003c0x1 0x00010100\u003e;\n                        device_type \u003d \"cpu\";\n                        enable-method \u003d \"psci\";\n                        /* node 1 */\n                        numa-node-id \u003d \u003c1\u003e;\n                };\n\n};\n\nFor MEMORY node, I can place the Master Chip\u0027s Two memroy nodes under n1sdp.dtsi and Slave Chip\u0027s memory nodes under n1sdp-multi-chip.dts.\n\nFor GIC node, common details can be pushed to GIC node inside n1sdp.dtsi. In n1sdp-multi-chip.dts and n1sdp-single-chip.dts , the GIC node can only have \"reg\" properties details as following -\n\n\u0026gic {\n        #redistributor-regions \u003d \u003c2\u003e;\n        reg \u003d \u003c0x0 0x30000000 0 0x10000\u003e,       /* GICD */\n              \u003c0x0 0x300c0000 0 0x80000\u003e,       /* GICR */\n              \u003c0x400 0x300c0000 0 0x80000\u003e;     /* GICR */\n\n};\n\nKindly let me know your thought on above restructuring.",
       "parentUuid": "920a9344_1dfb2cc6",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a79b729_8ed56739",
+        "filename": "fdts/n1sdp-multi-chip.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-15T09:23:57Z",
+      "side": 1,
+      "message": "Yes, the CPU split you suggest looks right.\nFor the memory: the first board\u0027s memory belongs into the -single.dts, since it\u0027s a board property; the SoC itself does not have any DRAM. We need to have an extra discussion about the memory node, though, as this is socketed DRAM.\nFor the GIC node: yes, the whole GIC node (including ITSes) belongs into the SoC .dtsi, the -single.dts does not need any addition, the -multi.dts gets the node you correctly showed above.",
+      "parentUuid": "c338fb11_3a7fef75",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05f20ad4_67865c92",
+        "filename": "fdts/n1sdp-multi-chip.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-15T09:23:57Z",
+      "side": 1,
+      "message": "There is no need for those two lines, the memory nodes don\u0027t have any children.",
       "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
