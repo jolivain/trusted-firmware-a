@@ -103,6 +103,159 @@
       "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40a3eba7_4bacead4",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-15T14:28:28Z",
+      "side": 1,
+      "message": "Same comment about the license: Please re-add the GPL and move the line to be the first. Drop the \"All rights reserved\".",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e272c10_b3d62903",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-15T14:28:28Z",
+      "side": 1,
+      "message": "this should live in the board .dts. Compare arch/arm64/boot/dts/allwinner/sun50i-a64{,-pine64,-pine64-plus}.dts* in the kernel tree, that uses a similar scheme: one SoC .dtsi, one basic board, one enhanced board",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02da8d41_50346f98",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-15T14:28:28Z",
+      "side": 1,
+      "message": "this node goes into the board .dtsi",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6773dbbf_198d5c62",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-15T14:28:28Z",
+      "side": 1,
+      "message": "As mentioned before, please complement the ITS subnodes and the reg property here.\nYou can then just overwrite the reg property and add the #redistributor-regions prop in the -multi.dts.",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cad5fa0b_e71b5159",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-15T14:28:28Z",
+      "side": 1,
+      "message": "There is no need for a status \u003d \"okay\" in a SoC .dtsi. You would only list disabled nodes, which you then overwrite in a board .dts.",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd155dfc_348200e3",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-15T14:28:28Z",
+      "side": 1,
+      "message": "same here, just drop all lines in *this* file which set the status to okay.",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f61fa76c_9089a520",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-15T14:28:28Z",
+      "side": 1,
+      "message": "The HDLCD controller (and the associated I2C controller below) are on the IOFPGA, not on the SoC. So they don\u0027t belong into the SoC .dtsi, but in the board .dts.",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f848d2a_2bcee833",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-15T14:28:28Z",
+      "side": 1,
+      "message": "Same remark about this clock and the hdlcdclk below: they belong into the board .dts.",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e19fe3d0_3f1157ef",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-15T14:28:28Z",
+      "side": 1,
+      "message": "Please mark this UART as \"disabled\". The controller is on the SoC, but whether it\u0027s usable or enabled is a board decision. So it\u0027s disabled *here*, but gets referenced and overwritten with \"okay\" in the board .dts.\nCheck board .dts files in the kernel for a reference.",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
