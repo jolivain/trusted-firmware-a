@@ -81,6 +81,30 @@
       "revId": "c10563ba421b0a7ea085b3137b0dd1c7f1de89e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2f23f66_d0128d84",
+        "filename": "drivers/brcm/rng.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-16T05:59:17Z",
+      "side": 1,
+      "message": "Thanks! I thought this wait count decision comes from the hardware requirement but seems like it is purely software based decision. Is this \u0027wait_count\u0027 bound to change later?",
+      "parentUuid": "e1cd8de5_66f3f65e",
+      "range": {
+        "startLine": 61,
+        "startChar": 10,
+        "endLine": 61,
+        "endChar": 42
+      },
+      "revId": "c10563ba421b0a7ea085b3137b0dd1c7f1de89e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
