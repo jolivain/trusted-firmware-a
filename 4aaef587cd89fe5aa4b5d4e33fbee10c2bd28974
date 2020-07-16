@@ -68,6 +68,23 @@
       "revId": "4aaef587cd89fe5aa4b5d4e33fbee10c2bd28974",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "442ed34b_368fdbb8",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-16T19:29:56Z",
+      "side": 1,
+      "message": "If I am not mistaken, the build options SPD_spmd and ARM_LINUX_KERNEL_AS_BL33 are complementary to each other. So can you change this as follows:\n#elif ARM_LINUX_KERNEL_AS_BL33",
+      "revId": "4aaef587cd89fe5aa4b5d4e33fbee10c2bd28974",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
