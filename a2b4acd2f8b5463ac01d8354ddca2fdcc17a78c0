@@ -1169,6 +1169,24 @@
     },
     {
       "key": {
+        "uuid": "1c358721_7ade4cba",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-07-16T04:25:01Z",
+      "side": 1,
+      "message": "I have defined like below, this will help avoid including any particular header specific to A76/A55.\n\n/* QTI_CORE_PWRDN_EN_MASK happens to be same across all CPUs */\n#define QTI_CORE_PWRDN_EN_MASK 1\n\n/* cpu power control happens to be same across all CPUs */\n\n_DEFINE_SYSREG_WRITE_FUNC(cpu_pwrctrl_val, S3_0_C15_C2_7)\n_DEFINE_SYSREG_READ_FUNC(cpu_pwrctrl_val, S3_0_C15_C2_7)\n\nand then calling into via read/ write.\n\nread_cpu_pwrctrl_val();\nwrite_cpu_pwrctrl_val(val);",
+      "parentUuid": "719225de_ed22cdff",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e210764_7f7d439a",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 1
@@ -1216,6 +1234,24 @@
       "side": 1,
       "message": "Sorry, I misread the if-soup. I can see that it should work but I\u0027d still prefer you to do these checks in the caller function instead, I think that would be easier to read.",
       "parentUuid": "9aaccf01_03102282",
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87d45b2e_6ad9abe8",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-07-16T04:25:01Z",
+      "side": 1,
+      "message": "Sure, this is already moved to the caller function now",
+      "parentUuid": "e8f1ade8_939eaa2e",
       "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -1601,6 +1637,30 @@
       "side": 1,
       "message": "Makes sense. Might be good to add a comment here pointing that out.",
       "parentUuid": "7a1c4548_ea0fa716",
+      "range": {
+        "startLine": 208,
+        "startChar": 41,
+        "endLine": 208,
+        "endChar": 42
+      },
+      "revId": "a2b4acd2f8b5463ac01d8354ddca2fdcc17a78c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "649b51b5_91bc4b49",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-07-16T04:25:01Z",
+      "side": 1,
+      "message": "I added comment for this.",
+      "parentUuid": "6fbfd81d_d67c9f61",
       "range": {
         "startLine": 208,
         "startChar": 41,
