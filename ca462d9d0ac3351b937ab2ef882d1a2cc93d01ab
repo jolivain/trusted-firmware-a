@@ -156,6 +156,24 @@
       "revId": "ca462d9d0ac3351b937ab2ef882d1a2cc93d01ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30ea4aa2_c285139f",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-16T01:55:30Z",
+      "side": 1,
+      "message": "IMO it make sense to print the values immediately after parsing the device tree as prints are meant for that.",
+      "parentUuid": "bb81de8a_6f0f8feb",
+      "revId": "ca462d9d0ac3351b937ab2ef882d1a2cc93d01ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
