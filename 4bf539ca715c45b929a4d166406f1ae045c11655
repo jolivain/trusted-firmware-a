@@ -283,6 +283,23 @@
     },
     {
       "key": {
+        "uuid": "525cc822_61675143",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000412
+      },
+      "writtenOn": "2020-07-16T16:39:23Z",
+      "side": 1,
+      "message": "Good practice is to collect all the MMIO devices (GIC, SMMUs, PCI, UART, I2C) under an intermediate \"soc\" bus, rather than having the directly in the root. We hit some minor pain down the line by not doing that for Juno, so it would be good to get it right from the beginning this time around.",
+      "revId": "4bf539ca715c45b929a4d166406f1ae045c11655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6773dbbf_198d5c62",
         "filename": "fdts/n1sdp.dtsi",
         "patchSetId": 2
