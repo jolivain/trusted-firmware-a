@@ -118,6 +118,30 @@
       "revId": "fa43dea54573881424f214a35c19a23689a87cc6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86975cee_01e651e4",
+        "filename": "drivers/arm/gic/v2/gicv2.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-17T13:46:56Z",
+      "side": 1,
+      "message": "Although CPP treats all macros which aren\u0027t defined as 0 (false) in \"#if MACRO\" statements, when GIC_ENABLE_V4_EXTN is not defined in gicv2.mk, Coverity scan reports an error for using not defined macro. Platforms other than ARM are free to use or not to use it.\nAlso take a look at gicv3.mk, which has other macros defined:\n# Default configuration values\nGICV3_SUPPORT_GIC600\t\t?\u003d\t0\nGICV3_IMPL_GIC600_MULTICHIP\t?\u003d\t0\nGICV3_OVERRIDE_DISTIF_PWR_OPS\t?\u003d\t0\nbut this is not \"implying that all underlying platforms would need this flag\".\nI don\u0027t see any issue here.",
+      "parentUuid": "a307cca4_b9588146",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 18
+      },
+      "revId": "fa43dea54573881424f214a35c19a23689a87cc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
