@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef3bf18f_d58f5968",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-07-17T00:55:24Z",
+      "side": 1,
+      "message": "Do we expect to initialize SPs running in S-EL0 to be initialized by a different callback?",
+      "range": {
+        "startLine": 11,
+        "startChar": 32,
+        "endLine": 12,
+        "endChar": 41
+      },
+      "revId": "afdd6598fd09d5bf3ee2d4299bb09c127b46f9c4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
