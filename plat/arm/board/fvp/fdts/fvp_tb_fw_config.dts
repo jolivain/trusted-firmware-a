@@ -90,6 +90,11 @@
 			uuid = <0x092358d1 0xb94723f0 0x64447c82 0xc88f57f5>;
 			load-address = <0x7100000>;
 		};
+
+		cactus-tertiary {
+			uuid = <0x735cb579 0xb9448c1d 0xe1619385 0xd2d80a77>;
+			load-address = <0x7200000>;
+		};
 #endif
 	};
 
