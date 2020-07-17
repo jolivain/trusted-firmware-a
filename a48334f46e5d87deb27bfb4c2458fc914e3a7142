@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c1b8bbdc_89e8a074",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-17T10:54:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3db33120_63896ae6",
+      "revId": "a48334f46e5d87deb27bfb4c2458fc914e3a7142",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86b19c56_897f28d5",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-07-06T23:08:48Z",
       "side": 1,
       "message": "Need to check for overflow/underflow or do we assume load_address \u0026 binary size are trusted and hence cannot cause overflow? perhaps an assert(check_uptr_overflow(load_address + binary_size)) would be worthwhile to catch issues during dev.",
+      "revId": "a48334f46e5d87deb27bfb4c2458fc914e3a7142",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58aa2ac9_c3ab32ab",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-17T10:54:01Z",
+      "side": 1,
+      "message": "That\u0027s right load_address and binary_size are part of the SPMC core manifest (re-purposed TOS_FW_CONFIG) and signed/verified by secure boot. Although I thought better to still sanity check in any case as the consequence of passing bad parameters here can be dramatic. An assert would be stripped out with release builds. This check is done once per core at boot time, and not at run-time so I don\u0027t believe about a perf impact. Also I thought those entry points could be an attack vector for a malicious code to try altering the values at run-time by some unknown means.",
+      "parentUuid": "86b19c56_897f28d5",
       "revId": "a48334f46e5d87deb27bfb4c2458fc914e3a7142",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "573a7f06_48781430",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-17T10:54:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f5b5a75_2cab2447",
+      "range": {
+        "startLine": 409,
+        "startChar": 8,
+        "endLine": 409,
+        "endChar": 10
+      },
+      "revId": "a48334f46e5d87deb27bfb4c2458fc914e3a7142",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5505e378_bba5d838",
         "filename": "services/std_svc/spmd/spmd_pm.c",
         "patchSetId": 1
@@ -79,6 +139,30 @@
       "revId": "a48334f46e5d87deb27bfb4c2458fc914e3a7142",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea4e07e8_736fe49c",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-17T10:54:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5505e378_bba5d838",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 11
+      },
+      "revId": "a48334f46e5d87deb27bfb4c2458fc914e3a7142",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "0ef4b505_6253fc72",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-17T10:54:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a507a78_7215c319",
+      "range": {
+        "startLine": 33,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 11
+      },
+      "revId": "a48334f46e5d87deb27bfb4c2458fc914e3a7142",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1d7021d_88157c0d",
         "filename": "services/std_svc/spmd/spmd_pm.c",
         "patchSetId": 1
@@ -125,6 +233,30 @@
       "revId": "a48334f46e5d87deb27bfb4c2458fc914e3a7142",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57e66271_d57e0b1a",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-17T10:54:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1d7021d_88157c0d",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 16
+      },
+      "revId": "a48334f46e5d87deb27bfb4c2458fc914e3a7142",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "4e92c75c_542d674e",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-17T10:54:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "faa0974c_b0ad3c9c",
+      "range": {
+        "startLine": 43,
+        "startChar": 9,
+        "endLine": 43,
+        "endChar": 12
+      },
+      "revId": "a48334f46e5d87deb27bfb4c2458fc914e3a7142",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c7e13a8_d9f16c97",
         "filename": "services/std_svc/spmd/spmd_pm.c",
         "patchSetId": 1
@@ -162,6 +318,24 @@
       "writtenOn": "2020-07-06T23:08:48Z",
       "side": 1,
       "message": "entry_point should be validated to at least ensure it is not an EL3 address. We dont want SPMC lying to SPMD about where it wants to enter.",
+      "revId": "a48334f46e5d87deb27bfb4c2458fc914e3a7142",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b3a84bd_f0140db0",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-17T10:54:01Z",
+      "side": 1,
+      "message": "This is quite a platform specific check. For FVP, we locate SPMC in \"Trusted DRAM\" (0x6000000-0x7ff0000) so I guess we should check as well the EP resides in this region.\nAlthough such range would be different on other platforms, so we might have to provide a weak platform check function?",
+      "parentUuid": "8c7e13a8_d9f16c97",
       "revId": "a48334f46e5d87deb27bfb4c2458fc914e3a7142",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
