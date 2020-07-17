@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc3ed053_a7092cb3",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-17T09:45:13Z",
+      "side": 1,
+      "message": "Although this will work, it might generate warnings. Wouldn\u0027t it be better to remove the address-of operator here?",
+      "range": {
+        "startLine": 237,
+        "startChar": 33,
+        "endLine": 237,
+        "endChar": 52
+      },
+      "revId": "c1ff7247eee0996231a13aa3ecaa7f4bef39befb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
