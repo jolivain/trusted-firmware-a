@@ -451,6 +451,30 @@
     },
     {
       "key": {
+        "uuid": "0f83436c_f5cd96b5",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-17T17:50:21Z",
+      "side": 1,
+      "message": "apologize, i think i\u0027m missing something trivial here. If a VM sends a message to an SP with FFA_MSG_SEND_DIRECT_REQ, and lies about it\u0027s source endpoint id as being from secure world(bit 15 set), what component checks that the VM is not lying that it is from the secure world?\nI\u0027m not asking about checking the security state that hafnium itself is running in(which is provided by SECURE_WORLD macro), i\u0027m asking about verifying the security state that a sender of a message \"claims\" to be from.\n\nSpecifically, the statement here says: \"A VM-to-SP messaging\npassing shall have an origin world being non-secure (id bit 15 clear)\". I was trying to ask if hafnium assumes that a VM will not lie by clearing bit 15 or if it actively enforces(which it must) by checking that it is not lying. An SP could lie too that it is from the normal world. Both of these conditions must be policed/enforced, so how is that done?",
+      "parentUuid": "43d3a3b3_bcfeb848",
+      "range": {
+        "startLine": 649,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 69
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba3d9c09_3bd8f4f1",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 3
