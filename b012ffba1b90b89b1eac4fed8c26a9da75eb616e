@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "619bfc36_ac7f602d",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000061
+      },
+      "writtenOn": "2020-07-17T07:19:21Z",
+      "side": 1,
+      "message": "SPMC can be S-EL1 component for pre-Armv8.4 platforms. You may want to add this",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 34
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94c9d077_61860ce3",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000061
+      },
+      "writtenOn": "2020-07-17T07:19:21Z",
+      "side": 1,
+      "message": "I think, this switch is not required. SPMD_SPM_AT_SEL2 can still be used for this purpose. Isn\u0027t it?\n\nSPMD_SPM_AT_SEL2\u003d1 -\u003e save/store EL2 registers\nSPMD_SPM_AT_SEL2\u003d0 -\u003e Do nothing",
+      "range": {
+        "startLine": 123,
+        "startChar": 5,
+        "endLine": 123,
+        "endChar": 25
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9988b313_31965f20",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000061
+      },
+      "writtenOn": "2020-07-17T07:19:21Z",
+      "side": 1,
+      "message": "SPMC runs at S-EL1 with single secure partition at S-EL1.",
+      "range": {
+        "startLine": 300,
+        "startChar": 36,
+        "endLine": 300,
+        "endChar": 54
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15060b68_f71355fb",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 3
