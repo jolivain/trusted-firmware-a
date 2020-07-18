@@ -190,6 +190,30 @@
       "revId": "fa43dea54573881424f214a35c19a23689a87cc6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f021862_2af1450f",
+        "filename": "drivers/arm/gic/v2/gicv2.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-18T18:07:09Z",
+      "side": 1,
+      "message": "I removed GIC_ENABLE_V4_EXTN from gicv2.mk.",
+      "parentUuid": "fa02eee5_4dac72ff",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 18
+      },
+      "revId": "fa43dea54573881424f214a35c19a23689a87cc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
