@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "3e40da4f_3afbf9e5",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000061
+      },
+      "writtenOn": "2020-07-19T06:07:48Z",
+      "side": 1,
+      "message": "Yes, suggesting reword.\nAs per the specification, SP manifest at physical FF-A instance must be used by the SPMD to setup a SP that co-resides with the SPMC and executes in S-EL1 or Secure Supervisor mode at the physical FF-A instance.",
+      "parentUuid": "521d64b7_a10e6632",
+      "range": {
+        "startLine": 300,
+        "startChar": 36,
+        "endLine": 300,
+        "endChar": 54
+      },
+      "revId": "b012ffba1b90b89b1eac4fed8c26a9da75eb616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15060b68_f71355fb",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 3
