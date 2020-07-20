@@ -13,7 +13,7 @@ endif()
 include(Common/STGT)
 
 #plat_bl_common
-stgt_add_src_param(NAME bl1 bl2 bl31 KEY ARCH SRC
+stgt_add_src_param(NAME bl1 bl2 bl31 bl32 KEY ARCH SRC
 	${PROJECT_SOURCE_DIR}/plat/arm/common/@ARCH@/arm_helpers.S
 	${PROJECT_SOURCE_DIR}/plat/arm/common/arm_common.c
 	${PROJECT_SOURCE_DIR}/plat/arm/common/arm_console.c
