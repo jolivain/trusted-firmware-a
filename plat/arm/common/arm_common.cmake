@@ -10,7 +10,7 @@ if(NOT DEFINED TFA_ROOT_DIR)
 endif()
 
 #plat_bl_common
-stgt_add_src_param(NAME bl1 bl2 bl31 KEY ARCH SRC
+stgt_add_src_param(NAME bl1 bl2 bl31 bl32 KEY ARCH SRC
 	${TFA_ROOT_DIR}/plat/arm/common/@ARCH@/arm_helpers.S
 	${TFA_ROOT_DIR}/plat/arm/common/arm_common.c
 	${TFA_ROOT_DIR}/plat/arm/common/arm_console.c
