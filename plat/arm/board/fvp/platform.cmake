@@ -9,6 +9,8 @@ if(NOT DEFINED TFA_ROOT_DIR)
 	message(FATAL_ERROR "TF-A root dir not defined")
 endif()
 
+stgt_get_param(NAME bl1 KEY ARCH RET _arch)
+
 # Select interconnect driver based on cluster count
 stgt_get_param(NAME bl1 KEY FVP_CLUSTER_COUNT RET _fvp_cluster_count)
 group_new(NAME fvp_interconnect_driver)
@@ -22,25 +24,23 @@ unset(_fvp_cluster_count)
 
 
 #plat_bl_common
-stgt_add_src(NAME bl1 bl2 bl31 SRC
+stgt_add_src(NAME bl1 bl2 bl31 bl32 SRC
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_common.c
 )
 
-stgt_add_src_cond(NAME bl1 bl2 bl31 KEY ENABLE_STACK_PROTECTOR VAL 1 SRC
+stgt_add_src_cond(NAME bl1 bl2 bl31 bl32 KEY ENABLE_STACK_PROTECTOR VAL 1 SRC
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_stack_protector.c
 )
 
 #FVP CPU libs
-stgt_add_src_param(NAME bl1 bl31 KEY ARCH SRC
-	${TFA_ROOT_DIR}/lib/cpus/@ARCH@/aem_generic.S
+sourcelist_append(NAME FVP_CPU_LIBS SRC
+	${TFA_ROOT_DIR}/lib/cpus/${_arch}/aem_generic.S
 )
 
-set(FVP_CPU_LIBS)
-stgt_get_param(NAME bl1 KEY ARCH RET _arch)
 stgt_get_param(NAME bl1 KEY HW_ASSISTED_COHERENCY RET _hw_assisted_coherency)
 if(_arch STREQUAL aarch64)
 	if(_hw_assisted_coherency EQUAL 0)
-		list(APPEND FVP_CPU_LIBS
+		sourcelist_append(NAME FVP_CPU_LIBS SRC
 			${TFA_ROOT_DIR}/lib/cpus/aarch64/cortex_a35.S
 			${TFA_ROOT_DIR}/lib/cpus/aarch64/cortex_a53.S
 			${TFA_ROOT_DIR}/lib/cpus/aarch64/cortex_a57.S
@@ -48,14 +48,14 @@ if(_arch STREQUAL aarch64)
 			${TFA_ROOT_DIR}/lib/cpus/aarch64/cortex_a73.S
 		)
 	else()
-		list(APPEND FVP_CPU_LIBS
+		sourcelist_append(NAME FVP_CPU_LIBS SRC
 			${TFA_ROOT_DIR}/lib/cpus/aarch64/cortex_a55.S
 			${TFA_ROOT_DIR}/lib/cpus/aarch64/cortex_a75.S
 		)
 
 		stgt_get_param(NAME bl1 KEY CTX_INCLUDE_AARCH32_REGS RET _ctx_include_aarch32_regs)
 		if(_ctx_include_aarch32_regs EQUAL 0)
-			list(APPEND FVP_CPU_LIBS
+			sourcelist_append(NAME FVP_CPU_LIBS SRC
 				${TFA_ROOT_DIR}/lib/cpus/aarch64/cortex_a76.S
 				${TFA_ROOT_DIR}/lib/cpus/aarch64/cortex_a76ae.S
 				${TFA_ROOT_DIR}/lib/cpus/aarch64/cortex_a77.S
@@ -73,7 +73,7 @@ if(_arch STREQUAL aarch64)
 		unset(_ctx_include_aarch32_regs)
 	endif()
 elseif(_arch STREQUAL aarch32)
-	list(APPEND FVP_CPU_LIBS
+	sourcelist_append(NAME FVP_CPU_LIBS SRC
 		${TFA_ROOT_DIR}/lib/cpus/aarch32/cortex_a32.S
 	)
 endif()
@@ -81,23 +81,28 @@ unset(_arch)
 unset(_hw_assisted_coherency)
 unset(_ctx_include_aarch32_regs)
 
-stgt_add_src(NAME bl1 bl31 SRC ${FVP_CPU_LIBS})
+stgt_add_sourcelist(NAME bl1 bl31 SRCLIST FVP_CPU_LIBS)
 
 #add appropriate sources for the interconnect driver
-set(FVP_INTERCONNECT_SOURCES)
 stgt_get_param(NAME bl1 KEY FVP_INTERCONNECT_DRIVER RET _fvp_interconnect_driver)
 if(_fvp_interconnect_driver STREQUAL FVP_CCI)
-	list(APPEND FVP_INTERCONNECT_SOURCES
+	sourcelist_append(NAME FVP_INTERCONNECT_SOURCES SRC
 		${TFA_ROOT_DIR}/drivers/arm/cci/cci.c
 	)
 elseif(_fvp_interconnect_driver STREQUAL FVP_CCN)
-	list(APPEND FVP_INTERCONNECT_SOURCES
+	sourcelist_append(NAME FVP_INTERCONNECT_SOURCES SRC
 		${TFA_ROOT_DIR}/drivers/arm/ccn/ccn.c
 		${TFA_ROOT_DIR}/plat/arm/common/arm_ccn.c
 	)
 endif()
-unset(_fvp_interconnect_driver)
-stgt_add_src(NAME bl1 bl31 SRC ${FVP_INTERCONNECT_SOURCES})
+stgt_add_sourcelist(NAME bl1 bl31 SRCLIST FVP_INTERCONNECT_SOURCES)
+
+#FVP security sources
+sourcelist_append(NAME FVP_SECURITY_SOURCES SRC
+	${TFA_ROOT_DIR}/drivers/arm/tzc/tzc400.c
+	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_security.c
+	${TFA_ROOT_DIR}/plat/arm/common/arm_tzc400.c
+)
 
 #plat_bl1
 stgt_add_src_param(NAME bl1 KEY ARCH SRC
@@ -131,12 +136,9 @@ stgt_add_src_param(NAME bl2 KEY ARCH SRC
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_err.c
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_io_storage.c
 	${TFA_ROOT_DIR}/plat/arm/common/arm_nor_psci_mem_protect.c
-
-	#FVP security sources
-	${TFA_ROOT_DIR}/drivers/arm/tzc/tzc400.c
-	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_security.c
-	${TFA_ROOT_DIR}/plat/arm/common/arm_tzc400.c
 )
+
+stgt_add_sourcelist(NAME bl2 SRCLIST FVP_SECURITY_SOURCES)
 
 stgt_add_src_cond(NAME bl2 KEY FVP_USE_SP804_TIMER VAL 1 SRC
 	${TFA_ROOT_DIR}/drivers/arm/sp804/sp804_delay_timer.c
@@ -148,7 +150,7 @@ if(_bl2_at_el3 EQUAL 1)
 		${TFA_ROOT_DIR}/plat/arm/board/fvp/@ARCH@/fvp_helpers.S
 		${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_bl2_el3_setup.c
 	)
-	stgt_add_src(NAME bl2 SRC ${FVP_CPU_LIBS} ${FVP_INTERCONNECT_SOURCES})
+	stgt_add_sourcelist(NAME bl2 SRCLIST FVP_CPU_LIBS FVP_INTERCONNECT_SOURCES)
 endif()
 unset(_bl2_at_el3)
 
@@ -163,12 +165,9 @@ stgt_add_src_param(NAME bl31 KEY ARCH SRC
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_topology.c
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/aarch64/fvp_helpers.S
 	${TFA_ROOT_DIR}/plat/arm/common/arm_nor_psci_mem_protect.c
-
-	#FVP security sources
-	${TFA_ROOT_DIR}/drivers/arm/tzc/tzc400.c
-	${TFA_ROOT_DIR}/plat/arm/board/fvp/fvp_security.c
-	${TFA_ROOT_DIR}/plat/arm/common/arm_tzc400.c
 )
+
+stgt_add_sourcelist(NAME bl31 SRCLIST FVP_SECURITY_SOURCES)
 
 #fconf support
 stgt_add_src_cond(
@@ -180,6 +179,7 @@ stgt_add_src_cond(
 	${TFA_ROOT_DIR}/lib/fconf/fconf.c
 	${TFA_ROOT_DIR}/lib/fconf/fconf_dyn_cfg_getter.c
 	${TFA_ROOT_DIR}/plat/arm/board/fvp/fconf/fconf_hw_config_getter.c
+	${TFA_ROOT_DIR}/lib/fconf/fconf_dyn_cfg_getter.c
 )
 
 stgt_add_src_cond(NAME bl31 KEY RAS_EXTENSION VAL 1 SRC
@@ -187,22 +187,30 @@ stgt_add_src_cond(NAME bl31 KEY RAS_EXTENSION VAL 1 SRC
 )
 
 #add appropriate sources for GIC driver
-stgt_add_src_cond(NAME bl31 KEY FVP_USE_GIC_DRIVER VAL FVP_GICV3 SRC
-	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicv3_main.c
-	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicv3_helpers.c
-	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicdv3_helpers.c
-	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicrv3_helpers.c
-	${TFA_ROOT_DIR}/plat/common/plat_gicv3.c
-	${TFA_ROOT_DIR}/plat/arm/common/arm_gicv3.c
-	${TFA_ROOT_DIR}/drivers/arm/gic/v3/gic-x00.c
-)
-stgt_add_src_cond(NAME bl31 KEY FVP_USE_GIC_DRIVER VAL FVP_GICV2 SRC
-	${TFA_ROOT_DIR}/drivers/arm/gic/common/gic_common.c
-	${TFA_ROOT_DIR}/drivers/arm/gic/v2/gicv2_main.c
-	${TFA_ROOT_DIR}/drivers/arm/gic/v2/gicv2_helpers.c
-	${TFA_ROOT_DIR}/plat/common/plat_gicv2.c
-	${TFA_ROOT_DIR}/plat/arm/common/arm_gicv2.c
-)
+
+stgt_get_param(NAME bl31 KEY FVP_USE_GIC_DRIVER RET _fvp_use_gic_driver)
+if(_fvp_use_gic_driver STREQUAL FVP_GICV3)
+	sourcelist_append(NAME FVP_GIC_SOURCES SRC
+		${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicv3_main.c
+		${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicv3_helpers.c
+		${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicdv3_helpers.c
+		${TFA_ROOT_DIR}/drivers/arm/gic/v3/gicrv3_helpers.c
+		${TFA_ROOT_DIR}/plat/common/plat_gicv3.c
+		${TFA_ROOT_DIR}/plat/arm/common/arm_gicv3.c
+		${TFA_ROOT_DIR}/drivers/arm/gic/v3/gic-x00.c
+	)
+elseif(_fvp_use_gic_driver STREQUAL FVP_GICV2)
+	sourcelist_append(NAME FVP_GIC_SOURCES SRC
+		${TFA_ROOT_DIR}/drivers/arm/gic/common/gic_common.c
+		${TFA_ROOT_DIR}/drivers/arm/gic/v2/gicv2_main.c
+		${TFA_ROOT_DIR}/drivers/arm/gic/v2/gicv2_helpers.c
+		${TFA_ROOT_DIR}/plat/common/plat_gicv2.c
+		${TFA_ROOT_DIR}/plat/arm/common/arm_gicv2.c
+	)
+endif()
+unset(_fvp_use_gic_driver)
+
+stgt_add_sourcelist(NAME bl31 SRCLIST FVP_GIC_SOURCES)
 
 #conditionally add AMU sources
 stgt_add_src_cond(NAME bl31 KEY ENABLE_AMU VAL 1 SRC
