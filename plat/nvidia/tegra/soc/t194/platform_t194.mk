@@ -67,3 +67,10 @@ BL31_SOURCES		+=	lib/extensions/ras/std_err_record.c		\
 				lib/extensions/ras/ras_common.c			\
 				${SOC_DIR}/plat_ras.c
 endif
+
+ifeq (${SPD},spmd)
+include lib/libfdt/libfdt.mk
+BL31_SOURCES		+=	plat/common/plat_spmd_manifest.c	\
+				common/fdt_wrappers.c			\
+				${LIBFDT_SRCS}
+endif
