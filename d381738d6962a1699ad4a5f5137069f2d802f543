@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1ff9684_1fd5191f",
+        "filename": "fdts/n1sdp-multi-chip.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-20T11:45:43Z",
+      "side": 1,
+      "message": "Same comment about the dynamic memory size of the board. Keeping the first memory node in is fine, I guess, since it shows where DRAM is located in the address space and it can be used by early firmware to be able to use some memory. Plus we can probably safely assume that we have at least 2GB.",
+      "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a68608e_c56d4fff",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-20T11:45:43Z",
+      "side": 1,
+      "message": "stray empty line",
+      "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a351fa1b_0b01c54d",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-20T11:45:43Z",
+      "side": 1,
+      "message": "stray empty line\nActually you should add a human readable model name:\nmodel \u003d \"Arm Neoverse N1 SDP development system\";",
+      "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab9a9029_e27e7033",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-20T11:45:43Z",
+      "side": 1,
+      "message": "It might be worth checking back with Sami, but I think the UEFI memory map has been adjusted to exclude this region from the first memory bank altogether, so we don\u0027t need this node at all. Instead shrink the memory size of the first memory node below accordingly.",
+      "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7769ad0a_c2174995",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-20T11:45:43Z",
+      "side": 1,
+      "message": "I think this represents a major flaw of this approach: the board has DIMM slots, so you can\u0027t possibly know how much memory is there. I would actually remove this second node altogether. As the comment above says, EDK-2 knows about the actual memory size and populates the EFI memory map accordingly. EFI users do not use the DT memory nodes. For non-EFI users *someone* (I guess EDK-2) should dynamically populate the memory nodes, based on reading the actually installed memory size.",
+      "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed4752c6_de6b0633",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-20T11:45:43Z",
+      "side": 1,
+      "message": "Nit: can you please reorder those two nodes to show up before the HDLCD node? Also I guess the I2C node should come before HDLCD (but after the clocks).",
+      "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
