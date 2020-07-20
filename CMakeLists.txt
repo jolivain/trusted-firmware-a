@@ -90,6 +90,7 @@ include(Common/Utils)
 include(Common/Map)
 include(Common/Group)
 include(Common/STGT)
+include(Common/SourceList)
 include(Compiler/${COMPILER})
 
 
@@ -108,15 +109,23 @@ include(${TFA_ROOT_DIR}/configs/Config${COMPILER}.cmake)
 add_subdirectory(${TFA_ROOT_DIR}/lib/libc)
 add_subdirectory(${TFA_ROOT_DIR}/lib/xlat_tables_v2)
 
+# Create STGT targets
+include(${TFA_ROOT_DIR}/cmake/Targets.cmake)
+
 #TODO: some of these shall be converted to sub-projects
+include(${HW_PLAT_TARGET})
 include(${TFA_ROOT_DIR}/cmake/BuildMessage.cmake)
 include(${TFA_ROOT_DIR}/lib/libfdt/libfdt.cmake)
 include(${TFA_ROOT_DIR}/bl1/bl1.cmake)
 include(${TFA_ROOT_DIR}/bl2/bl2.cmake)
 include(${TFA_ROOT_DIR}/bl31/bl31.cmake)
+if(AARCH32_SP)
+	include(${TFA_ROOT_DIR}/bl32/${AARCH32_SP}/${AARCH32_SP}.cmake)
+endif()
+
 include(${TFA_ROOT_DIR}/lib/psci/psci_lib.cmake)
 include(${TFA_ROOT_DIR}/common/bl_common.cmake)
-include(${HW_PLAT_TARGET})
+
 
 # Include FW image creation rules.
 include(${HW_PLAT_IMAGE})
