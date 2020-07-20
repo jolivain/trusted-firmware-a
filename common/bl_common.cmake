@@ -13,7 +13,7 @@ endif()
 include(Common/STGT)
 
 #bl_common
-stgt_add_src_param(NAME bl1 bl2 bl31 KEY ARCH SRC
+stgt_add_src_param(NAME bl1 bl2 bl31 bl32 KEY ARCH SRC
 	${PROJECT_SOURCE_DIR}/common/bl_common.c
 	${PROJECT_SOURCE_DIR}/common/tf_log.c
 	${PROJECT_SOURCE_DIR}/common/@ARCH@/debug.S
@@ -24,9 +24,21 @@ stgt_add_src_param(NAME bl1 bl2 bl31 KEY ARCH SRC
 	${PROJECT_SOURCE_DIR}/plat/common/plat_log_common.c
 	${PROJECT_SOURCE_DIR}/plat/common/@ARCH@/plat_common.c
 	${PROJECT_SOURCE_DIR}/plat/common/@ARCH@/platform_helpers.S
-	#TODO: compiler-rt, armclang, ubsan, stack protector
+	${PROJECT_SOURCE_DIR}/lib/compiler-rt/builtins/popcountdi2.c
+	${PROJECT_SOURCE_DIR}/lib/compiler-rt/builtins/popcountsi2.c
+	#TODO: armclang, ubsan, stack protector
 )
 
-stgt_add_src_cond(NAME bl1 bl2 bl31 KEY ENABLE_BACKTRACE VAL 1 SRC
+stgt_add_src_cond(NAME bl1 bl2 bl31 bl32 KEY ARCH VAL aarch32 SRC
+	${PROJECT_SOURCE_DIR}/lib/compiler-rt/builtins/arm/aeabi_ldivmod.S
+	${PROJECT_SOURCE_DIR}/lib/compiler-rt/builtins/arm/aeabi_uldivmod.S
+	${PROJECT_SOURCE_DIR}/lib/compiler-rt/builtins/ctzdi2.c
+	${PROJECT_SOURCE_DIR}/lib/compiler-rt/builtins/divdi3.c
+	${PROJECT_SOURCE_DIR}/lib/compiler-rt/builtins/divmoddi4.c
+	${PROJECT_SOURCE_DIR}/lib/compiler-rt/builtins/lshrdi3.c
+	${PROJECT_SOURCE_DIR}/lib/compiler-rt/builtins/udivmoddi4.c
+)
+
+stgt_add_src_cond(NAME bl1 bl2 bl31 bl32 KEY ENABLE_BACKTRACE VAL 1 SRC
 	${PROJECT_SOURCE_DIR}/common/backtrace/backtrace.c
 )
