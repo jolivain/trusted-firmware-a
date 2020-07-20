@@ -12,9 +12,12 @@ endif()
 # Include framework files
 include(Common/STGT)
 
-stgt_create(NAME bl31)
-stgt_add_setting(NAME bl31 GROUPS default compiler hw_plat bl31_specific)
-stgt_set_target(NAME bl31 TYPE exe)
+stgt_is_defined(NAME bl31 RET _bl31_defined)
+if (NOT _bl31_defined)
+	message(FATAL_ERROR "${CMAKE_CURRENT_LIST_FILE}: STGT target 'bl31' is not defined.")
+endif()
+unset(_bl31_defined)
+
 
 stgt_add_src(NAME bl31 SRC
 	${CMAKE_CURRENT_LIST_DIR}/bl31_main.c
@@ -65,12 +68,17 @@ stgt_add_src_cond(NAME bl31 KEY WORKAROUND_CVE_2017_5715 VAL 1 SRC
 
 #TODO: CRASH_REPORTING
 
-stgt_link_libraries(NAME bl31 LIBS libc xlat_tables_bl31 libfdt)
-stgt_link_build_messages(NAME bl31 LIBS build_message)
+# Only compile under aarch64
+stgt_get_param(NAME bl31 KEY ARCH RET _arch)
+if(_arch STREQUAL aarch64)
+	stgt_link_libraries(NAME bl31 LIBS libc xlat_tables_bl31 libfdt)
+	stgt_link_build_messages(NAME bl31 LIBS build_message)
 
-get_target_property(_defs bl31 COMPILE_DEFINITIONS)
-get_target_property(_inc bl31 INCLUDE_DIRECTORIES)
+	get_target_property(_defs bl31 COMPILE_DEFINITIONS)
+	get_target_property(_inc bl31 INCLUDE_DIRECTORIES)
 
-stgt_set_linker_script(NAME bl31 FILE "${PROJECT_SOURCE_DIR}/bl31/bl31.ld.S" DEF ${_defs} __LINKER__ INC ${_inc})
+	stgt_set_linker_script(NAME bl31 FILE "${PROJECT_SOURCE_DIR}/bl31/bl31.ld.S" DEF ${_defs} __LINKER__ INC ${_inc})
 
-compiler_generate_binary_output(bl31)
+	compiler_generate_binary_output(bl31)
+endif()
+unset(_arch)

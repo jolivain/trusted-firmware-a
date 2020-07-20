@@ -7,7 +7,9 @@
 
 #TODO: better solution?
 set(HW_PLAT_CONFIG ${PROJECT_SOURCE_DIR}/configs/ConfigPlatFVP.cmake)
-set(HW_PLAT_TARGET ${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/platform.cmake)
-set(HW_PLAT_IMAGE ${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/image.cmake)
+
+set(HW_PLAT_DIR ${PROJECT_SOURCE_DIR}/plat/arm/board/fvp)
+set(HW_PLAT_TARGET ${HW_PLAT_DIR}/platform.cmake)
+set(HW_PLAT_IMAGE ${HW_PLAT_DIR}/image.cmake)
 
 include(${HW_PLAT_CONFIG})

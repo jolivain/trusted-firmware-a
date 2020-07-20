@@ -12,9 +12,12 @@ endif()
 # Include framework files
 include(Common/STGT)
 
-stgt_create(NAME bl1)
-stgt_add_setting(NAME bl1 GROUPS default compiler hw_plat bl1_specific)
-stgt_set_target(NAME bl1 TYPE exe)
+stgt_is_defined(NAME bl1 RET _bl1_defined)
+if (NOT _bl1_defined)
+	message(FATAL_ERROR "${CMAKE_CURRENT_LIST_FILE}: STGT target 'bl1' is not defined.")
+endif()
+unset(_bl1_defined)
+
 
 stgt_add_src_param(NAME bl1 KEY ARCH SRC
 	${CMAKE_CURRENT_LIST_DIR}/bl1_main.c
