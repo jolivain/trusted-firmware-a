@@ -277,6 +277,15 @@ Firmware Encryption Framework
 :F: include/drivers/io/io_encrypted.h
 :F: include/tools_share/firmware_encrypted.h
 
+Measured Boot
+^^^^^^^^^^^^^
+:M: Alexei Fedorov <alexei.fedorov@arm.com>
+:G: `AlexeiFedorov`_
+:M: Javier Almansa Sobrino <Javier.AlmansaSobrino@arm.com>
+:G: `javieralso-arm`_
+:F: drivers/measured_boot
+:F: include/drivers/measured_boot
+:F: plat/arm/board/fvp/fvp_measured_boot.c
 
 Platform Ports
 ~~~~~~~~~~~~~~
