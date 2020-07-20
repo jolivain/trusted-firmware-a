@@ -13,7 +13,7 @@ endif()
 include(Common/STGT)
 
 #plat_bl_common
-stgt_add_src_param(NAME bl1 bl2 bl31 KEY ARCH SRC
+stgt_add_src_param(NAME bl1 bl2 bl31 bl32 KEY ARCH SRC
 	${PROJECT_SOURCE_DIR}/drivers/arm/pl011/@ARCH@/pl011_console.S
 	${PROJECT_SOURCE_DIR}/plat/arm/board/common/@ARCH@/board_arm_helpers.S
 )

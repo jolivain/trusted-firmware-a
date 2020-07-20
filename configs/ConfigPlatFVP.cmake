@@ -20,9 +20,12 @@ group_new(NAME hw_plat)
 group_add(NAME hw_plat TYPE INCLUDE KEY ${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/include)
 
 group_add(NAME hw_plat TYPE CONFIG KEY DTS_HW_CONFIG VAL ${PROJECT_SOURCE_DIR}/fdts/fvp-base-gicv3-psci.dts)
-group_add(NAME hw_plat TYPE CONFIG KEY DTS_TB_FW_CONFIG VAL ${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/fdts/fvp_fw_config.dts)
+group_add(NAME hw_plat TYPE CONFIG KEY DTS_TB_FW_CONFIG VAL ${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/fdts/fvp_tb_fw_config.dts)
 group_add(NAME hw_plat TYPE CONFIG KEY DTS_SOC_FW_CONFIG VAL ${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/fdts/fvp_soc_fw_config.dts)
 group_add(NAME hw_plat TYPE CONFIG KEY DTS_NT_FW_CONFIG VAL ${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/fdts/fvp_nt_fw_config.dts)
+group_add(NAME hw_plat TYPE CONFIG KEY DTS_FW_CONFIG VAL ${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/fdts/fvp_fw_config.dts)
+group_add(NAME hw_plat TYPE CONFIG KEY DTS_TOS_FW_CONFIG VAL ${PROJECT_SOURCE_DIR}/plat/arm/board/fvp/fdts/fvp_tsp_fw_config.dts)
+
 
 # Use the GICv3 driver on the FVP by default
 group_add(NAME hw_plat TYPE CONFIG DEFINE KEY FVP_USE_GIC_DRIVER VAL FVP_GICV3)
