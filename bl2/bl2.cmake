@@ -9,9 +9,12 @@ if(NOT DEFINED TFA_ROOT_DIR)
 	message(FATAL_ERROR "TF-A root dir not defined")
 endif()
 
-stgt_create(NAME bl2)
-stgt_add_setting(NAME bl2 GROUPS default compiler hw_plat bl2_specific)
-stgt_set_target(NAME bl2 TYPE exe)
+stgt_is_defined(NAME bl2 RET _bl2_defined)
+if (NOT _bl2_defined)
+	message(FATAL_ERROR "${CMAKE_CURRENT_LIST_FILE}: STGT target 'bl2' is not defined.")
+endif()
+unset(_bl2_defined)
+
 
 stgt_add_src_param(NAME bl2 KEY ARCH SRC
 	${CMAKE_CURRENT_LIST_DIR}/bl2_image_load_v2.c
