@@ -97,15 +97,23 @@ include(${PROJECT_SOURCE_DIR}/configs/Config${COMPILER}.cmake)
 add_subdirectory(${PROJECT_SOURCE_DIR}/lib/libc)
 add_subdirectory(${PROJECT_SOURCE_DIR}/lib/xlat_tables_v2)
 
+# Create STGT targets
+include(${PROJECT_SOURCE_DIR}/cmake/Targets.cmake)
+
 #TODO: some of these shall be converted to sub-projects
-include(${PROJECT_SOURCE_DIR}/cmake/BuildMessage/BuildMessage.cmake)
+include(${HW_PLAT_TARGET})
+include(BuildMessage/BuildMessage)
 include(${PROJECT_SOURCE_DIR}/lib/libfdt/libfdt.cmake)
 include(${PROJECT_SOURCE_DIR}/bl1/bl1.cmake)
 include(${PROJECT_SOURCE_DIR}/bl2/bl2.cmake)
 include(${PROJECT_SOURCE_DIR}/bl31/bl31.cmake)
+if(AARCH32_SP)
+	include(${PROJECT_SOURCE_DIR}/bl32/${AARCH32_SP}/${AARCH32_SP}.cmake)
+endif()
+
 include(${PROJECT_SOURCE_DIR}/lib/psci/psci_lib.cmake)
 include(${PROJECT_SOURCE_DIR}/common/bl_common.cmake)
-include(${HW_PLAT_TARGET})
+
 
 # Include FW image creation rules.
 include(${HW_PLAT_IMAGE})

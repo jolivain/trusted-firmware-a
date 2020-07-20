@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Copyright (c) 2019, Arm Limited. All rights reserved.
+# Copyright (c) 2019-2020, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -51,7 +51,13 @@ group_add(NAME default TYPE DEFINE KEY ENABLE_PIE VAL 0)
 group_add(NAME default TYPE DEFINE KEY ENABLE_RUNTIME_INSTRUMENTATION VAL 0)
 
 # Build option to enable/disable the Statistical Profiling Extensions
-group_add(NAME default TYPE CONFIG DEFINE KEY ENABLE_SPE_FOR_LOWER_ELS VAL 1)
+group_get(NAME default TYPE CONFIG KEY ARCH RET _arch)
+if(_arch STREQUAL aarch64)
+	group_add(NAME default TYPE CONFIG DEFINE KEY ENABLE_SPE_FOR_LOWER_ELS VAL 1)
+else()
+	group_add(NAME default TYPE CONFIG DEFINE KEY ENABLE_SPE_FOR_LOWER_ELS VAL 0)
+endif()
+unset(_arch)
 
 # For including the Secure Partition Manager
 group_add(NAME default TYPE DEFINE KEY ENABLE_SPM VAL 0)
@@ -119,6 +125,9 @@ group_add(NAME default TYPE DEFINE KEY USE_TBBR_DEFS VAL 1)
 # required to enable cache coherency after warm reset (eg: single cluster
 # platforms).
 group_add(NAME default TYPE DEFINE KEY WARMBOOT_ENABLE_DCACHE_EARLY VAL 0)
+
+# Build option to support Secure Interrupt descriptors through fconf
+group_add(NAME default TYPE DEFINE CONFIG KEY SEC_INT_DESC_IN_FCONF VAL 0)
 
 #Config from Makefile
 #-------------------------------------------------------------------------------
