@@ -16,3 +16,7 @@ group_add(NAME bl2_specific TYPE LDFLAG KEY "-Wl,-Map" VAL "${CMAKE_BINARY_DIR}/
 group_new(NAME bl31_specific)
 group_add(NAME bl31_specific TYPE DEFINE KEY IMAGE_BL31)
 group_add(NAME bl31_specific TYPE LDFLAG KEY "-Wl,-Map" VAL "${CMAKE_BINARY_DIR}/bl31.map")
+
+group_new(NAME bl32_specific)
+group_add(NAME bl32_specific TYPE DEFINE KEY IMAGE_BL32)
+group_add(NAME bl32_specific TYPE LDFLAG KEY "-Wl,-Map" VAL "${CMAKE_BINARY_DIR}/bl32.map")
