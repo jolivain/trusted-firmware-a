@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e67d28df_01fc75f8",
+        "filename": "drivers/measured_boot/measured_boot.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-21T12:22:41Z",
+      "side": 1,
+      "message": "Provide description about below functions.\n1. measured_boot_init\n2. measured_boot_finish",
+      "revId": "5ed0b1858100ab2fae006f2532ee12855a07e288",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc74a9d2_6658ef00",
+        "filename": "drivers/measured_boot/measured_boot.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-21T12:22:41Z",
+      "side": 1,
+      "message": "Remove extra line",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "5ed0b1858100ab2fae006f2532ee12855a07e288",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3b66f72_c3c0c752",
+        "filename": "include/drivers/measured_boot/tcg.h",
+        "patchSetId": 46
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-21T12:22:41Z",
+      "side": 1,
+      "message": "s/2019-2020/2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 2,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "5ed0b1858100ab2fae006f2532ee12855a07e288",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
