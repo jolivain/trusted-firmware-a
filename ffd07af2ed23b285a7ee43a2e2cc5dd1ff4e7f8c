@@ -212,6 +212,29 @@
       "revId": "ffd07af2ed23b285a7ee43a2e2cc5dd1ff4e7f8c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e931e331_67c9f220",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-21T22:06:16Z",
+      "side": 1,
+      "message": "Is my understanding correct \"SPMC_MANIFEST_DTS is a build parameter\"?",
+      "range": {
+        "startLine": 260,
+        "startChar": 8,
+        "endLine": 260,
+        "endChar": 25
+      },
+      "revId": "ffd07af2ed23b285a7ee43a2e2cc5dd1ff4e7f8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
