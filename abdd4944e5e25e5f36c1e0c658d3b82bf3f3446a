@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b4675b9_325abd8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-21T21:16:30Z",
+      "side": 1,
+      "message": "Why not use only \"lib/fconf\" or \"fconf\"? currently only arm platforms use fconf features and changes in fconf API will surely need change in corresponding API calls in platform code.\nSame comment for all the patches above it in series.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "abdd4944e5e25e5f36c1e0c658d3b82bf3f3446a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
