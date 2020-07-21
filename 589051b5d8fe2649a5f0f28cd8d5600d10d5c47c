@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d1e3836_dda019c0",
+        "filename": "plat/arm/board/fvp/fvp_bl1_setup.c",
+        "patchSetId": 51
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-21T16:42:11Z",
+      "side": 1,
+      "message": "Is this function required as part of measured boot platform port ?",
+      "range": {
+        "startLine": 75,
+        "startChar": 5,
+        "endLine": 75,
+        "endChar": 26
+      },
+      "revId": "589051b5d8fe2649a5f0f28cd8d5600d10d5c47c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d291462f_76aaa9f0",
+        "filename": "plat/arm/board/fvp/fvp_bl1_setup.c",
+        "patchSetId": 51
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-07-21T16:42:11Z",
+      "side": 1,
+      "message": "was this typecast not required earlier ?",
+      "range": {
+        "startLine": 104,
+        "startChar": 11,
+        "endLine": 104,
+        "endChar": 33
+      },
+      "revId": "589051b5d8fe2649a5f0f28cd8d5600d10d5c47c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
