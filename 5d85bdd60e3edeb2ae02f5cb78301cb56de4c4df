@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f474e19_c4f97e17",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-21T18:58:46Z",
+      "side": 1,
+      "message": "Please add a comment about what this is supposed to do, something like:\n\"Prevents reordering of the store into fpga_valid_mpids below.\"",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe4f9368_71e92fcf",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-21T18:58:46Z",
+      "side": 1,
+      "message": "Can\u0027t this just be \"mov w5, #VALID_MPID\"? Cheaper than a memory access. Otherwise good idea to store just a byte, that saves us some memory.",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "414dee5b_de446732",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-21T18:58:46Z",
+      "side": 1,
+      "message": "Can you move this up into the prototype comment above?",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7d7495d_4e43cf1a",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-21T18:58:46Z",
+      "side": 1,
+      "message": "I thought that plat_my_core_pos() does not need to do any checks - a major reason why we have it in the first place. Checks should be done in plat_core_pos_by_mpidr() instead.",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70ba0fe4_cb47e62f",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-21T18:58:46Z",
+      "side": 1,
+      "message": "That looks still weird, and does not appease me that there is no race condition, if a secondary takes a bit longer to wake up from the wfe. I mean below you explicitly wait quite a while for the other cores.",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1faa8a51_ee065c1e",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-21T18:58:46Z",
+      "side": 1,
+      "message": "So does that mean you now express cores and threads in different levels?\nFirst, this should be a separate patch, then. But actually: why? I don\u0027t think we do any kind of actual power gating or the like, and certainly not down to a per-thread level?",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7abe6fb8_fd516de5",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-21T18:58:46Z",
+      "side": 1,
+      "message": "Why do we need this whole change here? Now the secondaries don\u0027t write into the pd tree anymore, so why can\u0027t we keep the current approach?\nFor the fpga_valid_mpids[0] entry: Shouldn\u0027t we just set this to 1 before notifying the secondary CPUs? In bl31_early_platform_setup2()?",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9938ae9_ba3a3401",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-21T18:58:46Z",
+      "side": 1,
+      "message": "Is that really true? We don\u0027t need the pd tree for the array, right? And it\u0027s defined by compile time constants anyway?",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
