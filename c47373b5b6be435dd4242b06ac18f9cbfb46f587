@@ -19,6 +19,176 @@
     },
     {
       "key": {
+        "uuid": "51d714fc_5547b400",
+        "filename": "plat/qti/common/inc/qti_board_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "2020?",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f67a4e15_c2440b0b",
+        "filename": "plat/qti/common/inc/qti_board_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "add tab to align with lines #22 and #16",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83d214d4_e9dbe0c0",
+        "filename": "plat/qti/common/inc/qti_cpu.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "2020?",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e78659c_17839ed7",
+        "filename": "plat/qti/common/inc/qti_interrupt_svc.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "2020?",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a45d95b_c7091940",
+        "filename": "plat/qti/common/inc/qti_plat.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe22b6ee_d7166f88",
+        "filename": "plat/qti/common/inc/qti_plat.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db5fb081_92013a88",
+        "filename": "plat/qti/common/src/aarch64/qti_helpers.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "ret x18?",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96376ddb_ea5ce455",
+        "filename": "plat/qti/common/src/aarch64/qti_kryo4_gold.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "ret x19?",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "973f1124_192fb490",
+        "filename": "plat/qti/common/src/aarch64/qti_kryo4_gold.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "ASCII",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88b0096e_1945a541",
+        "filename": "plat/qti/common/src/aarch64/qti_kryo4_silver.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "ASCII",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "76333b26_f167fd97",
         "filename": "plat/qti/common/src/qti_bl31_setup.c",
         "patchSetId": 7
@@ -69,6 +239,142 @@
       "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "613f6e62_3a797b12",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "if (coreboot_serial.baseaddr !\u003d 0)",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f7b77ed_a28c33b3",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "this only intializes MMU",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4576694_7abf6b5c",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "CPU",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "621ed4a1_0c7c4e92",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "assert(type \u003d\u003d NON_SECURE);\nsee lines #128,129",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2b9d10a_396578d9",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2413bba7_2ee617f8",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "assert(g_qti_cpu_cntfrq !\u003d 0ULL);",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bc9da38_73ea687b",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e54021f_ec155680",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T11:50:17Z",
+      "side": 1,
+      "message": "unsigned long cluster_id;\nbut function returns unsigned int",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
