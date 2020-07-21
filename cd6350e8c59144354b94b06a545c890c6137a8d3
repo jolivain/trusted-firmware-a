@@ -16,6 +16,24 @@
       "revId": "cd6350e8c59144354b94b06a545c890c6137a8d3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e21af8c1_625bb976",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-21T09:28:54Z",
+      "side": 1,
+      "message": "Will update to:\n\nUpon booting, the SPMC running on the primary core shall register the secondary core entry points to which a given secondary core being woken up shall jump to into the SPMC . The current implementation assumes the SPMC calls a registering service implemented in the SPMD for each core identified by its MPIDR. This can typically happen in a simple loop implemented in the early SPMC initialization routines by passing each core identifier associated with an entry point address and context information.\nThis service is implemented on top of a more generic SPMC\u003c\u003d\u003eSPMD interface using direct request/response message passing as defined by the FF-A specification.",
+      "parentUuid": "9689d00c_c050db71",
+      "revId": "cd6350e8c59144354b94b06a545c890c6137a8d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
