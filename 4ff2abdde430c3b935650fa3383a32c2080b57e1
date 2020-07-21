@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9e4ee6ee_d3caff9a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T20:41:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "741c4571_773f52cd",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "4ff2abdde430c3b935650fa3383a32c2080b57e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5478eb1f_8200393d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-07-21T19:38:33Z",
       "side": 1,
       "message": "You mean, data in the page after the end of the BL31",
+      "range": {
+        "startLine": 14,
+        "startChar": 13,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "4ff2abdde430c3b935650fa3383a32c2080b57e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dd0b551_99800da3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-21T20:41:55Z",
+      "side": 1,
+      "message": "Zero data to fill the rest of the page will be part of BL31 binary.",
+      "parentUuid": "5478eb1f_8200393d",
       "range": {
         "startLine": 14,
         "startChar": 13,
