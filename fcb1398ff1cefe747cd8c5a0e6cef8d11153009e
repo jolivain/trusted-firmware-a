@@ -22,6 +22,30 @@
       "revId": "fcb1398ff1cefe747cd8c5a0e6cef8d11153009e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02bacc8d_7fe63628",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-22T20:38:42Z",
+      "side": 1,
+      "message": "See section 2.2.2.1 bullet 2)\nIn that case the S-EL1 component conflates two logical components being the SP and the SPMC.\nIt\u0027s typically a single SP model, but the spec does not preclude having multiple collaborating SPs at the same exception level. There is no hardware enforced memory isolation as such.\nI agree that\u0027s convoluted, but I guess this use case is there to \"help\" with a migration phase of existing (legacy) TOS architectures.",
+      "parentUuid": "05746d4b_b1179011",
+      "range": {
+        "startLine": 83,
+        "startChar": 39,
+        "endLine": 83,
+        "endChar": 76
+      },
+      "revId": "fcb1398ff1cefe747cd8c5a0e6cef8d11153009e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
