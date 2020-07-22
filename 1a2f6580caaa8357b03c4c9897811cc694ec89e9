@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4abb971c_0e3266c3",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-22T15:21:52Z",
+      "side": 1,
+      "message": "The commit message says that SP-MIN is enabled when AARCH32_SP \u003d\u003d sp_min, however here you only check if the flag is defined, but not its value.",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 14
+      },
+      "revId": "1a2f6580caaa8357b03c4c9897811cc694ec89e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "612ee2ea_5a1323e9",
+        "filename": "cmake/Targets.cmake",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-22T15:21:52Z",
+      "side": 1,
+      "message": "Not very important, but I think you could rewrite this to \"This file contains forward declarations for ...\". I think it sounds better (at least to me)",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 32
+      },
+      "revId": "1a2f6580caaa8357b03c4c9897811cc694ec89e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
