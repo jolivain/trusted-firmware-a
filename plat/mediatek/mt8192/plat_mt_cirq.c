@@ -15,6 +15,10 @@
 #include <platform_def.h>
 #include <plat_mt_cirq.h>
 
+static struct cirq_events cirq_all_events = {
+	.spi_start = CIRQ_SPI_START,
+};
+
 static inline void  mt_cirq_write32(uint32_t val, uint32_t addr)
 {
 	mmio_write_32(addr + SYS_CIRQ_BASE, val);
@@ -50,10 +54,9 @@ void mt_cirq_ack_all(void)
 
 	for (i = 0; i < CIRQ_CTRL_REG_NUM; i++) {
 		mt_cirq_write32(0xFFFFFFFF, CIRQ_ACK_BASE + (i * 4));
-        }
+	}
 	/* make sure all cirq setting take effect before doing other things */
 	__asm__ volatile("dmb sy" : : : "memory");
-
 }
 
 /*
@@ -66,7 +69,9 @@ void mt_cirq_enable(void)
 	mt_cirq_ack_all();
 
 	st = mt_cirq_read32(CIRQ_CON);
-	st |= (CIRQ_CON_EN << CIRQ_CON_EN_BITS) | (CIRQ_CON_EDGE_ONLY << CIRQ_CON_EDGE_ONLY_BITS);
+	st |= (CIRQ_CON_EN << CIRQ_CON_EN_BITS) |
+			(CIRQ_CON_EDGE_ONLY << CIRQ_CON_EDGE_ONLY_BITS);
+
 	mt_cirq_write32((st & CIRQ_CON_BITS_MASK), CIRQ_CON);
 }
 
@@ -79,6 +84,7 @@ void mt_cirq_disable(void)
 
 	st = mt_cirq_read32(CIRQ_CON);
 	st &= ~(CIRQ_CON_EN << CIRQ_CON_EN_BITS);
+
 	mt_cirq_write32((st & CIRQ_CON_BITS_MASK), CIRQ_CON);
 }
 
@@ -113,7 +119,7 @@ void mt_cirq_mask_all(void)
 
 	for (i = 0; i < CIRQ_CTRL_REG_NUM; i++) {
 		mt_cirq_write32(0xFFFFFFFF, CIRQ_MASK_SET_BASE + (i * 4));
-        }
+	}
 	/* make sure all cirq setting take effect before doing other things */
 	__asm__ volatile("dmb sy" : : : "memory");
 
@@ -128,10 +134,9 @@ void mt_cirq_unmask_all(void)
 
 	for (i = 0; i < CIRQ_CTRL_REG_NUM; i++) {
 		mt_cirq_write32(0xFFFFFFFF, CIRQ_MASK_CLR_BASE + (i * 4));
-        }
+	}
 	/* make sure all cirq setting take effect before doing other things */
-	__asm__ volatile("dmb sy" : : : "memory");
-
+	__asm__ volatile("dmb sy" : : : "memory");:
 }
 
 /*
@@ -310,7 +315,6 @@ void mt_cirq_clone_pol(void)
 {
 	uint32_t cirq_num;
 
-
 	for (cirq_num = 0; cirq_num < CIRQ_IRQ_NUM; cirq_num++) {
 		mt_cirq_set_pol(cirq_num, MT_CIRQ_POL_POS);
 	}
@@ -329,17 +333,17 @@ void mt_cirq_clone_sens(void)
 		irq_num = CIRQ_TO_IRQ_NUM(cirq_num);
 
 		if (cirq_num == 0 || irq_num % 16 == 0) {
-			st = mmio_read_32(BASE_GICD_BASE + GICD_ICFGR + (irq_num / 16 * 4));
+			st = mmio_read_32(BASE_GICD_BASE + GICD_ICFGR +
+								(irq_num / 16 * 4));
 		}
 
 		bit = 0x2 << ((irq_num % 16) * 2);
 
 		if (st & bit) {
 			mt_cirq_set_sens(cirq_num, MT_CIRQ_EDGE_SENSITIVE);
-                }
-		else {
+		} else {
 			mt_cirq_set_sens(cirq_num, MT_CIRQ_LEVEL_SENSITIVE);
-                }
+		}
 	}
 }
 
@@ -357,17 +361,17 @@ void mt_cirq_clone_mask(void)
 		irq_num = CIRQ_TO_IRQ_NUM(cirq_num);
 
 		if (cirq_num == 0 || irq_num % 32 == 0) {
-			st = mmio_read_32(BASE_GICD_BASE + GICD_ISENABLER + (irq_num / 32 * 4));
+			st = mmio_read_32(BASE_GICD_BASE +
+					GICD_ISENABLER + (irq_num / 32 * 4));
 		}
 
 		bit = 0x1 << (irq_num % 32);
 
 		if (st & bit) {
 			mt_cirq_unmask(cirq_num);
-                }
-		else {
+		} else {
 			mt_cirq_mask(cirq_num);
-                }
+		}
 	}
 }
 
@@ -381,7 +385,7 @@ void mt_cirq_clone_gic(void)
 	mt_cirq_clone_mask();
 	if (cirq_clone_flush_check_val) {
 		mt_cirq_dump_reg();
-        }
+	}
 }
 
 /*
@@ -403,17 +407,21 @@ void mt_cirq_flush(void)
 	if (cirq_pattern_clone_flush_check_val == 1) {
 		if (cirq_pattern_list < CIRQ_IRQ_NUM) {
 			mt_cirq_unmask(cirq_pattern_list);
-			mt_cirq_set_sens(cirq_pattern_list, MT_CIRQ_EDGE_SENSITIVE);
+			mt_cirq_set_sens(cirq_pattern_list,
+								MT_CIRQ_EDGE_SENSITIVE);
 			mt_cirq_set_pol(cirq_pattern_list, MT_CIRQ_POL_NEG);
 			mt_cirq_set_pol(cirq_pattern_list, MT_CIRQ_POL_POS);
 			mt_cirq_set_pol(cirq_pattern_list, MT_CIRQ_POL_NEG);
 		} else {
-			ERROR("[CIRQ] no pattern to test, input pattern first\n");
+			ERROR("[CIRQ] no pattern to test, \
+					input pattern first\n");
 		}
 		ERROR("[CIRQ] cirq_pattern %d, cirq_p %d,",
-                      cirq_pattern_list, mt_cirq_get_pending(cirq_pattern_list));
+				cirq_pattern_list,
+				mt_cirq_get_pending(cirq_pattern_list));
 		ERROR("cirq_s %d, cirq_con 0x%x\n",
-                      mt_cirq_get_sens(cirq_pattern_list), mt_cirq_read32(CIRQ_CON));
+				mt_cirq_get_sens(cirq_pattern_list),
+				mt_cirq_read32(CIRQ_CON));
 	}
 
 	mt_cirq_unmask_all();
@@ -422,21 +430,23 @@ void mt_cirq_flush(void)
 		cirq_p_val = mt_cirq_get_pending(i);
 		if (cirq_p_val) {
 			mt_irq_set_pending(CIRQ_TO_IRQ_NUM(i));
-                }
+		}
 
 		if (cirq_clone_flush_check_val == 1) {
 			if (cirq_p_val == 0) {
 				continue;
-                        }
+			}
 			irq_p = CIRQ_TO_IRQ_NUM(i);
 			irq_p_val = mt_irq_get_pending(irq_p);
 			if (cirq_p_val != irq_p_val) {
-				ERROR("[CIRQ] CIRQ Flush Failed %d(cirq %d) != %d(gic %d)\n",
-                                      cirq_p_val, i, irq_p_val, CIRQ_TO_IRQ_NUM(i));
+				ERROR("[CIRQ] CIRQ Flush Failed %d \
+						(cirq %d) != %d(gic %d)\n",cirq_p_val,
+						i, irq_p_val, CIRQ_TO_IRQ_NUM(i));
 				pass = 0;
 			} else {
-				ERROR("[CIRQ] CIRQ Flush Pass %d(cirq %d) = %d(gic %d)\n",
-                                      cirq_p_val, i, irq_p_val, CIRQ_TO_IRQ_NUM(i));
+				ERROR("[CIRQ] CIRQ Flush Pass %d \
+						(cirq %d) = %d(gic %d)\n",cirq_p_val,
+						i, irq_p_val, CIRQ_TO_IRQ_NUM(i));
 			}
 			if (!first_cirq_found) {
 				first_flushed_cirq = i;
@@ -451,22 +461,35 @@ void mt_cirq_flush(void)
 	if (cirq_clone_flush_check_val == 1) {
 		if (first_cirq_found) {
 			ERROR("[CIRQ] The first flush : CIRQ%d to IRQ%d\n",
-                              first_flushed_cirq, first_irq_flushedto);
+					first_flushed_cirq, first_irq_flushedto);
 			ERROR("[CIRQ] The last flush : CIRQ%d to IRQ%d\n",
-                              last_fluashed_cirq, last_irq_flushedto);
+					last_fluashed_cirq, last_irq_flushedto);
 		} else {
-			ERROR("[CIRQ] There are no pending interrupt in CIRQ\n");
+			ERROR("[CIRQ]There are no pending \ 
+					interrupt in CIRQ\n");
 			ERROR("[CIRQ] so no flush operation happened\n");
 		}
-		ERROR("[CIRQ] The Flush Max Range : CIRQ%d to IRQ%d ~ CIRQ%d to IRQ%d\n",
-                      0, CIRQ_TO_IRQ_NUM(0), CIRQ_IRQ_NUM - 1, CIRQ_TO_IRQ_NUM(CIRQ_IRQ_NUM - 1));
 		ERROR("[CIRQ] Flush Check %s, Confirm:SPI_START_OFFSET:%d\n",
-                      pass == 1 ? "Pass" : "Failed", CIRQ_SPI_START);
+				pass == 1 ? "Pass" : "Failed", CIRQ_SPI_START);
 	}
 	mt_cirq_mask_all();
 	mt_cirq_ack_all();
-	return;
+}
 
+void mt_cirq_sw_reset(void)
+{
+	uint32_t st;
+
+	st = mt_cirq_read32(CIRQ_CON);
+	st |= (CIRQ_SW_RESET << CIRQ_CON_SW_RST_BITS);
+
+	mt_cirq_write32(st, CIRQ_CON);
+}
+
+void set_wakeup_sources(uint32_t *list, uint32_t num_of_events)
+{
+	cirq_all_events.num_of_events = num_of_events;
+	cirq_all_events.wakeup_events = list;
 }
 
 void mt_cirq_dump_reg(void)
@@ -485,22 +508,25 @@ void mt_cirq_dump_reg(void)
 		mask = mt_cirq_get_mask(cirq_num);
 		if (mask == 0) {
 			ERROR("[CIRQ] IRQ:%d\t%d\t%d\t%d\n",
-                              CIRQ_TO_IRQ_NUM(cirq_num), pol, sens, mask);
+					CIRQ_TO_IRQ_NUM(cirq_num), pol,
+					sens, mask);
 			irq_iter = cirq_num + 32;
 			if (__check_irq_type[irq_iter].num == CIRQ_TO_IRQ_NUM(cirq_num)) {
 				if (__check_irq_type[irq_iter].sensitivity != sens) {
 					ERROR("[CIRQ] Error sens in irq:%d\n",
-                                              __check_irq_type[irq_iter].num);
+							__check_irq_type[irq_iter].num);
 					pass = 0;
 				}
 				if (__check_irq_type[irq_iter].polarity != pol) {
 					ERROR("[CIRQ]Err polarity in irq:%d\n",
-                                              __check_irq_type[irq_iter].num);
+							__check_irq_type[irq_iter].num);
 					pass = 0;
 				}
 			} else {
-				ERROR("[CIRQ] Error CIRQ num %d", __check_irq_type[irq_iter].num);
-				ERROR("Mapping to wrong GIC num %d\n", CIRQ_TO_IRQ_NUM(cirq_num));
+				ERROR("[CIRQ] Error CIRQ num %d",
+						__check_irq_type[irq_iter].num);
+				ERROR("Mapping to wrong GIC num %d\n",
+						CIRQ_TO_IRQ_NUM(cirq_num));
 				pass = 0;
 			}
 		}
@@ -514,5 +540,3 @@ void mt_cirq_dump_reg(void)
 	ERROR("and update plat_mt_cirq.h for enable CIRQ Clone checking\n");
 #endif
 }
-
-
