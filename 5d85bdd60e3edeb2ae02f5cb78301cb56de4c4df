@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "0491aa82_68bc0b02",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-22T12:20:40Z",
+      "side": 1,
+      "message": "OK, so want to stay with a byte per PE, then later, in the DT population code, iterate over the max topology and use plat_core_pos_by_mpidr() to filter for non-existing cores?\nSounds good to me. I ran into memory issues before, so every byte saved is welcome.",
+      "parentUuid": "01c4e452_1dbcf226",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "414dee5b_de446732",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 26
@@ -230,6 +248,24 @@
     },
     {
       "key": {
+        "uuid": "c86a5404_b9b52d9a",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-22T12:20:40Z",
+      "side": 1,
+      "message": "So basically at the moment we are collapsing threads and cores into one level, for the sake of the topology tree (FPGA_MAX_CPUS_PER_CLUSTER * FPGA_MAX_PE_PER_CPU). It is my understanding that the pd tree is used to determine whether we can turn a cluster off or not: for that all cores in that cluster need to be turned off already - so the last core of a cluster going offline can trigger more power saving by also involving cluster level power gating (or whatever the platform offers).\nThe tree is there to abstract this, so to speak of affinity levels instead of cores or clusters, but using the same idea.\n\nThat\u0027s why I said:\na) we don\u0027t really do power management anyway for the FPGA\nb) I don\u0027t see how turning off threads would work in general, as the idea of threading is to share resources. There are always some exclusively used resources (register file, etc.), but since we don\u0027t even control power on the core level, I don\u0027t see how this would matter here.\n\nSo for the sake of simplicity I would keep it like we do now: collapsing cores and threads into one pd tree level. We can always change this, if needed, but that should be a separate patch, as it is independent.",
+      "parentUuid": "5fdadfbf_7edb28ba",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7abe6fb8_fd516de5",
         "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
         "patchSetId": 26
@@ -265,6 +301,24 @@
     },
     {
       "key": {
+        "uuid": "7c557621_c4654f65",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-22T12:20:40Z",
+      "side": 1,
+      "message": "I get the change for including the new level, but not why we need to check now? The pd tree is still static, based on compile time constants, so why do we need the \"if\" here?",
+      "parentUuid": "7565acd8_606b7b82",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9938ae9_ba3a3401",
         "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
         "patchSetId": 26
@@ -294,6 +348,24 @@
       "side": 1,
       "message": "You are right, we do not need the pdt here, however fpga_valid_mpids for the primary core is initialised when the pdt is created and this is needed here. There were other options such as initialise fpga_valid_mpids here or always assume index 0 for the primary processor but I thought it would be more consistent to keep the initialisation in one single place and just check here. Anyway, once the tree is created, this shouldn\u0027t add much overhead.",
       "parentUuid": "a9938ae9_ba3a3401",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06b36faf_12b800de",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-22T12:20:40Z",
+      "side": 1,
+      "message": "That\u0027s why I wanted to initialise fpga_valid_mpids[0] earlier, basically at the same time as the secondaries populate their entries. It feels more consistent to set [0] just before we wake up the secondaries for the first time, so that that code there deals with fpga_valid_mpids[], and this code here just consumes it and deals with the pd tree.",
+      "parentUuid": "2161c6d5_228b2aab",
       "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
