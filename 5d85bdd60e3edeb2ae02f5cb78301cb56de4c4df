@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "24d2daca_864ca11f",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-22T11:31:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5f474e19_c4f97e17",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe4f9368_71e92fcf",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 26
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "01c4e452_1dbcf226",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-22T11:31:38Z",
+      "side": 1,
+      "message": "Ack\n\nAs the PSCI library is not able to handle sparse CPUIDs, we use the hardcoded affinity levels to create a tree including all the possible clusters and cores so CPUIDs are always created based on those hardcoded limits.\n\nThen we only need an array with an entry per CPUID indicating whether that ID is valid or not. That will be used by plat_core_pos_by_mpidr() once it  calculates a CPUID.",
+      "parentUuid": "fe4f9368_71e92fcf",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "414dee5b_de446732",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 26
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "3de58bd1_18773b40",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-22T11:31:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "414dee5b_de446732",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7d7495d_4e43cf1a",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 26
@@ -82,6 +136,24 @@
       "writtenOn": "2020-07-21T18:58:46Z",
       "side": 1,
       "message": "I thought that plat_my_core_pos() does not need to do any checks - a major reason why we have it in the first place. Checks should be done in plat_core_pos_by_mpidr() instead.",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c42f682_df1fae55",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-22T11:31:38Z",
+      "side": 1,
+      "message": "Yes, you are right. Remains from a previous patchset. Thanks for spotting it.",
+      "parentUuid": "b7d7495d_4e43cf1a",
       "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -105,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "86e4aa7a_9d34a2ba",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-22T11:31:38Z",
+      "side": 1,
+      "message": "I can put this below, after the delay to wait for the other cores (in fact it was one of my first ideas) or in other intermediate point if you think there is a chance that some cores might not have time to wake up before the primary one reaches here. I just put this code here to minimize the chances of the second race condition mentioned above to occur.",
+      "parentUuid": "70ba0fe4_cb47e62f",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1faa8a51_ee065c1e",
         "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
         "patchSetId": 26
@@ -116,6 +206,24 @@
       "writtenOn": "2020-07-21T18:58:46Z",
       "side": 1,
       "message": "So does that mean you now express cores and threads in different levels?\nFirst, this should be a separate patch, then. But actually: why? I don\u0027t think we do any kind of actual power gating or the like, and certainly not down to a per-thread level?",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fdadfbf_7edb28ba",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-22T11:31:38Z",
+      "side": 1,
+      "message": "I used three affinity levels: Cluster - Core - Thread. I based that decision on the original implementation of plat_fpga_calc_core_pos() in which the MPIDR is always treated as a multi-threaded implementation by shifting it to the left if the MT bit is not set.\n\nMy assumption is that if the MT bit is set, we have to use three affinity levels, haven\u0027t we? In that case, as it is unknown whether an FPGA image is going to be multi-thread or not, I assume three levels (every CPU has at least one thread).\n\nIf this is not how it should be treated (or the most efficient way, anyway), are you suggesting to express the cores and threads at the same level (MAX_CPU_PER_CLUSTER * MAX_PE_PER_CPU on each cluster)? or just ignore the threads level (AFFLVL0) to crate the tree?",
+      "parentUuid": "1faa8a51_ee065c1e",
       "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -139,6 +247,24 @@
     },
     {
       "key": {
+        "uuid": "7565acd8_606b7b82",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-22T11:31:38Z",
+      "side": 1,
+      "message": "The topology tree needs to be created the first time it needs to be accessed. In this case I create it based on the harcoded maximum affinity levels. As I use three levels of affinity, I need to iterate twice, once for the cores on each cluster and another one for the threads.\n\nWith regards to fpga_valid_mpids[0], I wanted to keep it in this module to reduce coupling.",
+      "parentUuid": "7abe6fb8_fd516de5",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9938ae9_ba3a3401",
         "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
         "patchSetId": 26
@@ -150,6 +276,24 @@
       "writtenOn": "2020-07-21T18:58:46Z",
       "side": 1,
       "message": "Is that really true? We don\u0027t need the pd tree for the array, right? And it\u0027s defined by compile time constants anyway?",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2161c6d5_228b2aab",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-22T11:31:38Z",
+      "side": 1,
+      "message": "You are right, we do not need the pdt here, however fpga_valid_mpids for the primary core is initialised when the pdt is created and this is needed here. There were other options such as initialise fpga_valid_mpids here or always assume index 0 for the primary processor but I thought it would be more consistent to keep the initialisation in one single place and just check here. Anyway, once the tree is created, this shouldn\u0027t add much overhead.",
+      "parentUuid": "a9938ae9_ba3a3401",
       "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
