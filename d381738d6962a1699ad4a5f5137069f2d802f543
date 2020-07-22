@@ -124,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "1b050ad2_93352feb",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000150
+      },
+      "writtenOn": "2020-07-22T15:33:13Z",
+      "side": 1,
+      "message": "The top 16MB of DRAM1 is reserved to be configured as secure access only using the TZC, see https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/plat/arm/common/arm_def.h#n73\n\nUEFI does not expose this memory region to the OS as this memory region would not be accessible from the Normal World.\n\nThat being said it looks like the TZC configuration for N1SDP is not yet done, see https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/n1sdp/n1sdp_security.c#n10",
+      "parentUuid": "ab9a9029_e27e7033",
+      "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7769ad0a_c2174995",
         "filename": "fdts/n1sdp-single-chip.dts",
         "patchSetId": 3
