@@ -469,6 +469,14 @@ void mt_cirq_flush(void)
 
 }
 
+void mt_cirq_sw_reset(void)
+{
+	uint32_t st;
+	st = mt_cirq_read32(CIRQ_CON);
+	st |= (CIRQ_SW_RESET << CIRQ_CON_SW_RST_BITS);
+	mt_cirq_write32(CIRQ_CON, st);
+}
+
 void mt_cirq_dump_reg(void)
 {
 	int cirq_num;
