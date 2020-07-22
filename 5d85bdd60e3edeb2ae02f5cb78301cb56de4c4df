@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "d1e4c0fe_a413a3c9",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-22T13:17:07Z",
+      "side": 1,
+      "message": "Yes, that was actually my idea.",
+      "parentUuid": "0491aa82_68bc0b02",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "414dee5b_de446732",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 26
@@ -266,6 +284,24 @@
     },
     {
       "key": {
+        "uuid": "65a09bf6_c07dbafb",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-22T13:17:07Z",
+      "side": 1,
+      "message": "Ok, thanks for the explanation. Makes sense now.",
+      "parentUuid": "c86a5404_b9b52d9a",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7abe6fb8_fd516de5",
         "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
         "patchSetId": 26
@@ -313,6 +349,24 @@
       "side": 1,
       "message": "I get the change for including the new level, but not why we need to check now? The pd tree is still static, based on compile time constants, so why do we need the \"if\" here?",
       "parentUuid": "7565acd8_606b7b82",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f01df78_f8f2d92d",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-22T13:17:07Z",
+      "side": 1,
+      "message": "I just think that as the tree is static, there is no need to recreate it every time we call this function. So just create it the first time and save some time on subsequent calls.",
+      "parentUuid": "7c557621_c4654f65",
       "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -369,6 +423,24 @@
       "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "587be465_0feaa360",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-22T13:17:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "06b36faf_12b800de",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
