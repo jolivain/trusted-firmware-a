@@ -57,6 +57,12 @@ HW_ASSISTED_COHERENCY := 1
 USE_COHERENT_MEM := 0
 CTX_INCLUDE_AARCH32_REGS := 0
 
+# After MT8192, CIRQ SW reset must be done before access it to avoid abnormal CIRQ status
+CIRQ_NEED_SW_RESET      :=      1
+ifeq ($(CIRQ_NEED_SW_RESET),1)
+$(eval $(call add_define, CIRQ_NEED_SW_RESET))
+endif
+
 # indicate the reset vector address can be programmed
 PROGRAMMABLE_RESET_ADDRESS := 1
 
