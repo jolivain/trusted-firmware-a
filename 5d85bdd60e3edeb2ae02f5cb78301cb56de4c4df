@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "e3703bf2_7d647440",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-22T10:04:11Z",
+      "side": 1,
+      "message": "I was just thinking about it: we need the MPIDRs of all cores for the devicetree. So I guess we need keep the 32-bit per core storage.",
+      "parentUuid": "fe4f9368_71e92fcf",
+      "revId": "5d85bdd60e3edeb2ae02f5cb78301cb56de4c4df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "414dee5b_de446732",
         "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
         "patchSetId": 26
