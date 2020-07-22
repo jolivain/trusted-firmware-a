@@ -19,6 +19,10 @@ static struct cirq_events cirq_all_events = {
 	.spi_start = CIRQ_SPI_START,
 };
 
+static struct cirq_events cirq_all_events = {
+	.spi_start = CIRQ_SPI_START,
+};
+
 static inline void  mt_cirq_write32(uint32_t val, uint32_t addr)
 {
 	mmio_write_32(addr + SYS_CIRQ_BASE, val);
