@@ -15,6 +15,10 @@
 #include <platform_def.h>
 #include <plat_mt_cirq.h>
 
+static struct cirq_events cirq_all_events = {
+	.spi_start = CIRQ_SPI_START,
+};
+
 static inline void  mt_cirq_write32(uint32_t val, uint32_t addr)
 {
 	mmio_write_32(addr + SYS_CIRQ_BASE, val);
@@ -467,6 +471,20 @@ void mt_cirq_flush(void)
 	mt_cirq_ack_all();
 	return;
 
+}
+
+void mt_cirq_sw_reset(void)
+{
+	uint32_t st;
+	st = mt_cirq_read32(CIRQ_CON);
+	st |= (CIRQ_SW_RESET << CIRQ_CON_SW_RST_BITS);
+	mt_cirq_write32(st, CIRQ_CON);
+}
+
+void set_wakeup_sources(uint32_t *list, uint32_t num_of_events)
+{
+	cirq_all_events.num_of_events = num_of_events;
+	cirq_all_events.wakeup_events = list;
 }
 
 void mt_cirq_dump_reg(void)
