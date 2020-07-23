@@ -160,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "53809d14_896d1e77",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-23T09:59:26Z",
+      "side": 1,
+      "message": "Yes and no: Yes, the size of the first DRAM bank is decreased as you describe it. But this means that the secure firmware DRAM does not need to be mentioned at all, so you can delete the whole reserved memory node.",
+      "parentUuid": "be59fc34_f793b021",
+      "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7769ad0a_c2174995",
         "filename": "fdts/n1sdp-single-chip.dts",
         "patchSetId": 3
@@ -189,6 +207,24 @@
       "side": 1,
       "message": "Ok, will remove the second node altogether.",
       "parentUuid": "7769ad0a_c2174995",
+      "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9419ec61_eb22d463",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-23T09:59:26Z",
+      "side": 1,
+      "message": "But looking forward, who is going to add the other memory node then? As it stands now, the OS will now just see 2GB of DRAM.\nThe proper solution would be: Put the DT in the EDK-2 (platforms) tree, and let EDK-2 populate the memory node according to the detected DRAM size. This is what other platforms do (I think AMD Overdrive and Synquacer should be examples there).",
+      "parentUuid": "76c0352d_49cce2d4",
       "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
