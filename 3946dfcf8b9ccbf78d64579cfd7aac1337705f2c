@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74b5e37c_eadd84b2",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-23T23:04:35Z",
+      "side": 1,
+      "message": "This function doesn\u0027t exist anymore?",
+      "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74828573_bc17449b",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-23T23:04:35Z",
+      "side": 1,
+      "message": "Isn\u0027t 5 milliseconds an awfully long time for something that happens in mere assembly in parallel on those cores? Was this value just guessed? Can do just do mdelay(1); instead?",
+      "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f94a130_5fbffc65",
+        "filename": "plat/arm/board/arm_fpga/fpga_private.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-23T23:04:35Z",
+      "side": 1,
+      "message": "I don\u0027t think this needs to be exported anymore?",
+      "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31a66ee6_33d0bf1d",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-23T23:04:35Z",
+      "side": 1,
+      "message": "Should that prototype go into fpga_private.h?",
+      "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cf975e6_86c0950e",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-23T23:04:35Z",
+      "side": 1,
+      "message": "Do we really need this or is this a leftover from earlier revisions? I don\u0027t see why only CPU0 would be able to do this - regardless of that it will probably only ever be core 0 anyway.\nNone of the other platforms call plat_is_my_cpu_primary() from C, and that would save you the awkward prototype above.",
+      "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bee56d4_d561f1c5",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-23T23:04:35Z",
+      "side": 1,
+      "message": "This should be MPIDR_AFFLVL0_VAL, I guess?",
+      "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
