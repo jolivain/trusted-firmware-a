@@ -263,6 +263,91 @@
       "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd6def0_00359b01",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-23T23:55:32Z",
+      "side": 1,
+      "message": "Please drop the arm,gic-600 compatible string, just have arm,gic-v3.",
+      "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "281cb7d8_01d91a00",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-23T23:55:32Z",
+      "side": 1,
+      "message": "Similarly here, just arm,gic-v3-its. Same of the other ITSes.",
+      "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb3884ae_d45915c6",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-23T23:55:32Z",
+      "side": 1,
+      "message": "Same here, just arm,smmu-v3.",
+      "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d897fb0_4d774f54",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-23T23:55:32Z",
+      "side": 1,
+      "message": "those three lines are not needed",
+      "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61bd2016_1f0ee0b9",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-23T23:55:32Z",
+      "side": 1,
+      "message": "please rename the node name to serial@2a400000 (keep soc_uart0)",
+      "revId": "d381738d6962a1699ad4a5f5137069f2d802f543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
