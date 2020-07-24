@@ -539,6 +539,9 @@ int main(int argc, char *argv[])
 			exit(1);
 		}
 
+		while ((cert_ext = sk_X509_EXTENSION_pop(sk)) != NULL) {
+			X509_EXTENSION_free(cert_ext);
+		}
 		sk_X509_EXTENSION_free(sk);
 	}
 
