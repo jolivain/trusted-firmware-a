@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4cc30823_8f76eea5",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-24T10:51:37Z",
+      "side": 1,
+      "message": "No, it doesn\u0027t. It was a version of fpga_calc_core_pos() able to work without stack needed for a previous patchset which is not needed anymore.",
+      "parentUuid": "74b5e37c_eadd84b2",
+      "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74828573_bc17449b",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 28
@@ -33,6 +51,24 @@
       "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0402bf38_3200187a",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-24T10:51:37Z",
+      "side": 1,
+      "message": "I tried with 1mS and my tests were unstable. If I recall correctly, I even had some fails with 2ms, so I decided to get conservative here and use 5mS.\n\nAnyway, I have ran several tests with 2mS and seems to be working well now, so I will leave it there.",
+      "parentUuid": "74828573_bc17449b",
+      "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "7fcb5f2d_a059122d",
+        "filename": "plat/arm/board/arm_fpga/fpga_private.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-24T10:51:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f94a130_5fbffc65",
+      "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31a66ee6_33d0bf1d",
         "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
         "patchSetId": 28
@@ -67,6 +121,24 @@
       "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e0eaf7d_0bcaad95",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-24T10:51:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31a66ee6_33d0bf1d",
+      "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "1328feb3_68be5361",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-24T10:51:37Z",
+      "side": 1,
+      "message": "I added this on a previous patchset and I decided to keep it just in case, but giving it second thoughts I don\u0027t think the secondaries will ever call this function before the primary one as you pointed out, so I\u0027m removing it.",
+      "parentUuid": "1cf975e6_86c0950e",
+      "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1bee56d4_d561f1c5",
         "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
         "patchSetId": 28
@@ -101,6 +191,24 @@
       "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be94a39f_7a84d871",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-24T10:51:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bee56d4_d561f1c5",
+      "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
