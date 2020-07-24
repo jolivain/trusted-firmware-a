@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db598d8f_e41bd65c",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-24T14:35:32Z",
+      "side": 1,
+      "message": "nit: remove this comment or put /* (SPD_spmd) \u0026\u0026 !(ARM_LINUX_KERNEL_AS_BL33) */.",
+      "range": {
+        "startLine": 151,
+        "startChar": 7,
+        "endLine": 151,
+        "endChar": 21
+      },
+      "revId": "44112cdf5769541e317ac67ac628bd552a128cdb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
