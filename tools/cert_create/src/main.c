@@ -539,7 +539,7 @@ int main(int argc, char *argv[])
 			exit(1);
 		}
 
-		sk_X509_EXTENSION_free(sk);
+		sk_X509_EXTENSION_pop_free(sk);
 	}
 
 
