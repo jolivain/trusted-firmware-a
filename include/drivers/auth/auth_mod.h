@@ -66,6 +66,22 @@ extern unsigned int auth_img_flags[MAX_NUMBER_IDS];
 			} \
 		} \
 	}
+
+#define DEFINE_PLAT_SP_PKG(n) \
+	static const auth_img_desc_t sp_pkg##n = { \
+		.img_id = SP_PKG##n##_ID, \
+		.img_type = IMG_RAW, \
+		.parent = &plat_sp_content_cert, \
+		.img_auth_methods = (const auth_method_desc_t[AUTH_METHOD_NUM]) { \
+			[0] = { \
+				.type = AUTH_METHOD_HASH, \
+				.param.hash = { \
+					.data = &raw_data, \
+					.hash = &sp_pkg##n##_hash \
+				} \
+			} \
+		} \
+	}
 #endif
 
 #endif /* TRUSTED_BOARD_BOOT */

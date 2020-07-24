@@ -14,11 +14,13 @@
 #define arm__sp_getter(prop)	arm_sp.prop
 
 #define ARM_SP_MAX_SIZE		U(0x10000)
+#define STR_LEN			U(8)
 
 struct arm_sp_t {
 	unsigned int		number_of_sp;
 	union uuid_helper_t	uuids[MAX_SP_IDS];
 	uintptr_t		load_addr[MAX_SP_IDS];
+	char			owner[MAX_SP_IDS][STR_LEN];
 };
 
 int fconf_populate_arm_sp(uintptr_t config);
