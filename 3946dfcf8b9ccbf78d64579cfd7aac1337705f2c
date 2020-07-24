@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "cc8b8974_dc9d039a",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-24T11:49:13Z",
+      "side": 1,
+      "message": "Oh, sorry, I didn\u0027t know that you actually tested this value! If you ever saw failures with 2ms, then please keep the 5ms. We don\u0027t want to take any chances. I guess you tested this on a big core FPGA? Little cores might have a slower memory subsystem, and I guess the bus needs to sort out the write requests from all the cores. Thinking about the frequency the FPGAs typically run in, now 5ms doesn\u0027t seem awfully long anymore.\nSo sorry for the noise.",
+      "parentUuid": "0402bf38_3200187a",
+      "revId": "3946dfcf8b9ccbf78d64579cfd7aac1337705f2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f94a130_5fbffc65",
         "filename": "plat/arm/board/arm_fpga/fpga_private.h",
         "patchSetId": 28
