@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8ba65ffa_0a38ef96",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 30
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-24T14:41:46Z",
+      "side": 1,
+      "message": "Omitting the branch seems like a overeager optimisation to me, and it\u0027s very fragile and hard to spot if something goes wrong. So for the sake of robustness I would really appreciate to keep that in. I would guess that modern u-archs just skip that instruction, anyway.",
+      "parentUuid": "db21e86b_c61480d9",
+      "revId": "0c63d3b49a31130e1c8d7f6a53fbc0d488d0a3d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4176ab6_ba479ed7",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 30
