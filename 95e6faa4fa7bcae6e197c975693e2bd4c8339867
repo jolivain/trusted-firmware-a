@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53630a03_4166696a",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-24T00:17:46Z",
+      "side": 1,
+      "message": "I would still prefer this and the mask bit above to come from cortex_a76.h",
+      "range": {
+        "startLine": 48,
+        "startChar": 42,
+        "endLine": 48,
+        "endChar": 55
+      },
+      "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6869fc93_9e5eac5a",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-24T00:17:46Z",
+      "side": 1,
+      "message": "You\u0027re writing this long if-condition so often it might be nice to factor it out into an is_cpu_off(target_state) function.",
+      "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ddebfb6_db1a9c1f",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-24T00:17:46Z",
+      "side": 1,
+      "message": "no space here",
+      "range": {
+        "startLine": 263,
+        "startChar": 38,
+        "endLine": 263,
+        "endChar": 39
+      },
+      "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f1b6f7b_ddacf8d3",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-24T00:17:46Z",
+      "side": 1,
+      "message": "I think goto labels should normal be in small letters, not caps. (Also maybe another blank line before this?)",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 12
+      },
+      "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0c97263_7aac0e18",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_defs.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-24T00:17:46Z",
+      "side": 1,
+      "message": "There should be no need to #if guard struct definitions, they don\u0027t hurt anyone. (Like you saw on the qtiseclib side, this just makes it easy to accidentally introduce build errors to one of the two configurations.)",
+      "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ad4243f_e06da522",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-24T00:17:46Z",
+      "side": 1,
+      "message": "You can just write add_define(QTI_SDI_BUILD), that has the same effect.",
+      "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
