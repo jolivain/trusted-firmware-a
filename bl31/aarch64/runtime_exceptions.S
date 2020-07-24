@@ -79,11 +79,86 @@
 	bl	restore_gp_pmcr_pauth_regs
 1:
 #else
+	/*
+	 * For SoCs which do not implement RAS, use DSB as a barrier to
+	 * synchronize pending external aborts.
+	 */
+	dsb	sy
+
 	/* Unmask the SError interrupt */
 	msr	daifclr, #DAIF_ABT_BIT
 
+	/* Use ISB for the above unmask operation to take effect immediately */
+	isb
+
+	/* Refer Note 1 */
+	str     x19, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X19]
+	mov 	x19, #1
+	str	x19, [sp, #CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3]
+	ldr     x19, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X19]
+	dmb	sy
+
 	str	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
 #endif
+	.endm
+
+	/*
+	 * Note 1: The explicit DSB at the entry of various exception vectors
+	 * for handling exceptions from lower ELs can inadvertently trigger an
+	 * SError exception in EL3 due to pending asynchronous aborts in lower
+	 * ELs. This will end up being handled by serror_sp_elx which will
+	 * ultimately panic and die.
+	 * The way to workaround is to update a flag to indicate if the exception
+	 * truly came from EL3. This flag is allocated in the cpu_context
+	 * structure and located at offset "CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3"
+	 * This is not a bullet proof solution to the problem at hand because
+	 * we assume the instructions following "isb" that help to update the
+	 * flag execute without causing further exceptions.
+	 */
+
+	/* ---------------------------------------------------------------------
+	 * This macro handles Asynchronous External Aborts.
+	 * ---------------------------------------------------------------------
+	 */
+	.macro	handle_async_ea
+	/*
+	 * Use a barrier to synchronize pending external aborts.
+	 */
+	dsb	sy
+
+	/* Unmask the SError interrupt */
+	msr	daifclr, #DAIF_ABT_BIT
+
+	/* Use ISB for the above unmask operation to take effect immediately */
+	isb
+
+	/* Refer Note 1 */
+	str     x19, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X19]
+	mov 	x19, #1
+	str	x19, [sp, #CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3]
+	ldr     x19, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X19]
+	dmb	sy
+
+	b	enter_lower_el_async_ea
+	.endm
+
+	/*
+	 * This macro checks if the exception was taken due to SError in EL3 or
+	 * because of pending asynchronous external aborts from lower EL that got
+	 * triggered due to explicit synchronization in EL3. Refer Note 1.
+	 */
+	.macro check_if_serror_from_EL3
+	/* Assumes SP_EL3 on entry */
+	str     x19, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X19]
+	ldr	x19, [sp, #CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3]
+	cbnz	x19, exp_from_EL3
+	ldr	x19, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X19]
+
+	/* Handle asynchronous external abort from lower EL */
+	b	enter_lower_el_async_ea
+
+exp_from_EL3:
+	/* Jump to plat_handle_el3_ea which does not return */
 	.endm
 
 	/* ---------------------------------------------------------------------
@@ -272,6 +347,9 @@ vector_entry fiq_sp_elx
 end_vector_entry fiq_sp_elx
 
 vector_entry serror_sp_elx
+#if !RAS_EXTENSION
+	check_if_serror_from_EL3
+#endif
 	no_ret	plat_handle_el3_ea
 end_vector_entry serror_sp_elx
 
@@ -305,8 +383,12 @@ end_vector_entry fiq_aarch64
 
 vector_entry serror_aarch64
 	apply_at_speculative_wa
+#if RAS_EXTENSION
 	msr	daifclr, #DAIF_ABT_BIT
 	b	enter_lower_el_async_ea
+#else
+	handle_async_ea
+#endif
 end_vector_entry serror_aarch64
 
 	/* ---------------------------------------------------------------------
@@ -339,8 +421,12 @@ end_vector_entry fiq_aarch32
 
 vector_entry serror_aarch32
 	apply_at_speculative_wa
+#if RAS_EXTENSION
 	msr	daifclr, #DAIF_ABT_BIT
 	b	enter_lower_el_async_ea
+#else
+	handle_async_ea
+#endif
 end_vector_entry serror_aarch32
 
 #ifdef MONITOR_TRAPS
