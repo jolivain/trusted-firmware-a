@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21b09a57_c4321fd4",
+        "filename": "plat/arm/board/arm_fpga/aarch64/fpga_helpers.S",
+        "patchSetId": 30
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-24T12:46:39Z",
+      "side": 1,
+      "message": "You can remove this instruction.",
+      "revId": "0c63d3b49a31130e1c8d7f6a53fbc0d488d0a3d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4176ab6_ba479ed7",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-24T12:46:39Z",
+      "side": 1,
+      "message": "0ULL",
+      "revId": "0c63d3b49a31130e1c8d7f6a53fbc0d488d0a3d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a215957a_e28a4181",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-24T12:46:39Z",
+      "side": 1,
+      "message": "add empty line",
+      "revId": "0c63d3b49a31130e1c8d7f6a53fbc0d488d0a3d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b9e2041_b755877f",
+        "filename": "plat/arm/board/arm_fpga/fpga_topology.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-24T12:46:39Z",
+      "side": 1,
+      "message": "int core_pos\nbut\nunsigned int plat_fpga_calc_core_pos (uint32_t mpid)",
+      "revId": "0c63d3b49a31130e1c8d7f6a53fbc0d488d0a3d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
