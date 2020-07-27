@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71f3a923_d0b5c813",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-27T17:35:21Z",
+      "side": 1,
+      "message": "Would be good to use SPMC or SPMD specicically. SPM is generally both SPMD+SPMC. I assume this is the SPMD\u0027s requirement since it will parse the SPMC manifest.",
+      "range": {
+        "startLine": 87,
+        "startChar": 5,
+        "endLine": 87,
+        "endChar": 8
+      },
+      "revId": "dc2322f6eb9c61b6a289234792eda283837fd4e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
