@@ -137,6 +137,24 @@
       "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ff0aa64_e89233ad",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-27T10:10:04Z",
+      "side": 1,
+      "message": "not working, see error below. we have #if in c code its expects value as well.\n\n\nIn file included from plat/qti/qtiseclib/inc/qtiseclib_interface.h:10:0,\n                 from plat/qti/common/src/qti_bl31_setup.c:21:\nplat/qti/qtiseclib/inc/qtiseclib_defs.h:38:18: error: #if with no expression\n #if QTI_SDI_BUILD\n                  ^\nMakefile:1069: recipe for target \u0027build/sc7180/debug/bl31/qti_bl31_setup.o\u0027 failed",
+      "parentUuid": "9ad4243f_e06da522",
+      "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
