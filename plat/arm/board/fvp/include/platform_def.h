@@ -43,6 +43,17 @@
 #define PLAT_ARM_TRUSTED_DRAM_BASE	UL(0x06000000)
 #define PLAT_ARM_TRUSTED_DRAM_SIZE	UL(0x02000000)	/* 32 MB */
 
+#if defined(SPD_spmd)
+#define PLAT_ARM_BL32_BASE		PLAT_ARM_TRUSTED_DRAM_BASE
+
+/*
+ * 2MB (1 << 21) is the max size of BL32 image for FVP. With SPMD enabled
+ * this value corresponds to max image size of SPMC.
+ */
+#define PLAT_ARM_BL32_LIMIT		(PLAT_ARM_TRUSTED_DRAM_BASE +	\
+					 (UL(1) << 21))
+#endif
+
 /* virtual address used by dynamic mem_protect for chunk_base */
 #define PLAT_ARM_MEM_PROTEC_VA_FRAME	UL(0xc0000000)
 
