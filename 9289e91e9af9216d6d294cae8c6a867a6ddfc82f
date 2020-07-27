@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0b7cd6b_380b78cc",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-27T13:51:04Z",
+      "side": 1,
+      "message": "Can you please rename tt to something more descriptive, like pd_tree, for instance?",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "847c09d5_83bf6439",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-27T13:51:04Z",
+      "side": 1,
+      "message": "So I was wondering how to handle this situation: Originally I thought we should try to just overwrite the nodes we are about to generate, leaving other nodes in place. But this sounds a) tedious to implement and b) would create weird hybrids of (possibly bogus) existing nodes and newly created ones, which is not really what we want.\nMy next thought was to just delete any existing /cpus node, should we find it. That would have the advantage of allowing some demo or explanatory /cpus node in the base DT, so any reader would see what\u0027s going on.\nBut I think your solution (bailing out if an existing /cpus node is found), is probably better, because it allows to force a topology into the DTB, for experiments, or if we need something special (new nodes or properties). That sounds like the most flexible approach, as it gives the user full control over the topology, just providing the /cpus node if nothing is there.\n\nSo I think this is fine, but we should extend the message to say that we skip the automatic topology detection, in favour of the existing node.",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a98fac2a_64433fad",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-27T13:51:04Z",
+      "side": 1,
+      "message": "We don\u0027t need this. 0 serves as the node offset for the root node.",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c28125e1_189f0f96",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-27T13:51:04Z",
+      "side": 1,
+      "message": "libfdt.h tells me that this function is deprecated by fdt_find_max_phandle().",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3838d90_2d3375d9",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-27T13:51:04Z",
+      "side": 1,
+      "message": "Can you add the 1 on the line above? Looks more robust than the tricky pre-increment.",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38fd8611_835aa0d9",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-27T13:51:04Z",
+      "side": 1,
+      "message": "fdt_get_max_phandle() (and fdt_find_max_phandle()) are very expensive, since they iterate over the whole tree, possibly even twice. Surely the highest phandle hasn\u0027t changed since you set the property above? So what about just having one phandle variable, initialising this once with fdt_find_max_phandle() above, then using +1, +2, and +3, for cpus, map, and cache, respectively?\nWould also avoid the pre-increments altogether.",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "866de54b_52eafe79",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-27T13:51:04Z",
+      "side": 1,
+      "message": "cpu_phandle + 1 (or phandle + 2)",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4913c44f_2b7c5846",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-27T13:51:04Z",
+      "side": 1,
+      "message": "same here: cpu_phandle + 2 (or phandle + 3)",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78a1a74a_6bfffc60",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-27T13:51:04Z",
+      "side": 1,
+      "message": "if that is the only caller of this function, you could think about just passing the base phandle, and using +1, +2, and +3 in the callee to select cpus, map and cache.",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "464857cb_a69e5d44",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-27T13:51:04Z",
+      "side": 1,
+      "message": "I was planning on merging the command line patch very soonish, so this would conflict then. But it actually should make it easier to integrate.",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
