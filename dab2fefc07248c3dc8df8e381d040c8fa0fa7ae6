@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "11bc2f89_56c49432",
+        "filename": "plat/qti/common/src/qti_rng.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-27T06:26:00Z",
+      "side": 1,
+      "message": "waiting for answer at https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/3964/7/plat/qti/common/inc/qti_plat.h#11\nI think both are same issue.",
+      "parentUuid": "f05143d4_02f71182",
+      "revId": "dab2fefc07248c3dc8df8e381d040c8fa0fa7ae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ed843fa_7ccb652c",
         "filename": "plat/qti/common/src/qti_rng.c",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2020-07-23T23:58:13Z",
       "side": 1,
       "message": "And while we\u0027re at it, multi-line comment formatting should be\n\n /*\n  * text text text\n  * text text\n  */",
+      "revId": "dab2fefc07248c3dc8df8e381d040c8fa0fa7ae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "562e0f92_be59fb24",
+        "filename": "plat/qti/common/src/qti_rng.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-07-27T06:26:00Z",
+      "side": 1,
+      "message": "will do before next post.",
+      "parentUuid": "8ed843fa_7ccb652c",
       "revId": "dab2fefc07248c3dc8df8e381d040c8fa0fa7ae6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
