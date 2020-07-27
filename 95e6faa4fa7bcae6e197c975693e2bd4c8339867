@@ -155,6 +155,24 @@
       "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6fd00a5f_0c9add86",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-27T23:03:54Z",
+      "side": 1,
+      "message": "Huh... not sure why this doesn\u0027t work. add_define is declared as\n\n DEFINES +\u003d -D$(1)$(if $(value $(1)),\u003d$(value $(1)),)\n\nso add_define(QTI_SDI_BUILD) should resolve to\n\n DEFINES +\u003d -DQTI_SDI_BUILD$(if $(value QTI_SDI_BUILD),\u003d$(value QTI_SDI_BUILD),)\n\n$(value QTI_SDI_BUILD) should be `0` so this should further resolve to\n\n DEFINES +\u003d -DQTI_SDI_BUILD$(if 0,\u003d0,)\n\nand since $(if ) considers everything true that\u0027s not an empty string, this should give you\n\n DEFINES +\u003d -DQTI_SDI_BUILD\u003d0\n\nWhat am I missing? Are you sure you wrote and spelled it right when you tested it (still with the $(eval ) around it, and putting the add_define *after* the QTI_SDI_BUILD :\u003d 0)?",
+      "parentUuid": "8ff0aa64_e89233ad",
+      "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
