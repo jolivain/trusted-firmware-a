@@ -251,6 +251,24 @@
     },
     {
       "key": {
+        "uuid": "097008cd_c9f6b526",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-28T16:55:10Z",
+      "side": 1,
+      "message": "Almost ;-) I think the second bank starts at 34 GB, so there is a typo in the address below. Which tells me that someone should actually test this ...\nAnd actually the start address of the second bank is of little interest to the human reader, so you could skip that.",
+      "parentUuid": "aba9cfcc_8b98badb",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c48a341c_76378a99",
         "filename": "fdts/n1sdp-single-chip.dts",
         "patchSetId": 4
