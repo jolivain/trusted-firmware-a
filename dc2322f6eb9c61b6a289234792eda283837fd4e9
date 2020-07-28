@@ -46,6 +46,30 @@
       "revId": "dc2322f6eb9c61b6a289234792eda283837fd4e9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "984fa782_2683c054",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-28T17:03:15Z",
+      "side": 1,
+      "message": "Would it not be better to separate them out into different files? would be great if it can be clear from the file which component consumes it.",
+      "parentUuid": "2f1d38ad_de0bb520",
+      "range": {
+        "startLine": 87,
+        "startChar": 5,
+        "endLine": 87,
+        "endChar": 8
+      },
+      "revId": "dc2322f6eb9c61b6a289234792eda283837fd4e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
