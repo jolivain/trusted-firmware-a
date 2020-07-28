@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6b0aa6b4_1d47581f",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-07-28T14:15:21Z",
+      "side": 1,
+      "message": "we can\u0027t define function like below, since pre-processor macro won\u0027t translate it to S3_0_C15_C2_7.\n\n_DEFINE_SYSREG_WRITE_FUNC(cpu_pwrctrl_val, CORTEX_A76_CPUPWRCTLR_EL1)\n\nbesides using A76 may not look clean if we are using same for other type of cpu, defining a QTI_* will make it generic for all QTI cpus.",
+      "parentUuid": "53630a03_4166696a",
+      "range": {
+        "startLine": 48,
+        "startChar": 42,
+        "endLine": 48,
+        "endChar": 55
+      },
+      "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6869fc93_9e5eac5a",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 8
@@ -39,6 +63,24 @@
       "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abc91d18_9ed03731",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-07-28T14:15:21Z",
+      "side": 1,
+      "message": "sure, moved to new is_cpu_off() function.",
+      "parentUuid": "6869fc93_9e5eac5a",
+      "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -62,6 +104,30 @@
       "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7d23c7f_e8362765",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000373
+      },
+      "writtenOn": "2020-07-28T14:15:21Z",
+      "side": 1,
+      "message": "Removed extra space.",
+      "parentUuid": "0ddebfb6_db1a9c1f",
+      "range": {
+        "startLine": 263,
+        "startChar": 38,
+        "endLine": 263,
+        "endChar": 39
+      },
+      "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
