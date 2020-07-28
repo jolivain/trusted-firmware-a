@@ -465,6 +465,17 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		/* Fall through to forward the call to the other world */
 
 	case FFA_PARTITION_INFO_GET:
+		/*
+		 * Should not be allowed to forward FFA_PARTITION_INFO_GET
+		 * from Secure world to Normal world
+		 */
+
+		if (secure_origin) {
+			return spmd_ffa_error_return(handle,
+						     FFA_ERROR_NOT_SUPPORTED);
+		}
+
+		/* Fall through to forward the call to the other world */
 	case FFA_MSG_SEND:
 	case FFA_MSG_SEND_DIRECT_REQ_SMC32:
 	case FFA_MSG_SEND_DIRECT_REQ_SMC64:
