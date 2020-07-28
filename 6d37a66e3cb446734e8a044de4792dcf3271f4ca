@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3a7f343_07210f92",
+        "filename": "fdts/n1sdp-multi-chip.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-28T14:07:12Z",
+      "side": 1,
+      "message": "Can you please make this comment more meaningful (it just seems to repeat the values):\n\"First 2 GB of DRAM on remote board (mapped at 1TB).\"",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ec4c7b6_c26be056",
+        "filename": "fdts/n1sdp-multi-chip.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-28T14:07:12Z",
+      "side": 1,
+      "message": "Same here: \"Remaining DRAM on remote board, mapped at 1TB + 32GB + 2GB.\"",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf102450_299300b7",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-28T14:07:12Z",
+      "side": 1,
+      "message": "This comment doesn\u0027t apply anymore. Please remove it, instead explain that this assumes the standard setup with two 8GB DIMM modules, and that this should be dynamically adjusted by firmware.",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c48a341c_76378a99",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-28T14:07:12Z",
+      "side": 1,
+      "message": "Can you please make this comment more meaningful:\n\"First 2GB of DRAM. The top 16MB are reserved by firmware as secure memory.\"",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f154ebc_89aa357f",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-28T14:07:12Z",
+      "side": 1,
+      "message": "\"Second DRAM bank, mapped at 34GB. This assumes 16GB of total DRAM being populated.\"",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "119c3465_7756592c",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-28T14:07:12Z",
+      "side": 1,
+      "message": "As above, just \"arm,smmu-v3\".",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
