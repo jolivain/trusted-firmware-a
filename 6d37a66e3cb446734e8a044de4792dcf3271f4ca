@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f7c27f8a_f656c5a9",
+        "filename": "fdts/n1sdp-multi-chip.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2020-07-28T14:25:58Z",
+      "side": 1,
+      "message": "It was the range of memory anyway will try to put comment as below -\n\n\"First 2GB of remote n1sdp board DRAM mapped at 0x40080000000.\n Second DRAM bank of remote n1sdp board of size 14GB mapped at 0x48080000000.\"",
+      "parentUuid": "a3a7f343_07210f92",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ec4c7b6_c26be056",
         "filename": "fdts/n1sdp-multi-chip.dts",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2020-07-28T14:07:12Z",
       "side": 1,
       "message": "Same here: \"Remaining DRAM on remote board, mapped at 1TB + 32GB + 2GB.\"",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec20acad_7e2c2bb1",
+        "filename": "fdts/n1sdp-multi-chip.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2020-07-28T14:25:58Z",
+      "side": 1,
+      "message": "Commented as above.",
+      "parentUuid": "9ec4c7b6_c26be056",
       "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "9e9614f8_161a8323",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2020-07-28T14:25:58Z",
+      "side": 1,
+      "message": "ok.\nWill remove the comment.\nInstead of multiple comments I will put single comment as below -\n\"This configuration assumes that standard setup with two DIMM modules.\n First 2GB of DRAM starts at 0x80000000. The top 16MB are reserved by firmware as secure memory.\n Second DRAM bank of 14GB starts at 0x8080000000.\"",
+      "parentUuid": "cf102450_299300b7",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c48a341c_76378a99",
         "filename": "fdts/n1sdp-single-chip.dts",
         "patchSetId": 4
@@ -64,6 +118,24 @@
       "writtenOn": "2020-07-28T14:07:12Z",
       "side": 1,
       "message": "Can you please make this comment more meaningful:\n\"First 2GB of DRAM. The top 16MB are reserved by firmware as secure memory.\"",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0261c704_376da196",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2020-07-28T14:25:58Z",
+      "side": 1,
+      "message": "Included in above comment.",
+      "parentUuid": "c48a341c_76378a99",
       "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "38d898ee_749a9c5f",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2020-07-28T14:25:58Z",
+      "side": 1,
+      "message": "Will phrase as mentioned in above comment.",
+      "parentUuid": "7f154ebc_89aa357f",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "119c3465_7756592c",
         "filename": "fdts/n1sdp.dtsi",
         "patchSetId": 4
@@ -101,6 +191,24 @@
       "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbfd5437_69b53b4b",
+        "filename": "fdts/n1sdp.dtsi",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2020-07-28T14:25:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "119c3465_7756592c",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
