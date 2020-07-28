@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2172f6a_e91ebf51",
+        "filename": "plat/mediatek/mt8192/include/plat_helpers.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-28T19:41:59Z",
+      "side": 1,
+      "message": "Is this notice needed?",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 3
+      },
+      "revId": "870ca8efdac178a479bf3f8572c6f708997ff9d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "061a917c_844d0433",
+        "filename": "plat/mediatek/mt8192/include/platform_def.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-28T19:41:59Z",
+      "side": 1,
+      "message": "I was wondering what is the need to define PLATFORM_CLUSTER1_CORE_COUNT if its 0.",
+      "revId": "870ca8efdac178a479bf3f8572c6f708997ff9d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c6fd00d_8de04c70",
+        "filename": "plat/mediatek/mt8192/plat_topology.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-28T19:41:59Z",
+      "side": 1,
+      "message": "I dont think this entry is needed.",
+      "revId": "870ca8efdac178a479bf3f8572c6f708997ff9d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "336faea9_85bd7953",
+        "filename": "plat/mediatek/mt8192/plat_topology.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-07-28T19:41:59Z",
+      "side": 1,
+      "message": "I think this should be:\ncpu_id + (cluster_id * 8)",
+      "revId": "870ca8efdac178a479bf3f8572c6f708997ff9d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
