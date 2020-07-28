@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "9909ad68_f1347b59",
+        "filename": "fdts/n1sdp-multi-chip.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2020-07-28T15:25:21Z",
+      "side": 1,
+      "message": "ok, sure. Comment can be made simpler just to highlight the mapping of remote board address mapping at 4TB offset.\n\n\"Remote N1SDP board address mapped at offset 4TB. First DRAM Bank of remote N1SDP board mapped at 4TB + 2GB\"",
+      "parentUuid": "8c44777b_6152ed6b",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ec4c7b6_c26be056",
         "filename": "fdts/n1sdp-multi-chip.dts",
         "patchSetId": 4
@@ -137,6 +155,24 @@
       "side": 1,
       "message": "Can you please replace the unreadable hex values with some more understandable numbers, like 2GB or 34GB? The hex values are actually in the property, so you don\u0027t need to repeat them in the comment.",
       "parentUuid": "9e9614f8_161a8323",
+      "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b942e4af_9161ea00",
+        "filename": "fdts/n1sdp-single-chip.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2020-07-28T15:25:21Z",
+      "side": 1,
+      "message": "ok, sure. I guess in that case we can have just simple comment as below -\n\"This configuration assumes that standard setup with two DIMM modules.\n In the first 2GB of DRAM bank the top 16MB are reserved by firmware as secure memory.\"\n\nRest of the meaning (memory start, size, end) can be easily understood REG property itself.",
+      "parentUuid": "f8e7ddef_b815d7b1",
       "revId": "6d37a66e3cb446734e8a044de4792dcf3271f4ca",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
