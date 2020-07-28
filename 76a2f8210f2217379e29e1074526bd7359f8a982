@@ -45,6 +45,23 @@
       "revId": "76a2f8210f2217379e29e1074526bd7359f8a982",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59cdce94_00d11436",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-28T13:59:32Z",
+      "side": 1,
+      "message": "just something to think about further, I wonder if spmd_pm_secondary_core_set_ep can just do what\u0027s done here that is update directly spmd_ep_info-\u003epc with the entry point and x0 with the context.\nIn this handler we would just call cm_setup_context.",
+      "revId": "76a2f8210f2217379e29e1074526bd7359f8a982",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
