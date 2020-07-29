@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32ef2b14_02745281",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-29T10:27:29Z",
+      "side": 1,
+      "message": "Should this be !check_uptr_overflow ?",
+      "range": {
+        "startLine": 363,
+        "startChar": 8,
+        "endLine": 363,
+        "endChar": 27
+      },
+      "revId": "5293bb2d72baa477afc2cb63153fe55cdc03e4d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
