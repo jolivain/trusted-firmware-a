@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7f36766e_9c71c3f8",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-29T16:15:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0b7cd6b_380b78cc",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "847c09d5_83bf6439",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 21
@@ -30,6 +48,24 @@
       "writtenOn": "2020-07-27T13:51:04Z",
       "side": 1,
       "message": "So I was wondering how to handle this situation: Originally I thought we should try to just overwrite the nodes we are about to generate, leaving other nodes in place. But this sounds a) tedious to implement and b) would create weird hybrids of (possibly bogus) existing nodes and newly created ones, which is not really what we want.\nMy next thought was to just delete any existing /cpus node, should we find it. That would have the advantage of allowing some demo or explanatory /cpus node in the base DT, so any reader would see what\u0027s going on.\nBut I think your solution (bailing out if an existing /cpus node is found), is probably better, because it allows to force a topology into the DTB, for experiments, or if we need something special (new nodes or properties). That sounds like the most flexible approach, as it gives the user full control over the topology, just providing the /cpus node if nothing is there.\n\nSo I think this is fine, but we should extend the message to say that we skip the automatic topology detection, in favour of the existing node.",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8531e4d_41214e28",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-29T16:15:10Z",
+      "side": 1,
+      "message": "I actually gave some thoughts to this as well and I thought that the simplest approach was to bail out if there were already a /cpus node, mainly for the same reasons you pointed out. If necessary later, a new patch with extra functionality could be added, but the priority to me was to have an initial version of this patch ASAP.\n\nI didn\u0027t think about the possibility of using the existing /cpus node on the DTB for the topology configuration, so if the node is present on the DTB we might end with a discrepancy between the actual topology and the DTB. \n\nI guess then that for the time being, it might be acceptable to leave it as is (or to panic or add an assertion if a /cpus node is found) and then on a later patch populate the topology tree with that node, skipping the self-discovery in that case.\n\nWould that be acceptable?",
+      "parentUuid": "847c09d5_83bf6439",
       "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "d9ec6d4d_edcdf3ac",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-29T16:15:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a98fac2a_64433fad",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c28125e1_189f0f96",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 21
@@ -67,6 +121,24 @@
       "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "343f9af1_ea1bb557",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-29T16:15:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c28125e1_189f0f96",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "f0c9accd_4d432831",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-29T16:15:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3838d90_2d3375d9",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38fd8611_835aa0d9",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 21
@@ -101,6 +191,24 @@
       "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d9e3fd1_a6e42864",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-29T16:15:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38fd8611_835aa0d9",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "bd8b9f75_2e4ce332",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-29T16:15:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "866de54b_52eafe79",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4913c44f_2b7c5846",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 21
@@ -135,6 +261,24 @@
       "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70232fbe_f5d39828",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-29T16:15:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4913c44f_2b7c5846",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "01586984_1a0fbe6b",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-29T16:15:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78a1a74a_6bfffc60",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "464857cb_a69e5d44",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 21
@@ -169,6 +331,24 @@
       "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9489f84b_2bd5154a",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-07-29T16:15:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "464857cb_a69e5d44",
+      "revId": "9289e91e9af9216d6d294cae8c6a867a6ddfc82f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
