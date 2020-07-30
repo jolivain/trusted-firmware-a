@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2312ec3a_0e0aa73f",
+        "filename": "Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-30T12:46:28Z",
+      "side": 1,
+      "message": "I removed one tab but not sure which one bothered you.",
+      "parentUuid": "7ab388c8_5276ccbb",
+      "revId": "c1624a091803cedcfe09ebc9db1acce863b01c49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7acb259f_283e947d",
         "filename": "plat/arm/board/fvp/fdts/fvp_spmc_optee_sp_manifest.dts",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2020-07-30T11:10:14Z",
       "side": 1,
       "message": "Don\u0027t you want to make this configuration more flexible with topology build optins? See fvp-defs.dtsi as an example.",
+      "revId": "c1624a091803cedcfe09ebc9db1acce863b01c49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbb6fc14_9d299787",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_optee_sp_manifest.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-30T12:46:28Z",
+      "side": 1,
+      "message": "Done. Notice SPMC/Hafnium only requires cpu nodes (device_type\u003d\"cpu\") with MPIDR information.\nCluster organization, psci method, or L2$ type are of no use.",
+      "parentUuid": "7acb259f_283e947d",
       "revId": "c1624a091803cedcfe09ebc9db1acce863b01c49",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
