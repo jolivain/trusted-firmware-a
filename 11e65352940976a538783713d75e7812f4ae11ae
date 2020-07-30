@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "543218b9_3a161f9f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-30T18:22:01Z",
+      "side": 1,
+      "message": "General comment on the commit message. If others agree too, I think the message should explicitly note that even with this work around, the errata may still occur, if EL3 has an AT instruction in its executable pages. The only way to ensure the errata cannot occur is if both EL2 and EL3 don\u0027t have any AT instructions. I understand that this is info in the mailing list but it will be good to note it here too.\nThere are multiple windows when the errata can still occur with the work around: During EL3 entry in the window where we are changing SCTLR and TCR bits, right before EL3 exit when these registers are restored, and when the AT macro(in the future commit)is used explicitly and it enables PTW briefly.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 6
+      },
+      "revId": "11e65352940976a538783713d75e7812f4ae11ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65b7f525_501155c4",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-30T18:22:01Z",
+      "side": 1,
+      "message": "can this not be pulled into the macro restore_el1_sys_regs?",
+      "range": {
+        "startLine": 468,
+        "startChar": 1,
+        "endLine": 468,
+        "endChar": 4
+      },
+      "revId": "11e65352940976a538783713d75e7812f4ae11ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
