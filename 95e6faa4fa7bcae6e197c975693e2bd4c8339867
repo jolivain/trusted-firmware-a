@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "389c7f49_3552ba40",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-30T01:55:03Z",
+      "side": 1,
+      "message": "I see. Hmmm. Well, I still don\u0027t find the way all these non-architectural registers are defined and handled very satisfying but I guess that\u0027s a larger TF-A-wide problem that needs to be well thought through and addressed as a whole. I guess you can keep it like this for now.",
+      "parentUuid": "6b0aa6b4_1d47581f",
+      "range": {
+        "startLine": 48,
+        "startChar": 42,
+        "endLine": 48,
+        "endChar": 55
+      },
+      "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6869fc93_9e5eac5a",
         "filename": "plat/qti/common/src/qti_pm.c",
         "patchSetId": 8
