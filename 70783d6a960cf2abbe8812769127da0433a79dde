@@ -212,6 +212,24 @@
     },
     {
       "key": {
+        "uuid": "3813049b_5e77b472",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-30T18:23:51Z",
+      "side": 1,
+      "message": "Oh, I wrote rubbish: I meant to let *fdt_add_cluster_cache()* return the phandle instead, since the offset value is just used to get the phandle. So you save the call to fdt_get_phandle(), and directly assign cc_phandle to the return value of fdt_add_cluster_cache().",
+      "parentUuid": "2c730bad_08e2308b",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f6727fa_e1b1bfef",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 13
@@ -370,6 +388,24 @@
     },
     {
       "key": {
+        "uuid": "fd0dbf8b_710b45dd",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-30T18:23:51Z",
+      "side": 1,
+      "message": "I don\u0027t think the offset of the *parent node* changes when you add children or properties. This is actually how you add those, by referencing this same node offset. Besides, see the other comment, and you can drop this in favour of using fdt_path_offset() in the callee.",
+      "parentUuid": "04f7628b_94c397c9",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1ad7f36_a87678de",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 13
@@ -399,6 +435,24 @@
       "side": 1,
       "message": "See my previous comment.",
       "parentUuid": "e1ad7f36_a87678de",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "270cc405_8c3527b0",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-30T18:23:51Z",
+      "side": 1,
+      "message": "You can apply a similar approach in the callee: fdt_path_offset(\"/cpus/cpu-map\")",
+      "parentUuid": "9314665c_fc07b6b1",
       "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -440,6 +494,24 @@
     },
     {
       "key": {
+        "uuid": "ee24c16d_e3ffc3ee",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-30T18:23:51Z",
+      "side": 1,
+      "message": "Yes, I see that much of the complexity stems from those cache and cpu-map nodes. They are optional and help Linux to understand the cache topology, to optimise scheduler decisions. So I think we can indeed reduce the code significantly by just dropping them, at least for now. What Linux really needs is the cpu nodes.",
+      "parentUuid": "8f31ca84_ca6a8529",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9f12a9c3_972f45a1",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 13
@@ -454,6 +526,24 @@
       "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea69811a_1c9ca85a",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-30T18:23:51Z",
+      "side": 1,
+      "message": "That is all addressed in the command line patch now, which already introduces this function. You would just need to add the 5 lines with the call to fdt_add_topology_tree() below.",
+      "parentUuid": "9f12a9c3_972f45a1",
+      "revId": "70783d6a960cf2abbe8812769127da0433a79dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
