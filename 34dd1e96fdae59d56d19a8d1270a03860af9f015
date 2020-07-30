@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "0b10c1d6_5a55a8b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-07-30T14:03:27Z",
+      "side": 1,
+      "message": "Usually there is a tradeoff for reclaiming init code. There is a fine balance wherein the reclaimed code from RO code memory just fits into RW memory without causing additional page allocation.\n\nThe removal of code from RO memory will not necessary save a page in RO section because the alignement requirements still mean the page is still needed. Only an analysis with impact to different sections will confirm whether this is beneficial or not.",
+      "revId": "34dd1e96fdae59d56d19a8d1270a03860af9f015",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3d812899_8d8bb3f4",
         "filename": "plat/common/aarch64/platform_mp_stack.S",
         "patchSetId": 3
@@ -61,6 +78,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "3c0b8906_452a6956",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 8
+      },
+      "revId": "34dd1e96fdae59d56d19a8d1270a03860af9f015",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6618537_82c54cc6",
+        "filename": "plat/common/aarch64/platform_mp_stack.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-07-30T14:03:27Z",
+      "side": 1,
+      "message": "This is not necessary although ARM ref platforms do have core ID 0. Making this assumption in common stack file can be dangerous.",
+      "parentUuid": "580e2963_f407b594",
       "range": {
         "startLine": 43,
         "startChar": 1,
