@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffbdf82f_c077ed1a",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-07-30T20:25:44Z",
+      "side": 1,
+      "message": "What is the purpose of these double casts?  \"const char *\" also does not match \"void *\" so wouldn\u0027t that result in a warning and MISRA error?",
+      "range": {
+        "startLine": 133,
+        "startChar": 1,
+        "endLine": 134,
+        "endChar": 66
+      },
+      "revId": "fa30f73b37b498273ec0b315048c06315c7c25e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ea8f7a2_d7e0813d",
+        "filename": "plat/arm/board/arm_fpga/fpga_private.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-07-30T20:25:44Z",
+      "side": 1,
+      "message": "Parenthesis around this value.",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 33
+      },
+      "revId": "fa30f73b37b498273ec0b315048c06315c7c25e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
