@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e295593f_3f8ff597",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-30T22:10:31Z",
+      "side": 1,
+      "message": "That\u0027s one known good C way of casting a literal address to a pointer, which is 32/64bit safe:\n- (uintptr_t) guarantees that the integer gets promoted to the proper size\n- (void *) converts that value to an unspecific pointer type\n\nIf you leave the uintptr_t cast out, you run into issues when the constant is not the correct size, which is different between 32 and 64-bit. If you remove the void* cast, it is not accepted to be assigned to a pointer type. Please note that this value can come in via the make command line, so we can\u0027t rely on suffixes to force a type on the constant.\nI understand that MISRA has certain understandings of its own on this topic, but in this case we are explicitly outside of the language: we force a constant physical address (which does not belong to a C language object) into a pointer. That\u0027s why I think void* is the right cast here, because it is really an un-typed address to begin with.\nIf you do: git grep \"void \\*.*uintptr_t\", you will find quite some examples in the tree, in particular it is used by libfdt. Also we use the construct already in other parts of the FPGA port, for instance for referring to that same DTB base address in fpga_console.c and fpga_gicv3.c.",
+      "parentUuid": "ffbdf82f_c077ed1a",
+      "range": {
+        "startLine": 133,
+        "startChar": 1,
+        "endLine": 134,
+        "endChar": 66
+      },
+      "revId": "fa30f73b37b498273ec0b315048c06315c7c25e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7ea8f7a2_d7e0813d",
         "filename": "plat/arm/board/arm_fpga/fpga_private.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2020-07-30T20:25:44Z",
       "side": 1,
       "message": "Parenthesis around this value.",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 33
+      },
+      "revId": "fa30f73b37b498273ec0b315048c06315c7c25e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e40b5bdc_7fc9f146",
+        "filename": "plat/arm/board/arm_fpga/fpga_private.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-30T22:10:31Z",
+      "side": 1,
+      "message": "May I ask why? Is it just for consistency? In this case I am leaning towards changing all three of them to lose the parentheses, to comply with the examples in both the Linux and our own coding-style.rst:\nhttps://github.com/ARM-software/arm-trusted-firmware/blob/master/docs/process/coding-style.rst#preprocessor-macros",
+      "parentUuid": "7ea8f7a2_d7e0813d",
       "range": {
         "startLine": 15,
         "startChar": 26,
