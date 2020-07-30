@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "d429d4cd_ae2060f9",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-30T15:59:11Z",
+      "side": 1,
+      "message": "agree. Perhaps the file should be called fvp_spm_manifest then. fvp_spmc_manifest sounds like it is consumed only by SPMC or only by SPMD to find out information about SPMC. Anyway, this is a nit.",
+      "parentUuid": "3066006a_59b0a056",
+      "range": {
+        "startLine": 87,
+        "startChar": 5,
+        "endLine": 87,
+        "endChar": 8
+      },
+      "revId": "dc2322f6eb9c61b6a289234792eda283837fd4e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "68a9ec78_1243300e",
         "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
         "patchSetId": 5
