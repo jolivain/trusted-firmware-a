@@ -175,6 +175,24 @@
     },
     {
       "key": {
+        "uuid": "239e42ed_d8cca867",
+        "filename": "plat/qti/common/inc/qti_plat.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-07-30T23:08:14Z",
+      "side": 1,
+      "message": "So I just tested this and static-checks doesn\u0027t complain about this file anymore when I put \u003cstdint.h\u003e at the top. Saurabh, can you please just upload the version that you think matches the style guide (even if the tool complains)? Just to make sure we\u0027re talking about the same thing.",
+      "parentUuid": "82537508_bc09d805",
+      "revId": "c47373b5b6be435dd4242b06ac18f9cbfb46f587",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "db5fb081_92013a88",
         "filename": "plat/qti/common/src/aarch64/qti_helpers.S",
         "patchSetId": 7
