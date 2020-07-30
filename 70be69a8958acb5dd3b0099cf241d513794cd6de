@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fbad1eb_0760b6fc",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-30T15:39:29Z",
+      "side": 1,
+      "message": "Please name this \"cluster_id\". \"id\" is just too generic.",
+      "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18e09e71_e92cd471",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-30T15:39:29Z",
+      "side": 1,
+      "message": "This breaks compilation on every platform that uses fdt_fixup.c (for instance RPi4). Is there really no other way than introducing this function?\nMy feeling is that the functions in this file here should be as generic as possible, with the topology specific information passed in from the caller in the platform port.\n\nSo what about if we export something like this function here, that adds nodes for one cluster. Then, in the prepare_dtb() function, you can loop over all the clusters you have, in any platform specific way you like, because it\u0027s internal to that platform. This function here would then just add the nodes for \"cluster 3, which has 4 cores\", for instance.",
+      "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "787603a4_2910cb06",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-30T15:39:29Z",
+      "side": 1,
+      "message": "This loop is quite confusing. You are trying to find the index of the first core in this cluster, right? Which is basically always 0? And you rely on \"number of cpus on this cluster\" to be the same for every cluster?\nThose problems would all go away if, like described above, this function would just blindly create \"ncpus\" nodes, starting from 0, for cluster \"id\". The caller could figure out the actual topology much easier.",
+      "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ec06d6c_efbf0ebd",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-30T15:39:29Z",
+      "side": 1,
+      "message": "If I get this correctly, this phandle is just used to get the path offset of the /cpus node? For which fdt_path_offset() would be a better suited function, doing away with the artificial phandle?",
+      "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af5d624c_ffb7545e",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-30T15:39:29Z",
+      "side": 1,
+      "message": "auxiliary?\nAnd do you really mean \"device tree\" here? Or is that the topology tree or power domain tree?",
+      "range": {
+        "startLine": 550,
+        "startChar": 38,
+        "endLine": 550,
+        "endChar": 46
+      },
+      "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a341f98_1cef156e",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-30T15:39:29Z",
+      "side": 1,
+      "message": "So if I get this correctly, this phandle is never referenced in the final tree, it\u0027s just to find the current offset of the /cpus node? If you follow the advice above, you can drop this \"helper\" property here.",
+      "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c79566f_4a18b535",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-07-30T15:39:29Z",
+      "side": 1,
+      "message": "This and the cache clean don\u0027t belong here, this should be done by the caller, after *all* the DT manipulation is finished. Just remove this, this is already taken care of in the command line patch.",
+      "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
