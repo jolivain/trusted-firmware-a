@@ -45,6 +45,52 @@
       "revId": "11e65352940976a538783713d75e7812f4ae11ae",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7995d5ce_8eb57185",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-07-30T21:54:31Z",
+      "side": 1,
+      "message": "A minor comment. This macro seems to be documented in the userguide along with other configs. Ideally this should be coupled to errata options mentioned in cpu_ops.mk.",
+      "range": {
+        "startLine": 448,
+        "startChar": 4,
+        "endLine": 448,
+        "endChar": 25
+      },
+      "revId": "11e65352940976a538783713d75e7812f4ae11ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58715922_e15af705",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-07-30T21:54:31Z",
+      "side": 1,
+      "message": "Match this name with the save function\n\nsuggest \"restore_ptw_el1_sys_regs\"",
+      "range": {
+        "startLine": 460,
+        "startChar": 8,
+        "endLine": 460,
+        "endChar": 28
+      },
+      "revId": "11e65352940976a538783713d75e7812f4ae11ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
