@@ -70,6 +70,47 @@
       "revId": "dc2322f6eb9c61b6a289234792eda283837fd4e9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3066006a_59b0a056",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-30T12:57:16Z",
+      "side": 1,
+      "message": "I\u0027m not really in favor to this. The SPM is a split configuration between SPMD and SPMC.\nThis manifest describes the SPM attributes in general at secure physical FF-A instance.\nIt is the re-purposed TOS_FW_CONFIG image id in TF-A. It is loaded as a single secure memory region by BL2. Then it is consumed by SPMD to validate the SPMC attributes before it boots. It is then passed by the SPMD when SPMC boots.\nAdding yet another manifest (hence a separate memory region to load, verify and authenticate in secure memory) when splitting SPMD vs SPMC configurations looks overengineered (adds even more steps to boot and build flow).",
+      "parentUuid": "984fa782_2683c054",
+      "range": {
+        "startLine": 87,
+        "startChar": 5,
+        "endLine": 87,
+        "endChar": 8
+      },
+      "revId": "dc2322f6eb9c61b6a289234792eda283837fd4e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68a9ec78_1243300e",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-07-30T12:57:16Z",
+      "side": 1,
+      "message": "@Maksims, can you please have a look at https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/4754/6/plat/arm/board/fvp/fdts/fvp_spmc_optee_sp_manifest.dts and try to apply same changes related to CPU topology using macros?",
+      "revId": "dc2322f6eb9c61b6a289234792eda283837fd4e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
