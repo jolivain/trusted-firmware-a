@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "6579548a_64b35e86",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-07-30T21:03:09Z",
+      "side": 1,
+      "message": "Ok, thats a good to know. If the sizes have been verified to have been reduced, that will be good to document as well in the commit message.",
+      "parentUuid": "7e4eb3e9_6aa7b502",
+      "revId": "34dd1e96fdae59d56d19a8d1270a03860af9f015",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3d812899_8d8bb3f4",
         "filename": "plat/common/aarch64/platform_mp_stack.S",
         "patchSetId": 3
@@ -210,6 +228,30 @@
       "side": 1,
       "message": "This is how SP was allocated for each CPU before this patch:\n\nget_my_mp_stack platform_normal_stacks, PLATFORM_STACK_SIZE\n\nand\n\t.macro get_my_mp_stack _name, _size\n\tbl\tplat_my_core_pos\n\tadrp\tx2, (\\_name + \\_size)\n\tadd\tx2, x2, :lo12:(\\_name + \\_size)\n\tmov x1, #\\_size\n\tmadd x0, x0, x1, x2\n\t.endm\n\nwhich calculates SP position based on CPU ID.\n\nWith platform_normal_stacks \u003d __STACKS_START__, SP for primary CPU is always allocated prior to .init section (trusted-firmware-a\\include\\plat\\arm\\common\\arm_reclaim_init.ld.S):\nSECTIONS\n{\n        .init __STACKS_START__ : {\n            . \u003d . + PLATFORM_STACK_SIZE;\n            . \u003d ALIGN(PAGE_SIZE);\n            __INIT_CODE_START__ \u003d .;\n\t    *(*text.init*);\n            __INIT_CODE_UNALIGNED__ \u003d .;\n            .  \u003d ALIGN(PAGE_SIZE);\n            __INIT_CODE_END__ \u003d .;\n        } \u003eRAM\n\nSo, for any \"primary\" CPU with its ID !\u003d0 , it will be allocated in the .init section which will cause the crash.\n\nThe code which assumes primary CPU being always 0 is inside\n#if (defined(IMAGE_BL31) \u0026\u0026 RECLAIM_INIT_CODE)\n#endif\nand doesn\u0027t effect other platforms which don\u0027t use RECLAIM_INIT_CODE.",
       "parentUuid": "7f98a42f_1eaa10c1",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 8
+      },
+      "revId": "34dd1e96fdae59d56d19a8d1270a03860af9f015",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbed2e33_b72325a3",
+        "filename": "plat/common/aarch64/platform_mp_stack.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2020-07-30T21:03:09Z",
+      "side": 1,
+      "message": "yes, thats why I said that by default ARM platforms have primary core ID \u003d\u003d 0. If you see, the code that makes assumptions about reclaim section and Primary CPU ID \u003d\u003d 0 is ARM platform specific (plat\\arm\\common\\arm_reclaim_init.ld.S). This is the same reason why these linker sections are defined in that platform specific linker script instead of BL31.ld.S\n\nIt doesn\u0027t mean BL31 only supports platforms primary core ID \u003d\u003d0.\n\nOn FVP, we chose to reclaim INIT section for secondary stack and to do that we need a contiguous block of memory which is facilitated by primary Core ID \u003d\u003d0. Depending on platform, this can be reclaimed for other purposes or even unmapped from BL31 page tables for security.\n\nThese changes should be made ARM platform specific and this can be taken up as the next step.",
+      "parentUuid": "5ef458d7_64f5ae19",
       "range": {
         "startLine": 43,
         "startChar": 1,
