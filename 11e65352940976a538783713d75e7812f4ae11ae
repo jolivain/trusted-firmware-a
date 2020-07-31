@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3cba3961_0c203175",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-07-31T16:08:19Z",
+      "side": 1,
+      "message": "There is no issue with the work around presented. I\u0027m saying that it needs to be explicit that this work around, as i understand from various discussions, does not work around the issue with a 100% guarantee that it cannot occur, if EL3 has AT instructions in the executable pages. Per Will Deacon\u0027s email on the mailing list, this issue can still occur, if EL2 has been audited to have no AT instructions, EL3 has this work around but EL3 has AT instructions in it\u0027s executable pages, since there is a window of time where the SCTLR and TCR registers are being manipulated and a speculative AT can occur in that window to cause the issue. A similar window exists between setting of TCR on the exit path and ERET and during the use of the new AT macro created, where a speculative AT can occur.\n\nAt the very least, i think we should make it clear that the only way to ensure that the errata cannot occur 100% is if there are no AT instructions in EL2 and EL3.",
+      "parentUuid": "81d07953_0fb7a5c2",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 6
+      },
+      "revId": "11e65352940976a538783713d75e7812f4ae11ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65b7f525_501155c4",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 1
