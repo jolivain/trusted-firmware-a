@@ -30,7 +30,13 @@ int fconf_populate_arm_sp(uintptr_t config)
 	union uuid_helper_t uuid_helper;
 	unsigned int index = 0;
 	uint32_t val32;
-	const unsigned int sp_start_index = SP_PKG1_ID;
+	const unsigned int sip_start = SP_PKG1_ID;
+#if defined(ARM_COT_dualroot)
+	const unsigned int plat_start = SP_PKG5_ID;
+	unsigned int sip_index = 0;
+	unsigned int plat_index = 0;
+	bool is_plat_owned = false;
+#endif
 
 	/* As libfdt use void *, we can't avoid this cast */
 	const void *dtb = (void *)config;
@@ -49,23 +55,24 @@ int fconf_populate_arm_sp(uintptr_t config)
 			ERROR("FCONF: Reached max number of SPs\n");
 			return -1;
 		}
-
+#if defined(ARM_COT_dualroot)
+		if (sip_index == MAX_SP_IDS / 2) {
+			ERROR("FCONF: Reached max number of SiP owned SPs\n");
+			return -1;
+		}
+		if (plat_index == MAX_SP_IDS / 2) {
+			ERROR("FCONF: Reached max number of Plat owned SPs\n");
+			return -1;
+		}
+#endif
+		/* Read UUID */
 		err = fdt_read_uint32_array(dtb, sp_node, "uuid", 4,
 					    uuid_helper.word);
 		if (err < 0) {
 			ERROR("FCONF: cannot read SP uuid\n");
 			return -1;
 		}
-
 		arm_sp.uuids[index] = uuid_helper;
-
-		err = fdt_read_uint32(dtb, sp_node, "load-address", &val32);
-		if (err < 0) {
-			ERROR("FCONF: cannot read SP load address\n");
-			return -1;
-		}
-		arm_sp.load_addr[index] = val32;
-
 		VERBOSE("FCONF: %s UUID %x-%x-%x-%x load_addr=%lx\n",
 			__func__,
 			uuid_helper.word[0],
@@ -74,8 +81,58 @@ int fconf_populate_arm_sp(uintptr_t config)
 			uuid_helper.word[3],
 			arm_sp.load_addr[index]);
 
+		/* Read Load address */
+		err = fdt_read_uint32(dtb, sp_node, "load-address", &val32);
+		if (err < 0) {
+			ERROR("FCONF: cannot read SP load address\n");
+			return -1;
+		}
+		arm_sp.load_addr[index] = val32;
+
+		/* Read owner only in case of dualroot CoT*/
+#if defined(ARM_COT_dualroot)
+		/* Owner is an optional field, no need to catch error */
+		fdtw_read_string(dtb, sp_node, "owner",
+				arm_sp.owner[index], ARM_SP_OWNER_NAME_LEN);
+		if (strcmp(arm_sp.owner[index], "Plat") == 0) {
+			is_plat_owned = true;
+		} else {
+			is_plat_owned = false;
+		}
+
+		/*
+		 * Add SP information in mem param descriptor and IO policies
+		 * structure.
+		 */
+		if (is_plat_owned) {
+			sp_mem_params_descs[index].image_id =
+						plat_start + plat_index;
+			policies[plat_start + plat_index].image_spec =
+						(uintptr_t)&arm_sp.uuids[index];
+			policies[plat_start + plat_index].dev_handle =
+								&fip_dev_handle;
+			policies[plat_start + plat_index].check = open_fip;
+			plat_index++;
+		} else {
+			sp_mem_params_descs[index].image_id =
+						sip_start + sip_index;
+			policies[sip_start + sip_index].image_spec =
+						(uintptr_t)&arm_sp.uuids[index];
+			policies[sip_start + sip_index].dev_handle =
+								&fip_dev_handle;
+			policies[sip_start + sip_index].check = open_fip;
+			sip_index++;
+		}
+#else
 		/* Add SP information in mem param descriptor */
-		sp_mem_params_descs[index].image_id = sp_start_index + index;
+		sp_mem_params_descs[index].image_id = sip_start + index;
+
+		/* Add SP information in IO policies structure */
+		policies[sip_start + index].image_spec =
+					(uintptr_t)&arm_sp.uuids[index];
+		policies[sip_start + index].dev_handle = &fip_dev_handle;
+		policies[sip_start + index].check = open_fip;
+#endif
 		SET_PARAM_HEAD(&sp_mem_params_descs[index].image_info,
 					PARAM_IMAGE_BINARY, VERSION_2, 0);
 		sp_mem_params_descs[index].image_info.image_max_size =
@@ -84,13 +141,6 @@ int fconf_populate_arm_sp(uintptr_t config)
 							INVALID_IMAGE_ID;
 		sp_mem_params_descs[index].image_info.image_base =
 							arm_sp.load_addr[index];
-
-		/* Add SP information in IO policies structure */
-		policies[sp_start_index + index].image_spec =
-						(uintptr_t)&arm_sp.uuids[index];
-		policies[sp_start_index + index].dev_handle = &fip_dev_handle;
-		policies[sp_start_index + index].check = open_fip;
-
 		index++;
 	}
 
