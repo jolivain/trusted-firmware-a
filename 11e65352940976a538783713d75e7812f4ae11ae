@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "81d07953_0fb7a5c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-31T04:37:07Z",
+      "side": 1,
+      "message": "\u003e General comment on the commit message. If others agree too, I think the message should explicitly note that even with this work around, the errata may still occur, if EL3 has an AT instruction in its executable pages. The only way to ensure the errata cannot occur is if both EL2 and EL3 don\u0027t have any AT instructions. I understand that this is info in the mailing list but it will be good to note it here too.\n\nAgree! Okay for me to amend commit message with this note. I still look for others to provide comment.\n\n\u003e There are multiple windows when the errata can still occur with the work around: During EL3 entry in the window where we are changing SCTLR and TCR bits, right before EL3 exit when these registers are restored, and when the AT macro(in the future commit)is used explicitly and it enables PTW briefly.\n\nAFAIU, workaround to work, we need to ensure that speculated AT instruction either gets correct results or fails.\nOn EL3 entry, \nIf SCTLR_EL1.M could have been 0 then after setting TCR_EL1.EPDx bits can still give proper results with cached translations \u003cassuming target translation regime already have registers in proper state\u003e. If SCTLR_EL1.M could have been 1 then after setting TCR_EL1.EPDx bits, stage 1 gets disabled immediately. \u003clater MMU enable is just repeated operation may be in EL3\u003e so AT execution will fail here.\nRight before EL3 exit,\nWe restored SCTLR and then TCR EL1 sys registers for lower ELs (EL1/EL0) in order so that speculative AT instruction either fails or give correct results so this looks fine.",
+      "parentUuid": "543218b9_3a161f9f",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 6
+      },
+      "revId": "11e65352940976a538783713d75e7812f4ae11ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65b7f525_501155c4",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-07-30T18:22:01Z",
       "side": 1,
       "message": "can this not be pulled into the macro restore_el1_sys_regs?",
+      "range": {
+        "startLine": 468,
+        "startChar": 1,
+        "endLine": 468,
+        "endChar": 4
+      },
+      "revId": "11e65352940976a538783713d75e7812f4ae11ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00065199_03969dd5",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-31T04:37:07Z",
+      "side": 1,
+      "message": "Thought of this before. \nAlready existed a function call \u0027restore_gp_pmcr_pauth_regs\u0027 which restores all GP registers right after \u0027restore_el1_sys_regs\u0027 in \u0027el3_exit\u0027 function.\n\nsmc_prohibited is special case which does not use \u0027el3_exit\u0027 function to leave EL3 hence explicitly added this macro \u0027restore_el1_sys_regs\u0027 and restored registers accordingly (used by macro).",
+      "parentUuid": "65b7f525_501155c4",
       "range": {
         "startLine": 468,
         "startChar": 1,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6e907930_f792dc66",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-31T04:37:07Z",
+      "side": 1,
+      "message": "This macro is already documented here: docs/getting_started/build-options.rst which need to be updated as per this new implementation. I will create separate document patch for this.",
+      "parentUuid": "7995d5ce_8eb57185",
+      "range": {
+        "startLine": 448,
+        "startChar": 4,
+        "endLine": 448,
+        "endChar": 25
+      },
+      "revId": "11e65352940976a538783713d75e7812f4ae11ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "58715922_e15af705",
         "filename": "include/arch/aarch64/el3_common_macros.S",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2020-07-30T21:54:31Z",
       "side": 1,
       "message": "Match this name with the save function\n\nsuggest \"restore_ptw_el1_sys_regs\"",
+      "range": {
+        "startLine": 460,
+        "startChar": 8,
+        "endLine": 460,
+        "endChar": 28
+      },
+      "revId": "11e65352940976a538783713d75e7812f4ae11ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e2720a5_18eb81f2",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-07-31T04:37:07Z",
+      "side": 1,
+      "message": "Ack, will do it next version.",
+      "parentUuid": "58715922_e15af705",
       "range": {
         "startLine": 460,
         "startChar": 8,
