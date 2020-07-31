@@ -279,6 +279,30 @@
       "revId": "34dd1e96fdae59d56d19a8d1270a03860af9f015",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e40cc766_52b67f94",
+        "filename": "plat/common/aarch64/platform_mp_stack.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-07-31T10:49:35Z",
+      "side": 1,
+      "message": "Any platform with primary CPU ID \u003d 0 can use this code with RECLAIM_INIT_CODE option set.\nAny platform with primary CPU ID !\u003d 0 could have used this code with just minor modifications if macro PRIMARY_CPU_ID common for all platforms  would have been defined in TF-A.",
+      "parentUuid": "cbed2e33_b72325a3",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 8
+      },
+      "revId": "34dd1e96fdae59d56d19a8d1270a03860af9f015",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
