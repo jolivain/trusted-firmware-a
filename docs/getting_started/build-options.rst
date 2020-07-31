@@ -694,12 +694,13 @@ Common build options
    default value of this flag is ``no``. Note this option must be enabled only
    for ARM architecture greater than Armv8.5-A.
 
--  ``ERRATA_SPECULATIVE_AT``: This flag enables/disables page table walk during
-   context restore as speculative AT instructions using an out-of-context
-   translation regime could cause subsequent requests to generate an incorrect
-   translation.
-   System registers are not updated during context save, hence this workaround
-   need not be applied in the context save path.
+-  ``ERRATA_SPECULATIVE_AT``: This flag determines whether to enable ``AT``
+   speculative errata workaround or not. It accepts 2 values: ``1`` and ``0``.
+   The default value of this flag is ``0``.
+
+   ``AT`` speculative errata workaround disables stage1 page table walk for
+   lower ELs (EL1 and EL0) in EL3 so that ``AT`` speculated at any point
+   produces either the correct result or failure without TLB allocation.
 
    This boolean option enables errata for all below CPUs.
 
@@ -716,6 +717,10 @@ Common build options
    +---------+--------------+
    | 1530924 |  Cortex-A53  |
    +---------+--------------+
+
+   .. note::
+      It is must for EL2 software to implement ``AT`` speculative errata
+      workaround if this workaround is enabled for EL3.
 
 - ``RAS_TRAP_LOWER_EL_ERR_ACCESS``: This flag enables/disables the SCR_EL3.TERR
   bit, to trap access to the RAS ERR and RAS ERX registers from lower ELs.
