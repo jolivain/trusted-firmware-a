@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c238cf4_b7109c52",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-07-31T12:10:21Z",
+      "side": 1,
+      "message": "(minor) I find this sentence a bit misleading, it sounds like a given SP might belong to several signing domains (which is not true). I think you meant that a given SP might belong to one signing domain or the other, IOW that there are several signing domains, each containing several SPs, right?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "21bab556768e8c5066e29b7e02398369e01aef02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02db64b1_a1bba7c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-07-31T12:10:21Z",
+      "side": 1,
+      "message": "When I first read this sentence, I thought you meant that there was a way to change the ownership of some SP, like a SiP-owned SP being transferred to the platform owner signing domain. But after reading the code, it looks like you meant that the \"platform needs to find a mechanism to attribute (or determine?) the ownership\"?",
+      "range": {
+        "startLine": 18,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 0
+      },
+      "revId": "21bab556768e8c5066e29b7e02398369e01aef02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46b438cd_e2dba058",
+        "filename": "include/drivers/auth/auth_mod.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-07-31T12:10:21Z",
+      "side": 1,
+      "message": "(minor) AFAICS, the only difference between these 2 macros is the parent field. If this is correct, we could move most of the code to a common macro and have DEFINE_SIP_SP_PKG() pass sip_sp_content_cert as the parent argument (and DEFINE_PLAT_SP_PKG() pass plat_sp_content_cert).",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 2
+      },
+      "revId": "21bab556768e8c5066e29b7e02398369e01aef02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb772359_eb1e6f0a",
+        "filename": "include/plat/arm/common/fconf_arm_sp_getter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-07-31T12:10:21Z",
+      "side": 1,
+      "message": "This name sounds too generic to me and is likely to generate name clashes. I think we should namespace it, how about ARM_SP_OWNER_STRLEN?",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 15
+      },
+      "revId": "21bab556768e8c5066e29b7e02398369e01aef02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9211349c_8b8c3891",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-07-31T12:10:21Z",
+      "side": 1,
+      "message": "The changes in this file introduce a lot of #if defined(ARM_COT_dualroot), making the code more difficult to read. Can we not write the code in some other way that would alleviate this issue?",
+      "revId": "21bab556768e8c5066e29b7e02398369e01aef02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "214d1742_ecc61288",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-07-31T12:10:21Z",
+      "side": 1,
+      "message": "(minor) typo",
+      "range": {
+        "startLine": 86,
+        "startChar": 50,
+        "endLine": 86,
+        "endChar": 54
+      },
+      "revId": "21bab556768e8c5066e29b7e02398369e01aef02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
