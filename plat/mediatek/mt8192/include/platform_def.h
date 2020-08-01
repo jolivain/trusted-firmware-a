@@ -15,6 +15,7 @@
 #define MCUCFG_BASE        0x0c530000
 
 #define IO_PHYS            0x10000000
+#define INFRACFG_AO_BASE   (IO_PHYS + 0x1000)
 
 /* Aggregate of all devices for MMU mapping */
 #define MTK_DEV_RNG0_BASE    IO_PHYS
