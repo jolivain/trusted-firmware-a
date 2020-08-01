@@ -22,6 +22,30 @@
       "revId": "d3bd86b8277266a16b54f50f04b4a2398645092c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41ce3729_e1d157dd",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-01T01:48:09Z",
+      "side": 1,
+      "message": "AFAIU, from mailing list discussion, as per Will Deacon\u0027s email, this issue can still occur if EL2 has been audited not to have any executable AT instructions, EL2 may not have this workaround and EL3 has this workaround considering EL3 has AT in it\u0027s executable page then there is a s still possibility that this errata can occur even with workaround provided in the EL3 software. \u003cbefore EL3 get chance to play with SCTLT and ECR registers\u003e\nThis interpreted as EL2 must have workaround to avoid any speculative AT instruction execution at EL3. \nLike to have comment from others for this particular understanding.",
+      "parentUuid": "33f878eb_d106930f",
+      "range": {
+        "startLine": 722,
+        "startChar": 6,
+        "endLine": 723,
+        "endChar": 55
+      },
+      "revId": "d3bd86b8277266a16b54f50f04b4a2398645092c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
