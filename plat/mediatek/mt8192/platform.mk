@@ -59,7 +59,18 @@ PLAT_INCLUDES += -I${MTK_PLAT_SOC}/drivers/mcdi/
 PLAT_BL_COMMON_SOURCES +=                                                \
                    ${MTK_PLAT_SOC}/drivers/mcdi/mt_cpu_pm.c              \
                    ${MTK_PLAT_SOC}/drivers/mcdi/mt_cpu_pm_cpc.c          \
-                   ${MTK_PLAT_SOC}/drivers/mcdi/mt_mcdi.c
+                   ${MTK_PLAT_SOC}/drivers/mcdi/mt_mcdi.c                \
+                   ${MTK_PLAT_SOC}/drivers/mcdi/mt_lp_irqremain.c
+
+# LPM
+PLAT_INCLUDES += -I${MTK_PLAT}/common/lpm/
+PLAT_BL_COMMON_SOURCES +=                                                \
+                   ${MTK_PLAT}/common/lpm/mt_lp_rm.c                     \
+                   ${MTK_PLAT}/common/lpm/mt_lpm_dispatch.c              \
+                   ${MTK_PLAT}/common/lpm/mt_lp_rq.c
+
+# SPM
+include ${MTK_PLAT_SOC}/drivers/spm/build.mk
 
 # Brisket
 PLAT_INCLUDES += -I${MTK_PLAT_SOC}/drivers/brisket/
