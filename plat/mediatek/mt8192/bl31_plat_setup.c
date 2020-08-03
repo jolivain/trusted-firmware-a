@@ -19,6 +19,7 @@
 
 /* Platform Includes */
 #include <mt_gic_v3.h>
+#include <mt_spm.h>
 #include <plat_params.h>
 #include <plat_private.h>
 
@@ -91,6 +92,7 @@ void bl31_platform_setup(void)
 
 	mt_systimer_init();
 	generic_delay_timer_init();
+	spm_boot_init();
 }
 
 /*******************************************************************************
