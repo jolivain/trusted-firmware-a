@@ -252,6 +252,8 @@ static void plat_power_domain_suspend(const psci_power_state_t *state)
 {
 	int cpu = plat_my_core_pos();
 
+	console_switch_state(CONSOLE_FLAG_BOOT);
+
 	plat_mt_pm_invoke(pwr_prompt, cpu, state);
 
 	/* Perform the common cpu specific operations */
@@ -262,17 +264,21 @@ static void plat_power_domain_suspend(const psci_power_state_t *state)
 		plat_cluster_pwrdwn_common(cpu, state, plat_power_state[cpu]);
 	}
 
-	if (IS_MCUSYS_OFF_STATE(state)) {
+	if (IS_MCUSYS_OFF_STATE(state) || IS_SYSTEM_SUSPEND_STATE(state)) {
 		/* Perform the common mcusys specific operations */
 		plat_mcusys_pwrdwn_common(cpu, state, plat_power_state[cpu]);
 	}
+
+	console_switch_state(CONSOLE_FLAG_RUNTIME);
 }
 
 static void plat_power_domain_suspend_finish(const psci_power_state_t *state)
 {
 	int cpu = plat_my_core_pos();
 
-	if (IS_MCUSYS_OFF_STATE(state)) {
+	console_switch_state(CONSOLE_FLAG_BOOT);
+
+	if (IS_MCUSYS_OFF_STATE(state) || IS_SYSTEM_SUSPEND_STATE(state)) {
 		/* Perform the common mcusys specific operations */
 		plat_mcusys_pwron_common(cpu, state, plat_power_state[cpu]);
 	}
@@ -289,6 +295,8 @@ static void plat_power_domain_suspend_finish(const psci_power_state_t *state)
 	ildo_init(cpu, 1);
 #endif
 	plat_mt_pm_invoke(pwr_reflect, cpu, state);
+
+	console_switch_state(CONSOLE_FLAG_RUNTIME);
 }
 
 static int plat_validate_power_state(unsigned int power_state,
