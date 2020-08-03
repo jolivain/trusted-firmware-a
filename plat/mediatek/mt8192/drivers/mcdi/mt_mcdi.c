@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <common/debug.h> //Roger, will remove
 #include <lib/mmio.h>
 #include <mt_mcdi.h>
 
@@ -142,6 +143,8 @@ int mcdi_try_init(void)
 	if (mcdi_init_status == MCDI_INIT_2 && mcdi_init_2() == 0) {
 		mcdi_init_status = MCDI_INIT_DONE;
 	}
+
+	ERROR("Roger, mcdi_init_status = %d\n", mcdi_init_status); //will remove
 
 	return (mcdi_init_status == MCDI_INIT_DONE) ? 0 : mcdi_init_status;
 }
