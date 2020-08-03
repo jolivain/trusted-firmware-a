@@ -23,6 +23,7 @@
 #include <plat_params.h>
 #include <plat_pm.h>
 #include <pmic.h>
+#include <uart.h>
 
 /*
  * Cluster state request:
@@ -85,22 +86,19 @@ static void plat_cpu_pwron_common(unsigned int cpu,
 
 	coordinate_cluster_pwron();
 
-	/* Enable the GIC CPU interface */
-
 	/* Brisket config */
 	brisket_init(1);
-
-	gicv3_rdistif_on(plat_my_core_pos());
-	gicv3_cpuif_enable(plat_my_core_pos());
-	mt_gic_rdistif_init();
 
 	/*
 	 * If mcusys do power down before then restore
 	 * all CPUs' GIC Redistributors
 	 */
-	if (IS_MCUSYS_OFF_STATE(state)) {
+	if (IS_MCUSYS_OFF_STATE(state) || IS_SYSTEM_SUSPEND_STATE(state)) {
 		mt_gic_rdistif_restore_all();
 	} else {
+		gicv3_rdistif_on(plat_my_core_pos());
+		gicv3_cpuif_enable(plat_my_core_pos());
+		mt_gic_rdistif_init();
 		mt_gic_rdistif_restore();
 	}
 	/* Credit config */
@@ -248,6 +246,9 @@ static void plat_power_domain_suspend(const psci_power_state_t *state)
 
 	plat_mt_pm_invoke_no_check(pwr_prompt, cpu, state);
 
+	if (!mt_console_uart_cg_status())
+		console_switch_state(CONSOLE_FLAG_BOOT);
+
 	/* Perform the common CPU specific operations */
 	plat_cpu_pwrdwn_common(cpu, state, plat_power_state[cpu]);
 
@@ -256,10 +257,13 @@ static void plat_power_domain_suspend(const psci_power_state_t *state)
 		plat_cluster_pwrdwn_common(cpu, state, plat_power_state[cpu]);
 	}
 
-	if (IS_MCUSYS_OFF_STATE(state)) {
+	if (IS_MCUSYS_OFF_STATE(state) || IS_SYSTEM_SUSPEND_STATE(state)) {
 		/* Perform the common mcusys specific operations */
 		plat_mcusys_pwrdwn_common(cpu, state, plat_power_state[cpu]);
 	}
+
+	if (!mt_console_uart_cg_status())
+		console_switch_state(CONSOLE_FLAG_RUNTIME);
 }
 
 static void plat_power_domain_suspend_finish(const psci_power_state_t *state)
@@ -268,7 +272,10 @@ static void plat_power_domain_suspend_finish(const psci_power_state_t *state)
 
 	assert(cpu < PLATFORM_CORE_COUNT);
 
-	if (IS_MCUSYS_OFF_STATE(state)) {
+	if (!mt_console_uart_cg_status())
+		console_switch_state(CONSOLE_FLAG_BOOT);
+
+	if (IS_MCUSYS_OFF_STATE(state) || IS_SYSTEM_SUSPEND_STATE(state)) {
 		/* Perform the common mcusys specific operations */
 		plat_mcusys_pwron_common(cpu, state, plat_power_state[cpu]);
 	}
@@ -282,6 +289,9 @@ static void plat_power_domain_suspend_finish(const psci_power_state_t *state)
 	plat_cpu_pwron_common(cpu, state, plat_power_state[cpu]);
 
 	plat_mt_pm_invoke_no_check(pwr_reflect, cpu, state);
+
+	if (!mt_console_uart_cg_status())
+		console_switch_state(CONSOLE_FLAG_RUNTIME);
 }
 
 static int plat_validate_power_state(unsigned int power_state,

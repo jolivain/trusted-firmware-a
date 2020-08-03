@@ -18,8 +18,10 @@
 #include <lib/pmf/pmf.h>
 #include <lib/runtime_instr.h>
 #include <plat/common/platform.h>
+#include <plat_pm.h>
 
 #include "psci_private.h"
+#include <uart.h>
 
 /*******************************************************************************
  * This function does generic and platform specific operations after a wake-up
@@ -241,8 +243,17 @@ exit:
 		/* The function calls below must not return */
 		if (psci_plat_pm_ops->pwr_domain_pwr_down_wfi != NULL)
 			psci_plat_pm_ops->pwr_domain_pwr_down_wfi(state_info);
-		else
+		else {
+			if (IS_SYSTEM_SUSPEND_STATE(state_info)) {
+				if (!mt_console_uart_cg_status())
+					console_switch_state(CONSOLE_FLAG_BOOT);
+				ERROR("system suspend end\n"); //debug purpose
+				if (!mt_console_uart_cg_status())
+					console_switch_state(CONSOLE_FLAG_RUNTIME);
+			}
+
 			psci_power_down_wfi();
+		}
 	}
 
 #if ENABLE_RUNTIME_INSTRUMENTATION
