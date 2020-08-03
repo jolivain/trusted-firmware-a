@@ -9,6 +9,7 @@
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
 #include <mt_mcdi.h>
+#include <common/debug.h>
 
 /* Read/Write */
 #define APMCU_MCUPM_MBOX_AP_READY	U(0)
@@ -129,6 +130,7 @@ static int mcdi_init_2(void)
 int mcdi_try_init(void)
 {
 	if (mcdi_init_status == MCDI_INIT_DONE) {
+		INFO("mcdi ready for suspend\n");
 		return 0;
 	}
 
@@ -143,6 +145,8 @@ int mcdi_try_init(void)
 	if (mcdi_init_status == MCDI_INIT_2 && mcdi_init_2() == 0) {
 		mcdi_init_status = MCDI_INIT_DONE;
 	}
+
+	INFO("mcdi_init_status = %d\n", mcdi_init_status);
 
 	return (mcdi_init_status == MCDI_INIT_DONE) ? 0 : mcdi_init_status;
 }
