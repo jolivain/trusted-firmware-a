@@ -8,6 +8,7 @@ MTK_PLAT      := plat/mediatek
 MTK_PLAT_SOC  := ${MTK_PLAT}/${PLAT}
 
 PLAT_INCLUDES := -I${MTK_PLAT}/common/                            \
+                 -I${MTK_PLAT}/common/lpm/                        \
                  -I${MTK_PLAT_SOC}/include/                       \
                  -I${MTK_PLAT_SOC}/drivers/                       \
                  -I${MTK_PLAT_SOC}/drivers/gpio/                  \
@@ -37,6 +38,9 @@ BL31_SOURCES    += common/desc_image_load.c                              \
                    lib/cpus/aarch64/cortex_a76.S                         \
                    plat/common/plat_gicv3.c                              \
                    ${MTK_PLAT}/common/drivers/pmic_wrap/pmic_wrap_init_v2.c \
+                   ${MTK_PLAT}/common/lpm/mt_lp_rm.c                     \
+                   ${MTK_PLAT}/common/lpm/mt_lp_rq.c                     \
+                   ${MTK_PLAT}/common/lpm/mt_lpm_dispatch.c              \
                    ${MTK_PLAT}/common/mtk_plat_common.c                  \
                    ${MTK_PLAT}/common/mtk_sip_svc.c                      \
                    ${MTK_PLAT}/common/params_setup.c                     \
@@ -52,11 +56,15 @@ BL31_SOURCES    += common/desc_image_load.c                              \
                    ${MTK_PLAT_SOC}/drivers/gpio/mtgpio.c                 \
                    ${MTK_PLAT_SOC}/drivers/mcdi/mt_cpu_pm.c              \
                    ${MTK_PLAT_SOC}/drivers/mcdi/mt_cpu_pm_cpc.c          \
+                   ${MTK_PLAT_SOC}/drivers/mcdi/mt_lp_irqremain.c        \
                    ${MTK_PLAT_SOC}/drivers/mcdi/mt_mcdi.c                \
                    ${MTK_PLAT_SOC}/drivers/ptp3/mtk_ptp3_main.c          \
                    ${MTK_PLAT_SOC}/drivers/spmc/mtspmc.c                 \
                    ${MTK_PLAT_SOC}/drivers/timer/mt_timer.c              \
                    ${MTK_PLAT_SOC}/drivers/uart/uart.c
+
+# SPM
+include ${MTK_PLAT_SOC}/drivers/spm/build.mk
 
 # Configs for A76 and A55
 HW_ASSISTED_COHERENCY := 1
