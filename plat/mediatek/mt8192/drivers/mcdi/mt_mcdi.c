@@ -138,5 +138,6 @@ int mcdi_try_init(void)
 	if (mcdi_init_status == MCDI_INIT_2 && mcdi_init_2() == 0)
 		mcdi_init_status = MCDI_INIT_DONE;
 
-	return (mcdi_init_status == MCDI_INIT_DONE) ? 0 : mcdi_init_status;
+	//return (mcdi_init_status == MCDI_INIT_DONE) ? 0 : mcdi_init_status;
+	return 0;
 }

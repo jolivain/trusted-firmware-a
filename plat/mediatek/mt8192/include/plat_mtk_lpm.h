@@ -10,7 +10,7 @@
 #include <lib/psci/psci.h>
 
 #define MT_IRQ_REMAIN_MAX	8
-#define MT_IRQ_REMAIN_CAT_LOG	(1 << 31u)
+#define MT_IRQ_REMAIN_CAT_LOG	(1u << 31)
 
 struct mt_irqremain {
 	unsigned int count;

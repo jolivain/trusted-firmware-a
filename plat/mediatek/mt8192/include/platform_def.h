@@ -15,7 +15,14 @@
 #define MCUCFG_BASE        0x0c530000
 
 #define IO_PHYS            0x10000000
+#define TOPCKGEN_BASE      (IO_PHYS + 0x0)
 #define INFRACFG_AO_BASE   (IO_PHYS + 0x1000)
+#define SPM_BASE           (IO_PHYS + 0x00006000)
+#define APMIXEDSYS         (IO_PHYS + 0x0000C000)
+#define PMIC_WRAP_BASE     (IO_PHYS + 0x0000D000)
+#define DVFSRC_BASE        (IO_PHYS + 0x00012000)
+#define SSPM_MBOX_3_BASE   (IO_PHYS + 0x00480000)
+#define MMSYS_BASE         (IO_PHYS + 0x04000000)
 
 /* Aggregate of all devices for MMU mapping */
 #define MTK_DEV_RNG0_BASE    IO_PHYS
@@ -24,6 +31,8 @@
 #define MTK_DEV_RNG1_SIZE    0x10000000
 #define MTK_DEV_RNG2_BASE    0x0c000000
 #define MTK_DEV_RNG2_SIZE    0x600000
+#define MTK_MCDI_SRAM_BASE      0x11B000
+#define MTK_MCDI_SRAM_MAP_SIZE  0x1000
 
 #define GPIO_BASE        (IO_PHYS + 0x00005000)
 #define IOCFG_RM_BASE    (IO_PHYS + 0x01C20000)
