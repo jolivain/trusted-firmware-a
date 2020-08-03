@@ -28,8 +28,6 @@ struct per_cpu_reg {
 
 #define per_cluster(cluster, reg)	(reg[cluster].cluster_addr)
 
-#define SPM_BASE			U(0x10006000)
-
 /* === SPMC related registers */
 #define SPM_POWERON_CONFIG_EN		(SPM_BASE + 0x000)
 /* bit-fields of SPM_POWERON_CONFIG_EN */
