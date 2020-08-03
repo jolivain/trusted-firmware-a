@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) since 2019, ARM Limited and Contributors. All rights reserved.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+#ifndef __MT_SPM_RESOURCE_REQ_H__
+#define __MT_SPM_RESOURCE_REQ_H__
+
+/* SPM resource request internal bit */
+#define MT_SPM_BIT_XO_FPM	(0)
+#define MT_SPM_BIT_26M		(1)
+#define MT_SPM_BIT_INFRA	(2)
+#define MT_SPM_BIT_SYSPLL	(3)
+#define MT_SPM_BIT_DRAM_S0	(4)
+#define MT_SPM_BIT_DRAM_S1	(5)
+
+/* SPM resource request internal bit_mask */
+#define MT_SPM_XO_FPM	(1 << MT_SPM_BIT_XO_FPM)
+#define MT_SPM_26M	(1 << MT_SPM_BIT_26M)
+#define MT_SPM_INFRA	(1 << MT_SPM_BIT_INFRA)
+#define MT_SPM_SYSPLL	(1 << MT_SPM_BIT_SYSPLL)
+#define MT_SPM_DRAM_S0	(1 << MT_SPM_BIT_DRAM_S0)
+#define MT_SPM_DRAM_S1	(1 << MT_SPM_BIT_DRAM_S1)
+
+
+#endif /* __MT_SPM_RESOURCE_REQ_H__ */
