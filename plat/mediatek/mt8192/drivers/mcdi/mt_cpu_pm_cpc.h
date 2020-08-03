@@ -15,7 +15,7 @@
 #define NEED_CPUSYS_PROT_WORKAROUND	1
 
 /* system sram registers */
-#define CPUIDLE_SRAM_REG(r)	(0x11B000 + (r))
+#define CPUIDLE_SRAM_REG(r)	(MTK_MCDI_SRAM_BASE + (r))
 
 /* db dump */
 #define CPC_TRACE_SIZE		U(0x20)
