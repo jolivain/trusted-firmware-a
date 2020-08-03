@@ -323,6 +323,26 @@ ERRATA_DSU_798953	?=0
 # higher DSU power consumption on idle.
 ERRATA_DSU_936184	?=0
 
+# Flag to apply erratum 1530924 workaround during reset. This erratum applies
+# to all revisions of Cortex A53 cpu.
+ERRATA_A53_1530924	?=0
+
+# Flag to apply erratum 1530923 workaround during reset. This erratum applies
+# to all revisions of Cortex A55 cpu.
+ERRATA_A55_1530923	?=0
+
+# Flag to apply erratum 1319537 workaround during reset. This erratum applies
+# to all revisions of Cortex A57 cpu.
+ERRATA_A57_1319537	?=0
+
+# Flag to apply erratum 1319367 workaround during reset. This erratum applies
+# to all revisions of Cortex A72 cpu.
+ERRATA_A72_1319367	?=0
+
+# Flag to apply erratum 1165522 workaround during reset. This erratum applies
+# to all revisions of Cortex A76 cpu.
+ERRATA_A76_1165522	?=0
+
 # Process ERRATA_A9_794073 flag
 $(eval $(call assert_boolean,ERRATA_A9_794073))
 $(eval $(call add_define,ERRATA_A9_794073))
@@ -571,6 +591,26 @@ $(eval $(call add_define,ERRATA_DSU_798953))
 $(eval $(call assert_boolean,ERRATA_DSU_936184))
 $(eval $(call add_define,ERRATA_DSU_936184))
 
+# Process ERRATA_A53_1530924 flag
+$(eval $(call assert_boolean,ERRATA_A53_1530924))
+$(eval $(call add_define,ERRATA_A53_1530924))
+
+# Process ERRATA_A55_1530923 flag
+$(eval $(call assert_boolean,ERRATA_A55_1530923))
+$(eval $(call add_define,ERRATA_A55_1530923))
+
+# Process ERRATA_A57_1319537 flag
+$(eval $(call assert_boolean,ERRATA_A57_1319537))
+$(eval $(call add_define,ERRATA_A57_1319537))
+
+# Process ERRATA_A72_1319367 flag
+$(eval $(call assert_boolean,ERRATA_A72_1319367))
+$(eval $(call add_define,ERRATA_A72_1319367))
+
+# Process ERRATA_A76_1165522 flag
+$(eval $(call assert_boolean,ERRATA_A76_1165522))
+$(eval $(call add_define,ERRATA_A76_1165522))
+
 # Errata build flags
 ifneq (${ERRATA_A53_843419},0)
 TF_LDFLAGS_aarch64	+= --fix-cortex-a53-843419
@@ -579,4 +619,11 @@ endif
 ifneq (${ERRATA_A53_835769},0)
 TF_CFLAGS_aarch64	+= -mfix-cortex-a53-835769
 TF_LDFLAGS_aarch64	+= --fix-cortex-a53-835769
+endif
+
+ifneq ($(filter 1,${ERRATA_A53_1530924} ${ERRATA_A55_1530923}	\
+	${ERRATA_A57_1319537} ${ERRATA_A72_1319367} ${ERRATA_A76_1165522}),)
+ERRATA_SPECULATIVE_AT	:= 1
+else
+ERRATA_SPECULATIVE_AT	:= 0
 endif
