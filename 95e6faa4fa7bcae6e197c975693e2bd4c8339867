@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "aa4a5809_86cca0a2",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-08-04T20:02:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f1b6f7b_ddacf8d3",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 12
+      },
+      "revId": "95e6faa4fa7bcae6e197c975693e2bd4c8339867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0c97263_7aac0e18",
         "filename": "plat/qti/qtiseclib/inc/qtiseclib_defs.h",
         "patchSetId": 8
