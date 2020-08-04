@@ -448,6 +448,39 @@ func check_errata_1800710
 	b	cpu_rev_var_ls
 endfunc check_errata_1800710
 
+	/* --------------------------------------------------
+	 * Errata Workaround for Cortex A76 Errata #1868343.
+	 * This applies to revision <= r4p0 of Cortex A76.
+	 * This workaround is the same as the workaround for
+	 * errata 1262606 and 1275112 but applies to a wider
+	 * revision range.
+	 * Inputs:
+	 * x0: variant[4:7] and revision[0:3] of current cpu.
+	 * Shall clobber: x0-x17
+	 * --------------------------------------------------
+	 */
+func errata_a76_1868343_wa
+	/*
+	 * Compare x0 against revision r4p0
+	 */
+	mov	x17, x30
+	bl	check_errata_1868343
+	cbz	x0, 1f
+
+	mrs	x1, CORTEX_A76_CPUACTLR_EL1
+	orr	x1, x1, CORTEX_A76_CPUACTLR_EL1_BIT_13
+	msr	CORTEX_A76_CPUACTLR_EL1, x1
+	isb
+1:
+	ret	x17
+endfunc errata_a76_1868343_wa
+
+func check_errata_1868343
+	/* Applies to everything <= r4p0 */
+	mov	x1, #0x40
+	b	cpu_rev_var_ls
+endfunc check_errata_1868343
+
 func check_errata_cve_2018_3639
 #if WORKAROUND_CVE_2018_3639
 	mov	x0, #ERRATA_APPLIES
@@ -530,6 +563,11 @@ func cortex_a76_reset_func
 #if ERRATA_A76_1800710
 	mov	x0, x18
 	bl	errata_a76_1800710_wa
+#endif
+
+#if ERRATA_A76_1868343
+	mov	x0, x18
+	bl	errata_a76_1868343_wa
 #endif
 
 #if WORKAROUND_CVE_2018_3639
@@ -615,6 +653,7 @@ func cortex_a76_errata_report
 	report_errata ERRATA_A76_1791580, cortex_a76, 1791580
 	report_errata ERRATA_A76_1800710, cortex_a76, 1800710
 	report_errata ERRATA_A76_1165522, cortex_a76, 1165522
+	report_errata ERRATA_A76_1868343, cortex_a76, 1868343
 	report_errata WORKAROUND_CVE_2018_3639, cortex_a76, cve_2018_3639
 	report_errata ERRATA_DSU_798953, cortex_a76, dsu_798953
 	report_errata ERRATA_DSU_936184, cortex_a76, dsu_936184
