@@ -16,6 +16,24 @@
       "revId": "10155ffc79ab26e80fbe7e0d84b8a2b1bc9307db",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4eeed15d_8b0001b8",
+        "filename": "lib/semihosting/semihosting.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-08-04T19:55:01Z",
+      "side": 1,
+      "message": "It doesn\u0027t violate MISRA but I rarely see this syntax used in TFA so I changed it as a part of general clean up.  I can put it back the way it was if you\u0027d prefer.",
+      "parentUuid": "1c5b58ee_3a401ed6",
+      "revId": "10155ffc79ab26e80fbe7e0d84b8a2b1bc9307db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
