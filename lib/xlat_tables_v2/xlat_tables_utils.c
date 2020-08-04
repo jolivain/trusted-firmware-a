@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -497,8 +497,8 @@ int xlat_change_mem_attributes_ctx(const xlat_ctx_t *ctx, uintptr_t base_va,
 			(level != XLAT_TABLE_LEVEL_MAX)) {
 			WARN("Address 0x%lx is not mapped at the right granularity.\n",
 			     base_va);
-			WARN("Granularity is 0x%llx, should be 0x%x.\n",
-			     (unsigned long long)XLAT_BLOCK_SIZE(level), PAGE_SIZE);
+			WARN("Granularity is 0x%lx, should be 0x%lx.\n",
+			     XLAT_BLOCK_SIZE(level), PAGE_SIZE);
 			return -EINVAL;
 		}
 
