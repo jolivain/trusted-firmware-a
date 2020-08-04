@@ -19,6 +19,7 @@
  * Definitions of platform soc ids
  *****************************************************************************/
 #define	FVP_SOC_ID	0
+#define	JUNO_SOC_ID	1
 
 /******************************************************************************
  * Definitions common to all ARM standard platforms
