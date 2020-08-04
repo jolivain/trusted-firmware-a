@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -345,7 +345,7 @@ int psci_features(unsigned int psci_fid)
 		local_caps &= PSCI_CAP_64BIT_MASK;
 
 	/* Check for invalid fid */
-	if (!(is_std_svc_call(psci_fid) && is_valid_fast_smc(psci_fid)
+	if (!(is_std_svc_call(psci_fid) && is_valid_fast_smc((uint64_t)psci_fid)
 			&& is_psci_fid(psci_fid)))
 		return PSCI_E_NOT_SUPPORTED;
 
