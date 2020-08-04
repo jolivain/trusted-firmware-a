@@ -25,10 +25,10 @@
 #endif
 
 /* Security state of the image. */
-#define EP_SECURITY_MASK	U(0x1)
-#define EP_SECURITY_SHIFT	U(0)
-#define EP_SECURE		U(0x0)
-#define EP_NON_SECURE		U(0x1)
+#define EP_SECURITY_MASK	UL(0x1)
+#define EP_SECURITY_SHIFT	UL(0)
+#define EP_SECURE		UL(0x0)
+#define EP_NON_SECURE		UL(0x1)
 
 /* Endianness of the image. */
 #define EP_EE_MASK		U(0x2)
