@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efd027b1_b332d10e",
+        "filename": "lib/cpus/aarch64/denver.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-04T19:02:04Z",
+      "side": 1,
+      "message": "Can this common stuff converted into macro by passing MIDR value?",
+      "range": {
+        "startLine": 413,
+        "startChar": 1,
+        "endLine": 417,
+        "endChar": 23
+      },
+      "revId": "4503c1fce2d82850a5a403b49d4e64a94dd8a2f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
