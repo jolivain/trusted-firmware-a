@@ -34,6 +34,24 @@
       "revId": "10155ffc79ab26e80fbe7e0d84b8a2b1bc9307db",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b948d5b1_c9f4b848",
+        "filename": "lib/semihosting/semihosting.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-08-04T20:19:39Z",
+      "side": 1,
+      "message": "Please put it the way it was originally. I remember using a similar syntax in drivers/arm/gic/v3/gicv3_main.c",
+      "parentUuid": "4eeed15d_8b0001b8",
+      "revId": "10155ffc79ab26e80fbe7e0d84b8a2b1bc9307db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
