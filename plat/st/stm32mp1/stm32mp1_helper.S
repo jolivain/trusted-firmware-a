@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -149,7 +149,7 @@ func plat_crash_console_init
 endfunc plat_crash_console_init
 
 	/* ---------------------------------------------
-	 * int plat_crash_console_flush(void)
+	 * void plat_crash_console_flush(void)
 	 *
 	 * Flush the crash console without a C Runtime stack.
 	 * ---------------------------------------------
