@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5a8a476_c70e851b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-08-05T09:06:14Z",
+      "side": 1,
+      "message": "This ID isn\u0027t strictly defined by SMCCC isn\u0027t it?\nMaybe you refer to UUID definition from the SMCCC (section 5.3)?\nAs far as I know there is no such service defined for querying the UUID.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "629f7eb63a7f6062c7aa4b8fb9eb759826057e57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94cb5268_ae301dc9",
+        "filename": "services/spd/trusty/smcall.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-08-05T09:06:14Z",
+      "side": 1,
+      "message": "Is it necessary to use an OEN id different from the ones defined lines 31-40?\nIf yes, can this FC id be defined using above macros (SMC_FASTCALL64_NR) to build this ID?\nAlso should this be called SMC_FC64_GET_UUID?",
+      "range": {
+        "startLine": 79,
+        "startChar": 27,
+        "endLine": 79,
+        "endChar": 29
+      },
+      "revId": "629f7eb63a7f6062c7aa4b8fb9eb759826057e57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
