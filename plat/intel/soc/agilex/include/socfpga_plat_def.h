@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
- * Copyright (c) 2019, Intel Corporation. All rights reserved.
+ * Copyright (c) 2019-2022, Intel Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,14 +11,16 @@
 #include <platform_def.h>
 
 /* Platform Setting */
-#define PLATFORM_MODEL				PLAT_SOCFPGA_AGILEX
-#define BOOT_SOURCE				BOOT_SOURCE_SDMMC
+#define PLATFORM_MODEL							PLAT_SOCFPGA_AGILEX
+#define BOOT_SOURCE								BOOT_SOURCE_SDMMC
 
 /* Register Mapping */
-#define SOCFPGA_MMC_REG_BASE			0xff808000
+#define SOCFPGA_CCU_NOC_REG_BASE				(U)0xf7000000
 
-#define SOCFPGA_RSTMGR_REG_BASE			0xffd11000
-#define SOCFPGA_SYSMGR_REG_BASE			0xffd12000
+#define SOCFPGA_MMC_REG_BASE					0xff808000
+
+#define SOCFPGA_RSTMGR_REG_BASE					0xffd11000
+#define SOCFPGA_SYSMGR_REG_BASE					0xffd12000
 
 #define SOCFPGA_L4_PER_SCR_REG_BASE             0xffd21000
 #define SOCFPGA_L4_SYS_SCR_REG_BASE             0xffd21100
