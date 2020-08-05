@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -120,7 +120,7 @@ void tegra_pwr_domain_suspend(const psci_power_state_t *target_state)
 	/* Disable console if we are entering deep sleep. */
 	if (target_state->pwr_domain_state[PLAT_MAX_PWR_LVL] ==
 			PSTATE_ID_SOC_POWERDN) {
-		(void)console_flush();
+		console_flush();
 		console_switch_state(0);
 	}
 
