@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -82,11 +82,11 @@ putc_write_back:
 endfunc	console_cbmc_putc
 
 	/* -----------------------------------------------
-	 * int console_cbmc_flush(console_cbmc_t *console)
+	 * void console_cbmc_flush(console_cbmc_t *console)
 	 * Flushes the CBMEM console by flushing the
 	 * console buffer from the CPU's data cache.
 	 * In:  x0 - pointer to console_cbmc_t struct
-	 * Out: x0 - 0 for success
+	 * Out: void
 	 * Clobber list: x0, x1, x2, x3, x5
 	 * -----------------------------------------------
 	 */
@@ -96,6 +96,5 @@ func console_cbmc_flush
 	ldr	x0, [x0, #CONSOLE_T_BASE]
 	add	x1, x1, #8		/* add size of console header */
 	bl	clean_dcache_range	/* (clobbers x2 and x3) */
-	mov	x0, #0
 	ret	x5
 endfunc console_cbmc_flush
