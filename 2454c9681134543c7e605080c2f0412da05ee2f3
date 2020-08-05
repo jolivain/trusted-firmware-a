@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a82133f0_b950823c",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-08-05T14:39:49Z",
+      "side": 1,
+      "message": "I think this macro which is specific to fvp platform should not be defined here in a common header file. Can you move it to fvp_def.h ?",
+      "revId": "2454c9681134543c7e605080c2f0412da05ee2f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
