@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -152,33 +152,32 @@ func console_spe_getc
 endfunc console_spe_getc
 
 	/* -------------------------------------------------
-	 * int console_spe_core_flush(uintptr_t base_addr)
+	 * void console_spe_core_flush(uintptr_t base_addr)
 	 * Function to force a write of all buffered
 	 * data that hasn't been output.
 	 * In : x0 - console base address
-	 * Out : return -1 on error else return 0.
+	 * Out : void.
 	 * Clobber list : x0, x1
 	 * -------------------------------------------------
 	 */
 func console_spe_core_flush
-	cbz	x0, flush_error
+#if ENABLE_ASSERTIONS
+	cmp	r0, #0
+	ASM_ASSERT(ne)
+#endif /* ENABLE_ASSERTIONS */
 
 	/* flush console */
 	mov	w1, #CONSOLE_WRITE
 	str	w1, [x0]
-	mov	w0, #0
-	ret
-flush_error:
-	mov	w0, #-1
 	ret
 endfunc console_spe_core_flush
 
 	/* ---------------------------------------------
-	 * int console_spe_flush(console_t *console)
+	 * void console_spe_flush(console_t *console)
 	 * Function to force a write of all buffered
 	 * data that hasn't been output.
 	 * In : x0 - pointer to console_t structure
-	 * Out : return -1 on error else return 0.
+	 * Out : void.
 	 * Clobber list : x0, x1
 	 * ---------------------------------------------
 	 */
