@@ -119,7 +119,7 @@ int console_getc(void)
 	return err;
 }
 
-int console_flush(void)
+void console_flush(void)
 {
 	int err = ERROR_NO_VALID_CONSOLE;
 	console_t *console;
@@ -130,6 +130,4 @@ int console_flush(void)
 			if ((err == ERROR_NO_VALID_CONSOLE) || (ret < err))
 				err = ret;
 		}
-
-	return err;
 }

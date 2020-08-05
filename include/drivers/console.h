@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -76,7 +76,7 @@ int console_putc(int c);
 /* Read a character (blocking) from any console registered for current state. */
 int console_getc(void);
 /* Flush all consoles registered for the current state. */
-int console_flush(void);
+void console_flush(void);
 
 #endif /* __ASSEMBLER__ */
 
