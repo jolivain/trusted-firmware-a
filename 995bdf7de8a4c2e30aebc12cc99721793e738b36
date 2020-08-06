@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5df72d8_a4c2ceb7",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-06T12:00:28Z",
+      "side": 1,
+      "message": "Maybe you\u0027ve missed it but I had left the following comment in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/5146/1/plat/arm/common/fconf/arm_fconf_sp.c:\n\n---8\u003c---\nThe changes in this file introduce a lot of #if defined(ARM_COT_dualroot), making the code more difficult to read. Can we not write the code in some other way that would alleviate this issue?\n---8\u003c---\n\nIs it not possible?\n\nMy gut feeling is that we might be able to keep the core of the function body free of #if defined(ARM_COT_dualroot) if we change some of the variables initializations at the beginning of the file. E.g. we could have sip_start/sip_end and plat_start/plat_end defined unconditionally. For the dualroot CoT, their values would be:\n\n sip_start \u003d SP_PKG1_ID;\n sip_end \u003d sip_start + MAX_SP_IDS / 2;\n plat_start \u003d SP_PKG5_ID;\n plat_end \u003d plat_start + MAX_SP_IDS / 2;\n\nRegardless of the CoT, we\u0027d have:\n\n unsigned int sip_index \u003d 0;\n unsigned int plat_index \u003d 0;\n bool is_plat_owned \u003d false;\n\nThe checks at line 58 then become if (sip_index \u003d\u003d sip_end) { ERROR(...)\nAnd so on... I haven\u0027t completely thought it through TBH.\n\nIn the future, we might have more than 2 owners/signing domains so it would be nice if this code was implemented in a scalable way.",
+      "revId": "995bdf7de8a4c2e30aebc12cc99721793e738b36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bea0590e_08f591a7",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-06T12:00:28Z",
+      "side": 1,
+      "message": "Should this be done only when the \"owner\" property is found in the DTB file?\n\nAlso, this is checking \"Plat\" VS anything else. Would it be better to check \"Plat\" VS \"SiP\", and anything else is flagged with an error message?",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 3
+      },
+      "revId": "995bdf7de8a4c2e30aebc12cc99721793e738b36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
