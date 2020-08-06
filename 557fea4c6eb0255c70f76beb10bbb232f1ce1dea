@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "05034534_9a9d87b8",
+        "filename": "plat/nvidia/tegra/drivers/smmu/smmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-06T15:12:51Z",
+      "side": 1,
+      "message": "On Tegra platforms we have other mechanisms in place to make sure that SEL1 uses a pre-authenticated payload. So this check is more than a sanity check. We can expect more changes to catch the runtime issues.",
+      "parentUuid": "eb691532_763d35a5",
+      "range": {
+        "startLine": 71,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 57
+      },
+      "revId": "557fea4c6eb0255c70f76beb10bbb232f1ce1dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "827b6108_5bf4baa6",
         "filename": "plat/nvidia/tegra/drivers/smmu/smmu.c",
         "patchSetId": 3
@@ -144,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "60dd4ed1_5ea52234",
+        "filename": "plat/nvidia/tegra/drivers/smmu/smmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-06T15:12:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "827b6108_5bf4baa6",
+      "range": {
+        "startLine": 83,
+        "startChar": 44,
+        "endLine": 83,
+        "endChar": 46
+      },
+      "revId": "557fea4c6eb0255c70f76beb10bbb232f1ce1dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8187f7ea_03f7aaf4",
         "filename": "plat/nvidia/tegra/drivers/smmu/smmu.c",
         "patchSetId": 3
@@ -155,6 +203,24 @@
       "writtenOn": "2020-08-06T11:54:39Z",
       "side": 1,
       "message": "Is there a benefit continuing the next checks if a mismatch is already detected?\nShould this \"goto\" line 117 straight and do the final check (panic if necessary)?",
+      "revId": "557fea4c6eb0255c70f76beb10bbb232f1ce1dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd7db0bd_fb4d958c",
+        "filename": "plat/nvidia/tegra/drivers/smmu/smmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-06T15:12:51Z",
+      "side": 1,
+      "message": "On some platforms in the farm, it is beneficial to get all of these values in one go.",
+      "parentUuid": "8187f7ea_03f7aaf4",
       "revId": "557fea4c6eb0255c70f76beb10bbb232f1ce1dea",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -184,6 +250,30 @@
     },
     {
       "key": {
+        "uuid": "65e34b33_a9f33ceb",
+        "filename": "plat/nvidia/tegra/drivers/smmu/smmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-06T15:12:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ab87974a_b605e6a6",
+      "range": {
+        "startLine": 120,
+        "startChar": 4,
+        "endLine": 120,
+        "endChar": 10
+      },
+      "revId": "557fea4c6eb0255c70f76beb10bbb232f1ce1dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "951abed7_2d0d8104",
         "filename": "plat/nvidia/tegra/drivers/smmu/smmu.c",
         "patchSetId": 3
@@ -204,6 +294,30 @@
       "revId": "557fea4c6eb0255c70f76beb10bbb232f1ce1dea",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "198c46d7_39124a37",
+        "filename": "plat/nvidia/tegra/drivers/smmu/smmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-06T15:12:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "951abed7_2d0d8104",
+      "range": {
+        "startLine": 121,
+        "startChar": 14,
+        "endLine": 121,
+        "endChar": 40
+      },
+      "revId": "557fea4c6eb0255c70f76beb10bbb232f1ce1dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
