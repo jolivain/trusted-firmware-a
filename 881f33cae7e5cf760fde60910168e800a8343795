@@ -361,6 +361,24 @@
     },
     {
       "key": {
+        "uuid": "f708c4d6_25831d01",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-08-06T06:52:54Z",
+      "side": 1,
+      "message": "i think i relied on tool too early. Its again updated and i can see its been corrected on Aug4.\nWill update black line and order again.",
+      "parentUuid": "f3ddcb59_edf631d0",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ab282039_c37d101e",
         "filename": "plat/qti/common/src/qti_syscall.c",
         "patchSetId": 9
