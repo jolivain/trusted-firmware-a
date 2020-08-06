@@ -121,6 +121,69 @@
     },
     {
       "key": {
+        "uuid": "827b6108_5bf4baa6",
+        "filename": "plat/nvidia/tegra/drivers/smmu/smmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-08-06T11:54:39Z",
+      "side": 1,
+      "message": "nit: %u and lines 90, 98, 110,",
+      "range": {
+        "startLine": 83,
+        "startChar": 44,
+        "endLine": 83,
+        "endChar": 46
+      },
+      "revId": "557fea4c6eb0255c70f76beb10bbb232f1ce1dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8187f7ea_03f7aaf4",
+        "filename": "plat/nvidia/tegra/drivers/smmu/smmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-08-06T11:54:39Z",
+      "side": 1,
+      "message": "Is there a benefit continuing the next checks if a mismatch is already detected?\nShould this \"goto\" line 117 straight and do the final check (panic if necessary)?",
+      "revId": "557fea4c6eb0255c70f76beb10bbb232f1ce1dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab87974a_b605e6a6",
+        "filename": "plat/nvidia/tegra/drivers/smmu/smmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-08-06T11:54:39Z",
+      "side": 1,
+      "message": "else can be removed",
+      "range": {
+        "startLine": 120,
+        "startChar": 4,
+        "endLine": 120,
+        "endChar": 10
+      },
+      "revId": "557fea4c6eb0255c70f76beb10bbb232f1ce1dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "951abed7_2d0d8104",
         "filename": "plat/nvidia/tegra/drivers/smmu/smmu.c",
         "patchSetId": 3
