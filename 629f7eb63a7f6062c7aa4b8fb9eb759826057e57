@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "fd6dc3d5_dcc028fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-08-06T10:22:14Z",
+      "side": 1,
+      "message": "All right, I missed this section, thanks for the pointer.\nAlthough did you notice those calls are deprecated from SMCCCv1.2 onwards?",
+      "parentUuid": "339e73a7_e3672630",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "629f7eb63a7f6062c7aa4b8fb9eb759826057e57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "94cb5268_ae301dc9",
         "filename": "services/spd/trusty/smcall.h",
         "patchSetId": 2
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "The ID has been picked from https://static.docs.arm.com/den0028/c/DEN0028C-SMCCC-1.2_BET1.pdf Section 6.2. I will rename it to SMC_FC64_GET_UUID.",
       "parentUuid": "94cb5268_ae301dc9",
+      "range": {
+        "startLine": 79,
+        "startChar": 27,
+        "endLine": 79,
+        "endChar": 29
+      },
+      "revId": "629f7eb63a7f6062c7aa4b8fb9eb759826057e57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cce5c16_e9c7e5e3",
+        "filename": "services/spd/trusty/smcall.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-08-06T10:22:14Z",
+      "side": 1,
+      "message": "Section 6.2 defines SMC32 convention only.\nCall UID query is 0xBF00FF01.\nNot sure how far this is a deviation to use SMC64 here.",
+      "parentUuid": "baf1e4be_05e678cb",
       "range": {
         "startLine": 79,
         "startChar": 27,
