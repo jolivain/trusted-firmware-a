@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2ae6907_d79ff30f",
+        "filename": "tools/cert_create/src/dualroot/cot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-06T11:32:25Z",
+      "side": 1,
+      "message": "This certificate authenticates images running in the secure world (i.e. secure partitions) so it would seem more appropriate to me if it was protected using the trusted non-volatile counter.",
+      "range": {
+        "startLine": 168,
+        "startChar": 3,
+        "endLine": 168,
+        "endChar": 31
+      },
+      "revId": "5a74169c0df7539a415c0371057321006356b354",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
