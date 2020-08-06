@@ -1,0 +1,463 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a1a60ec_a2cd7cf5",
+        "filename": "plat/qti/common/inc/aarch64/plat_macros.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "platform_def.h is a platform header, the others are common (\"project\") headers, so I think there needs to be a blank line above here.",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c612ee2d_e7698747",
+        "filename": "plat/qti/common/src/aarch64/qti_helpers.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "Blank line above.",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fe21a99_11f6ba7a",
+        "filename": "plat/qti/common/src/aarch64/qti_kryo4_gold.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "Blank line between cpu_macros and plat_macros.",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6eef78ad_4d0e240c",
+        "filename": "plat/qti/common/src/aarch64/qti_kryo4_silver.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0a8d69c_953869bb",
+        "filename": "plat/qti/common/src/aarch64/qti_uart_console.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "There should be no blank line between qti_uart_console.h and platform_def.h, those are both platform headers. They should be alphabetized so platform_def.h comes before qti_uart_console.h",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ac9ca2d_c0336ff9",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "assert.h is a libc header, so blank line after this.",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7be9ea53_37e19b09",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "No blank line, move platform.h above qti_interrupt_svc.h",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b68f2522_8a35f1c8",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "Blank line between xlat_tables_v2.h and qti_plat.h",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8098594_07a906fe",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "No blank line, move platform_def.h up.",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c635078_1dd20695",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "The blank line here is weird, why is that there?",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c90264cc_0206dc68",
+        "filename": "plat/qti/common/src/qti_gic_v3.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "Blank line between gicv3.h and qti_plat.h",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d81d0ef_ec52f322",
+        "filename": "plat/qti/common/src/qti_gic_v3.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "No blank line, move these up.",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1f9af10_962e7ce4",
+        "filename": "plat/qti/common/src/qti_interrupt_svc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "Blank line between context_mgmt.h and qti_interrupt_svc.h.",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e822607f_a5e4dbc3",
+        "filename": "plat/qti/common/src/qti_interrupt_svc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "No blank line, move up",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb0fdb6b_ec0077ef",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "Blank line between psci.h and qti_cpu.h",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "996e0dbf_84120896",
+        "filename": "plat/qti/common/src/qti_pm.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "No blank line, move up.",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec543d91_0b8375aa",
+        "filename": "plat/qti/common/src/qti_stack_protector.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "assert.h is libc, blank line",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44c923da_8cbef5e0",
+        "filename": "plat/qti/common/src/qti_stack_protector.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "stdint.h is libc, sort in with assert.h",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b83aaed1_6fedeb05",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "Blank line between xlat_tables_v2.h and qti_plat.h",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab282039_c37d101e",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "smccc_helpers.h and tools_share/uuid.h are project (not platform) headers, should go with the middle group (below xlat_tables_v2.h).",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb60c6a1_31824b44",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "// C99 comments like this are not allowed\n\n/* Always use C89 comments like this */",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8650bf6_88711e84",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "Not sure why you added break here everywhere, you shouldn\u0027t really need that since SMC_RET() is a `return`. If you really want the break here, it should probably go inside the { block }.",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6a3f495_d419e7fa",
+        "filename": "plat/qti/common/src/qti_topology.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "Blank line after arch.h.",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "533035b6_b418d1fb",
+        "filename": "plat/qti/common/src/qti_topology.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "No blank line, move platform_def.h above qti_plat.h",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8958344_0e4f48b9",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "Blank line between xlat_tables_v2.h and qti_plat.h",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd7acd3e_3d08131e",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "No blank line, platform.h goes above qti_plat.h",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa92fdb8_49837b61",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_interface_stub.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-06T00:45:42Z",
+      "side": 1,
+      "message": "Blank line between debug.h and qtiseclib_defs.h",
+      "revId": "881f33cae7e5cf760fde60910168e800a8343795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
