@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "60bc1b3c_822d61a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-08-07T08:10:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d19bd963_703f1209",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "629f7eb63a7f6062c7aa4b8fb9eb759826057e57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94cb5268_ae301dc9",
         "filename": "services/spd/trusty/smcall.h",
         "patchSetId": 2
@@ -189,6 +213,30 @@
       "revId": "629f7eb63a7f6062c7aa4b8fb9eb759826057e57",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3da13e41_f8a2768f",
+        "filename": "services/spd/trusty/smcall.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-08-07T08:10:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c9818bed_0b825839",
+      "range": {
+        "startLine": 79,
+        "startChar": 27,
+        "endLine": 79,
+        "endChar": 29
+      },
+      "revId": "629f7eb63a7f6062c7aa4b8fb9eb759826057e57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
