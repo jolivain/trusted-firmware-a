@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b6adbbe_5579cd0d",
+        "filename": "docs/plat/qemu-sbsa.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2020-08-07T06:33:26Z",
+      "side": 1,
+      "message": "Please place the \"make\" part first in this line.\nIf BL32 is assigned or not seems dependent on the shell unless \"make\" is first in the line.",
+      "revId": "f7b9b3f9f4baef7913fac6dc92afd29746191452",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b056058_a31fe8e9",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2020-08-07T06:33:26Z",
+      "side": 1,
+      "message": "Extend the range like \"2019-2020\" instead of replacing \"2019\" with \"2020\".",
+      "revId": "f7b9b3f9f4baef7913fac6dc92afd29746191452",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e41a188_ed17eaa0",
+        "filename": "plat/qemu/qemu_sbsa/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2020-08-07T06:33:26Z",
+      "side": 1,
+      "message": "Please extend the range like \"2019-2020\" instead.",
+      "revId": "f7b9b3f9f4baef7913fac6dc92afd29746191452",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
