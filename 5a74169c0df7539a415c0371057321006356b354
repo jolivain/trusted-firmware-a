@@ -46,6 +46,30 @@
       "revId": "5a74169c0df7539a415c0371057321006356b354",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "118a94eb_7c783a1e",
+        "filename": "tools/cert_create/src/dualroot/cot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-10T07:02:47Z",
+      "side": 1,
+      "message": "Yes, I agree. A split around SiP/Platform Owner NV counters makes more sense than a split around Trusted/non-Trusted NV counters in the context of the dualroot CoT.\n\nI would suggest we do that as a future refinement, though. I don\u0027t think it should delay this patch.\n\nIf we consider that in the future TRUSTED_FW_NVCOUNTER_EXT \u003d\u003d SIP_NVCOUNTER_EXT and NON_TRUSTED_FW_NVCOUNTER_EXT \u003d\u003d PLAT_NV_COUNTER then I guess we ought to protect:\n* the SIP_SECURE_PARTITION_CONTENT_CERT with the Trusted NV counter\n* the PLAT_SECURE_PARTITION_CONTENT_CERT with the non-Trusted NV counter\n\nas I suggested above. If instead we use the same counter then it implies that during a firmware upgrade both (or none) certificates will need to be upgraded, requiring coordination from the SiP and platform owner (which is not the model we want here).",
+      "parentUuid": "8ec07918_45cda382",
+      "range": {
+        "startLine": 168,
+        "startChar": 3,
+        "endLine": 168,
+        "endChar": 31
+      },
+      "revId": "5a74169c0df7539a415c0371057321006356b354",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
