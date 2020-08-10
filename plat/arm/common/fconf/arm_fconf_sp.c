@@ -31,6 +31,7 @@ int fconf_populate_arm_sp(uintptr_t config)
 	unsigned int index = 0;
 	uint32_t val32;
 	const unsigned int sp_start_index = SP_PKG1_ID;
+	unsigned int j;
 
 	/* As libfdt use void *, we can't avoid this cast */
 	const void *dtb = (void *)config;
@@ -55,6 +56,15 @@ int fconf_populate_arm_sp(uintptr_t config)
 		if (err < 0) {
 			ERROR("FCONF: cannot read SP uuid\n");
 			return -1;
+		}
+
+		/* Convert uuid from big endian to little endian */
+		for (j = 0; j < 4; j++) {
+			uuid_helper.word[j] =
+				((uuid_helper.word[j] >> 24) & 0xff) |
+				((uuid_helper.word[j] << 8) & 0xff0000) |
+				((uuid_helper.word[j] >> 8) & 0xff00) |
+				((uuid_helper.word[j] << 24) & 0xff000000);
 		}
 
 		arm_sp.uuids[index] = uuid_helper;
