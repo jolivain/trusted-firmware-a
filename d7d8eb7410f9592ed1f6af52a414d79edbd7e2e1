@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "16b4f903_9c4b87b4",
+        "filename": "drivers/auth/dualroot/cot.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-08-10T23:24:22Z",
+      "side": 1,
+      "message": "As disccused in previous patch the current code is fine.",
+      "parentUuid": "a9f6e5df_86bf8cd5",
+      "range": {
+        "startLine": 772,
+        "startChar": 0,
+        "endLine": 773,
+        "endChar": 38
+      },
+      "revId": "d7d8eb7410f9592ed1f6af52a414d79edbd7e2e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "68ea7571_aabdc3b7",
         "filename": "include/drivers/auth/auth_mod.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-08-06T11:36:33Z",
       "side": 1,
       "message": "Enclose n between parentheses (I think MISRA checkers will complain about this).",
+      "range": {
+        "startLine": 55,
+        "startChar": 44,
+        "endLine": 55,
+        "endChar": 45
+      },
+      "revId": "d7d8eb7410f9592ed1f6af52a414d79edbd7e2e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6932ebe1_18ea68cc",
+        "filename": "include/drivers/auth/auth_mod.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-08-10T23:24:22Z",
+      "side": 1,
+      "message": "Enclosing n in parantheses cause compilation failure because of \"img_id \u003d SP_PKG##n##_ID\" .",
+      "parentUuid": "68ea7571_aabdc3b7",
       "range": {
         "startLine": 55,
         "startChar": 44,
