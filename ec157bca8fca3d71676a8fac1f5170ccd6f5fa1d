@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "68c4ccd4_5b9b8a9e",
+        "filename": "plat/qti/common/inc/spmi_arb.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-10T21:13:20Z",
+      "side": 1,
+      "message": "I mean... I wrote this and I don\u0027t work for Arm, I was going for the \"and Contributors\" part here. I can change it to Google LLC if you prefer.",
+      "parentUuid": "15d9b553_a799b174",
+      "revId": "ec157bca8fca3d71676a8fac1f5170ccd6f5fa1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c67396de_3b56c8da",
         "filename": "plat/qti/common/src/spmi_arb.c",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "ec157bca8fca3d71676a8fac1f5170ccd6f5fa1d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7cf4b95_bfe8d657",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-10T21:13:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c67396de_3b56c8da",
+      "revId": "ec157bca8fca3d71676a8fac1f5170ccd6f5fa1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "77b562d1_483440b8",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-10T21:13:20Z",
+      "side": 1,
+      "message": "There\u0027s one !\u003d 0U too many in your suggestion, but otherwise, Done.",
+      "parentUuid": "28d4612b_fd46ec2a",
+      "revId": "ec157bca8fca3d71676a8fac1f5170ccd6f5fa1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baba44d5_818a6a21",
         "filename": "plat/qti/common/src/spmi_arb.c",
         "patchSetId": 3
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "fc4306a0_83d398e9",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-10T21:13:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baba44d5_818a6a21",
+      "revId": "ec157bca8fca3d71676a8fac1f5170ccd6f5fa1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10669434_3ec81052",
         "filename": "plat/qti/common/src/spmi_arb.c",
         "patchSetId": 3
@@ -101,6 +173,24 @@
       "revId": "ec157bca8fca3d71676a8fac1f5170ccd6f5fa1d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c5c4f9a_82d76848",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-10T21:13:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10669434_3ec81052",
+      "revId": "ec157bca8fca3d71676a8fac1f5170ccd6f5fa1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -138,6 +228,24 @@
     },
     {
       "key": {
+        "uuid": "ceb0b2cf_83407ab0",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-10T21:13:20Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand the question... opcode is implicitly converted to int before the calculation. See ISO C Standard 6.3.1.1 (Conversions -\u003e Arithmetic Operands -\u003e Boolean, characters and integers): \"If an int can represent all values of the original type (as restricted by the width, for a\nbit-field), the value is converted to an int\".",
+      "parentUuid": "5d58be80_74866a81",
+      "revId": "ec157bca8fca3d71676a8fac1f5170ccd6f5fa1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "744ae310_6a7272e2",
         "filename": "plat/qti/common/src/spmi_arb.c",
         "patchSetId": 3
@@ -149,6 +257,24 @@
       "writtenOn": "2020-07-22T11:31:36Z",
       "side": 1,
       "message": "you can combine apid and ret in 1 variable",
+      "revId": "ec157bca8fca3d71676a8fac1f5170ccd6f5fa1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f9f09f0_24ed2e92",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-10T21:13:20Z",
+      "side": 1,
+      "message": "I mean... yeah but they\u0027re two separate things? I feel code is more readable when variables are named after what they represent and not reused for multiple different things throughout a function. Variables don\u0027t cost anything.",
+      "parentUuid": "744ae310_6a7272e2",
       "revId": "ec157bca8fca3d71676a8fac1f5170ccd6f5fa1d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
