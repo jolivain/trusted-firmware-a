@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1406f88_c5d4e2b4",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-11T12:53:28Z",
+      "side": 1,
+      "message": "(minor) It looks like we could get rid of the \"is_plat_owner\" variable if we moved the code below under lines 88/90 as appropriate. But I guess it\u0027s down to personal preference so feel free to ignore if you find the code clearer as is.",
+      "range": {
+        "startLine": 97,
+        "startChar": 6,
+        "endLine": 97,
+        "endChar": 19
+      },
+      "revId": "d2127e42144dbeadce415b1b7f639f06b5357917",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
