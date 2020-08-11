@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "187f73ad_7696fe39",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-11T15:44:30Z",
+      "side": 1,
+      "message": "put it before \u003clib/xlat_tables/xlat_tables_defs.h\u003e",
+      "revId": "dbb0ee135169a928f584d735a2b1de83870aed19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55780d6e_c8a40887",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-11T15:44:30Z",
+      "side": 1,
+      "message": "do you need () here? See lines #454, 456",
+      "revId": "dbb0ee135169a928f584d735a2b1de83870aed19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59c9cfe1_6283ed3d",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-11T15:44:30Z",
+      "side": 1,
+      "message": "orr\tw29, w29, #(TCR_EPD0_BIT | TCR_EPD1_BIT)",
+      "revId": "dbb0ee135169a928f584d735a2b1de83870aed19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
