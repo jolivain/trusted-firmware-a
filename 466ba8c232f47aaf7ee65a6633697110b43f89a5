@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b949efcd_ff4d23e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-08-11T16:20:53Z",
+      "side": 1,
+      "message": "add some details like below\n\nWith recently introduced dualroot CoT for SPs where they are owned\neither by SiP or by Platform. SiP owned SPs index starts at SP_PKG1_ID and Plat owned SPs index starts at SP_PKG5_ID.\n\nThis patch modifies SP makefile generator script to take CoT as an argument and if it is \"dualroot\" then generates SP_PKG in order mentioned above otherwise generates it sequentially.",
+      "revId": "466ba8c232f47aaf7ee65a6633697110b43f89a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b96b6c73_13fb6964",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-08-11T16:20:53Z",
+      "side": 1,
+      "message": "CoT",
+      "range": {
+        "startLine": 22,
+        "startChar": 8,
+        "endLine": 22,
+        "endChar": 12
+      },
+      "revId": "466ba8c232f47aaf7ee65a6633697110b43f89a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
