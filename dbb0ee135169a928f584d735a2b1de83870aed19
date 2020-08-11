@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aa091b7a_f2e5919c",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-11T16:07:44Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "187f73ad_7696fe39",
+      "revId": "dbb0ee135169a928f584d735a2b1de83870aed19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55780d6e_c8a40887",
         "filename": "include/arch/aarch64/el3_common_macros.S",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "543353de_e8127f5a",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-11T16:07:44Z",
+      "side": 1,
+      "message": "Ack, will remove parenthesis though this does not cause any error..",
+      "parentUuid": "55780d6e_c8a40887",
+      "revId": "dbb0ee135169a928f584d735a2b1de83870aed19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59c9cfe1_6283ed3d",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 4
@@ -47,6 +83,24 @@
       "writtenOn": "2020-08-11T15:44:30Z",
       "side": 1,
       "message": "orr\tw29, w29, #(TCR_EPD0_BIT | TCR_EPD1_BIT)",
+      "revId": "dbb0ee135169a928f584d735a2b1de83870aed19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c3a4a63_5c43e104",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-11T16:07:44Z",
+      "side": 1,
+      "message": "Initially tried with this change \"orr\tw29, w29, #(TCR_EPD0_BIT | TCR_EPD1_BIT)\" but received comment as below which leads to make me use X register instead of W.\n\nTCR_EL1 is a 64bit register.\n\nFrom C6.1.1. \"Register Size\":\n| Where a 32-bit instruction form is selected, the following holds:\n| * The upper 32 bits of the source registers are ignored.\n| * The upper 32 bits of the destination register are set to zero.\n \nWon\u0027t this accidentally clear the top 32bits of TCR_EL1?\n\nAs per explanation, there is possibility of clearing upper 32 bits if we use \u0027W\u0027 register.",
+      "parentUuid": "59c9cfe1_6283ed3d",
       "revId": "dbb0ee135169a928f584d735a2b1de83870aed19",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
