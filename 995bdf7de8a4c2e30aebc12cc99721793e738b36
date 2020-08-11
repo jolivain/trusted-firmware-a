@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "4482a466_39e81b8b",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-08-11T15:18:49Z",
+      "side": 1,
+      "message": "Consider the scenario where there are two partitions 1st owned by \"SiP\" and 2nd owned by \"Plat\"\nIn Single CoT build case the SP pakages will be built with following index \nSP_PKG1 and SP_PKG2 and Image ids should be \"34\" and \"35\" but at run time Image id(sp_mem_param array) and policy index will be \"34\" and \"38\".\n\nI think its unavoidable to not use ARM_COT_dualroot, atleast to avoid reading \"owner\" field.\nWe can get rid of it once we have a mechanism to add SP info in \"fvp_tb_fw_config.dts\" directly based on sp_layout.json info at build time and not adding owner field based on CoT. There is a script in development which does this.",
+      "parentUuid": "005d52fe_8f7e6dab",
+      "revId": "995bdf7de8a4c2e30aebc12cc99721793e738b36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bea0590e_08f591a7",
         "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
         "patchSetId": 2
@@ -114,6 +132,30 @@
       "side": 1,
       "message": "It is an optional field indeed but if it\u0027s not present, what should be the default owner? (in the case of the dualroot CoT) \n\nRight now, I believe it will default to belonging to the SiP (because arm_sp is stored in the BSS so it\u0027s initialized to 0 and the string comparison with \"Plat\" will always fail) but the code could be more explicit about it IMO. One way to do that would be to check the presence of the field in the DTB, either via the return code of fdtw_read_string() or by checking that the owner string is empty. I personally prefer the former, as it seems more explicit to me, does not rely on fdtw_read_string() not modifying its argument on error, and also avoids a function call/pointer dereference (at the expense of using an extra register for the return code of fdtw_read_string() probably).",
       "parentUuid": "788ecfca_0f3d0676",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 3
+      },
+      "revId": "995bdf7de8a4c2e30aebc12cc99721793e738b36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35040c86_f38119c8",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-08-11T15:18:49Z",
+      "side": 1,
+      "message": "The default owner will be SiP.\n\nThe return code of fdtw_read_string() is not explicit, it returns \"-1\" in failure cases(absence of field or overflow). So possibly we can\u0027t make any decision based on its return value.\n\nwith the new change \"arm_sp.owner[index]\" will be  empty if Single CoT or it is actully empty making owner fallback to SiP and works fine in all scenarios.\n\n#if defined(ARM_COT_dualroot)\n                /* Owner is an optional field, no need to catch error */\n                fdtw_read_string(dtb, sp_node, \"owner\",\n                                arm_sp.owner[index], ARM_SP_OWNER_NAME_LEN);\n#endif\n                /* If owner is empty mark it as SiP owned */\n                if ((strcmp(arm_sp.owner[index], \"SiP\") \u003d\u003d 0) ||\n                    (strcmp(arm_sp.owner[index], \"\") \u003d\u003d 0)) {\n                        is_plat_owned \u003d false;\n                } else if (strcmp(arm_sp.owner[index], \"Plat\") \u003d\u003d 0) {\n                        is_plat_owned \u003d true;\n                } else {\n                        ERROR(\"FCONF: Invalid SP owner\\n\");\n                        return -1;\n                }",
+      "parentUuid": "51cb6402_e0e1bd7f",
       "range": {
         "startLine": 97,
         "startChar": 0,
