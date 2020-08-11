@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac7b073c_2586e435",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-11T16:31:35Z",
+      "side": 1,
+      "message": "`PROJECT_SOURCE_DIR` exists for this purpose: https://cmake.org/cmake/help/v3.0/variable/PROJECT_SOURCE_DIR.html",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 43
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3af8e7b_2b258cc3",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-11T16:31:35Z",
+      "side": 1,
+      "message": "If you add `${TFA_ROOT_DIR}/cmake` to `CMAKE_MODULE_PATH`, you can simply use:\n\n    include(GetTFACMF)",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 46
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5f13cae_db6822a1",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-11T16:31:35Z",
+      "side": 1,
+      "message": "We shouldn\u0027t be setting this explicitly within CMakeLists.txt. `CMAKE_C_COMPILER_ID` exists for this purpose, and is derived from the toolchain file: https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_COMPILER_ID.html",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 49
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b72daa50_72bd8623",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-11T16:31:35Z",
+      "side": 1,
+      "message": "As cache variables, these should be given an adequate namespace (`TFA`?). This allows them to be grouped within the CMake GUI.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 72
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dfe3c62_b4edc1fd",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-11T16:31:35Z",
+      "side": 1,
+      "message": "Why are these being set within the CMakeLists.txt as opposed to dedicated toolchain files, per: https://cmake.org/cmake/help/v3.18/manual/cmake-toolchains.7.html#cross-compiling-toolchain",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 31
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44fe6fd1_4d4b042f",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-11T16:31:35Z",
+      "side": 1,
+      "message": "Why are these being set within the CMakeLists.txt as opposed to a dedicated toolchain file per: https://cmake.org/cmake/help/v3.18/manual/cmake-toolchains.7.html#cross-compiling-toolchain\n\nThis is asking for pain if we need to pull in dependencies via `find_package()` at any point, as the search paths and target information are going to be incorrect.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 31
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e35bf5e5_b53586c2",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-11T16:31:35Z",
+      "side": 1,
+      "message": "Are all of these includes necessary? Can some of them be moved to a more a local scope or removed altogether? This seems like a very large number of top-level dependencies.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 29
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f928bc3_f5fbc474",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-11T16:31:35Z",
+      "side": 1,
+      "message": "These can all be set to `${PROJECT_SOURCE_DIR}`.",
+      "range": {
+        "startLine": 103,
+        "startChar": 8,
+        "endLine": 103,
+        "endChar": 23
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8573d842_28246f6e",
+        "filename": "cmake/BuildMessage.cmake",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-11T16:31:35Z",
+      "side": 1,
+      "message": "This is not a portable solution and should be doable with a simple:\n\n    configure_file(\n        \"${CMAKE_CURRENT_SOURCE_DIR}/build_message.c.in\"\n        \"${CMAKE_CURRENT_BINARY_DIR}/build_message.c\")",
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2754832f_fac613f2",
+        "filename": "cmake/GetTFACMF.cmake",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-11T16:31:35Z",
+      "side": 1,
+      "message": "I must admit that I\u0027m quite concerned by the verbosity that this dependency introduces. The benefit of this custom toolchain manager does not seem to be obvious, and it seems to obscure much of the fundamental CMake logic that most people will be familiar with. Is this truly necessary over simply using well-formed toolchain files passed through `CMAKE_TOOLCHAIN_FILE`: https://cmake.org/cmake/help/latest/variable/CMAKE_TOOLCHAIN_FILE.html",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 51
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
