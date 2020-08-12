@@ -283,18 +283,25 @@ A description file (json format) is passed to the build flow specifying
 paths to the SP binary image and associated DTS partition manifest file.
 The latter is going through the dtc compiler to generate the dtb fed into
 the SP package.
+This file also specifies the owner of the SP, which is an optional field and
+identify signing domain incase of dualroot CoT.
+The possible owner of an SP could either be Silicon Provider or Platform and
+the corresponding owner field values are "SiP" or "Plat", in absence of this
+field owner defaults to "SiP".
 
 .. code:: shell
 
     {
         "tee1" : {
             "image": "tee1.bin",
-             "pm": "tee1.dts"
+             "pm": "tee1.dts",
+             "owner": "SiP"
         },
 
         "tee2" : {
             "image": "tee2.bin",
-            "pm": "tee2.dts"
+            "pm": "tee2.dts",
+            "owner": "Plat"
         }
     }
 
