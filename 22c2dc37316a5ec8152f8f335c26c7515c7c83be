@@ -34,6 +34,24 @@
       "revId": "22c2dc37316a5ec8152f8f335c26c7515c7c83be",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82e7fcde_fb35e1b1",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-08-12T18:00:22Z",
+      "side": 1,
+      "message": "The function identifier is always 32 bit irrespective of SMC32/SMC64 call either from aarch32 or aarch64 state. May be we need to make the macro SMC_TYPE_FAST to be of constant size (32). Do you think declaring it UL(1) will help?",
+      "parentUuid": "42a30aa9_68759503",
+      "revId": "22c2dc37316a5ec8152f8f335c26c7515c7c83be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
