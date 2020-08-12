@@ -123,7 +123,7 @@ Arm FVP Platform Specific Build Options
    -  ``FVP_GICV2`` : The GICv2 only driver is selected
    -  ``FVP_GICV3`` : The GICv3 only driver is selected (default option)
 
--  ``FVP_USE_SP804_TIMER`` : Use the SP804 timer instead of the Generic Timer
+-  ``USE_SP804_TIMER`` : Use the SP804 timer instead of the Generic Timer
    for functions that wait for an arbitrary time length (udelay and mdelay).
    The default value is 0.
 
