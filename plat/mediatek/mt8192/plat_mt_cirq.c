@@ -15,6 +15,10 @@
 #include <plat_mt_cirq.h>
 #include <platform_def.h>
 
+static struct cirq_events cirq_all_events = {
+	.spi_start = CIRQ_SPI_START,
+};
+
 static inline void  mt_cirq_write32(uint32_t val, uint32_t addr)
 {
 	mmio_write_32(addr + SYS_CIRQ_BASE, val);
@@ -468,10 +472,26 @@ void mt_cirq_flush(void)
 					CIRQ_TO_IRQ_NUM(0), CIRQ_IRQ_NUM - 1,
 					CIRQ_TO_IRQ_NUM(CIRQ_IRQ_NUM - 1));
 		ERROR("[CIRQ] Flush Check %s, Confirm:SPI_START_OFFSET:%d\n",
-                      pass == 1 ? "Pass" : "Failed", CIRQ_SPI_START);
+				pass == 1 ? "Pass" : "Failed", CIRQ_SPI_START);
 	}
 	mt_cirq_mask_all();
 	mt_cirq_ack_all();
+}
+
+void mt_cirq_sw_reset(void)
+{
+	uint32_t st;
+
+	st = mt_cirq_read32(CIRQ_CON);
+	st |= (CIRQ_SW_RESET << CIRQ_CON_SW_RST_BITS);
+
+	mt_cirq_write32(st, CIRQ_CON);
+}
+
+void set_wakeup_sources(uint32_t *list, uint32_t num_of_events)
+{
+	cirq_all_events.num_of_events = num_of_events;
+	cirq_all_events.wakeup_events = list;
 }
 
 void mt_cirq_dump_reg(void)
@@ -522,5 +542,3 @@ void mt_cirq_dump_reg(void)
 	ERROR("and update plat_mt_cirq.h for enable CIRQ Clone checking\n");
 #endif
 }
-
-
