@@ -18,6 +18,7 @@
 #include <plat_params.h>
 #include <plat_pm.h>
 #include <plat_mtk_lpm.h>
+#include <pmic.h>
 
 /*
  * Cluster state request:
@@ -364,6 +365,7 @@ static const plat_psci_ops_t plat_psci_ops = {
 	.pwr_domain_off			= plat_power_domain_off,
 	.pwr_domain_suspend		= plat_power_domain_suspend,
 	.pwr_domain_suspend_finish	= plat_power_domain_suspend_finish,
+	.system_off			= plat_mtk_system_off,
 	.validate_power_state		= plat_validate_power_state,
 	.get_sys_suspend_power_state	= plat_get_sys_suspend_power_state
 };
