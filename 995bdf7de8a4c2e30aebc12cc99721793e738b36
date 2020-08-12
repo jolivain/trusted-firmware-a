@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "6fa1b8ac_702e990f",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-12T07:24:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4482a466_39e81b8b",
+      "revId": "995bdf7de8a4c2e30aebc12cc99721793e738b36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bea0590e_08f591a7",
         "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
         "patchSetId": 2
@@ -165,6 +183,30 @@
       "revId": "995bdf7de8a4c2e30aebc12cc99721793e738b36",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "768c7c3e_b6aa93ee",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-12T07:24:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "35040c86_f38119c8",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 3
+      },
+      "revId": "995bdf7de8a4c2e30aebc12cc99721793e738b36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }

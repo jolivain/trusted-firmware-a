@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78fb232f_7777df64",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-12T07:24:34Z",
+      "side": 1,
+      "message": "(minor) How about arm_sp.owner[index][0] \u003d\u003d 0 to avoid the function call? (although the compiler might already optimise that)",
+      "range": {
+        "startLine": 92,
+        "startChar": 6,
+        "endLine": 92,
+        "endChar": 44
+      },
+      "revId": "a8d5dc4ef7fb431a7e49189f31846190498de55a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce542442_78d01e7b",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-12T07:24:34Z",
+      "side": 1,
+      "message": "(minor) Should we print the owner string for a better error message?",
+      "range": {
+        "startLine": 97,
+        "startChar": 3,
+        "endLine": 97,
+        "endChar": 38
+      },
+      "revId": "a8d5dc4ef7fb431a7e49189f31846190498de55a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
