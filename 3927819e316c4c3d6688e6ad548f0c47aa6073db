@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ea9fde98_b3c3daa4",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-13T15:27:09Z",
+      "side": 1,
+      "message": "Actually this function only used to report the errata. Errata needs to be applies unconditionally because of the nature of the errata.",
+      "parentUuid": "4c730ce8_ec18d030",
+      "revId": "3927819e316c4c3d6688e6ad548f0c47aa6073db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "caab307b_a371506b",
         "filename": "lib/cpus/aarch64/cortex_a76.S",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2020-08-13T15:18:51Z",
       "side": 1,
       "message": "When is this function called?",
+      "revId": "3927819e316c4c3d6688e6ad548f0c47aa6073db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4742bb6f_c9b283ad",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-13T15:27:09Z",
+      "side": 1,
+      "message": "This function gets called during errata reporting.",
+      "parentUuid": "caab307b_a371506b",
       "revId": "3927819e316c4c3d6688e6ad548f0c47aa6073db",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "ca52c5c5_c97e1f07",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-13T15:27:09Z",
+      "side": 1,
+      "message": "Not necessarily, I just fit this under \u0027numbered errata\u0027 section. Do you want me to move at the end?",
+      "parentUuid": "58a3738a_71ca5bee",
+      "revId": "3927819e316c4c3d6688e6ad548f0c47aa6073db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4c780ae9_4574d2bc",
         "filename": "lib/cpus/cpu-ops.mk",
         "patchSetId": 4
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "a9bdb1d1_13384794",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-13T15:27:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4c780ae9_4574d2bc",
+      "revId": "3927819e316c4c3d6688e6ad548f0c47aa6073db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0552ba4_d0e0d64b",
         "filename": "lib/cpus/cpu-ops.mk",
         "patchSetId": 4
@@ -84,6 +156,24 @@
       "revId": "3927819e316c4c3d6688e6ad548f0c47aa6073db",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dd49782_232def1d",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-13T15:27:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e0552ba4_d0e0d64b",
+      "revId": "3927819e316c4c3d6688e6ad548f0c47aa6073db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
