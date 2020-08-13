@@ -70,6 +70,24 @@
       "revId": "22c2dc37316a5ec8152f8f335c26c7515c7c83be",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb80eb02_fd016afa",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-08-13T20:32:01Z",
+      "side": 1,
+      "message": "Sounds good to me. I am surprised that coverity is treating U(1) as 8 bits. Doesnt U refer to \"unsigned int\" which has to be at least 32 bits wide. Is coverity treating U as \"unsigned char\"?",
+      "parentUuid": "5723bfc1_4d6410d3",
+      "revId": "22c2dc37316a5ec8152f8f335c26c7515c7c83be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
