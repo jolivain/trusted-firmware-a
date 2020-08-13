@@ -16,6 +16,24 @@
       "revId": "93196537fb117297d0cfa8fd82ad878feb5c5572",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fb8ed98_6afa7245",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-13T14:04:13Z",
+      "side": 1,
+      "message": "Tab I put before mov but not after mov. I will correct it.",
+      "parentUuid": "49eddcd0_bc43c7b9",
+      "revId": "93196537fb117297d0cfa8fd82ad878feb5c5572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
