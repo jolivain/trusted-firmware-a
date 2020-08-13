@@ -52,6 +52,24 @@
       "revId": "22c2dc37316a5ec8152f8f335c26c7515c7c83be",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5723bfc1_4d6410d3",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-08-13T19:59:02Z",
+      "side": 1,
+      "message": "So I have been trying this for a bit, and I have found that I would need to define SMC_TYPE_FAST as U(1) (which I think is totally nonsense, as it would make it 8 bits wide [1]). I\u0027m going to use a compromise, which defines SMC_TYPE_FAST as UL(1) (which it\u0027s my understanding that this would be a 32 bit type, but in my testing it seems to think that this is 64 bit), and also casts it to a uint32_t before using it in the comparison in the is_valid_fast_smc macro.\n\n[1] I have evidence that coverity treats U(1) as 8 bits elsewhere in this patch. Also, the following defect, not fixed by this patch, indicates that U(1) is treated as 8 bits.\n    plat/arm/common/arm_tzc400.c:28:[MISRA C-2012 Rule 12.2 (required)] In \n    expression \"1U \u003c\u003c 16\", shifting more than 7 bits, the number of bits \n    in the essential type of the left expression, \"1U\", is not allowed.\n    The shift amount is 16.",
+      "parentUuid": "82e7fcde_fb35e1b1",
+      "revId": "22c2dc37316a5ec8152f8f335c26c7515c7c83be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
