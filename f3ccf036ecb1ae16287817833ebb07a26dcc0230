@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f456343_702c25e2",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-08-13T10:54:07Z",
+      "side": 1,
+      "message": "This is causing a lot of print outs especially on PSCI test cases because CPU_ON or SUSPEND operations call cm_prepare_el3_exit \u003d\u003e enable_extensions_nonsecure \u003d\u003e amu_enable.\nPSCI SUSPEND is also very frequent in linux boot cases.\nAny chance this gets removed?",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 35
+      },
+      "revId": "f3ccf036ecb1ae16287817833ebb07a26dcc0230",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
