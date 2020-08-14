@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "d5505f9a_e5565f6d",
+        "filename": "services/spd/trusty/trusty.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000329
+      },
+      "writtenOn": "2020-08-14T21:35:38Z",
+      "side": 1,
+      "message": "I asked because this file was originally written by Google, but the copyright was changed to \"ARM Limited and Contributors\" so that it could be merged here. If project guidance has changed,  it would make more sense to restore all the copyrights not just the NVIDIA one.",
+      "parentUuid": "a89dce9e_075da1b5",
+      "revId": "abd6b42fb8e147477b073ab7f25f484995d07899",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "77ced69c_5336ad45",
         "filename": "services/spd/trusty/trusty.c",
         "patchSetId": 3
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Will that cause any problems on the Trusty side? I guess, all unsupported calls would just return an error.",
       "parentUuid": "77ced69c_5336ad45",
+      "revId": "abd6b42fb8e147477b073ab7f25f484995d07899",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97d6c6e8_a8e9e304",
+        "filename": "services/spd/trusty/trusty.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1000329
+      },
+      "writtenOn": "2020-08-14T21:35:38Z",
+      "side": 1,
+      "message": "It will not cause any immediate problems, but I don\u0027t want someone to register a handler for one of these in trusty and later discover that yielding calls get blocked. Either block both fast calls and yielding calls or neither. You should also mention that you are changing this in the change description.",
+      "parentUuid": "b22af90d_5ce77244",
       "revId": "abd6b42fb8e147477b073ab7f25f484995d07899",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
