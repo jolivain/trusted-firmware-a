@@ -29,19 +29,52 @@ Making Changes
 -  Make commits of logical units. See these general `Git guidelines`_ for
    contributing to a project.
 
--  Follow the :ref:`Coding Style` and :ref:`Coding Guidelines`.
-
-   -  Use the checkpatch.pl script provided with the Linux source tree. A
-      Makefile target is provided for convenience.
-
 -  Keep the commits on topic. If you need to fix another bug or make another
    enhancement, please address it on a separate topic branch.
+
+-  Split the patch in manageable units. Small patches are usually easier to
+   review so this will speed up the review process.
 
 -  Avoid long commit series. If you do have a long series, consider whether
    some commits should be squashed together or addressed in a separate topic.
 
--  Make sure your commit messages are in the proper format. If a commit fixes
-   an `issue`_, include a reference.
+-  Ensure that each commit in the series has at least one ``Signed-off-by:``
+   line, using your real name and email address. The names in the
+   ``Signed-off-by:`` and ``Author:`` lines must match. If anyone else
+   contributes to the commit, they must also add their own ``Signed-off-by:``
+   line. By adding this line the contributor certifies the contribution is made
+   under the terms of the
+   :download:`Developer Certificate of Origin <../../dco.txt>`.
+
+   More details may be found in the `Gerrit Signed-off-by Lines guidelines`_.
+
+-  Ensure that each commit also has a unique ``Change-Id:`` line. If you have
+   cloned the repository with the "`Clone with commit-msg hook`" clone method
+   (following the :ref:`Prerequisites` document), this should already be the
+   case.
+
+   More details may be found in the `Gerrit Change-Ids documentation`_.
+
+-  Write informative and comprehensive commit messages. A good commit message
+   provides all the background information needed for reviewers to understand
+   the intent and rationale of the patch. This information is also useful for
+   future reference.
+
+   For example:
+
+   -  What does the patch do?
+   -  What motivated it?
+   -  What impact does it have?
+   -  How was it tested?
+   -  Have alternatives been considered? Why did you choose this approach over
+      another one?
+   -  If it fixes an `issue`_, include a reference.
+
+-  Follow the :ref:`Coding Style` and :ref:`Coding Guidelines`.
+
+   -  Use the checkpatch.pl script provided with the Linux source tree. A
+      Makefile target is provided for convenience, see :ref:`this
+      section<automatic-compliance-checking>` for more details.
 
 -  Where appropriate, please update the documentation.
 
@@ -74,39 +107,38 @@ Making Changes
    is the year of most recent contribution. <OWNER> is your name or your company
    name.
 
+-  Ensure that the tip of the patch stack compiles in all supported
+   configurations. Patches which do not compile will not be merged.
+
 -  Please test your changes. As a minimum, ensure that Linux boots on the
    Foundation FVP. See :ref:`Arm Fixed Virtual Platforms (FVP)` for more
    information. For more extensive testing, consider running the `TF-A Tests`_
    against your patches.
 
+-  Ensure that all CI automated tests pass. Failures should be fixed. They might
+   block a patch, depending on how critical they are.
+
 Submitting Changes
 ------------------
-
--  Ensure that each commit in the series has at least one ``Signed-off-by:``
-   line, using your real name and email address. The names in the
-   ``Signed-off-by:`` and ``Author:`` lines must match. If anyone else
-   contributes to the commit, they must also add their own ``Signed-off-by:``
-   line. By adding this line the contributor certifies the contribution is made
-   under the terms of the
-   :download:`Developer Certificate of Origin <../../dco.txt>`.
-
-   More details may be found in the `Gerrit Signed-off-by Lines guidelines`_.
-
--  Ensure that each commit also has a unique ``Change-Id:`` line. If you have
-   cloned the repository with the "`Clone with commit-msg hook`" clone method
-   (following the :ref:`Prerequisites` document), this should already be the
-   case.
-
-   More details may be found in the `Gerrit Change-Ids documentation`_.
 
 -  Submit your changes for review at https://review.trustedfirmware.org
    targeting the ``integration`` branch.
 
-   -  The changes will then undergo further review and testing by the
-      :ref:`code owners` and :ref:`maintainers`. Any review comments will be
-      made directly on your patch. This may require you to do some rework. For
-      controversial changes, the discussion might be moved to the `TF-A mailing
-      list`_ to involve more of the community.
+-  Add reviewers for your patch:
+
+   -  At least one code owner for each module modified by the patch. See the list
+      of modules and their :ref:`code owners`.
+
+   -  At least one maintainer. See the list of :ref:`maintainers`.
+
+   -  If some module has no code owner, try to identify a suitable
+      reviewer. Running ``git blame`` on the module's source code can help, as
+      it shows who has been working the most recently on this area of the code.
+
+-  The changes will then undergo further review by the designated people. Any
+   review comments will be made directly on your patch. This may require you to
+   do some rework. For controversial changes, the discussion might be moved to
+   the `TF-A mailing list`_ to involve more of the community.
 
    Refer to the `Gerrit Uploading Changes documentation`_ for more details.
 
@@ -114,9 +146,11 @@ Submitting Changes
 
    -  Typically, the :ref:`maintainers` will merge the changes into the
       ``integration`` branch.
+
    -  If the changes are not based on a sufficiently-recent commit, or if they
       cannot be automatically rebased, then the :ref:`maintainers` may rebase it
       on the ``integration`` branch or ask you to do so.
+
    -  After final integration testing, the changes will make their way into the
       ``master`` branch. If a problem is found during integration, the
       :ref:`maintainers` will request your help to solve the issue. They may
