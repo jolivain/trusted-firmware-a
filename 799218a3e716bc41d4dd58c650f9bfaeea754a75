@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4ab4b30b_a41cd1a0",
+        "filename": "drivers/console/aarch32/skeleton_console.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-14T09:24:48Z",
+      "side": 1,
+      "message": "Don\u0027t you need to remove this line as well?",
+      "range": {
+        "startLine": 173,
+        "startChar": 1,
+        "endLine": 173,
+        "endChar": 12
+      },
+      "revId": "799218a3e716bc41d4dd58c650f9bfaeea754a75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "362ff4e0_e1ea0d4b",
         "filename": "drivers/console/multi_console.c",
         "patchSetId": 4
@@ -13,6 +36,29 @@
       "writtenOn": "2020-08-14T07:47:32Z",
       "side": 1,
       "message": "Not directly linked to this patch, but MISRA may complain about missing brace.",
+      "revId": "799218a3e716bc41d4dd58c650f9bfaeea754a75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5362c92_484ab4c1",
+        "filename": "plat/marvell/armada/common/aarch64/marvell_helpers.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-14T09:24:48Z",
+      "side": 1,
+      "message": "(minor) I don\u0027t think such a minor change warrants adding Arm copyright. Also, if anything, it should be:\n\n Copyright (c) 2020, Arm Limited. All rights reserved.",
+      "range": {
+        "startLine": 2,
+        "startChar": 1,
+        "endLine": 2,
+        "endChar": 73
+      },
       "revId": "799218a3e716bc41d4dd58c650f9bfaeea754a75",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
