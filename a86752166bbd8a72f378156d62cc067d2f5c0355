@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f62c16d_c51166bc",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-14T11:56:18Z",
+      "side": 1,
+      "message": "Should we remove these 2 lines from the FVP makefile, given that this build flag already defaults to 0 (in defaults.mk)?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "a86752166bbd8a72f378156d62cc067d2f5c0355",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
