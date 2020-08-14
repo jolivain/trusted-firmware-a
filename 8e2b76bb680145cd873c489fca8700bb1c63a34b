@@ -22,6 +22,30 @@
       "revId": "8e2b76bb680145cd873c489fca8700bb1c63a34b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbf65f91_cf42529d",
+        "filename": "bl1/aarch64/bl1_context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-08-14T20:39:03Z",
+      "side": 1,
+      "message": "Maybe. In this context, static means \"allocate globally instead of on the stack\". If this can easily be allocated on the stack, then we should do that. OTOH, these are pretty big, and this is BL1, where we don\u0027t map much stack, so using bss for this is probably most appropriate. If you think it would help, I can add a comment to this affect or amend the commit message to include this explanation.",
+      "parentUuid": "76c79832_21384d9d",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 7
+      },
+      "revId": "8e2b76bb680145cd873c489fca8700bb1c63a34b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
