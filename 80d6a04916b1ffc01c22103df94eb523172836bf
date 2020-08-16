@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd2cdabe_291565ac",
+        "filename": "plat/arm/board/fvp_ve/fvp_ve_bl2_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-16T16:03:49Z",
+      "side": 1,
+      "message": "Please change this to \u0027#if\u0027 as this patch defines \u0027USE_SP804_TIMER\u0027 unconditionally.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 6
+      },
+      "revId": "80d6a04916b1ffc01c22103df94eb523172836bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
