@@ -16,6 +16,24 @@
       "revId": "51d6d5b1038cb53041184a0965ae0a66c974148d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17401483_f3535e36",
+        "filename": "plat/arm/common/arm_console.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-08-17T19:51:57Z",
+      "side": 1,
+      "message": "I did not see any errors from console_unregister in my MISRA scan. Do you want me to update console_uregister too? Or I could remove the void cast here as well.",
+      "parentUuid": "7edf7e3e_175938ec",
+      "revId": "51d6d5b1038cb53041184a0965ae0a66c974148d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
