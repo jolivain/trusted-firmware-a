@@ -16,4 +16,9 @@ LIBFDT_SRCS	:=	$(addprefix lib/libfdt/,	\
 
 INCLUDES	+=	-Iinclude/lib/libfdt
 
+# libfdt has known issues with comparing types of different signedness.
+# Fixes are not trivial, so we should wait for a proper upstream solution.
+# More details: https://www.spinics.net/lists/devicetree-compiler/msg02953.html
+CFLAGS		+=	-Wno-sign-compare
+
 $(eval $(call MAKE_LIB,fdt))
