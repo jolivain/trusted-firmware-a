@@ -188,6 +188,9 @@ SAVE_KEYS			:= 0
 # Software Delegated Exception support
 SDEI_SUPPORT            	:= 0
 
+# IPI framework to handle IPI at EL3
+IPI_SUPPORT			:= 0
+
 # Whether code and read-only data should be put on separate memory pages. The
 # platform Makefile is free to override this value.
 SEPARATE_CODE_AND_RODATA	:= 0
