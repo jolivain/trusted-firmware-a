@@ -2009,6 +2009,42 @@ interrupt and the interrupt ID are passed as parameters.
 
 The default implementation only prints out a warning message.
 
+.. _porting_guide_ipi_requirements:
+
+IPI porting requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The generic |IPI| handling requires the platform to provide the following macros.
+
+Macros
+......
+
+Macro: PLAT_IPI_PRI [mandatory]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This macro must be defined to the EL3 exception priority level associated with
+secure |IPI| handling on the platform.
+
+Macro: PLAT_IPI_CPU_STOP [optional]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This macro must be defined to one of the secure SGI id from 0 to 15 as per the
+platforms allocation.
+
+Functions
+.........
+
+Function: plat_ipi_cpu_stop() [optional]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+  Argument: void
+  Return: void
+
+This function is the handler for 'PLAT_IPI_CPU_STOP'.
+Default implementation of this function powers down the core using PSCI.
+
 Power State Coordination Interface (in BL31)
 --------------------------------------------
 

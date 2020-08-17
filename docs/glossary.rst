@@ -75,6 +75,9 @@ You can find additional definitions in the `Arm Glossary`_.
    GIC
       Generic Interrupt Controller
 
+   IPI
+      Inter Processor Interrupt
+
    ISA
       Instruction Set Architecture
 
