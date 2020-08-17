@@ -54,6 +54,13 @@ ifeq (${EL3_EXCEPTION_HANDLING},1)
 BL31_SOURCES		+=	bl31/ehf.c
 endif
 
+ifeq (${IPI_SUPPORT},1)
+ifeq (${EL3_EXCEPTION_HANDLING},0)
+  $(error EL3_EXCEPTION_HANDLING must be 1 for IPI support)
+endif
+BL31_SOURCES		+=	bl31/ipi.c
+endif
+
 ifeq (${SDEI_SUPPORT},1)
 ifeq (${EL3_EXCEPTION_HANDLING},0)
   $(error EL3_EXCEPTION_HANDLING must be 1 for SDEI support)
@@ -100,6 +107,7 @@ $(eval $(call assert_booleans,\
 	CRASH_REPORTING \
 	EL3_EXCEPTION_HANDLING \
 	SDEI_SUPPORT \
+	IPI_SUPPORT \
 )))
 
 $(eval $(call add_defines,\
@@ -107,4 +115,5 @@ $(eval $(call add_defines,\
         CRASH_REPORTING \
         EL3_EXCEPTION_HANDLING \
         SDEI_SUPPORT \
+	IPI_SUPPORT \
 )))
