@@ -10,9 +10,43 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/console.h>
+#include <drivers/delay_timer.h>
 #include <plat/common/platform.h>
 
 #include "psci_private.h"
+
+#ifndef PLAT_CORES_PWRDWN_WAIT_TIMEOUT_MS
+#define PLAT_CORES_PWRDWN_WAIT_TIMEOUT_MS 1000
+#endif
+
+#if IMAGE_BL31
+void psci_stop_other_cores(void)
+{
+	int idx, this_cpu_idx, cnt;
+
+	this_cpu_idx = plat_my_core_pos();
+
+	/* Raise G0 IPI cpustop to all cores but self */
+	for (idx = 0; idx < psci_plat_core_count; idx++) {
+		if ((idx != this_cpu_idx) &&
+		    (psci_get_aff_info_state_by_idx(idx) == AFF_STATE_ON)) {
+			plat_ipi_send_cpu_stop(psci_cpu_pd_nodes[idx].mpidr);
+		}
+	}
+
+	 /* Wait for others cores to shutdown */
+	for (cnt = 0; cnt < PLAT_CORES_PWRDWN_WAIT_TIMEOUT_MS; cnt++) {
+		if (psci_is_last_on_cpu())
+			break;
+		mdelay(1);
+	}
+
+	if (!psci_is_last_on_cpu()) {
+		WARN("Failed to stop all cores!\n");
+		psci_print_power_domain_map();
+	}
+}
+#endif
 
 void __dead2 psci_system_off(void)
 {
