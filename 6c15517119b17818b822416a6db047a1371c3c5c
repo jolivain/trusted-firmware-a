@@ -46,6 +46,23 @@
       "revId": "6c15517119b17818b822416a6db047a1371c3c5c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9aa9f75_8cb6b062",
+        "filename": "lib/libfdt/fdt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-08-17T22:12:10Z",
+      "side": 1,
+      "message": "Just to copy one comment from David Gibson (the dtc maintainer) from that thread\n(https://www.spinics.net/lists/devicetree-compiler/msg02964.html)\n\"I don\u0027t like this change.  The comparison is correct as it stands, even though the types are different: fdt_totalsize() \u003e INT_MAX (which should always result in a false comparison) is an error in the dtb, and that\u0027s checked by fdt_ro_probe_().\nWorse, this means that passing in -1 to what is a signed int parameter will now make the test *pass*, which really doesn\u0027t seem right.\"",
+      "revId": "6c15517119b17818b822416a6db047a1371c3c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
