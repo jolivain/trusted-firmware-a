@@ -7,6 +7,7 @@
 #include <assert.h>
 
 #include <arch_helpers.h>
+#include <bl31/ipi.h>
 #include <drivers/console.h>
 #if RAS_EXTENSION
 #include <lib/extensions/ras.h>
@@ -63,6 +64,13 @@ void plat_sdei_handle_masked_trigger(uint64_t mpidr, unsigned int intr)
 int plat_sdei_validate_entry_point(uintptr_t ep, unsigned int client_mode)
 {
 	return 0;
+}
+#endif
+
+#if IPI_SUPPORT
+void plat_ipi_send_cpu_stop(u_register_t target)
+{
+	ipi_send_cpu_stop(target);
 }
 #endif
 

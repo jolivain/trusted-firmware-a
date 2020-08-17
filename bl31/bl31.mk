@@ -46,6 +46,9 @@ endif
 
 ifeq (${EL3_EXCEPTION_HANDLING},1)
 BL31_SOURCES		+=	bl31/ehf.c
+ifeq (${IPI_SUPPORT},1)
+BL31_SOURCES		+=	bl31/ipi.c
+endif
 endif
 
 ifeq (${SDEI_SUPPORT},1)
