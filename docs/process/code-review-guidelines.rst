@@ -1,0 +1,191 @@
+Code Review Guidelines
+======================
+
+This document should be read in conjunction with the `Project Maintenance
+Process`_. It supplements it and provides TF-A specific details about the
+project's code review process.
+
+
+Why do we do code reviews?
+--------------------------
+
+The main goal of code reviews is to improve the code quality. By reviewing each
+other's code, we can help catching issues that were missed in the first place
+before they are integrated in the source tree. Different people bring different
+perspectives, depending on their past work, experiences and their current use
+cases of TF-A in their products.
+
+Code reviews also have a key role in sharing knowledge within the
+community. People with more expertise in one of the areas of the code base can
+help those that are less familiar with it.
+
+Code reviews are meant to benefit everyone through team work. It is not about
+unfairly criticizing or lowering down the work of any contributor.
+
+
+Guidelines for patch contributors
+---------------------------------
+
+In addition to the rules outlined in the :ref:`Contributor's Guide`, as a patch
+contributor you are expected to:
+
+-  Answer each and every comment from people who took the time to review your
+   patches.
+
+-  Be patient and resilient. It is quite common for patches to go through
+   several rounds of reviews and rework before they get approved, especially
+   for larger features.
+
+   In the event where a code review takes longer than you would hope for, you
+   may try to speed it up by:
+
+  -  Reviewing other people's patches. If you help out, everybody will be more
+     willing to do the same for you.
+
+  -  Ping the reviewers on Gerrit or on the mailing list. If it is urgent,
+     explain why. Please remain courteous and do not abuse of this, remember that
+     you're asking for valuable time from other professional developers.
+
+-  Do the right thing for the project, not the fastest thing to get code merged.
+
+   For example, if some existing piece of code - say a driver - does not quite
+   meet your exact needs, go the extra mile and extend the code with the missing
+   functionality you require - as opposed to copying the code in some other
+   directory to have the freedom to change it in any way. This way, your changes
+   benefit everyone and will be maintained over time.
+
+
+Guidelines for all reviewers
+----------------------------
+
+There is no good or bad review comments. If you have any doubt about a patch or
+need some clarifications, it's better to ask rather than leaving a potential
+issue slipping. Examples of review comments could be:
+
+- Questions ("Why do you need to do this?", "What if x happens?")
+- Bugs ("I think you need a logical \|\| rather than a bitwise \|.")
+- Design issues ("This won't scale well when we introduce feature x.")
+- Improvements ("Would it be better if we did y instead?")
+
+
+Guidelines for code owners
+--------------------------
+
+Code owners are listed on the :ref:`Project Maintenance<code owners>` page,
+along with the module(s) they look after.
+
+When reviewing a patch, code owners are expected to check the following:
+
+-  The patch looks good from a technical point of view. For example:
+
+  -  The structure of the code is clear.
+
+  -  It complies with the relevant standards or technical documentation (when
+     applicable).
+
+  -  It leverages existing interfaces rather than introducing new ones
+     unnecessarily.
+
+  -  It fits well in the design of the module.
+
+  -  It adheres to the security model of the project. In particular, it does not
+     increase the attack surface (e.g. new SMCs) for no good reason.
+
+-  The patch adheres to the TF-A :ref:`Coding Style`. The CI system should help
+   catching coding style violations.
+
+-  (Only applicable to generic code) The code is MISRA-compliant (see
+   :ref:`misra-compliance`). The CI system should help catching violations.
+
+-  Documentation is provided/updated (when applicable).
+
+-  The patch has had an appropriate level of testing. Testing details are
+   expected to be provided by the patch author. If they are not, do not hesitate
+   to request this information.
+
+-  All CI automated tests pass.
+
+If a code owner is happy with a patch, he/she should give his approval through
+the ``Code-Owner-Review+1`` label in Gerrit. If instead, he/she has concerns,
+questions, or any other type of blocking comment, he/she should set
+``Code-Owner-Review-1``.
+
+Code owners are expected to behave professionally and responsibly. Here are some
+guidelines for them:
+
+-  Once you are engaged in a review, make sure you stay so until the patch is
+   merged. Rejecting a patch and going away is not very helpful. You are
+   expected to monitor the patch author's answers to your review comments,
+   answer back if needed and review new revisions of their patch.
+
+-  Provide constructive feedback. Just saying, "This is wrong, you should do X
+   instead." is usually not very helpful. The patch author is unlikely to
+   understand why you are requesting this change and might feel personally
+   attacked.
+
+-  Be conscientious when reviewing a patch. As a code owner, you are viewed as
+   the expert for the relevant module. By approving a patch, you are partially
+   responsible for its quality and the effects it has for all TF-A users. Make
+   sure you fully understand what the implications of a patch might be.
+
+
+Guidelines for maintainers
+--------------------------
+
+Maintainers are listed on the :ref:`Project Maintenance<maintainers>` page.
+
+When reviewing a patch, maintainers are expected to check the following:
+
+-  The general structure of the patch looks good. This covers things like:
+
+   -  Code organization.
+
+   -  Files and directories names and locations.
+
+      For example, platform code should be added under the ``plat/`` directory.
+
+   -  Naming conventions.
+
+      For example, platform identifiers should be properly namespaced to avoid
+      name clashes with generic code.
+
+   -  API design.
+
+-  Interaction of the patch with other modules in the code base.
+
+-  The patch aims at complying with any standard or technical documentation
+   that applies.
+
+-  New files must have the correct license and copyright headers. See :ref:`this
+   paragraph<copyright-license-guidance>` for more information. The CI system
+   should help catching files with incorrect or no copyright/license headers.
+
+-  There is no third party code or binary blobs which have potential IP
+   concerns.
+
+-  Generally speaking, new driver code should be placed in the generic
+   layer. There are cases where a driver has to stay into the platform layer but
+   this should the exception.
+
+-  Existing common driver (in particular for Arm IPs like the GIC driver) should
+   not be copied into the platform layer to cater for some platform quirks. This
+   type of code duplication hurts the maintainability of the project. The
+   duplicate driver is less likely to benefit from bug fixes and future
+   enhancements. In most cases, it is possible to rework a generic driver to
+   make it more flexible and fit slightly different use cases. That way, these
+   enhancements benefit to everyone.
+
+-  Before merging a patch, verify that all review comments have been addressed.
+   If this is not the case, encourage the patch author and the relevant
+   reviewers to resolve these together.
+
+If a maintainer is happy with a patch, he/she should give his approval through
+the ``Maintainer-Review+1`` label in Gerrit. If instead, he/she has concerns,
+questions, or any other type of blocking comment, he/she should set
+``Maintainer-Review-1``.
+
+--------------
+
+*Copyright (c) 2020, Arm Limited. All rights reserved.*
+
+.. _Project Maintenance Process: https://developer.trustedfirmware.org/w/collaboration/project-maintenance-process/
