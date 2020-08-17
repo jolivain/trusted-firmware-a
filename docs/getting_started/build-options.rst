@@ -542,6 +542,12 @@ Common build options
    When set to ``1``, the build option ``EL3_EXCEPTION_HANDLING`` must also be
    set to ``1``.
 
+-  ``IPI_SUPPORT``: Setting this to ``1`` enables support for generic Inter
+   Processor Interrupt (IPI) handling at EL3. This defaults to ``0``.
+
+   When set to ``1``, the build option ``EL3_EXCEPTION_HANDLING`` must also be
+   set to ``1``.
+
 -  ``SEPARATE_CODE_AND_RODATA``: Whether code and read-only data should be
    isolated on separate memory pages. This is a trade-off between security and
    memory usage. See "Isolating code and read-only data on separate memory
