@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,6 +12,7 @@
 #include <arch_helpers.h>
 #include <bl31/bl31.h>
 #include <bl31/ehf.h>
+#include <bl31/ipi.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/runtime_svc.h>
@@ -107,6 +108,9 @@ void bl31_main(void)
 #if EL3_EXCEPTION_HANDLING
 	INFO("BL31: Initialising Exception Handling Framework\n");
 	ehf_init();
+#if IPI_SUPPORT
+	ipi_init();
+#endif
 #endif
 
 	/* Initialize the runtime services e.g. psci. */
