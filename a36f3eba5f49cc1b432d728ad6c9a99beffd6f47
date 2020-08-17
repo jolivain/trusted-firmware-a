@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c58e5a23_54ef28c8",
+        "filename": "lib/psci/psci_system_off.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-08-17T23:44:41Z",
+      "side": 1,
+      "message": "What is the smc function ID that invokes this function? I mean how can this be invoked from normal world?",
+      "revId": "a36f3eba5f49cc1b432d728ad6c9a99beffd6f47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
