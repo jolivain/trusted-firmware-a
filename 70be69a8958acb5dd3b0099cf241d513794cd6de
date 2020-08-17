@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e75487cb_82aaac1f",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-08-17T10:44:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fbad1eb_0760b6fc",
+      "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18e09e71_e92cd471",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 24
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "ed291122_507102eb",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-08-17T10:44:57Z",
+      "side": 1,
+      "message": "The first core for each cluster is not always 0, as every core has an unique ID calculated based on the maximum topology. With regards to the \"number of cpus on this cluster\", it is based on the maximum topology as well (pd_tree[i+2] \u003d\u003d FPGA_MAX_CPUS_PER_CLUSTER * FPGA_MAX_PE_PER_CPU). The call to plat_get_mpidr_by_core_pos() should discard any invalid ID, so it should not be a problem if the clusters have different number of CPUs.",
+      "parentUuid": "787603a4_2910cb06",
+      "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ec06d6c_efbf0ebd",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 24
@@ -67,6 +103,24 @@
       "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5974d169_97ca0f3f",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-08-17T10:44:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9ec06d6c_efbf0ebd",
+      "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -93,6 +147,30 @@
     },
     {
       "key": {
+        "uuid": "0c842210_c3cdbee1",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-08-17T10:44:57Z",
+      "side": 1,
+      "message": "Topology tree. It was a typo. Thanks for spotting it.",
+      "parentUuid": "af5d624c_ffb7545e",
+      "range": {
+        "startLine": 550,
+        "startChar": 38,
+        "endLine": 550,
+        "endChar": 46
+      },
+      "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a341f98_1cef156e",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 24
@@ -110,6 +188,24 @@
     },
     {
       "key": {
+        "uuid": "0fcdbb3a_830f65d7",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-08-17T10:44:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9a341f98_1cef156e",
+      "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c79566f_4a18b535",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 24
@@ -124,6 +220,24 @@
       "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0095ddd_3f1710b8",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-08-17T10:44:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c79566f_4a18b535",
+      "revId": "70be69a8958acb5dd3b0099cf241d513794cd6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
