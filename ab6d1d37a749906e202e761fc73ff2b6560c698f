@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91d0b95e_189bd41b",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-18T16:22:21Z",
+      "side": 1,
+      "message": "return is obsolete",
+      "revId": "ab6d1d37a749906e202e761fc73ff2b6560c698f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6a0d557_d163dfbc",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-18T16:22:21Z",
+      "side": 1,
+      "message": "remove empty line",
+      "revId": "ab6d1d37a749906e202e761fc73ff2b6560c698f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7b03eb3_189f0cc9",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-18T16:22:21Z",
+      "side": 1,
+      "message": "add new line after declaration at line #478 to make MISRA happy.",
+      "revId": "ab6d1d37a749906e202e761fc73ff2b6560c698f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
