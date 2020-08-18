@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8074d684_4e733cf4",
+        "filename": "bl1/aarch64/bl1_context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-08-18T15:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c76f6ee_29a4f551",
+      "revId": "14f71df2265641e5e537b13f5e895f7a5c9a8781",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631875b7_289fe3a1",
         "filename": "drivers/arm/cci/cci.c",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2020-08-17T15:56:05Z",
       "side": 1,
       "message": "why do you need \"L\" here for unsigned int valid_cci_map?",
+      "revId": "14f71df2265641e5e537b13f5e895f7a5c9a8781",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e144af16_f0b6184f",
+        "filename": "drivers/arm/cci/cci.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-08-18T15:38:57Z",
+      "side": 1,
+      "message": "Coverity treats 1U as an 8 bit, unsigned integer. See the commit message for an example of the kind off error that this additional L removes. Strangely, it does not compare about the type promotion of 0U.",
+      "parentUuid": "631875b7_289fe3a1",
       "revId": "14f71df2265641e5e537b13f5e895f7a5c9a8781",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "14e1b718_9c0cc566",
+        "filename": "drivers/arm/cci/cci.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-08-18T15:38:57Z",
+      "side": 1,
+      "message": "Agreed. This also resolves an error. See my explanation for the other comment.",
+      "parentUuid": "24f5fc57_dc737d5a",
+      "revId": "14f71df2265641e5e537b13f5e895f7a5c9a8781",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "79fcb9f2_cdb80889",
         "filename": "drivers/arm/tzc/tzc400.c",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2020-08-17T15:56:05Z",
       "side": 1,
       "message": "unsigned int open_status. then why \"L\"?",
+      "revId": "14f71df2265641e5e537b13f5e895f7a5c9a8781",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77e0c6a9_2ab60987",
+        "filename": "drivers/arm/tzc/tzc400.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-08-18T15:38:57Z",
+      "side": 1,
+      "message": "This sort of error is expanded on in the commit message. Coverity Treats 1U as 8bits.",
+      "parentUuid": "79fcb9f2_cdb80889",
       "revId": "14f71df2265641e5e537b13f5e895f7a5c9a8781",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "badbcb93_6105cd9f",
+        "filename": "include/lib/smccc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-08-18T15:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "010ad7a5_1d64f9b8",
+      "revId": "14f71df2265641e5e537b13f5e895f7a5c9a8781",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1ffc507_b2e6f982",
         "filename": "include/lib/xlat_tables/xlat_tables_defs.h",
         "patchSetId": 3
@@ -98,6 +188,24 @@
       "writtenOn": "2020-08-17T15:56:05Z",
       "side": 1,
       "message": "UL?",
+      "revId": "14f71df2265641e5e537b13f5e895f7a5c9a8781",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "571ee75d_cf93924d",
+        "filename": "include/lib/xlat_tables/xlat_tables_defs.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-08-18T15:38:57Z",
+      "side": 1,
+      "message": "I\u0027m not sure exactly why, but coverity seems to be happy with comparisons to 0U but not shifts by more than 7 for 0U. If you think it should be upgraded for consistency, I\u0027ll happily amend this patch to include those changes.",
+      "parentUuid": "b1ffc507_b2e6f982",
       "revId": "14f71df2265641e5e537b13f5e895f7a5c9a8781",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -135,6 +243,24 @@
       "revId": "14f71df2265641e5e537b13f5e895f7a5c9a8781",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7e83c2f_20dd80a2",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-08-18T15:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6219212c_d0c7a124",
+      "revId": "14f71df2265641e5e537b13f5e895f7a5c9a8781",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
