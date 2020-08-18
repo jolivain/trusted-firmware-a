@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7b213f5a_b5301689",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-18T20:32:08Z",
+      "side": 1,
+      "message": "Yes, but the documentation indicates unwanted side effects. \"This is the source directory of the last call to the project() command made in the current directory scope or one of its parents.\"\n* Are you 100% sure this will point to the top of the TF-A tree under all circumstances? \n* The project command is only called at line 100. What will be the value here?\n\nI think if I would add a super project above TF-A then PROJECT_SOURCE_DIR here would refer to the directory of the super project and this the build will break.\n\nFor me using PROJECT_SOURCE_DIR does not seem to be safe. We want a variable which refers to TF-A root under any circumstances.",
+      "parentUuid": "aa43c662_35b479cd",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 43
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3af8e7b_2b258cc3",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -119,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "9e1d96ed_749c5a67",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-18T20:32:08Z",
+      "side": 1,
+      "message": "Our compiler specific files work different to toolchain files. Also compiler id is not well defined.\n* For example amrclang 6.x comes with two assemblers, and thus supports two different dialects. Shall the two assemblers be covered with the same compiler id? Or a different one?\n* Which documentation is valid for the compiler id if behavior is project specific, CMake or project documentation?\n\nYes, cmake has build in methodology to select the compiler and to communicate the information to build files. But the documentation is not clear, and if the behavior is project specific it generates confusion.",
+      "parentUuid": "d5f13cae_db6822a1",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 49
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b72daa50_72bd8623",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -166,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "187ef440_23bb8fc0",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-18T20:32:08Z",
+      "side": 1,
+      "message": "TF-A is not planning to use the cmake-gui to edit the configuration. Also this setting has an effect on multiple components. So there is no benefit adding a prefix but it may generate confusion. If the variable is prefixed with TF-A will it affect the whole project or just TF-A core?",
+      "parentUuid": "8c9e6ef1_d55e7ad6",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 72
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2dfe3c62_b4edc1fd",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -200,6 +272,30 @@
       "writtenOn": "2020-08-11T16:31:35Z",
       "side": 1,
       "message": "Why are these being set within the CMakeLists.txt as opposed to a dedicated toolchain file per: https://cmake.org/cmake/help/v3.18/manual/cmake-toolchains.7.html#cross-compiling-toolchain\n\nThis is asking for pain if we need to pull in dependencies via `find_package()` at any point, as the search paths and target information are going to be incorrect.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 31
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de278470_82b2b8a6",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-18T20:32:08Z",
+      "side": 1,
+      "message": "Because this is a bare-metal project and we need more control. For bare-metal projects the standard \"build with any compiler available\" operation is bad.\n\nCan you please explain how and why find_package() is going to misbehave?",
+      "parentUuid": "44fe6fd1_4d4b042f",
       "range": {
         "startLine": 85,
         "startChar": 0,
@@ -259,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "ed8ce30c_ad223716",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-18T20:32:08Z",
+      "side": 1,
+      "message": "We should use the \"include what you use\" principle, so +1 for this. At the same time this fix may be out of scope for the first version.",
+      "parentUuid": "e2031398_475c3448",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 29
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f928bc3_f5fbc474",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -306,6 +426,30 @@
     },
     {
       "key": {
+        "uuid": "974114cb_61fb940f",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-18T20:32:08Z",
+      "side": 1,
+      "message": "Pls, no! See my comment above about this variable.",
+      "parentUuid": "052f84c1_5261206d",
+      "range": {
+        "startLine": 103,
+        "startChar": 8,
+        "endLine": 103,
+        "endChar": 23
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8573d842_28246f6e",
         "filename": "cmake/BuildMessage.cmake",
         "patchSetId": 8
@@ -341,6 +485,24 @@
     },
     {
       "key": {
+        "uuid": "49d23818_5789eb09",
+        "filename": "cmake/BuildMessage.cmake",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-18T20:32:08Z",
+      "side": 1,
+      "message": "Handling the build message is quite complex. This file shall only be \"configured\" if other files have been changed, but in such case always.\nI can not tell if configur_file() keeps the correct behavior or not. Careful testing is needed.\n\nChris: can you explain you portability concern?",
+      "parentUuid": "ead861ed_d7a0f958",
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2754832f_fac613f2",
         "filename": "cmake/GetTFACMF.cmake",
         "patchSetId": 8
@@ -352,6 +514,30 @@
       "writtenOn": "2020-08-11T16:31:35Z",
       "side": 1,
       "message": "I must admit that I\u0027m quite concerned by the verbosity that this dependency introduces. The benefit of this custom toolchain manager does not seem to be obvious, and it seems to obscure much of the fundamental CMake logic that most people will be familiar with. Is this truly necessary over simply using well-formed toolchain files passed through `CMAKE_TOOLCHAIN_FILE`: https://cmake.org/cmake/help/latest/variable/CMAKE_TOOLCHAIN_FILE.html",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 51
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2aa6678_15f9bb2e",
+        "filename": "cmake/GetTFACMF.cmake",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-18T20:32:08Z",
+      "side": 1,
+      "message": "This has much wider scope than the toolchain file. TFACMF (TF-A CMake Framework) is a CMake script library. The intention is to share project independent functionality with other projects like TFTF to avoid code duplication and to spare work.\n\nPlease see my previous response on CMAKE_TOOLCHAIN_FILE file.",
+      "parentUuid": "2754832f_fac613f2",
       "range": {
         "startLine": 109,
         "startChar": 0,
