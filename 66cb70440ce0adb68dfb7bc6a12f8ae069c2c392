@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d00999d3_793eee6c",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-18T08:51:32Z",
+      "side": 1,
+      "message": "I guess in this case you could use a \u0027Co-authored-by\u0027 tag instead of a \u0027Signed-off-by\u0027 one.",
+      "parentUuid": "ea107a3a_5477e53b",
+      "range": {
+        "startLine": 43,
+        "startChar": 56,
+        "endLine": 45,
+        "endChar": 8
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bf904caf_5b6d7cf5",
         "filename": "docs/process/contributing.rst",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-08-18T05:04:33Z",
       "side": 1,
       "message": "This is not feasible at all times. Internal bug references mean nothing when posted in the open.",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 51
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e83b4392_e40f16e0",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-18T08:51:32Z",
+      "side": 1,
+      "message": "This line was meant to refer to public bug reports on https://developer.trustedfirmware.org/project/board/1/. Notice the word \u0027issue\u0027 is a link to this page. If the bug is only tracked internally then I agree there is little value to add a reference to it, as people outside of your organization would not be able to see the details.",
+      "parentUuid": "bf904caf_5b6d7cf5",
       "range": {
         "startLine": 71,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1da5b4a5_cb58753f",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-18T08:51:32Z",
+      "side": 1,
+      "message": "This wasn\u0027t the original intent of this sentence. I admit this has not been properly discussed on the TF-A mailing list (and I should probably start a thread about it) but we\u0027ve had discussions about this within Arm and we believe that in some cases it might be too much of a restriction to mandate that every patch in a patch series compiles. We think that it is more flexible and good enough to mandate that the code compiles at the patch series granularity.\n\nThis, in turn, requires maintainers to merge patch series atomically, as a single chunk, and refrain from merging part of it, at least in the cases where such build errors occur in the middle the patch stack.",
+      "parentUuid": "bbaa3efa_8e6be624",
+      "range": {
+        "startLine": 110,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 18
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "05a7a57a_410c8155",
         "filename": "docs/process/contributing.rst",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2020-08-18T05:04:33Z",
       "side": 1,
       "message": "Isn\u0027t this implied? CI failures will reflect as -1.",
+      "range": {
+        "startLine": 118,
+        "startChar": 3,
+        "endLine": 118,
+        "endChar": 42
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49d0f646_e9b0eb93",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-18T08:51:32Z",
+      "side": 1,
+      "message": "I felt it was worth making it explicit to encourage contributors to have a look at the issues picked up by the CI and fix them. Unfortunately, as you know, only Arm developers have access to most of the CI results right now and so we usually take a look at the results on behalf of other contributors and explicitly ask them to fix any such issue. But when the CI has fully transitioned to tf.org, we would like patch authors to take care of it by themselves, hence this sentence.\n\nI think it does not harm to say it explicitly. Also it documents the patch submission rules.",
+      "parentUuid": "05a7a57a_410c8155",
       "range": {
         "startLine": 118,
         "startChar": 3,
@@ -129,6 +225,24 @@
     },
     {
       "key": {
+        "uuid": "17424b25_e84e32c0",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-18T08:51:32Z",
+      "side": 1,
+      "message": "@Varun: We\u0027re talking about falling back to adding \"vanilla\" reviewers that are *not* code owners in the event where another code owner cannot be found for a given patch. The idea being that it is better to get a second pair of eyes on any patch, even if these eyes are less familiar with the code than those of a code owner, than no peer review at all. I thought that\u0027s what we agreed on the mailing list and it seems feasible to me at all times.\n\nI would be inclined to follow Madhu\u0027s suggestion and add this line.",
+      "parentUuid": "c60c77e7_0dd4639c",
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "80e7b5eb_3109f3fa",
         "filename": "docs/process/contributing.rst",
         "patchSetId": 1
@@ -140,6 +254,30 @@
       "writtenOn": "2020-08-18T05:04:33Z",
       "side": 1,
       "message": "What if there is a single code owner? Are we mandating that there should be multiple code owners? That is over reach IMO.",
+      "range": {
+        "startLine": 134,
+        "startChar": 7,
+        "endLine": 136,
+        "endChar": 79
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9183843_7dd2f890",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-18T08:51:32Z",
+      "side": 1,
+      "message": "No, we\u0027re not mandating that there should be multiple code owners. What this is trying to say is, in the event where there is no code owner at all for a module, the patch still has to be reviewed by someone so let\u0027s choose some reviewer (preferably someone that had some exposure to the code, hence the `git blame` story) to take a look at it.\n\nThe same process would apply if there is a single code owner for a module and the patch to review has been posted by this very same code owner, in this case we\u0027re proposing that a non-code owner reviewer is chosen.",
+      "parentUuid": "80e7b5eb_3109f3fa",
       "range": {
         "startLine": 134,
         "startChar": 7,
