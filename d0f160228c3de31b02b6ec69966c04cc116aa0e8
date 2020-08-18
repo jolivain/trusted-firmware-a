@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a94d6f85_949250e0",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-18T16:41:25Z",
+      "side": 1,
+      "message": "0UL",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ceac6e4b_219d7888",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-18T16:41:25Z",
+      "side": 1,
+      "message": "1) It would be better to put this check after id is set before lines #39-43.\n2) id is used only in this \"if\", do you really need to set it? Can spmd_get_context_by_mpidr() return NULL for incorrect mpidr?",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc2c476d_aa4c3c7a",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-18T16:41:25Z",
+      "side": 1,
+      "message": "0UL",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4c93044_3181b7f9",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-18T16:41:25Z",
+      "side": 1,
+      "message": "0ULL",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "933f37a3_daae1b3f",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-18T16:41:25Z",
+      "side": 1,
+      "message": "%d -\u003e %llu",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "122f6d3d_cee4d8d4",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-18T16:41:25Z",
+      "side": 1,
+      "message": "0UL",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0588aff_41d7f2c3",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-18T16:41:25Z",
+      "side": 1,
+      "message": "0ULL",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e74db9f7_3f16824d",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-18T16:41:25Z",
+      "side": 1,
+      "message": "%d -\u003e %llu",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
