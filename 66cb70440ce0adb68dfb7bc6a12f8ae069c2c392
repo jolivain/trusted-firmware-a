@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "ea107a3a_5477e53b",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-18T05:04:33Z",
+      "side": 1,
+      "message": "How do we address scenarios where previous contributors are not around to add their \"Signed-off-by\"? They still made the contribution and an author might want to give them credit for their work, but cannot add \"Signed-off-by\" on their behalf",
+      "range": {
+        "startLine": 43,
+        "startChar": 56,
+        "endLine": 45,
+        "endChar": 8
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf904caf_5b6d7cf5",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-18T05:04:33Z",
+      "side": 1,
+      "message": "This is not feasible at all times. Internal bug references mean nothing when posted in the open.",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 51
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbaa3efa_8e6be624",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-18T05:04:33Z",
+      "side": 1,
+      "message": "I would reword this: Ensure that each patch in a patch series compiles by itself. This allows \"git revert\" and \"git bisect\" to work.",
+      "range": {
+        "startLine": 110,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 18
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05a7a57a_410c8155",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-18T05:04:33Z",
+      "side": 1,
+      "message": "Isn\u0027t this implied? CI failures will reflect as -1.",
+      "range": {
+        "startLine": 118,
+        "startChar": 3,
+        "endLine": 118,
+        "endChar": 42
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "61587533_add27f96",
         "filename": "docs/process/contributing.rst",
         "patchSetId": 1
@@ -13,6 +105,47 @@
       "writtenOn": "2020-08-17T15:05:12Z",
       "side": 1,
       "message": "Hi Sandrine,\nI was wondering if you could add the following line. Please ignore if you feel its not relevant.\n- The author of the patch is discouraged from doing self review even though he/she might be the\nonly owner of the module. Try to find another contributor who is familiar with the functionality\nof the module.",
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c60c77e7_0dd4639c",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-18T05:04:33Z",
+      "side": 1,
+      "message": "I disagree as this is not feasible at all times and restricts the code review for no reason. We need to provide flexibility where there is only one code owner.",
+      "parentUuid": "61587533_add27f96",
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80e7b5eb_3109f3fa",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-18T05:04:33Z",
+      "side": 1,
+      "message": "What if there is a single code owner? Are we mandating that there should be multiple code owners? That is over reach IMO.",
+      "range": {
+        "startLine": 134,
+        "startChar": 7,
+        "endLine": 136,
+        "endChar": 79
+      },
       "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
