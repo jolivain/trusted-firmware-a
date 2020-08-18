@@ -16,6 +16,29 @@
       "revId": "a36f3eba5f49cc1b432d728ad6c9a99beffd6f47",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "724d5c64_7c46b15e",
+        "filename": "lib/psci/psci_system_off.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-18T05:20:33Z",
+      "side": 1,
+      "message": "IIUC, this wont work if there are holes in the CPU numbering scheme, correct? I propose passing a CPU online bitmask to this function instead.",
+      "range": {
+        "startLine": 29,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 2
+      },
+      "revId": "a36f3eba5f49cc1b432d728ad6c9a99beffd6f47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
