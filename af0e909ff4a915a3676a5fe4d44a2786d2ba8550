@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68eedfe9_f12cf49a",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-18T17:17:47Z",
+      "side": 1,
+      "message": "use extra () for reg !\u003d 0U to make MISRA happy",
+      "revId": "af0e909ff4a915a3676a5fe4d44a2786d2ba8550",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
