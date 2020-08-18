@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af780f1f_98df9634",
+        "filename": "lib/libfdt/libfdt.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-18T12:30:33Z",
+      "side": 1,
+      "message": "I would like to check my understanding.\n\n1. Adding this line to the libfdt makefile won\u0027t restrict this flag to the libfdt source files. Instead all source files in the project will now be compiled with -Wno-sign-compare.\n\n2. If there is a conflict, like here where\n* the libfdt makefile specifies -Wno-sign-compare\n* the Tegra platform makefile specifies -Wsign-compare\n\nthen both will be passed on the command line. The rule in this case seems to be that the compiler gives precedence to the last one on the command line. Right now, this works as intended because the Tegra makefile passes the warning flag through TF_CFLAGS, while the libfdt one uses CFLAGS, and all makefile rules pass variables in this order: $(TF_CFLAGS) $(CFLAGS). So we end up using -Wsign-compare -Wno-sign-compare. This sounds like a fragile assumption to me, though.\n\nIs the above correct?\n\nIf my understanding is correct, I don\u0027t have any easy solution to propose anyway. I just want to make sure I fully understood the patch. I think addressing these issues would require some potentially heavy refactoring of the build system. I believe there\u0027s no point doing that now when we\u0027re about to switch to CMake. It might be worth checking that the CMake build system supports passing flags per module, though, if this is a use case we care about.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 28
+      },
+      "revId": "0c12d0106313e8fc2ebbcd8f896e755cea6ec2e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
