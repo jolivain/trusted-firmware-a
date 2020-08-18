@@ -70,6 +70,24 @@
       "revId": "415cf50fe2c97f70b98edc6ec09a36940e37481f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f003ef03_59078765",
+        "filename": "plat/qti/common/src/qti_rng.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-18T01:52:03Z",
+      "side": 1,
+      "message": "As \u0027qti_rng.h\u0027 header gets included wherever \u0027qti_rng_get_data\u0027 function gets called hence though of there is no need to include \u0027qti_rng.h\u0027 header here but agree that with enabling warning \u0027-Wmissing-declarations\u0027, TF-A ends up in giving warning on missing declaration before definition.",
+      "parentUuid": "fe3c06b5_2901cd20",
+      "revId": "415cf50fe2c97f70b98edc6ec09a36940e37481f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
