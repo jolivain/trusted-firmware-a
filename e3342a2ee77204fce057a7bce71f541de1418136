@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c04eacf_684ce43f",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-18T17:07:19Z",
+      "side": 1,
+      "message": "size_t is unsigned long on AArch64, so 0UL. Can we change it to unsigned int?",
+      "revId": "e3342a2ee77204fce057a7bce71f541de1418136",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
