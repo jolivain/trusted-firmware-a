@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "aa43c662_35b479cd",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2020-08-18T14:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac7b073c_2586e435",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 43
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3af8e7b_2b258cc3",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e392b5d5_2c231a59",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2020-08-18T14:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3af8e7b_2b258cc3",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 46
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -82,6 +130,30 @@
       "writtenOn": "2020-08-11T16:31:35Z",
       "side": 1,
       "message": "As cache variables, these should be given an adequate namespace (`TFA`?). This allows them to be grouped within the CMake GUI.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 72
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c9e6ef1_d55e7ad6",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2020-08-18T14:01:18Z",
+      "side": 1,
+      "message": "Sorry, I\u0027m not sure quite what you mean when you say namespace wrt. cache variables. Does this consist of just prefixing the cache variables with `TFA_` or something like this?",
+      "parentUuid": "b72daa50_72bd8623",
       "range": {
         "startLine": 59,
         "startChar": 0,
@@ -163,6 +235,30 @@
     },
     {
       "key": {
+        "uuid": "e2031398_475c3448",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2020-08-18T14:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e35bf5e5_b53586c2",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 29
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f928bc3_f5fbc474",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -186,6 +282,30 @@
     },
     {
       "key": {
+        "uuid": "052f84c1_5261206d",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2020-08-18T14:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f928bc3_f5fbc474",
+      "range": {
+        "startLine": 103,
+        "startChar": 8,
+        "endLine": 103,
+        "endChar": 23
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8573d842_28246f6e",
         "filename": "cmake/BuildMessage.cmake",
         "patchSetId": 8
@@ -200,6 +320,24 @@
       "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ead861ed_d7a0f958",
+        "filename": "cmake/BuildMessage.cmake",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2020-08-18T14:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8573d842_28246f6e",
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
