@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6394a832_f3cf0bb1",
+        "filename": "plat/common/aarch64/plat_ehf.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-08-18T16:39:09Z",
+      "side": 1,
+      "message": "PLAT_IPI_PRI is not defined. Is it supposed to be defined by the platform layer?",
+      "revId": "14a0b21d6ecc6d43ef6214ea175a3f9bbc25928d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
