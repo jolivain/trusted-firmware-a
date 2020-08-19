@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "cb0201c2_5c1af684",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-08-19T20:42:52Z",
+      "side": 1,
+      "message": "typo: libc",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 3
+      },
+      "revId": "9ac5989e6491b51b1f02cd72635301fd1f9559d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2d66dbf_574005b2",
         "filename": "lib/libc/aarch64/memset.S",
         "patchSetId": 1
@@ -61,6 +84,30 @@
       "side": 1,
       "message": "Yes, it was compared against C optimized version.\nPlease provide your own optimal version written cleverly.",
       "parentUuid": "3df4cd2e_5119a8a5",
+      "range": {
+        "startLine": 11,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 48
+      },
+      "revId": "9ac5989e6491b51b1f02cd72635301fd1f9559d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "977de965_b9127c72",
+        "filename": "lib/libc/aarch64/memset.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-08-19T20:42:52Z",
+      "side": 1,
+      "message": "Sure. I can. feel free to abandon this change.\n\nI don\u0027t understand the commit message. It says \"gets called\n71.84% of CPU execution time is spent in memset() function\nwritten in C using single byte write operations,\" That to me means you compared it against the existing TF-A version that writes byte by byte.\n\nWhat optimized version of memset did you use to compare, that was written in C?\nWhat testing was performed on this?\nThis is also common code and once again, it is being deprecated/replaced without notice. This can potentially have implications on static analysis tools. I\u0027m not aware of static analysis tools that work on assembly files. Please send out an email to the mailing list that you plan to replace it.",
+      "parentUuid": "3a4df4de_b102c99b",
       "range": {
         "startLine": 11,
         "startChar": 3,
