@@ -22,6 +22,30 @@
       "revId": "9ac5989e6491b51b1f02cd72635301fd1f9559d3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3df4cd2e_5119a8a5",
+        "filename": "lib/libc/aarch64/memset.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-08-19T20:10:46Z",
+      "side": 1,
+      "message": "and can be just as optimal if written cleverly.",
+      "parentUuid": "d2d66dbf_574005b2",
+      "range": {
+        "startLine": 11,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 48
+      },
+      "revId": "9ac5989e6491b51b1f02cd72635301fd1f9559d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
