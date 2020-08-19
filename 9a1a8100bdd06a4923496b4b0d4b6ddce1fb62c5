@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49b31045_cf8fd1f6",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_v2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-19T02:49:10Z",
+      "side": 1,
+      "message": "Add braces around \u0027if\u0027 condition as per TF-A coding guidelines.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 26
+      },
+      "revId": "9a1a8100bdd06a4923496b4b0d4b6ddce1fb62c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ef0d320_30dc2e89",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_v2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-19T02:49:10Z",
+      "side": 1,
+      "message": "Add braces around \u0027if\u0027 condition as per TF-A coding guidelines.",
+      "range": {
+        "startLine": 52,
+        "startChar": 1,
+        "endLine": 52,
+        "endChar": 12
+      },
+      "revId": "9a1a8100bdd06a4923496b4b0d4b6ddce1fb62c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9699301_63edd6da",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_v2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-19T02:49:10Z",
+      "side": 1,
+      "message": "IMO, this should be \u0027boolean\u0027 variable.",
+      "range": {
+        "startLine": 66,
+        "startChar": 5,
+        "endLine": 66,
+        "endChar": 15
+      },
+      "revId": "9a1a8100bdd06a4923496b4b0d4b6ddce1fb62c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eeebd757_116dd666",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_v2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-19T02:49:10Z",
+      "side": 1,
+      "message": "Add braces around \u0027if\u0027 condition as per TF-A coding guidelines.",
+      "range": {
+        "startLine": 75,
+        "startChar": 1,
+        "endLine": 75,
+        "endChar": 17
+      },
+      "revId": "9a1a8100bdd06a4923496b4b0d4b6ddce1fb62c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be3c294a_7c7fe337",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_v2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-19T02:49:10Z",
+      "side": 1,
+      "message": "Can this be added as define instead of hardcoded value i.e. 1 and 0 (at line no. 87)?",
+      "range": {
+        "startLine": 79,
+        "startChar": 14,
+        "endLine": 79,
+        "endChar": 15
+      },
+      "revId": "9a1a8100bdd06a4923496b4b0d4b6ddce1fb62c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "417620a6_fe87d255",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_v2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-19T02:49:10Z",
+      "side": 1,
+      "message": "Add braces around \u0027if\u0027 condition as per TF-A coding guidelines.",
+      "range": {
+        "startLine": 93,
+        "startChar": 2,
+        "endLine": 93,
+        "endChar": 18
+      },
+      "revId": "9a1a8100bdd06a4923496b4b0d4b6ddce1fb62c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36393c2b_414c885f",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_v2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-19T02:49:10Z",
+      "side": 1,
+      "message": "Remove extra blank line",
+      "revId": "9a1a8100bdd06a4923496b4b0d4b6ddce1fb62c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7592d4b_812a5933",
+        "filename": "plat/mediatek/mt8192/drivers/pmic/pmic.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-19T02:49:10Z",
+      "side": 1,
+      "message": "Why Arm copyright here? Source file \u003cpmic.c\u003e corresponds to this header is added as part of this patch with MediaTek copyright.",
+      "range": {
+        "startLine": 2,
+        "startChar": 2,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "9a1a8100bdd06a4923496b4b0d4b6ddce1fb62c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a289231f_3d604d7b",
+        "filename": "plat/mediatek/mt8192/drivers/pmic/pmic_wrap_init.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-19T02:49:10Z",
+      "side": 1,
+      "message": "MediaTek copyright?",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 34
+      },
+      "revId": "9a1a8100bdd06a4923496b4b0d4b6ddce1fb62c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
