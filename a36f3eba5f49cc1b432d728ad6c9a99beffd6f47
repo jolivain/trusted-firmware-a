@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "d7670757_8c24386a",
+        "filename": "lib/psci/psci_system_off.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-08-19T13:11:28Z",
+      "side": 1,
+      "message": "\u003e\u003emoving this to the platform port looks like the best option\nIt will be called from platform say from \u0027plat_panic_handler()\u0027 or \u0027plat_xx_reset2()\u0027 or may be a watchdog handler. But the functionality this function implements is not platform dependent.\nIt depends on few psci private functions. So I thought it belongs here.\n\n\u003e\u003e We should ask this on the mailing list.\nI will post in list as well.\n\n\n\u003e\u003eRe, usecase 1) \nIt can be ignored. It is just one of the usage. Most platforms reset is a \"pull-the-plug\" approach and such requirement is not useful.\nSome configurations (eg:brcm smartNIC) need to retain CCN fully functional even when linux/atf goes through a warm reboot and we attempt CCN power channel handshake (P-accept) to do a graceful shutdown.",
+      "parentUuid": "511055bd_b2a3369f",
+      "revId": "a36f3eba5f49cc1b432d728ad6c9a99beffd6f47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "724d5c64_7c46b15e",
         "filename": "lib/psci/psci_system_off.c",
         "patchSetId": 1
@@ -132,6 +150,30 @@
       "side": 1,
       "message": "But this wont work in a scenario where psci_cpu_pd_nodes[] has holes in the idx values. The current for loop does not cover that scenario",
       "parentUuid": "f429a23b_8a983d3e",
+      "range": {
+        "startLine": 29,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 2
+      },
+      "revId": "a36f3eba5f49cc1b432d728ad6c9a99beffd6f47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7eca531c_b19fd507",
+        "filename": "lib/psci/psci_system_off.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-08-19T13:11:28Z",
+      "side": 1,
+      "message": "\u0027psci_is_last_on_cpu()\u0027 \u0027psci_print_power_domain_map()\u0027 all depend on \u0027plat_core_count\u0027 derived during setup. Since we are checking \u0027AFF_STATE_ON\u0027 it can not be an \u0027INVALID_MPIDR\u0027.\nPlease elaborate what you are seeing as an issue and if possible how to solve.",
+      "parentUuid": "34b19851_efbefccd",
       "range": {
         "startLine": 29,
         "startChar": 1,
