@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "90df9adf_68653c15",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-08-19T07:56:38Z",
+      "side": 1,
+      "message": "Hi Alexei, the condition here is treating any non-zero number as TRUE and 0 as FALSE. Same as others case. Cant I use this mechanism for my decrementing counter checking?",
+      "parentUuid": "a20dc83a_19be9b0d",
+      "revId": "e127b167dbab2cdc758de20c0a12f5bee65ba200",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "82ff88eb_770562b9",
         "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-08-18T13:49:04Z",
       "side": 1,
       "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies\ntimeout is int, not bool",
+      "revId": "e127b167dbab2cdc758de20c0a12f5bee65ba200",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8819687d_b0a807ed",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-08-19T07:56:38Z",
+      "side": 1,
+      "message": "Noted, will fix this. Also, cant I use int for condition checking? Any number as True and 0 as False.",
+      "parentUuid": "82ff88eb_770562b9",
       "revId": "e127b167dbab2cdc758de20c0a12f5bee65ba200",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
