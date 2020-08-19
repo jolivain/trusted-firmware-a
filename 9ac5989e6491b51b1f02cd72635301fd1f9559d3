@@ -117,6 +117,30 @@
       "revId": "9ac5989e6491b51b1f02cd72635301fd1f9559d3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57ef7bd4_ecfd6756",
+        "filename": "lib/libc/aarch64/memset.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-19T20:57:26Z",
+      "side": 1,
+      "message": "1) Will compare your C implementation with that one. Just lwt me know when it is ready. Are you also going to provide 32-bit version?\n2) Yes. And commit message clearly states that.\n3) Different versions of memset() including optimised C variant were tested and numbers compared before this final one was sumbitted.\n4) Trace output showing % of CPU time spent in each function + FVP model statistics. See commit message.\n5) Please explain what \"implications on static analysis tools\" you mean.",
+      "parentUuid": "977de965_b9127c72",
+      "range": {
+        "startLine": 11,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 48
+      },
+      "revId": "9ac5989e6491b51b1f02cd72635301fd1f9559d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
