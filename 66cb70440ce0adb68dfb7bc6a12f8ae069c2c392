@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "f86aeff3_2d88601f",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-19T12:33:21Z",
+      "side": 1,
+      "message": "Thanks for the information, Andre. Indeed, I\u0027ve read the DCO again [1] and I now realize that it\u0027s not necessarily about authorship, in particular in the situation of (c) in [1]. From there, I guess the sentence \"The names in the ``Signed-off-by:`` and ``Author:`` lines must match.\" is wrong and should be removed.\n\nI am tempted to make this paragraph shorter and just point people at the DCO. Something like:\n\n Ensure that each commit in the series has at least one ``Signed-off-by:`` line,\n using the individual\u0027s real name and email address. By adding this line the\n contributor certifies the contribution is made under the terms of the DCO.\n\n More details may be found in the `Gerrit Signed-off-by Lines guidelines`_.\n\nHow does that sound?\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/dco.txt",
+      "parentUuid": "e54b0f5d_3fd3dcb1",
+      "range": {
+        "startLine": 43,
+        "startChar": 56,
+        "endLine": 45,
+        "endChar": 8
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bf904caf_5b6d7cf5",
         "filename": "docs/process/contributing.rst",
         "patchSetId": 1
@@ -287,6 +311,30 @@
     },
     {
       "key": {
+        "uuid": "f8156184_ad0f69dc",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-19T12:33:21Z",
+      "side": 1,
+      "message": "Personally I would be fine with mandating that each patch must compile, this seems like a normal assumption to me and an easy one to satisfy. I don\u0027t think I\u0027ve ever faced a situation where I could not make a patch compile in a series.\n\nJulius, unfortunately I don\u0027t recall all the details but I believe there has been situations in the past were the contributor was struggling to get all patches in their series to compile. Rather than addressing the problem (by splitting the patches in another manner or using one of the techniques Andre mentioned, which would have required some more work when the patch series as a whole was already complete), we deemed that it was OK to assume that people would not cherry-pick individual patches in the series and would instead get the whole feature, as all patches were necessary to get a fully working solution anyway.\n\nClearly you guys disagree with this approach for different reasons (fair ones IMO!) so I am happy with revising that and mandate here that every patch must compile and enforce that more strictly in the CI.\n\nThis is where I can see that formalizing the implicit rules in this patch is a useful thing! It triggers interesting discussions.\n\nI\u0027ll wait for another couple of days, see if anyone has a different opinion on this. If I don\u0027t hear anything by Friday afternoon, I\u0027ll merge it (with the amendments we discussed).",
+      "parentUuid": "630039c5_8501e88a",
+      "range": {
+        "startLine": 110,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 18
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "05a7a57a_410c8155",
         "filename": "docs/process/contributing.rst",
         "patchSetId": 1
@@ -423,6 +471,24 @@
     },
     {
       "key": {
+        "uuid": "934a795f_fdaf01d6",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-19T12:33:21Z",
+      "side": 1,
+      "message": "\u003e @Andre @Sandrine, I am OK with having more reviewers. But this has not worked for me in the past. Tegra patches almost always lie on gerrit without any reviews.\n\nIs that even when you explicitly assign the review to specific people? If yes, perhaps you happen to choose the same ones too often, which overloads them too much and they can\u0027t cope with all the reviews? Also, how long do you wait before considering that the patch is lying without any reviews? Review timelines/delays is something we haven\u0027t discussed yet so different people might have a different frame of reference for this.\n\nI am just trying to identify the reasons why we end up in this situation. I would really like to mandate that each and every patch gets reviewed by someone else, this seems very important to me.\n\n\u003e I think one of the objectives of this exercise should also be to alleviate the pain of the code submitters and get patches merged quickly. Adding more restrictions hurts that objective.\n\nAgree that we should work towards getting patches merged quickly, but not at the expense of quality. Peer review is a must for reaching a minimum quality level IMO.\n\n\u003e @Sandrine I have concerns about \"Try to find another contributor who is familiar with the functionality of the module.\" from Madhu\u0027s comment. This needs to be re-worded\n\nHow do you propose to reword it?\n\n\u003e Additionally we should inform the community that \"vanilla\" reviews are OK. Usually people wont provide +1 if they cannot or dont review the entire patch. It is hard for a non-owner to review the patch completely at all times.\n\nI think we\u0027ve discussed that on the mailing list already (see [1]). Maybe I misunderstood Julius\u0027 point. This patch is an attempt at formalizing what\u0027s been discussed there and in my mind serves to inform the community.\n\n[1] https://lists.trustedfirmware.org/pipermail/tf-a/2020-July/000605.html",
+      "parentUuid": "516391e5_67e4a909",
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "80e7b5eb_3109f3fa",
         "filename": "docs/process/contributing.rst",
         "patchSetId": 1
@@ -482,6 +548,30 @@
       "side": 1,
       "message": "The process to choose a reviewer in such cases is unclear. Asking on the mailing list has worked for me in the past. We should add that option to the doc IMO.",
       "parentUuid": "e9183843_7dd2f890",
+      "range": {
+        "startLine": 134,
+        "startChar": 7,
+        "endLine": 136,
+        "endChar": 79
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0c05d48_874f97f7",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-19T12:33:21Z",
+      "side": 1,
+      "message": "Yes I agree, it is not fully defined. `git blame` is the best I can think of but it won\u0027t necessarily work in all cases.\n\nI am OK with adding the option to ask on the mailing list. I\u0027ll add that in the v2.",
+      "parentUuid": "4b8aec57_3026a5c8",
       "range": {
         "startLine": 134,
         "startChar": 7,
