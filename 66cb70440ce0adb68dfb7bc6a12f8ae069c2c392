@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "84137fe8_6170eb44",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-19T15:05:20Z",
+      "side": 1,
+      "message": "\u003e From there, I guess the sentence \"The names in the ``Signed-off-by:`` and ``Author:`` lines must match.\" is wrong and should be removed.\n\nI think this should be reworded into:\n\n The names in the ``Signed-off-by:`` and ``Commit:`` lines must match.\n\nMy understanding is that the individual posting the patch on tf.org is the committer and has to add his sign-off to comply with the DCO.\n\nReworded that way in v2.",
+      "parentUuid": "f86aeff3_2d88601f",
+      "range": {
+        "startLine": 43,
+        "startChar": 56,
+        "endLine": 45,
+        "endChar": 8
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf904caf_5b6d7cf5",
         "filename": "docs/process/contributing.rst",
         "patchSetId": 1
@@ -189,6 +213,30 @@
       "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ed08a3f_c60d220a",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-19T15:05:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "505cf0ab_940fc0cd",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 51
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -332,6 +380,30 @@
       "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b024c33b_c2e38467",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-19T15:05:20Z",
+      "side": 1,
+      "message": "Reworded.",
+      "parentUuid": "f8156184_ad0f69dc",
+      "range": {
+        "startLine": 110,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 18
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -489,6 +561,24 @@
     },
     {
       "key": {
+        "uuid": "d425dbd3_dadf15cd",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-19T15:05:20Z",
+      "side": 1,
+      "message": "For now, I\u0027ve got 3 votes (Madhu, Andre and myself) in favour of prohibiting self-review against 1 vote (Varun) to allow it. Therefore, I went ahead and made the changes. We can always revert it if more people express concerns and that the general consensus is to allow self-review.",
+      "parentUuid": "934a795f_fdaf01d6",
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80e7b5eb_3109f3fa",
         "filename": "docs/process/contributing.rst",
         "patchSetId": 1
@@ -581,6 +671,30 @@
       "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0604ff63_6defad43",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-19T15:05:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0c05d48_874f97f7",
+      "range": {
+        "startLine": 134,
+        "startChar": 7,
+        "endLine": 136,
+        "endChar": 79
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
