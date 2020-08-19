@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "70e18ff6_6522087e",
+        "filename": "lib/libc/aarch64/memset.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-19T19:23:30Z",
+      "side": 1,
+      "message": "I ran tests and this assembler version gives better results then C variant.\nHave you ever asked the question why all these files are in assembler?\nhttps://github.com/torvalds/linux/blob/master/arch/arm64/lib/memset.S\nhttps://github.com/ARM-software/optimized-routines/blob/master/string/aarch64/memset.S\nhttps://github.com/freebsd/freebsd/blob/master/sys/arm64/arm64/memmove.S\nhttps://github.com/freebsd/freebsd/blob/master/sys/arm64/arm64/memcpy.S",
+      "parentUuid": "f8501d4c_26d0dccc",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 48
+      },
+      "revId": "e7d344de01ad11b856233634717aafe9312697e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc647614_2f3451b6",
         "filename": "lib/libc/aarch64/memset.S",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2020-08-19T18:50:01Z",
       "side": 1,
       "message": "should you not use x2 instead of w2 for aarch64? size_t is unsigned long and 64 bits. All below use of w2 needs to be changed to x2?",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 7
+      },
+      "revId": "e7d344de01ad11b856233634717aafe9312697e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c460f60_9cc59315",
+        "filename": "lib/libc/aarch64/memset.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-19T19:23:30Z",
+      "side": 1,
+      "message": "Yes, x2 should be used here. Not \"All below use of w2 needs to be changed to x2\"",
+      "parentUuid": "dc647614_2f3451b6",
       "range": {
         "startLine": 21,
         "startChar": 5,
