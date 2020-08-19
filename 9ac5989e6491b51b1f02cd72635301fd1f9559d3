@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2d66dbf_574005b2",
+        "filename": "lib/libc/aarch64/memset.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-08-19T20:10:02Z",
+      "side": 1,
+      "message": "Why is this in assembly? Is it not possible to write an optimized version in C ?\nAlso, in the performance comparison, was the assembly version compared against an optimized C implementation or was it compared against the current implementation in Tf-A? Your commit message is not clear. This is common code used by many platforms and is being modified into something more complicated than necessary. If the complexity is necessary, i would like justification since this is code used by many platforms.\n\nA c version is more readable to the wider audience, more auditable and more maintainable.",
+      "range": {
+        "startLine": 11,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 48
+      },
+      "revId": "9ac5989e6491b51b1f02cd72635301fd1f9559d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
