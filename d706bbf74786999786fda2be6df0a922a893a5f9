@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "c5b1f156_3f2bf239",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-19T10:49:58Z",
+      "side": 1,
+      "message": "I\u0027m not sure what you mean by it being unsafe - it is quite well-defined. It is precisely equivalent to `set(PROJECT_SOURCE_DIR ...)` at the point of the `project()` call.",
+      "parentUuid": "7b213f5a_b5301689",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 43
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3af8e7b_2b258cc3",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -167,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "6ce3b7e4_1b906066",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-19T10:49:58Z",
+      "side": 1,
+      "message": "\u003e For example amrclang 6.x comes with two assemblers, and thus supports two different dialects. Shall the two assemblers be covered with the same compiler id? Or a different one?\n\nI\u0027m unsure of what you mean by armclang coming with two assemblers. An Arm Compiler 6 toolchain file is expected to set `CMAKE_ASM_COMPILER` to `armclang` (as is the behaviour with GCC/Clang):\n\nhttps://github.com/Kitware/CMake/blob/64a7f491ef8ab6f70a77f89c91d1e7e9d549333e/Modules/Compiler/ARMClang-ASM.cmake\n\n`armclang` itself, when parsing assembly files, defaults to Arm\u0027s unified assembly syntax, but an assembly file can always switch back to divided assembly syntax with the `.syntax divided` directive.\n\n\u003e Which documentation is valid for the compiler id if behavior is project specific, CMake or project documentation.\n\nThe compiler identifier should never be project-specific - project-specific toolchain information *has* to come through project-specific means, either by deriving information from the toolchain file, or directly through the toolchain file itself. Not doing so means potentially breaking things like `find_package()` (uses `CMAKE_FIND_ROOT_PATH_MODE_*`), `try_compile()` (`CMAKE_TRY_COMPILE_TARGET_TYPE`), and anything else that derives information from variables expected to have been created by the toolchain machinery.\n\nIf you\u0027re setting variables like `TFA_MY_COMPILER_METADATA` from the toolchain file, that\u0027s perfectly fine and that should be documented by the project, but the compiler identifiers are standardised and many third-party libraries rely on them (e.g. the `Generic` compiler ID for baremetal targets)",
+      "parentUuid": "9e1d96ed_749c5a67",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 49
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b72daa50_72bd8623",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -226,6 +274,30 @@
       "side": 1,
       "message": "TF-A is not planning to use the cmake-gui to edit the configuration. Also this setting has an effect on multiple components. So there is no benefit adding a prefix but it may generate confusion. If the variable is prefixed with TF-A will it affect the whole project or just TF-A core?",
       "parentUuid": "8c9e6ef1_d55e7ad6",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 72
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e009acdb_4a4ccb23",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-19T10:49:58Z",
+      "side": 1,
+      "message": "\u003e TF-A is not planning to use the cmake-gui to edit the configuration.\n\nI\u0027m not sure what you mean by \"TF-A is not planning to use the cmake-gui to edit the configuration\"... that\u0027s a choice for the user, and is not something that a well-formed CMake project should ever dictate. Many people will be familiar with CMake\u0027s existing configuration toolchain from using other large-scale CMake projects like LLVM, Boost, OpenCV, etc. so making it impossible to do is going to make things very unergonomic indeed for a lot of people, especially for people who configure their projects through their IDE (like JetBrains IntelliJ/CLion and Visual Studio allow).\n\n\u003e Also this setting has an effect on multiple components. So there is no benefit adding a prefix but it may generate confusion. If the variable is prefixed with TF-A will it affect the whole project or just TF-A core?\n\nI\u0027m not sure I understand what you mean, I\u0027m unsure of how it would namespacing would generate confusion.",
+      "parentUuid": "187ef440_23bb8fc0",
       "range": {
         "startLine": 59,
         "startChar": 0,
@@ -497,6 +569,24 @@
       "side": 1,
       "message": "Handling the build message is quite complex. This file shall only be \"configured\" if other files have been changed, but in such case always.\nI can not tell if configur_file() keeps the correct behavior or not. Careful testing is needed.\n\nChris: can you explain you portability concern?",
       "parentUuid": "ead861ed_d7a0f958",
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0a505f2_d0d3310a",
+        "filename": "cmake/BuildMessage.cmake",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-19T10:49:58Z",
+      "side": 1,
+      "message": "The portability concern is that we are directly relying on the shell interpreter to do something that CMake has existing support for.\n\n`configure_file()` is executed on every configuration run, but CMake will only overwrite the file if its content differs from the previous version (to prevent the generated build system from re-building anything that depends on the file if there were no changes).",
+      "parentUuid": "49d23818_5789eb09",
       "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
