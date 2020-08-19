@@ -18,7 +18,7 @@
  * -----------------------------------------------------------------------
  */
 func memset
-	cbz	w2, exit		/* exit if 'count' = 0 */
+	cbz	x2, exit		/* exit if 'count' = 0 */
 	mov	x3, x0			/* keep x0 */
 	tst	x0, #7
 	b.eq	aligned			/* 8-bytes aligned */
@@ -26,7 +26,7 @@ func memset
 	/* Unaligned 'dst' */
 unaligned:
 	strb	w1, [x3], #1
-	subs	w2, w2, #1
+	subs	x2, x2, #1
 	b.eq	exit			/* exit if 0 */
 	tst	x3, #7
 	b.ne	unaligned		/* continue while unaligned */
@@ -37,14 +37,14 @@ aligned:cbz	x1, x1_zero
 	bfi	w1, w1, #16, #16
 	bfi	x1, x1, #32, #32
 
-x1_zero:ands	w4, w2, #~0x3f
+x1_zero:ands	x4, x2, #~0x3f
 	b.eq	less_64
 
 write_64:
 	.rept	4
 	stp	x1, x1, [x3], #16	/* write 64 bytes in a loop */
 	.endr
-	subs	w4, w4, #64
+	subs	x4, x4, #64
 	b.ne	write_64
 	ands	w2, w2, #0x3f
 	b.eq	exit			/* exit if 0 */

@@ -29,9 +29,7 @@ ifeq (${ARCH},aarch64)
 LIBC_SRCS	+=	$(addprefix lib/libc/aarch64/,	\
 			memset.S			\
 			setjmp.S)
-endif
-
-ifeq (${ARCH},aarch32)
+else
 LIBC_SRCS	+=	$(addprefix lib/libc/aarch32/,	\
 			memset.S)
 endif
