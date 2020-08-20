@@ -407,6 +407,30 @@
     },
     {
       "key": {
+        "uuid": "535f3108_a5d2a01f",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-08-20T20:21:05Z",
+      "side": 1,
+      "message": "\u003e we deemed that it was OK to assume that people would not cherry-pick individual patches in the series and would instead get the whole feature, as all patches were necessary to get a fully working solution anyway.\n\nI think those cases where someone develops a large new feature would probably be fine anyway, because usually you only turn on the feature in the last patch (by adding relevant files to a platform.mk file or setting a Makefile variable or something). So if the feature itself doesn\u0027t compile with only half the patches, that is fine as long as nothing is trying to compile it. I think the rule doesn\u0027t technically need to be that every file that is added can be compiled, it just needs to be that all currently supported configurations (i.e. those tested by the CI) can still build successfully after each patch. So adding an incomplete file that\u0027s not yet built by any of those configurations should be fine.",
+      "parentUuid": "b024c33b_c2e38467",
+      "range": {
+        "startLine": 110,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 18
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05a7a57a_410c8155",
         "filename": "docs/process/contributing.rst",
         "patchSetId": 1
