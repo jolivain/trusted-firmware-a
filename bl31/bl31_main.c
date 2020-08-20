@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -97,6 +97,10 @@ void bl31_main(void)
 {
 	NOTICE("BL31: %s\n", version_string);
 	NOTICE("BL31: %s\n", build_message);
+
+#ifdef SUPPORT_UNKNOWN_MPID
+	WARN("SUPPORT_UNKNOWN_MPID MUST be disabled for production\n");
+#endif
 
 	/* Perform platform setup in BL31 */
 	bl31_platform_setup();
