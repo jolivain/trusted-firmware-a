@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e083198d_582a5d18",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-08-20T10:10:23Z",
+      "side": 1,
+      "message": "Add a mention this falls through the next case, as per line 471.\nYou might get static analysis failures not doing so.",
+      "revId": "5b3bdd0e615e76c028058acb3db39aa63d7c3ee9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
