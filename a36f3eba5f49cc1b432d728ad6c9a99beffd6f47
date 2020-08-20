@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2987b06f_93e25322",
+        "filename": "lib/psci/psci_system_off.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2020-08-20T07:27:03Z",
+      "side": 1,
+      "message": "PSCI can be compiled in BL32, on AARCH32 platforms. This is the case on STM32MP1. I wonder if this series of patches shouldn\u0027t handle this case?",
+      "parentUuid": "883dc179_1acc4bc4",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 14
+      },
+      "revId": "a36f3eba5f49cc1b432d728ad6c9a99beffd6f47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c58e5a23_54ef28c8",
         "filename": "lib/psci/psci_system_off.c",
         "patchSetId": 1
