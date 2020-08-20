@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b1a5251_3c7c54c9",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-08-20T10:15:36Z",
+      "side": 1,
+      "message": "This seems to be what coding guidelines say indeed.",
+      "parentUuid": "0aecf9fa_004b0a48",
+      "range": {
+        "startLine": 165,
+        "startChar": 14,
+        "endLine": 165,
+        "endChar": 28
+      },
+      "revId": "77b78b9ddffa860c6d99243ab567718f9db4caf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "db4e8435_e905ed00",
         "filename": "include/services/ffa_svc.h",
         "patchSetId": 8
