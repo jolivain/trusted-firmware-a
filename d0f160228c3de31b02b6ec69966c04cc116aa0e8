@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a43b8fbb_f7f58157",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-08-20T16:55:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a94d6f85_949250e0",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceac6e4b_219d7888",
         "filename": "services/std_svc/spmd/spmd_pm.c",
         "patchSetId": 8
@@ -33,6 +51,47 @@
       "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ef95f06_41b8d269",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-08-20T16:55:30Z",
+      "side": 1,
+      "message": "1) fixed\n2) spmd_get_context_by_mpidr is a simple getter function that is not doing any checks. Do you suggest moving this check into the named function?",
+      "parentUuid": "ceac6e4b_219d7888",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d7738be_dffad7c9",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-08-20T16:55:30Z",
+      "side": 1,
+      "message": "uint64_t",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 79,
+        "endChar": 4
+      },
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +112,24 @@
     },
     {
       "key": {
+        "uuid": "38e2e0da_04c004cf",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-08-20T16:55:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc2c476d_aa4c3c7a",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4c93044_3181b7f9",
         "filename": "services/std_svc/spmd/spmd_pm.c",
         "patchSetId": 8
@@ -67,6 +144,24 @@
       "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21e16f67_272ae841",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-08-20T16:55:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4c93044_3181b7f9",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +182,24 @@
     },
     {
       "key": {
+        "uuid": "49f49a29_c120b2ff",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-08-20T16:55:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "933f37a3_daae1b3f",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "122f6d3d_cee4d8d4",
         "filename": "services/std_svc/spmd/spmd_pm.c",
         "patchSetId": 8
@@ -101,6 +214,24 @@
       "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b017c0b_44281ea9",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-08-20T16:55:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "122f6d3d_cee4d8d4",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +252,24 @@
     },
     {
       "key": {
+        "uuid": "57ccbd45_292a32e1",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-08-20T16:55:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0588aff_41d7f2c3",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e74db9f7_3f16824d",
         "filename": "services/std_svc/spmd/spmd_pm.c",
         "patchSetId": 8
@@ -135,6 +284,24 @@
       "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0dee31b_af0698f4",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-08-20T16:55:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e74db9f7_3f16824d",
+      "revId": "d0f160228c3de31b02b6ec69966c04cc116aa0e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
