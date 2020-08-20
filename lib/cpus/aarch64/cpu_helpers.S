@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2020, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,6 +12,14 @@
 #include <cpu_macros.S>
 #include <lib/cpus/errata_report.h>
 #include <lib/el3_runtime/cpu_data.h>
+
+#if (defined SUPPORT_UNKNOWN_MPID && !DEBUG)
+.section .rodata.str1, "aS"
+unknown_mpid_warning:
+	.asciz "WARNING: SUPPORT_UNKNOWN_MPID MUST be disabled for production\n"
+unknown_mpid_separator:
+	.asciz "*************************************************************\n"
+#endif
 
  /* Reset fn is needed in BL at reset vector */
 #if defined(IMAGE_BL1) || defined(IMAGE_BL31) || (defined(IMAGE_BL2) && BL2_AT_EL3)
@@ -140,6 +148,13 @@ endfunc do_cpu_reg_dump
 	 * midr of the core. It reads the MIDR_EL1 and finds the matching
 	 * entry in cpu_ops entries. Only the implementation and part number
 	 * are used to match the entries.
+	 *
+	 * If cpu_ops for the MIDR_EL1 cannot be found and
+	 * SUPPORT_UNKNOWN_MPID is enabled, it will try to look for a
+	 * default cpu_ops with an MIDR value of 0.
+	 * (Implementation number 0x0 should be reseverd for software use
+	 * and therefore no clashes should happen with that default value).
+	 *
 	 * Return :
 	 *     x0 - The matching cpu_ops pointer on Success
 	 *     x0 - 0 on failure.
@@ -147,23 +162,45 @@ endfunc do_cpu_reg_dump
 	 */
 	.globl	get_cpu_ops_ptr
 func get_cpu_ops_ptr
-	/* Get the cpu_ops start and end locations */
-	adr	x4, (__CPU_OPS_START__ + CPU_MIDR)
-	adr	x5, (__CPU_OPS_END__ + CPU_MIDR)
+#if (defined SUPPORT_UNKNOWN_MPID && !DEBUG)
+	/*
+	 * SUPPORT_UNKNOWN_MPID can be very dangerous when used in production
+	 * so print a (quite annoying) warning message every time we try to get
+	 * the pointer to the cpu_ops_ptr whilst the feature is enabled in
+	 * release mode.
+	 */
 
-	/* Initialize the return parameter */
-	mov	x0, #0
-
+	mov	x5, x30
+	bl	plat_crash_console_init
+	adr	x4, unknown_mpid_separator
+	bl	asm_print_str
+	adr	x4, unknown_mpid_warning
+	bl	asm_print_str
+	adr	x4, unknown_mpid_separator
+	bl	asm_print_str
+	bl	plat_crash_console_flush
+	mov	x30, x5
+#endif
 	/* Read the MIDR_EL1 */
 	mrs	x2, midr_el1
 	mov_imm	x3, CPU_IMPL_PN_MASK
 
 	/* Retain only the implementation and part number using mask */
 	and	w2, w2, w3
+
+	/* Get the cpu_ops end location */
+	adr	x5, (__CPU_OPS_END__ + CPU_MIDR)
+
+	/* Initialize the return parameter */
+	mov	x0, #0
 1:
+	/* Get the cpu_ops start location */
+	adr	x4, (__CPU_OPS_START__ + CPU_MIDR)
+
+2:
 	/* Check if we have reached end of list */
 	cmp	x4, x5
-	b.eq	error_exit
+	b.eq	search_def_ptr
 
 	/* load the midr from the cpu_ops */
 	ldr	x1, [x4], #CPU_OPS_SIZE
@@ -171,7 +208,7 @@ func get_cpu_ops_ptr
 
 	/* Check if midr matches to midr of this core */
 	cmp	w1, w2
-	b.ne	1b
+	b.ne	2b
 
 	/* Subtract the increment and offset to get the cpu-ops pointer */
 	sub	x0, x4, #(CPU_OPS_SIZE + CPU_MIDR)
@@ -179,7 +216,19 @@ func get_cpu_ops_ptr
 	cmp	x0, #0
 	ASM_ASSERT(ne)
 #endif
+	ret
+
+	/*
+	 * Search again for a default pointer (MIDR = 0x0)
+	 * or return error if already searched.
+	 */
+search_def_ptr:
+#ifdef SUPPORT_UNKNOWN_MPID
+	cbz	x2, error_exit
+	mov	x2, #0
+	b	1b
 error_exit:
+#endif
 	ret
 endfunc get_cpu_ops_ptr
 
