@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0bef8a41_625b8b8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "358fe653_f88447e8",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ead6eba7_85d021f5",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "b41d9555_06c36dff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ead6eba7_85d021f5",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91f2d62c_7053754a",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2020-08-20T15:36:45Z",
       "side": 1,
       "message": "Are any of these structures can be const?",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f33f13e_fafe38e4",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Not needed as per definition of \u0027auth_param_type_desc_t\u0027",
+      "parentUuid": "91f2d62c_7053754a",
       "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "887a19d6_01226e0b",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b6cc83f4_34c204c3",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "111a9290_8e436d08",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 2
@@ -81,6 +153,24 @@
       "writtenOn": "2020-08-20T15:36:45Z",
       "side": 1,
       "message": "auth_data is set to address (\u0026 operation). How can it be NULL?\nDid you mean auth_buf?",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "524996ae_95a5958b",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Yes my bad. But I think for \u0027auth_buf\u0027 also it is not needed as anyways pool_alloc_n function cause \u0027panic\u0027 on non-allocation.",
+      "parentUuid": "111a9290_8e436d08",
       "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "937768cc_b33934b4",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ba1a80c3_9c39d656",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "028c96d3_ad39fc73",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 2
@@ -115,6 +223,24 @@
       "writtenOn": "2020-08-20T15:36:45Z",
       "side": 1,
       "message": "do you need report error or panic() if type !\u003d IMG_CERT \u0026\u0026 type !\u003d IMG_RAW?",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4ae23d1_eb319bda",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "I will report error here.",
+      "parentUuid": "028c96d3_ad39fc73",
       "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "714c12b5_e3e17932",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "same as line 75.",
+      "parentUuid": "de0e91a5_404f61cd",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "09020b47_9e32eabc",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 2
@@ -152,6 +296,24 @@
       "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e82c2a92_854a95b6",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "09020b47_9e32eabc",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "587925b3_cf21e816",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e71273d8_74e972de",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1172276_6955b104",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 2
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "d66e2198_4e827e26",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a1172276_6955b104",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "654a5864_3f17ebc5",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 2
@@ -200,6 +398,24 @@
       "writtenOn": "2020-08-20T15:36:45Z",
       "side": 1,
       "message": "do you need *oid !\u003d NULL check?",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "692f3293_57e662d0",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "same as line 75.",
+      "parentUuid": "654a5864_3f17ebc5",
       "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -223,6 +439,24 @@
     },
     {
       "key": {
+        "uuid": "78666a44_b5a7af62",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "691059cb_846d8b49",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c07abd7_54a868cc",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 2
@@ -237,6 +471,24 @@
       "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b675b004_2b701a56",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9c07abd7_54a868cc",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -257,6 +509,24 @@
     },
     {
       "key": {
+        "uuid": "33633496_34d2cad1",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1c468a4d_bd163738",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58f91e74_91b7b927",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 2
@@ -268,6 +538,24 @@
       "writtenOn": "2020-08-20T15:36:45Z",
       "side": 1,
       "message": "rc !\u003d 0 is not an error, correct?",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24248c51_70aecae9",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "This is success case i.e. rc\u003d\u003d0 and there is no error handling for this optional property,",
+      "parentUuid": "58f91e74_91b7b927",
       "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -291,6 +579,24 @@
     },
     {
       "key": {
+        "uuid": "26168f94_3e7e90af",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "67247f7a_bc2aaad3",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a12e43be_2a2dcc22",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 2
@@ -305,6 +611,24 @@
       "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b92b848_132bd8d0",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a12e43be_2a2dcc22",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -325,6 +649,24 @@
     },
     {
       "key": {
+        "uuid": "e3c7b6c7_de8f9262",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a109a36b_34c9e352",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42eec5b7_01f4de9a",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 2
@@ -339,6 +681,24 @@
       "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7d44291_ec01ea78",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "42eec5b7_01f4de9a",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -359,6 +719,24 @@
     },
     {
       "key": {
+        "uuid": "a00180d5_29f5c986",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6ce6cfd3_2da0caf7",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3301e6b_72b85edf",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 2
@@ -376,6 +754,24 @@
     },
     {
       "key": {
+        "uuid": "5fdec3b5_0b414487",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e3301e6b_72b85edf",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ae5d138_c8553f2e",
         "filename": "plat/arm/common/arm_common.mk",
         "patchSetId": 2
@@ -387,6 +783,24 @@
       "writtenOn": "2020-08-20T15:36:45Z",
       "side": 1,
       "message": "Wouldn\u0027t it be better to use\nifeq (${COT_DESC_IN_DTB},0)\nand swap lines?",
+      "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "860c0739_36b4b633",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-20T15:59:20Z",
+      "side": 1,
+      "message": "It\u0027s choice i can say.",
+      "parentUuid": "0ae5d138_c8553f2e",
       "revId": "09b26901ceab25f66f599a8e372ca0f529ab5039",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
