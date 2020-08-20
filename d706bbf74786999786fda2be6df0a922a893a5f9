@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "7d58fef1_85d7a327",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2020-08-20T13:51:05Z",
+      "side": 1,
+      "message": "As Chris says, as far as I\u0027m aware in all cases this is functionally equivalent to the previous solution. Thus it\u0027s probably best to use PROJECT_SOURCE_DIR as it is standard CMake. Re: the project() command line being called quite late, PROJECT_SOURCE_DIR still provides a lot of value as it is used whenever any source files are included later on (e.g. in platform.cmake) - in place of where TFA_ROOT_DIR was used before.\nI briefly tested the situation you mentioned - a super project above TF-A which calls project() then add_subdirectory()s TF-A. This still works fine, when TF-A calls project() it sets PROJECT_SOURCE_DIR to the correct path at this scope level.",
+      "parentUuid": "c5b1f156_3f2bf239",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 43
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3af8e7b_2b258cc3",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -451,6 +475,30 @@
     },
     {
       "key": {
+        "uuid": "de60bea9_149931e0",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2020-08-20T13:51:05Z",
+      "side": 1,
+      "message": "I did make this fix. It is quite hard to validate that it is 100% correct due to the fact that, as far as I can tell, once I include one of these library files in any of the included CMake files below, it becomes available to all of the files included later. So there could be a few missing includes due to the fact this would not error in the current ordering. These situations can hopefully be caught by review/fixed later if they surface.",
+      "parentUuid": "ed8ce30c_ad223716",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 29
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f928bc3_f5fbc474",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -587,6 +635,24 @@
       "side": 1,
       "message": "The portability concern is that we are directly relying on the shell interpreter to do something that CMake has existing support for.\n\n`configure_file()` is executed on every configuration run, but CMake will only overwrite the file if its content differs from the previous version (to prevent the generated build system from re-building anything that depends on the file if there were no changes).",
       "parentUuid": "49d23818_5789eb09",
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1df2cf50_067baa79",
+        "filename": "cmake/BuildMessage.cmake",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2020-08-20T13:51:05Z",
+      "side": 1,
+      "message": "I would say the configure_file method seems preferable here, given that it is properly supported by CMake and as Chris says likely to be more portable. I would also argue it\u0027s a bit neater. In terms of whether the implementation I have provided fulfils the requirements you set out Gyorgy, I\u0027m not totally sure - I would appreciate some reviews on this part in particular 😊",
+      "parentUuid": "d0a505f2_d0d3310a",
       "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
