@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fac3667_42e5de82",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-08-20T09:59:18Z",
+      "side": 1,
+      "message": "You can move this case above FFA_MSG_RUN, keep the comment and fall-through to the FFA_MSG_RUN case. This avoids duplicating lines 460-463 to lines 473-476.",
+      "range": {
+        "startLine": 467,
+        "startChar": 1,
+        "endLine": 467,
+        "endChar": 29
+      },
+      "revId": "0d6f9fa0718aa057a06ea4eaa146a826f35067d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
