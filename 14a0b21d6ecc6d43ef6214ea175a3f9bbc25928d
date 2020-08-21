@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "640a7226_ada7b562",
+        "filename": "plat/common/aarch64/plat_ehf.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-08-21T07:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58245ea4_9d24e578",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "14a0b21d6ecc6d43ef6214ea175a3f9bbc25928d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a9bc8dd_abbf3696",
         "filename": "plat/common/aarch64/plat_ehf.c",
         "patchSetId": 3
@@ -54,6 +78,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "5a9bc8dd_abbf3696",
+      "revId": "14a0b21d6ecc6d43ef6214ea175a3f9bbc25928d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92e7554a_becf648d",
+        "filename": "plat/common/aarch64/plat_ehf.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-08-21T07:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caae253d_265c4602",
       "revId": "14a0b21d6ecc6d43ef6214ea175a3f9bbc25928d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -124,6 +166,24 @@
       "side": 1,
       "message": "yes. like the other ones.",
       "parentUuid": "6394a832_f3cf0bb1",
+      "revId": "14a0b21d6ecc6d43ef6214ea175a3f9bbc25928d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1111923_a8b7db78",
+        "filename": "plat/common/aarch64/plat_ehf.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-08-21T07:59:39Z",
+      "side": 1,
+      "message": "moving IPI change to IPI_SUPPORT patch.",
+      "parentUuid": "d5c1ac82_51054c6b",
       "revId": "14a0b21d6ecc6d43ef6214ea175a3f9bbc25928d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
