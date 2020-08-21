@@ -455,6 +455,30 @@
     },
     {
       "key": {
+        "uuid": "e23d7c51_08084790",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-21T08:21:03Z",
+      "side": 1,
+      "message": "@Julius: Yes, I agree with you, it is quite easy to use the technique you described. Unfortunately, I don\u0027t recall enough of the details to say whether this would have solved the contributor\u0027s problem at the time...\n\n@Varun: Agree, putting the burden on the maintainers to identify which patches are safe to merge together, i.e. finding the point in the stack where it starts to build fine, is not ideal and error-prone.\n\nI think the latest version of the patch addresses your concerns for this specific point, let me know if not.",
+      "parentUuid": "5f409485_e4b6b143",
+      "range": {
+        "startLine": 110,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 18
+      },
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05a7a57a_410c8155",
         "filename": "docs/process/contributing.rst",
         "patchSetId": 1
@@ -639,6 +663,24 @@
       "side": 1,
       "message": "\u003e Is that even when you explicitly assign the review to specific people?\n\nYes. Usually I have waited from a couple of weeks to a month before seeing a response.\n\n\u003e perhaps you happen to choose the same ones too often, which overloads them too much and they can\u0027t cope with all the reviews?\n\nIn that case, I would say the process is broken. There is no good way to find the best reviewer as of today.\n\n\u003e Review timelines/delays is something we haven\u0027t discussed yet so different people might have a different frame of reference for this\n\nThis is very important to me and I have been facing long latencies right from day 1 of the project. I would like this to be addressed soon.\n\n\u003e I would really like to mandate that each and every patch gets reviewed by someone else, this seems very important to me.\n\nI agree. But we need to find a solution that works for everyone, not just a select few.\n\n\u003e @Sandrine I have concerns about \"Try to find another contributor who is familiar with the functionality of the module.\" from Madhu\u0027s comment. This needs to be re-worded\n\u003e How do you propose to reword it?\n\n\"The first step should always be to find another reviewer who is familiar with the module, but if there doesn\u0027t exist one, then send an email to the mailing list asking for someone to review\"\n\n\u003e For now, I\u0027ve got 3 votes (Madhu, Andre and myself) in favour of prohibiting self-review against 1 vote (Varun) to allow it. Therefore, I went ahead and made the changes\n\nI think you are mis-stating my position. I have already stated that self-reviews are not OK. But, the current process is not equipped to handle scenarios where there ain\u0027t any reviewers, other than the code  owner, for a given module. Your guidelines fail to address this scenario.",
       "parentUuid": "d425dbd3_dadf15cd",
+      "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb495eb3_2695e6db",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-21T08:21:03Z",
+      "side": 1,
+      "message": "\u003e \u003e Review timelines/delays is something we haven\u0027t discussed yet so different people might have a different frame of reference for this\n\u003e \n\u003e This is very important to me and I have been facing long latencies right from day 1 of the project. I would like this to be addressed soon.\n\nIt is very important, I agree. Would you mind starting a discussion around this on the mailing list and amend the process documentation based on the outcome? Proposals for process changes don\u0027t have to come all from Arm ;)\n\n\u003e \u003e I would really like to mandate that each and every patch gets reviewed by someone else, this seems very important to me.\n\u003e \n\u003e I agree. But we need to find a solution that works for everyone, not just a select few.\n\nSure. That is the very purpose of these proposals and discussions!\n\n\u003e \u003e @Sandrine I have concerns about \"Try to find another contributor who is familiar with the functionality of the module.\" from Madhu\u0027s comment. This needs to be re-worded\n\u003e \u003e How do you propose to reword it?\n\u003e \n\u003e \"The first step should always be to find another reviewer who is familiar with the module, but if there doesn\u0027t exist one, then send an email to the mailing list asking for someone to review\"\n\nI now realize I originally misunderstood your point here. I previously thought you were suggesting that we would merge some patches without any peer review, in the absence of suitable reviewers. Your sentence above sounds reasonable to me! Actually, I\u0027ve already added a paragraph about requesting reviews on the mailing list in v2. Does that address your concerns?\n\n\u003e \u003e For now, I\u0027ve got 3 votes (Madhu, Andre and myself) in favour of prohibiting self-review against 1 vote (Varun) to allow it. Therefore, I went ahead and made the changes\n\u003e \n\u003e I think you are mis-stating my position. I have already stated that self-reviews are not OK. But, the current process is not equipped to handle scenarios where there ain\u0027t any reviewers, other than the code  owner, for a given module. Your guidelines fail to address this scenario.\n\nYes indeed, I was mis-stating your position, thanks for clarifying. Sounds like we are on the same page on the general review process but you\u0027re just worried about the difficulty to identify suitable reviewers in the case where it\u0027s not obvious (i.e. when there is a designated code owner). Is that fair to say?\n\nWith the additional paragraph about the mailing list at line 140 in v3 of the patch, do the guidelines now address this scenario in your view?",
+      "parentUuid": "bac88cad_f9b62dc2",
       "revId": "66cb70440ce0adb68dfb7bc6a12f8ae069c2c392",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
