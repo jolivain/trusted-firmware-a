@@ -24,27 +24,55 @@ static void string_print(char **s, size_t n, size_t *chars_printed,
 	}
 }
 
-static void unsigned_dec_print(char **s, size_t n, size_t *chars_printed,
-			       unsigned int unum)
+static void unsigned_num_print(char **s, size_t n, size_t *chars_printed,
+			      unsigned long long int unum,
+			      unsigned int radix, char padc, int padn)
 {
-	/* Enough for a 32-bit unsigned decimal integer (4294967295). */
-	char num_buf[10];
+	/* Just need enough space to store 64 bit decimal integer */
+	char num_buf[20];
 	int i = 0;
+	int width;
 	unsigned int rem;
 
 	do {
-		rem = unum % 10U;
-		num_buf[i++] = '0' + rem;
-		unum /= 10U;
+		rem = unum % radix;
+		if (rem < 0xa)
+			num_buf[i] = '0' + rem;
+		else
+			num_buf[i] = 'a' + (rem - 0xa);
+		i++;
+		unum /= radix;
 	} while (unum > 0U);
 
-	while (--i >= 0) {
-		if (*chars_printed < n) {
+	width = i;
+	if (padn > width) {
+		(*chars_printed) += (size_t)padn;
+	} else {
+		(*chars_printed) += (size_t)width;
+	}
+
+	if (*chars_printed < n) {
+
+		if (padn > 0) {
+			while (width < padn) {
+				*(*s) = padc;
+				(*s)++;
+				padn--;
+			}
+		}
+
+		while (--i >= 0) {
 			*(*s) = num_buf[i];
 			(*s)++;
 		}
 
-		(*chars_printed)++;
+		if (padn < 0) {
+			while (width < -padn) {
+				*(*s) = padc;
+				(*s)++;
+				padn++;
+			}
+		}
 	}
 }
 
@@ -52,9 +80,16 @@ static void unsigned_dec_print(char **s, size_t n, size_t *chars_printed,
  * Reduced snprintf to be used for Trusted firmware.
  * The following type specifiers are supported:
  *
+ * %x - hexadecimal format
  * %d or %i - signed decimal format
  * %s - string format
  * %u - unsigned decimal format
+ * %p - pointer format
+ *
+ * The following padding specifiers are supported by this print
+ * %0NN - Left-pad the number with 0s (NN is a decimal number)
+ * %NN - Left-pad the number or string with spaces (NN is a decimal number)
+ * %-NN - Right-pad the number or string with spaces (NN is a decimal number)
  *
  * The function panics on all other formats specifiers.
  *
@@ -66,8 +101,11 @@ int snprintf(char *s, size_t n, const char *fmt, ...)
 {
 	va_list args;
 	int num;
-	unsigned int unum;
+	unsigned long long int unum;
 	char *str;
+	char padc; /* Padding character */
+	int padn; /* Number of characters to pad */
+	int left;
 	size_t chars_printed = 0U;
 
 	if (n == 0U) {
@@ -83,11 +121,38 @@ int snprintf(char *s, size_t n, const char *fmt, ...)
 
 	va_start(args, fmt);
 	while (*fmt != '\0') {
+		left = 0;
+		padc ='\0';
+		padn = 0;
 
 		if (*fmt == '%') {
 			fmt++;
 			/* Check the format specifier. */
+loop:
 			switch (*fmt) {
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+				padc = (*fmt == '0') ? '0' : ' ';
+				for (padn = 0; *fmt >= '0' && *fmt <= '9'; fmt++) {
+					padn = (padn * 10) + (*fmt - '0');
+				}
+				if (left) {
+					padn = -padn;
+				}
+				goto loop;
+			case '-':
+				left = 1;
+				fmt++;
+				goto loop;
+
 			case 'i':
 			case 'd':
 				num = va_arg(args, int);
@@ -104,7 +169,8 @@ int snprintf(char *s, size_t n, const char *fmt, ...)
 					unum = (unsigned int)num;
 				}
 
-				unsigned_dec_print(&s, n, &chars_printed, unum);
+				unsigned_num_print(&s, n, &chars_printed,
+						   unum, 10, padc, padn);
 				break;
 			case 's':
 				str = va_arg(args, char *);
@@ -112,8 +178,24 @@ int snprintf(char *s, size_t n, const char *fmt, ...)
 				break;
 			case 'u':
 				unum = va_arg(args, unsigned int);
-				unsigned_dec_print(&s, n, &chars_printed, unum);
+				unsigned_num_print(&s, n, &chars_printed,
+						   unum, 10, padc, padn);
 				break;
+			case 'p':
+				unum = (uintptr_t)va_arg(args, void *);
+				if (unum > 0U) {
+					string_print(&s, n, &chars_printed, "0x");
+					padn -= 2;
+				}
+				unsigned_num_print(&s, n, &chars_printed,
+						   unum, 16, padc, padn);
+				break;
+			case 'x':
+				unum = va_arg(args, unsigned int);
+				unsigned_num_print(&s, n, &chars_printed,
+						   unum, 16, padc, padn);
+				break;
+
 			default:
 				/* Panic on any other format specifier. */
 				ERROR("snprintf: specifier with ASCII code '%d' not supported.",
