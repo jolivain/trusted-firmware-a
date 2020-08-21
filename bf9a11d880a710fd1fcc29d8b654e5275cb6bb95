@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e66fdb7_583bf691",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-08-21T12:12:48Z",
+      "side": 1,
+      "message": "The node name suffix in the *DTB* needs to match the reg property, so you need to pass reg_prop here. The *label* in the *.dts* file carries the CPU index (as returned by plat_core_pos_by_mpidr()), but the label is a DTS source feature only, and does not exist in the flattened binary version. Confusing, I know ...",
+      "revId": "bf9a11d880a710fd1fcc29d8b654e5275cb6bb95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84ed7025_4bee1a9a",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-08-21T12:12:48Z",
+      "side": 1,
+      "message": "Given that this is generic code, can we leave this warning to the caller? And instead return -EEXIST, for instance?",
+      "revId": "bf9a11d880a710fd1fcc29d8b654e5275cb6bb95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
