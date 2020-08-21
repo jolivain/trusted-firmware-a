@@ -37,6 +37,98 @@
     },
     {
       "key": {
+        "uuid": "d47e6e9e_0b99fd69",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-21T14:07:56Z",
+      "side": 1,
+      "message": "Just like the auth_buf_pool below, this one is not really aligned with the object pool design. Pools of bytes are odd, the idea is more to have pools of objects (each of them being the same size). Could you define an oid type (which would be a sequence of MAX_OID_NAME_LEN bytes) and create a pool of (MAX_NUMBER_IDS * 2) of them instead?\n\nAgain it would mean that wherever you have:\n\n pool_alloc_n(\u0026oid_pool, MAX_OID_NAME_LEN);\n\nyou would no longer need to specify the size of the object you want to allocate:\n\n pool_alloc(\u0026oid_pool);",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 41
+      },
+      "revId": "356db315352f16c16939cba73be3c08f088c526c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8932908c_265afffb",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-21T14:07:56Z",
+      "side": 1,
+      "message": "Have you considered having 2 buffers instead, one for the public keys and another one for the hashes? You\u0027re allocating a fixed number of each anyway (20 hashes and 12 keys) so I think it would be equivalent to have 2 object pools with these sizes. This seems more natural to me. Also it would be more aligned with the object pool API, which is meant to handle objects (like keys or hashes here) rather than a bunch of bytes. You would not have to specify the number of bytes you want to allocate out of the pool (through pool_alloc_n()) but instead you would just request 1 object (through pool_alloc()).",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 51
+      },
+      "revId": "356db315352f16c16939cba73be3c08f088c526c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be07e22c_f7ef5665",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-21T14:07:56Z",
+      "side": 1,
+      "message": "Should this line be moved to line 85? My understanding is that this authentication data structure might already be registered in the parent image descriptor (lines 76-77), in which case there is no need to allocate a new authentication buffer?",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 71
+      },
+      "revId": "356db315352f16c16939cba73be3c08f088c526c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74178ecf_66d57066",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-21T14:07:56Z",
+      "side": 1,
+      "message": "(minor) typo (should be method, not mehod)",
+      "range": {
+        "startLine": 108,
+        "startChar": 21,
+        "endLine": 108,
+        "endChar": 35
+      },
+      "revId": "356db315352f16c16939cba73be3c08f088c526c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a50a0d35_559587cc",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 3
@@ -72,6 +164,29 @@
     },
     {
       "key": {
+        "uuid": "fc836e7f_b8b1c962",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-21T14:07:56Z",
+      "side": 1,
+      "message": "(minor) Add 1 level of indentation on this line.",
+      "range": {
+        "startLine": 117,
+        "startChar": 2,
+        "endLine": 117,
+        "endChar": 60
+      },
+      "revId": "356db315352f16c16939cba73be3c08f088c526c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ca7304b0_9959ad9f",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 3
@@ -104,6 +219,52 @@
       "revId": "356db315352f16c16939cba73be3c08f088c526c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a91295a2_94e6fc71",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-21T14:07:56Z",
+      "side": 1,
+      "message": "I am confused by this code. It looks to me as if it just allocates memory for the authenticated data present in the certificate but does not populate this memory (which might happen later in update_parent_auth_data() based on the child\u0027s authentication_methods[] array IIUC)...\n\nWhy not parse the content of the certificate node at this time and populate the authenticated_data[] array now? For example, looking at fdts/cot_descriptors.dtsi, we have:\n\n \t\ttrusted_key_cert: trusted_key_cert {\n\t\t\troot-certificate;\n\t\t\timage-id \u003d \u003cTRUSTED_KEY_CERT_ID\u003e;\n\t\t\tantirollback-counter \u003d \u003c\u0026trusted_nv_counter\u003e;\n\n\t\t\ttrusted_world_pk: trusted_world_pk {\n\t\t\t\toid \u003d TRUSTED_WORLD_PK_OID;\n\t\t\t};\n\t\t\tnon_trusted_world_pk: non_trusted_world_pk {\n\t\t\t\toid \u003d NON_TRUSTED_WORLD_PK_OID;\n\t\t\t};\n\t\t};\n\nThis says that the Trusted Key certificate contains 2 pieces of data: the Trusted World key and the Non-Trusted World Key. Now, in the typical CoT description these would have been the 2 elements of the authentication_data[] array:\n\n https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/drivers/auth/tbbr/tbbr_cot_bl2.c#n110\n\nWhy don\u0027t we populate the authenticated_data[] with this information here?",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 2
+      },
+      "revId": "356db315352f16c16939cba73be3c08f088c526c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13798061_440acda8",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2020-08-21T14:07:56Z",
+      "side": 1,
+      "message": "It took me some time to get my head around this code so I would like to check my understanding with you.\n\nThis is identifying the authentication method of a given image (lines 467-474) and then we assume that the data required to authenticate it in this way are provided in the parent image (lines 476-483). Is that correct?",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 483,
+        "endChar": 4
+      },
+      "revId": "356db315352f16c16939cba73be3c08f088c526c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
