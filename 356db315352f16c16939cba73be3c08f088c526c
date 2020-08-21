@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "245cd688_525ccf07",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-21T16:35:16Z",
+      "side": 1,
+      "message": "Okay, I will create oid type with the sequence of MAX_OID_NAME_LEN bytes and create a pool accordingly.",
+      "parentUuid": "d47e6e9e_0b99fd69",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 41
+      },
+      "revId": "356db315352f16c16939cba73be3c08f088c526c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8932908c_265afffb",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 3
@@ -71,6 +95,30 @@
       "writtenOn": "2020-08-21T14:07:56Z",
       "side": 1,
       "message": "Have you considered having 2 buffers instead, one for the public keys and another one for the hashes? You\u0027re allocating a fixed number of each anyway (20 hashes and 12 keys) so I think it would be equivalent to have 2 object pools with these sizes. This seems more natural to me. Also it would be more aligned with the object pool API, which is meant to handle objects (like keys or hashes here) rather than a bunch of bytes. You would not have to specify the number of bytes you want to allocate out of the pool (through pool_alloc_n()) but instead you would just request 1 object (through pool_alloc()).",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 51
+      },
+      "revId": "356db315352f16c16939cba73be3c08f088c526c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c331f530_0b63e6ff",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-21T16:35:16Z",
+      "side": 1,
+      "message": "Okay will create 2 separate pools for keys and hashes.",
+      "parentUuid": "8932908c_265afffb",
       "range": {
         "startLine": 55,
         "startChar": 0,
@@ -106,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "492c6999_71e35fe3",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-21T16:35:16Z",
+      "side": 1,
+      "message": "Yes that is correct. Will move this to line#85.",
+      "parentUuid": "be07e22c_f7ef5665",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 71
+      },
+      "revId": "356db315352f16c16939cba73be3c08f088c526c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74178ecf_66d57066",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 3
@@ -126,6 +198,30 @@
       "revId": "356db315352f16c16939cba73be3c08f088c526c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8368dab_2559e2d2",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-21T16:35:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "74178ecf_66d57066",
+      "range": {
+        "startLine": 108,
+        "startChar": 21,
+        "endLine": 108,
+        "endChar": 35
+      },
+      "revId": "356db315352f16c16939cba73be3c08f088c526c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -175,6 +271,30 @@
       "writtenOn": "2020-08-21T14:07:56Z",
       "side": 1,
       "message": "(minor) Add 1 level of indentation on this line.",
+      "range": {
+        "startLine": 117,
+        "startChar": 2,
+        "endLine": 117,
+        "endChar": 60
+      },
+      "revId": "356db315352f16c16939cba73be3c08f088c526c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5058e92_f587249a",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-21T16:35:16Z",
+      "side": 1,
+      "message": "one level indentation is crossing 80 chars limit.",
+      "parentUuid": "fc836e7f_b8b1c962",
       "range": {
         "startLine": 117,
         "startChar": 2,
@@ -245,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "05a77099_f6996fc2",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-21T16:35:16Z",
+      "side": 1,
+      "message": "This I thought initially but not being done because of below reasons:\n\n1. It is hard to track down the child of parent and update the \u0027oid\u0027 reference in child descriptor\u0027s authentication method. This track down is needed because CoT authentication code is written is such way that it needs same address of \u0027auth_param_type_desc_t\u0027 structure in the parent and child. \u003cinstead having 2 separate instances\u003e. \nfor e.g. \nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/drivers/auth/tbbr/tbbr_cot_bl2.c#n112 and \nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/drivers/auth/tbbr/tbbr_cot_bl2.c#n138\n\n2. It is difficult to get \u0027auth_buff\u0027 size from oid. \u003cwe don\u0027t have any reference in the dtb to get auth buffer size\u003e.\n\nHence I just allocated \u0027authenticated_data\u0027 as placeholder which will get updated once all images and certificates are parsed. \ni.e. later at line no#467 Images/Certificates can track parent and update authentication data by giving \u0027auth_param_type_desc_t\u0027 structure reference (same as in child).",
+      "parentUuid": "a91295a2_94e6fc71",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 2
+      },
+      "revId": "356db315352f16c16939cba73be3c08f088c526c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "13798061_440acda8",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 3
@@ -256,6 +400,30 @@
       "writtenOn": "2020-08-21T14:07:56Z",
       "side": 1,
       "message": "It took me some time to get my head around this code so I would like to check my understanding with you.\n\nThis is identifying the authentication method of a given image (lines 467-474) and then we assume that the data required to authenticate it in this way are provided in the parent image (lines 476-483). Is that correct?",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 483,
+        "endChar": 4
+      },
+      "revId": "356db315352f16c16939cba73be3c08f088c526c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26d07026_3e458f06",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-21T16:35:16Z",
+      "side": 1,
+      "message": "lines 467-474 -\u003e Identifies the address of authentication parameter \u003cauth_param_type_desc_t*\u003e and authentication buffer size (with PK buffer or hash buffer)\nlines 476-483 -\u003e authentication data structure of parent get updated with the information received from #lines 467-474.",
+      "parentUuid": "13798061_440acda8",
       "range": {
         "startLine": 467,
         "startChar": 0,
