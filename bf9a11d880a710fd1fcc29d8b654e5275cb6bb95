@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "300bdcad_e6cb6ebf",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-08-21T16:48:22Z",
+      "side": 1,
+      "message": "That was actually my first attempt, but unfortunately the implementation of snprintf on TF-A does not support hexadecimal format specifiers, so I decided to give a try to the ID for the suffix (and avoid making the patch larger if possible).\n\nAnyway, I will fix this and I will create another patch to add support for hexadecimal specifiers on snprintf (I already have a patch for that almost finished).\n\nWe will have to wait until the latter patch is merged before testing this one, though (or cherry pick the patch for snprintf()).",
+      "parentUuid": "2e66fdb7_583bf691",
+      "revId": "bf9a11d880a710fd1fcc29d8b654e5275cb6bb95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84ed7025_4bee1a9a",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 27
@@ -33,6 +51,24 @@
       "revId": "bf9a11d880a710fd1fcc29d8b654e5275cb6bb95",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90fa891b_a5cd1b93",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-08-21T16:48:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84ed7025_4bee1a9a",
+      "revId": "bf9a11d880a710fd1fcc29d8b654e5275cb6bb95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
