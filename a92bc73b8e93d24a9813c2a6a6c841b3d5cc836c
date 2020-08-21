@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "472c730f_49743bdd",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-08-21T11:24:06Z",
+      "side": 1,
+      "message": "Can you please explain reason for change from uint64_t to \"unsigned long long\"",
+      "range": {
+        "startLine": 389,
+        "startChar": 36,
+        "endLine": 391,
+        "endChar": 53
+      },
+      "revId": "a92bc73b8e93d24a9813c2a6a6c841b3d5cc836c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
