@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c250819c_d4e12ef1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-22T11:38:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d04845dc_592df074",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 33
+      },
+      "revId": "10b9acf7600369b6fc00e0ca357b4ba7c30cb045",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca2eb242_62eb29a7",
         "filename": "lib/libc/aarch64/memset.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-08-21T19:34:59Z",
       "side": 1,
       "message": "Re-posting concerns at Joanna\u0027s request:\nThe question i\u0027d like to ask if this can be written in C and still provide the same/similar performance improvements.\nThe commit message gives the impression that this assembly version was compared against the existing TF-A version which does a byte-by-byte memset. If this is the case, it would be worth investigating if it is possible to write the same logic written in assembly in C and have the compiler generate code and compare performance. It would also be worth comparing the performance against something like https://git.musl-libc.org/cgit/musl/tree/src/string/memset.c and see if that provides perf improvements that are similar.\n\nIf it was compared against other C versions, would it be possible to share the performance difference observed with this assembly version?\n\nGenerally, C code is more readable, audit-able, maintainable and can work well with static analysis since static analysis tools generally don\u0027t incorporate assembly files in the analysis.\n\nIf none of this is acceptable, is it possible to put this under a build option so that it can be evaluated further before replacing it for all platforms?\n\nAlso you should probably merge https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/5367/1/lib/libc/aarch64/memset.S into this.",
+      "range": {
+        "startLine": 12,
+        "startChar": 7,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "10b9acf7600369b6fc00e0ca357b4ba7c30cb045",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55aa3c55_e5dc6edd",
+        "filename": "lib/libc/aarch64/memset.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-22T11:38:35Z",
+      "side": 1,
+      "message": "I\u0027ve already replied to you in the comment for the original patch:\n\"3) Different versions of memset() including optimised C variant were tested and numbers compared before this final one was sumbitted.\"\nThis patch fixes the existing issue, feel free to test other different variants and provide your own results for comparison to choose the best one.\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/5367/1/lib/libc/aarch64/memset.S was abondoned, and it is clearly noticeable that this patch incorporates all the neccessary changes.",
+      "parentUuid": "ca2eb242_62eb29a7",
       "range": {
         "startLine": 12,
         "startChar": 7,
