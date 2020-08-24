@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "571a2055_cbc6dd1f",
+        "filename": "lib/libc/snprintf.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-24T10:38:55Z",
+      "side": 1,
+      "message": "10U or U(0xa)",
+      "revId": "d4afcaad9ebeac864190693b879a8e621e7c8b2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd339c23_385bd3e7",
+        "filename": "lib/libc/snprintf.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-24T10:38:55Z",
+      "side": 1,
+      "message": "the same\nDon\u0027t you want to support both %x and %X and use \u0027a\u0027/\u0027A\u0027?",
+      "revId": "d4afcaad9ebeac864190693b879a8e621e7c8b2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44363f58_f398aa3b",
+        "filename": "lib/libc/snprintf.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-24T10:38:55Z",
+      "side": 1,
+      "message": "you need to cast: (signed int)i",
+      "revId": "d4afcaad9ebeac864190693b879a8e621e7c8b2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14d33df3_a57117a4",
+        "filename": "lib/libc/snprintf.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-24T10:38:55Z",
+      "side": 1,
+      "message": "*(*s)++ \u003d padc and remove next line",
+      "revId": "d4afcaad9ebeac864190693b879a8e621e7c8b2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e01736d_0a28d3e0",
+        "filename": "lib/libc/snprintf.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-24T10:38:55Z",
+      "side": 1,
+      "message": "use tabs after ;",
+      "revId": "d4afcaad9ebeac864190693b879a8e621e7c8b2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
