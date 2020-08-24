@@ -93,6 +93,30 @@
       "revId": "10b9acf7600369b6fc00e0ca357b4ba7c30cb045",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d3e8308_73fbf6ea",
+        "filename": "lib/libc/aarch64/memset.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-08-24T19:09:57Z",
+      "side": 1,
+      "message": "Sure, this patch may be fixing an existing(performance) issue, but from my point of view it is introducing another(maintainability, static analysis issues) which is what is under discussion. This is affecting all platforms, and i still don\u0027t have an answer as to what were the other C versions that were tested and the corresponding performance numbers. The commit message neither mentions that other versions were tested nor does it show the comparison numbers.\nAs the author of the patch, the burden should be on you to convince the community that due diligence has been done and justify the change.\nI understand that this is effort, which is why i suggested you put this under a build flag so that you don\u0027t affect all platforms immediately and each platform can choose to use it if/when they see fit.\nAs for incorporating all the changes, change 5637 updates all the \"ands\" instructions to use x2/x4 as opposed to w2/w4 but the latest patchset here does not. Clearly this patch does not incorporate all the changes from 5637.",
+      "parentUuid": "55aa3c55_e5dc6edd",
+      "range": {
+        "startLine": 12,
+        "startChar": 7,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "10b9acf7600369b6fc00e0ca357b4ba7c30cb045",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
