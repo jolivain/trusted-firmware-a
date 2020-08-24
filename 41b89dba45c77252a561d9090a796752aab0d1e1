@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6b673ba8_0b562991",
+        "filename": "lib/cpus/aarch64/dsu_helpers.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000327
+      },
+      "writtenOn": "2020-08-24T13:27:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcde0873_82cad4ac",
+      "revId": "41b89dba45c77252a561d9090a796752aab0d1e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7667772a_0782a9ba",
         "filename": "lib/cpus/aarch64/neoverse_n1.S",
         "patchSetId": 10
@@ -33,6 +51,24 @@
       "revId": "41b89dba45c77252a561d9090a796752aab0d1e1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8206613f_48eccbe4",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000327
+      },
+      "writtenOn": "2020-08-24T13:27:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7667772a_0782a9ba",
+      "revId": "41b89dba45c77252a561d9090a796752aab0d1e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
