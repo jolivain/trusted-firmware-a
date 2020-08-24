@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e75ae3d_0871e8f4",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-08-24T10:52:19Z",
+      "side": 1,
+      "message": "I think just one empty line would be enough.",
+      "revId": "a0a784ac67264b39b2611d2c496bc63e6bae9fb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "baaba36f_21b021a8",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-08-24T10:52:19Z",
+      "side": 1,
+      "message": "I think overwriting reg_prop is not what you mean.",
+      "revId": "a0a784ac67264b39b2611d2c496bc63e6bae9fb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "036ce444_ed46b137",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-08-24T10:52:19Z",
+      "side": 1,
+      "message": "The devicetree spec says that address suffixes in nodenames must omit leading 0s. So it\u0027s just %x. (Which brings up the question whether you need the snprintf padding extension then).",
+      "revId": "a0a784ac67264b39b2611d2c496bc63e6bae9fb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67ff8178_514caaf1",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-08-24T10:52:19Z",
+      "side": 1,
+      "message": "As the node name suffix should match the reg property, you must give the filtered MPIDR here. At the moment I see bit 24 set in every node.",
+      "revId": "a0a784ac67264b39b2611d2c496bc63e6bae9fb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2adac7f0_c3b15881",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-08-24T10:52:19Z",
+      "side": 1,
+      "message": "stray empty line?",
+      "revId": "a0a784ac67264b39b2611d2c496bc63e6bae9fb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "713ffcb4_52fa4838",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-08-24T10:52:19Z",
+      "side": 1,
+      "message": "It\u0027s not a deal breaker, but it\u0027s more common to see the CPU nodes sorted by cluster/core/PE, which means the outer loop should iterate of Aff2, then Aff1 and Aff0.\n\nNow libfdt seems to prepend new nodes, so their order is backwards still. So maybe use (afflv0 -1 - i) below? But this is just cosmetic. Nevertheless we should iterate over clusters first.",
+      "revId": "a0a784ac67264b39b2611d2c496bc63e6bae9fb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
