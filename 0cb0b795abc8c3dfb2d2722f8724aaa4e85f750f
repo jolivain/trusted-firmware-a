@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3aafff10_82198a57",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-08-24T15:48:08Z",
+      "side": 1,
+      "message": "Do you think the following condition would be more appropriate?\n#if COT_DESC_IN_DTB \u0026\u0026 defined(IMAGE_BL2)",
+      "revId": "0cb0b795abc8c3dfb2d2722f8724aaa4e85f750f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
