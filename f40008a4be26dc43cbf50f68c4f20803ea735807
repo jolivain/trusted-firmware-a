@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b7cc46d_0bf1f1ad",
+        "filename": "plat/qti/qtiseclib/inc/qtiseclib_interface.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-08-25T16:22:46Z",
+      "side": 0,
+      "message": "nit: Since these two functions are now not being invoked anywhere, would it be beneficial to remove the corresponding definitions from qtiseclib_interface_stub.c file?",
+      "revId": "f40008a4be26dc43cbf50f68c4f20803ea735807",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
