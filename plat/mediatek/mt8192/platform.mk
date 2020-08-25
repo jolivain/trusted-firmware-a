@@ -61,6 +61,10 @@ PLAT_BL_COMMON_SOURCES +=                                                \
                    ${MTK_PLAT_SOC}/drivers/mcdi/mt_cpu_pm_cpc.c          \
                    ${MTK_PLAT_SOC}/drivers/mcdi/mt_mcdi.c
 
+# PTP3
+PLAT_INCLUDES += -I${MTK_PLAT_SOC}/drivers/ptp3/
+PLAT_BL_COMMON_SOURCES += ${MTK_PLAT_SOC}/drivers/ptp3/mtk_ptp3_main.c
+
 # Configs for A76 and A55
 HW_ASSISTED_COHERENCY := 1
 USE_COHERENT_MEM := 0
