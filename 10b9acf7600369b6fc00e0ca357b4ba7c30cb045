@@ -141,6 +141,30 @@
       "revId": "10b9acf7600369b6fc00e0ca357b4ba7c30cb045",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d12d3fac_82553539",
+        "filename": "lib/libc/aarch64/memset.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-08-25T14:26:54Z",
+      "side": 1,
+      "message": "\u003e\u003eYou promised to provide your own optimal C version written cleverly?\nI suggest you try and be professional. This is a public code review. Like i said, you are the author of the patch proposing a change, the burden is on you to convince the community to accept the patch. I\u0027ve made reasonable comments and suggestions(such as putting it under a build flag) and have been patient but you continue to be petulant on multiple reviews.\nIf you would like to see my version, feel free to abandon this change.\n\nApologize for the comments on 5637. I was looking at the wrong line numbers, which proves the point i\u0027ve been making that reading assembly and maintaining it is error prone. Agree that 5637 is incorporated.",
+      "parentUuid": "5ca30c7b_c064c541",
+      "range": {
+        "startLine": 12,
+        "startChar": 7,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "10b9acf7600369b6fc00e0ca357b4ba7c30cb045",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
