@@ -16,6 +16,24 @@
       "revId": "0cb0b795abc8c3dfb2d2722f8724aaa4e85f750f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b58efdbd_116d90a3",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-25T02:30:00Z",
+      "side": 1,
+      "message": "This file is meant only for 2 bootloader components i.e. BL1 and BL2 (responsible for the authentication of the various images). IMO, this check still stands correct. Let me know your opinion.",
+      "parentUuid": "3aafff10_82198a57",
+      "revId": "0cb0b795abc8c3dfb2d2722f8724aaa4e85f750f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
