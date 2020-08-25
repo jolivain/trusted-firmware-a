@@ -61,6 +61,14 @@ PLAT_BL_COMMON_SOURCES +=                                                \
                    ${MTK_PLAT_SOC}/drivers/mcdi/mt_cpu_pm_cpc.c          \
                    ${MTK_PLAT_SOC}/drivers/mcdi/mt_mcdi.c
 
+# Brisket
+PLAT_INCLUDES += -I${MTK_PLAT_SOC}/drivers/brisket/
+PLAT_BL_COMMON_SOURCES += ${MTK_PLAT_SOC}/drivers/brisket/mtk_brisket.c
+
+# Credit-based
+PLAT_INCLUDES += -I${MTK_PLAT_SOC}/drivers/credit_didt/
+PLAT_BL_COMMON_SOURCES += ${MTK_PLAT_SOC}/drivers/credit_didt/mtk_credit_didt.c
+
 # Configs for A76 and A55
 HW_ASSISTED_COHERENCY := 1
 USE_COHERENT_MEM := 0
