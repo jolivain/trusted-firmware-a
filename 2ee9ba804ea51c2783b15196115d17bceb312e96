@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "44ef1342_9c18051d",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-08-25T17:59:58Z",
+      "side": 1,
+      "message": "Sandrine is off for quite a while so stepping in to try and get this patch submitted.\nI don\u0027t quite understand the comment here. In general when any labels are not fulfilled because of un responsive reviewers one of the maintainers would be expected to step in and cover as best they can if a missing label approval is all that\u0027s blocking patch submittal doing the best due diligence they can.",
+      "parentUuid": "10a94749_a2261fff",
+      "range": {
+        "startLine": 159,
+        "startChar": 6,
+        "endLine": 159,
+        "endChar": 80
+      },
+      "revId": "2ee9ba804ea51c2783b15196115d17bceb312e96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b4d1861_88decce5",
         "filename": "docs/process/contributing.rst",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "2ee9ba804ea51c2783b15196115d17bceb312e96",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "268dabde_0f1d8173",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-08-25T17:59:58Z",
+      "side": 1,
+      "message": "Same answer as above.",
+      "parentUuid": "8b4d1861_88decce5",
+      "range": {
+        "startLine": 163,
+        "startChar": 3,
+        "endLine": 163,
+        "endChar": 63
+      },
+      "revId": "2ee9ba804ea51c2783b15196115d17bceb312e96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -91,6 +139,30 @@
       "revId": "2ee9ba804ea51c2783b15196115d17bceb312e96",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c15d356_dfc9cf8f",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-08-25T17:59:58Z",
+      "side": 1,
+      "message": "The reviewer and maintainer \"might\" agree some manual testing outside the scope of the CI and reviewer or submitter might perform that. There is nothing to mandate additional manual testing is done, this is a decision between the submitter and reviewer. In theory Arm folks can set their own verified+1 today but generally like self reviewing it should be avoided but there is a degree of trust required here in this case.",
+      "parentUuid": "40a95485_9639eb90",
+      "range": {
+        "startLine": 172,
+        "startChar": 3,
+        "endLine": 174,
+        "endChar": 42
+      },
+      "revId": "2ee9ba804ea51c2783b15196115d17bceb312e96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
