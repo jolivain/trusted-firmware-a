@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10a94749_a2261fff",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-25T04:16:07Z",
+      "side": 1,
+      "message": "This seems a good approach. But I\u0027m curious how this would be enforced? Gerrit does not have the notion of multiple CoR +1 before the \"submit\" button is enabled. Is this a Maintainer\u0027s responsibility in that case?",
+      "range": {
+        "startLine": 159,
+        "startChar": 6,
+        "endLine": 159,
+        "endChar": 80
+      },
+      "revId": "2ee9ba804ea51c2783b15196115d17bceb312e96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b4d1861_88decce5",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-25T04:16:07Z",
+      "side": 1,
+      "message": "Again. I\u0027m curious how this would be implemented in the real world. Gerrit expects a CoR before the \"Submit\" button shows up.",
+      "range": {
+        "startLine": 163,
+        "startChar": 3,
+        "endLine": 163,
+        "endChar": 63
+      },
+      "revId": "2ee9ba804ea51c2783b15196115d17bceb312e96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84dc168d_35262ebc",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-25T04:16:07Z",
+      "side": 1,
+      "message": "This statement is not accurate. Should be \"a certain set of maintainers might ...\" Not all maintainers have this power.",
+      "range": {
+        "startLine": 169,
+        "startChar": 3,
+        "endLine": 170,
+        "endChar": 61
+      },
+      "revId": "2ee9ba804ea51c2783b15196115d17bceb312e96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40a95485_9639eb90",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-25T04:16:07Z",
+      "side": 1,
+      "message": "This is not accurate or scalable. Platform specific changes cannot be verified by other maintainers. And IIRC authors cannot provide a +V on their own patches",
+      "range": {
+        "startLine": 172,
+        "startChar": 3,
+        "endLine": 174,
+        "endChar": 42
+      },
+      "revId": "2ee9ba804ea51c2783b15196115d17bceb312e96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
