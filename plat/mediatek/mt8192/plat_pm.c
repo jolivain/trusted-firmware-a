@@ -12,6 +12,9 @@
 #include <drivers/gpio.h>
 #include <lib/psci/psci.h>
 
+#include <mtk_brisket.h>
+#include <mtk_credit_didt.h>
+
 /* platform specific headers */
 #include <mt_gic_v3.h>
 #include <mtspmc.h>
@@ -70,6 +73,9 @@ static void plat_cpu_pwrdwn_common(unsigned int cpu,
 	mt_gic_rdistif_save();
 	gicv3_cpuif_disable(plat_my_core_pos());
 	gicv3_rdistif_off(plat_my_core_pos());
+
+	/* Brisket config */
+	brisket_init(0);
 }
 
 static void plat_cpu_pwron_common(unsigned int cpu,
@@ -80,6 +86,10 @@ static void plat_cpu_pwron_common(unsigned int cpu,
 	coordinate_cluster_pwron();
 
 	/* Enable the GIC CPU interface */
+
+	/* Brisket config */
+	brisket_init(1);
+
 	gicv3_rdistif_on(plat_my_core_pos());
 	gicv3_cpuif_enable(plat_my_core_pos());
 	mt_gic_rdistif_init();
@@ -93,6 +103,8 @@ static void plat_cpu_pwron_common(unsigned int cpu,
 	} else {
 		mt_gic_rdistif_restore();
 	}
+	/* Credit config */
+	credit_didt_init();
 }
 
 /*
