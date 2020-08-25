@@ -110,7 +110,7 @@ static void spmd_cpu_on_finish_handler(u_register_t unused)
 
 	rc = spmd_spm_core_sync_entry(ctx);
 	if (rc != 0ULL) {
-		ERROR("%s failed (%llu) on CPU%u\n", __func__, rc,
+		ERROR("%s failed (%" PRIu64 ") on CPU%u\n", __func__, rc,
 			linear_id);
 		ctx->state = SPMC_STATE_OFF;
 		return;
@@ -138,7 +138,7 @@ static int32_t spmd_cpu_off_handler(u_register_t unused)
 
 	rc = spmd_spm_core_sync_entry(ctx);
 	if (rc != 0ULL) {
-		ERROR("%s failed (%llu) on CPU%u\n", __func__, rc, linear_id);
+		ERROR("%s failed (%" PRIu64 ") on CPU%u\n", __func__, rc, linear_id);
 	}
 
 	/* Expect a direct message response from the SPMC. */
