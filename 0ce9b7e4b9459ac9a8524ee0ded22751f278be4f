@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd85d428_f1975d47",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-08-25T15:29:55Z",
+      "side": 1,
+      "message": "That still breaks unless you have the snprintf patch applied also, doesn\u0027t it?\nCan you just put %u plus a comment in here for now, then update it later?",
+      "revId": "0ce9b7e4b9459ac9a8524ee0ded22751f278be4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
