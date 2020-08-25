@@ -18,6 +18,8 @@
 #include <plat_pm.h>
 #include <plat_mtk_lpm.h>
 #include <pmic.h>
+#include <mtk_brisket.h>
+#include <mtk_credit_didt.h>
 
 /*
  * The cpu require to cluster power stattus
@@ -72,10 +74,8 @@ static void plat_cpu_pwrdwn_common(unsigned int cpu,
 	gicv3_cpuif_disable(plat_my_core_pos());
 	gicv3_rdistif_off(plat_my_core_pos());
 
-#if BRISKET_READY
 	/* Brisket config */
 	brisket_init(0);
-#endif
 }
 
 static void plat_cpu_pwron_common(unsigned int cpu,
@@ -85,10 +85,8 @@ static void plat_cpu_pwron_common(unsigned int cpu,
 
 	coordinate_cluster_pwron();
 
-#if BRISKET_READY
 	/* Brisket config */
 	brisket_init(1);
-#endif
 
 	/* Enable the gic cpu interface */
 	gicv3_rdistif_on(plat_my_core_pos());
@@ -104,10 +102,8 @@ static void plat_cpu_pwron_common(unsigned int cpu,
 	else
 		mt_gic_rdistif_restore();
 
-#if CREDIT_DIDT_READY
 	/* Credit config */
 	credit_didt_init();
-#endif
 }
 
 /*
