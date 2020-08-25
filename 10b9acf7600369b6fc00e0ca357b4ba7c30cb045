@@ -117,6 +117,30 @@
       "revId": "10b9acf7600369b6fc00e0ca357b4ba7c30cb045",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ca30c7b_c064c541",
+        "filename": "lib/libc/aarch64/memset.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-25T11:45:27Z",
+      "side": 1,
+      "message": "You promised to provide your own optimal C version written cleverly:\n19 Aug. Raghu K \"Sure. I can.\"\nWhen can we expect to see your patch and ran performance comparison tests?\n\n\"As for incorporating all the changes, change 5637 updates all the \"ands\" instructions to use x2/x4 as opposed to w2/w4 but the latest patchset here does not. Clearly this patch does not incorporate all the changes from 5637.\"\nPatch 5637 has the following updates:\nline #21: w2 -\u003e x2\nline #29: w2 -\u003e x2\nline #40: w4, w2 -\u003e x4, x2\nline #47: w4 -\u003e x4.\nand doesn\u0027t \"update all the \"ands\" instructions to use x2/x4 as opposed to w2/w4\"  as this is not required by the very obvious reasons. Which of the 5637 patch changes aren\u0027t incorporated in this patch?",
+      "parentUuid": "1d3e8308_73fbf6ea",
+      "range": {
+        "startLine": 12,
+        "startChar": 7,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "10b9acf7600369b6fc00e0ca357b4ba7c30cb045",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
