@@ -33,6 +33,14 @@ BL31_SOURCES    += common/desc_image_load.c                              \
                    ${MTK_PLAT_SOC}/plat_topology.c
 
 
+# Brisket
+PLAT_INCLUDES += -I${MTK_PLAT_SOC}/drivers/brisket/
+PLAT_BL_COMMON_SOURCES += ${MTK_PLAT_SOC}/drivers/brisket/mtk_brisket.c
+
+# Credit-based
+PLAT_INCLUDES += -I${MTK_PLAT_SOC}/drivers/credit_didt/
+PLAT_BL_COMMON_SOURCES += ${MTK_PLAT_SOC}/drivers/credit_didt/mtk_credit_didt.c
+
 # Configs for A76 and A55
 HW_ASSISTED_COHERENCY := 1
 USE_COHERENT_MEM := 0
