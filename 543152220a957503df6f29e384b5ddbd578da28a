@@ -46,6 +46,30 @@
       "revId": "543152220a957503df6f29e384b5ddbd578da28a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a467e0ba_72eac40f",
+        "filename": "lib/libc/snprintf.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-25T16:39:41Z",
+      "side": 1,
+      "message": "These statements should have braces to fit with TF-A Coding Style.",
+      "parentUuid": "149703ae_9d81af5e",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 38
+      },
+      "revId": "543152220a957503df6f29e384b5ddbd578da28a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
