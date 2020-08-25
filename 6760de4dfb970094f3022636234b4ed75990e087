@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a05dd607_133c826b",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-08-25T12:58:19Z",
+      "side": 1,
+      "message": "Since you used the pretty clever trick below with subtracting 1 *before the usage*, can\u0027t you stay at unsigned here? That would make the left shift below less shady (I am pretty sure MISRA gets picky about signed shifts).",
+      "revId": "6760de4dfb970094f3022636234b4ed75990e087",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
