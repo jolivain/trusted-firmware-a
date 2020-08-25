@@ -6,7 +6,9 @@
 
 #include <arch_helpers.h>
 #include <assert.h>
+#include <inttypes.h>
 #include <stddef.h>
+#include <stdint.h>
 #include <string.h>
 
 #include <bl31/bl31.h>
@@ -958,33 +960,33 @@ uint64_t sdei_smc_handler(uint32_t smc_fid,
 	case SDEI_VERSION:
 		SDEI_LOG("> VER\n");
 		ret = (int64_t) sdei_version();
-		SDEI_LOG("< VER:%llx\n", ret);
+		SDEI_LOG("< VER:%" PRIx64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_EVENT_REGISTER:
 		x5 = SMC_GET_GP(ctx, CTX_GPREG_X5);
-		SDEI_LOG("> REG(n:%d e:%llx a:%llx f:%x m:%llx)\n", ev_num,
-				x2, x3, (int) x4, x5);
+		SDEI_LOG("> REG(n:%d e:%" PRIx64 " a:%" PRIx64 " f:%x m:%" PRIx64 ")\n",
+			 ev_num, x2, x3, (int) x4, x5);
 		ret = sdei_event_register(ev_num, x2, x3, x4, x5);
-		SDEI_LOG("< REG:%lld\n", ret);
+		SDEI_LOG("< REG:%" PRId64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_EVENT_ENABLE:
 		SDEI_LOG("> ENABLE(n:%d)\n", (int) x1);
 		ret = sdei_event_enable(ev_num);
-		SDEI_LOG("< ENABLE:%lld\n", ret);
+		SDEI_LOG("< ENABLE:%" PRId64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_EVENT_DISABLE:
 		SDEI_LOG("> DISABLE(n:%d)\n", ev_num);
 		ret = sdei_event_disable(ev_num);
-		SDEI_LOG("< DISABLE:%lld\n", ret);
+		SDEI_LOG("< DISABLE:%" PRId64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_EVENT_CONTEXT:
 		SDEI_LOG("> CTX(p:%d):%lx\n", (int) x1, read_mpidr_el1());
 		ret = sdei_event_context(ctx, (unsigned int) x1);
-		SDEI_LOG("< CTX:%lld\n", ret);
+		SDEI_LOG("< CTX:%" PRId64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_EVENT_COMPLETE_AND_RESUME:
@@ -992,10 +994,10 @@ uint64_t sdei_smc_handler(uint32_t smc_fid,
 		/* Fallthrough */
 
 	case SDEI_EVENT_COMPLETE:
-		SDEI_LOG("> COMPLETE(r:%u sta/ep:%llx):%lx\n",
-				(unsigned int) resume, x1, read_mpidr_el1());
+		SDEI_LOG("> COMPLETE(r:%u sta/ep:%" PRIx64 "):%lx\n",
+			 (unsigned int) resume, x1, read_mpidr_el1());
 		ret = sdei_event_complete(resume, x1);
-		SDEI_LOG("< COMPLETE:%llx\n", ret);
+		SDEI_LOG("< COMPLETE:%" PRIx64 "\n", ret);
 
 		/*
 		 * Set error code only if the call failed. If the call
@@ -1012,19 +1014,19 @@ uint64_t sdei_smc_handler(uint32_t smc_fid,
 	case SDEI_EVENT_STATUS:
 		SDEI_LOG("> STAT(n:%d)\n", ev_num);
 		ret = sdei_event_status(ev_num);
-		SDEI_LOG("< STAT:%lld\n", ret);
+		SDEI_LOG("< STAT:%" PRId64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_EVENT_GET_INFO:
 		SDEI_LOG("> INFO(n:%d, %d)\n", ev_num, (int) x2);
 		ret = sdei_event_get_info(ev_num, (int) x2);
-		SDEI_LOG("< INFO:%lld\n", ret);
+		SDEI_LOG("< INFO:%" PRId64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_EVENT_UNREGISTER:
 		SDEI_LOG("> UNREG(n:%d)\n", ev_num);
 		ret = sdei_event_unregister(ev_num);
-		SDEI_LOG("< UNREG:%lld\n", ret);
+		SDEI_LOG("< UNREG:%" PRId64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_PE_UNMASK:
@@ -1036,49 +1038,50 @@ uint64_t sdei_smc_handler(uint32_t smc_fid,
 	case SDEI_PE_MASK:
 		SDEI_LOG("> MASK:%lx\n", read_mpidr_el1());
 		ret = sdei_pe_mask();
-		SDEI_LOG("< MASK:%lld\n", ret);
+		SDEI_LOG("< MASK:%" PRId64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_INTERRUPT_BIND:
 		SDEI_LOG("> BIND(%d)\n", (int) x1);
 		ret = sdei_interrupt_bind((unsigned int) x1);
-		SDEI_LOG("< BIND:%lld\n", ret);
+		SDEI_LOG("< BIND:%" PRId64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_INTERRUPT_RELEASE:
 		SDEI_LOG("> REL(%d)\n", ev_num);
 		ret = sdei_interrupt_release(ev_num);
-		SDEI_LOG("< REL:%lld\n", ret);
+		SDEI_LOG("< REL:%" PRId64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_SHARED_RESET:
 		SDEI_LOG("> S_RESET():%lx\n", read_mpidr_el1());
 		ret = sdei_shared_reset();
-		SDEI_LOG("< S_RESET:%lld\n", ret);
+		SDEI_LOG("< S_RESET:%" PRId64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_PRIVATE_RESET:
 		SDEI_LOG("> P_RESET():%lx\n", read_mpidr_el1());
 		ret = sdei_private_reset();
-		SDEI_LOG("< P_RESET:%lld\n", ret);
+		SDEI_LOG("< P_RESET:%" PRId64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_EVENT_ROUTING_SET:
-		SDEI_LOG("> ROUTE_SET(n:%d f:%llx aff:%llx)\n", ev_num, x2, x3);
+		SDEI_LOG("> ROUTE_SET(n:%d f:%" PRIx64 " aff:%" PRIx64 ")\n",
+			 ev_num, x2, x3);
 		ret = sdei_event_routing_set(ev_num, x2, x3);
-		SDEI_LOG("< ROUTE_SET:%lld\n", ret);
+		SDEI_LOG("< ROUTE_SET:%" PRId64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_FEATURES:
-		SDEI_LOG("> FTRS(f:%llx)\n", x1);
+		SDEI_LOG("> FTRS(f:%" PRIx64 ")\n", x1);
 		ret = (int64_t) sdei_features((unsigned int) x1);
-		SDEI_LOG("< FTRS:%llx\n", ret);
+		SDEI_LOG("< FTRS:%" PRIx64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	case SDEI_EVENT_SIGNAL:
-		SDEI_LOG("> SIGNAL(e:%d t:%llx)\n", ev_num, x2);
+		SDEI_LOG("> SIGNAL(e:%d t:%" PRIx64 ")\n", ev_num, x2);
 		ret = sdei_signal(ev_num, x2);
-		SDEI_LOG("< SIGNAL:%lld\n", ret);
+		SDEI_LOG("< SIGNAL:%" PRId64 "\n", ret);
 		SMC_RET1(ctx, ret);
 
 	default:
