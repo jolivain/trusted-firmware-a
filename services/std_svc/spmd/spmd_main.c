@@ -46,7 +46,11 @@ static entry_point_info_t *spmc_ep_info;
  ******************************************************************************/
 spmd_spm_core_context_t *spmd_get_context_by_mpidr(uint64_t mpidr)
 {
-	return &spm_core_context[plat_core_pos_by_mpidr(mpidr)];
+	int pos = plat_core_pos_by_mpidr(mpidr);
+
+	assert(pos >= 0);
+
+	return &spm_core_context[pos];
 }
 
 /*******************************************************************************
