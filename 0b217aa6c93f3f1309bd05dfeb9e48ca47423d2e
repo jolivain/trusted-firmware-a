@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9f7f7ed4_cba71fdf",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-08-26T09:40:05Z",
+      "side": 1,
+      "message": "We prefer to keep interfaces the same among SoCs. MT8192 only has one cluster, but some other SoCs (such as MT8183) may have 2 or more clusters.",
+      "parentUuid": "58f1bf33_666d4135",
+      "revId": "0b217aa6c93f3f1309bd05dfeb9e48ca47423d2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ac25a0b_4958a231",
         "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
         "patchSetId": 5
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "826b7ace_628deed8",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-08-26T09:40:05Z",
+      "side": 1,
+      "message": "Same as above, to keep the interface same as previous SoCs.",
+      "parentUuid": "8ac25a0b_4958a231",
+      "revId": "0b217aa6c93f3f1309bd05dfeb9e48ca47423d2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07e15c28_598ce9f0",
         "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
         "patchSetId": 5
@@ -47,6 +83,30 @@
       "writtenOn": "2020-08-25T15:23:26Z",
       "side": 1,
       "message": "Is this semicolon on the next line down intentionally?",
+      "range": {
+        "startLine": 133,
+        "startChar": 2,
+        "endLine": 133,
+        "endChar": 3
+      },
+      "revId": "0b217aa6c93f3f1309bd05dfeb9e48ca47423d2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa9ba293_de1f8cbe",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-08-26T09:40:05Z",
+      "side": 1,
+      "message": "It\u0027s the coding style from Linux kernel.",
+      "parentUuid": "07e15c28_598ce9f0",
       "range": {
         "startLine": 133,
         "startChar": 2,
