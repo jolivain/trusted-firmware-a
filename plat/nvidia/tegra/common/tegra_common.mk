@@ -55,3 +55,6 @@ BL31_SOURCES		+=	drivers/delay_timer/delay_timer.c		\
 ifneq ($(ENABLE_STACK_PROTECTOR), 0)
 BL31_SOURCES		+=	${TEGRA_COMMON}/tegra_stack_protector.c
 endif
+ifeq (${EL3_EXCEPTION_HANDLING},1)
+BL31_SOURCES           +=      plat/common/aarch64/plat_ehf.c
+endif
