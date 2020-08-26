@@ -1,0 +1,963 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "465cc602_7e6deaa0",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "Copyright is missing",
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "751c88f3_9914b84d",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "remove this",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 8,
+        "endChar": 54
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efeb6d04_b3ae8fd4",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "space here",
+      "range": {
+        "startLine": 17,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 3
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e0b1ce7_56e18da4",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 3
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cec2a19_a0441f7c",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "Add one more tab and align properly all the defines.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 32
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9941c3fe_22c1b8a2",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "can this be static?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 22
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a7ffca4_35460ad2",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "crossing 80 chars limit. Also can this be defined as static?",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 1
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cff435b_fb709407",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "crossing 80chars limit. Also, can this be defined as static?",
+      "range": {
+        "startLine": 160,
+        "startChar": 1,
+        "endLine": 161,
+        "endChar": 87
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86c1709f_ca25f77c",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "crossing 80chars limit.",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 113
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "183eff4e_76d986de",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "can this be boolean instead?",
+      "range": {
+        "startLine": 280,
+        "startChar": 30,
+        "endLine": 280,
+        "endChar": 32
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7597129_c6a6e19b",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "can this be boolean instead?",
+      "range": {
+        "startLine": 286,
+        "startChar": 5,
+        "endLine": 286,
+        "endChar": 21
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ca16542_a1420261",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "Copyright missing for this file.",
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c46d047e_98a9c71c",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "remove this",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 51
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ea44ffe_0248295b",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "remove this",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 20
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f27447cf_1ed4645d",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "tabs are missing",
+      "range": {
+        "startLine": 16,
+        "startChar": 19,
+        "endLine": 16,
+        "endChar": 44
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9d76adf_2eb29506",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "Please use tabs wherever needed and align these defines properly.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 0
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9d96545_9444dafe",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "remove tab",
+      "range": {
+        "startLine": 105,
+        "startChar": 31,
+        "endLine": 105,
+        "endChar": 32
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce2e72be_d4618249",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "Add one more tab",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 42
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5201e6b_769eeceb",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "Add one more tab",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 42
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "728d147a_d6600091",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "Add one more tab and in all below defines (wherever needed)",
+      "range": {
+        "startLine": 119,
+        "startChar": 1,
+        "endLine": 120,
+        "endChar": 42
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d98aca1_ced530ea",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "remove extra blank line",
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c91e73a6_4fdb6005",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "crossing 80 chars limit",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 78
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9ed73c0_2abce86a",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "copyright missing",
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83a44779_750637d8",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "remove this",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df8c0085_dad110d8",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "remove this",
+      "range": {
+        "startLine": 8,
+        "startChar": 26,
+        "endLine": 8,
+        "endChar": 38
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07ff8397_28c7ea6a",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "Align all defines using tabs.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 6
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cb7ce8c_5fb8c6a9",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "can this be made as macro?",
+      "range": {
+        "startLine": 36,
+        "startChar": 46,
+        "endLine": 36,
+        "endChar": 47
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e75f025_c8ec92f0",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "can this function be defined as static?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 44
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ea4e718_fe9f0c1b",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "Crossing 80 chars limit. Also, can this function be defined as static?",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 88
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c69930a9_43a501dc",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "crossing 80chars limit. Also, this function be defined as static?",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 88
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e89392bd_20e2eacc",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "crossing 80chars limit. Also, can this function be defined as static?",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 92
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00922b1a_ed84b7cc",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "crossing 80chars limit. Also, can this function be defined as static?",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 93
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae07fcc1_0a185b66",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "Crossing 80chars limit",
+      "range": {
+        "startLine": 232,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 95
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9c321b1_6d392638",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "crossing 80chars limit",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 92
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9340e18a_7c2bf98c",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "can this be static?",
+      "range": {
+        "startLine": 369,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 23
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c84f018_7ed69ebf",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "put brace around \u0027else\u0027 as per coding guideline: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html?highlight\u003dheader%20inclusion#braces",
+      "range": {
+        "startLine": 394,
+        "startChar": 4,
+        "endLine": 394,
+        "endChar": 8
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97119e77_bf7d35a2",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "what to fix here? Can you please provide an elaborate comment?",
+      "range": {
+        "startLine": 433,
+        "startChar": 49,
+        "endLine": 433,
+        "endChar": 60
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea8647e0_1fd1eebd",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "why return is not honoured?",
+      "range": {
+        "startLine": 439,
+        "startChar": 1,
+        "endLine": 439,
+        "endChar": 29
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f882827_9198e459",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "Copyright missing",
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13643ee8_2772c079",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "remove this",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 51
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0c27e86_bf2cf332",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "remove this",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 20
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "948ded0c_8b9d54e4",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "use tabs wherever needed to align defines properly and same comment for all below defines.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 0
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98b22d39_5143ff70",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-26T04:55:31Z",
+      "side": 1,
+      "message": "This should go at line no.17 as per header inclusion policy mentioned in TF-A coding guideline\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html?highlight\u003dheader%20inclusion#include-statement-ordering",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 28
+      },
+      "revId": "8b8a7dbe50ecacbfc45b62debbb6bbfb8e0aaf9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
