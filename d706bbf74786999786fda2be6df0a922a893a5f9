@@ -287,6 +287,30 @@
     },
     {
       "key": {
+        "uuid": "e614d2d6_6e1858a3",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-26T10:12:45Z",
+      "side": 1,
+      "message": "\u003e amclang comes with two assemblers:\narclang has two assemblers, the built in one and the legacy armasm. This has to be handled in the build system, since the two talk different assembly dialects. Since does not support having two assemblers in one build, you have to use external_project() and move all legacy assembly files to a dedicated project to be able to run different tools. But you will need two toolchain files and two compiler IDs. \nBut let\u0027s ignore this, it was just an example for unexpected complexities with cmakes built-in compiler handling.\n\nIn my view at least, that\u0027s the project that needs addressing rather than something the build system needs to handle. `armasm` is a legacy tool from Arm Compiler 5, whilst `armclang` is the Arm Compiler 6 assembler. If TF-A wants to claim to support Arm Compiler 6, then we need to migrate any Arm Compiler 5 assembly files, just as it would need to migrate its C file syntax. With that said, it looks like all of TF-A\u0027s assembly is already in the modern syntax, so I don\u0027t think this is something we need to be concerned with.\n\n\u003e try_compile() and it\u0027s friends:\nIn bare metal you want to compile the code with specific compiler configured in a specific way. In turn when you compile an application you want to compile with any compiler available in the environment. As a result for bare-metal compiler feature detection has no benefit. It will just slow down the configuration run and will always provide the same result for the same version of a compiler. Unfortunately this can not be turned off easily and we have to live with it. But using toolchain files is not mandatory and we can drop that part.\n\nIt\u0027s not necessarily true that for baremetal you want a truly fixed compiler configuration, and it\u0027s absolutely untrue that feature detection is of no use. Certainly, there are things that partners will likely wish to fiddle with - optimisation settings, log/trace filters, debug profiles, etc. Sure, for a given platform they generally want to build for a single processor with a single linker script, but there\u0027s no reason at all to prevent them from being able to fiddle on the fly - from experience, it is *very* useful to be able to experiment with compiler flags when bringing up a new system. It\u0027s also no guarantee at all that partners will be using the same version of each compiler. We can specify as many minimum versions or maximum versions of a given compiler as we like, but there will always be partners whose primary interest is in minimising the infrastructure changes they need to make on their side, and feature tests, generally, age pretty well.\n\nI\u0027m not sure I can see the concern with slowing down a configuration run - even the most behemoth CMake projects I have worked with have had a configuration run of, at most, a few seconds.\n\n\u003e The armclang  toolchain file.\nIt is nice that armclang finally got official support in cmake. But is it good for us? As I mentioned our use-case is quite different to building applications for rich OSs (linux, android, windows, etc...).\n\nI\u0027ve had no problems building bare-metal applications with CMake and Arm Compiler 6. You simply need to set `CMAKE_SYSTEM_NAME` to `Generic` to build for bare metal, and `CMAKE_PROCESSOR_NAME` to one of the CPUs supported by `armclang -mcpu\u003dlist` (e.g. `cortex-a53`, `cortex-m4f`, etc.). CMake is not solely intended for building rich OS applications, and its support for bare metal projects has been solid for several years at this point.\n\n\u003e So with all that my point is: this is bare-metal and we want to control what compiler is used. CMake does not play really well with this use case, and the whole compiler machinery is more in our way than our help. As a result we have our own project specific methodology for compiler handling.\n\nI *strongly* disagree. I have been working with bare metal CMake projects for a long time, and I\u0027ve never felt that CMake stood in the way of doing so, and it provides numerous very helpful facilities that only operate reliably when a valid toolchain is in place. As I understand it, TF-M is also finalising their move to toolchain files over custom compiler logic, so it might be worth having a chat with them to see how they have found the experience.\n\nI am far more in favour of user-friendliness and familiarity and, to me, customising the toolchain logic at a lower level than CMake expects is a) bound to bite us in the future, if not now, and b) makes it extraordinarily difficult for newcomers to get comprehend and involve themselves in the build system.",
+      "parentUuid": "5a5c6813_3596096e",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 49
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b72daa50_72bd8623",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -406,6 +430,30 @@
     },
     {
       "key": {
+        "uuid": "968714cf_23c0323f",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-26T10:12:45Z",
+      "side": 1,
+      "message": "\u003e This is not true. As a design principle CMake scripts will not contain any validation of configuration space values and this will be handled by kconfig. As a result editing the cache manually will be a disaster.\nAgain, this is a bare-metal project and a lot of things work different compared to application development.\n\nI do not understand the emphasis here on application development. Cache variables and configuration methods have nothing to do with application development, and in fact almost all of the work I have ever done with CMake has been on bare metal applications. With that said, using CMake for rich applications is little different from using it for firmware.\n\nPerhaps it\u0027s simply that I\u0027m not familiar with the Kconfig/CMake approach, but as far as I know the only widely-available project using this approach is Zephyr, and based on my experience and chats I\u0027ve had with people around build systems I would like to do everything possible to avoid a Zephyr-like approach to CMake for TF-A.",
+      "parentUuid": "0c3f2cb9_244f69ae",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 72
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2dfe3c62_b4edc1fd",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -488,6 +536,30 @@
       "side": 1,
       "message": "Because this is a bare-metal project and no cross compilation use case supported by cmake does match ours.",
       "parentUuid": "2dfe3c62_b4edc1fd",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 31
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58ee2217_4df1005b",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-26T10:12:45Z",
+      "side": 1,
+      "message": "\u003e Because this is a bare-metal project and we need more control. For bare-metal projects the standard \"build with any compiler available\" operation is bad.\n\nThe only difference between the \"build with any compiler available\" approach and the \"build with a single compiler\" approach is simply that you can make more assumptions about the features the toolchain provides. What it doesn\u0027t mean is forcing the compiler directly through the build system, because then you are dictating to the user far more than the vendor of their compiler, but also their compiler version and location.\n\n\u003e Can you please explain how and why find_package() is going to misbehave?\n\n`find_package()` and its siblings use a set of variables set before the CMake proper is invoked to locate external packages, programs, libraries, etc.\n\nhttps://cmake.org/cmake/help/v3.0/variable/CMAKE_FIND_ROOT_PATH_MODE_PROGRAM.html\nhttps://cmake.org/cmake/help/v3.0/variable/CMAKE_FIND_ROOT_PATH_MODE_LIBRARY.html\nhttps://cmake.org/cmake/help/v3.0/variable/CMAKE_FIND_ROOT_PATH_MODE_INCLUDE.html\nhttps://cmake.org/cmake/help/v3.0/variable/CMAKE_FIND_ROOT_PATH_MODE_PACKAGE.html\n\nIf these are configured incorrectly, it can mean locating libraries or programs for entirely different systems or toolchains.",
+      "parentUuid": "de278470_82b2b8a6",
       "range": {
         "startLine": 85,
         "startChar": 0,
@@ -815,6 +887,24 @@
       "side": 1,
       "message": "\"`configure_file()` is executed on every configuration run, but CMake will only overwrite the file if its content differs from the previous version (to prevent the generated build system from re-building anything that depends on the file if there were no changes).\"\nThat is not what we need. The version info shall be refreshed for all builds when the build output is new. Refreshing the build message only for configuration runs is not enough.\nThe only portability risk here is if the shell understands redirection. At a quick glance I can not remember any shell which would not understand \u003e\u003e. Still if we ant to switch to configure_file(), it can be done, but shall follow the same execution flow as the current solution does. To achieve that, a dedicated script cmake script is needed, an it needs to be called with a custom command like ${CMAKE_COMMAND} -P \u003cnew-script.cmake\u003e.\nBut since the risk is low, it might not be worth it.",
       "parentUuid": "1df2cf50_067baa79",
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53030cf6_1a767b4e",
+        "filename": "cmake/BuildMessage.cmake",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-08-26T10:12:45Z",
+      "side": 1,
+      "message": "In what situation is updating the timestamp useful if there have been no changes to the project? The file will be reconfigured if any of the project source files are modified, which is ultimately what the timestamp is supposed to be tracking. What\u0027s the use in rebuilding the same project byte-for-byte just to update the timestamp? Aside from timestamps making it impossible to produce reproducible builds (https://reproducible-builds.org/), this appears to me to be a step towards unnecessary complexity.\n\nOne portability note is that in Windows\u0027 cmd.exe, `echo \"X\" \u003e\u003e test.txt` will literally echo `\"X\"`:\n\n    C:\\Users\\Chris\u003eecho \"Hello, World!\" \u003e\u003e test.txt\n    \n    C:\\Users\\Chris\u003eecho ~ Windows 10 \u003e\u003e test.txt\n    \n    C:\\Users\\Chris\u003etype test.txt\n    \"Hello, World!\"\n    ~ Windows 10\n\nIf a timestamp truly needs to be generated at _compile_ time, then yes, it should happen through `-P`, but I am very skeptical of the need to do this at all.",
+      "parentUuid": "06cc4970_9b80a870",
       "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
