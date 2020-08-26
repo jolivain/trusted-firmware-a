@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "d588b9c1_33f4c4ac",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-26T06:20:16Z",
+      "side": 1,
+      "message": "Well, if the test result is positive, then feel free to go with  PROJECT_SOURCE_DIR.",
+      "parentUuid": "7d58fef1_85d7a327",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 43
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3af8e7b_2b258cc3",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -239,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "5a5c6813_3596096e",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-26T06:20:16Z",
+      "side": 1,
+      "message": "⭕amclang comes with two assemblers:\narclang has two assemblers, the built in one and the legacy armasm. This has to be handled in the build system, since the two talk different assembly dialects. Since does not support having two assemblers in one build, you have to use external_project() and move all legacy assembly files to a dedicated project to be able to run different tools. But you will need two toolchain files and two compiler IDs. \nBut let\u0027s ignore this, it was just an example for unexpected complexities with cmakes built-in compiler handling.\n\n⭕try_compile() and it\u0027s friends:\nIn bare metal you want to compile the code with specific compiler configured in a specific way. In turn when you compile an application you want to compile with any compiler available in the environment. As a result for bare-metal compiler feature detection has no benefit. It will just slow down the configuration run and will always provide the same result for the same version of a compiler. Unfortunately this can not be turned off easily and we have to live with it. But using toolchain files is not mandatory and we can drop that part.\n\n⭕\"The compiler identifier should never be project-specific\"\nWell, the compiler ID drives compiler handling of cmake. Since it should be possible to add new compilers, and projects shall not depend on compiler specific details, there must be an abstraction layer for that purpose. But is all that is true setting a specific compiler ID in the project shall not harm. The case is the same when you add support for a new compiler.\n\nThe compiler ID tells cmake, that the current compiler is a specific one, and it shall use the \"built-in\" compiler specific files. This actually is a risk for us, since for bare-metal projects there are no standards. built-in compiler specific files will make assumptions for specific uses cases (i.e. cross compiling linux applications), which may be bad for us. For example the \"standard way\" how target and host specific libraries are separated when cross compiling linux apps will not work for us.\n\n⭕The armclang  toolchain file.\nIt is nice that armclang finally got official support in cmake. But is it good for us? As I mentioned our use-case is quite different to building applications for rich OSs (linux, android, windows, etc...).\n\n⭕So with all that my point is: this is bare-metal and we want to control what compiler is used. CMake does not play really well with this use case, and the whole compiler machinery is more in our way than our help. As a result we have our own project specific methodology for compiler handling.",
+      "parentUuid": "6ce3b7e4_1b906066",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 49
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b72daa50_72bd8623",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -334,6 +382,30 @@
     },
     {
       "key": {
+        "uuid": "0c3f2cb9_244f69ae",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-26T06:20:16Z",
+      "side": 1,
+      "message": "\"I\u0027m not sure what you mean by \"TF-A is not planning to use the cmake-gui to edit the configuration\"... that\u0027s a choice for the user, and is not something that a well-formed CMake project should ever dictate\"\nThis is not true. As a design principle CMake scripts will not contain any validation of configuration space values and this will be handled by kconfig. As a result editing the cache manually will be a disaster.\nAgain, this is a bare-metal project and a lot of things work different compared to application development.\n\n\"I\u0027m not sure I understand what you mean, I\u0027m unsure of how it would namespacing would generate confusion.\"\nLet\u0027s ignore this thread as it is a minor and negligible issue. I am happy with whatever variable name.",
+      "parentUuid": "e009acdb_4a4ccb23",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 72
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2dfe3c62_b4edc1fd",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -392,6 +464,30 @@
       "side": 1,
       "message": "Because this is a bare-metal project and we need more control. For bare-metal projects the standard \"build with any compiler available\" operation is bad.\n\nCan you please explain how and why find_package() is going to misbehave?",
       "parentUuid": "44fe6fd1_4d4b042f",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 31
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24f665dc_7f49c18a",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-26T06:20:16Z",
+      "side": 1,
+      "message": "Because this is a bare-metal project and no cross compilation use case supported by cmake does match ours.",
+      "parentUuid": "2dfe3c62_b4edc1fd",
       "range": {
         "startLine": 85,
         "startChar": 0,
@@ -499,6 +595,30 @@
     },
     {
       "key": {
+        "uuid": "01bea393_a0eff002",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-26T06:20:16Z",
+      "side": 1,
+      "message": "I think that is ok. Perhaps we shall have a tool for this purpose like [1] but for cmake.\n\n[1] https://include-what-you-use.org/",
+      "parentUuid": "de60bea9_149931e0",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 29
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f928bc3_f5fbc474",
         "filename": "CMakeLists.txt",
         "patchSetId": 8
@@ -558,6 +678,30 @@
       "side": 1,
       "message": "Pls, no! See my comment above about this variable.",
       "parentUuid": "052f84c1_5261206d",
+      "range": {
+        "startLine": 103,
+        "startChar": 8,
+        "endLine": 103,
+        "endChar": 23
+      },
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0fd1e40_755a0870",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-26T06:20:16Z",
+      "side": 1,
+      "message": "Since testing shows correct operation go for this change if you like.",
+      "parentUuid": "974114cb_61fb940f",
       "range": {
         "startLine": 103,
         "startChar": 8,
@@ -653,6 +797,24 @@
       "side": 1,
       "message": "I would say the configure_file method seems preferable here, given that it is properly supported by CMake and as Chris says likely to be more portable. I would also argue it\u0027s a bit neater. In terms of whether the implementation I have provided fulfils the requirements you set out Gyorgy, I\u0027m not totally sure - I would appreciate some reviews on this part in particular 😊",
       "parentUuid": "d0a505f2_d0d3310a",
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06cc4970_9b80a870",
+        "filename": "cmake/BuildMessage.cmake",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-08-26T06:20:16Z",
+      "side": 1,
+      "message": "\"`configure_file()` is executed on every configuration run, but CMake will only overwrite the file if its content differs from the previous version (to prevent the generated build system from re-building anything that depends on the file if there were no changes).\"\nThat is not what we need. The version info shall be refreshed for all builds when the build output is new. Refreshing the build message only for configuration runs is not enough.\nThe only portability risk here is if the shell understands redirection. At a quick glance I can not remember any shell which would not understand \u003e\u003e. Still if we ant to switch to configure_file(), it can be done, but shall follow the same execution flow as the current solution does. To achieve that, a dedicated script cmake script is needed, an it needs to be called with a custom command like ${CMAKE_COMMAND} -P \u003cnew-script.cmake\u003e.\nBut since the risk is low, it might not be worth it.",
+      "parentUuid": "1df2cf50_067baa79",
       "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
