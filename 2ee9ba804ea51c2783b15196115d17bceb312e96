@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "42a8073d_a4e6f438",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-08-26T10:46:44Z",
+      "side": 1,
+      "message": "Hi Varun, still struggling here. This is how things work today. Until there is a Code-Owner-Review+1 the patch will not be allowed to be submitted.",
+      "parentUuid": "f04295a1_168a0218",
+      "range": {
+        "startLine": 159,
+        "startChar": 6,
+        "endLine": 159,
+        "endChar": 80
+      },
+      "revId": "2ee9ba804ea51c2783b15196115d17bceb312e96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8b4d1861_88decce5",
         "filename": "docs/process/contributing.rst",
         "patchSetId": 3
@@ -144,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "c993009b_daa7921c",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-08-26T10:46:44Z",
+      "side": 1,
+      "message": "As said in the previous comment when there is no code owner review a code review will help the maintainer decide to fill in the code owner review themselves so freeing the patch to be submitted if all other required approvals are set. This is how things work today.\n\nAs I mentioned in the broader comments its the maintainers that look to ensure the broad requirements are met using their judgement. Its not appropriate in this document to overthink all the edge cases as that will just confuse submitters.\n\nMaybe somewhere, not in this document some guidelines for maintainers should be listed but broadly they are make the process work using good judgement as no process is perfect. \n\nFrom a submitter perspective if they cannot get a code owner approval it will help maintainers if they seek code owner approvals. Maintainers then can make a judgement call on if what they are seeing is good enough for them to fill in the code owner approval so passing that check ready for submittal.",
+      "parentUuid": "d7d7cd31_2f825c72",
+      "range": {
+        "startLine": 163,
+        "startChar": 3,
+        "endLine": 163,
+        "endChar": 63
+      },
+      "revId": "2ee9ba804ea51c2783b15196115d17bceb312e96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "84dc168d_35262ebc",
         "filename": "docs/process/contributing.rst",
         "patchSetId": 3
@@ -155,6 +203,30 @@
       "writtenOn": "2020-08-25T04:16:07Z",
       "side": 1,
       "message": "This statement is not accurate. Should be \"a certain set of maintainers might ...\" Not all maintainers have this power.",
+      "range": {
+        "startLine": 169,
+        "startChar": 3,
+        "endLine": 170,
+        "endChar": 61
+      },
+      "revId": "2ee9ba804ea51c2783b15196115d17bceb312e96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0037c602_fbe6e68d",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-08-26T10:46:44Z",
+      "side": 1,
+      "message": "(Sorry this comment was not saved before my last reply) This will be true once I fix the Gerrit permissions so all maintainers can manually set the Verified+1 over riding any automatic CI setting if in their judgement its incorrect. I\u0027ll reach out to you separately to check I get the correct setting and then roll out to all non Arm maintainers.",
+      "parentUuid": "84dc168d_35262ebc",
       "range": {
         "startLine": 169,
         "startChar": 3,
@@ -226,6 +298,30 @@
       "side": 1,
       "message": "My concern is that this guideline is based on an assumption that all submitters or maintainers can provide +V score on gerrit.",
       "parentUuid": "8c15d356_dfc9cf8f",
+      "range": {
+        "startLine": 172,
+        "startChar": 3,
+        "endLine": 174,
+        "endChar": 42
+      },
+      "revId": "2ee9ba804ea51c2783b15196115d17bceb312e96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a8ef94f_b87d3745",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-08-26T10:46:44Z",
+      "side": 1,
+      "message": "I\u0027ve changed the wording to reflect what happens today. Any additional testing performed as part of the code or code-owner reviews is outside the remit of the CI and so verified label which applies to that. Reviewers need to reflect their acceptance of any manual tests in their code or code-owner review approvals.",
+      "parentUuid": "bdd1f473_48966d7a",
       "range": {
         "startLine": 172,
         "startChar": 3,
