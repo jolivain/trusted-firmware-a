@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b343f65_b4d4106f",
+        "filename": "include/lib/libc/aarch32/inttypes_.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-27T11:27:15Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "revId": "212ed28612f43bc2ea434dd5b8043b9779dfdefe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "507d9bc9_43330370",
+        "filename": "include/lib/libc/aarch32/stdint_.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-27T11:27:15Z",
+      "side": 1,
+      "message": "If it is a new Arm written file, then\nCopyright (c) 2020, Arm Limited. All rights reserved.",
+      "revId": "212ed28612f43bc2ea434dd5b8043b9779dfdefe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a94f1ff_d02d6374",
+        "filename": "include/lib/libc/aarch32/stdint_.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-27T11:27:15Z",
+      "side": 1,
+      "message": "the same here and other header files",
+      "revId": "212ed28612f43bc2ea434dd5b8043b9779dfdefe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
