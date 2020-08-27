@@ -5,6 +5,7 @@
  */
 
 #include <arch.h>
+#include <mtk_plat_common.h>
 #include <platform_def.h>
 #include <lib/psci/psci.h>
 
@@ -56,4 +57,16 @@ int plat_core_pos_by_mpidr(u_register_t mpidr)
 		return -1;
 
 	return (cpu_id + (cluster_id * 4));
+}
+
+int32_t plat_get_soc_version(void)
+{
+	uint32_t chip_id = 0x8183;
+	uint32_t manfid = (JEDEC_MTK_BKID << 24) | (JEDEC_MTK_MFID << 16);
+	return (int32_t)(manfid | (chip_id & 0xFFFF));
+}
+
+int32_t plat_get_soc_revision(void)
+{
+	return 0;
 }
