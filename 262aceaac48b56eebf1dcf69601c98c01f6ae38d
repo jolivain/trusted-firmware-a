@@ -22,6 +22,30 @@
       "revId": "262aceaac48b56eebf1dcf69601c98c01f6ae38d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e25203b_4a274629",
+        "filename": "plat/common/aarch64/plat_ehf.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-08-27T05:13:07Z",
+      "side": 1,
+      "message": "The file is derived from plat/arm/xxx and modified to be generic. I guess the copyright should be retained in such case.",
+      "parentUuid": "b5bef1f0_6f6bb8d9",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 78
+      },
+      "revId": "262aceaac48b56eebf1dcf69601c98c01f6ae38d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
