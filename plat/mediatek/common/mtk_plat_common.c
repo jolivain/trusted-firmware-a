@@ -116,3 +116,15 @@ uint32_t plat_get_spsr_for_bl33_entry(void)
 	spsr = SPSR_MODE32(mode, 0, ee, daif);
 	return spsr;
 }
+
+int32_t plat_get_soc_version(void)
+{
+	uint32_t manfid = (JEDEC_MTK_BKID << 24U) | (JEDEC_MTK_MFID << 16U);
+
+	return (int32_t)(manfid | (SOC_CHIP_ID & 0xFFFFU));
+}
+
+int32_t plat_get_soc_revision(void)
+{
+	return 0;
+}
