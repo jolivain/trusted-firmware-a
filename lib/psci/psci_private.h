@@ -285,8 +285,6 @@ int psci_validate_suspend_req(const psci_power_state_t *state_info,
 unsigned int psci_find_max_off_lvl(const psci_power_state_t *state_info);
 unsigned int psci_find_target_suspend_lvl(const psci_power_state_t *state_info);
 void psci_set_pwr_domains_to_run(unsigned int end_pwrlvl);
-void psci_print_power_domain_map(void);
-unsigned int psci_is_last_on_cpu(void);
 int psci_spd_migrate_info(u_register_t *mpidr);
 void psci_do_pwrdown_sequence(unsigned int power_level);
 
@@ -317,11 +315,6 @@ void psci_cpu_suspend_finish(unsigned int cpu_idx, const psci_power_state_t *sta
 /* Private exported functions from psci_helpers.S */
 void psci_do_pwrdown_cache_maintenance(unsigned int pwr_level);
 void psci_do_pwrup_cache_maintenance(void);
-
-/* Private exported functions from psci_system_off.c */
-void __dead2 psci_system_off(void);
-void __dead2 psci_system_reset(void);
-u_register_t psci_system_reset2(uint32_t reset_type, u_register_t cookie);
 
 /* Private exported functions from psci_stat.c */
 void psci_stats_update_pwr_down(unsigned int end_pwrlvl,

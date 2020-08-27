@@ -89,6 +89,9 @@ void psci_warmboot_entrypoint(void);
 void psci_register_spd_pm_hook(const spd_pm_ops_t *pm);
 void psci_prepare_next_non_secure_ctx(
 			  entry_point_info_t *next_image_info);
+void psci_print_power_domain_map(void);
+unsigned int psci_is_last_on_cpu(void);
+
 #endif /* __ASSEMBLER__ */
 
 #endif /* PSCI_LIB_H */

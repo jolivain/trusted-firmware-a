@@ -338,6 +338,9 @@ int psci_cpu_suspend(unsigned int power_state,
 		     uintptr_t entrypoint,
 		     u_register_t context_id);
 int psci_system_suspend(uintptr_t entrypoint, u_register_t context_id);
+void __dead2 psci_system_off(void);
+void __dead2 psci_system_reset(void);
+u_register_t psci_system_reset2(uint32_t reset_type, u_register_t cookie);
 int psci_cpu_off(void);
 int psci_affinity_info(u_register_t target_affinity,
 		       unsigned int lowest_affinity_level);
