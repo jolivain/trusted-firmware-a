@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "8475a77a_f2baa5a9",
+        "filename": "include/lib/libc/aarch32/stdint_.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000319
+      },
+      "writtenOn": "2020-08-27T18:16:40Z",
+      "side": 1,
+      "message": "I changed to:\n/*\n * Copyright 2020 Broadcom\n *\n * SPDX-License-Identifier: BSD-3-Clause\n */\n/*\n * Portions copyright (c) 2020, ARM Limited and Contributors.\n * All rights reserved.\n */",
+      "parentUuid": "e2d3044c_f9dd903c",
+      "revId": "212ed28612f43bc2ea434dd5b8043b9779dfdefe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a94f1ff_d02d6374",
         "filename": "include/lib/libc/aarch32/stdint_.h",
         "patchSetId": 4
@@ -104,6 +122,24 @@
       "revId": "212ed28612f43bc2ea434dd5b8043b9779dfdefe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea734735_816daea1",
+        "filename": "include/lib/libc/aarch32/stdint_.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000319
+      },
+      "writtenOn": "2020-08-27T18:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18e2eab6_f2ed2231",
+      "revId": "212ed28612f43bc2ea434dd5b8043b9779dfdefe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
