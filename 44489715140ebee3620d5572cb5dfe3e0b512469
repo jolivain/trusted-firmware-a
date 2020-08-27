@@ -22,6 +22,30 @@
       "revId": "44489715140ebee3620d5572cb5dfe3e0b512469",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7b9187f_4a36ddd9",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-08-27T05:07:18Z",
+      "side": 1,
+      "message": "psci_cpu_pd_nodes[0] left most leaf node to psci_cpu_pd_nodes[psci_plat_core_count - 1] the right most leaf node should cover all the cores. it might have unused entries(for holes).\nBut that does not affect the logic.\n\nOne should be able to index into cpu_pd_nodes[] from mpidr. Platform need to deal with it. It might mean dummy cpu_pd nodes in the tree for the holes Or one has to handle such that mpidr indexes to the right cpu pd nodes.\n\nThe example MPIDR you mentioned can return\n(num_cpus_for_this_cluster * aff_lel1) + cpuid  ie plat_my_core_pos() can return 0, 1, 2, 3",
+      "parentUuid": "330b8cb9_ab8b76cc",
+      "range": {
+        "startLine": 996,
+        "startChar": 1,
+        "endLine": 996,
+        "endChar": 51
+      },
+      "revId": "44489715140ebee3620d5572cb5dfe3e0b512469",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
