@@ -118,6 +118,30 @@
       "revId": "44489715140ebee3620d5572cb5dfe3e0b512469",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0601b3b_c3bd03e3",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-08-27T16:16:09Z",
+      "side": 1,
+      "message": "AFAIU the hard requirement is one should be able to uniquely index into cpu_pd_nodes[] from mpidr. core_pos is the index to the pd_node[]. The onus is on platform.\n\nRegardless in this change we are traversing the entire populated cpu power domain nodes, so\nhow it got populated from the topology is not very relevant relevant.",
+      "parentUuid": "fb0941ca_4699d9cc",
+      "range": {
+        "startLine": 996,
+        "startChar": 1,
+        "endLine": 996,
+        "endChar": 51
+      },
+      "revId": "44489715140ebee3620d5572cb5dfe3e0b512469",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
