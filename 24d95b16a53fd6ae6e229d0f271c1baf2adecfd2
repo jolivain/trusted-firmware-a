@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d461d0f_724ad618",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-08-27T14:47:48Z",
+      "side": 1,
+      "message": "is an assert sufficient? It gets optimized away in release builds. Are we sure plat_core_pos_by_mpidr cannot return negative values on release builds?",
+      "revId": "24d95b16a53fd6ae6e229d0f271c1baf2adecfd2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
