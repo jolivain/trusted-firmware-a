@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c779bd83_75f03414",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T11:47:32Z",
+      "side": 1,
+      "message": "Is this \"The cpu require to cluster power stattus\" comment correct?",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1aa5b63f_3dc81848",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T11:47:32Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#opening-brace-placement\nis _name bool?",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1854977e_d2f91d8c",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T11:47:32Z",
+      "side": 1,
+      "message": "mt_lpm is not bool\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#opening-brace-placement",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fc0ee30_ef849c45",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T11:47:32Z",
+      "side": 1,
+      "message": "add extra ()",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d24dd83_a12c0f15",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T11:47:32Z",
+      "side": 1,
+      "message": "Fix here and in all othe cases\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#opening-brace-placement",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "739d553c_8b85e54b",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T11:47:32Z",
+      "side": 1,
+      "message": "this function will return anyway.",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fe093e6_ab8661ef",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T11:47:32Z",
+      "side": 1,
+      "message": "remove empty line",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c952df2_109c9fc4",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T11:47:32Z",
+      "side": 1,
+      "message": "does spm_get_cluster_powerstate() return bool?",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48e8f1b6_9ddfbb04",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T11:47:32Z",
+      "side": 1,
+      "message": "remove tab. Run checkpatch.pl script before submitting any patch.",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b46e330c_e15f2e68",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T11:47:32Z",
+      "side": 1,
+      "message": "remove trailing tabs everywhere in this file",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "247d29d8_d7262d91",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T11:47:32Z",
+      "side": 1,
+      "message": "remove tab",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89ffa64e_5f24b7c0",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T11:47:32Z",
+      "side": 1,
+      "message": "unsigned int",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
