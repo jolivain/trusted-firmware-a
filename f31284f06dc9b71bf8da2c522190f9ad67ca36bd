@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "52f240b3_aa6fb104",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T10:31:57Z",
+      "side": 1,
+      "message": "U(0xff) or 255U",
+      "revId": "f31284f06dc9b71bf8da2c522190f9ad67ca36bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0c4fa455_9290d580",
         "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
         "patchSetId": 2
@@ -13,6 +30,40 @@
       "writtenOn": "2020-08-28T10:18:32Z",
       "side": 1,
       "message": "0U",
+      "revId": "f31284f06dc9b71bf8da2c522190f9ad67ca36bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12a27f13_c34a3612",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T10:31:57Z",
+      "side": 1,
+      "message": "sdm_loop is uint32_t, so while (sdm_loop !\u003d 0U)",
+      "revId": "f31284f06dc9b71bf8da2c522190f9ad67ca36bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "743faa9f_d6bccd2c",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T10:31:57Z",
+      "side": 1,
+      "message": "25U",
       "revId": "f31284f06dc9b71bf8da2c522190f9ad67ca36bd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -47,6 +98,23 @@
       "writtenOn": "2020-08-28T10:18:32Z",
       "side": 1,
       "message": "0U",
+      "revId": "f31284f06dc9b71bf8da2c522190f9ad67ca36bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f0ce500_190ccb1a",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T10:31:57Z",
+      "side": 1,
+      "message": "5U",
       "revId": "f31284f06dc9b71bf8da2c522190f9ad67ca36bd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
