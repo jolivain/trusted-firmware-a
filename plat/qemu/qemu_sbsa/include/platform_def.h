@@ -198,9 +198,9 @@
 /* This is map from GIC_DIST up to last CPU (255) GIC_REDISTR */
 #define DEVICE0_BASE			0x40000000
 #define DEVICE0_SIZE			0x04080000
-/* This is map from NORMAL_UART up to SECURE_UART_MM */
-#define DEVICE1_BASE			0x60000000
-#define DEVICE1_SIZE			0x00041000
+/* This is map from SECURE_EC up to SECURE_UART_MM */
+#define DEVICE1_BASE			0x50000000
+#define DEVICE1_SIZE			0x10041000
 
 /*
  * GIC related constants
