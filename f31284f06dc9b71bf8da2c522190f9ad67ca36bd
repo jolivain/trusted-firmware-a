@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c4fa455_9290d580",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T10:18:32Z",
+      "side": 1,
+      "message": "0U",
+      "revId": "f31284f06dc9b71bf8da2c522190f9ad67ca36bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65e9b4f9_a36a8329",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T10:18:32Z",
+      "side": 1,
+      "message": "because timeout is uint32_t and can\u0027t be negative value, so\nwhile (--timeout !\u003d 0U)",
+      "revId": "f31284f06dc9b71bf8da2c522190f9ad67ca36bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9597fc0_10824401",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-28T10:18:32Z",
+      "side": 1,
+      "message": "0U",
+      "revId": "f31284f06dc9b71bf8da2c522190f9ad67ca36bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
