@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ad14792_7ac922c9",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-28T08:14:11Z",
+      "side": 1,
+      "message": "s/Truning/Turning",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 11
+      },
+      "revId": "b8b339fbdd7813da7260fdb0f3200fb48545af6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4e11a5c_a9ce7efc",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-28T08:14:11Z",
+      "side": 1,
+      "message": "Can you put error log and return error if unlock failed?",
+      "range": {
+        "startLine": 93,
+        "startChar": 1,
+        "endLine": 93,
+        "endChar": 24
+      },
+      "revId": "b8b339fbdd7813da7260fdb0f3200fb48545af6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7061a84b_7a74a519",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-28T08:14:11Z",
+      "side": 1,
+      "message": "Any reason why the return of this function is not checked for success/failure in this file? I think it is good to provide the result back to the caller of \u0027rtc_power_off_sequence\u0027 function.",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 22
+      },
+      "revId": "b8b339fbdd7813da7260fdb0f3200fb48545af6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2aac0265_cf29b98b",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-08-28T08:14:11Z",
+      "side": 1,
+      "message": "Better to check return of rtc power off sequence (will be helpful in debugging).",
+      "range": {
+        "startLine": 349,
+        "startChar": 1,
+        "endLine": 349,
+        "endChar": 26
+      },
+      "revId": "b8b339fbdd7813da7260fdb0f3200fb48545af6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
