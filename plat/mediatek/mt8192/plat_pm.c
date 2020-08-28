@@ -18,6 +18,7 @@
 #include <plat_pm.h>
 #include <plat_mtk_lpm.h>
 #include <pmic.h>
+#include <rtc.h>
 
 /*
  * The cpu require to cluster power stattus
@@ -345,6 +346,7 @@ static void __dead2 plat_mtk_system_off(void)
 {
 	INFO("MTK System Off\n");
 
+	rtc_power_off_sequence();
 	pmic_power_off();
 
 	wfi();
