@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c9a49316_a9ddf61f",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 11
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2020-08-28T13:14:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afd433b4_002918d5",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 84,
+        "endChar": 6
+      },
+      "revId": "7beedaa307763f02e5cc02761eee51976bd81d8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3777ddf_d84545c4",
         "filename": "bl1/bl1.cmake",
         "patchSetId": 11
@@ -36,6 +60,24 @@
       "writtenOn": "2020-08-26T06:20:16Z",
       "side": 1,
       "message": "Since PROJECT_SOURCE_DIR is a built in variable this check shall never fail and thus is not needed.",
+      "revId": "7beedaa307763f02e5cc02761eee51976bd81d8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeed5a53_289f4189",
+        "filename": "bl1/bl1.cmake",
+        "patchSetId": 11
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2020-08-28T13:14:55Z",
+      "side": 1,
+      "message": "Would this not also have applied to TFA_ROOT_DIR though? That would always be set in every case where PROJECT_SOURCE_DIR would also be set now. It is possible for this check to fail - if project() has not been called prior to this line.",
+      "parentUuid": "d3777ddf_d84545c4",
       "revId": "7beedaa307763f02e5cc02761eee51976bd81d8e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -99,6 +141,30 @@
       "writtenOn": "2020-08-26T06:20:16Z",
       "side": 1,
       "message": "I think this shall never be passed over the command line. This variable is automatically set by cmake.\nBy the way: when you made the testing of this variable, did you had this on the command line?",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 22
+      },
+      "revId": "7beedaa307763f02e5cc02761eee51976bd81d8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e000dfab_dcf71086",
+        "filename": "tools/fiptool/CMakeLists.txt",
+        "patchSetId": 11
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2020-08-28T13:14:55Z",
+      "side": 1,
+      "message": "In the brief test I did, I didn\u0027t set any parameters on command line.",
+      "parentUuid": "7fe0c21d_9beb4ce5",
       "range": {
         "startLine": 24,
         "startChar": 2,
