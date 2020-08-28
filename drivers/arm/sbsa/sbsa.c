@@ -40,3 +40,34 @@ void sbsa_wdog_stop(uintptr_t base)
 {
 	mmio_write_32(base + SBSA_WDOG_WCS_OFFSET, (0x0));
 }
+
+#if SBSA_WDOG_HANDLING
+
+#define weak plat_sbsa_wdog_handle
+
+unsigned int plat_sbsa_wdog_handle(unsigned int id, void *cookie)
+{
+	return PSCI_RESET2_SYSTEM_WARM_RESET;
+}
+
+static int sbsa_wdog_handler(unsigned int id, unsigned int flags,
+			     void *handle, void *cookie)
+{
+	unsigned int reset_type = PSCI_RESET2_SYSTEM_WARM_RESET;
+
+	reset_type = plat_sbsa_wdog_handle(id, cookie);
+	psci_system_reset2(reset_type, cookie);
+
+	return 0;
+}
+
+void sbsa_wdog_handler_init(void)
+{
+#if EL3_EXCEPTION_HANDLING
+	ehf_register_priority_handler(PLAT_SBSA_NTWDG_PRI, sbsa_wdog_handler);
+#if defined(PLAT_SBSA_TWDG_PRI)
+	ehf_register_priority_handler(PLAT_SBSA_TWDG_PRI, sbsa_wdog_handler);
+#endif
+#endif
+}
+#endif
