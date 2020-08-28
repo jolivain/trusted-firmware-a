@@ -929,6 +929,24 @@
     },
     {
       "key": {
+        "uuid": "b7c97048_282c35ff",
+        "filename": "cmake/BuildMessage.cmake",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2020-08-28T13:18:11Z",
+      "side": 1,
+      "message": "It seems the new approach is valid, it is just a matter of whether it should be implemented in one of two ways (current method/similar vs custom command with cmake -P). I guess this is a decision that needs to be taken, but I think either way using configure_file() seems preferable due to portability and usage of a standard CMake function that exists for precisely this reason.",
+      "parentUuid": "a67dd81d_3f43efac",
+      "revId": "d706bbf74786999786fda2be6df0a922a893a5f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2754832f_fac613f2",
         "filename": "cmake/GetTFACMF.cmake",
         "patchSetId": 8
