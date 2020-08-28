@@ -44,7 +44,7 @@ BL1_SOURCES		+=	drivers/io/io_semihosting.c			\
 				lib/semihosting/semihosting.c			\
 				lib/semihosting/${ARCH}/semihosting_call.S	\
 				${PLAT_QEMU_COMMON_PATH}/qemu_io_storage.c	\
-				${PLAT_QEMU_COMMON_PATH}/${ARCH}/plat_helpers.S	\
+				${PLAT_QEMU_PATH}/plat_helpers.S		\
 				${PLAT_QEMU_COMMON_PATH}/qemu_bl1_setup.c
 
 BL1_SOURCES		+=	lib/cpus/aarch64/aem_generic.S			\
@@ -58,7 +58,7 @@ BL2_SOURCES		+=	drivers/io/io_semihosting.c			\
 				lib/semihosting/semihosting.c			\
 				lib/semihosting/${ARCH}/semihosting_call.S	\
 				${PLAT_QEMU_COMMON_PATH}/qemu_io_storage.c	\
-				${PLAT_QEMU_COMMON_PATH}/${ARCH}/plat_helpers.S	\
+				${PLAT_QEMU_PATH}/plat_helpers.S		\
 				${PLAT_QEMU_COMMON_PATH}/qemu_bl2_setup.c	\
 				common/fdt_fixup.c				\
 				$(LIBFDT_SRCS)
@@ -82,8 +82,8 @@ BL31_SOURCES		+=	lib/cpus/aarch64/aem_generic.S			\
 				lib/semihosting/${ARCH}/semihosting_call.S	\
 				plat/common/plat_psci_common.c			\
 				${PLAT_QEMU_COMMON_PATH}/qemu_pm.c		\
-				${PLAT_QEMU_COMMON_PATH}/topology.c		\
-				${PLAT_QEMU_COMMON_PATH}/aarch64/plat_helpers.S	\
+				${PLAT_QEMU_PATH}/sbsa_topology.c		\
+				${PLAT_QEMU_PATH}/plat_helpers.S		\
 				${PLAT_QEMU_COMMON_PATH}/qemu_bl31_setup.c	\
 				${QEMU_GIC_SOURCES}
 ifeq (${SPM_MM},1)
