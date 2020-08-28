@@ -16,6 +16,24 @@
       "revId": "24d95b16a53fd6ae6e229d0f271c1baf2adecfd2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7430d6e_fdf82947",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2020-08-28T19:40:16Z",
+      "side": 1,
+      "message": "Good point. I will change for an explicit check. Some platforms do return -1 in case of an error, allwinner,aml for example.",
+      "parentUuid": "2d461d0f_724ad618",
+      "revId": "24d95b16a53fd6ae6e229d0f271c1baf2adecfd2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
