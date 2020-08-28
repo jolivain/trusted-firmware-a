@@ -109,6 +109,10 @@ void bl31_main(void)
 	ehf_init();
 #endif
 
+#if SBSA_WDOG_HANDLING
+	sbsa_wdog_handler_init();
+#endif
+
 	/* Initialize the runtime services e.g. psci. */
 	INFO("BL31: Initializing runtime services\n");
 	runtime_svc_init();
