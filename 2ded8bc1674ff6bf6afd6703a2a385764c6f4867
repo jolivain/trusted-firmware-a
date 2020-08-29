@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "339427ad_c2a8f54d",
+        "filename": "lib/cpus/aarch64/denver.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T14:43:54Z",
+      "side": 1,
+      "message": "put this code before\nmov\tx18, x30\nand move label 1 to ret instruction",
+      "revId": "2ded8bc1674ff6bf6afd6703a2a385764c6f4867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e252cb6f_25132678",
+        "filename": "lib/cpus/aarch64/denver.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T14:43:54Z",
+      "side": 1,
+      "message": "#define DENVER_MIDR_PN4\t\t\tU(0x4E0F0040)\nso, b.hi not b.gt",
+      "revId": "2ded8bc1674ff6bf6afd6703a2a385764c6f4867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1081a987_7179b822",
+        "filename": "lib/cpus/aarch64/denver.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T14:43:54Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "2ded8bc1674ff6bf6afd6703a2a385764c6f4867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
