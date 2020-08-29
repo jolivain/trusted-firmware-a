@@ -52,6 +52,24 @@
       "revId": "45d4f4591107059d1a087dd42f6463167807d533",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75cdd443_10e0f1c4",
+        "filename": "services/spd/trusty/trusty.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000329
+      },
+      "writtenOn": "2020-08-29T00:35:13Z",
+      "side": 1,
+      "message": "OEN_TOS_START...SMC_ENTITY_SECURE_MONITOR is an entity range, not an fid range. How did you test this? It seems to block all trusty calls as none of them are in this range.",
+      "parentUuid": "903008a5_df08f40e",
+      "revId": "45d4f4591107059d1a087dd42f6463167807d533",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
