@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f99e68ce_0246901b",
+        "filename": "plat/nvidia/tegra/common/aarch64/tegra_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T14:37:37Z",
+      "side": 1,
+      "message": "adr x2, __RELA_END__ - bl31_entrypoint\n?",
+      "revId": "aa68e07b1751e3919981e78bbabd919a62e0d642",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
