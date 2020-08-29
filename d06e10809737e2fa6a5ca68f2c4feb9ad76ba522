@@ -87,6 +87,24 @@
     },
     {
       "key": {
+        "uuid": "ac26a218_96481f6d",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T14:31:26Z",
+      "side": 1,
+      "message": "MISRA violation\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#misra-compliance\nunsigned int psci_is_last_on_cpu(void) not bool.",
+      "parentUuid": "686a102d_c4a1cf46",
+      "revId": "d06e10809737e2fa6a5ca68f2c4feb9ad76ba522",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "27b96bab_ce5bb63e",
         "filename": "lib/psci/psci_common.c",
         "patchSetId": 5
