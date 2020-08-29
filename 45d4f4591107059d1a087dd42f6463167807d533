@@ -16,6 +16,24 @@
       "revId": "45d4f4591107059d1a087dd42f6463167807d533",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "903008a5_df08f40e",
+        "filename": "services/spd/trusty/trusty.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-08-29T00:29:02Z",
+      "side": 1,
+      "message": "The intention is to pass SMC FIDs within this range to Trusty. The default case would handle all the unhandled ones. Do you see any problems with my understanding?",
+      "parentUuid": "eea91bc5_26da3d0f",
+      "revId": "45d4f4591107059d1a087dd42f6463167807d533",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
