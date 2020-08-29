@@ -1,0 +1,344 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "993f7d69_b6858ba6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "Please decide what notation you use: PSCI or psci. If the 1st, then use SBSA as well.",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72c967f1_0d3ef4b5",
+        "filename": "plat/qemu/qemu_sbsa/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "remove extra tab before \\ to align with other lines.",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a958e7e6_961c045d",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "Is it Arm created file?",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1447636_f6ec833e",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c2d2bca_3437f59e",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "remove ,",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76423872_6a884ef6",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "unsigned int i;",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e86d0bd_c7448d61",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "violation of MISRA Rule 14.4",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed5d8e7a_f8ea3a3b",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "justifies",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3be1ac3_33920b5a",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "\"!!\" ?",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1991219d_62a580ef",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#opening-brace-placement",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97624633_8eb76799",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "MISRA 14.4",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2991ba93_5723d1f6",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f518806_83ea579c",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "Do you need rc? Can you just\nreturn PSCI_E_SUCCESS;\n?",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec52162b_9f9ff9e2",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "plat_core_pos_by_mpidr() returns int.",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc4be418_acb10b51",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "MISRA 14.4",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e80df15_f36f1993",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d236415_46302d7f",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#alignment",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "659421b9_0a4d499e",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "remove ,",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d72a55f_8e5ac5bd",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "remove space after cast",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95e3862b_6a7b51ba",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-29T16:26:21Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
