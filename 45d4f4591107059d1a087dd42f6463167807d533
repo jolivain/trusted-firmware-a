@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eea91bc5_26da3d0f",
+        "filename": "services/spd/trusty/trusty.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000329
+      },
+      "writtenOn": "2020-08-29T00:24:50Z",
+      "side": 1,
+      "message": "How does this work? These two numbers are smc entity numbers, but that is not what is is being switched on here.",
+      "revId": "45d4f4591107059d1a087dd42f6463167807d533",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
