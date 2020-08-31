@@ -320,6 +320,24 @@
     },
     {
       "key": {
+        "uuid": "5547d92d_5f8d1a9c",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "Have checked that compiler doesn\u0027t opt out plat_mt_pm_invoke() call?",
+      "parentUuid": "e9cb4773_588e2f00",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6fe093e6_ab8661ef",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 11
@@ -479,6 +497,24 @@
     },
     {
       "key": {
+        "uuid": "598d9ebe_5b238807",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "I\u0027m using the latest from 5.8.",
+      "parentUuid": "de1e609c_0d404332",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b46e330c_e15f2e68",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 11
@@ -508,6 +544,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "b46e330c_e15f2e68",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41d530b0_5955d3ca",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "There are still trailing tabs in patchset 13.",
+      "parentUuid": "126f1894_bdfe0736",
       "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false

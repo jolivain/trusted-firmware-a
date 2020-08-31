@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdaef6b5_506b1866",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "requires?",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abc460f9_c187296e",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "(void)plat_mt_pm_invoke,\nbut MISRA will complain about Rule 4.7",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5a3122b_b9fab139",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "!\u003d 0\nHave checked that compiler doesn\u0027t opt out plat_mt_pm_invoke() call?",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02b3c02a_9bfc220f",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "see comment for #65",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fbfef2e_ea8f2150",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "see comment #109",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "095e256e_2274d11b",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "as above",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b44345cc_75a46cfd",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "ARM ARM:\n\"SCR_EL3 is a 64-bit register.\"",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f0d4d15_16a786e2",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "Violation of MISRA Rule 14.4",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca550fbb_7f532b23",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "plat_core_pos_by_mpidr() can return negative number. Do you need to ckeck cpu value before passing them as a parameter to other functions?",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1add394_1ed6ac22",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "use tab not spaces",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a43dddea_546cb002",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "see comment for #195",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1d23267_a4f4336f",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-08-31T12:41:58Z",
+      "side": 1,
+      "message": "use tab not spaces",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
