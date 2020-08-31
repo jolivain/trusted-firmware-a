@@ -33,6 +33,29 @@
       "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb31788b_42efa03c",
+        "filename": "drivers/arm/sbsa/sbsa.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-08-31T15:51:23Z",
+      "side": 1,
+      "message": "should we indicate ws1 and ws0 in the names? Also do we really reset the system on a ws0 trusted watch dog? Typically, when there is trusted ws0 to EL3, we simply reset the ws0 watchdog and keep running, similar to how say linux handles non-secure ws0.. not sure i understand why we reset the system on secure/trusted ws0.",
+      "range": {
+        "startLine": 67,
+        "startChar": 31,
+        "endLine": 67,
+        "endChar": 50
+      },
+      "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
