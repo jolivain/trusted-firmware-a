@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6cf17b50_ab6f367d",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-08-31T10:40:33Z",
+      "side": 1,
+      "message": "\"Cluster state request\" may be better. I\u0027ll refine it.",
+      "parentUuid": "c779bd83_75f03414",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1aa5b63f_3dc81848",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 11
@@ -30,6 +48,24 @@
       "writtenOn": "2020-08-28T11:47:32Z",
       "side": 1,
       "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#opening-brace-placement\nis _name bool?",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51022faf_5abf2b0f",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-08-31T10:40:33Z",
+      "side": 1,
+      "message": "It\u0027s a function pointer.",
+      "parentUuid": "1aa5b63f_3dc81848",
       "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f4a4c7bf_4ac8d571",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-08-31T10:40:33Z",
+      "side": 1,
+      "message": "Should I replace it with \"if (mt_lpm \u003d\u003d NULL)\"?",
+      "parentUuid": "1854977e_d2f91d8c",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7fc0ee30_ef849c45",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 11
@@ -64,6 +118,24 @@
       "writtenOn": "2020-08-28T11:47:32Z",
       "side": 1,
       "message": "add extra ()",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46c55e9c_ab65ab09",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-08-31T10:40:33Z",
+      "side": 1,
+      "message": "Okay.",
+      "parentUuid": "7fc0ee30_ef849c45",
       "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "d149e482_42ec1bf3",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-08-31T10:40:33Z",
+      "side": 1,
+      "message": "Do you mean rule in \"3.9.2. Conditional Statement Bodies\"?",
+      "parentUuid": "5d24dd83_a12c0f15",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "739d553c_8b85e54b",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 11
@@ -98,6 +188,24 @@
       "writtenOn": "2020-08-28T11:47:32Z",
       "side": 1,
       "message": "this function will return anyway.",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a3fb905_aa1121e5",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-08-31T10:40:33Z",
+      "side": 1,
+      "message": "It\u0027s true. It keeps the same coding layout as plat_mcusys_pwrdown_common(), although there is nothing to do before cluster off on this platform.\n\nI prefer to keep this code to denote nothing should be done if \u0027pwr_cluster_dwn\u0027 returns fail.",
+      "parentUuid": "739d553c_8b85e54b",
       "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "3208341e_2e854299",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-08-31T10:40:33Z",
+      "side": 1,
+      "message": "Okay.",
+      "parentUuid": "6fe093e6_ab8661ef",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1c952df2_109c9fc4",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 11
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "3cddf5cb_833415d3",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-08-31T10:40:33Z",
+      "side": 1,
+      "message": "It return an integer where 0 means powered off and others means powered on.",
+      "parentUuid": "1c952df2_109c9fc4",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "48e8f1b6_9ddfbb04",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 11
@@ -149,6 +293,24 @@
       "writtenOn": "2020-08-28T11:47:32Z",
       "side": 1,
       "message": "remove tab. Run checkpatch.pl script before submitting any patch.",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "098cb21f_d1ba83e0",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-08-31T10:40:33Z",
+      "side": 1,
+      "message": "Okay.\n\nBy the way, my checkpatch.pl (from kernel v5.4) didn\u0027t show any error. What version or what extra parameters should be used for this error?",
+      "parentUuid": "48e8f1b6_9ddfbb04",
       "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -200,6 +362,24 @@
       "writtenOn": "2020-08-28T11:47:32Z",
       "side": 1,
       "message": "unsigned int",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "584128d0_5b650781",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-08-31T10:40:33Z",
+      "side": 1,
+      "message": "Okay.",
+      "parentUuid": "89ffa64e_5f24b7c0",
       "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
