@@ -80,6 +80,30 @@
       "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b895cdd_8a238388",
+        "filename": "drivers/arm/sbsa/sbsa.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-08-31T17:27:29Z",
+      "side": 1,
+      "message": "agree. I think it might be better to separate out the handlers for secure Ws0 and non-secure WS1 watchdogs as entirely platform hooks to do what they please. The default handler could you what you have in sbsa_wdog_handler(rename to plat_whatever).\nWS0\u0027s are not used to recover/reset usually and are used to know that a component is alive. WS1 is used to notify that a component is not active since WS0 is not being actively reset.",
+      "parentUuid": "b30ed1b2_01d4c5a7",
+      "range": {
+        "startLine": 67,
+        "startChar": 31,
+        "endLine": 67,
+        "endChar": 50
+      },
+      "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
