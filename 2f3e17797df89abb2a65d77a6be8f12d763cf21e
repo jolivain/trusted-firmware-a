@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "f7c338b2_9209c305",
+        "filename": "plat/mediatek/common/mtk_plat_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000434
+      },
+      "writtenOn": "2020-09-01T08:37:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1007278f_324f2c43",
+      "range": {
+        "startLine": 122,
+        "startChar": 19,
+        "endLine": 122,
+        "endChar": 64
+      },
+      "revId": "2f3e17797df89abb2a65d77a6be8f12d763cf21e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfc98be2_1a6f5d2a",
         "filename": "plat/mediatek/common/mtk_plat_common.c",
         "patchSetId": 5
@@ -144,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "38e2db98_4c1ea34e",
+        "filename": "plat/mediatek/common/mtk_plat_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000434
+      },
+      "writtenOn": "2020-09-01T08:37:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "750c28c6_2d38aa38",
+      "range": {
+        "startLine": 124,
+        "startChar": 8,
+        "endLine": 124,
+        "endChar": 40
+      },
+      "revId": "2f3e17797df89abb2a65d77a6be8f12d763cf21e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5591848_e2f34694",
         "filename": "plat/mediatek/common/mtk_plat_common.c",
         "patchSetId": 5
@@ -203,6 +251,30 @@
       "side": 1,
       "message": "Is that mean for every platform soc-revision should be 0 then?\n\nHow the call[1] passed through unless you successfully return to the kernel that \u0027SMCCC_ARCH_SOC_ID\u0027 feature via this call \u0027plat_is_smccc_feature_available\u0027.\n\n1: https://github.com/torvalds/linux/blob/master/drivers/firmware/smccc/soc_id.c#L50",
       "parentUuid": "27421006_c96d1358",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 10
+      },
+      "revId": "2f3e17797df89abb2a65d77a6be8f12d763cf21e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ac3d95e_702f315c",
+        "filename": "plat/mediatek/common/mtk_plat_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000434
+      },
+      "writtenOn": "2020-09-01T08:37:06Z",
+      "side": 1,
+      "message": "Yes, soc-revision are all 0, since there\u0027s no way to get this info currently. Per offline discussion with MTK, they can\u0027t expose register address about soc id and revision id due to confidentiality concerns, so we hard code soc id in each platform.\n\nI tested in integration branch, and a718c3d677f8 (\"Fix SMCCC_ARCH_SOC_ID implementation\") set SMCCC_ARCH_SOC_ID to return SMC_OK\n\nDo we need to implement plat_is_smccc_feature_available() in this case? thanks",
+      "parentUuid": "3d54650e_a486d91f",
       "range": {
         "startLine": 129,
         "startChar": 0,
