@@ -568,6 +568,24 @@
     },
     {
       "key": {
+        "uuid": "7c325241_5e7e371c",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:51Z",
+      "side": 1,
+      "message": "I didn\u0027t see any trailing tab or space in this file. My editors and the the gerrit diff didn\u0027t show trailing tabs.\n\nDid you see tabs in the gerrit diff page? Maybe our gerrit settings are different. Which setting may relate to showing trailing tabs?",
+      "parentUuid": "41d530b0_5955d3ca",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "247d29d8_d7262d91",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 11

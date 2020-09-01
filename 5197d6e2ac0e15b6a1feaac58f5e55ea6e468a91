@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "19d950ad_b98326d9",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:51Z",
+      "side": 1,
+      "message": "I can add a log to be the error handling.",
+      "parentUuid": "abc460f9_c187296e",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b5a3122b_b9fab139",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 13
@@ -47,6 +65,24 @@
       "writtenOn": "2020-08-31T12:41:58Z",
       "side": 1,
       "message": "!\u003d 0\nHave checked that compiler doesn\u0027t opt out plat_mt_pm_invoke() call?",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f24bee72_1ae51506",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:51Z",
+      "side": 1,
+      "message": "On MT8192, it doesn\u0027t register .pwr_cluster_dwn callback, so plat_mt_pm_invoke(pwr_cluster_dwn) here will always return -1. I think compiler has no reason to optimize it out.",
+      "parentUuid": "b5a3122b_b9fab139",
       "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -155,6 +191,24 @@
     },
     {
       "key": {
+        "uuid": "e81b7122_da63df0e",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:51Z",
+      "side": 1,
+      "message": "Okay, I\u0027ll add a check.",
+      "parentUuid": "ca550fbb_7f532b23",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1add394_1ed6ac22",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 13
@@ -166,6 +220,24 @@
       "writtenOn": "2020-08-31T12:41:58Z",
       "side": 1,
       "message": "use tab not spaces",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "250e460b_d6293f26",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:51Z",
+      "side": 1,
+      "message": "Do you mean leading tabs/spaces? In my editor and gerrit diff page, there is only leading tabs, no leading spaces.",
+      "parentUuid": "d1add394_1ed6ac22",
       "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
