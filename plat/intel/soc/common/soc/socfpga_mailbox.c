@@ -196,8 +196,8 @@ int mailbox_poll_response(uint32_t job_id, int urgent, uint32_t *response,
 
 		mmio_write_32(MBOX_OFFSET + MBOX_DOORBELL_FROM_SDM, 0);
 
-		if (urgent & 1) {
-			mdelay(5);
+		if ((urgent & 1) != 0) {
+			mdelay(5U);
 			if ((mmio_read_32(MBOX_OFFSET + MBOX_STATUS) &
 				MBOX_STATUS_UA_MASK) ^
 				(urgent & MBOX_STATUS_UA_MASK)) {
@@ -312,7 +312,7 @@ int mailbox_send_cmd(uint32_t job_id, unsigned int cmd, uint32_t *args,
 {
 	int status = 0;
 
-	if (urgent) {
+	if (urgent != 0) {
 		urgent |= mmio_read_32(MBOX_OFFSET + MBOX_STATUS) &
 					MBOX_STATUS_UA_MASK;
 		mmio_write_32(MBOX_OFFSET + MBOX_URG, cmd);
@@ -327,7 +327,7 @@ int mailbox_send_cmd(uint32_t job_id, unsigned int cmd, uint32_t *args,
 			cmd, args, len);
 	}
 
-	if (status)
+	if (status != 0)
 		return status;
 
 	status = mailbox_poll_response(job_id, urgent, response, resp_len);
@@ -451,7 +451,7 @@ int mailbox_init(void)
 	status = mailbox_send_cmd(0, MBOX_CMD_RESTART, NULL, 0,
 					CMD_URGENT, NULL, 0);
 
-	if (status)
+	if (status != 0)
 		return status;
 
 	mailbox_set_int(MBOX_INT_FLAG_COE | MBOX_INT_FLAG_RIE |
