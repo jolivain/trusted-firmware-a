@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "028d0dd8_4030a743",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:46Z",
+      "side": 1,
+      "message": "It\u0027s simplified from previous version. Now there is no extra resource need to be released before error return, so it can return -1 here directly.",
+      "parentUuid": "d9cad1ea_9403a82c",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e15937c_e362b86a",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
         "patchSetId": 10
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "0e6974c1_095443f4",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:46Z",
+      "side": 1,
+      "message": "Oops... it\u0027s wrong. The \u0027return 0\u0027 was remove in patchset 9. I\u0027ll fix it in next version.",
+      "parentUuid": "390ac78f_0aa9337d",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3fd932ba_1f650c6a",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
         "patchSetId": 10
@@ -81,6 +117,24 @@
       "writtenOn": "2020-08-31T14:29:44Z",
       "side": 1,
       "message": "violation of MISRA Rule 17.7",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cdb5bfb_9a774bf4",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:46Z",
+      "side": 1,
+      "message": "I\u0027ll add a INFO() to be the error handling.",
+      "parentUuid": "3fd932ba_1f650c6a",
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -121,6 +175,24 @@
     },
     {
       "key": {
+        "uuid": "67a9a3f8_36ce9495",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:46Z",
+      "side": 1,
+      "message": "I\u0027ll change type of parameters to uint32_t in next version.",
+      "parentUuid": "63512e00_7eb957c0",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21f10fd2_4d4cc04c",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
         "patchSetId": 10
@@ -155,6 +227,24 @@
     },
     {
       "key": {
+        "uuid": "89126c74_80fc0fa0",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:46Z",
+      "side": 1,
+      "message": "OK, I\u0027ll change type of *_cnt to uint32_t.",
+      "parentUuid": "605e3550_225a514f",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "319a2779_c7d49dac",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
         "patchSetId": 10
@@ -166,6 +256,24 @@
       "writtenOn": "2020-08-31T14:29:44Z",
       "side": 1,
       "message": "(1 \u003c\u003c cpu) must be uin32_t or unsigned int",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1826831_3653bc8b",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:46Z",
+      "side": 1,
+      "message": "I\u0027ll replace it with BIT(cpu).",
+      "parentUuid": "319a2779_c7d49dac",
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -359,6 +467,24 @@
     },
     {
       "key": {
+        "uuid": "c1d7dea2_fa564876",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:46Z",
+      "side": 1,
+      "message": "I\u0027ll follow the rule in next version.",
+      "parentUuid": "e5470f7a_7fa3fb1d",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7def7361_25918510",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
         "patchSetId": 10
@@ -376,6 +502,24 @@
     },
     {
       "key": {
+        "uuid": "387cc141_7ab2676a",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:46Z",
+      "side": 1,
+      "message": "Do you mean this one?\n\"13.4\tThe result of an assignment operator should not be used\"\n\nOr do you mean I should add extra \u0027()\u0027?",
+      "parentUuid": "7def7361_25918510",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0dfe583d_58dee152",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
         "patchSetId": 10
@@ -387,6 +531,24 @@
       "writtenOn": "2020-08-31T14:29:44Z",
       "side": 1,
       "message": "can you use switch statement here?",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "877a97d7_d1725087",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:46Z",
+      "side": 1,
+      "message": "Switch-case and \u0027if-else if\u0027 is not suitable here. The following blocks (states) may be executed in one mcdi_try_init() call, so it\u0027s better to use separate if-blocks to control state transition.",
+      "parentUuid": "0dfe583d_58dee152",
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -455,6 +617,24 @@
       "writtenOn": "2020-08-31T14:29:44Z",
       "side": 1,
       "message": "what is \"menas\"?",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e157356_428272ed",
+        "filename": "plat/mediatek/mt8192/include/plat_pm.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-01T05:22:46Z",
+      "side": 1,
+      "message": "It\u0027s typo. The original meaning is \"platform power states\". But it\u0027s legacy code and should be removed. I\u0027ll remove it in next version.",
+      "parentUuid": "42e663d8_e54c1cc7",
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
