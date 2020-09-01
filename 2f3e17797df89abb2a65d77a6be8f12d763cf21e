@@ -308,6 +308,30 @@
       "revId": "2f3e17797df89abb2a65d77a6be8f12d763cf21e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bd59fba_04d6ceaf",
+        "filename": "plat/mediatek/common/mtk_plat_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-01T08:48:40Z",
+      "side": 1,
+      "message": "a718c3d677f8 is quite old. As per latest commit: 6f0a2f0, platform should implement strong version of this function \u0027plat_is_smccc_feature_available\u0027.\n\nPlease rebase your changes and add this function \u0027plat_is_smccc_feature_available\u0027 for MTK platforms. Thanks!",
+      "parentUuid": "69dea5a0_9cbe98f3",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 10
+      },
+      "revId": "2f3e17797df89abb2a65d77a6be8f12d763cf21e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
