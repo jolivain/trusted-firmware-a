@@ -586,6 +586,24 @@
     },
     {
       "key": {
+        "uuid": "329bf738_8bbf5845",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-01T12:00:50Z",
+      "side": 1,
+      "message": "Yes, you are right, sorry for my comment. I downloaded your patch and checked all the files in the hex viewer which didn\u0027t show any trailing spaces/tabs. I cannot explain why FF browser showed \u0027\u003e\u003e \u003e\u003e\u0027 in many places. You need to fix all MISRA C 2012 violation, also please note that calling\nplat_mt_pm_invoke(pwr_prompt, cpu, state);\nis violation of MISRA Rule 17.7.",
+      "parentUuid": "7c325241_5e7e371c",
+      "revId": "72e542d86b7c892e2b2122e74a3012dde7df5dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "247d29d8_d7262d91",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 11
