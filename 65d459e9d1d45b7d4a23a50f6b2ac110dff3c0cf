@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4cb314a5_85094094",
+        "filename": "plat/mediatek/mt8192/plat_mt_gic.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000394
+      },
+      "writtenOn": "2020-09-01T13:49:26Z",
+      "side": 1,
+      "message": "gic save/restore related functions are all called when CPUs are going to off/on, and cache is off at that time.\n\nTake below sequence as an example, cache is disabled in psci_do_pwrdown_cache_maintenance().\n\npsci_smc_handler()\n  + psci_cpu_suspend()\n  |   + psci_validate_power_state()\n  |   |   + psci_plat_pm_ops-\u003evalidate_power_state()\n  |   + psci_cpu_suspend_start()\n  |   |   + psci_acquire_pwr_domain_locks()\n  |   |   + psci_do_state_coordination()\n  |   |   + psci_suspend_to_pwrdown_start()\n  |   |   |   + psci_do_pwrdown_sequence()\n  |   |   |   |   + psci_do_pwrdown_cache_maintenance()\n  |   |   + psci_plat_pm_ops-\u003epwr_domain_suspend()\n  |   |   + psci_release_pwr_domain_locks()\n  |   |   + psci_power_down_wfi()",
+      "parentUuid": "7b073bde_12d41ee8",
+      "range": {
+        "startLine": 107,
+        "startChar": 1,
+        "endLine": 107,
+        "endChar": 31
+      },
+      "revId": "65d459e9d1d45b7d4a23a50f6b2ac110dff3c0cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "355c92e4_ee432fc7",
         "filename": "plat/mediatek/mt8192/plat_mt_gic.c",
         "patchSetId": 13
