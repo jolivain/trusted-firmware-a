@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1613fc18_927141a0",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-09-01T17:01:56Z",
+      "side": 1,
+      "message": "were the properties next-level-cache and cpu-idle-states intentionally not populated?",
+      "revId": "c0da81524722d32ce66a45e9b5d880a9ac12128b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d92f49b5_5d63cc0f",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-09-01T17:01:56Z",
+      "side": 1,
+      "message": "Shouldnt this be:\nreg \u003d \u003c0x0 0x100\u003e ?",
+      "revId": "c0da81524722d32ce66a45e9b5d880a9ac12128b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abf9d22a_2364c129",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-09-01T17:01:56Z",
+      "side": 1,
+      "message": "I was wondering, if an SoC has only one cluster, wouldnt afflv2 be 0.",
+      "revId": "c0da81524722d32ce66a45e9b5d880a9ac12128b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
