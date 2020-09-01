@@ -460,14 +460,12 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 	case FFA_VERSION:
 		input_version = (uint32_t)(0xFFFFFFFF & x1);
 		/*
-		 * If caller is secure and SPMC was initialized,
-		 * return FFA_VERSION of SPMD.
+		 * If caller is secure, return FFA_VERSION of SPMD.
 		 * If caller is non secure and SPMC was initialized,
 		 * return SPMC's version.
 		 * Sanity check to "input_version".
 		 */
-		if ((input_version & FFA_VERSION_BIT31_MASK) ||
-			(ctx->state == SPMC_STATE_RESET)) {
+		if (input_version & FFA_VERSION_BIT31_MASK) {
 			ret = FFA_ERROR_NOT_SUPPORTED;
 		} else if (!secure_origin) {
 			ret = MAKE_FFA_VERSION(spmc_attrs.major_version, spmc_attrs.minor_version);
