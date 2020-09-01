@@ -104,6 +104,30 @@
       "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b9ffa0e_de117142",
+        "filename": "drivers/arm/sbsa/sbsa.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-09-01T07:28:15Z",
+      "side": 1,
+      "message": "I wanted to see if we can define a default behavior for these conditions.\n\nNTWDG WS0 (EL1/2) -  linux does a panic then optionally crashdump and reset. I have seen platforms using watchdog ISR to know the component is alive but I think the former is a proper usage. ie. detect a lockup and if possible give more information about it.\n\nNTWDG WS1 (EL3) -  I think we can do reset as default behavior like in this handler.\n\nTWDGWS0 (EL3) -  I think panic() can be a default behavior instead of reset2().\nLet platform completely override as of now.\n\nAnd as side discussion about the usage of TWDGWS0, If we refresh the watchdog in this G0_EL3 ISR it is not going to detect any hang in S_EL1/S_EL2. And if its stuck in EL3 then anyway no interrupts can come. Correct me if I am missing something. So I think instead of reloading in WS0 we should reload in some other low prio context whose hang we intend to detect. And this interrupt will give opportunity to collect more information about that hang.",
+      "parentUuid": "8b895cdd_8a238388",
+      "range": {
+        "startLine": 67,
+        "startChar": 31,
+        "endLine": 67,
+        "endChar": 50
+      },
+      "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
