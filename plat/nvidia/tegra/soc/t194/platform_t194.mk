@@ -77,7 +77,7 @@ ifeq (${SPD},spmd)
 # include device tree helper library
 include lib/libfdt/libfdt.mk
 # sources to support spmd
-BL31_SOURCES		+=	plat/common/plat_spmd_manifest.c	\
-				common/fdt_wrappers.c			\
+BL31_SOURCES		+=	plat/nvidia/tegra/common/tegra_spmd_manifest.c	\
+				common/fdt_wrappers.c				\
 				${LIBFDT_SRCS}
 endif
