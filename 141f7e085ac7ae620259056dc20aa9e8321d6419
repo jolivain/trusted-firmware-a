@@ -128,6 +128,30 @@
       "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2519380c_877d8950",
+        "filename": "drivers/arm/sbsa/sbsa.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-01T23:05:12Z",
+      "side": 1,
+      "message": "Fair enough. The decision of what is the proper usage, i think, is best left to the platform. The default behavior can be what you propose. I was thinking of using the watchdog to detect EL3 hangs such that TWDG WS1 would be directed to something like an SCP(system control processor) to detect if the application processors has hung but you could argue for it\u0027s use to detect S-EL1/2 hangs. In this case, would we not want a handler for TWDG WS1 as opposed to a TWDG WS0 in EL3?",
+      "parentUuid": "7b9ffa0e_de117142",
+      "range": {
+        "startLine": 67,
+        "startChar": 31,
+        "endLine": 67,
+        "endChar": 50
+      },
+      "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
