@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06bf6332_f33e4d09",
+        "filename": "plat/mediatek/common/mtk_plat_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-01T06:13:09Z",
+      "side": 1,
+      "message": "any shift operation on signed integers will violate rule 12.7: Bitwise operators should not be applied to signed operands. Please make these defines and constant as unsigned and retain \u0027manfid\u0027 as uint32_t.",
+      "range": {
+        "startLine": 122,
+        "startChar": 19,
+        "endLine": 122,
+        "endChar": 64
+      },
+      "revId": "2f3e17797df89abb2a65d77a6be8f12d763cf21e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfc98be2_1a6f5d2a",
+        "filename": "plat/mediatek/common/mtk_plat_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-01T06:13:09Z",
+      "side": 1,
+      "message": "typecast this whole result to int32_t.",
+      "range": {
+        "startLine": 124,
+        "startChar": 8,
+        "endLine": 124,
+        "endChar": 40
+      },
+      "revId": "2f3e17797df89abb2a65d77a6be8f12d763cf21e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5591848_e2f34694",
+        "filename": "plat/mediatek/common/mtk_plat_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-01T06:13:09Z",
+      "side": 1,
+      "message": "Are there any upcoming changes that can retrieve soc revision?\nHow you verified this change? To retrieve the soc-id, please follow below steps:\n1. Check whether \u0027SMCCC_ARCH_SOC_ID\u0027 feature is available for the platform (capable to provide soc-version and soc-revision).\n2. If \u0027SMCCC_ARCH_SOC_ID\u0027 feature is available for platform then platform can \n   a. query soc version. (fid: SMCCC_ARCH_SOC_ID and arg0: 0)\n   b. query soc revision. (fid: SMCCC_ARCH_SOC_ID and arg0: 1)",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 10
+      },
+      "revId": "2f3e17797df89abb2a65d77a6be8f12d763cf21e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
