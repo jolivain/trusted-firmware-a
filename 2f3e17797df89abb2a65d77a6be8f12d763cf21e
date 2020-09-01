@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1007278f_324f2c43",
+        "filename": "plat/mediatek/common/mtk_plat_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-01T07:06:59Z",
+      "side": 1,
+      "message": "Please change this to \u0027(JEDEC_MTK_BKID \u003c\u003c 24U) | (JEDEC_MTK_MFID \u003c\u003c 16U);\u0027",
+      "parentUuid": "36113d5a_0da229f7",
+      "range": {
+        "startLine": 122,
+        "startChar": 19,
+        "endLine": 122,
+        "endChar": 64
+      },
+      "revId": "2f3e17797df89abb2a65d77a6be8f12d763cf21e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfc98be2_1a6f5d2a",
         "filename": "plat/mediatek/common/mtk_plat_common.c",
         "patchSetId": 5
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "750c28c6_2d38aa38",
+        "filename": "plat/mediatek/common/mtk_plat_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-01T07:06:59Z",
+      "side": 1,
+      "message": "Please change this to \u0027manfid | (SOC_CHIP_ID \u0026 0xFFFFU);\u0027",
+      "parentUuid": "2688a4f4_b50aa09e",
+      "range": {
+        "startLine": 124,
+        "startChar": 8,
+        "endLine": 124,
+        "endChar": 40
+      },
+      "revId": "2f3e17797df89abb2a65d77a6be8f12d763cf21e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5591848_e2f34694",
         "filename": "plat/mediatek/common/mtk_plat_common.c",
         "patchSetId": 5
@@ -131,6 +179,30 @@
       "side": 1,
       "message": "Currently there\u0027s no plan for soc revision.\n\nFor soc-id verification, we verified this with smccc driver in kernel:\nhttps://github.com/torvalds/linux/blob/master/drivers/firmware/smccc/soc_id.c\n\nOn our platform:\nlocalhost ~ # cat /sys/bus/soc/devices/soc1/soc_id\njep106:0426:8192",
       "parentUuid": "c5591848_e2f34694",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 10
+      },
+      "revId": "2f3e17797df89abb2a65d77a6be8f12d763cf21e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d54650e_a486d91f",
+        "filename": "plat/mediatek/common/mtk_plat_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-01T07:06:59Z",
+      "side": 1,
+      "message": "Is that mean for every platform soc-revision should be 0 then?\n\nHow the call[1] passed through unless you successfully return to the kernel that \u0027SMCCC_ARCH_SOC_ID\u0027 feature via this call \u0027plat_is_smccc_feature_available\u0027.\n\n1: https://github.com/torvalds/linux/blob/master/drivers/firmware/smccc/soc_id.c#L50",
+      "parentUuid": "27421006_c96d1358",
       "range": {
         "startLine": 129,
         "startChar": 0,
