@@ -228,6 +228,24 @@
       "revId": "accae32ab52efda4b74d98b1bd84f4d41692d41e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e6c4811_9a945a0c",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-09-02T16:55:59Z",
+      "side": 1,
+      "message": "On a separate patchset (I forgot to include it on the first one). Anyway, \"ARM\" was capitalized. I just fixed it.",
+      "parentUuid": "4b6879ec_626b5253",
+      "revId": "accae32ab52efda4b74d98b1bd84f4d41692d41e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }

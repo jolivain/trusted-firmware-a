@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "32631cfb_e29ba066",
+        "filename": "lib/cpus/aarch64/cpu_helpers.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-09-02T16:55:59Z",
+      "side": 1,
+      "message": "SUPPORT_UNKNOWN_MPID is only defined on the source code when SUPPORT_UNKNOWN_MPID \u003d 1 on platform.mk. See line 78.",
+      "parentUuid": "5c1f8965_0a63edd3",
+      "revId": "f913f40a93d4c9a5380897a037a4cc424c6184a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fef202f2_2b339688",
         "filename": "lib/cpus/aarch64/cpu_helpers.S",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "f913f40a93d4c9a5380897a037a4cc424c6184a8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97a88b2d_8e66d266",
+        "filename": "lib/cpus/aarch64/cpu_helpers.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-09-02T16:55:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fef202f2_2b339688",
+      "revId": "f913f40a93d4c9a5380897a037a4cc424c6184a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
