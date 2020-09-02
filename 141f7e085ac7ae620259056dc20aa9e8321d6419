@@ -152,6 +152,30 @@
       "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "503f006d_5f2ed13a",
+        "filename": "drivers/arm/sbsa/sbsa.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-09-02T05:15:41Z",
+      "side": 1,
+      "message": "I see TWDGWS1 as the traditional watchdog hardware reset. So it must be handled by another agent (SCP) to ensure the reliability. And system will recover from EL3 hang or other hardware lockups. And there is core specific debug context in this case.\n\nAll other cases ie if EL3 G0 ISR can be taken then WS0 will give opportunity to collect debug info.\nRefreshing of watchdog should be done by another context lower prio than TWDGWS0 ISR. \n-a low priority thread (to detect hang in scheduling) Or\n-a low prio ISR (to detect interrupt lockup) Or\n-start of some finite operation, eg: std /fast smc service. to detect/*recover* from a hang in that.",
+      "parentUuid": "2519380c_877d8950",
+      "range": {
+        "startLine": 67,
+        "startChar": 31,
+        "endLine": 67,
+        "endChar": 50
+      },
+      "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
