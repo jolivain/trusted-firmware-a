@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fdb426b8_46329776",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdaef6b5_506b1866",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abc460f9_c187296e",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 13
@@ -51,6 +69,24 @@
       "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dcf3730_52ec4f98",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:43Z",
+      "side": 1,
+      "message": "After reviewing the flow, it\u0027s not suitable to add log for 0 or !0. So I add a plat_mt_pm_invoke_no_check() to ignore the return value (and no-op) for APIs that don\u0027t care return value.",
+      "parentUuid": "19d950ad_b98326d9",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -89,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "e246cc38_c4530710",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f24bee72_1ae51506",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02b3c02a_9bfc220f",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 13
@@ -103,6 +157,24 @@
       "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0378264c_42d27104",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02b3c02a_9bfc220f",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -123,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "b74a6d60_d6b60af9",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fbfef2e_ea8f2150",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "095e256e_2274d11b",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 13
@@ -137,6 +227,24 @@
       "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "609702b5_a26daa8d",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "095e256e_2274d11b",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -157,6 +265,24 @@
     },
     {
       "key": {
+        "uuid": "660c81c3_3a74e06f",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b44345cc_75a46cfd",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f0d4d15_16a786e2",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 13
@@ -171,6 +297,24 @@
       "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c8ed20e_63b7620f",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f0d4d15_16a786e2",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +353,24 @@
     },
     {
       "key": {
+        "uuid": "79db29f2_aa585309",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e81b7122_da63df0e",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1add394_1ed6ac22",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 13
@@ -244,6 +406,24 @@
     },
     {
       "key": {
+        "uuid": "7d11cd8c_140c0961",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "250e460b_d6293f26",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a43dddea_546cb002",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 13
@@ -261,6 +441,24 @@
     },
     {
       "key": {
+        "uuid": "50af79d9_c076318b",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a43dddea_546cb002",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1d23267_a4f4336f",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 13
@@ -275,6 +473,24 @@
       "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a6bbd66_86bfad5e",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d1d23267_a4f4336f",
+      "revId": "5197d6e2ac0e15b6a1feaac58f5e55ea6e468a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
