@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88386a8d_27447080",
+        "filename": "include/lib/cpus/aarch64/aarch64_generic.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T15:14:51Z",
+      "side": 1,
+      "message": "Just \"Arm Limited.\"",
+      "revId": "accae32ab52efda4b74d98b1bd84f4d41692d41e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5413a110_f4792a0c",
+        "filename": "include/lib/cpus/aarch64/aarch64_generic.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T15:14:51Z",
+      "side": 1,
+      "message": "remove 1 extra tab",
+      "revId": "accae32ab52efda4b74d98b1bd84f4d41692d41e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e0c3faa_5e75b620",
+        "filename": "lib/cpus/aarch64/aarch64_generic.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T15:14:51Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "accae32ab52efda4b74d98b1bd84f4d41692d41e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5d43917_5c6b2967",
+        "filename": "lib/cpus/aarch64/cpu_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T15:14:51Z",
+      "side": 1,
+      "message": "1. Should inclusion of this code be dependant on SUPPORT_UNKNOWN_MPID value?\n\n2. cbz  x2, error_exit",
+      "revId": "accae32ab52efda4b74d98b1bd84f4d41692d41e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c94aa7e_62ade72c",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T15:14:51Z",
+      "side": 1,
+      "message": "Copyright (c) 2020, Arm Limited. All rights reserved.",
+      "revId": "accae32ab52efda4b74d98b1bd84f4d41692d41e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
