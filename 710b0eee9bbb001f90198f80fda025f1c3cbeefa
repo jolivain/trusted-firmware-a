@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09bdfd7d_66c97735",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 33
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-02T13:29:27Z",
+      "side": 1,
+      "message": "There is at least a typo here, I guess you mean \"exists\". But can you tell the user what that actually means? What about:\nWARN(\"not overwriting already existing /cpus node in DTB\\n\");",
+      "revId": "710b0eee9bbb001f90198f80fda025f1c3cbeefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "440af096_70e047fd",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 33
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-02T13:29:27Z",
+      "side": 1,
+      "message": "While you are at it, can you use \"/cpus DT node\" below as well? That is less confusing.",
+      "revId": "710b0eee9bbb001f90198f80fda025f1c3cbeefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
