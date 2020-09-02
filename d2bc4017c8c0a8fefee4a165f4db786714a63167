@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ad5573a_e0acccd1",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T15:24:41Z",
+      "side": 1,
+      "message": "Are there spaces used instead of tabs on lines #19-22?",
+      "revId": "d2bc4017c8c0a8fefee4a165f4db786714a63167",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d18c6872_052bcde8",
+        "filename": "plat/qemu/qemu_sbsa/plat_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T15:24:41Z",
+      "side": 1,
+      "message": "use tabs not spaces to align with line #72",
+      "revId": "d2bc4017c8c0a8fefee4a165f4db786714a63167",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "448d6524_796c3395",
+        "filename": "plat/qemu/qemu_sbsa/plat_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T15:24:41Z",
+      "side": 1,
+      "message": "remove 1 empty line",
+      "revId": "d2bc4017c8c0a8fefee4a165f4db786714a63167",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46451845_8c1f0bc9",
+        "filename": "plat/qemu/qemu_sbsa/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T15:24:41Z",
+      "side": 1,
+      "message": "alogn with line #46",
+      "revId": "d2bc4017c8c0a8fefee4a165f4db786714a63167",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8eca89b_276c5b8a",
+        "filename": "plat/qemu/qemu_sbsa/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T15:24:41Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "d2bc4017c8c0a8fefee4a165f4db786714a63167",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcfd2b70_b8f0ae3a",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_topology.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T15:24:41Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering",
+      "revId": "d2bc4017c8c0a8fefee4a165f4db786714a63167",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfff6eaa_96394381",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_topology.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T15:24:41Z",
+      "side": 1,
+      "message": "unsigned int i;",
+      "revId": "d2bc4017c8c0a8fefee4a165f4db786714a63167",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7235fe5c_3f9a2381",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_topology.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T15:24:41Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#opening-brace-placement\n+ violation of MISRA Rule 14.4",
+      "revId": "d2bc4017c8c0a8fefee4a165f4db786714a63167",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
