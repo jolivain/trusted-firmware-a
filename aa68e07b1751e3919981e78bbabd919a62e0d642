@@ -16,6 +16,24 @@
       "revId": "aa68e07b1751e3919981e78bbabd919a62e0d642",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76745fe6_54a77cd8",
+        "filename": "plat/nvidia/tegra/common/aarch64/tegra_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-02T02:25:16Z",
+      "side": 1,
+      "message": "Results in this Error: can\u0027t resolve `__RELA_END__\u0027 {*UND* section} - `bl31_entrypoint\u0027 {*UND* section}",
+      "parentUuid": "f99e68ce_0246901b",
+      "revId": "aa68e07b1751e3919981e78bbabd919a62e0d642",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
