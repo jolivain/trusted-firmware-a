@@ -200,6 +200,30 @@
       "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1aa81eb5_8d198a1a",
+        "filename": "drivers/arm/sbsa/sbsa.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-02T21:58:20Z",
+      "side": 1,
+      "message": "okay let me ask you another question. Why don\u0027t we handle NTWDG WS0 interrupt in EL3 but handle TWDG WS0 interrupt in EL3? What is the difference between the two in it\u0027s use(other than secure vs non-secure)? If TWDG WS0 is to be used like linux, shouldnt the interrupt be handled in S-EL2 or S-EL1?",
+      "parentUuid": "7134c288_48d0fe33",
+      "range": {
+        "startLine": 67,
+        "startChar": 31,
+        "endLine": 67,
+        "endChar": 50
+      },
+      "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
