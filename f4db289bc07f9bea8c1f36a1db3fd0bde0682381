@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "68247996_0b5ef8d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "sbsa-ref is the name of the machine, which is correct in lower case. the naked sbsa is actually bad wording so I have reworded it and removed. PSCI as all capitals.",
+      "parentUuid": "993f7d69_b6858ba6",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "72c967f1_0d3ef4b5",
         "filename": "plat/qemu/qemu_sbsa/platform.mk",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d21d2fe_461d2a48",
+        "filename": "plat/qemu/qemu_sbsa/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "72c967f1_0d3ef4b5",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "e6205215_48ae04d8",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Yes original file was written by ARM",
+      "parentUuid": "a958e7e6_961c045d",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1447636_f6ec833e",
         "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0af0778c_52c52d94",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b1447636_f6ec833e",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "92796391_55c392ad",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5c2d2bca_3437f59e",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76423872_6a884ef6",
         "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
         "patchSetId": 1
@@ -101,6 +191,24 @@
       "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d3a37a6_db15d80e",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "76423872_6a884ef6",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "969dd05a_f0e79e96",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7e86d0bd_c7448d61",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed5d8e7a_f8ea3a3b",
         "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
         "patchSetId": 1
@@ -135,6 +261,24 @@
       "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac3bbc0f_3bfe1de1",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ed5d8e7a_f8ea3a3b",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "1bd9aa25_b63718c5",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d3be1ac3_33920b5a",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1991219d_62a580ef",
         "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
         "patchSetId": 1
@@ -169,6 +331,24 @@
       "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "348d7c0f_6df409df",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1991219d_62a580ef",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "60804ac2_93ebd04e",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "97624633_8eb76799",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2991ba93_5723d1f6",
         "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
         "patchSetId": 1
@@ -203,6 +401,24 @@
       "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a88e2ac0_6a757725",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2991ba93_5723d1f6",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -223,6 +439,24 @@
     },
     {
       "key": {
+        "uuid": "7c5d71f9_0701ac66",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7f518806_83ea579c",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec52162b_9f9ff9e2",
         "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
         "patchSetId": 1
@@ -237,6 +471,24 @@
       "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "335ec939_49b75496",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ec52162b_9f9ff9e2",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -257,6 +509,24 @@
     },
     {
       "key": {
+        "uuid": "8b8e2865_2817a973",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dc4be418_acb10b51",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e80df15_f36f1993",
         "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
         "patchSetId": 1
@@ -271,6 +541,24 @@
       "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2f80f45_e9fc52e1",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0e80df15_f36f1993",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -291,6 +579,24 @@
     },
     {
       "key": {
+        "uuid": "b0e28804_8d84e078",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1d236415_46302d7f",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "659421b9_0a4d499e",
         "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
         "patchSetId": 1
@@ -305,6 +611,24 @@
       "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be50a633_4e7b595b",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "659421b9_0a4d499e",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -325,6 +649,24 @@
     },
     {
       "key": {
+        "uuid": "65d8d48e_f9f984b7",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2d72a55f_8e5ac5bd",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95e3862b_6a7b51ba",
         "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
         "patchSetId": 1
@@ -339,6 +681,24 @@
       "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89e3ac79_e4a49245",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T09:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "95e3862b_6a7b51ba",
+      "revId": "f4db289bc07f9bea8c1f36a1db3fd0bde0682381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
