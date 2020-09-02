@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e31200b_c5586d07",
+        "filename": "drivers/arm/sbsa/sbsa.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-09-02T05:20:35Z",
+      "side": 1,
+      "message": "by default doing a panic() and let platform do reset in plat_panic_handler() Or completely override this function.",
+      "revId": "2bf7b931b6c764f74dbe93499da2ab6f452e8b38",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
