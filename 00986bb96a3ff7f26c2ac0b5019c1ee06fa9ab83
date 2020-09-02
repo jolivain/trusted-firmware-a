@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4fc13540_385c8c8c",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T14:52:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "29dd4163_4330766b",
+      "revId": "00986bb96a3ff7f26c2ac0b5019c1ee06fa9ab83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfe4e8ac_4b4393eb",
         "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "690f241d_57eb17b9",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T14:52:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dfe4e8ac_4b4393eb",
+      "revId": "00986bb96a3ff7f26c2ac0b5019c1ee06fa9ab83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9bbaacde_78999e0c",
         "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
         "patchSetId": 2
@@ -47,6 +83,30 @@
       "writtenOn": "2020-09-02T14:42:20Z",
       "side": 1,
       "message": "plat_core_pos_by_mpidr() can return negative value. Do you need to check it before using pos as index?",
+      "range": {
+        "startLine": 135,
+        "startChar": 11,
+        "endLine": 135,
+        "endChar": 33
+      },
+      "revId": "00986bb96a3ff7f26c2ac0b5019c1ee06fa9ab83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91cb59d7_33605e2a",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-02T14:52:49Z",
+      "side": 1,
+      "message": "Good point will check.",
+      "parentUuid": "9bbaacde_78999e0c",
       "range": {
         "startLine": 135,
         "startChar": 11,
