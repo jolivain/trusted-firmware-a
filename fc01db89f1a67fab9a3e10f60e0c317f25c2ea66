@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ea806717_0546258a",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ac59645_a19f22cc",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9cad1ea_9403a82c",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
         "patchSetId": 10
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "405e5dd4_43c74709",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "028d0dd8_4030a743",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e15937c_e362b86a",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
         "patchSetId": 10
@@ -68,6 +104,24 @@
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06f34c94_1c2a61c7",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e15937c_e362b86a",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -103,6 +157,24 @@
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e7b584f_05ec9dbe",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e6974c1_095443f4",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -159,6 +231,24 @@
     },
     {
       "key": {
+        "uuid": "8efd113d_81404f34",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "I added a log to show it\u0027s init done to be a debug information. In fact, this function \u0027mcdi_try_init()\u0027 will be called multiple times. So it doesn\u0027t matter mcdi_try_init() return 0 or !0 here.",
+      "parentUuid": "4a4a4fcd_c4a8539f",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80e4bcad_db918cc5",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
         "patchSetId": 10
@@ -173,6 +263,24 @@
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8662c113_acd08fc7",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80e4bcad_db918cc5",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -211,6 +319,24 @@
     },
     {
       "key": {
+        "uuid": "80cbbc63_35fb71f3",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67a9a3f8_36ce9495",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21f10fd2_4d4cc04c",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
         "patchSetId": 10
@@ -225,6 +351,24 @@
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81ee3c84_c76821cb",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21f10fd2_4d4cc04c",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -263,6 +407,24 @@
     },
     {
       "key": {
+        "uuid": "762626f4_c9b83023",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89126c74_80fc0fa0",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "319a2779_c7d49dac",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
         "patchSetId": 10
@@ -298,6 +460,24 @@
     },
     {
       "key": {
+        "uuid": "a2beb2db_ad0e35c6",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1826831_3653bc8b",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7aadb8ab_de7f1d52",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
         "patchSetId": 10
@@ -312,6 +492,24 @@
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc247215_f9e065b9",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7aadb8ab_de7f1d52",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -332,6 +530,24 @@
     },
     {
       "key": {
+        "uuid": "7c252735_d860e954",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93363cdb_67a52b9a",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04bccc34_b1cbdd21",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
         "patchSetId": 10
@@ -346,6 +562,24 @@
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "883fb827_3f2d637e",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04bccc34_b1cbdd21",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -366,6 +600,24 @@
     },
     {
       "key": {
+        "uuid": "696a08df_55ddcdf3",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ccf5521_4dec0ed6",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1f6378a_9e32740a",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
         "patchSetId": 10
@@ -380,6 +632,24 @@
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74ec837b_3116edfa",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1f6378a_9e32740a",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -400,6 +670,24 @@
     },
     {
       "key": {
+        "uuid": "60c12295_3429426e",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caf1f5ba_1d96ad0f",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5a212d3_eb7d8e09",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
         "patchSetId": 10
@@ -414,6 +702,24 @@
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab7164c1_4f49649b",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5a212d3_eb7d8e09",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -434,6 +740,24 @@
     },
     {
       "key": {
+        "uuid": "c4dacb2f_a858645b",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76578e9a_340540aa",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "386e5150_d14f66a3",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
         "patchSetId": 10
@@ -451,6 +775,24 @@
     },
     {
       "key": {
+        "uuid": "9b05c3f4_0e8d030f",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "386e5150_d14f66a3",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c034945d_1518b251",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
         "patchSetId": 10
@@ -465,6 +807,24 @@
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf3b8e5e_2e2422fe",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c034945d_1518b251",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -500,6 +860,24 @@
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7f79d1b_ec1ce227",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1d7dea2_fa564876",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -556,6 +934,24 @@
     },
     {
       "key": {
+        "uuid": "78b62b2a_0c966448",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "It\u0027s not an assignment. It\u0027s equivalent to:\n\nif (sta \u003d\u003d MCUPM_TASK_WAIT || sta \u003d\u003d MCUPM_TASK_INIT_FINISH)\n    return true;\nelse\n    return false;\n\nI added some parentheses to make code more clear.",
+      "parentUuid": "12f018b6_01bb52d2",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0dfe583d_58dee152",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
         "patchSetId": 10
@@ -591,6 +987,24 @@
     },
     {
       "key": {
+        "uuid": "b65d043a_11442393",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "877a97d7_d1725087",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5e48684_d5ad2391",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.h",
         "patchSetId": 10
@@ -605,6 +1019,24 @@
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f6e9de0_f5a29d0a",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5e48684_d5ad2391",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -625,6 +1057,24 @@
     },
     {
       "key": {
+        "uuid": "299da157_ceb1e2fa",
+        "filename": "plat/mediatek/mt8192/include/plat_mtk_lpm.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25706966_9d94cc38",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01b53a50_b41623b2",
         "filename": "plat/mediatek/mt8192/include/plat_pm.h",
         "patchSetId": 10
@@ -639,6 +1089,24 @@
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec9d2321_1ea74e49",
+        "filename": "plat/mediatek/mt8192/include/plat_pm.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01b53a50_b41623b2",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -677,6 +1145,24 @@
     },
     {
       "key": {
+        "uuid": "0f2034f5_2d3698ae",
+        "filename": "plat/mediatek/mt8192/include/plat_pm.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e157356_428272ed",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "997e835a_09b0641d",
         "filename": "plat/mediatek/mt8192/include/plat_pm.h",
         "patchSetId": 10
@@ -694,6 +1180,24 @@
     },
     {
       "key": {
+        "uuid": "11a70a36_95632873",
+        "filename": "plat/mediatek/mt8192/include/plat_pm.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "997e835a_09b0641d",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4620537_eb031033",
         "filename": "plat/mediatek/mt8192/platform.mk",
         "patchSetId": 10
@@ -708,6 +1212,24 @@
       "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ff84096_b7a71a83",
+        "filename": "plat/mediatek/mt8192/platform.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-09-02T06:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4620537_eb031033",
+      "revId": "fc01db89f1a67fab9a3e10f60e0c317f25c2ea66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
