@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a685d672_4676a468",
+        "filename": "plat/nvidia/tegra/common/plat_spmd_manifest.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-02T22:37:40Z",
+      "side": 1,
+      "message": "Are you sure this is right? SPSR_M_AARCH64 is 0 which means you want to return to EL0. Are you running your SPMC in EL0?",
+      "range": {
+        "startLine": 34,
+        "startChar": 24,
+        "endLine": 34,
+        "endChar": 38
+      },
+      "revId": "ae79cc87969255670f7edeed36ad5c892a727f74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
