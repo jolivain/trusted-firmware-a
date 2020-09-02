@@ -176,6 +176,30 @@
       "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7134c288_48d0fe33",
+        "filename": "drivers/arm/sbsa/sbsa.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-09-02T05:17:51Z",
+      "side": 1,
+      "message": "^ there is no core specific debug context in case of TWDGWS1 (SCP).",
+      "parentUuid": "503f006d_5f2ed13a",
+      "range": {
+        "startLine": 67,
+        "startChar": 31,
+        "endLine": 67,
+        "endChar": 50
+      },
+      "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
