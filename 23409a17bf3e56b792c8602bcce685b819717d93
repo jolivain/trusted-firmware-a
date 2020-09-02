@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "baa71a89_55cdcefa",
+        "filename": "lib/libc/aarch32/memset.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T14:14:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bcaf0d99_6295c41e",
+      "range": {
+        "startLine": 13,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 8
+      },
+      "revId": "23409a17bf3e56b792c8602bcce685b819717d93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2ba83f8_7c8af9ea",
         "filename": "lib/libc/aarch32/memset.S",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "b140167c_73fa8fd3",
+        "filename": "lib/libc/aarch32/memset.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T14:14:31Z",
+      "side": 1,
+      "message": "Not required, see lines 28-30 \u0026 line #67. This check was present in the original patch, and its removal with modifications made in lines #28-30 gave better performance results.",
+      "parentUuid": "d2ba83f8_7c8af9ea",
+      "revId": "23409a17bf3e56b792c8602bcce685b819717d93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "74161da1_e1faa93a",
         "filename": "lib/libc/aarch32/memset.S",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2020-09-02T13:21:15Z",
       "side": 1,
       "message": "this line writes 16 bytes and next one 16 bytes\nthere\u0027s no repeat directive or loop here right?",
+      "range": {
+        "startLine": 49,
+        "startChar": 50,
+        "endLine": 49,
+        "endChar": 59
+      },
+      "revId": "23409a17bf3e56b792c8602bcce685b819717d93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64482abc_12e98c0f",
+        "filename": "lib/libc/aarch32/memset.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T14:14:31Z",
+      "side": 1,
+      "message": "Code @line #50 writes another 16 bytes.",
+      "parentUuid": "74161da1_e1faa93a",
       "range": {
         "startLine": 49,
         "startChar": 50,
@@ -85,6 +151,30 @@
       "revId": "23409a17bf3e56b792c8602bcce685b819717d93",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9ee0a5c_8346ea6a",
+        "filename": "lib/libc/aarch64/memset.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-02T14:14:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6cf9cbe8_9d46f7f3",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 8
+      },
+      "revId": "23409a17bf3e56b792c8602bcce685b819717d93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
