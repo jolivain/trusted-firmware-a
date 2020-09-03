@@ -224,6 +224,30 @@
       "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8aa38b2_b0528d23",
+        "filename": "drivers/arm/sbsa/sbsa.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-09-03T08:38:48Z",
+      "side": 1,
+      "message": "NTWDG WS0 usage is defined by spec and linux implementation. WS0(optional)-EL1/EL2,  WS1-EL3.\n\nTWDG WS0 to be defined by TF-A. WS1 is clear.\nWhat are the choices for WS0 usage. Or rather the TWDG usage.\n\n1- Reload WDG *periodically* in EL3 ISR\nIt will result in *WS1* if EL3 is stuck as WS0 did not reload. All other hangs \"S_ELx/NS_ELx/other core EL3 hang\" this interrupt will keep refreshing the wdg and no detection.\nBut this means we keep refreshing the twdg all the time.\n\n2- reload WDG in a platform specific application (secure) or platform specific secure services.\nIf WS0 happens means you start collecting secure side contexts. and possibly indicate linux via sdei.\n\n\nThe usage of NTWDG is open to linux application. But NTWDGWS1 usage is for crashing.\nThe usage of TWDG itself is open like linux and I feel by giving plat override for TWDGWS1 we do not enforce any policy. That way the patch looks complete to me in its scope.",
+      "parentUuid": "1aa81eb5_8d198a1a",
+      "range": {
+        "startLine": 67,
+        "startChar": 31,
+        "endLine": 67,
+        "endChar": 50
+      },
+      "revId": "141f7e085ac7ae620259056dc20aa9e8321d6419",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
