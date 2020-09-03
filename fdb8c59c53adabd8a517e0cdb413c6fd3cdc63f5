@@ -22,6 +22,30 @@
       "revId": "fdb8c59c53adabd8a517e0cdb413c6fd3cdc63f5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6980a737_991d463b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-03T21:45:30Z",
+      "side": 1,
+      "message": "How this 64-bit write actually happens is up to the compiler. On ARMv7/AArch32 there are multiple ways of doing larger-than-32-bit writes (strd, NEON, or ldmia/stmia, for instance). And later ARMv7 CPUs or even ARMv8 cores in AArch32 state surely have a memory bus wider than 32 bits. So on my test (with -O2) it chose strd. If the compiler decides to split it up, it probably would do for a reason (because it might be beneficial to do so on the selected -mcpu, for instance). That\u0027s the advantage of writing this in C, the author does not need to care about those hardware details.",
+      "parentUuid": "3f725796_d16984fd",
+      "range": {
+        "startLine": 17,
+        "startChar": 22,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "fdb8c59c53adabd8a517e0cdb413c6fd3cdc63f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
