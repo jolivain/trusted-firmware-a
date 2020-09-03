@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f725796_d16984fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-03T20:13:00Z",
+      "side": 1,
+      "message": "just realized something. when compiled for aarch32, is the expectation that the compiler will split the uint64_t dereferences to multiple 32 bit writes?",
+      "range": {
+        "startLine": 17,
+        "startChar": 22,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "fdb8c59c53adabd8a517e0cdb413c6fd3cdc63f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
