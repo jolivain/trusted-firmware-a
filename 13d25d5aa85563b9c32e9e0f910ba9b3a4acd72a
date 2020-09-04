@@ -147,6 +147,30 @@
       "revId": "13d25d5aa85563b9c32e9e0f910ba9b3a4acd72a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82c0281d_7128080d",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-04T16:13:48Z",
+      "side": 1,
+      "message": "As the code here is generic, I don\u0027t see a reason why the flag shouldn\u0027t be available to all platforms, at least technically.\nOn the other hand: we have CPU libraries for a reason, and for most platforms encountering an unknown MIDR means something is horribly wrong. It\u0027s just this special FPGA use case (early tests of new cores before they are being upstreamed) that requires this feature.\nSo I would be careful with advertising this too much.\n\nWhich brings me to another point: Can we print a warning when we use this generic cpu library? As mentioned above, this means no errata workarounds and no core specific support, so people should be aware of this. Also it should nag people to push for upstream support. This could be another patch, though, and I don\u0027t know easily how to do this anyway.",
+      "parentUuid": "4ddf5beb_18d89834",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 20
+      },
+      "revId": "13d25d5aa85563b9c32e9e0f910ba9b3a4acd72a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
