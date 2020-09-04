@@ -123,6 +123,30 @@
       "revId": "13d25d5aa85563b9c32e9e0f910ba9b3a4acd72a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbfe0b4_2e472ea6",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-09-04T16:11:28Z",
+      "side": 1,
+      "message": "This patch would potentially disable all the errata mitigation patches so not sure we want to add this as an option to other platforms, at least for now. Besides, if this is documented on the generic part, wouldn\u0027t it make more sense to enable this feature on a more generic part rather than the platform makefiles?\n\nNot sure we want that as this feature was thought for arm_fpga platform.",
+      "parentUuid": "4ddf5beb_18d89834",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 20
+      },
+      "revId": "13d25d5aa85563b9c32e9e0f910ba9b3a4acd72a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
