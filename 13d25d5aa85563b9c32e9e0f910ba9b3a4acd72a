@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "4b3c458f_396d3991",
+        "filename": "include/lib/cpus/aarch64/aarch64_generic.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-04T15:53:28Z",
+      "side": 1,
+      "message": "Yes I don\u0027t have any strong suggestion for the header name.",
+      "parentUuid": "9a222d16_c84b0d85",
+      "revId": "13d25d5aa85563b9c32e9e0f910ba9b3a4acd72a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51ee657f_35c6063f",
         "filename": "plat/arm/board/arm_fpga/platform.mk",
         "patchSetId": 7
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "Documentation: At the moment, this feature is only needed/supported/tested on the arm_fpga platform so it will be documented on the platform documentation, which is WIP.\n\nIt was also implemented with the idea in mind to make it easily available to other platforms if needed. If that case the documentation could be moved to a more general section.\n\nWRT having this feature disabled by default, the arm_fpga platform needs it to be enabled, although I wanted to add the possibility to disable it at build time if needed.",
       "parentUuid": "51ee657f_35c6063f",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 20
+      },
+      "revId": "13d25d5aa85563b9c32e9e0f910ba9b3a4acd72a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ddf5beb_18d89834",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-04T15:53:28Z",
+      "side": 1,
+      "message": "Thanks for the explanation! \nI may be wrong but can\u0027t see any issue if we keep this flag for all the platforms even though this flag is used by only arm_fpga so IMO, we should update the generic documentation instead of platform documentation.",
+      "parentUuid": "5014bf4a_06f00784",
       "range": {
         "startLine": 43,
         "startChar": 0,
