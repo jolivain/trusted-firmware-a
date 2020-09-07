@@ -326,3 +326,27 @@ unsigned int gicv3_secure_ppi_sgi_config_props(uintptr_t gicr_base,
 
 	return ctlr_enable;
 }
+
+/*******************************************************************************
+ * Function to find number of cores handled by the GIC.
+ * It iterates over one given GICR region, and scans for the first GICR_TYPER
+ * register that has the LAST bit set.
+ * It assumes that each GICR region is fully accessible (till the LAST bit marks
+ * the end of the region).
+ * If a platform has multiple GICR regions, this function would need to be
+ * called multiple times, providing the respective GICR base address each time.
+ ******************************************************************************/
+unsigned int gicv3_rdistif_get_number_cores(const uintptr_t gicr_frame)
+{
+	uintptr_t rdistif_base = gicr_frame;
+	unsigned int count;
+
+	for (count = 1; count < PLATFORM_CORE_COUNT; count++) {
+		if ((gicr_read_typer(rdistif_base) & TYPER_LAST_BIT) != 0U) {
+			break;
+		}
+		rdistif_base += (1U << GICR_PCPUBASE_SHIFT);
+	}
+
+	return count;
+}
