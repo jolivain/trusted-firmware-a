@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "53024b6f_b2674c2b",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-09-07T16:22:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "308d996b_62069478",
+      "range": {
+        "startLine": 287,
+        "startChar": 9,
+        "endLine": 287,
+        "endChar": 12
+      },
+      "revId": "1575da0f1103672536e3f92d48884aa8611a6f10",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "801a5901_56c6ea26",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-09-07T15:10:49Z",
       "side": 1,
       "message": "I would put a comma here...",
+      "range": {
+        "startLine": 288,
+        "startChar": 71,
+        "endLine": 288,
+        "endChar": 74
+      },
+      "revId": "1575da0f1103672536e3f92d48884aa8611a6f10",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5feabf26_185e1146",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-09-07T16:22:20Z",
+      "side": 1,
+      "message": "I think it will be gramtically incorrect to use \"comma\" before \"and\" when only two items are mentioned.",
+      "parentUuid": "801a5901_56c6ea26",
       "range": {
         "startLine": 288,
         "startChar": 71,
