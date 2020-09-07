@@ -326,3 +326,19 @@ unsigned int gicv3_secure_ppi_sgi_config_props(uintptr_t gicr_base,
 
 	return ctlr_enable;
 }
+
+/*******************************************************************************
+ * Function to find number of cores handled by the GIC.
+ ******************************************************************************/
+unsigned int gicv3_rdistif_get_number_cores(const uintptr_t gicr_frame)
+{
+	uintptr_t rdistif_base = gicr_frame;
+	unsigned int count = 1;
+
+	while ((gicr_read_typer(rdistif_base) & TYPER_LAST_BIT) == 0U) {
+		count++;
+		rdistif_base += (1U << GICR_PCPUBASE_SHIFT);
+	}
+
+	return count;
+}
