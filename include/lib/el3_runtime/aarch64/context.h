@@ -113,12 +113,8 @@
  * space for them in the context
  */
 #if NS_TIMER_SWITCH
-#define CTX_CNTP_CTL_EL0	(CTX_AARCH32_END + U(0x0))
-#define CTX_CNTP_CVAL_EL0	(CTX_AARCH32_END + U(0x8))
-#define CTX_CNTV_CTL_EL0	(CTX_AARCH32_END + U(0x10))
-#define CTX_CNTV_CVAL_EL0	(CTX_AARCH32_END + U(0x18))
-#define CTX_CNTKCTL_EL1		(CTX_AARCH32_END + U(0x20))
-#define CTX_TIMER_SYSREGS_END	(CTX_AARCH32_END + U(0x30)) /* Align to the next 16 byte boundary */
+#define CTX_CNTKCTL_EL1		(CTX_AARCH32_END + U(0x0))
+#define CTX_TIMER_SYSREGS_END	(CTX_AARCH32_END + U(0x10)) /* Align to the next 16 byte boundary */
 #else
 #define CTX_TIMER_SYSREGS_END	CTX_AARCH32_END
 #endif /* NS_TIMER_SWITCH */

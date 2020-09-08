@@ -481,14 +481,6 @@ func el1_sysregs_context_save
 
 	/* Save NS timer registers if the build has instructed so */
 #if NS_TIMER_SWITCH
-	mrs	x10, cntp_ctl_el0
-	mrs	x11, cntp_cval_el0
-	stp	x10, x11, [x0, #CTX_CNTP_CTL_EL0]
-
-	mrs	x12, cntv_ctl_el0
-	mrs	x13, cntv_cval_el0
-	stp	x12, x13, [x0, #CTX_CNTV_CTL_EL0]
-
 	mrs	x14, cntkctl_el1
 	str	x14, [x0, #CTX_CNTKCTL_EL1]
 #endif
@@ -579,14 +571,6 @@ func el1_sysregs_context_restore
 #endif
 	/* Restore NS timer registers if the build has instructed so */
 #if NS_TIMER_SWITCH
-	ldp	x10, x11, [x0, #CTX_CNTP_CTL_EL0]
-	msr	cntp_ctl_el0, x10
-	msr	cntp_cval_el0, x11
-
-	ldp	x12, x13, [x0, #CTX_CNTV_CTL_EL0]
-	msr	cntv_ctl_el0, x12
-	msr	cntv_cval_el0, x13
-
 	ldr	x14, [x0, #CTX_CNTKCTL_EL1]
 	msr	cntkctl_el1, x14
 #endif
