@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e185118_435258c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-08T18:20:21Z",
+      "side": 1,
+      "message": "Not sure i understand the problem described here or how removing saving and restoring of timer registers is solving the problem. Could you elaborate more on the problem?\nThis is common code so it would be good to understand the problem being solved better before making changes that impact all platforms.",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "fb90608f395d5f0d037566b87caa26876ccac954",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
