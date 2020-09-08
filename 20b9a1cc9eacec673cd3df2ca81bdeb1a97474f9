@@ -16,6 +16,41 @@
       "revId": "20b9a1cc9eacec673cd3df2ca81bdeb1a97474f9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7cccb96_72220c44",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-09-08T22:46:20Z",
+      "side": 1,
+      "message": "The goal with this interface design is to decouple Trusted Firmware and the blob as much as possible, so that future Trusted Firmware changes are unlikely to cause compatibility problems. While Qualcomm has signed up to support this platform and that includes blob updates if necessary, it\u0027s probably still easier for everyone to avoid that as best as possible.\n\nSo the basic rule here is that the blob is only allowed to call qtiseclib_cb_xxx() functions and nothing else. That way, there\u0027s a layer of encapsulation for every interface the blob depends on, and if the functions on the Trusted Firmware side change in some way we can use that qtiseclib_cb_xxx() wrapper function to translate the old interface to the new one. So in theory anyone can refactor Trusted Firmware APIs and keep this platform working without requiring assistance from Qualcomm to update the blob.\n\nOf course for functions like memcpy() or strcmp() it\u0027s basically guaranteed that the API will never change, but it doesn\u0027t hurt and I think it\u0027s cleaner to apply the same principle everywhere.",
+      "parentUuid": "bfd801f5_71f0281e",
+      "revId": "20b9a1cc9eacec673cd3df2ca81bdeb1a97474f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83ce6dbc_6f33a012",
+        "filename": "plat/qti/qtiseclib/src/qtiseclib_cb_interface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-09-08T22:46:20Z",
+      "side": 1,
+      "message": "Need spaces after commas",
+      "revId": "20b9a1cc9eacec673cd3df2ca81bdeb1a97474f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
