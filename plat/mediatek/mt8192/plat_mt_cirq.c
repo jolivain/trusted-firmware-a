@@ -65,14 +65,26 @@ void mt_cirq_ack_all(void)
 void mt_cirq_enable(void)
 {
 	uint32_t st;
+	uint32_t cirq_p_val;
 
 	mt_cirq_ack_all();
 
 	st = mt_cirq_read32(CIRQ_CON);
-	st |= (CIRQ_CON_EN << CIRQ_CON_EN_BITS) |
-			(CIRQ_CON_EDGE_ONLY << CIRQ_CON_EDGE_ONLY_BITS);
+	st |= (CIRQ_CON_EN << CIRQ_CON_EN_BITS);
 
 	mt_cirq_write32((st & CIRQ_CON_BITS_MASK), CIRQ_CON);
+	for (i = 0, i < 14, i++) {
+		st = mt_cirq_read32(CIRQ_POL_BASE + i * 4);
+		ERROR("CIRQ pol sta %x\n", st);
+	}
+	for (i = 0; i < CIRQ_IRQ_NUM; i++) {
+		cirq_p_val = mt_cirq_get_pending(i);
+		st = mt_cirq_read32(CIRQ_CON);
+		ERROR("CIRQ event %x\n", st);
+		if (cirq_p_val) {
+			ERROR("CIRQ %d ~ GIC %d pending\n", i, CIRQ_TO_IRQ_NUM(i));
+		}
+	}
 }
 
 /*
@@ -430,7 +442,7 @@ void mt_cirq_flush(void)
 			mt_irq_set_pending(CIRQ_TO_IRQ_NUM(i));
 		}
 
-		if (cirq_clone_flush_check_val == 1) {
+		if (1) {
 			if (cirq_p_val == 0) {
 				continue;
 		}
