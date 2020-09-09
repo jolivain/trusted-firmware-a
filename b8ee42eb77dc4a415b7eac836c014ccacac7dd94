@@ -59,6 +59,52 @@
     },
     {
       "key": {
+        "uuid": "6e68dbed_d832d0f8",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-09-09T19:05:26Z",
+      "side": 1,
+      "message": "\"letting a potential issue slip\" would read better",
+      "range": {
+        "startLine": 62,
+        "startChar": 57,
+        "endLine": 63,
+        "endChar": 14
+      },
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87afb4b8_a9192c54",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-09-09T19:05:26Z",
+      "side": 1,
+      "message": "\"without justification\" would read better.",
+      "range": {
+        "startLine": 92,
+        "startChar": 49,
+        "endLine": 92,
+        "endChar": 67
+      },
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3149e86_db2eca84",
         "filename": "docs/process/code-review-guidelines.rst",
         "patchSetId": 2
@@ -76,6 +122,29 @@
     },
     {
       "key": {
+        "uuid": "d221bcc0_7efa24a2",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-09-09T19:05:26Z",
+      "side": 1,
+      "message": "I think it would be useful here to distinguish between internal and external patch testing.\nIf internal CI+2, external CI+1 might make sense as a general rule since much of the code\nfrom external sources is not compiled in anyway and we would waste compute reources in its \nexecution.  We do however wish to have static tests pass would should be a constant whether\ninternal or external(CI+1 would provide this).",
+      "range": {
+        "startLine": 106,
+        "startChar": 3,
+        "endLine": 106,
+        "endChar": 31
+      },
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6a917316_eb1dca4d",
         "filename": "docs/process/code-review-guidelines.rst",
         "patchSetId": 2
@@ -87,6 +156,29 @@
       "writtenOn": "2020-09-08T16:40:26Z",
       "side": 1,
       "message": "the word \"conscientious\" is not used commonly. Will \"mindful\" be a simple alternative?",
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c2642b1_98d5cafa",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-09-09T19:05:26Z",
+      "side": 1,
+      "message": "catch",
+      "range": {
+        "startLine": 161,
+        "startChar": 15,
+        "endLine": 161,
+        "endChar": 23
+      },
       "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
