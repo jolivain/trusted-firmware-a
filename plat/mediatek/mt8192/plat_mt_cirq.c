@@ -60,19 +60,52 @@ void mt_cirq_ack_all(void)
 }
 
 /*
+ * mt_cirq_get_pending: Get the specified SYS_CIRQ pending
+ * @cirq_num: the SYS_CIRQ number to get
+ * @return:
+ *    1: this cirq is pending
+ *    0: this cirq is not pending
+ */
+static int32_t mt_cirq_get_pending(uint32_t cirq_num)
+{
+	uint32_t st;
+	uint32_t bit = 1 << (cirq_num % 32);
+
+	if (cirq_num >= CIRQ_IRQ_NUM) {
+		ERROR("[CIRQ] %s: invalid cirq %d\n", __func__, cirq_num);
+		return -1;
+	}
+
+	st = mt_cirq_read32((cirq_num / 32) * 4 + CIRQ_STA_BASE);
+	st = st & bit;
+	return !!st;
+}
+
+/*
  * mt_cirq_enable: Enable SYS_CIRQ
  */
 void mt_cirq_enable(void)
 {
 	uint32_t st;
+	uint32_t i;
+	uint32_t cirq_p_val;
 
 	mt_cirq_ack_all();
 
 	st = mt_cirq_read32(CIRQ_CON);
 	st |= (CIRQ_CON_EN << CIRQ_CON_EN_BITS) |
-			(CIRQ_CON_EDGE_ONLY << CIRQ_CON_EDGE_ONLY_BITS);
+		(CIRQ_CON_EDGE_ONLY << CIRQ_CON_EDGE_ONLY_BITS);
 
 	mt_cirq_write32((st & CIRQ_CON_BITS_MASK), CIRQ_CON);
+
+	for (i = 0; i < CIRQ_IRQ_NUM; i++) {
+		cirq_p_val = mt_cirq_get_pending(i);
+		if (cirq_p_val) {
+			st = mt_cirq_read32(CIRQ_CON);
+			ERROR("CIRQ enable con %x\n", st);
+			ERROR("CIRQ %d ~ GIC %d pending\n", i, CIRQ_TO_IRQ_NUM(i));
+		}
+	}
 }
 
 /*
@@ -286,28 +319,6 @@ __attribute__((weak))  int mt_cirq_get_pol(uint32_t cirq_num)
 }
 
 /*
- * mt_cirq_get_pending: Get the specified SYS_CIRQ pending
- * @cirq_num: the SYS_CIRQ number to get
- * @return:
- *    1: this cirq is pending
- *    0: this cirq is not pending
- */
-static int32_t mt_cirq_get_pending(uint32_t cirq_num)
-{
-	uint32_t st;
-	uint32_t bit = 1 << (cirq_num % 32);
-
-	if (cirq_num >= CIRQ_IRQ_NUM) {
-		ERROR("[CIRQ] %s: invalid cirq %d\n", __func__, cirq_num);
-		return -1;
-	}
-
-	st = mt_cirq_read32((cirq_num / 32) * 4 + CIRQ_STA_BASE);
-	st = st & bit;
-	return !!st;
-}
-
-/*
  * mt_cirq_clone_pol: Copy the polarity setting from GIC to SYS_CIRQ
  */
 void mt_cirq_clone_pol(void)
@@ -378,9 +389,19 @@ void mt_cirq_clone_mask(void)
  */
 void mt_cirq_clone_gic(void)
 {
+	uint32_t i;
+	uint32_t st;
 	mt_cirq_clone_sens();
-	mt_cirq_clone_pol();
+	//mt_cirq_clone_pol();
 	mt_cirq_clone_mask();
+	for (i = 0; i < 14; i++) {
+		st = mt_cirq_read32(CIRQ_POL_BASE + i * 4);
+		ERROR("CIRQ pol sta %x\n", st);
+		st = mt_cirq_read32(CIRQ_SENS_BASE + i * 4);
+		ERROR("CIRQ sens sta %x\n", st);
+		st = mt_cirq_read32(CIRQ_MASK_BASE + i * 4);
+		ERROR("CIRQ mask sta %x\n", st);
+	}
 	if (cirq_clone_flush_check_val) {
 		mt_cirq_dump_reg();
 	}
@@ -392,6 +413,7 @@ void mt_cirq_clone_gic(void)
 void mt_cirq_flush(void)
 {
 	uint32_t i;
+	uint32_t st;
 	unsigned char cirq_p_val = 0;
 	unsigned char irq_p_val = 0;
 	uint32_t irq_p = 0;
@@ -428,9 +450,11 @@ void mt_cirq_flush(void)
 		cirq_p_val = mt_cirq_get_pending(i);
 		if (cirq_p_val) {
 			mt_irq_set_pending(CIRQ_TO_IRQ_NUM(i));
+			st = mt_cirq_read32(CIRQ_CON);
+			ERROR("CIRQ %d flush con %x\n", i, st);
 		}
 
-		if (cirq_clone_flush_check_val == 1) {
+		if (1) {
 			if (cirq_p_val == 0) {
 				continue;
 		}
