@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ad857a1_7e0484bc",
+        "filename": "plat/mediatek/mt8192/plat_mt_gic.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000394
+      },
+      "writtenOn": "2020-09-09T13:09:28Z",
+      "side": 1,
+      "message": "The checkpatch warning of patchset 13 below are false positive:\nplat/mediatek/mt8192/plat_mt_gic.c:41: WARNING: struct  should normally be const\n+struct gic_chip_data {\n\nplat/mediatek/mt8192/plat_mt_gic.c:52: WARNING: struct  should normally be const\n+static struct gic_chip_data gic_data;\n\nBelow link tells how to modify checkpatch.pl to avoid this false positive\nhttps://lore.kernel.org/patchwork/patch/778640/\n\n\"Many structs are generally used const and there is a known list\nof these structs.\n\nstruct definitions should not be generally be declared const.\n\nAdd a test for the lack of an open brace immediately after the\nstruct to avoid definitions.\n\nThis avoids the false positive \"struct foo should normally be const\"\nmessage only when the open brace is on the same line as the definition.\"",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 37
+      },
+      "revId": "67778fb74d9b8500e0c3edf7e0b16f315f5c8dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
