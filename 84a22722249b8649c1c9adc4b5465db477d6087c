@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5219b2c3_a2e9fd5d",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-09-10T16:24:41Z",
+      "side": 1,
+      "message": "nit: align like below in other functions as well.\nstatic int update_parent_auth_data(const auth_img_desc_t *auth_desc,\n\t  \t\t\t   auth_param_type_desc_t *type_desc,\n\t   \t\t\t   unsigned int auth_buf_size)",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 31
+      },
+      "revId": "84a22722249b8649c1c9adc4b5465db477d6087c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
