@@ -282,6 +282,10 @@ ERRATA_A76_1165522	?=0
 # only to revision <= r1p1 of the Cortex A77 cpu.
 ERRATA_A77_1800714	?=0
 
+# Flag to apply erratum 1925769 workaround during reset. This erratum applies
+# only to revision <= r1p1 of the Cortex A77 cpu.
+ERRATA_A77_1925769	?=0
+
 # Flag to apply erratum 1688305 workaround during reset. This erratum applies
 # to revisions r0p0 - r1p0 of the A78 cpu.
 ERRATA_A78_1688305	?=0
@@ -550,6 +554,10 @@ $(eval $(call add_define,ERRATA_A76_1165522))
 # Process ERRATA_A77_1800714 flag
 $(eval $(call assert_boolean,ERRATA_A77_1800714))
 $(eval $(call add_define,ERRATA_A77_1800714))
+
+# Process ERRATA_A77_1925769 flag
+$(eval $(call assert_boolean,ERRATA_A77_1925769))
+$(eval $(call add_define,ERRATA_A77_1925769))
 
 # Process ERRATA_A78_1688305 flag
 $(eval $(call assert_boolean,ERRATA_A78_1688305))
