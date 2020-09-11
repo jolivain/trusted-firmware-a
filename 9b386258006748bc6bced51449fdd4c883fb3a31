@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "800cd761_75398f07",
+        "filename": "lib/libc/snprintf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-09-11T16:25:12Z",
+      "side": 1,
+      "message": "Place {} around if region",
+      "range": {
+        "startLine": 222,
+        "startChar": 11,
+        "endLine": 222,
+        "endChar": 12
+      },
+      "revId": "9b386258006748bc6bced51449fdd4c883fb3a31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c2d30de_5715ce91",
         "filename": "lib/libc/snprintf.c",
         "patchSetId": 1
