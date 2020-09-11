@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12009e2e_2d121ca0",
+        "filename": "lib/libc/strlcat.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-09-11T16:19:02Z",
+      "side": 1,
+      "message": "Need {} around while region",
+      "range": {
+        "startLine": 39,
+        "startChar": 32,
+        "endLine": 39,
+        "endChar": 33
+      },
+      "revId": "1123a5e2f973dc9f0223467f4782f6b2df542620",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc43c76d_b203a645",
+        "filename": "lib/libc/strlcat.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-09-11T16:19:02Z",
+      "side": 1,
+      "message": "Need {} around if region",
+      "range": {
+        "startLine": 44,
+        "startChar": 13,
+        "endLine": 44,
+        "endChar": 14
+      },
+      "revId": "1123a5e2f973dc9f0223467f4782f6b2df542620",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
