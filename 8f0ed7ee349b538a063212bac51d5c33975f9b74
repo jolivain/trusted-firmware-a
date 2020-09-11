@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8480ccd_024021a5",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 2017,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-09-11T15:16:11Z",
+      "side": 1,
+      "message": "this patch cannot be built into documentation. Here is the error:\n\nWarning, treated as error:\n/work/workspace/workspace/tf-worker/trusted_firmware/docs/getting_started/porting-guide.rst:2017:Undefined substitution referenced: \"IPI\".\nMakefile:25: recipe for target \u0027html\u0027 failed\nmake[1]: *** [html] Error 2\nMakefile:1271: recipe for target \u0027doc\u0027 failed\nmake: *** [doc] Error 2\n\nTo fix it, please add this line to docs/global_substitutions.txt file\n\n.. |IPI| replace:: :term:`IPI`",
+      "revId": "8f0ed7ee349b538a063212bac51d5c33975f9b74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
