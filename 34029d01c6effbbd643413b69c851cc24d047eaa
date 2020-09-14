@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ad35a18_790510a7",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-14T17:21:28Z",
+      "side": 0,
+      "message": "I would rather see another build option introduced instead of deleting code. There are use cases where the secure physical timer is used by EL3 and the NS timer registers that are context switched are used by secure partitions on platforms that don\u0027t use OPTEE for example(and instead use FF-A based SPMC/SPMD etc).\n\n\nAlso some things to keep in mind: Not all platforms run OPTEE, not all platforms run linux. Not all platforms allow secure physical timer access to S-EL1/S-EL0. The use of timers should be a platform decision.",
+      "revId": "34029d01c6effbbd643413b69c851cc24d047eaa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}

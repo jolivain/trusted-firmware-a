@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "320f4898_dd107f63",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-14T17:21:28Z",
+      "side": 1,
+      "message": "This seems like an OPTEE or trusted application design issue of the code that takes a really long time in secure world with interrupts disabled. Solving the design issue by not saving/restoring the timer does not seem like the right solution.",
+      "range": {
+        "startLine": 22,
+        "startChar": 27,
+        "endLine": 24,
+        "endChar": 70
+      },
+      "revId": "407f7d75292dbd3f68aea71951808a9675744318",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
