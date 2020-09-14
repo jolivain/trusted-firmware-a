@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "083c2589_60275c01",
+        "filename": "lib/libc/memset.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-14T11:16:14Z",
+      "side": 1,
+      "message": "AArch64 also has uint128_t type. Why not use it? Did you check that compiler generates STP instructions?",
+      "revId": "75fab6496e5fce9a11b4e3a160ad2e797acc6ee9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8645bdd_a94d9bea",
+        "filename": "lib/libc/memset.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-14T11:16:14Z",
+      "side": 1,
+      "message": "MISRA Rule 7.2 violation",
+      "revId": "75fab6496e5fce9a11b4e3a160ad2e797acc6ee9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e62a4b99_c8bfff73",
+        "filename": "lib/libc/memset.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-14T11:16:14Z",
+      "side": 1,
+      "message": "MISRA 14.4 Rule violation",
+      "revId": "75fab6496e5fce9a11b4e3a160ad2e797acc6ee9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51698003_657a3a01",
+        "filename": "lib/libc/memset.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-14T11:16:14Z",
+      "side": 1,
+      "message": "why (void *) here?",
+      "revId": "75fab6496e5fce9a11b4e3a160ad2e797acc6ee9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a0da186_c024414c",
+        "filename": "lib/libc/memset.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-14T11:16:14Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "75fab6496e5fce9a11b4e3a160ad2e797acc6ee9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
