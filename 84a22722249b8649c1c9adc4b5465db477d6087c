@@ -46,6 +46,30 @@
       "revId": "84a22722249b8649c1c9adc4b5465db477d6087c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "958d59e8_1b5da867",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-09-14T10:20:53Z",
+      "side": 1,
+      "message": "Yes, you are right that we should use tabs as per guidelines but i have recently did some changes with first tabs and then spaces(to align) and static check did not complain.\nConsidering other projects which also allows same, i think to make code more readable we can do it.",
+      "parentUuid": "d63390ed_ddf5ec82",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 31
+      },
+      "revId": "84a22722249b8649c1c9adc4b5465db477d6087c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
