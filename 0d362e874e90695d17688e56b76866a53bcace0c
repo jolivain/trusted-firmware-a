@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bec1774_74efbc27",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-09-14T20:53:29Z",
+      "side": 1,
+      "message": "nit: minor grammar fixes;\nThe possible owner of an SP could either be Silicon Provider or Platform and\nthe corresponding \"owner\" field value could either be \"SiP\" or \"Plat\". In absence of \"owner\"\nfield, its value defaults to \"SiP\".",
+      "revId": "0d362e874e90695d17688e56b76866a53bcace0c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d5853ab_1f2b609f",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-09-14T20:53:29Z",
+      "side": 1,
+      "message": "nit:\nSPMC(BL32) and SPMC manifest are signed by the SiP using the S-ROTPK.",
+      "revId": "0d362e874e90695d17688e56b76866a53bcace0c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
