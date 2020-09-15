@@ -34,6 +34,24 @@
       "revId": "34029d01c6effbbd643413b69c851cc24d047eaa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0beb42a_53fb3532",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-15T14:32:08Z",
+      "side": 0,
+      "message": "Hi Sumit, your argument assumes that the only use of the timer is through interrupts. It can simply be used for delay loops in which case you don\u0027t need any interrupts.\n\nIf an NS entity has setup the timer to fire every 10ms, and decides to enter secure world, the way i view it is that the timer/counter is counting ticks accumulated in a particular world and the save restore of the registers would fairly accurately reflect that. At the end of 10ms of NS execution time, the timer would reliably fire. Moreover, even if you set the timer to fire every 10ms, and enter a trusted app that is written poorly or takes \u003e10ms, the NS timer interrupt handler would not reliably be triggered at 10 ms since secure world can block the NS interrupt until it completes.\n\nAgree with your statement that EL3 can reliably share the secure timer with S-EL1 but whether or not to do it, i think, should be a platform choice.\n\nAlso note that secure physical timer is not accessible from S-EL0 AFAIK so the only way to have delay loops in S-EL0 appears to be context-switching the timer registers.",
+      "parentUuid": "356b4a80_30668920",
+      "revId": "34029d01c6effbbd643413b69c851cc24d047eaa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
