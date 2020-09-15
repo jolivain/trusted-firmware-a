@@ -16,6 +16,24 @@
       "revId": "34029d01c6effbbd643413b69c851cc24d047eaa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "356b4a80_30668920",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-09-15T07:09:40Z",
+      "side": 0,
+      "message": "I agree with you that there could be varying software stacks that could run in secure and non-secure worlds. But I am curious to know how a particular timer can be shared among secure and non-secure entity at runtime.\n\nAFAIK, a timer operates using a Private Peripheral Interrupt (PPI) and if we need to share a particular timer then this interrupt needs to be dynamically assigned during context switch as well and I can\u0027t find corresponding implementation in TF-A.\n\nAnd suppose if non-secure entity has setup a timer to fire every 10 ms and need to do context switch to secure entity. So would that timer fire reliably every 10 ms?\n\nIMO, EL3 should be able to reliably share secure physical timer with secure EL1 in case secure timer interrupt is routed via EL3.",
+      "parentUuid": "4ad35a18_790510a7",
+      "revId": "34029d01c6effbbd643413b69c851cc24d047eaa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
