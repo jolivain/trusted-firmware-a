@@ -42,6 +42,121 @@
     },
     {
       "key": {
+        "uuid": "951c8cb2_c2b44166",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-15T18:31:09Z",
+      "side": 1,
+      "message": "This expression feels strange here. Maybe \"that were missed by the original author\" or something similar would be better?",
+      "range": {
+        "startLine": 13,
+        "startChar": 42,
+        "endLine": 13,
+        "endChar": 77
+      },
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43543cb2_0dd30f35",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-15T18:31:09Z",
+      "side": 1,
+      "message": "This expression seems odd. Would \"belittling\" sound better?",
+      "range": {
+        "startLine": 23,
+        "startChar": 24,
+        "endLine": 23,
+        "endChar": 37
+      },
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c803ee4_cc956c7c",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-15T18:31:09Z",
+      "side": 1,
+      "message": "nit: \"Pinging\"? (to line up with \"Reviewing\" above)",
+      "range": {
+        "startLine": 45,
+        "startChar": 5,
+        "endLine": 45,
+        "endChar": 9
+      },
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f67da843_ea4e94a1",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-15T18:31:09Z",
+      "side": 1,
+      "message": "\"do not abuse this\" or \"do not spam reviewers\" would sound better",
+      "range": {
+        "startLine": 46,
+        "startChar": 46,
+        "endLine": 46,
+        "endChar": 66
+      },
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf307235_760b2fc4",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-15T18:31:09Z",
+      "side": 1,
+      "message": "Does this mean copying the code from or to the other directory? If it is to the other directory, then \u0027in\u0027 should probably be changed to \u0027into\u0027",
+      "range": {
+        "startLine": 53,
+        "startChar": 62,
+        "endLine": 53,
+        "endChar": 64
+      },
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6cee35f1_2bdd291f",
         "filename": "docs/process/code-review-guidelines.rst",
         "patchSetId": 2
@@ -76,6 +191,40 @@
         "endLine": 63,
         "endChar": 14
       },
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3c3bfff_d947ac66",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-15T18:31:09Z",
+      "side": 1,
+      "message": "nit: x -\u003e X and y -\u003e Y looks better, and gives consistency with \"This is wrong, you should do X instead.\" in the constructive feedback point further down\n\n(Also for \"What if x happens?\" above)",
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62cb15e2_864a3f48",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-15T18:31:09Z",
+      "side": 1,
+      "message": "very small nit: \"where applicable\" may read better?\n(the same for line 100)",
       "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -145,6 +294,40 @@
     },
     {
       "key": {
+        "uuid": "b26a9b16_29bb03fd",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-15T18:31:09Z",
+      "side": 1,
+      "message": "nit: \"his/her\" for consistency",
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5790064a_f53e9c26",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-15T18:31:09Z",
+      "side": 1,
+      "message": "This seems easy to trip over. Maybe something like \"make sure you continue the process\" or \"make sure you remain active\" would read better?",
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6a917316_eb1dca4d",
         "filename": "docs/process/code-review-guidelines.rst",
         "patchSetId": 2
@@ -156,6 +339,29 @@
       "writtenOn": "2020-09-08T16:40:26Z",
       "side": 1,
       "message": "the word \"conscientious\" is not used commonly. Will \"mindful\" be a simple alternative?",
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d211caf_1b851557",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-15T18:31:09Z",
+      "side": 1,
+      "message": "nit: \"directories, names\"",
+      "range": {
+        "startLine": 143,
+        "startChar": 16,
+        "endLine": 143,
+        "endChar": 33
+      },
       "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -196,6 +402,47 @@
       "writtenOn": "2020-09-08T16:40:26Z",
       "side": 1,
       "message": "looks like a grammatical error:\n\"but this could be an exception\"",
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d071b07_ed7d7c38",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-15T18:31:09Z",
+      "side": 1,
+      "message": "Perhaps \"but this should be the exception, rather than the rule.\" would work?",
+      "parentUuid": "821d7854_b014f313",
+      "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caeac942_def5e468",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-15T18:31:09Z",
+      "side": 1,
+      "message": "nit: \"drivers\"",
+      "range": {
+        "startLine": 170,
+        "startChar": 19,
+        "endLine": 170,
+        "endChar": 25
+      },
       "revId": "b8ee42eb77dc4a415b7eac836c014ccacac7dd94",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
