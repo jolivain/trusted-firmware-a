@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebb9803_2a71f3b5",
+        "filename": "bl31/ipi.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-15T14:38:05Z",
+      "side": 1,
+      "message": "this will return 0 as well.",
+      "revId": "e75e26b980bb736f6db8ad263ff905191b0ace8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ce0834f_2365e294",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 2046,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-15T14:38:05Z",
+      "side": 1,
+      "message": "PSCI",
+      "revId": "e75e26b980bb736f6db8ad263ff905191b0ace8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53cacbb9_1fd289f7",
+        "filename": "include/bl31/ipi.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-15T14:38:05Z",
+      "side": 1,
+      "message": "Does any assembler file include this header file?",
+      "revId": "e75e26b980bb736f6db8ad263ff905191b0ace8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
