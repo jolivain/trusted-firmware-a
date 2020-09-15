@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8632f8cb_d4b272f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-15T14:26:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "153c4688_dfda824b",
+      "revId": "fe0c5de4f81b29c86d638d09ae164f1a8d70831d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01e3fc57_d2b0dfc0",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "4d7d95f4_6beeb8ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-15T14:26:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "01e3fc57_d2b0dfc0",
+      "revId": "fe0c5de4f81b29c86d638d09ae164f1a8d70831d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "018c0bb8_f472480f",
         "filename": "plat/qemu/qemu_sbsa/sbsa_topology.c",
         "patchSetId": 4
@@ -47,6 +83,24 @@
       "writtenOn": "2020-09-15T14:19:16Z",
       "side": 1,
       "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering",
+      "revId": "fe0c5de4f81b29c86d638d09ae164f1a8d70831d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a03aac72_8386ec8c",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_topology.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-09-15T14:26:42Z",
+      "side": 1,
+      "message": "According to that document this is correct, stdint.h is a standard system include.",
+      "parentUuid": "018c0bb8_f472480f",
       "revId": "fe0c5de4f81b29c86d638d09ae164f1a8d70831d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
