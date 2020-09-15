@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "68b871a5_00f633a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-15T14:32:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fbf0a082_de7307db",
+      "revId": "2584b289ca59fed546864ffc8265dfc49aa2775c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3530e33_4cf0c2cb",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 11
@@ -30,6 +48,24 @@
       "writtenOn": "2020-09-15T14:03:31Z",
       "side": 1,
       "message": "Do you need to do anything if auth_method_type is none of the above values?",
+      "revId": "2584b289ca59fed546864ffc8265dfc49aa2775c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bfc6274_e9f9f5f5",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-15T14:32:22Z",
+      "side": 1,
+      "message": "Not needed as \u0027auth_method_type\u0027 is set in this file only if \u0027image type\u0027 is valid.\nWrong \u0027image type\u0027 leads to panic in caller function only.",
+      "parentUuid": "e3530e33_4cf0c2cb",
       "revId": "2584b289ca59fed546864ffc8265dfc49aa2775c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "c696cded_a20f4ba2",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-15T14:32:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c1fe9e26_2d7cd3b0",
+      "revId": "2584b289ca59fed546864ffc8265dfc49aa2775c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b77d4eb_805c6813",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 11
@@ -64,6 +118,24 @@
       "writtenOn": "2020-09-15T14:03:31Z",
       "side": 1,
       "message": "add 1 extra tab",
+      "revId": "2584b289ca59fed546864ffc8265dfc49aa2775c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c287e8b_c9ac215f",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-15T14:32:22Z",
+      "side": 1,
+      "message": "Avoided extra tab as it crosses 80 chars. I need to move function arguments to next line.",
+      "parentUuid": "1b77d4eb_805c6813",
       "revId": "2584b289ca59fed546864ffc8265dfc49aa2775c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "557fd61e_eadbd180",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-15T14:32:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7354f862_2b398481",
+      "revId": "2584b289ca59fed546864ffc8265dfc49aa2775c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c1817b2_91c3cdd8",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 11
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "a697fa86_3725ea85",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-15T14:32:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0c1817b2_91c3cdd8",
+      "revId": "2584b289ca59fed546864ffc8265dfc49aa2775c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5ce1d09_86aa9365",
         "filename": "lib/fconf/fconf_cot_getter.c",
         "patchSetId": 11
@@ -115,6 +223,24 @@
       "writtenOn": "2020-09-15T14:03:31Z",
       "side": 1,
       "message": "Can you combine this error message with the one on line #456 to save code space?",
+      "revId": "2584b289ca59fed546864ffc8265dfc49aa2775c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "956767ed_9c71d2a6",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-15T14:32:22Z",
+      "side": 1,
+      "message": "Do you mean \u0027ERROR(\"FCONF: population of %s descs failed %d\\n\", \"image\", rc); and ERROR(\"FCONF: population of %s descs failed %d\\n\", \"manifests\", rc)?",
+      "parentUuid": "d5ce1d09_86aa9365",
       "revId": "2584b289ca59fed546864ffc8265dfc49aa2775c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
