@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dcd2cdb9_e0b58ba8",
+        "filename": "bl31/ipi.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-09-16T04:22:53Z",
+      "side": 1,
+      "message": "There is no usage or interpretation of any error code for the top level handlers (\u0027EHF\u0027 or \u0027interrupt_type_handler\u0027). I think any error has to be taken care of locally.\nTop level handler perspective its handled.\n1- It was a valid interrupt and  2- EOI is done.\nThis is my thought but if we were to return some error what would that be, ret \u003d -1 ?",
+      "parentUuid": "0ebb9803_2a71f3b5",
+      "revId": "e75e26b980bb736f6db8ad263ff905191b0ace8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1ce0834f_2365e294",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 10
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a2a0cd22_f96ada26",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 2046,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-09-16T04:22:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1ce0834f_2365e294",
+      "revId": "e75e26b980bb736f6db8ad263ff905191b0ace8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53cacbb9_1fd289f7",
         "filename": "include/bl31/ipi.h",
         "patchSetId": 10
@@ -47,6 +83,24 @@
       "writtenOn": "2020-09-15T14:38:05Z",
       "side": 1,
       "message": "Does any assembler file include this header file?",
+      "revId": "e75e26b980bb736f6db8ad263ff905191b0ace8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50134e19_eb3d60e3",
+        "filename": "include/bl31/ipi.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-09-16T04:22:53Z",
+      "side": 1,
+      "message": "Usage is plat specific but I think unlikely to be used from assembler.",
+      "parentUuid": "53cacbb9_1fd289f7",
       "revId": "e75e26b980bb736f6db8ad263ff905191b0ace8c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
