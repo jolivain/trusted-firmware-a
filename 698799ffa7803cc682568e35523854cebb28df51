@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a3e6e4f_2938f977",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-09-16T16:47:48Z",
+      "side": 1,
+      "message": "mailbox_init() can return MBOX_RET_OK. Can you change it:\n\nif(ret \u003d\u003d MBOX_TIMEOUT){\n     ret \u003d mailbox_init();\n}\n\nreturn ret;",
+      "revId": "698799ffa7803cc682568e35523854cebb28df51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
