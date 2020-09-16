@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "ccecc6f7_bafe7aaa",
+        "filename": "bl31/ipi.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-09-16T13:16:50Z",
+      "side": 1,
+      "message": "The caller does not interpret return code and I don\u0027t think it will ever as there may not a real advantage. Should we retain this as is and update if there is a real use of return code ever.",
+      "parentUuid": "668f3e47_28618f5c",
+      "revId": "e75e26b980bb736f6db8ad263ff905191b0ace8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1ce0834f_2365e294",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 10
@@ -140,6 +158,24 @@
       "revId": "e75e26b980bb736f6db8ad263ff905191b0ace8c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6062e92_b2b437af",
+        "filename": "include/bl31/ipi.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-09-16T13:16:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "31f09392_e52a7745",
+      "revId": "e75e26b980bb736f6db8ad263ff905191b0ace8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
