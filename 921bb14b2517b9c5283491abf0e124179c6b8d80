@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "0ff2682d_1ed09adf",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-17T10:47:12Z",
+      "side": 1,
+      "message": "Should this check go 1st, because it also applies for revisions \u003c\u003d r3p0?",
+      "revId": "921bb14b2517b9c5283491abf0e124179c6b8d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91c91826_26682ebe",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-17T10:47:12Z",
+      "side": 1,
+      "message": "use tabs to align with other code, see line #450 and below",
+      "revId": "921bb14b2517b9c5283491abf0e124179c6b8d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7d7266c0_65ef1dd2",
         "filename": "lib/cpus/aarch64/cortex_a76.S",
         "patchSetId": 4
@@ -31,6 +65,24 @@
       "side": 1,
       "message": "Yes, during the errata reporting.",
       "parentUuid": "7d7266c0_65ef1dd2",
+      "revId": "921bb14b2517b9c5283491abf0e124179c6b8d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53d39315_68e88db2",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-17T10:47:12Z",
+      "side": 1,
+      "message": "Change line #429 \nbl check_errata_1262606\nto\nbl check_errata_1275112\nand get rid of check_errata_1262606() is it won\u0027t be called from anywhere.",
+      "parentUuid": "fc3e26a5_d9ec303a",
       "revId": "921bb14b2517b9c5283491abf0e124179c6b8d80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
