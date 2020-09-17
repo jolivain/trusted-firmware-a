@@ -40,6 +40,7 @@ typedef enum {
 } coreboot_memory_t;
 
 coreboot_memory_t coreboot_get_memory_type(uintptr_t address);
+coreboot_memory_t coreboot_get_memory_type_of_range(uintptr_t start_address, uintptr_t end_address);
 void coreboot_table_setup(void *base);
 
 #endif /* COREBOOT_H */

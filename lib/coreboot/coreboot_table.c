@@ -106,6 +106,26 @@ coreboot_memory_t coreboot_get_memory_type(uintptr_t address)
 	return CB_MEM_NONE;
 }
 
+coreboot_memory_t coreboot_get_memory_type_of_range(uintptr_t start , uintptr_t size)
+{
+	int i;
+
+	for (i = 0; i < COREBOOT_MAX_MEMRANGES; i++) {
+		coreboot_memrange_t *range = &coreboot_memranges[i];
+
+		if (range->type == CB_MEM_NONE)
+			break;	/* end of table reached */
+		if (start >= range->start &&
+		    start - range->start < range->size &&
+		    size <= range->size - (start - range->start)) {
+			INFO("Range start 0x%llx size 0x%llx\n",range->start,range->size);
+			return range->type;
+		}
+	}
+
+	return CB_MEM_NONE;
+}
+
 void coreboot_table_setup(void *base)
 {
 	cb_header_t *header = base;
