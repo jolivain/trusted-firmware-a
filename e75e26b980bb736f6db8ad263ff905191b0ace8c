@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "4f75ceef_fa5f96f2",
+        "filename": "bl31/ipi.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-17T13:39:05Z",
+      "side": 1,
+      "message": "In that case this is violation of MISRA Rule 4.7.\nWhy not to make this function be\nstatic void ipi_handler(unsigned int id, unsigned int flags,\t\n\t\t       void *handle, void *cookie)\n\u0026 panic() in case of an error?",
+      "parentUuid": "ccecc6f7_bafe7aaa",
+      "revId": "e75e26b980bb736f6db8ad263ff905191b0ace8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1ce0834f_2365e294",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 10
