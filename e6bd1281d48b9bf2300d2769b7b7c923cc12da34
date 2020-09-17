@@ -34,6 +34,24 @@
       "revId": "e6bd1281d48b9bf2300d2769b7b7c923cc12da34",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92f5287e_2b52d357",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_pm.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-17T13:31:33Z",
+      "side": 1,
+      "message": "I can see\n#define PLAT_QEMU_TRUSTED_MAILBOX_BASE\tSHARED_RAM_BASE\nin platform_def.h and \nmov_imm\tx0, PLAT_QEMU_TRUSTED_MAILBOX_BASE\nin plat_helpers.S\nand no reference to integer. In my opinion (uintptr_t *) looks more correct.",
+      "parentUuid": "3097eb3a_98362e04",
+      "revId": "e6bd1281d48b9bf2300d2769b7b7c923cc12da34",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
