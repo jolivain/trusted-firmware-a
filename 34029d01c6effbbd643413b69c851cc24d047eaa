@@ -52,6 +52,24 @@
       "revId": "34029d01c6effbbd643413b69c851cc24d047eaa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd36bcc5_771976b0",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-09-17T05:20:22Z",
+      "side": 0,
+      "message": "\u003e your argument assumes that the only use of the timer is through interrupts.\n\nLooking at section \"D6.1.5 Timers\" in the Armv8 Architecture reference manual, I could only observe timer operation in two modes as follows which relies on interrupts only:\n- Operation of the CompareValue views of the timers\n- Operation of the TimerValue views of the timers\n\nAnd there are three registers per timer as follows:\n- CompareValue register\n- TimerValue register\n- Control register\n\nSo these are the registers which doesn\u0027t seems to be shareable among non-secure and secure entities. And hence we shouldn\u0027t save/restore them.\n\n\u003e  It can simply be used for delay loops in which case you don\u0027t need any interrupts.\n\nFor delay loops we should use read only counter: CNTPCT_EL0 and frequency: CNTFRQ registers in order to calculate delays.\n\n\u003e If an NS entity has setup the timer to fire every 10ms, and decides to enter secure world, the way i view it is that the timer/counter is counting ticks accumulated in a particular world and the save restore of the registers would fairly accurately reflect that.\n\nWould timer value be decremented after its saved and prior to restore?\n\n\u003e Also note that secure physical timer is not accessible from S-EL0 AFAIK so the only way to have delay loops in S-EL0 appears to be context-switching the timer registers.\n\nAs I mentioned before we need to use CNTPCT_EL0 and CNTFRQ for delay loops. And to control their EL0 accessibility we use CNTKCTL, Counter-timer Kernel Control register which needs to be saved/restored, so that secure kernel and non-secure kernel can independently control corresponding EL0 accesses.",
+      "parentUuid": "b0beb42a_53fb3532",
+      "revId": "34029d01c6effbbd643413b69c851cc24d047eaa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
