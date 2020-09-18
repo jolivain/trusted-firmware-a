@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3b66ab87_b2149621",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-09-18T17:35:27Z",
+      "side": 1,
+      "message": "I do not believe that the order matters here.  The check_errata_xxxxxxx functions return non-zero if an errata applies and zero if it does not apply.  CBNZ branches on non-zero, so if the first check against r3p0 fails it will still run the 2nd check against r4p0, and will only skip the errata if both checks fail and no branch is taken.",
+      "parentUuid": "0ff2682d_1ed09adf",
+      "revId": "921bb14b2517b9c5283491abf0e124179c6b8d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "91c91826_26682ebe",
         "filename": "lib/cpus/aarch64/cortex_a76.S",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2020-09-17T10:47:12Z",
       "side": 1,
       "message": "use tabs to align with other code, see line #450 and below",
+      "revId": "921bb14b2517b9c5283491abf0e124179c6b8d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a3d5108_f97e6532",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-09-18T17:35:27Z",
+      "side": 1,
+      "message": "I will fix this in the next patch set.",
+      "parentUuid": "91c91826_26682ebe",
       "revId": "921bb14b2517b9c5283491abf0e124179c6b8d80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -83,6 +119,24 @@
       "side": 1,
       "message": "Change line #429 \nbl check_errata_1262606\nto\nbl check_errata_1275112\nand get rid of check_errata_1262606() is it won\u0027t be called from anywhere.",
       "parentUuid": "fc3e26a5_d9ec303a",
+      "revId": "921bb14b2517b9c5283491abf0e124179c6b8d80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2b7f5aa_dccf9e3f",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-09-18T17:35:27Z",
+      "side": 1,
+      "message": "All three of these check functions must exist, as they are needed by the errata reporting framework as pointed out by Manish B.  I tried to combine these into one function but it would not compile as they are used in the report_errata macro.",
+      "parentUuid": "53d39315_68e88db2",
       "revId": "921bb14b2517b9c5283491abf0e124179c6b8d80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
