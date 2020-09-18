@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f779b7b_548d422e",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000168
+      },
+      "writtenOn": "2020-09-18T03:18:15Z",
+      "side": 1,
+      "message": "I can\u0027t find where you increment the send_id.\n\nI know this is not going to cause errors, but while debugging, it would be great if we can know which packet sent has errors.",
+      "revId": "257608af8cba991c2346899db2a3555f707a93b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
