@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "617d94d1_ac11505c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-09-18T22:02:13Z",
+      "side": 1,
+      "message": "Please begin the commit message with \"plat: qti: \", and write full sentences below.",
+      "revId": "0a50b6ebe0d6dc31dc8a2b39bd01a120daeef0a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b74ed395_61817ab3",
         "filename": "plat/qti/common/src/qti_common.c",
         "patchSetId": 1
@@ -18,6 +35,69 @@
         "startChar": 1,
         "endLine": 175,
         "endChar": 10
+      },
+      "revId": "0a50b6ebe0d6dc31dc8a2b39bd01a120daeef0a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f70241e7_fa78544a",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-09-18T22:02:13Z",
+      "side": 1,
+      "message": "\"aligned\", one \u0027l\u0027",
+      "range": {
+        "startLine": 111,
+        "startChar": 60,
+        "endLine": 111,
+        "endChar": 68
+      },
+      "revId": "0a50b6ebe0d6dc31dc8a2b39bd01a120daeef0a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9446f28_67e99752",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-09-18T22:02:13Z",
+      "side": 1,
+      "message": "This is an off-by-one error. You want to check the last byte that\u0027s still part of the region, not the first byte that isn\u0027t, so you need to add a -1 at the end. (You may also want to check that size isn\u0027t 0 somewhere, which I don\u0027t think you do yet.)",
+      "revId": "0a50b6ebe0d6dc31dc8a2b39bd01a120daeef0a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c5ea37e_a360fad6",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-09-18T22:02:13Z",
+      "side": 1,
+      "message": "Is it important to check that the types are the same? (Note that this doesn\u0027t guarantee that all the memory in between is of the same type... you could have a mapping from one reserved region to another with normal RAM in between. But I don\u0027t think it matters anyway?)",
+      "range": {
+        "startLine": 126,
+        "startChar": 6,
+        "endLine": 126,
+        "endChar": 36
       },
       "revId": "0a50b6ebe0d6dc31dc8a2b39bd01a120daeef0a2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
@@ -42,6 +122,24 @@
     },
     {
       "key": {
+        "uuid": "977223fc_10df2093",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-09-18T22:02:13Z",
+      "side": 1,
+      "message": "Also missing the \u0027\\n\u0027 at the end.",
+      "parentUuid": "65d745ce_588970ca",
+      "revId": "0a50b6ebe0d6dc31dc8a2b39bd01a120daeef0a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "18ebed02_7b72500e",
         "filename": "plat/qti/common/src/qti_syscall.c",
         "patchSetId": 1
@@ -53,6 +151,23 @@
       "writtenOn": "2020-09-18T21:42:06Z",
       "side": 1,
       "message": "ditto",
+      "revId": "0a50b6ebe0d6dc31dc8a2b39bd01a120daeef0a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d498c83_a05cc7d2",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-09-18T22:02:13Z",
+      "side": 1,
+      "message": "Here too",
       "revId": "0a50b6ebe0d6dc31dc8a2b39bd01a120daeef0a2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
