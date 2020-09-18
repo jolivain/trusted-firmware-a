@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "83c7aa31_afac329e",
+        "filename": "bl31/ipi.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-09-18T05:38:25Z",
+      "side": 1,
+      "message": "This is actually not an error from EHF or el3 top level handler perspective. The handler itself\nis successful. This is a non fatal localized condition specific to *this* ehf handler and can happen due to only programing error during development. Should I lower it from ERROR to WARN.",
+      "parentUuid": "4f75ceef_fa5f96f2",
+      "revId": "e75e26b980bb736f6db8ad263ff905191b0ace8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1ce0834f_2365e294",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 10
