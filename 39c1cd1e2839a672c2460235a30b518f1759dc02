@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9f63b466_0112162b",
+        "filename": "bl31/ipi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-09-21T09:51:58Z",
+      "side": 1,
+      "message": "Ack. Missed to add the headers.\n\nCurrently I have one use case to invoke such API from a plat code.\nA target core can be stopped by calling this api.\n\nex:  int psci_stop_other_cores(unsigned int wait_ms,\n                                   void (*stop_func)(u_register_t mpidr))\n     \n   In plat specific code we can use them this way to stop rest of the online cores in a generic \n   way.\n     ...  \n     psci_stop_other_cores(0, ipi_send_cpu_stop); \n     ...",
+      "parentUuid": "17159372_3629f17c",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 43
+      },
+      "revId": "39c1cd1e2839a672c2460235a30b518f1759dc02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "addb78ec_1280c3cd",
         "filename": "bl31/ipi.c",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2020-09-21T07:10:14Z",
       "side": 1,
       "message": "Can we fix the prototype of this function mentioned in: docs/components/exception-handling.rst?(though not related to this patch).",
+      "range": {
+        "startLine": 54,
+        "startChar": 1,
+        "endLine": 54,
+        "endChar": 30
+      },
+      "revId": "39c1cd1e2839a672c2460235a30b518f1759dc02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8adc7a20_78bffa4a",
+        "filename": "bl31/ipi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-09-21T09:51:58Z",
+      "side": 1,
+      "message": "I can add a patch but can you point to the mismatch in doc ..\n\ntypedef int (*ehf_handler_t)(uint32_t intr_raw, uint32_t flags, void *handle,\n                void *cookie);\n\nuint32_t  -\u003e unsigned int  ?",
+      "parentUuid": "addb78ec_1280c3cd",
       "range": {
         "startLine": 54,
         "startChar": 1,
