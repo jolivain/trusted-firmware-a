@@ -70,6 +70,24 @@
       "revId": "34029d01c6effbbd643413b69c851cc24d047eaa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1379fe83_5512702c",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-21T18:36:24Z",
+      "side": 0,
+      "message": "Thanks Sumit.\n\n\u003eSo these are the registers which doesn\u0027t seems to be shareable among non-secure and secure entities.\n\nAll GPR\u0027s and all EL1 system registers fall under this category and are switched. Can you explain why the timer registers are special in this regard?\n\n\u003eFor delay loops we should use read only counter: CNTPCT_EL0 and frequency: CNTFRQ registers in order to calculate delays.\n\nFair point. Agree that should be how it is used.\n\n\u003eWould timer value be decremented after its saved and prior to restore?\n\nI would say no, but that would be a platform decision depending on what timer behavior they want(whether to decrement or not).\n\nIf we don\u0027t share cntp_ctl/cval_el0, and a platform does not want to share the secure physical timer between EL3 and S-EL1(configurable in SCR_EL3, and for whatever reason), what is your proposed solution in such a case?\nAlso if the secure kernel allows for access to these registers at S-EL0, are you suggesting that S-EL0 use NS timer values(security issue)?",
+      "parentUuid": "bd36bcc5_771976b0",
+      "revId": "34029d01c6effbbd643413b69c851cc24d047eaa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
