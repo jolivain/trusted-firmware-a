@@ -250,7 +250,7 @@ API:
 
 .. code:: c
 
-   int ehf_register_priority_handler(int pri, ehf_handler_t handler)
+   void ehf_register_priority_handler(int pri, ehf_handler_t handler)
 
 The API takes two arguments:
 
