@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "783f1a50_409519da",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-09-21T16:07:40Z",
+      "side": 1,
+      "message": "The interface can return entropy in 3, 64-bit registers, totaling 192 bits.",
+      "parentUuid": "f740409d_d754c596",
+      "range": {
+        "startLine": 13,
+        "startChar": 59,
+        "endLine": 13,
+        "endChar": 67
+      },
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "969532a4_ff7fb7b8",
         "filename": "services/std_svc/trng/trng_entropy_pool.c",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "cc87db40_2d894cc1",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-09-21T16:07:40Z",
+      "side": 1,
+      "message": "Understood. I\u0027ll be getting to this when I next look at this patch (it may be a week or two)",
+      "parentUuid": "969532a4_ff7fb7b8",
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ffa73b5_04e32e1d",
         "filename": "services/std_svc/trng/trng_entropy_pool.c",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2020-09-21T15:56:09Z",
       "side": 1,
       "message": "pack entropy in the out buffer? not sure what this statement means.",
+      "range": {
+        "startLine": 53,
+        "startChar": 3,
+        "endLine": 53,
+        "endChar": 30
+      },
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cda09bb7_973c5512",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-09-21T16:07:40Z",
+      "side": 1,
+      "message": "The entropy is stored internally in a way that\u0027s different from the expected structure of the return value. This function shuffles the bits around so that they appear in the lest significant bits of out, which I was referring to as \"packing\". I don\u0027t think this is a particularly good way to explain this, so I\u0027m eager to have suggestions on how to reword this. Does this make sense? how would you word this?",
+      "parentUuid": "0ffa73b5_04e32e1d",
       "range": {
         "startLine": 53,
         "startChar": 3,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "835c5ea0_034eb062",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-09-21T16:07:40Z",
+      "side": 1,
+      "message": "Yes, that would be good to add. Though we\u0027re likely to see duplicate checks without LTO because the two checks are in different translation units. I don\u0027t think this is a problem.",
+      "parentUuid": "afd64c48_e8374f51",
+      "range": {
+        "startLine": 58,
+        "startChar": 32,
+        "endLine": 58,
+        "endChar": 37
+      },
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e6806aa_eabc2c57",
         "filename": "services/std_svc/trng/trng_entropy_pool.c",
         "patchSetId": 1
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "3f679d16_3180d180",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-09-21T16:07:40Z",
+      "side": 1,
+      "message": "Yes. This was missed in a renaming. Thanks!",
+      "parentUuid": "2e6806aa_eabc2c57",
+      "range": {
+        "startLine": 74,
+        "startChar": 57,
+        "endLine": 74,
+        "endChar": 60
+      },
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3f73d338_33f5cfc1",
         "filename": "services/std_svc/trng/trng_entropy_pool.c",
         "patchSetId": 1
@@ -122,6 +236,30 @@
       "writtenOn": "2020-09-21T15:56:09Z",
       "side": 1,
       "message": "0xFFFFFFFFFFFFFFFFULL",
+      "range": {
+        "startLine": 117,
+        "startChar": 23,
+        "endLine": 117,
+        "endChar": 41
+      },
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa3a0bc8_fa322d2f",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2020-09-21T16:07:40Z",
+      "side": 1,
+      "message": "Good catch. I\u0027ll include this when I next work on this patch.",
+      "parentUuid": "3f73d338_33f5cfc1",
       "range": {
         "startLine": 117,
         "startChar": 23,
