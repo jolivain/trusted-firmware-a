@@ -250,7 +250,7 @@ API:
 
 .. code:: c
 
-   int ehf_register_priority_handler(int pri, ehf_handler_t handler)
+   void ehf_register_priority_handler(int pri, ehf_handler_t handler)
 
 The API takes two arguments:
 
@@ -260,14 +260,6 @@ The API takes two arguments:
 
 If a dispatcher owns more than one priority levels, it has to call the API for
 each of them.
-
-The API will succeed, and return ``0``, only if:
-
--  There exists a descriptor with the priority level requested.
-
--  There are no handlers already registered by a previous call to the API.
-
-Otherwise, the API returns ``-1``.
 
 The interrupt handler should have the following signature:
 
