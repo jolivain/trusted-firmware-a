@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17159372_3629f17c",
+        "filename": "bl31/ipi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-21T07:10:14Z",
+      "side": 1,
+      "message": "Please explain the invocation/caller of this function. Also, it will be good if we add function\nheader for all the functions in this file, explaining function arguments and return type.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 43
+      },
+      "revId": "39c1cd1e2839a672c2460235a30b518f1759dc02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "addb78ec_1280c3cd",
+        "filename": "bl31/ipi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-21T07:10:14Z",
+      "side": 1,
+      "message": "Can we fix the prototype of this function mentioned in: docs/components/exception-handling.rst?(though not related to this patch).",
+      "range": {
+        "startLine": 54,
+        "startChar": 1,
+        "endLine": 54,
+        "endChar": 30
+      },
+      "revId": "39c1cd1e2839a672c2460235a30b518f1759dc02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7f92035_e6a14739",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-21T07:10:14Z",
+      "side": 1,
+      "message": "Better use |IPI|",
+      "range": {
+        "startLine": 545,
+        "startChar": 70,
+        "endLine": 546,
+        "endChar": 28
+      },
+      "revId": "39c1cd1e2839a672c2460235a30b518f1759dc02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
