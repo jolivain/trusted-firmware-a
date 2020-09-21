@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f740409d_d754c596",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-21T15:56:09Z",
+      "side": 1,
+      "message": "Out of curiosity, why is there a limitation of 192 bits?",
+      "range": {
+        "startLine": 13,
+        "startChar": 59,
+        "endLine": 13,
+        "endChar": 67
+      },
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "969532a4_ff7fb7b8",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-21T15:56:09Z",
+      "side": 1,
+      "message": "nit: i think this line should be on the next line per coding standards. Even if it is not, that generally seems the pattern in code so might be good to stick to it.\n\n/*\n * comment starts here.\n * comment ends here.\n */",
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ffa73b5_04e32e1d",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-21T15:56:09Z",
+      "side": 1,
+      "message": "pack entropy in the out buffer? not sure what this statement means.",
+      "range": {
+        "startLine": 53,
+        "startChar": 3,
+        "endLine": 53,
+        "endChar": 30
+      },
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afd64c48_e8374f51",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-21T15:56:09Z",
+      "side": 1,
+      "message": "do we need to check nbits \u003c 193 bits? or assert? it seems like it is checked in other files but would be good to make an assertion here.",
+      "range": {
+        "startLine": 58,
+        "startChar": 32,
+        "endLine": 58,
+        "endChar": 37
+      },
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e6806aa_eabc2c57",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-21T15:56:09Z",
+      "side": 1,
+      "message": "ent buffer? do you mean out ?",
+      "range": {
+        "startLine": 74,
+        "startChar": 57,
+        "endLine": 74,
+        "endChar": 60
+      },
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f73d338_33f5cfc1",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-21T15:56:09Z",
+      "side": 1,
+      "message": "0xFFFFFFFFFFFFFFFFULL",
+      "range": {
+        "startLine": 117,
+        "startChar": 23,
+        "endLine": 117,
+        "endChar": 41
+      },
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
