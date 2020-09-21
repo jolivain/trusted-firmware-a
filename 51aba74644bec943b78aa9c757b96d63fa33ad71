@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "6a8b28a4_9f336142",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-21T16:22:51Z",
+      "side": 1,
+      "message": "Oh, i think the packing aspect was clear. The comment was perhaps meant to be \"pack the entropy IN the out buffer\". It is missing the word \"in\".\nThe way i understood this is that you have a 256 bit circular buffer of entropy and the bits are returned to the caller in least significant bit to most significant bit order. Although, i think this clarification can be made below in the for loop.",
+      "parentUuid": "cda09bb7_973c5512",
+      "range": {
+        "startLine": 53,
+        "startChar": 3,
+        "endLine": 53,
+        "endChar": 30
+      },
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "afd64c48_e8374f51",
         "filename": "services/std_svc/trng/trng_entropy_pool.c",
         "patchSetId": 1
