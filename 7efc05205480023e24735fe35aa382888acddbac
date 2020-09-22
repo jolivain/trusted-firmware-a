@@ -16,6 +16,24 @@
       "revId": "7efc05205480023e24735fe35aa382888acddbac",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59950c03_3c661035",
+        "filename": "fdts/arm_fpga.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-22T22:42:07Z",
+      "side": 1,
+      "message": "I created this DT a while ago, originally just for using it on the Linux kernel. To make it easier to move this later to the kernel (or some related) repo, I kept the GPL license, just added BSD to make it TF-A compatible.\nThe DT is a hardware description, and really not at all TF specific. I just put it in the repo for convenience reasons. So dual licensing should give the most freedom in using it wherever we want.\nSome DTs in the TF-A repo and many DTs in the kernel use this same approach, for similar reasons.",
+      "parentUuid": "c39b9598_6c13bc6c",
+      "revId": "7efc05205480023e24735fe35aa382888acddbac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
