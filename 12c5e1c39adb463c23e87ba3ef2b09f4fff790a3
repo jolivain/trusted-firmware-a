@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "446b24b9_888349ea",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-22T12:15:10Z",
+      "side": 1,
+      "message": "Would \u0027Answer all comments\u0027 be a good middle ground?\nWe still want to emphasize that the contributor should not leave any unanswered threads.",
+      "parentUuid": "2ee2a9de_a3e6cb3e",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 24
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "133647bb_54458e57",
         "filename": "docs/process/code-review-guidelines.rst",
         "patchSetId": 3
@@ -128,6 +152,30 @@
       "writtenOn": "2020-09-21T18:55:14Z",
       "side": 1,
       "message": "would recommend using gender neutral phrasing of sentences. For ex: \"If a code owner is happy with a patch, approval shall be given through code-owner-review+1\"",
+      "range": {
+        "startLine": 108,
+        "startChar": 39,
+        "endLine": 108,
+        "endChar": 45
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c61f944f_592b38ac",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-22T12:15:10Z",
+      "side": 1,
+      "message": "The use of the passive voice could reduce the readability.\nWould it work to use \u0027they\u0027 and \u0027their\u0027 as neutral pronouns?",
+      "parentUuid": "133647bb_54458e57",
       "range": {
         "startLine": 108,
         "startChar": 39,
