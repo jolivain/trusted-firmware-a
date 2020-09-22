@@ -1,0 +1,231 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb5d7d12_d51b20b8",
+        "filename": "plat/arm/board/morello/aarch64/morello_helper.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-22T15:28:25Z",
+      "side": 1,
+      "message": "Arm",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb1de799_ef0c9d1e",
+        "filename": "plat/arm/board/morello/aarch64/morello_helper.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-22T15:28:25Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cdf7e5a_f85b2c78",
+        "filename": "plat/arm/board/morello/include/platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-22T15:28:25Z",
+      "side": 1,
+      "message": "Arm",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecc58abe_8c65d188",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-22T15:28:25Z",
+      "side": 1,
+      "message": "Arm",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27723dd7_87a9ae1c",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-22T15:28:25Z",
+      "side": 1,
+      "message": "Why uint32_t for AArch64 platform?",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f33af8f_b09ff5b3",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-22T15:28:25Z",
+      "side": 1,
+      "message": "INFO(\"Copying BL33 to DDR memory...\");",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e5988c6_9ff51eba",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-22T15:28:25Z",
+      "side": 1,
+      "message": "INFO(\"done\\n\");",
+      "range": {
+        "startLine": 75,
+        "startChar": 1,
+        "endLine": 75,
+        "endChar": 2
+      },
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a77c46f1_d275b2b5",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-22T15:28:25Z",
+      "side": 1,
+      "message": "print ret value",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "374e9aa7_717b56b5",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-22T15:28:25Z",
+      "side": 1,
+      "message": "the same here and later",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ef9e50f_7c3287cc",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-22T15:28:25Z",
+      "side": 1,
+      "message": "violation of MISRA Rule 7.2",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c980a07_8fac83eb",
+        "filename": "plat/arm/board/morello/morello_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-22T15:28:25Z",
+      "side": 1,
+      "message": "Arm here \u0026 everywhere",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfb074c0_8a1da4fd",
+        "filename": "plat/arm/board/morello/morello_interconnect.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-22T15:28:25Z",
+      "side": 1,
+      "message": "supports",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afd3021b_963c5676",
+        "filename": "plat/arm/board/morello/morello_topology.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-22T15:28:25Z",
+      "side": 1,
+      "message": "what would happen if PLATFORM_CORE_COUNT !\u003d 4?",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
