@@ -212,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "4105e782_c7d930d2",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-22T22:34:41Z",
+      "side": 1,
+      "message": "I would remove this point from the \"guideline to speed up your own reviews\" and add it to \"Good Practices\" somewhere in the doc.",
+      "parentUuid": "34b34cd2_7cff3d8b",
+      "range": {
+        "startLine": 42,
+        "startChar": 5,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a8e1b907_9b929f1f",
         "filename": "docs/process/code-review-guidelines.rst",
         "patchSetId": 3
@@ -247,6 +271,30 @@
       "side": 1,
       "message": "Again if you have alternative wording that would be welcome.",
       "parentUuid": "a8e1b907_9b929f1f",
+      "range": {
+        "startLine": 46,
+        "startChar": 65,
+        "endLine": 47,
+        "endChar": 71
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "833986ba_8e734fcc",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-22T22:34:41Z",
+      "side": 1,
+      "message": "I would remove this part of the statement",
+      "parentUuid": "91cde2e3_dd5f7f13",
       "range": {
         "startLine": 46,
         "startChar": 65,
@@ -377,6 +425,30 @@
     },
     {
       "key": {
+        "uuid": "a8450063_3af2ab56",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-22T22:34:41Z",
+      "side": 1,
+      "message": "I think we can follow the approach from your comments. That has worked for me in the past too.",
+      "parentUuid": "cda9c432_53e5c61c",
+      "range": {
+        "startLine": 116,
+        "startChar": 3,
+        "endLine": 119,
+        "endChar": 65
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c78d04a_3486a7d7",
         "filename": "docs/process/code-review-guidelines.rst",
         "patchSetId": 3
@@ -424,6 +496,30 @@
     },
     {
       "key": {
+        "uuid": "a5f875c0_4b5263e5",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-22T22:34:41Z",
+      "side": 1,
+      "message": "Sounds good. We should add more color by using text from your comments.",
+      "parentUuid": "002343f3_c76b8063",
+      "range": {
+        "startLine": 163,
+        "startChar": 3,
+        "endLine": 164,
+        "endChar": 12
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "307402d6_fe9e7497",
         "filename": "docs/process/code-review-guidelines.rst",
         "patchSetId": 3
@@ -459,6 +555,30 @@
       "side": 1,
       "message": "I think the intent is they should not be copied when there are changes that could be handled in common code. I think the usage of \"should\" here provides an indication that this is best practice or is a recommendation as opposed to if it said \"must\" which conveys a level of mandatory compliance required. Specification/standard writing has these as defined terms but I\u0027m not sure if we really need to go that far for guideline documentation.",
       "parentUuid": "307402d6_fe9e7497",
+      "range": {
+        "startLine": 170,
+        "startChar": 75,
+        "endLine": 172,
+        "endChar": 69
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2eb9fea_dae5b356",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-22T22:34:41Z",
+      "side": 1,
+      "message": "My concern is that the proposed approach will give birth to more makefile variables or build configs. I agree that there we need to maintain a balance, but sometimes introducing a platform specific driver is the best approach. We should add a line \"The burden lies with the patch author to prove the need for a platform specific driver, if they choose to implement their own driver instead. A detailed justification should be posted via the commit message or on the mailing list.\"",
+      "parentUuid": "d731c0be_2900a90d",
       "range": {
         "startLine": 170,
         "startChar": 75,
