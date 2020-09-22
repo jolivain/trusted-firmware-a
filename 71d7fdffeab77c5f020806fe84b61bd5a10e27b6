@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b72e0f5_c7b5a8c7",
+        "filename": "drivers/st/mmc/stm32_sdmmc2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-22T07:35:06Z",
+      "side": 1,
+      "message": "As this variable does not have global usage, can we make it local? or\ncan we avoid using this variable and directly check whether next_cmd is acmd or not at line no. 272 as below:\nif (((cmd_reg \u0026 SDMMC_CMDR_CMDTRANS) \u003d\u003d 0U) \u0026\u0026 !(cmd-\u003ecmd_idx \u003d\u003d MMC_CMD(APP_CMD)) where APP_CMD \u003d 55",
+      "range": {
+        "startLine": 263,
+        "startChar": 1,
+        "endLine": 263,
+        "endChar": 17
+      },
+      "revId": "71d7fdffeab77c5f020806fe84b61bd5a10e27b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
