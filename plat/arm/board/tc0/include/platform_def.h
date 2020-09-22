@@ -56,6 +56,11 @@
 						TC0_TZC_DRAM1_SIZE,	\
 						MT_MEMORY | MT_RW | MT_SECURE)
 
+#if defined(SPD_spmd)
+#define PLAT_ARM_BL32_BASE		TC0_TZC_DRAM1_BASE
+#define PLAT_ARM_BL32_LIMIT		(TC0_TZC_DRAM1_BASE + (UL(1) << 21))
+#endif
+
 /*
  * PLAT_ARM_MMAP_ENTRIES depends on the number of entries in the
  * plat_arm_mmap array defined for each BL stage.
@@ -225,5 +230,8 @@
  * SCP_BL2U size plus a little space for growth.
  */
 #define PLAT_CSS_MAX_SCP_BL2U_SIZE	0x20000
+
+/* virtual address used by dynamic mem_protect for chunk_base */
+#define PLAT_ARM_MEM_PROTEC_VA_FRAME	UL(0xc0000000)
 
 #endif /* PLATFORM_DEF_H */
