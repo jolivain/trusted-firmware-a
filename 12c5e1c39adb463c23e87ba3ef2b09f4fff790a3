@@ -188,6 +188,30 @@
     },
     {
       "key": {
+        "uuid": "34b34cd2_7cff3d8b",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-09-22T22:13:35Z",
+      "side": 1,
+      "message": "This is not intended to disadvantage patches getting reviewed but it does build extra appreciation in other submitters who also review. The goal is to get more people involved in reviewing as a way of contributing to the project. If you have alternative wording what do you suggest.",
+      "parentUuid": "327ee847_4dd9f4c4",
+      "range": {
+        "startLine": 42,
+        "startChar": 5,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a8e1b907_9b929f1f",
         "filename": "docs/process/code-review-guidelines.rst",
         "patchSetId": 3
@@ -199,6 +223,30 @@
       "writtenOn": "2020-09-22T20:44:33Z",
       "side": 1,
       "message": "I disagree with the tone. This comment sounds like Maintainers or Reviewers are doing you a favor by reviewing your commit. AFAIK, Maintainers and Reviewers have already signed up for reviewing code that shows up on gerrit.",
+      "range": {
+        "startLine": 46,
+        "startChar": 65,
+        "endLine": 47,
+        "endChar": 71
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91cde2e3_dd5f7f13",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-09-22T22:13:35Z",
+      "side": 1,
+      "message": "Again if you have alternative wording that would be welcome.",
+      "parentUuid": "a8e1b907_9b929f1f",
       "range": {
         "startLine": 46,
         "startChar": 65,
@@ -305,6 +353,30 @@
     },
     {
       "key": {
+        "uuid": "cda9c432_53e5c61c",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-09-22T22:13:35Z",
+      "side": 1,
+      "message": "Do you have any suggestions? If there is more than one code owner the submitter could appeal to them to help. In the situation where there is only one code owner who becomes unresponsive the only route out is to request help from additional maintainers to allow the patch to progress. That is what I  have practiced when I see a patch stall on code owner reviews.",
+      "parentUuid": "7e6e75e9_d9a53bc9",
+      "range": {
+        "startLine": 116,
+        "startChar": 3,
+        "endLine": 119,
+        "endChar": 65
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c78d04a_3486a7d7",
         "filename": "docs/process/code-review-guidelines.rst",
         "patchSetId": 3
@@ -316,6 +388,30 @@
       "writtenOn": "2020-09-22T20:44:33Z",
       "side": 1,
       "message": "How would a Maintainer perform this step? We already have so much third party code.",
+      "range": {
+        "startLine": 163,
+        "startChar": 3,
+        "endLine": 164,
+        "endChar": 12
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "002343f3_c76b8063",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-09-22T22:13:35Z",
+      "side": 1,
+      "message": "For third party IP it is a judgement call doing your best as we don\u0027t have access to tools like Black Duck in the project. There are signs with copyrights and licences in code for maintainers to followup and use judgement. If a Maintainer is unsure they could call in other maintainers. We could look at language like that here. For Binary blobs there is guidance elsewhere that could be linked to IIRC.",
+      "parentUuid": "6c78d04a_3486a7d7",
       "range": {
         "startLine": 163,
         "startChar": 3,
@@ -351,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "d731c0be_2900a90d",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-09-22T22:13:35Z",
+      "side": 1,
+      "message": "I think the intent is they should not be copied when there are changes that could be handled in common code. I think the usage of \"should\" here provides an indication that this is best practice or is a recommendation as opposed to if it said \"must\" which conveys a level of mandatory compliance required. Specification/standard writing has these as defined terms but I\u0027m not sure if we really need to go that far for guideline documentation.",
+      "parentUuid": "307402d6_fe9e7497",
+      "range": {
+        "startLine": 170,
+        "startChar": 75,
+        "endLine": 172,
+        "endChar": 69
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0e855a22_46fa9fd9",
         "filename": "docs/process/code-review-guidelines.rst",
         "patchSetId": 3
@@ -362,6 +482,24 @@
       "writtenOn": "2020-09-22T20:44:33Z",
       "side": 1,
       "message": "Can you also add guidance around the \"Verified+1\" flag?",
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46f396cc_47a04e67",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-09-22T22:13:35Z",
+      "side": 1,
+      "message": "I think we can. It will changes as the OpenCI starts to be deployed replacing the ArmCI.",
+      "parentUuid": "0e855a22_46fa9fd9",
       "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
