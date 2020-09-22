@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df49bfd8_645861ed",
+        "filename": "fdts/morello.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2020-09-22T11:27:58Z",
+      "side": 1,
+      "message": "I wonder about this GPL license here. Usually Arm platforms use BSD3 license for the DT files, except N1DSP which has dual GPL2/BSD3.\nBut maybe this file comes from another project? Same for the other file. In this case, it could be good to indicate it in commit message.\nShould a copyright be added too?",
+      "revId": "09bdf3e8fd8a072e85210e6c83803124d0ba25c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
