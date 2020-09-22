@@ -165,6 +165,52 @@
     },
     {
       "key": {
+        "uuid": "327ee847_4dd9f4c4",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-22T20:44:33Z",
+      "side": 1,
+      "message": "This seems unfairly biased towards frequent reviewers. Why can\u0027t we have  a policy that works for everyone, irrespective of how many reviews they have completed?",
+      "range": {
+        "startLine": 42,
+        "startChar": 5,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8e1b907_9b929f1f",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-22T20:44:33Z",
+      "side": 1,
+      "message": "I disagree with the tone. This comment sounds like Maintainers or Reviewers are doing you a favor by reviewing your commit. AFAIK, Maintainers and Reviewers have already signed up for reviewing code that shows up on gerrit.",
+      "range": {
+        "startLine": 46,
+        "startChar": 65,
+        "endLine": 47,
+        "endChar": 71
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "133647bb_54458e57",
         "filename": "docs/process/code-review-guidelines.rst",
         "patchSetId": 3
@@ -230,6 +276,92 @@
         "endLine": 108,
         "endChar": 45
       },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e6e75e9_d9a53bc9",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-22T20:44:33Z",
+      "side": 1,
+      "message": "We should also provide guidance to patch authors in case reviewers are not responding on subsequent patches.",
+      "range": {
+        "startLine": 116,
+        "startChar": 3,
+        "endLine": 119,
+        "endChar": 65
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c78d04a_3486a7d7",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-22T20:44:33Z",
+      "side": 1,
+      "message": "How would a Maintainer perform this step? We already have so much third party code.",
+      "range": {
+        "startLine": 163,
+        "startChar": 3,
+        "endLine": 164,
+        "endChar": 12
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "307402d6_fe9e7497",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-22T20:44:33Z",
+      "side": 1,
+      "message": "This should not be mandated. Common drivers might not always be optimized for a platform.",
+      "range": {
+        "startLine": 170,
+        "startChar": 75,
+        "endLine": 172,
+        "endChar": 69
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e855a22_46fa9fd9",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-22T20:44:33Z",
+      "side": 1,
+      "message": "Can you also add guidance around the \"Verified+1\" flag?",
       "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
