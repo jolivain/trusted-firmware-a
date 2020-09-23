@@ -516,6 +516,30 @@
     },
     {
       "key": {
+        "uuid": "39228e6a_654c0c70",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-23T17:02:05Z",
+      "side": 1,
+      "message": "@David the suggested wording sounds good. But we cannot also expect committers to wait for weeks without any action. This is a potentially sticky problem to solve. I have been raising this for many months but haven\u0027t been able to come up with a good solution. I think \"reviewers often have many other responsibilities and may be temporarily overloaded with work\" is part of the problem as not all business models are aligned. Some companies work off upstream code, but review latencies does not jive well with those plans.\n\nMore than happy to discuss this more in a separate forum.",
+      "parentUuid": "d28d0c84_4cadc9b4",
+      "range": {
+        "startLine": 46,
+        "startChar": 65,
+        "endLine": 47,
+        "endChar": 71
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "133647bb_54458e57",
         "filename": "docs/process/code-review-guidelines.rst",
         "patchSetId": 3
@@ -694,6 +718,30 @@
       "side": 1,
       "message": "Perhaps we could add that as a point in the section on what to do if review takes longer than hoped (ln 39)?",
       "parentUuid": "a8450063_3af2ab56",
+      "range": {
+        "startLine": 116,
+        "startChar": 3,
+        "endLine": 119,
+        "endChar": 65
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7774449b_79700154",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-23T17:02:05Z",
+      "side": 1,
+      "message": "I agree.",
+      "parentUuid": "03e11c27_1a51fac4",
       "range": {
         "startLine": 116,
         "startChar": 3,
