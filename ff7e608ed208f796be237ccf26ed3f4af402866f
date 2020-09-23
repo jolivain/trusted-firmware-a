@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ca69e141_dd4f94bf",
+        "filename": "plat/arm/board/morello/aarch64/morello_helper.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-09-23T13:55:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb5d7d12_d51b20b8",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb1de799_ef0c9d1e",
         "filename": "plat/arm/board/morello/aarch64/morello_helper.S",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41ee82ac_4c7525db",
+        "filename": "plat/arm/board/morello/aarch64/morello_helper.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-09-23T13:55:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb1de799_ef0c9d1e",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "e81067fb_f56c5890",
+        "filename": "plat/arm/board/morello/include/platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-09-23T13:55:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cdf7e5a_f85b2c78",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ecc58abe_8c65d188",
         "filename": "plat/arm/board/morello/morello_bl31_setup.c",
         "patchSetId": 4
@@ -67,6 +121,24 @@
       "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e11e9db3_4ab6b35f",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-09-23T13:55:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecc58abe_8c65d188",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "8519e7b4_e59de5a8",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-09-23T13:55:50Z",
+      "side": 1,
+      "message": "We don\u0027t expect bl33 source and destination above 32-bit address and also it is being filled by SCP in SDS.",
+      "parentUuid": "27723dd7_87a9ae1c",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f33af8f_b09ff5b3",
         "filename": "plat/arm/board/morello/morello_bl31_setup.c",
         "patchSetId": 4
@@ -101,6 +191,24 @@
       "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5465b9a_4a3141ba",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-09-23T13:55:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f33af8f_b09ff5b3",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -127,6 +235,30 @@
     },
     {
       "key": {
+        "uuid": "73b10345_f71b4653",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-09-23T13:55:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e5988c6_9ff51eba",
+      "range": {
+        "startLine": 75,
+        "startChar": 1,
+        "endLine": 75,
+        "endChar": 2
+      },
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a77c46f1_d275b2b5",
         "filename": "plat/arm/board/morello/morello_bl31_setup.c",
         "patchSetId": 4
@@ -141,6 +273,24 @@
       "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fd11476_fdfea0c3",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-09-23T13:55:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a77c46f1_d275b2b5",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -161,6 +311,24 @@
     },
     {
       "key": {
+        "uuid": "f17faf7a_16b11afe",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-09-23T13:55:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "374e9aa7_717b56b5",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ef9e50f_7c3287cc",
         "filename": "plat/arm/board/morello/morello_bl31_setup.c",
         "patchSetId": 4
@@ -175,6 +343,24 @@
       "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4f929a1_65339a91",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-09-23T13:55:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ef9e50f_7c3287cc",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -195,6 +381,24 @@
     },
     {
       "key": {
+        "uuid": "a002fbf5_e4e41ed2",
+        "filename": "plat/arm/board/morello/morello_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-09-23T13:55:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c980a07_8fac83eb",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfb074c0_8a1da4fd",
         "filename": "plat/arm/board/morello/morello_interconnect.c",
         "patchSetId": 4
@@ -212,6 +416,24 @@
     },
     {
       "key": {
+        "uuid": "5577a4ca_7302a046",
+        "filename": "plat/arm/board/morello/morello_interconnect.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-09-23T13:55:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfb074c0_8a1da4fd",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afd3021b_963c5676",
         "filename": "plat/arm/board/morello/morello_topology.c",
         "patchSetId": 4
@@ -223,6 +445,24 @@
       "writtenOn": "2020-09-22T15:28:25Z",
       "side": 1,
       "message": "what would happen if PLATFORM_CORE_COUNT !\u003d 4?",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97ef2d8a_cd41a6f0",
+        "filename": "plat/arm/board/morello/morello_topology.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-09-23T13:55:50Z",
+      "side": 1,
+      "message": "This is a platform with fixed core count of 4 and the core count is not expected to change until we add the multichip support which is not part of current patchset.",
+      "parentUuid": "afd3021b_963c5676",
       "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
