@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "e96a6f10_7b2ef1f5",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-23T20:03:12Z",
+      "side": 1,
+      "message": "In general I am skeptical about adding these \"infinite\" loops in code. Is there any we can add an exit condition to the loop? This will help us catch issues on faulty or under development hardware e.g. FPGA.\n\nWe can maybe check if we have reached the end of the GICR MMIO aperture without seeing the TYPER_LAST_BIT (?)",
+      "revId": "780ecb4c64fc5e31bcd7afcc18a8c05f78d45d44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ca140e31_4d191055",
         "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
         "patchSetId": 2
