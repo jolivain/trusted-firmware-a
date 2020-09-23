@@ -70,6 +70,30 @@
       "revId": "780ecb4c64fc5e31bcd7afcc18a8c05f78d45d44",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7616d6da_4615a7c8",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-23T17:15:48Z",
+      "side": 1,
+      "message": "Linux\u0027 GICv3 driver uses this, regardless of the firmware table method used to discover the GIC: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/irqchip/irq-gic-v3.c#n798\nIt is not used to discover the number of cores, but to initialise each GICR frame. As mentioned the reason for this patch is that if Linux does not find the LAST bit in the provided region, this won\u0027t end well. By mimicking this approach, I would think it\u0027s as safe as it can be.\n\nAlso: while this function is meant to be as generic as possible, it\u0027s not called by generic code. Instead it\u0027s up to the platform to call this, and we hope this would only be done on platforms where this would work.\n\nDo you have an example (that you can disclose) of where this is broken? If you can describe how it behaves, I could try to make this algorithm work nevertheless.",
+      "parentUuid": "f8802989_b625e078",
+      "range": {
+        "startLine": 338,
+        "startChar": 1,
+        "endLine": 340,
+        "endChar": 46
+      },
+      "revId": "780ecb4c64fc5e31bcd7afcc18a8c05f78d45d44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
