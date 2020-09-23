@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86751a5a_5314b2e4",
+        "filename": "plat/qemu/common/qemu_spm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-23T11:40:58Z",
+      "side": 1,
+      "message": "can you align comments using tabs?",
+      "revId": "6eaa2e8a7f2a94bade989d2b8c3aad157fb339ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a543d32_debe9711",
+        "filename": "plat/qemu/common/qemu_spm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-23T11:40:58Z",
+      "side": 1,
+      "message": "Is (uintptr_t) actually needed?",
+      "revId": "6eaa2e8a7f2a94bade989d2b8c3aad157fb339ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
