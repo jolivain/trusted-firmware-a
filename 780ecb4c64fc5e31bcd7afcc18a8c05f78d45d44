@@ -94,6 +94,30 @@
       "revId": "780ecb4c64fc5e31bcd7afcc18a8c05f78d45d44",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc5c54d0_69669746",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-09-23T18:25:20Z",
+      "side": 1,
+      "message": "Thanks. Agree with argument that it is safe is the kernel is doing it..Cannot tell you where it is broken but have had to skip redistributor frames on large core systems where cores are not linearly fused off, as in core 0,1,5,6 are present and 2,3,4 are fused off. I may be mis-remembering. It is also possible that the GICR frames are relocated to account for this to make all cores look linear.\nThe patch looks fine, i was just curious if we needed to consider this and if this was acceptable architecturally. seems like the case with the kernel driver.",
+      "parentUuid": "7616d6da_4615a7c8",
+      "range": {
+        "startLine": 338,
+        "startChar": 1,
+        "endLine": 340,
+        "endChar": 46
+      },
+      "revId": "780ecb4c64fc5e31bcd7afcc18a8c05f78d45d44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
