@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95db68c5_43464a95",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-23T10:35:11Z",
+      "side": 1,
+      "message": "I still don\u0027t get why? This is a legitimate option for anything emulation based (FVP, QEMU, FPGA). And it should be guarded by #if (DEBUG \u003d\u003d 0) then, anyway.\n\nSo I would remove this from this generic code.\nWhat about a *compile time* warning (in a Makefile), for the combination of SUPPORT_UNKNOWN_MPID and !DEBUG? You have it in the FPGA platform.mk, but maybe this should live in some generic Makefile, to catch cases when people get excited about the prospect of this option and enable it for their hardware?\n\nAnd a *runtime* warning *iff* an unknown MPIDR is actually detected would be very useful.",
+      "revId": "d9d5234956aad2937793bc5cb6c90770dfbe8196",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bb03091_25571500",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 12
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-23T10:35:11Z",
+      "side": 1,
+      "message": "I would not use this strict wording. For an FPGA model with a not-yet-supported core this is a totally legitimate build option. Can you just change to wording to something like:\n\" ... will run on cores with an unsupported or invalid MPID\"?",
+      "revId": "d9d5234956aad2937793bc5cb6c90770dfbe8196",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
