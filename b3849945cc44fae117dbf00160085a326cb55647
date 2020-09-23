@@ -52,6 +52,24 @@
       "revId": "b3849945cc44fae117dbf00160085a326cb55647",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20c8d531_5aa1630c",
+        "filename": "plat/arm/board/arm_fpga/build_axf.ld.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-23T09:49:39Z",
+      "side": 1,
+      "message": "Ah, thanks for that.\nActually we have that check already when linking bl31.elf, but I leave it in here anyway, since this is the load address, which is conceptually different from the link address (for PIE builds). Also adding the alignment check for the DTB (8 bytes as per DT spec).",
+      "parentUuid": "5b2fc3bd_171cc94b",
+      "revId": "b3849945cc44fae117dbf00160085a326cb55647",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
