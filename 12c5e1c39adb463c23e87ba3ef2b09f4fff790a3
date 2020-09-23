@@ -372,6 +372,30 @@
     },
     {
       "key": {
+        "uuid": "d28d0c84_4cadc9b4",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-23T10:38:50Z",
+      "side": 1,
+      "message": "I agree with the tone point - it feels a little condescending to the committer. I still think it would be valuable to point out that the project is not providing a full-time patch review service, and the developers are sometimes too busy to review patches immediately.\nHow about something like \"remember that reviewers often have many other responsibilities and may be temporarily overloaded with work\"?",
+      "parentUuid": "04856d98_9a1d8574",
+      "range": {
+        "startLine": 46,
+        "startChar": 65,
+        "endLine": 47,
+        "endChar": 71
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "133647bb_54458e57",
         "filename": "docs/process/code-review-guidelines.rst",
         "patchSetId": 3
@@ -507,6 +531,53 @@
         "startChar": 3,
         "endLine": 119,
         "endChar": 65
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03e11c27_1a51fac4",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-23T10:38:50Z",
+      "side": 1,
+      "message": "Perhaps we could add that as a point in the section on what to do if review takes longer than hoped (ln 39)?",
+      "parentUuid": "a8450063_3af2ab56",
+      "range": {
+        "startLine": 116,
+        "startChar": 3,
+        "endLine": 119,
+        "endChar": 65
+      },
+      "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "226238fa_0d06db7d",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-09-23T10:38:50Z",
+      "side": 1,
+      "message": "A bit of a grammar-trap here - \"There is no third-party code which has\"/\"There are no binary blobs which have\".",
+      "range": {
+        "startLine": 163,
+        "startChar": 3,
+        "endLine": 163,
+        "endChar": 58
       },
       "revId": "12c5e1c39adb463c23e87ba3ef2b09f4fff790a3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
