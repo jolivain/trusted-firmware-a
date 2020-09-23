@@ -34,6 +34,24 @@
       "revId": "75e1dfa038fd2f88959dd7b618984e54ee4fa594",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d64ed8d_0de54a93",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-09-23T07:27:07Z",
+      "side": 0,
+      "message": "I don\u0027t think you should remove this check, and this is weakening the individual core SPMC state management. You should definitely have ctx-\u003estate different from RESET at this stage whichever using SPMC at S-EL1 or S-EL2.\n\nIIUC from earlier comments you mentioned Tegra does not use BL32.\nAs said above, it means spmd_init is never called and does not set the default SPMC states, and hence this issue.\n\nThis is normally done this way:\nspmd_setup \u003d\u003e spmd_spmc_init \u003d\u003e bl31_register_bl32_init(\u0026spmd_init);\n\nLater when bl31 inits, spmd_init gets called from bl31_main:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/bl31/bl31_main.c#n132\n\nSo you should find a way to have spmd_init called in some way on this platform provided it does not use the regular code paths to initialize the SPD and secure payload.",
+      "parentUuid": "cb0b0923_d0b6714b",
+      "revId": "75e1dfa038fd2f88959dd7b618984e54ee4fa594",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
