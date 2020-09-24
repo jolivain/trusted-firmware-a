@@ -20,9 +20,9 @@ void *memset(void *dst, int val, size_t count)
 	}
 
 	/* Handle the first part, until the pointer becomes 64-bit aligned. */
-	while (((uintptr_t)ptr & 7)) {
+	while (((uintptr_t)ptr & 7U) != 0) {
 		*ptr++ = val;
-		if (--count == 0) {
+		if (--count == 0U) {
 			return dst;
 		}
 	}
