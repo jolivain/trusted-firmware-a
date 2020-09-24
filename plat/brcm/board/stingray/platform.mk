@@ -190,7 +190,8 @@ PLAT_BL_COMMON_SOURCES	+=	lib/cpus/aarch64/cortex_a72.S \
 				plat/${SOC_DIR}/src/tz_sec.c \
 				drivers/arm/tzc/tzc400.c \
 				plat/${SOC_DIR}/driver/plat_emmc.c \
-				plat/${SOC_DIR}/src/topology.c
+				plat/${SOC_DIR}/src/topology.c \
+				drivers/brcm/mdio/mdio.c
 
 ifeq (${USE_CHIMP},yes)
 PLAT_BL_COMMON_SOURCES	+=	drivers/brcm/chimp.c
