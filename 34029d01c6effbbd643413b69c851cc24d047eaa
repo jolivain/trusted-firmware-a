@@ -88,6 +88,24 @@
       "revId": "34029d01c6effbbd643413b69c851cc24d047eaa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1d2dd52_b4a6dd11",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2020-09-24T11:28:00Z",
+      "side": 0,
+      "message": "Firstly apologies for my delayed reply as I was busy with some other stuff.\n\n\u003e All GPR\u0027s and all EL1 system registers fall under this category and are switched. Can you explain why the timer registers are special in this regard?\n\nThere are two possible reasons that I could see:\n- One being the Armv8 architecture RM defining dedicated timers corresponding to exception levels:\n\nThe following timers are provided by an implementation of the Generic Timer:\n• A Non-secure EL1 physical timer.\n• A Secure EL1 physical timer.\n• A Non-secure EL2 physical timer.\n• A virtual timer.\n\n- Second one being it doesn\u0027t seems that we can share a timer among secure and non-secure world just by context switch of registers but we need to have corresponding shareable interrupt as well.\n\n\u003e If we don\u0027t share cntp_ctl/cval_el0, and a platform does not want to share the secure physical timer between EL3 and S-EL1(configurable in SCR_EL3, and for whatever reason), what is your proposed solution in such a case?\n\nAlthough, I am still suspicious if the shared timer will be reliable but in such a case along with timer registers context switch, we should dynamically share corresponding interrupt as well.\n\n\u003e Also if the secure kernel allows for access to these registers at S-EL0, are you suggesting that S-EL0 use NS timer values(security issue)?\n\nCurrently its only access to read only CNTPCT_EL0 and CNTFRQ registers is allowed to EL0 in order to calculate delays. And in case of OP-TEE this too happens in case debug option: function tracing is enabled. So I don\u0027t think that should cause any security issues.",
+      "parentUuid": "1379fe83_5512702c",
+      "revId": "34029d01c6effbbd643413b69c851cc24d047eaa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
