@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c4bd5b7e_fc772023",
+        "filename": "plat/arm/board/tc0/tc0_security.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-09-24T09:14:41Z",
+      "side": 1,
+      "message": "Not sure, i was asked to in the IP review.",
+      "parentUuid": "15be0be3_c145f417",
+      "revId": "83578da149a20cf11e292a925d25048f125211bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3eb03b25_88146c63",
         "filename": "plat/arm/board/tc0/tc0_security.c",
         "patchSetId": 1
@@ -56,6 +74,48 @@
       "revId": "83578da149a20cf11e292a925d25048f125211bc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38eb5641_a4bae0c9",
+        "filename": "plat/arm/board/tc0/tc0_security.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-09-24T09:14:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c9ecdd5_16f57620",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 11
+      },
+      "revId": "83578da149a20cf11e292a925d25048f125211bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90ea81ef_9341f33b",
+        "filename": "plat/arm/board/tc0/tc0_security.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2020-09-24T09:14:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3eb03b25_88146c63",
+      "revId": "83578da149a20cf11e292a925d25048f125211bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
