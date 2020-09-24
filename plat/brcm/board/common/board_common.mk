@@ -36,6 +36,11 @@ ifeq (${DRIVER_SPI_ENABLE},)
 DRIVER_SPI_ENABLE := 0
 endif
 
+# Disable I2C driver by default
+#ifeq (${DRIVER_I2C_ENABLE},)
+DRIVER_I2C_ENABLE := 1
+#endif
+
 # By default, Trusted Watchdog is always enabled unless SPIN_ON_BL1_EXIT is set
 ifeq (${BRCM_DISABLE_TRUSTED_WDOG},)
 BRCM_DISABLE_TRUSTED_WDOG	:=	0
@@ -179,6 +184,12 @@ endif
 ifeq (${DRIVER_SPI_NOR_ENABLE},1)
 PLAT_BL_COMMON_SOURCES	+=	drivers/brcm/spi_sf.c \
 				drivers/brcm/spi_flash.c
+endif
+
+ifeq (${DRIVER_I2C_ENABLE},1)
+$(eval $(call add_define,DRIVER_I2C_ENABLE))
+BL2_SOURCES		+= 	drivers/brcm/i2c/i2c.c
+PLAT_INCLUDES		+=	-Iinclude/drivers/brcm/i2c
 endif
 
 ifeq (${DRIVER_OCOTP_ENABLE},1)
