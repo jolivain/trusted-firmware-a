@@ -34,6 +34,24 @@
       "revId": "27723464e3c5283cc0e7967c9e6e15c1c5927a53",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a865d4e4_dd2841a3",
+        "filename": "lib/libc/memset.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-24T15:54:43Z",
+      "side": 1,
+      "message": "count is unsigned and cannot be \u003c 0 and there is no point to check with \"\u003e\", so just !\u003d0",
+      "parentUuid": "49421ac4_04488e7c",
+      "revId": "27723464e3c5283cc0e7967c9e6e15c1c5927a53",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
