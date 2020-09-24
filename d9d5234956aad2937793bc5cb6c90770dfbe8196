@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "ab2d3c27_f142dede",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-24T10:23:50Z",
+      "side": 1,
+      "message": "I understand where you are coming from, that\u0027s why I was thinking about printing some warnings *later*, but still check that we actually use this fallback code.\nSo this location here is probably fine, but it should only print a warning if we actually have an unuspported MPIDR.\nAs sketched in the other reply, either there is a way that you can check which CPU libraries have actually been initialised and are used, or you set a TAINTED flag somewhere in generic.S?",
+      "parentUuid": "0b95ff18_5e02350a",
+      "revId": "d9d5234956aad2937793bc5cb6c90770dfbe8196",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4bb03091_25571500",
         "filename": "plat/arm/board/arm_fpga/platform.mk",
         "patchSetId": 12
