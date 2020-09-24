@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "e5c2e1c9_476253d7",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-09-24T16:44:52Z",
+      "side": 1,
+      "message": "I gave this a thought and it does not seem easy to print a message on early boot when one of the MPIDRs is unsupported.\n\nWe could use a flag to mark when an unknown MPIDR has been detected so the primary CPU could print a message, but this could lead to a WAW dependency if the flag is erased by the primary CPU as part of .bss initialisation after it has been set by a secondary core.\n\nI could use a lock as I did for the topology discovery to avoid that but not sure that would be worthy as it might introduce delays at boot up.",
+      "parentUuid": "5954b024_1b2b8971",
+      "revId": "d9d5234956aad2937793bc5cb6c90770dfbe8196",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4bb03091_25571500",
         "filename": "plat/arm/board/arm_fpga/platform.mk",
         "patchSetId": 12
