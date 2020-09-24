@@ -28,6 +28,9 @@
 #include <paxb.h>
 #include <paxc.h>
 #include <platform_def.h>
+#ifdef USE_USB
+#include <platform_usb.h>
+#endif
 #include <sdio.h>
 #include <sr_utils.h>
 #include <timer_sync.h>
