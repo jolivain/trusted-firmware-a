@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12627ff3_f54528f7",
+        "filename": "drivers/mtd/nand/raw_nand.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-24T06:03:59Z",
+      "side": 1,
+      "message": "We passed the parameter as \u0027unsigned long\u0027 instead of \u0027uint32_t\u0027. Assuming \"unsigned long * unsigned int\" gives \u0027unsigned long\u0027 result.\nCan we change the prototype of \u0027nand_wait_ready\u0027 function so that it should accept delay as \u0027unsigned int\u0027 instead of \u0027unsigned long\u0027?",
+      "range": {
+        "startLine": 207,
+        "startChar": 27,
+        "endLine": 207,
+        "endChar": 43
+      },
+      "revId": "3981ad24fd872ef23d9fcd47ad8e00b616d46569",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
