@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "6f44f867_9af1d684",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-24T16:51:59Z",
+      "side": 1,
+      "message": "Yeah, it shouldn\u0027t get too complicated.\nWhat if this variable is initialised as \"1\", and you just set it to 2 in generic.S? Shouldn\u0027t that avoid it landing in .BSS? And all we care about is if *at least one* core is affected, so it should not be a problem if multiple cores race about that write.\nCould that work?",
+      "parentUuid": "e5c2e1c9_476253d7",
+      "revId": "d9d5234956aad2937793bc5cb6c90770dfbe8196",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4bb03091_25571500",
         "filename": "plat/arm/board/arm_fpga/platform.mk",
         "patchSetId": 12
