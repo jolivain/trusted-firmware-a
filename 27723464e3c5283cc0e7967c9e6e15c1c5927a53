@@ -88,6 +88,23 @@
       "revId": "27723464e3c5283cc0e7967c9e6e15c1c5927a53",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c055d01_d9f22428",
+        "filename": "lib/libc/memset.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-25T15:46:03Z",
+      "side": 1,
+      "message": "https://coverity.cambridge.arm.com:8443/reports.htm#v28575/p10092/fileInstanceId\u003d640683844\u0026defectInstanceId\u003d373894532\u0026mergedDefectId\u003d208195\n\n\"CID 208195 (#14 of 15): MISRA C-2012 The Essential Type Model (MISRA C-2012 Rule 10.3)1. misra_c_2012_rule_10_3_violation: Implicit conversion of val from essential type signed 32-bit int to different or narrower essential type character.\"",
+      "revId": "27723464e3c5283cc0e7967c9e6e15c1c5927a53",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
