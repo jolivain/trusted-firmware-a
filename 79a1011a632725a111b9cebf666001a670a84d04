@@ -70,6 +70,30 @@
       "revId": "79a1011a632725a111b9cebf666001a670a84d04",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce357c61_dcd960e5",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-25T23:02:45Z",
+      "side": 1,
+      "message": "Well, yes, but as mentioned this is not a function to count the number of *active cores in the system*, but solely to determine how many cores the GIC redistributor interface supports.\nThat\u0027s basically to learn the number of cores that was configured during the GIC integration into the SoC.\nHence the gicv3_rdistif prefix for the function name and the comment on top.\nNot sure what else I could do to not disappoint any users?\n\nOriginally I thought about just using the number of cores that have shown up in BL31, but using that to size the GICR region would potentially omit redistributors, in case not all potential cores actually come up. Hence the idea to count what actually matters: the number of cores the GIC knows about.\n\nWhat about we address and fix this later when we see an actual problem? Happy to find a different solution then, to cover a specific problem. For now this is aimed for emulation systems like FPGAs, QEMU or the FVP, where the number of cores is widely variable.",
+      "parentUuid": "1f2c64bc_45554e43",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 2
+      },
+      "revId": "79a1011a632725a111b9cebf666001a670a84d04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
