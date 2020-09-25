@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "088afdc8_aabf0240",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-25T20:55:48Z",
+      "side": 1,
+      "message": "@Andre, for Tegra, the policy is a bit different. For \"missing\" CPU cores, there will be holes in the GICR region.",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 2
+      },
+      "revId": "79a1011a632725a111b9cebf666001a670a84d04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
