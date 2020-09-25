@@ -142,6 +142,30 @@
       "revId": "533b49f419205c6c9b41558351423569ddfc7e88",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a5ff950_bafbb380",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-25T17:54:33Z",
+      "side": 1,
+      "message": "I agree. The function name does not covey the real intent. When we use PLATFORM_CORE_COUNT to calculate the number of cores, wont it be odd if we get more CPU cores than PLATFORM_CORE_COUNT?\n\nShould we look at the GICR_REGION_END based approach instead?",
+      "parentUuid": "625e0d5b_74927ee9",
+      "range": {
+        "startLine": 342,
+        "startChar": 2,
+        "endLine": 342,
+        "endChar": 46
+      },
+      "revId": "533b49f419205c6c9b41558351423569ddfc7e88",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
