@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d404cd57_2c43a650",
+        "filename": "lib/cpus/aarch64/cortex_a77.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-09-25T20:12:04Z",
+      "side": 1,
+      "message": "Jumping to 2f implies some implementation defined register is being written even for revisions of the cpu which dont need any fix such as r3p2. I think you can create label 3 at line 74, and branch to 3f.",
+      "revId": "e1a8660607ac7b7209f12f355aef2dd5a219635a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
