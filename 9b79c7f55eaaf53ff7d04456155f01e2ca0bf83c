@@ -16,6 +16,24 @@
       "revId": "9b79c7f55eaaf53ff7d04456155f01e2ca0bf83c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "527a23ec_ad0d8e23",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-09-25T14:29:13Z",
+      "side": 1,
+      "message": "I made this a warning but warnings are not shown by default on Release configuration (see the comment). I also thought about making it a warning on debug mode and an info on release, but it didn\u0027t feel consistent to me. Another option was to print Notice message with \"fanfare\" on it, but didn\u0027t feel good about that either. Making it an error felt to me the least bad option. I can go with the \"fanfare\" notice (a little bit of fanfare, at least :))",
+      "parentUuid": "a8bb3f7b_a2fdaf17",
+      "revId": "9b79c7f55eaaf53ff7d04456155f01e2ca0bf83c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
