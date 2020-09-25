@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "ef9cbe8f_1086eb9b",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-25T15:37:27Z",
+      "side": 1,
+      "message": "Indeed PLATFORM_CORE_COUNT looks like a good idea. I was hoping for something related to the MMIO frame size, but we actually want this function here to determine that size.",
+      "parentUuid": "b61f4f12_5ad52c70",
+      "revId": "780ecb4c64fc5e31bcd7afcc18a8c05f78d45d44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca140e31_4d191055",
         "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
         "patchSetId": 2

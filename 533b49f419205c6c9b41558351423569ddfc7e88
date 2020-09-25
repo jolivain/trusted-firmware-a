@@ -22,6 +22,30 @@
       "revId": "533b49f419205c6c9b41558351423569ddfc7e88",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdf915d3_11b84653",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-25T15:37:27Z",
+      "side": 1,
+      "message": "Ah, I think I promised a comment. Will fix this ASAP.\n(In a nutshell: this function is per frame, so if your platform has multiple GICR ranges, the caller would need to iterate (and add) anyway. Also: We assume that each region is contiguous when it cames to GICR_TYPER accessibility, as this is what the Linux kernel does as well).",
+      "parentUuid": "bd93a867_b39a7a4a",
+      "range": {
+        "startLine": 342,
+        "startChar": 2,
+        "endLine": 342,
+        "endChar": 46
+      },
+      "revId": "533b49f419205c6c9b41558351423569ddfc7e88",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
