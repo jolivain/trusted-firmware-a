@@ -94,6 +94,30 @@
       "revId": "79a1011a632725a111b9cebf666001a670a84d04",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81ada1ad_44fede65",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-26T01:25:35Z",
+      "side": 1,
+      "message": "Yes, we can move ahead with the patch. I have some suggestions though. Can we remove PLATFORM_CORE_COUNT usage and scan from GICR region start to end?\n\nDo you see any problem with this approach? This modification will cover both platforms. Since this code resides in a common location, it would be odd to only design it for one platform.\n\nAnother approach would be to move this to the platform instead.",
+      "parentUuid": "ce357c61_dcd960e5",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 2
+      },
+      "revId": "79a1011a632725a111b9cebf666001a670a84d04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
