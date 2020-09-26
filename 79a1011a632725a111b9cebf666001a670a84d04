@@ -118,6 +118,30 @@
       "revId": "79a1011a632725a111b9cebf666001a670a84d04",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8922be4a_f80031e2",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-26T10:08:58Z",
+      "side": 1,
+      "message": "So my first impulse was to use the GICR region size as the limit, but this is exactly what I don\u0027t know! For the FPGAs, the entry in the DT is a dummy, if you like. So I use this function to learn that limit. PLATFORM_CORE_COUNT is just a failsafe mechanism to prevent an infinite loop.\n\nAnd yes, originally I wanted to put it in the platform code, but then figured there is exactly nothing platform specific about it. Plus, all the constants are defined in the driver include file only, which I would either need to duplicate or include from platform code.\n\nIn fact, most of the code was copied from above: check gicv3_rdistif_base_addrs_probe(). Actually there is no limit there, and to me it looks the very same limitations already apply to that function.\n\nI could add a warning that platforms calling this function should check for its eligibility first, but I would assume that people do this anyway - and the same would be true for that other function.",
+      "parentUuid": "81ada1ad_44fede65",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 2
+      },
+      "revId": "79a1011a632725a111b9cebf666001a670a84d04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
