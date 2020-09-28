@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "3beefa6f_b8dd7578",
+        "filename": "drivers/arm/fvp/bad_trng.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-28T23:07:34Z",
+      "side": 1,
+      "message": "Other UUID users in the tree seem to just break this down, which looks more readable:\n{0x71, 0x70, 0xee, 0x85}, ....",
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c103146_867e94d2",
+        "filename": "drivers/arm/fvp/bad_trng.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-28T23:07:34Z",
+      "side": 1,
+      "message": "Not that it really matters, but the whole sequence can be simplified:\n       *out \u003d val | (uint64_t)val \u003c\u003c 8;\n       *out |\u003d *out \u003c\u003c 16;\n       *out |\u003d *out \u003c\u003c 32;",
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f740409d_d754c596",
         "filename": "services/std_svc/trng/trng_entropy_pool.c",
         "patchSetId": 1
@@ -290,6 +324,81 @@
         "endLine": 117,
         "endChar": 41
       },
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29b24fa9_e216ea05",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-28T23:07:34Z",
+      "side": 1,
+      "message": "or even better: ~0ULL",
+      "parentUuid": "aa3a0bc8_fa322d2f",
+      "range": {
+        "startLine": 117,
+        "startChar": 23,
+        "endLine": 117,
+        "endChar": 41
+      },
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aec4fe63_dd8edc6a",
+        "filename": "services/std_svc/trng/trng_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-28T23:07:34Z",
+      "side": 1,
+      "message": "What about using ~0UL instead of the long number of Fs?",
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc53bce9_e7916cd0",
+        "filename": "services/std_svc/trng/trng_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-28T23:07:34Z",
+      "side": 1,
+      "message": "First, this should be 32 here.\nAnd secondly, this is off-by-1. \"switch ((nbits - 1) / 32)\" seems better, but then the mask above is not correct for 32, 64, 96 bits. I fixed it by overwriting the mask when the modulo is 0. But I am sure there is a better way.",
+      "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ae6b7f3_cb7a8f96",
+        "filename": "services/std_svc/trng/trng_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-09-28T23:07:34Z",
+      "side": 1,
+      "message": "same here: ((nbits - 1) / 64): One register can hold 64 bits, from 0 to 63. Same issue with mask as above, though.\nLinux uses larger buffers (\u003e\u003d32 bytes), so most calls actually request the maximum. And fail at the moment.",
       "revId": "51aba74644bec943b78aa9c757b96d63fa33ad71",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
