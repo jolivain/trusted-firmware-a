@@ -177,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "4bc1c8fa_f67b4b5e",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-28T13:36:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8519e7b4_e59de5a8",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f33af8f_b09ff5b3",
         "filename": "plat/arm/board/morello/morello_bl31_setup.c",
         "patchSetId": 4
@@ -463,6 +481,24 @@
       "side": 1,
       "message": "This is a platform with fixed core count of 4 and the core count is not expected to change until we add the multichip support which is not part of current patchset.",
       "parentUuid": "afd3021b_963c5676",
+      "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b9e8bad_325e3cfd",
+        "filename": "plat/arm/board/morello/morello_topology.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-09-28T13:36:01Z",
+      "side": 1,
+      "message": "In that case I\u0027d suggest to add CASSERT(PLATFORM_CORE_COUNT \u003d\u003d 4, ...)\nin that case to report build errors earlier.",
+      "parentUuid": "97ef2d8a_cd41a6f0",
       "revId": "ff7e608ed208f796be237ccf26ed3f4af402866f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
