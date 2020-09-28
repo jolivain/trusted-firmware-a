@@ -466,8 +466,8 @@ void gicv2_set_spi_routing(unsigned int id, int proc_num)
 	 * should be valid.
 	 */
 	assert(driver_data->target_masks != NULL);
-	assert((unsigned int)proc_num < GICV2_MAX_TARGET_PE);
-	assert((unsigned int)proc_num < driver_data->target_masks_num);
+	assert(proc_num < (int)GICV2_MAX_TARGET_PE);
+	assert(proc_num < (int)driver_data->target_masks_num);
 
 	if (proc_num < 0) {
 		/* Target all PEs */
