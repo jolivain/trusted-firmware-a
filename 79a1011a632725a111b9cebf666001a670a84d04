@@ -142,6 +142,30 @@
       "revId": "79a1011a632725a111b9cebf666001a670a84d04",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab691ed8_2cc4bd76",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-09-28T19:56:53Z",
+      "side": 1,
+      "message": "Common code should be general purpose and work across all platforms. But I am struggling to convince myself that this is really platform agnostic.\n\nBut, I agree with your reasoning and think that we can get this code in. One question - Can we rename the function to gicv3_rdistif_get_number_frames() to make the intention clear?",
+      "parentUuid": "8922be4a_f80031e2",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 2
+      },
+      "revId": "79a1011a632725a111b9cebf666001a670a84d04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
