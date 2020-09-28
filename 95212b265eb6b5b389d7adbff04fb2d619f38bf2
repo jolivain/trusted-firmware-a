@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abe3b7c3_1f7760c4",
+        "filename": "plat/mediatek/mt8192/drivers/gpio/mtgpio.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-28T05:28:15Z",
+      "side": 1,
+      "message": "Are these operation need to be registered using \u0027gpio_init\u0027 call?",
+      "range": {
+        "startLine": 404,
+        "startChar": 17,
+        "endLine": 404,
+        "endChar": 27
+      },
+      "revId": "95212b265eb6b5b389d7adbff04fb2d619f38bf2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
