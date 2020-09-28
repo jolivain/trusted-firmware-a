@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "824a22ee_a04b40c7",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-09-28T23:16:12Z",
+      "side": 1,
+      "message": "I will fix this in the next patch set.",
+      "parentUuid": "631da1b5_94aca7e4",
+      "range": {
+        "startLine": 416,
+        "startChar": 44,
+        "endLine": 416,
+        "endChar": 50
+      },
+      "revId": "3297dfe9e21527f7ced65add1be7f1f8a266a9fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e8c3708_a61c8927",
         "filename": "lib/cpus/aarch64/cortex_a76.S",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7aebffd4_9ba22aa2",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-09-28T23:16:12Z",
+      "side": 1,
+      "message": "Those two erratas have identical versions to which they apply, and the check functions just check the version, so only one call is needed here.",
+      "parentUuid": "7e8c3708_a61c8927",
+      "range": {
+        "startLine": 428,
+        "startChar": 0,
+        "endLine": 431,
+        "endChar": 6
+      },
+      "revId": "3297dfe9e21527f7ced65add1be7f1f8a266a9fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "377c65cf_2a488f31",
         "filename": "lib/cpus/aarch64/cortex_a76.S",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2020-09-22T20:32:57Z",
       "side": 1,
       "message": "Should this be removed?",
+      "range": {
+        "startLine": 454,
+        "startChar": 0,
+        "endLine": 457,
+        "endChar": 28
+      },
+      "revId": "3297dfe9e21527f7ced65add1be7f1f8a266a9fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd110007_d1d881b1",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-09-28T23:16:12Z",
+      "side": 1,
+      "message": "All three of these check_errata_# functions must be present as they are used when the report_errata macro is expanded.",
+      "parentUuid": "377c65cf_2a488f31",
       "range": {
         "startLine": 454,
         "startChar": 0,
