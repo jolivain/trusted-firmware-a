@@ -60,6 +60,14 @@ typedef struct {
 
 	/* Non-secure priority mask value stashed during Secure execution */
 	uint8_t ns_pri_mask;
+
+	/*
+	 * PMR adjustment to mask Non-secure range priority interrupts
+	 * while switching to secure EL2/EL1 will be skipped if 'allow_ns_pri'
+	 * is set. Likewise restoring 'ns_pri_mask' will be skipped while
+	 * exiting to Non-secure world.
+	 */
+	uint8_t allow_ns_pri;
 } __aligned(sizeof(uint64_t)) pe_exc_data_t;
 
 typedef int (*ehf_handler_t)(uint32_t intr_raw, uint32_t flags, void *handle,
