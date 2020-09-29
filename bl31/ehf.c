@@ -218,20 +218,27 @@ void ehf_deactivate_priority(unsigned int priority)
 }
 
 /*
- * After leaving Non-secure world, stash current Non-secure Priority Mask, and
+ * Before switching to secure world, stash current Non-secure Priority Mask, and
  * set Priority Mask to the highest Non-secure priority so that Non-secure
  * interrupts cannot preempt Secure execution.
  *
  * If the current running priority is in the secure range, or if there are
  * outstanding priority activations, this function does nothing.
  *
- * This function subscribes to the 'cm_exited_normal_world' event published by
+ * This function subscribes to the 'cm_entering_secure_world' event published by
  * the Context Management Library.
  */
-static void *ehf_exited_normal_world(const void *arg)
+static void *ehf_entering_secure_world(const void *arg)
 {
 	unsigned int run_pri;
 	pe_exc_data_t *pe_data = this_cpu_data();
+
+	if (pe_data->allow_ns_pri)
+		return NULL;
+
+	/* If PMR already adjusted */
+	if (pe_data->ns_pri_mask != 0u)
+		return NULL;
 
 	/* If the running priority is in the secure range, do nothing */
 	run_pri = plat_ic_get_running_priority();
@@ -241,8 +248,6 @@ static void *ehf_exited_normal_world(const void *arg)
 	/* Do nothing if there are explicit activations */
 	if (has_valid_pri_activations(pe_data))
 		return NULL;
-
-	assert(pe_data->ns_pri_mask == 0u);
 
 	pe_data->ns_pri_mask =
 		(uint8_t) plat_ic_set_priority_mask(GIC_HIGHEST_NS_PRIORITY);
@@ -296,11 +301,9 @@ static void *ehf_entering_normal_world(const void *arg)
 
 	/*
 	 * When exiting secure world, the current Priority Mask must be
-	 * GIC_HIGHEST_NS_PRIORITY (as set during entry), or the Non-secure
-	 * priority mask set upon calling ehf_allow_ns_preemption()
-	 */
-	if ((old_pmr != GIC_HIGHEST_NS_PRIORITY) &&
-			(old_pmr != pe_data->ns_pri_mask)) {
+	 * GIC_HIGHEST_NS_PRIORITY (as set during entry to secure world)
+	 **/
+	if (old_pmr != GIC_HIGHEST_NS_PRIORITY) {
 		ERROR("Invalid Priority Mask (0x%x) restored\n", old_pmr);
 		panic();
 	}
@@ -308,6 +311,7 @@ static void *ehf_entering_normal_world(const void *arg)
 	EHF_LOG("Priority Mask: 0x%x => 0x%x\n", old_pmr, pe_data->ns_pri_mask);
 
 	pe_data->ns_pri_mask = 0;
+	pe_data->allow_ns_pri = 0;
 
 	return NULL;
 }
@@ -329,12 +333,6 @@ void ehf_allow_ns_preemption(uint64_t preempt_ret_code)
 	unsigned int old_pmr __unused;
 	pe_exc_data_t *pe_data = this_cpu_data();
 
-	/*
-	 * We should have been notified earlier of entering secure world, and
-	 * therefore have stashed the Non-secure priority mask.
-	 */
-	assert(pe_data->ns_pri_mask != 0U);
-
 	/* Make sure no priority levels are active when requesting this */
 	if (has_valid_pri_activations(pe_data)) {
 		ERROR("PE %lx has priority activations: 0x%x\n",
@@ -351,11 +349,8 @@ void ehf_allow_ns_preemption(uint64_t preempt_ret_code)
 	assert(ns_ctx != NULL);
 	write_ctx_reg(get_gpregs_ctx(ns_ctx), CTX_GPREG_X0, preempt_ret_code);
 
-	old_pmr = plat_ic_set_priority_mask(pe_data->ns_pri_mask);
+	pe_data->allow_ns_pri = 1;
 
-	EHF_LOG("Priority Mask: 0x%x => 0x%x\n", old_pmr, pe_data->ns_pri_mask);
-
-	pe_data->ns_pri_mask = 0;
 }
 
 /*
@@ -381,10 +376,9 @@ unsigned int ehf_is_ns_preemption_allowed(void)
 	 */
 	if (has_valid_pri_activations(pe_data))
 		return 0;
-	if (pe_data->ns_pri_mask != 0U)
-		return 0;
 
-	return 1;
+	return pe_data->allow_ns_pri;
+
 }
 
 /*
@@ -523,4 +517,4 @@ void ehf_register_priority_handler(unsigned int pri, ehf_handler_t handler)
 }
 
 SUBSCRIBE_TO_EVENT(cm_entering_normal_world, ehf_entering_normal_world);
-SUBSCRIBE_TO_EVENT(cm_exited_normal_world, ehf_exited_normal_world);
+SUBSCRIBE_TO_EVENT(cm_entering_secure_world, ehf_entering_secure_world);
