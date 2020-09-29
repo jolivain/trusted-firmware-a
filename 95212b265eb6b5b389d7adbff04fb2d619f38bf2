@@ -46,6 +46,30 @@
       "revId": "95212b265eb6b5b389d7adbff04fb2d619f38bf2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e98248b6_7cce3d70",
+        "filename": "plat/mediatek/mt8192/drivers/gpio/mtgpio.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-09-29T05:22:48Z",
+      "side": 1,
+      "message": "Agree so in that case,we should add the GPIO initialization API in this file. Something like below:\nvoid plat_mt8192_gpio_init(void) \n{\n        gpio_init(\u0026mtgpio_ops);\n}\nIs that make sense?",
+      "parentUuid": "7f8d387c_3880c49b",
+      "range": {
+        "startLine": 404,
+        "startChar": 17,
+        "endLine": 404,
+        "endChar": 27
+      },
+      "revId": "95212b265eb6b5b389d7adbff04fb2d619f38bf2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
