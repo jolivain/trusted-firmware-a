@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2e9b040_300b20b2",
+        "filename": "include/lib/coreboot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-09-29T00:05:28Z",
+      "side": 1,
+      "message": "Since this is the only use case for this API for now I think we should just update the existing API rather than add a second one. The new API you\u0027re adding can do everything the old one did (by just using size 0) and more, so there\u0027s no point in having both.\n\nI\u0027d just make this coreboot_get_memory_type(address, size) to not make the name too long. (I\u0027d also suggest passing size instead of end_address, I think that\u0027s more natural.)",
+      "revId": "ba18a9a88f5180a5675914b8a5b7d836e15c786c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b5cef06_f328145b",
+        "filename": "lib/coreboot/coreboot_table.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-09-29T00:05:28Z",
+      "side": 1,
+      "message": "Here you say \u0027size\u0027 (and that\u0027s what the function implements) but in the header file you say \u0027end_address\u0027. Please make sure they match (I agree \u0027size\u0027 seems better).\n\nFor \u0027size\u0027, please use size_t, not uintptr_t.",
+      "range": {
+        "startLine": 109,
+        "startChar": 70,
+        "endLine": 109,
+        "endChar": 84
+      },
+      "revId": "ba18a9a88f5180a5675914b8a5b7d836e15c786c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14c67d37_423f333e",
+        "filename": "lib/coreboot/coreboot_table.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-09-29T00:05:28Z",
+      "side": 1,
+      "message": "I\u0027m not sure if such a low-level API should be printing to console every time it\u0027s called. If you really want it, I think it should be DEBUG() or VERBOSE() logging level. It should also say some more context about where this is coming from (e.g. \"Region [0x%llx:0x%llx] matched coreboot memory type %d at [0x%llx:0x%llx]\\n\", start, size, range-\u003etype, range-\u003estart, range-\u003esize).",
+      "revId": "ba18a9a88f5180a5675914b8a5b7d836e15c786c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
