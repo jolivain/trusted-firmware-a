@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0b4f005_8f114e48",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2020-09-29T08:00:57Z",
+      "side": 1,
+      "message": "Yes, and the reason for that is that QEMU only seem to support on cluster in this configuration. This patch seems to be as good as we can do it with the current QEMU.\n\nSo the limitation is in QEMU, not in TF-A or this patch. If you agree please update the commit message to make that clear.",
+      "range": {
+        "startLine": 9,
+        "startChar": 60,
+        "endLine": 13,
+        "endChar": 43
+      },
+      "revId": "934de38d11e31f9b36df6d698015b82d78b9d55e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
