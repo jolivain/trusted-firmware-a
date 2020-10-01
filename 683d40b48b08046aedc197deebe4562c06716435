@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5d35cc01_ff2b9562",
+        "filename": "drivers/arm/gic/v2/gicv2_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-01T11:19:24Z",
+      "side": 1,
+      "message": "This will require changes in plat_ic_raise_el3_sgi() (plat/common/plat_gicv2.c)",
+      "parentUuid": "9ddcf6c0_8d544688",
+      "range": {
+        "startLine": 425,
+        "startChar": 1,
+        "endLine": 425,
+        "endChar": 23
+      },
+      "revId": "683d40b48b08046aedc197deebe4562c06716435",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "db27bf8c_6b95ad92",
         "filename": "drivers/arm/gic/v2/gicv2_main.c",
         "patchSetId": 2
