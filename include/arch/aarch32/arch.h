@@ -111,6 +111,8 @@
 #define ID_PFR0_AMU_SHIFT	U(20)
 #define ID_PFR0_AMU_LENGTH	U(4)
 #define ID_PFR0_AMU_MASK	U(0xf)
+#define ID_PFR0_AMU_8_4		U(0x1)
+#define ID_PFR0_AMU_8_6		U(0x2)
 
 #define ID_PFR0_DIT_SHIFT	U(24)
 #define ID_PFR0_DIT_LENGTH	U(4)
@@ -700,6 +702,9 @@
 #define AMEVTYPER1D	p15, 0, c13, c15, 5
 #define AMEVTYPER1E	p15, 0, c13, c15, 6
 #define AMEVTYPER1F	p15, 0, c13, c15, 7
+
+/* AMCR definitions */
+#define AMCR_CG1RZ_BIT		(ULL(1) << 17)
 
 /* AMCFGR definitions */
 #define AMCFGR_NCG_SHIFT	U(28)
