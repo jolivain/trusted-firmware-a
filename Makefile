@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -892,6 +892,7 @@ $(eval $(call assert_booleans,\
         DYN_DISABLE_AUTH \
         EL3_EXCEPTION_HANDLING \
         ENABLE_AMU \
+        AMU_RESTRICT_COUNTERS \
         ENABLE_ASSERTIONS \
         ENABLE_MPAM_FOR_LOWER_ELS \
         ENABLE_PIE \
@@ -980,6 +981,7 @@ $(eval $(call add_defines,\
         DECRYPTION_SUPPORT_${DECRYPTION_SUPPORT} \
         DISABLE_MTPMU \
         ENABLE_AMU \
+        AMU_RESTRICT_COUNTERS \
         ENABLE_ASSERTIONS \
         ENABLE_BTI \
         ENABLE_MPAM_FOR_LOWER_ELS \
