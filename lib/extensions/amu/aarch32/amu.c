@@ -24,7 +24,15 @@ bool amu_supported(void)
 	uint32_t features = read_id_pfr0() >> ID_PFR0_AMU_SHIFT;
 
 	features &= ID_PFR0_AMU_MASK;
-	return ((features == 1U) || (features == 2U));
+	return (features >= ID_PFR0_AMU_8_4);
+}
+
+bool amu_supported_8_6(void)
+{
+	uint32_t features = read_id_pfr0() >> ID_PFR0_AMU_SHIFT;
+
+	features &= ID_PFR0_AMU_MASK;
+	return (features >= ID_PFR0_AMU_8_6);
 }
 
 #if AMU_GROUP1_NR_COUNTERS
@@ -86,6 +94,25 @@ void amu_enable(bool el2_unused)
 #if AMU_GROUP1_NR_COUNTERS
 	/* Enable group 1 counters */
 	write_amcntenset1(AMU_GROUP1_COUNTERS_MASK);
+#endif
+
+	/* Initialize 8.6 features if present. */
+	if (!amu_supported_8_6()) {
+		return;
+	}
+
+#if AMU_RESTRICT_COUNTERS
+	/*
+	 * V8.6 adds a register field to restrict access to group 1 counters at
+	 * all but the highest implemented EL.  This is controlled with the
+	 * AMU_RESTRICT_COUNTERS compile time flag, when set, system register
+	 * reads at lower ELs return zero.  Reads from the memory mapped view
+	 * are unaffected.
+	 */
+	VERBOSE("AMU group 1 counter access restricted.\n");
+	write_amcr(read_amcr() | AMCR_CG1RZ_BIT);
+#else
+	write_amcr(read_amcr() & ~AMCR_CG1RZ_BIT);
 #endif
 }
 
