@@ -214,6 +214,14 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 	}
 
 	/*
+	 * V8.6 AMU virtual offset registers are only accessible from EL3 and
+	 * EL2, so only enable access in EL2 if it's implemented.
+	 */
+	if (is_armv8_6_amu_present() && (el_implemented(2) != EL_IMPL_NONE)) {
+		scr_el3 |= SCR_AMVOFFEN_BIT;
+	}
+
+	/*
 	 * Initialise SCTLR_EL1 to the reset value corresponding to the target
 	 * execution state setting all fields rather than relying of the hw.
 	 * Some fields have architecturally UNKNOWN reset values and these are
@@ -319,6 +327,7 @@ static void enable_extensions_nonsecure(bool el2_unused)
 
 #if ENABLE_AMU
 	amu_enable(el2_unused);
+	amu_enable_8_6(el2_unused);
 #endif
 
 #if ENABLE_SVE_FOR_NS

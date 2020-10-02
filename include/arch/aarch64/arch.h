@@ -161,6 +161,8 @@
 #define ID_AA64PFR0_EL3_SHIFT	U(12)
 #define ID_AA64PFR0_AMU_SHIFT	U(44)
 #define ID_AA64PFR0_AMU_MASK	ULL(0xf)
+#define ID_AA64PFR0_AMU_8_4	U(0x1)
+#define ID_AA64PFR0_AMU_8_6	U(0x2)
 #define ID_AA64PFR0_ELX_MASK	ULL(0xf)
 #define ID_AA64PFR0_GIC_SHIFT	U(24)
 #define ID_AA64PFR0_GIC_WIDTH	U(4)
@@ -334,6 +336,7 @@
 #define SCR_RES1_BITS		((U(1) << 4) | (U(1) << 5))
 #define SCR_TWEDEL_SHIFT	U(30)
 #define SCR_TWEDEL_MASK		ULL(0xf)
+#define SCR_AMVOFFEN_BIT        (ULL(1) << 35)
 #define SCR_TWEDEn_BIT		(UL(1) << 29)
 #define SCR_ECVEN_BIT           (U(1) << 28)
 #define SCR_FGTEN_BIT           (U(1) << 27)
@@ -354,6 +357,7 @@
 #define SCR_FIQ_BIT		(U(1) << 2)
 #define SCR_IRQ_BIT		(U(1) << 1)
 #define SCR_NS_BIT		(U(1) << 0)
+
 #define SCR_VALID_BIT_MASK	U(0x2f8f)
 #define SCR_RESET_VAL		SCR_RES1_BITS
 
@@ -405,6 +409,7 @@
 #define VTTBR_BADDR_SHIFT	U(0)
 
 /* HCR definitions */
+#define HCR_AMVOFFEN_BIT	(ULL(1) << 51)
 #define HCR_API_BIT		(ULL(1) << 41)
 #define HCR_APK_BIT		(ULL(1) << 40)
 #define HCR_E2H_BIT		(ULL(1) << 34)
@@ -916,6 +921,40 @@
 #define MPAM2_EL2_TRAPMPAM1EL1		(ULL(1) << 48)
 
 #define MPAMIDR_HAS_HCR_BIT		(ULL(1) << 17)
+
+/*******************************************************************************
+ * Definitions for system register interface to AMU for ARMv8.6 onwards
+ ******************************************************************************/
+
+/* Definition for register defining which virtual offsets are implemented. */
+#define AMCG1IDR_EL0           S3_3_C13_C2_6
+
+/* New bit added to AMCR_EL0 */
+#define AMCR_CG1RZ_BIT                 (ULL(0x1) << 17)
+
+/* Definitions for virtual offset registers for architected event counters. */
+/* AMEVCNTR01_EL0 intentionally left undefined, as it does not exist. */
+#define AMEVCNTVOFF00_EL2      S3_4_C13_C8_0
+#define AMEVCNTVOFF02_EL2      S3_4_C13_C8_2
+#define AMEVCNTVOFF03_EL2      S3_4_C13_C8_3
+
+/* Definitions for virtual offset registers for auxiliary event counters. */
+#define AMEVCNTVOFF10_EL2      S3_4_C13_C10_0
+#define AMEVCNTVOFF11_EL2      S3_4_C13_C10_1
+#define AMEVCNTVOFF12_EL2      S3_4_C13_C10_2
+#define AMEVCNTVOFF13_EL2      S3_4_C13_C10_3
+#define AMEVCNTVOFF14_EL2      S3_4_C13_C10_4
+#define AMEVCNTVOFF15_EL2      S3_4_C13_C10_5
+#define AMEVCNTVOFF16_EL2      S3_4_C13_C10_6
+#define AMEVCNTVOFF17_EL2      S3_4_C13_C10_7
+#define AMEVCNTVOFF18_EL2      S3_4_C13_C11_0
+#define AMEVCNTVOFF19_EL2      S3_4_C13_C11_1
+#define AMEVCNTVOFF1A_EL2      S3_4_C13_C11_2
+#define AMEVCNTVOFF1B_EL2      S3_4_C13_C11_3
+#define AMEVCNTVOFF1C_EL2      S3_4_C13_C11_4
+#define AMEVCNTVOFF1D_EL2      S3_4_C13_C11_5
+#define AMEVCNTVOFF1E_EL2      S3_4_C13_C11_6
+#define AMEVCNTVOFF1F_EL2      S3_4_C13_C11_7
 
 /*******************************************************************************
  * RAS system registers
