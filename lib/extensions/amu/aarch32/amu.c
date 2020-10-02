@@ -87,6 +87,20 @@ void amu_enable(bool el2_unused)
 	/* Enable group 1 counters */
 	write_amcntenset1(AMU_GROUP1_COUNTERS_MASK);
 #endif
+
+#if AMU_RESTRICT_COUNTERS
+	/*
+	 * V8.6 adds a register field to restrict access to group 1 counters at
+	 * all but the highest implemented EL.  This is controlled with the
+	 * AMU_RESTRICT_COUNTERS compile time flag, when set, system register
+	 * reads at lower ELs return zero.  Reads from the memory mapped view
+	 * are unaffected.
+	 */
+	VERBOSE("AMU group 1 counter access restricted.");
+	amu_write_amcr(amu_read_amcr() | AMCR_CG1RZ_BIT);
+#else
+	amu_write_amcr(amu_read_amcr() & ~AMCR_CG1RZ_BIT);
+#endif
 }
 
 /* Read the group 0 counter identified by the given `idx`. */

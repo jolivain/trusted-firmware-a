@@ -13,6 +13,8 @@
 	.globl	amu_group1_cnt_read_internal
 	.globl	amu_group1_cnt_write_internal
 	.globl	amu_group1_set_evtype_internal
+	.globl	amu_read_amcr
+	.globl	amu_write_amcr
 
 /*
  * uint64_t amu_group0_cnt_read_internal(int idx);
@@ -75,13 +77,13 @@ func amu_group0_cnt_write_internal
 
 1:
 	stcopr16	r2, r3, AMEVCNTR00	/* index 0 */
-	bx 		lr
+	bx		lr
 	stcopr16	r2, r3, AMEVCNTR01	/* index 1 */
-	bx 		lr
+	bx		lr
 	stcopr16	r2, r3, AMEVCNTR02	/* index 2 */
-	bx 		lr
+	bx		lr
 	stcopr16	r2, r3, AMEVCNTR03	/* index 3 */
-	bx 		lr
+	bx		lr
 endfunc amu_group0_cnt_write_internal
 
 /*
@@ -267,3 +269,23 @@ func amu_group1_set_evtype_internal
 	stcopr	r1,	AMEVTYPER1F /* index 15 */
 	bx	lr
 endfunc amu_group1_set_evtype_internal
+
+/*
+ * uint32_t amu_read_amcr(void);
+ *
+ * Read the AMCR register.
+ */
+func amu_read_amcr
+	ldcopr	r0, AMCR
+	bx	lr
+endfunc amu_read_amcr
+
+ /*
+  * void amu_write_amcr(uint32_t val);
+  *
+  * Write the AMCR register.
+  */
+func amu_write_amcr
+	stcopr	r0, AMCR
+	bx	lr
+endfunc amu_write_amcr

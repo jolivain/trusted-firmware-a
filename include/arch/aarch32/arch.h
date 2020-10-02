@@ -701,6 +701,9 @@
 #define AMEVTYPER1E	p15, 0, c13, c15, 6
 #define AMEVTYPER1F	p15, 0, c13, c15, 7
 
+/* AMCR definitions */
+#define AMCR_CG1RZ_BIT		(U(1) << 17)
+
 /* AMCFGR definitions */
 #define AMCFGR_NCG_SHIFT	U(28)
 #define AMCFGR_NCG_MASK		U(0xf)
