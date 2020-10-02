@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "1454dfd8_14b34d73",
+        "filename": "drivers/arm/gic/v2/gicv2_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-02T16:34:03Z",
+      "side": 1,
+      "message": "I think that is the right way to do it, but since others don\u0027t think this is necessary, i\u0027m fine with the way it is.",
+      "parentUuid": "bc0313f1_a1e580cc",
+      "range": {
+        "startLine": 425,
+        "startChar": 1,
+        "endLine": 425,
+        "endChar": 23
+      },
+      "revId": "683d40b48b08046aedc197deebe4562c06716435",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db27bf8c_6b95ad92",
         "filename": "drivers/arm/gic/v2/gicv2_main.c",
         "patchSetId": 2
