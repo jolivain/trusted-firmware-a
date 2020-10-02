@@ -198,6 +198,10 @@ Common build options
    v8.2 implementations also implement an AMU and this option can be used to
    enable this feature on those systems as well. Default is 0.
 
+-  ``AMU_RESTRICT_COUNTERS``: Register reads to the group 1 counters will return
+   zero at all but the highest implemented exception level.  Reads from the
+   memory mapped view are unaffected by this control.
+
 -  ``ENABLE_ASSERTIONS``: This option controls whether or not calls to ``assert()``
    are compiled out. For debug builds, this option defaults to 1, and calls to
    ``assert()`` are left in place. For release builds, this option defaults to 0
