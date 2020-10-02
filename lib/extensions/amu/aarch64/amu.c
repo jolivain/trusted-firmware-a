@@ -8,6 +8,7 @@
 #include <stdbool.h>
 
 #include <arch.h>
+#include <arch_features.h>
 #include <arch_helpers.h>
 
 #include <lib/el3_runtime/pubsub_events.h>
@@ -24,7 +25,8 @@ bool amu_supported(void)
 	uint64_t features = read_id_aa64pfr0_el1() >> ID_AA64PFR0_AMU_SHIFT;
 
 	features &= ID_AA64PFR0_AMU_MASK;
-	return ((features == 1U) || (features == 2U));
+	return ((features == ID_AA64PFR0_AMU_8_4) ||
+		(features == ID_AA64PFR0_AMU_8_6));
 }
 
 #if AMU_GROUP1_NR_COUNTERS
@@ -96,6 +98,50 @@ void amu_enable(bool el2_unused)
 	/* Enable group 1 counters */
 	write_amcntenset1_el0(AMU_GROUP1_COUNTERS_MASK);
 #endif
+
+	/* Initialize 8.6 features if present. */
+	if (!is_armv8_6_amu_present()) {
+		return;
+	}
+
+	/*
+	 * If EL2 is not implemented then enable virtual offsets here in EL3,
+	 * otherwise let the EL2 code do it.
+	 */
+	if (el2_unused) {
+		VERBOSE("Enabling AMU virtual offsets in EL3\n");
+		/*
+		 * The offsets are architecturally unknown so zero them out
+		 * before enabling them.
+		 */
+		amu_group0_voffset_write(0U, 0U);
+		amu_group0_voffset_write(2U, 0U);
+		amu_group0_voffset_write(3U, 0U);
+#if AMU_GROUP1_NR_COUNTERS
+		u_register_t amcg1idr = read_amcg1idr_el0() >> 16;
+
+		for (i = 0U; i < AMU_GROUP1_NR_COUNTERS; i++) {
+			if (((amcg1idr >> i) & 1U) != 0U) {
+				amu_group1_voffset_write(i, 0U);
+			}
+		}
+#endif
+		write_hcr_el2(read_hcr_el2() | HCR_AMVOFFEN_BIT);
+	}
+
+#if AMU_RESTRICT_COUNTERS
+	/*
+	 * V8.6 adds a register field to restrict access to group 1 counters at
+	 * all but the highest implemented EL.  This is controlled with the
+	 * AMU_RESTRICT_COUNTERS compile time flag, when set, system register
+	 * reads at lower ELs return zero.  Reads from the memory mapped view
+	 * are unaffected.
+	 */
+	VERBOSE("AMU group 1 counter access restricted.\n");
+	write_amcr_el0(read_amcr_el0() | AMCR_CG1RZ_BIT);
+#else
+	write_amcr_el0(read_amcr_el0() & ~AMCR_CG1RZ_BIT);
+#endif
 }
 
 /* Read the group 0 counter identified by the given `idx`. */
@@ -117,9 +163,40 @@ void amu_group0_cnt_write(unsigned  int idx, uint64_t val)
 	isb();
 }
 
+/*
+ * Read the group 0 offset register for a given index. Index must not be 0, 2,
+ * or 3, the register for 1 does not exist.
+ *
+ * Using this function requires v8.6 support.
+ */
+uint64_t amu_group0_voffset_read(unsigned int idx)
+{
+	assert(is_armv8_6_amu_present());
+	assert(idx < AMU_GROUP0_NR_COUNTERS);
+	assert(idx != 1U);
+
+	return amu_group0_voffset_read_internal(idx);
+}
+
+/*
+ * Write the group 0 offset register for a given index. Index must be 0, 2, or
+ * 3, the register for 1 does not exist.
+ *
+ * Using this function requires v8.6 support.
+ */
+void amu_group0_voffset_write(unsigned int idx, uint64_t val)
+{
+	assert(is_armv8_6_amu_present());
+	assert(idx < AMU_GROUP0_NR_COUNTERS);
+	assert(idx != 1U);
+
+	amu_group0_voffset_write_internal(idx, val);
+	isb();
+}
+
 #if AMU_GROUP1_NR_COUNTERS
 /* Read the group 1 counter identified by the given `idx` */
-uint64_t amu_group1_cnt_read(unsigned  int idx)
+uint64_t amu_group1_cnt_read(unsigned int idx)
 {
 	assert(amu_supported());
 	assert(amu_group1_supported());
@@ -129,13 +206,44 @@ uint64_t amu_group1_cnt_read(unsigned  int idx)
 }
 
 /* Write the group 1 counter identified by the given `idx` with `val` */
-void amu_group1_cnt_write(unsigned  int idx, uint64_t val)
+void amu_group1_cnt_write(unsigned int idx, uint64_t val)
 {
 	assert(amu_supported());
 	assert(amu_group1_supported());
 	assert(idx < AMU_GROUP1_NR_COUNTERS);
 
 	amu_group1_cnt_write_internal(idx, val);
+	isb();
+}
+
+/*
+ * Read the group 1 offset register for a given index.
+ *
+ * Using this function requires v8.6 support.
+ */
+uint64_t amu_group1_voffset_read(unsigned int idx)
+{
+	assert(is_armv8_6_amu_present());
+	assert(amu_group1_supported());
+	assert(idx < AMU_GROUP1_NR_COUNTERS);
+	assert(((read_amcg1idr_el0() >> 16U) & (1U << idx)) != 0);
+
+	return amu_group1_voffset_read_internal(idx);
+}
+
+/*
+ * Write the group 1 offset register for a given index.
+ *
+ * Using this function requires v8.6 support.
+ */
+void amu_group1_voffset_write(unsigned int idx, uint64_t val)
+{
+	assert(is_armv8_6_amu_present());
+	assert(amu_group1_supported());
+	assert(idx < AMU_GROUP1_NR_COUNTERS);
+	assert(((read_amcg1idr_el0() >> 16U) & (1U << idx)) != 0);
+
+	amu_group1_voffset_write_internal(idx, val);
 	isb();
 }
 
@@ -190,11 +298,31 @@ static void *amu_context_save(const void *arg)
 		ctx->group0_cnts[i] = amu_group0_cnt_read(i);
 	}
 
+	/* Save group 0 virtual offsets if supported and enabled. */
+	if (is_armv8_6_amu_present() && (read_hcr_el2() | HCR_AMVOFFEN_BIT)) {
+		/* Not using a loop because count is fixed and index 1 DNE. */
+		ctx->group0_voffsets[0] = amu_group0_voffset_read(0);
+		ctx->group0_voffsets[1] = amu_group0_voffset_read(2);
+		ctx->group0_voffsets[2] = amu_group0_voffset_read(3);
+	}
+
 #if AMU_GROUP1_NR_COUNTERS
 	/* Save group 1 counters */
 	for (i = 0U; i < AMU_GROUP1_NR_COUNTERS; i++) {
 		if ((AMU_GROUP1_COUNTERS_MASK & (1U << i)) != 0U) {
 			ctx->group1_cnts[i] = amu_group1_cnt_read(i);
+		}
+	}
+
+	/* Save group 1 virtual offsets if supported and enabled. */
+	if (is_armv8_6_amu_present() && (read_hcr_el2() | HCR_AMVOFFEN_BIT)) {
+		u_register_t amcg1idr = read_amcg1idr_el0() >> 16;
+
+		for (i = 0U; i < AMU_GROUP1_NR_COUNTERS; i++) {
+			if (((amcg1idr >> i) & 1U) != 0U)
+				ctx->group1_voffsets[i] =
+					amu_group1_voffset_read(i);
+			}
 		}
 	}
 #endif
@@ -227,6 +355,14 @@ static void *amu_context_restore(const void *arg)
 		amu_group0_cnt_write(i, ctx->group0_cnts[i]);
 	}
 
+	/* Restore group 0 virtual offsets if supported and enabled. */
+	if (is_armv8_6_amu_present() && (read_hcr_el2() | HCR_AMVOFFEN_BIT)) {
+		/* Not using a loop because count is fixed and index 1 DNE. */
+		amu_group0_voffset_write(0U, ctx->group0_voffsets[0U]);
+		amu_group0_voffset_write(2U, ctx->group0_voffsets[1U]);
+		amu_group0_voffset_write(3U, ctx->group0_voffsets[2U]);
+	}
+
 	/* Restore group 0 counter configuration */
 	write_amcntenset0_el0(AMU_GROUP0_COUNTERS_MASK);
 
@@ -235,6 +371,18 @@ static void *amu_context_restore(const void *arg)
 	for (i = 0U; i < AMU_GROUP1_NR_COUNTERS; i++) {
 		if ((AMU_GROUP1_COUNTERS_MASK & (1U << i)) != 0U) {
 			amu_group1_cnt_write(i, ctx->group1_cnts[i]);
+		}
+	}
+
+	/* Restore group 1 virtual offsets if supported and enabled. */
+	if (is_armv8_6_amu_present() && (read_hcr_el2() | HCR_AMVOFFEN_BIT)) {
+		u_register_t amcg1idr = read_amcg1idr_el0() >> 16;
+
+		for (i = 0U; i < AMU_GROUP1_NR_COUNTERS; i++) {
+			if (((amcg1idr >> i) & 1U) != 0U) {
+				amu_group1_voffset_write(i,
+					ctx->group1_voffsets[i]);
+			}
 		}
 	}
 
