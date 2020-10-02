@@ -76,6 +76,12 @@ static inline unsigned long int get_armv8_6_ecv_support(void)
 		ID_AA64MMFR0_EL1_ECV_MASK);
 }
 
+static inline bool is_armv8_6_feat_amuv1p1_present(void)
+{
+	return (((read_id_aa64pfr0_el1() >> ID_AA64PFR0_AMU_SHIFT) &
+		ID_AA64PFR0_AMU_MASK) >= ID_AA64PFR0_AMU_V1P1);
+}
+
 /*
  * Return MPAM version:
  *
