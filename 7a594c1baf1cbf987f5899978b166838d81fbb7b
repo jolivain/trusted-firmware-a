@@ -157,6 +157,29 @@
     },
     {
       "key": {
+        "uuid": "9b75c3fc_946a1b3d",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-03T21:27:34Z",
+      "side": 1,
+      "message": "What happens if a caller calls ehf_allow_ns_preemption(), followed by ehf_activate_priority() followed by entry into secure world? It seems like ehf_activate_priority needs to have a corresponding check to enforce that allow_ns_pri is not 1 when it is called(perhaps panic() like other checks). This is a missing check even in existing code..This is a programming error but so is calling ehf_allow_ns_preemption when there are active priority levels..",
+      "range": {
+        "startLine": 338,
+        "startChar": 1,
+        "endLine": 342,
+        "endChar": 2
+      },
+      "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1f8449ec_5e9c37cc",
         "filename": "bl31/ehf.c",
         "patchSetId": 1
@@ -201,6 +224,30 @@
       "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41170705_b1685122",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-03T21:27:34Z",
+      "side": 1,
+      "message": "Never mind both comments here. There are 4 distinct events published in context_mgmt.c and there is no change required to remove publish/subscribe of cm_exited_normal_world.",
+      "parentUuid": "105e937f_ff8276c2",
+      "range": {
+        "startLine": 521,
+        "startChar": 19,
+        "endLine": 521,
+        "endChar": 43
+      },
+      "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
