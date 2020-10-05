@@ -117,6 +117,29 @@
       "revId": "683d40b48b08046aedc197deebe4562c06716435",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff849320_9fd94f50",
+        "filename": "drivers/arm/gic/v2/gicv2_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-10-05T23:21:59Z",
+      "side": 1,
+      "message": "From the previous code, I\u0027m assuming that this variable is an unsigned int. So before we cast it to an int, we should also check that \"target_masks_num \u003c INT_MAX\" to make sure that the value is in the right range.",
+      "range": {
+        "startLine": 471,
+        "startChar": 19,
+        "endLine": 471,
+        "endChar": 53
+      },
+      "revId": "683d40b48b08046aedc197deebe4562c06716435",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
