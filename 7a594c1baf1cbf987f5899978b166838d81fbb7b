@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3c0d78da_5ac1150e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-05T08:33:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "baf2347c_0f496641",
+      "range": {
+        "startLine": 14,
+        "startChar": 12,
+        "endLine": 14,
+        "endChar": 38
+      },
+      "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea8600f8_f30856ec",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2020-10-02T16:52:52Z",
       "side": 1,
       "message": "Looking at https://trustedfirmware-a.readthedocs.io/en/latest/components/exception-handling.html#interrupt-handling\n\nJust trying to clarify:\n\nIIUC when an S-EL1 component exists and EHF is enabled, the SPD must adopt the policy that NS interrupts are trapped at EL3 but then redirected S-EL1.\n\nAlso PMR can be manipulated at S-EL1 so adjusting from EL3 is not bulletproof IMO.",
+      "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27b82db4_eef44b1b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-05T08:33:32Z",
+      "side": 1,
+      "message": "Yes. This is a limitation to the G0 interrupt\u0027s privilege IMHO. \nThis has to be dealt with cooperative software.\nie: platform can define \u0027GIC_HIGHEST_S_EL1_PRI\u0027 and the secure\nworld respects to not step into EL3 PMR range by design. \nSecure ELx can achieve all its functionality without disturbing PMR outside its range. And this way G0 interrupt\u0027s privilege is retained. This is just my thought to get around this limitation.\n\nIf we follow other routing model to trap fiq to S_EL2/S_EL1 then\nthere are potential window where a critical event is masked by something of lower priority or importance.",
+      "parentUuid": "ea8600f8_f30856ec",
       "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -62,6 +104,30 @@
       "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba8a42a2_1726c53c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-05T08:33:32Z",
+      "side": 1,
+      "message": "All of them.  \u0027spd_pm_ops\u0027 is the right word.",
+      "parentUuid": "2c95cefd_d38c82c4",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 17,
+        "endChar": 58
+      },
+      "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +177,54 @@
     },
     {
       "key": {
+        "uuid": "a95e6589_d619b5db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-05T08:33:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3112c90a_9212b9ad",
+      "range": {
+        "startLine": 18,
+        "startChar": 36,
+        "endLine": 18,
+        "endChar": 52
+      },
+      "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48eb54b6_641fd8be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-05T08:33:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8662d3a0_b60eef93",
+      "range": {
+        "startLine": 18,
+        "startChar": 7,
+        "endLine": 18,
+        "endChar": 34
+      },
+      "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef864041_bed3e8ca",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -122,6 +236,30 @@
       "writtenOn": "2020-10-03T16:03:06Z",
       "side": 1,
       "message": "should\u0027nt the fix really be that you save non-secure context before entering secure world? Why would you enter S-EL1 or S-EL2 without saving non-secure context?\nIf you fix SPD_PM(whatever it is) to save non-secure context, will this problem not be solved? Please let me know if i\u0027m missing something here.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 27
+      },
+      "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f0b015d_c7ecea3d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-05T08:33:32Z",
+      "side": 1,
+      "message": "I will rephrase the comment. It is only the sysreg context of NS world which is not getting saved while doing the spd_pm_ops.\nThey do the synchronous entry/exit to secure world. There may be an\nissue there as well.\n\nMy first attempt was exactly to add the saving of sysreg ctx for psci calls also. It did not work probably due to something I did wrong. But by then I realize it only makes sense to adjust PMR\nwhen we actually do a world switch. \n1a- exited normal world\n 2a- entering secure world (optional)\n 2b- exited secure world   ( loop (2a))\n1b- entering normal world\nSo event 2a and 1b are more interesting than 1a and 2b.\n\nI can relook into the saving of sysreg on psci experiment as well to clarify. It should have worked.",
+      "parentUuid": "ef864041_bed3e8ca",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "4755680e_ace9022c",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-05T08:33:32Z",
+      "side": 1,
+      "message": "There may be possibility to have a simpler mechanism. I will surely look into it. At the moment I wanted to get functionality right without disturbing much of existing code.",
+      "parentUuid": "28f5750e_c3c461ea",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 13
+      },
+      "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9b75c3fc_946a1b3d",
         "filename": "bl31/ehf.c",
         "patchSetId": 1
@@ -168,6 +330,30 @@
       "writtenOn": "2020-10-03T21:27:34Z",
       "side": 1,
       "message": "What happens if a caller calls ehf_allow_ns_preemption(), followed by ehf_activate_priority() followed by entry into secure world? It seems like ehf_activate_priority needs to have a corresponding check to enforce that allow_ns_pri is not 1 when it is called(perhaps panic() like other checks). This is a missing check even in existing code..This is a programming error but so is calling ehf_allow_ns_preemption when there are active priority levels..",
+      "range": {
+        "startLine": 338,
+        "startChar": 1,
+        "endLine": 342,
+        "endChar": 2
+      },
+      "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de62ecf6_89942fcd",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-05T08:33:32Z",
+      "side": 1,
+      "message": "In general yes it can look like a programing error. But consider this.\n\nYielding SMC handler gets preempted by EHF handler (non-interrupt) and then you explicitly activate the priority level and delegate the handling to secure world. Here you do want to\nactivate the priority level while the state is \u0027allow_ns_pri\u0027. Once EHF handler is done control needs to return to secure world. And the state \u0027allow_ns_pri\u0027 remains valid till the SMC returns to normal world.\n\nNote: Delegation to secure world is something that will not work with current state of code in either TF-A or TOS (op-tee).",
+      "parentUuid": "9b75c3fc_946a1b3d",
       "range": {
         "startLine": 338,
         "startChar": 1,
@@ -239,6 +425,30 @@
       "side": 1,
       "message": "Never mind both comments here. There are 4 distinct events published in context_mgmt.c and there is no change required to remove publish/subscribe of cm_exited_normal_world.",
       "parentUuid": "105e937f_ff8276c2",
+      "range": {
+        "startLine": 521,
+        "startChar": 19,
+        "endLine": 521,
+        "endChar": 43
+      },
+      "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19be3d6b_591dcff9",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-05T08:33:32Z",
+      "side": 1,
+      "message": "The importance of entering (S/NS) world event is, they are definitive and requires action of PMR adjustment. Exiting (S/NS) event does not necessarily means we will do a world switch.",
+      "parentUuid": "41170705_b1685122",
       "range": {
         "startLine": 521,
         "startChar": 19,
