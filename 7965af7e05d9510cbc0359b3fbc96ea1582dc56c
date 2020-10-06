@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6f78932_b56831e1",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-06T12:09:59Z",
+      "side": 1,
+      "message": "add \\n",
+      "revId": "7965af7e05d9510cbc0359b3fbc96ea1582dc56c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13b6bcb8_9b2d07b1",
+        "filename": "lib/extensions/amu/aarch32/amu_helpers.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-06T12:09:59Z",
+      "side": 1,
+      "message": "nit: replace tabs after r1, with spaces.",
+      "revId": "7965af7e05d9510cbc0359b3fbc96ea1582dc56c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a31e6936_e9ae2442",
+        "filename": "lib/extensions/amu/aarch32/amu_helpers.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-06T12:09:59Z",
+      "side": 1,
+      "message": "I would be better to move these functions to include\\arch\\aarch32\\arch_helpers.h",
+      "revId": "7965af7e05d9510cbc0359b3fbc96ea1582dc56c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42bc2568_e49b0ea3",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-06T12:09:59Z",
+      "side": 1,
+      "message": "\\n",
+      "revId": "7965af7e05d9510cbc0359b3fbc96ea1582dc56c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "535907cc_82e4f1d2",
+        "filename": "lib/extensions/amu/aarch64/amu_helpers.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-06T12:09:59Z",
+      "side": 1,
+      "message": "I would be better to move these functions to include\\arch\\aarch64\\arch_helpers.h",
+      "revId": "7965af7e05d9510cbc0359b3fbc96ea1582dc56c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
