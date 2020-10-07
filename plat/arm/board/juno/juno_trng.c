@@ -13,7 +13,11 @@
 #include <lib/utils_def.h>
 #include <platform_def.h>
 
-#include "juno_decl.h"
+#include <lib/smccc.h>
+#include <services/trng_svc.h>
+#include <smccc_helpers.h>
+
+#include <plat/common/platform.h>
 
 #define NSAMPLE_CLOCKS	1U /* min 1 cycle, max 231 cycles */
 #define NRETRIES	5U
@@ -35,19 +39,18 @@ static bool output_valid(void)
 	return false; /* No output data available. */
 }
 
-/*
- * This function fills `buf` with 8 bytes of entropy.
- * It uses the Trusted Entropy Source peripheral on Juno.
- * Returns 0 when the buffer has been filled with entropy
- * successfully and -1 otherwise.
- * 	   'false' otherwise.
- */
-bool juno_getentropy(uint64_t *buf)
+DEFINE_SVC_UUID2(_plat_trng_uuid,
+	0x23523c58, 0x7448, 0x4083, 0x9d, 0x16,
+	0xe3, 0xfa, 0xb9, 0xf1, 0x73, 0xbc
+);
+uuid_t plat_trng_uuid = _plat_trng_uuid;
+
+bool plat_get_entropy(uint64_t *out)
 {
 	uint64_t ret;
 
-	assert(buf);
-	assert(!check_uptr_overflow((uintptr_t)buf, sizeof(*buf)));
+	assert(out);
+	assert(!check_uptr_overflow((uintptr_t)out, sizeof(*out)));
 
 	if (!juno_trng_initialized) {
 		/* Disable interrupt mode. */
@@ -78,7 +81,7 @@ bool juno_getentropy(uint64_t *buf)
 
 	ret |= mmio_read_32(TRNG_BASE + 8);
 	ret ^= mmio_read_32(TRNG_BASE + 12);
-	*buf = ret;
+	*out = ret;
 
 	/* Acknowledge current cycle, clear output registers. */
 	mmio_write_32(TRNG_BASE + TRNG_STATUS, 1U);
@@ -86,4 +89,12 @@ bool juno_getentropy(uint64_t *buf)
 	mmio_write_32(TRNG_BASE + TRNG_CONTROL, 1U);
 
 	return true;
+}
+
+void plat_entropy_setup(void)
+{
+	uint64_t dummy;
+
+	/* Initialise the entropy source and trigger RNG generation */
+	plat_get_entropy(&dummy);
 }
