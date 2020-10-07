@@ -44,6 +44,61 @@ func check_errata_1688305
 	b	cpu_rev_var_ls
 endfunc check_errata_1688305
 
+/* --------------------------------------------------
+ * Errata Workaround for A78 Erratum 1951500.
+ * This applies to revisions r1p0 - r1p1 of A78.
+ * It also exists in r0p0 but there is no fix in that
+ * revision.
+ * Inputs:
+ * x0: variant[4:7] and revision[0:3] of current cpu.
+ * Shall clobber: x0-x17
+ * --------------------------------------------------
+ */
+func errata_a78_1951500_wa
+	/* Compare x0 against revisions r1p0 - r1p1 */
+	mov	x17, x30
+	bl	check_errata_1951500
+	cbz	x0, 1f
+
+	mov	x0, #0
+	msr	S3_6_c15_c8_0, x0
+	ldr	x0, =0x10E3900002
+	msr	S3_6_c15_c8_2, x0
+	ldr	x0, =0x10FFF00083
+	msr	S3_6_c15_c8_3, x0
+	ldr	x0, =0x2001003FF
+	msr	S3_6_c15_c8_1, x0
+
+	mov	x0, #1
+	msr	S3_6_c15_c8_0, x0
+	ldr	x0, =0x10E3800082
+	msr	S3_6_c15_c8_2, x0
+	ldr	x0, =0x10FFF00083
+	msr	S3_6_c15_c8_3, x0
+	ldr	x0, =0x2001003FF
+	msr	S3_6_c15_c8_1, x0
+
+	mov	x0, #2
+	msr	S3_6_c15_c8_0, x0
+	ldr	x0, =0x10E3800200
+	msr	S3_6_c15_c8_2, x0
+	ldr	x0, =0x10FFF003E0
+	msr	S3_6_c15_c8_3, x0
+	ldr	x0, =0x2001003FF
+	msr	S3_6_c15_c8_1, x0
+
+	isb
+1:
+	ret	x17
+endfunc errata_a78_1951500_wa
+
+func check_errata_1951500
+	/* Applies to revisions r1p0 - r1p1. */
+	mov	x1, #0x10
+	mov	x2, #0x11
+	b	cpu_rev_var_range
+endfunc check_errata_1951500
+
 	/* -------------------------------------------------
 	 * The CPU Ops reset function for Cortex-A78
 	 * -------------------------------------------------
@@ -56,6 +111,11 @@ func cortex_a78_reset_func
 #if ERRATA_A78_1688305
 	mov     x0, x18
 	bl	errata_a78_1688305_wa
+#endif
+
+#if ERRATA_A78_1951500
+	mov	x0, x18
+	bl	errata_a78_1951500_wa
 #endif
 
 #if ENABLE_AMU
@@ -113,6 +173,7 @@ func cortex_a78_errata_report
 	 * checking functions of each errata.
 	 */
 	report_errata ERRATA_A78_1688305, cortex_a78, 1688305
+	report_errata ERRATA_A78_1951500, cortex_a78, 1951500
 
 	ldp	x8, x30, [sp], #16
 	ret
