@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd3f3ed7_95d2ff68",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-07T07:30:09Z",
+      "side": 1,
+      "message": "This is already defined in \"mbedtls_config.h\" file. Can you provide more explanation why this change is needed?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "9dc79cd5d5b58dadd2fb4e09a27ef12d1e3706be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
