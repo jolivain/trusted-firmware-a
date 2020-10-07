@@ -53,7 +53,6 @@
 	(R12_SCP2SPM_WAKEUP_B) | \
 	(R12_ADSP2SPM_WAKEUP_B) | \
 	(R12_USBX_CDSC_B) | \
-	(R12_USBX_POWERDWN_B) | \
 	(R12_SYS_TIMER_EVENT_B) | \
 	(R12_EINT_EVENT_SECURE_B) | \
 	(R12_CCIF1_EVENT_B) | \
@@ -284,6 +283,10 @@ int mt_spm_suspend_mode_set(int mode, void *prv)
 int mt_spm_suspend_enter(int state_id, unsigned int ext_opand,
 			 unsigned int resource_req)
 {
+	static uint32_t times = 1;
+
+	ERROR("Debug, times = %u\n", times);
+
 	/* if FMAudio, ADSP is active, change to sleep suspend mode */
 	if (ext_opand & MT_SPM_EX_OP_SET_SUSPEND_MODE)
 		mt_spm_suspend_mode_set(MT_SPM_SUSPEND_SLEEP, NULL);
@@ -298,6 +301,13 @@ int mt_spm_suspend_enter(int state_id, unsigned int ext_opand,
 
 	/* switch vcoredvfs table for MD only */
 	dvfsrc_md_ddr_turbo(0);
+
+	if (times % 2 == 0)
+		suspend_ctrl.wake_src &= ~(R12_EINT_EVENT_B | R12_SYS_CIRQ_IRQ_B);
+	else
+		suspend_ctrl.wake_src |= (R12_EINT_EVENT_B | R12_SYS_CIRQ_IRQ_B);
+
+	times++;
 
 	return spm_conservation(state_id, ext_opand,
 				&__spm_suspend, resource_req);
