@@ -129,6 +129,7 @@ There are several build options:
             - DDR3 1CS (4): DB-88F3720-DDR3-Modular (1GB)
             - DDR4 1CS (5): EspressoBin V7 (1GB)
             - DDR4 2CS (6): EspressoBin V7 (2GB)
+            - DDR3 2CS (7): EspressoBin V3-V5 (2GB)
             - CUSTOMER (CUST): Customer board, DDR3 1CS 512MB
 
 - CLOCKSPRESET
@@ -259,11 +260,12 @@ Armada37x0 Builds require installation of 3 components
         > export CROSS_CM3=/opt/arm-cross/bin/arm-linux-gnueabi
 
 (2) DDR initialization library sources (mv_ddr) available at the following repository
-    (use the "mv_ddr-armada-18.12" branch):
+    (use the "mv-ddr-devel" branch):
 
     https://github.com/MarvellEmbeddedProcessors/mv-ddr-marvell.git
 
-(3) Armada3700 tools available at the following repository (use the latest release branch):
+(3) Armada3700 tools available at the following repository
+    (use the "A3700_utils-armada-18.12-fixed" branch):
 
     https://github.com/MarvellEmbeddedProcessors/A3700-utils-marvell.git
 
@@ -271,6 +273,6 @@ Armada70x0 and Armada80x0 Builds require installation of an additional component
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 (1) DDR initialization library sources (mv_ddr) available at the following repository
-    (use the "mv_ddr-armada-18.12" branch):
+    (use the "mv-ddr-devel" branch):
 
     https://github.com/MarvellEmbeddedProcessors/mv-ddr-marvell.git
