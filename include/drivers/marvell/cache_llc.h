@@ -57,6 +57,6 @@ int llc_sram_enable(int ap_index, int size);
 void llc_sram_disable(int ap_index);
 int llc_sram_test(int ap_index, int size, char *msg);
 #endif /* LLC_SRAM */
-#endif /* __ASSEMBLY__ */
+#endif /* __ASSEMBLER__ */
 
 #endif /* CACHE_LLC_H */

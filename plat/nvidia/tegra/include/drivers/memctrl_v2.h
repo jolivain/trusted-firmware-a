@@ -26,7 +26,7 @@
 #define MC_SMMU_BYPASS_CONFIG_SETTINGS		(MC_SMMU_BYPASS_CONFIG_WRITE_ACCESS_BIT | \
 						 MC_SMMU_CTRL_TBU_BYPASS_SPL_STREAMID)
 
-#ifndef __ASSEMBLY__
+#ifndef	__ASSEMBLER__
 
 #include <assert.h>
 
@@ -53,9 +53,9 @@ typedef struct mc_regs {
 		.val = 0xFFFFFFFFU, \
 	}
 
-#endif /* __ASSEMBLY__ */
+#endif /* __ASSEMBLER__ */
 
-#ifndef __ASSEMBLY__
+#ifndef __ASSEMBLER__
 
 #include <lib/mmio.h>
 
