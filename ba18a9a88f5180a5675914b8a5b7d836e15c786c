@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "7f104ec1_3ac11982",
+        "filename": "include/lib/coreboot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-10-07T06:21:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ca69b29_bde8ae1b",
+      "revId": "ba18a9a88f5180a5675914b8a5b7d836e15c786c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b5cef06_f328145b",
         "filename": "lib/coreboot/coreboot_table.c",
         "patchSetId": 2
@@ -84,6 +102,30 @@
     },
     {
       "key": {
+        "uuid": "f4bfe7a8_718d9509",
+        "filename": "lib/coreboot/coreboot_table.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-10-07T06:21:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c3894d0_3480fc70",
+      "range": {
+        "startLine": 109,
+        "startChar": 70,
+        "endLine": 109,
+        "endChar": 84
+      },
+      "revId": "ba18a9a88f5180a5675914b8a5b7d836e15c786c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14c67d37_423f333e",
         "filename": "lib/coreboot/coreboot_table.c",
         "patchSetId": 2
@@ -116,6 +158,24 @@
       "revId": "ba18a9a88f5180a5675914b8a5b7d836e15c786c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7527d7e2_8825ad3c",
+        "filename": "lib/coreboot/coreboot_table.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-10-07T06:21:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d6bb8a3_2be372e4",
+      "revId": "ba18a9a88f5180a5675914b8a5b7d836e15c786c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
