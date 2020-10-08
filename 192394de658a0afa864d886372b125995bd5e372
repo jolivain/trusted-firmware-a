@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9685abcf_f07470b4",
+        "filename": "include/lib/coreboot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-10-08T00:33:56Z",
+      "side": 1,
+      "message": "Why not just keep the old name? The arguments make clear that it operates on a range, you\u0027re just making it hard to type at this point...\n\n(Also, please remember to stay within 80 character limits in all your patches.)",
+      "range": {
+        "startLine": 42,
+        "startChar": 42,
+        "endLine": 42,
+        "endChar": 51
+      },
+      "revId": "192394de658a0afa864d886372b125995bd5e372",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd60e926_19f09408",
+        "filename": "lib/coreboot/coreboot_table.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-10-08T00:33:56Z",
+      "side": 1,
+      "message": "no space before a comma",
+      "range": {
+        "startLine": 92,
+        "startChar": 67,
+        "endLine": 92,
+        "endChar": 68
+      },
+      "revId": "192394de658a0afa864d886372b125995bd5e372",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3beba88_344c4119",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-10-08T00:33:56Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "192394de658a0afa864d886372b125995bd5e372",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d29f6bac_a7939c4a",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-10-08T00:33:56Z",
+      "side": 1,
+      "message": "missing space",
+      "range": {
+        "startLine": 111,
+        "startChar": 49,
+        "endLine": 111,
+        "endChar": 52
+      },
+      "revId": "192394de658a0afa864d886372b125995bd5e372",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b9c0387_7f1154e8",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2020-10-08T00:33:56Z",
+      "side": 1,
+      "message": "overlong line",
+      "revId": "192394de658a0afa864d886372b125995bd5e372",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
