@@ -895,7 +895,8 @@ $(eval $(call assert_booleans,\
         SAVE_KEYS \
         SEPARATE_CODE_AND_RODATA \
         SEPARATE_NOBITS_REGION \
-        SPIN_ON_BL1_EXIT \
+	SP_ASYNC_PREEEMPT \
+	SPIN_ON_BL1_EXIT \
         SPM_MM \
         SPMD_SPM_AT_SEL2 \
         TRUSTED_BOARD_BOOT \
@@ -984,7 +985,8 @@ $(eval $(call add_defines,\
         SEPARATE_CODE_AND_RODATA \
         SEPARATE_NOBITS_REGION \
         RECLAIM_INIT_CODE \
-        SPD_${SPD} \
+	SP_ASYNC_PREEMPT \
+	SPD_${SPD} \
         SPIN_ON_BL1_EXIT \
         SPM_MM \
         SPMD_SPM_AT_SEL2 \
