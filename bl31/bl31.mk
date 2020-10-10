@@ -100,6 +100,7 @@ $(eval $(call assert_booleans,\
 	CRASH_REPORTING \
 	EL3_EXCEPTION_HANDLING \
 	SDEI_SUPPORT \
+	SP_ASYNC_PREEMPT \
 )))
 
 $(eval $(call add_defines,\
@@ -107,4 +108,5 @@ $(eval $(call add_defines,\
         CRASH_REPORTING \
         EL3_EXCEPTION_HANDLING \
         SDEI_SUPPORT \
+	SP_ASYNC_PREEMPT \
 )))

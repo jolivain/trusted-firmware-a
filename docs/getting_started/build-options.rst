@@ -298,7 +298,7 @@ Common build options
 -  ``EL3_EXCEPTION_HANDLING``: When set to ``1``, enable handling of exceptions
    targeted at EL3. When set ``0`` (default), no exceptions are expected or
    handled at EL3, and a panic will result. This is supported only for AArch64
-   builds.
+   builds. The preemption model can be selected by ``SP_ASYNC_PREEMPT``.
 
 -  ``EVENT_LOG_LEVEL``: Chooses the log level to use for Measured Boot when
    ``MEASURED_BOOT`` is enabled. For a list of valid values, see ``LOG_LEVEL``.
@@ -586,6 +586,13 @@ Common build options
    (disabled). This option cannot be enabled (``1``) when SPM Dispatcher is
    enabled (``SPD=spmd``).
 
+-  ``SP_ASYNC_PREEMPT``: A non zero value enables the interrupt
+   routing model which routes foreign interrupts (EL3 intrrupts and non-secure
+   interrupts to EL3. The EL3 is responsible for saving and restoring the SP context
+   in this routing model. The default routing model (when the value is 0) is to handle
+   foreign interrupts (EL3 interrupts and non-secure interrupts) interrupts to SP
+   allowing it to save its context and hand over synchronously to EL3 via an SMC.
+
 -  ``SP_LAYOUT_FILE``: Platform provided path to JSON file containing the
    description of secure partitions. The build system will parse this file and
    package all secure partition blobs into the FIP. This file is not
@@ -625,7 +632,8 @@ Common build options
    for saving and restoring the TSP context in this routing model. The
    default routing model (when the value is 0) is to route non-secure
    interrupts to TSP allowing it to save its context and hand over
-   synchronously to EL3 via an SMC.
+   synchronously to EL3 via an SMC. This requires ``SP_ASYNC_PREEMPT``
+   to be set to ``1``.
 
    .. note::
       When ``EL3_EXCEPTION_HANDLING`` is ``1``, ``TSP_NS_INTR_ASYNC_PREEMPT``

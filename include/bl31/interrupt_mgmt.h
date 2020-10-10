@@ -99,24 +99,40 @@ static inline int32_t validate_sel1_interrupt_rm(uint32_t x)
 
 static inline int32_t validate_ns_interrupt_rm(uint32_t x)
 {
-	if ((x == INTR_NS_VALID_RM0) || (x == INTR_NS_VALID_RM1))
+#if SP_ASYNC_PREEMPT
+	/*
+	 * SP is preempted asynchronously by the foreign interrupts.
+	 * NS interrupts must be routed to EL3.
+	 */
+	if (x == INTR_NS_VALID_RM1)
 		return 0;
+#else
+	/*
+	 * SP is preempted synchronously by the foregn interrupts.
+	 * NS interrupts must be routed to S_ELx while core is in S_ELx.
+	 */
+	if (x == INTR_NS_VALID_RM0)
+		return 0;
+#endif
 
 	return -EINVAL;
 }
 
 static inline int32_t validate_el3_interrupt_rm(uint32_t x)
 {
-#if EL3_EXCEPTION_HANDLING
+#if SP_ASYNC_PREEMPT
 	/*
-	 * With EL3 exception handling, EL3 interrupts are always routed to EL3
-	 * from both Secure and Non-secure, and therefore INTR_EL3_VALID_RM1 is
-	 * the only valid routing model.
+	 * SP is preempted asynchronously by the foreign interrupts.
+	 * EL3 interrupts must be routed to EL3.
 	 */
 	if (x == INTR_EL3_VALID_RM1)
 		return 0;
 #else
-	if ((x == INTR_EL3_VALID_RM0) || (x == INTR_EL3_VALID_RM1))
+	/*
+	 * SP is preempted synchronously by the foreign interrupts.
+	 * EL3 interrupts routed to S_ELx while execution is in S_ELx.
+	 */
+	if (x == INTR_EL3_VALID_RM0)
 		return 0;
 #endif
 

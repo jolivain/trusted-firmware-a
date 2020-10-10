@@ -141,8 +141,13 @@ Interrupt handling
 
 The |EHF| is a client of *Interrupt Management Framework*, and registers the
 top-level handler for interrupts that target EL3, as described in the
-:ref:`Interrupt Management Framework` document. This has the following
-implications:
+:ref:`Interrupt Management Framework` document.
+
+Depending on the choice of routing model ``SP_ASYNC_PREEMPT`` EL3 interrupts
+can be targeted to EL3 or S-EL1.
+
+This has the following implications:
+When ``SP_ASYNC_PREEMPT`` is set to ``1``
 
 -  On GICv3 systems, when executing in S-EL1, pending Non-secure interrupts of
    sufficient priority are signalled as FIQs, and therefore will be routed to
@@ -161,6 +166,22 @@ implications:
 -  While executing in Secure world, |EHF| sets GIC Priority Mask Register to the
    lowest Secure priority. This means that no Non-secure interrupts can preempt
    Secure execution. See `Effect on SMC calls`_ for more details.
+
+When ``SP_ASYNC_PREEMPT`` is set to ``0``
+
+- On GICv3 systems, When executing in S-EL1, pending Non-secure interrupts of
+  sufficient priority as well as pending *Group 0* interrupts of sufficient priority
+  are received at S-EL1. The S-EL1 software can treat both *Group 0* and Non-secure
+  interrupts as foreign interrupt and transfer control to the dispatcher. Likewise
+  the dispatcher also can exit to the Non-secure world for *Group 0* interrupt.
+  After switching to the Non-secure world the routing mode of the Non-secure world
+  takes effect. As a result *Group 0* interrupt is routed to EL3.
+  ref:`CSS=1, TEL3=1 <EL3 interrupts>`.
+
+- On GICv2 systems, When executing in S-El1, *Group 0* interrupts are delivered
+  as IRQ and Non-secure interrupts are delivered as FIQ. S-EL1 software will have
+  to treat both IRQ and FIQ as foreign interrupt and exit to Non-secure world.
+  The option ``GICV2_G0_FOR_EL3`` is required to be set to ``1``.
 
 As mentioned above, with |EHF|, the platform is required to partition *Group 0*
 interrupts into distinct priority levels. A dispatcher that chooses to receive

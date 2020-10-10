@@ -217,6 +217,7 @@ void ehf_deactivate_priority(unsigned int priority)
 	EHF_LOG("deactivate prio=%d\n", get_pe_highest_active_idx(pe_data));
 }
 
+#if SP_ASYNC_PREEMPT
 /*
  * After leaving Non-secure world, stash current Non-secure Priority Mask, and
  * set Priority Mask to the highest Non-secure priority so that Non-secure
@@ -386,6 +387,7 @@ unsigned int ehf_is_ns_preemption_allowed(void)
 
 	return 1;
 }
+#endif
 
 /*
  * Top-level EL3 interrupt handler.
@@ -477,7 +479,14 @@ void __init ehf_init(void)
 
 	/* Route EL3 interrupts when in Secure and Non-secure. */
 	set_interrupt_rm_flag(flags, NON_SECURE);
+
+#if SP_ASYNC_PREEMPT
+	/*
+	 * SP will be preempted asynchronously by foreign interrupts.
+	 * This can happen due to G0 interrupt Or Non-secure interrupt.
+	 */
 	set_interrupt_rm_flag(flags, SECURE);
+#endif
 
 	/* Register handler for EL3 interrupts */
 	ret = register_interrupt_type_handler(INTR_TYPE_EL3,
@@ -522,5 +531,7 @@ void ehf_register_priority_handler(unsigned int pri, ehf_handler_t handler)
 	EHF_LOG("register pri=0x%x handler=%p\n", pri, handler);
 }
 
+#if SP_ASYNC_PREEMPT
 SUBSCRIBE_TO_EVENT(cm_entering_normal_world, ehf_entering_normal_world);
 SUBSCRIBE_TO_EVENT(cm_exited_normal_world, ehf_exited_normal_world);
+#endif

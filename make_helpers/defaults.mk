@@ -99,6 +99,11 @@ ENABLE_STACK_PROTECTOR		:= 0
 # Flag to enable exception handling in EL3
 EL3_EXCEPTION_HANDLING		:= 0
 
+# Flag to enable SP asynchronous preemption routing model.
+# Foreign interrupts will be routed to EL3 while execution is
+# in secure world.
+SP_ASYNC_PREEMPT		:= 0
+
 # Flag to enable Branch Target Identification.
 # Internal flag not meant for direct setting.
 # Use BRANCH_PROTECTION to enable BTI.
