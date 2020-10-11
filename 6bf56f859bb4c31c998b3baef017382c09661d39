@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bee3815_22c38c80",
+        "filename": "make_helpers/tbbr/tbbr_tools.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-11T17:28:36Z",
+      "side": 1,
+      "message": "Can you please explain in detail about this check?",
+      "revId": "6bf56f859bb4c31c998b3baef017382c09661d39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9db40f12_0c8ca330",
+        "filename": "make_helpers/tbbr/tbbr_tools.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-11T17:28:36Z",
+      "side": 1,
+      "message": "I think, there is no need to set variable inside the condition as we can set the variable to default value. for e.g. as below: \nTRUSTED_KEY_CERT\t?\u003d\t${BUILD_PLAT}/trusted_key.crt",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 49
+      },
+      "revId": "6bf56f859bb4c31c998b3baef017382c09661d39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a338e7a_023200d6",
+        "filename": "make_helpers/tbbr/tbbr_tools.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-11T17:28:36Z",
+      "side": 1,
+      "message": "This is not good way to set FIP_ARGS in this file. May I know, why it is explicitly set like this when we have \u0027TOOL_ADD_PAYLOAD\u0027 macro which do the job of setting FIP_ARGS.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 50
+      },
+      "revId": "6bf56f859bb4c31c998b3baef017382c09661d39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
