@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "2b9ecb4f_eaad7685",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-12T13:37:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2273b646_1fee4120",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 3
+      },
+      "revId": "8d47d8851852804ccb8a5867aac0989a6b1a217f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f47e9d81_c89d7d3c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-12T13:37:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7132c20a_c7f05c70",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 6
+      },
+      "revId": "8d47d8851852804ccb8a5867aac0989a6b1a217f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9be528ab_d69f4e2b",
         "filename": "bl31/ehf.c",
         "patchSetId": 2
@@ -59,6 +107,24 @@
       "writtenOn": "2020-10-12T12:23:28Z",
       "side": 1,
       "message": "If the lower secure EL is preempted by a foreign interrupt, it gets back to normal world, and it is resumed  later to where it was interrupted. Thus does it require it to call ehf_allow_ns_preemption again each time it is pre-empted? Is the lower EL even aware it was pre-empted?",
+      "revId": "8d47d8851852804ccb8a5867aac0989a6b1a217f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "606923ff_5cf84499",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-12T13:37:44Z",
+      "side": 1,
+      "message": "This event is when we are exiting to normal world. The next entry to secure world is a fresh SMC request under the control of normal world scheduling. ie: even to resume the preempted SMC handler it will be a fresh SMC call when the normal world thread is resumed. It is also possible to get a fast SMC or different type of SMC call in between. ie: it can resume/start any other yielding SMC handling. preemption of yielding SMC should be considered as a \u0027schedule_out\u0027.\nHence resetting the priority mask logic is necessary here.\n\n\u003e  Is the lower EL even aware it was pre-empted?\n\nYielding SMC handler-NS intr-\u003e EL3 spd NS_EL1 type handler --(*synch_entry_to_sp)--exit to normal world.\n*sync_entry_to_sp : this does not exist. This can make SP aware that it was preempted.\nBut that is SP/SPD implementation.",
+      "parentUuid": "9be528ab_d69f4e2b",
       "revId": "8d47d8851852804ccb8a5867aac0989a6b1a217f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -85,6 +151,30 @@
       "revId": "8d47d8851852804ccb8a5867aac0989a6b1a217f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53e06658_5d9276ee",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-12T13:37:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "54e4c0ac_3ceb2746",
+      "range": {
+        "startLine": 307,
+        "startChar": 3,
+        "endLine": 307,
+        "endChar": 4
+      },
+      "revId": "8d47d8851852804ccb8a5867aac0989a6b1a217f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -122,6 +212,54 @@
       "writtenOn": "2020-10-12T12:23:28Z",
       "side": 1,
       "message": "use a boolean?",
+      "range": {
+        "startLine": 70,
+        "startChar": 1,
+        "endLine": 70,
+        "endChar": 8
+      },
+      "revId": "8d47d8851852804ccb8a5867aac0989a6b1a217f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b08866c_e5a6351e",
+        "filename": "include/bl31/ehf.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-12T13:37:44Z",
+      "side": 1,
+      "message": "I thought allow non secure priority range. \u0027allow_ns_preemption\u0027 is also fine.",
+      "parentUuid": "cd50dbeb_98e531c1",
+      "range": {
+        "startLine": 70,
+        "startChar": 9,
+        "endLine": 70,
+        "endChar": 21
+      },
+      "revId": "8d47d8851852804ccb8a5867aac0989a6b1a217f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d154565_5af1bea3",
+        "filename": "include/bl31/ehf.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-12T13:37:44Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "6ec06e0f_b54988ee",
       "range": {
         "startLine": 70,
         "startChar": 1,
