@@ -58,6 +58,7 @@ BL31_SOURCES    += common/desc_image_load.c                              \
                    ${MTK_PLAT_SOC}/drivers/spm/spm_suspend.c             \
                    ${MTK_PLAT_SOC}/drivers/gpio/mtgpio.c                 \
                    ${MTK_PLAT_SOC}/drivers/uart/uart.c                   \
+                   ${MTK_PLAT_SOC}/drivers/timer/mt_systimer.c                   \
                    ${MTK_PLAT_SOC}/drivers/emi_mpu/emi_mpu.c             \
                    ${MTK_PLAT_SOC}/plat_pm.c                             \
                    ${MTK_PLAT_SOC}/plat_topology.c                       \
