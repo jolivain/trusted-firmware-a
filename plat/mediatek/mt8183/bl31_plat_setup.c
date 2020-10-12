@@ -127,6 +127,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 #endif
 
 	NOTICE("MT8183 bl31_setup\n");
+	setup_systimer();
 
 	bl31_params_parse_helper(arg0, &bl32_ep_info, &bl33_ep_info);
 }
