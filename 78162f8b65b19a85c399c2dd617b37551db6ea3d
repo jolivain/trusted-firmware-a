@@ -143,6 +143,52 @@
     },
     {
       "key": {
+        "uuid": "c03a22b6_b582813d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-12T23:27:27Z",
+      "side": 1,
+      "message": "comment is confusing. EHF handler cannot pre-empt anything. I would suggest to use non-GICv3 terminology as Olivier mentioned. Not sure if EHF is really enabled on any GICv3 platforms(although that may be the reason you are making related changes).",
+      "range": {
+        "startLine": 21,
+        "startChar": 18,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf4aca4b_0d40d8ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-12T23:27:27Z",
+      "side": 1,
+      "message": "in this case, i assume you are keeping the interrupt pending until EL3 exit and it is taken immediately after ERET to NS_ELx?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 66
+      },
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "72d46827_931d0506",
         "filename": "Makefile",
         "patchSetId": 1
@@ -257,6 +303,52 @@
       "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ee4befc_7bd97ff4",
+        "filename": "include/bl31/interrupt_mgmt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-12T23:27:27Z",
+      "side": 1,
+      "message": "should this be an #else? The code is confusing since you are checking for the same condition(x\u003d\u003d INTR_NS_VALID_RM1) twice...\nSeems like if SP_ASYNC_PREEMPT, the only routing model is INTR_NS_VALID_RM1. if so, this should be a #else.\nLet me know if i\u0027m missing something.",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 6
+      },
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0a2faf4_6808e2f6",
+        "filename": "include/bl31/interrupt_mgmt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-12T23:27:27Z",
+      "side": 1,
+      "message": "same thing here.. code is confusing since x \u003d\u003d INTR_EL3_VALID_RM1 is checked twice.. the intent is not clear... Can you explain this change better?",
+      "range": {
+        "startLine": 125,
+        "startChar": 2,
+        "endLine": 125,
+        "endChar": 5
+      },
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
