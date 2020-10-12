@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "80c4cad8_e0c50872",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-12T13:55:19Z",
+      "side": 1,
+      "message": "Any other generic way I can address them ? G1NS is GICv3 specific.\nNon secure interrupts and Group0 (EL3) interrupts ...?",
+      "parentUuid": "1aebdb45_122f5499",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 27
+      },
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2bcd74de_48f968d7",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "8cdc30de_c1e987f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-12T13:55:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2bcd74de_48f968d7",
+      "range": {
+        "startLine": 17,
+        "startChar": 63,
+        "endLine": 17,
+        "endChar": 73
+      },
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "816ffacc_1b547ffb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-12T13:55:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d0089eb1_cb51b928",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 11
+      },
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72d46827_931d0506",
         "filename": "Makefile",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2020-10-12T12:54:25Z",
       "side": 1,
       "message": "not sure if required here if it\u0027s a bl31 only option",
+      "range": {
+        "startLine": 898,
+        "startChar": 1,
+        "endLine": 898,
+        "endChar": 18
+      },
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41e4c5da_3226d171",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-12T13:55:19Z",
+      "side": 1,
+      "message": "I need to check. I am not sure I just followed some defines. Anyways I need to also add the\nbuild option and documentation for this flag.",
+      "parentUuid": "72d46827_931d0506",
       "range": {
         "startLine": 898,
         "startChar": 1,
@@ -111,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "a311749c_a78735d2",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-12T13:55:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8f783e1d_03fcf53d",
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31a756e1_84c375e6",
         "filename": "Makefile",
         "patchSetId": 1
@@ -125,6 +239,24 @@
       "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11df0969_cd954f8c",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-12T13:55:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "31a756e1_84c375e6",
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
