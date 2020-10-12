@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75ea0013_187a3819",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-12T07:21:06Z",
+      "side": 1,
+      "message": "unsigned int. Fix everywhere.",
+      "revId": "7a09a33c2ef083c1cc40761992774f71ad45e990",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e67c01a0_6a3d3788",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-12T07:21:06Z",
+      "side": 1,
+      "message": "1U.",
+      "revId": "7a09a33c2ef083c1cc40761992774f71ad45e990",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e95cf251_f38680ea",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-12T07:21:06Z",
+      "side": 1,
+      "message": "MOSRA-C violation.\nst is not boolean\nresult of !! operation is not int.\nFix everywhere.",
+      "revId": "7a09a33c2ef083c1cc40761992774f71ad45e990",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19e9dede_2800e4fa",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-12T07:21:06Z",
+      "side": 1,
+      "message": "remove empty line",
+      "revId": "7a09a33c2ef083c1cc40761992774f71ad45e990",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "160f44aa_769729af",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-12T07:21:06Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies\nFix everywhere",
+      "revId": "7a09a33c2ef083c1cc40761992774f71ad45e990",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42650922_41f84726",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-12T07:21:06Z",
+      "side": 1,
+      "message": "violation of MISRA-C Rule 7.2. Fix everywhere.",
+      "revId": "7a09a33c2ef083c1cc40761992774f71ad45e990",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8fda046_7b26f77b",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-12T07:21:06Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#local-variables-and-parameters",
+      "revId": "7a09a33c2ef083c1cc40761992774f71ad45e990",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
