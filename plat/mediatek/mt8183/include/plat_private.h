@@ -24,5 +24,6 @@ void plat_mtk_cci_init_sf(void);
 
 /* Declarations for plat_topology.c */
 int mt_setup_topology(void);
+void setup_systimer(void);
 
 #endif /* PLAT_PRIVATE_H */
