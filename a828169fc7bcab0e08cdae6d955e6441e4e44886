@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef7c9d26_19e302a6",
+        "filename": "plat/mediatek/mt8183/drivers/timer/mt_systimer.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-12T08:44:31Z",
+      "side": 1,
+      "message": "Why ARM (c) dated 2015?",
+      "revId": "a828169fc7bcab0e08cdae6d955e6441e4e44886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4db266d_6992a49e",
+        "filename": "plat/mediatek/mt8183/drivers/timer/mt_systimer.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-12T08:44:31Z",
+      "side": 1,
+      "message": "1. violation of MISRA-C Rule 7.2\n2. \u003d 0 is obsolete",
+      "revId": "a828169fc7bcab0e08cdae6d955e6441e4e44886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
