@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca5c3c45_c6d8a825",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_v2.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-12T08:31:41Z",
+      "side": 1,
+      "message": "violation of MISRA-C Rule 7.2 Fix everywhere.",
+      "revId": "1d99b9f0cef3804d07bf209a414d05cd5dbc68ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6616cf15_7b34e0c4",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_v2.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-12T08:31:41Z",
+      "side": 1,
+      "message": "violation of MISRA-C Rule 14.4 Fix everywhere.",
+      "revId": "1d99b9f0cef3804d07bf209a414d05cd5dbc68ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7937d39_b5713534",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_v2.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-12T08:31:41Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies\nFix everywhere",
+      "revId": "1d99b9f0cef3804d07bf209a414d05cd5dbc68ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
