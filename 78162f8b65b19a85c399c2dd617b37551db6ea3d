@@ -462,6 +462,24 @@
       "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34513c3d_9586e0d9",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-13T18:27:42Z",
+      "side": 1,
+      "message": "actually this will impact current users no? If this is the default, all platforms will use code under SP_ASYNC_PREEMPT in interrupts_mgmt.h even if they dont use EL3_EXCEPTION_HANDLING. This was not the case earlier",
+      "parentUuid": "c9a121d5_08cfa244",
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
