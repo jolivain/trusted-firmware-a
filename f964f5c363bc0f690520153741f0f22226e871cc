@@ -22,6 +22,30 @@
       "revId": "f964f5c363bc0f690520153741f0f22226e871cc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6eab2b91_eec4f105",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2020-10-13T15:22:35Z",
+      "side": 1,
+      "message": "Hi Alexei, I don\u0027t get your point. With masks and shifts, the return values for BOARD_ID2VARCPN(_id) and BOARD_ID2VARFG(_id) cannot be \u003e 15, and I don\u0027t see an issue displaying this with %d.",
+      "parentUuid": "4bfd1538_743f1579",
+      "range": {
+        "startLine": 342,
+        "startChar": 9,
+        "endLine": 342,
+        "endChar": 18
+      },
+      "revId": "f964f5c363bc0f690520153741f0f22226e871cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
