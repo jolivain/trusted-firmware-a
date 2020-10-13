@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "88715e8e_292166d9",
+        "filename": "include/lib/coreboot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-10-13T17:34:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9685abcf_f07470b4",
+      "range": {
+        "startLine": 42,
+        "startChar": 42,
+        "endLine": 42,
+        "endChar": 51
+      },
+      "revId": "192394de658a0afa864d886372b125995bd5e372",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd60e926_19f09408",
         "filename": "lib/coreboot/coreboot_table.c",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d8facd40_e4740d3b",
+        "filename": "lib/coreboot/coreboot_table.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-10-13T17:34:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd60e926_19f09408",
+      "range": {
+        "startLine": 92,
+        "startChar": 67,
+        "endLine": 92,
+        "endChar": 68
+      },
+      "revId": "192394de658a0afa864d886372b125995bd5e372",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3beba88_344c4119",
         "filename": "plat/qti/common/src/qti_common.c",
         "patchSetId": 3
@@ -62,6 +110,24 @@
       "revId": "192394de658a0afa864d886372b125995bd5e372",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6075728_619b927d",
+        "filename": "plat/qti/common/src/qti_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-10-13T17:34:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3beba88_344c4119",
+      "revId": "192394de658a0afa864d886372b125995bd5e372",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "d945006a_b5110b84",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-10-13T17:34:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d29f6bac_a7939c4a",
+      "range": {
+        "startLine": 111,
+        "startChar": 49,
+        "endLine": 111,
+        "endChar": 52
+      },
+      "revId": "192394de658a0afa864d886372b125995bd5e372",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b9c0387_7f1154e8",
         "filename": "plat/qti/common/src/qti_syscall.c",
         "patchSetId": 3
@@ -102,6 +192,24 @@
       "revId": "192394de658a0afa864d886372b125995bd5e372",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c93e864e_3c872e9c",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2020-10-13T17:34:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b9c0387_7f1154e8",
+      "revId": "192394de658a0afa864d886372b125995bd5e372",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
