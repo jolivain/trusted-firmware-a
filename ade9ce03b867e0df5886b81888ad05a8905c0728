@@ -16,6 +16,24 @@
       "revId": "ade9ce03b867e0df5886b81888ad05a8905c0728",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79d61ddf_10d539fd",
+        "filename": "drivers/st/clk/stm32mp1_clk.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1674,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2020-10-13T15:31:25Z",
+      "side": 1,
+      "message": "STM32MP1 is Cortex-A7 based, so an AARCH32 product, long is then an uint32_t.",
+      "parentUuid": "897fa4ba_a4f6945c",
+      "revId": "ade9ce03b867e0df5886b81888ad05a8905c0728",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
