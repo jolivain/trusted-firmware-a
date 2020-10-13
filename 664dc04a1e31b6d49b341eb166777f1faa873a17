@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c5947778_3e815fc3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-10-13T03:40:13Z",
+      "side": 1,
+      "message": "The convention that I have been following is to use the name of the component as the tag. In this case \"lib: el3_runtime\". If you have strong objection against the suggestion, we can get more opinions. but reading \"spmd\" in the git log gives an impression that the change is in the services/std_svc/spmd/ folder.",
+      "parentUuid": "652c4d5a_12f8c543",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 5
+      },
+      "revId": "664dc04a1e31b6d49b341eb166777f1faa873a17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88051805_b8b1d223",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
