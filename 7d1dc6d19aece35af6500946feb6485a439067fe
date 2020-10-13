@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b95309fe_ce267c4a",
+        "filename": "lib/psci/psci_suspend.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T14:59:50Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03bba9d4_d33605eb",
+        "filename": "plat/mediatek/common/lpm/build.mk",
+        "patchSetId": 31
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T14:59:50Z",
+      "side": 1,
+      "message": "use tabs to align \\",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7191112_91863851",
+        "filename": "plat/mediatek/common/lpm/mt_lp_api.h",
+        "patchSetId": 31
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T14:59:50Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards\nFix for all files.",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc7241df_61829651",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T14:59:50Z",
+      "side": 1,
+      "message": "unsigned int i;",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f76874d7_6306b405",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T14:59:50Z",
+      "side": 1,
+      "message": "allows\nis in initial state",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dc42f8a_08ecd491",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T14:59:50Z",
+      "side": 1,
+      "message": "violation of MISRA-C Rule 14.4\nuse extra ()\nFix in all files.",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8299b2f_bc0e7a14",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T14:59:50Z",
+      "side": 1,
+      "message": "\u003d 0 is obsolete",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73698e81_f92baf11",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T14:59:50Z",
+      "side": 1,
+      "message": "violation of MISRA Rule 7.2. Fix in all files.",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
