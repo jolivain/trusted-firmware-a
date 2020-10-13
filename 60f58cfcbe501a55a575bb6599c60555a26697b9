@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db61aa5e_07645633",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T17:29:29Z",
+      "side": 1,
+      "message": "violation of MISRA-C Rule 14.4. Fix everywhere.",
+      "revId": "60f58cfcbe501a55a575bb6599c60555a26697b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e7ac3f3_a1ca86ce",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T17:29:29Z",
+      "side": 1,
+      "message": "someone\u0027s?",
+      "revId": "60f58cfcbe501a55a575bb6599c60555a26697b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7215a3f_ee85f098",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T17:29:29Z",
+      "side": 1,
+      "message": "mmio_read_32() returns uint32_t, not boolean\n!! returns boolean, but function returns int",
+      "revId": "60f58cfcbe501a55a575bb6599c60555a26697b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18c19754_4e214182",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T17:29:29Z",
+      "side": 1,
+      "message": "does spm_get_cpu_powerstate() return boolean?",
+      "revId": "60f58cfcbe501a55a575bb6599c60555a26697b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "432c6b3e_b84e71fe",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T17:29:29Z",
+      "side": 1,
+      "message": "does not?",
+      "revId": "60f58cfcbe501a55a575bb6599c60555a26697b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4987f559_c923a6f4",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T17:29:29Z",
+      "side": 1,
+      "message": "remove , after }",
+      "revId": "60f58cfcbe501a55a575bb6599c60555a26697b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84460ba3_f561958e",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T17:29:29Z",
+      "side": 1,
+      "message": "the same. Fix everywhere",
+      "revId": "60f58cfcbe501a55a575bb6599c60555a26697b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbf7ca0f_e6a3444d",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T17:29:29Z",
+      "side": 1,
+      "message": "Is \"aa64naa32\" register name?",
+      "revId": "60f58cfcbe501a55a575bb6599c60555a26697b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa9fcd96_5cab992b",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T17:29:29Z",
+      "side": 1,
+      "message": "remove empty line",
+      "revId": "60f58cfcbe501a55a575bb6599c60555a26697b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
