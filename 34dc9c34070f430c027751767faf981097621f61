@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48ef6e18_c0cff73d",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T17:06:30Z",
+      "side": 1,
+      "message": "Can you add definitions for these magic 0x3U, 1U and 0U numbers?",
+      "revId": "34dc9c34070f430c027751767faf981097621f61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e53a197_4590c707",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T17:06:30Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html#use-of-built-in-c-and-libc-data-types",
+      "revId": "34dc9c34070f430c027751767faf981097621f61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
