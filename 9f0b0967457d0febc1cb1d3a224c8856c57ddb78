@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "184a91fa_b19877d0",
+        "filename": "tools/fiptool/tbbr_config.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-13T06:57:11Z",
+      "side": 1,
+      "message": "Why you added these firmware details in between \u0027Dynamic Configs\u0027? IMO, you should add\nthese firmware details above \u0027Dynamic Configs\u0027 at line no.70.",
+      "range": {
+        "startLine": 87,
+        "startChar": 1,
+        "endLine": 91,
+        "endChar": 3
+      },
+      "revId": "9f0b0967457d0febc1cb1d3a224c8856c57ddb78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
