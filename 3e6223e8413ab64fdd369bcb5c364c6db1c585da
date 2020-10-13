@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9e8359b_8b809e9a",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T16:55:59Z",
+      "side": 1,
+      "message": "violation of MISRA-C 2012 Rule 7.2. Fix everywhere",
+      "range": {
+        "startLine": 55,
+        "startChar": 1,
+        "endLine": 55,
+        "endChar": 5
+      },
+      "revId": "3e6223e8413ab64fdd369bcb5c364c6db1c585da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9204a39f_f127296e",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T16:55:59Z",
+      "side": 1,
+      "message": "why cannot you just return -1 here?",
+      "revId": "3e6223e8413ab64fdd369bcb5c364c6db1c585da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7fc501a_5f12796f",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T16:55:59Z",
+      "side": 1,
+      "message": "(st \u003e\u003e (cirq_num % 32)) \u0026 1U; is insigned, function returns int.",
+      "revId": "3e6223e8413ab64fdd369bcb5c364c6db1c585da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a750beb8_a21762d8",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T16:55:59Z",
+      "side": 1,
+      "message": "return -1;?",
+      "revId": "3e6223e8413ab64fdd369bcb5c364c6db1c585da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f2f29fb_87082ac0",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T16:55:59Z",
+      "side": 1,
+      "message": "the same and in other places",
+      "revId": "3e6223e8413ab64fdd369bcb5c364c6db1c585da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b39030ef_f5955874",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T16:55:59Z",
+      "side": 1,
+      "message": "use extra ()",
+      "revId": "3e6223e8413ab64fdd369bcb5c364c6db1c585da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "706e8e56_44dfd611",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T16:55:59Z",
+      "side": 1,
+      "message": "violation of MISRA-C Rule 14.4. Fix everywhere",
+      "revId": "3e6223e8413ab64fdd369bcb5c364c6db1c585da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
