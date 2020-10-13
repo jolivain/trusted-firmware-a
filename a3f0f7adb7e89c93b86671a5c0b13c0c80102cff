@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb15993_c9c19128",
+        "filename": "plat/mediatek/mt8183/bl31_plat_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000362
+      },
+      "writtenOn": "2020-10-13T01:33:52Z",
+      "side": 1,
+      "message": "can you put it at bl31_platform_setup() ?",
+      "revId": "a3f0f7adb7e89c93b86671a5c0b13c0c80102cff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca43494f_1d6c5862",
+        "filename": "plat/mediatek/mt8183/include/plat_private.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000362
+      },
+      "writtenOn": "2020-10-13T01:33:52Z",
+      "side": 1,
+      "message": "can you put this in a timer header file in drivers/ ?",
+      "revId": "a3f0f7adb7e89c93b86671a5c0b13c0c80102cff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
