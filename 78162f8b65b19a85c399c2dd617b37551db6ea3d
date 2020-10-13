@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "a4a2fc35_2c603395",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-13T04:49:42Z",
+      "side": 1,
+      "message": "I will update to G0 (El3) interrupt",
+      "parentUuid": "c03a22b6_b582813d",
+      "range": {
+        "startLine": 21,
+        "startChar": 18,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf4aca4b_0d40d8ce",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -177,6 +201,30 @@
       "writtenOn": "2020-10-12T23:27:27Z",
       "side": 1,
       "message": "in this case, i assume you are keeping the interrupt pending until EL3 exit and it is taken immediately after ERET to NS_ELx?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 66
+      },
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35517849_15396d8a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-13T04:49:42Z",
+      "side": 1,
+      "message": "yes",
+      "parentUuid": "cf4aca4b_0d40d8ce",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -329,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "de761bc9_b2df7b74",
+        "filename": "include/bl31/interrupt_mgmt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-13T04:49:42Z",
+      "side": 1,
+      "message": "Agree. see below the intent.",
+      "parentUuid": "2ee4befc_7bd97ff4",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 6
+      },
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a0a2faf4_6808e2f6",
         "filename": "include/bl31/interrupt_mgmt.h",
         "patchSetId": 1
@@ -340,6 +412,30 @@
       "writtenOn": "2020-10-12T23:27:27Z",
       "side": 1,
       "message": "same thing here.. code is confusing since x \u003d\u003d INTR_EL3_VALID_RM1 is checked twice.. the intent is not clear... Can you explain this change better?",
+      "range": {
+        "startLine": 125,
+        "startChar": 2,
+        "endLine": 125,
+        "endChar": 5
+      },
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec94ecef_fa0689b2",
+        "filename": "include/bl31/interrupt_mgmt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-13T04:49:42Z",
+      "side": 1,
+      "message": "I initially added the #else condition to enforce routing model for both SYNC/ASYNC preempt cases. Then I thought if currently some system is using this differently then their checks would fail. Ideally I would enforce valid routing model for both conditions.\n\nie: If async preemption then both NS interrupts and G0 interrupts routed to EL3 while execution is in secure world.\n Else\n   both NS interrupt and G0 interrupts routed to S_ELx(lower secure EL)/FEL.\n\nI think I can add the else and see if any platform complains.",
+      "parentUuid": "a0a2faf4_6808e2f6",
       "range": {
         "startLine": 125,
         "startChar": 2,
