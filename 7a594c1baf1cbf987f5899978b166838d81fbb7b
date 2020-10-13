@@ -272,6 +272,30 @@
     },
     {
       "key": {
+        "uuid": "2dad6d0e_7e3ff0cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-13T01:56:51Z",
+      "side": 1,
+      "message": "I think all 4 are interesting. I agree with your logic that you don\u0027t need to alter PMR unless you are entering secure world. If it is altered during secure world entry, it needs to be unwound during secure world exit and not only while entering normal world, to keep it clean/consistent.\n\nAlso, i don\u0027t agree with loop back from 2b to 2a. How do you envision this happening in a pre-8.4 system, without exiting back to normal world?",
+      "parentUuid": "6f0b015d_c7ecea3d",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 27
+      },
+      "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "28f5750e_c3c461ea",
         "filename": "bl31/ehf.c",
         "patchSetId": 1
@@ -354,6 +378,30 @@
       "side": 1,
       "message": "In general yes it can look like a programing error. But consider this.\n\nYielding SMC handler gets preempted by EHF handler (non-interrupt) and then you explicitly activate the priority level and delegate the handling to secure world. Here you do want to\nactivate the priority level while the state is \u0027allow_ns_pri\u0027. Once EHF handler is done control needs to return to secure world. And the state \u0027allow_ns_pri\u0027 remains valid till the SMC returns to normal world.\n\nNote: Delegation to secure world is something that will not work with current state of code in either TF-A or TOS (op-tee).",
       "parentUuid": "9b75c3fc_946a1b3d",
+      "range": {
+        "startLine": 338,
+        "startChar": 1,
+        "endLine": 342,
+        "endChar": 2
+      },
+      "revId": "7a594c1baf1cbf987f5899978b166838d81fbb7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "376f919c_b69b0970",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-13T01:56:51Z",
+      "side": 1,
+      "message": "Good point. However, if it does not work or is not supported, then why allow it? That is the point of asserting/panic\u0027ing.",
+      "parentUuid": "de62ecf6_89942fcd",
       "range": {
         "startLine": 338,
         "startChar": 1,
