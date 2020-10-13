@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebfc3fd_5a46ddf9",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T15:11:19Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies\nFix everywhere",
+      "revId": "e7ac06613c6c1d8f0488eb8e56dc6b9ba0251c3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "092629c2_df7264f7",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T15:11:19Z",
+      "side": 1,
+      "message": "split long lines",
+      "revId": "e7ac06613c6c1d8f0488eb8e56dc6b9ba0251c3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d23ba3d3_fc1569d9",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T15:11:19Z",
+      "side": 1,
+      "message": "violation of MISRA-C Rule 7.2. Fix in all files.",
+      "revId": "e7ac06613c6c1d8f0488eb8e56dc6b9ba0251c3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "992db096_e60710c8",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T15:11:19Z",
+      "side": 1,
+      "message": "remove empty line",
+      "revId": "e7ac06613c6c1d8f0488eb8e56dc6b9ba0251c3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9436df5_ec0ddc6d",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T15:11:19Z",
+      "side": 1,
+      "message": "add tabs when you split long lines to improve readability",
+      "revId": "e7ac06613c6c1d8f0488eb8e56dc6b9ba0251c3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a1d89d2_7f7a5188",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T15:11:19Z",
+      "side": 1,
+      "message": "remove , after last elements",
+      "revId": "e7ac06613c6c1d8f0488eb8e56dc6b9ba0251c3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11db7bf2_68002452",
+        "filename": "plat/mediatek/mt8192/drivers/brisket/mtk_brisket.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T15:11:19Z",
+      "side": 1,
+      "message": "remove extra empty line",
+      "revId": "e7ac06613c6c1d8f0488eb8e56dc6b9ba0251c3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7112bf42_a5739624",
+        "filename": "plat/mediatek/mt8192/drivers/credit_didt/mtk_credit_didt.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-13T15:11:19Z",
+      "side": 1,
+      "message": "bcpu is unsigned, use %u. Fix everywhere",
+      "revId": "e7ac06613c6c1d8f0488eb8e56dc6b9ba0251c3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
