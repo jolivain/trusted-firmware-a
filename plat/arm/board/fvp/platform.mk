@@ -288,6 +288,9 @@ DYNAMIC_WORKAROUND_CVE_2018_3639	:=	1
 # stacks for FVP. However, don't enable reclaiming for clang.
 ifneq (${RESET_TO_BL31},1)
 ifeq ($(findstring clang,$(notdir $(CC))),)
+# If there is only 1 core, BL31 initialisation code cannot be reclaimed.
+# Ensure that CLUSTER_COUNT * MAX_CPUS_PER_CLUSTER * MAX_PE_PER_CPU
+# does not equal 1.
 RECLAIM_INIT_CODE	:=	1
 endif
 endif

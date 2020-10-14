@@ -167,7 +167,14 @@
 #elif defined(IMAGE_BL2U)
 # define PLATFORM_STACK_SIZE		UL(0x400)
 #elif defined(IMAGE_BL31)
+/* RECLAIM_INIT_CODE feature needs bigger stacks when there are 2 or 3 cores. */
+# if RECLAIM_INIT_CODE && PLATFORM_CORE_COUNT == 2
+#  define PLATFORM_STACK_SIZE		UL(0x2000)
+# elif RECLAIM_INIT_CODE && PLATFORM_CORE_COUNT == 3
+#  define PLATFORM_STACK_SIZE		UL(0x1000)
+# else
 #  define PLATFORM_STACK_SIZE		UL(0x800)
+# endif
 #elif defined(IMAGE_BL32)
 # define PLATFORM_STACK_SIZE		UL(0x440)
 #endif
