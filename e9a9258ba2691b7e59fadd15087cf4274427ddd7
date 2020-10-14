@@ -52,6 +52,24 @@
       "revId": "e9a9258ba2691b7e59fadd15087cf4274427ddd7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3df5fb12_60291bba",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2020-10-14T10:24:13Z",
+      "side": 1,
+      "message": "Sorry, I\u0027m yet to submit this change.\nI guess the value here is to limit BL32 image size and inherited from Trusted OS image size.\nAs you have mentioned this size looks a fair value when compared with SPMC size.",
+      "parentUuid": "056c6e2a_a769ba1f",
+      "revId": "e9a9258ba2691b7e59fadd15087cf4274427ddd7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
