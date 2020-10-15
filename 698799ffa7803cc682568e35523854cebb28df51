@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "5225538e_bde3e0bc",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-15T12:57:23Z",
+      "side": 1,
+      "message": "Noted, then i will change for all the others to unsigned int except mmio_read/write",
+      "parentUuid": "8cbd372a_fe17cafe",
+      "revId": "698799ffa7803cc682568e35523854cebb28df51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f27c370_8ac68e28",
         "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
         "patchSetId": 5
@@ -172,6 +190,24 @@
       "side": 1,
       "message": "Then this is violation of MISRA-C Rule 17.7.",
       "parentUuid": "63ea02e6_8205adbf",
+      "revId": "698799ffa7803cc682568e35523854cebb28df51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05f56467_c82bd182",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-15T12:57:23Z",
+      "side": 1,
+      "message": "Noted, then ill see if i can rewrote this functionality to be compliance with MISRA-C. Will follow up with new patchset",
+      "parentUuid": "ef07b1bf_f4cc502e",
       "revId": "698799ffa7803cc682568e35523854cebb28df51",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
