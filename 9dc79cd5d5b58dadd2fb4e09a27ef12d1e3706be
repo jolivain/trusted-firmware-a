@@ -46,6 +46,30 @@
       "revId": "9dc79cd5d5b58dadd2fb4e09a27ef12d1e3706be",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2ee3bed_b69ed90f",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-15T10:48:40Z",
+      "side": 1,
+      "message": "Can you not make use of \u0027mbedtls_config.h\u0027 to set the define:TF_MBEDTLS_USE_RSA before including this file? Always good to have *MBEDTLS* defines in mbedtls_config.h header file.",
+      "parentUuid": "79b44c23_7aea26c5",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "9dc79cd5d5b58dadd2fb4e09a27ef12d1e3706be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
