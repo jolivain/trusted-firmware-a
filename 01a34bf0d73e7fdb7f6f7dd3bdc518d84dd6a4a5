@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db230bfc_34307d87",
+        "filename": "plat/intel/soc/agilex/bl31_plat_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-15T15:21:54Z",
+      "side": 1,
+      "message": "Could you define a macro with a reasonable name for this 0ULL magic number?",
+      "revId": "01a34bf0d73e7fdb7f6f7dd3bdc518d84dd6a4a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
