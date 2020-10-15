@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b6473cb3_16e71fa8",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-15T12:47:35Z",
+      "side": 1,
+      "message": "is_doorbell_triggered is now a bool type",
+      "parentUuid": "4b21e663_f3578f35",
+      "revId": "80c68ad565f2ba493537958ec583104188a8331c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fc420727_29bfeca3",
         "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2020-10-15T09:29:44Z",
       "side": 1,
       "message": "violation of MISRA-C Rule 17.7",
+      "revId": "80c68ad565f2ba493537958ec583104188a8331c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb4d268c_11a28caa",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-15T12:47:35Z",
+      "side": 1,
+      "message": "Return value from this doesnt add any value to the logic",
+      "parentUuid": "fc420727_29bfeca3",
       "revId": "80c68ad565f2ba493537958ec583104188a8331c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b5502b67_4d2a4f4a",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-15T12:47:35Z",
+      "side": 1,
+      "message": "Hi, urgent is going to have value at bit 0 and bit 8 (UA_MASK). Only bit 0 is going to be check to confirm whether this is urgent command or not.\n\nurgent |\u003d mmio_read_32(MBOX_OFFSET + MBOX_STATUS) \u0026 MBOX_STATUS_UA_MASK;",
+      "parentUuid": "6b589f1e_56e36118",
+      "revId": "80c68ad565f2ba493537958ec583104188a8331c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2daabec2_632c7d5e",
         "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
         "patchSetId": 4
@@ -64,6 +118,24 @@
       "writtenOn": "2020-09-17T11:46:21Z",
       "side": 1,
       "message": "\u003d 0 is obsolete",
+      "revId": "80c68ad565f2ba493537958ec583104188a8331c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d504d809_1c58c5bd",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-15T12:47:35Z",
+      "side": 1,
+      "message": "Meaning that we dont need to initialize value to 0 is it?",
+      "parentUuid": "2daabec2_632c7d5e",
       "revId": "80c68ad565f2ba493537958ec583104188a8331c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "c6a7a64f_f22343fa",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-15T12:47:35Z",
+      "side": 1,
+      "message": "Noted, will fix",
+      "parentUuid": "83ffca47_871b7725",
+      "revId": "80c68ad565f2ba493537958ec583104188a8331c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cfa3a330_770a7ef2",
         "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
         "patchSetId": 4
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "ee35b9af_8df11bbe",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-15T12:47:35Z",
+      "side": 1,
+      "message": "Noted, fixing this",
+      "parentUuid": "cfa3a330_770a7ef2",
+      "revId": "80c68ad565f2ba493537958ec583104188a8331c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0e128239_cea44cdd",
         "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
         "patchSetId": 4
@@ -115,6 +223,24 @@
       "writtenOn": "2020-09-17T11:46:21Z",
       "side": 1,
       "message": "the same here and everywhere",
+      "revId": "80c68ad565f2ba493537958ec583104188a8331c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "196789dc_ac6de782",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-15T12:47:35Z",
+      "side": 1,
+      "message": "Fixing this, thanks",
+      "parentUuid": "0e128239_cea44cdd",
       "revId": "80c68ad565f2ba493537958ec583104188a8331c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
