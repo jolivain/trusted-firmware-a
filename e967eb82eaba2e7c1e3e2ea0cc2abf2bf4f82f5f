@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b82dfa01_c775bb2f",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-10-15T19:49:57Z",
+      "side": 1,
+      "message": "nit: remove extra tab",
+      "revId": "e967eb82eaba2e7c1e3e2ea0cc2abf2bf4f82f5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "082abe4a_64e97920",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-10-15T19:49:57Z",
+      "side": 1,
+      "message": "please use macro instead of hard coded value of 16.",
+      "revId": "e967eb82eaba2e7c1e3e2ea0cc2abf2bf4f82f5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
