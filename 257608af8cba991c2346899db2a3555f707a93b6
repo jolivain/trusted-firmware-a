@@ -16,6 +16,24 @@
       "revId": "257608af8cba991c2346899db2a3555f707a93b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1ca26ec_a83a921b",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-15T13:26:04Z",
+      "side": 1,
+      "message": "Hi Tien Hock, I consolidated the send_id increment in mailbox_send_cmd_async().\n\nSnippet from code: *job_id \u003d (*job_id + 1U) % MBOX_MAX_IND_JOB_ID;",
+      "parentUuid": "2f779b7b_548d422e",
+      "revId": "257608af8cba991c2346899db2a3555f707a93b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
