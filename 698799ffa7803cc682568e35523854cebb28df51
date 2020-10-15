@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8cbd372a_fe17cafe",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-15T09:28:34Z",
+      "side": 1,
+      "message": "No. mmio_read/mmi_write_xx should use types defined by their interface.",
+      "parentUuid": "8dc0f85c_0f6b127a",
+      "revId": "698799ffa7803cc682568e35523854cebb28df51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f27c370_8ac68e28",
         "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
         "patchSetId": 5
@@ -136,6 +154,24 @@
       "side": 1,
       "message": "Hi, the logic here is to restart the mailbox if operation fails. But, still returned the status as MBOX_TIMEOUT",
       "parentUuid": "3a3e6e4f_2938f977",
+      "revId": "698799ffa7803cc682568e35523854cebb28df51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef07b1bf_f4cc502e",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-15T09:28:34Z",
+      "side": 1,
+      "message": "Then this is violation of MISRA-C Rule 17.7.",
+      "parentUuid": "63ea02e6_8205adbf",
       "revId": "698799ffa7803cc682568e35523854cebb28df51",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
