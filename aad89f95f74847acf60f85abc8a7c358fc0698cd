@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "491f5bc3_aac02c76",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-15T13:25:59Z",
+      "side": 1,
+      "message": "Noted, will fix",
+      "parentUuid": "de1d9f7b_bc2d39a1",
+      "revId": "aad89f95f74847acf60f85abc8a7c358fc0698cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c1ff3ef4_d46ef4f6",
         "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2020-09-17T12:50:43Z",
       "side": 1,
       "message": "violation of MISRA Rule 14.4. Fix everywhere",
+      "revId": "aad89f95f74847acf60f85abc8a7c358fc0698cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "147e880f_1ebece4a",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-15T13:25:59Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "c1ff3ef4_d46ef4f6",
       "revId": "aad89f95f74847acf60f85abc8a7c358fc0698cd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
