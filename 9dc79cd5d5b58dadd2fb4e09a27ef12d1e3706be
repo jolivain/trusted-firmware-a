@@ -22,6 +22,30 @@
       "revId": "9dc79cd5d5b58dadd2fb4e09a27ef12d1e3706be",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79b44c23_7aea26c5",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2020-10-15T10:35:59Z",
+      "side": 1,
+      "message": "True, it is defined in mbedtls_config.h.\n\nBut without adding these defines, the TF_MBEDTLS_USE_RSA is set as zero.\nAs a result, the value for PK_DER_LEN is 91",
+      "parentUuid": "fd3f3ed7_95d2ff68",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "9dc79cd5d5b58dadd2fb4e09a27ef12d1e3706be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
