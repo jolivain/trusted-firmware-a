@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21941d50_192e0c5c",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-16T11:51:20Z",
+      "side": 1,
+      "message": "Use braces {} for \u0027if\u0027 statement.",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 27
+      },
+      "revId": "dc90cf79ea8917348afd5631c1b1ee33238b0e8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1936f28b_442974d4",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-16T11:51:20Z",
+      "side": 1,
+      "message": "\u0027sr\u0027 is unsigned char but function expect return value as \u0027int\u0027",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 12
+      },
+      "revId": "dc90cf79ea8917348afd5631c1b1ee33238b0e8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be14c847_105bdbcc",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-16T11:51:20Z",
+      "side": 1,
+      "message": "is not needed as \u0027ret\u0027 anyways get set at line no.86",
+      "range": {
+        "startLine": 81,
+        "startChar": 10,
+        "endLine": 81,
+        "endChar": 12
+      },
+      "revId": "dc90cf79ea8917348afd5631c1b1ee33238b0e8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2420703f_ca9d1dbd",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-16T11:51:20Z",
+      "side": 1,
+      "message": "fix the alignment.",
+      "range": {
+        "startLine": 94,
+        "startChar": 3,
+        "endLine": 94,
+        "endChar": 22
+      },
+      "revId": "dc90cf79ea8917348afd5631c1b1ee33238b0e8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc7f0847_f2927b19",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-16T11:51:20Z",
+      "side": 1,
+      "message": "see comment at line no.46",
+      "range": {
+        "startLine": 110,
+        "startChar": 1,
+        "endLine": 110,
+        "endChar": 13
+      },
+      "revId": "dc90cf79ea8917348afd5631c1b1ee33238b0e8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61181bf7_fc56ccc0",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-16T11:51:20Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 13
+      },
+      "revId": "dc90cf79ea8917348afd5631c1b1ee33238b0e8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17600762_c8fec708",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-16T11:51:20Z",
+      "side": 1,
+      "message": "see comment at line no.46",
+      "range": {
+        "startLine": 150,
+        "startChar": 1,
+        "endLine": 151,
+        "endChar": 22
+      },
+      "revId": "dc90cf79ea8917348afd5631c1b1ee33238b0e8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6fee7f8_f01c2f71",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-16T11:51:20Z",
+      "side": 1,
+      "message": "Just curious to know, why this dummy read is needed? Is it some pre-condition to initiate i2c read?",
+      "range": {
+        "startLine": 154,
+        "startChar": 1,
+        "endLine": 154,
+        "endChar": 40
+      },
+      "revId": "dc90cf79ea8917348afd5631c1b1ee33238b0e8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c95e433_7dc16488",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-16T11:51:20Z",
+      "side": 1,
+      "message": "is not needed.",
+      "range": {
+        "startLine": 182,
+        "startChar": 11,
+        "endLine": 182,
+        "endChar": 12
+      },
+      "revId": "dc90cf79ea8917348afd5631c1b1ee33238b0e8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71010311_9a2209af",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-16T11:51:20Z",
+      "side": 1,
+      "message": "see comment at line no.46",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 186,
+        "endChar": 14
+      },
+      "revId": "dc90cf79ea8917348afd5631c1b1ee33238b0e8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad5ccc6a_23161f54",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-16T11:51:20Z",
+      "side": 1,
+      "message": "fix alignment",
+      "range": {
+        "startLine": 196,
+        "startChar": 2,
+        "endLine": 196,
+        "endChar": 21
+      },
+      "revId": "dc90cf79ea8917348afd5631c1b1ee33238b0e8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ee673fa_33f915c5",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-16T11:51:20Z",
+      "side": 1,
+      "message": "see comment at line no.46",
+      "range": {
+        "startLine": 228,
+        "startChar": 1,
+        "endLine": 228,
+        "endChar": 13
+      },
+      "revId": "dc90cf79ea8917348afd5631c1b1ee33238b0e8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38491280_3cf872eb",
+        "filename": "drivers/nxp/i2c/i2c.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-16T11:51:20Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 246,
+        "startChar": 1,
+        "endLine": 246,
+        "endChar": 13
+      },
+      "revId": "dc90cf79ea8917348afd5631c1b1ee33238b0e8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
