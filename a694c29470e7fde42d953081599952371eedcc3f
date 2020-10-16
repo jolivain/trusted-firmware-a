@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23cc6cf5_ef78b984",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-10-16T11:10:45Z",
+      "side": 1,
+      "message": "PLAT_ARM looks too generic for this specific case.\nSomething like SPM_IMAGE_BASE(or any other suitable name) should be better.",
+      "range": {
+        "startLine": 500,
+        "startChar": 22,
+        "endLine": 500,
+        "endChar": 31
+      },
+      "revId": "a694c29470e7fde42d953081599952371eedcc3f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
