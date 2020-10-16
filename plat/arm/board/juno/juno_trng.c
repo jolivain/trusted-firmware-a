@@ -44,6 +44,14 @@ DEFINE_SVC_UUID2(_plat_trng_uuid,
 );
 uuid_t plat_trng_uuid = _plat_trng_uuid;
 
+static uint32_t crc_value = ~0U;
+
+#ifdef __aarch64__
+#define __crc32w __builtin_aarch64_crc32w
+#else
+#define __crc32w __builtin_arm_crc32w
+#endif
+
 bool plat_get_entropy(uint64_t *out)
 {
 	uint64_t ret;
@@ -72,14 +80,14 @@ bool plat_get_entropy(uint64_t *out)
 			return false;
 	}
 
-	/* XOR each two 32-bit registers together, combine the pairs */
-	ret = mmio_read_32(TRNG_BASE + 0);
-	ret ^= mmio_read_32(TRNG_BASE + 4);
-	ret <<= 32;
+	/* CRC each two 32-bit registers together, combine the pairs */
+	crc_value = __crc32w(crc_value, mmio_read_32(TRNG_BASE + 0));
+	crc_value = __crc32w(crc_value, mmio_read_32(TRNG_BASE + 4));
+	ret = (uint64_t)crc_value << 32;
 
-	ret |= mmio_read_32(TRNG_BASE + 8);
-	ret ^= mmio_read_32(TRNG_BASE + 12);
-	*out = ret;
+	crc_value = __crc32w(crc_value, mmio_read_32(TRNG_BASE + 8));
+	crc_value = __crc32w(crc_value, mmio_read_32(TRNG_BASE + 12));
+	*out = ret | crc_value;
 
 	/* Acknowledge current cycle, clear output registers. */
 	mmio_write_32(TRNG_BASE + TRNG_STATUS, 1);
