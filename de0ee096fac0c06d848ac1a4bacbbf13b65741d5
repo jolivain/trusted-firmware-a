@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8016e1_31ea5dfa",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-10-16T13:58:38Z",
+      "side": 1,
+      "message": "PLAT_ARM_SPMC_BASE + PLAT_ARM_SPMC_SIZE",
+      "range": {
+        "startLine": 501,
+        "startChar": 23,
+        "endLine": 501,
+        "endChar": 42
+      },
+      "revId": "de0ee096fac0c06d848ac1a4bacbbf13b65741d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af0d7002_a984f825",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-10-16T13:58:38Z",
+      "side": 1,
+      "message": "instead of using PLAT_ARM_SPMC_LIMIT, use PLAT_ARM_SPMC_SIZE which can be set as 2MB\n\n#if defined(SPD_spmd)\n#define PLAT_ARM_SPMC_BASE\t\tPLAT_ARM_TRUSTED_DRAM_BASE\t\n#define PLAT_ARM_SPMC_SIZE\t\tUL(0x200000)  /* 2 MB */\n#endif",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 60
+      },
+      "revId": "de0ee096fac0c06d848ac1a4bacbbf13b65741d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
