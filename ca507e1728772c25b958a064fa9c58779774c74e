@@ -51,6 +51,24 @@
       "revId": "ca507e1728772c25b958a064fa9c58779774c74e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "320dfc52_8535fa68",
+        "filename": "docs/about/release-information.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-16T14:32:16Z",
+      "side": 0,
+      "message": "Hi Madhukar,\n\nInitially thought the same but we generally remove such information during every release.\nfor e.g. https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/2276. \nAs part of previous patches, we deprecated \"AARCH32/AARCH64\" using \u0027__aarch64__\u0027 (as there were some instances) so now, we don\u0027t have any instances of these macro in the code and hence I thought it is good to remove this information. We dont generally keep history here.\nLet me know your opinion. If such deletion is not needed then I am happy to abandon this patch.",
+      "parentUuid": "74f91e79_e353fcb1",
+      "revId": "ca507e1728772c25b958a064fa9c58779774c74e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
