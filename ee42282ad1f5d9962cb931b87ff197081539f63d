@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeee54d9_f5f9c5f8",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-10-16T15:32:03Z",
+      "side": 1,
+      "message": "UL",
+      "range": {
+        "startLine": 707,
+        "startChar": 25,
+        "endLine": 707,
+        "endChar": 26
+      },
+      "revId": "ee42282ad1f5d9962cb931b87ff197081539f63d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a5d0855_a495a5f0",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-10-16T15:32:03Z",
+      "side": 1,
+      "message": "I know this might be beyond the scope of this patch, but UL here would avoid potential MISRA issues",
+      "range": {
+        "startLine": 341,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 32
+      },
+      "revId": "ee42282ad1f5d9962cb931b87ff197081539f63d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d93a27b0_8bb5d22e",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-10-16T15:32:03Z",
+      "side": 1,
+      "message": "On https://review.trustedfirmware.org/c/TF-A/tf-a-tests/+/6307/4/lib/extensions/amu/aarch64/amu.c you checked if features \u003e\u003d ID_***_AMU_8_4. Any reason you are doing it differently here?",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 73
+      },
+      "revId": "ee42282ad1f5d9962cb931b87ff197081539f63d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0deb257b_f0593c13",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-10-16T15:32:03Z",
+      "side": 1,
+      "message": "If idx can be \u003e 7, this should be UL",
+      "range": {
+        "startLine": 231,
+        "startChar": 3,
+        "endLine": 231,
+        "endChar": 5
+      },
+      "revId": "ee42282ad1f5d9962cb931b87ff197081539f63d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f07db42_0a2a3a9a",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-10-16T15:32:03Z",
+      "side": 1,
+      "message": "Same as previous comment",
+      "range": {
+        "startLine": 247,
+        "startChar": 3,
+        "endLine": 247,
+        "endChar": 5
+      },
+      "revId": "ee42282ad1f5d9962cb931b87ff197081539f63d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
