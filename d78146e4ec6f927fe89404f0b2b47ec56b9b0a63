@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcc6bb57_2c45acc9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-16T12:16:18Z",
+      "side": 1,
+      "message": "SoC",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a18099d6_366078ab",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/ddr_init.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-16T12:16:18Z",
+      "side": 1,
+      "message": "If a member of this structure has unsigned type, then this initialisation should meet MISRA-C Rule 7.2.",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbd17766_66ca5b12",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/ddr_init.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-16T12:16:18Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44303f46_f2187af9",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/ddr_init.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-16T12:16:18Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#functions",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "391bae4c_0dd7e595",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/ddr_init.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-16T12:16:18Z",
+      "side": 1,
+      "message": "does get_clocks() return boolean?",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2029c6b_99040cac",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/ddr_init.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-16T12:16:18Z",
+      "side": 1,
+      "message": "Is info.clk boolean? If not, this is violation of MISRA-C Rule 14.4. Fix everywhere.\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies\nFix everywhere",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "556c6ee1_e78cce1e",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-16T12:16:18Z",
+      "side": 1,
+      "message": "remove extra empty lines",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53362a59_849c1ca5",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-16T12:16:18Z",
+      "side": 1,
+      "message": "remove empty line",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55b1dae1_500f472d",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-16T12:16:18Z",
+      "side": 1,
+      "message": "the same here",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "059f3cd7_f0935ad5",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-16T12:16:18Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1480889d_77b1a271",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/policy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-16T12:16:18Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
