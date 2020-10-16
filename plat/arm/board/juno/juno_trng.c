@@ -35,6 +35,18 @@ static bool output_valid(void)
 	return false; /* No output data available. */
 }
 
+static uint32_t crc_value = ~0U;
+
+/*
+ * This is the gist of arm_acle.h, which is shipped with GCC and clang, but
+ * we miss due to using -nostdinc.
+ */
+#ifdef __aarch64__
+#define __crc32w __builtin_aarch64_crc32w
+#else
+#define __crc32w __builtin_arm_crc32w
+#endif
+
 /*
  * This function fills `buf` with 8 bytes of entropy.
  * It uses the Trusted Entropy Source peripheral on Juno.
@@ -69,14 +81,14 @@ bool juno_getentropy(uint64_t *buf)
 			return false;
 	}
 
-	/* XOR each two 32-bit registers together, combine the pairs */
-	ret = mmio_read_32(TRNG_BASE + 0);
-	ret ^= mmio_read_32(TRNG_BASE + 4);
-	ret <<= 32;
+	/* CRC each two 32-bit registers together, combine the pairs */
+	crc_value = __crc32w(crc_value, mmio_read_32(TRNG_BASE + 0));
+	crc_value = __crc32w(crc_value, mmio_read_32(TRNG_BASE + 4));
+	ret = (uint64_t)crc_value << 32;
 
-	ret |= mmio_read_32(TRNG_BASE + 8);
-	ret ^= mmio_read_32(TRNG_BASE + 12);
-	*buf = ret;
+	crc_value = __crc32w(crc_value, mmio_read_32(TRNG_BASE + 8));
+	crc_value = __crc32w(crc_value, mmio_read_32(TRNG_BASE + 12));
+	*buf = ret | crc_value;
 
 	/* Acknowledge current cycle, clear output registers. */
 	mmio_write_32(TRNG_BASE + TRNG_STATUS, 1);
