@@ -63,6 +63,24 @@
       "revId": "a694c29470e7fde42d953081599952371eedcc3f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63ed61d1_84a44b93",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2020-10-16T12:25:19Z",
+      "side": 1,
+      "message": "PLAT_ARM_MAX_BL32_SIZE limit only applies to aarch32. This BL32_LIMIT here is taken from\narm_def.h",
+      "parentUuid": "21f31f2e_2e56a213",
+      "revId": "a694c29470e7fde42d953081599952371eedcc3f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
