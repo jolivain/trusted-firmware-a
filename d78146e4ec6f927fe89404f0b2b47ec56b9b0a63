@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "a4bdb589_f22d8d59",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/ddr_init.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2020-10-17T15:59:51Z",
+      "side": 1,
+      "message": "Accepted.",
+      "parentUuid": "a18099d6_366078ab",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cbd17766_66ca5b12",
         "filename": "plat/nxp/soc-lx2160/lx2160ardb/ddr_init.c",
         "patchSetId": 2
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "d2fc3342_6faf4072",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/ddr_init.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2020-10-17T15:59:51Z",
+      "side": 1,
+      "message": "Accepted.\n\nre-name to long __init ddr_init(void)",
+      "parentUuid": "44303f46_f2187af9",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "391bae4c_0dd7e595",
         "filename": "plat/nxp/soc-lx2160/lx2160ardb/ddr_init.c",
         "patchSetId": 2
@@ -87,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "28f22b02_d5225756",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/ddr_init.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2020-10-17T15:59:51Z",
+      "side": 1,
+      "message": "Yes, it returns 0 or 1.",
+      "parentUuid": "391bae4c_0dd7e595",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b2029c6b_99040cac",
         "filename": "plat/nxp/soc-lx2160/lx2160ardb/ddr_init.c",
         "patchSetId": 2
@@ -98,6 +152,24 @@
       "writtenOn": "2020-10-16T12:16:18Z",
       "side": 1,
       "message": "Is info.clk boolean? If not, this is violation of MISRA-C Rule 14.4. Fix everywhere.\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies\nFix everywhere",
+      "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "398715e8_a56c5b71",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/ddr_init.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2020-10-17T15:59:51Z",
+      "side": 1,
+      "message": "info.clk is not a boolean.\n\nif (!info.clk) {\n    info.clk \u003d get_ddr_freq(\u0026sys, 1);\n}",
+      "parentUuid": "b2029c6b_99040cac",
       "revId": "d78146e4ec6f927fe89404f0b2b47ec56b9b0a63",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
