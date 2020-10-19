@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9c547aa0_b2822625",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-19T07:05:08Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "5db54390_80cf47d9",
+      "revId": "257608af8cba991c2346899db2a3555f707a93b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "48a471bf_108443c6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2020-10-15T15:18:32Z",
       "side": 1,
       "message": "modifies",
+      "revId": "257608af8cba991c2346899db2a3555f707a93b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82250893_9d91b2a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-19T07:05:08Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "48a471bf_108443c6",
       "revId": "257608af8cba991c2346899db2a3555f707a93b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f2c542d3_bc92c75d",
+        "filename": "plat/intel/soc/common/include/socfpga_mailbox.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-19T07:05:08Z",
+      "side": 1,
+      "message": "Sure, will update this",
+      "parentUuid": "479964ca_94c59f55",
+      "revId": "257608af8cba991c2346899db2a3555f707a93b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7aa67fb3_7d86f5ec",
         "filename": "plat/intel/soc/common/include/socfpga_sip_svc.h",
         "patchSetId": 4
@@ -64,6 +118,24 @@
       "writtenOn": "2020-10-15T15:18:32Z",
       "side": 1,
       "message": "Can size, size_written, subblocks_sent and block_number be negative?",
+      "revId": "257608af8cba991c2346899db2a3555f707a93b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "761f1730_b06dccb2",
+        "filename": "plat/intel/soc/common/include/socfpga_sip_svc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-19T07:05:08Z",
+      "side": 1,
+      "message": "Ill review this. Thanks",
+      "parentUuid": "7aa67fb3_7d86f5ec",
       "revId": "257608af8cba991c2346899db2a3555f707a93b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "b3f1a29e_38f94ac9",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-19T07:05:08Z",
+      "side": 1,
+      "message": "Will fixed this separately",
+      "parentUuid": "7116564f_9bc4f15e",
+      "revId": "257608af8cba991c2346899db2a3555f707a93b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0f335c3b_f960715b",
         "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
         "patchSetId": 4
@@ -98,6 +188,24 @@
       "writtenOn": "2020-10-15T15:18:32Z",
       "side": 1,
       "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies\nFix everywhere",
+      "revId": "257608af8cba991c2346899db2a3555f707a93b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c216d72_77a53cda",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-19T07:05:08Z",
+      "side": 1,
+      "message": "This structure is deprecated in later patches. Fixed later",
+      "parentUuid": "0f335c3b_f960715b",
       "revId": "257608af8cba991c2346899db2a3555f707a93b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "1ab54f16_c0851d54",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-19T07:05:08Z",
+      "side": 1,
+      "message": "Noted will remove",
+      "parentUuid": "6e673299_89acbf93",
+      "revId": "257608af8cba991c2346899db2a3555f707a93b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "09c16f83_8620cead",
         "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
         "patchSetId": 4
@@ -132,6 +258,24 @@
       "writtenOn": "2020-10-15T15:18:32Z",
       "side": 1,
       "message": "mmio_read_32() returns uint32_t, but resp_data is int. Fix everywhere.",
+      "revId": "257608af8cba991c2346899db2a3555f707a93b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8c9e603_f2d50db4",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-19T07:05:08Z",
+      "side": 1,
+      "message": "Most of these issue are fixed in later patches",
+      "parentUuid": "09c16f83_8620cead",
       "revId": "257608af8cba991c2346899db2a3555f707a93b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "338e68e4_95477bd2",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-19T07:05:08Z",
+      "side": 1,
+      "message": "Noted, fixed in later patches",
+      "parentUuid": "155bb093_550424ea",
+      "revId": "257608af8cba991c2346899db2a3555f707a93b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "57576510_c4d0a21a",
         "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
         "patchSetId": 4
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "be42f53b_773854cf",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-19T07:05:08Z",
+      "side": 1,
+      "message": "Noted",
+      "parentUuid": "57576510_c4d0a21a",
+      "revId": "257608af8cba991c2346899db2a3555f707a93b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8cc80475_98a0dfc0",
         "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
         "patchSetId": 4
@@ -183,6 +363,24 @@
       "writtenOn": "2020-10-15T15:18:32Z",
       "side": 1,
       "message": "violation of MISRA-C Rule 7.2. Fix everywhere",
+      "revId": "257608af8cba991c2346899db2a3555f707a93b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ed5d8c8_451fa565",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-19T07:05:08Z",
+      "side": 1,
+      "message": "Noted, fixed in later patches",
+      "parentUuid": "8cc80475_98a0dfc0",
       "revId": "257608af8cba991c2346899db2a3555f707a93b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
