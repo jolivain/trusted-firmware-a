@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "638a6764_b75a598b",
+        "filename": "plat/intel/soc/common/include/socfpga_mailbox.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-19T07:50:36Z",
+      "side": 1,
+      "message": "Hi Alexei,\n\njob_id will take or in some other cases compared to the value of resp_data.\nSnippet:\nuint32_t resp_data \u003d mmio_read_32();\njob_id \u003d MBOX_RESP_JOB_ID(resp_data);\n\nSo in this case job_id should maintain to be of type uin32_t is it?",
+      "parentUuid": "f2c542d3_bc92c75d",
+      "revId": "257608af8cba991c2346899db2a3555f707a93b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7aa67fb3_7d86f5ec",
         "filename": "plat/intel/soc/common/include/socfpga_sip_svc.h",
         "patchSetId": 4
