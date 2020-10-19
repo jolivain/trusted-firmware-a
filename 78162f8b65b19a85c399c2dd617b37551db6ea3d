@@ -498,6 +498,24 @@
       "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eadab776_3104624d",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000119
+      },
+      "writtenOn": "2020-10-19T08:56:39Z",
+      "side": 1,
+      "message": "At the moment whoever is using EHF is assuming a routing model with \u0027SP_ASYNC_PREEMPT\u0027 \u003d 1\nAnd rest are assuming \u0027SP_ASYNC_PREEMPT\u0027 \u003d 1.\n\nSo either way some platform defines has to change. Depending on review I can do the change.\nIt is easier to set \u0027SP_ASYNC_PREEMPT\u0027 \u003d 1 for platforms where \u0027EL3_EXCEPTION_HANDLING\u0027 is set to 1. That will not impact anything I believe. Thoughts?\n\nAlso later some point if desired few other defines like \u0027TSP_NS_INTR_ASYNC_PREEMPT\u0027 and \u0027SP_MIN_WITH_SECURE_FIQ\u0027 can be potentially replaced by this one.",
+      "parentUuid": "831f7110_b01afce4",
+      "revId": "78162f8b65b19a85c399c2dd617b37551db6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
