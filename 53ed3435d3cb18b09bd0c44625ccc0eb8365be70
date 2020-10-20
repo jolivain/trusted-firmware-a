@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "9f865a81_3bf25d22",
+        "filename": "include/plat/arm/common/arm_reclaim_init.ld.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-20T13:58:48Z",
+      "side": 1,
+      "message": "If .init section is placed at lower address, followed by initial stack of a single CPU, after reclaiming the whole .init memory can be used for stack.",
+      "parentUuid": "16ec583e_5bfdd226",
+      "revId": "53ed3435d3cb18b09bd0c44625ccc0eb8365be70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3eec298_08332e36",
         "filename": "plat/arm/board/fvp/include/platform_def.h",
         "patchSetId": 1
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "I agree - this is not ideal. The difficulty is that we can\u0027t calculate the required stack size in a macro (as far as I\u0027m aware) because we can\u0027t know the size of the init section.\n\nWe could make the value of PLATFORM_STACK_SIZE be a linker symbol when RECLAIM_INIT_CODE is enabled, but we\u0027d have to change some of the PSCI code, as it currently uses an immediate value. We also may or may not have enough registers free in that part of the code - I will have to investigate.\n\nWe could instead allow the total stack size to be less than the init section size. This is probably still the neatest solution, but may require a little working-out.",
       "parentUuid": "c3eec298_08332e36",
+      "revId": "53ed3435d3cb18b09bd0c44625ccc0eb8365be70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "303da5c5_38f14070",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-10-20T13:58:48Z",
+      "side": 1,
+      "message": "\"we can\u0027t know the size of the init section.\" \n- What is the problem here? Look at current arm_reclaim_init.ld.S: SIZEOF(.init)\n\"we\u0027d have to change some of the PSCI code, as it currently uses an immediate value\"\n- What is the problem of using values from arm_reclaim_init.ld.S, like __STACK_SIZE__ and __STACKS_END__ which are used now?\n\"We also may or may not have enough registers free in that part of the code\" \n- Which function do you mean? psci_do_pwrdown_cache_maintenance() uses stack to save X19, x20, x29 and X30 on stack, for plat_get_my_stack() no extra registers will be used.",
+      "parentUuid": "2766b3f4_5cc0c3db",
       "revId": "53ed3435d3cb18b09bd0c44625ccc0eb8365be70",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
