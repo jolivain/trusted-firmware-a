@@ -105,6 +105,24 @@
       "revId": "27723464e3c5283cc0e7967c9e6e15c1c5927a53",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c6e3e98_34d1e99c",
+        "filename": "lib/libc/memset.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-10-21T16:50:58Z",
+      "side": 1,
+      "message": "This is somewhat interesting, because this is basically the only line that survived from the previous memset implemenation. And yes, this \"int\" is weird, but that\u0027s the POSIX interface.\nI will cast it explicitly to an uint8_t, just to make MISRA happy - seems to be a common theme ;-)",
+      "parentUuid": "8c055d01_d9f22428",
+      "revId": "27723464e3c5283cc0e7967c9e6e15c1c5927a53",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
