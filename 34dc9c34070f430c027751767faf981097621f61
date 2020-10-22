@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0e9b2d08_634931bf",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-10-22T09:31:10Z",
+      "side": 1,
+      "message": "I give 0x3U a name. But it\u0027s difficult to give 1U and 0U names. I think single-bit constants such as 0 and 1 should be good enough to explain themselves.",
+      "parentUuid": "48ef6e18_c0cff73d",
+      "revId": "34dc9c34070f430c027751767faf981097621f61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e53a197_4590c707",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
         "patchSetId": 27
@@ -33,6 +51,24 @@
       "revId": "34dc9c34070f430c027751767faf981097621f61",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c744f0da_e588f6d5",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-10-22T09:31:10Z",
+      "side": 1,
+      "message": "mmio_write_32() accepts a uint32_t as its 2nd parameter. So using uint32_t here should be a proper way.",
+      "parentUuid": "4e53a197_4590c707",
+      "revId": "34dc9c34070f430c027751767faf981097621f61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
