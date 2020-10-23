@@ -21,6 +21,7 @@
 	.globl	disable_mmu_icache_el1
 	.globl	disable_mmu_icache_el3
 	.globl	fixup_gdt_reloc
+	.global is_scu_present_in_dsu
 #if SUPPORT_VFP
 	.globl	enable_vfp
 #endif
@@ -582,3 +583,15 @@ func fixup_gdt_reloc
 
 	ret
 endfunc fixup_gdt_reloc
+
+/*
+ * Check if the SCU L3 Unit is present on the DSU
+ * 1-> SCU present
+ * 0-> SCU not present
+ */
+func is_scu_present_in_dsu
+	mrs	x0, CPUCFR_EL1
+	ubfx	x0, x0, #SCU_SHIFT, #1
+	eor	x0, x0, #1
+	ret
+endfunc is_scu_present_in_dsu

@@ -989,4 +989,12 @@
 #define DSU_CLUSTER_PWR_ON	1
 #define DSU_CLUSTER_PWR_MASK	U(1)
 
+/******************************************************************************
+ * CPU Configuration register definitions
+ *****************************************************************************/
+#define CPUCFR_EL1		S3_0_C15_C0_0
+
+/* SCU bit of CPU Configuration Register, EL1 */
+#define SCU_SHIFT		U(2)
+
 #endif /* ARCH_H */
