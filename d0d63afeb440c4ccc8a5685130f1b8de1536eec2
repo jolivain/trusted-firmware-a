@@ -34,6 +34,24 @@
       "revId": "d0d63afeb440c4ccc8a5685130f1b8de1536eec2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f68219a7_80447723",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-10-23T19:41:55Z",
+      "side": 1,
+      "message": "if the property enable-method is removed from the macro, wouldnt it have impact on linux boot on secondary cores? i am assuming linux uses this binding to use the PSCI library for cpu hotplugging.",
+      "parentUuid": "775f73df_d61029fb",
+      "revId": "d0d63afeb440c4ccc8a5685130f1b8de1536eec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
