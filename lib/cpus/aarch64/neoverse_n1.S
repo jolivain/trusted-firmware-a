@@ -1,15 +1,16 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2020, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <arch.h>
 #include <asm_macros.S>
-#include <neoverse_n1.h>
 #include <cpuamu.h>
 #include <cpu_macros.S>
 #include <context.h>
+#include <neoverse_n1.h>
+#include <neoverse_n_common.S>
 
 /* Hardware handled coherency */
 #if HW_ASSISTED_COHERENCY == 0
@@ -22,19 +23,6 @@
 #endif
 
 	.global neoverse_n1_errata_ic_trap_handler
-	.global is_scu_present_in_dsu
-
-/*
- * Check DSU is configured with SCU and L3 unit
- * 1-> SCU present
- * 0-> SCU not present
- */
-func is_scu_present_in_dsu
-	mrs	x0, CPUCFR_EL1
-	ubfx	x0, x0, #SCU_SHIFT, #1
-	eor	x0, x0, #1
-	ret
-endfunc is_scu_present_in_dsu
 
 /* --------------------------------------------------
  * Errata Workaround for Neoverse N1 Erratum 1043202.
