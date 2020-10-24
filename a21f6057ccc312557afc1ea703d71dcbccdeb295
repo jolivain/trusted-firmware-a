@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f85e48d_cc7aaaf7",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-10-24T02:02:37Z",
+      "side": 1,
+      "message": "What is the intention initializing the mailbox again?",
+      "range": {
+        "startLine": 124,
+        "startChar": 2,
+        "endLine": 124,
+        "endChar": 23
+      },
+      "revId": "a21f6057ccc312557afc1ea703d71dcbccdeb295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
