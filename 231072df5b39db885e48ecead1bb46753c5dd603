@@ -22,6 +22,30 @@
       "revId": "231072df5b39db885e48ecead1bb46753c5dd603",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f010fc94_a15c0997",
+        "filename": "plat/arm/board/juno/juno_stack_protector.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-10-24T09:30:46Z",
+      "side": 1,
+      "message": "There is a 32-bit build target for Juno. The old code was hiding this a bit, but was employing a similar strategy (XORing as many values as needed) to cope with that.",
+      "parentUuid": "a44b6e7e_bfe3ea92",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 52
+      },
+      "revId": "231072df5b39db885e48ecead1bb46753c5dd603",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
