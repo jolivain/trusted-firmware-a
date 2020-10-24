@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a44b6e7e_bfe3ea92",
+        "filename": "plat/arm/board/juno/juno_stack_protector.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-10-24T02:24:58Z",
+      "side": 1,
+      "message": "When will this path execute? IIUC, the if condition will always be true (?)",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 52
+      },
+      "revId": "231072df5b39db885e48ecead1bb46753c5dd603",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
