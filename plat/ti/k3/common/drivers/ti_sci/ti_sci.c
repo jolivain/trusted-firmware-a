@@ -1163,6 +1163,7 @@ int ti_sci_core_reboot(void)
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
 	}
+	req.domain = 0;
 
 	ret = ti_sci_do_xfer(&xfer);
 	if (ret) {
