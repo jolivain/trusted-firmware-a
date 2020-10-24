@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "b9e911d7_e168a090",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2017,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-24T15:56:10Z",
+      "side": 1,
+      "message": "Please update the glossary.rst and global_substitutions.txt with TRNG term",
+      "range": {
+        "startLine": 2017,
+        "startChar": 4,
+        "endLine": 2017,
+        "endChar": 10
+      },
+      "revId": "7c5e74f542c9d4eadb516164b7830aef936d00bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7d1fc13_6707d2f8",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2036,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-24T15:56:10Z",
+      "side": 1,
+      "message": "Doc build may fail due to short underline title.",
+      "range": {
+        "startLine": 2035,
+        "startChar": 51,
+        "endLine": 2036,
+        "endChar": 48
+      },
+      "revId": "7c5e74f542c9d4eadb516164b7830aef936d00bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fc8ffb2_639c2af8",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2046,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-24T15:56:10Z",
+      "side": 1,
+      "message": "Better provide arguments as below:\n\n::\n  Argument: uint64*\n  Return: bool",
+      "range": {
+        "startLine": 2046,
+        "startChar": 32,
+        "endLine": 2046,
+        "endChar": 45
+      },
+      "revId": "7c5e74f542c9d4eadb516164b7830aef936d00bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "481b5d00_d9214bf2",
         "filename": "services/std_svc/trng/trng_entropy_pool.c",
         "patchSetId": 3
@@ -18,6 +87,69 @@
         "startChar": 1,
         "endLine": 27,
         "endChar": 22
+      },
+      "revId": "7c5e74f542c9d4eadb516164b7830aef936d00bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65f801ee_cc908dac",
+        "filename": "services/std_svc/trng/trng_entropy_pool.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-24T15:56:10Z",
+      "side": 1,
+      "message": "Please guard this header as below:\n#ifndef TRNG_ENTROPY_POOL_H\n#define TRNG_ENTROPY_POOL_H\n..\n..\n#endif /* TRNG_ENTROPY_POOL_H */",
+      "revId": "7c5e74f542c9d4eadb516164b7830aef936d00bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1b758a7_5a38c7b4",
+        "filename": "services/std_svc/trng/trng_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-24T15:56:10Z",
+      "side": 1,
+      "message": "platform include should be at the end as per ordering mentioned in the coding guideline https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html?highlight\u003dheader%20inclusion#header-guards",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 34
+      },
+      "revId": "7c5e74f542c9d4eadb516164b7830aef936d00bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d2bc334_a7dcaeaa",
+        "filename": "services/std_svc/trng/trng_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-10-24T15:56:10Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html?highlight\u003dbraces#conditional-statement-bodies use braces for \u0027if\u0027 condition.",
+      "range": {
+        "startLine": 72,
+        "startChar": 1,
+        "endLine": 72,
+        "endChar": 25
       },
       "revId": "7c5e74f542c9d4eadb516164b7830aef936d00bd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
