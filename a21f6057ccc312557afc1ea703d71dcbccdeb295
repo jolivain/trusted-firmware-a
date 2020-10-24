@@ -22,6 +22,30 @@
       "revId": "a21f6057ccc312557afc1ea703d71dcbccdeb295",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40d98571_b6af4204",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2020-10-24T02:51:20Z",
+      "side": 1,
+      "message": "This driver will keep trying to fill up the mailbox cmd buffer, and wait for empty spaces in case the buffer is full. In the case that if fails to do so after certain timeout, something may have gone wrong in the mailbox, hence why we try to restart the service.",
+      "parentUuid": "3f85e48d_cc7aaaf7",
+      "range": {
+        "startLine": 124,
+        "startChar": 2,
+        "endLine": 124,
+        "endChar": 23
+      },
+      "revId": "a21f6057ccc312557afc1ea703d71dcbccdeb295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
