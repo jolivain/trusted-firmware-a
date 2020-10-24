@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "481b5d00_d9214bf2",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-24T01:07:54Z",
+      "side": 1,
+      "message": "why bakery lock and not spin lock?",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 22
+      },
+      "revId": "7c5e74f542c9d4eadb516164b7830aef936d00bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
