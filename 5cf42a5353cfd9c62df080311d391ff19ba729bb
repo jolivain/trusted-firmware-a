@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3dceb91_615b5867",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-25T18:49:27Z",
+      "side": 1,
+      "message": "not sure i understand how the flag fixes the issue. DSB will make sure lower EL accesses complete and pend SError immediately, but SErrors are blocked at this point. Below, you will get an SError interrupt if any are pending right after the MSR to unmask or worst case after the ISB. This would still trigger SError from lower EL accesses on SP_ELx and the check in check_if_serror_from_el3 will always look like it happened in EL3.\nShould you be unmasking SError before the above instructions? That way, SErrors taken will NOT have the flag set to indicate that the SError is from lower EL\u0027s.\n\nMight be missing something. let me know",
+      "range": {
+        "startLine": 89,
+        "startChar": 1,
+        "endLine": 93,
+        "endChar": 7
+      },
+      "revId": "5cf42a5353cfd9c62df080311d391ff19ba729bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "801185ba_7ca9a34f",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-25T18:49:27Z",
+      "side": 1,
+      "message": "Nit: not really a stack. it is the CPU context structure pointed to by SP_EL3 right?",
+      "range": {
+        "startLine": 111,
+        "startChar": 65,
+        "endLine": 111,
+        "endChar": 70
+      },
+      "revId": "5cf42a5353cfd9c62df080311d391ff19ba729bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19e819ab_d0ee381d",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-25T18:49:27Z",
+      "side": 1,
+      "message": "same here. should this be done, BEFORE setting CTX_IS_IN_EL3?",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 4
+      },
+      "revId": "5cf42a5353cfd9c62df080311d391ff19ba729bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "864f7e52_06445027",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-10-25T18:49:27Z",
+      "side": 1,
+      "message": "do you need to save x19? Otherwise, aren\u0027t you trashing x19 here?",
+      "range": {
+        "startLine": 147,
+        "startChar": 1,
+        "endLine": 147,
+        "endChar": 52
+      },
+      "revId": "5cf42a5353cfd9c62df080311d391ff19ba729bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
