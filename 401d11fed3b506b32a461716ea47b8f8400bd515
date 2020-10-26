@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "39578e22_76e77657",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-10-26T12:47:14Z",
+      "side": 1,
+      "message": "I have added more information about the specific problem that this fixes. Is this okay?",
+      "parentUuid": "086b0b79_2742bbb4",
+      "range": {
+        "startLine": 13,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 37
+      },
+      "revId": "401d11fed3b506b32a461716ea47b8f8400bd515",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2655af56_2d173522",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a24388dc_7bd38c7b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-10-26T12:47:14Z",
+      "side": 1,
+      "message": "Completely unmapping it would require dynamic memory regions to be enabled through the PLAT_XLAT_TABLES_DYNAMIC build option (which is not currently a requirement of the RECLAIM_INIT_CODE feature).\n\nWithout enabling dynamic memory regions, I believe RO is the most restrictive set of permissions it is possible to get simply by changing memory attributes.",
+      "parentUuid": "2655af56_2d173522",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 45
+      },
+      "revId": "401d11fed3b506b32a461716ea47b8f8400bd515",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e67d7abb_e00ef5a4",
         "filename": "plat/arm/common/arm_bl31_setup.c",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2020-10-26T04:36:09Z",
       "side": 1,
       "message": "Where can I find the code to zero out this memory?",
+      "range": {
+        "startLine": 297,
+        "startChar": 3,
+        "endLine": 297,
+        "endChar": 11
+      },
+      "revId": "401d11fed3b506b32a461716ea47b8f8400bd515",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6a7293c_4999109f",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-10-26T12:47:14Z",
+      "side": 1,
+      "message": "This is a good point - I\u0027m not sure why that part of the comment was there, as I don\u0027t think this function has ever zeroed out memory. I have removed it.",
+      "parentUuid": "e67d7abb_e00ef5a4",
       "range": {
         "startLine": 297,
         "startChar": 3,
