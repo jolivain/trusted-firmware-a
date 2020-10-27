@@ -108,6 +108,9 @@ int vprintf(const char *fmt, va_list args)
 			/* Check the format specifier */
 loop:
 			switch (*fmt) {
+			case '%':
+				(void)putchar(*fmt);
+				break;
 			case 'i': /* Fall through to next one */
 			case 'd':
 				num = get_num_va_args(args, l_count);
