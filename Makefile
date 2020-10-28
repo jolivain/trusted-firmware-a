@@ -179,45 +179,34 @@ ifneq ($(strip $(wildcard ${LD}.bfd) \
 LINKER			:=	${LINKER}.bfd
 endif
 
-ifeq (${ARM_ARCH_MAJOR},7)
-target32-directive	= 	-target arm-none-eabi
-# Will set march32-directive from platform configuration
-else
-target32-directive	= 	-target armv8a-none-eabi
+target32-directive	= 	$(if $(filter ${ARM_ARCH_MAJOR},7), -target arm-none-eabi, -target armv8a-none-eabi)
 
 # Set the compiler's target architecture profile based on ARM_ARCH_MINOR option
-ifeq (${ARM_ARCH_MINOR},0)
-march32-directive	= 	-march=armv8-a
-march64-directive	= 	-march=armv8-a
-else
-march32-directive	= 	-march=armv8.${ARM_ARCH_MINOR}-a
-march64-directive	= 	-march=armv8.${ARM_ARCH_MINOR}-a
-endif
-endif
+march32-minor		=	$(if $(filter ${ARM_ARCH_MINOR},0),,.${ARM_ARCH_MINOR})
+march32-directive	=	-march=armv8${march32-minor}-a$(call join_list,,${ARM_ARCH_FEAT})
+march64-directive	=	${march32-directive}
 
 # Memory tagging is supported in architecture Armv8.5-A AArch64 and onwards
-ifeq ($(ARCH), aarch64)
-# Check if revision is greater than or equal to 8.5
-ifeq "8.5" "$(word 1, $(sort 8.5 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
-mem_tag_arch_support	= 	yes
-endif
-endif
+64bit			=	$(if $(filter $(ARCH), aarch64), 1,)
+arm85ornewer		=	$(call version_greater,8.5,$(ARM_ARCH_MAJOR),$(ARM_ARCH_MINOR))
+mem_tag_arch_support	=	$(if $(and ${64bit},${arm85ornewer}), 1,)
+assert_mem_tag_feat	=	$(if ${mem_tag_arch_support},+memtag,\
+				$(error "Error: stack memory tagging is not supported for architecture \
+					${ARCH},armv${ARM_ARCH_MAJOR}.${ARM_ARCH_MINOR}-a")\
+				)
 
 # Enabled required option for memory stack tagging. Currently, these options are
 # enabled only for clang and armclang compiler.
 ifeq (${SUPPORT_STACK_MEMTAG},yes)
-ifdef mem_tag_arch_support
 ifneq ( ,$(filter $(notdir $(CC)),armclang clang))
-march64-directive       =       -march=armv${ARM_ARCH_MAJOR}.${ARM_ARCH_MINOR}-a+memtag
+ARM_ARCH_FEAT		=	${assert_mem_tag_feat}
+
 ifeq ($(notdir $(CC)),armclang)
 TF_CFLAGS		+=	-mmemtag-stack
 else ifeq ($(notdir $(CC)),clang)
 TF_CFLAGS		+=	-fsanitize=memtag
 endif
-endif
-else
-$(error "Error: stack memory tagging is not supported for architecture \
-	${ARCH},armv${ARM_ARCH_MAJOR}.${ARM_ARCH_MINOR}-a")
+
 endif
 endif
 

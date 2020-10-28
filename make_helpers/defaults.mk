@@ -23,6 +23,9 @@ ARCH				:= aarch64
 ARM_ARCH_MAJOR			:= 8
 ARM_ARCH_MINOR			:= 0
 
+# ARM Architecture additional features are additive (e.g. += +rng+memtag)
+ARM_ARCH_FEAT			:=
+
 # Base commit to perform code check on
 BASE_COMMIT			:= origin/master
 

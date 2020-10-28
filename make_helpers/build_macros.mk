@@ -86,6 +86,18 @@ define assert_numerics
     $(foreach num,$1,$(eval $(call assert_numeric,$(num))))
 endef
 
+# Checks that version $(2).(3) is greater than $(1)
+# Returns 1 if true or empty string if false
+define version_greater
+$(if $(filter $(1), $(word 1, $(sort $(1) $(2).$(3)))),1,)
+endef
+
+# Joins a list of words $(2) with a separator $(1)
+# Really it replaces every whitespace with $(1)
+define join_list
+$(subst $(eval) ,$(1),$(2))
+endef
+
 # CREATE_SEQ is a recursive function to create sequence of numbers from 1 to
 # $(2) and assign the sequence to $(1)
 define CREATE_SEQ
