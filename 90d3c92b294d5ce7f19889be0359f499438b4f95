@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5dfcb3cb_ee063210",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-10-28T19:28:19Z",
+      "side": 1,
+      "message": "Do we need an explicit typecast? Will the current code introduce any MISRA failures?",
+      "range": {
+        "startLine": 30,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 18
+      },
+      "revId": "90d3c92b294d5ce7f19889be0359f499438b4f95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
