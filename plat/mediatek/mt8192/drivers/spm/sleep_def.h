@@ -52,7 +52,7 @@
 #define SPM_FLAG1_FW_SET_ULPOSC_ON            (1U << 4)
 #define SPM_FLAG1_RESERVED_BIT5               (1U << 5)
 #define SPM_FLAG1_ENABLE_REKICK               (1U << 6)
-#define SPM_FLAG1_RESERVED_BIT7               (1U << 7)
+#define SPM_FLAG1_DISABLE_MD26M_CK_OFF        (1U << 7)
 #define SPM_FLAG1_RESERVED_BIT8               (1U << 8)
 #define SPM_FLAG1_RESERVED_BIT9               (1U << 9)
 #define SPM_FLAG1_DISABLE_SRCLKEN_LOW         (1U << 10)

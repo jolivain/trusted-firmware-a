@@ -38,7 +38,7 @@
 				| SPM_FLAG_ENABLE_MD_MUMTAS\
 				| SPM_FLAG_SRAM_SLEEP_CTRL)
 
-#define SPM_SUSPEND_PCM_FLAG1		(0)
+#define SPM_SUSPEND_PCM_FLAG1	(SPM_FLAG1_DISABLE_MD26M_CK_OFF)
 
 /* Suspend spm power control */
 #define __WAKE_SRC_FOR_SUSPEND_COMMON__ ( \
@@ -54,11 +54,9 @@
 	(R12_SCP2SPM_WAKEUP_B) | \
 	(R12_ADSP2SPM_WAKEUP_B) | \
 	(R12_USBX_CDSC_B) | \
-	(R12_USBX_POWERDWN_B) | \
 	(R12_SYS_TIMER_EVENT_B) | \
 	(R12_EINT_EVENT_SECURE_B) | \
 	(R12_CCIF1_EVENT_B) | \
-	(R12_SYS_CIRQ_IRQ_B) | \
 	(R12_MD2AP_PEER_EVENT_B) | \
 	(R12_MD1_WDT_B) | \
 	(R12_CLDMA_EVENT_B) | \
@@ -100,7 +98,7 @@ static struct pwr_ctrl suspend_ctrl = {
 
 	/* SPM_SRC_REQ */
 	.reg_spm_apsrc_req = 0,
-	.reg_spm_f26m_req = 1,
+	.reg_spm_f26m_req = 0,
 	.reg_spm_infra_req = 0,
 	.reg_spm_vrf18_req = 0,
 	.reg_spm_ddr_en_req = 0,
