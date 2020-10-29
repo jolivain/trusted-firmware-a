@@ -210,6 +210,9 @@ endif
 endif
 endif
 
+# Determine if FEAT_RNG is supported
+ENABLE_FEAT_RNG		=	$(if $(and ${arm85ornewer},$(findstring +rng,${ARM_ARCH_FEAT})),1,0)	
+
 ifneq ($(findstring armclang,$(notdir $(CC))),)
 TF_CFLAGS_aarch32	=	-target arm-arm-none-eabi $(march32-directive)
 TF_CFLAGS_aarch64	=	-target aarch64-arm-none-eabi $(march64-directive)
@@ -907,6 +910,7 @@ $(eval $(call assert_booleans,\
         RAS_TRAP_LOWER_EL_ERR_ACCESS \
         COT_DESC_IN_DTB \
         USE_SP804_TIMER \
+	ENABLE_FEAT_RNG \
 )))
 
 $(eval $(call assert_numerics,\
@@ -996,6 +1000,7 @@ $(eval $(call add_defines,\
         RAS_TRAP_LOWER_EL_ERR_ACCESS \
         COT_DESC_IN_DTB \
         USE_SP804_TIMER \
+	ENABLE_FEAT_RNG \
 )))
 
 ifeq (${SANITIZE_UB},trap)
