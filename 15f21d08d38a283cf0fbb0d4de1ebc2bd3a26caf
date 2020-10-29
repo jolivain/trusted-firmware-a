@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a3d5eef_5baa6855",
+        "filename": "lib/libc/memset.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-10-29T13:25:08Z",
+      "side": 1,
+      "message": "This should be 8U I think",
+      "range": {
+        "startLine": 38,
+        "startChar": 30,
+        "endLine": 38,
+        "endChar": 31
+      },
+      "revId": "15f21d08d38a283cf0fbb0d4de1ebc2bd3a26caf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
