@@ -22,6 +22,30 @@
       "revId": "15f21d08d38a283cf0fbb0d4de1ebc2bd3a26caf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45c2c728_3c877a78",
+        "filename": "lib/libc/memset.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2020-10-29T15:50:12Z",
+      "side": 1,
+      "message": "Well, but this is *subtracting* 8, so I think this is really not the case for the MISRA rule here - at least it sounds quite weird to do essentially \"count -\u003d +8\". Did the checker actually complain about that?\nRule 7.2 seems to speak of \"integer constants represented in an unsigned type\" - whatever that means, really, but I read it as not being the case here.",
+      "parentUuid": "0a3d5eef_5baa6855",
+      "range": {
+        "startLine": 38,
+        "startChar": 30,
+        "endLine": 38,
+        "endChar": 31
+      },
+      "revId": "15f21d08d38a283cf0fbb0d4de1ebc2bd3a26caf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
