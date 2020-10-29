@@ -176,33 +176,48 @@ There are several build options:
 
 - WTP
 
-    For Armada37x0 only, use this parameter to point to wtptools source code
-    directory, which can be found as a3700_utils.zip in the release. Usage
-    example: ``WTP=/path/to/a3700_utils``
+        For Armada37x0 only, use this parameter to point to wtptools source code
+        directory, which can be found as a3700_utils.zip in the release. Usage
+        example: ``WTP=/path/to/a3700_utils``
 
-    For example, in order to build the image in debug mode with log level up to 'notice' level run
+- CRYPTOPP_PATH
 
-    .. code:: shell
+        For Armada37x0 only, use this parameter tp point to Crypto++ source code
+        directory, which is required for building WTP image tool.
 
-        > make DEBUG=1 USE_COHERENT_MEM=0 LOG_LEVEL=20 PLAT=<MARVELL_PLATFORM> all fip
 
-    And if we want to build a Armada37x0 image in debug mode with log level up to 'notice' level,
-    the image has the preset CPU at 1000 MHz, preset DDR3 at 800 MHz, the DDR topology of DDR4 2CS,
-    the image boot from SPI NOR flash partition 0, and the image is non trusted in WTP, the command
-    line is as following
+For example, in order to build the image in debug mode with log level up to 'notice' level run
 
-    .. code:: shell
+.. code:: shell
 
-        > make DEBUG=1 USE_COHERENT_MEM=0 LOG_LEVEL=20 CLOCKSPRESET=CPU_1000_DDR_800 \
-            MARVELL_SECURE_BOOT=0 DDR_TOPOLOGY=3 BOOTDEV=SPINOR PARTNUM=0 PLAT=a3700 all fip
+    > make DEBUG=1 USE_COHERENT_MEM=0 LOG_LEVEL=20 PLAT=<MARVELL_PLATFORM> mrvl_flash
 
-    Supported MARVELL_PLATFORM are:
-        - a3700 (for both A3720 DB and EspressoBin)
-        - a70x0
-        - a70x0_amc (for AMC board)
-        - a80x0
-        - a80x0_mcbin (for MacchiatoBin)
-        - t9130 (OcteonTX2 CN913x)
+And if we want to build a Armada37x0 image in debug mode with log level up to 'notice' level,
+the image has the preset CPU at 1000 MHz, preset DDR3 at 800 MHz, the DDR topology of DDR4 2CS,
+the image boot from SPI NOR flash partition 0, and the image is non trusted in WTP, the command
+line is as following
+
+.. code:: shell
+
+    > make DEBUG=1 USE_COHERENT_MEM=0 LOG_LEVEL=20 CLOCKSPRESET=CPU_1000_DDR_800 \
+        MARVELL_SECURE_BOOT=0 DDR_TOPOLOGY=3 BOOTDEV=SPINOR PARTNUM=0 PLAT=a3700 \
+        MV_DDR_PATH=/path/to/mv-ddr-marvell/ WTP=/path/to/A3700-utils-marvell/ \
+        CRYPTOPP_PATH=/path/to/cryptopp/ BL33=/path/to/u-boot.bin \
+        all fip mrvl_bootimage mrvl_flash
+
+To build just TF-A without WTMI image (useful for A3720 Turris MOX board), run following command:
+
+.. code:: shell
+
+    > make DEBUG=0 LOG_LEVEL=0 USE_COHERENT_MEM=0 PLAT=a3700 BL33=/path/to/u-boot.bin CROSS_COMPILE=aarch64-linux-gnu- mrvl_bootimage
+
+Supported MARVELL_PLATFORM are:
+    - a3700 (for both A3720 DB and EspressoBin)
+    - a70x0
+    - a70x0_amc (for AMC board)
+    - a80x0
+    - a80x0_mcbin (for MacchiatoBin)
+    - t9130 (OcteonTX2 CN913x)
 
 Special Build Flags
 --------------------
@@ -234,6 +249,9 @@ Marvell's TF-A compilation generates 7 files:
     - boot-image.bin	- TF-A image (contains BL1 and FIP images)
     - flash-image.bin	- Image which contains boot-image.bin and SPL image.
       Should be placed on the boot flash/device.
+
+Make target ``mrvl_bootimage`` produce ``boot-image.bin`` file and
+target ``mrvl_flash`` produce final ``flash-image.bin`` file.
 
 
 Tools and external components installation
@@ -268,6 +286,10 @@ Armada37x0 Builds require installation of 3 components
     (use the "A3700_utils-armada-18.12-fixed" branch):
 
     https://github.com/MarvellEmbeddedProcessors/A3700-utils-marvell.git
+
+(4) Crypto++ library available at the following repository:
+
+    https://github.com/weidai11/cryptopp.git
 
 Armada70x0 and Armada80x0 Builds require installation of an additional component
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
