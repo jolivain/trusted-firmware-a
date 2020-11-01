@@ -47,10 +47,10 @@ static struct mt_spm_cond_tables cond_dram = {
 	.name = "dram",
 	.table_cg = {
 		0x078BF1FC,	/* MTCMOS1 */
-		0x08010856,	/* INFRA0  */
+		0x080D8856,	/* INFRA0  */
 		0x03AF9A00,	/* INFRA1  */
 		0x86000640,	/* INFRA2  */
-		0xC0004000,	/* INFRA3  */
+		0xC800C000,	/* INFRA3  */
 		0x00000000,     /* INFRA4  */
 		0x00000000,     /* INFRA5  */
 		0x200C0000,	/* MMSYS0  */

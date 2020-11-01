@@ -38,7 +38,7 @@
 				| SPM_FLAG_ENABLE_MD_MUMTAS\
 				| SPM_FLAG_SRAM_SLEEP_CTRL)
 
-#define SPM_SUSPEND_PCM_FLAG1		(0)
+#define SPM_SUSPEND_PCM_FLAG1	(SPM_FLAG1_DISABLE_MD26M_CK_OFF)
 
 /* Suspend spm power control */
 #define __WAKE_SRC_FOR_SUSPEND_COMMON__ ( \
@@ -63,7 +63,9 @@
 	(R12_MD1_WDT_B) | \
 	(R12_CLDMA_EVENT_B) | \
 	(R12_REG_CPU_WAKEUP) | \
-	(R12_APUSYS_WAKE_HOST_B))
+	(R12_APUSYS_WAKE_HOST_B) | \
+	(R12_PCIE_BRIDGE_IRQ) | \
+	(R12_PCIE_IRQ))
 
 
 #if defined(CFG_MICROTRUST_TEE_SUPPORT)
@@ -76,7 +78,6 @@
 #endif
 
 static struct pwr_ctrl suspend_ctrl = {
-	.timer_val = 0x28000,
 	.wake_src = WAKE_SRC_FOR_SUSPEND,
 
 	/* Auto-gen Start */
@@ -100,7 +101,7 @@ static struct pwr_ctrl suspend_ctrl = {
 
 	/* SPM_SRC_REQ */
 	.reg_spm_apsrc_req = 0,
-	.reg_spm_f26m_req = 1,
+	.reg_spm_f26m_req = 0,
 	.reg_spm_infra_req = 0,
 	.reg_spm_vrf18_req = 0,
 	.reg_spm_ddr_en_req = 0,
@@ -239,7 +240,7 @@ static struct pwr_ctrl suspend_ctrl = {
 	.reg_pcie_ddr_en_mask_b = 1,
 
 	/* SPM_WAKEUP_EVENT_MASK */
-	.reg_wakeup_event_mask = 0xC1382202,
+	.reg_wakeup_event_mask = 0x01382202,
 
 	/* SPM_WAKEUP_EVENT_EXT_MASK */
 	.reg_ext_wakeup_event_mask = 0xFFFFFFFF,

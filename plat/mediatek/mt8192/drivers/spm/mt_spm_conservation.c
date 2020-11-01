@@ -102,6 +102,9 @@ static int go_to_spm_before_wfi(int state_id, unsigned int ext_opand,
 
 	__spm_send_cpu_wakeup_event();
 
+	if (IS_PLAT_SUSPEND_ID(state_id))
+		__spm_disable_pcm_timer();
+
 	INFO("cpu%d: wakesrc = 0x%x, settle = 0x%x, sec = %u\n",
 	     cpu, pwrctrl->wake_src, mmio_read_32(SPM_CLK_SETTLE),
 	     mmio_read_32(PCM_TIMER_VAL) / 32768);
