@@ -45,7 +45,7 @@
 				| SPM_FLAG_ENABLE_LVTS_WORKAROUND\
 				| SPM_FLAG_KEEP_CSYSPWRACK_HIGH)
 
-#define CONSTRAINT_BUS26M_PCM_FLAG1 (0)
+#define CONSTRAINT_BUS26M_PCM_FLAG1 (SPM_FLAG1_DISABLE_MD26M_CK_OFF)
 
 /*
  * If sspm sram won't enter  sleep voltage
@@ -65,10 +65,10 @@ static struct mt_spm_cond_tables cond_bus26m = {
 	.name = "bus26m",
 	.table_cg = {
 		0x07CBF1FC,	/* MTCMOS1 */
-		0x0A010856,	/* INFRA0  */
+		0x0A0D8856,	/* INFRA0  */
 		0x03AF9A00,	/* INFRA1  */
 		0x86000650,	/* INFRA2  */
-		0xC0004000,	/* INFRA3  */
+		0xC800C000,	/* INFRA3  */
 		0x00000000,     /* INFRA4  */
 		0x4000007C,     /* INFRA5  */
 		0x280E0800,	/* MMSYS0  */
