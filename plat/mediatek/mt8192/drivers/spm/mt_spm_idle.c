@@ -39,7 +39,9 @@
 		(R12_MD1_WDT_B) | \
 		(R12_CLDMA_EVENT_B) | \
 		(R12_REG_CPU_WAKEUP) | \
-		(R12_APUSYS_WAKE_HOST_B))
+		(R12_APUSYS_WAKE_HOST_B) | \
+		(R12_PCIE_BRIDGE_IRQ) | \
+		(R12_PCIE_IRQ))
 
 
 #if defined(CFG_MICROTRUST_TEE_SUPPORT)
@@ -215,7 +217,7 @@ static struct pwr_ctrl idle_spm_pwr = {
 	.reg_pcie_ddr_en_mask_b = 1,
 
 	/* SPM_WAKEUP_EVENT_MASK */
-	.reg_wakeup_event_mask = 0xC1282202,
+	.reg_wakeup_event_mask = 0x01282202,
 
 	/* SPM_WAKEUP_EVENT_EXT_MASK */
 	.reg_ext_wakeup_event_mask = 0xFFFFFFFF,
