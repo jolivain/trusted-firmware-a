@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8985d34_38795e67",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2020-11-02T23:51:14Z",
+      "side": 1,
+      "message": "In general it\u0027s probably good to group platform changes (also tools, libs, drivers) together to summarize the main points when possible. Full commit messages might help to do this. TC0 additions could be listed in one bullet, for example.",
+      "range": {
+        "startLine": 60,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 26
+      },
+      "revId": "8c4f5135bfb5160d4e83bf8ce28cd3bde9591aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97a9cf17_4dac5a79",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2020-11-02T23:51:14Z",
+      "side": 1,
+      "message": "New workarounds could be moved to \"New Features\" section",
+      "range": {
+        "startLine": 167,
+        "startChar": 8,
+        "endLine": 167,
+        "endChar": 46
+      },
+      "revId": "8c4f5135bfb5160d4e83bf8ce28cd3bde9591aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94d00554_e03fc913",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2020-11-02T23:51:14Z",
+      "side": 1,
+      "message": "This was added and reverted after the last release so the mention of it can be removed.",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 49
+      },
+      "revId": "8c4f5135bfb5160d4e83bf8ce28cd3bde9591aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d61ce5ca_dd5ab6bf",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2020-11-02T23:51:14Z",
+      "side": 1,
+      "message": "There should be an associated number that goes with this visible in the patch",
+      "revId": "8c4f5135bfb5160d4e83bf8ce28cd3bde9591aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "057d7b5c_4ffe23e7",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2020-11-02T23:51:14Z",
+      "side": 1,
+      "message": "Maybe list new code owners in one sub-section or potentially just leave these details out. The idea of Code Owners in the code base might be new for this release even so that could be a bullet in New Features even, if that\u0027s the case I don\u0027t think mentioning the doc update would be needed",
+      "range": {
+        "startLine": 277,
+        "startChar": 9,
+        "endLine": 277,
+        "endChar": 16
+      },
+      "revId": "8c4f5135bfb5160d4e83bf8ce28cd3bde9591aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a2da229_00ca25c9",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2020-11-02T23:51:14Z",
+      "side": 1,
+      "message": "As above there could be a mention of new maintainers, maybe worthwhile bullet since there are now external maintainers since the last release when before there were only internal.",
+      "revId": "8c4f5135bfb5160d4e83bf8ce28cd3bde9591aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73bba578_64322c8c",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2020-11-02T23:51:14Z",
+      "side": 1,
+      "message": "I think a lot (even most) of these docs changes can be removed from the change log potentially",
+      "range": {
+        "startLine": 302,
+        "startChar": 5,
+        "endLine": 303,
+        "endChar": 46
+      },
+      "revId": "8c4f5135bfb5160d4e83bf8ce28cd3bde9591aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3d6c0c7_5bbc2707",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2020-11-02T23:51:14Z",
+      "side": 1,
+      "message": "Noting that we may have \"Known Issues\" and \"Deprecations\" to add since the last release",
+      "revId": "8c4f5135bfb5160d4e83bf8ce28cd3bde9591aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
