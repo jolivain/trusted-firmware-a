@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f77314a_f7cc8e35",
+        "filename": "plat/mediatek/mt8192/drivers/ptp3/mtk_ptp3_common.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2020-11-04T22:27:30Z",
+      "side": 1,
+      "message": "Perhaps not super-important, but is the blank like between PTP3_CFG_VALUE and NR_PTP3_CFG needed/intended?",
+      "revId": "2ea8c869410924173fe20eee91c9bec23f7eb8a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90ddbb65_2d4a2614",
+        "filename": "plat/mediatek/mt8192/drivers/ptp3/mtk_ptp3_main.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2020-11-04T22:27:30Z",
+      "side": 1,
+      "message": "Would it be feasible to get some comments here, just briefly describing what these arrays represent and/or how they\u0027re used?",
+      "revId": "2ea8c869410924173fe20eee91c9bec23f7eb8a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
