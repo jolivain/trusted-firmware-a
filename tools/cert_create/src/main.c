@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -84,7 +84,8 @@ static char *strdup(const char *str)
 static const char *key_algs_str[] = {
 	[KEY_ALG_RSA] = "rsa",
 #ifndef OPENSSL_NO_EC
-	[KEY_ALG_ECDSA] = "ecdsa"
+	[KEY_ALG_ECDSA_NIST] = "ecdsa",
+	[KEY_ALG_ECDSA_BRAINPOOL] = "ecdsa-brainpool"
 #endif /* OPENSSL_NO_EC */
 };
 
