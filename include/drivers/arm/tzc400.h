@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -65,8 +65,8 @@
 #define FAIL_CONTROL_NS_SECURE			U(0)
 #define FAIL_CONTROL_NS_NONSECURE		U(1)
 #define FAIL_CONTROL_PRIV_SHIFT			20
-#define FAIL_CONTROL_PRIV_PRIV			U(0)
-#define FAIL_CONTROL_PRIV_UNPRIV		U(1)
+#define FAIL_CONTROL_PRIV_UNPRIV		U(0)
+#define FAIL_CONTROL_PRIV_PRIV			U(1)
 
 /*
  * FAIL_ID_ID_MASK depends on AID_WIDTH which is platform specific.
