@@ -50,9 +50,9 @@ static int key_create_rsa(key_t *key, int key_bits)
 }
 
 #ifndef OPENSSL_NO_EC
-static int key_create_ecdsa(key_t *key, int key_bits)
+static int key_create_ecdsa(key_t *key, int key_bits, const char *curve)
 {
-	EVP_PKEY *ec = EVP_EC_gen("prime256v1");
+	EVP_PKEY *ec = EVP_EC_gen(curve);
 	if (ec == NULL) {
 		printf("Cannot generate EC key\n");
 		return 0;
@@ -60,13 +60,25 @@ static int key_create_ecdsa(key_t *key, int key_bits)
 	key->key = ec;
 	return 1;
 }
+
+static int key_create_ecdsa_nist(key_t *key, int key_bits)
+{
+	return key_create_ecdsa(key, key_bits, "prime256v1");
+}
+
+static int key_create_ecdsa_brainpool(key_t *key, int key_bits)
+{
+	return key_create_ecdsa(key, key_bits, "brainpoolP256t1");
+}
+
 #endif /* OPENSSL_NO_EC */
 
 typedef int (*key_create_fn_t)(key_t *key, int key_bits);
 static const key_create_fn_t key_create_fn[KEY_ALG_MAX_NUM] = {
-	key_create_rsa, 	/* KEY_ALG_RSA */
+	[KEY_ALG_RSA] = key_create_rsa,
 #ifndef OPENSSL_NO_EC
-	key_create_ecdsa, 	/* KEY_ALG_ECDSA */
+	[KEY_ALG_ECDSA_NIST] = key_create_ecdsa_nist,
+	[KEY_ALG_ECDSA_BRAINPOOL] = key_create_ecdsa_brainpool,
 #endif /* OPENSSL_NO_EC */
 };
 
