@@ -144,6 +144,9 @@ static int sgi_ras_intr_handler(const struct err_record_info *err_rec,
 	spm_mm_sp_call(MM_COMMUNICATE_AARCH64, (uint64_t)header, 0,
 		       plat_my_core_pos());
 
+	cm_el1_sysregs_context_restore(NON_SECURE);
+	cm_set_next_eret_context(NON_SECURE);
+
 	/*
 	 * Do an EOI of the RAS interrupt. This allows the
 	 * sdei event to be dispatched at the SDEI event's
