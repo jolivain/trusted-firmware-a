@@ -111,6 +111,7 @@ static int sgi_ras_intr_handler(const struct err_record_info *err_rec,
 	struct sgi_ras_ev_map *ras_map;
 	mm_communicate_header_t *header;
 	uint32_t intr;
+	int ret;
 
 	cm_el1_sysregs_context_save(NON_SECURE);
 	intr = data->interrupt;
@@ -152,7 +153,17 @@ static int sgi_ras_intr_handler(const struct err_record_info *err_rec,
 	plat_ic_end_of_interrupt(intr);
 
 	/* Dispatch the event to the SDEI client */
-	sdei_dispatch_event(ras_map->sdei_ev_num);
+	ret = sdei_dispatch_event(ras_map->sdei_ev_num);
+	if (ret != 0) {
+		/*
+		* For some cases sdei_dispatch_event return failed, we restore the
+		* NS context here. For exsample kernel may not have registered a handler
+		* and ras even may happen early during boot.
+		*/
+		ERROR("Sdei dispatch failed: %d", ret);
+		cm_el1_sysregs_context_restore(NON_SECURE);
+		cm_set_next_eret_context(NON_SECURE);
+	}
 
 	return 0;
 }
