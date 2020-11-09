@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8a191c30_2bdabb7e",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-11-09T17:19:52Z",
+      "side": 1,
+      "message": "I dont know that the memory pointed to by SP_EL3 is safer than SP_EL0. Typically they live around the same region and i dont know the characteristics of SRAM or DRAM well enough to know if it is safer.\n\nI do agree there is not much we can do. I was thinking out loud to make sure i understand correctly.\n\nA comment to the effect \"This is not a bullet proof solution because we assume 95-99 can execute without causing further exception might help\". If not comments, it might be worth explaining in the commit message. Feel free to ignore this suggestion.",
+      "parentUuid": "57cb20bd_0c729c10",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 95,
+        "endChar": 54
+      },
+      "revId": "ec4c857bed36cb55434d02da80500d9d6c2c6ebc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6f3c771_c94f05da",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 2
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Based on my assumption as stated above, I assumed x19 to be safely saved to the cpu_context structure at SP_EL3. If instruction 133 triggered an SError, wouldnt trying to save x19 here lead to endless aborts? I am sorry if I misunderstood your comments.",
       "parentUuid": "a6f3c771_c94f05da",
+      "range": {
+        "startLine": 148,
+        "startChar": 3,
+        "endLine": 148,
+        "endChar": 30
+      },
+      "revId": "ec4c857bed36cb55434d02da80500d9d6c2c6ebc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8f6d3ad_4bcb558b",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-11-09T17:19:52Z",
+      "side": 1,
+      "message": "NP. Let me try again. in both check_and_unmask_ea and handle_async_ea, it is possible to get an SError right after the ISB instruction since we just synchronized pending aborts with the DSB above. So between line 92 and 95, or line 130 and 133, if we see an Serror, we will enter check_if_serror_from_el3(since we land on serror_sp_elx vector) and x19 would not have been saved. This is more likely to happen between line 92 and 95, than between 130 and 133 because handle_async_ea is already entered on an SError from lower EL\u0027s.\n\nSo check_if_serror_from_EL3 needs to save x19.\n\nIf the SError occurs immediately after the str that save x19(line 95,133), we are safe and we need not save x19 save(but no harm in doing it again anyway).\n\nIf the SError occurs after x19 is clobbered(line 96, 134), then check_if_serror_from_EL3 saving x19 will trash the x19 value. I don\u0027t know that this can be avoided.\n\nIt seems like it depends on what we think is the most likely of the above three scenarios and i thought the SError immediately after the ISB is most likely, in which case saving x19 in check_if_serror_from_EL3 would preserve the value.\n\nLet me know what you think.",
+      "parentUuid": "b9a0fb3e_6d272f1b",
       "range": {
         "startLine": 148,
         "startChar": 3,
