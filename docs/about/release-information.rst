@@ -67,7 +67,10 @@ Release version after which it will be removed.
 +================================+=============+=========+=========================================================+
 | STM32MP_USE_STM32IMAGE macro   |   Dec '21   |   2.7   | FIP is the recommended boot method for STM32MP          |
 +--------------------------------+-------------+---------+---------------------------------------------------------+
+| plat_convert_pk function()     |   Nov'22    |   2.8   | Platform conversion to manage specific PK hash          |
+|                                |             |         | calculation                                             |
++--------------------------------+-------------+---------+---------------------------------------------------------+
 
 --------------
 
-*Copyright (c) 2018-2021, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2018-2022, Arm Limited and Contributors. All rights reserved.*
