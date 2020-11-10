@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd03ecde_f9fa39e9",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-11-10T02:40:29Z",
+      "side": 1,
+      "message": "should the macro be under #if !RAS_EXTENSIONS",
+      "range": {
+        "startLine": 150,
+        "startChar": 1,
+        "endLine": 150,
+        "endChar": 31
+      },
+      "revId": "cc2f4cda4844e2b0d4fc05a19521c9c1fa559edc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
