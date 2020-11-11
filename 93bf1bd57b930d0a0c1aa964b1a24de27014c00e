@@ -1,0 +1,2934 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "238e3473_e7fcd1fa",
+        "filename": "plat/mediatek/common/lpm/mt_lp_api.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 23
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef9bd82f_f8a10d16",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 28
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d964849_41c392a8",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "These values are non-boolean so will violate Misra rule 10.1.  \"!rm\" should be \"rm !\u003d NULL\" for example.  There are quite a few instances of this in this file.",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 46
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c3d9ef2_7b9d71fd",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "nit: A newline isn\u0027t needed here, it will fit in 80 characters on a single line.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 6
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4767f70_67759a0c",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 20
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60f4e512_956bd383",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rq.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92bca79d_84b39d2a",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rq.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "nit: Remove this if not needed.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 29
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cd3006d_f0ff7759",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rq.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 25
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2fe4dd7_370c94fd",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rq.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "This violates Misra rule 10.1, only boolean types allowed in conditionals, \"this !\u003d NULL\" for pointers, for example.  Please fix all instances of this in this file.\n\nnit: this can all fit on one line.",
+      "range": {
+        "startLine": 38,
+        "startChar": 5,
+        "endLine": 39,
+        "endChar": 31
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adaa7458_5da53b33",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rq.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "0U since i is unsigned.",
+      "range": {
+        "startLine": 84,
+        "startChar": 10,
+        "endLine": 84,
+        "endChar": 11
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c013c4b0_dfdf5a35",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rq.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "0U since uname and s are unsigned.",
+      "range": {
+        "startLine": 110,
+        "startChar": 13,
+        "endLine": 110,
+        "endChar": 29
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "169aff35_ad16d15f",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rq.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 141,
+        "startChar": 27,
+        "endLine": 141,
+        "endChar": 28
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bac4eddd_a215abd6",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rq.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5422446c_76a0ee9d",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rq.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 20
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "382737b4_3afc7a14",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rqm.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 3,
+        "startChar": 23,
+        "endLine": 3,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5383e9c1_af6f227d",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rqm.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#header-guards",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "597107f1_6e28875c",
+        "filename": "plat/mediatek/common/lpm/mt_lpm_dispatch.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38c57ae3_e79e868b",
+        "filename": "plat/mediatek/common/lpm/mt_lpm_dispatch.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b6dead8_491f9190",
+        "filename": "plat/mediatek/common/lpm/mt_lpm_dispatch.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 29
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "794c642e_883cd4fb",
+        "filename": "plat/mediatek/common/lpm/mt_lpm_dispatch.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 23
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a72515e5_0d2a7225",
+        "filename": "plat/mediatek/common/lpm/mt_lpm_smc.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b02bed7_04826e43",
+        "filename": "plat/mediatek/common/lpm/mt_lpm_smc.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 24
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b11386d_b3f4348c",
+        "filename": "plat/mediatek/common/mtk_sip_svc.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1b39c74_c267bf1a",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "This has already been included at line 8.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 19
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a7ce3bc_c7f44432",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "All conditionals and loops should have braces or they will fail Misra checks.  See rule 15.6.  Please fix all instances in this file.",
+      "range": {
+        "startLine": 119,
+        "startChar": 2,
+        "endLine": 119,
+        "endChar": 12
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cf7918d_556a6b97",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "467605fc_4be7f05b",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Fix indents",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 47
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb31fdb6_3480c88e",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_lp_irqremain.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bfcdf2c_13755b00",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_lp_irqremain.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional body must be surrounded by braces as per MISRA rule 15.6, please fix all occurrences in this file.",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 20,
+        "endChar": 12
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e750dcdd_5d2b1dff",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_lp_irqremain.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional operands must be of boolean type per MISRA rule 10.1, please fix all occurrences in this file.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 12
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "613a8466_41ec5801",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_lp_irqremain.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 29
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df40788a_7c88264f",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "346fa752_063ab6e4",
+        "filename": "plat/mediatek/mt8192/drivers/spm/build.mk",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cb74e49_8ef65b94",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_api.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 19
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f91913f3_0ca4a14a",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_api.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Operands must be boolean type per MISRA rule 10.1.  Please fix all occurrences in this file.",
+      "range": {
+        "startLine": 23,
+        "startChar": 6,
+        "endLine": 23,
+        "endChar": 43
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5b3db4b_63b96d64",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_api.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional body must have braces per MISRA rule 15.6.  Please fix all occurrences in thsi file.",
+      "range": {
+        "startLine": 31,
+        "startChar": 3,
+        "endLine": 32,
+        "endChar": 35
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7d5234f_07087a73",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_api.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Can the do-while be removed? This doesn\u0027t look like its looping.\n\nAlso use \"false\" instead of \"0\".",
+      "range": {
+        "startLine": 50,
+        "startChar": 10,
+        "endLine": 50,
+        "endChar": 11
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27185a06_aab25bc1",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_api.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "872ccf2a_49416bbd",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_api.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5305a7d2_48753747",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f5fe1e8_d90b0af6",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Needs braces around the body of the conditional to be MISRA compliant.\n\nAlso conditional operands must have booleant types to be MISRA compliant.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 20
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "242eff7a_ac11837e",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e03f680f_33da8419",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 26
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78f83bed_70998c35",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional operand needs to be of boolean type or it will fail MISRA checks.\n\nConditional body needs braces or it will fail MISRA checks.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 14
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8634dd07_c855c286",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_dram.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e41c44d0_1e5db7bc",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_dram.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f2ae376_94606a4b",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_dram.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional operand needs to be of boolean type or it will fail MISRA checks.\n\nConditional body needs braces or it will fail MISRA checks.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 12
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f0c06b8_f2469c97",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_internal.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8aed391f_c9b7dacc",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_internal.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 32
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "651461e7_011e9e62",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_syspll.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "434f35a7_cf83f61b",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_syspll.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 22
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c5c9340_fef924a5",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_syspll.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional operand needs to be of boolean type or it will fail MISRA checks.\n\nConditional body needs braces or it will fail MISRA checks.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc312fef_2bd9e346",
+        "filename": "plat/mediatek/mt8192/drivers/spm/dbg_ctrl.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7bc4e6c_791b8790",
+        "filename": "plat/mediatek/mt8192/drivers/spm/dbg_ctrl.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 22
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cad1660b_584de61b",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5e6c5bb_d27e61f7",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 25
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef6dacc6_46b549ae",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional operand needs to be of boolean type or it will fail MISRA checks.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 10
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76f7d5df_c8097c8c",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional body needs braces or it will fail MISRA checks.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 98,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 30
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e44a2ca0_5e460abb",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dd61604_0f837023",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 20
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2642816a_371989fe",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 25
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0b035a2_79e93a6e",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_cond.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2da9e97e_f8f20a2e",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_cond.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 25
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "253fdcae_d697fda6",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_cond.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional operand needs to be of boolean type or it will fail MISRA checks.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 60,
+        "startChar": 5,
+        "endLine": 60,
+        "endChar": 26
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "783ae405_748ef403",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_cond.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional body needs braces or it will fail MISRA checks.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 29
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38c99d22_48725157",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_cond.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 122,
+        "startChar": 10,
+        "endLine": 122,
+        "endChar": 11
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f1b2476_15cec15d",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_cond.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "1U",
+      "range": {
+        "startLine": 133,
+        "startChar": 13,
+        "endLine": 133,
+        "endChar": 14
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6a6c617_208527ff",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_cond.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "1U",
+      "range": {
+        "startLine": 136,
+        "startChar": 12,
+        "endLine": 136,
+        "endChar": 13
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f8a6c61_2830b7dc",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_cond.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2beac58c_5a0475ee",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_cond.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d91aed1_8932f255",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_conservation.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 25
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfa3ebed_479973d8",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_conservation.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional operand needs to be boolean type or it will fail MISRA checks.\n\nConditional body needs braces or it will fail MISRA checks.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 45,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 9
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a267be2c_f5882a74",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_conservation.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 123,
+        "startChar": 27,
+        "endLine": 123,
+        "endChar": 28
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f435e6f0_0f955259",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_conservation.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 33
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f98cee21_d9c6aac2",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_constraint.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5cc6fc6_2c7c516e",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_dbg_dispatcher.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbbd3c23_18ba4bff",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_dbg_dispatcher.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 35
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6898ff31_739cd505",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_dispatcher.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25c9b52c_935c6673",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_dispatcher.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 20
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5d0779e_007c2147",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_dispatcher.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "0U\n\nConditional body needs braces to be MISRA compliant.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 9
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a6527b0_9a29b70f",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_dispatcher.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 44,
+        "startChar": 16,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d60b3710_925eaf5d",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_dispatcher.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional operand needs to be of boolean type or it will fail MISRA checks.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 30
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7400ebeb_3d5c0ac7",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_dispatcher.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07bf3580_12231126",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_dispatcher.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 31
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bcf578f_81f40cc2",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_doe_resource_ctrl.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35630124_0f29c82c",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_hw_cg_check.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85b8330b_a03498a8",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_idle.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8abe1224_3cc8893e",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_idle.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional operand needs to be of boolean type or it will fail MISRA checks.\n\nConditional body needs braces or it will fail MISRA checks.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 244,
+        "startChar": 1,
+        "endLine": 245,
+        "endChar": 39
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fcfd650_9aa7e030",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_idle.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6be81f8_af4e06a8",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_idle.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 25
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42317ba1_28723991",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_internal.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 19
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb52ce3b_6e99ddaf",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_internal.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 63,
+        "startChar": 45,
+        "endLine": 63,
+        "endChar": 46
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51df1b8d_7f8c708b",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_internal.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "0U, 32U",
+      "range": {
+        "startLine": 112,
+        "startChar": 11,
+        "endLine": 112,
+        "endChar": 12
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a32ef7dd_6cecc348",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_internal.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Can this be removed?",
+      "range": {
+        "startLine": 168,
+        "startChar": 1,
+        "endLine": 168,
+        "endChar": 37
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "235fe313_d6705ca1",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_internal.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Can this be a bool type?",
+      "range": {
+        "startLine": 181,
+        "startChar": 1,
+        "endLine": 181,
+        "endChar": 14
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95f090da_349d317f",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_internal.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional operand needs to be of boolean type or it will fail MISRA checks.\n\nConditional body needs braces or it will fail MISRA checks.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 24
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63841779_c2d41643",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_internal.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Lines over 80 chars.",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 76
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce3c8918_462081c3",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_internal.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "668a4fd6_6f8894fb",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_pmic_wrap.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 19
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b778e92a_eebf4099",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_pmic_wrap.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional body needs braces or it will fail MISRA checks.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 119,
+        "startChar": 2,
+        "endLine": 119,
+        "endChar": 9
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a10623b6_cdba28d0",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_pmic_wrap.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 168,
+        "startChar": 10,
+        "endLine": 168,
+        "endChar": 11
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6be84ee4_e3caa175",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_smc.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34253fde_8008a4a2",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_smc.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 24
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15bf5c55_6433d315",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_suspend.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5acb54b_94284de1",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_suspend.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f03150b4_6d1f88ee",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_suspend.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional operand needs to be of boolean type or it will fail MISRA checks.\n\nConditional body needs braces or it will fail MISRA checks.\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 54
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2e063fb_3d6c08b5",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_suspend.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c963fa8a_ea910d07",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_suspend.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 28
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9a2e4e1_c4c378cf",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 24
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f53b85fa_c21513c6",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Needs to be a boolean expression to be MISRA compliant.  Could be a bool instead or could be \"is_turbo !\u003d 0\".",
+      "range": {
+        "startLine": 245,
+        "startChar": 5,
+        "endLine": 245,
+        "endChar": 13
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5b2a786_598580c3",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 321,
+        "startChar": 20,
+        "endLine": 321,
+        "endChar": 21
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d43a10ad_3d1715d9",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 324,
+        "startChar": 6,
+        "endLine": 324,
+        "endChar": 7
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "233a1c06_055fd356",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Conditional body needs braces to be MISRA compliant.",
+      "range": {
+        "startLine": 369,
+        "startChar": 2,
+        "endLine": 369,
+        "endChar": 11
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a0e2f7a_9ba52c21",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 413,
+        "startChar": 16,
+        "endLine": 413,
+        "endChar": 17
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c080f85c_4e3caa15",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 29
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47e75207_715a79b1",
+        "filename": "plat/mediatek/mt8192/drivers/spm/notifier/mt_spm_notifier.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 34
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdebf619_12f0489b",
+        "filename": "plat/mediatek/mt8192/drivers/spm/notifier/mt_spm_notifier.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "nit: newline not needed here",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 54
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e33987e0_92fb8164",
+        "filename": "plat/mediatek/mt8192/drivers/spm/notifier/mt_spm_sspm_intc.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f942b110_9cbf6593",
+        "filename": "plat/mediatek/mt8192/drivers/spm/notifier/mt_spm_sspm_notifier.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.",
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f238934_fed9f9bb",
+        "filename": "plat/mediatek/mt8192/drivers/spm/notifier/mt_spm_sspm_notifier.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Needs braces around conditional operand or it will fail MISRA checks.\n\nAlso the conditional operand should be a boolean type, ex: val \u003d\u003d NULL\n\nPlease fix all occurrences in this file.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 12
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c09eb4b1_12fd52c9",
+        "filename": "plat/mediatek/mt8192/drivers/spm/pcm_def.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa058c26_4ad6c0f4",
+        "filename": "plat/mediatek/mt8192/drivers/spm/pcm_def.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 21
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19de83ee_04331faa",
+        "filename": "plat/mediatek/mt8192/drivers/spm/sleep_def.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f58219a_87718b6f",
+        "filename": "plat/mediatek/mt8192/drivers/spm/sleep_def.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 23
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16e1c745_a49aea76",
+        "filename": "plat/mediatek/mt8192/drivers/spm/tracer/mt_spm_sysram.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 26
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14183db7_401955b7",
+        "filename": "plat/mediatek/mt8192/drivers/spm/tracer/mt_spm_sysram.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Needs braces around conditional body to be MISRA compliant, please fix all occurrences in this file.",
+      "range": {
+        "startLine": 60,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 35
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3529eed8_c7a97cc9",
+        "filename": "plat/mediatek/mt8192/drivers/spm/tracer/mt_spm_sysram.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f186f10c_240b41be",
+        "filename": "plat/mediatek/mt8192/drivers/spm/tracer/mt_spm_trace.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Add copyright header.\n\nPlease see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3720527c_fb589d32",
+        "filename": "plat/mediatek/mt8192/include/mt_spm_resource_req.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "606ba27d_1b138da6",
+        "filename": "plat/mediatek/mt8192/include/mt_spm_resource_req.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-11T21:30:06Z",
+      "side": 1,
+      "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 33
+      },
+      "revId": "93bf1bd57b930d0a0c1aa964b1a24de27014c00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
