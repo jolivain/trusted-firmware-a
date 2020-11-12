@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36a212f2_577669d4",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T17:00:07Z",
+      "side": 1,
+      "message": "Can cpu and cluster ever be negative? If not should this be unsigned?",
+      "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a15d1942_a1a0ba64",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T17:00:07Z",
+      "side": 1,
+      "message": "As above",
+      "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0fc860c_42118402",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.h",
+        "patchSetId": 37
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T17:00:07Z",
+      "side": 1,
+      "message": "NIT: I think it would be best to be consistent with having a comma at the end of enums or not, either choice is fine",
+      "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9deb66d_305f2914",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T17:00:07Z",
+      "side": 1,
+      "message": "Shouldn\u0027t these be U(0)?",
+      "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e7405e8_c6c23f3f",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T17:00:07Z",
+      "side": 1,
+      "message": "This is defined in cdefs.h",
+      "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a235174a_7fa5d0af",
+        "filename": "plat/mediatek/mt8192/platform.mk",
+        "patchSetId": 37
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T17:00:07Z",
+      "side": 1,
+      "message": "Can this not be added to the declarations above?",
+      "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
