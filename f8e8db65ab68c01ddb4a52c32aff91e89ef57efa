@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "249bdadb_064189c4",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-11-12T13:43:49Z",
+      "side": 1,
+      "message": "The bits above this line for Platforms seem to be being presented differently than the bits below this line which look to me to be the output of some script over gitlog output?\n\nBe consistent.The bits above look more readable than the bits below which to me look like they should be broke up by platform provider.",
+      "revId": "f8e8db65ab68c01ddb4a52c32aff91e89ef57efa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5925fb26_5b73c7d6",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-11-12T13:43:49Z",
+      "side": 1,
+      "message": "This libraries section looks again to be the alphabetic output of some script over git log. Not very readable. Maybe make it clearer what changes are tied to which library.",
+      "revId": "f8e8db65ab68c01ddb4a52c32aff91e89ef57efa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "291aec92_0a268482",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-11-12T13:43:49Z",
+      "side": 1,
+      "message": "Which sections of the doc have been updated? Make it clearer please if you are going to list these.",
+      "revId": "f8e8db65ab68c01ddb4a52c32aff91e89ef57efa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad457161_34c064a9",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2020-11-12T13:43:49Z",
+      "side": 1,
+      "message": "lots of these seem to me should be listed with platform changes as they are platform specific. Keep the core diver changes for this section.",
+      "revId": "f8e8db65ab68c01ddb4a52c32aff91e89ef57efa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
