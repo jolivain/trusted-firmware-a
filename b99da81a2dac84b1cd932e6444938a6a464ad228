@@ -84,6 +84,397 @@
       "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "160c903c_20416de2",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Need consistency with capitalisation after the : There seems to be a mix in this section",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61269186_e841239b",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Is it not MbedTLS?",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52ccd0e5_c45e4f89",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Missing :",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6fe6cb0_b47614a9",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Why are /\u0027s used here instead of :",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3befc7ad_403a4cab",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Is it not MISRA?",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52d9eb7d_d7f0c3a4",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "I think adding Set here would make it read better\nEg Set default KEY_SIZE to 2048",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c954176_72b14c3f",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Should this be macros?",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52451ded_6de29209",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Again should this be macros?",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "659f918d_5d22ffcf",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Is it gicv3 or GICv3?",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc98042a_540e4a86",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Is there are reason this is lower case?",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37af4c76_729e4901",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "There is a mix of capitalisation after the : here as well",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60b95bef_923989ee",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Should this just be split?",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6b69b42_0a57cf0f",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Should this be macros?",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87e6798d_d47401fc",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Missing :",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a97db22_1ebbbc13",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Why have we switched to /",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8695b292_abcfe5f4",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Should this be a :?",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cca8b592_4cfa5f96",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "We seem to swap between device tree and DT, I don\u0027t know if this is a problem though",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37f28606_e2a1fc62",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Reintroduce",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9614b92_c98caa72",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Should this be nodes?",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d25b1c95_686e0e3a",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "This doesn\u0027t read very well, should it be:\nMake check stronger for the secondary CPU entry point",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ecca11f_a5b8f68a",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Improve cosmetics",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d63b9a7_91f6b0b7",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "Add use to the start of this sentence Eg:\nUse platform specific BL31_SIZE",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "febe70d4_adb45b30",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T11:55:44Z",
+      "side": 1,
+      "message": "As above",
+      "revId": "b99da81a2dac84b1cd932e6444938a6a464ad228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
