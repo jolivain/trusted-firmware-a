@@ -1,0 +1,259 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5cfc3df_62cb3cbd",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "Should this magic number be given a variable name to make it clearer where it came from?",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1712b79e_5ce817f8",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "NIT: I think it would be better to bring both braces onto one line, as far as I can see this still compiles with MISRA",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d504cbb1_8a41798d",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "Should there be a check in here to show it shouldn\u0027t be called?",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec5f05b2_98c6918f",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "This looks nearly the same as the header for SPMC on mt8192 could they not have a common header file in plat/mediatek/common/drivers/spmc?",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81142599_4c961447",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "This is defined in platform_def.h for mt8183 why is it defined here for mt8192?",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c132bc5d_3deb2558",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "I think to comply with MISRA 7.2 these defines should be prefixed with U eg U(MCUCFG_BASE + 0xd200)",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1416093_b0acec86",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "Same as above for MISRA 7.2",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "731239e4_8f4b4c08",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "As above for MISRA 7.2",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f27cdbad_4dd4aeb5",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "As above for MISRA 7.2",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14b9b582_f3e1a9ab",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "As above for MISRA 7.2",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98977ef4_e91f8349",
+        "filename": "plat/mediatek/mt8192/include/mcucfg.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "I think to comply with MISRA 7.2 these defines should be U(1 \u003c\u003c 4) etc",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "753eefb1_22a29dcc",
+        "filename": "plat/mediatek/mt8192/include/mcucfg.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "Could this not be done using a struct like with the spmc driver for mt8183?",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8183dbd0_a1d45a90",
+        "filename": "plat/mediatek/mt8192/include/mcucfg.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "As above for MISRA 7.2",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "055bd2c6_ebf85f1e",
+        "filename": "plat/mediatek/mt8192/include/mcucfg.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "As above for MISRA 7.2",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d7209e0_81a1eeda",
+        "filename": "plat/mediatek/mt8192/platform.mk",
+        "patchSetId": 32
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-12T10:16:43Z",
+      "side": 1,
+      "message": "Can these not be included in their definitions above instead of appending them here?",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
