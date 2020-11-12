@@ -54,7 +54,6 @@
 	(R12_SCP2SPM_WAKEUP_B) | \
 	(R12_ADSP2SPM_WAKEUP_B) | \
 	(R12_USBX_CDSC_B) | \
-	(R12_USBX_POWERDWN_B) | \
 	(R12_SYS_TIMER_EVENT_B) | \
 	(R12_EINT_EVENT_SECURE_B) | \
 	(R12_CCIF1_EVENT_B) | \
@@ -248,7 +247,7 @@ static struct pwr_ctrl suspend_ctrl = {
 	/* Auto-gen End */
 
 	/*sw flag setting */
-	.pcm_flags = SPM_SUSPEND_PCM_FLAG | SPM_FLAG_DISABLE_INFRA_PDN,
+	.pcm_flags = SPM_SUSPEND_PCM_FLAG,
 	.pcm_flags1 = SPM_SUSPEND_PCM_FLAG1,
 };
 
