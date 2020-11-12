@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cf1b263_9162e888",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-11-12T11:14:37Z",
+      "side": 1,
+      "message": "There\u0027s another MISRA 14.4 violation here (and in other places, for example ln 298, 342, 324, 331, 484, I may have missed some).",
+      "range": {
+        "startLine": 73,
+        "startChar": 5,
+        "endLine": 73,
+        "endChar": 9
+      },
+      "revId": "331425c3174d2e4b4bb2dfef2920f73ef334b862",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
