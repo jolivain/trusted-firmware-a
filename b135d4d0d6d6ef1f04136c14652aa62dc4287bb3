@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "23a89fae_85aaedb3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-13T17:58:16Z",
+      "side": 1,
+      "message": "I was checking GCC options and they are the same as we use for GCC 9. The error message reads \"[-Werror\u003dstringop-overflow\u003d]\" which presents in te commit message.\ngcc-9.2.1 states that:\n\"Option -Wstringop-overflow\u003d2 is enabled by default.\"",
+      "parentUuid": "f1db3fe1_f66672c1",
+      "revId": "b135d4d0d6d6ef1f04136c14652aa62dc4287bb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "993046b0_3484a1a9",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "3e35822c_53684e8c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-13T17:58:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "993046b0_3484a1a9",
+      "revId": "b135d4d0d6d6ef1f04136c14652aa62dc4287bb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56a4ec5f_e8c58090",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2020-11-13T15:56:39Z",
       "side": 1,
       "message": "Did you present the better solution as FYI or do you plan to implement it later ?",
+      "revId": "b135d4d0d6d6ef1f04136c14652aa62dc4287bb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fbb6e4f_9479f661",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-13T17:58:16Z",
+      "side": 1,
+      "message": "What is your suggestion? I can provide a better solution in the next patch set.",
+      "parentUuid": "56a4ec5f_e8c58090",
       "revId": "b135d4d0d6d6ef1f04136c14652aa62dc4287bb3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
