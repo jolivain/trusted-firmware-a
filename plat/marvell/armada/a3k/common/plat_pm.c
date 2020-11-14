@@ -780,6 +780,15 @@ static void __dead2 a3700_system_reset(void)
 			   2 * sizeof(uint64_t));
 #endif
 
+#ifdef PLAT_turris_mox
+	/*
+	 * Turris MOX board has a bug that causes reset to hang unpredictably.
+	 * There is a software solution which can be done from the Cortex-M3
+	 * secure coprocessor.
+	 */
+	turris_mox_system_reset();
+#endif
+
 	/* Trigger the warm reset */
 	mmio_write_32(MVEBU_WARM_RESET_REG, MVEBU_WARM_RESET_MAGIC);
 
