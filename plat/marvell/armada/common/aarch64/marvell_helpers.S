@@ -8,7 +8,7 @@
 
 #include <asm_macros.S>
 #include <cortex_a72.h>
-#ifndef PLAT_a3700
+#ifndef PLAT_FAMILY_a3k
 #include <drivers/marvell/ccu.h>
 #include <drivers/marvell/cache_llc.h>
 #endif
@@ -66,7 +66,7 @@ func plat_crash_console_init
 	mov_imm	x0, PLAT_MARVELL_CRASH_UART_BASE
 	mov_imm	x1, PLAT_MARVELL_CRASH_UART_CLK_IN_HZ
 	mov_imm	x2, MARVELL_CONSOLE_BAUDRATE
-#ifdef PLAT_a3700
+#ifdef PLAT_FAMILY_a3k
 	b	console_a3700_core_init
 #else
 	b	console_16550_core_init
@@ -82,7 +82,7 @@ endfunc plat_crash_console_init
 	 */
 func plat_crash_console_putc
 	mov_imm	x1, PLAT_MARVELL_CRASH_UART_BASE
-#ifdef PLAT_a3700
+#ifdef PLAT_FAMILY_a3k
 
 	b	console_a3700_core_putc
 #else
@@ -100,7 +100,7 @@ endfunc plat_crash_console_putc
 	 */
 func plat_crash_console_flush
 	mov_imm	x0, PLAT_MARVELL_CRASH_UART_BASE
-#ifdef PLAT_a3700
+#ifdef PLAT_FAMILY_a3k
 	b	console_a3700_core_flush
 #else
 	b	console_16550_core_flush

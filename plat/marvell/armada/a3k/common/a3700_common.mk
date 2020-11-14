@@ -35,6 +35,9 @@ PLAT_INCLUDES		:=	-I$(PLAT_FAMILY_BASE)/$(PLAT)		\
 				-I$(MARVELL_DRV_BASE)			\
 				-I$/drivers/arm/gic/common/
 
+CFLAGS			+=	-DPLAT_FAMILY_$(PLAT_FAMILY)
+ASFLAGS			+=	-DPLAT_FAMILY_$(PLAT_FAMILY)
+
 PLAT_BL_COMMON_SOURCES	:=	$(PLAT_COMMON_BASE)/aarch64/a3700_common.c \
 				$(MARVELL_COMMON_BASE)/marvell_cci.c	   \
 				$(MARVELL_DRV_BASE)/uart/a3700_console.S

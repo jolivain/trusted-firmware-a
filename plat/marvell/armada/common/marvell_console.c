@@ -12,7 +12,7 @@
 
 #include <plat_marvell.h>
 
-#ifdef PLAT_a3700
+#ifdef PLAT_FAMILY_a3k
 #include <drivers/marvell/uart/a3700_console.h>
 #define console_marvell_register console_a3700_register
 #else
