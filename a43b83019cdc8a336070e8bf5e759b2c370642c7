@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "a59573c8_423857bb",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52032107_80933e55",
+      "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a15d1942_a1a0ba64",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
         "patchSetId": 37
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "a15d1942_a1a0ba64",
+      "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de7d1726_ce954367",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f496fc35_3b9cccca",
       "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -107,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "45182c84_69b1cf90",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm_cpc.h",
+        "patchSetId": 37
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3745711b_44c47948",
+      "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9deb66d_305f2914",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
         "patchSetId": 37
@@ -136,6 +190,24 @@
       "side": 1,
       "message": "MCDI_* constants are used by mcdi_init_status, which is an \u0027int\u0027 now. So keep these constants signed should be more reasonable.",
       "parentUuid": "b9deb66d_305f2914",
+      "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42460217_b47e42ec",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a1e71be_6c8121c1",
       "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -177,6 +249,24 @@
     },
     {
       "key": {
+        "uuid": "688176fb_3f6b7a41",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2efc2660_5321b84c",
+      "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a235174a_7fa5d0af",
         "filename": "plat/mediatek/mt8192/platform.mk",
         "patchSetId": 37
@@ -206,6 +296,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "a235174a_7fa5d0af",
+      "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c5949f7_4256514b",
+        "filename": "plat/mediatek/mt8192/platform.mk",
+        "patchSetId": 37
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da36bfde_12cb43af",
       "revId": "a43b83019cdc8a336070e8bf5e759b2c370642c7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
