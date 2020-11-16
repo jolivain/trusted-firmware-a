@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43359523_cd7f1f66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-11-16T18:35:34Z",
+      "side": 1,
+      "message": "Please add/update documentation for this new platform/board. Refer to docs/plat/marvell/armada/",
+      "revId": "947fcb6bd6403bd6027a5a57d16625a284719673",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb2be662_7e24fdfc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-11-16T18:35:34Z",
+      "side": 1,
+      "message": "If I understand correctly, you are introducing a new platform called Turris Mox in this patch as well as fixing a \npotential bug in reset. Please split the patch into two: one for new platform support ; another for fixing the bug. This would just help to improve review. Feel free to ignore this suggestion.",
+      "revId": "947fcb6bd6403bd6027a5a57d16625a284719673",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cca8cdcb_ef5278d5",
+        "filename": "plat/marvell/armada/a3k/turris_mox/board/pm_src.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-11-16T18:35:34Z",
+      "side": 1,
+      "message": "I am a bit concerned with the need of this file. Instead of creating this file, please directly specify a3700/board/pm_src.c file in the platform makefile i.e., plat/marvell/armada/a3k/turris_mox/platform.mk.\nAlso, it looks like the a3700/board/pm_src.c is shared by two platforms: a3700 and turris_mox. Why cant it be put under\nplat/marvell/armada/a3k/common/ ?",
+      "revId": "947fcb6bd6403bd6027a5a57d16625a284719673",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
