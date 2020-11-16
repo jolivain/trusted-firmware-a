@@ -1,0 +1,285 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b6cab91_138b4fa3",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-16T23:21:03Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies\n\nPlease use braces as this violates Misra rule 15.6.\n\nPlease fix all occurrences.",
+      "range": {
+        "startLine": 316,
+        "startChar": 3,
+        "endLine": 316,
+        "endChar": 9
+      },
+      "revId": "caa8a00d717fbbeea80effa652edb78d2f711088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22a649b9_20173072",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-16T23:21:03Z",
+      "side": 1,
+      "message": "Variable high is not boolean, use a comparison like \"high !\u003d 0\" instead.",
+      "range": {
+        "startLine": 351,
+        "startChar": 5,
+        "endLine": 351,
+        "endChar": 9
+      },
+      "revId": "caa8a00d717fbbeea80effa652edb78d2f711088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95bef809_eb411a9a",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-16T23:21:03Z",
+      "side": 1,
+      "message": "Please use suffix \"U\" when integer constants are assigned to unsigned types to prevent Misra rule 7.2 violations.\n\nPlease fix all occurrences.",
+      "range": {
+        "startLine": 367,
+        "startChar": 2,
+        "endLine": 367,
+        "endChar": 14
+      },
+      "revId": "caa8a00d717fbbeea80effa652edb78d2f711088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a059bac1_8ed9dbe7",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2134,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-16T23:21:03Z",
+      "side": 1,
+      "message": "while (true)",
+      "range": {
+        "startLine": 2134,
+        "startChar": 8,
+        "endLine": 2134,
+        "endChar": 9
+      },
+      "revId": "caa8a00d717fbbeea80effa652edb78d2f711088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1b0c765_b7cb7b0b",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2391,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-16T23:21:03Z",
+      "side": 1,
+      "message": "Retry is not boolean, please use a comparison against retry.",
+      "range": {
+        "startLine": 2391,
+        "startChar": 10,
+        "endLine": 2391,
+        "endChar": 17
+      },
+      "revId": "caa8a00d717fbbeea80effa652edb78d2f711088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a3abd10_166ca29d",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2650,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-16T23:21:03Z",
+      "side": 1,
+      "message": "waiting is not boolean.",
+      "range": {
+        "startLine": 2650,
+        "startChar": 10,
+        "endLine": 2650,
+        "endChar": 18
+      },
+      "revId": "caa8a00d717fbbeea80effa652edb78d2f711088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a20e29a9_91ff9623",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2931,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-16T23:21:03Z",
+      "side": 1,
+      "message": "err is not boolean.",
+      "range": {
+        "startLine": 2931,
+        "startChar": 10,
+        "endLine": 2931,
+        "endChar": 14
+      },
+      "revId": "caa8a00d717fbbeea80effa652edb78d2f711088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e002d49b_690faa1a",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 3189,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-16T23:21:03Z",
+      "side": 1,
+      "message": "err is not boolean",
+      "range": {
+        "startLine": 3189,
+        "startChar": 10,
+        "endLine": 3189,
+        "endChar": 14
+      },
+      "revId": "caa8a00d717fbbeea80effa652edb78d2f711088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f79fb3f_b9242ff3",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 3401,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-16T23:21:03Z",
+      "side": 1,
+      "message": "This is not a boolean expression.",
+      "range": {
+        "startLine": 3401,
+        "startChar": 9,
+        "endLine": 3401,
+        "endChar": 44
+      },
+      "revId": "caa8a00d717fbbeea80effa652edb78d2f711088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b4b0193_0dd448dc",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram_config.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-16T23:21:03Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 275,
+        "startChar": 14,
+        "endLine": 275,
+        "endChar": 15
+      },
+      "revId": "caa8a00d717fbbeea80effa652edb78d2f711088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e59cc763_3da4a16e",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram_regdef.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-16T23:21:03Z",
+      "side": 1,
+      "message": "Please add header guards.",
+      "revId": "caa8a00d717fbbeea80effa652edb78d2f711088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0c99662_6b511882",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/ddr_regdef.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-16T23:21:03Z",
+      "side": 1,
+      "message": "Please add header guards.",
+      "revId": "caa8a00d717fbbeea80effa652edb78d2f711088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "170dd663_81c75020",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/init_dram_tbl_g2m.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-16T23:21:03Z",
+      "side": 1,
+      "message": "Please add header guards.",
+      "revId": "caa8a00d717fbbeea80effa652edb78d2f711088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
