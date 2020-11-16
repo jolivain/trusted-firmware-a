@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "73a307d4_e6b0a158",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8ddc0db_4a577627",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1712b79e_5ce817f8",
         "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
         "patchSetId": 32
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Bring them onto one line caused static-checks.sh fail:\n\n...\nplat/mediatek/mt8192/drivers/spmc/mtspmc.c:134: ERROR: trailing statements should be on next line\n+       while (!spm_get_cpu_powerstate(cluster, cpu)) {}\n...",
       "parentUuid": "1712b79e_5ce817f8",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdf0cfcf_944e05fc",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Ok",
+      "parentUuid": "55aaa24a_21129dff",
       "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -107,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "dcf0d690_d3bcd1ab",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f53d8aef_ded7c853",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec5f05b2_98c6918f",
         "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.h",
         "patchSetId": 32
@@ -136,6 +190,24 @@
       "side": 1,
       "message": "SPMC is not common enough now, but may be common in the future.\n\nWe tried to keep CPU on/off APIs the same among SoCs, but currently not all (alive) SoCs can apply the same APIs.\n\nNew SoCs may reuse the same HW arch. in the future. So we may move these SoC-specific APIs into common in the future.",
       "parentUuid": "ec5f05b2_98c6918f",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8836017_eea6b2b7",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "444ea7b9_b99b2945",
       "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -177,6 +249,24 @@
     },
     {
       "key": {
+        "uuid": "c13e7351_cd484c91",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bdd2b08_fe26bd59",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c132bc5d_3deb2558",
         "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
         "patchSetId": 32
@@ -206,6 +296,24 @@
       "side": 1,
       "message": "U(xx) has some limitation. So I use some macros to handle unsigned issue.",
       "parentUuid": "c132bc5d_3deb2558",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76700946_bb7152ee",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80bb0cf5_858852ef",
       "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -247,6 +355,24 @@
     },
     {
       "key": {
+        "uuid": "8fbc887d_bda10e11",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "feb8388d_ccff0f41",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "731239e4_8f4b4c08",
         "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
         "patchSetId": 32
@@ -276,6 +402,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "731239e4_8f4b4c08",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44bbd9cd_8c75b82b",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0838fdce_48f700b2",
       "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -317,6 +461,24 @@
     },
     {
       "key": {
+        "uuid": "34db13f4_06fc52cd",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "642b4a97_5313d2ca",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14b9b582_f3e1a9ab",
         "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
         "patchSetId": 32
@@ -346,6 +508,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "14b9b582_f3e1a9ab",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02d86dec_caa6374c",
+        "filename": "plat/mediatek/mt8192/drivers/spmc/mtspmc_private.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df7b748d_534c5337",
       "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -387,6 +567,24 @@
     },
     {
       "key": {
+        "uuid": "caef82da_56eafed9",
+        "filename": "plat/mediatek/mt8192/include/mcucfg.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65e68884_072d4393",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "753eefb1_22a29dcc",
         "filename": "plat/mediatek/mt8192/include/mcucfg.h",
         "patchSetId": 32
@@ -416,6 +614,24 @@
       "side": 1,
       "message": "Currently we don\u0027t have good enough tools to generate regmap structure. And hand-made regmap can be more buggy than define register addresses.",
       "parentUuid": "753eefb1_22a29dcc",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adaf2e97_0db9dcac",
+        "filename": "plat/mediatek/mt8192/include/mcucfg.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Ok",
+      "parentUuid": "5dd35594_0c4afdf2",
       "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -457,6 +673,24 @@
     },
     {
       "key": {
+        "uuid": "717b1dcb_a55a73e9",
+        "filename": "plat/mediatek/mt8192/include/mcucfg.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89d37f3d_1dfe77b7",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "055bd2c6_ebf85f1e",
         "filename": "plat/mediatek/mt8192/include/mcucfg.h",
         "patchSetId": 32
@@ -492,6 +726,24 @@
     },
     {
       "key": {
+        "uuid": "f2c1079a_15e76ad5",
+        "filename": "plat/mediatek/mt8192/include/mcucfg.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "832ec21b_646d83fb",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d7209e0_81a1eeda",
         "filename": "plat/mediatek/mt8192/platform.mk",
         "patchSetId": 32
@@ -521,6 +773,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "0d7209e0_81a1eeda",
+      "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c0710cf_24614d45",
+        "filename": "plat/mediatek/mt8192/platform.mk",
+        "patchSetId": 32
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-16T16:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d624a878_db813e82",
       "revId": "536b5b0e2c4c3794bdaefc961de9b7fd37eb9572",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
