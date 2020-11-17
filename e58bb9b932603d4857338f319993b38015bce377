@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8166f5e1_0f463494",
+        "filename": "plat/renesas/common/aarch64/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2020-11-17T12:50:57Z",
+      "side": 1,
+      "message": "I\u0027m debating whether either company\u0027s IP attorneys would have any concerns about having two copyright claims upon the same file?  I do see this in at least two other files, so perhaps this is a well-known practice?  I personally don\u0027t know what the legal/licensing ramifications, if any, might be.",
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aece9926_45e2f8df",
+        "filename": "plat/renesas/common/aarch64/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2020-11-17T12:50:57Z",
+      "side": 1,
+      "message": "Might be good to include a quick comment as to the purpose of the NOPs here.",
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62a7a3e0_4301b4b4",
+        "filename": "plat/renesas/common/aarch64/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2020-11-17T12:50:57Z",
+      "side": 1,
+      "message": "I\u0027m debating whether DSB before ISB is ideal.  I see several cases in the TF-A codebase where they appear in the opposite order, such as in .../lib/cpus/aarch64/cortex_a72.S, lines 48\u002645 and 71\u002672.  I also see them ISB then DSB in several AArch32 files, and I\u0027d think it wouldn\u0027t matter AArch32 vs. AArch64.  It may not ultimately matter, but not sure.",
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
