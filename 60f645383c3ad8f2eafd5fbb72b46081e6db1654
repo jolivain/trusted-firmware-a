@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88319daa_789644bd",
+        "filename": "plat/mediatek/mt8192/drivers/dcm/mtk_dcm_utils.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-17T21:11:01Z",
+      "side": 1,
+      "message": "Can you organize these includes as shown here https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 25
+      },
+      "revId": "60f645383c3ad8f2eafd5fbb72b46081e6db1654",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7a85eca_0f463bea",
+        "filename": "plat/mediatek/mt8192/drivers/dcm/mtk_dcm_utils.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-17T21:11:01Z",
+      "side": 1,
+      "message": "nit: indent",
+      "range": {
+        "startLine": 15,
+        "startChar": 27,
+        "endLine": 15,
+        "endChar": 28
+      },
+      "revId": "60f645383c3ad8f2eafd5fbb72b46081e6db1654",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c44975c1_81bd72d6",
+        "filename": "plat/mediatek/mt8192/drivers/dcm/mtk_dcm_utils.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-11-17T21:11:01Z",
+      "side": 1,
+      "message": "nit: indent",
+      "range": {
+        "startLine": 28,
+        "startChar": 25,
+        "endLine": 28,
+        "endChar": 26
+      },
+      "revId": "60f645383c3ad8f2eafd5fbb72b46081e6db1654",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
