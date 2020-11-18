@@ -155,6 +155,55 @@ static uintptr_t std_svc_smc_handler(uint32_t smc_fid,
 		/* Return the version of current implementation */
 		SMC_RET2(handle, STD_SVC_VERSION_MAJOR, STD_SVC_VERSION_MINOR);
 
+#if SPCI_SUPPORT
+	case SMCCC_PCI_VERSION:	{
+		pcie_version ver;
+		ver.Major = 1;
+		ver.Minor = 0;
+		SMC_RET1(handle, ver.val);
+		break;
+	}
+	case SMCCC_PCI_FEATURES:
+		switch (x1) {
+			case SMCCC_PCI_VERSION:
+			case SMCCC_PCI_FEATURES:
+			case SMCCC_PCI_READ:
+			case SMCCC_PCI_WRITE:
+			case SMCCC_PCI_SEG_INFO:
+				SMC_RET1(handle, 0);
+				break;
+			default:
+				SMC_RET1(handle, SMC_PCI_CALL_NOT_SUPPORTED);
+		}
+		break;
+	case SMCCC_PCI_READ: {
+		uint32_t ret = 0xffffffff;
+		if (pci_read_config(x1, x2, x3, &ret)) {
+		        SMC_RET2(handle, SMC_PCI_CALL_INVAL_PARAM, 0);
+		} else {
+		        SMC_RET2(handle, 0,  ret);
+		}
+		break;
+	}
+	case SMCCC_PCI_WRITE: {
+		uint32_t ret = pci_write_config(x1, x2, x3, x4);
+		SMC_RET1(handle, ret);
+		break;
+	}
+	case SMCCC_PCI_SEG_INFO:
+	{
+		if ((x2) || (x3) || (x4)) {
+			SMC_RET1(handle, SMC_PCI_CALL_INVAL_PARAM);
+		}
+		if (x1==0) {
+		    uint32_t businfo = pci_get_bus_for_seg(x1);
+		    SMC_RET1(handle, businfo);
+		}
+		SMC_RET1(handle, 0);
+		break;
+	}
+#endif
+
 	default:
 		WARN("Unimplemented Standard Service Call: 0x%x \n", smc_fid);
 		SMC_RET1(handle, SMC_UNK);
