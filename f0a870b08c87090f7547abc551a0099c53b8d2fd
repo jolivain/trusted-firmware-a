@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "915bea1d_acff2061",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 41
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-18T10:04:33Z",
+      "side": 1,
+      "message": "Ok thanks for the clarification. It sounds to me like there is an assumption that cpu will equal plat_core_pos() in this function. If this is the case what is the need for the cpu variable? It is not present in plat_cpu_pwrdwn_common function for mt8183 which seems to just use plat_core_pos() where a cpu value is needed.\n \nI think either the cpu parameter should be removed or if it is planned that at some point cpu won\u0027t have to equal plat_my_core_pos() (which seems unlikely from your explanation) then at least a check of this assumption should be added in the meantime.",
+      "parentUuid": "67b3e76f_03d464ca",
+      "revId": "f0a870b08c87090f7547abc551a0099c53b8d2fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e03b714_674d03a2",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 41
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "1e03b714_674d03a2",
+      "revId": "f0a870b08c87090f7547abc551a0099c53b8d2fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7307c9c3_93f48cf8",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 41
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-18T10:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9930bd51_99cd56db",
       "revId": "f0a870b08c87090f7547abc551a0099c53b8d2fd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
