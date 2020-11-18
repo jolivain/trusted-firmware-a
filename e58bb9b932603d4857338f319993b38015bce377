@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "fbd4e881_80b02d08",
+        "filename": "plat/renesas/common/aarch64/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK. Thanks for checking this",
+      "parentUuid": "3373fc5d_cfb89726",
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aece9926_45e2f8df",
         "filename": "plat/renesas/common/aarch64/plat_helpers.S",
         "patchSetId": 1
@@ -66,6 +84,24 @@
       "writtenOn": "2020-11-17T12:50:57Z",
       "side": 1,
       "message": "Might be good to include a quick comment as to the purpose of the NOPs here.",
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9840fff_de1ebb90",
+        "filename": "plat/renesas/common/aarch64/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "This NOP are here to catch unsafe execution during secondary reset.\n\nFrom assembly,\n\n  30:\t58000103 \tldr\tx3, 50 \u003cplat_secondary_reset+0x50\u003e\n  34:\td2800021 \tmov\tx1, #0x1                   \t// #1\n  38:\tf9000061 \tstr\tx1, [x3]\n  3c:\td61f0040 \tbr\tx2\n  40:\td503201f \tnop\n  44:\td503201f \tnop\n  48:\td503201f \tnop\n  4c:\t00000000 \t.inst\t0x00000000 ; undefined\n  50:\t4403ef00 \t.word\t0x4403ef00\n  54:\t00000000 \t.word\t0x00000000",
+      "parentUuid": "aece9926_45e2f8df",
       "revId": "e58bb9b932603d4857338f319993b38015bce377",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -89,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "ec07cd18_cd101ad0",
+        "filename": "plat/renesas/common/aarch64/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "Why do you think DSB before ISB is better? Any specific reason. In our platforms so far we don\u0027t\nhave seen any issue with current code.",
+      "parentUuid": "62a7a3e0_4301b4b4",
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3fa92a65_dad9ba50",
         "filename": "plat/renesas/common/aarch64/platform_common.c",
         "patchSetId": 1
@@ -100,6 +154,30 @@
       "writtenOn": "2020-11-17T20:41:03Z",
       "side": 1,
       "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 25
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d223fee_c9407150",
+        "filename": "plat/renesas/common/aarch64/platform_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "3fa92a65_dad9ba50",
       "range": {
         "startLine": 8,
         "startChar": 0,
@@ -135,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1d0d508f_ed2ef147",
+        "filename": "plat/renesas/common/aarch64/platform_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "Ok.",
+      "parentUuid": "0e57c506_86e863e1",
+      "range": {
+        "startLine": 190,
+        "startChar": 5,
+        "endLine": 190,
+        "endChar": 8
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7b7fe7d0_2ee9be71",
         "filename": "plat/renesas/common/aarch64/platform_common.c",
         "patchSetId": 1
@@ -146,6 +248,30 @@
       "writtenOn": "2020-11-17T20:41:03Z",
       "side": 1,
       "message": "Please use braces around the body of a conditional even if it is only one line. https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "range": {
+        "startLine": 209,
+        "startChar": 2,
+        "endLine": 209,
+        "endChar": 10
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7118f539_90503b2e",
+        "filename": "plat/renesas/common/aarch64/platform_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "7b7fe7d0_2ee9be71",
       "range": {
         "startLine": 209,
         "startChar": 2,
@@ -181,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "9a3b72a9_58c72130",
+        "filename": "plat/renesas/common/bl2_cpg_init.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "5bc4c3c3_8b84b91d",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 0
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed8fdb7d_25ac5b0b",
         "filename": "plat/renesas/common/bl2_secure_setting.c",
         "patchSetId": 1
@@ -192,6 +342,30 @@
       "writtenOn": "2020-11-17T20:41:03Z",
       "side": 1,
       "message": "0U",
+      "range": {
+        "startLine": 330,
+        "startChar": 10,
+        "endLine": 330,
+        "endChar": 11
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bfd4cd3_d2b08bee",
+        "filename": "plat/renesas/common/bl2_secure_setting.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "ed8fdb7d_25ac5b0b",
       "range": {
         "startLine": 330,
         "startChar": 10,
@@ -227,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "9e58cbc3_7b0b1f55",
+        "filename": "plat/renesas/common/bl2_secure_setting.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "0f4131a9_35c3fb27",
+      "range": {
+        "startLine": 331,
+        "startChar": 2,
+        "endLine": 331,
+        "endChar": 44
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6767a816_7277e187",
         "filename": "plat/renesas/common/bl2_secure_setting.c",
         "patchSetId": 1
@@ -238,6 +436,30 @@
       "writtenOn": "2020-11-17T20:41:03Z",
       "side": 1,
       "message": "0U",
+      "range": {
+        "startLine": 339,
+        "startChar": 10,
+        "endLine": 339,
+        "endChar": 11
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36ea8988_6cad73f3",
+        "filename": "plat/renesas/common/bl2_secure_setting.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "6767a816_7277e187",
       "range": {
         "startLine": 339,
         "startChar": 10,
@@ -273,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "ce6b70f6_c63080b1",
+        "filename": "plat/renesas/common/bl2_secure_setting.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "75f16202_196ce577",
+      "range": {
+        "startLine": 345,
+        "startChar": 24,
+        "endLine": 345,
+        "endChar": 26
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1d61a110_6734b51b",
         "filename": "plat/renesas/common/include/plat.ld.S",
         "patchSetId": 1
@@ -284,6 +530,30 @@
       "writtenOn": "2020-11-17T20:41:03Z",
       "side": 1,
       "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d4d7b58_39c35663",
+        "filename": "plat/renesas/common/include/plat.ld.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK. will change.",
+      "parentUuid": "1d61a110_6734b51b",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -319,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "33da9f4d_ba68d3b4",
+        "filename": "plat/renesas/common/plat_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "5882f24a_f88abc96",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7882cc3e_8c29dabc",
         "filename": "plat/renesas/common/plat_pm.c",
         "patchSetId": 1
@@ -330,6 +624,30 @@
       "writtenOn": "2020-11-17T20:41:03Z",
       "side": 1,
       "message": "Please see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3a8fb80_83d198b4",
+        "filename": "plat/renesas/common/plat_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "7882cc3e_8c29dabc",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -365,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "fd4d660b_798a783b",
+        "filename": "plat/renesas/common/plat_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "66471e02_b61fb8f1",
+      "range": {
+        "startLine": 82,
+        "startChar": 1,
+        "endLine": 84,
+        "endChar": 21
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "18af215c_5be23a20",
         "filename": "plat/renesas/common/plat_pm.c",
         "patchSetId": 1
@@ -376,6 +718,30 @@
       "writtenOn": "2020-11-17T20:41:03Z",
       "side": 1,
       "message": "error is not boolean",
+      "range": {
+        "startLine": 204,
+        "startChar": 5,
+        "endLine": 204,
+        "endChar": 10
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "900f5b1b_e5ac9b29",
+        "filename": "plat/renesas/common/plat_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "\u003e error is not boolean\n\nOK",
+      "parentUuid": "18af215c_5be23a20",
       "range": {
         "startLine": 204,
         "startChar": 5,
@@ -411,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "335abcc3_a00c31ea",
+        "filename": "plat/renesas/common/plat_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "f8863116_63d75e70",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf343b76_fc71ddb8",
         "filename": "plat/renesas/common/plat_storage.c",
         "patchSetId": 1
@@ -422,6 +812,30 @@
       "writtenOn": "2020-11-17T20:41:03Z",
       "side": 1,
       "message": "Please use braces for the body of conditionals even if they are a single line. https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies\n\nPlease fix all.",
+      "range": {
+        "startLine": 348,
+        "startChar": 2,
+        "endLine": 348,
+        "endChar": 16
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88c5e867_2b271ef3",
+        "filename": "plat/renesas/common/plat_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "cf343b76_fc71ddb8",
       "range": {
         "startLine": 348,
         "startChar": 2,
@@ -457,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "542618f2_430b24e7",
+        "filename": "plat/renesas/common/plat_topology.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "cf4a49a3_b1c8eaa4",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 14
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7fe3d34_cf1e5a84",
         "filename": "plat/renesas/common/plat_topology.c",
         "patchSetId": 1
@@ -468,6 +906,30 @@
       "writtenOn": "2020-11-17T20:41:03Z",
       "side": 1,
       "message": "0U",
+      "range": {
+        "startLine": 39,
+        "startChar": 19,
+        "endLine": 39,
+        "endChar": 20
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b415f49c_888d9a03",
+        "filename": "plat/renesas/common/plat_topology.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "e7fe3d34_cf1e5a84",
       "range": {
         "startLine": 39,
         "startChar": 19,
@@ -503,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "48c8051c_864c0fe6",
+        "filename": "plat/renesas/common/plat_topology.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "4601f910_4b539794",
+      "range": {
+        "startLine": 42,
+        "startChar": 19,
+        "endLine": 42,
+        "endChar": 21
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "26546773_bc4f0e7b",
         "filename": "plat/renesas/common/rcar_common.c",
         "patchSetId": 1
@@ -514,6 +1000,30 @@
       "writtenOn": "2020-11-17T20:41:03Z",
       "side": 1,
       "message": "Please add braces, I see several occurrences in this file so please fix all.",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 13
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "015a40b1_1289ed74",
+        "filename": "plat/renesas/common/rcar_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "26546773_bc4f0e7b",
       "range": {
         "startLine": 36,
         "startChar": 2,
@@ -549,6 +1059,30 @@
     },
     {
       "key": {
+        "uuid": "8ce8bfc9_2e2b7d1e",
+        "filename": "plat/renesas/common/rcar_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "ace5c2f9_48932d6b",
+      "range": {
+        "startLine": 61,
+        "startChar": 5,
+        "endLine": 61,
+        "endChar": 10
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a790a3a0_78775faa",
         "filename": "plat/renesas/common/rcar_common.c",
         "patchSetId": 1
@@ -572,6 +1106,30 @@
     },
     {
       "key": {
+        "uuid": "0e29b54c_bea63926",
+        "filename": "plat/renesas/common/rcar_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "a790a3a0_78775faa",
+      "range": {
+        "startLine": 81,
+        "startChar": 6,
+        "endLine": 81,
+        "endChar": 9
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a508cd2d_dafa1c8d",
         "filename": "plat/renesas/common/rcar_common.c",
         "patchSetId": 1
@@ -583,6 +1141,30 @@
       "writtenOn": "2020-11-17T20:41:03Z",
       "side": 1,
       "message": "same as above",
+      "range": {
+        "startLine": 96,
+        "startChar": 6,
+        "endLine": 96,
+        "endChar": 9
+      },
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87c60b1f_15a59b98",
+        "filename": "plat/renesas/common/rcar_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-18T10:52:03Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "a508cd2d_dafa1c8d",
       "range": {
         "startLine": 96,
         "startChar": 6,
