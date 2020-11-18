@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "67b3e76f_03d464ca",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 41
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000471
+      },
+      "writtenOn": "2020-11-18T09:23:41Z",
+      "side": 1,
+      "message": "For mt8192 mcdi flow, core will close itself.\"cpu\" is indeed equal to plat_my_core_pos().\nWe use plat_my_core_pos() instead of cpu,because the gic cpu interface is banked register.Banked register can only be accessed by corresponding core,we hope to reflect the feature.",
+      "parentUuid": "a401c2e9_a10909be",
+      "revId": "f0a870b08c87090f7547abc551a0099c53b8d2fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e03b714_674d03a2",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 41
