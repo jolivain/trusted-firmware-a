@@ -26,6 +26,7 @@ BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a72.S		\
 				drivers/rpi3/gpio/rpi3_gpio.c		\
 				plat/common/plat_gicv2.c                \
 				plat/rpi/rpi4/rpi4_bl31_setup.c		\
+				plat/rpi/rpi4/rpi4_pci_svc.c            \
 				plat/rpi/common/rpi3_pm.c		\
 				plat/common/plat_psci_common.c		\
 				plat/rpi/common/rpi3_topology.c		\
@@ -86,6 +87,9 @@ RPI3_RUNTIME_UART		:= 0
 # Use normal memory mapping for ROM, FIP, SRAM and DRAM
 RPI3_USE_UEFI_MAP		:= 0
 
+# SMCCCC PCI support (should be enabled for ACPI builds)
+SMC_PCI_SUPPORT            	:= 0
+
 # Process platform flags
 # ----------------------
 
@@ -96,6 +100,7 @@ $(eval $(call add_define,RPI3_PRELOADED_DTB_BASE))
 endif
 $(eval $(call add_define,RPI3_RUNTIME_UART))
 $(eval $(call add_define,RPI3_USE_UEFI_MAP))
+$(eval $(call add_define,SMC_PCI_SUPPORT))
 
 ifeq (${ARCH},aarch32)
   $(error Error: AArch32 not supported on rpi4)
