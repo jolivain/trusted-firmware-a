@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "2feb570e_a9963f9b",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 41
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-19T17:22:25Z",
+      "side": 1,
+      "message": "I\u0027m not keen on having both the cpu argument and plat_core_pos() in the function as I think it causes confuction. As far as I can see there are 2 ways to avoid it:\n1) Either keep the cpu argument and add the check cpu \u003d\u003d plat_my_core_pos() at the top of the function\n2) Remove the cpu argument and just define a cpu variable that is local to the function at the top Eg:\n    unsigned int cpu \u003d plat_my_core_pos();\nand use it throughout\n\nBoth of these help reduce the number of calls to plat_my_core_pos() as well (although the compiler probably does this anyway)\n\nPersonally if cpu is never going to be able to have a value other than plat_my_core_pos() then I prefer the second option.",
+      "parentUuid": "6dd74cb1_17473ffc",
+      "revId": "f0a870b08c87090f7547abc551a0099c53b8d2fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e03b714_674d03a2",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 41
