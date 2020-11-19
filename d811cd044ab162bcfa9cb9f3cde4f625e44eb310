@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "efdfca7d_e3f0faf2",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-19T14:36:06Z",
+      "side": 1,
+      "message": "I didn\u0027t find mention of the default flag for Neoverse N1 int htis document.\n\nThey defined in cpu-ops.mk as:\nNEOVERSE_N1_EXTERNAL_LLC\t?\u003d0\nNEOVERSE_N2_EXTERNAL_LLC\t?\u003d0\n, but these flags\u0027 default values documented would be helpfull.",
+      "parentUuid": "75f3ab66_788d8e1d",
+      "revId": "d811cd044ab162bcfa9cb9f3cde4f625e44eb310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "258ddc80_6346ae85",
         "filename": "include/arch/aarch64/arch.h",
         "patchSetId": 2
@@ -241,6 +259,24 @@
       "side": 1,
       "message": "This library is based on the N1 variant, which has this function called from the reset handler as well. I decided to leave this here to be more consistent with what we already have. I also think sometimes it is better to break the function into smaller ones for readability and the overhead here would be negligible as this function is only called at reset.\n\nHappy to move this code to the reset handler, though, if you think it would be better that way.",
       "parentUuid": "782002e6_d17ef732",
+      "revId": "d811cd044ab162bcfa9cb9f3cde4f625e44eb310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c52ef0ff_c050412f",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-19T14:36:06Z",
+      "side": 1,
+      "message": "If you implement this functionality in neoverse_n2_reset_func, \"mov x10, x30\" can be removed and \"ret x10\" will be just \"ret\"",
+      "parentUuid": "f50ffb50_dfbff91f",
       "revId": "d811cd044ab162bcfa9cb9f3cde4f625e44eb310",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
