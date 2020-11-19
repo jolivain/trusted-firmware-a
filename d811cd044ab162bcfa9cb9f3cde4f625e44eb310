@@ -407,6 +407,24 @@
     },
     {
       "key": {
+        "uuid": "67e6b869_c5538d9d",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-11-19T23:55:53Z",
+      "side": 1,
+      "message": "Yes, it would qualify as a context changing operation (at least on my opinion), however there is an isb instruction at the end of this function and there are no atomic accesses in between. Shouldn\u0027t it be safe to delay the isb issue in this case?",
+      "parentUuid": "4d6529a8_5c9c9992",
+      "revId": "d811cd044ab162bcfa9cb9f3cde4f625e44eb310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8898eb58_cd481877",
         "filename": "lib/cpus/aarch64/neoverse_n2.S",
         "patchSetId": 2
