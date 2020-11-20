@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eaf9e5ae_9ea239ae",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_v2.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-11-20T09:36:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5191d42f_2cbedad8",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 4
+      },
+      "revId": "64d1c78b8f63526e52041706faa79a5bf8ea5c19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c52a2195_bcaa2c22",
         "filename": "plat/mediatek/mt8192/drivers/pmic/pmic.h",
         "patchSetId": 35
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d8f7a1f5_e297dc69",
+        "filename": "plat/mediatek/mt8192/drivers/pmic/pmic.h",
+        "patchSetId": 35
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-11-20T09:36:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c52a2195_bcaa2c22",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 4
+      },
+      "revId": "64d1c78b8f63526e52041706faa79a5bf8ea5c19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44a2c52c_6d74d58d",
         "filename": "plat/mediatek/mt8192/drivers/pmic/pmic_wrap_init.h",
         "patchSetId": 35
@@ -68,6 +116,30 @@
       "revId": "64d1c78b8f63526e52041706faa79a5bf8ea5c19",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf3702dd_1ba0be9b",
+        "filename": "plat/mediatek/mt8192/drivers/pmic/pmic_wrap_init.h",
+        "patchSetId": 35
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-11-20T09:36:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44a2c52c_6d74d58d",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 4
+      },
+      "revId": "64d1c78b8f63526e52041706faa79a5bf8ea5c19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
