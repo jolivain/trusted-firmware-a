@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b14bdbc_8e1b169c",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_suspend.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-11-20T21:05:58Z",
+      "side": 1,
+      "message": "why is this ERROR()? why not INFO() or VERBOSE()?",
+      "revId": "afebe0a9e809eaa94dc04d6d0b4b923dcb2f4220",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
