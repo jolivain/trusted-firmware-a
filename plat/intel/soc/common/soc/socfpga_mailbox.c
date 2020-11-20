@@ -510,8 +510,10 @@ int intel_mailbox_get_config_status(uint32_t cmd, bool init_done)
 	if ((res & SOFTFUNC_STATUS_CONF_DONE) == 0U)
 		return MBOX_CFGSTAT_STATE_CONFIG;
 
-	if (init_done && (res & SOFTFUNC_STATUS_INIT_DONE) == 0U)
+	if ((cmd == MBOX_RECONFIG_STATUS) &&
+		(res & SOFTFUNC_STATUS_INIT_DONE) == 0U){
 		return MBOX_CFGSTAT_STATE_CONFIG;
+	}
 
 	return MBOX_RET_OK;
 }
