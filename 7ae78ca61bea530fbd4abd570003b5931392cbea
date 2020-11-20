@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a4d6703_05aa8a6c",
+        "filename": "plat/mediatek/common/drivers/rtc/rtc_common.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-11-20T08:49:37Z",
+      "side": 1,
+      "message": "This file is also shared with MT8173 and MT8183 platform.\nShould they be also revised ? or just revert the change to original ? (Capital RTC_R)",
+      "range": {
+        "startLine": 19,
+        "startChar": 9,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "7ae78ca61bea530fbd4abd570003b5931392cbea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
