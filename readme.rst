@@ -48,4 +48,4 @@ that is available through `trustedfirmware.org`_.
 .. _Arm A-Profile architectures: https://developer.arm.com/architectures/cpu-architecture/a-profile
 .. _view the full documentation: https://www.trustedfirmware.org/docs/tf-a
 .. _trustedfirmware.org: http://www.trustedfirmware.org
-
+ 
