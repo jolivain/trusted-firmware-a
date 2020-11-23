@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -344,6 +344,9 @@
 /* Warm restart boot health status register and mask */
 #define PM_BOOT_HEALTH_STATUS_REG		(GGS_BASEADDR + U(0x10))
 #define PM_BOOT_HEALTH_STATUS_MASK		U(0x01)
+/* WDT restart scope shift and mask */
+#define RESTART_SCOPE_SHIFT			(3)
+#define RESTART_SCOPE_MASK			(0x3U << RESTART_SCOPE_SHIFT)
 
 /*AFI registers */
 #define  AFIFM6_WRCTRL		U(13)
