@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2020, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -348,5 +348,11 @@
 /*AFI registers */
 #define  AFIFM6_WRCTRL		U(13)
 #define  FABRIC_WIDTH		U(3)
+
+/* CSUDMA Module Base Address*/
+#define CSUDMA_BASE		0xFFC80000
+
+/* RSA-CORE Module Base Address*/
+#define RSA_CORE_BASE		0xFFCE0000
 
 #endif /* ZYNQMP_DEF_H */
