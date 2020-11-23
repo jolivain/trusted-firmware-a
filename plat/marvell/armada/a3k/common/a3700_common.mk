@@ -120,11 +120,12 @@ TIMBLDUARTARGS		:= $(MARVELL_SECURE_BOOT) UART $(IMAGESPATH) $(DOIMAGEPATH) $(CL
 				$(DDR_TOPOLOGY) 0 0 $(DOIMAGE_CFG) $(TIMNCFG) $(TIMNSIG) 0
 DOIMAGE_FLAGS		:= -r $(DOIMAGE_CFG) -v -D
 
-$(DOIMAGETOOL):
+$(DOIMAGETOOL): FORCE
 	$(if $(value CRYPTOPP_PATH),,$(error "Platform '${PLAT}' for WTP image tool requires CRYPTOPP_PATH. Please set CRYPTOPP_PATH to point to the right directory"))
 	$(Q)$(MAKE) --no-print-directory -C $(CRYPTOPP_PATH) -f GNUmakefile
 	$(Q)$(MAKE) --no-print-directory -C $(DOIMAGEPATH)/wtptp/src/TBB_Linux -f TBB_linux.mak LIBDIR=$(CRYPTOPP_PATH)
 
+.PHONY: mrvl_flash
 mrvl_flash: ${BUILD_PLAT}/${BOOT_IMAGE} ${DOIMAGETOOL}
 	$(if $(value MV_DDR_PATH),,$(error "Platform '${PLAT}' for target '$@' requires MV_DDR_PATH. Please set MV_DDR_PATH to point to the right directory"))
 	${Q}${MAKE} --no-print-directory -C ${DOIMAGEPATH} WTMI_IMG=$(WTMI_IMG) MV_DDR_PATH=$(MV_DDR_PATH)
@@ -183,7 +184,11 @@ endif
 
 else # ${WTP}
 
+.PHONY: mrvl_flash
 mrvl_flash:
 	$(error "Platform '${PLAT}' for target '$@' requires WTP. Please set WTP to point to the right directory")
 
 endif # ${WTP}
+
+.PHONY: FORCE
+FORCE:;
