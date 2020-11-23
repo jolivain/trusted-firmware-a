@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "8e2bf8be_bce1a06a",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 41
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-11-23T17:32:34Z",
+      "side": 1,
+      "message": "I have to agree with Daniel: it doesn\u0027t make sense for this function to take the `cpu` parameter at all, as it is not valid to use it with anything but the current core. Any call to this function would therefore always have to be invoked as `plat_cpu_pwrdwn_common(plat_my_core_pos(), ...)`, which I would consider to be a more error-prone alternative when you can simply elide the parameter altogether.\n\nI would strongly recommend removing the `cpu` parameter but, if you must keep it for other reasons, then at a minimum there should be an assertion at the top of the function that `cpu \u003d\u003d plat_my_core_pos()`. After all, assertions exist to identify programmer error, and not to handle incorrect parameters.",
+      "parentUuid": "402078af_fbc5d662",
+      "revId": "f0a870b08c87090f7547abc551a0099c53b8d2fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e03b714_674d03a2",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 41
