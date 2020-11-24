@@ -1238,6 +1238,7 @@ certificates: ${CRT_DEPS} ${CRTTOOL}
 endif
 
 ${BUILD_PLAT}/${FIP_NAME}: ${FIP_DEPS} ${FIPTOOL}
+	${CHECK_FIP_CMD}
 	${Q}${FIPTOOL} create ${FIP_ARGS} $@
 	${Q}${FIPTOOL} info $@
 	@${ECHO_BLANK_LINE}
@@ -1254,6 +1255,7 @@ fwu_certificates: ${FWU_CRT_DEPS} ${CRTTOOL}
 endif
 
 ${BUILD_PLAT}/${FWU_FIP_NAME}: ${FWU_FIP_DEPS} ${FIPTOOL}
+	${CHECK_FWU_FIP_CMD}
 	${Q}${FIPTOOL} create ${FWU_FIP_ARGS} $@
 	${Q}${FIPTOOL} info $@
 	@${ECHO_BLANK_LINE}
