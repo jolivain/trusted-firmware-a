@@ -87,6 +87,24 @@
       "revId": "fa6ede8ef1fc6056499c5f27a95a7c9b29be792d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9d0d6e6_ad511958",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-11-24T18:55:28Z",
+      "side": 1,
+      "message": "I moved common functions to a common source file and the common definitions to the corresponding header.",
+      "parentUuid": "4df87087_35a56d1b",
+      "revId": "fa6ede8ef1fc6056499c5f27a95a7c9b29be792d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
