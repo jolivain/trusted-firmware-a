@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9cd74ef_5c8359f9",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-24T09:43:53Z",
+      "side": 1,
+      "message": "Is this register common for all CPUs? There is no decription of it in https://developer.arm.com/docs/ddi0595/i/aarch64-system-registers",
+      "revId": "fa6ede8ef1fc6056499c5f27a95a7c9b29be792d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79613db2_ee7e8973",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-24T09:43:53Z",
+      "side": 1,
+      "message": "See my comment about CPUCFR_EL1 register",
+      "revId": "fa6ede8ef1fc6056499c5f27a95a7c9b29be792d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
