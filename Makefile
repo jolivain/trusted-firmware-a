@@ -1222,8 +1222,7 @@ checkpatch:		locate-checkpatch
 
 certtool: ${CRTTOOL}
 
-.PHONY: ${CRTTOOL}
-${CRTTOOL}:
+${CRTTOOL}: FORCE
 	${Q}${MAKE} PLAT=${PLAT} USE_TBBR_DEFS=${USE_TBBR_DEFS} COT=${COT} OPENSSL_DIR=${OPENSSL_DIR} CRTTOOL=${CRTTOOL} --no-print-directory -C ${CRTTOOLPATH}
 	@${ECHO_BLANK_LINE}
 	@echo "Built $@ successfully"
@@ -1265,8 +1264,7 @@ fiptool: ${FIPTOOL}
 fip: ${BUILD_PLAT}/${FIP_NAME}
 fwu_fip: ${BUILD_PLAT}/${FWU_FIP_NAME}
 
-.PHONY: ${FIPTOOL}
-${FIPTOOL}:
+${FIPTOOL}: FORCE
 	@${ECHO_BLANK_LINE}
 	@echo "Building $@"
 ifdef UNIX_MK
@@ -1279,12 +1277,10 @@ endif
 	@${ECHO_BLANK_LINE}
 
 sptool: ${SPTOOL}
-.PHONY: ${SPTOOL}
-${SPTOOL}:
+${SPTOOL}: FORCE
 	${Q}${MAKE} CPPFLAGS="-DVERSION='\"${VERSION_STRING}\"'" SPTOOL=${SPTOOL} --no-print-directory -C ${SPTOOLPATH}
 
-.PHONY: libraries
-romlib.bin: libraries
+romlib.bin: libraries FORCE
 	${Q}${MAKE} PLAT_DIR=${PLAT_DIR} BUILD_PLAT=${BUILD_PLAT} ENABLE_BTI=${ENABLE_BTI} ARM_ARCH_MINOR=${ARM_ARCH_MINOR} INCLUDES='${INCLUDES}' DEFINES='${DEFINES}' --no-print-directory -C ${ROMLIBPATH} all
 
 # Call print_memory_map tool
@@ -1297,8 +1293,7 @@ doc:
 
 enctool: ${ENCTOOL}
 
-.PHONY: ${ENCTOOL}
-${ENCTOOL}:
+${ENCTOOL}: FORCE
 	${Q}${MAKE} PLAT=${PLAT} BUILD_INFO=0 OPENSSL_DIR=${OPENSSL_DIR} ENCTOOL=${ENCTOOL} --no-print-directory -C ${ENCTOOLPATH}
 	@${ECHO_BLANK_LINE}
 	@echo "Built $@ successfully"
@@ -1352,3 +1347,6 @@ help:
 	@echo ""
 	@echo "example: build all targets for the FVP platform:"
 	@echo "  CROSS_COMPILE=aarch64-none-elf- make PLAT=fvp all"
+
+.PHONY: FORCE
+FORCE:;
