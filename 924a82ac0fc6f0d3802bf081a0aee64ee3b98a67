@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5d90d42_1ce4555e",
+        "filename": "common/bl_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-11-24T23:58:47Z",
+      "side": 1,
+      "message": ", HW accelerator.",
+      "range": {
+        "startLine": 194,
+        "startChar": 11,
+        "endLine": 194,
+        "endChar": 12
+      },
+      "revId": "924a82ac0fc6f0d3802bf081a0aee64ee3b98a67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ae70c60_42804aed",
+        "filename": "common/bl_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-11-24T23:58:47Z",
+      "side": 1,
+      "message": "What is meaning of this comment. I think at this stage image is loaded and not authenticated.",
+      "range": {
+        "startLine": 194,
+        "startChar": 48,
+        "endLine": 195,
+        "endChar": 59
+      },
+      "revId": "924a82ac0fc6f0d3802bf081a0aee64ee3b98a67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ed083d7_9bc7e8c6",
+        "filename": "common/bl_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-11-24T23:58:47Z",
+      "side": 1,
+      "message": "Why you changed this check, any specific reason? This violates MISRA rule 14.4 (previous check was proper \"is_parent_image \u003d\u003d 0\".",
+      "revId": "924a82ac0fc6f0d3802bf081a0aee64ee3b98a67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
