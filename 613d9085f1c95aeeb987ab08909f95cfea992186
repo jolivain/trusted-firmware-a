@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7df38ea2_7385195a",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-25T15:59:12Z",
+      "side": 1,
+      "message": "Why is this? Because it is multiple bits? In which case why is having the define SCTLR_TCF0_BIT ok as this spans bits [39:38]?",
+      "parentUuid": "77654168_c8e34b25",
+      "range": {
+        "startLine": 345,
+        "startChar": 15,
+        "endLine": 345,
+        "endChar": 24
+      },
+      "revId": "613d9085f1c95aeeb987ab08909f95cfea992186",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "619f2ada_ee39e847",
         "filename": "include/arch/aarch64/arch.h",
         "patchSetId": 1
@@ -117,6 +141,30 @@
       "revId": "613d9085f1c95aeeb987ab08909f95cfea992186",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec9b6186_738d1962",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-25T15:59:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5835fec2_8e36f9b2",
+      "range": {
+        "startLine": 346,
+        "startChar": 8,
+        "endLine": 346,
+        "endChar": 23
+      },
+      "revId": "613d9085f1c95aeeb987ab08909f95cfea992186",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
