@@ -16,6 +16,24 @@
       "revId": "1258727247e1125ba6cf7cf48cd3b4a1f144cad6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be6fd1c4_5bae7ca0",
+        "filename": "include/lib/cpus/aarch64/neoverse_n_common.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-11-25T11:41:53Z",
+      "side": 1,
+      "message": "Yes, thanks for the suggestion, although I wasn\u0027t very confident about moving it here. As the register names are slightly different (the appendix \"IMP_\" you mentioned for N2) I was considering to have different definitions on the headers for each Neoverse N variant.\n\nI finally decided to move it here, though, as this register is also considered \"Implementation defined\" for Neoverse N1 and so far they are equivalent (or almost) for all the Neoverse N series.",
+      "parentUuid": "5978fb0f_a637d08e",
+      "revId": "1258727247e1125ba6cf7cf48cd3b4a1f144cad6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
