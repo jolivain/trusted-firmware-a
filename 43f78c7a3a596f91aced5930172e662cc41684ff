@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f39d7812_9d33fac0",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T08:09:18Z",
+      "side": 1,
+      "message": "This looks duplicated from mbedtls_config.h so isn\u0027t it better to include this header rather than copying the definitions?",
+      "revId": "43f78c7a3a596f91aced5930172e662cc41684ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
