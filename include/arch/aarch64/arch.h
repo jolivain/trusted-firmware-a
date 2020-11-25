@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -382,7 +382,8 @@
 
 #define SCTLR_ATA0_BIT		(ULL(1) << 42)
 #define SCTLR_ATA_BIT		(ULL(1) << 43)
-#define SCTLR_DSSBS_BIT		(ULL(1) << 44)
+#define SCTLR_DSSBS_SHIFT	U(44)
+#define SCTLR_DSSBS_BIT		(ULL(1) << SCTLR_DSSBS_SHIFT)
 #define SCTLR_TWEDEn_BIT	(ULL(1) << 45)
 #define SCTLR_TWEDEL_SHIFT	U(46)
 #define SCTLR_TWEDEL_MASK	ULL(0xf)
@@ -552,8 +553,16 @@
 #define SPSR_EL_SHIFT		U(2)
 #define SPSR_EL_WIDTH		U(2)
 
-#define SPSR_SSBS_BIT_AARCH64	BIT_64(12)
-#define SPSR_SSBS_BIT_AARCH32	BIT_64(23)
+#define SPSR_SSBS_SHIFT_AARCH64 U(12)
+#define SPSR_SSBS_BIT_AARCH64	(ULL(1) << SPSR_SSBS_SHIFT_AARCH64)
+#define SPSR_SSBS_SHIFT_AARCH32 U(23)
+#define SPSR_SSBS_BIT_AARCH32	(ULL(1) << SPSR_SSBS_SHIFT_AARCH32)
+
+#define SPSR_PAN_BIT		BIT_64(22)
+
+#define SPSR_DIT_BIT		BIT(24)
+
+#define SPSR_TCO_BIT_AARCH64	BIT_64(25)
 
 #define DISABLE_ALL_EXCEPTIONS \
 		(DAIF_FIQ_BIT | DAIF_IRQ_BIT | DAIF_ABT_BIT | DAIF_DBG_BIT)
