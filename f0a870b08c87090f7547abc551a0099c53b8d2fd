@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "de3dba4b_28992690",
+        "filename": "plat/mediatek/mt8192/plat_pm.c",
+        "patchSetId": 41
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-11-25T02:54:14Z",
+      "side": 1,
+      "message": "I had added assert(cpu \u003d\u003d plat_my_core_pos()) in front of each *_common().",
+      "parentUuid": "8e2bf8be_bce1a06a",
+      "revId": "f0a870b08c87090f7547abc551a0099c53b8d2fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e03b714_674d03a2",
         "filename": "plat/mediatek/mt8192/plat_pm.c",
         "patchSetId": 41
