@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30a9eca8_9bf1b5b3",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-25T16:49:56Z",
+      "side": 1,
+      "message": "Done. Thanks for your comments.",
+      "parentUuid": "c919c782_3552b414",
+      "range": {
+        "startLine": 340,
+        "startChar": 8,
+        "endLine": 340,
+        "endChar": 22
+      },
+      "revId": "613d9085f1c95aeeb987ab08909f95cfea992186",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1abb7ba8_414d26a0",
         "filename": "include/arch/aarch64/arch.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-11-25T16:11:10Z",
       "side": 1,
       "message": "Arm ARM defines TCF as a 2 bits field at SCTLR_EL1[41:40]\nI didn\u0027t manage to find any other definition on internal docs",
+      "range": {
+        "startLine": 341,
+        "startChar": 8,
+        "endLine": 341,
+        "endChar": 21
+      },
+      "revId": "613d9085f1c95aeeb987ab08909f95cfea992186",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a67db766_cdb9384e",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-25T16:49:56Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "1abb7ba8_414d26a0",
       "range": {
         "startLine": 341,
         "startChar": 8,
@@ -107,6 +155,30 @@
       "side": 1,
       "message": "Why is this? Because it is multiple bits? In which case why is having the define SCTLR_TCF0_BIT ok as this spans bits [39:38]?",
       "parentUuid": "77654168_c8e34b25",
+      "range": {
+        "startLine": 345,
+        "startChar": 15,
+        "endLine": 345,
+        "endChar": 24
+      },
+      "revId": "613d9085f1c95aeeb987ab08909f95cfea992186",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b784391_56352fa7",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-25T16:49:56Z",
+      "side": 1,
+      "message": "Added SCTLR_TWEDEL definitions. Thanks for your comments.",
+      "parentUuid": "7df38ea2_7385195a",
       "range": {
         "startLine": 345,
         "startChar": 15,
