@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "78345098_dd071244",
+        "filename": "plat/renesas/common/aarch64/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-25T16:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbd4e881_80b02d08",
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aece9926_45e2f8df",
         "filename": "plat/renesas/common/aarch64/plat_helpers.S",
         "patchSetId": 1
@@ -120,6 +138,24 @@
       "side": 1,
       "message": "A quick comment to that effect might prevent somebody deleting seemingly-dead code at some point in the future.",
       "parentUuid": "c9840fff_de1ebb90",
+      "revId": "e58bb9b932603d4857338f319993b38015bce377",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70a5d1f4_947d08f3",
+        "filename": "plat/renesas/common/aarch64/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-11-25T16:45:57Z",
+      "side": 1,
+      "message": "Thanks for your feedback. I have taken out this NOP in patchset 2, since it is not creating any issues on target.",
+      "parentUuid": "2839e42c_e6846007",
       "revId": "e58bb9b932603d4857338f319993b38015bce377",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
