@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9f39816_ee7f0ddc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 7,
+        "startChar": 20,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24e738a4_a3722012",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "2020?",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14b2b0de_292c5760",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "would you want to provide an accessor like below to return g_nxp_snvs_addr?\nstruct snvs_regs *get_snvs(void);",
+      "range": {
+        "startLine": 23,
+        "startChar": 26,
+        "endLine": 23,
+        "endChar": 64
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd8e0411_5198f9d0",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "get_snvs_state()",
+      "range": {
+        "startLine": 31,
+        "startChar": 16,
+        "endLine": 31,
+        "endChar": 63
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a0e687e_4a887578",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "get_snvs_state()",
+      "range": {
+        "startLine": 45,
+        "startChar": 9,
+        "endLine": 45,
+        "endChar": 56
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c441b464_d6cdd0ba",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "get_snvs_state()",
+      "range": {
+        "startLine": 60,
+        "startChar": 9,
+        "endLine": 60,
+        "endChar": 56
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4e9f26b_c25c4c7a",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "get_snvs_state()",
+      "range": {
+        "startLine": 73,
+        "startChar": 10,
+        "endLine": 74,
+        "endChar": 22
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a98db3c_88843ad4",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "get_snvs_state()",
+      "range": {
+        "startLine": 87,
+        "startChar": 16,
+        "endLine": 87,
+        "endChar": 63
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0ac598f_f7de91eb",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "it looks like this loop can be factored in a static function and reused above",
+      "range": {
+        "startLine": 93,
+        "startChar": 1,
+        "endLine": 95,
+        "endChar": 58
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "918e86d5_c254981f",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "get_snvs_state()",
+      "range": {
+        "startLine": 101,
+        "startChar": 16,
+        "endLine": 101,
+        "endChar": 63
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a8ea8bb_d633dcf0",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "use braces even for single line statements",
+      "range": {
+        "startLine": 149,
+        "startChar": 1,
+        "endLine": 150,
+        "endChar": 13
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc66b655_7dc60315",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "use braces even for single line statements",
+      "range": {
+        "startLine": 154,
+        "startChar": 2,
+        "endLine": 155,
+        "endChar": 14
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d07c0bd4_dcba2939",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "use braces even for single line statements",
+      "range": {
+        "startLine": 172,
+        "startChar": 1,
+        "endLine": 172,
+        "endChar": 23
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87bb57f6_69a6e5b8",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "return ((ret) ? 1 : 0)",
+      "range": {
+        "startLine": 211,
+        "startChar": 1,
+        "endLine": 212,
+        "endChar": 12
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfa137e9_5d7ca363",
+        "filename": "drivers/nxp/sec_mon/snvs.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-25T07:26:50Z",
+      "side": 1,
+      "message": "2020 if this is a new file?",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "a77420293c85dd0dc51541a3eccb708b0e85ae14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
