@@ -45,6 +45,30 @@
       "revId": "613d9085f1c95aeeb987ab08909f95cfea992186",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de220c56_5602e3a7",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2020-11-25T15:17:09Z",
+      "side": 1,
+      "message": "I was looking at version ARM DDI 0487F.c page D13-3396",
+      "parentUuid": "619f2ada_ee39e847",
+      "range": {
+        "startLine": 346,
+        "startChar": 8,
+        "endLine": 346,
+        "endChar": 23
+      },
+      "revId": "613d9085f1c95aeeb987ab08909f95cfea992186",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
