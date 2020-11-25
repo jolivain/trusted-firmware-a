@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "77654168_c8e34b25",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-25T15:34:32Z",
+      "side": 1,
+      "message": "Adding definition of SCTLR_TWEDEL will require mask and shift, see lines #360 and #361, where are similar definitions for SCR. SCTLR_TWEDEL is not used anywhere in TF-A code, but SCR_TWEDEL_MASK is used instead. All othere bit fields were added in SCTLR_ELx for consistency and to improve understanding of SCTLR_ELx_RES1 values.",
+      "parentUuid": "fc5cdff9_716b8051",
+      "range": {
+        "startLine": 345,
+        "startChar": 15,
+        "endLine": 345,
+        "endChar": 24
+      },
+      "revId": "613d9085f1c95aeeb987ab08909f95cfea992186",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "619f2ada_ee39e847",
         "filename": "include/arch/aarch64/arch.h",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "I was looking at version ARM DDI 0487F.c page D13-3396",
       "parentUuid": "619f2ada_ee39e847",
+      "range": {
+        "startLine": 346,
+        "startChar": 8,
+        "endLine": 346,
+        "endChar": 23
+      },
+      "revId": "613d9085f1c95aeeb987ab08909f95cfea992186",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5835fec2_8e36f9b2",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-25T15:34:32Z",
+      "side": 1,
+      "message": "https://developer.arm.com/docs/ddi0595/i/aarch64-system-registers/sctlr_el1",
+      "parentUuid": "de220c56_5602e3a7",
       "range": {
         "startLine": 346,
         "startChar": 8,
