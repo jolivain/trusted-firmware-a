@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5978fb0f_a637d08e",
+        "filename": "include/lib/cpus/aarch64/neoverse_n_common.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-25T10:28:10Z",
+      "side": 1,
+      "message": "It was right decision to move this register from arch.h. In Neoverse N2 it is called \"IMP_CPUCFR_EL1\" and has different bit fields (except SCU [2]) compared with N1 variant.",
+      "revId": "1258727247e1125ba6cf7cf48cd3b4a1f144cad6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
