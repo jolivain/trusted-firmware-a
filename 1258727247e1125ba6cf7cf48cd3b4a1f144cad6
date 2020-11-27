@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "d7d7a18b_ab21f168",
+        "filename": "include/lib/cpus/aarch64/neoverse_n2.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-27T08:23:31Z",
+      "side": 1,
+      "message": "is this better called r0p0?",
+      "range": {
+        "startLine": 10,
+        "startChar": 47,
+        "endLine": 10,
+        "endChar": 48
+      },
+      "revId": "1258727247e1125ba6cf7cf48cd3b4a1f144cad6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "626b6961_5eeb1495",
+        "filename": "include/lib/cpus/aarch64/neoverse_n2.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-27T08:23:31Z",
+      "side": 1,
+      "message": "Should this refer to EL3 banked copy e.g. NEOVERSE_N2_CPTR_EL3_TAM_BIT ?",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 32
+      },
+      "revId": "1258727247e1125ba6cf7cf48cd3b4a1f144cad6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5978fb0f_a637d08e",
         "filename": "include/lib/cpus/aarch64/neoverse_n_common.h",
         "patchSetId": 5
@@ -31,6 +77,29 @@
       "side": 1,
       "message": "Yes, thanks for the suggestion, although I wasn\u0027t very confident about moving it here. As the register names are slightly different (the appendix \"IMP_\" you mentioned for N2) I was considering to have different definitions on the headers for each Neoverse N variant.\n\nI finally decided to move it here, though, as this register is also considered \"Implementation defined\" for Neoverse N1 and so far they are equivalent (or almost) for all the Neoverse N series.",
       "parentUuid": "5978fb0f_a637d08e",
+      "revId": "1258727247e1125ba6cf7cf48cd3b4a1f144cad6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3035fc6a_d271e6ee",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-27T08:23:31Z",
+      "side": 1,
+      "message": "Where is it defined?",
+      "range": {
+        "startLine": 56,
+        "startChar": 13,
+        "endLine": 56,
+        "endChar": 37
+      },
       "revId": "1258727247e1125ba6cf7cf48cd3b4a1f144cad6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
