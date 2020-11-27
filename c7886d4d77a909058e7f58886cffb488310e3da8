@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fd28d42_897caaac",
+        "filename": "include/lib/cpus/aarch64/neoverse_n2.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-11-27T10:53:00Z",
+      "side": 1,
+      "message": "nit: I think Cortex should be removed, as Neoverse is a different product line.",
+      "range": {
+        "startLine": 10,
+        "startChar": 3,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "c7886d4d77a909058e7f58886cffb488310e3da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
