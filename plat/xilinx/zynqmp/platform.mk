@@ -41,8 +41,6 @@ ifdef ZYNQMP_BL32_MEM_BASE
     $(eval $(call add_define,ZYNQMP_BL32_MEM_SIZE))
 endif
 
-ZYNQMP_CONSOLE	?=	cadence
-$(eval $(call add_define_val,ZYNQMP_CONSOLE,ZYNQMP_CONSOLE_ID_${ZYNQMP_CONSOLE}))
 
 ifdef ZYNQMP_WDT_RESTART
 $(eval $(call add_define,ZYNQMP_WDT_RESTART))
@@ -66,15 +64,26 @@ PLAT_BL_COMMON_SOURCES	:=	lib/xlat_tables/xlat_tables_common.c		\
 				drivers/arm/gic/common/gic_common.c		\
 				drivers/arm/gic/v2/gicv2_main.c			\
 				drivers/arm/gic/v2/gicv2_helpers.c		\
-				drivers/cadence/uart/aarch64/cdns_console.S	\
 				plat/arm/common/arm_cci.c			\
 				plat/arm/common/arm_common.c			\
 				plat/arm/common/arm_gicv2.c			\
 				plat/common/plat_gicv2.c			\
 				plat/xilinx/common/ipi.c			\
 				plat/xilinx/zynqmp/zynqmp_ipi.c		\
+				plat/common/aarch64/crash_console_helpers.S     \
 				plat/xilinx/zynqmp/aarch64/zynqmp_helpers.S	\
 				plat/xilinx/zynqmp/aarch64/zynqmp_common.c
+
+ZYNQMP_CONSOLE	?=	cadence
+ifeq (${ZYNQMP_CONSOLE}, $(filter ${ZYNQMP_CONSOLE},cadence cadence0 cadence1))
+  PLAT_BL_COMMON_SOURCES += drivers/cadence/uart/aarch64/cdns_console.S
+else ifeq (${ZYNQMP_CONSOLE}, dcc)
+  PLAT_BL_COMMON_SOURCES += \
+			    drivers/arm/dcc/dcc_console.c
+else
+  $(error "Please define ZYNQMP_CONSOLE")
+endif
+$(eval $(call add_define_val,ZYNQMP_CONSOLE,ZYNQMP_CONSOLE_ID_${ZYNQMP_CONSOLE}))
 
 BL31_SOURCES		+=	drivers/arm/cci/cci.c				\
 				lib/cpus/aarch64/aem_generic.S			\
