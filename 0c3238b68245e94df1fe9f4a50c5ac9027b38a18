@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "de60f909_caa755a5",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-30T10:52:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "02d4c549_c2ce0716",
+      "range": {
+        "startLine": 332,
+        "startChar": 8,
+        "endLine": 332,
+        "endChar": 20
+      },
+      "revId": "0c3238b68245e94df1fe9f4a50c5ac9027b38a18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f649c442_bb4da244",
         "filename": "include/arch/aarch64/arch.h",
         "patchSetId": 2
@@ -117,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "300f1401_11815338",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-30T10:52:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f649c442_bb4da244",
+      "range": {
+        "startLine": 349,
+        "startChar": 8,
+        "endLine": 349,
+        "endChar": 24
+      },
+      "revId": "0c3238b68245e94df1fe9f4a50c5ac9027b38a18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cc00b17_99bcb398",
         "filename": "services/std_svc/spm_mm/spm_mm_setup.c",
         "patchSetId": 2
@@ -128,6 +176,24 @@
       "writtenOn": "2020-11-27T09:08:45Z",
       "side": 1,
       "message": "Does it make sense if SPSR_EL1.PAN is not set line 40?",
+      "revId": "0c3238b68245e94df1fe9f4a50c5ac9027b38a18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd7630ca_df74cffb",
+        "filename": "services/std_svc/spm_mm/spm_mm_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-30T10:52:59Z",
+      "side": 1,
+      "message": "SPAN, bit [23] \u003d 0: PSTATE.PAN is set to 1 on taking an exception to EL1.\nSPAN, bit [23] \u003d 1: The value of PSTATE.PAN is left unchanged on taking an exception to EL1.\n\nI read this as if SPSR_EL1.PAN \u003d 0, when SPAN \u003d 0, on taking exception to EL1 SPSR_EL1.PAN will be set 1. This code keeps the original value of SPSR_EL1.PAN. Please correct me if it is not correct.",
+      "parentUuid": "1cc00b17_99bcb398",
       "revId": "0c3238b68245e94df1fe9f4a50c5ac9027b38a18",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
