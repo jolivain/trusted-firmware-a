@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018-2020, Renesas Electronics Corporation. All rights reserved.
+# Copyright (c) 2018-2021, Renesas Electronics Corporation. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -244,6 +244,12 @@ ifndef RCAR_DRAM_LPDDR4_MEMCONF
 RCAR_DRAM_LPDDR4_MEMCONF :=1
 endif
 $(eval $(call add_define,RCAR_DRAM_LPDDR4_MEMCONF))
+
+# Process RCAR_DRAM_MEMRANK flag
+ifndef RCAR_DRAM_MEMRANK
+RCAR_DRAM_MEMRANK :=0
+endif
+$(eval $(call add_define,RCAR_DRAM_MEMRANK))
 
 # Process RCAR_DRAM_DDR3L_MEMCONF flag
 ifndef RCAR_DRAM_DDR3L_MEMCONF
