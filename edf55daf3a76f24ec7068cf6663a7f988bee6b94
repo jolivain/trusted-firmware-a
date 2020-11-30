@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "9bf44b15_032dd699",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2020-11-30T16:15:28Z",
+      "side": 1,
+      "message": "There are cases where the same image could be used on different cores (that is the whole point of the arm_fpga platform, for instance). But I do agree this looks repetitive. I will replace the flag for the one suggested by Olivier.",
+      "parentUuid": "2daf533c_d6f639b2",
+      "revId": "edf55daf3a76f24ec7068cf6663a7f988bee6b94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc97697f_9ab47920",
         "filename": "include/lib/cpus/aarch64/neoverse_n2.h",
         "patchSetId": 7
