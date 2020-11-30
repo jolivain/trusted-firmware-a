@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6f57b3d5_5f704352",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-30T11:15:43Z",
+      "side": 1,
+      "message": "\"bit 11: EOS\" - see line #292\n\"bit 22: EIS\" - see line #291",
+      "parentUuid": "aebdd918_e8e4f842",
+      "range": {
+        "startLine": 290,
+        "startChar": 8,
+        "endLine": 290,
+        "endChar": 22
+      },
+      "revId": "0c3238b68245e94df1fe9f4a50c5ac9027b38a18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a3370b61_55dfd7f2",
         "filename": "include/arch/aarch64/arch.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "03368081_4a809e09",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-30T11:15:43Z",
+      "side": 1,
+      "message": "1) In my understanding the purpose of SCTRL_ELx_RES1 macros is to define initialisation values of these bits to 1 to match the default values if the feature is not implemented.\nE.g. LSMAOE, bit [29]:\n\"When FEAT_VHE is implemented, and the value of HCR_EL2.{E2H, TGE} is {1,1}, this bit has no effect on execution at EL0.\nOn a Warm reset, in a system where the PE resets into EL1, this field resets to an architecturally UNKNOWN value.\nOtherwise:\nReserved, RES1.\"\n2) Do you mean the code at line #228?\n\tif (GET_RW(ep-\u003espsr) \u003d\u003d MODE_RW_64)\n\t\tsctlr_elx |\u003d SCTLR_EL1_RES1;\n\telse {\n\nWhat is odd with it?",
+      "parentUuid": "a3370b61_55dfd7f2",
+      "range": {
+        "startLine": 294,
+        "startChar": 8,
+        "endLine": 294,
+        "endChar": 22
+      },
+      "revId": "0c3238b68245e94df1fe9f4a50c5ac9027b38a18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3bb5d75_f0667abb",
         "filename": "include/arch/aarch64/arch.h",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2020-11-27T09:08:45Z",
       "side": 1,
       "message": "no longer RES1",
+      "range": {
+        "startLine": 303,
+        "startChar": 3,
+        "endLine": 303,
+        "endChar": 15
+      },
+      "revId": "0c3238b68245e94df1fe9f4a50c5ac9027b38a18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f509141_424c73da",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-11-30T11:15:43Z",
+      "side": 1,
+      "message": "See my coment above.\nEOS, bit [11]:\n\"On a Warm reset, in a system where the PE resets into EL3, this field resets to an architecturally UNKNOWN value.\nOtherwise:\nReserved, RES1.\"",
+      "parentUuid": "c3bb5d75_f0667abb",
       "range": {
         "startLine": 303,
         "startChar": 3,
