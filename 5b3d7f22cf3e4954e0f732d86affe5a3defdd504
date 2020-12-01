@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad5bd2a1_521ed0f2",
+        "filename": "drivers/rambus/trng_ip_76.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-01T02:41:52Z",
+      "side": 1,
+      "message": "why specifically uint16_t ?",
+      "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc45363d_6d4471bc",
+        "filename": "drivers/rambus/trng_ip_76.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-01T02:41:52Z",
+      "side": 1,
+      "message": "This function always returns 0. Why not:\nstatic void eip76_rng_init(..)",
+      "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af933bac_d631f3cf",
+        "filename": "drivers/rambus/trng_ip_76.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-01T02:41:52Z",
+      "side": 1,
+      "message": "if(present !\u003d 0U)",
+      "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4355d7c0_083ca235",
+        "filename": "drivers/rambus/trng_ip_76.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-01T02:41:52Z",
+      "side": 1,
+      "message": "Please create macros for masks. Something like this:\n#define HW_VER_MAJOR_SHIFT    24\n#define HW_VER_MAJOR_MASK    (0xF \u003c\u003c HW_VER_MAJOR_SHIFT)",
+      "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "519f6733_d432afd0",
+        "filename": "drivers/rambus/trng_ip_76.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-01T02:41:52Z",
+      "side": 1,
+      "message": "why uint8_t specifically for i? In line 220, i is compared with len. So can you use \"unsigned int\" for i?",
+      "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e54060e_3082d3ac",
+        "filename": "drivers/rambus/trng_ip_76.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-01T02:41:52Z",
+      "side": 1,
+      "message": "How do you ensure the len is not greater than the size of the data[] array?",
+      "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
