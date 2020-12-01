@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3b4ddb7c_4c38b2d2",
+        "filename": "drivers/renesas/rzg/board/board.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-01T12:00:17Z",
+      "side": 1,
+      "message": "OK. Will make it as void.",
+      "parentUuid": "d281d5ae_9d14173b",
+      "range": {
+        "startLine": 67,
+        "startChar": 1,
+        "endLine": 67,
+        "endChar": 9
+      },
+      "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c45ff870_3685c427",
         "filename": "plat/renesas/rzg/bl2_plat_setup.c",
         "patchSetId": 2
