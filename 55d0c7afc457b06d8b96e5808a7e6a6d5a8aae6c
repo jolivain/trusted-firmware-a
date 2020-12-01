@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b80db718_86812ebe",
+        "filename": "plat/mediatek/mt8192/drivers/uart/uart.c",
+        "patchSetId": 39
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-01T19:40:31Z",
+      "side": 1,
+      "message": "This file is pretty much same  as plat/mediatek/mt8183/drivers/uart/uart.c. Why cant uart.c be moved to common/ and used for both the mt8192 and mt8183 platforms?",
+      "revId": "55d0c7afc457b06d8b96e5808a7e6a6d5a8aae6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
