@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d26bb50_76c8ebe6",
+        "filename": "plat/mediatek/mt8192/plat_mt_cirq.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-01T23:51:00Z",
+      "side": 1,
+      "message": "is it necessary to declare the \"dist_base\" variable? Cant this be done using:\nmmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x4), mask-\u003emask1);",
+      "revId": "5e16c41e49620f12f3583739f3fa74e3d6d19f63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
