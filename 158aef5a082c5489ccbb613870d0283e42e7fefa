@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d281d5ae_9d14173b",
+        "filename": "drivers/renesas/rzg/board/board.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-01T11:41:11Z",
+      "side": 1,
+      "message": "why you need \u0027return\u0027 when it is always returning \u00270\u0027. Also, consumer of this function does not use the return value of this function,",
+      "range": {
+        "startLine": 67,
+        "startChar": 1,
+        "endLine": 67,
+        "endChar": 9
+      },
+      "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c45ff870_3685c427",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-01T11:41:11Z",
+      "side": 1,
+      "message": "any possibility \u0027i\u0027 goes beyond 20 considering no check on \u0027radix\u0027 and \u0027unum\u0027?",
+      "range": {
+        "startLine": 104,
+        "startChar": 11,
+        "endLine": 104,
+        "endChar": 12
+      },
+      "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65b50304_f18b2165",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-01T11:41:11Z",
+      "side": 1,
+      "message": "do you need to flush to commit the written device tree in memory?",
+      "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7438fe0d_136a60af",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-01T11:41:11Z",
+      "side": 1,
+      "message": "is this function intentionally blank?",
+      "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
