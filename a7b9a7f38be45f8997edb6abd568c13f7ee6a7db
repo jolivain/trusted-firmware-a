@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ded21015_a7c0c253",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_v2.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-02T00:01:50Z",
+      "side": 1,
+      "message": "I think a check has to be performed to make sure rdata pointer is not null",
+      "revId": "a7b9a7f38be45f8997edb6abd568c13f7ee6a7db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
