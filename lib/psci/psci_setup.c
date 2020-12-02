@@ -17,6 +17,12 @@
 
 #include "psci_private.h"
 
+/*
+ * Check that PLATFORM_CORE_COUNT fits into the number of cores
+ * that can be represented by PSCI_MAX_CPUS_INDEX.
+ */
+CASSERT(PLATFORM_CORE_COUNT <= (PSCI_MAX_CPUS_INDEX + 1U), assert_psci_cores_overflow);
+
 /*******************************************************************************
  * Per cpu non-secure contexts used to program the architectural state prior
  * return to the normal world.
@@ -34,7 +40,7 @@ unsigned int psci_caps;
  * Function which initializes the 'psci_non_cpu_pd_nodes' or the
  * 'psci_cpu_pd_nodes' corresponding to the power level.
  ******************************************************************************/
-static void __init psci_init_pwr_domain_node(unsigned char node_idx,
+static void __init psci_init_pwr_domain_node(uint16_t node_idx,
 					unsigned int parent_idx,
 					unsigned char level)
 {
@@ -144,7 +150,7 @@ static unsigned int __init populate_power_domain_tree(const unsigned char
 
 			for (j = node_index;
 				j < (node_index + num_children); j++)
-				psci_init_pwr_domain_node((unsigned char)j,
+				psci_init_pwr_domain_node((uint16_t)j,
 						  parent_node_index - 1U,
 						  (unsigned char)level);
 
