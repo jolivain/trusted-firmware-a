@@ -34,7 +34,7 @@ unsigned int psci_caps;
  * Function which initializes the 'psci_non_cpu_pd_nodes' or the
  * 'psci_cpu_pd_nodes' corresponding to the power level.
  ******************************************************************************/
-static void __init psci_init_pwr_domain_node(unsigned char node_idx,
+static void __init psci_init_pwr_domain_node(uint16_t node_idx,
 					unsigned int parent_idx,
 					unsigned char level)
 {
@@ -143,11 +143,17 @@ static unsigned int __init populate_power_domain_tree(const unsigned char
 			num_children = topology[parent_node_index];
 
 			for (j = node_index;
-				j < (node_index + num_children); j++)
-				psci_init_pwr_domain_node((unsigned char)j,
+				j < (node_index + num_children); j++) {
+
+				if (j > PSCI_MAX_CPUS_INDEX) {
+					ERROR("PSCI: Maximum Index Capacity Reached\n");
+					goto exit;
+				}
+
+				psci_init_pwr_domain_node((uint16_t)j,
 						  parent_node_index - 1U,
 						  (unsigned char)level);
-
+			}
 			node_index = j;
 			num_nodes_at_next_lvl += num_children;
 			parent_node_index++;
@@ -161,6 +167,7 @@ static unsigned int __init populate_power_domain_tree(const unsigned char
 			node_index = 0;
 	}
 
+exit:
 	/* Validate the sanity of array exported by the platform */
 	assert(j <= PLATFORM_CORE_COUNT);
 	return j;
