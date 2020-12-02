@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afb4f7e5_fb2e49ac",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_v2.c",
+        "patchSetId": 44
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-02T05:31:29Z",
+      "side": 1,
+      "message": "Can we move this check to the beginning of pwrap_wacs2 ?",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 0
+      },
+      "revId": "21d33f4b6d50fdb5d7d48e41dd8a12436857cf23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
