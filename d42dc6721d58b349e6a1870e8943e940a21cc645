@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cbacb5c_0d278203",
+        "filename": "plat/xilinx/zynqmp/bl31_zynqmp_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2020-12-02T10:02:38Z",
+      "side": 1,
+      "message": "Remove if/endifs around - they are not needed.\nAnd also move it up to have headers sorted.",
+      "revId": "d42dc6721d58b349e6a1870e8943e940a21cc645",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0d318e5_0612e602",
+        "filename": "plat/xilinx/zynqmp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2020-12-02T10:02:38Z",
+      "side": 1,
+      "message": "As above. I think this is separate change for changing crash console setting in connection to multi console support.",
+      "revId": "d42dc6721d58b349e6a1870e8943e940a21cc645",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "866b84e8_2fd38865",
+        "filename": "plat/xilinx/zynqmp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2020-12-02T10:02:38Z",
+      "side": 1,
+      "message": "I think it should be possible to simply build cadence console and also dcc one and then decide which one should be used. The logic in bl31_early_platform_setup2 can remain but building dcc/cadence drivers all the time and let linker not to add it to final binary and save space.",
+      "revId": "d42dc6721d58b349e6a1870e8943e940a21cc645",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d497897_90af86c2",
+        "filename": "plat/xilinx/zynqmp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2020-12-02T10:02:38Z",
+      "side": 1,
+      "message": "The logic around console selection can remain here should be aligned in connection to above comment.",
+      "revId": "d42dc6721d58b349e6a1870e8943e940a21cc645",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}

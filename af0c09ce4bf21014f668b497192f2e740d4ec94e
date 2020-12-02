@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a03995f_97441b24",
+        "filename": "plat/xilinx/zynqmp/aarch64/zynqmp_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2020-12-02T10:02:38Z",
+      "side": 0,
+      "message": "I think this is wrong. It looks like there is the whole infrastructure for crash console.\nEven DCC patch is not using CONSOLE_FLAG_CRASH for generic code to consider it as crash console. \nI think this code about crash console should be done is separate patch.\nNot fully study but it looks like there is any MULTI_CONSOLE support now which can be used with generic crash console support.",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
