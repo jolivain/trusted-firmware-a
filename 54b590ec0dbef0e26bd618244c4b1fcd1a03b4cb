@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc301c53_d35407b5",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2020-12-02T07:04:57Z",
+      "side": 1,
+      "message": "Could this be made dependent on the number cores configured? Or is that a bad idea?",
+      "range": {
+        "startLine": 88,
+        "startChar": 26,
+        "endLine": 88,
+        "endChar": 36
+      },
+      "revId": "54b590ec0dbef0e26bd618244c4b1fcd1a03b4cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
