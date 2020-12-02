@@ -46,6 +46,30 @@
       "revId": "ad0a2ecd708333967cc72443508296e8ce97d650",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8beed39_6f84eb3b",
+        "filename": "lib/psci/psci_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-02T18:47:40Z",
+      "side": 1,
+      "message": "I think the root of the problem is the \"unsigned char lock_index\" member of the non_cpu_pwr_domain_node struct. I am open to increasing its size to accommodate higher limits such as 64K.",
+      "parentUuid": "3668fb74_c1d7c63b",
+      "range": {
+        "startLine": 37,
+        "startChar": 19,
+        "endLine": 37,
+        "endChar": 44
+      },
+      "revId": "ad0a2ecd708333967cc72443508296e8ce97d650",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
