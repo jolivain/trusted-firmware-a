@@ -22,6 +22,30 @@
       "revId": "21d33f4b6d50fdb5d7d48e41dd8a12436857cf23",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "322b429b_2a8001b0",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_v2.c",
+        "patchSetId": 44
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000224
+      },
+      "writtenOn": "2020-12-02T05:46:01Z",
+      "side": 1,
+      "message": "pwrap_wacs2 is also used to write_cmd, so it cannot be moved outside.",
+      "parentUuid": "afb4f7e5_fb2e49ac",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 0
+      },
+      "revId": "21d33f4b6d50fdb5d7d48e41dd8a12436857cf23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
