@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22963d5b_cdc089e5",
+        "filename": "make_helpers/build_macros.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2020-12-03T12:20:30Z",
+      "side": 1,
+      "message": "Instead of defining SET_FLAG(which looks odd), you can have a new \"add_concat_define\" function which can concatenate two macros and define it by calling \"add_define\" function.\n\nThis should be our last resort, if we can\u0027t find other solution based on discussions on email.",
+      "revId": "ff6c12e9868348267f2bfef3364cea5088f642c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
