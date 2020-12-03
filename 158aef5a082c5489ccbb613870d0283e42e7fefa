@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "9e4e2cfa_733f869d",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-03T11:35:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5ff8612c_779265d3",
+      "range": {
+        "startLine": 104,
+        "startChar": 11,
+        "endLine": 104,
+        "endChar": 12
+      },
+      "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65b50304_f18b2165",
         "filename": "plat/renesas/rzg/bl2_plat_setup.c",
         "patchSetId": 2
@@ -131,6 +155,24 @@
     },
     {
       "key": {
+        "uuid": "953e4192_12472e8a",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-03T11:35:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2047d782_8cbd988f",
+      "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7438fe0d_136a60af",
         "filename": "plat/renesas/rzg/bl2_plat_setup.c",
         "patchSetId": 2
@@ -163,6 +205,24 @@
       "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70668002_3b52e3c8",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-03T11:35:38Z",
+      "side": 1,
+      "message": "Yes this function is mandatory as per the porting guide:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/getting_started/porting-guide.html?highlight\u003dbl2_platform_setup#function-bl2-platform-setup-mandatory\n\nIs there future plan to do some setup in this function (like in Arm platform, we do TrustZone controller setup etc) then good to add some ToDo action here?",
+      "parentUuid": "1dfb5dcd_3b6e8bd7",
+      "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
