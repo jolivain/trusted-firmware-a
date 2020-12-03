@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5ff8612c_779265d3",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-03T09:09:16Z",
+      "side": 1,
+      "message": "I don\u0027t think so. see similar generic function[1] and [2]\n\n[1]https://elixir.bootlin.com/arm-trusted-firmware/latest/source/lib/libc/printf.c#L38\n[2]https://elixir.bootlin.com/arm-trusted-firmware/latest/source/lib/libc/snprintf.c#L27",
+      "parentUuid": "c45ff870_3685c427",
+      "range": {
+        "startLine": 104,
+        "startChar": 11,
+        "endLine": 104,
+        "endChar": 12
+      },
+      "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65b50304_f18b2165",
         "filename": "plat/renesas/rzg/bl2_plat_setup.c",
         "patchSetId": 2
@@ -89,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "2047d782_8cbd988f",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-03T09:09:16Z",
+      "side": 1,
+      "message": "In our case, it is in device memory. so not required.",
+      "parentUuid": "65b50304_f18b2165",
+      "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7438fe0d_136a60af",
         "filename": "plat/renesas/rzg/bl2_plat_setup.c",
         "patchSetId": 2
@@ -100,6 +142,24 @@
       "writtenOn": "2020-12-01T11:41:11Z",
       "side": 1,
       "message": "is this function intentionally blank?",
+      "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dfb5dcd_3b6e8bd7",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-03T09:09:16Z",
+      "side": 1,
+      "message": "yes, As per [1] it is mandatory function and if we don\u0027t declare we get compilation error.\n\nhttps://elixir.bootlin.com/arm-trusted-firmware/latest/source/include/plat/common/platform.h#L191",
+      "parentUuid": "7438fe0d_136a60af",
       "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
