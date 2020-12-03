@@ -22,6 +22,30 @@
       "revId": "54b590ec0dbef0e26bd618244c4b1fcd1a03b4cb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "551bf17d_4ee6aa5a",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-12-03T13:05:58Z",
+      "side": 1,
+      "message": "I guess that depends if MMU mapping is meant to be a power of 2.\n\nCurrently the mailbox appears to be the only user of this RAM, but if in future there was another user the calculation would get more complex too.",
+      "parentUuid": "dc301c53_d35407b5",
+      "range": {
+        "startLine": 88,
+        "startChar": 26,
+        "endLine": 88,
+        "endChar": 36
+      },
+      "revId": "54b590ec0dbef0e26bd618244c4b1fcd1a03b4cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
