@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d6536b6_e0d1a62c",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-12-03T18:47:13Z",
+      "side": 1,
+      "message": "Can you please review https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering to update the ordering?",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c6c58c7_a99572bc",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-12-03T18:47:13Z",
+      "side": 1,
+      "message": "BIT(30)",
+      "range": {
+        "startLine": 39,
+        "startChar": 23,
+        "endLine": 39,
+        "endChar": 32
+      },
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1d934a8_be0317a1",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-12-03T18:47:13Z",
+      "side": 1,
+      "message": "BIT(29)",
+      "range": {
+        "startLine": 40,
+        "startChar": 23,
+        "endLine": 40,
+        "endChar": 32
+      },
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78b48d55_f797b7cc",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-12-03T18:47:13Z",
+      "side": 1,
+      "message": "Can you try to use macros from arch_helpers.h instead?",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16341ff5_f6121a49",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-12-03T18:47:13Z",
+      "side": 1,
+      "message": "should we worry about potential hangs? infinite loops makes me nervous. Suggest adding a timeout",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c628b1a_bd312df5",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-12-03T18:47:13Z",
+      "side": 1,
+      "message": "should we worry about potential hangs? infinite loops makes me nervous. Suggest adding a timeout",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8492c12_a08625bb",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-12-03T18:47:13Z",
+      "side": 1,
+      "message": "should we worry about potential hangs? infinite loops makes me nervous. Suggest adding a timeout",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e77c295_772275d2",
+        "filename": "include/drivers/arm/dcc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-12-03T18:47:13Z",
+      "side": 1,
+      "message": "Can you please review https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering to update the ordering?",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
