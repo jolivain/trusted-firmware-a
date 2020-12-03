@@ -22,6 +22,30 @@
       "revId": "acb8db8bbaabc4b3866214a7d6a98c16e3e6d746",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e4e9121_175485d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2020-12-03T17:43:08Z",
+      "side": 1,
+      "message": "Before this change chars are put to fifo and only check before adding if fifo is full. \nThis patch is changing this logic that it is adding char only when fifo is empty to make sure that in case of reset (by another SW for example) all chars are printed. Maybe one char can be missed but for IP itself it is much easier to send just one char compare to full fifo.",
+      "parentUuid": "93ae34e8_512442db",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "acb8db8bbaabc4b3866214a7d6a98c16e3e6d746",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
