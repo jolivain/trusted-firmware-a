@@ -253,7 +253,7 @@
 			interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
 			clocks = <&rcc HASH1>;
 			resets = <&rcc HASH1_R>;
-			status = "disabled";
+			status = "okay";
 		};
 
 		rng1: rng@54003000 {
