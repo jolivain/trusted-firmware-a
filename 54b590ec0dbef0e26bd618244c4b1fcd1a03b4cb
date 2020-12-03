@@ -46,6 +46,30 @@
       "revId": "54b590ec0dbef0e26bd618244c4b1fcd1a03b4cb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b84a4310_e5678090",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2020-12-03T13:37:14Z",
+      "side": 1,
+      "message": "It seems that the aim for this platform is to have a fairly large number of cores configured so perhaps it\u0027s best to keep it simple here.",
+      "parentUuid": "551bf17d_4ee6aa5a",
+      "range": {
+        "startLine": 88,
+        "startChar": 26,
+        "endLine": 88,
+        "endChar": 36
+      },
+      "revId": "54b590ec0dbef0e26bd618244c4b1fcd1a03b4cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
