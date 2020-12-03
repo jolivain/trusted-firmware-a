@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "0f15222a_86f630a6",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-03T19:09:51Z",
+      "side": 1,
+      "message": "nit: line over 80 chars",
+      "range": {
+        "startLine": 112,
+        "startChar": 73,
+        "endLine": 112,
+        "endChar": 74
+      },
+      "revId": "717b284777308dea0ea325e52581230f2b990d11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b11c7402_dd9e2c62",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-03T19:09:51Z",
+      "side": 1,
+      "message": "nit: line over 80 chars",
+      "range": {
+        "startLine": 148,
+        "startChar": 73,
+        "endLine": 148,
+        "endChar": 74
+      },
+      "revId": "717b284777308dea0ea325e52581230f2b990d11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "042f8965_e02f3e87",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 4
