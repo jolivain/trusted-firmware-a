@@ -223,6 +223,24 @@
       "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5df3d37f_c673e1d0",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-03T12:19:37Z",
+      "side": 1,
+      "message": "Not at this moment. In future we may add some setup in this function. I will put a comment like below in this function, so that it will be taken care in future.\n\n\"Place holder for performing any platform initialization specific to BL2\"",
+      "parentUuid": "70668002_3b52e3c8",
+      "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
