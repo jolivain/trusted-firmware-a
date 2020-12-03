@@ -22,6 +22,30 @@
       "revId": "a700f21edea7e697ddd22ccc446f81cfd7c513dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f278c007_27315fe8",
+        "filename": "lib/psci/psci_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-12-03T13:50:13Z",
+      "side": 1,
+      "message": "Thats why I jumped to exit: it will assert because j does not match number of cores configured.",
+      "parentUuid": "d26610fc_f731f90f",
+      "range": {
+        "startLine": 148,
+        "startChar": 1,
+        "endLine": 150,
+        "endChar": 15
+      },
+      "revId": "a700f21edea7e697ddd22ccc446f81cfd7c513dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
