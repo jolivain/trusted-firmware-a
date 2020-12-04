@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "5e52c7cd_463e9b45",
+        "filename": "lib/psci/psci_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-04T01:36:34Z",
+      "side": 1,
+      "message": "Varun,\nDid you mean CASSERT(PLATFORM_CORE_COUNT \u003c PSCI_MAX_CPUS_INDEX, assert_message)?\nEven in datacenters, PLATFORM_CORE_COUNT may not exceed 1024 but PSCI_MAX_CPUS_INDX is a\nlarge number here: 65535. This static may not be needed in practice. May be I miunderstood your comment.",
+      "parentUuid": "4d70fa10_e91d0c54",
+      "revId": "a700f21edea7e697ddd22ccc446f81cfd7c513dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d26610fc_f731f90f",
         "filename": "lib/psci/psci_setup.c",
         "patchSetId": 2
