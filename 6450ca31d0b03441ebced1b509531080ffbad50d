@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4a8b7a15_141349d5",
+        "filename": "drivers/renesas/rzg/qos/G2M/qos_init_g2m_v11_qoswt390.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-04T17:39:01Z",
+      "side": 1,
+      "message": "Please let me know if this to be changed to ULL or not? our platform is arm64. Based on your \ninput will change this.",
+      "parentUuid": "e6bcd06d_31d785cc",
+      "range": {
+        "startLine": 11,
+        "startChar": 15,
+        "endLine": 11,
+        "endChar": 35
+      },
+      "revId": "6450ca31d0b03441ebced1b509531080ffbad50d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b3bfe3a2_59f9aa7a",
         "filename": "drivers/renesas/rzg/qos/qos_common.h",
         "patchSetId": 2
