@@ -22,6 +22,30 @@
       "revId": "0c7fac1b0e9594fb007c07ceb92f94777c6a111b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8aa90f1_c443918c",
+        "filename": "fdts/stm32mp15xx-osd32.dtsi",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2020-12-04T10:01:30Z",
+      "side": 1,
+      "message": "It seems you are in the case explained in [1].\nFor the PLL4, it is not secured on STM32MP15. All its registers can be accessed from non-secure world, see table 74 in [2]. \n\n[1] https://wiki.st.com/stm32mpu/wiki/Ethernet_device_tree_configuration#RGMII_with_Crystal_on_PHY-2C_no_125Mhz_from_PHY\n[2] https://www.st.com/resource/en/reference_manual/dm00327659-stm32mp157-advanced-armbased-32bit-mpus-stmicroelectronics.pdf",
+      "parentUuid": "a230c492_a6e906c4",
+      "range": {
+        "startLine": 214,
+        "startChar": 2,
+        "endLine": 214,
+        "endChar": 15
+      },
+      "revId": "0c7fac1b0e9594fb007c07ceb92f94777c6a111b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
