@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3b558708_bb8f6f84",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2020-12-04T03:34:23Z",
+      "side": 1,
+      "message": "Will check and update in v2.",
+      "parentUuid": "7d6536b6_e0d1a62c",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c6c58c7_a99572bc",
         "filename": "drivers/arm/dcc/dcc_console.c",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2020-12-03T18:47:13Z",
       "side": 1,
       "message": "BIT(30)",
+      "range": {
+        "startLine": 39,
+        "startChar": 23,
+        "endLine": 39,
+        "endChar": 32
+      },
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6079a408_c353c7c6",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2020-12-04T03:34:23Z",
+      "side": 1,
+      "message": "Will check and update in v2.",
+      "parentUuid": "8c6c58c7_a99572bc",
       "range": {
         "startLine": 39,
         "startChar": 23,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "492305b0_24ce4446",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2020-12-04T03:34:23Z",
+      "side": 1,
+      "message": "Will check and update in v2.",
+      "parentUuid": "e1d934a8_be0317a1",
+      "range": {
+        "startLine": 40,
+        "startChar": 23,
+        "endLine": 40,
+        "endChar": 32
+      },
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78b48d55_f797b7cc",
         "filename": "drivers/arm/dcc/dcc_console.c",
         "patchSetId": 1
@@ -76,6 +142,24 @@
       "writtenOn": "2020-12-03T18:47:13Z",
       "side": 1,
       "message": "Can you try to use macros from arch_helpers.h instead?",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c92823fd_c9603202",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2020-12-04T03:34:23Z",
+      "side": 1,
+      "message": "Will check and update in v2.",
+      "parentUuid": "78b48d55_f797b7cc",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "956ec4af_59232a99",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2020-12-04T03:34:23Z",
+      "side": 1,
+      "message": "Will check and update in v2.",
+      "parentUuid": "16341ff5_f6121a49",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0c628b1a_bd312df5",
         "filename": "drivers/arm/dcc/dcc_console.c",
         "patchSetId": 1
@@ -110,6 +212,24 @@
       "writtenOn": "2020-12-03T18:47:13Z",
       "side": 1,
       "message": "should we worry about potential hangs? infinite loops makes me nervous. Suggest adding a timeout",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b82fe6f_f38bb31a",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2020-12-04T03:34:23Z",
+      "side": 1,
+      "message": "Will check and update in v2.",
+      "parentUuid": "0c628b1a_bd312df5",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -133,6 +253,24 @@
     },
     {
       "key": {
+        "uuid": "69866ea7_3390b255",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2020-12-04T03:34:23Z",
+      "side": 1,
+      "message": "Will check and update in v2.",
+      "parentUuid": "e8492c12_a08625bb",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9e77c295_772275d2",
         "filename": "include/drivers/arm/dcc.h",
         "patchSetId": 1
@@ -144,6 +282,24 @@
       "writtenOn": "2020-12-03T18:47:13Z",
       "side": 1,
       "message": "Can you please review https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering to update the ordering?",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac16e176_0caa04b5",
+        "filename": "include/drivers/arm/dcc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2020-12-04T03:34:23Z",
+      "side": 1,
+      "message": "Will check and update in v2.",
+      "parentUuid": "9e77c295_772275d2",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
