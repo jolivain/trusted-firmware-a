@@ -134,7 +134,7 @@ typedef struct non_cpu_pwr_domain_node {
 	unsigned char level;
 
 	/* For indexing the psci_lock array*/
-	unsigned char lock_index;
+	unsigned int lock_index;
 } non_cpu_pd_node_t;
 
 typedef struct cpu_pwr_domain_node {
@@ -239,7 +239,7 @@ static inline void psci_lock_release(non_cpu_pd_node_t *non_cpu_pd_node)
 #endif /* HW_ASSISTED_COHERENCY */
 
 static inline void psci_lock_init(non_cpu_pd_node_t *non_cpu_pd_node,
-				  unsigned char idx)
+				  unsigned int idx)
 {
 	non_cpu_pd_node[idx].lock_index = idx;
 }
