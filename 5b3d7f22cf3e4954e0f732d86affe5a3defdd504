@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b8acf384_acc74a79",
+        "filename": "drivers/rambus/trng_ip_76.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2020-12-06T09:31:19Z",
+      "side": 1,
+      "message": "Most of the code was taken from kernel drivers with minimal changes:\nhttps://elixir.bootlin.com/linux/latest/source/drivers/char/hw_random/omap-rng.c",
+      "parentUuid": "ad5bd2a1_521ed0f2",
+      "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fc45363d_6d4471bc",
         "filename": "drivers/rambus/trng_ip_76.c",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "679bbfbc_8f0df191",
+        "filename": "drivers/rambus/trng_ip_76.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2020-12-06T09:31:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fc45363d_6d4471bc",
+      "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8f1b5623_63d1c489",
+        "filename": "drivers/rambus/trng_ip_76.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2020-12-06T09:31:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "af933bac_d631f3cf",
+      "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4355d7c0_083ca235",
         "filename": "drivers/rambus/trng_ip_76.c",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eff9f3ee_70a471e5",
+        "filename": "drivers/rambus/trng_ip_76.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2020-12-06T09:31:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4355d7c0_083ca235",
+      "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "fa9fde9f_f9e266bb",
+        "filename": "drivers/rambus/trng_ip_76.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2020-12-06T09:31:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "519f6733_d432afd0",
+      "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e54060e_3082d3ac",
         "filename": "drivers/rambus/trng_ip_76.c",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2020-12-01T02:41:52Z",
       "side": 1,
       "message": "How do you ensure the len is not greater than the size of the data[] array?",
+      "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5978ff3_cbc6f6a1",
+        "filename": "drivers/rambus/trng_ip_76.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2020-12-06T09:31:19Z",
+      "side": 1,
+      "message": "I cannot, this is the caller responsibility - the data pointer is coming from outside.",
+      "parentUuid": "8e54060e_3082d3ac",
       "revId": "5b3d7f22cf3e4954e0f732d86affe5a3defdd504",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
