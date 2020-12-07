@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "40232e11_377d9b3f",
+        "filename": "drivers/renesas/rzg/board/board.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-07T11:23:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b4ddb7c_4c38b2d2",
+      "range": {
+        "startLine": 67,
+        "startChar": 1,
+        "endLine": 67,
+        "endChar": 9
+      },
+      "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c45ff870_3685c427",
         "filename": "plat/renesas/rzg/bl2_plat_setup.c",
         "patchSetId": 2
@@ -256,6 +280,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "5df3d37f_c673e1d0",
+      "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "acba458e_2fa1b75f",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-07T11:23:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b823823d_11f0f49a",
       "revId": "158aef5a082c5489ccbb613870d0283e42e7fefa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
