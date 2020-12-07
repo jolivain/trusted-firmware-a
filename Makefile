@@ -185,15 +185,20 @@ target32-directive	= 	-target arm-none-eabi
 else
 target32-directive	= 	-target armv8a-none-eabi
 
-# Set the compiler's target architecture profile based on ARM_ARCH_MINOR option
+# Set the compiler's target architecture profile based on
+# ARM_ARCH_MAJOR ARM_ARCH_MINOR options
 ifeq (${ARM_ARCH_MINOR},0)
-march32-directive	= 	-march=armv8-a
-march64-directive	= 	-march=armv8-a
+march32-directive	= 	-march=armv${ARM_ARCH_MAJOR}-a
+march64-directive	= 	-march=armv${ARM_ARCH_MAJOR}-a
 else
-march32-directive	= 	-march=armv8.${ARM_ARCH_MINOR}-a
-march64-directive	= 	-march=armv8.${ARM_ARCH_MINOR}-a
+march32-directive	= 	-march=armv${ARM_ARCH_MAJOR}.${ARM_ARCH_MINOR}-a
+march64-directive	= 	-march=armv${ARM_ARCH_MAJOR}.${ARM_ARCH_MINOR}-a
 endif
 endif
+
+# Save target architecture profile
+march32-option		:=	$(march32-directive)
+march64-option		:=	$(march64-directive)
 
 # Memory tagging is supported in architecture Armv8.5-A AArch64 and onwards
 ifeq ($(ARCH), aarch64)
@@ -203,22 +208,44 @@ mem_tag_arch_support	= 	yes
 endif
 endif
 
-# Enabled required option for memory stack tagging. Currently, these options are
-# enabled only for clang and armclang compiler.
+# Enable required options for memory stack tagging.
+# Currently, these options are enabled only for clang and armclang compiler.
 ifeq (${SUPPORT_STACK_MEMTAG},yes)
 ifdef mem_tag_arch_support
+# Check for armclang and clang compilers
 ifneq ( ,$(filter $(notdir $(CC)),armclang clang))
-march64-directive       =       -march=armv${ARM_ARCH_MAJOR}.${ARM_ARCH_MINOR}-a+memtag
+# Set "memtag" architecture feature modifier if not specified
+ifeq ( ,$(findstring memtag,${ARM_ARCH_FEATURE}))
+march64-directive       :=       $(march64-directive)+memtag
+endif	# memtag
 ifeq ($(notdir $(CC)),armclang)
 TF_CFLAGS		+=	-mmemtag-stack
 else ifeq ($(notdir $(CC)),clang)
 TF_CFLAGS		+=	-fsanitize=memtag
-endif
-endif
+endif	# armclang
+endif	# armclang clang
 else
 $(error "Error: stack memory tagging is not supported for architecture \
 	${ARCH},armv${ARM_ARCH_MAJOR}.${ARM_ARCH_MINOR}-a")
+endif	# mem_tag_arch_support
+endif	# SUPPORT_STACK_MEMTAG
+
+# Set the compiler's architecture feature modifiers
+ifneq (${ARM_ARCH_FEATURE}, none)
+march32-directive	:=	$(march32-directive)+${ARM_ARCH_FEATURE}
+march64-directive	:=	$(march64-directive)+${ARM_ARCH_FEATURE}
 endif
+
+# Extract architecture feature modifiers
+ifeq ($(ARCH), aarch32)
+arch-features		=	$(subst $(march32-option),,$(march32-directive))
+else
+arch-features		=	$(subst $(march64-option),,$(march64-directive))
+endif
+
+# Check if architecture feature modifiers were added
+ifneq (, $(arch-features))
+$(info Arm Architecture Features specified:$(subst +, ,$(arch-features)))
 endif
 
 ifneq ($(findstring armclang,$(notdir $(CC))),)
