@@ -35,6 +35,11 @@ Common build options
    compiling TF-A. Its value must be a numeric, and defaults to 0. See also,
    *Armv8 Architecture Extensions* in :ref:`Firmware Design`.
 
+-  ``ARM_ARCH_FEATURE``: Optional Arm Architecture build option which specifies
+   one or more feature modifiers. This option has the form ``[no]feature+..``
+   and defaults to ``none``. See compiler's documentation for the list of
+   supported feature modifiers.
+
 -  ``BL2``: This is an optional build option which specifies the path to BL2
    image for the ``fip`` target. In this case, the BL2 in the TF-A will not be
    built.
