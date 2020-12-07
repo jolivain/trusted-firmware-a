@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "c95b9c9b_4a3c8639",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-07T13:35:05Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "3203f05b_8eedbfbf",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 8
+      },
+      "revId": "9ce1f0a7b618670987fd8bdd7632af1b4397bf39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03966a5a_cd86797d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -59,6 +83,30 @@
       "writtenOn": "2020-12-07T13:24:50Z",
       "side": 1,
       "message": "Can you provide description about warnings?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 8
+      },
+      "revId": "9ce1f0a7b618670987fd8bdd7632af1b4397bf39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1564089_412ab954",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-07T13:35:05Z",
+      "side": 1,
+      "message": "The context here is with respect to the files in drivers/renesas directory. for eg:- if you run checkpatch on drivers/renesas/emmc you will will find 100\u0027s of warnings, which is fixed during factorisation of common code for both R-CarGen3 and RZ/G2.\n\nAlso fixed around 1500 MISRA Warnings/Violations.",
+      "parentUuid": "03966a5a_cd86797d",
       "range": {
         "startLine": 14,
         "startChar": 0,
