@@ -105,6 +105,30 @@
     },
     {
       "key": {
+        "uuid": "8dbcc2b5_b3057f4e",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-07T21:19:23Z",
+      "side": 1,
+      "message": "Thanks a lot for the feedback, Varun.\nEven if a platform supports RAS (i.e. in hardware) but has RAS_EXTENSION disabled(which means no RAS handling in software), I believe such platforms will face the issue described in this patch and hence will need the fix proposed in this patch. Hence, I thought using negation of RAS_EXTENSION is good enough.\nAre you suggesting that though a new build flag, we should give control to platform owners to decide if they need this fix? If the answer is yes, then I feel the implementation of the macro \"check_and_unmask_ea\" will become complex. I am not sure if I answered your questions. Let me know your thoughts on this.",
+      "parentUuid": "042f8965_e02f3e87",
+      "range": {
+        "startLine": 352,
+        "startChar": 4,
+        "endLine": 352,
+        "endChar": 18
+      },
+      "revId": "717b284777308dea0ea325e52581230f2b990d11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f7b7bd2_e259629f",
         "filename": "include/lib/el3_runtime/aarch64/context.h",
         "patchSetId": 4
@@ -133,6 +157,30 @@
       "writtenOn": "2020-12-03T18:37:42Z",
       "side": 1,
       "message": "Should this flag be updated before the dsb? If we take a pending SError immediately on executing dsb, this flag wont be set leading to incorrect assumptions in the serror handler. Makes sense?",
+      "range": {
+        "startLine": 1002,
+        "startChar": 1,
+        "endLine": 1002,
+        "endChar": 52
+      },
+      "revId": "717b284777308dea0ea325e52581230f2b990d11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5968243d_3d1a1cb3",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1002,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-07T21:19:23Z",
+      "side": 1,
+      "message": "Here, the store instruction is basically unsetting the flag by writing 0. I think this is the right approach. Let me describe a scenario.\nIf a memory access earlier in the Secure Monitor code led to some system error and we execute this dsb leading to the SError taken immediately, we want our execution to be terminated since el3 system errors are fatal. This is ensured by the newly created \"check_if_serror_from_EL3\" macro in the serror_sp_elx exception vector.\nOn the other hand, if I put this \"str xzr...\" instruction prior to dsb which will unset the flag indicating the origin of the SError, then our macro will wrongly assume that the error is not truly from EL3S.\nHopefully, I was able to explain my thought process. \nNow that you brought this up, I am wondering if I should put an ISB immediately after dsb to make sure the SErrors are handled immediately.",
+      "parentUuid": "ed261e1f_62cc3ced",
       "range": {
         "startLine": 1002,
         "startChar": 1,
