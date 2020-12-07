@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "ef15fedf_363a71de",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-07T14:16:42Z",
+      "side": 1,
+      "message": "The comment for this macro reads:\n\"Without RAS_EXTENSION, this macro just saves x30, and unmasks\"\nNow there is an added code which also saves X19 register. Is it possible to modify this code save X30 first and then use x30 for setting CTX_IS_IN_EL3 flag?\nstr\tx30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]\nmov \tx30, #1\nstr\tx30, [sp, #CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3]\n? Both handle_sync_exception and handle_interrupt_exception macros which follow this check_and_unmask_ea modify X30 anyway.",
+      "revId": "717b284777308dea0ea325e52581230f2b990d11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0f15222a_86f630a6",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 4
@@ -19,6 +36,23 @@
         "endLine": 112,
         "endChar": 74
       },
+      "revId": "717b284777308dea0ea325e52581230f2b990d11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "677213b1_44484c71",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-07T14:16:42Z",
+      "side": 1,
+      "message": "To prevent X19 saving duplication by save_gp_pmcr_pauth_regs() in enter_lower_el_async_ea() \nX30 can be saved first:\nstr\tx30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]\n, and then X30 used for CTX_IS_IN_EL3 setting and branching to the 2-nd instruction in enter_lower_el_async_ea() with new label added.",
       "revId": "717b284777308dea0ea325e52581230f2b990d11",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
@@ -65,6 +99,23 @@
         "endLine": 352,
         "endChar": 18
       },
+      "revId": "717b284777308dea0ea325e52581230f2b990d11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f7b7bd2_e259629f",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-07T14:16:42Z",
+      "side": 1,
+      "message": "add space or tab before /*. See lines 101 or 107",
       "revId": "717b284777308dea0ea325e52581230f2b990d11",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
