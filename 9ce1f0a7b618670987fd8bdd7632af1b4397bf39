@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d11bf323_6c64f126",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-07T13:40:32Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "6a1bc66b_c3848446",
+      "range": {
+        "startLine": 9,
+        "startChar": 41,
+        "endLine": 9,
+        "endChar": 42
+      },
+      "revId": "9ce1f0a7b618670987fd8bdd7632af1b4397bf39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3203f05b_8eedbfbf",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -107,6 +131,30 @@
       "side": 1,
       "message": "The context here is with respect to the files in drivers/renesas directory. for eg:- if you run checkpatch on drivers/renesas/emmc you will will find 100\u0027s of warnings, which is fixed during factorisation of common code for both R-CarGen3 and RZ/G2.\n\nAlso fixed around 1500 MISRA Warnings/Violations.",
       "parentUuid": "03966a5a_cd86797d",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 8
+      },
+      "revId": "9ce1f0a7b618670987fd8bdd7632af1b4397bf39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "828601b5_1795bf98",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-07T13:40:32Z",
+      "side": 1,
+      "message": "drivers/renesas/rcar is the original code for supporting rcar gen3.\n\ndrivers/renesas/common for supporting both rcar gen3 and RZ/G2 platform, mainly focused on porting RZ/G2 platform.",
+      "parentUuid": "d1564089_412ab954",
       "range": {
         "startLine": 14,
         "startChar": 0,
