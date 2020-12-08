@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e9d2327_7c750aca",
+        "filename": "drivers/renesas/rzg/board/board.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-12-08T16:23:39Z",
+      "side": 1,
+      "message": "This can be reworked to remove the goto by placing the rest of the function in an else block.\nIn this case it probably makes it more readable than before",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 11
+      },
+      "revId": "c76474266287001acaeda168c7099b621a05e30b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
