@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "80a6ac95_e76ac7f9",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-08T04:12:53Z",
+      "side": 1,
+      "message": "Hi Alexei,\nThanks for the simplified assembler instructions. I have made the necessary changes. Please help to review.",
+      "parentUuid": "ef15fedf_363a71de",
+      "revId": "717b284777308dea0ea325e52581230f2b990d11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0f15222a_86f630a6",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 4
@@ -56,6 +74,24 @@
       "revId": "717b284777308dea0ea325e52581230f2b990d11",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcc4cbc6_aca4f968",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-08T04:12:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "677213b1_44484c71",
+      "revId": "717b284777308dea0ea325e52581230f2b990d11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
