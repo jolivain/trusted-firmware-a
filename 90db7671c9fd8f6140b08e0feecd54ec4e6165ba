@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "340bdf1b_571863ab",
+        "filename": "lib/psci/psci_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-08T21:47:29Z",
+      "side": 1,
+      "message": "I think the following asserts would be helpful as well.",
+      "revId": "90db7671c9fd8f6140b08e0feecd54ec4e6165ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5140cd1_4b4495ff",
+        "filename": "lib/psci/psci_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-08T21:47:29Z",
+      "side": 1,
+      "message": "assert(node_index \u003c PSCI_NUM_NON_CPU_PWR_DOMAINS);",
+      "revId": "90db7671c9fd8f6140b08e0feecd54ec4e6165ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a9510ff_a25973a0",
+        "filename": "lib/psci/psci_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-08T21:47:29Z",
+      "side": 1,
+      "message": "assert(noe_index \u003c PLATFORM_CORE_COUNT);",
+      "revId": "90db7671c9fd8f6140b08e0feecd54ec4e6165ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
