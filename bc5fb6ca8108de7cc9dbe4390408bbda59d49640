@@ -22,6 +22,30 @@
       "revId": "bc5fb6ca8108de7cc9dbe4390408bbda59d49640",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37bcdf0e_a72701ae",
+        "filename": "fdts/optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-08T07:18:58Z",
+      "side": 1,
+      "message": "Good spot. This is intended for now and please consider this temporary. This will be removed when SPs properly supports Hafnium para-virtualized interface. \nIn our end to end demo, OP-TEE is a unique partition and still accesses the GIC but indeed in the final setup this access will be denied and this node removed from the manifest.",
+      "parentUuid": "45893a3b_1d3199e1",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 46,
+        "endChar": 38
+      },
+      "revId": "bc5fb6ca8108de7cc9dbe4390408bbda59d49640",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
