@@ -22,6 +22,30 @@
       "revId": "b573014d9c2c410fd952b370e76d510312bac7c4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e490fae8_9e0acb99",
+        "filename": "Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-08T09:55:22Z",
+      "side": 1,
+      "message": "I also looked at this option, but it will require checking for ARM_ARCH_FEATURE not being \u0027none\u0027. I\u0027ll see if it can be done without adding much complexity.",
+      "parentUuid": "5299a1b3_cf603254",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 60
+      },
+      "revId": "b573014d9c2c410fd952b370e76d510312bac7c4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
