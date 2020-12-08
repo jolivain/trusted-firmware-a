@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "a8400bac_7ebc080d",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2020-12-08T16:09:19Z",
+      "side": 1,
+      "message": "Ah you\u0027re right - rule 15.5\nMy apologies!\n\nHowever this rule is advisory in TF-A and is not checked or enforced (see the spreadsheet linked here https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#misra-compliance) as it is often more readable to return in-place.\nThis is one of those cases I think",
+      "parentUuid": "7e39c30a_2aa381fd",
+      "range": {
+        "startLine": 306,
+        "startChar": 2,
+        "endLine": 306,
+        "endChar": 11
+      },
+      "revId": "54642a4dae9769f4b7c393d1a25e469b21749dee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "354871b6_86793510",
         "filename": "plat/renesas/rzg/bl2_plat_setup.c",
         "patchSetId": 2
