@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1162201f_a84ea09b",
+        "filename": "plat/arm/board/rdn2/rdn2_plat.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-08T07:28:06Z",
+      "side": 1,
+      "message": "Fix the alignment as below:\nreturn mmio_read_32(SID_REG_BASE + SID_SYSTEM_ID_OFFSET)\n\t\t    \u0026 SID_SYSTEM_ID_PART_NUM_MASK;",
+      "range": {
+        "startLine": 13,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 4
+      },
+      "revId": "9eda256f31ab5df98f54f8c1c887d3f3f1c73f93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40086397_0f10366f",
+        "filename": "plat/arm/board/rdn2/rdn2_plat.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-08T07:28:06Z",
+      "side": 1,
+      "message": "ditto.",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 3
+      },
+      "revId": "9eda256f31ab5df98f54f8c1c887d3f3f1c73f93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
