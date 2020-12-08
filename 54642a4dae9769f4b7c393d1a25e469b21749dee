@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "7e39c30a_2aa381fd",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-08T15:53:54Z",
+      "side": 1,
+      "message": "I agree this is readable.But multiple returns from a function is MISRA violation right?",
+      "parentUuid": "53c07653_c88ee65a",
+      "range": {
+        "startLine": 306,
+        "startChar": 2,
+        "endLine": 306,
+        "endChar": 11
+      },
+      "revId": "54642a4dae9769f4b7c393d1a25e469b21749dee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "354871b6_86793510",
         "filename": "plat/renesas/rzg/bl2_plat_setup.c",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2020-12-08T15:34:27Z",
       "side": 1,
       "message": "This is a MISRA 14.4 violation as params is not boolean. Should be\nif (params \u003d\u003d NULL)\nThe same principle for ret and size below",
+      "range": {
+        "startLine": 378,
+        "startChar": 5,
+        "endLine": 378,
+        "endChar": 12
+      },
+      "revId": "54642a4dae9769f4b7c393d1a25e469b21749dee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb416769_1ec98405",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-08T15:53:54Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "354871b6_86793510",
       "range": {
         "startLine": 378,
         "startChar": 5,
