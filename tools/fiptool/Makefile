@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2014-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2014-2021, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -28,7 +28,21 @@ else
   Q :=
 endif
 
+# Compile time defines used by NXP platforms
+ifneq ($(findstring lx2,$(PLAT)),)
+  PLAT_DEF_UUID := yes
+else
+ifneq (${FUSE_PROV_FILE},)
+  PLAT_DEF_UUID := yes
+endif
+endif
+
 INCLUDE_PATHS := -I../../include/tools_share
+
+ifeq (${PLAT_DEF_UUID},yes)
+HOSTCCFLAGS += -DPLAT_DEF_FIP_UUID
+INCLUDE_PATHS += -I../../plat/nxp/common/include/default/
+endif
 
 HOSTCC ?= gcc
 

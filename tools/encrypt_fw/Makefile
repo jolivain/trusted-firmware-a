@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019-2020, Linaro Limited. All rights reserved.
+# Copyright (c) 2019-2021, Linaro Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -36,9 +36,24 @@ else
   Q :=
 endif
 
+# Compile time defines used by NXP platforms
+ifneq ($(findstring lx2,$(PLAT)),)
+  PLAT_DEF_UUID := yes
+else
+ifneq (${FUSE_PROV_FILE},)
+  PLAT_DEF_UUID := yes
+endif
+endif
+
 # Make soft links and include from local directory otherwise wrong headers
 # could get pulled in from firmware tree.
 INC_DIR := -I ./include -I ../../include/tools_share -I ${OPENSSL_DIR}/include
+
+ifeq (${PLAT_DEF_UUID},yes)
+HOSTCCFLAGS += -DPLAT_DEF_FIP_UUID
+INCLUDE_PATHS += -I../../plat/nxp/common/include/default/
+endif
+
 LIB_DIR := -L ${OPENSSL_DIR}/lib
 LIB := -lssl -lcrypto
 
