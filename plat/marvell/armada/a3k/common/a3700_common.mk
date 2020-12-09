@@ -64,6 +64,11 @@ BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S		\
 				$(PLAT_COMMON_BASE)/a3700_sip_svc.c	\
 				$(MARVELL_DRV)
 
+ifeq ($(CM3_SYSTEM_RESET),1)
+BL31_CPPFLAGS		+=	-DCM3_SYSTEM_RESET
+BL31_SOURCES		+=	$(PLAT_COMMON_BASE)/cm3_system_reset.c
+endif
+
 ifdef WTP
 
 DOIMAGEPATH	:= $(WTP)

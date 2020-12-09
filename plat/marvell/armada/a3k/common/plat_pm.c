@@ -780,6 +780,11 @@ static void __dead2 a3700_system_reset(void)
 			   2 * sizeof(uint64_t));
 #endif
 
+#ifdef CM3_SYSTEM_RESET
+	/* Use Cortex-M3 secure coprocessor for system reset */
+	cm3_system_reset();
+#endif
+
 	/* Trigger the warm reset */
 	mmio_write_32(MVEBU_WARM_RESET_REG, MVEBU_WARM_RESET_MAGIC);
 
