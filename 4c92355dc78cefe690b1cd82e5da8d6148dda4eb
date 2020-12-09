@@ -46,6 +46,30 @@
       "revId": "4c92355dc78cefe690b1cd82e5da8d6148dda4eb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e837a73_214516b0",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-09T08:41:49Z",
+      "side": 1,
+      "message": "Yes, in that case is it not good to \u0027panic\u0027 instead of returning error in \u0027Rtc_busy_wait()\u0027 function ? (I know, unlikely we see any RTC HW issue).\nMy worry is that we are processing with the further RTC calls even after knowing there is an issue in RTC HW. Is this understanding correct or am I missing something?",
+      "parentUuid": "7e507dd2_b00de916",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 8
+      },
+      "revId": "4c92355dc78cefe690b1cd82e5da8d6148dda4eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
