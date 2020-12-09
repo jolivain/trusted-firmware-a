@@ -55,6 +55,21 @@ INC_DIR := -I ./include -I ${PLAT_INCLUDE} -I ${OPENSSL_DIR}/include
 LIB_DIR := -L ${OPENSSL_DIR}/lib
 LIB := -lssl -lcrypto
 
+# Compile time defines used by NXP platforms
+ifneq ($(findstring lx2,$(PLAT)),)
+  PLAT_DEF_OID := yes
+else
+ifneq (${FUSE_PROV_FILE},)
+  PLAT_DEF_OID := yes
+endif
+endif
+
+
+ifeq (${PLAT_DEF_OID},yes)
+HOSTCCFLAGS += -DPLAT_DEF_OID
+INC_DIR += -I../../plat/nxp/common/fip_handler/common/
+endif
+
 HOSTCC ?= gcc
 
 .PHONY: all clean realclean
