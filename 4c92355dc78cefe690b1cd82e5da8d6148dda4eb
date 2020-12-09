@@ -70,6 +70,30 @@
       "revId": "4c92355dc78cefe690b1cd82e5da8d6148dda4eb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fbf8ee8_e51af9c0",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000423
+      },
+      "writtenOn": "2020-12-09T09:35:40Z",
+      "side": 1,
+      "message": "update patchset 23\nAs long as returning error in \u0027Rtc_busy_wait()\u0027 function, further RTC dirver will not be called.",
+      "parentUuid": "1e837a73_214516b0",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 8
+      },
+      "revId": "4c92355dc78cefe690b1cd82e5da8d6148dda4eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
