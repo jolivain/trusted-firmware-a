@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -33,6 +33,8 @@ else
   $(error Unknown chain of trust ${COT})
 endif
 
+include ../../tools/nxp/cert_create_helper/tbbr.mk
+
 HOSTCCFLAGS := -Wall -std=c99
 
 ifeq (${DEBUG},1)
@@ -51,7 +53,7 @@ HOSTCCFLAGS += ${DEFINES}
 
 # Make soft links and include from local directory otherwise wrong headers
 # could get pulled in from firmware tree.
-INC_DIR := -I ./include -I ${PLAT_INCLUDE} -I ${OPENSSL_DIR}/include
+INC_DIR += -I ./include -I ${PLAT_INCLUDE} -I ${OPENSSL_DIR}/include
 LIB_DIR := -L ${OPENSSL_DIR}/lib
 LIB := -lssl -lcrypto
 
