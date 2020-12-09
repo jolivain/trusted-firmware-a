@@ -189,6 +189,20 @@ static int load_auth_image_recursive(unsigned int image_id,
 		return rc;
 	}
 
+	/*
+	 * The image file has been successfully loaded.
+	 *
+	 * Flush the image to main memory so that it can be executed later by
+	 * any CPU, or HW accelerator regardless of cache and MMU state.
+	 *
+	 * Crypto H/w accelerator can authenticate this image from 
+	 * main memory.
+	 */
+	if (is_parent_image == 0) {
+		flush_dcache_range(image_data->image_base,
+				   image_data->image_size);
+	}
+
 	/* Authenticate it */
 	rc = auth_mod_verify_img(image_id,
 				 (void *)image_data->image_base,
@@ -200,16 +214,6 @@ static int load_auth_image_recursive(unsigned int image_id,
 		flush_dcache_range(image_data->image_base,
 				   image_data->image_size);
 		return -EAUTH;
-	}
-
-	/*
-	 * Flush the image to main memory so that it can be executed later by
-	 * any CPU, regardless of cache and MMU state. This is only needed for
-	 * child images, not for the parents (certificates).
-	 */
-	if (is_parent_image == 0) {
-		flush_dcache_range(image_data->image_base,
-				   image_data->image_size);
 	}
 
 	return 0;
