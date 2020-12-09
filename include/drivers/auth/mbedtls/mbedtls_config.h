@@ -1,10 +1,12 @@
 /*
- * Copyright (c) 2015-2020, Arm Limited. All rights reserved.
+ * Copyright (c) 2015-2021, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 #ifndef MBEDTLS_CONFIG_H
 #define MBEDTLS_CONFIG_H
+
+#include <common/tbbr/cot_def.h>
 
 /*
  * Key algorithms currently supported on mbed TLS libraries
