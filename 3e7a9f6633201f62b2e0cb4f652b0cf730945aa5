@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6fdc827b_d28e924e",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-09T16:32:17Z",
+      "side": 1,
+      "message": "it will be good to align to https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/fvp/fdts/fvp_spmc_optee_sp_manifest.dts?h\u003dintegration as much as possible\n\nAlthough few deltas are related to using latest master Hafnium commit hash.",
+      "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "59947e46_2d907bd7",
         "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
         "patchSetId": 2
@@ -43,6 +60,132 @@
         "endLine": 26,
         "endChar": 3
       },
+      "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9584250_fbbd1fa7",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-09T16:32:17Z",
+      "side": 1,
+      "message": "In case you intend to use latest Hafnium master, you\u0027ll have to specify # of vCPUs and VM memory size.",
+      "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5facdc33_936f4fc4",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-09T16:32:17Z",
+      "side": 1,
+      "message": "This is ignored by Hafnium.",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 4
+      },
+      "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dea787a_86057305",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-09T16:32:17Z",
+      "side": 1,
+      "message": "use the CPU_x macros if possible (see FVP manifest sample).",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 4
+      },
+      "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86d56482_63045046",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-09T16:32:17Z",
+      "side": 1,
+      "message": "This is ignored by Hafnium",
+      "range": {
+        "startLine": 71,
+        "startChar": 3,
+        "endLine": 71,
+        "endChar": 28
+      },
+      "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d660ed12_06181e97",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-09T16:32:17Z",
+      "side": 1,
+      "message": "This is ignored by Hafnium",
+      "range": {
+        "startLine": 73,
+        "startChar": 3,
+        "endLine": 73,
+        "endChar": 26
+      },
+      "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a3728b3_66a2f933",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-09T16:32:17Z",
+      "side": 1,
+      "message": "you can discard device-memory node if you intend to rebase to Hafnium master.",
       "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
