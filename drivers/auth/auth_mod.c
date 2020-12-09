@@ -11,7 +11,6 @@
 #include <platform_def.h>
 
 #include <common/debug.h>
-#include <common/tbbr/cot_def.h>
 #include <drivers/auth/auth_common.h>
 #include <drivers/auth/auth_mod.h>
 #include <drivers/auth/crypto_mod.h>
