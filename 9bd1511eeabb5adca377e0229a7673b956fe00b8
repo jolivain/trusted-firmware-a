@@ -16,6 +16,24 @@
       "revId": "9bd1511eeabb5adca377e0229a7673b956fe00b8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41a5e9ea_008a519e",
+        "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000063
+      },
+      "writtenOn": "2020-12-09T10:39:12Z",
+      "side": 1,
+      "message": "RD-N2 reuses the same structure (and so does RD-Daniel). So a mew structure is not created for RD-N2 platform.",
+      "parentUuid": "f086586b_458d28c4",
+      "revId": "9bd1511eeabb5adca377e0229a7673b956fe00b8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
