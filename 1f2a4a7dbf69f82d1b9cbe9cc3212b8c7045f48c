@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2214fc56_3e0db7e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-09T07:14:11Z",
+      "side": 1,
+      "message": "/${CHECK_FWU_FIP_CMD}?",
+      "range": {
+        "startLine": 31,
+        "startChar": 53,
+        "endLine": 31,
+        "endChar": 69
+      },
+      "revId": "1f2a4a7dbf69f82d1b9cbe9cc3212b8c7045f48c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8346b98_51362ab8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-09T07:14:11Z",
+      "side": 1,
+      "message": "/FWU_FIP?",
+      "range": {
+        "startLine": 31,
+        "startChar": 37,
+        "endLine": 31,
+        "endChar": 40
+      },
+      "revId": "1f2a4a7dbf69f82d1b9cbe9cc3212b8c7045f48c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0a1329c_3afd160b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-09T07:14:11Z",
+      "side": 1,
+      "message": "not present?",
+      "range": {
+        "startLine": 32,
+        "startChar": 54,
+        "endLine": 32,
+        "endChar": 62
+      },
+      "revId": "1f2a4a7dbf69f82d1b9cbe9cc3212b8c7045f48c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74c72fd9_2bc7b2f5",
+        "filename": "make_helpers/build_macros.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-09T07:14:11Z",
+      "side": 1,
+      "message": "It will be good if you add comment here specifying the use of \u0027check_$(1)_cmd\u0027.\nI see the commit message is quite elaborated but it will be good if we have inline comment.",
+      "revId": "1f2a4a7dbf69f82d1b9cbe9cc3212b8c7045f48c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
