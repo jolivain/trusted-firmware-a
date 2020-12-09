@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c6a28a9_9afbc431",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-09T07:35:01Z",
+      "side": 1,
+      "message": "Is it not good to return \u0027error code\u0027? Caller of this function, not able to know the operation is successful or failed.",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 8
+      },
+      "revId": "4c92355dc78cefe690b1cd82e5da8d6148dda4eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
