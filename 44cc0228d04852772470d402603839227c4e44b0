@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "8201088c_e2448366",
+        "filename": "drivers/nxp/dcfg/dcfg.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-09T17:39:07Z",
+      "side": 1,
+      "message": "Hi Pankaj,\n\nThanks for the explanation! In that case, better not to return anything (void) from \u0027error_handler\u0027 function (instead of always returning \u0027ERROR_IN_FUSE_PROV\u0027)",
+      "parentUuid": "cbb0c03f_2fb1bce6",
+      "range": {
+        "startLine": 161,
+        "startChar": 1,
+        "endLine": 161,
+        "endChar": 10
+      },
+      "revId": "44cc0228d04852772470d402603839227c4e44b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ff4e348a_afb4279e",
         "filename": "drivers/nxp/dcfg/dcfg_lsch2.h",
         "patchSetId": 3
