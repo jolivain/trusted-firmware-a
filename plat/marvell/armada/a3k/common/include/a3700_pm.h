@@ -48,4 +48,8 @@ struct pm_wake_up_src_config {
 
 struct pm_wake_up_src_config *mv_wake_up_src_config_get(void);
 
+#ifdef CM3_SYSTEM_RESET
+void cm3_system_reset(void);
+#endif
+
 #endif /* A3700_PM_H */

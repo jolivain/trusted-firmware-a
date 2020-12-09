@@ -119,4 +119,10 @@
  */
 #define MVEBU_COMPHY_REG_BASE			(MVEBU_REGS_BASE + 0x18300)
 
+/*****************************************************************************
+ * Cortex-M3 Secure Processor Mailbox constants
+ *****************************************************************************
+ */
+#define MVEBU_RWTM_REG_BASE			(MVEBU_REGS_BASE + 0xB0000)
+
 #endif /* A3700_PLAT_DEF_H */
