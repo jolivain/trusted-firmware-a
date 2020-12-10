@@ -39,13 +39,11 @@ void ptp3_init(unsigned int core)
 {
 	unsigned int _core;
 
-	if (core >= PTP3_CFG1_CPU_START_ID) {
-		if (core < NR_PTP3_CFG1_CPU) {
-			/* update ptp3_cfg1 */
-			ptp3_write(
-				ptp3_cfg1[core][PTP3_CFG_ADDR],
-				ptp3_cfg1[core][PTP3_CFG_VALUE]);
-		}
+	if (core < NR_PTP3_CFG1_CPU) {
+		/* update ptp3_cfg1 */
+		ptp3_write(
+			ptp3_cfg1[core][PTP3_CFG_ADDR],
+			ptp3_cfg1[core][PTP3_CFG_VALUE]);
 	}
 
 	if (core >= PTP3_CFG2_CPU_START_ID) {
@@ -73,13 +71,11 @@ void ptp3_init(unsigned int core)
 
 void ptp3_deinit(unsigned int core)
 {
-	if (core >= PTP3_CFG1_CPU_START_ID) {
-		if (core < NR_PTP3_CFG1_CPU) {
-			/* update ptp3_cfg1 */
-			ptp3_write(
-				ptp3_cfg1[core][PTP3_CFG_ADDR],
-				ptp3_cfg1[core][PTP3_CFG_VALUE] &
-					 ~PTP3_CFG1_MASK);
-		}
+	if (core < NR_PTP3_CFG1_CPU) {
+		/* update ptp3_cfg1 */
+		ptp3_write(
+			ptp3_cfg1[core][PTP3_CFG_ADDR],
+			ptp3_cfg1[core][PTP3_CFG_VALUE] &
+				 ~PTP3_CFG1_MASK);
 	}
 }
