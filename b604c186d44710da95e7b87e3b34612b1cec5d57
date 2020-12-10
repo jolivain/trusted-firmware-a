@@ -292,6 +292,75 @@
       "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ac9b22b_f992f421",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T14:26:47Z",
+      "side": 1,
+      "message": "To my understanding el2_unused\u003dtrue means NS-EL2 is implemented, but it is not loaded with an Hypervisor. So should the bit be cleared instead?",
+      "range": {
+        "startLine": 133,
+        "startChar": 16,
+        "endLine": 133,
+        "endChar": 49
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5caf2176_0b6434c4",
+        "filename": "lib/extensions/amu/aarch64/amu_helpers.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T14:26:47Z",
+      "side": 1,
+      "message": "FEAT_AMUv1p1",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 17,
+        "endChar": 8
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "678b0e65_0d603eb9",
+        "filename": "lib/extensions/amu/aarch64/amu_helpers.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T14:26:47Z",
+      "side": 1,
+      "message": "FEAT_AMUv1p1",
+      "range": {
+        "startLine": 222,
+        "startChar": 51,
+        "endLine": 222,
+        "endChar": 64
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
