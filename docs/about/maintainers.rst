@@ -516,8 +516,8 @@ Synquacer platform port
 
 Texas Instruments platform port
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-:M: Andrew F. Davis <afd@ti.com>
-:G: `glneo`_
+:M: Nishanth Menon <nm@ti.com>
+:G: `nmenon`_
 :F: docs/plat/ti-k3.rst
 :F: plat/ti/
 
