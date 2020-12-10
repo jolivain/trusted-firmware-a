@@ -16,6 +16,24 @@
       "revId": "7b24e48a46b47b2b37c0b0c4458d4ce515487e36",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2ddf62f_35423745",
+        "filename": "docs/plat/arm/fvp/index.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000063
+      },
+      "writtenOn": "2020-12-10T04:52:44Z",
+      "side": 1,
+      "message": "Sure, that patch will be extended for run config as well, just like the build/run config support for previous infra reference platforms. But does this patch series have to depend on that? The build/run support will be followed up after the platform support first getting merged.",
+      "parentUuid": "58acc4d5_a25a4847",
+      "revId": "7b24e48a46b47b2b37c0b0c4458d4ce515487e36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
