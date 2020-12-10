@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7a9a48b_a36eed18",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T10:43:06Z",
+      "side": 1,
+      "message": "as found in latest Arm ARM\nFEAT_AMUv1?",
+      "range": {
+        "startLine": 164,
+        "startChar": 20,
+        "endLine": 164,
+        "endChar": 27
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "191b7c22_05112981",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T10:43:06Z",
+      "side": 1,
+      "message": "Does it make sense to define ID_AA64PFR0_AMU_UNIMPLEMENTED ?",
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15c66165_c52e7eb5",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T10:43:06Z",
+      "side": 1,
+      "message": "FEAT_AMUv1p1?",
+      "range": {
+        "startLine": 165,
+        "startChar": 20,
+        "endLine": 165,
+        "endChar": 27
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34903812_31ce0382",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T10:43:06Z",
+      "side": 1,
+      "message": "when FEAT_AMUv1p1 is implemented",
+      "range": {
+        "startLine": 925,
+        "startChar": 52,
+        "endLine": 925,
+        "endChar": 71
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c5198cf_8e3d8e2f",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T10:43:06Z",
+      "side": 1,
+      "message": "activity monitor events",
+      "range": {
+        "startLine": 938,
+        "startChar": 60,
+        "endLine": 938,
+        "endChar": 74
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faae97aa_17994798",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T10:43:06Z",
+      "side": 1,
+      "message": "AMEVCNTVOFF01_EL2",
+      "range": {
+        "startLine": 939,
+        "startChar": 3,
+        "endLine": 939,
+        "endChar": 17
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a4d37f2_54062db1",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T10:43:06Z",
+      "side": 1,
+      "message": "activity monitor events",
+      "range": {
+        "startLine": 944,
+        "startChar": 58,
+        "endLine": 944,
+        "endChar": 72
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3918cbf_3bdb7be9",
+        "filename": "include/lib/extensions/amu.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T10:43:06Z",
+      "side": 1,
+      "message": "#if __aarch64__ ?",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 58
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0df8a037_271ebef2",
+        "filename": "include/lib/extensions/amu.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T10:43:06Z",
+      "side": 1,
+      "message": "preferably use native types here and there",
+      "range": {
+        "startLine": 98,
+        "startChar": 30,
+        "endLine": 98,
+        "endChar": 56
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95453c83_dbf4c712",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T10:43:06Z",
+      "side": 1,
+      "message": "FEAT_AMUv1p1",
+      "range": {
+        "startLine": 217,
+        "startChar": 4,
+        "endLine": 217,
+        "endChar": 12
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d31d0e77_1c2b26db",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T10:43:06Z",
+      "side": 1,
+      "message": "FEAT_AMUv1",
+      "range": {
+        "startLine": 25,
+        "startChar": 26,
+        "endLine": 25,
+        "endChar": 34
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b07ae791_52a3be3e",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T10:43:06Z",
+      "side": 1,
+      "message": "FEAT_AMUv1p1",
+      "range": {
+        "startLine": 26,
+        "startChar": 26,
+        "endLine": 26,
+        "endChar": 34
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c7cf435_6193c78e",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-10T10:43:06Z",
+      "side": 1,
+      "message": "ULL and below",
+      "range": {
+        "startLine": 120,
+        "startChar": 32,
+        "endLine": 120,
+        "endChar": 33
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
