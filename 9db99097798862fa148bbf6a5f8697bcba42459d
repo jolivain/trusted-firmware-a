@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "f87fa5d1_e601b27a",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-10T19:17:16Z",
+      "side": 1,
+      "message": "Is it necessary to use the goto construct here? Why cant it be simply\nif  (ret \u003d\u003d 0) {\n    return 0;\n}",
+      "revId": "9db99097798862fa148bbf6a5f8697bcba42459d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dc81e31_6b697f6d",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-10T19:17:16Z",
+      "side": 1,
+      "message": "rtc_disable_2sec_reboot and other functions used here return int32_t i.e., signed value. But the return value is being compared with ret which is unsigned. Can you modify ret to be int16_t?",
+      "revId": "9db99097798862fa148bbf6a5f8697bcba42459d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2971d6da_33bb420b",
         "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.h",
         "patchSetId": 26
