@@ -318,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "2d02c2f7_c4994e97",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-11T01:03:03Z",
+      "side": 1,
+      "message": "After revisiting this I think nothing needs to happen here at all so I have removed that chunk of code.  If virtual counter offsets are desired they must be configured by EL2 or EL3 code as the registers are only accessible from EL2 and EL3.  The typical use case would have the virtual offsets configured by a hypervisor so I don\u0027t think there\u0027s any reason to have EL3 do it by default.  Thoughts?",
+      "parentUuid": "9ac9b22b_f992f421",
+      "range": {
+        "startLine": 133,
+        "startChar": 16,
+        "endLine": 133,
+        "endChar": 49
+      },
+      "revId": "b604c186d44710da95e7b87e3b34612b1cec5d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5caf2176_0b6434c4",
         "filename": "lib/extensions/amu/aarch64/amu_helpers.S",
         "patchSetId": 17
