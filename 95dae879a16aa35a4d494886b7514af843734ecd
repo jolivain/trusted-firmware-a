@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bde8ccb4_fffad8e2",
+        "filename": "include/lib/extensions/amu.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-11T11:17:02Z",
+      "side": 1,
+      "message": "Can you add the commenta that \"Architected event counter 1 does not have an offset\" and use [AMU_GROUP0_NR_COUNTERS - 1] ?",
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a83acee_f94f5f12",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-11T11:17:02Z",
+      "side": 1,
+      "message": "unsigned int amu_version \u003d amu_get_version();\nand use amu_version here and on line #106",
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1436c926_96674324",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-11T11:17:02Z",
+      "side": 1,
+      "message": "0ULL?",
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d43a2e25_06276fbe",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-11T11:17:02Z",
+      "side": 1,
+      "message": "0ULL?",
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07ed633e_1567fdd0",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-11T11:17:02Z",
+      "side": 1,
+      "message": "0ULL?",
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4eeb1917_c10a884e",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-11T11:17:02Z",
+      "side": 1,
+      "message": "Is check for AMU_GROUP1_COUNTERS_MASK required here?",
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20ac2f2a_94de40b1",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-11T11:17:02Z",
+      "side": 1,
+      "message": "0ULL?",
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d92130c_176b4604",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-11T11:17:02Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01557d43_f7bd3715",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-11T11:17:02Z",
+      "side": 1,
+      "message": "Is check for AMU_GROUP1_COUNTERS_MASK required here?",
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
