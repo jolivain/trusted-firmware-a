@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "535ed0cb_e9520c3b",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-11T17:18:09Z",
+      "side": 1,
+      "message": "NOT_IMPL to stick with the Arm ARM?",
+      "range": {
+        "startLine": 114,
+        "startChar": 20,
+        "endLine": 114,
+        "endChar": 33
+      },
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7e4a423_574b7fd3",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-11T17:18:09Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 648,
+        "startChar": 67,
+        "endLine": 648,
+        "endChar": 74
+      },
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8900a6c5_6df8c68d",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-11T17:18:09Z",
+      "side": 1,
+      "message": "NOT_IMPL?",
+      "range": {
+        "startLine": 164,
+        "startChar": 24,
+        "endLine": 164,
+        "endChar": 37
+      },
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "761de800_675c0b56",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-11T17:18:09Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 926,
+        "startChar": 69,
+        "endLine": 926,
+        "endChar": 76
+      },
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bde8ccb4_fffad8e2",
         "filename": "include/lib/extensions/amu.h",
         "patchSetId": 18
