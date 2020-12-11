@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "7824b557_faee6fd1",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T12:55:17Z",
+      "side": 1,
+      "message": "nit: fix the alignment (use spaces if needed).",
+      "range": {
+        "startLine": 222,
+        "startChar": 1,
+        "endLine": 222,
+        "endChar": 2
+      },
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a83acee_f94f5f12",
         "filename": "lib/extensions/amu/aarch64/amu.c",
         "patchSetId": 18
@@ -121,6 +144,29 @@
     },
     {
       "key": {
+        "uuid": "744ceabd_c38bb0c2",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T12:55:17Z",
+      "side": 1,
+      "message": "nit: fix alignement.",
+      "range": {
+        "startLine": 343,
+        "startChar": 1,
+        "endLine": 343,
+        "endChar": 2
+      },
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2d92130c_176b4604",
         "filename": "lib/extensions/amu/aarch64/amu.c",
         "patchSetId": 18
@@ -132,6 +178,29 @@
       "writtenOn": "2020-12-11T11:17:02Z",
       "side": 1,
       "message": "the same",
+      "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cb95943_a91ce1b1",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T12:55:17Z",
+      "side": 1,
+      "message": "nit: fix alignment",
+      "range": {
+        "startLine": 363,
+        "startChar": 1,
+        "endLine": 363,
+        "endChar": 2
+      },
       "revId": "95dae879a16aa35a4d494886b7514af843734ecd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
