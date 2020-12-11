@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af38fc44_2a3e40fe",
+        "filename": "drivers/nxp/csu/csu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T19:32:21Z",
+      "side": 1,
+      "message": "nit: 2020?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "332a3db3286003d2643f8cac199372d11143cc0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80291617_b016ffd8",
+        "filename": "drivers/nxp/csu/csu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T19:32:21Z",
+      "side": 1,
+      "message": "nit: 2020?",
+      "range": {
+        "startLine": 3,
+        "startChar": 13,
+        "endLine": 3,
+        "endChar": 22
+      },
+      "revId": "332a3db3286003d2643f8cac199372d11143cc0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd2007f1_1c8686a5",
+        "filename": "drivers/nxp/csu/csu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T19:32:21Z",
+      "side": 1,
+      "message": "Why we need this function? \nCan we remove this function and move this implementation to the \u0027enable_layerscape_ns_access\u0027 function?",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 36
+      },
+      "revId": "332a3db3286003d2643f8cac199372d11143cc0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b9a94e7_417e7484",
+        "filename": "drivers/nxp/csu/csu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T19:32:21Z",
+      "side": 1,
+      "message": "2U?",
+      "range": {
+        "startLine": 25,
+        "startChar": 35,
+        "endLine": 25,
+        "endChar": 37
+      },
+      "revId": "332a3db3286003d2643f8cac199372d11143cc0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12aebd5b_333d9a8c",
+        "filename": "drivers/nxp/csu/csu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T19:32:21Z",
+      "side": 1,
+      "message": "0x0000ffffU?",
+      "range": {
+        "startLine": 28,
+        "startChar": 10,
+        "endLine": 28,
+        "endChar": 20
+      },
+      "revId": "332a3db3286003d2643f8cac199372d11143cc0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b31126c_6ac1f9c9",
+        "filename": "drivers/nxp/csu/csu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T19:32:21Z",
+      "side": 1,
+      "message": "16U?",
+      "range": {
+        "startLine": 29,
+        "startChar": 31,
+        "endLine": 29,
+        "endChar": 33
+      },
+      "revId": "332a3db3286003d2643f8cac199372d11143cc0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1266d551_01de532c",
+        "filename": "drivers/nxp/csu/csu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T19:32:21Z",
+      "side": 1,
+      "message": "0xffff0000?",
+      "range": {
+        "startLine": 31,
+        "startChar": 10,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "332a3db3286003d2643f8cac199372d11143cc0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4318f0aa_04364776",
+        "filename": "drivers/nxp/csu/csu.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T19:32:21Z",
+      "side": 1,
+      "message": "Use instead \u0027CSU_H\u0027 as per coding guidelines:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html?highlight\u003dheader%20check#header-guards",
+      "range": {
+        "startLine": 8,
+        "startChar": 8,
+        "endLine": 8,
+        "endChar": 17
+      },
+      "revId": "332a3db3286003d2643f8cac199372d11143cc0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f349cf39_e4102259",
+        "filename": "drivers/nxp/csu/csu.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T19:32:21Z",
+      "side": 1,
+      "message": "0x0021CU?",
+      "range": {
+        "startLine": 11,
+        "startChar": 35,
+        "endLine": 11,
+        "endChar": 42
+      },
+      "revId": "332a3db3286003d2643f8cac199372d11143cc0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "799958cf_0d0ac7e5",
+        "filename": "drivers/nxp/csu/csu.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T19:32:21Z",
+      "side": 1,
+      "message": "Please put a comment describing about this enum.",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 20
+      },
+      "revId": "332a3db3286003d2643f8cac199372d11143cc0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0993c337_2bcb36c4",
+        "filename": "drivers/nxp/csu/csu.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T19:32:21Z",
+      "side": 1,
+      "message": "ox8U? and same for below values?",
+      "range": {
+        "startLine": 14,
+        "startChar": 16,
+        "endLine": 14,
+        "endChar": 20
+      },
+      "revId": "332a3db3286003d2643f8cac199372d11143cc0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
