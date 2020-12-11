@@ -16,6 +16,24 @@
       "revId": "81a4fb48171f985221417a5598b9ab4e437d4fe3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df0bf6a4_31f66543",
+        "filename": "plat/mediatek/mt8192/drivers/ptp3/mtk_ptp3_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-11T02:10:13Z",
+      "side": 1,
+      "message": "The purpose of this code is to apply the table ptp3_cfg1 for core 0 to 7 and apply ptp3_cfg2 / ptp3_cfg3 for core 4 to 7.\nI think PTP3_CFG1_CPU_START_ID is unlikely to change to the value other than zero.\nMaybe I just leave the comment like this:\n/* Apply ptp3_cfg1 for core 0 to 7 */\n\nDoes it make sense to you ?",
+      "parentUuid": "b562bc5e_156fc5e5",
+      "revId": "81a4fb48171f985221417a5598b9ab4e437d4fe3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
