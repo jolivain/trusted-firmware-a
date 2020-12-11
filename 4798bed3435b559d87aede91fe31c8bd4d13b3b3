@@ -1,0 +1,285 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "461300c6_012fd63e",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T01:03:35Z",
+      "side": 1,
+      "message": "nit: remove extra blank line.",
+      "revId": "4798bed3435b559d87aede91fe31c8bd4d13b3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee736814_70a831ee",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T01:03:35Z",
+      "side": 1,
+      "message": "nit: s/direstion/direction?",
+      "range": {
+        "startLine": 32,
+        "startChar": 33,
+        "endLine": 32,
+        "endChar": 42
+      },
+      "revId": "4798bed3435b559d87aede91fe31c8bd4d13b3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f6ea396_93567b1e",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T01:03:35Z",
+      "side": 1,
+      "message": "Use braces around \u0027if\u0027 and also, use check \u0027(val \u0026 bit_num) \u003d\u003d 0\u0027 to avoid MISRA 14.4 issue.",
+      "range": {
+        "startLine": 46,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 22
+      },
+      "revId": "4798bed3435b559d87aede91fe31c8bd4d13b3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1dc8ccf_c4e1309c",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T01:03:35Z",
+      "side": 1,
+      "message": "nit: fix the alignment.",
+      "range": {
+        "startLine": 54,
+        "startChar": 3,
+        "endLine": 54,
+        "endChar": 6
+      },
+      "revId": "4798bed3435b559d87aede91fe31c8bd4d13b3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0c12451_1a2e8e6f",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T01:03:35Z",
+      "side": 1,
+      "message": "nit: remove extra line.",
+      "revId": "4798bed3435b559d87aede91fe31c8bd4d13b3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83736146_9a76c206",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T01:03:35Z",
+      "side": 1,
+      "message": "Use braces around \u0027if\u0027 and also, use check \u0027(val \u0026 bit_num) !\u003d 0\u0027 to avoid MISRA 14.4 issue.",
+      "range": {
+        "startLine": 80,
+        "startChar": 1,
+        "endLine": 80,
+        "endChar": 19
+      },
+      "revId": "4798bed3435b559d87aede91fe31c8bd4d13b3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f10c69a6_038713d7",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T01:03:35Z",
+      "side": 1,
+      "message": "1U?",
+      "range": {
+        "startLine": 101,
+        "startChar": 32,
+        "endLine": 101,
+        "endChar": 33
+      },
+      "revId": "4798bed3435b559d87aede91fe31c8bd4d13b3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebca4285_acae6602",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T01:03:35Z",
+      "side": 1,
+      "message": "5U? define this as macro instead?",
+      "range": {
+        "startLine": 104,
+        "startChar": 30,
+        "endLine": 104,
+        "endChar": 32
+      },
+      "revId": "4798bed3435b559d87aede91fe31c8bd4d13b3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "723a46a3_75502567",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T01:03:35Z",
+      "side": 1,
+      "message": "31U? define this as macro instead?",
+      "range": {
+        "startLine": 105,
+        "startChar": 18,
+        "endLine": 105,
+        "endChar": 20
+      },
+      "revId": "4798bed3435b559d87aede91fe31c8bd4d13b3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9684bdd8_81a9da0b",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T01:03:35Z",
+      "side": 1,
+      "message": "1U?",
+      "range": {
+        "startLine": 105,
+        "startChar": 12,
+        "endLine": 105,
+        "endChar": 13
+      },
+      "revId": "4798bed3435b559d87aede91fe31c8bd4d13b3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "527ef5de_4d5f7482",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T01:03:35Z",
+      "side": 1,
+      "message": "Please use macro here and in all below cases something line GPIO_1, GPIO_2 etc.",
+      "range": {
+        "startLine": 108,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 7
+      },
+      "revId": "4798bed3435b559d87aede91fe31c8bd4d13b3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "563b282b_5afb2b6c",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T01:03:35Z",
+      "side": 1,
+      "message": "Use braces around \u0027if\u0027",
+      "revId": "4798bed3435b559d87aede91fe31c8bd4d13b3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "168ec18d_e8d06064",
+        "filename": "drivers/nxp/gpio/nxp_gpio.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-11T01:03:35Z",
+      "side": 1,
+      "message": "why error code 0x14 and 0x25 specifically?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "4798bed3435b559d87aede91fe31c8bd4d13b3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
