@@ -8,7 +8,10 @@
 include plat/allwinner/common/allwinner-common.mk
 
 BL31_SOURCES		+=	drivers/allwinner/axp/axp803.c		\
-				drivers/allwinner/sunxi_rsb.c
+				drivers/allwinner/sunxi_rsb.c		\
+				drivers/allwinner/sunxi_msgbox.c	\
+				drivers/arm/css/scpi/css_scpi.c
 
 FDT_ASSUME_MASK := "(ASSUME_LATEST | ASSUME_NO_ROLLBACK | ASSUME_LIBFDT_ORDER)"
 $(eval $(call add_define,FDT_ASSUME_MASK))
+$(eval $(call add_define,SUNXI_HAVE_ARISC))
