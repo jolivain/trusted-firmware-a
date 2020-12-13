@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, Renesas Electronics Corporation. All rights reserved.
+ * Copyright (c) 2015-2020, Renesas Electronics Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,9 +7,9 @@
 #include <common/debug.h>
 #include <lib/mmio.h>
 
-#include "rcar_def.h"
 #include "cpg_registers.h"
 #include "iic_dvfs.h"
+#include "rcar_def.h"
 #include "rcar_private.h"
 
 #define DVFS_RETRY_MAX				(2U)
@@ -45,16 +45,16 @@
 #define IIC_DVFS_BIT_ICCR_ENABLE		(0x80)
 #define IIC_DVFS_SET_ICCR_START			(0x94)
 #define IIC_DVFS_SET_ICCR_STOP			(0x90)
-#define	IIC_DVFS_SET_ICCR_RETRANSMISSION	(0x94)
-#define	IIC_DVFS_SET_ICCR_CHANGE		(0x81)
-#define	IIC_DVFS_SET_ICCR_STOP_READ		(0xC0)
+#define IIC_DVFS_SET_ICCR_RETRANSMISSION	(0x94)
+#define IIC_DVFS_SET_ICCR_CHANGE		(0x81)
+#define IIC_DVFS_SET_ICCR_STOP_READ		(0xC0)
 
 #define IIC_DVFS_BIT_ICIC_TACKE			(0x04)
 #define IIC_DVFS_BIT_ICIC_WAITE			(0x02)
 #define IIC_DVFS_BIT_ICIC_DTEE			(0x01)
 
-#define	DVFS_READ_MODE				(0x01)
-#define	DVFS_WRITE_MODE				(0x00)
+#define DVFS_READ_MODE				(0x01)
+#define DVFS_WRITE_MODE				(0x00)
 
 #define IIC_DVFS_SET_DUMMY			(0x52)
 #define IIC_DVFS_SET_BUSY_LOOP			(500000000U)
@@ -69,7 +69,7 @@ typedef enum {
 	DVFS_SET_SLAVE,
 	DVFS_WRITE_ADDR,
 	DVFS_WRITE_DATA,
-	DVFS_CHANGE_SEND_TO_RECIEVE,
+	DVFS_CHANGE_SEND_TO_RECEIVE,
 	DVFS_DONE,
 } DVFS_STATE_T;
 
@@ -79,15 +79,15 @@ typedef enum {
 
 #if IMAGE_BL31
 #define IIC_DVFS_FUNC(__name, ...)					\
-static int32_t 	__attribute__ ((section (".system_ram")))		\
+static int32_t	__attribute__ ((section(".system_ram")))		\
 dvfs_ ##__name(__VA_ARGS__)
 
 #define RCAR_DVFS_API(__name, ...)					\
-int32_t __attribute__ ((section (".system_ram"))) 			\
+int32_t __attribute__ ((section(".system_ram")))			\
 rcar_iic_dvfs_ ##__name(__VA_ARGS__)
 
 #else
-#define IIC_DVFS_FUNC(__name, ...) 					\
+#define IIC_DVFS_FUNC(__name, ...)					\
 static int32_t dvfs_ ##__name(__VA_ARGS__)
 
 #define RCAR_DVFS_API(__name, ...)					\
@@ -410,12 +410,12 @@ IIC_DVFS_FUNC(set_slave_read, DVFS_STATE_T *state, uint32_t *err,
 	address = ((uint8_t) (slave << 1) + DVFS_READ_MODE);
 	mmio_write_8(IIC_DVFS_REG_ICDR, address);
 
-	*state = DVFS_CHANGE_SEND_TO_RECIEVE;
+	*state = DVFS_CHANGE_SEND_TO_RECEIVE;
 
 	return result;
 }
 
-IIC_DVFS_FUNC(change_send_to_recieve, DVFS_STATE_T *state, uint32_t *err)
+IIC_DVFS_FUNC(change_send_to_receive, DVFS_STATE_T *state, uint32_t *err)
 {
 	int32_t result;
 	uint8_t mode;
@@ -545,8 +545,8 @@ again:
 	case DVFS_SET_SLAVE_READ:
 		result = dvfs_set_slave_read(&state, &err, slave);
 		break;
-	case DVFS_CHANGE_SEND_TO_RECIEVE:
-		result = dvfs_change_send_to_recieve(&state, &err);
+	case DVFS_CHANGE_SEND_TO_RECEIVE:
+		result = dvfs_change_send_to_receive(&state, &err);
 		break;
 	case DVFS_STOP_READ:
 		result = dvfs_stop_read(&state, &err);
