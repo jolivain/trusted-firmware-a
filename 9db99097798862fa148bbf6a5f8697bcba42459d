@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9b27e007_99ce2c61",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000423
+      },
+      "writtenOn": "2020-12-13T09:06:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f87fa5d1_e601b27a",
+      "revId": "9db99097798862fa148bbf6a5f8697bcba42459d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dc81e31_6b697f6d",
         "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.c",
         "patchSetId": 26
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "cc58a8b8_5a5beb46",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000423
+      },
+      "writtenOn": "2020-12-13T09:06:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dc81e31_6b697f6d",
+      "revId": "9db99097798862fa148bbf6a5f8697bcba42459d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2971d6da_33bb420b",
         "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.h",
         "patchSetId": 26
@@ -50,6 +86,24 @@
       "revId": "9db99097798862fa148bbf6a5f8697bcba42459d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3864dac9_559e40cc",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000423
+      },
+      "writtenOn": "2020-12-13T09:06:12Z",
+      "side": 1,
+      "message": "Bit 14:13 are RTC_LPD_OPT.  Here 3U is the MASK.",
+      "parentUuid": "2971d6da_33bb420b",
+      "revId": "9db99097798862fa148bbf6a5f8697bcba42459d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
