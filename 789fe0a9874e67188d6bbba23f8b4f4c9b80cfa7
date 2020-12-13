@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c8e4736_9aed9087",
+        "filename": "plat/marvell/armada/a3k/common/a3700_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2020-12-13T11:35:49Z",
+      "side": 1,
+      "message": "I think you can avoid usage of additional preprocessor switches if define a weak empty prototype for this function.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 13
+      },
+      "revId": "789fe0a9874e67188d6bbba23f8b4f4c9b80cfa7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
