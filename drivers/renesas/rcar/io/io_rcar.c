@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, Renesas Electronics Corporation. All rights reserved.
+ * Copyright (c) 2015-2020, Renesas Electronics Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,6 @@
 #include <errno.h>
 #include <stdint.h>
 #include <string.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <common/bl_common.h>
@@ -24,6 +22,7 @@
 #include "io_rcar.h"
 #include "io_common.h"
 #include "io_private.h"
+#include <platform_def.h>
 
 extern int32_t plat_get_drv_source(uint32_t id, uintptr_t *dev,
 				   uintptr_t *image_spec);
@@ -39,7 +38,8 @@ typedef struct {
 } plat_rcar_name_offset_t;
 
 typedef struct {
-	/* Put position above the struct to allow {0} on static init.
+	/*
+	 * Put position above the struct to allow {0} on static init.
 	 * It is a workaround for a known bug in GCC
 	 * http://gcc.gnu.org/bugzilla/show_bug.cgi?id=53119
 	 */
@@ -59,7 +59,7 @@ typedef struct {
 #define RCAR_ATTR_SET_ISNOLOAD(a)	(((a) & 0x1) << 16U)
 #define RCAR_ATTR_SET_CERTOFF(a)	(((a) & 0xF) << 8U)
 #define RCAR_ATTR_SET_ALL(a, b, c)	((uint32_t)(RCAR_ATTR_SET_CALCADDR(a) |\
-					RCAR_ATTR_SET_ISNOLOAD(b) | 	\
+					RCAR_ATTR_SET_ISNOLOAD(b) |\
 					RCAR_ATTR_SET_CERTOFF(c)))
 
 #define RCAR_ATTR_GET_CALCADDR(a)	((a) & 0xFU)
@@ -136,6 +136,7 @@ int32_t rcar_get_certificate(const int32_t name, uint32_t *cert)
 {
 #if TRUSTED_BOARD_BOOT
 	int32_t i;
+
 	for (i = 0; i < ARRAY_SIZE(cert_offset); i++) {
 		if (name != cert_offset[i].name)
 			continue;
@@ -314,7 +315,7 @@ static int32_t load_bl33x(void)
 		rc = file_to_offset(img[i], &offset, &cert, &noload,
 				    &partition);
 		if (rc != IO_SUCCESS) {
-			WARN("load_bl33x: failed to get offset\n");
+			WARN("%s: failed to get offset\n", __func__);
 			loaded = IO_FAIL;
 			return loaded;
 		}
@@ -324,28 +325,28 @@ static int32_t load_bl33x(void)
 
 		rc = io_open(rcar_handle, rcar_spec, &handle);
 		if (rc != IO_SUCCESS) {
-			WARN("Failed to open FIP (%i)\n", rc);
+			WARN("%s: Failed to open FIP (%i)\n", __func__, rc);
 			loaded = IO_FAIL;
 			return loaded;
 		}
 
 		rc = io_seek(handle, IO_SEEK_SET, offset);
 		if (rc != IO_SUCCESS) {
-			WARN("load_bl33x: failed to seek\n");
+			WARN("%s: failed to seek\n", __func__);
 			loaded = IO_FAIL;
 			return loaded;
 		}
 
 		rc = check_load_area(dst, len);
 		if (rc != IO_SUCCESS) {
-			WARN("load_bl33x: check load area\n");
+			WARN("%s: check load area\n", __func__);
 			loaded = IO_FAIL;
 			return loaded;
 		}
 
 		rc = io_read(handle, dst, len, &cnt);
 		if (rc != IO_SUCCESS) {
-			WARN("load_bl33x: failed to read\n");
+			WARN("%s: failed to read\n", __func__);
 			loaded = IO_FAIL;
 			return loaded;
 		}
@@ -367,8 +368,7 @@ static int32_t load_bl33x(void)
 
 static int32_t rcar_dev_init(io_dev_info_t *dev_info, const uintptr_t name)
 {
-	uint64_t header[64] __aligned(FLASH_TRANS_SIZE_UNIT) = {
-	0};
+	uint64_t header[64] __aligned(FLASH_TRANS_SIZE_UNIT) = {0UL};
 	uintptr_t handle;
 	ssize_t offset;
 	uint32_t i;
@@ -382,7 +382,7 @@ static int32_t rcar_dev_init(io_dev_info_t *dev_info, const uintptr_t name)
 		return IO_FAIL;
 	}
 
-	if (RCAR_CERT_LOAD == rcar_cert_load)
+	if (rcar_cert_load == RCAR_CERT_LOAD)
 		return IO_SUCCESS;
 
 	rc = io_open(rcar_handle, rcar_spec, &handle);
@@ -391,16 +391,18 @@ static int32_t rcar_dev_init(io_dev_info_t *dev_info, const uintptr_t name)
 		return IO_FAIL;
 	}
 
-	/* get start address list   */
-	/* [0] address num          */
-	/* [1] BL33-1 image address */
-	/* [2] BL33-2 image address */
-	/* [3] BL33-3 image address */
-	/* [4] BL33-4 image address */
-	/* [5] BL33-5 image address */
-	/* [6] BL33-6 image address */
-	/* [7] BL33-7 image address */
-	/* [8] BL33-8 image address */
+	/*
+	 * get start address list
+	 * [0] address num
+	 * [1] BL33-1 image address
+	 * [2] BL33-2 image address
+	 * [3] BL33-3 image address
+	 * [4] BL33-4 image address
+	 * [5] BL33-5 image address
+	 * [6] BL33-6 image address
+	 * [7] BL33-7 image address
+	 * [8] BL33-8 image address
+	 */
 	offset = name == EMMC_DEV_ID ? RCAR_EMMC_CERT_HEADER :
 	    RCAR_FLASH_CERT_HEADER;
 	rc = io_seek(handle, IO_SEEK_SET, offset);
@@ -464,13 +466,15 @@ static int32_t rcar_file_open(io_dev_info_t *info, const uintptr_t file_spec,
 	uint32_t noload, cert, len;
 	int32_t rc;
 
-	/* Only one file open at a time. We need to  track state (ie, file
-	 * cursor position). Since the header lives at * offset zero, this entry
+	/*
+	 * Only one file open at a time. We need to  track state (ie, file
+	 * cursor position). Since the header lives at offset zero, this entry
 	 * should never be zero in an active file.
 	 * Once the system supports dynamic memory allocation we will allow more
-	 * than one open file at a time. */
+	 * than one open file at a time.
+	 */
 	if (current_file.offset != 0U) {
-		WARN("rcar_file_open : Only one open file at a time.\n");
+		WARN("%s: Only one open file at a time.\n", __func__);
 		return IO_RESOURCES_EXHAUSTED;
 	}
 
@@ -494,12 +498,10 @@ static int32_t rcar_file_open(io_dev_info_t *info, const uintptr_t file_spec,
 
 	rcar_read_certificate((uint64_t) cert, &len, &dst);
 
-	/*----------------*
-	 * Baylibre: HACK *
-	 *----------------*/
-	if (BL31_IMAGE_ID == spec->offset && len < RCAR_TRUSTED_SRAM_SIZE) {
-		WARN("r-car ignoring the BL31 size from certificate,"
-		     "using RCAR_TRUSTED_SRAM_SIZE instead\n");
+	/* Baylibre: HACK */
+	if (spec->offset == BL31_IMAGE_ID && len < RCAR_TRUSTED_SRAM_SIZE) {
+		WARN("%s,%s\n", "r-car ignoring the BL31 size from certificate",
+		     "using RCAR_TRUSTED_SRAM_SIZE instead");
 		len = RCAR_TRUSTED_SRAM_SIZE;
 	}
 
@@ -551,14 +553,14 @@ static int32_t rcar_file_read(io_entity_t *entity, uintptr_t buffer,
 
 	rc = io_seek(handle, IO_SEEK_SET, offset);
 	if (rc != IO_SUCCESS) {
-		WARN("rcar_file_read: failed to seek\n");
+		WARN("%s: failed to seek\n", __func__);
 		goto error;
 	}
 
 	if (load_bl33x_counter == RCAR_COUNT_LOAD_BL33) {
 		rc = check_load_area(buffer, length);
 		if (rc != IO_SUCCESS) {
-			WARN("rcar_file_read: load area err\n");
+			WARN("%s: load area err\n", __func__);
 			goto error;
 		}
 	}
