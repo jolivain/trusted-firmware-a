@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, Renesas Electronics Corporation. All rights reserved.
+ * Copyright (c) 2015-2020, Renesas Electronics Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,13 +10,13 @@
 #include <drivers/io/io_driver.h>
 #include <drivers/io/io_storage.h>
 
+#include "emmc_config.h"
+#include "emmc_def.h"
+#include "emmc_hal.h"
+#include "emmc_std.h"
 #include "io_common.h"
 #include "io_emmcdrv.h"
 #include "io_private.h"
-#include "emmc_config.h"
-#include "emmc_hal.h"
-#include "emmc_std.h"
-#include "emmc_def.h"
 
 static int32_t emmcdrv_dev_open(const uintptr_t spec __attribute__ ((unused)),
 				io_dev_info_t **dev_info);
@@ -92,8 +92,8 @@ static int32_t emmcdrv_block_open(io_dev_info_t *dev_info,
 
 	if (emmcdrv_bootpartition == PARTITION_ID_USER) {
 		emmcdrv_bootpartition = mmc_drv_obj.boot_partition_en;
-		if ((PARTITION_ID_BOOT_1 == emmcdrv_bootpartition) ||
-		    (PARTITION_ID_BOOT_2 == emmcdrv_bootpartition)) {
+		if ((emmcdrv_bootpartition == PARTITION_ID_BOOT_1) ||
+		    (emmcdrv_bootpartition == PARTITION_ID_BOOT_2)) {
 			current_file.partition = emmcdrv_bootpartition;
 
 			NOTICE("BL2: eMMC boot from partition %d\n",
@@ -103,12 +103,13 @@ static int32_t emmcdrv_block_open(io_dev_info_t *dev_info,
 		return IO_FAIL;
 	}
 
-	if ((PARTITION_ID_USER == block_spec->partition) ||
-	    (PARTITION_ID_BOOT_1 == block_spec->partition) ||
-	    (PARTITION_ID_BOOT_2 == block_spec->partition))
+	if ((block_spec->partition == PARTITION_ID_USER) ||
+	    (block_spec->partition == PARTITION_ID_BOOT_1) ||
+	    (block_spec->partition == PARTITION_ID_BOOT_2)) {
 		current_file.partition = block_spec->partition;
-	else
+	} else {
 		current_file.partition = emmcdrv_bootpartition;
+	}
 
 done:
 	if (emmc_select_partition(current_file.partition) != EMMC_SUCCESS)
