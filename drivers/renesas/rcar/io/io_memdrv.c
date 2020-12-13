@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, Renesas Electronics Corporation. All rights reserved.
+ * Copyright (c) 2015-2020, Renesas Electronics Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,8 +11,8 @@
 #include <drivers/io/io_storage.h>
 
 #include "io_common.h"
-#include "io_private.h"
 #include "io_memdrv.h"
+#include "io_private.h"
 #include "rcar_def.h"
 
 extern void rcar_dma_exec(uintptr_t dst, uint32_t src, uint32_t len);
@@ -21,7 +21,8 @@ static int32_t memdrv_dev_open(const uintptr_t dev __attribute__ ((unused)),
 			       io_dev_info_t **dev_info);
 static int32_t memdrv_dev_close(io_dev_info_t *dev_info);
 
-/* As we need to be able to keep state for seek, only one file can be open
+/*
+ * As we need to be able to keep state for seek, only one file can be open
  * at a time. Make this a structure and point to the entity->info. When we
  * can malloc memory we can change this to support more open files.
  */
@@ -43,7 +44,8 @@ static int32_t memdrv_block_open(io_dev_info_t *dev_info, const uintptr_t spec,
 {
 	const io_drv_spec_t *block_spec = (io_drv_spec_t *) spec;
 
-	/* Since we need to track open state for seek() we only allow one open
+	/*
+	 * Since we need to track open state for seek() we only allow one open
 	 * spec at a time. When we have dynamic memory we can malloc and set
 	 * entity->info.
 	 */
