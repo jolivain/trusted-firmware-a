@@ -104,6 +104,24 @@
       "revId": "9db99097798862fa148bbf6a5f8697bcba42459d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "322eb99d_445f8cf2",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-14T17:58:48Z",
+      "side": 1,
+      "message": "I am wondering how can two enumeration flags i.e. RTC_LPD_OPT_F32K_CK_ALIVE and RTC_LPD_OPT_MASK be given the same integral value of 3U \u003c\u003c13",
+      "parentUuid": "3864dac9_559e40cc",
+      "revId": "9db99097798862fa148bbf6a5f8697bcba42459d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
