@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "fc17718a_e2f2a7da",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-14T16:18:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0c52c6ca_dd3d8359",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 3
+      },
+      "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9584250_fbbd1fa7",
         "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
         "patchSetId": 2
@@ -137,6 +161,24 @@
       "side": 1,
       "message": "Done\nAs tc0 platform will use hafnium v2.4, I will skip adding these details now.",
       "parentUuid": "a9584250_fbbd1fa7",
+      "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7e752ee_4ed4b199",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-14T16:18:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5fa4333e_d0a4777f",
       "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -360,6 +402,24 @@
       "side": 1,
       "message": "As tc0 platform will use hafnium v2.4, I will skip adding these details now.",
       "parentUuid": "4a3728b3_66a2f933",
+      "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "662f4174_a74becfe",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-14T16:18:47Z",
+      "side": 1,
+      "message": "I don\u0027t believe this entry is necessary even with v2.4 release on TC0.\nThis is required on FVP as a kind of hack (and may not be justified on TC0 because memory layouts differ).\nCan you please re-check without this node?",
+      "parentUuid": "92e2a72f_521c4f82",
       "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
