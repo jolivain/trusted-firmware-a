@@ -423,6 +423,24 @@
       "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "509b9a3b_638e19bb",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2020-12-14T17:20:26Z",
+      "side": 1,
+      "message": "I checked without this node and it doesn\u0027t work. hafnium initialization prints warning and optee driver initialization results in sync_msg_send error\n\nWARNING: Device memory not provided, defaulting to 1 TB.\n\n...\n[    1.230986] optee: probing for conduit method from DT. \n[    1.231573] optee: revision 3.11 (d0ca701c)\n[    1.234933] ret.arg3 0xffff0006\n[    1.236480] optee: initialized driver\n\nthe optee driver initialization didn\u0027t return error even when one of the internal probe call failed with error 0xffff0006",
+      "parentUuid": "662f4174_a74becfe",
+      "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
