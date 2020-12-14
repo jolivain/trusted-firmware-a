@@ -12,6 +12,7 @@
 #include <lib/psci/psci.h>
 #include <lib/semihosting.h>
 #include <plat/common/platform.h>
+#include <drivers/gpio.h>
 
 #include "qemu_private.h"
 
@@ -201,16 +202,25 @@ void qemu_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
 /*******************************************************************************
  * Platform handlers to shutdown/reboot the system
  ******************************************************************************/
+#define GPIO_POWEROFF 0
+#define GPIO_REBOOT   1
+
 static void __dead2 qemu_system_off(void)
 {
+	ERROR("QEMU System Power off: with gpio.\n");
+	gpio_set_direction(GPIO_POWEROFF, GPIO_DIR_OUT);
+	gpio_set_value(GPIO_POWEROFF, GPIO_LEVEL_HIGH);
+	gpio_set_value(GPIO_POWEROFF, GPIO_LEVEL_LOW);
 	semihosting_exit(ADP_STOPPED_APPLICATION_EXIT, 0);
-	ERROR("QEMU System Off: semihosting call unexpectedly returned.\n");
 	panic();
 }
 
 static void __dead2 qemu_system_reset(void)
 {
-	ERROR("QEMU System Reset: operation not handled.\n");
+	ERROR("QEMU System Reset: with gpio.\n");
+	gpio_set_direction(GPIO_REBOOT, GPIO_DIR_OUT);
+	gpio_set_value(GPIO_REBOOT, GPIO_LEVEL_HIGH);
+	gpio_set_value(GPIO_REBOOT, GPIO_LEVEL_LOW);
 	panic();
 }
 
