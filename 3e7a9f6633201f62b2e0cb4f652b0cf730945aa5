@@ -441,6 +441,24 @@
       "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1731dfad_641693ac",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-14T17:25:53Z",
+      "side": 1,
+      "message": "Yes, I remember now, thanks for checking. So I guess you can leave it but maybe put a comment that it is temporary and this will be removed when the first secure partition is no longer mapping device memory like the Primary VM does in the NWd (after rebase to upstream master).",
+      "parentUuid": "509b9a3b_638e19bb",
+      "revId": "3e7a9f6633201f62b2e0cb4f652b0cf730945aa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
