@@ -40,6 +40,7 @@ static int go_to_spm_before_wfi(int state_id, unsigned int ext_opand,
 	__spm_set_cpu_status(cpu);
 	__spm_set_power_control(pwrctrl);
 	__spm_set_wakeup_event(pwrctrl);
+	__spm_sync_vcore_dvfs_power_control(pwrctrl, __spm_vcorefs.pwrctrl);
 	__spm_set_pcm_flags(pwrctrl);
 	__spm_src_req_update(pwrctrl, resource_req);
 
