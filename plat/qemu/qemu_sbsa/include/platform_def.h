@@ -76,6 +76,11 @@
 #define SEC_DRAM_BASE			0x1000
 #define SEC_DRAM_SIZE			0x1000
 
+#define SECURE_GPIO_BASE        0x090b0000
+#define SECURE_GPIO_SIZE        0x00001000
+#define SECURE_GPIO_POWEROFF    0
+#define SECURE_GPIO_RESET       1
+
 /* Load pageable part of OP-TEE 2MB above secure DRAM base */
 #define QEMU_OPTEE_PAGEABLE_LOAD_BASE	(SEC_DRAM_BASE + 0x00200000)
 #define QEMU_OPTEE_PAGEABLE_LOAD_SIZE	0x00400000
