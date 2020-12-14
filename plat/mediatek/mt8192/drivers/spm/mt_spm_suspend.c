@@ -14,6 +14,7 @@
 #include <mt_spm_reg.h>
 #include <mt_spm_resource_req.h>
 #include <mt_spm_suspend.h>
+#include <mt_spm_vcorefs.h>
 #include <plat_pm.h>
 #include <uart.h>
 
@@ -275,6 +276,9 @@ int mt_spm_suspend_enter(int state_id, unsigned int ext_opand,
 	/* Notify UART to sleep */
 	mt_uart_save();
 
+	/* switch vcoredvfs table for MD only */
+	dvfsrc_md_ddr_turbo(0);
+
 	return spm_conservation(state_id, ext_opand,
 				&__spm_suspend, resource_req);
 }
@@ -283,6 +287,9 @@ void mt_spm_suspend_resume(int state_id, unsigned int ext_opand,
 			   struct wake_status **status)
 {
 	spm_conservation_finish(state_id, ext_opand, &__spm_suspend, status);
+
+	/* switch vcoredvfs table for AP + MD */
+	dvfsrc_md_ddr_turbo(1);
 
 	/* Notify UART to wakeup */
 	mt_uart_restore();
