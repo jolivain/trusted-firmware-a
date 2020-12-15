@@ -140,6 +140,24 @@
       "revId": "9db99097798862fa148bbf6a5f8697bcba42459d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c8ba745_1bbb778f",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-15T17:24:11Z",
+      "side": 1,
+      "message": "Hi Yidi,\nThanks for the clarification. I believe RTC_LPD_OPT_MASK should be a macro , not an enumeration. Please remove it from here.\n#define RTC_LPD_OPT_MASK  3U \u003c\u003c 13",
+      "parentUuid": "9790ade3_f1dd705a",
+      "revId": "9db99097798862fa148bbf6a5f8697bcba42459d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
