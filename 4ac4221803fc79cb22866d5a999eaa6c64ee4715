@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "770b9d58_5e7b9996",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-15T19:21:33Z",
+      "side": 1,
+      "message": "nit: line over 80 characters",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 79,
+        "endChar": 91
+      },
+      "revId": "4ac4221803fc79cb22866d5a999eaa6c64ee4715",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b2b0f62_315d2953",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-15T19:21:33Z",
+      "side": 1,
+      "message": "nit: line over 80 characters",
+      "range": {
+        "startLine": 124,
+        "startChar": 2,
+        "endLine": 124,
+        "endChar": 73
+      },
+      "revId": "4ac4221803fc79cb22866d5a999eaa6c64ee4715",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22e74427_178520bb",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-15T19:21:33Z",
+      "side": 1,
+      "message": "These expressions are not boolean, it will cause a MISRA compliance issue.\n\nIt would also be good to have parenthesis around each conditional.",
+      "range": {
+        "startLine": 134,
+        "startChar": 6,
+        "endLine": 134,
+        "endChar": 63
+      },
+      "revId": "4ac4221803fc79cb22866d5a999eaa6c64ee4715",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
