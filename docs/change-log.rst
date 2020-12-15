@@ -666,7 +666,7 @@ New Features
 - New Platforms Support
    - arm/arm_fpga: New platform support added for FPGA
 
-   - arm/rddaniel: New platform support added for rd-daniel platform
+   - arm/rdv1: New platform support added for rd-v1 platform
 
    - brcm/stingray: New platform support added for Broadcom stingray platform
 
