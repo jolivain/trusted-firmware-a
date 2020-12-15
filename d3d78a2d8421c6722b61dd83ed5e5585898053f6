@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "066abccb_9d26ffb7",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-15T21:15:23Z",
+      "side": 1,
+      "message": "Please add a copyright header.",
+      "revId": "d3d78a2d8421c6722b61dd83ed5e5585898053f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "107acf92_85e3b32e",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-15T21:15:23Z",
+      "side": 1,
+      "message": "Please see this in regard to include statement formatting: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 24
+      },
+      "revId": "d3d78a2d8421c6722b61dd83ed5e5585898053f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "496a0f8e_57ac5cb8",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-15T21:15:23Z",
+      "side": 1,
+      "message": "is_turbo is not boolean, something like \"if (is_turbo !\u003d 0)\" would be a MISRA-compliant way to do this.",
+      "range": {
+        "startLine": 245,
+        "startChar": 5,
+        "endLine": 245,
+        "endChar": 13
+      },
+      "revId": "d3d78a2d8421c6722b61dd83ed5e5585898053f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3752981_044ccaf2",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-15T21:15:23Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 324,
+        "startChar": 6,
+        "endLine": 324,
+        "endChar": 7
+      },
+      "revId": "d3d78a2d8421c6722b61dd83ed5e5585898053f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d86fe00_5bcea68d",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-15T21:15:23Z",
+      "side": 1,
+      "message": "Please use braces around the body statements even though they are a single line.",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 371,
+        "endChar": 11
+      },
+      "revId": "d3d78a2d8421c6722b61dd83ed5e5585898053f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e9f0477_e8b194f7",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-15T21:15:23Z",
+      "side": 1,
+      "message": "Please add a copyright header.",
+      "revId": "d3d78a2d8421c6722b61dd83ed5e5585898053f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49a7339e_1830f0bd",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-15T21:15:23Z",
+      "side": 1,
+      "message": "Please use the header guard naming convention specified here: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#headers-and-inclusion",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "d3d78a2d8421c6722b61dd83ed5e5585898053f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3568d56_672008ee",
+        "filename": "plat/mediatek/mt8192/plat_sip_calls.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-15T21:15:23Z",
+      "side": 1,
+      "message": "Please see this in regard to include statement ordering: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "d3d78a2d8421c6722b61dd83ed5e5585898053f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
