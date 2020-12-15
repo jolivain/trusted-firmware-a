@@ -122,6 +122,24 @@
       "revId": "9db99097798862fa148bbf6a5f8697bcba42459d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9790ade3_f1dd705a",
+        "filename": "plat/mediatek/mt8192/drivers/rtc/rtc.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-15T03:15:47Z",
+      "side": 1,
+      "message": "Hi Madhukar,\n\nThe bit field of RTC_LPD_OPT is 3U \u003c\u003c 13.\nSo the possible values are:\n- 0: XOSC_AND_EOSC_LPD\n- 1: EOSC_LPD\n- 2: XOSC_LPD\n- 3: F32K_CK_ALIVE",
+      "parentUuid": "322eb99d_445f8cf2",
+      "revId": "9db99097798862fa148bbf6a5f8697bcba42459d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
