@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24291d71_1dffdf01",
+        "filename": "plat/nxp/soc-lx2160/erratas_soc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-15T06:35:55Z",
+      "side": 1,
+      "message": "Can you not club together below \u0027for\u0027 loops to write these mmio registers? or do we need to program the registers in below strong sequence (but in that case don\u0027t we need a barrier operations in between registers write?).",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 24
+      },
+      "revId": "d391e4aecedc32833deb94b7b90225a855d373eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e92155d1_8a2fe600",
+        "filename": "plat/nxp/soc-lx2160/include/errata.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-15T06:35:55Z",
+      "side": 1,
+      "message": "Please follow style as mentioned in the documentation: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html?highlight\u003dheader%20inclusion#header-guards",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "d391e4aecedc32833deb94b7b90225a855d373eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
