@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d2bb1de2_2e0ac250",
+        "filename": "lib/psci/psci_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-12-15T11:45:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "340bdf1b_571863ab",
+      "revId": "90db7671c9fd8f6140b08e0feecd54ec4e6165ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5140cd1_4b4495ff",
         "filename": "lib/psci/psci_setup.c",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "4a89a4b4_7907b4e6",
+        "filename": "lib/psci/psci_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-12-15T11:45:31Z",
+      "side": 1,
+      "message": "Have added, fixing typo",
+      "parentUuid": "e5140cd1_4b4495ff",
+      "revId": "90db7671c9fd8f6140b08e0feecd54ec4e6165ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2a9510ff_a25973a0",
         "filename": "lib/psci/psci_setup.c",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2020-12-08T21:47:29Z",
       "side": 1,
       "message": "assert(noe_index \u003c PLATFORM_CORE_COUNT);",
+      "revId": "90db7671c9fd8f6140b08e0feecd54ec4e6165ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c22e910_d1f43f88",
+        "filename": "lib/psci/psci_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-12-15T11:45:31Z",
+      "side": 1,
+      "message": "Have added, fixing typo",
+      "parentUuid": "2a9510ff_a25973a0",
       "revId": "90db7671c9fd8f6140b08e0feecd54ec4e6165ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
