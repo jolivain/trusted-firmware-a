@@ -96,6 +96,78 @@
     },
     {
       "key": {
+        "uuid": "0dd30892_d6918b65",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-16T08:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da355ebc_6f2ccbb3",
+      "range": {
+        "startLine": 7,
+        "startChar": 30,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85af6871_27541d13",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-16T08:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1e78d39_f229c344",
+      "range": {
+        "startLine": 7,
+        "startChar": 45,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f116f53_a33019bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-16T08:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49fb4044_b8fb19a2",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e1d2754_eccece49",
         "filename": "drivers/nxp/interconnect/interconnect.mk",
         "patchSetId": 3
@@ -144,6 +216,30 @@
     },
     {
       "key": {
+        "uuid": "32effaf2_1ef0189e",
+        "filename": "drivers/nxp/interconnect/interconnect.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-16T08:33:37Z",
+      "side": 1,
+      "message": "Ok, but this is a new file in the upstream tree.",
+      "parentUuid": "f529f17d_1f065352",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3084e3cf_dbec995e",
         "filename": "drivers/nxp/interconnect/ls_cci.c",
         "patchSetId": 3
@@ -164,6 +260,30 @@
       "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7efce1ac_807e5aea",
+        "filename": "drivers/nxp/interconnect/ls_cci.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-16T08:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3084e3cf_dbec995e",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -215,6 +335,30 @@
     },
     {
       "key": {
+        "uuid": "beeb2c81_c81a57ed",
+        "filename": "drivers/nxp/interconnect/ls_cci.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-16T08:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "684c4e19_1d2be41d",
+      "range": {
+        "startLine": 27,
+        "startChar": 23,
+        "endLine": 27,
+        "endChar": 24
+      },
+      "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6d6267d_7327d0bb",
         "filename": "drivers/nxp/interconnect/ls_ccn.c",
         "patchSetId": 3
@@ -235,6 +379,30 @@
       "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb5bb23d_62a7141c",
+        "filename": "drivers/nxp/interconnect/ls_ccn.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-16T08:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6d6267d_7327d0bb",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -261,6 +429,30 @@
     },
     {
       "key": {
+        "uuid": "aaadc0ff_b548bb96",
+        "filename": "drivers/nxp/interconnect/ls_ccn.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-16T08:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8951f26_c0d6b818",
+      "range": {
+        "startLine": 18,
+        "startChar": 28,
+        "endLine": 18,
+        "endChar": 29
+      },
+      "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d2f7775_8820d1ab",
         "filename": "drivers/nxp/interconnect/ls_ccn.c",
         "patchSetId": 3
@@ -281,6 +473,30 @@
       "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "699fb06b_a175ac95",
+        "filename": "drivers/nxp/interconnect/ls_ccn.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-16T08:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d2f7775_8820d1ab",
+      "range": {
+        "startLine": 20,
+        "startChar": 23,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -307,6 +523,30 @@
     },
     {
       "key": {
+        "uuid": "30f7fa73_57b5e1ea",
+        "filename": "drivers/nxp/interconnect/ls_ccn.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-16T08:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93aba871_9b77ab59",
+      "range": {
+        "startLine": 21,
+        "startChar": 29,
+        "endLine": 21,
+        "endChar": 30
+      },
+      "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f84a7d6_fc5a3461",
         "filename": "drivers/nxp/interconnect/ls_ccn.c",
         "patchSetId": 3
@@ -330,6 +570,30 @@
     },
     {
       "key": {
+        "uuid": "afb8231f_554852b7",
+        "filename": "drivers/nxp/interconnect/ls_ccn.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-16T08:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f84a7d6_fc5a3461",
+      "range": {
+        "startLine": 30,
+        "startChar": 27,
+        "endLine": 30,
+        "endChar": 28
+      },
+      "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a95cf2c3_94369b9a",
         "filename": "drivers/nxp/interconnect/ls_interconnect.h",
         "patchSetId": 3
@@ -350,6 +614,30 @@
       "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4434eef2_4c6148f5",
+        "filename": "drivers/nxp/interconnect/ls_interconnect.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-16T08:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a95cf2c3_94369b9a",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "5581a9f38a654aa1862620d0c103816effd85d4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
