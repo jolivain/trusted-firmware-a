@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec71bd9f_781cd13f",
+        "filename": "plat/qemu/qemu/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2020-12-16T15:01:00Z",
+      "side": 1,
+      "message": "The meaning of this define is perhaps not obvious when reading it here. In OP-TEE we have a comment helping the poor reader a bit. Please add something like:\n\n/*\n * Define the number of cores per cluster used in calculating core position.\n * The cluster number is shifted by this value and added to the core ID,\n * so its value represents log2(cores/cluster).\n * Default is 2**(2) \u003d 4 cores per cluster.\n */",
+      "range": {
+        "startLine": 22,
+        "startChar": 8,
+        "endLine": 22,
+        "endChar": 38
+      },
+      "revId": "a242f604ba795f4cc61bb0fbc16c4c38b34f0501",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
