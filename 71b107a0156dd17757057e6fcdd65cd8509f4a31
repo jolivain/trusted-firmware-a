@@ -46,6 +46,30 @@
       "revId": "71b107a0156dd17757057e6fcdd65cd8509f4a31",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f80e46d_e604fcb0",
+        "filename": "plat/qemu/qemu_sbsa/include/platform_def.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-12-16T14:27:50Z",
+      "side": 1,
+      "message": "I have pushed patch to make use of DEVICE2 for qemu_sbsa to narrow the windows.",
+      "parentUuid": "9d831199_e89dc056",
+      "range": {
+        "startLine": 203,
+        "startChar": 23,
+        "endLine": 203,
+        "endChar": 33
+      },
+      "revId": "71b107a0156dd17757057e6fcdd65cd8509f4a31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
