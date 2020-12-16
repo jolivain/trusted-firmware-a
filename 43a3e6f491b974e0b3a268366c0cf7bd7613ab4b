@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "e3ea029a_e8eaa8e1",
+        "filename": "drivers/nxp/tzc/plat_tzc400.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-16T08:26:53Z",
+      "side": 1,
+      "message": "Can you add a note on what the function returns?",
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3b4911e_aa0642c1",
         "filename": "drivers/nxp/tzc/plat_tzc400.c",
         "patchSetId": 5
@@ -42,6 +59,23 @@
         "endLine": 123,
         "endChar": 5
       },
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "226e50d7_89deb169",
+        "filename": "drivers/nxp/tzc/plat_tzc400.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2020-12-16T08:26:53Z",
+      "side": 1,
+      "message": "add a return statement",
       "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
