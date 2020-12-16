@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3b4911e_aa0642c1",
+        "filename": "drivers/nxp/tzc/plat_tzc400.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-16T07:46:52Z",
+      "side": 1,
+      "message": "Align the function parameters as below:\n\nint populate_tzc400_reg_list(struct tzc400_reg *tzc400_reg_list,\n\t\t\t     int dram_idx, int list_idx,\n\t\t\t     uint64_t dram_start_addr,\n\t\t\t     uint64_t dram_size,\n\t\t\t     uint32_t secure_dram_sz,\n\t\t\t     uint32_t shrd_dram_sz)",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 27
+      },
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5044d91d_70f0a6fb",
+        "filename": "drivers/nxp/tzc/plat_tzc400.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-16T07:46:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 5
+      },
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b1e3296_dcef2b9f",
+        "filename": "drivers/nxp/tzc/plat_tzc400.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-16T07:46:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 3
+      },
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3726ab5_36609297",
+        "filename": "drivers/nxp/tzc/plat_tzc400.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-16T07:46:52Z",
+      "side": 1,
+      "message": "s/_PLAT_TZC400_H_/PLAT_TZC400_H?",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 28
+      },
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3aabdf43_a54a15a7",
+        "filename": "drivers/nxp/tzc/plat_tzc400.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-16T07:46:52Z",
+      "side": 1,
+      "message": "0x00000000U?",
+      "range": {
+        "startLine": 22,
+        "startChar": 27,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21795dd2_002544e1",
+        "filename": "drivers/nxp/tzc/plat_tzc400.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-16T07:46:52Z",
+      "side": 1,
+      "message": "0xFFFFFFFFU?",
+      "range": {
+        "startLine": 27,
+        "startChar": 25,
+        "endLine": 27,
+        "endChar": 35
+      },
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37ee9618_626f4b40",
+        "filename": "drivers/nxp/tzc/plat_tzc400.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-16T07:46:52Z",
+      "side": 1,
+      "message": "Align function parameters as below:\n\nvoid mem_access_setup(uintptr_t base, uint32_t total_regions,\n\t\t      struct tzc400_reg *tzc400_reg_list);",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 3
+      },
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "799e3bdf_182e96bc",
+        "filename": "drivers/nxp/tzc/plat_tzc400.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-16T07:46:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 49,
+        "startChar": 3,
+        "endLine": 49,
+        "endChar": 4
+      },
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
