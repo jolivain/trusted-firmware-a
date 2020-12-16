@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5455e01d_2fbc1aba",
+        "filename": "include/common/tbbr/tbbr_img_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-16T07:07:08Z",
+      "side": 1,
+      "message": "Please correct me if I am wrong. I understood as below:\n\n1. The \u0027plat_tbbr_img_def.h\u0027 header defines \u0027MAX_NUMBER_IDS\u0027 which includes all additional image IDs specific to the platform. \n2. Set SP image IDs (with SPD_spmd defined)  with the values already used by the platform-specific image IDs.(this seems wrong to me).\n\nIMO, \u0027plat_tbbr_img_def.h\u0027 header should redefine \u0027MAX_IMAGE_IDS\u0027  instead of setting \u0027MAX_NUMBER_IDS\u0027 and let the below implementation remains unchanged.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "93cd1d9b6dc909b9fbf4334236219d7442bf3b24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
