@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74a3bf32_b200d575",
+        "filename": "plat/nxp/soc-lx2160/soc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-12-17T21:56:41Z",
+      "side": 1,
+      "message": "Due to unsigned type, violation of Misra rule 7.2",
+      "range": {
+        "startLine": 94,
+        "startChar": 10,
+        "endLine": 94,
+        "endChar": 11
+      },
+      "revId": "dfba2b77cfcae0084095b00c1324839bb63414a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99523c63_2f23ff6e",
+        "filename": "plat/nxp/soc-lx2160/soc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-12-17T21:56:41Z",
+      "side": 1,
+      "message": "Misra 7.2",
+      "range": {
+        "startLine": 148,
+        "startChar": 21,
+        "endLine": 148,
+        "endChar": 22
+      },
+      "revId": "dfba2b77cfcae0084095b00c1324839bb63414a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9deee61b_4a6a8775",
+        "filename": "plat/nxp/soc-lx2160/soc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-12-17T21:56:41Z",
+      "side": 1,
+      "message": "Misra rul 7.2 and everwhere with this variable",
+      "range": {
+        "startLine": 193,
+        "startChar": 22,
+        "endLine": 193,
+        "endChar": 23
+      },
+      "revId": "dfba2b77cfcae0084095b00c1324839bb63414a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3e28d48_78c08f6e",
+        "filename": "plat/nxp/soc-lx2160/soc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-12-17T21:56:41Z",
+      "side": 1,
+      "message": "Misra 7.2",
+      "range": {
+        "startLine": 481,
+        "startChar": 21,
+        "endLine": 481,
+        "endChar": 22
+      },
+      "revId": "dfba2b77cfcae0084095b00c1324839bb63414a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
