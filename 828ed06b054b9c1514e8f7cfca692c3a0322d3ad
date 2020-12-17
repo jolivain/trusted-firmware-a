@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7579e8ec_07b59abf",
+        "filename": "drivers/renesas/rzg/board/board.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-17T17:22:20Z",
+      "side": 1,
+      "message": "Irrespective of initial value of board_id, it is always equal to BOARD_DEFAULT when execution reaches here(line 48). I did not understand what is the intention behind initializing it with BOARD_ID_UNKNOWN. Can you clarify?",
+      "revId": "828ed06b054b9c1514e8f7cfca692c3a0322d3ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
