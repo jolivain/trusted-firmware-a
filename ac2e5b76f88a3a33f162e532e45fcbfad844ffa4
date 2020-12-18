@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "b633cc5b_f15d39cc",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_topology.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2020-12-18T16:53:08Z",
+      "side": 1,
+      "message": "Generally speaking, with respect to having two copyright messages on the same file, I asked Arm\u0027s Legal folks whether that\u0027s legally sound, and they said yes.",
+      "parentUuid": "a84e96de_3c2392dc",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 78
+      },
+      "revId": "ac2e5b76f88a3a33f162e532e45fcbfad844ffa4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2960c0aa_9177e1a8",
         "filename": "plat/qemu/qemu_sbsa/sbsa_topology.c",
         "patchSetId": 11
