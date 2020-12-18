@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa0c2198_07ac624e",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2020-12-18T18:42:06Z",
+      "side": 1,
+      "message": "It may be a good idea to use the explicit major/minor version info in future. Very rarely if there is an instance of doing a hardware fix for a specific version and introduces a new minor version in the middle, all comments may be broken and will need fix then. Number of minor versions remaining fixed is not a guarantee. I would follow the SDEN standard. For e.g. : Present in \"r0p0, r1p0, r2p0, r3p0, r3p1, r4p0, and r4p1\" instead of \"r0p0-r4p1\".",
+      "range": {
+        "startLine": 436,
+        "startChar": 27,
+        "endLine": 436,
+        "endChar": 28
+      },
+      "revId": "3f0d83695cdad443a11fff9679019735021c445d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
