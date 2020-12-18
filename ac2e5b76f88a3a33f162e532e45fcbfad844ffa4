@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "028f5c1a_7ba66006",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_private.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-12-18T13:46:03Z",
+      "side": 1,
+      "message": "Oh that one shouldn\u0027t I will fix!",
+      "parentUuid": "cc53e315_96bf1298",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 78
+      },
+      "revId": "ac2e5b76f88a3a33f162e532e45fcbfad844ffa4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bfdeff36_37137454",
         "filename": "plat/qemu/qemu_sbsa/sbsa_topology.c",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2020-12-18T11:17:54Z",
       "side": 1,
       "message": "why 2 copyrights for this new file?",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 78
+      },
+      "revId": "ac2e5b76f88a3a33f162e532e45fcbfad844ffa4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a84e96de_3c2392dc",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_topology.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-12-18T13:46:03Z",
+      "side": 1,
+      "message": "Its based on qemu version of this file which is (c) ARM",
+      "parentUuid": "bfdeff36_37137454",
       "range": {
         "startLine": 2,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1339a7b3_ea5a1ccc",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_topology.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-12-18T13:46:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2960c0aa_9177e1a8",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 19
+      },
+      "revId": "ac2e5b76f88a3a33f162e532e45fcbfad844ffa4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61a7e9b2_d519fbea",
         "filename": "plat/qemu/qemu_sbsa/sbsa_topology.c",
         "patchSetId": 11
@@ -82,6 +154,30 @@
       "writtenOn": "2020-12-18T11:17:54Z",
       "side": 1,
       "message": "Can it be good to put error message here and in all below failure cases?",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "ac2e5b76f88a3a33f162e532e45fcbfad844ffa4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d782cd24_eecd67c5",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_topology.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2020-12-18T13:46:03Z",
+      "side": 1,
+      "message": "I can add that!",
+      "parentUuid": "61a7e9b2_d519fbea",
       "range": {
         "startLine": 46,
         "startChar": 2,
