@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "e38e8cc8_eaaa6a77",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/init_dram_tbl_g2m.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-19T16:57:29Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "3d4dd519_5fd0202c",
+      "range": {
+        "startLine": 16,
+        "startChar": 38,
+        "endLine": 16,
+        "endChar": 42
+      },
+      "revId": "75fa4d6f3c151e60f34434926e1a15641fbcde3f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "375cd92b_1cb18eb8",
         "filename": "drivers/renesas/rzg/ddr/dram_sub_func.c",
         "patchSetId": 5
@@ -235,6 +259,30 @@
       "revId": "75fa4d6f3c151e60f34434926e1a15641fbcde3f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88673f18_0416b7d5",
+        "filename": "drivers/renesas/rzg/ddr/dram_sub_func.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-19T16:57:29Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e90cd710_3a7f8e33",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 1
+      },
+      "revId": "75fa4d6f3c151e60f34434926e1a15641fbcde3f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
