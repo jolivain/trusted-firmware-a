@@ -1,0 +1,618 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98323294_018965da",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "nit: remove extra blank lines",
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caeae8dd_98afd5ce",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "In  many below functions, there is a repeated sequence to program fuse register as below:\n1. Check fuse blown.\n2. Write fuse. \n3. Read back to check fuse blown.\n\nCan we create a function to implement the above sequence and call that function to write fuse register?",
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b407503a_a818749f",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "use braces around \u0027if\u0027",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 46
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ceddb547_d2548933",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 24
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a48721cf_6b3bc4bd",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "use braces around \u0027if\u0027",
+      "range": {
+        "startLine": 60,
+        "startChar": 3,
+        "endLine": 62,
+        "endChar": 0
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ded5316d_5da8c4f5",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "nit: align this parameter below open brace (use spaces instead of \u0027tabs\u0027 to align)",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 5
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7d52bb9_6162516a",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "use braces around \u0027if\u0027",
+      "range": {
+        "startLine": 68,
+        "startChar": 3,
+        "endLine": 69,
+        "endChar": 28
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f52d71ae_021244aa",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "use braces around \u0027if\u0027",
+      "range": {
+        "startLine": 87,
+        "startChar": 3,
+        "endLine": 87,
+        "endChar": 42
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01d104ed_9bb01980",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 24
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0784f66_9a4df493",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 105,
+        "startChar": 3,
+        "endLine": 105,
+        "endChar": 42
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75430fc0_f8171ca2",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 25
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "130edd25_014d861c",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "This should be boolean to avoid any MISRA issues.",
+      "range": {
+        "startLine": 131,
+        "startChar": 5,
+        "endLine": 131,
+        "endChar": 17
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d15304c3_cd78375c",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "Use braces around \u0027if\u0027",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 206,
+        "endChar": 0
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12c4bc78_fd14ee67",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "Please check return of this function.",
+      "range": {
+        "startLine": 209,
+        "startChar": 2,
+        "endLine": 209,
+        "endChar": 19
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b24c1cf1_e97a2c0b",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "Use braces around \u0027if\u0027",
+      "range": {
+        "startLine": 228,
+        "startChar": 3,
+        "endLine": 229,
+        "endChar": 37
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae25edc1_4f1e9167",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 238,
+        "startChar": 1,
+        "endLine": 239,
+        "endChar": 35
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffd74044_c49197ce",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "Use braces around \u0027if\u0027 and in all below \u0027if\u0027 statement wherever needed",
+      "range": {
+        "startLine": 265,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 27
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "906fde5a_4281a07d",
+        "filename": "drivers/nxp/sfp/fuse_prov.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "2020?",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8305dabc_cba1b9b6",
+        "filename": "drivers/nxp/sfp/fuse_prov.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "IMO, all below macros should be defined with unsigned value for e.g.\n#define FLAG_POVDD_SHIFT   U(0)",
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45f9644d_28a9f8b5",
+        "filename": "drivers/nxp/sfp/fuse_prov.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "nit: Use \u0027tabs\u0027 instead of \u0027spaces\u0027 to define the value.",
+      "range": {
+        "startLine": 15,
+        "startChar": 24,
+        "endLine": 15,
+        "endChar": 29
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d71d0ac3_43e6d409",
+        "filename": "drivers/nxp/sfp/fuse_prov.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "nit: Align all below macros by using \u0027tabs\u0027 to define value.",
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02736d10_c0b95681",
+        "filename": "drivers/nxp/sfp/fuse_prov.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "U(25)?",
+      "range": {
+        "startLine": 78,
+        "startChar": 33,
+        "endLine": 78,
+        "endChar": 35
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4a5b0b2_9a7880e7",
+        "filename": "drivers/nxp/sfp/sfp.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "nit: remove this commented code.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 20
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68416edd_63f02628",
+        "filename": "drivers/nxp/sfp/sfp.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "use braces around \u0027if\u0027",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 26
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9147b766_42032e10",
+        "filename": "drivers/nxp/sfp/sfp.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 123,
+        "startChar": 1,
+        "endLine": 123,
+        "endChar": 19
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04ed5c13_feac469c",
+        "filename": "drivers/nxp/sfp/sfp.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 140,
+        "startChar": 1,
+        "endLine": 140,
+        "endChar": 54
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1844f7a_628bddb2",
+        "filename": "drivers/nxp/sfp/sfp.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 151,
+        "startChar": 1,
+        "endLine": 151,
+        "endChar": 53
+      },
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "011aa28e_691aa647",
+        "filename": "drivers/nxp/sfp/sfp.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T10:39:31Z",
+      "side": 1,
+      "message": "Align below macros using \u0027tabs\u0027 wherever needed and I think all these macros should be defined as unsigned. for e.g.\n#define SFP_INGR_OFFSET\t\tU(0x20)",
+      "revId": "6e9a4241bc50a770c36277ade635556c78363fcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
