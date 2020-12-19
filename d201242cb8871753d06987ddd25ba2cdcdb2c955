@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "257c980f_b36e9858",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T11:00:24Z",
+      "side": 1,
+      "message": "nit: align these function parameters just below the open brace of the function.",
+      "range": {
+        "startLine": 166,
+        "startChar": 5,
+        "endLine": 166,
+        "endChar": 12
+      },
+      "revId": "d201242cb8871753d06987ddd25ba2cdcdb2c955",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75d1d105_76aff45c",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T11:00:24Z",
+      "side": 1,
+      "message": "1U : 0U?",
+      "range": {
+        "startLine": 179,
+        "startChar": 17,
+        "endLine": 179,
+        "endChar": 22
+      },
+      "revId": "d201242cb8871753d06987ddd25ba2cdcdb2c955",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0db1efa2_b9d9b196",
+        "filename": "drivers/nxp/sec_mon/snvs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-19T11:00:24Z",
+      "side": 1,
+      "message": "It is good to have includes at the top of the file. IMO, it reduces code readability if you add includes in between.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 21
+      },
+      "revId": "d201242cb8871753d06987ddd25ba2cdcdb2c955",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
