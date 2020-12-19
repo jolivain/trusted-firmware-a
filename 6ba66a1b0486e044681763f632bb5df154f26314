@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce61de70_673ed355",
+        "filename": "plat/arm/css/sgi/sgi_ras.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-12-19T17:16:16Z",
+      "side": 1,
+      "message": "are we sure this is needed? sdei_dispatch_event restores the NS context, if an event is indeed dispatched. I think what is needed is to check the return code from sdei_dispatch_event. Seems to me like there is some weird interrupt sequence happening causing sdei_dispatch_event to fail and not restoring NS context.",
+      "revId": "6ba66a1b0486e044681763f632bb5df154f26314",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
