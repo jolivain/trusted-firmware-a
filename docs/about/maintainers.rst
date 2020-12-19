@@ -494,6 +494,8 @@ Renesas RZ/G2 platform port
 :G: `bijucdas`_
 :M: Marek Vasut <marek.vasut@gmail.com>
 :G: `marex`_
+:M: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+:G: `prabhakarlad`_
 :F: docs/plat/rz-g2.rst
 :F: plat/renesas/common
 :F: plat/renesas/rzg
@@ -630,6 +632,7 @@ Build system
 .. _jwerner-chromium: https://github.com/jwerner-chromium
 .. _kostapr: https://github.com/kostapr
 .. _ldts: https://github.com/ldts
+.. _prabhakarlad: https://github.com/prabhakarlad
 .. _marex: https://github.com/marex
 .. _masahir0y: https://github.com/masahir0y
 .. _michalsimek: https://github.com/michalsimek
