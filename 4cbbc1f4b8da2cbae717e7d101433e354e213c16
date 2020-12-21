@@ -149,6 +149,24 @@
     },
     {
       "key": {
+        "uuid": "fec915b3_4b83c9a8",
+        "filename": "drivers/renesas/rcar/emmc/emmc_hal.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-12-21T14:18:46Z",
+      "side": 1,
+      "message": "But here it is signed int L, which is normal convention for errors. The rule says if it is represented as unsigned int then use U or UL.if it is signed int then use L.\n\nAm i missing any thing here? please correct me.",
+      "parentUuid": "d44588e8_d5ba768b",
+      "revId": "4cbbc1f4b8da2cbae717e7d101433e354e213c16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f690100b_222f0d8e",
         "filename": "drivers/renesas/rcar/emmc/emmc_mount.c",
         "patchSetId": 1
