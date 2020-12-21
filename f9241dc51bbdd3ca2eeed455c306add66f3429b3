@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8e5215e_e17f1112",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-21T05:40:27Z",
+      "side": 1,
+      "message": "What is the significance of 0x2 mask? Please use a macro instead of hardcoded value.",
+      "revId": "f9241dc51bbdd3ca2eeed455c306add66f3429b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a2c218d_e6b14b08",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-21T05:40:27Z",
+      "side": 1,
+      "message": "Please use the following syntax based on MISRA guidelines:\n\nif(gtc_freq !\u003d 0U){\n       return gtc_freq;\n}",
+      "revId": "f9241dc51bbdd3ca2eeed455c306add66f3429b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
