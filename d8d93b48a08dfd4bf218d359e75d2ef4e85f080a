@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23643205_9b5734ca",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-21T09:32:46Z",
+      "side": 1,
+      "message": "s/_CSF_HDR_H_/CSF_HDR_H",
+      "range": {
+        "startLine": 8,
+        "startChar": 8,
+        "endLine": 8,
+        "endChar": 19
+      },
+      "revId": "d8d93b48a08dfd4bf218d359e75d2ef4e85f080a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07ac978b_4afcfa4d",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr_parser.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-21T09:32:46Z",
+      "side": 1,
+      "message": "\u0027ret\u0027 is not boolean. Please provide a check as below:\nif (ret !\u003d 0) {\n   return -1;\n}\n\nPlease use braces around \u0027if\u0027 and also, ensure the check the condition is boolean in all \u0027if\u0027 statements in this file.",
+      "range": {
+        "startLine": 68,
+        "startChar": 1,
+        "endLine": 68,
+        "endChar": 9
+      },
+      "revId": "d8d93b48a08dfd4bf218d359e75d2ef4e85f080a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3574f754_f176fde1",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/plat_img_parser.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-21T09:32:46Z",
+      "side": 1,
+      "message": "Can you put this define outside the function?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 12
+      },
+      "revId": "d8d93b48a08dfd4bf218d359e75d2ef4e85f080a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c96c505e_ed0ebffc",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/plat_img_parser.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-21T09:32:46Z",
+      "side": 1,
+      "message": "why we need this function, can we clear all variable here itself?",
+      "range": {
+        "startLine": 74,
+        "startChar": 1,
+        "endLine": 74,
+        "endChar": 18
+      },
+      "revId": "d8d93b48a08dfd4bf218d359e75d2ef4e85f080a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cd70b33_b527dc72",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/plat_img_parser.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-21T09:32:46Z",
+      "side": 1,
+      "message": "nit: remove extra blank line",
+      "revId": "d8d93b48a08dfd4bf218d359e75d2ef4e85f080a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2f34337_0225a753",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/plat_img_parser.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-21T09:32:46Z",
+      "side": 1,
+      "message": "Why need to initialise it to \u00270\u0027 when it is overwritten immediately in below statement.",
+      "range": {
+        "startLine": 83,
+        "startChar": 5,
+        "endLine": 83,
+        "endChar": 13
+      },
+      "revId": "d8d93b48a08dfd4bf218d359e75d2ef4e85f080a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f617e1e_a7f8bd6f",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/plat_img_parser.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-21T09:32:46Z",
+      "side": 1,
+      "message": "nit: put a blank line before every \u0027case\u0027.",
+      "revId": "d8d93b48a08dfd4bf218d359e75d2ef4e85f080a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85aed952_3110c4fe",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/plat_img_parser.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-21T09:32:46Z",
+      "side": 1,
+      "message": "nit: put one blank line before \u0027return\u0027.",
+      "revId": "d8d93b48a08dfd4bf218d359e75d2ef4e85f080a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "488e4dbb_94f54ebb",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/plat_img_parser.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2020-12-21T09:32:46Z",
+      "side": 1,
+      "message": "nit: fix alignment.",
+      "range": {
+        "startLine": 165,
+        "startChar": 3,
+        "endLine": 165,
+        "endChar": 4
+      },
+      "revId": "d8d93b48a08dfd4bf218d359e75d2ef4e85f080a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
