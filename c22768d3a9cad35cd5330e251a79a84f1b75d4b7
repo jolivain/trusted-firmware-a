@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e617fdb6_6b5715ab",
+        "filename": "plat/nxp/common/nv_storage/plat_nv_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-12-21T20:31:53Z",
+      "side": 1,
+      "message": "Misra 14.4 violation.  Must be boolean, change to if(ret!\u003d0)",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 9
+      },
+      "revId": "c22768d3a9cad35cd5330e251a79a84f1b75d4b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a9c8742_b3b08274",
+        "filename": "plat/nxp/common/nv_storage/plat_nv_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-12-21T20:31:53Z",
+      "side": 1,
+      "message": "returning signed value in unsigned function return",
+      "range": {
+        "startLine": 66,
+        "startChar": 1,
+        "endLine": 66,
+        "endChar": 11
+      },
+      "revId": "c22768d3a9cad35cd5330e251a79a84f1b75d4b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5cb3df5_97275d53",
+        "filename": "plat/nxp/common/nv_storage/plat_nv_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-12-21T20:31:53Z",
+      "side": 1,
+      "message": "Misra 14.4 violation",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 9
+      },
+      "revId": "c22768d3a9cad35cd5330e251a79a84f1b75d4b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e37c4af_62c2506a",
+        "filename": "plat/nxp/common/nv_storage/plat_nv_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2020-12-21T20:31:53Z",
+      "side": 1,
+      "message": "returning signed in unsigned function",
+      "range": {
+        "startLine": 110,
+        "startChar": 1,
+        "endLine": 110,
+        "endChar": 11
+      },
+      "revId": "c22768d3a9cad35cd5330e251a79a84f1b75d4b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
