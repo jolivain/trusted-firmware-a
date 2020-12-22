@@ -22,6 +22,30 @@
       "revId": "9248227786c3a46af46e42e311c7c63b0135d094",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a42a446_5667acd0",
+        "filename": "plat/ti/k3/common/drivers/ti_sci/ti_sci.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2020-12-22T12:48:56Z",
+      "side": 1,
+      "message": "It is part of the data structure being transmitted to system controller using TISCI. it is not used in the code.\n\nSee https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/sysreset.html#message-data-structures",
+      "parentUuid": "264a5831_503cd508",
+      "range": {
+        "startLine": 1166,
+        "startChar": 5,
+        "endLine": 1166,
+        "endChar": 11
+      },
+      "revId": "9248227786c3a46af46e42e311c7c63b0135d094",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
