@@ -15,6 +15,7 @@ PLAT_INCLUDES		:=	-I${RK_PLAT_COMMON}/			\
 				-I${RK_PLAT_COMMON}/aarch64/		\
 				-I${RK_PLAT_COMMON}/drivers/pmu/	\
 				-I${RK_PLAT_SOC}/			\
+				-I${RK_PLAT_SOC}/drivers/gpio/		\
 				-I${RK_PLAT_SOC}/drivers/pmu/		\
 				-I${RK_PLAT_SOC}/drivers/pwm/		\
 				-I${RK_PLAT_SOC}/drivers/secure/	\
