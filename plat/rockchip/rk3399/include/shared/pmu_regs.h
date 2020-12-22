@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -64,8 +64,6 @@
 #define PMU_NOC_AUTO_ENA	0xd8
 #define PMU_PWRDN_CON1		0xdc
 
-#define PMUGRF_GPIO0A_IOMUX	0x00
-#define PMUGRF_GPIO1A_IOMUX	0x10
 #define PMUGRF_GPIO1C_IOMUX	0x18
 
 #define PMUGRF_GPIO0A6_IOMUX_SHIFT      12
