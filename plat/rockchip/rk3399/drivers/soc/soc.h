@@ -145,6 +145,8 @@ struct pmu_sleep_data {
  * pmugrf reg, offset
  **************************************************/
 #define PMUGRF_OSREG(n)		(0x300 + (n) * 4)
+#define PMUGRF_GPIO0A_IOMUX	0x000
+#define PMUGRF_GPIO1A_IOMUX	0x010
 #define PMUGRF_GPIO0A_P		0x040
 #define PMUGRF_GPIO1A_P		0x050
 
@@ -250,6 +252,8 @@ struct pmu_sleep_data {
 #define GRF_USBPHY1_CTRL16	0x4540
 
 #define GRF_GPIO2A_IOMUX	0xe000
+#define GRF_GPIO3A_IOMUX	0xe010
+#define GRF_GPIO4A_IOMUX	0xe020
 #define GRF_GPIO2A_P		0xe040
 #define GRF_GPIO3A_P		0xe050
 #define GRF_GPIO4A_P		0xe060
