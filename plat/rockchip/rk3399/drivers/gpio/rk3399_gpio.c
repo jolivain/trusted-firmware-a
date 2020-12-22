@@ -66,6 +66,7 @@ enum {
 static const struct port_info {
 	uint32_t clkgate_reg;
 	uint32_t pull_base;
+	uint32_t iomux_base;
 	uint32_t port_base;
 	/*
 	 * Selects the pull mode encoding per bank,
@@ -78,6 +79,7 @@ static const struct port_info {
 	{
 		.clkgate_reg = PMUCRU_BASE + CRU_PMU_CLKGATE_CON(1),
 		.pull_base = PMUGRF_BASE + PMUGRF_GPIO0A_P,
+		.iomux_base = PMUGRF_BASE + PMUGRF_GPIO0A_IOMUX,
 		.port_base = GPIO0_BASE,
 		.pull_enc = {ENC_ZDZU, ENC_ZDZU},
 		.clkgate_bit = PCLK_GPIO0_GATE_SHIFT,
@@ -85,6 +87,7 @@ static const struct port_info {
 	}, {
 		.clkgate_reg = PMUCRU_BASE + CRU_PMU_CLKGATE_CON(1),
 		.pull_base = PMUGRF_BASE + PMUGRF_GPIO1A_P,
+		.iomux_base = PMUGRF_BASE + PMUGRF_GPIO1A_IOMUX,
 		.port_base = GPIO1_BASE,
 		.pull_enc = {ENC_ZUDR, ENC_ZUDR, ENC_ZUDR, ENC_ZUDR},
 		.clkgate_bit = PCLK_GPIO1_GATE_SHIFT,
@@ -92,6 +95,7 @@ static const struct port_info {
 	}, {
 		.clkgate_reg = CRU_BASE + CRU_CLKGATE_CON(31),
 		.pull_base = GRF_BASE + GRF_GPIO2A_P,
+		.iomux_base = GRF_BASE + GRF_GPIO2A_IOMUX,
 		.port_base = GPIO2_BASE,
 		.pull_enc = {ENC_ZUDR, ENC_ZUDR, ENC_ZDZU, ENC_ZDZU},
 		.clkgate_bit = PCLK_GPIO2_GATE_SHIFT,
@@ -99,6 +103,7 @@ static const struct port_info {
 	}, {
 		.clkgate_reg = CRU_BASE + CRU_CLKGATE_CON(31),
 		.pull_base = GRF_BASE + GRF_GPIO3A_P,
+		.iomux_base = GRF_BASE + GRF_GPIO2A_IOMUX,
 		.port_base = GPIO3_BASE,
 		.pull_enc = {ENC_ZUDR, ENC_ZUDR, ENC_ZUDR, ENC_ZUDR},
 		.clkgate_bit = PCLK_GPIO3_GATE_SHIFT,
@@ -106,6 +111,7 @@ static const struct port_info {
 	}, {
 		.clkgate_reg = CRU_BASE + CRU_CLKGATE_CON(31),
 		.pull_base = GRF_BASE + GRF_GPIO4A_P,
+		.iomux_base = GRF_BASE + GRF_GPIO4A_IOMUX,
 		.port_base = GPIO4_BASE,
 		.pull_enc = {ENC_ZUDR, ENC_ZUDR, ENC_ZUDR, ENC_ZUDR},
 		.clkgate_bit = PCLK_GPIO4_GATE_SHIFT,
@@ -298,6 +304,23 @@ static void set_value(int gpio, int value)
 		((value == 0) ? 0 : 1) << num
 	);
 	gpio_put_clock(gpio, clock_state);
+}
+
+void rk3399_mux_out_gpio(int gpio) {
+	uint32_t port = GET_GPIO_PORT(gpio);
+	uint32_t bank = GET_GPIO_BANK(gpio);
+	uint32_t id = GET_GPIO_ID(gpio);
+
+	assert(port < 5U);
+	const struct port_info *info = &port_info[port];
+
+	assert(bank < info->max_bank);
+
+	/* Setting 0 is GPIO for all IOMUXes */
+	mmio_write_32(
+		info->iomux_base + 4 * bank,
+		BITS_WITH_WMASK(0, 3, id * 2)
+	);
 }
 
 void plat_rockchip_save_gpio(void)
