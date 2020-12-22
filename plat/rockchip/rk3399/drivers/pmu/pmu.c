@@ -31,6 +31,7 @@
 #include <secure.h>
 #include <soc.h>
 #include <suspend.h>
+#include <rk3399_gpio.h>
 
 DEFINE_BAKERY_LOCK(rockchip_pd_lock);
 
@@ -1526,6 +1527,7 @@ void __dead2 rockchip_soc_soft_reset(void)
 	if (rst_gpio) {
 		gpio_set_direction(rst_gpio->index, GPIO_DIR_OUT);
 		gpio_set_value(rst_gpio->index, rst_gpio->polarity);
+		rk3399_mux_out_gpio(rst_gpio->index);
 	} else {
 		soc_global_soft_reset();
 	}
@@ -1541,16 +1543,9 @@ void __dead2 rockchip_soc_system_off(void)
 	poweroff_gpio = plat_get_rockchip_gpio_poweroff();
 
 	if (poweroff_gpio) {
-		/*
-		 * if use tsadc over temp pin(GPIO1A6) as shutdown gpio,
-		 * need to set this pin iomux back to gpio function
-		 */
-		if (poweroff_gpio->index == TSADC_INT_PIN) {
-			mmio_write_32(PMUGRF_BASE + PMUGRF_GPIO1A_IOMUX,
-				      GPIO1A6_IOMUX);
-		}
 		gpio_set_direction(poweroff_gpio->index, GPIO_DIR_OUT);
 		gpio_set_value(poweroff_gpio->index, poweroff_gpio->polarity);
+		rk3399_mux_out_gpio(poweroff_gpio->index);
 	} else {
 		WARN("Do nothing when system off\n");
 	}
