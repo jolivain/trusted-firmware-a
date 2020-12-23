@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5ff9b227_b4566d9b",
+        "filename": "include/drivers/gpio.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000494
+      },
+      "writtenOn": "2020-12-23T09:51:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a8537a6_07ac37cf",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "0f954f6e42dbfc4448f5727df3f908762b6f375b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96d028fd_1bbe2b38",
         "filename": "include/export/drivers/gpio_exp.h",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "0f954f6e42dbfc4448f5727df3f908762b6f375b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebed87a4_bd0d25b7",
+        "filename": "include/export/drivers/gpio_exp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000494
+      },
+      "writtenOn": "2020-12-23T09:51:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96d028fd_1bbe2b38",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "0f954f6e42dbfc4448f5727df3f908762b6f375b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4557a433_684bcd53",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000494
+      },
+      "writtenOn": "2020-12-23T09:51:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "555f536e_4f2c54fd",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "0f954f6e42dbfc4448f5727df3f908762b6f375b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4210cde_0745811f",
         "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2020-12-22T23:25:22Z",
       "side": 1,
       "message": "This conditional is not a boolean expression.",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 152,
+        "endChar": 63
+      },
+      "revId": "0f954f6e42dbfc4448f5727df3f908762b6f375b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5840c1e9_01f912f8",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000494
+      },
+      "writtenOn": "2020-12-23T09:51:20Z",
+      "side": 1,
+      "message": "It\u0027s a(n inverted) bit test. I\u0027d have thought this form would be acceptible, but I\u0027m not too vain about it … which one would you prefer: `!(reg \u0026 1 \u003c\u003c pos)` or `(reg \u0026 1 \u003c\u003c pos) \u003d\u003d 0` ?",
+      "parentUuid": "d4210cde_0745811f",
       "range": {
         "startLine": 152,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f99aabaa_932cc21c",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000494
+      },
+      "writtenOn": "2020-12-23T09:51:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cd1d5f2_3a89da56",
+      "range": {
+        "startLine": 153,
+        "startChar": 9,
+        "endLine": 153,
+        "endChar": 10
+      },
+      "revId": "0f954f6e42dbfc4448f5727df3f908762b6f375b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "576a1926_67534647",
         "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
         "patchSetId": 1
@@ -137,6 +257,30 @@
       "revId": "0f954f6e42dbfc4448f5727df3f908762b6f375b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd849bd5_347bd379",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000494
+      },
+      "writtenOn": "2020-12-23T09:51:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "576a1926_67534647",
+      "range": {
+        "startLine": 159,
+        "startChar": 8,
+        "endLine": 159,
+        "endChar": 9
+      },
+      "revId": "0f954f6e42dbfc4448f5727df3f908762b6f375b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
