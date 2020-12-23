@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ab9c9c90_ec23bbec",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000494
+      },
+      "writtenOn": "2020-12-23T09:55:09Z",
+      "side": 1,
+      "message": "Done previously in commit chain.",
+      "parentUuid": "fd805b70_75477fec",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "75979ddd1df1fd59d2931fa1c8e82c42b86f006a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63fb3f8b_2df390d0",
         "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "75979ddd1df1fd59d2931fa1c8e82c42b86f006a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2445cb44_d474120f",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1000494
+      },
+      "writtenOn": "2020-12-23T09:55:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63fb3f8b_2df390d0",
+      "range": {
+        "startLine": 308,
+        "startChar": 15,
+        "endLine": 308,
+        "endChar": 16
+      },
+      "revId": "75979ddd1df1fd59d2931fa1c8e82c42b86f006a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "82948715_371f2c9f",
+        "filename": "plat/rockchip/rk3399/drivers/pmu/pmu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000494
+      },
+      "writtenOn": "2020-12-23T09:55:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82fa71c2_aab0a7c8",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "75979ddd1df1fd59d2931fa1c8e82c42b86f006a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c92e1ae8_d8c0c408",
         "filename": "plat/rockchip/rk3399/drivers/pmu/pmu.c",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "75979ddd1df1fd59d2931fa1c8e82c42b86f006a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c195dfbc_f0adc89c",
+        "filename": "plat/rockchip/rk3399/drivers/pmu/pmu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000494
+      },
+      "writtenOn": "2020-12-23T09:55:09Z",
+      "side": 1,
+      "message": "Done … didn\u0027t realize includes were supposed to be sorted within each group :(",
+      "parentUuid": "c92e1ae8_d8c0c408",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "75979ddd1df1fd59d2931fa1c8e82c42b86f006a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "dc3ec931_212f4e36",
+        "filename": "plat/rockchip/rk3399/drivers/soc/soc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000494
+      },
+      "writtenOn": "2020-12-23T09:55:09Z",
+      "side": 1,
+      "message": "Done (in previous commit in chain)",
+      "parentUuid": "9c0b4ac2_79c2d86d",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "75979ddd1df1fd59d2931fa1c8e82c42b86f006a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95b83d81_9e2c851a",
         "filename": "plat/rockchip/rk3399/include/shared/pmu_regs.h",
         "patchSetId": 2
@@ -137,6 +257,30 @@
       "revId": "75979ddd1df1fd59d2931fa1c8e82c42b86f006a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba82ace5_e5ecf0c3",
+        "filename": "plat/rockchip/rk3399/include/shared/pmu_regs.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000494
+      },
+      "writtenOn": "2020-12-23T09:55:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95b83d81_9e2c851a",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "75979ddd1df1fd59d2931fa1c8e82c42b86f006a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
