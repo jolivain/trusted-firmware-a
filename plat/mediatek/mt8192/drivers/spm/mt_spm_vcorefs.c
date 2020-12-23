@@ -282,7 +282,7 @@ static void dvfsrc_init(void)
 	/* Setup hw emi qos policy */
 	mmio_write_32(DVFSRC_DDR_REQUEST, 0x00004321);
 	mmio_write_32(DVFSRC_DDR_REQUEST3, 0x00000065);
-	mmio_write_32(DVFSRC_PCIE_VCORE_REQ, 0x51C8011);
+	mmio_write_32(DVFSRC_PCIE_VCORE_REQ, 0x0A298001);
 
 	/* Setup up HRT QOS policy */
 	mmio_write_32(DVFSRC_HRT_BW_BASE, 0x00000004);
