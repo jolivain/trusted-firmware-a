@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db263b48_5a63e9a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-23T12:02:39Z",
+      "side": 1,
+      "message": "It is still open, so \" some revisions\" is not correct",
+      "revId": "bcd84606a7042661820c9aae1c4a4301deafb7d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b7ba08d_ec0f90c3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-23T12:02:39Z",
+      "side": 1,
+      "message": "Change to\n\"There is no workaround for this erratum for versions r0p0, r1p0, and r2p0.\"",
+      "revId": "bcd84606a7042661820c9aae1c4a4301deafb7d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78dae888_69185af6",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-23T12:02:39Z",
+      "side": 1,
+      "message": "Will this print \"not applied\" for r0p0-r2p0?",
+      "revId": "bcd84606a7042661820c9aae1c4a4301deafb7d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70ff447d_b0909594",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-23T12:02:39Z",
+      "side": 1,
+      "message": "Add \"There is no workaround for this erratum for versions r0p0, r1p0, and r2p0.\"",
+      "revId": "bcd84606a7042661820c9aae1c4a4301deafb7d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
