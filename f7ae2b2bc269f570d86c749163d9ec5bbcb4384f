@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93cbf5b4_f682ad4e",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-23T11:51:31Z",
+      "side": 1,
+      "message": "Erratum is still open and not fixed in all available revisions, See comments for https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/7615 patch.",
+      "revId": "f7ae2b2bc269f570d86c749163d9ec5bbcb4384f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73f23ba3_a585d502",
+        "filename": "lib/cpus/aarch64/cortex_a78.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-23T11:51:31Z",
+      "side": 1,
+      "message": "msr\tS3_6_c15_c8_0, xzr",
+      "revId": "f7ae2b2bc269f570d86c749163d9ec5bbcb4384f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
