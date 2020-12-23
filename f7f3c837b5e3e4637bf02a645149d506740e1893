@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cec3c7bd_d959d646",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-23T13:48:47Z",
+      "side": 1,
+      "message": "rm \u003d\u003d NULL",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 8
+      },
+      "revId": "f7f3c837b5e3e4637bf02a645149d506740e1893",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebdc27f7_24293bc7",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-23T13:48:47Z",
+      "side": 1,
+      "message": "uint32_t id",
+      "range": {
+        "startLine": 38,
+        "startChar": 30,
+        "endLine": 38,
+        "endChar": 47
+      },
+      "revId": "f7f3c837b5e3e4637bf02a645149d506740e1893",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba35cb49_6ac76bf6",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-23T13:48:47Z",
+      "side": 1,
+      "message": "what about\n\nif (con \u003d\u003d NULL || con-\u003ereset \u003d\u003d NULL) {\n    return MT_RM_STATUS_BAD;\n}\n\nreturn con-\u003ereset(cpuid, stateid);",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 12
+      },
+      "revId": "f7f3c837b5e3e4637bf02a645149d506740e1893",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "815b7edc_84c23fbf",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-23T13:48:47Z",
+      "side": 1,
+      "message": "is_run",
+      "range": {
+        "startLine": 59,
+        "startChar": 41,
+        "endLine": 59,
+        "endChar": 46
+      },
+      "revId": "f7f3c837b5e3e4637bf02a645149d506740e1893",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5ab2c41_b65e7465",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-23T13:48:47Z",
+      "side": 1,
+      "message": "if (i \u003e 0)",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 73,
+        "endChar": 7
+      },
+      "revId": "f7f3c837b5e3e4637bf02a645149d506740e1893",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcdb91a5_307cd980",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-23T13:48:47Z",
+      "side": 1,
+      "message": "either boolean or IsRun \u003d\u003d 1",
+      "range": {
+        "startLine": 82,
+        "startChar": 7,
+        "endLine": 82,
+        "endChar": 13
+      },
+      "revId": "f7f3c837b5e3e4637bf02a645149d506740e1893",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
