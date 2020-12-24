@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "f4408306_4a1dd437",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2020-12-24T00:18:12Z",
+      "side": 1,
+      "message": "Yes, the check at line 462 only applies this fix for r3p0 - r4p1.",
+      "parentUuid": "78dae888_69185af6",
+      "revId": "bcd84606a7042661820c9aae1c4a4301deafb7d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "70ff447d_b0909594",
         "filename": "lib/cpus/cpu-ops.mk",
         "patchSetId": 1
