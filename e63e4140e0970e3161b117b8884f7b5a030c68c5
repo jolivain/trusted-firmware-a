@@ -93,6 +93,30 @@
       "revId": "e63e4140e0970e3161b117b8884f7b5a030c68c5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7d514bb_99515cd9",
+        "filename": "drivers/marvell/uart/a3700_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2020-12-26T17:50:03Z",
+      "side": 1,
+      "message": "I\u0027m not against any improvements in this file. Just I\u0027m not very skilled in arm64 assembler so I would rather let rewriting this code (for purpose of reducing intruction execution) to more skilled developers.\n\nI send this patch to fix real issue that TF-A output sent to UART is lost due to this missing implementation of console_a3700_core_flush function.",
+      "parentUuid": "c4523e9a_b63d7d9b",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 8
+      },
+      "revId": "e63e4140e0970e3161b117b8884f7b5a030c68c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
