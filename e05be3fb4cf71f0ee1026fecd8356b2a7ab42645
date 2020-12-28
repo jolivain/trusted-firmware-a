@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aefa8dfc_9c4db28a",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2020-12-28T15:58:35Z",
+      "side": 1,
+      "message": "General question: Do we even need GOT relocations at all? hafnium for ex, does not touch the GOT since the relocations applied through __RELA_START__/__RELA_END__ have relocations to fix up the GOT as well. So should we get rid of the GOT relocation loop entirely?\nNot an expert on the ELF spec but it seems logical to me that the relocation section also contains relocations for the GOT as well.\n\nSee: https://git.trustedfirmware.org/hafnium/hafnium.git/tree/src/arch/aarch64/entry.S#n40",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 49
+      },
+      "revId": "e05be3fb4cf71f0ee1026fecd8356b2a7ab42645",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
