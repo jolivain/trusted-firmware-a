@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67e0867e_782a6148",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-29T13:54:46Z",
+      "side": 1,
+      "message": "uint32_t",
+      "range": {
+        "startLine": 29,
+        "startChar": 7,
+        "endLine": 29,
+        "endChar": 10
+      },
+      "revId": "2ed7b0796995d22464104e7345ae1fc4017d2233",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5ca73a6_e03564a4",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-29T13:54:46Z",
+      "side": 1,
+      "message": "mmio_read_32(DVFSRC_RSRV_5) \u003d\u003d 0U",
+      "range": {
+        "startLine": 248,
+        "startChar": 6,
+        "endLine": 248,
+        "endChar": 33
+      },
+      "revId": "2ed7b0796995d22464104e7345ae1fc4017d2233",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f30b0145_2ff896bc",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-29T13:54:46Z",
+      "side": 1,
+      "message": "static void",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 4
+      },
+      "revId": "2ed7b0796995d22464104e7345ae1fc4017d2233",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "474e085c_386cdb8b",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-29T13:54:46Z",
+      "side": 1,
+      "message": "what about\n\nstatic uint32_t spm_vcorefs_get_efuse_data(void)\n{\n    return mmio_read_32(VCORE_VB_EFUSE);\n}",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 339,
+        "endChar": 1
+      },
+      "revId": "2ed7b0796995d22464104e7345ae1fc4017d2233",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a29f3c3_ee3b5e55",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-29T13:54:46Z",
+      "side": 1,
+      "message": "remove the function if not called.",
+      "range": {
+        "startLine": 341,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 37
+      },
+      "revId": "2ed7b0796995d22464104e7345ae1fc4017d2233",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cadc6204_db522154",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-29T13:54:46Z",
+      "side": 1,
+      "message": "uint32_t",
+      "range": {
+        "startLine": 345,
+        "startChar": 1,
+        "endLine": 345,
+        "endChar": 4
+      },
+      "revId": "2ed7b0796995d22464104e7345ae1fc4017d2233",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7757db8f_e318b10e",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-29T13:54:46Z",
+      "side": 1,
+      "message": "include lib/utils_def.h and use round_up() and round_down()",
+      "range": {
+        "startLine": 383,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 1
+      },
+      "revId": "2ed7b0796995d22464104e7345ae1fc4017d2233",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18d998ed_e8eea05c",
+        "filename": "plat/mediatek/mt8192/drivers/spm/mt_spm_vcorefs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2020-12-29T13:54:46Z",
+      "side": 1,
+      "message": "if ((x2 \u0026 0x1) \u003e 0)",
+      "range": {
+        "startLine": 434,
+        "startChar": 6,
+        "endLine": 434,
+        "endChar": 14
+      },
+      "revId": "2ed7b0796995d22464104e7345ae1fc4017d2233",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
