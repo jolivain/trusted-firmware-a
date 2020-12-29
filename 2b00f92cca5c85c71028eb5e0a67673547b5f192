@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "282278f3_17c3ee2b",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl2_el3_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-29T16:06:39Z",
+      "side": 1,
+      "message": "if(err !\u003d 0){\n     WARN(\"OPTEE header parse error.\\n\");\n}",
+      "revId": "2b00f92cca5c85c71028eb5e0a67673547b5f192",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
