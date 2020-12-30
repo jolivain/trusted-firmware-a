@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "41f81fee_f4a77a4e",
+        "filename": "drivers/marvell/uart/a3700_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2020-12-30T19:51:48Z",
+      "side": 1,
+      "message": "Yeah, as Manish said, it should be range\nCopyright (C) 2016-2020 Marvell International Ltd.",
+      "parentUuid": "5f96ff7d_c50da29e",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "e63e4140e0970e3161b117b8884f7b5a030c68c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c736cc5_73afe6c9",
         "filename": "drivers/marvell/uart/a3700_console.S",
         "patchSetId": 1
