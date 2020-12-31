@@ -2,6 +2,125 @@
   "comments": [
     {
       "key": {
+        "uuid": "0d6dd8bf_f8b8909a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-31T10:57:48Z",
+      "side": 1,
+      "message": "interrupt is triggered and RAS handler is entered?",
+      "revId": "707f4e66f79ad232246dce6ed2feecfc9ba12353",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c1aef8a_8b253ca6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-31T10:57:48Z",
+      "side": 1,
+      "message": "handler finishes, TF-A",
+      "revId": "707f4e66f79ad232246dce6ed2feecfc9ba12353",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f2dc3c6_a27164f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-31T10:57:48Z",
+      "side": 1,
+      "message": "what is \"exsample\"?",
+      "revId": "707f4e66f79ad232246dce6ed2feecfc9ba12353",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21603210_1bdb30b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-31T10:57:48Z",
+      "side": 1,
+      "message": "RAS event",
+      "revId": "707f4e66f79ad232246dce6ed2feecfc9ba12353",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "395877d7_739163ce",
+        "filename": "plat/arm/css/sgi/sgi_ras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-31T10:57:48Z",
+      "side": 1,
+      "message": "violation of MISRA-C Rule 14.4",
+      "revId": "707f4e66f79ad232246dce6ed2feecfc9ba12353",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3342b045_124d97b4",
+        "filename": "plat/arm/css/sgi/sgi_ras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-31T10:57:48Z",
+      "side": 1,
+      "message": "align * with previous line",
+      "revId": "707f4e66f79ad232246dce6ed2feecfc9ba12353",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66159dbe_18dbb8a5",
+        "filename": "plat/arm/css/sgi/sgi_ras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-31T10:57:48Z",
+      "side": 1,
+      "message": "What is \"exsample\"?",
+      "revId": "707f4e66f79ad232246dce6ed2feecfc9ba12353",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "93f8cdf7_8fedbfbd",
         "filename": "plat/arm/css/sgi/sgi_ras.c",
         "patchSetId": 3
@@ -19,6 +138,57 @@
         "endLine": 161,
         "endChar": 17
       },
+      "revId": "707f4e66f79ad232246dce6ed2feecfc9ba12353",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ce3c476_c21882cd",
+        "filename": "plat/arm/css/sgi/sgi_ras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-31T10:57:48Z",
+      "side": 1,
+      "message": "RAS",
+      "revId": "707f4e66f79ad232246dce6ed2feecfc9ba12353",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b411fab6_f2b7d0db",
+        "filename": "plat/arm/css/sgi/sgi_ras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-31T10:57:48Z",
+      "side": 1,
+      "message": "SDEI",
+      "revId": "707f4e66f79ad232246dce6ed2feecfc9ba12353",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a928c8d_27d2a48e",
+        "filename": "plat/arm/css/sgi/sgi_ras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2020-12-31T10:57:48Z",
+      "side": 1,
+      "message": "This function will return 0 even when \"sdei_dispatch_event return failed\"",
       "revId": "707f4e66f79ad232246dce6ed2feecfc9ba12353",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
