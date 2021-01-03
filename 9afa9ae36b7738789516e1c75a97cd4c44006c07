@@ -16,6 +16,24 @@
       "revId": "9afa9ae36b7738789516e1c75a97cd4c44006c07",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56f4822d_225bd388",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_topology.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000435
+      },
+      "writtenOn": "2021-01-03T13:25:27Z",
+      "side": 1,
+      "message": "Yes, as it is based on the qemu (non sbsa-ref) version of this file so original ARM copyright is not invalidated.",
+      "parentUuid": "9181b0e0_19d261e1",
+      "revId": "9afa9ae36b7738789516e1c75a97cd4c44006c07",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
