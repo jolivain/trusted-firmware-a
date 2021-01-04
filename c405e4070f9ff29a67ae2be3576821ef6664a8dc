@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57ffb67d_ef8ae5ad",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2021-01-04T13:18:57Z",
+      "side": 1,
+      "message": "what about define a low power state ?",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 66,
+        "endChar": 68
+      },
+      "revId": "c405e4070f9ff29a67ae2be3576821ef6664a8dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "befdd960_9edd4781",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2021-01-04T13:18:57Z",
+      "side": 1,
+      "message": "#include \u003ccdefs.h\u003e\n#include \u003ccommon/debug.h\u003e\n\n#include \u003clib/mmio.h\u003e\n#include \u003clib/utils_def.h\u003e\n#include \u003cmt_mcdi.h\u003e",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 25
+      },
+      "revId": "c405e4070f9ff29a67ae2be3576821ef6664a8dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b295090_b425603b",
+        "filename": "plat/mediatek/mt8192/include/plat_mtk_lpm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2021-01-04T13:18:57Z",
+      "side": 1,
+      "message": "what about\nstruct {\n  uint32 idx;\n  uint32 wakeupsrc_cat;\n  uint32 wakeupsrc;\n} irq[MT_IRQ_REMAIN_MAX];",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 42
+      },
+      "revId": "c405e4070f9ff29a67ae2be3576821ef6664a8dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
