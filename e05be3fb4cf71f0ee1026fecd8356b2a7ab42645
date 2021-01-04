@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "15408404_0b5da712",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-04T14:44:46Z",
+      "side": 1,
+      "message": "This makes compilation faster and removes dummy entries from map file, which will be present otherwise.",
+      "parentUuid": "124349d1_aa7f8578",
+      "revId": "e05be3fb4cf71f0ee1026fecd8356b2a7ab42645",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7986a85_2de17aff",
         "filename": "lib/aarch64/misc_helpers.S",
         "patchSetId": 1
