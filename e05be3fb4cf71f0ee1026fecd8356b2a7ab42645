@@ -181,6 +181,30 @@
       "revId": "e05be3fb4cf71f0ee1026fecd8356b2a7ab42645",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8c57421_2d15c852",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-01-04T18:32:32Z",
+      "side": 1,
+      "message": "Thanks Olivier. That\u0027s a good point. Possible that the different compiler is the difference. I did not think that would be the case because relocation should be part of the ELF standard and did not think they would produce different relocation sections..",
+      "parentUuid": "e82bab51_6a994d7f",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 49
+      },
+      "revId": "e05be3fb4cf71f0ee1026fecd8356b2a7ab42645",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
