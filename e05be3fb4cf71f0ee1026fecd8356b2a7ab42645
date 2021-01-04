@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "47d64354_f43745fb",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-04T14:39:34Z",
+      "side": 1,
+      "message": "This definition is added for consistency, to show that this is valid entry, which is referenced on line #569 and should be ignored.",
+      "parentUuid": "a7986a85_2de17aff",
+      "revId": "e05be3fb4cf71f0ee1026fecd8356b2a7ab42645",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aefa8dfc_9c4db28a",
         "filename": "lib/aarch64/misc_helpers.S",
         "patchSetId": 1
