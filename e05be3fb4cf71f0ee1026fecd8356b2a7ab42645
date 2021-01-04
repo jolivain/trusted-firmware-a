@@ -157,6 +157,30 @@
       "revId": "e05be3fb4cf71f0ee1026fecd8356b2a7ab42645",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e82bab51_6a994d7f",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-01-04T17:59:45Z",
+      "side": 1,
+      "message": "Just two side notes:\n-Hafnium is built with clang whereas TF-A is using gcc by default (we can try building TF-A with clang). Not sure this really makes a difference though.\n-I noticed if ENABLE_PIE\u003d0 for BL31, readelf outputs a lot a errors when dumping bl31.elf (such as readelf: Error:  bad symbol index: 531c7c01 in reloc..). This is probably unrelated to current issue, but worth looking at it.",
+      "parentUuid": "4bfd21ae_57a76f56",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 49
+      },
+      "revId": "e05be3fb4cf71f0ee1026fecd8356b2a7ab42645",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
