@@ -325,6 +325,30 @@
       "revId": "e05be3fb4cf71f0ee1026fecd8356b2a7ab42645",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0386c308_21a75889",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-01-05T16:15:18Z",
+      "side": 1,
+      "message": "Ok let\u0027s leave this as further improvement if needed (if Raghu agrees).\nThis should not gate the current change.",
+      "parentUuid": "2179fcbc_4deb70c4",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 49
+      },
+      "revId": "e05be3fb4cf71f0ee1026fecd8356b2a7ab42645",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
