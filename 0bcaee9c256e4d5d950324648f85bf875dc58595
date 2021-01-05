@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53808625_599b325d",
+        "filename": "plat/allwinner/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-01-05T02:50:29Z",
+      "side": 1,
+      "message": "432 KiB, is that all??? 😄\n\nI would expect 128 KiB for the whole thing to be more than enough.",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b49c61f9_f5af5e81",
+        "filename": "plat/allwinner/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-01-05T02:50:29Z",
+      "side": 1,
+      "message": "I think you commented out the only user of this, and if there\u0027s no SRAM A2, there shouldn\u0027t be a SUNXI_SRAM_A2_BASE.",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f040a565_336167b9",
+        "filename": "plat/allwinner/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-01-05T02:50:29Z",
+      "side": 1,
+      "message": "There\u0027s no need for this hack here. I suggest moving SEPARATE_NOBITS_REGION to the per-platform Makefile.",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4766a4e5_88109869",
+        "filename": "plat/allwinner/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-01-05T02:50:29Z",
+      "side": 1,
+      "message": "You already have the right values in sunxi_mmap.h, so this shouldn\u0027t be needed here.",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "739f30c4_0bcc5cb5",
+        "filename": "plat/allwinner/sun50i_h616/include/sunxi_mmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-01-05T02:50:29Z",
+      "side": 1,
+      "message": "Please remove this until we find SRAM A2.",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3665393b_17f411c8",
+        "filename": "plat/allwinner/sun50i_h616/include/sunxi_mmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-01-05T02:50:29Z",
+      "side": 1,
+      "message": "What do you think about only including the devices we use, and sorting by address? I know I made this mess... but this is a mess.",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9f9e0d7_161006d7",
+        "filename": "plat/allwinner/sun50i_h616/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-01-05T02:50:29Z",
+      "side": 1,
+      "message": "Is AXP305 compatible with AXP805, or is this just to get it to compile? If there\u0027s U-Boot SPL support for AXP305, do we need a driver for it here at all?",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e41afe34_05168fba",
+        "filename": "plat/allwinner/sun50i_h616/sunxi_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-01-05T02:50:29Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we verify the chip ID before we start writing to it?",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
