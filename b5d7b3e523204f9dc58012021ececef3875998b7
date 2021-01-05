@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5eea81ab_93444b8a",
+        "filename": "plat/allwinner/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-01-05T02:16:59Z",
+      "side": 1,
+      "message": "SUNXI_BL31_IN_DRAM would be consistent with the other platforms.\n\nAnd why use an empty ifdef? Is it platform-specific, or do you plan to support it on A64/H6 as well? If the latter, you could add the values here.",
+      "revId": "b5d7b3e523204f9dc58012021ececef3875998b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
