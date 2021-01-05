@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "b6b3ded1_ebcadfb3",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-01-05T15:29:32Z",
+      "side": 1,
+      "message": "I dont think we want to go into definition of library here. All the functions here as helper utilities and the compilation for this file here doesn\u0027t need to worry what is included in the build. Depending on the config, and if the section is referenced, the section is included in binary. Thats a scalable approach and dont want to break that precedance just for this patch.\n\nThis will also help in the componentization of the TF-A build when each component is treated as separate entity when the build system is reworked and minimize interdependant configuration.",
+      "parentUuid": "95f909e6_11e6fbb1",
+      "revId": "e05be3fb4cf71f0ee1026fecd8356b2a7ab42645",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7986a85_2de17aff",
         "filename": "lib/aarch64/misc_helpers.S",
         "patchSetId": 1
