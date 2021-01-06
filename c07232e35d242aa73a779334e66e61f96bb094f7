@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae1a75a5_c107f85f",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
+        "patchSetId": 70
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-06T15:58:35Z",
+      "side": 1,
+      "message": "The body of this if statement should have braces (see the style guide: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies).",
+      "revId": "c07232e35d242aa73a779334e66e61f96bb094f7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "433557da_6aca0ca1",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
+        "patchSetId": 70
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-06T15:58:35Z",
+      "side": 1,
+      "message": "This breaks MISRA rules 10.1 and 14.4 - it should be:\nif (irqs \u003d\u003d NULL)\n\nThere are many other cases of this throughout the patch. Wherever an integer or pointer is used as a boolean, it needs to be compared to 0 (for an int), 0U (for an unsigned int) or NULL (for a pointer). This includes more complex statements, for example:\n\nunsigned int a, b, c, d;\n...\n(a \u0026 b) || (c \u0026 d)\n\n^ The \u0027\u0026\u0027 is bitwise, and produces an unsigned int, so this should be changed to:\n\n((a \u0026 b) !\u003d 0U) || ((c \u0026 d) !\u003d 0U)\n\nThere are a few cases like this in the patch.",
+      "range": {
+        "startLine": 115,
+        "startChar": 5,
+        "endLine": 115,
+        "endChar": 10
+      },
+      "revId": "c07232e35d242aa73a779334e66e61f96bb094f7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
