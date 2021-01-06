@@ -22,6 +22,29 @@
       "revId": "c1ab88961c9bb35121fcc5a577a465bb746e4e56",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a0c937b_a6907eed",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-01-06T17:41:20Z",
+      "side": 1,
+      "message": "Maybe a good idea to define this (and other constants) as a macro with a descriptive name.",
+      "range": {
+        "startLine": 73,
+        "startChar": 13,
+        "endLine": 73,
+        "endChar": 23
+      },
+      "revId": "c1ab88961c9bb35121fcc5a577a465bb746e4e56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
