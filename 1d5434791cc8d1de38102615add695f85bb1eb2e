@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c74c402_f0b93dbd",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl2_el3_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-06T07:54:59Z",
+      "side": 1,
+      "message": "It will be good if you add some comment mentioning how this clock rate is determined?",
+      "range": {
+        "startLine": 47,
+        "startChar": 19,
+        "endLine": 47,
+        "endChar": 27
+      },
+      "revId": "1d5434791cc8d1de38102615add695f85bb1eb2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6198ef48_b5f756b5",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl2_el3_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-06T07:54:59Z",
+      "side": 1,
+      "message": "nit: remove blank line.",
+      "revId": "1d5434791cc8d1de38102615add695f85bb1eb2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
