@@ -94,16 +94,15 @@ void emi_mpu_init(void)
 	/* Set permission */
 	struct emi_region_info_t region_info;
 
-	/* PCE-e protect address(TODO) */
-	region_info.start = 0x80000000ULL;
-	region_info.end = 0x83FF0000ULL;
+	/* PCI-e protect address(64MB) */
+	region_info.start = 0xC0000000ULL;
+	region_info.end = 0xC3FF0000ULL;
 	region_info.region = 1;
 	SET_ACCESS_PERMISSION(region_info.apc, 1,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
-			      FORBIDDEN, FORBIDDEN, NO_PROT,
-			      NO_PROT /*FORBIDDEN*/);
+			      FORBIDDEN, FORBIDDEN, NO_PROT, FORBIDDEN);
 	emi_mpu_set_protection(&region_info);
 
 	/* Forbidden All */
