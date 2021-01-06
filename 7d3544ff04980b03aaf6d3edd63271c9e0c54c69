@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1aa85cc8_40b8b80d",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-01-06T21:29:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5a7138f3_52875c20",
+      "range": {
+        "startLine": 212,
+        "startChar": 4,
+        "endLine": 212,
+        "endChar": 8
+      },
+      "revId": "7d3544ff04980b03aaf6d3edd63271c9e0c54c69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3c993bf_98eee6e5",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2021-01-06T18:55:50Z",
       "side": 1,
       "message": "I may have misunderstood, is \u0027SPCI\u0027 a shortening of \u0027SMCCC PCI\u0027?\nIf so, it causes an abbreviation-collision with Secure Partition Client Interface (SPCI). This could be confusing.",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 12
+      },
+      "revId": "7d3544ff04980b03aaf6d3edd63271c9e0c54c69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61849091_11c4a58b",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-01-06T21:29:51Z",
+      "side": 1,
+      "message": "Yes, that is the idea. Although I don\u0027t see the use of that particular acronym in the code base yet 😊 I might suggest that \"PCI\" is a pretty common existing acronym, and rather SPARTITION_SUPPORT or similar gets used for the partition feature, since the \"client interface\" bits are somewhat redundant anyway. I changed it to SMC_PCI_SUPPORT",
+      "parentUuid": "f3c993bf_98eee6e5",
       "range": {
         "startLine": 213,
         "startChar": 0,
