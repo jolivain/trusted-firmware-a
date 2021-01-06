@@ -47,6 +47,30 @@
       "revId": "93cd1d9b6dc909b9fbf4334236219d7442bf3b24",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e04a0453_c28c3691",
+        "filename": "include/common/tbbr/tbbr_img_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-06T17:23:09Z",
+      "side": 1,
+      "message": "With CONFIG_DDR_FIP_IMAGE defined, platform specific images starts from MAX_IMAGE_IDS. Below is the code snippet from \u0027plat_tbbr_img_def.h\u0027 file.\n\n 13 #ifdef CONFIG_DDR_FIP_IMAGE\n 14 /* DDR FIP IMAGE ID */\n 15 #define DDR_FIP_IMAGE_ID                MAX_IMAGE_IDS\n 16 \n 17 #define DDR_IMEM_UDIMM_1D_IMAGE_ID      MAX_IMAGE_IDS + 1\n 18 #define DDR_IMEM_UDIMM_2D_IMAGE_ID      MAX_IMAGE_IDS + 2\n\nHence DDR_FIP_IMAGE_ID and SIP_SP_CONTENT_CERT_ID incorrectly point to the image id when CONFIG_DDR_FIP_IMAGE and SPD_spmd are defined.",
+      "parentUuid": "1b4aafec_77c05aa5",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "93cd1d9b6dc909b9fbf4334236219d7442bf3b24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
