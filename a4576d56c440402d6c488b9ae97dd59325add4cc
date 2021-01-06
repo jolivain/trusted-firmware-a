@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fdc90eca_48cd903a",
+        "filename": "plat/nxp/soc-lx2160/lx2160aqds/ddr_init.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-06T16:55:01Z",
+      "side": 1,
+      "message": "This breaks MISRA rules 10.1, 14.4 - this should be:\nif (wrm_bt_flg !\u003d 0U) {\nThe same for other cases in this patch",
+      "range": {
+        "startLine": 335,
+        "startChar": 5,
+        "endLine": 335,
+        "endChar": 15
+      },
+      "revId": "a4576d56c440402d6c488b9ae97dd59325add4cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2778470_64f11c42",
+        "filename": "plat/nxp/soc-lx2160/lx2160aqds/ddr_init.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-06T16:55:01Z",
+      "side": 1,
+      "message": "This if statement should have braces - see the style guide: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "a4576d56c440402d6c488b9ae97dd59325add4cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
