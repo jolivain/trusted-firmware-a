@@ -93,6 +93,30 @@
       "revId": "7d3544ff04980b03aaf6d3edd63271c9e0c54c69",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "521f6209_c278a5a6",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-07T11:34:08Z",
+      "side": 1,
+      "message": "There are far too many acronyms in this world - I think we should start campaigning to have extra letters added to the English alphabet.\n\n2 small things:\n1. Could you also change the comment, for completeness? (line 17)\n2. You removed the \u0027#if SPCI_SUPPORT\u0027 section and didn\u0027t replace it - was that intentional?\n\nOtherwise, looks good!",
+      "parentUuid": "61849091_11c4a58b",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 12
+      },
+      "revId": "7d3544ff04980b03aaf6d3edd63271c9e0c54c69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
