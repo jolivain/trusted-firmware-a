@@ -1,0 +1,378 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7d5af3c_12d534fc",
+        "filename": "include/export/drivers/gpio_exp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "Can you change it to GPIO_EXP_H?",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73dd7134_06c5e20b",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#comments",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9339d1ff_079520bb",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "Is usage of bitfields really necessary? Can uint32_t be used instead?",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58f30cb7_ef88fcbc",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "Start with capital and see\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#comments",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2518764f_b697d6f4",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "remove trailing \",\"",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe3537a5_265b37b0",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "Start comment with capital letter",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a715472d_43c37ea2",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "Why return type was changed from int to uint32_t?",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a15cb373_a1df6fbc",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "5U",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "035cb5a9_dfc763d5",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "1U,\n0U\nuse extra ()",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66b0768d_91aa7650",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "Start comment with capital letter",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96611e45_1a7bb5a7",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "5U",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a938d053_5e8a3f54",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "use extra ()",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaea8434_5233f2ad",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "5U",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6d74a3d_6fd4aed4",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "add extra line after assert",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba18b8d9_923db4e6",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "direction is int, not boolean",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb638989_32db697a",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "5U, 32U",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79572bd6_5a77e87a",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "direction is not boolean",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54765102_7a865e74",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "1U",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d7c4e63_b7efa033",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "use extra () and U",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa3490bd_6a7df8cf",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "U",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a3c151f_5dced6ce",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "value is not boolean",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60b6682e_e2f55b76",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-07T11:09:56Z",
+      "side": 1,
+      "message": "unsigned int i;",
+      "revId": "4d36d786c882d86b5afd6bdd7e7b00a40e83b683",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
