@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7af3b25_ceac5626",
+        "filename": "plat/nxp/soc-lx2160/lx2162aqds/ddr_init.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-01-07T20:17:34Z",
+      "side": 1,
+      "message": "Violation of Misra 7.2, should be: \n\n.cs[0].bnds \u003d 0x03FFU,\n\nin all these designations initializing this kind of struct: static_3200, static_2900, static_2600 for all fields.",
+      "range": {
+        "startLine": 27,
+        "startChar": 15,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "ef86241f820c4a0ff4a405de7879684e01ba3322",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7630dea0_76f493f9",
+        "filename": "plat/nxp/soc-lx2160/lx2162aqds/ddr_init.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-01-07T20:17:34Z",
+      "side": 1,
+      "message": "Same here 7.2",
+      "range": {
+        "startLine": 78,
+        "startChar": 15,
+        "endLine": 78,
+        "endChar": 21
+      },
+      "revId": "ef86241f820c4a0ff4a405de7879684e01ba3322",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed4abc4b_1d2ead5f",
+        "filename": "plat/nxp/soc-lx2160/lx2162aqds/ddr_init.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-01-07T20:17:34Z",
+      "side": 1,
+      "message": "Same here 7.2",
+      "range": {
+        "startLine": 129,
+        "startChar": 15,
+        "endLine": 129,
+        "endChar": 21
+      },
+      "revId": "ef86241f820c4a0ff4a405de7879684e01ba3322",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9a25f6b_2169854c",
+        "filename": "plat/nxp/soc-lx2160/lx2162aqds/ddr_init.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-01-07T20:17:34Z",
+      "side": 1,
+      "message": "should this be unsigned? considering the return value below",
+      "range": {
+        "startLine": 189,
+        "startChar": 9,
+        "endLine": 189,
+        "endChar": 11
+      },
+      "revId": "ef86241f820c4a0ff4a405de7879684e01ba3322",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2032dd24_d539210a",
+        "filename": "plat/nxp/soc-lx2160/lx2162aqds/ddr_init.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-01-07T20:17:34Z",
+      "side": 1,
+      "message": "Violation of 7.2.  Should be 0x5U.  Please correct all unsigned fields in this declaration.",
+      "range": {
+        "startLine": 212,
+        "startChar": 16,
+        "endLine": 212,
+        "endChar": 19
+      },
+      "revId": "ef86241f820c4a0ff4a405de7879684e01ba3322",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d41d423e_22c82c9c",
+        "filename": "plat/nxp/soc-lx2160/lx2162aqds/ddr_init.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-01-07T20:17:34Z",
+      "side": 1,
+      "message": "Violation of 7.2.  Please check other fields in this struct",
+      "range": {
+        "startLine": 259,
+        "startChar": 20,
+        "endLine": 259,
+        "endChar": 24
+      },
+      "revId": "ef86241f820c4a0ff4a405de7879684e01ba3322",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a257045c_1fcf87b0",
+        "filename": "plat/nxp/soc-lx2160/lx2162aqds/ddr_init.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-01-07T20:17:34Z",
+      "side": 1,
+      "message": "Violation of Misra 14.4.  Should be info.clk\u003d\u003d0",
+      "range": {
+        "startLine": 328,
+        "startChar": 6,
+        "endLine": 328,
+        "endChar": 14
+      },
+      "revId": "ef86241f820c4a0ff4a405de7879684e01ba3322",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c99907c_84841640",
+        "filename": "plat/nxp/soc-lx2160/lx2162aqds/ddr_init.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-01-07T20:17:34Z",
+      "side": 1,
+      "message": "Violation of 14.4.  Should be wrm_bt_flg !\u003d 0",
+      "range": {
+        "startLine": 334,
+        "startChar": 5,
+        "endLine": 334,
+        "endChar": 15
+      },
+      "revId": "ef86241f820c4a0ff4a405de7879684e01ba3322",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
