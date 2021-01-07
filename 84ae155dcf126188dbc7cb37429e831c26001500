@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0aa71edc_66d7aa6c",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-07T12:50:33Z",
+      "side": 1,
+      "message": "MISRA rules 10.1 and 14.4 - this should be:\nif (pci_read_config(...) !\u003d 0U)",
+      "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35babdbc_ce12608f",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-07T12:50:33Z",
+      "side": 1,
+      "message": "MISRA rule 10.1 - this needs to be:\nif ((x2 !\u003d 0U) || (x3 !\u003d 0U) || (x4 !\u003d 0U)) {\nas the operands of the \u0027||\u0027 must have essentially boolean type.",
+      "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f776b930_12ece149",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-07T12:50:33Z",
+      "side": 1,
+      "message": "style nit: the \u0027\u003d\u003d\u0027 should be surrounded by spaces - see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#spacing",
+      "range": {
+        "startLine": 198,
+        "startChar": 8,
+        "endLine": 198,
+        "endChar": 10
+      },
+      "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
