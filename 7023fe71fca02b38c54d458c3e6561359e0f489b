@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acbef4e4_a4398be0",
+        "filename": "plat/nxp/common/setup/common.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-07T22:58:35Z",
+      "side": 1,
+      "message": "Could you remove this?",
+      "revId": "7023fe71fca02b38c54d458c3e6561359e0f489b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62841e56_6957e61b",
+        "filename": "plat/nxp/common/setup/ls_bl2_el3_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-07T22:58:35Z",
+      "side": 1,
+      "message": "Could you add braces around the body of this if statement?",
+      "revId": "7023fe71fca02b38c54d458c3e6561359e0f489b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0409f91_4ca14491",
+        "filename": "plat/nxp/common/setup/ls_bl2_el3_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-07T22:58:35Z",
+      "side": 1,
+      "message": "Could you add braces around this if body as well?",
+      "revId": "7023fe71fca02b38c54d458c3e6561359e0f489b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bd9319a_4d109ab9",
+        "filename": "plat/nxp/common/setup/ls_bl2_el3_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-07T22:58:35Z",
+      "side": 1,
+      "message": "assert(false)",
+      "revId": "7023fe71fca02b38c54d458c3e6561359e0f489b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cba13810_2b9c2c00",
+        "filename": "plat/nxp/common/setup/ls_bl31_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-07T22:58:35Z",
+      "side": 1,
+      "message": "This if and its else could use some braces.",
+      "revId": "7023fe71fca02b38c54d458c3e6561359e0f489b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48b1389b_d6801c8e",
+        "filename": "plat/nxp/common/setup/ls_bl31_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-07T22:58:35Z",
+      "side": 1,
+      "message": "while (bl_params !\u003d NULL)",
+      "revId": "7023fe71fca02b38c54d458c3e6561359e0f489b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbe596aa_23405fd7",
+        "filename": "plat/nxp/common/setup/ls_bl31_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-07T22:58:35Z",
+      "side": 1,
+      "message": "Could you add braces to this if as well?",
+      "revId": "7023fe71fca02b38c54d458c3e6561359e0f489b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a86b984_8ea77efa",
+        "filename": "plat/nxp/common/setup/ls_err.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-07T22:58:35Z",
+      "side": 1,
+      "message": "Braces here too please.",
+      "revId": "7023fe71fca02b38c54d458c3e6561359e0f489b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be36c844_374a3ef7",
+        "filename": "plat/nxp/common/setup/ls_interrupt_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-07T22:58:35Z",
+      "side": 1,
+      "message": "Braces here and on the next if",
+      "revId": "7023fe71fca02b38c54d458c3e6561359e0f489b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e33d7f8_1f98fcab",
+        "filename": "plat/nxp/common/setup/ls_interrupt_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-07T22:58:35Z",
+      "side": 1,
+      "message": "More braces.",
+      "revId": "7023fe71fca02b38c54d458c3e6561359e0f489b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "786ef0c9_7f2413c5",
+        "filename": "plat/nxp/common/setup/ls_io_storage.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-07T22:58:35Z",
+      "side": 1,
+      "message": "Braces please.",
+      "revId": "7023fe71fca02b38c54d458c3e6561359e0f489b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06fc2d25_91d1112c",
+        "filename": "plat/nxp/common/setup/ls_io_storage.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-07T22:58:35Z",
+      "side": 1,
+      "message": "if (ret !\u003d 0)",
+      "revId": "7023fe71fca02b38c54d458c3e6561359e0f489b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e84cbdd_332c9dce",
+        "filename": "plat/nxp/common/setup/ls_io_storage.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-07T22:58:35Z",
+      "side": 1,
+      "message": "if (ret !\u003d 0) and then surround the body with braces",
+      "revId": "7023fe71fca02b38c54d458c3e6561359e0f489b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1de30480_5654fc25",
+        "filename": "plat/nxp/common/setup/ls_io_storage.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-07T22:58:35Z",
+      "side": 1,
+      "message": "if (ret !\u003d 0) and then surround the body with braces again",
+      "revId": "7023fe71fca02b38c54d458c3e6561359e0f489b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
