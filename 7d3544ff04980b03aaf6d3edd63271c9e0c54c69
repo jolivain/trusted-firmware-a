@@ -117,6 +117,30 @@
       "revId": "7d3544ff04980b03aaf6d3edd63271c9e0c54c69",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "567d6090_44198425",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-01-07T17:13:19Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand #1, that lines is something about aarch32 secure payloads?\n#2, yes I removed them because there was a bug caused by a last minute change of heart about whether to always enable SMC_PCI_SUPPORT on the rpi4. When it was disabled the definitions were missing. So to avoid other platforms working around similar issues I just removed the ifdef around the definitions.\n\nI\u0027ve also got to update the copyrights which got lost before I pushed this branch, per one of John\u0027s review comments.",
+      "parentUuid": "521f6209_c278a5a6",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 12
+      },
+      "revId": "7d3544ff04980b03aaf6d3edd63271c9e0c54c69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
