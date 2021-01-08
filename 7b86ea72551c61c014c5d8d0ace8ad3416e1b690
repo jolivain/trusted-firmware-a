@@ -966,6 +966,24 @@
     },
     {
       "key": {
+        "uuid": "3d4e248b_7ae30016",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 1669,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2021-01-08T21:04:21Z",
+      "side": 1,
+      "message": "That is not the case. please see below for eg:- tmp[0], tmp[1]\n\n\t/* DBTR16 */\n\t/* WDQL : tphy_wrlat + tphy_wrdata */\n\ttmp[0] \u003d ddrtbl_getval(_cnf_DDR_PI_REGSET, _reg_PI_WRLAT_F1);\n\t/* DQENLTNCY : tphy_wrlat \u003d WL-2 : PHY_WRITE_PATH_LAT_ADD \u003d\u003d 0\n\t *             tphy_wrlat \u003d WL-3 : PHY_WRITE_PATH_LAT_ADD !\u003d 0\n\t */\n\ttmp[1] \u003d ddrtbl_getval(_cnf_DDR_PI_REGSET, _reg_PI_WRLAT_ADJ_F1);\n\t/* DQL : tphy_rdlat + trdata_en */\n\t/* it is not important for dbsc */\n\ttmp[2] \u003d RL + 16U;\n\t/* DQIENLTNCY : trdata_en */\n\ttmp[3] \u003d ddrtbl_getval(_cnf_DDR_PI_REGSET, _reg_PI_RDLAT_ADJ_F1) - 1U;\n\tmmio_write_32(DBSC_DBTR(16),\n\t\t      (tmp[3] \u003c\u003c 24) | (tmp[2] \u003c\u003c 16) | (tmp[1] \u003c\u003c 8) | tmp[0]);\n\n\t/* DBTR24 */\n\t/* WRCSLAT \u003d WRLAT -5 */\n\ttmp[0] -\u003d 5U;\n\t/* WRCSGAP \u003d 5 */\n\ttmp[1] \u003d 5U;",
+      "parentUuid": "ea4a23d7_94095160",
+      "revId": "7b86ea72551c61c014c5d8d0ace8ad3416e1b690",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6227a859_1ec7a4cf",
         "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
         "patchSetId": 9
