@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46e6b583_5ba46c5e",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-08T13:45:39Z",
+      "side": 1,
+      "message": "AMU_GROUP1_COUNTERS_MASK defines which group 1 registers can be used in TF-A. Not applying this mask will mean that the code will save/restore virtual offsets for the masked registers which are not supposed to be used and weren\u0027t saved/restored. Is it correct?",
+      "revId": "263ea1a23202e7aa3bf0a6bfcfecb177b56bd617",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
