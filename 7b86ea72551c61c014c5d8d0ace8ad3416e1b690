@@ -1002,6 +1002,24 @@
     },
     {
       "key": {
+        "uuid": "d73ea06c_759ade4c",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 1669,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T21:14:08Z",
+      "side": 1,
+      "message": "To clarify, I\u0027m suggesting that tmp[0] could be an indepnedent variable named wdql for eample, and tmp[1] could be replaced with dqenltncy etc.",
+      "parentUuid": "037b0765_0a8cde81",
+      "revId": "7b86ea72551c61c014c5d8d0ace8ad3416e1b690",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6227a859_1ec7a4cf",
         "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
         "patchSetId": 9
