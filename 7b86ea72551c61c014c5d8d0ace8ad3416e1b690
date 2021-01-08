@@ -1161,6 +1161,24 @@
     },
     {
       "key": {
+        "uuid": "8f32df41_6927cfe2",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 1831,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2021-01-08T21:39:20Z",
+      "side": 1,
+      "message": "Agreed, will change it as.\n\ntmp[2] \u003d (uint32_t) (1UL * ((16U / 2U) + js2[js2_trtp] - 8U +                             \n                    js2[js2_trppb]) * 800U * ddr_mbpsdiv / ddr_mbps);",
+      "parentUuid": "b52a1e3b_2ad93bce",
+      "revId": "7b86ea72551c61c014c5d8d0ace8ad3416e1b690",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6904185f_693dc4a6",
         "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
         "patchSetId": 9
