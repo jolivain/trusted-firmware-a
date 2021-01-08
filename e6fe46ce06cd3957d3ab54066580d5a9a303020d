@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ee71d78_0be569a3",
+        "filename": "drivers/nxp/console/16550_console.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T22:17:55Z",
+      "side": 1,
+      "message": "This should say:\n\n    * Copyright (c) 2021, ...",
+      "revId": "e6fe46ce06cd3957d3ab54066580d5a9a303020d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22317e78_4b6e7c68",
+        "filename": "drivers/nxp/console/16550_console.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T22:17:55Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure you could also write this as:\n\n    mov   w2, #\u0027\\r\u0027\n\nWhich would make the comment redundant.",
+      "revId": "e6fe46ce06cd3957d3ab54066580d5a9a303020d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39fd1ac3_dcb26943",
+        "filename": "drivers/nxp/console/console.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T22:17:55Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "e6fe46ce06cd3957d3ab54066580d5a9a303020d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81abd083_c2ced5ca",
+        "filename": "drivers/nxp/console/console_16550.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T22:17:55Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "e6fe46ce06cd3957d3ab54066580d5a9a303020d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "166baeab_c79338eb",
+        "filename": "drivers/nxp/console/console_pl011.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T22:17:55Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "e6fe46ce06cd3957d3ab54066580d5a9a303020d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83a1099d_74b1f670",
+        "filename": "drivers/nxp/console/plat_console.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T22:17:55Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "e6fe46ce06cd3957d3ab54066580d5a9a303020d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
