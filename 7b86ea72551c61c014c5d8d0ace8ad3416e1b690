@@ -861,6 +861,24 @@
     },
     {
       "key": {
+        "uuid": "6473bf2e_c6421cc0",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 1564,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2021-01-08T18:37:27Z",
+      "side": 1,
+      "message": "It is inline function. I will move ( to prior line.",
+      "parentUuid": "d02e87d8_420375f1",
+      "revId": "7b86ea72551c61c014c5d8d0ace8ad3416e1b690",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f372f63a_8c53f272",
         "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
         "patchSetId": 9
