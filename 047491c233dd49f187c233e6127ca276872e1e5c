@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcadca37_6a442b58",
+        "filename": "plat/nxp/common/setup/ls_bl2_el3_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T16:27:58Z",
+      "side": 1,
+      "message": "This if could use some braces as well.",
+      "revId": "047491c233dd49f187c233e6127ca276872e1e5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1faf1e0f_15eef116",
+        "filename": "plat/nxp/common/setup/ls_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T16:27:58Z",
+      "side": 1,
+      "message": "if (next_image_info-\u003epc !\u003d 0)",
+      "revId": "047491c233dd49f187c233e6127ca276872e1e5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "229dd842_41f3e392",
+        "filename": "plat/nxp/common/setup/ls_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T16:27:58Z",
+      "side": 1,
+      "message": "I think the rest of the file indents the body of an assignment with a tab. Could this space be a tab instead?",
+      "range": {
+        "startLine": 123,
+        "startChar": 3,
+        "endLine": 123,
+        "endChar": 4
+      },
+      "revId": "047491c233dd49f187c233e6127ca276872e1e5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68408fd7_d8ebeaed",
+        "filename": "plat/nxp/common/setup/ls_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T16:27:58Z",
+      "side": 1,
+      "message": "Braces here.",
+      "revId": "047491c233dd49f187c233e6127ca276872e1e5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ef3bed6_c38c4864",
+        "filename": "plat/nxp/common/setup/ls_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T16:27:58Z",
+      "side": 1,
+      "message": "Braces here too.",
+      "revId": "047491c233dd49f187c233e6127ca276872e1e5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00cecad9_161e33a2",
+        "filename": "plat/nxp/common/setup/ls_common.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T16:27:58Z",
+      "side": 1,
+      "message": "Braces here please.",
+      "revId": "047491c233dd49f187c233e6127ca276872e1e5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a169e2e_30abac77",
+        "filename": "plat/nxp/common/setup/ls_interrupt_mgmt.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T16:27:58Z",
+      "side": 1,
+      "message": "Is this a boolean? I think it\u0027s probably an integer, so could you add a !\u003d 0?",
+      "revId": "047491c233dd49f187c233e6127ca276872e1e5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6e63891_4c60020e",
+        "filename": "plat/nxp/common/setup/ls_io_storage.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-08T16:27:58Z",
+      "side": 1,
+      "message": "Missing braces here too.",
+      "revId": "047491c233dd49f187c233e6127ca276872e1e5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
