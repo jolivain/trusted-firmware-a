@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a60249c0_e455573b",
+        "filename": "plat/nxp/common/fip_handler/fuse_fip/fuse_io_storage.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-01-08T22:09:19Z",
+      "side": 1,
+      "message": "if (ret\u003e0)",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 12
+      },
+      "revId": "0869f24a604f6103167bf3edbcfcbb7ea9c03567",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa0f7d31_22a077d9",
+        "filename": "plat/nxp/common/fip_handler/fuse_fip/fuse_io_storage.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-01-08T22:09:19Z",
+      "side": 1,
+      "message": "if(memcmp... \u003e 0)",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 177,
+        "endChar": 55
+      },
+      "revId": "0869f24a604f6103167bf3edbcfcbb7ea9c03567",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "306b69ae_1be5d013",
+        "filename": "plat/nxp/common/fip_handler/fuse_fip/fuse_io_storage.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-01-08T22:09:19Z",
+      "side": 1,
+      "message": "if(fuse_hdr... \u003e 0)",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 52
+      },
+      "revId": "0869f24a604f6103167bf3edbcfcbb7ea9c03567",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
