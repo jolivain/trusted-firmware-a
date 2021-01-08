@@ -1197,6 +1197,24 @@
     },
     {
       "key": {
+        "uuid": "1f6d7df9_0ad604d1",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 1831,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2021-01-08T21:56:40Z",
+      "side": 1,
+      "message": "(U * U * U )/U --\u003e there is a chance of overflow in numerator value.\n\n  if we make (1UL * U) * U * U * U/U  it is promoted to UL there won\u0027t be any over flow. since tmp is uint32_t, we need to cast it to uint32_t. I thought you are referring to this.\nplease correct me, if it is not the case.\n\nwe also could use 800UL and get rid of 1UL.",
+      "parentUuid": "f369a816_9066e890",
+      "revId": "7b86ea72551c61c014c5d8d0ace8ad3416e1b690",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6904185f_693dc4a6",
         "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
         "patchSetId": 9
