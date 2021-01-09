@@ -2162,6 +2162,24 @@
     },
     {
       "key": {
+        "uuid": "9b46cd32_f44a5677",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 2845,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2021-01-09T12:02:09Z",
+      "side": 1,
+      "message": "if you see the err_exit path(L2871), err_flg is used.\nthe resultant err have (err |\u003d err_flg) when this macro enabled.",
+      "parentUuid": "f55c6d47_8bff2de0",
+      "revId": "7b86ea72551c61c014c5d8d0ace8ad3416e1b690",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0884af85_634ea212",
         "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
         "patchSetId": 9
@@ -2367,6 +2385,24 @@
       "side": 1,
       "message": "OK",
       "parentUuid": "9e827ce3_c6ebcff6",
+      "revId": "7b86ea72551c61c014c5d8d0ace8ad3416e1b690",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d099eeb1_536aa3ae",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 2900,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2021-01-09T12:02:09Z",
+      "side": 1,
+      "message": "It is used in the error path, see line 2871.",
+      "parentUuid": "d5e0be6f_78e0f66d",
       "revId": "7b86ea72551c61c014c5d8d0ace8ad3416e1b690",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
