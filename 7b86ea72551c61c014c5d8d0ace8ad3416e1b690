@@ -1391,6 +1391,24 @@
     },
     {
       "key": {
+        "uuid": "7db5a5b0_e10d45ff",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 2046,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2021-01-09T09:35:43Z",
+      "side": 1,
+      "message": "The values are different. Need to use another stack variable to move out side of \n0x0A040001U (half channel) vs 0x0A840001U (all channel)",
+      "parentUuid": "a526050c_8ff37f7d",
+      "revId": "7b86ea72551c61c014c5d8d0ace8ad3416e1b690",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7e06e04_0c37b8bc",
         "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
         "patchSetId": 9
