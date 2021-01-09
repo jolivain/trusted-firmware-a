@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "538261b5_536e8658",
+        "filename": "drivers/nxp/gic/gic.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-01-09T00:03:35Z",
+      "side": 1,
+      "message": "nit: 2021",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 22
+      },
+      "revId": "2df7a411b226cd98a6d5984dc6f5d6fbead27e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93121a64_b2822675",
+        "filename": "drivers/nxp/gic/include/gicv2/plat_gic.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-01-09T00:03:35Z",
+      "side": 1,
+      "message": "nit: remove empty line",
+      "revId": "2df7a411b226cd98a6d5984dc6f5d6fbead27e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2e7a8ba_fdb9a602",
+        "filename": "drivers/nxp/gic/include/gicv2/plat_gic.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-01-09T00:03:35Z",
+      "side": 1,
+      "message": "nit: 2021",
+      "range": {
+        "startLine": 3,
+        "startChar": 13,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "2df7a411b226cd98a6d5984dc6f5d6fbead27e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3b7c274_26fbe211",
+        "filename": "drivers/nxp/gic/include/gicv2/plat_gic.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-01-09T00:03:35Z",
+      "side": 1,
+      "message": "Please follow the naming convention for header guards here: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 9,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "2df7a411b226cd98a6d5984dc6f5d6fbead27e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "911de0ae_7627f5f4",
+        "filename": "drivers/nxp/gic/include/gicv3/plat_gic.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-01-09T00:03:35Z",
+      "side": 1,
+      "message": "nit: empty space",
+      "revId": "2df7a411b226cd98a6d5984dc6f5d6fbead27e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6d93e5d_660a4ef8",
+        "filename": "drivers/nxp/gic/include/gicv3/plat_gic.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-01-09T00:03:35Z",
+      "side": 1,
+      "message": "nit: 2021",
+      "range": {
+        "startLine": 3,
+        "startChar": 18,
+        "endLine": 3,
+        "endChar": 23
+      },
+      "revId": "2df7a411b226cd98a6d5984dc6f5d6fbead27e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a4024ac_a94d1f30",
+        "filename": "drivers/nxp/gic/include/gicv3/plat_gic.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-01-09T00:03:35Z",
+      "side": 1,
+      "message": "See https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards",
+      "range": {
+        "startLine": 9,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "2df7a411b226cd98a6d5984dc6f5d6fbead27e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1989295_a407b904",
+        "filename": "drivers/nxp/gic/ls_gicv2.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-01-09T00:03:35Z",
+      "side": 1,
+      "message": "nit: 2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 18
+      },
+      "revId": "2df7a411b226cd98a6d5984dc6f5d6fbead27e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ef35623_cefa8fd4",
+        "filename": "drivers/nxp/gic/ls_gicv3.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-01-09T00:03:35Z",
+      "side": 1,
+      "message": "nit: 2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 18,
+        "endLine": 2,
+        "endChar": 23
+      },
+      "revId": "2df7a411b226cd98a6d5984dc6f5d6fbead27e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
