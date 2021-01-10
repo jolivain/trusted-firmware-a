@@ -30,6 +30,19 @@ MORELLO_GIC_SOURCES	:=	${GICV3_SOURCES}			\
 PLAT_BL_COMMON_SOURCES	:=	${MORELLO_BASE}/morello_plat.c		\
 				${MORELLO_BASE}/aarch64/morello_helper.S
 
+BL1_SOURCES		:=	${MORELLO_CPU_SOURCES}			\
+				${INTERCONNECT_SOURCES}			\
+				${MORELLO_BASE}/morello_err.c		\
+				${MORELLO_BASE}/morello_trusted_boot.c	\
+				${MORELLO_BASE}/morello_bl1_setup.c	\
+				drivers/arm/sbsa/sbsa.c
+
+BL2_SOURCES		:=	${MORELLO_BASE}/morello_security.c	\
+				${MORELLO_BASE}/morello_err.c		\
+				${MORELLO_BASE}/morello_trusted_boot.c	\
+				lib/utils/mem_region.c			\
+				${MORELLO_BASE}/morello_bl2_setup.c
+
 BL31_SOURCES		:=	${MORELLO_CPU_SOURCES}			\
 				${INTERCONNECT_SOURCES}			\
 				${MORELLO_GIC_SOURCES}			\
@@ -38,18 +51,22 @@ BL31_SOURCES		:=	${MORELLO_CPU_SOURCES}			\
 				${MORELLO_BASE}/morello_security.c	\
 				drivers/arm/css/sds/sds.c
 
-FDT_SOURCES		+=	fdts/morello-${TARGET_PLATFORM}.dts
+FDT_SOURCES		+=	fdts/morello-${TARGET_PLATFORM}.dts		\
+				${MORELLO_BASE}/fdts/morello_fw_config.dts	\
+				${MORELLO_BASE}/fdts/morello_tb_fw_config.dts	\
+
+FW_CONFIG		:=	${BUILD_PLAT}/fdts/morello_fw_config.dtb
+TB_FW_CONFIG		:=	${BUILD_PLAT}/fdts/morello_tb_fw_config.dtb
+
+# Add the FW_CONFIG to FIP and specify the same to certtool
+$(eval $(call TOOL_ADD_PAYLOAD,${FW_CONFIG},--fw-config,${FW_CONFIG}))
+# Add the TB_FW_CONFIG to FIP and specify the same to certtool
+$(eval $(call TOOL_ADD_PAYLOAD,${TB_FW_CONFIG},--tb-fw-config,${TB_FW_CONFIG}))
 
 # TF-A not required to load the SCP Images
 override CSS_LOAD_SCP_IMAGES		:=	0
 
-# BL1/BL2 Image not a part of the capsule Image for morello
-override NEED_BL1			:=	no
-override NEED_BL2			:=	no
 override NEED_BL2U			:=	no
-
-#TF-A for morello starts from BL31
-override RESET_TO_BL31			:=	1
 
 # 32 bit mode not supported
 override CTX_INCLUDE_AARCH32_REGS	:=	0
