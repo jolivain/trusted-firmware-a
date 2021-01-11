@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e3276ef_b168e6cc",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T15:10:36Z",
+      "side": 1,
+      "message": "val is returned; this statement can be removed.",
+      "revId": "19ad341cebde65035617f0dfcabab0cb3ff3d4e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b1fe955_5f0ead3b",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T15:10:36Z",
+      "side": 1,
+      "message": "It looks like this ( should be moved to the prior line.",
+      "revId": "19ad341cebde65035617f0dfcabab0cb3ff3d4e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "570b48fa_3176daed",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T15:10:36Z",
+      "side": 1,
+      "message": "This ( should be moved too.",
+      "revId": "19ad341cebde65035617f0dfcabab0cb3ff3d4e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e0cf0f7_327a2934",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T15:10:36Z",
+      "side": 1,
+      "message": "this ( too.",
+      "revId": "19ad341cebde65035617f0dfcabab0cb3ff3d4e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25372102_9b4c3ebf",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T15:10:36Z",
+      "side": 1,
+      "message": "This indentation still looks off to me, and the [ should be on the prior line.",
+      "revId": "19ad341cebde65035617f0dfcabab0cb3ff3d4e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b091e94c_a17b15e4",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T15:10:36Z",
+      "side": 1,
+      "message": "This ( should be moved to the prior line.",
+      "revId": "19ad341cebde65035617f0dfcabab0cb3ff3d4e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5b64eca_c8e76365",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1361,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T15:10:36Z",
+      "side": 1,
+      "message": "This could use a !\u003d 0.",
+      "revId": "19ad341cebde65035617f0dfcabab0cb3ff3d4e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85453626_5180c685",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 3132,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T15:10:36Z",
+      "side": 1,
+      "message": "if (err !\u003d 0)",
+      "revId": "19ad341cebde65035617f0dfcabab0cb3ff3d4e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3cd19d1_c0727dc7",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 3144,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T15:10:36Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "19ad341cebde65035617f0dfcabab0cb3ff3d4e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a234f622_9b019847",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 3293,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T15:10:36Z",
+      "side": 1,
+      "message": "if ((tmp \u0026 (1U \u003c\u003c index) !\u003d 0)",
+      "revId": "19ad341cebde65035617f0dfcabab0cb3ff3d4e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7e1f70f_c1c8520f",
+        "filename": "drivers/renesas/rzg/ddr/ddr_b/boot_init_dram_config.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T15:10:36Z",
+      "side": 1,
+      "message": "if ((boardInfo \u0026 LPDDR2_2RANK) \u003d\u003d 0)\n\nThis is another case of applying ! to a non-boolean.",
+      "revId": "19ad341cebde65035617f0dfcabab0cb3ff3d4e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
