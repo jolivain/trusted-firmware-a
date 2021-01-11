@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "68082be9_2cef0e1c",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2021-01-11T11:42:18Z",
+      "side": 1,
+      "message": "forget to reply this ?",
+      "parentUuid": "57ffb67d_ef8ae5ad",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 66,
+        "endChar": 68
+      },
+      "revId": "c405e4070f9ff29a67ae2be3576821ef6664a8dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "655e1c72_5f3af6cd",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
         "patchSetId": 1
@@ -54,6 +78,24 @@
       "side": 1,
       "message": "This is an very important log for us check if mcusys off is ready or not.\nSo, I need to keep it. Besides, this will be printed only once for all.\nTherefore, it won\u0027t affect other important logs.",
       "parentUuid": "655e1c72_5f3af6cd",
+      "revId": "c405e4070f9ff29a67ae2be3576821ef6664a8dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6115b90_5109daab",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2021-01-11T11:42:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "93b52cd6_5c61abcd",
       "revId": "c405e4070f9ff29a67ae2be3576821ef6664a8dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -142,6 +184,30 @@
       "side": 1,
       "message": "It\u0027s technically yes. However, this change affects too much drivers at this stage. Since this is a platform code, we can follow your design in the next IC support.",
       "parentUuid": "5b295090_b425603b",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 42
+      },
+      "revId": "c405e4070f9ff29a67ae2be3576821ef6664a8dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8875bbe3_e9a561e9",
+        "filename": "plat/mediatek/mt8192/include/plat_mtk_lpm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2021-01-11T11:42:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8d358383_08f7aa97",
       "range": {
         "startLine": 18,
         "startChar": 0,

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d0c95de_9c0f2900",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_lp_irqremain.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2021-01-11T11:42:18Z",
+      "side": 1,
+      "message": "what about\nif (remain_irqs.count \u003d\u003d 0) {\n\treturn -1;\n}\n\nand remove pIrqs",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 2
+      },
+      "revId": "d638f448f420b381fcbae0c48cd3402d3605c758",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
