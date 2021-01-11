@@ -1,0 +1,820 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db553630_ca77b29c",
+        "filename": "drivers/nxp/crypto/caam/src/auth/hash.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "This needs braces.",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a61afb8_d73b3a80",
+        "filename": "drivers/nxp/crypto/caam/src/auth/hash.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22e88545_bfa5f4db",
+        "filename": "drivers/nxp/crypto/caam/src/auth/nxp_crypto.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "Braces please.",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bb1344e_a1cc7870",
+        "filename": "drivers/nxp/crypto/caam/src/auth/nxp_crypto.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "108153df_14a408ae",
+        "filename": "drivers/nxp/crypto/caam/src/auth/nxp_crypto.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d35898c0_b342b42e",
+        "filename": "drivers/nxp/crypto/caam/src/auth/nxp_crypto.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2913926_998d8a4c",
+        "filename": "drivers/nxp/crypto/caam/src/auth/nxp_crypto.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3cdea67_9412382c",
+        "filename": "drivers/nxp/crypto/caam/src/auth/nxp_crypto.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d717f6b5_008ffdf7",
+        "filename": "drivers/nxp/crypto/caam/src/auth/rsa.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8dfd646_57465cc5",
+        "filename": "drivers/nxp/crypto/caam/src/auth/rsa.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e54bf45_3199e668",
+        "filename": "drivers/nxp/crypto/caam/src/auth/rsa.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b061146_6a78079d",
+        "filename": "drivers/nxp/crypto/caam/src/auth/rsa.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd138659_1019984b",
+        "filename": "drivers/nxp/crypto/caam/src/auth/rsa.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84fe9976_6cf25b98",
+        "filename": "drivers/nxp/crypto/caam/src/auth/rsa.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3e743d7_fcb47ad6",
+        "filename": "drivers/nxp/crypto/caam/src/caam.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "813c9993_14148118",
+        "filename": "drivers/nxp/crypto/caam/src/caam.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3765ec8_3f69d81a",
+        "filename": "drivers/nxp/crypto/caam/src/caam.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "Is job_ring a boolean? perhaps this should be \u003d\u003d NULL or \u003d\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15ef4cac_e386b910",
+        "filename": "drivers/nxp/crypto/caam/src/caam.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b41b749f_0a3063b8",
+        "filename": "drivers/nxp/crypto/caam/src/caam.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67894035_4596c67a",
+        "filename": "drivers/nxp/crypto/caam/src/caam.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c76eec11_47245070",
+        "filename": "drivers/nxp/crypto/caam/src/hw_key_blob.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15270382_35f4d981",
+        "filename": "drivers/nxp/crypto/caam/src/rng.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "394181df_08ec7064",
+        "filename": "drivers/nxp/crypto/caam/src/rng.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03085e4a_34dd9adb",
+        "filename": "drivers/nxp/crypto/caam/src/rng.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "633569e9_99dbbb7c",
+        "filename": "drivers/nxp/crypto/caam/src/rng.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d O",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a119dc33_d205c239",
+        "filename": "drivers/nxp/crypto/caam/src/rng.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93b314af_092db7e1",
+        "filename": "drivers/nxp/crypto/caam/src/rng.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "! is applied to an int here. use\n\n    ret_code \u003d\u003d 0\n\ninstead",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9878ec8_de5643bf",
+        "filename": "drivers/nxp/crypto/caam/src/rng.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c87aeaed_034fb2c5",
+        "filename": "drivers/nxp/crypto/caam/src/rng.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edf85c13_e58e337d",
+        "filename": "drivers/nxp/crypto/caam/src/sec_hw_specific.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8d7ff5b_6f9aaf38",
+        "filename": "drivers/nxp/crypto/caam/src/sec_hw_specific.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "--timeout is an unsigned int. Please use --timeout !\u003d 0 instead.",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd8ba2ac_0710be4d",
+        "filename": "drivers/nxp/crypto/caam/src/sec_hw_specific.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dc09741_4b82f18b",
+        "filename": "drivers/nxp/crypto/caam/src/sec_hw_specific.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "--timeout !\u003d 0 here as well.",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c3fe1b5_f6ae3d0b",
+        "filename": "drivers/nxp/crypto/caam/src/sec_hw_specific.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3bdab9d_a3cd472f",
+        "filename": "drivers/nxp/crypto/caam/src/sec_hw_specific.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a54e682_446d1713",
+        "filename": "drivers/nxp/crypto/caam/src/sec_hw_specific.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66426ca1_e25468fc",
+        "filename": "drivers/nxp/crypto/caam/src/sec_hw_specific.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "sec_error_code !\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f10bfbba_caad8211",
+        "filename": "drivers/nxp/crypto/caam/src/sec_hw_specific.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "sec_error_code !\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efe296bb_320c5c43",
+        "filename": "drivers/nxp/crypto/caam/src/sec_hw_specific.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e10f6549_a72b5331",
+        "filename": "drivers/nxp/crypto/caam/src/sec_hw_specific.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df2ef37d_5ff575d5",
+        "filename": "drivers/nxp/crypto/caam/src/sec_hw_specific.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0911eddc_116e0096",
+        "filename": "drivers/nxp/crypto/caam/src/sec_hw_specific.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3abd691b_8ee30069",
+        "filename": "drivers/nxp/crypto/caam/src/sec_jr_driver.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04c01e9c_41afe7ab",
+        "filename": "drivers/nxp/crypto/caam/src/sec_jr_driver.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57139b7b_3dd2dfda",
+        "filename": "drivers/nxp/crypto/caam/src/sec_jr_driver.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "both sides need !\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e09ace81_bc8ed1ab",
+        "filename": "drivers/nxp/crypto/caam/src/sec_jr_driver.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c4e9ad1_c0741930",
+        "filename": "drivers/nxp/crypto/caam/src/sec_jr_driver.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0275126a_c3ffbe38",
+        "filename": "drivers/nxp/crypto/caam/src/sec_jr_driver.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:54:14Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "04756577364f973d014ba67d66a80f9e65fd0705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
