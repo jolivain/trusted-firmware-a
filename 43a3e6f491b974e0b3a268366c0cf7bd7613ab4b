@@ -151,6 +151,24 @@
     },
     {
       "key": {
+        "uuid": "7206d7cf_c97130b6",
+        "filename": "drivers/nxp/tzc/plat_tzc400.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T17:20:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "226e50d7_89deb169",
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b1e3296_dcef2b9f",
         "filename": "drivers/nxp/tzc/plat_tzc400.c",
         "patchSetId": 5
@@ -219,6 +237,30 @@
       "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f09b52c6_dcd74799",
+        "filename": "drivers/nxp/tzc/plat_tzc400.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T17:20:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3726ab5_36609297",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 28
+      },
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
