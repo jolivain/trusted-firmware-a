@@ -1,0 +1,2214 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9bacd89_a44cf844",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "Could you add braces around the the body of this if?",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d46ef479_a27cffe2",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "Braces here as well.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92d74c48_5f2b0749",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "val is an int, so applying ! to it is a type mismatch. Could this be\n\n    if (val \u003d\u003d 0)\n\ninstead?",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "089e7cb5_28157910",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "Could you add braces here as well?",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "203e027a_26da591f",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "also !\u003d 0 here.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a842c0e2_d4d2bcc2",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "val \u003d\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d14d4d59_18523fbc",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9d11ae6_85367288",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "\u003d\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9017c8b7_7d8bc156",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "\u003d\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25570732_d415fc7e",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82b82bd5_92a7704a",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e6a73f4_a6bd24fd",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces here and +2 lines and +4 lines.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95bbc475_feed9a26",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces here and +2 lines",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11323c87_792f4041",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e92ab0a4_09f39939",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces here and around the body of the else.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc7be51d_886005e9",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d36873db_6db49a1a",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3e5c5d0_aa448c25",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "val !\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02879fbe_d8cd3987",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ff6bbb7_004fff2f",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "val \u003d\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db61b035_5e4fdb7e",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "response !\u003d NULL",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff2f8392_62518bcb",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f8f3591_fb515f0b",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "error !\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5ff2f35_b17a8ef9",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "350330fd_217dd1ba",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "error !\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0e33053_87b22af2",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "388f629f_bca5793e",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "error !\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b112aa8_8e26e974",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41780ca5_0a03cfc4",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "error !\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cd6d903_5873fa00",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a2dee4c_c0ed7204",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41fbecd7_cbebf0ab",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces here and + 2 lines",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8c77d16_f4c31776",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "\u003d\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec8504a4_90460d75",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "992ea86f_2a79589b",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b22ae3a5_fad0e99f",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "dest_ptr !\u003d NULL",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffd888ef_a82d6ac6",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "while (num_block-- !\u003d 0 ) {",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8906ae4_20be43c1",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9348059a_53f86a5e",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "\u003d\u003d 0; braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8616fa98_efb748f1",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62a27daa_2aa41d4b",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "\u003d\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30796185_ef563623",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ee3a7f0_387ecccb",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c58c0764_d1545315",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "\u003d\u003d 0; braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c2c21b0_fad46686",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63eca2a3_3f34d04c",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "\u003d\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8500532b_3e83f5d8",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "! is applied to a non-boolean expression here. This expression should be\n\n    ((status \u0026 ESDHC_IRQSTAT_TC) \u003d\u003d 0)",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac5c33b1_dec62b87",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "This integer expression is being treated as a boolean. Please convert by adding !\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "923d1778_a3f2a876",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "This is not a boolean expression. Please add !\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd7982bc_2e76ee61",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "! is applied to a non-boolean expression here. This expression should be\n\n    ((status \u0026 ESDHC_IRQSTAT_TC) \u003d\u003d 0)",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c13abf4_0d7de09f",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "830ae680_90a80311",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "This needs some braces here and +2 lines.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee641342_112c250b",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces here and +2lines",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53e983af_ea68b9b1",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4056f3e2_81a70420",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fb828fe_174a034d",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd31949d_3315bf7f",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cf8f91c_cf7dce4d",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da1c0763_4f2cefb9",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces here and +2 lines",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fff0c1b1_5a779b2f",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcf7fc67_d616821c",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11e095b2_b72150f6",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4569343_597d67e9",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 792,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a32388b0_7ed0971d",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "\u003d\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed43fb58_c7844a6a",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "\u003d\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ace7af0_a62298ed",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4ee0ddf_c9f6ebc1",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb3d9014_241e4084",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "170c393d_7b5b4dbf",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "106220b5_dbb9d96a",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d0b44c1_6eb22097",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d20bb14_61aef3c9",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d07475d_23ff1bf5",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e33c7f01_1acbb5a1",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c619e9d2_8203792a",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces around this and the body of the else",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c272f06c_05959134",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86c9a596_ec050f13",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53ed944a_7edd6191",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e37446ef_683f30e5",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8ea71be_1272a0f4",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe3a79c1_64ad1b03",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e16a68dc_550b2c2d",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49a772b9_57a519f4",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6fe7e34_85ca8234",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b34e0a89_c2567389",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "271a0683_4d540e10",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d09f7ad9_e913193b",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d563a5bb_08560d25",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5cc0811_f300e050",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "059a0911_c15c78f9",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "! is applied to an integer. use \u003d\u003d 0 instead",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02ef11d8_c50eb31c",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f963b4a_1fa755da",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da828f61_adb4b672",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cd1a245_4dfec308",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0416f2ae_d5882f9a",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ff75907_41153a94",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8c356b6_76b8e621",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1d9b945_7f686691",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1018,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d46dc88_14ca77cf",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef4f411a_d30c45c4",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1031,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbc9a185_a173a05f",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afe7adb0_8b07a9bb",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28fbb051_02892b2b",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7adc1cbe_cba1bf66",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da1f0d78_b6bfb6f4",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "! should be applied to boolean expressions only. use \u003d\u003d 0 instead",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edf7a315_9b705f3c",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df524fb8_f5676a32",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31672c9e_72bc2a16",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1721b47_6c3520ef",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7d9ae3d_608649ad",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eed37efa_b93539f8",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5f2b53b_e02db806",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1127,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0a3a7b1_13c983e5",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dfd8329_2acd1103",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d5f8fa0_e02ef814",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53b6b733_2a6e9ff4",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1182,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5aa9ade_7c4d605b",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c2b0c7c_d71088f9",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fde22ba1_2e5eba19",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f43f4d2e_044cbd70",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e8bb75b_870f64d1",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b000022_c253ed58",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1223,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e98b255c_3e71c90e",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "474b49f8_7006d908",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93fbcce5_5a903575",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60b23e7b_f7c5f7ce",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9af52ac0_51b846b6",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1267,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59ba13fc_00459361",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1328,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e63255e7_51fc7edf",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1351,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a311800_344cb50b",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-11T16:31:17Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
