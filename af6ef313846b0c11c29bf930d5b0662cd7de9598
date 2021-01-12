@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "368d7444_427c7d7a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T17:25:35Z",
+      "side": 1,
+      "message": "Why? on and off are english words, and are being used correctly here.",
+      "parentUuid": "05fe3a62_33802995",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "af6ef313846b0c11c29bf930d5b0662cd7de9598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4135720a_624e82a1",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -151,6 +175,30 @@
       "writtenOn": "2021-01-12T09:10:57Z",
       "side": 1,
       "message": "This issue description looks quite wordy. Please rephrase it.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 37
+      },
+      "revId": "af6ef313846b0c11c29bf930d5b0662cd7de9598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd5e413c_21adb164",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T17:25:35Z",
+      "side": 1,
+      "message": "I would reword this bit as:\n\n    The Linux prompt hangs when all the cores in a cluster are turned off\n    and we try to turn on a core in that cluster. Previously when TF-A turns\n    on a core, TF-A first turns on the redistributor followed by the core.\n    This did not match the flow when turning off a core, as TF-A did not\n    turn off distributors when the corresponding core[s] are disabled.\n\n    This hang is resolved by disabling distributors as cores are disabled,\n    keeping them in sync.",
+      "parentUuid": "77d0f924_ac98a373",
       "range": {
         "startLine": 12,
         "startChar": 0,
