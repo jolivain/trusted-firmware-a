@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37c9a477_f6a405fe",
+        "filename": "lib/cpus/aarch64/cortex_a78.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-12T18:51:00Z",
+      "side": 1,
+      "message": "I think this instruction \u0027orr x1, x1, CORTEX_A78_ACTLR2_EL1_BIT_1\u0027 works as expected.\nDid you see any issue here?",
+      "range": {
+        "startLine": 34,
+        "startChar": 13,
+        "endLine": 34,
+        "endChar": 40
+      },
+      "revId": "e26c59d2c968eb0122bf1c333d5ceba534d5fe45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
