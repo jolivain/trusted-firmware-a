@@ -1,0 +1,5861 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3cbc8f98_65dc3c2a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "Could you replace \"nxp soc\" with the name of the soc or family?",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b2778be_65fa26dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "This is redundant, as it\u0027s the same as the commit line. Please remove it.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "640e4b95_eaa66170",
+        "filename": "drivers/nxp/ddr/fsl-mmdc/ddr.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95bc9131_3b2fea51",
+        "filename": "drivers/nxp/ddr/fsl-mmdc/ddr.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": ":\u003d instead of \u003d\n\n(usually you use :\u003d, unless you really need the text expansion to happen later in time)",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fe15bec_de047a87",
+        "filename": "drivers/nxp/ddr/fsl-mmdc/fsl_mmdc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdbc0266_b02b7750",
+        "filename": "drivers/nxp/ddr/fsl-mmdc/fsl_mmdc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "This implicitly converts an integer to a boolean. Please add a !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04cb5a5a_03bc1f74",
+        "filename": "drivers/nxp/ddr/fsl-mmdc/fsl_mmdc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "we usually don\u0027t put tabs in this position. Could you change this to a single space?",
+      "range": {
+        "startLine": 57,
+        "startChar": 25,
+        "endLine": 57,
+        "endChar": 26
+      },
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b68013a8_f9418f61",
+        "filename": "drivers/nxp/ddr/fsl-mmdc/fsl_mmdc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "This is an integer. Please add !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84e4731c_6e8fc326",
+        "filename": "drivers/nxp/ddr/fsl-mmdc/fsl_mmdc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "This needs braces.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d502fbb4_4bc3939d",
+        "filename": "drivers/nxp/ddr/fsl-mmdc/fsl_mmdc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces here too.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9803336_9dadf39b",
+        "filename": "drivers/nxp/ddr/fsl-mmdc/fsl_mmdc.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8d4dac8_5696c690",
+        "filename": "drivers/nxp/ddr/fsl-mmdc/fsl_mmdc.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "Header guard defines should have an _ prefix and suffix. Please add that here, and on the following line.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a5e1649_b8e92f90",
+        "filename": "drivers/nxp/ddr/fsl-mmdc/fsl_mmdc.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "use tabs please.",
+      "range": {
+        "startLine": 33,
+        "startChar": 31,
+        "endLine": 33,
+        "endChar": 32
+      },
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa963d0b_57ad266e",
+        "filename": "drivers/nxp/ddr/fsl-mmdc/fsl_mmdc.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "tabs here too please.",
+      "range": {
+        "startLine": 34,
+        "startChar": 30,
+        "endLine": 34,
+        "endChar": 32
+      },
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e91e0e2c_55d33cde",
+        "filename": "drivers/nxp/ddr/include/ddr.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ae740a6_029409fc",
+        "filename": "drivers/nxp/ddr/include/ddr_io.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1090d6d_7f99ced8",
+        "filename": "drivers/nxp/ddr/include/ddr_io.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "Header guard defines should have an _ prefix and suffix. Please add that here, and on the following line.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd7cfd2b_282953e7",
+        "filename": "drivers/nxp/ddr/include/dimm.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "Header guard defines should have an _ prefix and suffix. Please add that here, and on the following line.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef538f63_69eecaae",
+        "filename": "drivers/nxp/ddr/include/immap.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "Header guard defines should have an _ prefix and suffix. Please add that here, and on the following line.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d7a5f89_31e24700",
+        "filename": "drivers/nxp/ddr/include/opts.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "Header guard defines should have an _ prefix and suffix. Please add that here, and on the following line.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29214367_4eba2b10",
+        "filename": "drivers/nxp/ddr/include/regs.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "Header guard defines should have an _ prefix and suffix. Please add that here, and on the following line.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dea470ef_068023b2",
+        "filename": "drivers/nxp/ddr/include/utility.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75ffa31a_8838d2c5",
+        "filename": "drivers/nxp/ddr/include/utility.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "Header guard defines should have an _ prefix and suffix. Please add that here, and on the following line.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b775c215_cff5a83e",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc814ccf_0b2a3019",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure this is an int (or an unsigned int). Could you add !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0bf3286_cd77f874",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces please.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8956d82a_00ceeb32",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93556a33_e9f02f0b",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "335c7bf5_ca131a62",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23ce6026_27a0419b",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "please use\n\n    prt \u003d\u003d NULL\n\ninstead",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83f11be8_8ab24a10",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b72bdfb_abb39e51",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "chosen \u003d\u003d NULL",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d122b55_b6a4fc42",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66b4ba5f_983c6464",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db2c332f_821f1cdf",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba6bcb7b_ea7e90c5",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "addr \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6d2fd80_3c14666e",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "j \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de387926_b3418f99",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caef8709_1c078265",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "spd_checksup[spd_idx] \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7006fe33_edddfb9b",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "spd_idx \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72a7afe7_2e846f05",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1349ef5_83236931",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "spd_idx !\u003d 0 \u0026\u0026 ...",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "783f4ca4_d05109ea",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(valid_mask \u0026 0x1) \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ca5c239_86ea6f6b",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "valid_mask \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a31fb11_66ab47ae",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d NULL or !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af204251_7864c851",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "713f780e_5581a9f2",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31c13fa9_ae42a0ca",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(conf-\u003ecs_in_use \u0026 (1 \u003c\u003c i)) !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc01abb5_ebd168bb",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(conf-\u003ecs_in_use \u0026 (1 \u003c\u003c i)) !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20b20d6e_79af32c8",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(conf-\u003ecs_in_use \u0026 (1 \u003c\u003c i)) !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5f425de_1bc9521a",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(conf-\u003ecs_in_use \u0026 (1 \u003c\u003c i)) !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e429fde7_bff96bd6",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62e9e82a_6700b77d",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "Since this is the next thing that happens, this line is redundant.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45842120_06054587",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de641b9f_4015b958",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f7aa45a_ca8be294",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9732ce06_6ff24194",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "dram_size \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c47f962_beb752ca",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a068f193_b474e62a",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22cefd68_ba142985",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "dram_size \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "409753ea_3caeaaf7",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84744108_b300cdf7",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac19e641_beff4227",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddr.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": ":\u003d in place of \u003d",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60cbab72_37d5baea",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea451fac_19560711",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "374cbd7d_337494ee",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4b3ab10_2de43a72",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "remove !; \u003d\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ba79444_6645a9f6",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "Could you make this comment useful by adding why multiply by 2 is used, or remove the comment?",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d813a38e_df932a03",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbbd8fc6_603fc671",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "... \u0026\u0026 ((mtcr \u0026 BIST_CR_EN) !\u003d 0)",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f602a29_5f28face",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6762b05a_bf078c4a",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c7f0f8a_700ced49",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "err_detect !\u003d 0 || ((err_sbe \u0026 0xffff) !\u003d 0)",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f49d7d8_dff7b0e8",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d59e834f_d21eacf8",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4057a3f1_dd4a6c4b",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09b820a5_3f97ad22",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a94b3fd5_d28b2ab6",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "val \u003d\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41966b8a_54790473",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "continue here makes control flow a little harder to follow. Could you invert the if\u0027s condition and move the debug statement into the body of the if?",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40e1d4d7_1b666423",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "... \u0026\u0026 ((ddr_in32(ptr) \u0026 bits) !\u003d 0)",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0700cf58_7b318bf2",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "879cdb33_2f162734",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c259a612_28ff0386",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3f5fcde_3b27f6d6",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d8a3e55_3c7cddc8",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "057213a5_ac9a55da",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d150a440_fa5fa281",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48480288_86eda55d",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "614bc52d_31fcf249",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4345daeb_3079b69a",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88d932b8_0e125c92",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c51b0dc1_e4dcd91c",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4212d8b6_76bce9f5",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5ae460b_3d9dfb9b",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00653336_87900409",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "mod_bnds !\u003d 0 \u0026\u0026 i \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13da51bd_a9a4714c",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(ddr_in32(\u0026ddr-\u003eddr_dsr2) \u0026 0x4) \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63978c5b_f2075fe9",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(regs-\u003ecs[i].config \u0026 0x80000000) \u003d\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c2aa99b_1e4bba33",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c68353ae_1250db9a",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "859dbcb4_d8a9bd88",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89be4fb7_57a4a485",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3336f37_0a63d197",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc8282fc_9156695d",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00a22615_2786d2b7",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfda42f2_de19290f",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "... \u0026\u0026 (ddr_in32(\u0026ddr-\u003edebug[1]) \u0026 0x2) !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "785216c2_8544d850",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce1cd996_bf095ad1",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(regs-\u003ecs[i].config \u0026 SDRAM_CS_CONFIG_EN) \u003d\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "618c9698_f19d9223",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "... \u0026\u0026 (ddr_in32(\u0026ddr-\u003edebug[1]) \u0026 0x2) \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac2f1041_6d394faf",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0?",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08ccac7d_9d18cb67",
+        "filename": "drivers/nxp/ddr/nxp-ddr/ddrc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67a30490_3b7dca75",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1e9de04_dbd0760a",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "ret \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5093bbfd_b98d39dd",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0, and braces.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aae04f9e_c13c8bd1",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d008697b_6928a5e4",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00f33ed0_c54bf727",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fc7312b_bb7de3eb",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9d0c22e_17d26bf7",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aee46ab_ab1e4b70",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79d03329_e4765528",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1d4b28f_4b419436",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0ac3734_f674bc67",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea93ec8e_f0d5e16c",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "pdimm-\u003erank_density \u003d\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6acc336f_af2b68c6",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5363b189_5d75cd42",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1be5e3e_484d8052",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54fed8ed_a9f0eb14",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "pdimm-\u003epackage_3ds !\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0608ebb1_69b53949",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e4bb172_fd511329",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d621f3fe_115ae944",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e20b910_665e5f23",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1455ba96_8e653e0f",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fe24488_dcb59cfb",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a567a91e_034af0c7",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f615ec5a_1527a50f",
+        "filename": "drivers/nxp/ddr/nxp-ddr/dimm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b054a995_14e3868f",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6938b22_4c8efdfd",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "i \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12f5c910_d3509832",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdee3959_f249fa16",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "looks like there was intent to align all of the \"|\"s. This one needs another tab to line up.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d412ebca_23161d4d",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f10ddb47_1da870a2",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "conf-\u003edimm_in_use[0] !\u003d 0 \u0026\u0026 conf-\u003edimm_in_use[1] !\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "958ff28e_6ba834f5",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b801be62_59a087a2",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4eac19c_823c803c",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0975e708_420796eb",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb0cd383_b6e34a0c",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef95d51b_9a804b8c",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48dc666b_d1a0fb2a",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f54c1d8_24b3a8ce",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35daf106_64038bc9",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff5829a8_2d12570d",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a54f4a39_861a4e0c",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1ba0cf6_37da0a14",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57929f40_4ed6976e",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "579a893c_fced92b7",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3b5dca0_8b466098",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcd4b895_a0bb61fd",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04947940_693f6b02",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "pdimm-\u003erdimm \u003d\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b734e57d_14cfa135",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0 (in the condition as part of the ternary operator)",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e4c4b99_007c8cbd",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "This is implicitly converting a boolean into an unsigned int. perhaps you wanted a boolean here? maybe you left off the \"? :\" ?",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17a3fde8_708bfaea",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fef1053f_12b0b4ab",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c697b44_293a133b",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ed43cd5_3c8df171",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5207a55_a3b43918",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf31fdce_4449bcbe",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c510b1e_6e3652a2",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebca99ed_83ac4169",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "953221ef_7a69eb21",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "... || popts-\u003eoutput_driver_impedance !\u003d 0; braces\n\n(I\u0027m assuming quad_rank_present is a boolean, if it\u0027s not it needs a comparison with 0 as well)",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40eabaae_c88ddca4",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae87434d_50599cfa",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8405493a_aa6b0f39",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5d64f50_54acecca",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcfd80c5_13d54efa",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28449497_266ab36d",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "159fb4a6_12471548",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5aaa2111_eb117a4e",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69a6eac7_78b75401",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18b34710_8afa31b1",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "i !\u003d 0 \u0026\u0026 unq_mrs_en \u003d\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a273e1fb_3b5b564b",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81d4ee5d_e7c9c9a3",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "rtt_park_all \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dabcd7d9_653879c9",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7adc249_70958f14",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf2893fd_cb4f3754",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "popts-\u003erdimm \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aae52f0f_1dd02139",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51081639_f0d7449a",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3c59c4b_9585abb0",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0\n\n(let me know if this is already a boolean)",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b1956cf_43f798fd",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c839679_ea71df86",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c946785_31f5e95b",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c23f5158_e037df08",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af8eb0a2_7d34029c",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d44b73e_f7332a75",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "578be24d_bfd8de10",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de4bbfee_cf3e3d20",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "321ad13a_7257baf8",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 986,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87570a4e_227c1459",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7182b9ad_00eed83f",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "882abe33_54c5f177",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "626e3040_3e62c4fe",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3a5fe75_9560f7de",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "778bf5ec_227ba77a",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2727b851_d19b7882",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1025,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f167c963_8426d184",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3414eb86_337b67de",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "534a525e_ec136029",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f40c1b67_ad510f64",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70b5a53d_0c855606",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(i % 4) \u003d\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "519df06c_4f26c250",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a017d92_0c4b4063",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b37efd56_5ac6888e",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0547cbce_16ab06c3",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1245,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e67a024_e4ecf8cc",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f25304ae_d9245ecb",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "bin[i].taamin_ps[j] \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f37e667a_ce35a856",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ee81976_427e5fdc",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1267,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2fd0f13_2b0c3c14",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59ba6312_6ddd5434",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "499fbc04_0b4d050a",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1314,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(pdimm-\u003ecaslat_x \u0026 ~caslat_skip \u0026 (1 \u003c\u003c cas_latency)) \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21224bad_97d4db04",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89f4506a_b2575f5a",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1328,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "797d674b_db1d15cc",
+        "filename": "drivers/nxp/ddr/nxp-ddr/regs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "122aa1df_333d9429",
+        "filename": "drivers/nxp/ddr/nxp-ddr/utility.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7549ac92_b00c5618",
+        "filename": "drivers/nxp/ddr/nxp-ddr/utility.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab0ee46d_70339c80",
+        "filename": "drivers/nxp/ddr/nxp-ddr/utility.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "picos \u003d\u003d 0 || data_rate \u003d\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "635aeefa_6677a7d5",
+        "filename": "drivers/nxp/ddr/nxp-ddr/utility.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f08a3316_1d2223b6",
+        "filename": "drivers/nxp/ddr/nxp-ddr/utility.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5bdad8c_9fcd43f1",
+        "filename": "drivers/nxp/ddr/nxp-ddr/utility.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09790cdc_4fcedfd6",
+        "filename": "drivers/nxp/ddr/nxp-ddr/utility.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0 ; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6591405e_c35800ab",
+        "filename": "drivers/nxp/ddr/nxp-ddr/utility.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "disable_ddrc \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e02baba8_fed4f386",
+        "filename": "drivers/nxp/ddr/nxp-ddr/utility.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(sdram_cfg \u0026 SDRAM_CFG_MEM_EN) \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aab2fd8f_b5b5a151",
+        "filename": "drivers/nxp/ddr/nxp-ddr/utility.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4d49c07_fcea8b3e",
+        "filename": "drivers/nxp/ddr/nxp-ddr/utility.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff904e7e_620c0ee4",
+        "filename": "drivers/nxp/ddr/nxp-ddr/utility.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1665744f_10e2f061",
+        "filename": "drivers/nxp/ddr/nxp-ddr/utility.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39e9139f_32fb47a4",
+        "filename": "drivers/nxp/ddr/nxp-ddr/utility.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a03bb378_d6747525",
+        "filename": "drivers/nxp/ddr/phy-gen1/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9b10d32_9b62083d",
+        "filename": "drivers/nxp/ddr/phy-gen1/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f125cfc1_76d2835f",
+        "filename": "drivers/nxp/ddr/phy-gen1/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a1c7640_7712ae7c",
+        "filename": "drivers/nxp/ddr/phy-gen2/csr.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5b40fa5_2837852f",
+        "filename": "drivers/nxp/ddr/phy-gen2/ddr4fw.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "039361e8_f2d10d6a",
+        "filename": "drivers/nxp/ddr/phy-gen2/ddrphy.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bdf815a_952d4d42",
+        "filename": "drivers/nxp/ddr/phy-gen2/input.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90d3288d_c0e4fb08",
+        "filename": "drivers/nxp/ddr/phy-gen2/messages.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0044d09_1ca9dda2",
+        "filename": "drivers/nxp/ddr/phy-gen2/messages.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "Looks like the #define _MESSAGE_H_ is missing from this file. Could you add it?",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cd32aa6_4e12532b",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcb2326d_720fe025",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "phy \u003d\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "456c0fa3_b900857c",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces on this and every other if statement in the next ~60 lines (they all seem quite similar)",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dd5c01a_85714e36",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces here and +3, +6, +9 lines",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1658d6c_b02713db",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces here and +3, +6, +9 lines",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37d1e4ab_4b96955a",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb1bf01b_2d8bce68",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26b85dfc_c244be70",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "439056ec_e80c1aa1",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ce940fd_ea2508ad",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbce9517_b0d5cc7c",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df8f07ec_58ea83ac",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbed7d55_310d0f9f",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0515af6d_0c34db2b",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62767390_c79804f0",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfcec557_5c550d16",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56332d47_ebc2a4ec",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces here + 2 and + 4 lines",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96feec04_06d18a5a",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "phy \u003d\u003d NULL; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c480a928_75c51225",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c000ca4c_1e179658",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7d3bf86_f12d464c",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e2497ff_0dd2f557",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces here and + 2 lines",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46648fdf_e89dd812",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8880ce4d_0267ff1b",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "855026cd_b5679400",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f471c48_8c27e433",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f3d3950_aad96c1a",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e4aa3c5_b993138b",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(msg_blk-\u003emr3 \u0026 0x8) !\u003d 0 || (msg_blk_2d-\u003emr3 \u0026 0x8) !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd17288e_6892d192",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1020,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8071961c_d785098b",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bb3e4e2_6a3745f0",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dcad5ac_f7961061",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces needed in this whole if... else if etc. chain.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d98be80_6b6c5c19",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces and + 2 lines",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d119c5e2_5da39c1d",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1238,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50a386d0_5a75cbb9",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces and + 2 lines",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99b277f1_a9e8c46f",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces and + 2 lines",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "907df05e_76747caa",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1283,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17538730_3e09eee4",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces on this if ... else if chain.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45e67f35_2c71dcd0",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fa6991c_333c1ecf",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces on this if ... else if chain.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5a22b54_d74eedc1",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces on this if ... else if chain.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee211650_9db14ad1",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces on this if ... else if chain.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06ee6432_eb5057b0",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1432,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces on this if ... else if chain.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7ae0773_4953268b",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1457,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces on this if ... else if chain.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cb94c62_d3542b6d",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces on this if ... else if chain.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b08be54_a70a822a",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1519,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces here and + 2 lines",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "677f72da_b2225ca1",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1568,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e021f8dd_282cfa1b",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1653,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "remove extra space",
+      "range": {
+        "startLine": 1653,
+        "startChar": 31,
+        "endLine": 1653,
+        "endChar": 32
+      },
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f7a696b_23e62d2e",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1712,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces on this if ... else if chain.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c70f4392_2e32ed93",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1826,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "phy \u003d\u003d NULL; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b55cafd_9894aa84",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1881,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "--timeout !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "887e1e73_6bb17873",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1883,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "range": {
+        "startLine": 1882,
+        "startChar": 7,
+        "endLine": 1883,
+        "endChar": 31
+      },
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b7e7331_8d5cb89d",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1886,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "timeout \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5e11099_67eb84ea",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1893,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc9fbc48_c16d6054",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1902,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "--timeout !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bad593b_cda2c28c",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1904,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(phy_io_read16(phy, t_apbonly | csr_uct_shadow_regs)\n        \u0026 uct_write_prot_shadow_mask) \u003d\u003d 0",
+      "range": {
+        "startLine": 1903,
+        "startChar": 8,
+        "endLine": 1904,
+        "endChar": 31
+      },
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b3637dd_cb71d40b",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1907,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "timeout \u003d\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a24abb0d_90b0d6d9",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1924,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69ba83d7_077e492c",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1954,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55b0156e_aa0a02a5",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1955,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(index \u0026 0xffff) !\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47c0f401_fabc7c23",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1959,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8daf5b7_bac9f198",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2052,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces on this if ... else if chain.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fa6dabc_1e110a52",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2071,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "phy \u003d\u003d NULL; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0f0fb54_2d752443",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2106,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3a62630_a3610e5f",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2112,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4493f613_0944a6bd",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2160,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8e4fb9d_7848740d",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "phy \u003d\u003d NULL; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89780939_7debc21b",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2184,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b685b468_a8cbaa88",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2191,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1aeabd81_8a085b39",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2202,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "phy \u003d\u003d NULL; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ac1d409_4839b7f0",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2206,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9081097_3119d7f8",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2211,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46bcd7dd_c3115eef",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2238,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22307f69_1e46f5ed",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2239,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "((cs_d0 | cs_d1) \u0026 (1 \u003c\u003c j)) \u003d\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a49e02d_9f9027a5",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2251,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "all of the parts of the condition need to be compared with 0 to make them a boolean (they\u0027re currently unsigned int); braces",
+      "range": {
+        "startLine": 2249,
+        "startChar": 3,
+        "endLine": 2251,
+        "endChar": 32
+      },
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e071f777_b333cc24",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2257,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "((cs_d0 | cs_d1) \u0026 (1 \u003c\u003c j)) \u003d\u003d 0; braces",
+      "range": {
+        "startLine": 2256,
+        "startChar": 3,
+        "endLine": 2257,
+        "endChar": 13
+      },
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bbc9294_c259a976",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2265,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "all of the parts of the condition need to be compared with 0 to make them a boolean (they\u0027re currently unsigned int); braces",
+      "range": {
+        "startLine": 2263,
+        "startChar": 1,
+        "endLine": 2265,
+        "endChar": 32
+      },
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6672b525_8a49b9a1",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2271,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ebc5880_dcde053b",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2274,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "all of the parts of the condition need to be compared with 0 to make them a boolean (they\u0027re currently unsigned int); braces",
+      "range": {
+        "startLine": 2272,
+        "startChar": 5,
+        "endLine": 2274,
+        "endChar": 32
+      },
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cc061ab_f80bc46b",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2400,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "dimm_param \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9410bb1c_45ee4939",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2411,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "328c4398_7265415a",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2440,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "(regs-\u003ecs[i].config \u0026 SDRAM_CS_CONFIG_EN) \u003d\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dad2d81d_f89ffb83",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2451,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79c2f0fb_650d4fe3",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2484,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d1f2165_58f17975",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2490,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e40a7931_6c68fade",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2514,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4baf180_c9bee25f",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2521,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13fbb0f8_36bf66d9",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2537,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "ret \u003d\u003d 0 \u0026\u0026 input.basic.train2d !\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cce6e92_7a07dfbc",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2545,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd61c829_2d0ecc6c",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2550,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "!\u003d 0; braces",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39a0fbd2_f190dec9",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2573,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "ret \u003d\u003d 0",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96084c2d_633abcff",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cda87d1_4ee13f62",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "Header guard defines should have an _ prefix and suffix. Please add that here, and on the following line.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40a3a1c8_2b9ededb",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "This should be indented. Looks like every odd line following this one for the next 200 lines also needs to be indented.",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7263bd1_40f7dfb2",
+        "filename": "drivers/nxp/ddr/phy-gen2/phy.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "This line, and every other line following it needs to be indented for the next 40 or so lines",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6a1c83f_19648db8",
+        "filename": "drivers/nxp/ddr/phy-gen2/pie.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:46:46Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9d1b113ac16b19fce1127db1177f74c95b09847f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
