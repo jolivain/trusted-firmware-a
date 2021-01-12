@@ -232,6 +232,30 @@
       "revId": "af6ef313846b0c11c29bf930d5b0662cd7de9598",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03fa883a_f3dcaee8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-12T17:41:49Z",
+      "side": 1,
+      "message": "\u003e I would reword this bit as:\n\u003e \n\u003e     The Linux prompt hangs when all the cores in a cluster are turned off\n\u003e     and we try to turn on a core in that cluster. Previously when TF-A turns\n\u003e     on a core, TF-A first turns on the redistributor followed by the core.\n\u003e     This did not match the flow when turning off a core, as TF-A did not\n\u003e     turn off distributors when the corresponding core[s] are disabled.\n\nYou mean re-distributors here right?\n\n\u003e \n\u003e     This hang is resolved by disabling distributors as cores are disabled,\n\nYou mean re-distributors here right?\n\n\u003e     keeping them in sync.\n\nThis rephrasing looks good to me with the changes mentioned above.",
+      "parentUuid": "bd5e413c_21adb164",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 37
+      },
+      "revId": "af6ef313846b0c11c29bf930d5b0662cd7de9598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
