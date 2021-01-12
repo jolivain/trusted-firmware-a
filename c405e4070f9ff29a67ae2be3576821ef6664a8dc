@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e8ece940_61dab949",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_cpu_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-01-12T01:53:09Z",
+      "side": 1,
+      "message": "Oops, excuse me, I forgot to reply. These are the mtk low power state we added.\n\nIS_MCUSYS_OFF_STATE() is for Linux cpuidle\nIS_SYSTEM_SUSPEND_STATE() is for Linux system suspend",
+      "parentUuid": "68082be9_2cef0e1c",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 66,
+        "endChar": 68
+      },
+      "revId": "c405e4070f9ff29a67ae2be3576821ef6664a8dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "655e1c72_5f3af6cd",
         "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_mcdi.c",
         "patchSetId": 1
