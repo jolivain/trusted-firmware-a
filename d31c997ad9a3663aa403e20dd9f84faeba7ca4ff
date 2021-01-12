@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "62dca895_e992d381",
+        "filename": "plat/marvell/armada/common/mss/mss_scp_bootloader.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-12T17:24:21Z",
+      "side": 1,
+      "message": "Could you make the precedence explicit here?\nIt\u0027s difficult to tell whether it means:\nmmio_read_32(..) \u003e\u003e (MSS_.._OFFSET \u0026 MSS_.._MASK)\nor:\n(mmio_read_32(..) \u003e\u003e MSS_.._OFFSET) \u0026 MSS_.._MASK\n\nfor us mere mortals who haven\u0027t memorized the C operator precedence table yet.",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 90,
+        "endChar": 29
+      },
+      "revId": "d31c997ad9a3663aa403e20dd9f84faeba7ca4ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1b320ee4_995492c1",
         "filename": "plat/marvell/armada/common/mss/mss_scp_bootloader.c",
         "patchSetId": 3
@@ -13,6 +36,29 @@
       "writtenOn": "2021-01-12T16:18:26Z",
       "side": 1,
       "message": "I think this is a mistake as this went from\n    \n    !chunk_size\n\nto\n\n    !chunk_size !\u003d 0\n\nI think that the following was meant:\n\n    chunk_size \u003d\u003d 0\n\nor\n\n    !(chunk_size !\u003d 0)\n\nThis is particularly problematic, as ! has higher precedence than !\u003d.",
+      "revId": "d31c997ad9a3663aa403e20dd9f84faeba7ca4ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d02c5bb_328d6621",
+        "filename": "plat/marvell/armada/common/mss/mss_scp_bootloader.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-12T17:24:21Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 156,
+        "startChar": 6,
+        "endLine": 156,
+        "endChar": 9
+      },
       "revId": "d31c997ad9a3663aa403e20dd9f84faeba7ca4ff",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
