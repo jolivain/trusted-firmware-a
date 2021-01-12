@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87930d59_8004ead6",
+        "filename": "lib/cpus/aarch64/cortex_a78.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-12T18:57:40Z",
+      "side": 1,
+      "message": "Please add macro for this as below:\nCPU_REV_R1P0  0x10\nCPU_REV_R1P1  0x11\n\nIt will be more readable and later on can be used for other errata workaround also.",
+      "range": {
+        "startLine": 124,
+        "startChar": 11,
+        "endLine": 124,
+        "endChar": 14
+      },
+      "revId": "afd33c52cc137568d9c8e85291cf6e9a0142ca9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
