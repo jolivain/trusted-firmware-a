@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f28b1efa_27102bbd",
+        "filename": "drivers/nxp/sec_mon/sec_mon.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:49:55Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9a379235c3614009c99a16497c1946716ed937cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bebc92c8_ceea101d",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:49:55Z",
+      "side": 1,
+      "message": "\u0026\u0026 --fetch_cnt !\u003d 0",
+      "revId": "9a379235c3614009c99a16497c1946716ed937cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5ed97ad_cda34cfc",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:49:55Z",
+      "side": 1,
+      "message": "\u003d\u003d true is redundant",
+      "revId": "9a379235c3614009c99a16497c1946716ed937cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9a02592_9fc05430",
+        "filename": "drivers/nxp/sec_mon/snvs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:49:55Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "revId": "9a379235c3614009c99a16497c1946716ed937cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee80f39b_fe0be106",
+        "filename": "drivers/nxp/sec_mon/snvs.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:49:55Z",
+      "side": 1,
+      "message": "2021",
+      "revId": "9a379235c3614009c99a16497c1946716ed937cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5700794_ecea5658",
+        "filename": "drivers/nxp/sec_mon/snvs.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T21:49:55Z",
+      "side": 1,
+      "message": "header guards should have an _ prefix and suffix. Please change this line and the line below.",
+      "revId": "9a379235c3614009c99a16497c1946716ed937cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
