@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "4dbc143f_aa9fcc7d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000464
+      },
+      "writtenOn": "2021-01-12T12:18:53Z",
+      "side": 1,
+      "message": "Yes, modify \n\"and then TF-A crashed\" -\u003e \"and then crash\"",
+      "parentUuid": "e04d138b_a79dff48",
+      "revId": "8fb921bc12ba1b1836aad4fa6bcbf2599444fe1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c200ac76_c4317cfd",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -120,6 +138,24 @@
       "side": 1,
       "message": "Modify this sentence to make it clear.",
       "parentUuid": "1932b7ce_b0ed5f6d",
+      "revId": "8fb921bc12ba1b1836aad4fa6bcbf2599444fe1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5ec006a_e1937b9c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000464
+      },
+      "writtenOn": "2021-01-12T12:18:53Z",
+      "side": 1,
+      "message": "sdei_dispatch_event may return -1 in some cases, for example kernel may not have registered a handler or RAS event may happen early during boot. We restore the NS context when sdei_dispatch_event return failing result.\n\nIs that ok?",
+      "parentUuid": "fc06ec1f_55c3a809",
       "revId": "8fb921bc12ba1b1836aad4fa6bcbf2599444fe1d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
