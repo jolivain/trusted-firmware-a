@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f601bfcf_f29b3328",
+        "filename": "drivers/renesas/rzg/qos/qos_common.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-01-12T22:20:46Z",
+      "side": 1,
+      "message": "Hi,\nIs there a reason why you defined these helper functions again? They are already available in TF-A as seen in include/lib/mmio.h",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 1
+      },
+      "revId": "637e47a06ce8682933a9d9b7ce12c9ed6f774652",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
