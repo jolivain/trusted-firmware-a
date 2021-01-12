@@ -178,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "14a57ac8_ed5af971",
+        "filename": "plat/marvell/armada/common/mss/mss_scp_bootloader.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-12T16:18:26Z",
+      "side": 1,
+      "message": "Needs !\u003d 0, as sram is not a boolean.",
+      "parentUuid": "65a3755e_8fe08643",
+      "revId": "fb03e57c56ff57a6b64f303f4efc1014225b081d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ad92cdf_d4d18b8c",
         "filename": "plat/marvell/armada/common/mss/mss_scp_bootloader.c",
         "patchSetId": 1
