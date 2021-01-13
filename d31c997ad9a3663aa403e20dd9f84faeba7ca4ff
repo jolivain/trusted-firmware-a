@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "975fe2aa_338257f1",
+        "filename": "plat/marvell/armada/common/mss/mss_scp_bootloader.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2021-01-13T07:36:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "62dca895_e992d381",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 90,
+        "endChar": 29
+      },
+      "revId": "d31c997ad9a3663aa403e20dd9f84faeba7ca4ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b320ee4_995492c1",
         "filename": "plat/marvell/armada/common/mss/mss_scp_bootloader.c",
         "patchSetId": 3
@@ -39,6 +63,24 @@
       "revId": "d31c997ad9a3663aa403e20dd9f84faeba7ca4ff",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38b5b3a9_ce03f6e9",
+        "filename": "plat/marvell/armada/common/mss/mss_scp_bootloader.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2021-01-13T07:36:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1b320ee4_995492c1",
+      "revId": "d31c997ad9a3663aa403e20dd9f84faeba7ca4ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -62,6 +104,30 @@
       "revId": "d31c997ad9a3663aa403e20dd9f84faeba7ca4ff",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "909196fe_ba2b974e",
+        "filename": "plat/marvell/armada/common/mss/mss_scp_bootloader.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2021-01-13T07:36:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7d02c5bb_328d6621",
+      "range": {
+        "startLine": 156,
+        "startChar": 6,
+        "endLine": 156,
+        "endChar": 9
+      },
+      "revId": "d31c997ad9a3663aa403e20dd9f84faeba7ca4ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
