@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69fa9cff_e1c6cd29",
+        "filename": "plat/nxp/soc-lx2160/erratas_soc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-01-13T20:19:30Z",
+      "side": 1,
+      "message": "i is unsigned, please use 0U and 5U instead to avoid MISRA violations.\n\nAlso, please use {} around the body of the for loops to avoid MISRA violations.",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "156e71eab801445a8eed65f2e28e66724cdb4a04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
