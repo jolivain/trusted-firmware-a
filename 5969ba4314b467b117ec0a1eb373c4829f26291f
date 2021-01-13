@@ -38,6 +38,24 @@
     },
     {
       "key": {
+        "uuid": "73ea5a1c_d876e0c1",
+        "filename": "drivers/nxp/sfp/fuse_prov.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-13T20:56:56Z",
+      "side": 1,
+      "message": "Looks like it still needs to be updated.",
+      "parentUuid": "fd2033b4_3ef2c333",
+      "revId": "5969ba4314b467b117ec0a1eb373c4829f26291f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "17c89d08_c2143f16",
         "filename": "drivers/nxp/sfp/sfp.c",
         "patchSetId": 8
@@ -107,6 +125,24 @@
       "revId": "5969ba4314b467b117ec0a1eb373c4829f26291f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7aa9944_36952f0e",
+        "filename": "drivers/nxp/sfp/sfp.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-13T20:56:56Z",
+      "side": 1,
+      "message": "Also still needs an update.",
+      "parentUuid": "ecde2944_67abcd27",
+      "revId": "5969ba4314b467b117ec0a1eb373c4829f26291f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
