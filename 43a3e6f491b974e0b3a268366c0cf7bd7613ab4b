@@ -86,6 +86,30 @@
     },
     {
       "key": {
+        "uuid": "1618abea_7598fe59",
+        "filename": "drivers/nxp/tzc/plat_tzc400.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-13T20:54:04Z",
+      "side": 1,
+      "message": "These function parameters still need to be aligned.",
+      "parentUuid": "7af951b0_0ed4d367",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 27
+      },
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5044d91d_70f0a6fb",
         "filename": "drivers/nxp/tzc/plat_tzc400.c",
         "patchSetId": 5
@@ -131,6 +155,30 @@
       "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b5be23a_2b4cd92c",
+        "filename": "drivers/nxp/tzc/plat_tzc400.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-13T20:54:04Z",
+      "side": 1,
+      "message": "These parameters also still need to be aligned",
+      "parentUuid": "6b19dc70_685c7768",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 5
+      },
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
@@ -232,6 +280,30 @@
       "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0335ce03_206506e9",
+        "filename": "drivers/nxp/tzc/plat_tzc400.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-13T20:54:04Z",
+      "side": 1,
+      "message": "here too.",
+      "parentUuid": "0b9e88ca_c1c36a4c",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 3
+      },
+      "revId": "43a3e6f491b974e0b3a268366c0cf7bd7613ab4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
