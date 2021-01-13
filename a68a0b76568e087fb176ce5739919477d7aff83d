@@ -434,6 +434,24 @@
     },
     {
       "key": {
+        "uuid": "51ee1dc4_ba772f6a",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-13T21:44:33Z",
+      "side": 1,
+      "message": "Yep, I was asking for braces across the whole if ... else if, etc. chain. Which you have done.",
+      "parentUuid": "c96ae68b_266bb15a",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95bbc475_feed9a26",
         "filename": "drivers/nxp/sd/sd_mmc.c",
         "patchSetId": 8
@@ -467,6 +485,24 @@
       "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d60151c_a271f2b4",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-13T21:44:33Z",
+      "side": 1,
+      "message": "Same here. Seems you got the idea.",
+      "parentUuid": "4ca12133_15e406eb",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -1334,6 +1370,24 @@
     },
     {
       "key": {
+        "uuid": "f363f3e6_87e01243",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-13T21:44:33Z",
+      "side": 1,
+      "message": "looks like num_blocks lost its --.",
+      "parentUuid": "25b3d228_b520dcb2",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d8906ae4_20be43c1",
         "filename": "drivers/nxp/sd/sd_mmc.c",
         "patchSetId": 8
@@ -1511,6 +1565,24 @@
       "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b601f9a9_4d4b1376",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-13T21:44:33Z",
+      "side": 1,
+      "message": "this num_blocks lost its -- as well.",
+      "parentUuid": "cc500180_e33b0056",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     },
     {
       "key": {
@@ -1888,6 +1960,24 @@
       "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22d7868c_c8df8869",
+        "filename": "drivers/nxp/sd/sd_mmc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-13T21:44:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee641342_112c250b",
+      "revId": "a68a0b76568e087fb176ce5739919477d7aff83d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
