@@ -107,6 +107,24 @@
       "revId": "adfe885071f63e9b4cb97fad77105c3c58b9eff8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ca66117_da421ef6",
+        "filename": "drivers/nxp/gpio/nxp_gpio.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-13T21:34:01Z",
+      "side": 1,
+      "message": "I did a batch of reviews with the wrong understanding of the style guide. This was one of them. Your code is correct.\n\nDone.",
+      "parentUuid": "6e301980_0ffbba81",
+      "revId": "adfe885071f63e9b4cb97fad77105c3c58b9eff8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
