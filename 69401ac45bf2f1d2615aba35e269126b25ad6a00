@@ -213,6 +213,30 @@
       "revId": "69401ac45bf2f1d2615aba35e269126b25ad6a00",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67f910fe_55dba594",
+        "filename": "lib/libc/printf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-14T16:55:31Z",
+      "side": 1,
+      "message": "I had a go at building it with both versions and there was no difference in the binary.\nI did an objdump of the function and it seems that the compiler is clever enough to just reuse the (*fmt) value without separately loading the literal \u0027%\u0027, like this:\n\n...\ncmp w0, #0x25               // case \u0027%\u0027:\nb.eq 1f\n...\n1:\nbl \u003cputchar\u003e\n...\n\nWith this in mind, could we change back to \u0027%\u0027 for clarity?",
+      "parentUuid": "e5f1ccd3_8d8cc493",
+      "range": {
+        "startLine": 112,
+        "startChar": 18,
+        "endLine": 112,
+        "endChar": 22
+      },
+      "revId": "69401ac45bf2f1d2615aba35e269126b25ad6a00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
