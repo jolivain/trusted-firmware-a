@@ -189,6 +189,30 @@
       "revId": "69401ac45bf2f1d2615aba35e269126b25ad6a00",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5f1ccd3_8d8cc493",
+        "filename": "lib/libc/printf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-14T15:45:30Z",
+      "side": 1,
+      "message": "The easiest method to figure out if there is a code gen change it to build it both ways and diff the generated assembly. If anyone is still on the fence about this, please diff the assembly.",
+      "parentUuid": "a437b1f2_cfc064fe",
+      "range": {
+        "startLine": 112,
+        "startChar": 18,
+        "endLine": 112,
+        "endChar": 22
+      },
+      "revId": "69401ac45bf2f1d2615aba35e269126b25ad6a00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
