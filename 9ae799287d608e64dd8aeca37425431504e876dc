@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05fa6ff8_7fef0595",
+        "filename": "plat/nxp/soc-lx2160/lx2162aqds/ddr_init.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-14T18:27:33Z",
+      "side": 1,
+      "message": "This if need braces, also in other places (see the style guide - https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies)",
+      "revId": "9ae799287d608e64dd8aeca37425431504e876dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faea7b37_fe61886d",
+        "filename": "plat/nxp/soc-lx2160/lx2162aqds/ddr_init.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-14T18:27:33Z",
+      "side": 1,
+      "message": "Couldn\u0027t this just be replaced with:\n} else {\n?",
+      "revId": "9ae799287d608e64dd8aeca37425431504e876dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
