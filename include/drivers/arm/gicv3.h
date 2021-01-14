@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -47,8 +47,22 @@
 /* Total number of GICv3.1 ESPIs */
 #define TOTAL_ESPI_INTR_NUM	(MAX_ESPI_ID - MIN_ESPI_ID + U(1))
 
-/* Total number of GICv3.1 SPIs and ESPIs */
-#define	TOTAL_SHARED_INTR_NUM	(TOTAL_SPI_INTR_NUM + TOTAL_ESPI_INTR_NUM)
+/*
+ * The TOTAL_SPI_INTR_NUM (1020 - 32) is not well aligned, which will cause
+ * trouble when saving and restoring GICD context with registers servicing
+ * multiple interrupts, i.e. shifting operation in RESTORE/SAVE_GICD_EREGS may
+ * cause array index round down and then buffer override.
+ *
+ * So round up TOTAL_SPI_INTR_NUM to (1024 - 32) for GICD context arrays. It may
+ * waste some memory but makes the logic simpler.
+ */
+#define TOTAL_SPI_NUM_ALIGNED	(U(1024) - MIN_SPI_ID)
+
+/*
+ * Total number of GICv3.1 SPIs and ESPIs; use the round up value to avoid
+ * buffer override.
+ */
+#define	TOTAL_SHARED_INTR_NUM	(TOTAL_SPI_NUM_ALIGNED + TOTAL_ESPI_INTR_NUM)
 
 /* SGIs: 0-15, PPIs: 16-31, EPPIs: 1056-1119 */
 #define	IS_SGI_PPI(id)		(((id) <= MAX_PPI_ID)  || \

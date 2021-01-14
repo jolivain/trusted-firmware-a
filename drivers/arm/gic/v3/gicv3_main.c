@@ -70,8 +70,8 @@ static bool is_sgi_ppi(unsigned int id);
 		for (unsigned int int_id = MIN_ESPI_ID; int_id < (intr_num);\
 				int_id += (1U << REG##R_SHIFT)) {	\
 			gicd_write_##reg((base), int_id,		\
-			(ctx)->gicd_##reg[(int_id - (MIN_ESPI_ID - MIN_SPI_ID))\
-						>> REG##R_SHIFT]);	\
+			(ctx)->gicd_##reg[(int_id - MIN_ESPI_ID +	\
+			TOTAL_SPI_NUM_ALIGNED) >> REG##R_SHIFT]);	\
 		}							\
 	} while (false)
 
@@ -79,8 +79,9 @@ static bool is_sgi_ppi(unsigned int id);
 	do {								\
 		for (unsigned int int_id = MIN_ESPI_ID; int_id < (intr_num);\
 				int_id += (1U << REG##R_SHIFT)) {	\
-			(ctx)->gicd_##reg[(int_id - (MIN_ESPI_ID - MIN_SPI_ID))\
-			>> REG##R_SHIFT] = gicd_read_##reg((base), int_id);\
+			(ctx)->gicd_##reg[(int_id - MIN_ESPI_ID +	\
+			TOTAL_SPI_NUM_ALIGNED) >> REG##R_SHIFT] =	\
+			gicd_read_##reg((base), int_id);		\
 		}							\
 	} while (false)
 #else
