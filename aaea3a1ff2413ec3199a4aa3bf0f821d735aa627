@@ -1,0 +1,256 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a4c91a9_77319d50",
+        "filename": "drivers/nxp/flexspi/nor/fspi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-15T14:41:22Z",
+      "side": 1,
+      "message": "The names in camelCase are against our style guide, please use lowercase snake_case for variable names (here and in other places):\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#local-variables-and-parameters",
+      "range": {
+        "startLine": 36,
+        "startChar": 33,
+        "endLine": 36,
+        "endChar": 38
+      },
+      "revId": "aaea3a1ff2413ec3199a4aa3bf0f821d735aa627",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e56fcd7_e346f249",
+        "filename": "drivers/nxp/flexspi/nor/fspi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-15T14:41:22Z",
+      "side": 1,
+      "message": "nit: there\u0027s an extra space here",
+      "range": {
+        "startLine": 49,
+        "startChar": 10,
+        "endLine": 49,
+        "endChar": 11
+      },
+      "revId": "aaea3a1ff2413ec3199a4aa3bf0f821d735aa627",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3161e2b_56ddad5d",
+        "filename": "drivers/nxp/flexspi/nor/fspi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-15T14:41:22Z",
+      "side": 1,
+      "message": "This should be changed to:\nwhile ((fspi_readl(FSPI_MCR0) \u0026 FSPI_MCR0_SWRST) !\u003d 0U)\nsee MISRA rule 14.4\nHere and in other places",
+      "range": {
+        "startLine": 198,
+        "startChar": 1,
+        "endLine": 198,
+        "endChar": 50
+      },
+      "revId": "aaea3a1ff2413ec3199a4aa3bf0f821d735aa627",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5043c397_cf930881",
+        "filename": "drivers/nxp/flexspi/nor/fspi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-15T14:41:22Z",
+      "side": 1,
+      "message": "this for loop needs braces\nsee the style guide:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "aaea3a1ff2413ec3199a4aa3bf0f821d735aa627",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3227d0a7_e994c48c",
+        "filename": "drivers/nxp/flexspi/nor/fspi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-15T14:41:22Z",
+      "side": 1,
+      "message": "This commented code should be removed - it breaks MISRA rule 4.4\nSee our MISRA spreadsheet linked here: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#misra-compliance",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 240,
+        "endChar": 3
+      },
+      "revId": "aaea3a1ff2413ec3199a4aa3bf0f821d735aa627",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "212fbdca_c1f9d5ad",
+        "filename": "drivers/nxp/flexspi/nor/fspi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-15T14:41:22Z",
+      "side": 1,
+      "message": "This if needs braces - see the style guide:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#braces",
+      "revId": "aaea3a1ff2413ec3199a4aa3bf0f821d735aa627",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cf5836a_210d8bdf",
+        "filename": "drivers/nxp/flexspi/nor/fspi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-15T14:41:22Z",
+      "side": 1,
+      "message": "Could this if condition be moved into the condition of the do while loop?\nTechnically the \u0027while (1)\u0027 breaks MISRA rule 14.3 - \"controlling expressions shall not be invariant\".",
+      "range": {
+        "startLine": 326,
+        "startChar": 32,
+        "endLine": 330,
+        "endChar": 4
+      },
+      "revId": "aaea3a1ff2413ec3199a4aa3bf0f821d735aa627",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "541945a4_ac0e1c80",
+        "filename": "drivers/nxp/flexspi/nor/fspi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-15T14:41:22Z",
+      "side": 1,
+      "message": "MISRA rule 4.4 - see line 236-240",
+      "range": {
+        "startLine": 424,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 49
+      },
+      "revId": "aaea3a1ff2413ec3199a4aa3bf0f821d735aa627",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "433f738a_95c916b7",
+        "filename": "drivers/nxp/flexspi/nor/fspi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-15T14:41:22Z",
+      "side": 1,
+      "message": "MISRA rule 14.4: this should be:\nwhile (xLen_Bytes !\u003d 0U) {\nSee the MISRA spreadsheet linked here:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#misra-compliance",
+      "range": {
+        "startLine": 428,
+        "startChar": 8,
+        "endLine": 428,
+        "endChar": 18
+      },
+      "revId": "aaea3a1ff2413ec3199a4aa3bf0f821d735aa627",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69448b12_292006d8",
+        "filename": "drivers/nxp/flexspi/nor/fspi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-15T14:41:22Z",
+      "side": 1,
+      "message": "This should have braces (also below and in other places).",
+      "revId": "aaea3a1ff2413ec3199a4aa3bf0f821d735aa627",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acb57f99_86b4dcf5",
+        "filename": "drivers/nxp/flexspi/nor/fspi.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-15T14:41:22Z",
+      "side": 1,
+      "message": "These names break our style guidelines - macros should use uppercase snake-case only:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#preprocessor-macros",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "aaea3a1ff2413ec3199a4aa3bf0f821d735aa627",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cfdd0ae_26f03a6d",
+        "filename": "drivers/nxp/flexspi/nor/test_fspi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-15T14:41:22Z",
+      "side": 1,
+      "message": "Why are these global variables?\nThey seem to be used as local variables",
+      "revId": "aaea3a1ff2413ec3199a4aa3bf0f821d735aa627",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
