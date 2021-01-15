@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a78c10c_d899abe3",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-01-15T01:03:55Z",
+      "side": 1,
+      "message": "with the change in this patch, plat_arm_gic_redistif_off() would be invoked twice in the function css_pwr_domain_suspend. I am wondering if that could lead to unexpected consequences .",
+      "revId": "3e120972197eb109f2f37527deff9c7ac37d5775",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
