@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "407d200c_ce44c653",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-01-15T07:33:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "819a3121_f6c10e1f",
+      "revId": "3f1d8e432bdf3df516bb00cfe285a1bd2b486502",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96b2ccb3_6595f9cd",
         "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
         "patchSetId": 5
@@ -33,6 +51,24 @@
       "revId": "3f1d8e432bdf3df516bb00cfe285a1bd2b486502",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6cb5631_17377af4",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-01-15T07:33:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96b2ccb3_6595f9cd",
+      "revId": "3f1d8e432bdf3df516bb00cfe285a1bd2b486502",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "3566bb4e_db598544",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-01-15T07:33:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fd2f621_242b4489",
+      "revId": "3f1d8e432bdf3df516bb00cfe285a1bd2b486502",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99e7872b_04024b56",
         "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
         "patchSetId": 5
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "e663b837_dac334cf",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-01-15T07:33:32Z",
+      "side": 1,
+      "message": "idx indicate error as well in current design. It might give negative value.\ncpuid changes to unsigned int.",
+      "parentUuid": "99e7872b_04024b56",
+      "revId": "3f1d8e432bdf3df516bb00cfe285a1bd2b486502",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0caf098e_af6880e2",
         "filename": "plat/mediatek/common/lpm/mt_lp_rm.h",
         "patchSetId": 5
@@ -84,6 +156,24 @@
       "revId": "3f1d8e432bdf3df516bb00cfe285a1bd2b486502",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "128f236a_78708593",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-01-15T07:33:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0caf098e_af6880e2",
+      "revId": "3f1d8e432bdf3df516bb00cfe285a1bd2b486502",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
