@@ -46,6 +46,30 @@
       "revId": "12cd65e091c229c1bc12d6ca58417391ec62d37f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b99691f2_cf936cba",
+        "filename": "Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000428
+      },
+      "writtenOn": "2021-01-18T15:01:33Z",
+      "side": 1,
+      "message": "Okay, so this is probably not the way I would prefer this done. Because ARM_ARCH_MAJOR/MINOR are evaluated before the platform.mk is included and because the switching is done by makefile conditionals, variables such as ARM_ARCH_MAJOR/MINOR or ARM_ARCH_FEATURES or now ENABLE_FEAT_RNG cannot be specified in the platform.mk. They have to be specified on the command line by the user when compiling TF-A and the platform.mk can at best abort the process if sufficient runes are not specified. In short time as v8 extensions are implemented, we would have a paragraph of ENABLE_FOO_FEAT that the user has to specify to get the result they want.\n\nMy preferred solution would be to change the way the march64_directive is determined to use $() evaluations, since the evaluation would collapse to the final result only when the variable is dereferenced in the recipes. Then various platforms could not only define the minor version of the b8 architecture but also various specific features. This obviously requires refactoring quite a bit bigger than this.\n\nSigh. I guess in absence of the above, I would prefer the compilation to switch to different code when the user compiles with v8.5+rng, rather than make adding +rng if I specify ENABLE_FEAT_RNG\u003dyes on the command line.\n\nThat said, if you feel strongly about the change, I will change it in line with what you asked for.",
+      "parentUuid": "19c8f953_3d32c564",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 63
+      },
+      "revId": "12cd65e091c229c1bc12d6ca58417391ec62d37f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
