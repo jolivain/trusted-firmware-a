@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9eb90df8_deaf85d7",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/ddr_init.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-01-18T19:56:27Z",
+      "side": 1,
+      "message": "I\u0027ll mark this as \"resolved,\" so that you can decide for yourself:  I *think* the legally-correct phraseology for a copyright message would be \"Copyright 2021 by NXP\" (note the \"by\") and should use the full, correctly-spelled-out company name, possibly \"NXP Semiconductors N.V.\"  If you don\u0027t think it needs to change, then I\u0027m OK with that.",
+      "revId": "08084269d655fd974753023a97457bca394e9667",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f460940d_811cfe93",
+        "filename": "plat/nxp/soc-lx2160/lx2160ardb/platform_def.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-01-18T19:56:27Z",
+      "side": 1,
+      "message": "Do you want to include a comment of /* PLATFORM_DEF_H */ after the #endif?  Since that\u0027s pretty obvious for this file in its current form, I\u0027ll mark this as \"Resolved,\" but you might consider it in case, at some time in the future, this file should grow longer.",
+      "revId": "08084269d655fd974753023a97457bca394e9667",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    }
+  ]
+}
