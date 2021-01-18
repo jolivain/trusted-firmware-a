@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74947abf_b7af6d8e",
+        "filename": "Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-01-18T12:29:12Z",
+      "side": 1,
+      "message": "For SUPPORT_STACK_MEMTAG build flag, this looks to be the other way around: defining it implies compiling with the +memtag compiler modifier (see lines 212 and 218). Perhaps you should do it the same way for ENABLE_FEAT_RNG option? As in, something like:\n\nifeq (${ENABLE_FEAT_RNG},yes)\n  arch-features       \t:\u003d       $(arch-features)+rng\nendif\n\nDoes this make sense?",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 63
+      },
+      "revId": "12cd65e091c229c1bc12d6ca58417391ec62d37f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
