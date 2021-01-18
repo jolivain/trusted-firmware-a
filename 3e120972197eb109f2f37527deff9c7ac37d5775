@@ -16,6 +16,24 @@
       "revId": "3e120972197eb109f2f37527deff9c7ac37d5775",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50b3810d_a26f9faf",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000452
+      },
+      "writtenOn": "2021-01-18T03:39:26Z",
+      "side": 1,
+      "message": "Hi  Madhukar\n\nI was aware of this issue, but I am not sure in which case “css_pwr_domain_suspend” will be called \n\nwith changes of the present patch, I tried system shutdown/reboot on N1SDP system with Ubuntu file system and I don’t see any new issues.\n\nAs a negative test just I called  2 times  plat_arm_gic_redistif_off when cpu is about turn OFF  and I don’t see any side effects  \n\nLogs : \nroot@n1sdp:~# echo 0 \u003e /sys/devices/system/cpu/cpu2/online\nINFO:    UJJA css_pwr_domain_off called\nINFO:    UJJA plat_arm_gic_redistif_off called -1\nINFO:    UJJA plat_arm_gic_redistif_off called\nINFO:    UJJA plat_arm_gic_redistif_off called -2\nINFO:    UJJA plat_arm_gic_redistif_off called\nINFO:    UJJA plat_arm_gic_redistif_off called ALL OK\nroot@n1sdp:~#\nroot@n1sdp:~# echo 0 \u003e /sys/devices/system/cpu/cpu3/online\nINFO:    UJJA css_pwr_domain_off called\nINFO:    UJJA plat_arm_gic_redistif_off called -1\nINFO:    UJJA plat_arm_gic_redistif_off called\nINFO:    UJJA plat_arm_gic_redistif_off called -2\nINFO:    UJJA plat_arm_gic_redistif_off called\nINFO:    UJJA plat_arm_gic_redistif_off called ALL OK\nroot@n1sdp:~# echo 1 \u003e /sys/devices/system/cpu/cpu3/online\nroot@n1sdp:~# echo 1 \u003e /sys/devices/system/cpu/cpu2/online\nroot@n1sdp:~#\nroot@n1sdp:~# cat /proc/cpuinfo\n----------------------------------------------------------------------------\n \nIn plat_arm_gic_redistif_off I don’t see any while loop, so it is safe even if we call 2 times.",
+      "parentUuid": "0a78c10c_d899abe3",
+      "revId": "3e120972197eb109f2f37527deff9c7ac37d5775",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
