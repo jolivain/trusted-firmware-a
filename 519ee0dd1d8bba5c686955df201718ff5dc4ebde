@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ad491db_bff74055",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-01-19T12:52:47Z",
+      "side": 1,
+      "message": "But this wfi() will realistically prevent the error message and panic from ever occurring, even when the sunxi_cpu_off() call fails? I wonder if we should move the mandatory wfi into the implementation of sunxi_cpu_off(), to be called only when needed (when powering ourselves off via direct ARISC code). That wouldn\u0027t really change anything, but at least would make this code here look less wrong.",
+      "revId": "519ee0dd1d8bba5c686955df201718ff5dc4ebde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
