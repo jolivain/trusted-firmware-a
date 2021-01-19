@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "016f6989_e572fe05",
+        "filename": "lib/psci/psci_suspend.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-01-19T11:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b95309fe_ce267c4a",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03bba9d4_d33605eb",
         "filename": "plat/mediatek/common/lpm/build.mk",
         "patchSetId": 31
@@ -33,6 +51,24 @@
       "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "810079d0_d33b27bc",
+        "filename": "plat/mediatek/common/lpm/build.mk",
+        "patchSetId": 31
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-01-19T11:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03bba9d4_d33605eb",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6b71e31c_06d44a5f",
+        "filename": "plat/mediatek/common/lpm/mt_lp_api.h",
+        "patchSetId": 31
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-01-19T11:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7191112_91863851",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc7241df_61829651",
         "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
         "patchSetId": 31
@@ -67,6 +121,24 @@
       "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e4a66b5_04fd4e7b",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-01-19T11:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc7241df_61829651",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "79419875_ad93e682",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-01-19T11:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f76874d7_6306b405",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7dc42f8a_08ecd491",
         "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
         "patchSetId": 31
@@ -101,6 +191,24 @@
       "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f33dff32_3030c995",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-01-19T11:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dc42f8a_08ecd491",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "e3bb78ff_cbd72910",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-01-19T11:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8299b2f_bc0e7a14",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73698e81_f92baf11",
         "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
         "patchSetId": 31
@@ -135,6 +261,24 @@
       "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5afb1695_f151114d",
+        "filename": "plat/mediatek/common/lpm/mt_lp_rm.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-01-19T11:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73698e81_f92baf11",
+      "revId": "7d1dc6d19aece35af6500946feb6485a439067fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
