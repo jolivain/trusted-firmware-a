@@ -16,6 +16,24 @@
       "revId": "519ee0dd1d8bba5c686955df201718ff5dc4ebde",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c8cd82e_49d42851",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-01-19T14:56:49Z",
+      "side": 1,
+      "message": "Moving the WFI would be problematic -- see my other comment. sunxi_cpu_off() cannot fail, and as you mention, we will never leave WFI. I agree the code looks wrong, due to the unreachable error handling (which is really left over from when this was an unimplemented stub). I would suggest dropping the ERROR() and panic().",
+      "parentUuid": "2ad491db_bff74055",
+      "revId": "519ee0dd1d8bba5c686955df201718ff5dc4ebde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
