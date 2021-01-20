@@ -70,6 +70,30 @@
       "revId": "12cd65e091c229c1bc12d6ca58417391ec62d37f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab03cbd2_6abaa015",
+        "filename": "Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-01-20T11:10:08Z",
+      "side": 1,
+      "message": "\u003e Okay, so this is probably not the way I would prefer this done. Because ARM_ARCH_MAJOR/MINOR are evaluated before the platform.mk is included and because the switching is done by makefile conditionals, variables such as ARM_ARCH_MAJOR/MINOR or ARM_ARCH_FEATURES or now ENABLE_FEAT_RNG cannot be specified in the platform.mk. They have to be specified on the command line by the user when compiling TF-A and the platform.mk can at best abort the process if sufficient runes are not specified. In short time as v8 extensions are implemented, we would have a paragraph of ENABLE_FOO_FEAT that the user has to specify to get the result they want.\n\nRight, I understand the problem now. I agree with you that the platform makefile would be the right place for describing what the hardware supports, such as the RND* instructions.\n\nI see that some other AArch64 platforms have a similar problem. Rpi3, rpi4, Amlogic SoCs (and qemu) already tune the compiler flags for their specific CPUs (-mcpu/-mtune option) ; imx7.mk enables compiler support for Neon ; stm32mp1 enables compiler support for software-emulated FPU.\n\nThings look cleaner for AArch32 targets, where a separate armv7-a-cpus.mk makefile was introduced to handle compiler options based on the platform options. See this commit: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/commit/?id\u003d26e63c4450b1e4dcef3f9256663f36253e6b62d2 This armv7-a-cpus.mk makefile had to be included after the platform makefile to address the issue you mentioned.\n\nI guess we could do something similar for AArch64 targets in the future, but as you rightly say this is a bigger change outside of the scope of this patch.\n\n\u003e My preferred solution would be to change the way the march64_directive is determined to use $() evaluations, since the evaluation would collapse to the final result only when the variable is dereferenced in the recipes. Then various platforms could not only define the minor version of the b8 architecture but also various specific features. This obviously requires refactoring quite a bit bigger than this.\n\nThat works as well.\n\nWhatever solution we choose when we get to this refactoring, I think we should avoid the platform makefiles having to manage the compiler options directly, i.e. no -mcpu\u003dcortex-a53 option in platform.mk for example. I think it\u0027s better to keep a layer of abstraction, such as ARM_CORTEX_A53\u003dyes, that is then derived to the right compiler option by the top Makefile (or its affiliates in make_helpers/). This makes sure we keep compiler discrepancies (across gcc/clang/armclang) in the generic part of the build system (rather than each platform having to deal with this).\n\nDoes this make sense?\n\n\u003e Sigh. I guess in absence of the above, I would prefer the compilation to switch to different code when the user compiles with v8.5+rng, rather than make adding +rng if I specify ENABLE_FEAT_RNG\u003dyes on the command line.\n\nEither way, you\u0027d have to specify something on the command line, right? Be it ENABLE_FEAT_RNG\u003dyes or CFLAGS\u003d-march\u003darmv8-a+rng. And I guess the latter solution has the disadvantage of being compiler specific (although I see in this specific example that all 3 compilers we support - clang, armclang, gcc - use the same +rng flag).\n\nWhy do you prefer inferring ENABLE_FEAT_RNG from compiling with v8.5+rng? Are there any benefit of doing it this way that I can\u0027t think of right now?",
+      "parentUuid": "b99691f2_cf936cba",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 63
+      },
+      "revId": "12cd65e091c229c1bc12d6ca58417391ec62d37f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
