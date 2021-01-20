@@ -17,16 +17,16 @@
  * Platform information structure stored in SDS.
  * This structure holds information about platform's DDR
  * size which is an information about multichip setup
- * 	- multichip mode
- * 	- slave_count
- * 	- Local DDR size in GB, DDR memory in master board
- * 	- Remote DDR size in GB, DDR memory in slave board
+ *	- Local DDR size in bytes, DDR memory in master board
+ *	- Remote DDR size in bytes, DDR memory in slave board
+ *	- slave_count
+ *	- multichip mode
  */
 struct morello_plat_info {
-	bool multichip_mode;
+	uint64_t local_ddr_size;
+	uint64_t remote_ddr_size;
 	uint8_t slave_count;
-	uint8_t local_ddr_size;
-	uint8_t remote_ddr_size;
+	bool multichip_mode;
 } __packed;
 
 /*
@@ -80,6 +80,7 @@ void bl31_platform_setup(void)
 	int ret;
 	struct morello_plat_info plat_info;
 	struct morello_bl33_info bl33_info;
+	struct morello_plat_info *copy_dest;
 
 	ret = sds_init();
 	if (ret != SDS_OK) {
@@ -99,8 +100,8 @@ void bl31_platform_setup(void)
 
 	/* Validate plat_info SDS */
 	if ((plat_info.local_ddr_size == 0U)
-		|| (plat_info.local_ddr_size > MORELLO_MAX_DDR_CAPACITY_GB)
-		|| (plat_info.remote_ddr_size > MORELLO_MAX_DDR_CAPACITY_GB)
+		|| (plat_info.local_ddr_size > MORELLO_MAX_DDR_CAPACITY)
+		|| (plat_info.remote_ddr_size > MORELLO_MAX_DDR_CAPACITY)
 		|| (plat_info.slave_count > MORELLO_MAX_SLAVE_COUNT)) {
 		ERROR("platform info SDS is corrupted\n");
 		panic();
@@ -127,5 +128,6 @@ void bl31_platform_setup(void)
 	 * and platform information should be passed to BL33 using NT_FW_CONFIG
 	 * passing mechanism.
 	 */
-	mmio_write_32(MORELLO_PLATFORM_INFO_BASE, *(uint32_t *)&plat_info);
+	copy_dest = (struct morello_plat_info *)MORELLO_PLATFORM_INFO_BASE;
+	*copy_dest = plat_info;
 }
