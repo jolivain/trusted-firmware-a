@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -494,9 +494,11 @@ int main(int argc, char *argv[])
 			case EXT_TYPE_NVCOUNTER:
 				if (ext->arg) {
 					nvctr = atoi(ext->arg);
-					CHECK_NULL(cert_ext, ext_new_nvcounter(ext_nid,
-						EXT_CRIT, nvctr));
+				} else {
+					nvctr = 0;
 				}
+				CHECK_NULL(cert_ext, ext_new_nvcounter(ext_nid,
+					EXT_CRIT, nvctr));
 				break;
 			case EXT_TYPE_HASH:
 				if (ext->arg == NULL) {
@@ -505,7 +507,7 @@ int main(int argc, char *argv[])
 						memset(md, 0x0, SHA512_DIGEST_LENGTH);
 					} else {
 						/* Do not include this hash in the certificate */
-						break;
+						continue;
 					}
 				} else {
 					/* Calculate the hash of the file */
