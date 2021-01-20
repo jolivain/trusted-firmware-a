@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55eb2eb2_43d06ddb",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_lp_irqremain.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-01-20T21:19:50Z",
+      "side": 1,
+      "message": "Please use macros instead of hardcoded value of 110.",
+      "revId": "7bddc4246d1586ff4f629c3df8eddc2c9e9c5957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84b14d73_5ab95bd1",
+        "filename": "plat/mediatek/mt8192/drivers/mcdi/mt_lp_irqremain.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-01-20T21:19:50Z",
+      "side": 1,
+      "message": "same as above for all values used in this function.",
+      "revId": "7bddc4246d1586ff4f629c3df8eddc2c9e9c5957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
