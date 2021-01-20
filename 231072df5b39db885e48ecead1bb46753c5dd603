@@ -118,6 +118,30 @@
       "revId": "231072df5b39db885e48ecead1bb46753c5dd603",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7af76652_2973cd1c",
+        "filename": "plat/arm/board/juno/juno_stack_protector.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-01-20T15:14:16Z",
+      "side": 1,
+      "message": "So on a first glance it doesn\u0027t really matter whether you compare sizeof(type_t) or sizeof(variable_name), since both have obviously the same result. But it\u0027s deemed more robust to use the variable name, as the declaration might change, and with it its type. I don\u0027t know if this is written down somewhere, but that\u0027s how I learned to handle those things over the years.\n\nSo if you don\u0027t mind, I would like to keep the check as it:\nThe entropy is in the variable called \"entropy\". If that fits into the return type of the function, we can just return it. So we compare the size of \"entropy\", but since there is no alias for the return type of the function, we use the type name for the other side.",
+      "parentUuid": "68c17c86_b8431ac2",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 52
+      },
+      "revId": "231072df5b39db885e48ecead1bb46753c5dd603",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
