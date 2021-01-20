@@ -34,6 +34,24 @@
       "revId": "3e120972197eb109f2f37527deff9c7ac37d5775",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4860b26_299f2bc6",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-01-20T00:38:39Z",
+      "side": 1,
+      "message": "Hi Jagadeesh,\nThanks for testing it on the n1sdp board. I have cced other platform developers as this driver is shared by Arm reference design boards. I would wait to hear their comments.",
+      "parentUuid": "50b3810d_a26f9faf",
+      "revId": "3e120972197eb109f2f37527deff9c7ac37d5775",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
