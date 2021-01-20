@@ -142,6 +142,30 @@
       "revId": "231072df5b39db885e48ecead1bb46753c5dd603",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f673a9dc_a2a757f7",
+        "filename": "plat/arm/board/juno/juno_stack_protector.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-20T16:58:59Z",
+      "side": 1,
+      "message": "That seems fair.\nI got a bit confused with another patch at first and thought entropy was a pointer to a buffer. In that case the sizeof(entropy) could like a programming mistake in getting the length (even if it was actually intended).\nFor an integer this is not really an issue, so I\u0027ll go ahead and resolve this.",
+      "parentUuid": "7af76652_2973cd1c",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 52
+      },
+      "revId": "231072df5b39db885e48ecead1bb46753c5dd603",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
