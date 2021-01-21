@@ -91,6 +91,30 @@
       "revId": "e5ab25bfebcf6fd3121ad180c2e8dacfe5e5ddb8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1107ba3b_75ced120",
+        "filename": "tools/cert_create/src/main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-01-21T10:07:19Z",
+      "side": 1,
+      "message": "After reading the commit message again (\"It turns out that it was the HASH version, but I inculed a fix for both.\"), I realize you might not have encountered this situation in practice. Is that what you meant?",
+      "parentUuid": "88d3c5ca_20663688",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 5
+      },
+      "revId": "e5ab25bfebcf6fd3121ad180c2e8dacfe5e5ddb8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
