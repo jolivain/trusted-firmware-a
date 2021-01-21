@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b481c2e8_c838a6a8",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-01-21T02:58:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67df5268_3c9a9f8e",
+      "range": {
+        "startLine": 109,
+        "startChar": 14,
+        "endLine": 109,
+        "endChar": 26
+      },
+      "revId": "08471926b1b3ca88fca2132db2a09eaa35f556dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5911088e_4611b10b",
         "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "08471926b1b3ca88fca2132db2a09eaa35f556dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "462ea369_caf5deae",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-01-21T02:58:41Z",
+      "side": 1,
+      "message": "Add a separate patch for the debug log.",
+      "parentUuid": "5911088e_4611b10b",
+      "revId": "08471926b1b3ca88fca2132db2a09eaa35f556dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
