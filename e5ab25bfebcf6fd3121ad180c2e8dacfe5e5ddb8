@@ -68,6 +68,29 @@
       "revId": "e5ab25bfebcf6fd3121ad180c2e8dacfe5e5ddb8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88d3c5ca_20663688",
+        "filename": "tools/cert_create/src/main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-01-21T10:05:52Z",
+      "side": 1,
+      "message": "I am trying to understand how come we need this code and how we end in this situation where ext-\u003earg is NULL...\n\nIIUC, ext-\u003earg here corresponds to the value of the non-volatile counter we want to embed in the certificate we are creating. At boot time, this nvcounter value will be compared against the one stored in hardware and determine whether the certificate is rejected or not. \n\nIf the certificate embeds no counter value, it means that the certificate is not versioned and we can\u0027t protect against rollback attacks. I am not sure this is a valid scenario in any of our chains of trust... In what case/configuration do we end up not having any nvcounter value specified in the certificate?",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 5
+      },
+      "revId": "e5ab25bfebcf6fd3121ad180c2e8dacfe5e5ddb8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
