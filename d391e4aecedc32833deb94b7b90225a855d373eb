@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "2f704c6e_ad4a0a9d",
+        "filename": "plat/nxp/soc-lx2160/erratas_soc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-01-22T05:44:02Z",
+      "side": 1,
+      "message": "I was always missed to respond to this. Apologies for that.\n\nHi Manish,\n\nThis errata is about first write failure/corruption to the DUAL-RAM port.\nThese mmio_write to the undocumented internal memory, are strongly sequential to prevent it.\n\nregards\nPankaj",
+      "parentUuid": "2d2c2e0b_da1f27f9",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 24
+      },
+      "revId": "d391e4aecedc32833deb94b7b90225a855d373eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e92155d1_8a2fe600",
         "filename": "plat/nxp/soc-lx2160/include/errata.h",
         "patchSetId": 5
