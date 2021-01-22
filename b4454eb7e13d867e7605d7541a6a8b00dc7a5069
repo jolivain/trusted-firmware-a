@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff4a2d41_573e2a94",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-22T14:58:06Z",
+      "side": 1,
+      "message": "mpidr_from_gicr_typer() will return extra bits outside MPIDR_AFFINITY_MASK used for mpidr_self, so condition on line #1328 might not be reached.",
+      "revId": "b4454eb7e13d867e7605d7541a6a8b00dc7a5069",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
