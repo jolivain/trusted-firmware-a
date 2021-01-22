@@ -118,6 +118,30 @@
       "revId": "12cd65e091c229c1bc12d6ca58417391ec62d37f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c530c5a_f74128dc",
+        "filename": "Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000428
+      },
+      "writtenOn": "2021-01-22T14:25:02Z",
+      "side": 1,
+      "message": "\u003e \u003e \n\u003e \u003e Either way, you\u0027d have to specify something on the command line, right? Be it ENABLE_FEAT_RNG\u003dyes or CFLAGS\u003d-march\u003darmv8-a+rng. And I guess the latter solution has the disadvantage of being compiler specific (although I see in this specific example that all 3 compilers we support - clang, armclang, gcc - use the same +rng flag).\n\nOh just to clarify, we already have ARM_ARCH_FEATURES\u003drng variable that can be specified on command line, no need to go directly to CFLAGS\u003dmarch...",
+      "parentUuid": "5bb5356a_ad462a05",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 63
+      },
+      "revId": "12cd65e091c229c1bc12d6ca58417391ec62d37f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
