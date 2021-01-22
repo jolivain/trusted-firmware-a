@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8146ce9_dec67080",
+        "filename": "include/drivers/arm/gicv3.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-22T14:49:20Z",
+      "side": 1,
+      "message": "I would suggest to use\n#define TOTAL_SPI_NUM_ALIGNED\t((TOTAL_SPI_INTR_NUM + U(31)) \u0026 U(~31))\nand add comment about 32 bytes alignment instead of \"not well aligned\"\n\nIn giv3.h TOTAL_SHARED_INTR_NUM is used as aligned for:\n#define GICD_NUM_REGS(reg_name)\t\\\n\tDIV_ROUND_UP_2EVAL(TOTAL_SHARED_INTR_NUM, (1 \u003c\u003c reg_name##_SHIFT))\nbut not aligned for\n\tuint64_t gicd_irouter[TOTAL_SHARED_INTR_NUM];\nWould it be better to just use aligned value for the array above?",
+      "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0f3b431_c9ae8fbc",
+        "filename": "include/drivers/arm/gicv3.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-22T14:49:20Z",
+      "side": 1,
+      "message": "Should this TOTAL_SHARED_INTR_NUM be also aligned for GIC v3?",
+      "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
