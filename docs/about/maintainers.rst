@@ -295,6 +295,15 @@ Measured Boot
 :F: include/drivers/measured_boot
 :F: plat/arm/board/fvp/fvp_measured_boot.c
 
+System Control and Management Interface (SCMI) Server
+^^^^^^^^^^^^^
+:M: Etienne Carriere <etienne.carriere@st.com>
+:G: `etienne-lms`_
+:M: Peng Fan <peng.fan@nxp.com>
+:G: `MrVan`_
+:F: drivers/scmi-msg
+:F: include/drivers/scmi\*
+
 Platform Ports
 ~~~~~~~~~~~~~~
 
