@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "4c687843_4afa230e",
+        "filename": "plat/nxp/soc-lx2160/erratas_soc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-22T08:42:25Z",
+      "side": 1,
+      "message": "Thanks for the explanation!\nDo we need barrier operation between register writes to expect below strong sequence?",
+      "parentUuid": "2f704c6e_ad4a0a9d",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 24
+      },
+      "revId": "d391e4aecedc32833deb94b7b90225a855d373eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e92155d1_8a2fe600",
         "filename": "plat/nxp/soc-lx2160/include/errata.h",
         "patchSetId": 5
