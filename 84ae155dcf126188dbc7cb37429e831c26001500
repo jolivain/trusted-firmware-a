@@ -73,6 +73,29 @@
       "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7e65274_3d8d8d67",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-01-23T00:24:32Z",
+      "side": 1,
+      "message": "Hi Jeremy,\nSimilar to other standard services, please wrap these into a new function(something like is_smc_pci_fid()) after creating a new source file which provides the functionality for pci services.\n\nEx: services/std_svc/smc_pci/smc_pci_main.c\n\nIt can be then included in this file as follows:\n\n#if SMC_PCI_SUPPORT\n        if (is_smc_pci_fid(smc_fid)) {\n                return pci_smc_handler(smc_fid, x1, x2, x3, x4, cookie, handle,\n                                flags);\n        }\n#endif",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 0
+      },
+      "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
