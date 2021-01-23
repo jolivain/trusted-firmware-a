@@ -70,7 +70,6 @@ const mmap_region_t plat_arm_mmap[] = {
 	V2M_MAP_FLASH0_RW,
 	V2M_MAP_IOFPGA,
 	MAP_DEVICE0,
-	MAP_DEVICE1,
 #if TRUSTED_BOARD_BOOT
 	/* To access the Root of Trust Public Key registers. */
 	MAP_DEVICE2,
@@ -86,7 +85,6 @@ const mmap_region_t plat_arm_mmap[] = {
 	V2M_MAP_FLASH0_RW,
 	V2M_MAP_IOFPGA,
 	MAP_DEVICE0,
-	MAP_DEVICE1,
 	ARM_MAP_NS_DRAM1,
 #ifdef __aarch64__
 	ARM_MAP_DRAM2,
