@@ -39,6 +39,29 @@
       "revId": "103050498e6f65f1a66defecf800c391b2b48d9b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab9e2338_cea795af",
+        "filename": "include/services/std_svc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-01-23T00:18:06Z",
+      "side": 1,
+      "message": "Hi Jeremy\nI agree with Zelalem. Please create a new header file (something like include/services/pci_svc.h) and move these declarations to the new header file.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 33
+      },
+      "revId": "103050498e6f65f1a66defecf800c391b2b48d9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
