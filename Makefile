@@ -907,6 +907,7 @@ $(eval $(call assert_booleans,\
         FAULT_INJECTION_SUPPORT \
         GENERATE_COT \
         GICV2_G0_FOR_EL3 \
+        GICV3_GICR_PROTECTION \
         HANDLE_EA_EL3_FIRST \
         HW_ASSISTED_COHERENCY \
         INVERTED_MEMMAP \
@@ -999,6 +1000,7 @@ $(eval $(call add_defines,\
         ERROR_DEPRECATED \
         FAULT_INJECTION_SUPPORT \
         GICV2_G0_FOR_EL3 \
+        GICV3_GICR_PROTECTION \
         HANDLE_EA_EL3_FIRST \
         HW_ASSISTED_COHERENCY \
         LOG_LEVEL \
