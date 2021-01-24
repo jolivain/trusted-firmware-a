@@ -16,6 +16,24 @@
       "revId": "b4454eb7e13d867e7605d7541a6a8b00dc7a5069",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2faf5ac_50efb429",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-01-24T06:44:21Z",
+      "side": 1,
+      "message": "I don\u0027t quite understand; mpidr_from_gicr_typer() should have mask off extra bits in GICR typer, do I miss something?\n\n#ifdef __aarch64__\nstatic inline u_register_t mpidr_from_gicr_typer(uint64_t typer_val)\n{       \n        return (((typer_val \u003e\u003e 56) \u0026 MPIDR_AFFLVL_MASK) \u003c\u003c MPIDR_AFF3_SHIFT) |\n                ((typer_val \u003e\u003e 32) \u0026 U(0xffffff));\n}               \n#else           \nstatic inline u_register_t mpidr_from_gicr_typer(uint64_t typer_val)\n{               \n        return (((typer_val) \u003e\u003e 32) \u0026 U(0xffffff));\n}                               \n#endif",
+      "parentUuid": "ff4a2d41_573e2a94",
+      "revId": "b4454eb7e13d867e7605d7541a6a8b00dc7a5069",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
