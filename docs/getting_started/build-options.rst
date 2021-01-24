@@ -375,6 +375,10 @@ Common build options
    EL1 for handling. The default value of this option is ``0``, which means the
    Group 0 interrupts are assumed to be handled by Secure EL1.
 
+-  ``GICV3_GICR_PROTECTION``: Disable the redistributor frame of inactive/fused
+   CPU cores by marking it as read-only. The default value of this option
+   is ``0``, which means the redistributor frames of all CPU cores are enabled.
+
 -  ``HANDLE_EA_EL3_FIRST``: When set to ``1``, External Aborts and SError
    Interrupts will be always trapped in EL3 i.e. in BL31 at runtime. When set to
    ``0`` (default), these exceptions will be trapped in the current exception
