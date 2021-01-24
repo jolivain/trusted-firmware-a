@@ -78,4 +78,23 @@ static const plat_psci_ops_t sunxi_native_psci_ops = {
 void sunxi_set_native_psci_ops(const plat_psci_ops_t **psci_ops)
 {
 	*psci_ops = &sunxi_native_psci_ops;
+
+	/*
+	 * On the A64 U-Boot's SPL sets the bus clocks to some conservative
+	 * values, to work around FEL mode instabilities with SRAM C accesses.
+	 * FEL mode is gone when we reach ATF, so bring the AHB1 bus
+	 * (the "main" bus) clock frequency back to the recommended 200MHz,
+	 * for improved performance.
+	 */
+	if (soc_id == SUNXI_SOC_A64)
+		mmio_write_32(SUNXI_CCU_BASE + 0x54, 0x00003180);
+
+	/*
+	 * U-Boot or the kernel don't setup AHB2, which leaves it at the
+	 * AHB1 frequency (200 MHz, see above). However Allwinner recommends
+	 * 300 MHz, for improved Ethernet and USB performance. Switch the
+	 * clock to use "PLL_PERIPH0 / 2".
+	 */
+	if (soc_id == SUNXI_SOC_A64 || soc_id == SUNXI_SOC_H5)
+		mmio_write_32(SUNXI_CCU_BASE + 0x5c, 0x1);
 }
