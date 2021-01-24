@@ -158,6 +158,10 @@ GENERATE_COT			:= 0
 # default, they are for Secure EL1.
 GICV2_G0_FOR_EL3		:= 0
 
+# Disable re-distributor frame of inactive cores by marking it as read
+# only
+GICV3_GICR_PROTECTION		:= 0
+
 # Route External Aborts to EL3. Disabled by default; External Aborts are handled
 # by lower ELs.
 HANDLE_EA_EL3_FIRST		:= 0
