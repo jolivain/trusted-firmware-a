@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec877b33_1260061e",
+        "filename": "docs/plat/marvell/armada/build.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-01-25T17:50:24Z",
+      "side": 1,
+      "message": "You have there probably a typo: CLOCKSPRESET\u003dCPU_1200_DDR_750\n\nA3720 SOC has IIRC now only 1 GHz CPU variant, so it should be: CLOCKSPRESET\u003dCPU_1000_DDR_800",
+      "revId": "d0b367b77a67b14922a0139ea1b6ecd620995cb4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
