@@ -214,6 +214,30 @@
       "revId": "12cd65e091c229c1bc12d6ca58417391ec62d37f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "867b7f80_74209192",
+        "filename": "Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-25T11:43:25Z",
+      "side": 1,
+      "message": "I agree with long term solution discussed in this thread but as of now we can go with the current the solution in this patch though it is not aligned with \u0027SUPPORT_STACK_MEMTAG\u0027 build flag.",
+      "parentUuid": "e3442ab3_5d55b85a",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 63
+      },
+      "revId": "12cd65e091c229c1bc12d6ca58417391ec62d37f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
