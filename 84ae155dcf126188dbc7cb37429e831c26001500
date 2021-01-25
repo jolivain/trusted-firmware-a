@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2bfff7a9_e8cf5ba3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-25T19:08:52Z",
+      "side": 1,
+      "message": "@Varun AIUI this is a different thing - see my comment on the other patch here:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/7776/1/make_helpers/defaults.mk#213\n\n@Jeremy on that note, a nit: could you update the commit message here to say SMC_PCI_SUPPORT reflecting the change in the other patch?",
+      "parentUuid": "1154849a_4ef81b6f",
+      "range": {
+        "startLine": 10,
+        "startChar": 39,
+        "endLine": 13,
+        "endChar": 33
+      },
+      "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0aa71edc_66d7aa6c",
         "filename": "services/std_svc/std_svc_setup.c",
         "patchSetId": 2
