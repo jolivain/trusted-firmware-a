@@ -142,6 +142,30 @@
       "revId": "12cd65e091c229c1bc12d6ca58417391ec62d37f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45187169_5ddce13f",
+        "filename": "Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-01-25T10:59:25Z",
+      "side": 1,
+      "message": "\u003e My preference follows from a combination of several things. We already have to specify ARM_ARCH_MAJOR and ARM_ARCH_MINOR on the command line. Given that we have to modify our command line with this (this cannot be specified in platform.mk), the user is better aware of what compiler they are using and which form of ARM_ARCH_FEATURES they need to use with their compiler.\n\nThat makes sense to me.\n\n\u003e Furthermore, when another feature is added in the future, adding +foo to the user\u0027s existing command line override is less of a hassle than adding another ENABLE_FEAT_FOO variable.\n\nSounds like another good argument to me.\n\n\u003e Also, mixing the requirement of ARM_ARCH_MAJOR/MINOR specified on command line and ENABLE_FEAT_FOO means the user can specify older minor version but also want features that require newer minor version - we would have to have logic in makefile to resolve this with user-friendly errors.\n\nNot necessarily. Older versions of the Arm architecture do not forbid the implementation of newer features. For example, you can have an Armv8.2 platform that implements some of the features provided by Armv8.5, such as the RND* instruction. The version of the architecture only dictates the minimum set of features that must be implemented but a given platform is free to implement any extra on top of this.\n\n\u003e If we ever hope to solve this properly, using one of the above ideas, we should aim to make minimal changes to provide support at this moment.\n\nYes, I agree. Now that I understand where you\u0027re coming from, I am fine with your patch. My only concern is still that the RND* extensions will be handled differently than the memtag ones but if we revisit that soon it might be OK. I\u0027ll ask Alexei and ManishB (who were both involved in the memtag thing according to the git history) whether they have any concerns with your approach but as far as I am concerned, this patch is good to go.",
+      "parentUuid": "0c530c5a_f74128dc",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 63
+      },
+      "revId": "12cd65e091c229c1bc12d6ca58417391ec62d37f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
