@@ -52,6 +52,24 @@
       "revId": "de8ae3097493f6da5ec9d5d51d091014b27e4406",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4669f592_6e410dbe",
+        "filename": "plat/xilinx/zynqmp/bl31_zynqmp_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2021-01-25T13:55:28Z",
+      "side": 1,
+      "message": "dcc is available all the time but code was done like this that because of saving space. Make sense only one console driver to be present in final binary.\nIf there is just else then in cadence case you will compile both drivers and you can\u0027t fit to allocated space. \nWe have already discussed how to save some space and then we could have more space for multi console implementation where dcc can be present all the time which would be also useful as crash console.",
+      "parentUuid": "0ad04006_82e9cb85",
+      "revId": "de8ae3097493f6da5ec9d5d51d091014b27e4406",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
