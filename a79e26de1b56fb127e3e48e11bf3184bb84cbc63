@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70964655_c169ec94",
+        "filename": "tools/cert_create/src/main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-25T17:41:27Z",
+      "side": 1,
+      "message": "A build is hitting this particular case, and exiting, which caused the CI to fail.\n\nSandrine, Manish How do we want to handle this?",
+      "revId": "a79e26de1b56fb127e3e48e11bf3184bb84cbc63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
