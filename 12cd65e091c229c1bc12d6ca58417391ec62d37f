@@ -166,6 +166,30 @@
       "revId": "12cd65e091c229c1bc12d6ca58417391ec62d37f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2f54eb8_ce8e2367",
+        "filename": "Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000428
+      },
+      "writtenOn": "2021-01-25T11:19:57Z",
+      "side": 1,
+      "message": "\u003e \u003e Also, mixing the requirement of ARM_ARCH_MAJOR/MINOR specified on command line and ENABLE_FEAT_FOO means the user can specify older minor version but also want features that require newer minor version - we would have to have logic in makefile to resolve this with user-friendly errors.\n\u003e \n\u003e Not necessarily. Older versions of the Arm architecture do not forbid the implementation of newer features. For example, you can have an Armv8.2 platform that implements some of the features provided by Armv8.5, such as the RND* instruction. The version of the architecture only dictates the minimum set of features that must be implemented but a given platform is free to implement any extra on top of this.\n\nOh, I was under the mistaken impression that feature extensions were not permitted on minor revisions older than the ones that introduced them. This is good to know!\n\n\u003e \u003e If we ever hope to solve this properly, using one of the above ideas, we should aim to make minimal changes to provide support at this moment.\n\u003e \n\u003e Yes, I agree. Now that I understand where you\u0027re coming from, I am fine with your patch. My only concern is still that the RND* extensions will be handled differently than the memtag ones but if we revisit that soon it might be OK. I\u0027ll ask Alexei and ManishB (who were both involved in the memtag thing according to the git history) whether they have any concerns with your approach but as far as I am concerned, this patch is good to go.\n\nThank you! I really appreciate your help with this.",
+      "parentUuid": "45187169_5ddce13f",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 63
+      },
+      "revId": "12cd65e091c229c1bc12d6ca58417391ec62d37f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
