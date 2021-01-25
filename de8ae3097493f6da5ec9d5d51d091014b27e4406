@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "7fbbdf82_409cbf6a",
+        "filename": "plat/xilinx/zynqmp/bl31_zynqmp_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-01-25T19:54:48Z",
+      "side": 1,
+      "message": "Hi Michal,\n\nI saw your previous comments on patchset 1. I am a bit confused. Why is solution 2 preferred over solution 1. In solution 1, the preprocessor helps us to only compile the appropriate code. the conditional check is essentially performed statically during compile time, thereby helping to make sure the binary only contains the necessary console driver code. I think this kind of solution is the popular style in the TF-A. I see you suggesting solution 2 will achieve the same result. I believe you are relying on linker to prune unused functions.\n\nMay be I am missing something. Let me know your thoughts.\n\nSolution 1 pseudo code:\n# if ZYNQMP_CONSOLE \u003d\u003d ZYNQMP_CONSOLE_cadence( or cadence1 or cadence2)\n    code related to cadence console driver\n#else \n    code related to dcc console\n#endif\n\nsolution 2 pseudo code:\nif(ZYNQMP_CONSOLE_IS(cadence)){\n   code related to cadence console driver\n} else if(ZYNQMP_CONSOLE_IS(dcc)){\n    code related to dcc console\n}",
+      "revId": "de8ae3097493f6da5ec9d5d51d091014b27e4406",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "32f7365a_2f4b0d6f",
         "filename": "plat/xilinx/zynqmp/bl31_zynqmp_setup.c",
         "patchSetId": 3
