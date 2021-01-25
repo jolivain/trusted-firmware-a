@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "2130f7ae_1deddc44",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-01-25T16:54:37Z",
+      "side": 1,
+      "message": "Actually, i want to debate this a little more. ISB does nothing for speculative execution per the ARM ARM but it does for ordering instructions. Can you explain to me a little more what happens if you dont use the ISB?",
+      "parentUuid": "ea5db52a_fa067c42",
+      "range": {
+        "startLine": 57,
+        "startChar": 1,
+        "endLine": 57,
+        "endChar": 4
+      },
+      "revId": "a67ddf4298af7e2f0104686ea3159d52381c28c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba917cf3_9fde82fb",
         "filename": "drivers/arm/dcc/dcc_console.c",
         "patchSetId": 3
