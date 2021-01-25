@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1154849a_4ef81b6f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-01-25T18:48:53Z",
+      "side": 1,
+      "message": "A bit confused. Is PCI a new interface being introduced? IIRC, FF-A is new name for SPCI. Is that right?",
+      "range": {
+        "startLine": 10,
+        "startChar": 39,
+        "endLine": 13,
+        "endChar": 33
+      },
+      "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0aa71edc_66d7aa6c",
         "filename": "services/std_svc/std_svc_setup.c",
         "patchSetId": 2
