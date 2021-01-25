@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "152d283e_b699579c",
+        "filename": "drivers/arm/tzc/tzc400.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-25T15:13:28Z",
+      "side": 1,
+      "message": "Could you add a comment here explaining this special case?\nSomething like:\n\nThe value TZC_400_REGION_ATTR_FILTER_BIT_ALL selects all filters, based on the value of tzc400.num_filters.\n\nOtherwise someone will think that this code assumes 4 filters, when they look at the definition of TZC_400_REGION_ATTR_FILTER_BIT_ALL",
+      "revId": "fcf6328ac906382756e777b6eb9184bafcb68ee0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
