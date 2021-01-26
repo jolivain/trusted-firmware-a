@@ -473,6 +473,11 @@ int main(int argc, char *argv[])
 
 		cert = &certs[i];
 
+		if (cert->fn == NULL) {
+			/* Certificate not requested. Skip to the next one */
+			continue;
+		}
+
 		/* Create a new stack of extensions. This stack will be used
 		 * to create the certificate */
 		CHECK_NULL(sk, sk_X509_EXTENSION_new_null());
