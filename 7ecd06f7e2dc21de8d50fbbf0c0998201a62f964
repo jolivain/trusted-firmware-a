@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca68a6dd_6fc99f72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-01-26T21:38:31Z",
+      "side": 1,
+      "message": "Please use CPU instead of core. Also, this is inline with our documentation: https://trustedfirmware-a.readthedocs.io/en/latest/design/reset-design.html#\n\"core boot\" is confusing.",
+      "revId": "7ecd06f7e2dc21de8d50fbbf0c0998201a62f964",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0d133fd_88fb1f73",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-01-26T21:38:31Z",
+      "side": 1,
+      "message": "nitpick: Can you rephrase it a bit:\nAfter primary CPU boots up, map its GICR region as read-write and initialize its redistributor interface.",
+      "range": {
+        "startLine": 17,
+        "startChar": 3,
+        "endLine": 18,
+        "endChar": 60
+      },
+      "revId": "7ecd06f7e2dc21de8d50fbbf0c0998201a62f964",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e738201_b2bd9a68",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-01-26T21:38:31Z",
+      "side": 1,
+      "message": "nitpick: can you rephrase it?",
+      "revId": "7ecd06f7e2dc21de8d50fbbf0c0998201a62f964",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fc81602_c56c9c3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-01-26T21:38:31Z",
+      "side": 1,
+      "message": "nitpick: remain",
+      "range": {
+        "startLine": 22,
+        "startChar": 49,
+        "endLine": 22,
+        "endChar": 56
+      },
+      "revId": "7ecd06f7e2dc21de8d50fbbf0c0998201a62f964",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ec6c2f4_7a2e35e6",
+        "filename": "plat/arm/board/fvp/fvp_gicv3.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-01-26T21:38:31Z",
+      "side": 1,
+      "message": "Can you guard this function call with GICV3_GICR_PROTECTION? Correspondingly, can you guard the function definition with GICV3_GICR_PROTECTION?",
+      "revId": "7ecd06f7e2dc21de8d50fbbf0c0998201a62f964",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
