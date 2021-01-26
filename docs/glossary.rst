@@ -15,6 +15,9 @@ You can find additional definitions in the `Arm Glossary`_.
    AArch64
       64-bit execution state of the ARMv8 ISA
 
+   ACLE
+      Arm C Language Extensions
+
    API
       Application Programming Interface
 
@@ -74,6 +77,9 @@ You can find additional definitions in the `Arm Glossary`_.
 
    GIC
       Generic Interrupt Controller
+
+   GUI
+      Graphical User Interface
 
    ISA
       Instruction Set Architecture
@@ -201,6 +207,9 @@ You can find additional definitions in the `Arm Glossary`_.
 
    TSP
       Test Secure Payload
+
+   TUI
+      Terminal User Interface
 
    TZC
       TrustZone Controller

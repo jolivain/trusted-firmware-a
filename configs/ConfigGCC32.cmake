@@ -4,32 +4,46 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 #-------------------------------------------------------------------------------
-if(NOT DEFINED PROJECT_SOURCE_DIR)
-	message(FATAL_ERROR "PROJECT_SOURCE_DIR not defined")
-endif()
-
 # Include framework files
 include(Common/Group)
+include(Compiler/GCC32)
 
 group_new(NAME compiler)
 
 if(CMAKE_BUILD_TYPE STREQUAL Debug)
-	group_add(NAME compiler TYPE CFLAG KEY -g)
-	group_add(NAME compiler TYPE ASFLAG KEY -g)
-	group_add(NAME compiler TYPE ASFLAG KEY -Wa,--gdwarf-2)
+    group_add(NAME compiler TYPE CFLAG KEY -g)
+    group_add(NAME compiler TYPE ASFLAG KEY -g)
+    group_add(NAME compiler TYPE ASFLAG KEY -Wa,--gdwarf-2)
 endif()
 
 group_add(NAME compiler TYPE CFLAG KEY -Os)
-group_add(NAME compiler TYPE CFLAG KEY -march VAL armv8-a)
+group_add(
+    NAME
+    compiler
+    TYPE
+    CFLAG
+    KEY
+    -march
+    VAL
+    armv8-a)
 group_add(NAME compiler TYPE CFLAG KEY -mthumb)
 group_add(NAME compiler TYPE CFLAG KEY -mno-unaligned-access)
 group_add(NAME compiler TYPE CFLAG KEY -nostdinc)
 group_add(NAME compiler TYPE CFLAG KEY -ffreestanding)
 group_add(NAME compiler TYPE CFLAG KEY -fno-builtin)
-group_add(NAME compiler TYPE CFLAG KEY -std VAL gnu99)
+group_add(
+    NAME
+    compiler
+    TYPE
+    CFLAG
+    KEY
+    -std
+    VAL
+    gnu99)
 group_add(NAME compiler TYPE CFLAG KEY -ffunction-sections)
 group_add(NAME compiler TYPE CFLAG KEY -fdata-sections)
-group_add(NAME compiler TYPE CFLAG KEY -fno-omit-frame-pointer) #TODO: from backtrace
+group_add(NAME compiler TYPE CFLAG KEY -fno-omit-frame-pointer) # TODO: from
+                                                                # backtrace
 
 group_add(NAME compiler TYPE CFLAG KEY -Wall)
 group_add(NAME compiler TYPE CFLAG KEY -Wdisabled-optimization)

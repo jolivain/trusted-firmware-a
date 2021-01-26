@@ -8,6 +8,7 @@ Trusted Firmware-A Documentation
    Home<self>
    about/index
    getting_started/index
+   cmake/index
    process/index
    components/index
    design/index
@@ -19,7 +20,6 @@ Trusted Firmware-A Documentation
    change-log-upcoming
    glossary
    license
-   cmake/index
 
 Trusted Firmware-A (TF-A) provides a reference implementation of secure world
 software for `Armv7-A and Armv8-A`_, including a `Secure Monitor`_ executing

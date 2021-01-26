@@ -1,11 +1,11 @@
 #-------------------------------------------------------------------------------
-# Copyright (c) 2020, Arm Limited. All rights reserved.
+# Copyright (c) 2020-2021, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
 #-------------------------------------------------------------------------------
 
-#[===[.rst:
+#[=======================================================================[.rst:
 BuildMessage
 ============
 
@@ -39,32 +39,22 @@ Example::
     stgt_link_build_messages(NAME my_exe LIBS build_message)
     ...
 
-#]===]
-
-if(NOT DEFINED PROJECT_SOURCE_DIR)
-	message(FATAL_ERROR "PROJECT_SOURCE_DIR not defined")
-endif()
+#]=======================================================================]
 
 # Get git version string
 find_package(Git)
 
 execute_process(
-	COMMAND ${GIT_EXECUTABLE} -C ${PROJECT_SOURCE_DIR} describe
-		--always --dirty --tags
-	OUTPUT_VARIABLE GIT_DESC
-	OUTPUT_STRIP_TRAILING_WHITESPACE
-)
+    COMMAND ${GIT_EXECUTABLE} -C ${PROJECT_SOURCE_DIR} describe --always --dirty
+            --tags
+    OUTPUT_VARIABLE GIT_DESC
+    OUTPUT_STRIP_TRAILING_WHITESPACE)
 
 # Create build_message.c file
-configure_file(
-	${CMAKE_CURRENT_LIST_DIR}/build_message.c.in
-	${CMAKE_CURRENT_BINARY_DIR}/build_message.c
-	@ONLY
-)
+configure_file(${CMAKE_CURRENT_LIST_DIR}/build_message.c.in
+               ${CMAKE_CURRENT_BINARY_DIR}/build_message.c @ONLY)
 
 stgt_create(NAME build_message)
 stgt_set_target(NAME build_message TYPE objlib ARGS EXCLUDE_FROM_ALL)
 
-stgt_add_src(NAME build_message SRC
-	${CMAKE_CURRENT_BINARY_DIR}/build_message.c
-)
+stgt_add_src(NAME build_message SRC ${CMAKE_CURRENT_BINARY_DIR}/build_message.c)
