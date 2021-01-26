@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "543cdddb_1038bb5d",
+        "filename": "make_helpers/tbbr/tbbr_tools.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-01-26T15:20:19Z",
+      "side": 1,
+      "message": "In the TBBR specification, the \"Non-Trusted Firmware Updater certificate\" is not rollback-protected, unlike other certificates. So actually this might have been intentional and not something we missed at all, though the rationale for not rollback-protecting this specific certificate is unclear to me at this time... Until we get clarity on this, I prefer we do not merge this patch.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 68
+      },
+      "revId": "ac73d424e275b663bd4044e001eb749b7a2f60d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
