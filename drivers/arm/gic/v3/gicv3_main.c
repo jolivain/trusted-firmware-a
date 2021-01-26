@@ -134,7 +134,7 @@ void __init gicv3_driver_init(const gicv3_driver_data_t *plat_driver_data)
 	gicv2_compat >>= CTLR_ARE_S_SHIFT;
 	gicv2_compat = gicv2_compat & CTLR_ARE_S_MASK;
 
-	if (plat_driver_data->gicr_base != 0U) {
+	if (plat_driver_data->gicr_base != 0) {
 		/*
 		 * Find the base address of each implemented Redistributor interface.
 		 * The number of interfaces should be equal to the number of CPUs in the
@@ -185,7 +185,7 @@ void __init gicv3_distif_init(void)
 	unsigned int bitmap;
 
 	assert(gicv3_driver_data != NULL);
-	assert(gicv3_driver_data->gicd_base != 0U);
+	assert(gicv3_driver_data->gicd_base != 0);
 
 	assert(IS_IN_EL3());
 
@@ -505,7 +505,7 @@ void gicv3_its_save_disable(uintptr_t gits_base,
 	its_ctx->gits_cbaser = gits_read_cbaser(gits_base);
 	its_ctx->gits_cwriter = gits_read_cwriter(gits_base);
 
-	for (i = 0U; i < ARRAY_SIZE(its_ctx->gits_baser); i++) {
+	for (i = 0; i < ARRAY_SIZE(its_ctx->gits_baser); i++) {
 		its_ctx->gits_baser[i] = gits_read_baser(gits_base, i);
 	}
 }
@@ -535,7 +535,7 @@ void gicv3_its_restore(uintptr_t gits_base,
 	gits_write_cbaser(gits_base, its_ctx->gits_cbaser);
 	gits_write_cwriter(gits_base, its_ctx->gits_cwriter);
 
-	for (i = 0U; i < ARRAY_SIZE(its_ctx->gits_baser); i++) {
+	for (i = 0; i < ARRAY_SIZE(its_ctx->gits_baser); i++) {
 		gits_write_baser(gits_base, i, its_ctx->gits_baser[i]);
 	}
 
@@ -566,8 +566,8 @@ void gicv3_rdistif_save(unsigned int proc_num,
 	ppi_regs_num = (unsigned int)((gicr_read_typer(gicr_base) >>
 			TYPER_PPI_NUM_SHIFT) & TYPER_PPI_NUM_MASK) + 1;
 	/* All other values except PPInum [0-2] are reserved */
-	if (ppi_regs_num > 3U) {
-		ppi_regs_num = 1U;
+	if (ppi_regs_num > 3) {
+		ppi_regs_num = 1;
 	}
 #else
 	ppi_regs_num = 1U;
