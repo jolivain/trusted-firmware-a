@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18ef8861_a4fc0d5b",
+        "filename": "tools/cert_create/src/main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-01-26T14:54:48Z",
+      "side": 1,
+      "message": "I don\u0027t think we want to do this. My understanding is that:\n* If the certificate has no nvcounter extension, it means that it is not rollback-protected so the firmware should not attempt to do any nvcounter checks.\n* If the certificate has a nvcounter extension with value 0, it means that the certificate version is 0 and so the firmware should cross-check this value with the one in the hardware.\n\nThese are 2 different things and not equivalent at all. I think we want the first behaviour, i.e. the existing code was fine. (I am not talking about the fix for the hash at line 510, which I think is needed).",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 5
+      },
+      "revId": "70033e9ad9bb531f1d7a87854120403996c658cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
