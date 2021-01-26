@@ -234,6 +234,3 @@ endif # WTP
 
 .PHONY: mrvl_uart
 mrvl_uart: $(BUILD_PLAT)/$(BUILD_UART).tgz.bin
-
-.PHONY: mrvl_flash
-mrvl_flash: $(BUILD_PLAT)/$(FLASH_IMAGE)
