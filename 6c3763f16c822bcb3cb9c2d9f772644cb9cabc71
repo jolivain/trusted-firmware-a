@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a037b8b_9f0c1565",
+        "filename": "tools/cert_create/src/main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-26T21:39:55Z",
+      "side": 1,
+      "message": "I think, we can just check (ext-\u003eoptional) and continue. IMO, optional means consider argument as don\u0027t care. Though not sure, how to handle this optional field in case of NVCounter?",
+      "range": {
+        "startLine": 495,
+        "startChar": 7,
+        "endLine": 495,
+        "endChar": 41
+      },
+      "revId": "6c3763f16c822bcb3cb9c2d9f772644cb9cabc71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7f51052_413f8ad6",
+        "filename": "tools/cert_create/src/main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-26T21:39:55Z",
+      "side": 1,
+      "message": "We may not hit this assert, as script exit in \u0027check_cmd_params\u0027 function if ((ext-\u003earg \u003d\u003d NULL) \u0026\u0026 (!ext-\u003eoptional)) as per the code flow.  Any use when we hit this \u0027else\u0027?",
+      "range": {
+        "startLine": 500,
+        "startChar": 5,
+        "endLine": 500,
+        "endChar": 30
+      },
+      "revId": "6c3763f16c822bcb3cb9c2d9f772644cb9cabc71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af1702dc_ec683d63",
+        "filename": "tools/cert_create/src/main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-26T21:39:55Z",
+      "side": 1,
+      "message": "I think you removed this \u0027nvctr \u003d atoi(ext-\u003earg);\u0027 by mistake.",
+      "range": {
+        "startLine": 501,
+        "startChar": 0,
+        "endLine": 501,
+        "endChar": 1
+      },
+      "revId": "6c3763f16c822bcb3cb9c2d9f772644cb9cabc71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9edbba3f_39224db9",
+        "filename": "tools/cert_create/src/main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-26T21:39:55Z",
+      "side": 1,
+      "message": "We may not hit this assert, as script exit in \u0027check_cmd_params\u0027 function if ((ext-\u003earg \u003d\u003d NULL) \u0026\u0026 (!ext-\u003eoptional)) as per the code flow. Any use when we hit this \u0027else\u0027?",
+      "range": {
+        "startLine": 512,
+        "startChar": 6,
+        "endLine": 512,
+        "endChar": 14
+      },
+      "revId": "6c3763f16c822bcb3cb9c2d9f772644cb9cabc71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
