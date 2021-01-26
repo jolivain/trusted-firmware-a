@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Copyright (c) 2019-2020, Arm Limited. All rights reserved.
+# Copyright (c) 2019-2021, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -52,11 +52,13 @@ group_add(NAME default TYPE DEFINE KEY ENABLE_RUNTIME_INSTRUMENTATION VAL 0)
 
 # Build option to enable/disable the Statistical Profiling Extensions
 group_get(NAME default TYPE CONFIG KEY ARCH RET _arch)
+
 if(_arch STREQUAL aarch64)
 	group_add(NAME default TYPE CONFIG DEFINE KEY ENABLE_SPE_FOR_LOWER_ELS VAL 1)
 else()
 	group_add(NAME default TYPE CONFIG DEFINE KEY ENABLE_SPE_FOR_LOWER_ELS VAL 0)
 endif()
+
 unset(_arch)
 
 # For including the Secure Partition Manager

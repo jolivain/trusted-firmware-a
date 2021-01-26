@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Copyright (c) 2019-2020, Arm Limited. All rights reserved.
+# Copyright (c) 2019-2021, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -32,8 +32,7 @@ dtc_compile(SRC ${_dts_fw_config} DST ${CMAKE_BINARY_DIR}/fw.dtb)
 dtc_compile(SRC ${_dts_tos_fw_config} DST ${CMAKE_BINARY_DIR}/tos_fw.dtb)
 
 # fip package creation need the fiptool
-find_package(fiptool REQUIRED)
-
+find_package(FIPTool REQUIRED)
 
 set(_fiptool_args
 	--hw-config ${CMAKE_BINARY_DIR}/hw.dtb
@@ -71,6 +70,5 @@ add_custom_target(fip ALL
 		${CMAKE_BINARY_DIR}/fw.dtb
 		$<$<STREQUAL:${_arch},aarch64>:${CMAKE_BINARY_DIR}/soc_fw.dtb>
 		$<$<BOOL:${AARCH32_SP}>:${CMAKE_BINARY_DIR}/tos_fw.dtb>
-	COMMAND ${fiptool} create ${_fiptool_args}
+	COMMAND fiptool create ${_fiptool_args}
 )
-

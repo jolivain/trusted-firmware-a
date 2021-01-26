@@ -11,6 +11,7 @@ endif()
 
 # Include framework files
 include(Common/Group)
+include(Compiler/GCC)
 
 group_new(NAME compiler)
 

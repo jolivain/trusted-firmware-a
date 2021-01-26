@@ -10,6 +10,7 @@ endif()
 
 # Include framework files
 include(Common/Group)
+include(Compiler/GCC32)
 
 group_new(NAME compiler)
 

@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Copyright (c) 2019-2020, Arm Limited. All rights reserved.
+# Copyright (c) 2019-2021, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -121,7 +121,7 @@ group_add(NAME hw_plat TYPE CONFIG DEFINE KEY ARM_CRYPTOCELL_INTEG VAL 0)
 
 #Config from make_helpers/defaults.mk: moving platform specific configs here
 #-------------------------------------------------------------------------------
-# Build flag to include AArch32 registers in cpu context save and restore during
+# Build flag to include AArch32 registers in CPU context save and restore during
 # world switch. This flag must be set to 0 for AArch64-only platforms.
 group_add(NAME hw_plat TYPE CONFIG DEFINE KEY CTX_INCLUDE_AARCH32_REGS VAL 1)
 
@@ -163,229 +163,241 @@ group_add(NAME hw_plat TYPE DEFINE KEY A57_DISABLE_NON_TEMPORAL_HINT VAL 1)
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A9_794073 VAL 0)
 
 # Flag to apply erratum 816470 workaround during power down. This erratum
-# applies only to revision >= r3p0 of the Cortex A15 cpu.
+# applies only to revision >= r3p0 of the Cortex-A15.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A15_816470 VAL 0)
 
 # Flag to apply erratum 827671 workaround during reset. This erratum applies
-# only to revision >= r3p0 of the Cortex A15 cpu.
+# only to revision >= r3p0 of the Cortex-A15.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A15_827671 VAL 0)
 
 # Flag to apply erratum 852421 workaround during reset. This erratum applies
-# only to revision <= r1p2 of the Cortex A17 cpu.
+# only to revision <= r1p2 of the Cortex-A17.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A17_852421 VAL 0)
 
 # Flag to apply erratum 852423 workaround during reset. This erratum applies
-# only to revision <= r1p2 of the Cortex A17 cpu.
+# only to revision <= r1p2 of the Cortex-A17.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A17_852423 VAL 0)
 
 # Flag to apply erratum 855472 workaround during reset. This erratum applies
-# only to revision r0p0 of the Cortex A35 cpu.
+# only to revision r0p0 of the Cortex-A35.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A35_855472 VAL 0)
 
 # Flag to apply erratum 819472 workaround during reset. This erratum applies
-# only to revision <= r0p1 of the Cortex A53 cpu.
+# only to revision <= r0p1 of the Cortex-A53.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A53_819472 VAL 0)
 
 # Flag to apply erratum 824069 workaround during reset. This erratum applies
-# only to revision <= r0p2 of the Cortex A53 cpu.
+# only to revision <= r0p2 of the Cortex-A53.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A53_824069 VAL 0)
 
 # Flag to apply erratum 826319 workaround during reset. This erratum applies
-# only to revision <= r0p2 of the Cortex A53 cpu.
+# only to revision <= r0p2 of the Cortex-A53.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A53_826319 VAL 0)
 
 # Flag to apply erratum 827319 workaround during reset. This erratum applies
-# only to revision <= r0p2 of the Cortex A53 cpu.
+# only to revision <= r0p2 of the Cortex-A53.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A53_827319 VAL 0)
 
 # Flag to apply erratum 835769 workaround at compile and link time.  This
-# erratum applies to revision <= r0p4 of the Cortex A53 cpu. Enabling this
+# erratum applies to revision <= r0p4 of the Cortex-A53. Enabling this
 # workaround can lead the linker to create "*.stub" sections.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A53_835769 VAL 0)
 
 # Flag to apply erratum 836870 workaround during reset. This erratum applies
-# only to revision <= r0p3 of the Cortex A53 cpu. From r0p4 and onwards, this
+# only to revision <= r0p3 of the Cortex-A53. From r0p4 and onwards, this
 # erratum workaround is enabled by default in hardware.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A53_836870 VAL 0)
 
 # Flag to apply erratum 843419 workaround at link time.
-# This erratum applies to revision <= r0p4 of the Cortex A53 cpu. Enabling this
+# This erratum applies to revision <= r0p4 of the Cortex-A53. Enabling this
 # workaround could lead the linker to emit "*.stub" sections which are 4kB
 # aligned.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A53_843419 VAL 0)
 
 # Flag to apply errata 855873 during reset. This errata applies to all
-# revisions of the Cortex A53 CPU, but this firmware workaround only works
+# revisions of the Cortex-A53, but this firmware workaround only works
 # for revisions r0p3 and higher. Earlier revisions are taken care
 # of by the rich OS.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A53_855873 VAL 0)
 
+# Flag to apply errata 1530924. This errata applies to all revisions of the
+# Cortex-A53.
+group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A53_1530924 VAL 0)
+
 # Flag to apply erratum 768277 workaround during reset. This erratum applies
-# only to revision r0p0 of the Cortex A55 cpu.
+# only to revision r0p0 of the Cortex-A55.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A55_768277 VAL 0)
 
 # Flag to apply erratum 778703 workaround during reset. This erratum applies
-# only to revision r0p0 of the Cortex A55 cpu.
+# only to revision r0p0 of the Cortex-A55.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A55_778703 VAL 0)
 
 # Flag to apply erratum 798797 workaround during reset. This erratum applies
-# only to revision r0p0 of the Cortex A55 cpu.
+# only to revision r0p0 of the Cortex-A55.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A55_798797 VAL 0)
 
 # Flag to apply erratum 846532 workaround during reset. This erratum applies
-# only to revision <= r0p1 of the Cortex A55 cpu.
+# only to revision <= r0p1 of the Cortex-A55.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A55_846532 VAL 0)
 
 # Flag to apply erratum 903758 workaround during reset. This erratum applies
-# only to revision <= r0p1 of the Cortex A55 cpu.
+# only to revision <= r0p1 of the Cortex-A55.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A55_903758 VAL 0)
 
 # Flag to apply erratum 1221012 workaround during reset. This erratum applies
-# only to revision <= r1p0 of the Cortex A55 cpu.
+# only to revision <= r1p0 of the Cortex-A55.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A55_1221012 VAL 0)
 
 # Flag to apply erratum 806969 workaround during reset. This erratum applies
-# only to revision r0p0 of the Cortex A57 cpu.
+# only to revision r0p0 of the Cortex-A57.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A57_806969 VAL 0)
 
 # Flag to apply erratum 813419 workaround during reset. This erratum applies
-# only to revision r0p0 of the Cortex A57 cpu.
+# only to revision r0p0 of the Cortex-A57.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A57_813419 VAL 0)
 
 # Flag to apply erratum 813420  workaround during reset. This erratum applies
-# only to revision r0p0 of the Cortex A57 cpu.
+# only to revision r0p0 of the Cortex-A57.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A57_813420 VAL 0)
 
 # Flag to apply erratum 814670  workaround during reset. This erratum applies
-# only to revision r0p0 of the Cortex A57 cpu.
+# only to revision r0p0 of the Cortex-A57.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A57_814670 VAL 0)
 
 # Flag to apply erratum 817169 workaround during power down. This erratum
-# applies only to revision <= r0p1 of the Cortex A57 cpu.
+# applies only to revision <= r0p1 of the Cortex-A57.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A57_817169 VAL 0)
 
 # Flag to apply erratum 826974 workaround during reset. This erratum applies
-# only to revision <= r1p1 of the Cortex A57 cpu.
+# only to revision <= r1p1 of the Cortex-A57.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A57_826974 VAL 0)
 
 # Flag to apply erratum 826977 workaround during reset. This erratum applies
-# only to revision <= r1p1 of the Cortex A57 cpu.
+# only to revision <= r1p1 of the Cortex-A57.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A57_826977 VAL 0)
 
 # Flag to apply erratum 828024 workaround during reset. This erratum applies
-# only to revision <= r1p1 of the Cortex A57 cpu.
+# only to revision <= r1p1 of the Cortex-A57.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A57_828024 VAL 0)
 
 # Flag to apply erratum 829520 workaround during reset. This erratum applies
-# only to revision <= r1p2 of the Cortex A57 cpu.
+# only to revision <= r1p2 of the Cortex-A57.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A57_829520 VAL 0)
 
 # Flag to apply erratum 833471 workaround during reset. This erratum applies
-# only to revision <= r1p2 of the Cortex A57 cpu.
+# only to revision <= r1p2 of the Cortex-A57.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A57_833471 VAL 0)
 
 # Flag to apply erratum 855972 workaround during reset. This erratum applies
-# only to revision <= r1p3 of the Cortex A57 cpu.
+# only to revision <= r1p3 of the Cortex-A57.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A57_859972 VAL 0)
 
+# Flag to apply erratum 1319537 workaround during reset. This erratum applies
+# to all versions of the Cortex-A57.
+group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A57_1319537 VAL 0)
+
 # Flag to apply erratum 855971 workaround during reset. This erratum applies
-# only to revision <= r0p3 of the Cortex A72 cpu.
+# only to revision <= r0p3 of the Cortex-A72.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A72_859971 VAL 0)
 
+# Flag to apply erratum 1319367 workaround during reset. This erratum applies
+# to all revisions of the Cortex-A72.
+group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A72_1319367 VAL 0)
+
 # Flag to apply erratum 852427 workaround during reset. This erratum applies
-# only to revision r0p0 of the Cortex A73 cpu.
+# only to revision r0p0 of the Cortex-A73.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A73_852427 VAL 0)
 
 # Flag to apply erratum 855423 workaround during reset. This erratum applies
-# only to revision <= r0p1 of the Cortex A73 cpu.
+# only to revision <= r0p1 of the Cortex-A73.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A73_855423 VAL 0)
 
 # Flag to apply erratum 764081 workaround during reset. This erratum applies
-# only to revision <= r0p0 of the Cortex A75 cpu.
+# only to revision <= r0p0 of the Cortex-A75.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A75_764081 VAL 0)
 
 # Flag to apply erratum 790748 workaround during reset. This erratum applies
-# only to revision <= r0p0 of the Cortex A75 cpu.
+# only to revision <= r0p0 of the Cortex-A75.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A75_790748 VAL 0)
 
 # Flag to apply erratum 1073348 workaround during reset. This erratum applies
-# only to revision <= r1p0 of the Cortex A76 cpu.
+# only to revision <= r1p0 of the Cortex-A76.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A76_1073348 VAL 0)
 
 # Flag to apply erratum 1130799 workaround during reset. This erratum applies
-# only to revision <= r2p0 of the Cortex A76 cpu.
+# only to revision <= r2p0 of the Cortex-A76.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A76_1130799 VAL 0)
 
 # Flag to apply erratum 1220197 workaround during reset. This erratum applies
-# only to revision <= r2p0 of the Cortex A76 cpu.
+# only to revision <= r2p0 of the Cortex-A76.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A76_1220197 VAL 0)
 
 # Flag to apply erratum 1257314 workaround during reset. This erratum applies
-# only to revision <= r3p0 of the Cortex A76 cpu.
+# only to revision <= r3p0 of the Cortex-A76.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A76_1257314 VAL 0)
 
 # Flag to apply erratum 1262606 workaround during reset. This erratum applies
-# only to revision <= r3p0 of the Cortex A76 cpu.
+# only to revision <= r3p0 of the Cortex-A76.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A76_1262606 VAL 0)
 
 # Flag to apply erratum 1262888 workaround during reset. This erratum applies
-# only to revision <= r3p0 of the Cortex A76 cpu.
+# only to revision <= r3p0 of the Cortex-A76.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A76_1262888 VAL 0)
 
 # Flag to apply erratum 1275112 workaround during reset. This erratum applies
-# only to revision <= r3p0 of the Cortex A76 cpu.
+# only to revision <= r3p0 of the Cortex-A76.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A76_1275112 VAL 0)
 
 # Flag to apply erratum 1286807 workaround during reset. This erratum applies
-# only to revision <= r3p0 of the Cortex A76 cpu.
+# only to revision <= r3p0 of the Cortex-A76.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_A76_1286807 VAL 0)
 
 # Flag to apply T32 CLREX workaround during reset. This erratum applies
-# only to r0p0 and r1p0 of the Neoverse N1 cpu.
+# only to r0p0 and r1p0 of the Neoverse N1.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_N1_1043202 VAL 1)
 
 # Flag to apply erratum 1073348 workaround during reset. This erratum applies
-# only to revision r0p0 and r1p0 of the Neoverse N1 cpu.
+# only to revision r0p0 and r1p0 of the Neoverse N1.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_N1_1073348 VAL 0)
 
 # Flag to apply erratum 1130799 workaround during reset. This erratum applies
-# only to revision <= r2p0 of the Neoverse N1 cpu.
+# only to revision <= r2p0 of the Neoverse N1.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_N1_1130799 VAL 0)
 
 # Flag to apply erratum 1165347 workaround during reset. This erratum applies
-# only to revision <= r2p0 of the Neoverse N1 cpu.
+# only to revision <= r2p0 of the Neoverse N1.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_N1_1165347 VAL 0)
 
 # Flag to apply erratum 1207823 workaround during reset. This erratum applies
-# only to revision <= r2p0 of the Neoverse N1 cpu.
+# only to revision <= r2p0 of the Neoverse N1.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_N1_1207823 VAL 0)
 
 # Flag to apply erratum 1220197 workaround during reset. This erratum applies
-# only to revision <= r2p0 of the Neoverse N1 cpu.
+# only to revision <= r2p0 of the Neoverse N1.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_N1_1220197 VAL 0)
 
 # Flag to apply erratum 1257314 workaround during reset. This erratum applies
-# only to revision <= r3p0 of the Neoverse N1 cpu.
+# only to revision <= r3p0 of the Neoverse N1.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_N1_1257314 VAL 0)
 
 # Flag to apply erratum 1262606 workaround during reset. This erratum applies
-# only to revision <= r3p0 of the Neoverse N1 cpu.
+# only to revision <= r3p0 of the Neoverse N1.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_N1_1262606 VAL 0)
 
 # Flag to apply erratum 1262888 workaround during reset. This erratum applies
-# only to revision <= r3p0 of the Neoverse N1 cpu.
+# only to revision <= r3p0 of the Neoverse N1.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_N1_1262888 VAL 0)
 
 # Flag to apply erratum 1275112 workaround during reset. This erratum applies
-# only to revision <= r3p0 of the Neoverse N1 cpu.
+# only to revision <= r3p0 of the Neoverse N1.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_N1_1275112 VAL 0)
 
 # Flag to apply erratum 1315703 workaround during reset. This erratum applies
-# to revisions before r3p1 of the Neoverse N1 cpu.
+# to revisions before r3p1 of the Neoverse N1.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_N1_1315703 VAL 1)
 
 # Flag to apply erratum 1542419 workaround during reset. This erratum applies
-# to revisions r3p0 - r4p0 of the Neoverse N1 cpu.
+# to revisions r3p0 - r4p0 of the Neoverse N1.
 group_add(NAME hw_plat TYPE DEFINE KEY ERRATA_N1_1542419 VAL 0)
 
 # Flag to apply DSU erratum 798953. This erratum applies to DSUs revision r0p0.

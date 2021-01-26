@@ -1,116 +1,56 @@
-#-------------------------------------------------------------------------------
-# Copyright (c) 2019, Arm Limited. All rights reserved.
+#
+# Copyright (c) 2019-2021, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
-#-------------------------------------------------------------------------------
 
 #[===[.rst:
-Fiptool CMake project
-=====================
+FIPTool
+=======
 
-This project is normally built part of the TF-A build flow, but stand alone
-build (where CMake uses this directory as a source) is also supported.
+This project is normally built as part of the TF-A build flow, but standalone
+builds (where the FIPTool directory is used as the CMake source directory) are
+also supported.
 
-For details on the |FIP| format please refer to
-:ref:`Firmware Design`.
+For details on the |FIP| format please refer to :ref:`Firmware Design`.
 
 The section :ref:`Building Supporting Tools` contains usage information
 about ``fiptool``. Please ignore the legacy build information.
 
-Build parameters
-----------------
-
-``-DPROJECT_SOURCE_DIR``
-   Allows overriding the location of the TF-A working copy. Normally this is
-   not needed.
-
-``DCMAKE_INSTALL_PREFIX``
-   Allow overriding where the build artifacts are installed. The default value
-   is ``<CMAKE_BINARY_DIR>/install``.
-
-Dependencies
-------------
-
-The ``fiptool`` runs on the build host and to compile it a compiler
-suite running on, and targeting the build host is needed. The project relies on
-CMake to detect the environment and find a suitable compiler.
-
-``fiptool`` uses the following libraries:
-
-   - libcypto from OpenSSL.
-
-This project supports CMake version 3.10 and above.
-
-``gnumake`` or a suitable build tool supported by CMake is needed. Officially
-only gnumake is supported. Other generators may work or may not.
-
 Building ``fiptool``
 --------------------
 
-The usual CMake build process is used. The project is tested with the
-``Unix Makefiles`` generator and gnumake. Other generators may work but are not
-officially supported.
+The usual CMake build process is used, and requires no additional configuration.
+Only the ``Unix Makefiles`` generator is officially supported, but other
+generators should work without issue. Note that FIPTool is intended to compiled
+using the host system toolchain.
 
 For build commands and other CMake specific details please refer to section
 :ref:`building_with_cmake_label`.
 
-Build artifacts
----------------
+Dependencies
+------------
 
-Please build the ``install`` target to get reliable access to the build
-artifacts. By default, the built executable will be installed under
-``<CMAKE_BINARY_DIR>/install``, to avoid polluting the build host. This can be
-overridden by using the ``-DCMAKE_INSTALL_PREFIX=<path>`` parameter.
+FIPTool relies on OpenSSL's crypto component library. Ubuntu users can install
+this with::
 
-Installation tree::
-
-   <CMAKE_INSTALL_PREFIX>
-      |
-      \- bin
-              fiptool or fiptool.exe
-
+    sudo apt install libssl-dev
 #]===]
 
-cmake_minimum_required(VERSION 3.10)
-
-
-# Set TF-A root. If a cache entry does exist, then this does nothing.
-# Since the fiptool depends on the TF-A working copy because of include files,
-# setting this based on a relative path is ok.
-# This will only be needed if fiptool is built stand alone.
-#
-get_filename_component(_PROJECT_SOURCE_DIR "../../" ABSOLUTE)
-set(PROJECT_SOURCE_DIR ${_PROJECT_SOURCE_DIR} CACHE PATH "Root of the TF-A working copy.")
-unset(_PROJECT_SOURCE_DIR)
+cmake_minimum_required(VERSION 3.4)
 
 project(fiptool LANGUAGES C)
 
-set(CMAKE_FIND_LIBRARY_SUFFIXES .a .dll.a .lib)
+find_package(OpenSSL COMPONENTS Crypto REQUIRED)
 
-# Look for our dependencies. Please refer to the TF-A documentation to see how
-# to install these on the various supported build hosts.
-find_library(CRYPTO_LIB NAMES libcrypto.a libcrypto.dll.a libcrypto crypto REQUIRED)
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD_REQUIRED 99)
 
 add_executable(fiptool)
 
-target_sources(fiptool PRIVATE
-	fiptool.c
-	tbbr_config.c
-)
+target_sources(fiptool PRIVATE "fiptool.c" "tbbr_config.c")
+target_include_directories(fiptool PRIVATE "../../include/tools_share")
+target_compile_definitions(fiptool PRIVATE "_GNU_SOURCE" "_XOPEN_SOURCE=700")
+target_link_libraries(fiptool PRIVATE OpenSSL::Crypto)
 
-target_include_directories(fiptool PRIVATE
-	${PROJECT_SOURCE_DIR}/include/tools_share
-)
-
-target_link_libraries(fiptool PRIVATE ${CRYPTO_LIB})
-
-target_compile_definitions(fiptool PRIVATE _GNU_SOURCE _XOPEN_SOURCE=700)
-target_compile_options(fiptool PRIVATE -Wall -Werror -pedantic -std=c99)
-
-#Is not configured otherwise install to the build directory.
-if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-  set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "..." FORCE)
-endif()
-
-install(TARGETS fiptool DESTINATION bin)
+install(TARGETS fiptool DESTINATION "bin")

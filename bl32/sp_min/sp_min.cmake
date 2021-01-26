@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Copyright (c) 2020, Arm Limited. All rights reserved.
+# Copyright (c) 2020-2021, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -49,7 +49,7 @@ stgt_add_src_cond(NAME bl32 KEY WORKAROUND_CVE_2017_5715 VAL 1 SRC
 	${CMAKE_CURRENT_LIST_DIR}/wa_cve_2017_5715_icache_inv.S
 )
 
-include(${HW_PLAT_DIR}/sp_min/sp_min-${TARGET_PLATFORM}.cmake)
+include(${HW_PLAT_DIR}/sp_min/sp_min-${TFA_TARGET_PLATFORM}.cmake)
 
 stgt_link_libraries(NAME bl32 LIBS xlat_tables_bl32 libc libfdt)
 stgt_link_build_messages(NAME bl32 LIBS build_message)

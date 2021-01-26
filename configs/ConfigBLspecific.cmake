@@ -1,15 +1,9 @@
 #-------------------------------------------------------------------------------
-# Copyright (c) 2019-2020, Arm Limited. All rights reserved.
+# Copyright (c) 2019-2021, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
-#
 #-------------------------------------------------------------------------------
 
-if(NOT DEFINED PROJECT_SOURCE_DIR)
-	message(FATAL_ERROR "PROJECT_SOURCE_DIR not defined")
-endif()
-
-# Include framework files
 include(Common/Group)
 
 group_new(NAME bl1_specific)
