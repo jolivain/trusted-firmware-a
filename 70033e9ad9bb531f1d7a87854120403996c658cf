@@ -46,6 +46,30 @@
       "revId": "70033e9ad9bb531f1d7a87854120403996c658cf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0b9ebec_b7a35f6f",
+        "filename": "tools/cert_create/src/main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-26T17:00:53Z",
+      "side": 1,
+      "message": "The new version is a bit more subtle. Also following from offline discussion, the requirement that `ext-\u003earg` be not NULL should be checked by `check_cmd_params`. However, it only asserts that required counters have a value. Taking after that, I have allowed optional counters to be skipped and required counters now have an assert.",
+      "parentUuid": "b87d73cb_8b1be644",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 5
+      },
+      "revId": "70033e9ad9bb531f1d7a87854120403996c658cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
