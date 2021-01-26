@@ -1,0 +1,1583 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Design Documents &mdash; Trusted Firmware-A  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. TF-A CMake Build System Proposal" href="cmake_framework.html" />
+    <link rel="prev" title="8. Advisory TFV-8 (CVE-2018-19440)" href="../security_advisories/security-advisory-tfv-8.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Trusted Firmware-A
+          
+
+          
+            
+            <img src="../_static/TrustedFirmware-Logo_standard-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about/features.html">1. Feature Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../about/features.html#current-features">1.1. Current features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about/features.html#still-to-come">1.2. Still to come</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../about/release-information.html">2. Release Processes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../about/release-information.html#project-release-cadence">2.1. Project Release Cadence</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../about/release-information.html#upcoming-releases">2.1.1. Upcoming Releases</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../about/release-information.html#removal-of-deprecated-interfaces">2.2. Removal of Deprecated Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../about/maintainers.html">3. Project Maintenance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../about/maintainers.html#maintainers">3.1. Maintainers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about/maintainers.html#code-owners">3.2. Code owners</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../about/maintainers.html#core-code">3.2.1. Core Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../about/maintainers.html#drivers-libraries-and-framework-code">3.2.2. Drivers, Libraries and Framework Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../about/maintainers.html#platform-ports">3.2.3. Platform Ports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../about/maintainers.html#secure-payloads-and-dispatchers">3.2.4. Secure Payloads and Dispatchers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../about/maintainers.html#tools">3.2.5. Tools</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../about/contact.html">4. Support &amp; Contact</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../about/contact.html#mailing-lists">4.1. Mailing Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about/contact.html#open-tech-forum-call">4.2. Open Tech Forum Call</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about/contact.html#issue-tracker">4.3. Issue Tracker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about/contact.html#arm-licensees">4.4. Arm Licensees</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../about/acknowledgements.html">5. Contributor Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/prerequisites.html">1. Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/prerequisites.html#build-host">1.1. Build Host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/prerequisites.html#toolchain">1.2. Toolchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/prerequisites.html#software-and-libraries">1.3. Software and Libraries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/prerequisites.html#package-installation-linux">1.3.1. Package Installation (Linux)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/prerequisites.html#supporting-files">1.4. Supporting Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/prerequisites.html#getting-the-tf-a-source">1.5. Getting the TF-A Source</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/docs-build.html">2. Building Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/docs-build.html#prerequisites">2.1. Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/docs-build.html#building-rendered-documentation">2.2. Building rendered documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/docs-build.html#building-rendered-documentation-from-a-container">2.3. Building rendered documentation from a container</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/tools-build.html">3. Building Supporting Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/tools-build.html#building-and-using-the-fip-tool">3.1. Building and using the FIP tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/tools-build.html#building-the-certificate-generation-tool">3.2. Building the Certificate Generation Tool</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/tools-build.html#building-the-firmware-encryption-tool">3.2.1. Building the Firmware Encryption Tool</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/initial-build.html">4. Performing an Initial Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/build-options.html">5. Build Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build-options.html#common-build-options">5.1. Common build options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build-options.html#gicv3-driver-options">5.2. GICv3 driver options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build-options.html#debugging-options">5.3. Debugging options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/image-terminology.html">6. Image Terminology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/image-terminology.html#general-notes">6.1. General Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/image-terminology.html#trusted-firmware-images">6.2. Trusted Firmware Images</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/image-terminology.html#ap-boot-rom-ap-bl1">6.2.1. AP Boot ROM: <code class="docutils literal notranslate"><span class="pre">AP_BL1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/image-terminology.html#ap-ram-firmware-ap-bl2">6.2.2. AP RAM Firmware: <code class="docutils literal notranslate"><span class="pre">AP_BL2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/image-terminology.html#el3-runtime-firmware-ap-bl31">6.2.3. EL3 Runtime Firmware: <code class="docutils literal notranslate"><span class="pre">AP_BL31</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/image-terminology.html#secure-el1-payload-sp-ap-bl32">6.2.4. Secure-EL1 Payload (SP): <code class="docutils literal notranslate"><span class="pre">AP_BL32</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/image-terminology.html#ap-normal-world-firmware-ap-bl33">6.2.5. AP Normal World Firmware: <code class="docutils literal notranslate"><span class="pre">AP_BL33</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/image-terminology.html#other-ap-3rd-level-images-ap-bl3-xxx">6.2.6. Other AP 3rd level images: <code class="docutils literal notranslate"><span class="pre">AP_BL3_XXX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/image-terminology.html#scp-boot-rom-scp-bl1-previously-bl0">6.2.7. SCP Boot ROM: <code class="docutils literal notranslate"><span class="pre">SCP_BL1</span></code> (previously <code class="docutils literal notranslate"><span class="pre">BL0</span></code>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/image-terminology.html#scp-ram-firmware-scp-bl2-previously-bl3-0">6.2.8. SCP RAM Firmware: <code class="docutils literal notranslate"><span class="pre">SCP_BL2</span></code> (previously <code class="docutils literal notranslate"><span class="pre">BL3-0</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/image-terminology.html#firmware-update-fwu-images">6.3. Firmware Update (FWU) Images</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/image-terminology.html#ap-firmware-update-boot-rom-ap-ns-bl1u">6.3.1. AP Firmware Update Boot ROM: <code class="docutils literal notranslate"><span class="pre">AP_NS_BL1U</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/image-terminology.html#ap-firmware-update-config-ap-bl2u">6.3.2. AP Firmware Update Config: <code class="docutils literal notranslate"><span class="pre">AP_BL2U</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/image-terminology.html#scp-firmware-update-config-scp-bl2u-previously-bl2-u0">6.3.3. SCP Firmware Update Config: <code class="docutils literal notranslate"><span class="pre">SCP_BL2U</span></code> (previously <code class="docutils literal notranslate"><span class="pre">BL2-U0</span></code>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/image-terminology.html#ap-firmware-updater-ap-ns-bl2u-previously-bl3-u">6.3.4. AP Firmware Updater: <code class="docutils literal notranslate"><span class="pre">AP_NS_BL2U</span></code> (previously <code class="docutils literal notranslate"><span class="pre">BL3-U</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/image-terminology.html#other-processor-firmware-images">6.4. Other Processor Firmware Images</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/image-terminology.html#mcp-boot-rom-mcp-bl1">6.4.1. MCP Boot ROM: <code class="docutils literal notranslate"><span class="pre">MCP_BL1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/image-terminology.html#mcp-ram-firmware-mcp-bl2">6.4.2. MCP RAM Firmware: <code class="docutils literal notranslate"><span class="pre">MCP_BL2</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/porting-guide.html">7. Porting Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#introduction">7.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#common-modifications">7.2. Common modifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#common-mandatory-modifications">7.3. Common mandatory modifications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#file-platform-def-h-mandatory">7.3.1. File : platform_def.h [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#file-plat-macros-s-mandatory">7.3.2. File : plat_macros.S [mandatory]</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#handling-reset">7.4. Handling Reset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-get-my-entrypoint-mandatory-when-programmable-reset-address-0">7.4.1. Function : plat_get_my_entrypoint() [mandatory when PROGRAMMABLE_RESET_ADDRESS == 0]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-secondary-cold-boot-setup-mandatory-when-cold-boot-single-cpu-0">7.4.2. Function : plat_secondary_cold_boot_setup() [mandatory when COLD_BOOT_SINGLE_CPU == 0]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-is-my-cpu-primary-mandatory-when-cold-boot-single-cpu-0">7.4.3. Function : plat_is_my_cpu_primary() [mandatory when COLD_BOOT_SINGLE_CPU == 0]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-platform-mem-init-mandatory">7.4.4. Function : platform_mem_init() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-get-rotpk-info">7.4.5. Function: plat_get_rotpk_info()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-get-nv-ctr">7.4.6. Function: plat_get_nv_ctr()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-set-nv-ctr">7.4.7. Function: plat_set_nv_ctr()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-set-nv-ctr2">7.4.8. Function: plat_set_nv_ctr2()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#common-mandatory-function-modifications">7.5. Common mandatory function modifications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-my-core-pos">7.5.1. Function : plat_my_core_pos()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-core-pos-by-mpidr">7.5.2. Function : plat_core_pos_by_mpidr()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-get-mbedtls-heap-when-trusted-board-boot-1">7.5.3. Function : plat_get_mbedtls_heap() [when TRUSTED_BOARD_BOOT == 1]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-get-enc-key-info-when-fw-enc-status-0-or-1">7.5.4. Function : plat_get_enc_key_info() [when FW_ENC_STATUS == 0 or 1]</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#common-optional-modifications">7.6. Common optional modifications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-set-my-stack">7.6.1. Function : plat_set_my_stack()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-get-my-stack">7.6.2. Function : plat_get_my_stack()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-report-exception">7.6.3. Function : plat_report_exception()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-reset-handler">7.6.4. Function : plat_reset_handler()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-disable-acp">7.6.5. Function : plat_disable_acp()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-error-handler">7.6.6. Function : plat_error_handler()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-panic-handler">7.6.7. Function : plat_panic_handler()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-get-bl-image-load-info">7.6.8. Function : plat_get_bl_image_load_info()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-get-next-bl-params">7.6.9. Function : plat_get_next_bl_params()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-get-stack-protector-canary">7.6.10. Function : plat_get_stack_protector_canary()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-flush-next-bl-params">7.6.11. Function : plat_flush_next_bl_params()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-log-get-prefix">7.6.12. Function : plat_log_get_prefix()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-get-soc-version">7.6.13. Function : plat_get_soc_version()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-get-soc-revision">7.6.14. Function : plat_get_soc_revision()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-is-smccc-feature-available">7.6.15. Function : plat_is_smccc_feature_available()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#modifications-specific-to-a-boot-loader-stage">7.7. Modifications specific to a Boot Loader stage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#boot-loader-stage-1-bl1">7.8. Boot Loader Stage 1 (BL1)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl1-early-platform-setup-mandatory">7.8.1. Function : bl1_early_platform_setup() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl1-plat-arch-setup-mandatory">7.8.2. Function : bl1_plat_arch_setup() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl1-platform-setup-mandatory">7.8.3. Function : bl1_platform_setup() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl1-plat-sec-mem-layout-mandatory">7.8.4. Function : bl1_plat_sec_mem_layout() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl1-plat-prepare-exit-optional">7.8.5. Function : bl1_plat_prepare_exit() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl1-plat-set-ep-info-optional">7.8.6. Function : bl1_plat_set_ep_info() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl1-plat-get-next-image-id-optional">7.8.7. Function : bl1_plat_get_next_image_id() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl1-plat-get-image-desc-optional">7.8.8. Function : bl1_plat_get_image_desc() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl1-plat-handle-pre-image-load-optional">7.8.9. Function : bl1_plat_handle_pre_image_load() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl1-plat-handle-post-image-load-optional">7.8.10. Function : bl1_plat_handle_post_image_load() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl1-plat-fwu-done-optional">7.8.11. Function : bl1_plat_fwu_done() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl1-plat-mem-check-mandatory">7.8.12. Function : bl1_plat_mem_check() [mandatory]</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#boot-loader-stage-2-bl2">7.9. Boot Loader Stage 2 (BL2)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl2-early-platform-setup2-mandatory">7.9.1. Function : bl2_early_platform_setup2() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl2-plat-arch-setup-mandatory">7.9.2. Function : bl2_plat_arch_setup() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl2-platform-setup-mandatory">7.9.3. Function : bl2_platform_setup() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl2-plat-handle-pre-image-load-optional">7.9.4. Function : bl2_plat_handle_pre_image_load() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl2-plat-handle-post-image-load-optional">7.9.5. Function : bl2_plat_handle_post_image_load() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl2-plat-preload-setup-optional">7.9.6. Function : bl2_plat_preload_setup [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-try-next-boot-source-optional">7.9.7. Function : plat_try_next_boot_source() [optional]</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#boot-loader-stage-2-bl2-at-el3">7.10. Boot Loader Stage 2 (BL2) at EL3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl2-el3-early-platform-setup-mandatory">7.10.1. Function : bl2_el3_early_platform_setup() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl2-el3-plat-arch-setup-mandatory">7.10.2. Function : bl2_el3_plat_arch_setup() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl2-el3-plat-prepare-exit-optional">7.10.3. Function : bl2_el3_plat_prepare_exit() [optional]</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#fwu-boot-loader-stage-2-bl2u">7.11. FWU Boot Loader Stage 2 (BL2U)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl2u-early-platform-setup-mandatory">7.11.1. Function : bl2u_early_platform_setup() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl2u-plat-arch-setup-mandatory">7.11.2. Function : bl2u_plat_arch_setup() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl2u-platform-setup-mandatory">7.11.3. Function : bl2u_platform_setup() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl2u-plat-handle-scp-bl2u-optional">7.11.4. Function : bl2u_plat_handle_scp_bl2u() [optional]</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#boot-loader-stage-3-1-bl31">7.12. Boot Loader Stage 3-1 (BL31)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl31-early-platform-setup2-mandatory">7.12.1. Function : bl31_early_platform_setup2() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl31-plat-arch-setup-mandatory">7.12.2. Function : bl31_plat_arch_setup() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl31-platform-setup-mandatory">7.12.3. Function : bl31_platform_setup() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl31-plat-runtime-setup-optional">7.12.4. Function : bl31_plat_runtime_setup() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl31-plat-get-next-image-ep-info-mandatory">7.12.5. Function : bl31_plat_get_next_image_ep_info() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-bl31-plat-enable-mmu-optional">7.12.6. Function : bl31_plat_enable_mmu [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-init-apkey-optional">7.12.7. Function : plat_init_apkey [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-get-syscnt-freq2-mandatory">7.12.8. Function : plat_get_syscnt_freq2() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-arm-set-twedel-scr-el3-optional">7.12.9. Function : plat_arm_set_twedel_scr_el3() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#define-plat-percpu-bakery-lock-size-optional">7.12.10. #define : PLAT_PERCPU_BAKERY_LOCK_SIZE [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#sdei-porting-requirements">7.12.11. SDEI porting requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#trng-porting-requirements">7.12.12. TRNG porting requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#power-state-coordination-interface-in-bl31">7.13. Power State Coordination Interface (in BL31)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-psci-stat-accounting-start-optional">7.13.1. Function : plat_psci_stat_accounting_start() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-psci-stat-accounting-stop-optional">7.13.2. Function : plat_psci_stat_accounting_stop() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-psci-stat-get-residency-optional">7.13.3. Function : plat_psci_stat_get_residency() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-get-target-pwr-state-optional">7.13.4. Function : plat_get_target_pwr_state() [optional]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-get-power-domain-tree-desc-mandatory">7.13.5. Function : plat_get_power_domain_tree_desc() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-setup-psci-ops-mandatory">7.13.6. Function : plat_setup_psci_ops() [mandatory]</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#interrupt-management-framework-in-bl31">7.14. Interrupt Management framework (in BL31)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-interrupt-type-to-line-mandatory">7.14.1. Function : plat_interrupt_type_to_line() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-ic-get-pending-interrupt-type-mandatory">7.14.2. Function : plat_ic_get_pending_interrupt_type() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-ic-get-pending-interrupt-id-mandatory">7.14.3. Function : plat_ic_get_pending_interrupt_id() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-ic-acknowledge-interrupt-mandatory">7.14.4. Function : plat_ic_acknowledge_interrupt() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-ic-end-of-interrupt-mandatory">7.14.5. Function : plat_ic_end_of_interrupt() [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-ic-get-interrupt-type-mandatory">7.14.6. Function : plat_ic_get_interrupt_type() [mandatory]</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#crash-reporting-mechanism-in-bl31">7.15. Crash Reporting mechanism (in BL31)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-crash-console-init-mandatory">7.15.1. Function : plat_crash_console_init [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-crash-console-putc-mandatory">7.15.2. Function : plat_crash_console_putc [mandatory]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-crash-console-flush-mandatory">7.15.3. Function : plat_crash_console_flush [mandatory]</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#external-abort-handling-and-ras-support">7.16. External Abort handling and RAS Support</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-ea-handler">7.16.1. Function : plat_ea_handler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-handle-uncontainable-ea">7.16.2. Function : plat_handle_uncontainable_ea</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-handle-double-fault">7.16.3. Function : plat_handle_double_fault</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/porting-guide.html#function-plat-handle-el3-ea">7.16.4. Function : plat_handle_el3_ea</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#build-flags">7.17. Build flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#platform-include-paths">7.18. Platform include paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#c-library">7.19. C Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/porting-guide.html#storage-abstraction-layer">7.20. Storage abstraction layer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html">8. PSCI Library Integration guide for Armv8-A AArch32 systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html#generic-call-sequence-for-psci-library-interface-aarch32">8.1. Generic call sequence for PSCI Library interface (AArch32)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html#psci-cpu-context-management">8.2. PSCI CPU context management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html#psci-library-interface">8.3. PSCI Library Interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html#interface-psci-setup">8.3.1. Interface : psci_setup()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html#interface-psci-prepare-next-non-secure-ctx">8.3.2. Interface : psci_prepare_next_non_secure_ctx()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html#interface-psci-register-spd-pm-hook">8.3.3. Interface : psci_register_spd_pm_hook()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html#interface-psci-smc-handler">8.3.4. Interface : psci_smc_handler()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html#interface-psci-warmboot-entrypoint">8.3.5. Interface : psci_warmboot_entrypoint()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html#el3-runtime-software-dependencies">8.4. EL3 Runtime Software dependencies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html#general-dependencies">8.4.1. General dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html#cpu-context-management-api">8.4.2. CPU Context management API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html#platform-api">8.4.3. Platform API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html#secure-payload-power-management-callback">8.4.4. Secure payload power management callback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/psci-lib-integration-guide.html#cpu-operations">8.4.5. CPU operations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/rt-svc-writers-guide.html">9. EL3 Runtime Service Writer’s Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/rt-svc-writers-guide.html#introduction">9.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/rt-svc-writers-guide.html#owning-entities-call-types-and-function-ids">9.2. Owning Entities, Call Types and Function IDs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/rt-svc-writers-guide.html#getting-started">9.3. Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/rt-svc-writers-guide.html#registering-a-runtime-service">9.4. Registering a runtime service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/rt-svc-writers-guide.html#initializing-a-runtime-service">9.5. Initializing a runtime service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/rt-svc-writers-guide.html#handling-runtime-service-requests">9.6. Handling runtime service requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/rt-svc-writers-guide.html#services-that-contain-multiple-sub-services">9.7. Services that contain multiple sub-services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/rt-svc-writers-guide.html#secure-el1-payload-dispatcher-service-spd">9.8. Secure-EL1 Payload Dispatcher service (SPD)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../process/index.html">Processes &amp; Policies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../process/security.html">1. Security Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../process/security.html#security-disclosures">1.1. Security Disclosures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/security.html#found-a-security-issue">1.2. Found a Security Issue?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/security.html#attribution">1.3. Attribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/security.html#security-advisories">1.4. Security Advisories</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../process/platform-compatibility-policy.html">2. Platform Compatibility Policy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../process/platform-compatibility-policy.html#introduction">2.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/platform-compatibility-policy.html#id1">2.2. Platform compatibility policy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../process/coding-style.html">3. Coding Style</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#file-encoding">3.1. File Encoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#language">3.2. Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#c-language-standard">3.3. C Language Standard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#misra-compliance">3.4. MISRA Compliance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#indentation">3.5. Indentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#spacing">3.6. Spacing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#line-length">3.7. Line Length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#blank-lines">3.8. Blank Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#braces">3.9. Braces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-style.html#opening-brace-placement">3.9.1. Opening Brace Placement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-style.html#conditional-statement-bodies">3.9.2. Conditional Statement Bodies</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#naming">3.10. Naming</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-style.html#functions">3.10.1. Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-style.html#local-variables-and-parameters">3.10.2. Local Variables and Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-style.html#preprocessor-macros">3.10.3. Preprocessor Macros</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#function-attributes">3.11. Function Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#alignment">3.12. Alignment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-style.html#switch-statement-alignment">3.12.1. Switch Statement Alignment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-style.html#pointer-alignment">3.12.2. Pointer Alignment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#comments">3.13. Comments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#headers-and-inclusion">3.14. Headers and inclusion</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-style.html#header-guards">3.14.1. Header guards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-style.html#include-statement-ordering">3.14.2. Include statement ordering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-style.html#include-statement-variants">3.14.3. Include statement variants</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-style.html#typedefs">3.15. Typedefs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-style.html#avoid-anonymous-typedefs-of-structs-enums-in-headers">3.15.1. Avoid anonymous typedefs of structs/enums in headers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../process/coding-guidelines.html">4. Coding Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-guidelines.html#automatic-editor-configuration">4.1. Automatic Editor Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-guidelines.html#automatic-compliance-checking">4.2. Automatic Compliance Checking</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-guidelines.html#ignored-checkpatch-warnings">4.2.1. Ignored Checkpatch Warnings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-guidelines.html#performance-considerations">4.3. Performance considerations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-guidelines.html#avoid-printf-and-use-logging-macros">4.3.1. Avoid printf and use logging macros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-guidelines.html#use-const-data-where-possible">4.3.2. Use const data where possible</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-guidelines.html#libc-functions-that-are-banned-or-to-be-used-with-caution">4.4. Libc functions that are banned or to be used with caution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-guidelines.html#error-handling-and-robustness">4.5. Error handling and robustness</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-guidelines.html#using-cassert-to-check-for-compile-time-data-errors">4.5.1. Using CASSERT to check for compile time data errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-guidelines.html#using-assert-to-check-for-programming-errors">4.5.2. Using assert() to check for programming errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-guidelines.html#handling-integration-errors">4.5.3. Handling integration errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-guidelines.html#handling-recoverable-errors">4.5.4. Handling recoverable errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-guidelines.html#handling-unrecoverable-errors">4.5.5. Handling unrecoverable errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../process/coding-guidelines.html#handling-critical-unresponsiveness">4.5.6. Handling critical unresponsiveness</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-guidelines.html#use-of-built-in-c-and-libc-data-types">4.6. Use of built-in <em>C</em> and <em>libc</em> data types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/coding-guidelines.html#favor-c-language-over-assembly-language">4.7. Favor C language over assembly language</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../process/contributing.html">5. Contributor’s Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../process/contributing.html#getting-started">5.1. Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/contributing.html#making-changes">5.2. Making Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/contributing.html#submitting-changes">5.3. Submitting Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/contributing.html#binary-components">5.4. Binary Components</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../process/code-review-guidelines.html">6. Code Review Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../process/code-review-guidelines.html#why-do-we-do-code-reviews">6.1. Why do we do code reviews?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/code-review-guidelines.html#good-practices">6.2. Good practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/code-review-guidelines.html#guidelines-for-patch-contributors">6.3. Guidelines for patch contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/code-review-guidelines.html#guidelines-for-all-reviewers">6.4. Guidelines for all reviewers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/code-review-guidelines.html#guidelines-for-code-owners">6.5. Guidelines for code owners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/code-review-guidelines.html#guidelines-for-maintainers">6.6. Guidelines for maintainers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../process/faq.html">7. Frequently-Asked Questions (FAQ)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../process/faq.html#how-do-i-update-my-changes">7.1. How do I update my changes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/faq.html#how-long-will-my-changes-take-to-merge-into-integration">7.2. How long will my changes take to merge into <code class="docutils literal notranslate"><span class="pre">integration</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/faq.html#how-long-will-it-take-for-my-changes-to-go-from-integration-to-master">7.3. How long will it take for my changes to go from <code class="docutils literal notranslate"><span class="pre">integration</span></code> to <code class="docutils literal notranslate"><span class="pre">master</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/faq.html#what-are-these-strange-comments-in-my-changes">7.4. What are these strange comments in my changes?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../process/security-hardening.html">8. Secure Development Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../process/security-hardening.html#security-considerations">8.1. Security considerations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../process/security-hardening.html#do-not-leak-secrets-to-the-normal-world">8.1.1. Do not leak secrets to the normal world</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../process/security-hardening.html#handling-denial-of-service-attacks">8.1.2. Handling Denial of Service attacks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../process/security-hardening.html#preventing-secure-world-timing-information-leakage-via-pmu-counters">8.1.3. Preventing Secure-world timing information leakage via PMU counters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../process/security-hardening.html#build-options">8.2. Build options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../components/index.html">Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../components/spd/index.html">1. Secure Payload Dispatcher (SPD)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/spd/optee-dispatcher.html">1.1. OP-TEE Dispatcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/spd/tlk-dispatcher.html">1.2. Trusted Little Kernel (TLK) Dispatcher</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/spd/tlk-dispatcher.html#trusted-little-kernel-tlk">1.2.1. Trusted Little Kernel (TLK)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/spd/tlk-dispatcher.html#build-tlk">1.2.2. Build TLK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/spd/tlk-dispatcher.html#input-parameters-to-tlk">1.2.3. Input parameters to TLK</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../components/spd/trusty-dispatcher.html">1.3. Trusty Dispatcher</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/spd/trusty-dispatcher.html#boot-parameters">1.3.1. Boot parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/spd/trusty-dispatcher.html#supported-platforms">1.3.2. Supported platforms</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/arm-sip-service.html">2. Arm SiP Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/arm-sip-service.html#performance-measurement-framework-pmf">2.1. Performance Measurement Framework (PMF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/arm-sip-service.html#execution-state-switching-service">2.2. Execution State Switching service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/arm-sip-service.html#arm-sip-svc-exe-state-switch">2.2.1. <code class="docutils literal notranslate"><span class="pre">ARM_SIP_SVC_EXE_STATE_SWITCH</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../components/arm-sip-service.html#debugfs-interface">2.3. DebugFS interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/arm-sip-service.html#mount">2.3.1. MOUNT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/arm-sip-service.html#open">2.3.2. OPEN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/arm-sip-service.html#close">2.3.3. CLOSE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/arm-sip-service.html#read">2.3.4. READ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/arm-sip-service.html#seek">2.3.5. SEEK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/arm-sip-service.html#bind">2.3.6. BIND</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/arm-sip-service.html#stat">2.3.7. STAT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/arm-sip-service.html#init">2.3.8. INIT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/arm-sip-service.html#version">2.3.9. VERSION</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/debugfs-design.html">3. Debug FS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/debugfs-design.html#overview">3.1. Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/debugfs-design.html#virtual-filesystem">3.2. Virtual filesystem</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/debugfs-design.html#namespace">3.2.1. Namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/debugfs-design.html#p-interface">3.2.2. 9p interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../components/debugfs-design.html#smc-interface">3.3. SMC interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/debugfs-design.html#security-considerations">3.4. Security considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/debugfs-design.html#limitations">3.5. Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/debugfs-design.html#applications">3.6. Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/exception-handling.html">4. Exception Handling Framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/exception-handling.html#introduction">4.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/exception-handling.html#the-role-of-exception-handling-framework">4.2. The role of Exception Handling Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/exception-handling.html#interrupt-handling">4.3. Interrupt handling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/exception-handling.html#partitioning-priority-levels">4.3.1. Partitioning priority levels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/exception-handling.html#programming-priority">4.3.2. Programming priority</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../components/exception-handling.html#registering-handler">4.4. Registering handler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/exception-handling.html#interrupt-handling-example">4.5. Interrupt handling example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/exception-handling.html#activating-and-deactivating-priorities">4.6. Activating and Deactivating priorities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/exception-handling.html#transition-of-priority-levels">4.7. Transition of priority levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/exception-handling.html#effect-on-smc-calls">4.8. Effect on SMC calls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/exception-handling.html#build-time-flow">4.9. Build-time flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/exception-handling.html#run-time-flow">4.10. Run-time flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/exception-handling.html#interrupt-prioritisation-considerations">4.11. Interrupt Prioritisation Considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/exception-handling.html#limitations">4.12. Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/fconf/index.html">5. Firmware Configuration Framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/fconf/index.html#introduction">5.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/fconf/index.html#accessing-properties">5.2. Accessing properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/fconf/index.html#defining-properties">5.3. Defining properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/fconf/index.html#loading-the-property-device-tree">5.4. Loading the property device tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/fconf/index.html#populating-the-properties">5.5. Populating the properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/fconf/index.html#namespace-guidance">5.6. Namespace guidance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/fconf/index.html#properties-binding-information">5.7. Properties binding information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/fconf/fconf_properties.html">5.7.1. DTB binding for FCONF properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/firmware-update.html">6. Firmware Update (FWU)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/firmware-update.html#introduction">6.1. Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/firmware-update.html#scope">6.1.1. Scope</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../components/firmware-update.html#fwu-overview">6.2. FWU Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/firmware-update.html#image-identification">6.3. Image Identification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/firmware-update.html#fwu-state-machine">6.4. FWU State Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/firmware-update.html#bl1-smc-interface">6.5. BL1 SMC Interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/firmware-update.html#bl1-smc-call-count">6.5.1. BL1_SMC_CALL_COUNT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/firmware-update.html#bl1-smc-uid">6.5.2. BL1_SMC_UID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/firmware-update.html#bl1-smc-version">6.5.3. BL1_SMC_VERSION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/firmware-update.html#bl1-smc-run-image">6.5.4. BL1_SMC_RUN_IMAGE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/firmware-update.html#fwu-smc-image-copy">6.5.5. FWU_SMC_IMAGE_COPY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/firmware-update.html#fwu-smc-image-auth">6.5.6. FWU_SMC_IMAGE_AUTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/firmware-update.html#fwu-smc-image-execute">6.5.7. FWU_SMC_IMAGE_EXECUTE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/firmware-update.html#fwu-smc-image-resume">6.5.8. FWU_SMC_IMAGE_RESUME</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/firmware-update.html#fwu-smc-sec-image-done">6.5.9. FWU_SMC_SEC_IMAGE_DONE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/firmware-update.html#fwu-smc-update-done">6.5.10. FWU_SMC_UPDATE_DONE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/firmware-update.html#fwu-smc-image-reset">6.5.11. FWU_SMC_IMAGE_RESET</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/measured_boot/index.html">7. Measured Boot Driver (MBD)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/measured_boot/index.html#properties-binding-information">7.1. Properties binding information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/measured_boot/event_log.html">7.1.1. DTB binding for Event Log properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/platform-interrupt-controller-API.html">8. Platform Interrupt Controller API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-unsigned-int-plat-ic-get-running-priority-void-optional">8.1. Function: unsigned int plat_ic_get_running_priority(void); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-int-plat-ic-is-spi-unsigned-int-id-optional">8.2. Function: int plat_ic_is_spi(unsigned int id); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-int-plat-ic-is-ppi-unsigned-int-id-optional">8.3. Function: int plat_ic_is_ppi(unsigned int id); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-int-plat-ic-is-sgi-unsigned-int-id-optional">8.4. Function: int plat_ic_is_sgi(unsigned int id); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-unsigned-int-plat-ic-get-interrupt-active-unsigned-int-id-optional">8.5. Function: unsigned int plat_ic_get_interrupt_active(unsigned int id); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-void-plat-ic-enable-interrupt-unsigned-int-id-optional">8.6. Function: void plat_ic_enable_interrupt(unsigned int id); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-void-plat-ic-disable-interrupt-unsigned-int-id-optional">8.7. Function: void plat_ic_disable_interrupt(unsigned int id); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-void-plat-ic-set-interrupt-priority-unsigned-int-id-unsigned-int-priority-optional">8.8. Function: void plat_ic_set_interrupt_priority(unsigned int id, unsigned int priority); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-int-plat-ic-has-interrupt-type-unsigned-int-type-optional">8.9. Function: int plat_ic_has_interrupt_type(unsigned int type); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-void-plat-ic-set-interrupt-type-unsigned-int-id-unsigned-int-type-optional">8.10. Function: void plat_ic_set_interrupt_type(unsigned int id, unsigned int type); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-void-plat-ic-raise-el3-sgi-int-sgi-num-u-register-t-target-optional">8.11. Function: void plat_ic_raise_el3_sgi(int sgi_num, u_register_t target); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-void-plat-ic-set-spi-routing-unsigned-int-id-unsigned-int-routing-mode-u-register-t-mpidr-optional">8.12. Function: void plat_ic_set_spi_routing(unsigned int id, unsigned int routing_mode, u_register_t mpidr); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-void-plat-ic-set-interrupt-pending-unsigned-int-id-optional">8.13. Function: void plat_ic_set_interrupt_pending(unsigned int id); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-void-plat-ic-clear-interrupt-pending-unsigned-int-id-optional">8.14. Function: void plat_ic_clear_interrupt_pending(unsigned int id); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-unsigned-int-plat-ic-set-priority-mask-unsigned-int-id-optional">8.15. Function: unsigned int plat_ic_set_priority_mask(unsigned int id); [optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/platform-interrupt-controller-API.html#function-unsigned-int-plat-ic-get-interrupt-id-unsigned-int-raw-optional">8.16. Function: unsigned int plat_ic_get_interrupt_id(unsigned int raw); [optional]</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/ras.html">9. Reliability, Availability, and Serviceability (RAS) Extensions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/ras.html#overview">9.1. Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/ras.html#platform-apis">9.2. Platform APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/ras.html#registering-ras-error-records">9.3. Registering RAS error records</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/ras.html#standard-error-record-helpers">9.3.1. Standard Error Record helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../components/ras.html#registering-ras-interrupts">9.4. Registering RAS interrupts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/ras.html#double-fault-handling">9.5. Double-fault handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/ras.html#engaging-the-ras-framework">9.6. Engaging the RAS framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/ras.html#interaction-with-exception-handling-framework">9.7. Interaction with Exception Handling Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/romlib-design.html">10. Library at ROM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/romlib-design.html#introduction">10.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/romlib-design.html#index-file">10.2. Index file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/romlib-design.html#wrapper-functions">10.3. Wrapper functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/romlib-design.html#script">10.4. Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/romlib-design.html#patching-of-functions-in-library-at-rom">10.5. Patching of functions in library at ROM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/romlib-design.html#memory-impact">10.6. Memory impact</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/romlib-design.html#build-library-at-rom">10.7. Build library at ROM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/sdei.html">11. SDEI: Software Delegated Exception Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/sdei.html#introduction">11.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/sdei.html#defining-events">11.2. Defining events</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/sdei.html#event-flags">11.2.1. Event flags</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../components/sdei.html#event-definition-example">11.3. Event definition example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/sdei.html#configuration-within-exception-handling-framework">11.4. Configuration within Exception Handling Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/sdei.html#determining-client-el">11.5. Determining client EL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/sdei.html#explicit-dispatch-of-events">11.6. Explicit dispatch of events</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/sdei.html#conditions-for-event-dispatch">11.6.1. Conditions for event dispatch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../components/sdei.html#porting-requirements">11.7. Porting requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/sdei.html#note-on-writing-sdei-event-handlers">11.8. Note on writing SDEI event handlers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/secure-partition-manager.html">12. Secure Partition Manager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/secure-partition-manager.html#acronyms">12.1. Acronyms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/secure-partition-manager.html#foreword">12.2. Foreword</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#terminology">12.2.1. Terminology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#support-for-legacy-platforms">12.2.2. Support for legacy platforms</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../components/secure-partition-manager.html#sample-reference-stack">12.3. Sample reference stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/secure-partition-manager.html#tf-a-build-options">12.4. TF-A build options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/secure-partition-manager.html#boot-process">12.5. Boot process</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#loading-hafnium-and-secure-partitions-in-the-secure-world">12.5.1. Loading Hafnium and Secure Partitions in the secure world</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#booting-through-tf-a">12.5.2. Booting through TF-A</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../components/secure-partition-manager.html#hafnium-in-the-secure-world">12.6. Hafnium in the secure world</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#general-considerations">12.6.1. General considerations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#parsing-sp-partition-manifests">12.6.2. Parsing SP partition manifests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#passing-boot-data-to-the-sp">12.6.3. Passing boot data to the SP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#sp-boot-order">12.6.4. SP Boot order</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#boot-phases">12.6.5. Boot phases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#mandatory-interfaces">12.6.6. Mandatory interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#direct-messaging">12.6.7. Direct messaging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#memory-management">12.6.8. Memory management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#interrupt-management">12.6.9. Interrupt management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#power-management">12.6.10. Power management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager.html#sp-notification">12.6.11. SP notification</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../components/secure-partition-manager.html#references">12.7. References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/secure-partition-manager-mm.html">13. Secure Partition Manager (MM)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/secure-partition-manager-mm.html#foreword">13.1. Foreword</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/secure-partition-manager-mm.html#background">13.2. Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/secure-partition-manager-mm.html#introduction">13.3. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/secure-partition-manager-mm.html#description">13.4. Description</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager-mm.html#building-tf-a-with-secure-partition-support">13.4.1. Building TF-A with Secure Partition support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager-mm.html#describing-secure-partition-resources">13.4.2. Describing Secure Partition resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager-mm.html#accessing-secure-partition-services">13.4.3. Accessing Secure Partition services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager-mm.html#exchanging-data-with-the-secure-partition">13.4.4. Exchanging data with the Secure Partition</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../components/secure-partition-manager-mm.html#runtime-model-of-the-secure-partition">13.5. Runtime model of the Secure Partition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager-mm.html#interface-with-spm">13.5.1. Interface with SPM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager-mm.html#miscellaneous-interfaces">13.5.2. Miscellaneous interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager-mm.html#secure-partition-initialisation">13.5.3. Secure Partition Initialisation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager-mm.html#runtime-event-delegation">13.5.4. Runtime Event Delegation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager-mm.html#secure-partition-memory-management">13.5.5. Secure Partition Memory Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/secure-partition-manager-mm.html#error-codes">13.5.6. Error Codes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/psa-ffa-manifest-binding.html">14. PSA FF-A manifest binding to device tree</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/psa-ffa-manifest-binding.html#version-1-0">14.1. Version 1.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/psa-ffa-manifest-binding.html#partition-properties">14.1.1. Partition Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../components/psa-ffa-manifest-binding.html#memory-regions">14.2. Memory Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/psa-ffa-manifest-binding.html#device-regions">14.3. Device Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/xlat-tables-lib-v2-design.html">15. Translation (XLAT) Tables Library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/xlat-tables-lib-v2-design.html#about-version-1-and-version-2">15.1. About version 1 and version 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/xlat-tables-lib-v2-design.html#design-concepts-and-interfaces">15.2. Design concepts and interfaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/xlat-tables-lib-v2-design.html#mmap-regions">15.2.1. <cite>mmap</cite> regions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/xlat-tables-lib-v2-design.html#translation-context">15.2.2. Translation Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/xlat-tables-lib-v2-design.html#static-and-dynamic-memory-regions">15.2.3. Static and dynamic memory regions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../components/xlat-tables-lib-v2-design.html#library-apis">15.3. Library APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/xlat-tables-lib-v2-design.html#library-limitations">15.4. Library limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/xlat-tables-lib-v2-design.html#implementation-details">15.5. Implementation details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../components/xlat-tables-lib-v2-design.html#code-structure">15.5.1. Code structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/xlat-tables-lib-v2-design.html#from-mmap-regions-to-translation-tables">15.5.2. From mmap regions to translation tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/xlat-tables-lib-v2-design.html#the-memory-mapping-algorithm">15.5.3. The memory mapping algorithm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/xlat-tables-lib-v2-design.html#tlb-maintenance-operations">15.5.4. TLB maintenance operations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../components/cot-binding.html">16. Chain of trust bindings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../components/cot-binding.html#cot">16.1. cot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/cot-binding.html#manifests-and-certificate-node-bindings-definition">16.2. Manifests and Certificate node bindings definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/cot-binding.html#images-and-image-node-bindings-definition">16.3. Images and Image node bindings definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/cot-binding.html#non-volatile-counter-node-binding-definition">16.4. non-volatile counter node binding definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../components/cot-binding.html#future-update-to-chain-of-trust-binding">16.5. Future update to chain of trust binding</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../design/index.html">System Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../design/alt-boot-flows.html">1. Alternative Boot Flows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../design/alt-boot-flows.html#el3-payloads-alternative-boot-flow">1.1. EL3 payloads alternative boot flow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/alt-boot-flows.html#booting-an-el3-payload">1.1.1. Booting an EL3 payload</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/alt-boot-flows.html#preloaded-bl33-alternative-boot-flow">1.2. Preloaded BL33 alternative boot flow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../design/auth-framework.html">2. Authentication Framework &amp; Chain of Trust</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../design/auth-framework.html#framework-design">2.1. Framework design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/auth-framework.html#chain-of-trust">2.1.1. Chain of Trust</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/auth-framework.html#image-types">2.1.2. Image types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/auth-framework.html#component-responsibilities">2.1.3. Component responsibilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/auth-framework.html#authentication-methods">2.1.4. Authentication methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/auth-framework.html#specifying-a-chain-of-trust">2.2. Specifying a Chain of Trust</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/auth-framework.html#describing-the-image-parsing-methods">2.2.1. Describing the image parsing methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/auth-framework.html#describing-the-authentication-method-s">2.2.2. Describing the authentication method(s)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/auth-framework.html#storing-authentication-parameters">2.2.3. Storing Authentication parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/auth-framework.html#describing-an-image-in-a-cot">2.2.4. Describing an image in a CoT</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/auth-framework.html#implementation-example">2.3. Implementation example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/auth-framework.html#the-tbbr-cot">2.3.1. The TBBR CoT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/auth-framework.html#the-image-parser-library">2.3.2. The image parser library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/auth-framework.html#the-cryptographic-library">2.3.3. The cryptographic library</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../design/cpu-specific-build-macros.html">3. Arm CPU Specific Build Macros</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../design/cpu-specific-build-macros.html#security-vulnerability-workarounds">3.1. Security Vulnerability Workarounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/cpu-specific-build-macros.html#cpu-errata-workarounds">3.2. CPU Errata Workarounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/cpu-specific-build-macros.html#dsu-errata-workarounds">3.3. DSU Errata Workarounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/cpu-specific-build-macros.html#cpu-specific-optimizations">3.4. CPU Specific optimizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../design/firmware-design.html">4. Firmware Design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#cold-boot">4.1. Cold boot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#dynamic-configuration-during-cold-boot">4.1.1. Dynamic Configuration during cold boot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#bl1">4.1.2. BL1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#bl2">4.1.3. BL2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#running-bl2-at-el3-execution-level">4.1.4. Running BL2 at EL3 execution level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#aarch64-bl31">4.1.5. AArch64 BL31</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#using-alternative-trusted-boot-firmware-in-place-of-bl1-bl2-aarch64-only">4.1.6. Using alternative Trusted Boot Firmware in place of BL1 &amp; BL2 (AArch64 only)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#aarch32-el3-runtime-software-entrypoint-interface">4.1.7. AArch32 EL3 Runtime Software entrypoint interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#el3-runtime-services-framework">4.2. EL3 runtime services framework</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#registration">4.2.1. Registration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#initialization">4.2.2. Initialization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#handling-an-smc">4.2.3. Handling an SMC</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#exception-handling-framework">4.3. Exception Handling Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#power-state-coordination-interface">4.4. Power State Coordination Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#secure-el1-payloads-and-dispatchers">4.5. Secure-EL1 Payloads and Dispatchers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#initializing-a-bl32-image">4.5.1. Initializing a BL32 Image</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#crash-reporting-in-bl31">4.6. Crash Reporting in BL31</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#guidelines-for-reset-handlers">4.7. Guidelines for Reset Handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#configuring-secure-interrupts">4.8. Configuring secure interrupts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#cpu-specific-operations-framework">4.9. CPU specific operations framework</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#cpu-specific-reset-handling">4.9.1. CPU specific Reset Handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#cpu-specific-power-down-sequence">4.9.2. CPU specific power down sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#cpu-specific-register-reporting-during-crash">4.9.3. CPU specific register reporting during crash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#cpu-errata-status-reporting">4.9.4. CPU errata status reporting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#memory-layout-of-bl-images">4.10. Memory layout of BL images</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#linker-scripts-and-symbols">4.10.1. Linker scripts and symbols</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#how-to-choose-the-right-base-addresses-for-each-bootloader-stage-image">4.10.2. How to choose the right base addresses for each bootloader stage image</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#firmware-image-package-fip">4.11. Firmware Image Package (FIP)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#firmware-image-package-layout">4.11.1. Firmware Image Package layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#firmware-image-package-creation-tool">4.11.2. Firmware Image Package creation tool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#loading-from-a-firmware-image-package-fip">4.11.3. Loading from a Firmware Image Package (FIP)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#use-of-coherent-memory-in-tf-a">4.12. Use of coherent memory in TF-A</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#disabling-the-use-of-coherent-memory-in-tf-a">4.12.1. Disabling the use of coherent memory in TF-A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#coherent-memory-usage-in-psci-implementation">4.12.2. Coherent memory usage in PSCI implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#bakery-lock-data">4.12.3. Bakery lock data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#non-functional-impact-of-removing-coherent-memory">4.12.4. Non Functional Impact of removing coherent memory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#isolating-code-and-read-only-data-on-separate-memory-pages">4.13. Isolating code and read-only data on separate memory pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#publish-and-subscribe-framework">4.14. Publish and Subscribe Framework</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#publish-and-subscribe-example">4.14.1. Publish and Subscribe Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#reclaiming-the-bl31-initialization-code">4.14.2. Reclaiming the BL31 initialization code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#performance-measurement-framework">4.15. Performance Measurement Framework</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#timestamp-identifier-format">4.15.1. Timestamp identifier format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#registering-a-pmf-service">4.15.2. Registering a PMF service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#capturing-a-timestamp">4.15.3. Capturing a timestamp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#retrieving-a-timestamp">4.15.4. Retrieving a timestamp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#pmf-code-structure">4.15.5. PMF code structure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#armv8-a-architecture-extensions">4.16. Armv8-A Architecture Extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#armv8-1-a">4.16.1. Armv8.1-A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#armv8-2-a">4.16.2. Armv8.2-A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#armv8-3-a">4.16.3. Armv8.3-A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#armv8-5-a">4.16.4. Armv8.5-A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/firmware-design.html#armv7-a">4.16.5. Armv7-A</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/firmware-design.html#code-structure">4.17. Code Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../design/interrupt-framework-design.html">5. Interrupt Management Framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../design/interrupt-framework-design.html#concepts">5.1. Concepts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/interrupt-framework-design.html#interrupt-types">5.1.1. Interrupt types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/interrupt-framework-design.html#routing-model">5.1.2. Routing model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/interrupt-framework-design.html#valid-routing-models">5.1.3. Valid routing models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/interrupt-framework-design.html#mapping-of-interrupt-type-to-signal">5.1.4. Mapping of interrupt type to signal</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/interrupt-framework-design.html#assumptions-in-interrupt-management-framework">5.2. Assumptions in Interrupt Management Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/interrupt-framework-design.html#software-components">5.3. Software components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/interrupt-framework-design.html#interrupt-registration">5.4. Interrupt registration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/interrupt-framework-design.html#el3-runtime-firmware">5.4.1. EL3 runtime firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/interrupt-framework-design.html#secure-payload-dispatcher">5.4.2. Secure payload dispatcher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/interrupt-framework-design.html#test-secure-payload-dispatcher-behavior">5.4.3. Test secure payload dispatcher behavior</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/interrupt-framework-design.html#secure-payload">5.4.4. Secure payload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/interrupt-framework-design.html#test-secure-payload-behavior">5.4.5. Test secure payload behavior</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/interrupt-framework-design.html#interrupt-handling">5.5. Interrupt handling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/interrupt-framework-design.html#id4">5.5.1. EL3 runtime firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/interrupt-framework-design.html#id5">5.5.2. Secure payload dispatcher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/interrupt-framework-design.html#secure-payload-interrupt-handling">5.5.3. Secure payload interrupt handling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../design/interrupt-framework-design.html#other-considerations">5.6. Other considerations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/interrupt-framework-design.html#implication-of-preempted-smc-on-non-secure-software">5.6.1. Implication of preempted SMC on Non-Secure Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../design/psci-pd-tree.html">6. PSCI Power Domain Tree Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../design/psci-pd-tree.html#requirements">6.1. Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/psci-pd-tree.html#design">6.2. Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/psci-pd-tree.html#describing-a-power-domain-tree">6.2.1. Describing a power domain tree</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/psci-pd-tree.html#removing-assumptions-about-mpidrs-used-in-a-platform">6.2.2. Removing assumptions about MPIDRs used in a platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/psci-pd-tree.html#traversing-through-and-distinguishing-between-core-and-non-core-power-domains">6.2.3. Traversing through and distinguishing between core and non-core power domains</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/psci-pd-tree.html#populating-the-power-domain-tree">6.2.4. Populating the power domain tree</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../design/reset-design.html">7. CPU Reset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../design/reset-design.html#general-reset-code-flow">7.1. General reset code flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/reset-design.html#programmable-cpu-reset-address">7.2. Programmable CPU reset address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/reset-design.html#cold-boot-on-a-single-cpu">7.3. Cold boot on a single CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/reset-design.html#programmable-cpu-reset-address-cold-boot-on-a-single-cpu">7.4. Programmable CPU reset address, Cold boot on a single CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/reset-design.html#using-bl31-entrypoint-as-the-reset-address">7.5. Using BL31 entrypoint as the reset address</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../design/reset-design.html#determination-of-boot-path">7.5.1. Determination of boot path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../design/reset-design.html#platform-initialization">7.5.2. Platform initialization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../design/trusted-board-boot.html">8. Trusted Board Boot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../design/trusted-board-boot.html#chain-of-trust">8.1. Chain of Trust</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/trusted-board-boot.html#trusted-board-boot-sequence">8.2. Trusted Board Boot Sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/trusted-board-boot.html#authentication-framework">8.3. Authentication Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/trusted-board-boot.html#certificate-generation-tool">8.4. Certificate Generation Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/trusted-board-boot.html#authenticated-encryption-framework">8.5. Authenticated Encryption Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../design/trusted-board-boot.html#firmware-encryption-tool">8.6. Firmware Encryption Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../design/trusted-board-boot-build.html">9. Building FIP images with support for Trusted Board Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plat/index.html">Platform Ports</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plat/allwinner.html">1. Allwinner ARMv8 SoCs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/allwinner.html#trusted-os-dispatcher">1.1. Trusted OS dispatcher</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/arm/index.html">2. Arm Development Platforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/arm/juno/index.html">2.1. Arm Juno Development Platform</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/juno/index.html#platform-specific-build-options">2.1.1. Platform-specific build options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/juno/index.html#running-software-on-juno">2.1.2. Running software on Juno</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/juno/index.html#preparing-tf-a-images">2.1.3. Preparing TF-A images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/juno/index.html#creating-a-firmware-image-package-fip">2.1.4. Creating a Firmware Image Package (FIP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/juno/index.html#booting-firmware-update-images">2.1.5. Booting Firmware Update images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/juno/index.html#booting-an-el3-payload">2.1.6. Booting an EL3 payload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/juno/index.html#booting-a-preloaded-kernel-image">2.1.7. Booting a preloaded kernel image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/juno/index.html#testing-system-suspend">2.1.8. Testing System Suspend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/juno/index.html#additional-resources">2.1.9. Additional Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/arm/fvp/index.html">2.2. Arm Fixed Virtual Platforms (FVP)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/fvp/index.html#fixed-virtual-platform-fvp-support">2.2.1. Fixed Virtual Platform (FVP) Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/fvp/index.html#arm-fvp-platform-specific-build-options">2.2.2. Arm FVP Platform Specific Build Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/fvp/index.html#booting-firmware-update-images">2.2.3. Booting Firmware Update images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/fvp/index.html#booting-an-el3-payload">2.2.4. Booting an EL3 payload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/fvp/index.html#booting-a-preloaded-kernel-image-base-fvp">2.2.5. Booting a preloaded kernel image (Base FVP)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/arm/fvp-ve/index.html">2.3. Arm Versatile Express</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/fvp-ve/index.html#boot-sequence">2.3.1. Boot Sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/fvp-ve/index.html#how-to-build">2.3.2. How to build</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/arm/tc0/index.html">2.4. TC0 Total Compute Platform</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/tc0/index.html#boot-sequence">2.4.1. Boot Sequence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/arm/arm_fpga/index.html">2.5. Arm FPGA Platform</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/arm_fpga/index.html#platform-specific-build-options">2.5.1. Platform-specific build options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/arm_fpga/index.html#building-the-tf-a-image">2.5.2. Building the TF-A image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/arm_fpga/index.html#running-the-tf-a-image">2.5.3. Running the TF-A image</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/arm/arm-build-options.html">2.6. Arm Development Platform Build Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/arm-build-options.html#arm-platform-build-options">2.6.1. Arm Platform Build Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/arm-build-options.html#arm-css-platform-specific-build-options">2.6.2. Arm CSS Platform-Specific Build Options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/arm/morello/index.html">2.7. Morello Platform</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/arm/morello/index.html#boot-sequence">2.7.1. Boot Sequence</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/meson-axg.html">3. Amlogic Meson A113D (AXG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/meson-gxbb.html">4. Amlogic Meson S905 (GXBB)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/meson-gxl.html">5. Amlogic Meson S905x (GXL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/meson-g12a.html">6. Amlogic Meson S905X2 (G12A)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/hikey.html">7. HiKey</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/hikey.html#how-to-build">7.1. How to build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/hikey.html#code-locations">7.1.1. Code Locations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/hikey.html#build-procedure">7.1.2. Build Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/hikey.html#setup-console">7.2. Setup Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/hikey.html#flash-images-in-recovery-mode">7.3. Flash images in recovery mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/hikey.html#boot-uefi-in-normal-mode">7.4. Boot UEFI in normal mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/hikey960.html">8. HiKey960</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/hikey960.html#how-to-build">8.1. How to build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/hikey960.html#code-locations">8.1.1. Code Locations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/hikey960.html#build-procedure">8.1.2. Build Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/hikey960.html#setup-console">8.2. Setup Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/hikey960.html#boot-uefi-in-recovery-mode">8.3. Boot UEFI in recovery mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/hikey960.html#boot-uefi-in-normal-mode">8.4. Boot UEFI in normal mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/intel-agilex.html">9. Intel Agilex SoCFPGA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/intel-agilex.html#how-to-build">9.1. How to build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/intel-agilex.html#code-locations">9.1.1. Code Locations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/intel-agilex.html#build-procedure">9.1.2. Build Procedure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/intel-agilex.html#install-procedure">9.1.3. Install Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/intel-agilex.html#boot-trace">9.2. Boot trace</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/intel-stratix10.html">10. Intel Stratix 10 SoCFPGA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/intel-stratix10.html#how-to-build">10.1. How to build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/intel-stratix10.html#code-locations">10.1.1. Code Locations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/intel-stratix10.html#build-procedure">10.1.2. Build Procedure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/intel-stratix10.html#install-procedure">10.1.3. Install Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/intel-stratix10.html#boot-trace">10.2. Boot trace</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/marvell/index.html">11. Marvell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/marvell/armada/build.html">11.1. TF-A Build Instructions for Marvell Platforms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/build.html#build-instructions">11.1.1. Build Instructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/build.html#special-build-flags">11.1.2. Special Build Flags</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/build.html#build-output">11.1.3. Build output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/build.html#tools-and-external-components-installation">11.1.4. Tools and external components installation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/marvell/armada/porting.html">11.2. TF-A Porting Guide for Marvell Platforms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/porting.html#source-code-structure">11.2.1. Source Code Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/porting.html#armada-70x0-armada-80x0-porting">11.2.2. Armada-70x0/Armada-80x0 Porting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-a8k-addr-map.html">11.3. Address decoding flow and address translation units of Marvell Armada 8K SoC family</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-amb.html">11.4. AMB - AXI MBUS address decoding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-amb.html#mandatory-functions">11.4.1. Mandatory functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-amb.html#mandatory-structures">11.4.2. Mandatory structures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-amb.html#examples">11.4.3. Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-ccu.html">11.5. Marvell CCU address decoding bindings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-ccu.html#mandatory-functions">11.5.1. Mandatory functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-ccu.html#mandatory-structures">11.5.2. Mandatory structures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-ccu.html#example">11.5.3. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-io-win.html">11.6. Marvell IO WIN address decoding bindings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-io-win.html#mandatory-functions">11.6.1. Mandatory functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-io-win.html#mandatory-structures">11.6.2. Mandatory structures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-io-win.html#example">11.6.3. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-iob.html">11.7. Marvell IOB address decoding bindings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-iob.html#mandatory-functions">11.7.1. Mandatory functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-iob.html#mandatory-structures">11.7.2. Mandatory structures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-iob.html#target-id-options">11.7.3. Target ID options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/marvell/armada/misc/mvebu-iob.html#example">11.7.4. Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/mt8183.html">12. MediaTek 8183</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/mt8183.html#boot-sequence">12.1. Boot Sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/mt8183.html#how-to-build">12.2. How to Build</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/mt8192.html">13. MediaTek 8192</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/mt8192.html#boot-sequence">13.1. Boot Sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/mt8192.html#how-to-build">13.2. How to Build</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/nvidia-tegra.html">14. NVIDIA Tegra</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/nvidia-tegra.html#directory-structure">14.1. Directory structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/nvidia-tegra.html#trusted-os-dispatcher">14.2. Trusted OS dispatcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/nvidia-tegra.html#scatter-files">14.3. Scatter files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/nvidia-tegra.html#preparing-the-bl31-image-to-run-on-tegra-socs">14.4. Preparing the BL31 image to run on Tegra SoCs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/nvidia-tegra.html#power-management">14.5. Power Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/nvidia-tegra.html#tegra-configs">14.6. Tegra configs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/warp7.html">15. NXP i.MX7 WaRP7</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/warp7.html#boot-flow">15.1. Boot Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/warp7.html#build-instructions">15.2. Build Instructions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/warp7.html#u-boot">15.2.1. U-Boot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/warp7.html#op-tee">15.2.2. OP-TEE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/warp7.html#tf-a">15.2.3. TF-A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/warp7.html#fip">15.2.4. FIP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/warp7.html#deploy-images">15.3. Deploy Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/warp7.html#signing-bl2">15.4. Signing BL2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/imx8.html">16. NXP i.MX 8 Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/imx8.html#boot-sequence">16.1. Boot Sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/imx8.html#how-to-build">16.2. How to build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/imx8.html#build-procedure">16.2.1. Build Procedure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/imx8.html#deploy-tf-a-images">16.2.2. Deploy TF-A Images</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/imx8m.html">17. NXP i.MX 8M Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/imx8m.html#boot-sequence">17.1. Boot Sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/imx8m.html#how-to-build">17.2. How to build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/imx8m.html#build-procedure">17.2.1. Build Procedure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/imx8m.html#deploy-tf-a-images">17.2.2. Deploy TF-A Images</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/ls1043a.html">18. NXP QorIQ® LS1043A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/ls1043a.html#ls1043ardb-specification">18.1. LS1043ARDB Specification:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/ls1043a.html#boot-sequence">18.2. Boot Sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/ls1043a.html#how-to-build">18.3. How to build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/ls1043a.html#build-procedure">18.3.1. Build Procedure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/ls1043a.html#deploy-tf-a-images">18.3.2. Deploy TF-A Images</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/poplar.html">19. Poplar</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/poplar.html#how-to-build">19.1. How to build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/poplar.html#code-locations">19.1.1. Code Locations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/poplar.html#build-procedure">19.1.2. Build Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/poplar.html#install-procedure">19.2. Install Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/poplar.html#boot-trace">19.3. Boot trace</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/qemu.html">20. QEMU virt Armv8-A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/qemu.html#getting-non-tf-images">20.1. Getting non-TF images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/qemu.html#booting-via-semi-hosting-option">20.2. Booting via semi-hosting option</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/qemu.html#booting-via-flash-based-firmwares">20.3. Booting via flash based firmwares</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/qemu-sbsa.html">21. QEMU SBSA Target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/qti.html">22. Qualcomm Technologies, Inc.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/qti.html#boot-trace">22.1. Boot Trace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/qti.html#how-to-build">22.2. How to build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/qti.html#code-locations">22.2.1. Code Locations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/qti.html#build-procedure">22.2.2. Build Procedure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/rpi3.html">23. Raspberry Pi 3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rpi3.html#design">23.1. Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/rpi3.html#placement-of-images">23.1.1. Placement of images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/rpi3.html#boot-sequence">23.1.2. Boot sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/rpi3.html#secondary-cores">23.1.3. Secondary cores</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rpi3.html#build-instructions">23.2. Build Instructions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/rpi3.html#building-the-firmware-for-kernels-that-don-t-support-psci">23.2.1. Building the firmware for kernels that don’t support PSCI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/rpi3.html#building-the-firmware-for-kernels-that-support-psci">23.2.2. Building the firmware for kernels that support PSCI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rpi3.html#aarch64-kernel-build-instructions">23.3. AArch64 kernel build instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rpi3.html#setup-sd-card">23.4. Setup SD card</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/rpi4.html">24. Raspberry Pi 4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rpi4.html#build-instructions">24.1. Build Instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rpi4.html#tf-a-port-design">24.2. TF-A port design</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/rcar-gen3.html">25. Renesas R-Car</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rcar-gen3.html#renesas-r-car-gen3-evaluation-boards">25.1. Renesas R-Car Gen3 evaluation boards:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rcar-gen3.html#overview">25.2. Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rcar-gen3.html#how-to-build">25.3. How to build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/rcar-gen3.html#build-tested">25.3.1. Build Tested:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/rcar-gen3.html#system-tested">25.3.2. System Tested:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/rcar-gen3.html#tf-a-build-procedure">25.3.3. TF-A Build Procedure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/rcar-gen3.html#install-procedure">25.3.4. Install Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rcar-gen3.html#boot-trace">25.4. Boot trace</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/rz-g2.html">26. Renesas RZ/G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rz-g2.html#renesas-rz-g2-reference-platforms">26.1. Renesas RZ/G2 reference platforms:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rz-g2.html#overview">26.2. Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rz-g2.html#how-to-build">26.3. How to build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/rz-g2.html#build-tested">26.3.1. Build Tested:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/rz-g2.html#system-tested">26.3.2. System Tested:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/rz-g2.html#tf-a-build-procedure">26.3.3. TF-A Build Procedure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/rz-g2.html#install-procedure">26.3.4. Install Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rz-g2.html#boot-trace">26.4. Boot trace</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/rockchip.html">27. Rockchip SoCs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rockchip.html#boot-sequence">27.1. Boot Sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rockchip.html#how-to-build">27.2. How to build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/rockchip.html#how-to-deploy">27.3. How to deploy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/socionext-uniphier.html">28. Socionext UniPhier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/socionext-uniphier.html#boot-flow">28.1. Boot Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/socionext-uniphier.html#basic-build">28.2. Basic Build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/socionext-uniphier.html#optional-features">28.3. Optional features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/synquacer.html">29. Socionext Synquacer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/synquacer.html#how-to-build">29.1. How to build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/synquacer.html#code-locations">29.1.1. Code Locations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/synquacer.html#boot-flow">29.1.2. Boot Flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/synquacer.html#build-procedure">29.1.3. Build Procedure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/synquacer.html#install-the-system-firmware">29.1.4. Install the System Firmware</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/stm32mp1.html">30. STMicroelectronics STM32MP1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/stm32mp1.html#stm32mp1-versions">30.1. STM32MP1 Versions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/stm32mp1.html#design">30.2. Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/stm32mp1.html#memory-mapping">30.2.1. Memory mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/stm32mp1.html#boot-sequence">30.2.2. Boot sequence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/stm32mp1.html#build-instructions">30.3. Build Instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/stm32mp1.html#populate-sd-card">30.4. Populate SD-card</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/ti-k3.html">31. Texas Instruments K3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/ti-k3.html#boot-flow">31.1. Boot Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/ti-k3.html#build-instructions">31.2. Build Instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/ti-k3.html#deploy-images">31.3. Deploy Images</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/xilinx-versal.html">32. Xilinx Versal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/xilinx-versal.html#xilinx-versal-platform-specific-build-options">32.1. Xilinx Versal platform specific build options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/xilinx-versal.html#plm-tf-a-parameter-passing">32.2. # PLM-&gt;TF-A Parameter Passing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/xilinx-zynqmp.html">33. Xilinx Zynq UltraScale+ MPSoC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/xilinx-zynqmp.html#zynqmp-platform-specific-build-options">33.1. ZynqMP platform specific build options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/xilinx-zynqmp.html#fsbl-tf-a-parameter-passing">33.2. FSBL-&gt;TF-A Parameter Passing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/xilinx-zynqmp.html#power-domain-tree">33.3. Power Domain Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plat/brcm-stingray.html">34. Broadcom Stingray</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plat/brcm-stingray.html#description">34.1. Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/brcm-stingray.html#boot-sequence">34.2. Boot Sequence</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/brcm-stingray.html#code-locations">34.2.1. Code Locations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plat/brcm-stingray.html#how-to-build">34.3. How to build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plat/brcm-stingray.html#build-procedure">34.3.1. Build Procedure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plat/brcm-stingray.html#deploy-tf-a-images">34.3.2. Deploy TF-A Images</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../perf/index.html">Performance &amp; Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../perf/psci-performance-juno.html">1. PSCI Performance Measurements on Arm Juno Development Platform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../perf/psci-performance-juno.html#method">1.1. Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../perf/psci-performance-juno.html#results-and-commentary">1.2. Results and Commentary</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../perf/psci-performance-juno.html#cpu-suspend-to-deepest-power-level-on-all-cpus-in-parallel">1.2.1. <code class="docutils literal notranslate"><span class="pre">CPU_SUSPEND</span></code> to deepest power level on all CPUs in parallel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../perf/psci-performance-juno.html#cpu-suspend-to-power-level-0-on-all-cpus-in-parallel">1.2.2. <code class="docutils literal notranslate"><span class="pre">CPU_SUSPEND</span></code> to power level 0 on all CPUs in parallel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../perf/psci-performance-juno.html#cpu-suspend-to-deepest-power-level-on-all-cpus-in-sequence">1.2.3. <code class="docutils literal notranslate"><span class="pre">CPU_SUSPEND</span></code> to deepest power level on all CPUs in sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../perf/psci-performance-juno.html#cpu-suspend-to-power-level-0-on-all-cpus-in-sequence">1.2.4. <code class="docutils literal notranslate"><span class="pre">CPU_SUSPEND</span></code> to power level 0 on all CPUs in sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../perf/psci-performance-juno.html#cpu-off-on-all-non-lead-cpus-in-sequence-then-cpu-suspend-on-lead-cpu-to-deepest-power-level">1.2.5. <code class="docutils literal notranslate"><span class="pre">CPU_OFF</span></code> on all non-lead CPUs in sequence then <code class="docutils literal notranslate"><span class="pre">CPU_SUSPEND</span></code> on lead CPU to deepest power level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../perf/psci-performance-juno.html#psci-version-on-all-cpus-in-parallel">1.2.6. <code class="docutils literal notranslate"><span class="pre">PSCI_VERSION</span></code> on all CPUs in parallel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../perf/tsp.html">2. Test Secure Payload (TSP) and Dispatcher (TSPD)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../perf/tsp.html#building-the-test-secure-payload">2.1. Building the Test Secure Payload</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../perf/performance-monitoring-unit.html">3. Performance Monitoring Unit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../perf/performance-monitoring-unit.html#pmu-counters">3.1. PMU Counters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../perf/performance-monitoring-unit.html#architectural-mappings">3.1.1. Architectural mappings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../perf/performance-monitoring-unit.html#configuring-the-pmu-for-counting-events">3.2. Configuring the PMU for counting events</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../perf/performance-monitoring-unit.html#id1">3.2.1. Architectural mappings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../perf/performance-monitoring-unit.html#relevant-register-fields">3.2.2. Relevant register fields</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../security_advisories/index.html">Security Advisories</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../security_advisories/security-advisory-tfv-1.html">1. Advisory TFV-1 (CVE-2016-10319)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security_advisories/security-advisory-tfv-2.html">2. Advisory TFV-2 (CVE-2017-7564)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security_advisories/security-advisory-tfv-3.html">3. Advisory TFV-3 (CVE-2017-7563)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security_advisories/security-advisory-tfv-4.html">4. Advisory TFV-4 (CVE-2017-9607)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security_advisories/security-advisory-tfv-5.html">5. Advisory TFV-5 (CVE-2017-15031)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security_advisories/security-advisory-tfv-6.html">6. Advisory TFV-6 (CVE-2017-5753, CVE-2017-5715, CVE-2017-5754)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../security_advisories/security-advisory-tfv-6.html#variant-1-cve-2017-5753">6.1. Variant 1 (CVE-2017-5753)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security_advisories/security-advisory-tfv-6.html#variant-2-cve-2017-5715">6.2. Variant 2 (CVE-2017-5715)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security_advisories/security-advisory-tfv-6.html#variant-3-cve-2017-5754">6.3. Variant 3 (CVE-2017-5754)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../security_advisories/security-advisory-tfv-7.html">7. Advisory TFV-7 (CVE-2018-3639)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../security_advisories/security-advisory-tfv-7.html#static-mitigation">7.1. Static mitigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security_advisories/security-advisory-tfv-7.html#dynamic-mitigation">7.2. Dynamic mitigation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../security_advisories/security-advisory-tfv-8.html">8. Advisory TFV-8 (CVE-2018-19440)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Design Documents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cmake_framework.html">1. TF-A CMake Build System Proposal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cmake_framework.html#abstract">1.1. Abstract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmake_framework.html#introduction">1.2. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmake_framework.html#main-features">1.3. Main features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cmake_framework.html#structured-configuration-description">1.3.1. Structured configuration description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmake_framework.html#target-description">1.3.2. Target description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmake_framework.html#compiler-abstraction">1.3.3. Compiler abstraction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmake_framework.html#external-tools">1.3.4. External tools</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cmake_framework.html#workflow">1.4. Workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmake_framework.html#example">1.5. Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../change-log.html">Change Log &amp; Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-2-4">Version 2.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#new-features">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#changed">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#resolved-issues">Resolved Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#known-issues">Known Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-2-3">Version 2.3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id1">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id2">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id3">Resolved Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id4">Known Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-2-2">Version 2.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id5">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id6">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id7">Resolved Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#deprecations">Deprecations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id8">Known Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-2-1">Version 2.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id9">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id10">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id11">Resolved Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id12">Deprecations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id13">Known Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-2-0">Version 2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id14">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#issues-resolved-since-last-release">Issues resolved since last release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id15">Known Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-1-6">Version 1.6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id16">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id17">Issues resolved since last release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id18">Known Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-1-5">Version 1.5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id19">New features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id20">Issues resolved since last release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id21">Known Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-1-4">Version 1.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id22">New features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id23">Issues resolved since last release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id24">Known Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-1-3">Version 1.3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id25">New features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id26">Issues resolved since last release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id27">Known issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-1-2">Version 1.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id28">New features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id29">Issues resolved since last release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id30">Known issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-1-1">Version 1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id31">New features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id32">Issues resolved since last release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id33">Known issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-1-0">Version 1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id34">New features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id35">Issues resolved since last release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id36">Known issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-0-4">Version 0.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id37">New features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id38">Issues resolved since last release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id39">Known issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-0-3">Version 0.3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id40">New features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id41">Issues resolved since last release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id42">Known issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../change-log.html#version-0-2">Version 0.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id43">New features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id44">Issues resolved since last release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log.html#id45">Known issues</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../change-log-upcoming.html">Change Log for Upcoming Release</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../change-log-upcoming.html#upcoming-release-version-2-4">Upcoming Release Version 2.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../change-log-upcoming.html#new-features">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log-upcoming.html#changed">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log-upcoming.html#resolved-issues">Resolved Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log-upcoming.html#deprecations">Deprecations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../change-log-upcoming.html#known-issues">Known Issues</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../license.html#spdx-identifiers">SPDX Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html#other-projects">Other Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cmake/index.html">Build System Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cmake/index.html#contents">Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cmake/concepts.html">Build System Concepts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cmake/concepts.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cmake/concepts.html#high-level-requirements">High-level requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cmake/concepts.html#configuration-space">Configuration space</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cmake/concepts.html#structured-programming-concepts-with-cmake">Structured Programming Concepts With CMake</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cmake/concepts.html#structuring-the-project">Structuring the project.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cmake/concepts.html#entry-points">Entry points</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cmake/concepts.html#todo-items">TODO items</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cmake/user_guide.html">Build System Users Guide</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cmake/user_guide.html#what-is-needed-to-build-with-cmake">What is needed to build with CMake?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cmake/user_guide.html#how-to-build-with-cmake">How-to build with CMake</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cmake/user_guide.html#current-limitations">Current limitations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cmake/user_guide.html#list-of-modules">List of modules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Trusted Firmware-A</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Design Documents</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/design_documents/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="cmake_framework.html" class="btn btn-neutral float-right" title="1. TF-A CMake Build System Proposal" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="../security_advisories/security-advisory-tfv-8.html" class="btn btn-neutral float-left" title="8. Advisory TFV-8 (CVE-2018-19440)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="design-documents">
+<h1>Design Documents<a class="headerlink" href="#design-documents" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cmake_framework.html">1. TF-A CMake Build System Proposal</a></li>
+</ul>
+</div>
+<hr class="docutils" />
+<p><em>Copyright (c) 2020, Arm Limited and Contributors. All rights reserved.</em></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="cmake_framework.html" class="btn btn-neutral float-right" title="1. TF-A CMake Build System Proposal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../security_advisories/security-advisory-tfv-8.html" class="btn btn-neutral float-left" title="8. Advisory TFV-8 (CVE-2018-19440)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
