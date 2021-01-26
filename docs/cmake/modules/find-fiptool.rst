@@ -1,4 +1,4 @@
-.. cmake-module:: ../../../cmake/Ext/Findfiptool.cmake
+.. cmake-module:: ../../../cmake/Ext/FindFIPTool.cmake
 
 --------------
 
