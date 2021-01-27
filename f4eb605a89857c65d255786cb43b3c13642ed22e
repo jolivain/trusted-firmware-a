@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "237639cd_70b70b97",
+        "filename": "include/drivers/arm/gicv3.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-01-27T10:59:32Z",
+      "side": 1,
+      "message": "It should be OK for the above code, if the macros SAVE_GICD_EREGS and RESTORE_GICD_EREGS use proper method to get array index, just as below:\n\n(int_id - MIN_ESPI_ID) \u003e\u003e REG##R_SHIFT + DIV_ROUND_UP_2EVAL(TOTAL_SPI_INTR_NUM, 1 \u003c\u003c REG##R_SHIFT)\n\nI didn\u0027t use the above code for it is more complex. Instead I chose to round up TOTAL_SPI_INTR_NUM to 1024 to make it always aligned for REG##R_SHIFT.",
+      "parentUuid": "90fbe22d_5193b290",
+      "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0f3b431_c9ae8fbc",
         "filename": "include/drivers/arm/gicv3.h",
         "patchSetId": 2
