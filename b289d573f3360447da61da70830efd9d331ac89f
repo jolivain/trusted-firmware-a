@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35818224_bd8c0c05",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-01-27T13:09:17Z",
+      "side": 1,
+      "message": "MISRA nit: precedence should be explicit:\nif ((off + sz) \u003e PCI_OFFSET_MASK) {",
+      "range": {
+        "startLine": 36,
+        "startChar": 5,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "b289d573f3360447da61da70830efd9d331ac89f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
