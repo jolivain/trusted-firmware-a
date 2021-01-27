@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "385170cc_58087836",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-27T19:18:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb530adf_eaf9bf69",
+      "range": {
+        "startLine": 16,
+        "startChar": 7,
+        "endLine": 16,
+        "endChar": 9
+      },
+      "revId": "951300c3c9ac31a34fb1541edb25867fa1027347",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2332cb4_00f29e12",
         "filename": "services/std_svc/trng/trng_entropy_pool.c",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "951300c3c9ac31a34fb1541edb25867fa1027347",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "770fbc87_be961192",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-27T19:18:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2332cb4_00f29e12",
+      "range": {
+        "startLine": 61,
+        "startChar": 15,
+        "endLine": 61,
+        "endChar": 16
+      },
+      "revId": "951300c3c9ac31a34fb1541edb25867fa1027347",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d7ffa1ed_6b85aa0b",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-27T19:18:52Z",
+      "side": 1,
+      "message": "Originally short for entropy, this has since been renamed `out`. Changed.",
+      "parentUuid": "a2ec898d_c671a5ba",
+      "range": {
+        "startLine": 84,
+        "startChar": 57,
+        "endLine": 84,
+        "endChar": 60
+      },
+      "revId": "951300c3c9ac31a34fb1541edb25867fa1027347",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cc809bf_e86f2377",
         "filename": "services/std_svc/trng/trng_entropy_pool.c",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c65d8114_03df1220",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-27T19:18:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cc809bf_e86f2377",
+      "range": {
+        "startLine": 102,
+        "startChar": 29,
+        "endLine": 102,
+        "endChar": 38
+      },
+      "revId": "951300c3c9ac31a34fb1541edb25867fa1027347",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91ff61c7_6788e770",
         "filename": "services/std_svc/trng/trng_entropy_pool.c",
         "patchSetId": 7
@@ -114,6 +210,30 @@
       "revId": "951300c3c9ac31a34fb1541edb25867fa1027347",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "589d1222_7626b10e",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-01-27T19:18:52Z",
+      "side": 1,
+      "message": "I\u0027ll reword so that it\u0027s easier to parse",
+      "parentUuid": "91ff61c7_6788e770",
+      "range": {
+        "startLine": 121,
+        "startChar": 19,
+        "endLine": 121,
+        "endChar": 24
+      },
+      "revId": "951300c3c9ac31a34fb1541edb25867fa1027347",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
