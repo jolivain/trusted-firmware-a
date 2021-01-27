@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef ARCH_HELPERS_H
-#define ARCH_HELPERS_H
+#ifndef FVP_R_ARCH_HELPERS_H
+#define FVP_R_ARCH_HELPERS_H
 
 #include <cdefs.h>
 #include <stdbool.h>
@@ -37,7 +37,7 @@ static inline void write_ ## _name(u_register_t v)			\
 	__asm__ volatile ("msr " #reg_name ", %0" : : "i" (v))
 
 /* Define read function for system register */
-#define DEFINE_SYSREG_READ_FUNC(_name) 			\
+#define DEFINE_SYSREG_READ_FUNC(_name)			\
 	_DEFINE_SYSREG_READ_FUNC(_name, _name)
 
 /* Define read & write function for system register */
@@ -260,9 +260,6 @@ DEFINE_SYSREG_RW_FUNCS(spsr_el3)
 DEFINE_SYSREG_RW_FUNCS(elr_el1)
 DEFINE_SYSREG_RW_FUNCS(elr_el2)
 DEFINE_SYSREG_RW_FUNCS(elr_el3)
-DEFINE_SYSREG_RW_FUNCS(mdccsr_el0)
-DEFINE_SYSREG_RW_FUNCS(dbgdtrrx_el0)
-DEFINE_SYSREG_RW_FUNCS(dbgdtrtx_el0)
 
 DEFINE_SYSOP_FUNC(wfi)
 DEFINE_SYSOP_FUNC(wfe)
@@ -440,18 +437,18 @@ DEFINE_SYSREG_RW_FUNCS(cntp_cval_el0)
 DEFINE_SYSREG_READ_FUNC(cntpct_el0)
 DEFINE_SYSREG_RW_FUNCS(cnthctl_el2)
 
-#define get_cntp_ctl_enable(x)  (((x) >> CNTP_CTL_ENABLE_SHIFT) & \
+#define get_cntp_ctl_enable(x)	(((x) >> CNTP_CTL_ENABLE_SHIFT) & \
 					CNTP_CTL_ENABLE_MASK)
-#define get_cntp_ctl_imask(x)   (((x) >> CNTP_CTL_IMASK_SHIFT) & \
+#define get_cntp_ctl_imask(x)	(((x) >> CNTP_CTL_IMASK_SHIFT) & \
 					CNTP_CTL_IMASK_MASK)
-#define get_cntp_ctl_istatus(x) (((x) >> CNTP_CTL_ISTATUS_SHIFT) & \
+#define get_cntp_ctl_istatus(x)	(((x) >> CNTP_CTL_ISTATUS_SHIFT) & \
 					CNTP_CTL_ISTATUS_MASK)
 
-#define set_cntp_ctl_enable(x)  ((x) |= (U(1) << CNTP_CTL_ENABLE_SHIFT))
-#define set_cntp_ctl_imask(x)   ((x) |= (U(1) << CNTP_CTL_IMASK_SHIFT))
+#define set_cntp_ctl_enable(x)	((x) |= (U(1) << CNTP_CTL_ENABLE_SHIFT))
+#define set_cntp_ctl_imask(x)	((x) |= (U(1) << CNTP_CTL_IMASK_SHIFT))
 
-#define clr_cntp_ctl_enable(x)  ((x) &= ~(U(1) << CNTP_CTL_ENABLE_SHIFT))
-#define clr_cntp_ctl_imask(x)   ((x) &= ~(U(1) << CNTP_CTL_IMASK_SHIFT))
+#define clr_cntp_ctl_enable(x)	((x) &= ~(U(1) << CNTP_CTL_ENABLE_SHIFT))
+#define clr_cntp_ctl_imask(x)	((x) &= ~(U(1) << CNTP_CTL_IMASK_SHIFT))
 
 DEFINE_SYSREG_RW_FUNCS(tpidr_el3)
 
@@ -534,6 +531,13 @@ DEFINE_SYSREG_READ_FUNC(rndrrs)
 
 /* DynamIQ Shared Unit power management */
 DEFINE_RENAME_SYSREG_RW_FUNCS(clusterpwrdn_el1, CLUSTERPWRDN_EL1)
+
+/* v8-R64 (not v8-A!) MPU registers */
+DEFINE_RENAME_SYSREG_RW_FUNCS(mpuir_el2, MPUIR_EL2)
+DEFINE_RENAME_SYSREG_RW_FUNCS(prenr_el2, PRENR_EL2)
+DEFINE_RENAME_SYSREG_RW_FUNCS(prselr_el2, PRSELR_EL2)
+DEFINE_RENAME_SYSREG_RW_FUNCS(prbar_el2, PRBAR_EL2)
+DEFINE_RENAME_SYSREG_RW_FUNCS(prlar_el2, PRLAR_EL2)
 
 
 #define IS_IN_EL(x) \
@@ -621,4 +625,4 @@ static inline uint64_t el_implemented(unsigned int el)
 #define AT(_at_inst, _va)	_at_inst(_va);
 #endif
 
-#endif /* ARCH_HELPERS_H */
+#endif /* FVP_R_ARCH_HELPERS_H */

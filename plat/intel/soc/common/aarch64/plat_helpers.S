@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,8 @@
 #include <arch.h>
 #include <asm_macros.S>
 #include <cpu_macros.S>
+#include <el_max_common_macros.S>
 #include <platform_def.h>
-#include <el3_common_macros.S>
 
 	.globl	plat_secondary_cold_boot_setup
 	.globl	platform_is_primary_cpu
@@ -139,12 +139,13 @@ func platform_mem_init
 endfunc platform_mem_init
 
 func plat_secondary_cpus_bl31_entry
-	el3_entrypoint_common                                   \
-		_init_sctlr=0                                   \
-		_warm_boot_mailbox=!PROGRAMMABLE_RESET_ADDRESS  \
-		_secondary_cold_boot=!COLD_BOOT_SINGLE_CPU      \
-		_init_memory=1                                  \
-		_init_c_runtime=1                               \
+	el_max_entrypoint_common				\
+		_init_sctlr=0					\
+		_warm_boot_mailbox=!PROGRAMMABLE_RESET_ADDRESS	\
+		_secondary_cold_boot=!COLD_BOOT_SINGLE_CPU	\
+		_init_memory=1					\
+		_init_c_runtime=1				\
 		_exception_vectors=runtime_exceptions		\
-		_pie_fixup_size=BL31_LIMIT - BL31_BASE
+		_pie_fixup_size=BL31_LIMIT - BL31_BASE		\
+		_el_max=3
 endfunc plat_secondary_cpus_bl31_entry

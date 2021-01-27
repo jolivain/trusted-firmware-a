@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,7 +8,7 @@
 
 #include <arch.h>
 #include <common/bl_common.h>
-#include <el3_common_macros.S>
+#include <el_max_common_macros.S>
 #include <lib/pmf/aarch64/pmf_asm_macros.S>
 #include <lib/runtime_instr.h>
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
@@ -42,7 +42,8 @@ func bl31_entrypoint
 	 * SCTLR_EL3, including the endianness, and has initialised the memory.
 	 * ---------------------------------------------------------------------
 	 */
-	el3_entrypoint_common					\
+	el_max_entrypoint_common				\
+		_el_max=3 					\
 		_init_sctlr=0					\
 		_warm_boot_mailbox=0				\
 		_secondary_cold_boot=0				\
@@ -50,6 +51,7 @@ func bl31_entrypoint
 		_init_c_runtime=1				\
 		_exception_vectors=runtime_exceptions		\
 		_pie_fixup_size=BL31_LIMIT - BL31_BASE
+		/* parameter order mismatches macro definition by necessity */
 #else
 
 	/* ---------------------------------------------------------------------
@@ -58,7 +60,8 @@ func bl31_entrypoint
 	 * skip the warm boot mailbox mechanism.
 	 * ---------------------------------------------------------------------
 	 */
-	el3_entrypoint_common					\
+	el_max_entrypoint_common				\
+		_el_max=3					\
 		_init_sctlr=1					\
 		_warm_boot_mailbox=!PROGRAMMABLE_RESET_ADDRESS	\
 		_secondary_cold_boot=!COLD_BOOT_SINGLE_CPU	\
@@ -66,6 +69,7 @@ func bl31_entrypoint
 		_init_c_runtime=1				\
 		_exception_vectors=runtime_exceptions		\
 		_pie_fixup_size=BL31_LIMIT - BL31_BASE
+		/* parameter order mismatches macro definition by necessity */
 
 	/* ---------------------------------------------------------------------
 	 * For RESET_TO_BL31 systems, BL31 is the first bootloader to run so
@@ -148,7 +152,7 @@ func bl31_warm_entrypoint
 
 	/*
 	 * On the warm boot path, most of the EL3 initialisations performed by
-	 * 'el3_entrypoint_common' must be skipped:
+	 * 'el_max_entrypoint_common' must be skipped:
 	 *
 	 *  - Only when the platform bypasses the BL1/BL31 entrypoint by
 	 *    programming the reset address do we need to initialise SCTLR_EL3.
@@ -163,14 +167,15 @@ func bl31_warm_entrypoint
 	 *  - No need to initialise the memory or the C runtime environment,
 	 *    it has been done once and for all on the cold boot path.
 	 */
-	el3_entrypoint_common					\
+	el_max_entrypoint_common				\
 		_init_sctlr=PROGRAMMABLE_RESET_ADDRESS		\
 		_warm_boot_mailbox=0				\
 		_secondary_cold_boot=0				\
 		_init_memory=0					\
 		_init_c_runtime=0				\
 		_exception_vectors=runtime_exceptions		\
-		_pie_fixup_size=0
+		_pie_fixup_size=0				\
+		_el_max=3
 
 	/*
 	 * We're about to enable MMU and participate in PSCI state coordination.

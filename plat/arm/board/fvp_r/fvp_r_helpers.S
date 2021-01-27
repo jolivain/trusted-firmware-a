@@ -6,9 +6,9 @@
 
 #include <arch.h>
 #include <asm_macros.S>
+#include <drivers/arm/fvp/fvp_pwrc.h>
 #include <drivers/arm/gicv2.h>
 #include <drivers/arm/gicv3.h>
-#include <drivers/arm/fvp/fvp_pwrc.h>
 #include <platform_def.h>
 
 	.globl	plat_secondary_cold_boot_setup

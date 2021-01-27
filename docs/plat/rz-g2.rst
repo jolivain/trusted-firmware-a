@@ -81,7 +81,7 @@ To all effects, BL31 is as if it is being entered in reset mode since
 it still needs to initialize the rest of the cores; this is the reason
 behind using direct shared memory access to  BOOT_KIND_BASE _and_
 PARAMS_BASE instead of using registers to get to those locations (see
-el3_common_macros.S and bl31_entrypoint.S for the RESET_TO_BL31 use
+el_max_common_macros.S and bl31_entrypoint.S for the RESET_TO_BL31 use
 case).
 
 [1] https://github.com/renesas-rz/meta-rzg2/tree/BSP-1.0.5/recipes-bsp/arm-trusted-firmware/files
