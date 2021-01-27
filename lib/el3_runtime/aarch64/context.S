@@ -8,7 +8,7 @@
 #include <asm_macros.S>
 #include <assert_macros.S>
 #include <context.h>
-#include <el3_common_macros.S>
+#include <el_max_common_macros.S>
 
 #if CTX_INCLUDE_EL2_REGS
 	.global	el2_sysregs_context_save

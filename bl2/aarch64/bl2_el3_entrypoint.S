@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,7 +9,7 @@
 #include <arch.h>
 #include <asm_macros.S>
 #include <common/bl_common.h>
-#include <el3_common_macros.S>
+#include <el_max_common_macros.S>
 
 	.globl	bl2_entrypoint
 	.globl	bl2_el3_run_image
@@ -28,14 +28,15 @@ func bl2_entrypoint
 	mov	x22, x2
 	mov	x23, x3
 
-	el3_entrypoint_common                                   \
+	el_max_entrypoint_common				\
 		_init_sctlr=1                                   \
 		_warm_boot_mailbox=!PROGRAMMABLE_RESET_ADDRESS  \
 		_secondary_cold_boot=!COLD_BOOT_SINGLE_CPU      \
 		_init_memory=1                                  \
 		_init_c_runtime=1                               \
 		_exception_vectors=bl2_el3_exceptions		\
-		_pie_fixup_size=FIXUP_SIZE
+		_pie_fixup_size=FIXUP_SIZE			\
+		_el_max=3
 
 	/* ---------------------------------------------
 	 * Restore parameters of boot rom

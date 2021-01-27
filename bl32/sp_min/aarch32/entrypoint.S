@@ -9,7 +9,7 @@
 #include <common/bl_common.h>
 #include <common/runtime_svc.h>
 #include <context.h>
-#include <el3_common_macros.S>
+#include <el_max_common_macros.S>
 #include <lib/el3_runtime/cpu_data.h>
 #include <lib/pmf/aarch32/pmf_asm_macros.S>
 #include <lib/runtime_instr.h>
