@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a6e4f97_169365c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-01-27T14:00:47Z",
+      "side": 1,
+      "message": "\"Allow use of the system Crypto++ library\"\nNIT: I think something like this reads a bit better",
+      "range": {
+        "startLine": 7,
+        "startChar": 34,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "dcf8dd5b15da8962916aace5299435a730d3e165",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6097d0f_e1ab876f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-01-27T14:00:47Z",
+      "side": 1,
+      "message": "NIT: Add a comma here to improve readability",
+      "range": {
+        "startLine": 9,
+        "startChar": 46,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "dcf8dd5b15da8962916aace5299435a730d3e165",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b254e886_865fd5fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-01-27T14:00:47Z",
+      "side": 1,
+      "message": "TYPO: introduces",
+      "range": {
+        "startLine": 9,
+        "startChar": 12,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "dcf8dd5b15da8962916aace5299435a730d3e165",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0839018_2e007dac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-01-27T14:00:47Z",
+      "side": 1,
+      "message": "NIT: Add a comma here to improve readability",
+      "range": {
+        "startLine": 10,
+        "startChar": 15,
+        "endLine": 10,
+        "endChar": 16
+      },
+      "revId": "dcf8dd5b15da8962916aace5299435a730d3e165",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec26ddaf_4fd1b5fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-01-27T14:00:47Z",
+      "side": 1,
+      "message": "NIT: \"then the source code\" reads a little bit better I think",
+      "range": {
+        "startLine": 13,
+        "startChar": 39,
+        "endLine": 13,
+        "endChar": 50
+      },
+      "revId": "dcf8dd5b15da8962916aace5299435a730d3e165",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ed06e4b_0594959f",
+        "filename": "plat/marvell/armada/a3k/common/a3700_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-01-27T14:00:47Z",
+      "side": 1,
+      "message": "CRYPTOPP_LIBDIR is set to CRYPTOPP_PATH so it may be the case that this check fails and CRYPTOPP_LIBDIR has not been set by the user in which case the error message may be confusing",
+      "range": {
+        "startLine": 140,
+        "startChar": 50,
+        "endLine": 140,
+        "endChar": 99
+      },
+      "revId": "dcf8dd5b15da8962916aace5299435a730d3e165",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a0acbd1_463f08fa",
+        "filename": "plat/marvell/armada/a3k/common/a3700_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-01-27T14:00:47Z",
+      "side": 1,
+      "message": "As above but with CRYPTOPP_INCDIR",
+      "range": {
+        "startLine": 141,
+        "startChar": 50,
+        "endLine": 141,
+        "endChar": 99
+      },
+      "revId": "dcf8dd5b15da8962916aace5299435a730d3e165",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddf5c3f2_134eecf9",
+        "filename": "plat/marvell/armada/a3k/common/a3700_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-01-27T14:00:47Z",
+      "side": 1,
+      "message": "This suggests that in the case where CRYPTOPP_LIBDIR, CRYPTOPP_INCDIR and CRYPTOPP_PATH are all set the crypto++ library at CRYPTOPP_PATH will still be built but may not be used when making WTP if CRYPTOPP_PATH does not equal CRYPTOPP_LIBDIR and CRYPTOPP_INCDIR. I think there should either be a check that CRYPTOPP_LIBDIR and CRYPTOPP_INCDIR are not set when CRYPTOPP_PATH is or it should be specified that when both are set the values of CRYPTOPP_LIBDIR and CRYPTOPP_INCDIR will take priority in the build.rst file",
+      "range": {
+        "startLine": 142,
+        "startChar": 6,
+        "endLine": 142,
+        "endChar": 19
+      },
+      "revId": "dcf8dd5b15da8962916aace5299435a730d3e165",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
