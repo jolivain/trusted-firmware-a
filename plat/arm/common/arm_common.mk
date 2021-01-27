@@ -194,12 +194,16 @@ PLAT_BL_COMMON_SOURCES	+=	plat/arm/common/${ARCH}/arm_helpers.S		\
 				plat/arm/common/arm_console.c
 
 ifeq (${ARM_XLAT_TABLES_LIB_V1}, 1)
-PLAT_BL_COMMON_SOURCES	+=	lib/xlat_tables/xlat_tables_common.c		\
+PLAT_BL_COMMON_SOURCES 	+=      lib/xlat_tables/xlat_tables_common.c	      \
 				lib/xlat_tables/${ARCH}/xlat_tables.c
 else
+ifeq (${XLAT_MPU_LIB_V1}, 1)
+include lib/xlat_mpu/xlat_mpu.mk
+PLAT_BL_COMMON_SOURCES	+=	${XLAT_MPU_LIB_V1_SRCS}
+else
 include lib/xlat_tables_v2/xlat_tables.mk
-
-PLAT_BL_COMMON_SOURCES	+=	${XLAT_TABLES_LIB_SRCS}
+PLAT_BL_COMMON_SOURCES        +=      ${XLAT_TABLES_LIB_SRCS}
+endif
 endif
 
 ARM_IO_SOURCES		+=	plat/arm/common/arm_io_storage.c		\
