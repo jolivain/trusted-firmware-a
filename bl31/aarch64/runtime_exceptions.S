@@ -12,7 +12,7 @@
 #include <bl31/interrupt_mgmt.h>
 #include <common/runtime_svc.h>
 #include <context.h>
-#include <el3_common_macros.S>
+#include <el_max_common_macros.S>
 #include <lib/el3_runtime/cpu_data.h>
 #include <lib/smccc.h>
 

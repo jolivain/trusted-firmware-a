@@ -154,6 +154,15 @@
 #define DCCSW			U(0x2)
 #endif
 
+/*******************************************************************************
+ * v8-R64 (not v8-A!) MPU register definitions
+ ******************************************************************************/
+#define MPUIR_EL2	 S3_4_C0_C0_4
+#define PRBAR_EL2	 S3_4_C6_C8_0
+#define PRLAR_EL2	 S3_4_C6_C8_1
+#define PRSELR_EL2	 S3_4_C6_C2_1
+#define PRENR_EL2	 S3_4_C6_C1_1
+
 /* ID_AA64PFR0_EL1 definitions */
 #define ID_AA64PFR0_EL0_SHIFT	U(0)
 #define ID_AA64PFR0_EL1_SHIFT	U(4)

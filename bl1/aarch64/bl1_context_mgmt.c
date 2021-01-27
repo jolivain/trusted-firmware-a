@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,9 +14,10 @@
 
 #include "../bl1_private.h"
 
+void cm_prepare_el2_exit(uint32_t security_state);
+
 /* Following contains the cpu context pointers. */
 static void *bl1_cpu_context_ptr[2];
-
 
 void *cm_get_context(uint32_t security_state)
 {
@@ -86,7 +87,11 @@ void bl1_prepare_next_image(unsigned int image_id)
 
 	/* Prepare the context for the next BL image. */
 	cm_init_my_context(next_bl_ep);
+#ifdef NO_EL3
+	cm_prepare_el2_exit(security_state);
+#else
 	cm_prepare_el3_exit(security_state);
+#endif  /* def NO_EL3 */
 
 	/* Indicate that image is in execution state. */
 	desc->state = IMAGE_STATE_EXECUTED;

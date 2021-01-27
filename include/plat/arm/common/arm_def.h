@@ -14,6 +14,7 @@
 #include <lib/xlat_tables/xlat_tables_defs.h>
 #include <plat/arm/common/smccc_def.h>
 #include <plat/common/common_def.h>
+#include <platform_def.h>
 
 /******************************************************************************
  * Definitions common to all ARM standard platforms
@@ -58,12 +59,11 @@
 #define ARM_TRUSTED_DRAM_ID		1
 #define ARM_DRAM_ID			2
 
-/* The first 4KB of Trusted SRAM are used as shared memory */
-#ifdef __PLAT_ARM_TRUSTED_SRAM_BASE__
+#ifdef PLAT_ARM_TRUSTED_SRAM_BASE
 #define ARM_TRUSTED_SRAM_BASE		PLAT_ARM_TRUSTED_SRAM_BASE
 #else
 #define ARM_TRUSTED_SRAM_BASE		UL(0x04000000)
-#endif /* __PLAT_ARM_TRUSTED_SRAM_BASE__ */
+#endif /* PLAT_ARM_TRUSTED_SRAM_BASE */
 
 #define ARM_SHARED_RAM_BASE		ARM_TRUSTED_SRAM_BASE
 #define ARM_SHARED_RAM_SIZE		UL(0x00001000)	/* 4 KB */
@@ -154,11 +154,11 @@
 					 ARM_TZC_DRAM1_SIZE)
 #define ARM_NS_DRAM1_END		(ARM_NS_DRAM1_BASE +		\
 					 ARM_NS_DRAM1_SIZE - 1U)
-#ifdef __PLAT_ARM_DRAM1_BASE__
+#ifdef PLAT_ARM_DRAM1_BASE
 #define ARM_DRAM1_BASE			PLAT_ARM_DRAM1_BASE
 #else
 #define ARM_DRAM1_BASE			ULL(0x80000000)
-#endif /* __PLAT_ARM_DRAM1_BASE__ */
+#endif /* PLAT_ARM_DRAM1_BASE */
 
 #define ARM_DRAM1_SIZE			ULL(0x80000000)
 #define ARM_DRAM1_END			(ARM_DRAM1_BASE +		\

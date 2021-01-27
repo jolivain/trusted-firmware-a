@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -94,11 +94,16 @@ void bl1_main(void)
 	/*
 	 * Ensure that MMU/Caches and coherency are turned on
 	 */
+#ifndef NO_EL3
 #ifdef __aarch64__
 	val = read_sctlr_el3();
 #else
 	val = read_sctlr();
 #endif
+#else  /* def NO_EL3 */
+	val = read_sctlr_el2();
+#endif /* ifndef NO_EL3 */
+
 	assert((val & SCTLR_M_BIT) != 0);
 	assert((val & SCTLR_C_BIT) != 0);
 	assert((val & SCTLR_I_BIT) != 0);
@@ -118,7 +123,7 @@ void bl1_main(void)
 		assert(CACHE_WRITEBACK_GRANULE <= MAX_CACHE_LINE_SIZE);
 #endif /* ENABLE_ASSERTIONS */
 
-	/* Perform remaining generic architectural setup from EL3 */
+	/* Perform remaining generic architectural setup from ELmax */
 	bl1_arch_setup();
 
 #if TRUSTED_BOARD_BOOT

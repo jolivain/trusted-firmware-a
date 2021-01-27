@@ -56,6 +56,6 @@ macro. Here the affected bits are ``SDCR.SPD``, which should also be assigned to
 
 .. _CVE-2017-7564: http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7564
 .. _commit 495f3d3: https://github.com/ARM-software/arm-trusted-firmware/commit/495f3d3
-.. _AArch64 macro: https://github.com/ARM-software/arm-trusted-firmware/blob/bcc2bf0/include/common/aarch64/el3_common_macros.S#L85
-.. _AArch32 equivalent: https://github.com/ARM-software/arm-trusted-firmware/blob/bcc2bf0/include/common/aarch32/el3_common_macros.S#L41
+.. _AArch64 macro: https://github.com/ARM-software/arm-trusted-firmware/blob/bcc2bf0/include/common/aarch64/el_max_common_macros.S#L85
+.. _AArch32 equivalent: https://github.com/ARM-software/arm-trusted-firmware/blob/bcc2bf0/include/common/aarch32/el_max_common_macros.S#L41
 .. _Pull Request #841: https://github.com/ARM-software/arm-trusted-firmware/pull/841

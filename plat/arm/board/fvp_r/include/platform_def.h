@@ -7,15 +7,24 @@
 #ifndef PLATFORM_DEF_H
 #define PLATFORM_DEF_H
 
+#define NO_EL3				1
+
 #include <drivers/arm/tzc400.h>
 #include <lib/utils_def.h>
+#define PLAT_V2M_OFFSET	 		0x80000000
 #include <plat/arm/board/common/v2m_def.h>
+
+/* These are referenced by arm_def.h #included next, so #define first. */
+#define PLAT_ARM_TRUSTED_SRAM_BASE	UL(0x84000000)
+#define PLAT_ARM_TRUSTED_SRAM_SIZE	UL(0x00040000)	/* 256 KB */
+
 #include <plat/arm/common/arm_def.h>
 #include <plat/common/common_def.h>
 
 #include "../fvp_r_def.h"
 
-#define NO_EL3				1
+/* Required to create plat_regions: */
+#define MIN_LVL_BLOCK_DESC	U(1)
 
 /* Required platform porting definitions */
 #define PLATFORM_CORE_COUNT  (U(FVP_R_CLUSTER_COUNT) * \
@@ -37,15 +46,34 @@
 #define PLAT_ARM_CLUSTER_COUNT		U(FVP_R_CLUSTER_COUNT)
 
 #define PLAT_ARM_DRAM1_BASE		ULL(0x0)
+#define PLAT_ARM_DRAM1_SIZE		ULL(0x7fffffff)
 
 #define PLAT_ARM_TRUSTED_ROM_BASE	UL(0x80000000)
 #define PLAT_ARM_TRUSTED_ROM_SIZE	UL(0x04000000)	/* 64 MB */
 
-#define PLAT_ARM_TRUSTED_SRAM_BASE	UL(0x84000000)
-#define PLAT_ARM_TRUSTED_SRAM_SIZE	UL(0x00040000)	/* 256 KB */
-
 #define PLAT_ARM_TRUSTED_DRAM_BASE	UL(0x86000000)
 #define PLAT_ARM_TRUSTED_DRAM_SIZE	UL(0x02000000)	/* 32 MB */
+
+/* These two are defined thus in arm_def.h, but doesn't seem to see it... */
+#undef 	BL1_RO_BASE
+#define BL1_RO_BASE                     PLAT_ARM_TRUSTED_ROM_BASE
+#undef 	BL1_RO_LIMIT
+#define BL1_RO_LIMIT                    (BL1_RO_BASE \
+					+ PLAT_ARM_TRUSTED_ROM_SIZE)
+
+#undef	ARM_SYS_CNTCTL_BASE
+#define ARM_SYS_CNTCTL_BASE		UL(0xaa430000)
+#undef	ARM_SYS_CNTREAD_BASE
+#define ARM_SYS_CNTREAD_BASE		UL(0xaa800000)
+#undef	ARM_SYS_TIMCTL_BASE
+#define ARM_SYS_TIMCTL_BASE		UL(0xaa810000)
+#undef	ARM_SYS_CNT_BASE_S
+#define ARM_SYS_CNT_BASE_S		UL(0xaa820000)
+#undef	ARM_SYS_CNT_BASE_NS
+#define ARM_SYS_CNT_BASE_NS		UL(0xaa830000)
+#undef	ARM_SP805_TWDG_BASE
+#define ARM_SP805_TWDG_BASE		UL(0xaa490000)
+
 
 /* virtual address used by dynamic mem_protect for chunk_base */
 #define PLAT_ARM_MEM_PROTEC_VA_FRAME	UL(0xc0000000)
@@ -63,6 +91,9 @@
 					PLAT_HW_CONFIG_DTB_BASE,	\
 					PLAT_HW_CONFIG_DTB_SIZE,	\
 					MT_MEMORY | MT_RO | MT_NS)
+
+#define V2M_FVP_R_SYSREGS_BASE 		UL(0x9c010000)
+
 /*
  * Load address of BL33 for this platform port
  */
@@ -79,6 +110,9 @@
 # define PLAT_ARM_MMAP_ENTRIES		12
 # define MAX_XLAT_TABLES		6
 #endif
+# define N_MPU_REGIONS			16  /* number of MPU regions */
+# define ALL_MPU_EL2_REGIONS_USED	0xffffffff
+	/* this is the PRENR_EL2 value if all MPU regions are in use */
 
 /*
  * These nominally reserve the last block of flash for PSCI MEM PROTECT flag,
@@ -227,13 +261,8 @@
 /*
  * Physical and virtual address space limits for MPU in AARCH64 & AARCH32 modes
  */
-#ifdef __aarch64__
 #define PLAT_PHY_ADDR_SPACE_SIZE	(1ULL << 36)
 #define PLAT_VIRT_ADDR_SPACE_SIZE	(1ULL << 36)
-#else
-#define PLAT_PHY_ADDR_SPACE_SIZE	(1ULL << 32)
-#define PLAT_VIRT_ADDR_SPACE_SIZE	(1ULL << 32)
-#endif
 
 #define ARM_SOC_CONTINUATION_SHIFT	U(24)
 #define ARM_SOC_IDENTIFICATION_SHIFT	U(16)

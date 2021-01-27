@@ -4,39 +4,43 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef EL3_COMMON_MACROS_S
-#define EL3_COMMON_MACROS_S
+#ifndef EL_MAX_COMMON_MACROS_S
+#define EL_MAX_COMMON_MACROS_S
 
 #include <arch.h>
 #include <asm_macros.S>
 #include <context.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
+#include <platform_def.h>
 
 	/*
-	 * Helper macro to initialise EL3 registers we care about.
+	 * Helper macro to initialise system registers at the maximum EL the cores
+	 * support ("_el_max").  Typically this is EL3, but the R82, for example,
+	 * does not support EL3, so _el_max for it is 2.
 	 */
-	.macro el3_arch_init_common
+	.macro el_max_arch_init_common				\
+		_el_max
 	/* ---------------------------------------------------------------------
-	 * SCTLR_EL3 has already been initialised - read current value before
-	 * modifying.
+	 * SCTLR_EL<max> has already been initialised - read current value
+	 * before modifying.
 	 *
-	 * SCTLR_EL3.I: Enable the instruction cache.
+	 * SCTLR_EL<max>.I: Enable the instruction cache.
 	 *
-	 * SCTLR_EL3.SA: Enable Stack Alignment check. A SP alignment fault
+	 * SCTLR_EL<max>.SA: Enable Stack Alignment check. A SP alignment fault
 	 *  exception is generated if a load or store instruction executed at
 	 *  EL3 uses the SP as the base address and the SP is not aligned to a
 	 *  16-byte boundary.
 	 *
-	 * SCTLR_EL3.A: Enable Alignment fault checking. All instructions that
+	 * SCTLR_EL<max>.A: Enable Alignment fault checking. All instructions that
 	 *  load or store one or more registers have an alignment check that the
 	 *  address being accessed is aligned to the size of the data element(s)
 	 *  being accessed.
 	 * ---------------------------------------------------------------------
 	 */
 	mov	x1, #(SCTLR_I_BIT | SCTLR_A_BIT | SCTLR_SA_BIT)
-	mrs	x0, sctlr_el3
+	mrs	x0, sctlr_el\_el_max
 	orr	x0, x0, x1
-	msr	sctlr_el3, x0
+	msr	sctlr_el\_el_max, x0
 	isb
 
 #ifdef IMAGE_BL31
@@ -45,37 +49,38 @@
 	 * This is done early to enable crash reporting to have access to crash
 	 * stack. Since crash reporting depends on cpu_data to report the
 	 * unhandled exception, not doing so can lead to recursive exceptions
-	 * due to a NULL TPIDR_EL3.
+	 * due to a NULL TPIDR_EL<max>.
 	 * ---------------------------------------------------------------------
 	 */
 	bl	init_cpu_data_ptr
 #endif /* IMAGE_BL31 */
 
+#ifndef NO_EL3
 	/* ---------------------------------------------------------------------
-	 * Initialise SCR_EL3, setting all fields rather than relying on hw.
+	 * Initialise SCR_EL<max>, setting all fields rather than relying on hw.
 	 * All fields are architecturally UNKNOWN on reset. The following fields
 	 * do not change during the TF lifetime. The remaining fields are set to
 	 * zero here but are updated ahead of transitioning to a lower EL in the
 	 * function cm_init_context_common().
 	 *
-	 * SCR_EL3.TWE: Set to zero so that execution of WFE instructions at
-	 *  EL2, EL1 and EL0 are not trapped to EL3.
+	 * SCR_EL<max>.TWE: Set to zero so that execution of WFE instructions at
+	 *  EL2, EL1 and EL0 are not trapped to EL<max>.
 	 *
-	 * SCR_EL3.TWI: Set to zero so that execution of WFI instructions at
-	 *  EL2, EL1 and EL0 are not trapped to EL3.
+	 * SCR_EL<max>.TWI: Set to zero so that execution of WFI instructions at
+	 *  EL2, EL1 and EL0 are not trapped to EL<max>.
 	 *
-	 * SCR_EL3.SIF: Set to one to disable instruction fetches from
+	 * SCR_EL<max>.SIF: Set to one to disable instruction fetches from
 	 *  Non-secure memory.
 	 *
-	 * SCR_EL3.SMD: Set to zero to enable SMC calls at EL1 and above, from
-	 *  both Security states and both Execution states.
+	 * SCR_EL<max>.SMD: Set to zero to enable SMC calls at EL1 and above,
+	 *  from both Security states and both Execution states.
 	 *
-	 * SCR_EL3.EA: Set to one to route External Aborts and SError Interrupts
-	 *  to EL3 when executing at any EL.
+	 * SCR_EL<max>.EA: Set to one to route External Aborts and SError
+	 * Interrupts to EL<max> when executing at any EL.
 	 *
-	 * SCR_EL3.{API,APK}: For Armv8.3 pointer authentication feature,
-	 * disable traps to EL3 when accessing key registers or using pointer
-	 * authentication instructions from lower ELs.
+	 * SCR_EL<max>.{API,APK}: For Armv8.3 pointer authentication feature,
+	 * disable traps to EL<max> when accessing key registers or using
+	 * pointer authentication instructions from lower ELs.
 	 * ---------------------------------------------------------------------
 	 */
 	mov_imm	x0, ((SCR_RESET_VAL | SCR_EA_BIT | SCR_SIF_BIT) \
@@ -87,45 +92,45 @@
 	 * do so.
 	 */
 	orr	x0, x0, #(SCR_API_BIT | SCR_APK_BIT)
-#endif
+#endif  /* CTX_INCLUDE_PAUTH_REGS */
 	msr	scr_el3, x0
+#endif  /* ndef NO_EL3 */
 
 	/* ---------------------------------------------------------------------
-	 * Initialise MDCR_EL3, setting all fields rather than relying on hw.
-	 * Some fields are architecturally UNKNOWN on reset.
+	 * Initialise MDCR_EL<max>, setting all fields rather than relying on
+	 * hw. Some fields are architecturally UNKNOWN on reset.
 	 *
-	 * MDCR_EL3.SDD: Set to one to disable AArch64 Secure self-hosted debug.
-	 *  Debug exceptions, other than Breakpoint Instruction exceptions, are
-	 *  disabled from all ELs in Secure state.
+	 * MDCR_EL<max>.SDD: Set to one to disable AArch64 Secure self-hosted
+	 *  debug. Debug exceptions, other than Breakpoint Instruction
+	 *  exceptions, are disabled from all ELs in Secure state.
 	 *
-	 * MDCR_EL3.SPD32: Set to 0b10 to disable AArch32 Secure self-hosted
-	 *  privileged debug from S-EL1.
+	 * MDCR_EL<max>.TDOSA: Set to zero so that EL2 and EL2 System register
+	 *  access to the powerdown debug registers do not trap to EL<max>.
 	 *
-	 * MDCR_EL3.TDOSA: Set to zero so that EL2 and EL2 System register
-	 *  access to the powerdown debug registers do not trap to EL3.
-	 *
-	 * MDCR_EL3.TDA: Set to zero to allow EL0, EL1 and EL2 access to the
+	 * MDCR_EL<max>.TDA: Set to zero to allow EL0, EL1 and EL2 access to the
 	 *  debug registers, other than those registers that are controlled by
-	 *  MDCR_EL3.TDOSA.
+	 *  MDCR_EL<max>.TDOSA.
 	 *
-	 * MDCR_EL3.TPM: Set to zero so that EL0, EL1, and EL2 System register
-	 *  accesses to all Performance Monitors registers do not trap to EL3.
+	 * MDCR_EL<max>.TPM: Set to zero so that EL0, EL1, and EL2 System
+	 *  register accesses to all Performance Monitors registers do not trap
+	 *  to EL<max>.
 	 *
-	 * MDCR_EL3.SCCD: Set to one so that cycle counting by PMCCNTR_EL0 is
-	 *  prohibited in Secure state. This bit is RES0 in versions of the
+	 * MDCR_EL<max>.SCCD: Set to one so that cycle counting by PMCCNTR_EL0
+	 *  is prohibited in Secure state. This bit is RES0 in versions of the
 	 *  architecture with FEAT_PMUv3p5 not implemented, setting it to 1
 	 *  doesn't have any effect on them.
 	 *
-	 * MDCR_EL3.MCCD: Set to one so that cycle counting by PMCCNTR_EL0 is
-	 *  prohibited in EL3. This bit is RES0 in versions of the
+	 * MDCR_EL<max>.MCCD: Set to one so that cycle counting by PMCCNTR_EL0
+	 *  is prohibited in EL<max>. This bit is RES0 in versions of the
 	 *  architecture with FEAT_PMUv3p7 not implemented, setting it to 1
 	 *  doesn't have any effect on them.
 	 *
-	 * MDCR_EL3.SPME: Set to zero so that event counting by the programmable
-	 *  counters PMEVCNTR<n>_EL0 is prohibited in Secure state. If ARMv8.2
-	 *  Debug is not implemented this bit does not have any effect on the
-	 *  counters unless there is support for the implementation defined
-	 *  authentication interface ExternalSecureNoninvasiveDebugEnabled().
+	 * MDCR_EL<max>.SPME: Set to zero so that event counting by the program-
+	 *  mable counters PMEVCNTR<n>_EL0 is prohibited in Secure state. If
+	 *  ARMv8.2 Debug is not implemented this bit does not have any effect
+	 *  on the counters unless there is support for the implementation
+	 *  defined authentication interface
+	 *  ExternalSecureNoninvasiveDebugEnabled().
 	 * ---------------------------------------------------------------------
 	 */
 	mov_imm	x0, ((MDCR_EL3_RESET_VAL | MDCR_SDD_BIT | \
@@ -133,7 +138,7 @@
 		      MDCR_MCCD_BIT) & ~(MDCR_SPME_BIT | MDCR_TDOSA_BIT | \
 		      MDCR_TDA_BIT | MDCR_TPM_BIT))
 
-	msr	mdcr_el3, x0
+	msr	mdcr_el\_el_max, x0
 
 	/* ---------------------------------------------------------------------
 	 * Initialise PMCR_EL0 setting all fields rather than relying
@@ -194,7 +199,7 @@
 	 */
 
 	mov_imm x0, (CPTR_EL3_RESET_VAL & ~(TCPAC_BIT | TTA_BIT | TFP_BIT))
-	msr	cptr_el3, x0
+	msr	cptr_el\_el_max, x0
 
 	/*
 	 * If Data Independent Timing (DIT) functionality is implemented,
@@ -254,10 +259,10 @@
  *
  * -----------------------------------------------------------------------------
  */
-	.macro el3_entrypoint_common					\
+	.macro el_max_entrypoint_common					\
 		_init_sctlr, _warm_boot_mailbox, _secondary_cold_boot,	\
 		_init_memory, _init_c_runtime, _exception_vectors,	\
-		_pie_fixup_size
+		_pie_fixup_size, _el_max
 
 	.if \_init_sctlr
 		/* -------------------------------------------------------------
@@ -265,6 +270,10 @@
 		 * that all fields are explicitly set rather than relying on hw.
 		 * Some fields reset to an IMPLEMENTATION DEFINED value and
 		 * others are architecturally UNKNOWN on reset.
+		 *
+		 * Although typically SCTLR_EL3 is thus initialized, this macro
+		 * includes the option to initialize any other EL's SCTLR
+		 * instead, as specified in the "_el_max" parameter.
 		 *
 		 * SCTLR.EE: Set the CPU endianness before doing anything that
 		 *  might involve memory reads or writes. Set to zero to select
@@ -285,7 +294,7 @@
 		 */
 		mov_imm	x0, (SCTLR_RESET_VAL & ~(SCTLR_EE_BIT | SCTLR_WXN_BIT \
 				| SCTLR_SA_BIT | SCTLR_A_BIT | SCTLR_DSSBS_BIT))
-		msr	sctlr_el3, x0
+		msr	sctlr_el\_el_max, x0
 		isb
 	.endif /* _init_sctlr */
 
@@ -333,7 +342,7 @@
 	 * ---------------------------------------------------------------------
 	 */
 	adr	x0, \_exception_vectors
-	msr	vbar_el3, x0
+	msr	vbar_el\_el_max, x0
 	isb
 
 	/* ---------------------------------------------------------------------
@@ -344,7 +353,7 @@
 	 */
 	bl	reset_handler
 
-	el3_arch_init_common
+	el_max_arch_init_common \_el_max
 
 	.if \_secondary_cold_boot
 		/* -------------------------------------------------------------
@@ -361,8 +370,7 @@
 		/* This is a cold boot on a secondary CPU */
 		bl	plat_secondary_cold_boot_setup
 		/* plat_secondary_cold_boot_setup() is not supposed to return */
-		bl	el3_panic
-
+		bl	el\_el_max\()_panic
 	do_primary_cold_boot:
 	.endif /* _secondary_cold_boot */
 
@@ -498,4 +506,4 @@
 #endif
 	.endm
 
-#endif /* EL3_COMMON_MACROS_S */
+#endif /* EL_MAX_COMMON_MACROS_S */
