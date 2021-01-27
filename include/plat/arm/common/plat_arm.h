@@ -68,6 +68,31 @@ typedef struct arm_tzc_regions_info {
 		<= MAX_MMAP_REGIONS,					  \
 		assert_max_mmap_regions);
 
+#define MAP_BL1_TOTAL		MAP_REGION_FLAT(			\
+					bl1_tzram_layout.total_base,	\
+					bl1_tzram_layout.total_size,	\
+					MT_MEMORY | MT_RW | MT_SECURE)
+/*
+ * If SEPARATE_CODE_AND_RODATA=1 we define a region for each section
+ * otherwise one region is defined containing both
+ */
+#if SEPARATE_CODE_AND_RODATA
+#define MAP_BL1_RO		MAP_REGION_FLAT(			\
+					BL_CODE_BASE,			\
+					BL1_CODE_END - BL_CODE_BASE,	\
+					MT_CODE | MT_SECURE),		\
+				MAP_REGION_FLAT(			\
+					BL1_RO_DATA_BASE,		\
+					BL1_RO_DATA_END			\
+						- BL_RO_DATA_BASE,	\
+					MT_RO_DATA | MT_SECURE)
+#else
+#define MAP_BL1_RO		MAP_REGION_FLAT(			\
+					BL_CODE_BASE,			\
+					BL1_CODE_END - BL_CODE_BASE,	\
+					MT_CODE | MT_SECURE)
+#endif
+
 void arm_setup_romlib(void);
 
 #if defined(IMAGE_BL31) || (!defined(__aarch64__) && defined(IMAGE_BL32))
