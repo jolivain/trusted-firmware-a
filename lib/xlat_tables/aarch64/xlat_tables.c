@@ -147,7 +147,7 @@ void init_xlat_tables(void)
  *			exception level
  ******************************************************************************/
 #define DEFINE_ENABLE_MMU_EL(_el, _tcr_extra, _tlbi_fct)		\
-	void enable_mmu_el##_el(unsigned int flags)				\
+	void enable_mmu_el##_el(unsigned int flags)			\
 	{								\
 		uint64_t mair, tcr, ttbr;				\
 		uint32_t sctlr;						\
