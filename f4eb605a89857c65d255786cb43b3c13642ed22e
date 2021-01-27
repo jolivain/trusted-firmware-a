@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "90fbe22d_5193b290",
+        "filename": "include/drivers/arm/gicv3.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-01-27T09:31:17Z",
+      "side": 1,
+      "message": "1. TOTAL_SPI_INTR_NUM is defined in gic_common.h as:\n#define TOTAL_SPI_INTR_NUM\t(MAX_SPI_ID - MIN_SPI_ID + U(1))\n\n2. TOTAL_SPI_INTR_NUM is used in 2 places in giv3.h to define TOTAL_SHARED_INTR_NUM:\na) on line #51:\n/* Total number of GICv3.1 SPIs and ESPIs */\n#define\tTOTAL_SHARED_INTR_NUM\t(TOTAL_SPI_INTR_NUM + TOTAL_ESPI_INTR_NUM)\nb) on line #69:\n/* Total number of GICv3 SPIs */\n#define\tTOTAL_SHARED_INTR_NUM\tTOTAL_SPI_INTR_NUM\n\n3. TOTAL_SHARED_INTR_NUM is used in\na) gic_v3.h line #458: \n\t/* 64 bits registers */\n\tuint64_t gicd_irouter[TOTAL_SHARED_INTR_NUM];\nand won\u0027t cause a problem as you mentioned above.\nb) gic_v3.h line #379:\n/*\n * This macro returns the total number of GICD/GICR registers corresponding to\n * the register name\n */\n#define GICD_NUM_REGS(reg_name)\t\\\n\tDIV_ROUND_UP_2EVAL(TOTAL_SHARED_INTR_NUM, (1 \u003c\u003c reg_name##_SHIFT))\n\nThis macro returns (1 \u003c\u003c reg_name##_SHIFT) bytes aligned value of TOTAL_SHARED_INTR_NUM, which used to define number of other than IROUTER registers, see lines #462-469:\n\tuint32_t gicd_igroupr[GICD_NUM_REGS(IGROUPR)];\n\tuint32_t gicd_isenabler[GICD_NUM_REGS(ISENABLER)];\n\tuint32_t gicd_ispendr[GICD_NUM_REGS(ISPENDR)];\n\tuint32_t gicd_isactiver[GICD_NUM_REGS(ISACTIVER)];\n\tuint32_t gicd_ipriorityr[GICD_NUM_REGS(IPRIORITYR)];\n\tuint32_t gicd_icfgr[GICD_NUM_REGS(ICFGR)];\n\tuint32_t gicd_igrpmodr[GICD_NUM_REGS(IGRPMODR)];\n\tuint32_t gicd_nsacr[GICD_NUM_REGS(NSACR)];\n\nAs the number of elements in each array is aligned to (1 \u003c\u003c reg_name##_SHIFT) bytes, will it cause an issue when saving/storing them?",
+      "parentUuid": "e277bb31_630d2398",
+      "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0f3b431_c9ae8fbc",
         "filename": "include/drivers/arm/gicv3.h",
         "patchSetId": 2
