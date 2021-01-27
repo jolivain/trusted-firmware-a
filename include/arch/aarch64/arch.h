@@ -154,6 +154,15 @@
 #define DCCSW			U(0x2)
 #endif
 
+/*******************************************************************************
+ * v8-R64 (not v8-A!) MPU register definitions
+ ******************************************************************************/
+#define MPUIR_EL2	 S3_4_C0_C0_4
+#define PRBAR_EL2	 S3_4_C6_C8_0
+#define PRLAR_EL2	 S3_4_C6_C8_1
+#define PRSELR_EL2	 S3_4_C6_C2_1
+#define PRENR_EL2	 S3_4_C6_C1_1
+
 /* ID_AA64PFR0_EL1 definitions */
 #define ID_AA64PFR0_EL0_SHIFT	U(0)
 #define ID_AA64PFR0_EL1_SHIFT	U(4)
@@ -496,13 +505,18 @@
 #define VTTBR_BADDR_SHIFT	U(0)
 
 /* HCR definitions */
+#define HCR_RESET_VAL		ULL(0x0)
 #define HCR_AMVOFFEN_BIT	(ULL(1) << 51)
+#define HCR_TEA_BIT		(ULL(1) << 47)
 #define HCR_API_BIT		(ULL(1) << 41)
 #define HCR_APK_BIT		(ULL(1) << 40)
 #define HCR_E2H_BIT		(ULL(1) << 34)
+#define HCR_HCD_BIT		(ULL(1) << 29)
 #define HCR_TGE_BIT		(ULL(1) << 27)
 #define HCR_RW_SHIFT		U(31)
 #define HCR_RW_BIT		(ULL(1) << HCR_RW_SHIFT)
+#define HCR_TWE_BIT		(ULL(1) << 14)
+#define HCR_TWI_BIT		(ULL(1) << 13)
 #define HCR_AMO_BIT		(ULL(1) << 5)
 #define HCR_IMO_BIT		(ULL(1) << 4)
 #define HCR_FMO_BIT		(ULL(1) << 3)

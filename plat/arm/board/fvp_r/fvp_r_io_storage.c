@@ -105,6 +105,7 @@ int plat_arm_get_alt_image_source(unsigned int image_id, uintptr_t *dev_handle,
 				  uintptr_t *image_spec)
 {
 	int result = open_semihosting((const uintptr_t)&sh_file_spec[image_id]);
+
 	if (result == 0) {
 		*dev_handle = sh_dev_handle;
 		*image_spec = (uintptr_t)&sh_file_spec[image_id];
