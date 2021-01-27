@@ -16,6 +16,24 @@
       "revId": "e2b2dfd14825e6d86a4b7438382fa92f669e4436",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20da166b_44c938de",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-01-27T23:06:21Z",
+      "side": 1,
+      "message": "We don\u0027t easily know how big the RAM is. The Allwinner memory map puts all I/O below 1GB (SUNXI_DRAM_BASE), the remaining part is either DRAM or is not allocated (probably triggers an SError). I am not sure what this check is meant to protect against, but we surely prevent the most important issues by making sure it is not in SRAM or MMIO.",
+      "parentUuid": "bba0398b_0a01ab96",
+      "revId": "e2b2dfd14825e6d86a4b7438382fa92f669e4436",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
