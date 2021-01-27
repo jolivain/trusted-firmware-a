@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,6 +9,12 @@
 #include <bl1/bl1.h>
 #include <common/bl_common.h>
 #include <context.h>
+
+/* -----------------------------------------------------------------------------
+ * File contains an EL2 override of the EL3 vector table from:
+ * 	.../bl1/aarch64/bl1_exceptions.S
+ * -----------------------------------------------------------------------------
+ */
 
 /* -----------------------------------------------------------------------------
  * Very simple stackless exception handlers used by BL1.
@@ -85,7 +91,7 @@ vector_entry SynchronousExceptionA64
 	str	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
 
 	/* Expect only SMC exceptions */
-	mrs	x30, esr_el3
+	mrs	x30, esr_el2
 	ubfx	x30, x30, #ESR_EC_SHIFT, #ESR_EC_LENGTH
 	cmp	x30, #EC_AARCH64_SMC
 	b.ne	unexpected_sync_exception
@@ -111,33 +117,6 @@ vector_entry SErrorA64
 	no_ret	plat_panic_handler
 end_vector_entry SErrorA64
 
-	/* -----------------------------------------------------
-	 * Lower EL using AArch32 : 0x600 - 0x800
-	 * -----------------------------------------------------
-	 */
-vector_entry SynchronousExceptionA32
-	mov	x0, #SYNC_EXCEPTION_AARCH32
-	bl	plat_report_exception
-	no_ret	plat_panic_handler
-end_vector_entry SynchronousExceptionA32
-
-vector_entry IrqA32
-	mov	x0, #IRQ_AARCH32
-	bl	plat_report_exception
-	no_ret	plat_panic_handler
-end_vector_entry IrqA32
-
-vector_entry FiqA32
-	mov	x0, #FIQ_AARCH32
-	bl	plat_report_exception
-	no_ret	plat_panic_handler
-end_vector_entry FiqA32
-
-vector_entry SErrorA32
-	mov	x0, #SERROR_AARCH32
-	bl	plat_report_exception
-	no_ret	plat_panic_handler
-end_vector_entry SErrorA32
 
 
 func smc_handler64
@@ -168,7 +147,7 @@ func smc_handler64
 	mov	sp, x30
 
 	/* ---------------------------------------------------------------------
-	 * Pass EL3 control to next BL image.
+	 * Pass EL2 control to next BL image.
 	 * Here it expects X1 with the address of a entry_point_info_t
 	 * structure describing the next BL image entrypoint.
 	 * ---------------------------------------------------------------------
@@ -179,13 +158,13 @@ func smc_handler64
 	bl	bl1_print_next_bl_ep_info
 
 	ldp	x0, x1, [x20, #ENTRY_POINT_INFO_PC_OFFSET]
-	msr	elr_el3, x0
-	msr	spsr_el3, x1
+	msr	elr_el2, x0
+	msr	spsr_el2, x1
 	ubfx	x0, x1, #MODE_EL_SHIFT, #2
-	cmp	x0, #MODE_EL3
+	cmp	x0, #MODE_EL2
 	b.ne	unexpected_sync_exception
 
-	bl	disable_mmu_icache_el3
+	bl	disable_mpu_icache_el2
 	tlbi	alle3
 	dsb	ish /* ERET implies ISB, so it is not needed here */
 
@@ -218,7 +197,7 @@ unexpected_sync_exception:
 smc_handler:
 	/* -----------------------------------------------------
 	 * Save x0-x29 and ARMv8.3-PAuth (if enabled) registers.
-	 * If Secure Cycle Counter is not disabled in MDCR_EL3
+	 * If Secure Cycle Counter is not disabled in MDCR_EL2
 	 * when ARMv8.5-PMU is implemented, save PMCR_EL0 and
 	 * disable Cycle Counter.
 	 * TODO: Revisit to store only SMCCC specified registers.
@@ -229,7 +208,7 @@ smc_handler:
 #if ENABLE_PAUTH
 	/* -----------------------------------------------------
 	 * Load and program stored APIAKey firmware key.
-	 * Re-enable pointer authentication in EL3, as it was
+	 * Re-enable pointer authentication in EL2, as it was
 	 * disabled before jumping to the next boot image.
 	 * -----------------------------------------------------
 	 */
@@ -239,7 +218,7 @@ smc_handler:
 	 * Populate the parameters for the SMC handler. We
 	 * already have x0-x4 in place. x5 will point to a
 	 * cookie (not used now). x6 will point to the context
-	 * structure (SP_EL3) and x7 will contain flags we need
+	 * structure (SP_EL2) and x7 will contain flags we need
 	 * to pass to the handler.
 	 * -----------------------------------------------------
 	 */
@@ -248,9 +227,9 @@ smc_handler:
 
 	/* -----------------------------------------------------
 	 * Restore the saved C runtime stack value which will
-	 * become the new SP_EL0 i.e. EL3 runtime stack. It was
+	 * become the new SP_EL0 i.e. EL2 runtime stack. It was
 	 * saved in the 'cpu_context' structure prior to the last
-	 * ERET from EL3.
+	 * ERET from EL2.
 	 * -----------------------------------------------------
 	 */
 	ldr	x12, [x6, #CTX_EL3STATE_OFFSET + CTX_RUNTIME_SP]
@@ -263,17 +242,17 @@ smc_handler:
 	mov	sp, x12
 
 	/* -----------------------------------------------------
-	 * Save the SPSR_EL3, ELR_EL3, & SCR_EL3 in case there
+	 * Save the SPSR_EL2, ELR_EL2, & SCR_EL2 in case there
 	 * is a world switch during SMC handling.
 	 * -----------------------------------------------------
 	 */
-	mrs	x16, spsr_el3
-	mrs	x17, elr_el3
+	mrs	x16, spsr_el2
+	mrs	x17, elr_el2
 	mrs	x18, scr_el3
 	stp	x16, x17, [x6, #CTX_EL3STATE_OFFSET + CTX_SPSR_EL3]
 	str	x18, [x6, #CTX_EL3STATE_OFFSET + CTX_SCR_EL3]
 
-	/* Copy SCR_EL3.NS bit to the flag to indicate caller's security */
+	/* Copy SCR_EL2.NS bit to the flag to indicate caller's security */
 	bfi	x7, x18, #0, #1
 
 	/* -----------------------------------------------------
@@ -286,4 +265,4 @@ smc_handler:
 	 * Do the transition to next BL image.
 	 * -----------------------------------------------------
 	 */
-	b	el3_exit
+	b	el2_exit
