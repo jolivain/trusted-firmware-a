@@ -8,7 +8,7 @@
 #include <asm_macros.S>
 #include <common/bl_common.h>
 #include <context.h>
-#include <el3_common_macros.S>
+#include <el_max_common_macros.S>
 #include <smccc_helpers.h>
 #include <smccc_macros.S>
 

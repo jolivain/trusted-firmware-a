@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -32,7 +32,7 @@ func bl1_entrypoint
 		_init_c_runtime=1				\
 		_exception_vectors=bl1_exceptions		\
 		_pie_fixup_size=0				\
-		_el_max=3
+		_el_max=2
 
 	/* --------------------------------------------------------------------
 	 * Perform BL1 setup
@@ -45,7 +45,7 @@ func bl1_entrypoint
 	 * Program APIAKey_EL1 and enable pointer authentication.
 	 * --------------------------------------------------------------------
 	 */
-	bl	pauth_init_enable_el3
+	bl	pauth_init_enable_el2
 #endif /* ENABLE_PAUTH */
 
 	/* --------------------------------------------------------------------
@@ -60,7 +60,7 @@ func bl1_entrypoint
 	 * Disable pointer authentication before jumping to next boot image.
 	 * --------------------------------------------------------------------
 	 */
-	bl	pauth_disable_el3
+	bl	pauth_disable_el2
 #endif /* ENABLE_PAUTH */
 
 	/* --------------------------------------------------

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -260,9 +260,6 @@ DEFINE_SYSREG_RW_FUNCS(spsr_el3)
 DEFINE_SYSREG_RW_FUNCS(elr_el1)
 DEFINE_SYSREG_RW_FUNCS(elr_el2)
 DEFINE_SYSREG_RW_FUNCS(elr_el3)
-DEFINE_SYSREG_RW_FUNCS(mdccsr_el0)
-DEFINE_SYSREG_RW_FUNCS(dbgdtrrx_el0)
-DEFINE_SYSREG_RW_FUNCS(dbgdtrtx_el0)
 
 DEFINE_SYSOP_FUNC(wfi)
 DEFINE_SYSOP_FUNC(wfe)
@@ -534,6 +531,13 @@ DEFINE_SYSREG_READ_FUNC(rndrrs)
 
 /* DynamIQ Shared Unit power management */
 DEFINE_RENAME_SYSREG_RW_FUNCS(clusterpwrdn_el1, CLUSTERPWRDN_EL1)
+
+/* v8-R64 (not v8-A!) MPU registers */
+DEFINE_RENAME_SYSREG_RW_FUNCS(mpuir_el2, MPUIR_EL2)
+DEFINE_RENAME_SYSREG_RW_FUNCS(prenr_el2, PRENR_EL2)
+DEFINE_RENAME_SYSREG_RW_FUNCS(prselr_el2, PRSELR_EL2)
+DEFINE_RENAME_SYSREG_RW_FUNCS(prbar_el2, PRBAR_EL2)
+DEFINE_RENAME_SYSREG_RW_FUNCS(prlar_el2, PRLAR_EL2)
 
 
 #define IS_IN_EL(x) \

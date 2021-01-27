@@ -79,7 +79,7 @@ The vulnerability is mitigated by the following factors:
 
 - ARM TF EL3 code (for example BL1 and BL31) ensures that all non-secure memory
   mapped into the secure world is non-executable by setting the ``SCR_EL3.SIF``
-  bit. See the ``el3_arch_init_common`` macro in ``el3_common_macros.S``.
+  bit. See the ``el3_arch_init_common`` macro in ``el_max_common_macros.S``.
 
 .. _CVE-2017-7563: http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7563
 .. _Pull Request #662: https://github.com/ARM-software/arm-trusted-firmware/pull/662
