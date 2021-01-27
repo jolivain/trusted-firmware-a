@@ -20,11 +20,14 @@ LIBC_SRCS	:=	$(addprefix lib/libc/,		\
 			snprintf.c			\
 			strchr.c			\
 			strcmp.c			\
+			strlcat.c			\
 			strlcpy.c			\
 			strlen.c			\
 			strncmp.c			\
 			strnlen.c			\
-			strrchr.c)
+			strrchr.c			\
+			strtok.c			\
+			strtol.c)
 
 ifeq (${ARCH},aarch64)
 LIBC_SRCS	+=	$(addprefix lib/libc/aarch64/,	\

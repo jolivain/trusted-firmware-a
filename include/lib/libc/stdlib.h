@@ -18,8 +18,12 @@
 
 #define _ATEXIT_MAX 1
 
+#define isspace(x)    (((x) == ' ') || ((x) == '\r') || ((x) == '\n') || \
+			((x) == '\t') || ((x) == '\b'))
+
 extern void abort(void);
 extern int atexit(void (*func)(void));
 extern void exit(int status);
 
+long strtol(const char *nptr, char **endptr, int base);
 #endif /* STDLIB_H */
