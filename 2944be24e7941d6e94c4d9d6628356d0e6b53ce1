@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa556a0b_3d7a5b50",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-01-28T18:26:44Z",
+      "side": 1,
+      "message": "The name seems misleading to me. From the patch series, this feature is only implemented by Arm platforms. The name suggests that the feature is implemented by the common gicv3 driver. Having said that, is this the best location to document platform specific makefile options?",
+      "range": {
+        "startLine": 378,
+        "startChar": 5,
+        "endLine": 378,
+        "endChar": 26
+      },
+      "revId": "2944be24e7941d6e94c4d9d6628356d0e6b53ce1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
