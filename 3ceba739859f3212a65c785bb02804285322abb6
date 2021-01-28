@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1a23608a_bc5ba6c3",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-28T15:01:31Z",
+      "side": 1,
+      "message": "I will enable by default.",
+      "parentUuid": "defb14f7_98c9a762",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 6
+      },
+      "revId": "3ceba739859f3212a65c785bb02804285322abb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2fc0972a_f101c2fa",
         "filename": "plat/arm/board/fvp/fvp_common.c",
         "patchSetId": 6
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "96458f71_2b09c9d6",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-28T15:01:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2fc0972a_f101c2fa",
+      "revId": "3ceba739859f3212a65c785bb02804285322abb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0106727_af82d5b0",
         "filename": "plat/arm/board/fvp/fvp_def.h",
         "patchSetId": 6
@@ -53,6 +95,30 @@
       "writtenOn": "2021-01-28T13:06:16Z",
       "side": 1,
       "message": "Should this be called BASE_GICD_SIZE (as in, it applies to the Base FVP)? Or is this define used for other FVP variants as well (VE compatible)? In the latter case, it might be better to put this define somewhere else than in the Base FVP specific macros.",
+      "range": {
+        "startLine": 138,
+        "startChar": 8,
+        "endLine": 138,
+        "endChar": 17
+      },
+      "revId": "3ceba739859f3212a65c785bb02804285322abb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "252dd54b_2b70e776",
+        "filename": "plat/arm/board/fvp/fvp_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-28T15:01:31Z",
+      "side": 1,
+      "message": "Prefer to make it as BASE_GICD_SIZE as it is specific to FVP",
+      "parentUuid": "e0106727_af82d5b0",
       "range": {
         "startLine": 138,
         "startChar": 8,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "a3304148_8600b18b",
+        "filename": "plat/arm/board/fvp/fvp_gicv3.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-28T15:01:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "29da5330_9e8b2310",
+      "range": {
+        "startLine": 70,
+        "startChar": 46,
+        "endLine": 70,
+        "endChar": 50
+      },
+      "revId": "3ceba739859f3212a65c785bb02804285322abb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efb080be_3b3252b8",
         "filename": "plat/arm/board/fvp/fvp_gicv3.c",
         "patchSetId": 6
@@ -99,6 +189,30 @@
       "writtenOn": "2021-01-28T13:06:16Z",
       "side": 1,
       "message": "IMO this function should have no #if GICV3_GICR_PROTECTION. I think the caller knows the context better and should be responsible for calling this function or not, depending on whether it needs to remap the redistributor frame as read-write or not.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 25
+      },
+      "revId": "3ceba739859f3212a65c785bb02804285322abb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc5106c5_2fab6654",
+        "filename": "plat/arm/board/fvp/fvp_gicv3.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-28T15:01:31Z",
+      "side": 1,
+      "message": "Currently, there is no dynamic mechanism as of now to know the caller when this function to be called hence caller also need to use this #if to call this function.\nIntention to provide guard inside this function to avoid more #ifdefry.\nLet me know what you think, will remove this guard accordingly.",
+      "parentUuid": "efb080be_3b3252b8",
       "range": {
         "startLine": 74,
         "startChar": 0,
