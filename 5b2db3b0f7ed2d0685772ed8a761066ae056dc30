@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44e5dcd5_e4b0402c",
+        "filename": "plat/qti/common/src/spmi_arb.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-01-28T18:15:07Z",
+      "side": 1,
+      "message": "Why is the argument \"apid\" to the macro not used? Shouldn\u0027t it be this way:\n#define REG_APID_MAP(apid)\t(0x0C440900U + sizeof(uint32_t) * (apid))",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 63
+      },
+      "revId": "5b2db3b0f7ed2d0685772ed8a761066ae056dc30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
