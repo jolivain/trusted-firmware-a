@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "682b07f0_bb008db3",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-01-28T12:50:29Z",
+      "side": 0,
+      "message": "Was the GIC the only memory-mapped peripheral in this region?",
+      "range": {
+        "startLine": 73,
+        "startChar": 1,
+        "endLine": 73,
+        "endChar": 12
+      },
+      "revId": "70311692f11c29eec34ec03ea87f6581ccc0fd52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
