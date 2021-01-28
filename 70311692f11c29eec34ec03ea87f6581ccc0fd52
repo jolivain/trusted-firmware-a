@@ -22,6 +22,30 @@
       "revId": "70311692f11c29eec34ec03ea87f6581ccc0fd52",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ae44131_6450aa92",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-28T14:00:57Z",
+      "side": 0,
+      "message": "Thanks for pointing this out! \nLooks like this area is used by CCN interconnect. Let me guard this mapping under \"#if FVP_INTERCONNECT_DRIVER \u003d\u003d FVP_CCN\" in both BL1 and BL2 case. \n\nIn most of the use cases, we use this area for GIC mapping with CCI interconnect.\nWe use CCN interconnect only when FVP cluster count \u003e 2 and I missed to test this scenario.",
+      "parentUuid": "682b07f0_bb008db3",
+      "range": {
+        "startLine": 73,
+        "startChar": 1,
+        "endLine": 73,
+        "endChar": 12
+      },
+      "revId": "70311692f11c29eec34ec03ea87f6581ccc0fd52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
