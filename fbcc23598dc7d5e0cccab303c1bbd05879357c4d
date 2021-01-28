@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "51e1124e_d5aff9a3",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-01-28T16:25:12Z",
+      "side": 1,
+      "message": "off + sz could overflow and you would miss this condition. if offset is 0xFFFFFFFFFFFFFFFF and Sz is 1, this would be 0 and \u003c\u003d PCI_OFFSET_MASK.",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 14
+      },
+      "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c45868bc_0f9a8287",
         "filename": "services/std_svc/pci_svc.c",
         "patchSetId": 4
