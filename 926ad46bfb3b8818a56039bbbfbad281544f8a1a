@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "003af979_0f94ae2f",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-01-28T14:24:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92e9f9e3_d2186f49",
+      "revId": "926ad46bfb3b8818a56039bbbfbad281544f8a1a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc6ac2a7_95d9572d",
         "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "926ad46bfb3b8818a56039bbbfbad281544f8a1a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "292a66f5_60cd110c",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-01-28T14:24:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc6ac2a7_95d9572d",
+      "revId": "926ad46bfb3b8818a56039bbbfbad281544f8a1a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
@@ -56,6 +92,30 @@
       "revId": "926ad46bfb3b8818a56039bbbfbad281544f8a1a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b85eddd6_2133d4a9",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-01-28T14:24:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8671d477_97b94c82",
+      "range": {
+        "startLine": 139,
+        "startChar": 8,
+        "endLine": 139,
+        "endChar": 20
+      },
+      "revId": "926ad46bfb3b8818a56039bbbfbad281544f8a1a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
