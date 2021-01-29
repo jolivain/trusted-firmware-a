@@ -46,6 +46,30 @@
       "revId": "2944be24e7941d6e94c4d9d6628356d0e6b53ce1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "772b1d89_4ec1fba0",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-01-29T22:13:00Z",
+      "side": 1,
+      "message": "I dont mind the new name as long as the Arm platform owners agree. I see that Arm platform macros start with ARM_*. Also GICR_REGION_PROTECTION might pollute a platform\u0027s namespace.",
+      "parentUuid": "fe4e546e_586b1679",
+      "range": {
+        "startLine": 378,
+        "startChar": 5,
+        "endLine": 378,
+        "endChar": 26
+      },
+      "revId": "2944be24e7941d6e94c4d9d6628356d0e6b53ce1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
