@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "169eb504_dd6ddf68",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2021-01-29T07:29:29Z",
+      "side": 1,
+      "message": "ISB\n\nInstruction Synchronization Barrier flushes the pipeline in the processor, so that all instructions following the ISB are fetched from cache or memory, after the instruction has been completed. It ensures that the effects of context altering operations, such as changing the ASID, or completed TLB maintenance operations, or branch predictor maintenance operations, as well as all changes to the CP15 registers, executed before the ISB instruction are visible to the instructions fetched after the ISB.\n\nIn addition, the ISB instruction ensures that any branches that appear in program order after it are always written into the branch prediction logic with the context that is visible after the ISB instruction. This is required to ensure correct execution of the instruction stream.\n\nYou have likely closer connection to arm than I but it sounds like branch prediction which should be speculative execution is also affected by isb.",
+      "parentUuid": "2130f7ae_1deddc44",
+      "range": {
+        "startLine": 57,
+        "startChar": 1,
+        "endLine": 57,
+        "endChar": 4
+      },
+      "revId": "a67ddf4298af7e2f0104686ea3159d52381c28c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba917cf3_9fde82fb",
         "filename": "drivers/arm/dcc/dcc_console.c",
         "patchSetId": 3
