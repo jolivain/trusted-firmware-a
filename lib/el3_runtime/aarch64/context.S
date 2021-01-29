@@ -339,6 +339,9 @@ func el2_sysregs_context_restore
 	ldr	x13, [x0, #CTX_SDER32_EL2]
 	msr	sder32_el2, x13
 #endif
+
+	isb
+
 	ldp	x14, x15, [x0, #CTX_TTBR1_EL2]
 	msr	ttbr1_el2, x14
 	msr	vdisr_el2, x15
