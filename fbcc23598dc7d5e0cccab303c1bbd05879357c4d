@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e2066c60_2770acc2",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-01-29T10:34:45Z",
+      "side": 1,
+      "message": "\u003e Silly me, I thought the lower levels were sanitizing to the SMC32 calling convention and truncating the registers and when I went looking for it couldn\u0027t find it (this itself is probably a bug!).\n\nYes, it sounds like something that should be sanitized upper by one of the callers. Feel free to submit a patch to this effect.\n\n\u003e I don\u0027t see a saturating add either in tfa, any pointers?\n\nI don\u0027t think we\u0027ve got a saturating add but we\u0027ve got a helper function that checks whether the result of the addition would overflow. See include/lib/utils_def.h, check_uptr_overflow().\n\n\u003e Frankly I think I\u0027m going to actually fix this in the main pci_smc_handler, by zeroing the top bits as the spec requires. I might do it in std svc for 32-bit SMCCC calls, but i\u0027m a bit worried about breaking something now.\n\nYes, I agree on the strategy here. We can have a separate patch to handle the overflow in the std service and we\u0027ll make sure this one goes through deeper reviews from the community.",
+      "parentUuid": "66778578_7e123dbf",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 14
+      },
+      "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c45868bc_0f9a8287",
         "filename": "services/std_svc/pci_svc.c",
         "patchSetId": 4
