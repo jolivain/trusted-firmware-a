@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "bee71234_a58aceab",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-30T14:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a97d914_1318f699",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 6
+      },
+      "revId": "3ceba739859f3212a65c785bb02804285322abb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2fc0972a_f101c2fa",
         "filename": "plat/arm/board/fvp/fvp_common.c",
         "patchSetId": 6
@@ -126,6 +150,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "2fc0972a_f101c2fa",
+      "revId": "3ceba739859f3212a65c785bb02804285322abb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a418de1_c0a5075f",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-30T14:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96458f71_2b09c9d6",
       "revId": "3ceba739859f3212a65c785bb02804285322abb6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": false
@@ -179,6 +221,30 @@
     },
     {
       "key": {
+        "uuid": "8d2fc232_5dd2a525",
+        "filename": "plat/arm/board/fvp/fvp_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-30T14:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "252dd54b_2b70e776",
+      "range": {
+        "startLine": 138,
+        "startChar": 8,
+        "endLine": 138,
+        "endChar": 17
+      },
+      "revId": "3ceba739859f3212a65c785bb02804285322abb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29da5330_9e8b2310",
         "filename": "plat/arm/board/fvp/fvp_gicv3.c",
         "patchSetId": 6
@@ -214,6 +280,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "29da5330_9e8b2310",
+      "range": {
+        "startLine": 70,
+        "startChar": 46,
+        "endLine": 70,
+        "endChar": 50
+      },
+      "revId": "3ceba739859f3212a65c785bb02804285322abb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34f83510_6744b62d",
+        "filename": "plat/arm/board/fvp/fvp_gicv3.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-30T14:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3304148_8600b18b",
       "range": {
         "startLine": 70,
         "startChar": 46,
@@ -309,6 +399,30 @@
       "side": 1,
       "message": "\u003e It just sounds wrong to me to have a function whose name suggests that it remaps the redistributor as read-write but instead it might do nothing in some cases (namely when GICV3_GICR_PROTECTION is enabled).\n\u003e \n\nLet me explain this as below:\n\nWhen GICV3_GICR_PROTECTION\u003d1;\n1. After primary core boots up, it maps GICR frames of all cores (PLATFORM_CORE_COUNT) as read only and make its own re-disributor region as read write using this function.\n2.Every secondary core on boots up, makes its re-disributor region as read write using this function.\n\nWhen GICV3_GICR_PROTECTION \u003d 0;\n1. Map GICR frames of all cores (PLATFORM_CORE_COUNT) as read write and hence no need to call this function.\n\n\u003e Now that I think more about it, cores that are fused off will never execute plat_arm_gic_pcpu_init() (or any code for that matter!) so their redistributor should stay mapped as read-only, right? Why do we need any #ifdefs at all? Sorry if I missed something...\n\nAs explained above only active cores need to call this function to make its redist region as read-write. Fused cores never boots up and its redist region remains read only.",
       "parentUuid": "87cd75b0_d943ed92",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 25
+      },
+      "revId": "3ceba739859f3212a65c785bb02804285322abb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e06b979a_63b183b2",
+        "filename": "plat/arm/board/fvp/fvp_gicv3.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-01-30T14:47:57Z",
+      "side": 1,
+      "message": "\u003e \u003e It just sounds wrong to me to have a function whose name suggests that it remaps the redistributor as read-write but instead it might do nothing in some cases (namely when GICV3_GICR_PROTECTION is enabled).\n\u003e \u003e \n\u003e \n\u003e Let me explain this as below:\n\u003e \n\u003e When GICV3_GICR_PROTECTION\u003d1;\n\u003e 1. After primary core boots up, it maps GICR frames of all cores (PLATFORM_CORE_COUNT) as read only and make its own re-disributor region as read write using this function.\n\u003e 2.Every secondary core on boots up, makes its re-disributor region as read write using this function.\n\u003e \n\u003e When GICV3_GICR_PROTECTION \u003d 0;\n\u003e 1. Map GICR frames of all cores (PLATFORM_CORE_COUNT) as read write and hence no need to call this function.\n\nJust correcting, this function gets called when \u0027GICV3_GICR_PROTECTION \u003d 0\u0027 but it should do nothing and hence we need this #else case. \n\n\u003e \n\u003e \u003e Now that I think more about it, cores that are fused off will never execute plat_arm_gic_pcpu_init() (or any code for that matter!) so their redistributor should stay mapped as read-only, right? Why do we need any #ifdefs at all? Sorry if I missed something...\n\u003e \n\u003e As explained above only active cores need to call this function to make its redist region as read-write. Fused cores never boots up and its redist region remains read only.",
+      "parentUuid": "b72a39bb_0561a84f",
       "range": {
         "startLine": 74,
         "startChar": 0,
