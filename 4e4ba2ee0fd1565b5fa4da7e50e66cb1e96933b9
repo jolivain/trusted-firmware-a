@@ -75,6 +75,29 @@
       "revId": "4e4ba2ee0fd1565b5fa4da7e50e66cb1e96933b9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0575a6e2_f21fd9e8",
+        "filename": "plat/arm/board/tc0/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-02-01T18:07:45Z",
+      "side": 1,
+      "message": "nitpick:\nPlease put klein.S before matternhorn.S.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 34
+      },
+      "revId": "4e4ba2ee0fd1565b5fa4da7e50e66cb1e96933b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
