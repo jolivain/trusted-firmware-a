@@ -39,6 +39,24 @@
       "revId": "4e4ba2ee0fd1565b5fa4da7e50e66cb1e96933b9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22efca45_ad1560f7",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2021-02-01T13:25:56Z",
+      "side": 1,
+      "message": "For Theodul DSU there are 8 cpus in a cluster and we had issues in \u003creg\u003e value for cpu4-7, upon using CPU_ macros. \n\n#define AFF     00\n#define CLUSTER_COUNT           1\n#define CPUS_PER_CLUSTER\t8\n#include \"fvp-defs.dtsi\"\n#undef POST\n#define POST \\\n        };\n\nThis expands to\n  CPU0:cpu@0 { device_type \u003d \"cpu\"; compatible \u003d \"arm,armv8\"; reg \u003d \u003c0x0 0x0\u003e; };\n  CPU7:cpu@30100 { device_type \u003d \"cpu\"; compatible \u003d \"arm,armv8\"; reg \u003d \u003c0x0 0x30100\u003e; };\n\ninstead of \n  CPU0:cpu@0 { device_type \u003d \"cpu\"; compatible \u003d \"arm,armv8\"; reg \u003d \u003c0x0 0x0\u003e; };\n  CPU7:cpu@700 { device_type \u003d \"cpu\"; compatible \u003d \"arm,armv8\"; reg \u003d \u003c0x0 0x700\u003e; };",
+      "parentUuid": "9e890924_40ee0345",
+      "revId": "4e4ba2ee0fd1565b5fa4da7e50e66cb1e96933b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
