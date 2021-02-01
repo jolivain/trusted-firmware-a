@@ -22,6 +22,30 @@
       "revId": "9192f34e65bca113a7d662a92deebdb6267ad35a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ef616b1_c18a13af",
+        "filename": "lib/cpus/aarch64/rainier.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000518
+      },
+      "writtenOn": "2021-02-01T18:28:39Z",
+      "side": 0,
+      "message": "This is part of the 1542419 workaround, see the description of the workaround in the N1 errata notice: https://developer.arm.com/documentation/SDEN885747/24-0/",
+      "parentUuid": "d816c601_443809e5",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 38
+      },
+      "revId": "9192f34e65bca113a7d662a92deebdb6267ad35a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
