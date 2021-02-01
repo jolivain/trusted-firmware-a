@@ -270,6 +270,24 @@
     },
     {
       "key": {
+        "uuid": "aaf673b7_cedd0309",
+        "filename": "include/drivers/arm/gicv3.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-01T10:35:39Z",
+      "side": 1,
+      "message": "\"This is almost the patch is doing\" - this won\u0027t work for\n\tuint64_t gicd_irouter[TOTAL_SHARED_INTR_NUM];\nand will cause out boundaries access.\nTo make it work for generic case, SAVE_GICD_EREGS/RESTORE_GICD_EREGS should use:\n\n(ctx)-\u003egicd_##reg[(int_id - (MIN_ESPI_ID - \n(TOTAL_SPI_INTR_NUM + (1U \u003c\u003c REG##R_SHIFT) - 1) \u0026 ~((1U \u003c\u003c REG##R_SHIFT) - 1))))\\\n\u003e\u003e REG##R_SHIFT] \u003d gicd_read_##reg((base), int_id);\\\n\nTOTAL_SPI_INTR_NUM \u003d 1019 - 32 + 1 \u003d 988\nTOTAL_SHARED_INTR_NUM \u003d 988 + 1024 \u003d 2012\n1) R_SHIFT \u003d 4;\nGICD_NUM_REGS \u003d (2012 + 15) \u0026 ~15 \u003d 2016\nGICD_NUM_REGS \u003e\u003e 4 \u003d 126 array entries\nLast SPI ID \u003d 1019; index \u003d (1019 - 32) \u003e\u003e 4 \u003d 61\n1st ESPI ID \u003d 4096: index \u003d (4096 - (4096 - ((988 + 15) \u0026 ~15))) \u003e\u003e 4 \u003d 992 \u003e\u003e 4 \u003d 62\nLast ESPI ID \u003d 5119: index \u003d ((5119 - (4096 - ((988 + 15) \u0026 ~15))) \u003e\u003e 4 \u003d 2015 \u003e\u003e 4 \u003d 125\n\n2) R_SHIFT \u003d 5;\nGICD_NUM_REGS \u003d (2012 + 31) \u0026 ~31 \u003d 2016\nGICD_NUM_REGS \u003e\u003e 5 \u003d  63 array entries\nLast SPI ID \u003d 1019; index \u003d (1019 - 32) \u003e\u003e 5 \u003d 30\n1st ESPI ID \u003d 4096: index \u003d (4096 - (4096 - ((988 + 31) \u0026 ~31))) \u003e\u003e 5 \u003d 992 \u003e\u003e 5 \u003d 31\nLast ESPI ID \u003d 5119: index \u003d ((5119 - (4096 - ((988 + 31) \u0026 ~31))) \u003e\u003e 5 \u003d 2015 \u003e\u003e 5 \u003d 62\n\n3) For R_SHIFT \u003d 0 we use unaligned number of entries:\nuint64_t gicd_irouter[TOTAL_SHARED_INTR_NUM];\nTOTAL_SHARED_INTR_NUM \u003d 2012\n(1U \u003c 0) - 1 \u003d 0\n~((1U \u003c\u003c 0) - 1) \u003d 0xFFFFFFFF;\nLast SPI ID \u003d 1019; index \u003d (1019 - 32) \u003d 987\n1st ESPI ID \u003d 4096: index \u003d 4096 - (4096 - 988) \u003d 988\nLast ESPI ID \u003d 5119: index \u003d 5119 - (4096 - 988) \u003d 2011",
+      "parentUuid": "e25be614_9ee6699e",
+      "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0f3b431_c9ae8fbc",
         "filename": "include/drivers/arm/gicv3.h",
         "patchSetId": 2
