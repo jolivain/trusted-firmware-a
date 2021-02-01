@@ -45,6 +45,75 @@
       "revId": "57fc0266b8ddf9e451160e02e0c50ff104bc3196",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8b26c01_a8e84f48",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-02-01T09:07:41Z",
+      "side": 1,
+      "message": "Is this missing the function signature somewhere in a header?",
+      "range": {
+        "startLine": 113,
+        "startChar": 1,
+        "endLine": 113,
+        "endChar": 23
+      },
+      "revId": "57fc0266b8ddf9e451160e02e0c50ff104bc3196",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06cc4866_6ec5d4f4",
+        "filename": "drivers/arm/sbsa/sbsa.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-02-01T09:07:41Z",
+      "side": 1,
+      "message": "where is it defined?",
+      "range": {
+        "startLine": 78,
+        "startChar": 31,
+        "endLine": 78,
+        "endChar": 50
+      },
+      "revId": "57fc0266b8ddf9e451160e02e0c50ff104bc3196",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3148b356_0e1898d8",
+        "filename": "drivers/arm/sbsa/sbsa.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-02-01T09:07:41Z",
+      "side": 1,
+      "message": "where is it defined?",
+      "range": {
+        "startLine": 80,
+        "startChar": 31,
+        "endLine": 80,
+        "endChar": 49
+      },
+      "revId": "57fc0266b8ddf9e451160e02e0c50ff104bc3196",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
