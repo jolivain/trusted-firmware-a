@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "1a49d06e_c223fad5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-02-02T09:50:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ee64376_85506dc9",
+      "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8146ce9_dec67080",
         "filename": "include/drivers/arm/gicv3.h",
         "patchSetId": 2
@@ -357,6 +375,24 @@
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab73718f_4110cad3",
+        "filename": "include/drivers/arm/gicv3.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-02-02T09:50:51Z",
+      "side": 1,
+      "message": "Done; use round_up() macro to simplify the code.",
+      "parentUuid": "4be51a20_68f5f085",
+      "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     },
     {
       "key": {
