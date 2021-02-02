@@ -342,6 +342,24 @@
     },
     {
       "key": {
+        "uuid": "4be51a20_68f5f085",
+        "filename": "include/drivers/arm/gicv3.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-02-02T00:50:50Z",
+      "side": 1,
+      "message": "\u003e We shouldn\u0027t introduce any wasted spase for gicd_irouter[] array.\n\u003e Have you checked that my code proposal which requires only 1 line to be changed in SAVE_GICD_EREGS/RESTORE_GICD_EREGS works? I\u0027d prefer to go with it as it\u0027s more generic and doesn\u0027t change gicd_irouter[].\n\nI agree the code in your post should fix the issue. Just wanted to confirm if there is OOB access in my first revision :)\n\nI\u0027ll send new revision with your suggestion.\nThanks.",
+      "parentUuid": "df6b7e1e_0c0dd196",
+      "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0f3b431_c9ae8fbc",
         "filename": "include/drivers/arm/gicv3.h",
         "patchSetId": 2
