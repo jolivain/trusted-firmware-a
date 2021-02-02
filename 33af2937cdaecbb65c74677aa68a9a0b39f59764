@@ -94,6 +94,30 @@
       "revId": "33af2937cdaecbb65c74677aa68a9a0b39f59764",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f83280e0_a285765e",
+        "filename": "docs/plat/marvell/armada/build.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-02-02T11:12:07Z",
+      "side": 1,
+      "message": "Konstantin, I\u0027m looking at documentation again there is no need for updating. \n\nFor BOOTDEV option is already written at the first line: \"For Armada37x0 only\". So this information is already there.",
+      "parentUuid": "645b2ff6_2174d3df",
+      "range": {
+        "startLine": 177,
+        "startChar": 16,
+        "endLine": 179,
+        "endChar": 52
+      },
+      "revId": "33af2937cdaecbb65c74677aa68a9a0b39f59764",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
     }
   ]
 }
