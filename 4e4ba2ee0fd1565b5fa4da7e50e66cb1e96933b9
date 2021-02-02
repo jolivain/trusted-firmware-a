@@ -78,6 +78,24 @@
     },
     {
       "key": {
+        "uuid": "3bf89a35_074f383d",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2021-02-02T09:36:47Z",
+      "side": 1,
+      "message": "I tried with \"fvp-defs-dynamiq.dtsi\" but didn\u0027t work. Also found that this file doesn\u0027t have an\noption to include individual CPU_\u003cno\u003e macro. This is required for the manifest file to list CPUs\nin descending order.",
+      "parentUuid": "ed50a6c0_27766e87",
+      "revId": "4e4ba2ee0fd1565b5fa4da7e50e66cb1e96933b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0575a6e2_f21fd9e8",
         "filename": "plat/arm/board/tc0/platform.mk",
         "patchSetId": 2
