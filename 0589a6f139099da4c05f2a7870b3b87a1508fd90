@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2150ce5e_8744ef99",
+        "filename": "plat/nxp/soc-lx2160/lx2160aqds/ddr_init.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-02T15:54:33Z",
+      "side": 1,
+      "message": "(void)memcpy to make MISRA-C scan happy",
+      "revId": "0589a6f139099da4c05f2a7870b3b87a1508fd90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "394abe7f_57fbbae6",
+        "filename": "plat/nxp/soc-lx2160/lx2160aqds/ddr_init.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-02T15:54:33Z",
+      "side": 1,
+      "message": "are U() required for other values?",
+      "revId": "0589a6f139099da4c05f2a7870b3b87a1508fd90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d291aa5_eefafc4f",
+        "filename": "plat/nxp/soc-lx2160/lx2160aqds/ddr_init.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-02T15:54:33Z",
+      "side": 1,
+      "message": "One",
+      "revId": "0589a6f139099da4c05f2a7870b3b87a1508fd90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "317e1259_2d4b4e36",
+        "filename": "plat/nxp/soc-lx2160/lx2160aqds/ddr_init.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-02T15:54:33Z",
+      "side": 1,
+      "message": "this function always returns 0, can it be made void ddr_board_options(...)?",
+      "revId": "0589a6f139099da4c05f2a7870b3b87a1508fd90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e77f506_a8464841",
+        "filename": "plat/nxp/soc-lx2160/lx2160aqds/ddr_init.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-02T15:54:33Z",
+      "side": 1,
+      "message": "violation of MISRA-C Rule 14.4\nDo you need to return error in this case?",
+      "revId": "0589a6f139099da4c05f2a7870b3b87a1508fd90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4a5ec49_92fa9643",
+        "filename": "plat/nxp/soc-lx2160/lx2160aqds/platform.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-02T15:54:33Z",
+      "side": 1,
+      "message": "remove one empty line",
+      "revId": "0589a6f139099da4c05f2a7870b3b87a1508fd90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "910c643f_ec2cc700",
+        "filename": "plat/nxp/soc-lx2160/lx2160aqds/policy.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-02T15:54:33Z",
+      "side": 1,
+      "message": "use tab or spaces consistently",
+      "revId": "0589a6f139099da4c05f2a7870b3b87a1508fd90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
