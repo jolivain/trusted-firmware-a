@@ -114,6 +114,24 @@
     },
     {
       "key": {
+        "uuid": "e5babd99_9e425e65",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2021-02-02T15:33:33Z",
+      "side": 1,
+      "message": "\u003e fvp-defs-dynamiq.dtsi defines CPU(n, r), which can be used as CPU(0,0)...CPU(7,700) for PE_PER_CPU \u003d\u003d 1 case.\n\nIncluding CPU(n, r) resolves the cpu \u003creg\u003e value. But this file \u0027fvp-defs-dynamiq.dtsi\u0027 creates references to enable-method, cpu-idle-states, next-level-cache. Due to this dtc fails.\n\ntc0_spmc_optee_sp_manifest.pre.dts:30.14-185: ERROR (phandle_references): /cpus/cpu@0: Reference to non-existent node or label \"CPU_SLEEP_0\"",
+      "parentUuid": "822c43d3_06290da1",
+      "revId": "4e4ba2ee0fd1565b5fa4da7e50e66cb1e96933b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0575a6e2_f21fd9e8",
         "filename": "plat/arm/board/tc0/platform.mk",
         "patchSetId": 2
