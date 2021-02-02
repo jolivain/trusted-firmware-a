@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acf2247c_eb0876ab",
+        "filename": "docs/plat/marvell/armada/build.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2021-02-02T07:59:01Z",
+      "side": 1,
+      "message": "OcteonTX2 is a big family. It includes CN96xx/CN98xx SoCs. However this code only supports CN913x. So, maybe it\u0027s better to remove the OcteonTX2 for avoiding confusions.",
+      "range": {
+        "startLine": 64,
+        "startChar": 29,
+        "endLine": 64,
+        "endChar": 38
+      },
+      "revId": "775e923fe9d31541df9b49235de1312f1d71c286",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
