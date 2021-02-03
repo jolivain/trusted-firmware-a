@@ -16,6 +16,24 @@
       "revId": "c7aac0039c0616f47b10bf15877276725ee16c9a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7effc041_3083ee2a",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr_parser.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-02-03T12:03:27Z",
+      "side": 1,
+      "message": "Why have the double compare here?\nI think this was fine in the original code.\n\nThe expression (memcmp(s, key, hdr-\u003esign_len) \u003c 0) is already a boolean, so the extra \u0027 \u003d\u003d 0\u0027 is not needed. You could use:\nif (!(memcmp(s, key, hdr-\u003esign_len) \u003c 0)) {\nWhich is MISRA compliant.\n\nThis is because the \u0027\u003c\u0027 operator takes 2 integers and returns a boolean.\n\nThe \u0027!\u003d 0\u0027 or \u0027\u003d\u003d 0\u0027 is only needed when the value is essentially an integer.",
+      "parentUuid": "5862c623_fc7982ec",
+      "revId": "c7aac0039c0616f47b10bf15877276725ee16c9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
