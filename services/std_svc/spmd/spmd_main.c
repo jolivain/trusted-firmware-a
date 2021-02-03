@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -527,6 +527,30 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 
 		SMC_RET8(handle, FFA_SUCCESS_SMC32,
 			 FFA_TARGET_INFO_MBZ, spmc_attrs.spmc_id,
+			 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+			 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+			 FFA_PARAM_MBZ);
+
+		break; /* not reached */
+
+	case FFA_SPM_ID_GET:
+		if (MAKE_FFA_VERSION(1, 1) > FFA_VERSION_COMPILED) {
+			return spmd_ffa_error_return(handle,
+						     FFA_ERROR_NOT_SUPPORTED);
+		}
+		/*
+		 * Returns the ID of the SPMC or SPMD depending on the FF-A
+		 * instance where this function is invoked
+		 */
+		if (!secure_origin) {
+			SMC_RET8(handle, FFA_SUCCESS_SMC32,
+				 FFA_TARGET_INFO_MBZ, spmc_attrs.spmc_id,
+				 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+				 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+				 FFA_PARAM_MBZ);
+		}
+		SMC_RET8(handle, FFA_SUCCESS_SMC32,
+			 FFA_TARGET_INFO_MBZ, SPMD_DIRECT_MSG_ENDPOINT_ID,
 			 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
 			 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
 			 FFA_PARAM_MBZ);
