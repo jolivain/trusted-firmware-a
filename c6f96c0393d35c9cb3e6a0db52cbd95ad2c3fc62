@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8220564e_a0206676",
+        "filename": "plat/qemu/common/qemu_bl31_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-02-03T22:24:18Z",
+      "side": 1,
+      "message": "nit:\nplease use tab instead of spaces.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 4
+      },
+      "revId": "c6f96c0393d35c9cb3e6a0db52cbd95ad2c3fc62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fecbaf9_ea13bf42",
+        "filename": "plat/qemu/qemu/include/platform_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-02-03T22:24:18Z",
+      "side": 1,
+      "message": "nit:\nPlease add another tab to align with previous macro declarations.",
+      "range": {
+        "startLine": 84,
+        "startChar": 24,
+        "endLine": 84,
+        "endChar": 32
+      },
+      "revId": "c6f96c0393d35c9cb3e6a0db52cbd95ad2c3fc62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
