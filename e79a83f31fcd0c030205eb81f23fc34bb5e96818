@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b4d14cc_871ce683",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-02-03T10:08:00Z",
+      "side": 1,
+      "message": "I guess comment was wrong earlier, that\u0027s why you don\u0027t need to change it with this patch.\nMax ESPI INTID is supposed to be 1 less than num_eints, right?\nnit: I think comment will be more explicit if either\n     1.  You simply explain the formula here, without mentioning about Max ESPI INTID, as it is evident from for loop below.\nOR   2. \"Maximum ESPI INTID is one less than num_eints which will be calculated as 32 * (GICD_TYPER.ESPI_range + 1) + MIN_ESPI_ID\"\nSame for other places as well.",
+      "range": {
+        "startLine": 117,
+        "startChar": 5,
+        "endLine": 117,
+        "endChar": 66
+      },
+      "revId": "e79a83f31fcd0c030205eb81f23fc34bb5e96818",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
