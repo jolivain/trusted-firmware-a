@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8969693c_541bde90",
+        "filename": "plat/nxp/common/warm_reset/plat_warm_reset.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-02-03T18:26:30Z",
+      "side": 1,
+      "message": "Should this be 2021?",
+      "revId": "4d665157d62deeecbecddda1c17703be08518957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d121c3c_60353991",
+        "filename": "plat/nxp/common/warm_reset/plat_warm_reset.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-02-03T18:26:30Z",
+      "side": 1,
+      "message": "Returning the negation of a constant seems a little odd, but presumably you have a good reason.",
+      "revId": "4d665157d62deeecbecddda1c17703be08518957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b07695f7_0579dbb7",
+        "filename": "plat/nxp/common/warm_reset/plat_warm_rst.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-02-03T18:26:30Z",
+      "side": 1,
+      "message": "The implementation of this in plat_warm_rst.c looks to be conditionally compiled #if defined(IMAGE_BL2), no mention of defined(NXP_WARM_BOOT).  Would that mean that, if IMAGE_BL2 is defined but NXP_WARM_BOOT is not, then the implementation in the .c file would be unprototyped in this, the .h file?",
+      "revId": "4d665157d62deeecbecddda1c17703be08518957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
