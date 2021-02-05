@@ -94,6 +94,30 @@
       "revId": "b740863d7b1d271c332a952d644a95d8e837c97e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28b6d63a_f2fc1d12",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2021-02-05T17:43:21Z",
+      "side": 1,
+      "message": "Thanks Raghu and Olivier for the review!\n\nAgree its a model issue, i.e. the order of msr instruction execution is not guaranteed.\n\nAs it has a significant cost on execution time in silicon as Raghu pointed out, it should not be merged, i will discuss with models team and abandon the patch.",
+      "parentUuid": "cc55b350_9456cb2a",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 51
+      },
+      "revId": "b740863d7b1d271c332a952d644a95d8e837c97e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
