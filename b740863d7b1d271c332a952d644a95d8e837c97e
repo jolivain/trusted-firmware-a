@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7434c8b5_6c1ea018",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-02-05T17:05:25Z",
+      "side": 1,
+      "message": "do we really need the ISB? E2H will not take effect until you are in EL2 so none of those bits should apply at all while we are context switching in EL3.",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 51
+      },
+      "revId": "b740863d7b1d271c332a952d644a95d8e837c97e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
+    }
+  ]
+}
