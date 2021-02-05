@@ -31,7 +31,7 @@
 #define FLAG_PARTIAL_CONFIG						BIT(0)
 #define FLAG_AUTHENTICATION						BIT(1)
 #define CONFIG_TEST_FLAG(_flag, _type)			(((flag) & FLAG_##_type) \
-													== FLAG_##_type)
+												== FLAG_##_type)
 
 /* Secure Register Access */
 #define INTEL_SIP_SMC_REG_READ					0xC2000007
@@ -55,6 +55,7 @@
 
 /* Generic Command */
 #define INTEL_SIP_SMC_SERVICE_COMPLETED			0xC200001E
+#define INTEL_SIP_SMC_FIRMWARE_VERSION			0xC200001F
 #define INTEL_SIP_SMC_HPS_SET_BRIDGES			0xC2000032
 
 /* Mailbox Command */

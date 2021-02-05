@@ -105,9 +105,9 @@ static uint32_t intel_mailbox_fpga_config_isdone(void)
 	}
 
 	if (ret) {
-		if (ret == MBOX_CFGSTAT_STATE_CONFIG){
+		if (ret == MBOX_CFGSTAT_STATE_CONFIG) {
 			return INTEL_SIP_SMC_STATUS_BUSY;
-		}else{
+		} else {
 			return INTEL_SIP_SMC_STATUS_ERROR;
 		}
 	}
@@ -292,7 +292,7 @@ static uint32_t intel_fpga_config_write(uint64_t mem, uint64_t size)
 	intel_fpga_sdm_write_all();
 
 	if (!is_address_in_ddr_range(mem, size) ||
-		is_fpga_config_buffer_full()){
+		is_fpga_config_buffer_full()) {
 		return INTEL_SIP_SMC_STATUS_REJECTED;
 	}
 
@@ -311,7 +311,7 @@ static uint32_t intel_fpga_config_write(uint64_t mem, uint64_t size)
 		}
 	}
 
-	if (is_fpga_config_buffer_full()){
+	if (is_fpga_config_buffer_full()) {
 		return INTEL_SIP_SMC_STATUS_BUSY;
 	}
 
@@ -443,10 +443,18 @@ static uint32_t intel_rsu_copy_dcmf_version(uint64_t dcmf_ver_1_0,
 
 static uint32_t intel_rsu_copy_dcmf_status(uint64_t dcmf_stat)
 {
-		rsu_dcmf_stat[0] = 0xFFFF & (dcmf_stat >> (0 * 16));
-		rsu_dcmf_stat[1] = 0xFFFF & (dcmf_stat >> (1 * 16));
-		rsu_dcmf_stat[2] = 0xFFFF & (dcmf_stat >> (2 * 16));
-		rsu_dcmf_stat[3] = 0xFFFF & (dcmf_stat >> (3 * 16));
+	rsu_dcmf_stat[0] = 0xFFFF & (dcmf_stat >> (0 * 16));
+	rsu_dcmf_stat[1] = 0xFFFF & (dcmf_stat >> (1 * 16));
+	rsu_dcmf_stat[2] = 0xFFFF & (dcmf_stat >> (2 * 16));
+	rsu_dcmf_stat[3] = 0xFFFF & (dcmf_stat >> (3 * 16));
+
+	return INTEL_SIP_SMC_STATUS_OK;
+}
+
+/* Mailbox services */
+static uint32_t intel_smc_fw_version(uint32_t *fw_version)
+{
+	*fw_version = 0x0;
 
 	return INTEL_SIP_SMC_STATUS_OK;
 }
@@ -480,10 +488,11 @@ static uint32_t intel_mbox_send_cmd(uint32_t cmd, uint32_t *args,
 /* Miscellaneous HPS services */
 static uint32_t intel_hps_set_bridges(uint64_t enable)
 {
-	if (enable)
+	if (enable) {
 		socfpga_bridges_enable();
-	else
+	} else {
 		socfpga_bridges_disable();
+	}
 
 	return INTEL_SIP_SMC_STATUS_OK;
 }
@@ -628,6 +637,10 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 
 	case INTEL_SIP_SMC_ECC_DBE:
 		status = intel_ecc_dbe_notification(x1);
+		SMC_RET1(handle, status);
+
+	case INTEL_SIP_SMC_FIRMWARE_VERSION:
+		status = intel_smc_fw_version(&retval);
 		SMC_RET1(handle, status);
 
 	case INTEL_SIP_SMC_MBOX_SEND_CMD:
