@@ -94,6 +94,30 @@
       "revId": "2944be24e7941d6e94c4d9d6628356d0e6b53ce1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7c0cbc0_554b1482",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-05T13:24:14Z",
+      "side": 1,
+      "message": "I think Varun has got a point here. Right now, the code affected by this build flag is within the plat/arm folder. If some other platform integrator wants to enable this feature, setting the build flag will have no effect on their platform code. Instead, they\u0027ll have to implement the feature in a similar way as is done for FVP. Either 1) we keep the code in the Arm platforms layer and make the build option an Arm-specific build option for now or 2) we export the fvp_gicv3_make_rdistrif_rw() function as a generic helper function for all platforms to use (need to slightly change its implementation to abstract FVP specificities ofc) and keep the build option name generic. The patch as it is right now chooses something in between, which sounds a bit confusing to me as well.",
+      "parentUuid": "153008a5_de7e11f1",
+      "range": {
+        "startLine": 378,
+        "startChar": 5,
+        "endLine": 378,
+        "endChar": 26
+      },
+      "revId": "2944be24e7941d6e94c4d9d6628356d0e6b53ce1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
