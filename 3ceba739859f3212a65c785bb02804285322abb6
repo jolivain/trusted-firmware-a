@@ -432,6 +432,30 @@
       "revId": "3ceba739859f3212a65c785bb02804285322abb6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a676d749_286bc777",
+        "filename": "plat/arm/board/fvp/fvp_gicv3.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-05T12:57:51Z",
+      "side": 1,
+      "message": "Right, thanks for the explanations, I had overlooked that when GICV3_GICR_PROTECTION\u003d1, the GICR region would be mapped as read-write straight from the beginning.\n\nOn second thoughts, I am fine with the way the patch is right now.",
+      "parentUuid": "e06b979a_63b183b2",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 25
+      },
+      "revId": "3ceba739859f3212a65c785bb02804285322abb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
+      "unresolved": true
     }
   ]
 }
