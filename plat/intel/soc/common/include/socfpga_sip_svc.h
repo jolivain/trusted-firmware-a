@@ -38,7 +38,7 @@
 
 /* Send Mailbox Command */
 #define INTEL_SIP_SMC_MBOX_SEND_CMD			0xC200001E
-
+#define INTEL_SIP_SMC_FIRMWARE_VERSION		0xC200001F
 
 /* SiP Definitions */
 
