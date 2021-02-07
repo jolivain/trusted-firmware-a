@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "d85449b3_8a2d66d4",
         "filename": "drivers/nxp/timer/nxp_timer.c",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "2021?",
       "revId": "a262adb2eaf0f21207233c7cdfb0081fc4d6bd6f",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "254cd872_1ccf2aac",
+        "filename": "drivers/nxp/timer/nxp_timer.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-07T12:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d85449b3_8a2d66d4",
+      "revId": "a262adb2eaf0f21207233c7cdfb0081fc4d6bd6f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "b4a1d8a8_6211f100",
         "filename": "drivers/nxp/timer/nxp_timer.h",
@@ -31,10 +50,28 @@
       "side": 1,
       "message": "2021?",
       "revId": "a262adb2eaf0f21207233c7cdfb0081fc4d6bd6f",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfc70705_bdc53e3e",
+        "filename": "drivers/nxp/timer/nxp_timer.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-07T12:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4a1d8a8_6211f100",
+      "revId": "a262adb2eaf0f21207233c7cdfb0081fc4d6bd6f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "a39454c4_4af02ff2",
         "filename": "drivers/nxp/timer/timer.mk",
@@ -48,8 +85,25 @@
       "side": 1,
       "message": "2021?",
       "revId": "a262adb2eaf0f21207233c7cdfb0081fc4d6bd6f",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a9e1432_e62aef0c",
+        "filename": "drivers/nxp/timer/timer.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-07T12:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a39454c4_4af02ff2",
+      "revId": "a262adb2eaf0f21207233c7cdfb0081fc4d6bd6f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
