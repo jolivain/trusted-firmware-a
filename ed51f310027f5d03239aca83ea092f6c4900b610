@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "473a49d8_bf56adad",
         "filename": "/COMMIT_MSG",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Remove mention of nxp in commit header as it is not a nxp specific change, however you can mention it in commit msg\nHeader can be like: \n\"Flush image to memory before authenticating it\"",
       "revId": "ed51f310027f5d03239aca83ea092f6c4900b610",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c74df04d_3dbe97e9",
         "filename": "common/bl_common.c",
@@ -37,10 +38,34 @@
         "endChar": 61
       },
       "revId": "ed51f310027f5d03239aca83ea092f6c4900b610",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6722a60_15fbc475",
+        "filename": "common/bl_common.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-07T12:47:20Z",
+      "side": 1,
+      "message": "Accepted.",
+      "parentUuid": "c74df04d_3dbe97e9",
+      "range": {
+        "startLine": 195,
+        "startChar": 52,
+        "endLine": 195,
+        "endChar": 61
+      },
+      "revId": "ed51f310027f5d03239aca83ea092f6c4900b610",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "ea0bf159_74fa7135",
         "filename": "common/bl_common.c",
@@ -60,10 +85,10 @@
         "endChar": 19
       },
       "revId": "ed51f310027f5d03239aca83ea092f6c4900b610",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e3daf4b1_319fe677",
         "filename": "common/bl_common.c",
@@ -83,8 +108,55 @@
         "endChar": 65
       },
       "revId": "ed51f310027f5d03239aca83ea092f6c4900b610",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baa46bd4_120f08b8",
+        "filename": "common/bl_common.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-07T12:47:20Z",
+      "side": 1,
+      "message": "Accepted.",
+      "parentUuid": "e3daf4b1_319fe677",
+      "range": {
+        "startLine": 196,
+        "startChar": 64,
+        "endLine": 196,
+        "endChar": 65
+      },
+      "revId": "ed51f310027f5d03239aca83ea092f6c4900b610",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a15db98_d6f6420f",
+        "filename": "common/bl_common.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-07T12:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea0bf159_74fa7135",
+      "range": {
+        "startLine": 196,
+        "startChar": 8,
+        "endLine": 196,
+        "endChar": 19
+      },
+      "revId": "ed51f310027f5d03239aca83ea092f6c4900b610",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
