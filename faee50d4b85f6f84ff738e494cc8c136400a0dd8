@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "43e01448_9566f49d",
         "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "this function always returns 0, can it be made void spm_bus26m_conduct(..)?",
       "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c9d9581_cc16a1d9",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
+        "patchSetId": 81
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-02-07T10:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43e01448_9566f49d",
+      "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "73c1d831_1fea8a9d",
         "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
@@ -31,10 +50,28 @@
       "side": 1,
       "message": "input parameters are not used.",
       "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44a052c4_a3da8006",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
+        "patchSetId": 81
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-02-07T10:01:55Z",
+      "side": 1,
+      "message": "1. In mt8192, we don\u0027t need to use these two parameters so I name them with unused.\n2. MTK LPM provides these two parameters for other MTK ICs. If I remove them in mt8192, I need to remove all of them passing from MTK LPM. However, If one MTK IC needs these parameters, it means we need to add them back in mt8192 for avoiding the build fail. For less maintenance point of view, I\u0027ll keep them in mt8192.",
+      "parentUuid": "73c1d831_1fea8a9d",
+      "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "508bce6e_047aa576",
         "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
@@ -48,10 +85,28 @@
       "side": 1,
       "message": "Do you need to check for val !\u003d NULL ?\nif (type !\u003d PLAT_RC_UPDATE_CONDITION) \u0026\u0026 (type !\u003d PLAT_RC_UPDATE_REMAIN_IRQS)\nthis function returns MT_RM_STATUS_OK. Is it expected?",
       "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea476787_c7f6efaf",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
+        "patchSetId": 81
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-02-07T10:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "508bce6e_047aa576",
+      "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "0e49b6ed_4c9c1f42",
         "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
@@ -65,10 +120,28 @@
       "side": 1,
       "message": "input parameter is not used",
       "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "406b5b36_02aa60a6",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
+        "patchSetId": 81
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-02-07T10:01:55Z",
+      "side": 1,
+      "message": "The same reply comments in spm_is_valid_rc_bus26m() as above.",
+      "parentUuid": "0e49b6ed_4c9c1f42",
+      "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "0b08a6b0_ceb7f330",
         "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
@@ -82,10 +155,28 @@
       "side": 1,
       "message": "cpu is not used, function always returns 0",
       "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b8060fc_ef593d7a",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
+        "patchSetId": 81
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-02-07T10:01:55Z",
+      "side": 1,
+      "message": "1. The same reply comments in spm_is_valid_rc_bus26m() as above.\n2. Keep the `return 0` as 1.\u0027s comment.",
+      "parentUuid": "0b08a6b0_ceb7f330",
+      "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "77d5f74a_de7c805e",
         "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
@@ -99,10 +190,28 @@
       "side": 1,
       "message": "as above",
       "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35bd2b86_9e888f9e",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_bus26m.c",
+        "patchSetId": 81
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-02-07T10:01:55Z",
+      "side": 1,
+      "message": "1. The same reply comments in spm_is_valid_rc_bus26m() as above.\n2. Keep the `return 0` as 1.\u0027s comment.",
+      "parentUuid": "77d5f74a_de7c805e",
+      "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "2637b984_e0ac9ce2",
         "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
@@ -116,10 +225,28 @@
       "side": 1,
       "message": "state_id is not used",
       "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c2cf7ad_08828010",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
+        "patchSetId": 81
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-02-07T10:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2637b984_e0ac9ce2",
+      "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "06caf7b1_dba02c0d",
         "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
@@ -133,10 +260,28 @@
       "side": 1,
       "message": "always returns 0",
       "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d352eff2_d50a800b",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
+        "patchSetId": 81
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-02-07T10:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06caf7b1_dba02c0d",
+      "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "09bfc6a6_f62d7869",
         "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
@@ -150,10 +295,28 @@
       "side": 1,
       "message": "parameters are not used",
       "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e866f4d2_ef4286a5",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
+        "patchSetId": 81
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-02-07T10:01:55Z",
+      "side": 1,
+      "message": "1. In mt8192, we don\u0027t need to use these two parameters so I name them with unused.\n2. MTK LPM provides these two parameters for other MTK ICs. If I remove them in mt8192, I need to remove all of them passing from MTK LPM. However, If one MTK IC needs these parameters, it means we need to add them back in mt8192 for avoiding the build fail. For less maintenance point of view, I\u0027ll keep them in mt8192.",
+      "parentUuid": "09bfc6a6_f62d7869",
+      "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "4dfa6dff_e9999e87",
         "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
@@ -167,10 +330,28 @@
       "side": 1,
       "message": "as above",
       "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25d7b4f1_df82b70a",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
+        "patchSetId": 81
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-02-07T10:01:55Z",
+      "side": 1,
+      "message": "The same reply comments in spm_is_valid_rc_cpu_buck_ldo() as above.",
+      "parentUuid": "4dfa6dff_e9999e87",
+      "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "2a42206b_f8c2de74",
         "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
@@ -184,10 +365,28 @@
       "side": 1,
       "message": "cpu is not used, function always returns 0",
       "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ef08453_8e3af7d7",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
+        "patchSetId": 81
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-02-07T10:01:55Z",
+      "side": 1,
+      "message": "1. The same reply comments in spm_is_valid_rc_cpu_buck_ldo() as above.\n2. Keep the `return 0` as 1.\u0027s comment.",
+      "parentUuid": "2a42206b_f8c2de74",
+      "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "b31aff6f_ca41b03e",
         "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
@@ -201,8 +400,25 @@
       "side": 1,
       "message": "as above",
       "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b184413c_6bf2799c",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
+        "patchSetId": 81
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-02-07T10:01:55Z",
+      "side": 1,
+      "message": "1. The same reply comments in spm_is_valid_rc_cpu_buck_ldo() as above.\n2. Keep the `return 0` as 1.\u0027s comment.",
+      "parentUuid": "b31aff6f_ca41b03e",
+      "revId": "faee50d4b85f6f84ff738e494cc8c136400a0dd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
