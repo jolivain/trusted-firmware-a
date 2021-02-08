@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "e5807d7e_c56c2f2a",
         "filename": "services/std_svc/spmd/spmd_main.c",
@@ -20,8 +21,31 @@
         "endChar": 28
       },
       "revId": "9c44444fa7895649e26bee488cbaf0daaa2a4dd5",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fd58393_0b742181",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-02-08T17:13:42Z",
+      "side": 1,
+      "message": "This case covers (secure_origin\u003d\u003dtrue \u0026\u0026 spmd_is_spmc_message(x1)\u003d\u003dfalse) and (secure_origin\u003dfalse).\n\nFrom this change spmd_is_spmc_message most certainly returns false as SPMC to SPMD messages loose usefulness.\n\nSo this covers VM\u003d\u003eSP and SP\u003d\u003eVM direct message requests.\n\nThe former is the most commonly supported and used in the implementation.\nThe latter is possible by the spec but not the implementation. Hafnium does not permit this presently but I guess that may be desired in the future.",
+      "parentUuid": "e5807d7e_c56c2f2a",
+      "range": {
+        "startLine": 573,
+        "startChar": 3,
+        "endLine": 574,
+        "endChar": 28
+      },
+      "revId": "9c44444fa7895649e26bee488cbaf0daaa2a4dd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
