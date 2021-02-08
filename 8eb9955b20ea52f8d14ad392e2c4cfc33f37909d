@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "aeb77189_a29444cc",
         "filename": "plat/marvell/armada/a8k/common/plat_ble_setup.c",
@@ -14,8 +15,25 @@
       "side": 1,
       "message": "nit: use {} \nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
       "revId": "8eb9955b20ea52f8d14ad392e2c4cfc33f37909d",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32f30115_490a521a",
+        "filename": "plat/marvell/armada/a8k/common/plat_ble_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2021-02-08T08:33:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeb77189_a29444cc",
+      "revId": "8eb9955b20ea52f8d14ad392e2c4cfc33f37909d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
