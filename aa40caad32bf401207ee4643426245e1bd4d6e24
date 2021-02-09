@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5bbb165_78f16df9",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-02-09T02:35:29Z",
+      "side": 1,
+      "message": "This logic is affected by the CPU speed and does not stand on its own. How about using timeout value in us or ms?",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "aa40caad32bf401207ee4643426245e1bd4d6e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
