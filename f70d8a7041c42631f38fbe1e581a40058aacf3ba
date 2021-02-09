@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed665a9d_40e950ab",
+        "filename": "docs/plat/arm/fvp/index.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-02-09T15:09:15Z",
+      "side": 1,
+      "message": "Sorry to be picky but this doesn\u0027t look aligned with the commit message wording (enabled/disabled).\nWhat the option really does is marking redistributor pages for disabled cores as RO through the MMU. It\u0027s not disabling (or keeping powered down) the per-core redistributor which is another possible action to the GIC (refer to GICR_PWRR register).",
+      "range": {
+        "startLine": 145,
+        "startChar": 35,
+        "endLine": 148,
+        "endChar": 15
+      },
+      "revId": "f70d8a7041c42631f38fbe1e581a40058aacf3ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
