@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3698c14f_7b9eb468",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-02-09T17:10:45Z",
+      "side": 1,
+      "message": "@Pankaj: \n\nPlease fix following static check failures in the patch series.\n\ndrivers/nxp/ddr/nxp-ddr/utility.c:123: ERROR: space prohibited after that \u0027\u0026\u0027 (ctx:WxW)\n+\t\tdisable_ddrc \u003d ((valid_spd_mask \u0026 0x2) \u003d\u003d 0) ? 2 : 0;\n \t\t                                ^\n\ndrivers/nxp/ddr/nxp-ddr/utility.c:124: ERROR: space prohibited after that \u0027\u0026\u0027 (ctx:WxW)\n+\t\tdisable_ddrc \u003d ((valid_spd_mask \u0026 0x1) \u003d\u003d 0) ? 1 : disable_ddrc;\n \t\t                                ^\n\ndrivers/nxp/ddr/nxp-ddr/utility.c:127: ERROR: space prohibited after that \u0027\u0026\u0027 (ctx:WxW)\n+\t\tdisable_ddrc \u003d ((valid_spd_mask \u0026 0x4) \u003d\u003d 0) ? 2 : 0;\n \t\t                                ^\n\ndrivers/nxp/ddr/nxp-ddr/utility.c:128: ERROR: space prohibited after that \u0027\u0026\u0027 (ctx:WxW)\n+\t\tdisable_ddrc \u003d ((valid_spd_mask \u0026 0x1) \u003d\u003d 0) ? 1 : disable_ddrc;\n",
+      "revId": "b969bb115ac81604f36b66410d4b992ff7a85e0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
