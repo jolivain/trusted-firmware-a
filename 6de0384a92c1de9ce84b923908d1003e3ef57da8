@@ -3,6 +3,138 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e33e1d98_121fa52b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-02-09T22:17:39Z",
+      "side": 1,
+      "message": "nitpick:\n1. Remove repeated word\n2. Limit characters per line to 80",
+      "range": {
+        "startLine": 9,
+        "startChar": 31,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "6de0384a92c1de9ce84b923908d1003e3ef57da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "423d7244_49e8744b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-02-09T22:17:39Z",
+      "side": 1,
+      "message": "Limit characters per line to 80",
+      "revId": "6de0384a92c1de9ce84b923908d1003e3ef57da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fdfd10c_0a2e5e3b",
+        "filename": "docs/plat/imx8m.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-02-09T22:17:39Z",
+      "side": 1,
+      "message": "Did you mean FIP?",
+      "range": {
+        "startLine": 56,
+        "startChar": 19,
+        "endLine": 56,
+        "endChar": 22
+      },
+      "revId": "6de0384a92c1de9ce84b923908d1003e3ef57da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b3bdcce_bf78ebad",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl2_el3_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-02-09T22:17:39Z",
+      "side": 1,
+      "message": "2021?",
+      "range": {
+        "startLine": 2,
+        "startChar": 18,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "6de0384a92c1de9ce84b923908d1003e3ef57da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dabb2a07_e813e9cd",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl2_el3_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-02-09T22:17:39Z",
+      "side": 1,
+      "message": "2021?",
+      "range": {
+        "startLine": 3,
+        "startChar": 13,
+        "endLine": 3,
+        "endChar": 17
+      },
+      "revId": "6de0384a92c1de9ce84b923908d1003e3ef57da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c9901a6_05f51101",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl2_mem_params_desc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-02-09T22:17:39Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "6de0384a92c1de9ce84b923908d1003e3ef57da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26acd43d_5036e667",
         "filename": "plat/imx/imx8m/imx8mm/platform.mk",
         "patchSetId": 5
