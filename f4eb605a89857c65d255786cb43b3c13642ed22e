@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "479e641f_f206e8d4",
         "filename": "/COMMIT_MSG",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "The brackets are required to supress Coverity scan warnings.",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9ee64376_85506dc9",
         "filename": "/COMMIT_MSG",
@@ -32,10 +33,10 @@
       "message": "What are the warnings in details? Is it integer overflow? But int_id starts from MIN_ESPI_ID so it is obvious to be non-negative by subtracting MIN_ESPI_ID.",
       "parentUuid": "479e641f_f206e8d4",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "1a49d06e_c223fad5",
         "filename": "/COMMIT_MSG",
@@ -50,10 +51,10 @@
       "message": "Done",
       "parentUuid": "9ee64376_85506dc9",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b8146ce9_dec67080",
         "filename": "include/drivers/arm/gicv3.h",
@@ -67,10 +68,10 @@
       "side": 1,
       "message": "I would suggest to use\n#define TOTAL_SPI_NUM_ALIGNED\t((TOTAL_SPI_INTR_NUM + U(31)) \u0026 U(~31))\nand add comment about 32 bytes alignment instead of \"not well aligned\"\n\nIn giv3.h TOTAL_SHARED_INTR_NUM is used as aligned for:\n#define GICD_NUM_REGS(reg_name)\t\\\n\tDIV_ROUND_UP_2EVAL(TOTAL_SHARED_INTR_NUM, (1 \u003c\u003c reg_name##_SHIFT))\nbut not aligned for\n\tuint64_t gicd_irouter[TOTAL_SHARED_INTR_NUM];\nWould it be better to just use aligned value for the array above?",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "edb36aa6_43db8452",
         "filename": "include/drivers/arm/gicv3.h",
@@ -85,10 +86,10 @@
       "message": "\u003e I would suggest to use\n\u003e #define TOTAL_SPI_NUM_ALIGNED\t((TOTAL_SPI_INTR_NUM + U(31)) \u0026 U(~31))\n\u003e and add comment about 32 bytes alignment instead of \"not well aligned\"\n\nOriginally I used round_up() to get the 32 aligned value of TOTAL_SPI_INTR_NUM, but I finally chose the above code. Though it seems more generic to calculate TOTAL_SPI_NUM_ALIGNED from TOTAL_SPI_INTR_NUM, we still have lots of preconditions to make the code work, so I chose the straight forward one.\n\nAnyway, I\u0027m not insisting on this and I can change the code as you suggest.\n\n\u003e \n\u003e In giv3.h TOTAL_SHARED_INTR_NUM is used as aligned for:\n\u003e #define GICD_NUM_REGS(reg_name)\t\\\n\u003e \tDIV_ROUND_UP_2EVAL(TOTAL_SHARED_INTR_NUM, (1 \u003c\u003c reg_name##_SHIFT))\n\u003e but not aligned for\n\u003e \tuint64_t gicd_irouter[TOTAL_SHARED_INTR_NUM];\n\u003e Would it be better to just use aligned value for the array above?\n\nI don\u0027t see strong reason for this change. For ESPI enabled, TOTAL_SHARED_INTR_NUM comes from (TOTAL_SPI_NUM_ALIGNED + TOTAL_ESPI_INTR_NUM), which is already aligned. Do you mean round up TOTAL_SHARED_INTR_NUM as well for ESPI disabled?",
       "parentUuid": "b8146ce9_dec67080",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "3f7b05ca_dde32737",
         "filename": "include/drivers/arm/gicv3.h",
@@ -103,10 +104,10 @@
       "message": "GICD_IROUTER(E) are 64-bit registers:\nuint64_t gicd_irouter[TOTAL_SHARED_INTR_NUM];\nwith IROUTER_SHIFT \u003d 0.\nPlease explain why it \"will cause trouble when saving and restoring GICD context with registers\" in \"shifting operation in RESTORE/SAVE_GICD_EREGS\"",
       "parentUuid": "edb36aa6_43db8452",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e277bb31_630d2398",
         "filename": "include/drivers/arm/gicv3.h",
@@ -121,10 +122,10 @@
       "message": "It is OK for gicd_irouter, for IROUTER_SHIFT \u003d 0 just as you mentioned. But it will trigger bug for registers with REG#R_SHIFT larger than 2. Shall I change the comments to mention this?",
       "parentUuid": "3f7b05ca_dde32737",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "90fbe22d_5193b290",
         "filename": "include/drivers/arm/gicv3.h",
@@ -139,10 +140,10 @@
       "message": "1. TOTAL_SPI_INTR_NUM is defined in gic_common.h as:\n#define TOTAL_SPI_INTR_NUM\t(MAX_SPI_ID - MIN_SPI_ID + U(1))\n\n2. TOTAL_SPI_INTR_NUM is used in 2 places in giv3.h to define TOTAL_SHARED_INTR_NUM:\na) on line #51:\n/* Total number of GICv3.1 SPIs and ESPIs */\n#define\tTOTAL_SHARED_INTR_NUM\t(TOTAL_SPI_INTR_NUM + TOTAL_ESPI_INTR_NUM)\nb) on line #69:\n/* Total number of GICv3 SPIs */\n#define\tTOTAL_SHARED_INTR_NUM\tTOTAL_SPI_INTR_NUM\n\n3. TOTAL_SHARED_INTR_NUM is used in\na) gic_v3.h line #458: \n\t/* 64 bits registers */\n\tuint64_t gicd_irouter[TOTAL_SHARED_INTR_NUM];\nand won\u0027t cause a problem as you mentioned above.\nb) gic_v3.h line #379:\n/*\n * This macro returns the total number of GICD/GICR registers corresponding to\n * the register name\n */\n#define GICD_NUM_REGS(reg_name)\t\\\n\tDIV_ROUND_UP_2EVAL(TOTAL_SHARED_INTR_NUM, (1 \u003c\u003c reg_name##_SHIFT))\n\nThis macro returns (1 \u003c\u003c reg_name##_SHIFT) bytes aligned value of TOTAL_SHARED_INTR_NUM, which used to define number of other than IROUTER registers, see lines #462-469:\n\tuint32_t gicd_igroupr[GICD_NUM_REGS(IGROUPR)];\n\tuint32_t gicd_isenabler[GICD_NUM_REGS(ISENABLER)];\n\tuint32_t gicd_ispendr[GICD_NUM_REGS(ISPENDR)];\n\tuint32_t gicd_isactiver[GICD_NUM_REGS(ISACTIVER)];\n\tuint32_t gicd_ipriorityr[GICD_NUM_REGS(IPRIORITYR)];\n\tuint32_t gicd_icfgr[GICD_NUM_REGS(ICFGR)];\n\tuint32_t gicd_igrpmodr[GICD_NUM_REGS(IGRPMODR)];\n\tuint32_t gicd_nsacr[GICD_NUM_REGS(NSACR)];\n\nAs the number of elements in each array is aligned to (1 \u003c\u003c reg_name##_SHIFT) bytes, will it cause an issue when saving/storing them?",
       "parentUuid": "e277bb31_630d2398",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "237639cd_70b70b97",
         "filename": "include/drivers/arm/gicv3.h",
@@ -157,10 +158,10 @@
       "message": "It should be OK for the above code, if the macros SAVE_GICD_EREGS and RESTORE_GICD_EREGS use proper method to get array index, just as below:\n\n(int_id - MIN_ESPI_ID) \u003e\u003e REG##R_SHIFT + DIV_ROUND_UP_2EVAL(TOTAL_SPI_INTR_NUM, 1 \u003c\u003c REG##R_SHIFT)\n\nI didn\u0027t use the above code for it is more complex. Instead I chose to round up TOTAL_SPI_INTR_NUM to 1024 to make it always aligned for REG##R_SHIFT.",
       "parentUuid": "90fbe22d_5193b290",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e52b392b_ad1134ee",
         "filename": "include/drivers/arm/gicv3.h",
@@ -175,10 +176,10 @@
       "message": "TOTAL_SPI_INTR_NUM is also not aligned when GIC_EXT_INTID\u003d0, but SAVE_GICD_REGS /RESTORE_GICD_REGS don\u0027t case any issues. SAVE_GICD_EREGS/RESTORE_GICD_EREGS follow the same logic as for not \"E\" variants just using initial start ID and offset ID. As the number of registers in arrays is aligned to (1 \u003c\u003c REG##R_SHIFT) value, no overwrite to other array will happen. Please provide numeric examples which proves the opposite scenario.",
       "parentUuid": "237639cd_70b70b97",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "865b6799_54f528e7",
         "filename": "include/drivers/arm/gicv3.h",
@@ -193,10 +194,10 @@
       "message": "Assuming REG##R_SHIFT is 5, the register for INT ID 992~1019 (architecturally allowed but not for gic600) will be saved in array index: (992 - 32) \u003e\u003e 5 \u003d 30; the one for 4096 ~ 4127 will be saved to index: (4096 - 4096 + 1020) \u003e\u003e 5 \u003d 30, so it will override the context for 992~1019.",
       "parentUuid": "e52b392b_ad1134ee",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5923233a_3dc8dd97",
         "filename": "include/drivers/arm/gicv3.h",
@@ -211,10 +212,10 @@
       "message": "(4096 - 4096 + 1020) \u003e\u003e 5 \u003d 31",
       "parentUuid": "865b6799_54f528e7",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "91aaf369_5a14890e",
         "filename": "include/drivers/arm/gicv3.h",
@@ -229,10 +230,10 @@
       "message": "(int_id - (MIN_ESPI_ID - MIN_SPI_ID))\nshould be changed to:\n(int_id - (MIN_ESPI_ID - (MAX_SPI_ID + 1)))",
       "parentUuid": "5923233a_3dc8dd97",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1ebb9c60_0142b3cc",
         "filename": "include/drivers/arm/gicv3.h",
@@ -247,10 +248,10 @@
       "message": "Ah, I meant to change (int_id - (MIN_ESPI_ID - MIN_SPI_ID)) to (int_id - (MIN_ESPI_ID - TOTAL_SPI_INTR_NUM)), which is (4096 - 4096 + 1020 - 32) \u003e\u003e 5 \u003d 30.\nThe array index is right if we change TOTAL_SPI_INTR_NUM to (MAX_SPI_ID + 1), but the logic is not right, for it implies there is space reserved for INTID 0~31, but there is not when we allocate the array for SPI context. This will cause new memory override issue when REG##R_SHIFT is less then 5. Take REG##R_SHIFT\u003d4 as example:\n1. TOTAL_SHARED_INTR_NUM \u003d (TOTAL_SPI_INTR_NUM + TOTAL_ESPI_INTR_NUM) \u003d (1020 - 32 + 1024) \u003d 2012\n2. GICD_NUM_REGS\u003d(2012 + 16 - 1) / 16 \u003d 126\n3. The index for the last SPI range: (1008 - 32) \u003e\u003e 4 \u003d 61\n4. The index for the first ESPI range: (4096 - 4096 + 1020) \u003e\u003e 4 \u003d 63 (so index 62 is not used)\n5. The index for the last ESPI range: (5104 - 4096 + 1020) \u003e\u003e 4 \u003d 126",
       "parentUuid": "91aaf369_5a14890e",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "244f3f21_38a6633d",
         "filename": "include/drivers/arm/gicv3.h",
@@ -265,10 +266,10 @@
       "message": "3. The index for the last SPI range: (1019 - 32) \u003e\u003e 4 \u003d 61\n5. The index for the last ESPI range: (5119 - 4096 + 1020) \u003e\u003e 4 \u003d 127\nwhich means that space for SPIs 1020-1023 should be reserved and value 1024 instead of 1020 used fot ESPI index calculations.",
       "parentUuid": "1ebb9c60_0142b3cc",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e25be614_9ee6699e",
         "filename": "include/drivers/arm/gicv3.h",
@@ -283,10 +284,10 @@
       "message": "\u003e 3. The index for the last SPI range: (1019 - 32) \u003e\u003e 4 \u003d 61\n\nFor REG##R_SHIFT\u003d4, the INTID will be processed with the stride of 16, as the below code shows:\n#define SAVE_GICD_REGS(base, ctx, intr_num, reg, REG)                   \\\n        do {                                                            \\\n                for (unsigned int int_id \u003d MIN_SPI_ID; int_id \u003c (intr_num);\\\n                                int_id +\u003d (1U \u003c\u003c REG##R_SHIFT)) {       \\\nSo the int_id used to calculate array index is 1008, not 1019.\n\n\u003e 5. The index for the last ESPI range: (5119 - 4096 + 1020) \u003e\u003e 4 \u003d 127\n\nSame as above, the int_id used is 5104, not 5119.\n\n\u003e which means that space for SPIs 1020-1023 should be reserved and value 1024 instead of 1020 used fot ESPI index calculations.\n\nThis is almost the patch is doing, while TOTAL_SPI_NUM_ALIGNED\u003d1024-32, for only INTID starting from 32 will be saved.\n\nThanks.",
       "parentUuid": "244f3f21_38a6633d",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "aaf673b7_cedd0309",
         "filename": "include/drivers/arm/gicv3.h",
@@ -301,10 +302,10 @@
       "message": "\"This is almost the patch is doing\" - this won\u0027t work for\n\tuint64_t gicd_irouter[TOTAL_SHARED_INTR_NUM];\nand will cause out boundaries access.\nTo make it work for generic case, SAVE_GICD_EREGS/RESTORE_GICD_EREGS should use:\n\n(ctx)-\u003egicd_##reg[(int_id - (MIN_ESPI_ID - \n(TOTAL_SPI_INTR_NUM + (1U \u003c\u003c REG##R_SHIFT) - 1) \u0026 ~((1U \u003c\u003c REG##R_SHIFT) - 1))))\\\n\u003e\u003e REG##R_SHIFT] \u003d gicd_read_##reg((base), int_id);\\\n\nTOTAL_SPI_INTR_NUM \u003d 1019 - 32 + 1 \u003d 988\nTOTAL_SHARED_INTR_NUM \u003d 988 + 1024 \u003d 2012\n1) R_SHIFT \u003d 4;\nGICD_NUM_REGS \u003d (2012 + 15) \u0026 ~15 \u003d 2016\nGICD_NUM_REGS \u003e\u003e 4 \u003d 126 array entries\nLast SPI ID \u003d 1019; index \u003d (1019 - 32) \u003e\u003e 4 \u003d 61\n1st ESPI ID \u003d 4096: index \u003d (4096 - (4096 - ((988 + 15) \u0026 ~15))) \u003e\u003e 4 \u003d 992 \u003e\u003e 4 \u003d 62\nLast ESPI ID \u003d 5119: index \u003d ((5119 - (4096 - ((988 + 15) \u0026 ~15))) \u003e\u003e 4 \u003d 2015 \u003e\u003e 4 \u003d 125\n\n2) R_SHIFT \u003d 5;\nGICD_NUM_REGS \u003d (2012 + 31) \u0026 ~31 \u003d 2016\nGICD_NUM_REGS \u003e\u003e 5 \u003d  63 array entries\nLast SPI ID \u003d 1019; index \u003d (1019 - 32) \u003e\u003e 5 \u003d 30\n1st ESPI ID \u003d 4096: index \u003d (4096 - (4096 - ((988 + 31) \u0026 ~31))) \u003e\u003e 5 \u003d 992 \u003e\u003e 5 \u003d 31\nLast ESPI ID \u003d 5119: index \u003d ((5119 - (4096 - ((988 + 31) \u0026 ~31))) \u003e\u003e 5 \u003d 2015 \u003e\u003e 5 \u003d 62\n\n3) For R_SHIFT \u003d 0 we use unaligned number of entries:\nuint64_t gicd_irouter[TOTAL_SHARED_INTR_NUM];\nTOTAL_SHARED_INTR_NUM \u003d 2012\n(1U \u003c 0) - 1 \u003d 0\n~((1U \u003c\u003c 0) - 1) \u003d 0xFFFFFFFF;\nLast SPI ID \u003d 1019; index \u003d (1019 - 32) \u003d 987\n1st ESPI ID \u003d 4096: index \u003d 4096 - (4096 - 988) \u003d 988\nLast ESPI ID \u003d 5119: index \u003d 5119 - (4096 - 988) \u003d 2011",
       "parentUuid": "e25be614_9ee6699e",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8a0b6fba_e3a5770a",
         "filename": "include/drivers/arm/gicv3.h",
@@ -319,10 +320,10 @@
       "message": "Typo corrected:\n(1U \u003c\u003c 0) - 1 \u003d 0",
       "parentUuid": "aaf673b7_cedd0309",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f2d0edcf_2ad08cc7",
         "filename": "include/drivers/arm/gicv3.h",
@@ -337,10 +338,10 @@
       "message": "\u003e this won\u0027t work for\n\u003e \tuint64_t gicd_irouter[TOTAL_SHARED_INTR_NUM];\n\u003e and will cause out boundaries access.\n\nFor the patch I sent, we can get array entry count and index as below for gicd_irouter:\n\nArray entry count \u003d TOTAL_SHARED_INTR_NUM \u003d 1024 - 32 + 1024 \u003d 2016\nLast SPI ID \u003d 1019; index \u003d (1019 - 32) \u003d 987\n1st ESPI ID \u003d 4096: index \u003d 4096 - (4096 - 992) \u003d 992\nLast ESPI ID \u003d 5119: index \u003d 5119 - (4096 - 992) \u003d 2015\n\nAs it is said in the comment, there is some space waste, but it shouldn\u0027t cause out-boundary access. Do I miss something?\n\nThanks.",
       "parentUuid": "8a0b6fba_e3a5770a",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "df6b7e1e_0c0dd196",
         "filename": "include/drivers/arm/gicv3.h",
@@ -355,10 +356,10 @@
       "message": "We shouldn\u0027t introduce any wasted spase for gicd_irouter[] array.\nHave you checked that my code proposal which requires only 1 line to be changed in SAVE_GICD_EREGS/RESTORE_GICD_EREGS works? I\u0027d prefer to go with it as it\u0027s more generic and doesn\u0027t change gicd_irouter[].",
       "parentUuid": "f2d0edcf_2ad08cc7",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "4be51a20_68f5f085",
         "filename": "include/drivers/arm/gicv3.h",
@@ -373,10 +374,10 @@
       "message": "\u003e We shouldn\u0027t introduce any wasted spase for gicd_irouter[] array.\n\u003e Have you checked that my code proposal which requires only 1 line to be changed in SAVE_GICD_EREGS/RESTORE_GICD_EREGS works? I\u0027d prefer to go with it as it\u0027s more generic and doesn\u0027t change gicd_irouter[].\n\nI agree the code in your post should fix the issue. Just wanted to confirm if there is OOB access in my first revision :)\n\nI\u0027ll send new revision with your suggestion.\nThanks.",
       "parentUuid": "df6b7e1e_0c0dd196",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "ab73718f_4110cad3",
         "filename": "include/drivers/arm/gicv3.h",
@@ -391,10 +392,10 @@
       "message": "Done; use round_up() macro to simplify the code.",
       "parentUuid": "4be51a20_68f5f085",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "d0f3b431_c9ae8fbc",
         "filename": "include/drivers/arm/gicv3.h",
@@ -408,10 +409,10 @@
       "side": 1,
       "message": "Should this TOTAL_SHARED_INTR_NUM be also aligned for GIC v3?",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "bb889479_da3b5025",
         "filename": "include/drivers/arm/gicv3.h",
@@ -426,8 +427,25 @@
       "message": "I don\u0027t think so; only the last block is possible to be not 32 INT ID aligned (992 ~ 1019), so the current code will only cause the context of 1020~1023 to be unsaved, when the reg_name##_SHIFT is less than or equal to 2. Unless it is necessary to save the context of spurious interrupts, it should be all right for GICv3 without ESPI implementation.",
       "parentUuid": "d0f3b431_c9ae8fbc",
       "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1a34318_2c61f627",
+        "filename": "include/drivers/arm/gicv3.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-02-10T04:00:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb889479_da3b5025",
+      "revId": "f4eb605a89857c65d255786cb43b3c13642ed22e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
