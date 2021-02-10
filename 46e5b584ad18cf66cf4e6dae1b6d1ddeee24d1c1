@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "b7ba5056_68583398",
         "filename": "lib/libc/strtoull.c",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "ctype.h and xlocale_private.h don\u0027t exist in TF-A.",
       "revId": "46e5b584ad18cf66cf4e6dae1b6d1ddeee24d1c1",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "6773d117_ffea24c5",
         "filename": "lib/libc/strtoull.c",
@@ -32,10 +33,28 @@
       "message": "My bad. I thought I removed them before pushing the patch but I missed adding the changes to the git commit.",
       "parentUuid": "b7ba5056_68583398",
       "revId": "46e5b584ad18cf66cf4e6dae1b6d1ddeee24d1c1",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e690568b_9bc7130c",
+        "filename": "lib/libc/strtoull.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-10T21:10:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6773d117_ffea24c5",
+      "revId": "46e5b584ad18cf66cf4e6dae1b6d1ddeee24d1c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "cc51c1cd_33c440d6",
         "filename": "lib/libc/strtoull.c",
@@ -49,10 +68,10 @@
       "side": 1,
       "message": "add {}",
       "revId": "46e5b584ad18cf66cf4e6dae1b6d1ddeee24d1c1",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "97d88a49_f01bd828",
         "filename": "lib/libc/strtoull.c",
@@ -67,10 +86,10 @@
       "message": "since I have taken this file from FreeBSD project, I only made minimum number of changes that are absolutely necessary to fit this file to TF-A project. Do you insist I follow TF-A coding style guide strictly?",
       "parentUuid": "cc51c1cd_33c440d6",
       "revId": "46e5b584ad18cf66cf4e6dae1b6d1ddeee24d1c1",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "4081bd0c_8d1b3d87",
         "filename": "lib/libc/strtoull.c",
@@ -85,10 +104,28 @@
       "message": "I think we need to have a discussion regarding such files.",
       "parentUuid": "97d88a49_f01bd828",
       "revId": "46e5b584ad18cf66cf4e6dae1b6d1ddeee24d1c1",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b30bd881_5df6c0e8",
+        "filename": "lib/libc/strtoull.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-10T21:10:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4081bd0c_8d1b3d87",
+      "revId": "46e5b584ad18cf66cf4e6dae1b6d1ddeee24d1c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "42a607d6_ced26a5a",
         "filename": "lib/libc/strtoull.c",
@@ -102,8 +139,25 @@
       "side": 1,
       "message": "as above",
       "revId": "46e5b584ad18cf66cf4e6dae1b6d1ddeee24d1c1",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eebb7eb_851ba41c",
+        "filename": "lib/libc/strtoull.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-10T21:10:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "42a607d6_ced26a5a",
+      "revId": "46e5b584ad18cf66cf4e6dae1b6d1ddeee24d1c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
