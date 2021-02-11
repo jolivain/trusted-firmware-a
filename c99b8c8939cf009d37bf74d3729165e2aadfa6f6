@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7adb153e_41b168fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-11T10:33:48Z",
+      "side": 1,
+      "message": "LGTM but we need a config in the CI to test this. AFAICS, there is none with ARM_LINUX_KERNEL_AS_BL33\u003d1 at the moment. Andre, do you feel comfortable enough with the CI scripts to add one?",
+      "revId": "c99b8c8939cf009d37bf74d3729165e2aadfa6f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
