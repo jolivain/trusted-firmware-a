@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "252203b6_6742c390",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-02-11T00:48:14Z",
+      "side": 1,
+      "message": "Sorry, took me a while to wrap my head around this, as I was a bit wary of losing the generic sunxi_cpu_off() function.\nBut indeed the two callers of this function exercise either one of the different code paths inside, so splitting this up makes sense, also because technically powering oneself off is quite a different operation from powering other cores off.\nPlus it simplifies the future changes to come.\n",
+      "revId": "a1d349beb02f1d9d4cad7c1b5827ab737faff433",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
