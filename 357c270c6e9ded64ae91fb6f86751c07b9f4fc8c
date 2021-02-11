@@ -16,6 +16,24 @@
       "message": "Static checks failed:\n****** Order of includes on the last patch(es) ******\n\nResult : FAILURE\n\nChecking files modified between patches origin/master and HEAD...\n6510edc41:drivers/rambus/trng_ip_76.c: [\u0027Project includes not in order. Include order\n    should be common/debug.h, drivers/delay_timer.h, drivers/rambus/trng_ip_76.h,\n    lib/mmio.h, lib/spinlock.h, lib/utils.h\u0027]\n\n\n\n****** Line endings not valid ******\n\nResult : SUCCESS\n\n****** Coding style on current patch ******\n\nResult : FAILURE\n\n  CHECKING STYLE\n\n[*] Checking style of \u0027357c270c6e9ded64ae91fb6f86751c07b9f4fc8c\u0027\n\n\n[*] Checking style of \u0027509fcb8d3763cfe30b510c6c3bf33d17331e06d6\u0027\n\n\n[*] Checking style of \u0027529151b1c00a2467fe57517a82554ca7ac09aaa9\u0027\n\nplat/marvell/armada/common/mss/mss_scp_bootloader.c:82: WARNING: line over 80 characters\n+\t\t\t      ((MSS_DMA_CTRLR_REQ_SET \u003c\u003c MSS_DMA_CTRLR_REQ_OFFSET) |\n\nplat/marvell/armada/common/mss/mss_scp_bootloader.c:88: WARNING: line over 80 characters\n+\t\t\t\t\t  (MSS_DMA_CTRLR_ACK_OFFSET \u0026 MSS_DMA_CTRLR_ACK_MASK))\n\ntotal: 0 errors, 2 warnings, 188 lines checked\n\n[*] Checking style of \u002737094e8b939e87b32d5568cb3cd7eb60e92fbc22\u0027\n\n\n[*] Checking style of \u0027a4fa3c0f5ae28e5481e1b978c5aaae49c4177044\u0027\n\n\n[*] Checking style of \u00273a75ffc2bb4ea59a11ceb901717159cc1c09db92\u0027\n\n\n[*] Checking style of \u00277a1dc76534ff24a86f9eeff4016123877deee15e\u0027\n\ndrivers/marvell/mochi/ap807_setup.c:188: WARNING: line over 80 characters\n+\tfor (i \u003d 0; stream_id_reg[i] !\u003d 0 \u0026\u0026 i \u003c ARRAY_SIZE(stream_id_reg); i++) {\n\ntotal: 0 errors, 1 warnings, 146 lines checked\n\n[*] Checking style of \u002791048b3b85b78ae6268f12f6680b6e8cd53bd43c\u0027\n\ndrivers/marvell/mochi/cp110_setup.c:389: ERROR: do not initialise statics to false\n+\tstatic bool done \u003d false;\n\nplat/marvell/armada/common/mrvl_sip_svc.c:139: WARNING: Possible switch case/default not preceded by break or fallthrough comment\n+\tcase MV_SIP_RNG_64:\n\ntotal: 1 errors, 1 warnings, 89 lines checked\n\n[*] Checking style of \u00276510edc415b1bbfecb4b378a62ddc5454c6a4342\u0027\n\ndrivers/rambus/trng_ip_76.c:89: WARNING: struct  should normally be const\n+struct eip76_rng_dev {\n\ndrivers/rambus/trng_ip_76.c:95: WARNING: struct  should normally be const\n+static struct eip76_rng_dev eip76_dev;\n\ndrivers/rambus/trng_ip_76.c:98: WARNING: struct  should normally be const\n+static inline uint32_t eip76_rng_read(struct eip76_rng_dev *dev, uint16_t reg)\n\ndrivers/rambus/trng_ip_76.c:103: WARNING: struct  should normally be const\n+static inline void eip76_rng_write(struct eip76_rng_dev *dev,\n\ndrivers/rambus/trng_ip_76.c:109: WARNING: struct  should normally be const\n+static void eip76_rng_init(struct eip76_rng_dev *dev)\n\ndrivers/rambus/trng_ip_76.c:138: WARNING: line over 80 characters\n+\t *   This field can only be modified while ���enable_trng��� in TRNG_CONTROL\n\ndrivers/rambus/trng_ip_76.c:139: WARNING: line over 80 characters\n+\t *   is ���0��� or when either of the ���test_known_noise��� or ���test_cond_func���\n\ndrivers/rambus/trng_ip_76.c:140: WARNING: line over 80 characters\n+\t *   bits in TRNG_TEST is ���1���. Value 0 in this field selects 256 blocks\n\ndrivers/rambus/trng_ip_76.c:149: WARNING: line over 80 characters\n+\t * This field can only be modified while ���enable_trng��� in TRNG_CONTROL\n\ndrivers/rambus/trng_ip_76.c:150: WARNING: line over 80 characters\n+\t * is ���0��� or when either of the ���test_known_noise��� or ���test_cond_func���\n\ntotal: 0 errors, 10 warnings, 268 lines checked\n\n\n****** Banned API check on patch(es) ******\n\nResult : SUCCESS",
       "revId": "357c270c6e9ded64ae91fb6f86751c07b9f4fc8c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86d1a2f0_ff748603",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2021-02-11T08:44:34Z",
+      "side": 1,
+      "message": "Fixing and re-posting.",
+      "parentUuid": "df1bd405_7ba1f684",
+      "revId": "357c270c6e9ded64ae91fb6f86751c07b9f4fc8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
