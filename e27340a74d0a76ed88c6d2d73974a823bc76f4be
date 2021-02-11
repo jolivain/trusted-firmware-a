@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff49761e_3be84cd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-11T10:36:45Z",
+      "side": 1,
+      "message": "LGTM. The comment about AArch32 is not necessarily in scope for this patch, this could be a subsequent patch.\n\nThe reason for my -1 is just the lack of testing in the CI (same comment as the previous patch in the stack).",
+      "revId": "e27340a74d0a76ed88c6d2d73974a823bc76f4be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8aa44599_e53a6f92",
         "filename": "plat/arm/common/arm_common.mk",
         "patchSetId": 1
@@ -37,6 +54,29 @@
       "writtenOn": "2021-02-10T18:36:00Z",
       "side": 1,
       "message": "nitpick:\nCan you compare directly for aarch32\nifeq (${ARCH}, aarch32)",
+      "revId": "e27340a74d0a76ed88c6d2d73974a823bc76f4be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d59b8f2f_5943fcce",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-11T10:36:45Z",
+      "side": 1,
+      "message": "I guess we could have a similar patch for AArch32 builds. Probably the dependency between ARM_LINUX_KERNEL_AS_BL33\u003d1 and RESET_TO_SP_MIN\u003d1 is artificial as well. Or is there a good reason this has to stay like this?",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 9
+      },
       "revId": "e27340a74d0a76ed88c6d2d73974a823bc76f4be",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
