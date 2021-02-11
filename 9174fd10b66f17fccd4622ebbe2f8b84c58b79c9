@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "652e9b20_a338dd90",
+        "filename": "plat/arm/board/juno/platform.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-02-11T22:27:56Z",
+      "side": 1,
+      "message": "Alexei had introduced a build flag called ARM_ARCH_FEATURE for specifying arm architecture features. I was wondering if that would make specifying this feature simpler rather than appending to each CPPFLAGS.\n\nARM_ARCH_FEATURE \u003d crc\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/7377",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 35
+      },
+      "revId": "9174fd10b66f17fccd4622ebbe2f8b84c58b79c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
