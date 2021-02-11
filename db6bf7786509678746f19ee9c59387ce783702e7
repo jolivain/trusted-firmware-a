@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6630731f_861f3e70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-02-11T18:10:18Z",
+      "side": 1,
+      "message": "Considering the size of series, i was thinking of logically divide it in small chunks.\nIf one chunk of patch is self sufficient then we can try to merge them in phases.\n\nIt looks to me that first 5 patches makes a chunk, let\u0027s try to get these merged first.",
+      "revId": "db6bf7786509678746f19ee9c59387ce783702e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
