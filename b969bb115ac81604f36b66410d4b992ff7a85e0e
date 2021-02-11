@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c4b9cfd1_27c4937e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-02-11T20:51:54Z",
+      "side": 1,
+      "message": "We can ignore them but, ignoring static check failures selectively will cause a lot of administrative problems. So, IMHO its better to write modify code than carrying on with this debt.",
+      "parentUuid": "5ccf3a45_b0755e49",
+      "revId": "b969bb115ac81604f36b66410d4b992ff7a85e0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a420d64_a5d6869c",
         "filename": "plat/nxp/soc-lx2160/lx2160aqds/ddr_init.c",
         "patchSetId": 24
