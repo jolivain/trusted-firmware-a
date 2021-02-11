@@ -77,6 +77,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c1fcab5_5aef25da",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-02-11T11:13:09Z",
+      "side": 1,
+      "message": "Yeah, indeed, and I think more importantly docs/plat/arm/fvp/index.rst needs an overhaul as well. We tried to follow the instructions in there and failed, that\u0027s what actually triggered my investigation resulting in those patches.",
+      "parentUuid": "8aa44599_e53a6f92",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 25
+      },
+      "revId": "e27340a74d0a76ed88c6d2d73974a823bc76f4be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d59b8f2f_5943fcce",
         "filename": "plat/arm/common/arm_common.mk",
         "patchSetId": 1
