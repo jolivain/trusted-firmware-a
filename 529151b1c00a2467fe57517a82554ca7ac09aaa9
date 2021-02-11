@@ -16,6 +16,24 @@
       "message": "Build for the a80x0 platform failed:\nBuild command line:\n\t make  CROSS_COMPILE\u003d/arm/pdsw/tools/gcc-linaro-6.2.1-2016.11-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- PLAT\u003da80x0 SCP_BL2\u003d/dev/null  DEBUG\u003d1 V\u003d1 fiptool all\n\nplat/marvell/armada/a8k/common/mss/mss_bl2_setup.c: In function \u0027bl2_plat_get_cp_mss_sram\u0027:\nplat/marvell/armada/a8k/common/mss/mss_bl2_setup.c:129:6: error: implicit declaration of function \u0027is_secure\u0027 [-Werror\u003dimplicit-function-declaration]\n  if (is_secure()) {\n      ^~~~~~~~~\ncc1: all warnings being treated as errors\nMakefile:1110: recipe for target \u0027/work/workspace/workspace/tf-worker_ws_11/trusted_firmware/build/a80x0/debug/bl2/mss_bl2_setup.o\u0027 failed\nmake: *** [/work/workspace/workspace/tf-worker_ws_11/trusted_firmware/build/a80x0/debug/bl2/mss_bl2_setup.o] Error 1",
       "revId": "529151b1c00a2467fe57517a82554ca7ac09aaa9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4188ee6b_f39b5013",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2021-02-11T08:43:12Z",
+      "side": 1,
+      "message": "Right, I missed one patch. Adding it now. For the successful compilation you also need to define MV_DDR_PATH",
+      "parentUuid": "f6e9fa55_767bf770",
+      "revId": "529151b1c00a2467fe57517a82554ca7ac09aaa9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
