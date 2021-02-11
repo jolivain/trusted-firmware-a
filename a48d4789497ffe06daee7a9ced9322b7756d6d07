@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65e08908_3680c06a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-02-11T12:18:46Z",
+      "side": 1,
+      "message": "One MISRA issue, one style nit, looks good otherwise",
+      "revId": "a48d4789497ffe06daee7a9ced9322b7756d6d07",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8697c68_6f2cf0b8",
+        "filename": "drivers/arm/tzc/tzc400.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-02-11T12:18:46Z",
+      "side": 1,
+      "message": "A /* DEBUG */ comment would be useful here",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 6
+      },
+      "revId": "a48d4789497ffe06daee7a9ced9322b7756d6d07",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8555c1b_b03f7802",
+        "filename": "drivers/arm/tzc/tzc400.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-02-11T12:18:46Z",
+      "side": 1,
+      "message": "This breaks MISRA rule 14.4 - should be:\nif (_tzc400_get_int_by_filter(tzc400.base, filter) !\u003d 0U) {\nto make the if condition essentially boolean",
+      "range": {
+        "startLine": 319,
+        "startChar": 6,
+        "endLine": 319,
+        "endChar": 52
+      },
+      "revId": "a48d4789497ffe06daee7a9ced9322b7756d6d07",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
