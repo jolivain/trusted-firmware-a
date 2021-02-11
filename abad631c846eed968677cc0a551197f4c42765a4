@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "df1a914b_588589c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-02-11T18:17:50Z",
+      "side": 1,
+      "message": "remove it,\nAs this change is in generic files which provides capability to add platform defined UUIDs.\nHowever, you can mention that this was required for nxp platform.",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 5
+      },
+      "revId": "abad631c846eed968677cc0a551197f4c42765a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "46972c77_f172563d",
