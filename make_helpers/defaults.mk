@@ -90,6 +90,9 @@ DISABLE_MTPMU			:= 0
 # development platforms.
 DYN_DISABLE_AUTH		:= 0
 
+# Build option to enable Arm Ethos-N NPU SiP service
+ENABLE_ETHOSN			:= 0
+
 # Build option to enable MPAM for lower ELs
 ENABLE_MPAM_FOR_LOWER_ELS	:= 0
 
