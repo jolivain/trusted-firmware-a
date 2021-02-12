@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,7 @@
 
 #include <common/debug.h>
 #include <common/runtime_svc.h>
+#include <drivers/arm/ethosn.h>
 #include <lib/debugfs.h>
 #include <lib/pmf/pmf.h>
 #include <plat/arm/common/arm_sip_svc.h>
@@ -50,30 +51,43 @@ static uintptr_t arm_sip_handler(unsigned int smc_fid,
 {
 	int call_count = 0;
 
+#if ENABLE_PMF
+
 	/*
 	 * Dispatch PMF calls to PMF SMC handler and return its return
 	 * value
 	 */
-	if (is_pmf_fid(smc_fid)) {
+	if (is_pmf_fid(smc_fid) != 0) {
 		return pmf_smc_handler(smc_fid, x1, x2, x3, x4, cookie,
 				handle, flags);
 	}
 
+#endif /* ENABLE_PMF */
+
 #if USE_DEBUGFS
 
-	if (is_debugfs_fid(smc_fid)) {
+	if (is_debugfs_fid(smc_fid) != 0) {
 		return debugfs_smc_handler(smc_fid, x1, x2, x3, x4, cookie,
 					   handle, flags);
 	}
 
 #endif /* USE_DEBUGFS */
 
+#if ENABLE_ETHOSN
+
+	if (is_ethosn_fid(smc_fid) != 0) {
+		return ethosn_smc_handler(smc_fid, x1, x2, x3, x4, cookie,
+					  handle, flags);
+	}
+
+#endif /* ENABLE_ETHOSN */
+
 	switch (smc_fid) {
 	case ARM_SIP_SVC_EXE_STATE_SWITCH: {
 		/* Execution state can be switched only if EL3 is AArch64 */
 #ifdef __aarch64__
 		/* Allow calls from non-secure only */
-		if (!is_caller_non_secure(flags))
+		if (is_caller_non_secure(flags) == 0)
 			SMC_RET1(handle, STATE_SW_E_DENIED);
 
 		/*
@@ -91,6 +105,11 @@ static uintptr_t arm_sip_handler(unsigned int smc_fid,
 	case ARM_SIP_SVC_CALL_COUNT:
 		/* PMF calls */
 		call_count += PMF_NUM_SMC_CALLS;
+
+#if ENABLE_ETHOSN
+		/* ETHOSN calls */
+		call_count += ETHOSN_NUM_SMC_CALLS;
+#endif /* ENABLE_ETHOSN */
 
 		/* State switch call */
 		call_count += 1;
