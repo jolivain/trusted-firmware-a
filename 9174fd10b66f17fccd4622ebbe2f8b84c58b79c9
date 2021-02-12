@@ -87,6 +87,30 @@
       },
       "revId": "9174fd10b66f17fccd4622ebbe2f8b84c58b79c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a55aa56_1722fca9",
+        "filename": "plat/arm/board/juno/platform.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-02-12T18:46:08Z",
+      "side": 1,
+      "message": "Are you suggesting that we ask the user to add this every time they want to build for Juno? I don\u0027t think this is the right solution: if that is a requirement of the code, it should be enforced by the build system. I don\u0027t like enumerating all the stages either, but that is how I made it work. So either I keep this, or there is a simpler way to specify this? Not sure if moving the ARM_ARCH_FEATURES processing later in the top level Makefile really works (I think there are dependencies).\n\nI wonder if we can accept this slightly annoying enumeration for now, with the chance of this getting remedied with the build system overhaul?",
+      "parentUuid": "e1eb97fc_49df4bde",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 35
+      },
+      "revId": "9174fd10b66f17fccd4622ebbe2f8b84c58b79c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
