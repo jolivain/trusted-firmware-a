@@ -111,6 +111,30 @@
       },
       "revId": "9174fd10b66f17fccd4622ebbe2f8b84c58b79c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32c957f4_8cfbd26e",
+        "filename": "plat/arm/board/juno/platform.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-02-12T20:20:18Z",
+      "side": 1,
+      "message": "After reading my comment myself, I realize I made a wrong suggestion. Perhaps, it would be good if the build system enforces the ARM_ARCH_FEATURE appropriately to support crc intrinsics for Juno, at least when TRNG_SUPPORT\u003d1. I am sure others will have better ideas to deal with this concern.",
+      "parentUuid": "4a55aa56_1722fca9",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 35
+      },
+      "revId": "9174fd10b66f17fccd4622ebbe2f8b84c58b79c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
