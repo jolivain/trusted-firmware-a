@@ -693,6 +693,12 @@ ifeq ($(COT_DESC_IN_DTB),1)
     $(info CoT in device tree is an experimental feature)
 endif
 
+ifeq ($(ENABLE_ETHOSN),1)
+    ifneq ($(PLAT)-$(ARCH),juno-aarch64)
+        $(error "ENABLE_ETHOSN is only supported for the Arm Juno platform on AArch64")
+    endif
+endif
+
 # If pointer authentication is used in the firmware, make sure that all the
 # registers associated to it are also saved and restored.
 # Not doing it would leak the value of the keys used by EL3 to EL1 and S-EL1.
@@ -896,6 +902,7 @@ $(eval $(call assert_booleans,\
         EL3_EXCEPTION_HANDLING \
         ENABLE_AMU \
         ENABLE_ASSERTIONS \
+        ENABLE_ETHOSN \
         ENABLE_MPAM_FOR_LOWER_ELS \
         ENABLE_PIE \
         ENABLE_PMF \
@@ -986,6 +993,7 @@ $(eval $(call add_defines,\
         ENABLE_AMU \
         ENABLE_ASSERTIONS \
         ENABLE_BTI \
+        ENABLE_ETHOSN \
         ENABLE_MPAM_FOR_LOWER_ELS \
         ENABLE_PAUTH \
         ENABLE_PIE \

@@ -231,6 +231,12 @@ Common build options
    builds, but this behaviour can be overridden in each platform's Makefile or
    in the build command line.
 
+-  ``ENABLE_ETHOSN``: Boolean option to enable a SiP service that can configure
+   an Arm Ethos-N NPU. To use this service the target platform must include the
+   device tree for the NPU in its ``HW_CONFIG``. Currently only the Arm Juno
+   platform has this include in its ``HW_CONFIG`` and the platform only loads
+   the ``HW_CONFIG`` in AArch64 builds. Default is 0.
+
 -  ``ENABLE_LTO``: Boolean option to enable Link Time Optimization (LTO)
    support in GCC for TF-A. This option is currently only supported for
    AArch64. Default is 0.
@@ -843,4 +849,4 @@ commands can be used:
 
 --------------
 
-*Copyright (c) 2019-2020, Arm Limited. All rights reserved.*
+*Copyright (c) 2019-2021, Arm Limited. All rights reserved.*

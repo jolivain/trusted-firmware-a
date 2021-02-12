@@ -9,3 +9,7 @@
 / {
 
 };
+
+#if ENABLE_ETHOSN
+	#include "ethosn.dtsi"
+#endif
