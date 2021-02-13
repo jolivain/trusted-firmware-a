@@ -16,6 +16,23 @@
       "message": "\u003e Patch Set 5:\n\u003e \n\u003e \u003e Patch Set 5: Verified-1\n\u003e \u003e \n\u003e \u003e Build Failed \n\u003e \u003e \n\u003e \u003e https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l1/3501/ : This Jenkins server is not publicly accessible. A core maintainer will let you know if this CI failure is blocking the merge of this patch.\n\u003e \n\u003e Notice the static check failures:\n\u003e \n\u003e \n\u003e Checking files modified between patches origin/master and HEAD...\n\u003e c59359e6d:drivers/nxp/interconnect/ls_cci.c: [\u0027utils.h should be in project group,\n\u003e     after system group\u0027]\n\u003e \n\u003e 69b114d27:drivers/auth/auth_mod.c: [\u0027Project includes not in order. Include order\n\u003e     should be common/debug.h, common/tbbr/cot_def.h, drivers/auth/auth_common.h, drivers/auth/auth_mod.h,\n\u003e     drivers/auth/crypto_mod.h\u0027]\n\u003e \n\u003e 69b114d27:include/drivers/auth/auth_mod.h: [\u0027Project includes not in order. Include\n\u003e     order should be common/tbbr/cot_def.h, drivers/auth/mbedtls/mbedtls_config.h\u0027]\n\u003e \n\u003e \n\u003e \n\u003e common/bl_common.c:198: ERROR: trailing whitespace\n\u003e +^I * Crypto H/w accelerator can authenticate this image from $\n\u003e \n\u003e drivers/nxp/dcfg/dcfg.c:124: ERROR: else should follow close brace \u0027}\u0027\n\u003e +\t}\n\u003e +\telse {\n\nIt is fixed now.",
       "revId": "bdbd868d61adab894e45890791a90312b1404136",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54141371_3e3a9ce5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-13T05:33:26Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "bdbd868d61adab894e45890791a90312b1404136",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
