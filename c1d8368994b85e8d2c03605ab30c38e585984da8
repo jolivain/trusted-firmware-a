@@ -33,6 +33,24 @@
       "message": "Please upvote.\n\nregards\nPankaj",
       "revId": "c1d8368994b85e8d2c03605ab30c38e585984da8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4673988_fa8772d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-15T13:39:44Z",
+      "side": 1,
+      "message": "Thanks for the details. I am starting to understand the problem. IIUC this boils down to cot_def.h *using* macros provided by mbedtls_config.h without taking care of *pulling* these definitions in the first place.\n\nI think you stumbled upon this issue because you are the first platform integrator to define their own chain of trust. When using the generic ones, mbedtls_config.h gets included *before* auth_mod.h (which in turn includes cot_def.h) from within the C files, see drivers/auth/tbbr/tbbr_cot_bl2.c and drivers/auth/dualroot/cot.c. \n\nI hadn\u0027t realized we relied on the order of these includes. This does not sound right to me and I agree with you that we need to fix things by removing this constraint.\n\nThat being said, I am not sure this patch is the best way to fix the problem. AFAICS, we\u0027re just moving the problem elsewhere, as now it\u0027s auth_mod.h which has to enforce the include order dependency. This is slightly better than the current situation because all C files pulling auth_mod.h will benefit from the fix (rather than having to deal with this issue in each C source file). But if in the future some other header file needs to pull in definitions from cot_def.h, it will have to enforce the include order dependency as well. This is easily missed IMO.\n\nIt seems better to me to have cot_def.h include mbedtls_config.h. Is there a reason we can\u0027t/don\u0027t want to do that?",
+      "parentUuid": "c725613c_24110923",
+      "revId": "c1d8368994b85e8d2c03605ab30c38e585984da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
