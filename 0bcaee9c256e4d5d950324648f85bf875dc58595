@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "53808625_599b325d",
         "filename": "plat/allwinner/common/include/platform_def.h",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "432 KiB, is that all??? 😄\n\nI would expect 128 KiB for the whole thing to be more than enough.",
       "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "25481f38_e4365a6e",
+        "filename": "plat/allwinner/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-02-15T23:21:28Z",
+      "side": 1,
+      "message": "So my rationale was as follows: for compatibility with the SRAM based ports and to allow non-secure access to the very beginning of DRAM, I start at offset 0x4000. The earliest used offset after this is the (former) Linux kernel text offset, at 512KB (0x80000). I left a gap of 64K before that, for instance to hold the DTB. This gives me the 0x70000 as an upper limit.\nI think it\u0027s easier to reserve more, now, even if we might not need that at the moment. If we start with a smaller amount of memory reservation, I see people hard coding this everywhere, which would make it hard to increase this later. So instead of inventing some limit, I used the reasoning above to give as much as possible, within reason.\nI don\u0027t have a very strong opinion on this, though, let me know what you think!",
+      "parentUuid": "53808625_599b325d",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "b49c61f9_f5af5e81",
         "filename": "plat/allwinner/common/include/platform_def.h",
@@ -31,10 +50,28 @@
       "side": 1,
       "message": "I think you commented out the only user of this, and if there\u0027s no SRAM A2, there shouldn\u0027t be a SUNXI_SRAM_A2_BASE.",
       "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90b8af02_648fdb55",
+        "filename": "plat/allwinner/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-02-15T23:21:28Z",
+      "side": 1,
+      "message": "There were still users at this point in time, since we use SRAM_A2_BASE everywhere. With my new version all code relying on SRAM A2 or the SCP is now separate, so I could now get rid of SUNXI_SCP_BASE for good.",
+      "parentUuid": "b49c61f9_f5af5e81",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "f040a565_336167b9",
         "filename": "plat/allwinner/common/include/platform_def.h",
@@ -48,10 +85,28 @@
       "side": 1,
       "message": "There\u0027s no need for this hack here. I suggest moving SEPARATE_NOBITS_REGION to the per-platform Makefile.",
       "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b5a85de_78f1d3e0",
+        "filename": "plat/allwinner/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-02-15T23:21:28Z",
+      "side": 1,
+      "message": "Thanks for the tip, done.",
+      "parentUuid": "f040a565_336167b9",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "4766a4e5_88109869",
         "filename": "plat/allwinner/common/include/platform_def.h",
@@ -65,10 +120,28 @@
       "side": 1,
       "message": "You already have the right values in sunxi_mmap.h, so this shouldn\u0027t be needed here.",
       "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "057496cf_8b24c962",
+        "filename": "plat/allwinner/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-02-15T23:21:28Z",
+      "side": 1,
+      "message": "Indeed, this was quite a blunder. I removed lines 30-33.",
+      "parentUuid": "4766a4e5_88109869",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "739f30c4_0bcc5cb5",
         "filename": "plat/allwinner/sun50i_h616/include/sunxi_mmap.h",
@@ -82,10 +155,28 @@
       "side": 1,
       "message": "Please remove this until we find SRAM A2.",
       "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf0f650a_8d841131",
+        "filename": "plat/allwinner/sun50i_h616/include/sunxi_mmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-02-15T23:21:28Z",
+      "side": 1,
+      "message": "As mentioned in the other file, this was still needed at this time. I removed the other users, and this is now gone.",
+      "parentUuid": "739f30c4_0bcc5cb5",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "3665393b_17f411c8",
         "filename": "plat/allwinner/sun50i_h616/include/sunxi_mmap.h",
@@ -99,10 +190,28 @@
       "side": 1,
       "message": "What do you think about only including the devices we use, and sorting by address? I know I made this mess... but this is a mess.",
       "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6ddd5b3_8399086d",
+        "filename": "plat/allwinner/sun50i_h616/include/sunxi_mmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-02-15T23:21:28Z",
+      "side": 1,
+      "message": "Yeah, good idea, done that. I kept some devices that might prove to be useful in the future (SID).",
+      "parentUuid": "3665393b_17f411c8",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "f9f9e0d7_161006d7",
         "filename": "plat/allwinner/sun50i_h616/platform.mk",
@@ -116,10 +225,28 @@
       "side": 1,
       "message": "Is AXP305 compatible with AXP805, or is this just to get it to compile? If there\u0027s U-Boot SPL support for AXP305, do we need a driver for it here at all?",
       "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24456570_1b76b23b",
+        "filename": "plat/allwinner/sun50i_h616/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-02-15T23:21:28Z",
+      "side": 1,
+      "message": "Yes, for the Linux patches I compared the register descriptions, and they are the same between the AXP305 and AXP805. Not sure why it has a different name, maybe some analogue parameters differ, or it has a different package or temperate range.\nAnd we need the AXP to power down the system. That\u0027s admittedly a lot of code for a single register write, but we have the code already, and are not really short on memory for this SoC.\nI switched this to RSB as well.",
+      "parentUuid": "f9f9e0d7_161006d7",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "e41afe34_05168fba",
         "filename": "plat/allwinner/sun50i_h616/sunxi_power.c",
@@ -133,8 +260,25 @@
       "side": 1,
       "message": "Shouldn\u0027t we verify the chip ID before we start writing to it?",
       "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cc8b103_848e0b28",
+        "filename": "plat/allwinner/sun50i_h616/sunxi_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-02-15T23:21:28Z",
+      "side": 1,
+      "message": "I don\u0027t know for sure, but maybe we need to do this configuration first, before we can access the other registers? This was just copied from the (old) H6 I2C code.\nThis code is now gone anyway, because it\u0027s replaced with the RSB version.",
+      "parentUuid": "e41afe34_05168fba",
+      "revId": "0bcaee9c256e4d5d950324648f85bf875dc58595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
