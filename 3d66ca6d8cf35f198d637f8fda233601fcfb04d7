@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c19c1e41_17bfefb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-02-15T10:06:32Z",
+      "side": 1,
+      "message": "The TZC_400_REGION_ATTR_FILTER_BIT() macro is not used on STM32MP1, but with this change, I could modify my patch https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/8375 to use it.\nThe patch is OK for me.",
+      "revId": "3d66ca6d8cf35f198d637f8fda233601fcfb04d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
