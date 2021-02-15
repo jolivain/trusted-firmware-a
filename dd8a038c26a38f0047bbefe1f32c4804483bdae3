@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "56421cc1_72c0c847",
         "filename": "plat/allwinner/common/sunxi_common.c",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Jernej didn\u0027t check for RSB? Did you? I have H616 boards on the way, so eventually I will be able to check myself, but it\u0027s nice to get this right from the beginning.",
       "revId": "dd8a038c26a38f0047bbefe1f32c4804483bdae3",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "d50cf8f6_416215e1",
         "filename": "plat/allwinner/common/sunxi_common.c",
@@ -31,10 +32,10 @@
       "side": 1,
       "message": "Could you add braces around this if statement body?",
       "revId": "dd8a038c26a38f0047bbefe1f32c4804483bdae3",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b48e64d8_aee1a7af",
         "filename": "plat/allwinner/common/sunxi_common.c",
@@ -49,10 +50,10 @@
       "message": "Indeed, but this won\u0027t be necessary anymore, since we just treat H616 and H6 the same.",
       "parentUuid": "d50cf8f6_416215e1",
       "revId": "dd8a038c26a38f0047bbefe1f32c4804483bdae3",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5fb030c0_1f00a9b7",
         "filename": "plat/allwinner/common/sunxi_common.c",
@@ -67,8 +68,25 @@
       "message": "As mentioned over IRC, RSB indeed works, and I changed this patch to just treat the H616 the same as the H6.",
       "parentUuid": "56421cc1_72c0c847",
       "revId": "dd8a038c26a38f0047bbefe1f32c4804483bdae3",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "572a38ee_2430c8cc",
+        "filename": "plat/allwinner/common/sunxi_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-02-15T21:52:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fb030c0_1f00a9b7",
+      "revId": "dd8a038c26a38f0047bbefe1f32c4804483bdae3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
