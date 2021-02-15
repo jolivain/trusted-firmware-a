@@ -33,6 +33,24 @@
       "message": "Several FVP platform builds failed:\nBuild command line:\n\t make  CROSS_COMPILE\u003daarch64-none-elf- PLAT\u003dfvp  DEBUG\u003d1 V\u003d1 fiptool all\n\ndrivers/arm/tzc/tzc400.c: In function \u0027_tzc400_get_fail_address\u0027:\ndrivers/arm/tzc/tzc400.c:92:36: error: left shift count \u003e\u003d width of type [-Werror\u003dshift-count-overflow]\n   92 |          (filter * FILTER_OFFSET)) \u003c\u003c 32;\n      |                                    ^~\ncc1: all warnings being treated as errors\nMakefile:1116: recipe for target \u0027/work/workspace/workspace/tf-worker_ws_8/trusted_firmware/build/fvp/debug/bl2/tzc400.o\u0027 failed\nmake: *** [/work/workspace/workspace/tf-worker_ws_8/trusted_firmware/build/fvp/debug/bl2/tzc400.o] Error 1",
       "revId": "3734cf5e38fc6c48264f81002d60d08942d2f09a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba48b431_784669f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-02-15T10:03:39Z",
+      "side": 1,
+      "message": "Corrected, the mmio_read_32 was missing an unsigned long cast.",
+      "parentUuid": "dc67cc8d_fb2de3f6",
+      "revId": "3734cf5e38fc6c48264f81002d60d08942d2f09a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
