@@ -9,6 +9,7 @@
 
 #include <lib/utils_def.h>
 
+#include <sgi_sdei.h>
 #include <sgi_soc_platform_def.h>
 
 #define PLAT_ARM_CLUSTER_COUNT		U(2)
