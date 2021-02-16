@@ -159,6 +159,30 @@
       },
       "revId": "9174fd10b66f17fccd4622ebbe2f8b84c58b79c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "116d98e5_cfc1f0a6",
+        "filename": "plat/arm/board/juno/platform.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-02-16T16:46:29Z",
+      "side": 1,
+      "message": "No, unfortunately not. I think the point is that this variable is referenced in line 208 of the top level Makefile, whereas the platform Makefile is included only in line 549. At least that is my understanding of it. So any change to ARM_ARCH_FEATURE would be applied, but is not honoured, since we actually use ${arch-features}, which isn\u0027t updated anymore.",
+      "parentUuid": "07e127d5_4a43d00c",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 35
+      },
+      "revId": "9174fd10b66f17fccd4622ebbe2f8b84c58b79c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
