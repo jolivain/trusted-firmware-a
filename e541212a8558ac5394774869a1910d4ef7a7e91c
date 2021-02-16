@@ -1,6 +1,24 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a27e56d0_2af3c152",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-16T14:02:54Z",
+      "side": 1,
+      "message": "Sorry for the delay. I will push patch shortly.",
+      "revId": "e541212a8558ac5394774869a1910d4ef7a7e91c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "607caa5a_6744fb73",
         "filename": "include/drivers/brcm/usbh_xhci_regs.h",
@@ -14,10 +32,10 @@
       "side": 1,
       "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#header-guards\nFix everywhere",
       "revId": "e541212a8558ac5394774869a1910d4ef7a7e91c",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "1719ca48_3116659d",
         "filename": "include/drivers/brcm/usbh_xhci_regs.h",
@@ -32,10 +50,10 @@
       "message": "Ack",
       "parentUuid": "607caa5a_6744fb73",
       "revId": "e541212a8558ac5394774869a1910d4ef7a7e91c",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a9ebb91f_e4fb85b7",
         "filename": "include/drivers/brcm/usbh_xhci_regs.h",
@@ -49,10 +67,10 @@
       "side": 1,
       "message": "Coverity scan will report that empty line is needed after variables\u0027 declarations. Fix everywhere.",
       "revId": "e541212a8558ac5394774869a1910d4ef7a7e91c",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "51ba53c2_a604b1cc",
         "filename": "include/drivers/brcm/usbh_xhci_regs.h",
@@ -67,10 +85,10 @@
       "message": "Ack",
       "parentUuid": "a9ebb91f_e4fb85b7",
       "revId": "e541212a8558ac5394774869a1910d4ef7a7e91c",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1c9af0b0_f61be729",
         "filename": "plat/brcm/board/stingray/driver/usb.c",
@@ -84,10 +102,10 @@
       "side": 1,
       "message": "unsigned int. Fix everywhere.",
       "revId": "e541212a8558ac5394774869a1910d4ef7a7e91c",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "48e8c32b_e27d20f4",
         "filename": "plat/brcm/board/stingray/driver/usb.c",
@@ -102,10 +120,10 @@
       "message": "Ack",
       "parentUuid": "1c9af0b0_f61be729",
       "revId": "e541212a8558ac5394774869a1910d4ef7a7e91c",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "22f2efc6_f6ebadb0",
         "filename": "plat/brcm/board/stingray/driver/usb.c",
@@ -119,10 +137,10 @@
       "side": 1,
       "message": "See comments for https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/5847",
       "revId": "e541212a8558ac5394774869a1910d4ef7a7e91c",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "b273d24f_09f6647c",
         "filename": "plat/brcm/board/stingray/driver/usb.c",
@@ -137,10 +155,10 @@
       "message": "Ack",
       "parentUuid": "22f2efc6_f6ebadb0",
       "revId": "e541212a8558ac5394774869a1910d4ef7a7e91c",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b424f179_7858964c",
         "filename": "plat/brcm/board/stingray/driver/usb_phy.c",
@@ -154,10 +172,10 @@
       "side": 1,
       "message": "uint32_t retry, so !\u003d 0",
       "revId": "e541212a8558ac5394774869a1910d4ef7a7e91c",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "04a47421_9416a13a",
         "filename": "plat/brcm/board/stingray/driver/usb_phy.c",
@@ -172,10 +190,10 @@
       "message": "Ack",
       "parentUuid": "b424f179_7858964c",
       "revId": "e541212a8558ac5394774869a1910d4ef7a7e91c",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "15e14750_d6169fa4",
         "filename": "plat/brcm/board/stingray/driver/usb_phy.c",
@@ -189,8 +207,25 @@
       "side": 1,
       "message": "If always returning 0, can make void.\nSame in many functions.",
       "revId": "e541212a8558ac5394774869a1910d4ef7a7e91c",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abde4c34_757416a9",
+        "filename": "plat/brcm/board/stingray/driver/usb_phy.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-16T14:02:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "15e14750_d6169fa4",
+      "revId": "e541212a8558ac5394774869a1910d4ef7a7e91c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
