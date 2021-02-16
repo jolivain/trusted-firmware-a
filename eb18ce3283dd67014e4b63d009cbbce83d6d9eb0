@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d7fc299_48b051f2",
+        "filename": "plat/arm/board/juno/juno_trng.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-16T16:26:56Z",
+      "side": 1,
+      "message": "Won\u0027t the previous crc_value set on line #76 overwritten here? The original code is using ^\u003d.",
+      "revId": "eb18ce3283dd67014e4b63d009cbbce83d6d9eb0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "172a2b5f_14fca69c",
+        "filename": "plat/arm/board/juno/juno_trng.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-16T16:26:56Z",
+      "side": 1,
+      "message": "The same question.",
+      "revId": "eb18ce3283dd67014e4b63d009cbbce83d6d9eb0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98c817ca_49b0728f",
+        "filename": "plat/arm/board/juno/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-16T16:26:56Z",
+      "side": 1,
+      "message": "Can you use ARM_ARCH_FEATURE\u003dcrc build flag?",
+      "revId": "eb18ce3283dd67014e4b63d009cbbce83d6d9eb0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
