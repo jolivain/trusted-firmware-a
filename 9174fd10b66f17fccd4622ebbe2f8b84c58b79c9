@@ -183,6 +183,30 @@
       },
       "revId": "9174fd10b66f17fccd4622ebbe2f8b84c58b79c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "398cdfd0_2f775142",
+        "filename": "plat/arm/board/juno/platform.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-02-17T09:23:35Z",
+      "side": 1,
+      "message": "IMHO in that case the proper way of making this work is to add \"ARM_ARCH_FEATURE\u003dcrc\" in Juno CI configuration (see tf_config/qemu_sbsa-stack-protector-rndcanary as example with \"rng\") and update documentation for Juno build instructions.",
+      "parentUuid": "116d98e5_cfc1f0a6",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 35
+      },
+      "revId": "9174fd10b66f17fccd4622ebbe2f8b84c58b79c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
