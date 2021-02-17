@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51a63ae2_2cca71ef",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr_parser.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-17T08:20:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91a2d43f_627fd5d8",
+      "range": {
+        "startLine": 213,
+        "startChar": 16,
+        "endLine": 213,
+        "endChar": 17
+      },
+      "revId": "9425f632d87537069d6deda7c100c8f45bb7610c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0588aaeb_d71e5e19",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-16T22:47:02Z",
       "side": 1,
       "message": "Invalid return of negative on unsigned return",
+      "range": {
+        "startLine": 227,
+        "startChar": 2,
+        "endLine": 227,
+        "endChar": 11
+      },
+      "revId": "9425f632d87537069d6deda7c100c8f45bb7610c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "672d5b20_2a8efef0",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr_parser.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-17T08:20:54Z",
+      "side": 1,
+      "message": "Modified the function return type from uint32_t to int32_t.",
+      "parentUuid": "0588aaeb_d71e5e19",
       "range": {
         "startLine": 227,
         "startChar": 2,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4bffeeb_4d051610",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr_parser.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-17T08:20:54Z",
+      "side": 1,
+      "message": "Ack.\nModified the function return type from uint32_t to int32_t.",
+      "parentUuid": "283c6872_cf588477",
+      "range": {
+        "startLine": 237,
+        "startChar": 2,
+        "endLine": 237,
+        "endChar": 11
+      },
+      "revId": "9425f632d87537069d6deda7c100c8f45bb7610c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fea724a8_14fe3aaa",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-02-16T22:47:02Z",
       "side": 1,
       "message": "U",
+      "range": {
+        "startLine": 245,
+        "startChar": 12,
+        "endLine": 245,
+        "endChar": 13
+      },
+      "revId": "9425f632d87537069d6deda7c100c8f45bb7610c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92fe2a79_35dc14e4",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr_parser.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-17T08:20:54Z",
+      "side": 1,
+      "message": "Modified the function return type from uint32_t to int32_t.",
+      "parentUuid": "fea724a8_14fe3aaa",
       "range": {
         "startLine": 245,
         "startChar": 12,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c4fa405_325f2c3c",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr_parser.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-17T08:20:54Z",
+      "side": 1,
+      "message": "Modified the function return type from uint32_t to int32_t.",
+      "parentUuid": "a665dbdf_0525acec",
+      "range": {
+        "startLine": 247,
+        "startChar": 2,
+        "endLine": 247,
+        "endChar": 11
+      },
+      "revId": "9425f632d87537069d6deda7c100c8f45bb7610c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88ae1105_ab90b4de",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-02-16T22:47:02Z",
       "side": 1,
       "message": "Invalid return of negative on unsigned return",
+      "range": {
+        "startLine": 254,
+        "startChar": 3,
+        "endLine": 254,
+        "endChar": 12
+      },
+      "revId": "9425f632d87537069d6deda7c100c8f45bb7610c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23c13060_5aac84b2",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr_parser.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-17T08:20:54Z",
+      "side": 1,
+      "message": "Modified the function return type from uint32_t to int32_t.",
+      "parentUuid": "88ae1105_ab90b4de",
       "range": {
         "startLine": 254,
         "startChar": 3,
@@ -162,6 +306,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8527b7b9_2b0c647f",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr_parser.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-17T08:20:54Z",
+      "side": 1,
+      "message": "Modified the function return type from uint32_t to int32_t.",
+      "parentUuid": "e63c10af_263fdc32",
+      "range": {
+        "startLine": 266,
+        "startChar": 13,
+        "endLine": 266,
+        "endChar": 14
+      },
+      "revId": "9425f632d87537069d6deda7c100c8f45bb7610c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2961628_195a9c85",
@@ -175,6 +343,30 @@
       "writtenOn": "2021-02-16T22:47:02Z",
       "side": 1,
       "message": "Invalid return of negative on unsigned return",
+      "range": {
+        "startLine": 270,
+        "startChar": 4,
+        "endLine": 270,
+        "endChar": 13
+      },
+      "revId": "9425f632d87537069d6deda7c100c8f45bb7610c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbb52b79_582600c3",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr_parser.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-17T08:20:54Z",
+      "side": 1,
+      "message": "Modified the function return type from uint32_t to int32_t.",
+      "parentUuid": "c2961628_195a9c85",
       "range": {
         "startLine": 270,
         "startChar": 4,
@@ -208,6 +400,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c97911b_5d2406da",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr_parser.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-17T08:20:54Z",
+      "side": 1,
+      "message": "Modified the function return type from uint32_t to int32_t.",
+      "parentUuid": "7671856d_84a1d970",
+      "range": {
+        "startLine": 284,
+        "startChar": 8,
+        "endLine": 284,
+        "endChar": 9
+      },
+      "revId": "9425f632d87537069d6deda7c100c8f45bb7610c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9be262fa_8ceb0447",
@@ -221,6 +437,30 @@
       "writtenOn": "2021-02-16T22:47:02Z",
       "side": 1,
       "message": "U",
+      "range": {
+        "startLine": 303,
+        "startChar": 16,
+        "endLine": 303,
+        "endChar": 17
+      },
+      "revId": "9425f632d87537069d6deda7c100c8f45bb7610c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e54b1f6_4a78134f",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr_parser.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-17T08:20:54Z",
+      "side": 1,
+      "message": "Changed the data type from uin32_t to int32_t.",
+      "parentUuid": "9be262fa_8ceb0447",
       "range": {
         "startLine": 303,
         "startChar": 16,
@@ -254,6 +494,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7154e4bd_be034b7f",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr_parser.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-17T08:20:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "249eb23a_38cd9dc8",
+      "range": {
+        "startLine": 335,
+        "startChar": 24,
+        "endLine": 335,
+        "endChar": 25
+      },
+      "revId": "9425f632d87537069d6deda7c100c8f45bb7610c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdf98b20_ec5ab18a",
@@ -277,6 +541,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "730d549f_cea34baa",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/csf_hdr_parser.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-17T08:20:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdf98b20_ec5ab18a",
+      "range": {
+        "startLine": 341,
+        "startChar": 34,
+        "endLine": 341,
+        "endChar": 35
+      },
+      "revId": "9425f632d87537069d6deda7c100c8f45bb7610c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9f4551e_c9b0bd4a",
@@ -290,6 +578,30 @@
       "writtenOn": "2021-02-16T22:47:02Z",
       "side": 1,
       "message": "U",
+      "range": {
+        "startLine": 151,
+        "startChar": 15,
+        "endLine": 151,
+        "endChar": 16
+      },
+      "revId": "9425f632d87537069d6deda7c100c8f45bb7610c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4116bd8_a9bd4baf",
+        "filename": "drivers/nxp/auth/csf_hdr_parser/plat_img_parser.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-17T08:20:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9f4551e_c9b0bd4a",
       "range": {
         "startLine": 151,
         "startChar": 15,
