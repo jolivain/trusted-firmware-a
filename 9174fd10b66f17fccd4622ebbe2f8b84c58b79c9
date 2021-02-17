@@ -207,6 +207,30 @@
       },
       "revId": "9174fd10b66f17fccd4622ebbe2f8b84c58b79c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19ca4075_0aecd293",
+        "filename": "plat/arm/board/juno/platform.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-02-17T13:01:49Z",
+      "side": 1,
+      "message": "Mmmh, really? Since CRC instructions are now a prerequisite for a Juno build, this should be modeled in the build system.\nIf we want to use ARM_ARCH_FEATURE, then it should become possible to define this in a platform Makefile. I wonder if we get this for free with the build system makeover?",
+      "parentUuid": "398cdfd0_2f775142",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 35
+      },
+      "revId": "9174fd10b66f17fccd4622ebbe2f8b84c58b79c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
