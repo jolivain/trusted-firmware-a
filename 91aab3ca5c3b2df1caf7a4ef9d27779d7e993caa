@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5b26d13_cd815924",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2021-02-17T15:45:32Z",
+      "side": 1,
+      "message": "It seems that aarch32 driver already does this, but explicitly prints \"\\r\\n\". But \"\\n\" is enough here, because console drivers add \"\\r\" before \"\\n\" on their own.",
+      "revId": "91aab3ca5c3b2df1caf7a4ef9d27779d7e993caa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
