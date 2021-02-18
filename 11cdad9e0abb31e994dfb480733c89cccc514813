@@ -16,6 +16,23 @@
       "message": "Thanks for the rework!",
       "revId": "11cdad9e0abb31e994dfb480733c89cccc514813",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9639db37_057e6674",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-02-18T10:26:37Z",
+      "side": 1,
+      "message": "@Sandrine @Pankaj\n\nNow, I think we have opportunity to remove the \u0027mbedtls_config.h\u0027 header inclusion from below files (Just nitpicks)\n1. tbbr_cot_common.c\n2. tbbr_cot_bl1.c\n3. tbbr_cot_bl2.c\nLet me know your opinion.\n\nOut of curiosity, the Broadcom platforms explicitly mention \"MBEDTLS_CONFIG_FILE\u003dbrcm_mbedtls_config.h\", but this file is not present in the source code.\nBroadcom platform is still using \u0027drivers/auth/mbedtls/mbedtls_config.h\u0027 this file for compilation. Please correct if I am wrong.\n",
+      "revId": "11cdad9e0abb31e994dfb480733c89cccc514813",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
