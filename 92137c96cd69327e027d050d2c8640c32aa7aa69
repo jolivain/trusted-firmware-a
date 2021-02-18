@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62bb1b0b_bb33c338",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 84
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2021-02-18T11:36:37Z",
+      "side": 1,
+      "message": "Hi Alexei,\n\nFor maintenance and to be consistent with MTK internal ATF driver, we decide to keep the unused function parameters.\nAn use \u0027(void) \u003cunused_parameter\u003e;\u0027 for MISRA C compliance.\nIs that okay for you?",
+      "revId": "92137c96cd69327e027d050d2c8640c32aa7aa69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
