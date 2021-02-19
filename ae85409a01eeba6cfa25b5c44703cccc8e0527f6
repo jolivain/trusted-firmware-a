@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8a85693_9bc69dcb",
+        "filename": "Makefile",
+        "patchSetId": 21
+      },
+      "lineNbr": 1309,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-19T13:18:19Z",
+      "side": 1,
+      "message": "There is provision for a platform specific TBBR makefile, see line 800 (https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/Makefile#n800). Could you leverage that instead of patching the main Makefile?",
+      "range": {
+        "startLine": 1294,
+        "startChar": 0,
+        "endLine": 1309,
+        "endChar": 20
+      },
+      "revId": "ae85409a01eeba6cfa25b5c44703cccc8e0527f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82cf9a14_21c1bf32",
+        "filename": "make_helpers/tbbr/tbbr_tools.mk",
+        "patchSetId": 21
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-19T13:18:19Z",
+      "side": 1,
+      "message": "I don\u0027t understand how the comment relates to the code changes. How does making TRUSTED_KEY_CERT overridable allow the file \"to be retained for trust anchoring the key cert \u0026 content cert of this additional fip image\"?\n\nFYI, cert_create -k option allows to save keys in files instead of using transient keys. Would that help in your case?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 5
+      },
+      "revId": "ae85409a01eeba6cfa25b5c44703cccc8e0527f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
