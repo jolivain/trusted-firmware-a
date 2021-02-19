@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62f12de6_34122999",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-19T13:03:52Z",
+      "side": 1,
+      "message": "On further thoughts, even though cert_create tool is not configurable today, I think we could do something less intrusive without too much rework. The idea would be to move all platform specific definitions introduced in this patch into platform specific files and patch the generic files to pull these platform definitions. I\u0027ve given a couple of examples (see inline comments) to try to illustrate my point. Ultimately, with this approach, the only change needed to the generic code should be macros calls, makefiles inclusions, header files inclusions and the like. It\u0027s not the cleanest solution in the world but at least it should prevent more platform code to creep into generic code, which is my main concern here.\n\nThis does not mean we should not revisit this code later to improve the configurability but this seems like a good compromise to me in the short term. ",
+      "revId": "f739e6bd39b8d00bccef3e8fb261a4a4610ce971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c6ded0c_79d44d38",
+        "filename": "tools/cert_create/Makefile",
+        "patchSetId": 21
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-19T13:03:52Z",
+      "side": 1,
+      "message": "Could we move this to some platform specific Makefile, which we could include from here?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 5
+      },
+      "revId": "f739e6bd39b8d00bccef3e8fb261a4a4610ce971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "885663bc_481a8add",
+        "filename": "tools/cert_create/include/tbbr/tbb_cert.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-19T13:03:52Z",
+      "side": 1,
+      "message": "For example, here the code could be:\n\n enum {\n    /* ... snip ... */\n    SIP_SECURE_PARTITION_CONTENT_CERT,\n    FWU_CERT,\n    PLAT_COT_CERTS\n };\n\nWith PLAT_COT_CERTS_IDS being a macro defined in the platform layer. In your case:\n\n #define PLAT_COT_CERTS            \\\n\tDDR_FW_KEY_CERT,           \\\n\tDDR_UDIMM_FW_CONTENT_CERT, \\\n\tDDR_RDIMM_FW_CONTENT_CERT,",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 26
+      },
+      "revId": "f739e6bd39b8d00bccef3e8fb261a4a4610ce971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
