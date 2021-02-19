@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8712c713_573b9042",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-02-19T01:52:38Z",
+      "side": 1,
+      "message": "Yes; I thought it might improve the readability of the code. How about just replacing node_info with prev_node? It may better explain the purpose the variable.\n\nThanks.",
+      "parentUuid": "57009b7a_70d13c43",
+      "range": {
+        "startLine": 57,
+        "startChar": 1,
+        "endLine": 57,
+        "endChar": 22
+      },
+      "revId": "825c036fa9ca81e8000ce346550f3ade59fdcdca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc6650ff_769a669f",
         "filename": "plat/arm/common/arm_image_load.c",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-18T18:38:02Z",
       "side": 1,
       "message": "nit: can you declare the \u0027index\u0027 variable here instead of declaring it at line no.44 to localized its usage?",
+      "range": {
+        "startLine": 59,
+        "startChar": 6,
+        "endLine": 59,
+        "endChar": 11
+      },
+      "revId": "825c036fa9ca81e8000ce346550f3ade59fdcdca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0d01319_0f9ea47e",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-02-19T01:52:38Z",
+      "side": 1,
+      "message": "Do you mean something like this?\n\tunsigned int index;\n\tfor (index \u003d 0; index \u003c MAX_SP_IDS; index++) {\nOr put the declaration just in \"for\" loop like below?\n\tfor (unsigned int index \u003d 0; index \u003c MAX_SP_IDS; index++) {\n\nThanks.",
+      "parentUuid": "cc6650ff_769a669f",
       "range": {
         "startLine": 59,
         "startChar": 6,
