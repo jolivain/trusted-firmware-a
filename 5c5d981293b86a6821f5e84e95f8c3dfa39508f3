@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ab2821d_288e86d0",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-02-19T16:42:52Z",
+      "side": 1,
+      "message": "Yes reducing verbosity; I can submit in another change if you prefer.",
+      "parentUuid": "9532454e_f6af115c",
+      "range": {
+        "startLine": 440,
+        "startChar": 1,
+        "endLine": 440,
+        "endChar": 8
+      },
+      "revId": "5c5d981293b86a6821f5e84e95f8c3dfa39508f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "31da754d_130a12a2",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 3
@@ -60,6 +84,30 @@
       "writtenOn": "2021-02-18T15:25:41Z",
       "side": 1,
       "message": "This change should be made in a different commit. AFAICT, this one is not related to EP_REGISTER",
+      "range": {
+        "startLine": 567,
+        "startChar": 3,
+        "endLine": 575,
+        "endChar": 4
+      },
+      "revId": "5c5d981293b86a6821f5e84e95f8c3dfa39508f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5d6fc56_b2d00957",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-02-19T16:42:52Z",
+      "side": 1,
+      "message": "Ok will separate out.",
+      "parentUuid": "31da754d_130a12a2",
       "range": {
         "startLine": 567,
         "startChar": 3,
@@ -95,6 +143,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85aa687f_a2c7af69",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-02-19T16:42:52Z",
+      "side": 1,
+      "message": "This is a module local anonymous struct. This structure is only used in this file at this specific place and the structure does not need to be used anywhere else nor exported. The coding rule I know is about exporting structures in headers which is not the case here: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/process/coding-style.rst#n438\nLet me know you if think this is an issue.",
+      "parentUuid": "b2104eb8_0e9e0b8a",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 15
+      },
+      "revId": "5c5d981293b86a6821f5e84e95f8c3dfa39508f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c79e4911_8e6fdf8c",
         "filename": "services/std_svc/spmd/spmd_pm.c",
         "patchSetId": 3
@@ -106,6 +178,24 @@
       "writtenOn": "2021-02-18T15:25:41Z",
       "side": 1,
       "message": "Do we need locks to handle concurrent accesses to this data structure?",
+      "revId": "5c5d981293b86a6821f5e84e95f8c3dfa39508f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61603fad_4c3c058c",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-02-19T16:42:52Z",
+      "side": 1,
+      "message": "Right, on my todos.",
+      "parentUuid": "c79e4911_8e6fdf8c",
       "revId": "5c5d981293b86a6821f5e84e95f8c3dfa39508f3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
