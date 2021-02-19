@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93053087_2eeeda48",
+        "filename": "drivers/marvell/uart/a3700_console.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-02-19T21:01:28Z",
+      "side": 1,
+      "message": "nitpick: Did you mean at least 100 us? the calculation gives 150 us.",
+      "range": {
+        "startLine": 75,
+        "startChar": 75,
+        "endLine": 75,
+        "endChar": 78
+      },
+      "revId": "98641515a40f7a72b32073128db9ca99f2785dc7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
