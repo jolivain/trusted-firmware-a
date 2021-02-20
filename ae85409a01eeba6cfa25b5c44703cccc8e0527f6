@@ -93,6 +93,30 @@
       },
       "revId": "ae85409a01eeba6cfa25b5c44703cccc8e0527f6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17ccde3d_5b3af2ac",
+        "filename": "make_helpers/tbbr/tbbr_tools.mk",
+        "patchSetId": 21
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-20T13:13:28Z",
+      "side": 1,
+      "message": "We need to change the following, as it will create file with below hardcoded path and name.\nTRUSTED_KEY_CERT\t?\u003d\t${BUILD_PLAT}/trusted_key.crt",
+      "parentUuid": "096e3803_a6157d28",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 5
+      },
+      "revId": "ae85409a01eeba6cfa25b5c44703cccc8e0527f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
