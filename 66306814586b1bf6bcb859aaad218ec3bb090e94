@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d28d0d7d_fd10e0f5",
+        "filename": "make_helpers/tbbr/tbbr_tools.mk",
+        "patchSetId": 21
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-20T05:11:19Z",
+      "side": 0,
+      "message": "But if the user has chosen different path and name for the TRUSTED_KEY_CERT, it will over-ride it.\n\nI think it should be:\nTRUSTED_KEY_CERT\t?\u003d\t${BUILD_PLAT}/trusted_key.crt",
+      "revId": "66306814586b1bf6bcb859aaad218ec3bb090e94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
