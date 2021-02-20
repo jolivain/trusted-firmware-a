@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bdd196f5_2d784e67",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000148
+      },
+      "writtenOn": "2021-02-20T11:40:54Z",
+      "side": 1,
+      "message": "Hi. Sorry for late replying. I\u0027m just back from Chinese new year.\nBut I found I cannot push refs/for/integration/my-topic-name.\nIs something wrong?",
+      "parentUuid": "e33e1d98_121fa52b",
+      "range": {
+        "startLine": 9,
+        "startChar": 31,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "6de0384a92c1de9ce84b923908d1003e3ef57da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "423d7244_49e8744b",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-09T22:17:39Z",
       "side": 1,
       "message": "Did you mean FIP?",
+      "range": {
+        "startLine": 56,
+        "startChar": 19,
+        "endLine": 56,
+        "endChar": 22
+      },
+      "revId": "6de0384a92c1de9ce84b923908d1003e3ef57da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b24eaff_d4960b66",
+        "filename": "docs/plat/imx8m.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000148
+      },
+      "writtenOn": "2021-02-20T11:40:54Z",
+      "side": 1,
+      "message": "No. I mean FIT. BL2 is put in FIT so that U-boot SPL can verify it.",
+      "parentUuid": "7fdfd10c_0a2e5e3b",
       "range": {
         "startLine": 56,
         "startChar": 19,
