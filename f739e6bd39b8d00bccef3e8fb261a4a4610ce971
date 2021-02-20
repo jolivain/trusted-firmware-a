@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4279cbab_7fbb739b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-20T13:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62f12de6_34122999",
+      "revId": "f739e6bd39b8d00bccef3e8fb261a4a4610ce971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c6ded0c_79d44d38",
@@ -65,6 +83,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da5638cd_d4e1003b",
+        "filename": "tools/cert_create/Makefile",
+        "patchSetId": 21
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-20T13:10:51Z",
+      "side": 1,
+      "message": "Please review the latest patch.",
+      "parentUuid": "0c52247c_1067626b",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 5
+      },
+      "revId": "f739e6bd39b8d00bccef3e8fb261a4a4610ce971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "885663bc_481a8add",
@@ -78,6 +120,30 @@
       "writtenOn": "2021-02-19T13:03:52Z",
       "side": 1,
       "message": "For example, here the code could be:\n\n enum {\n    /* ... snip ... */\n    SIP_SECURE_PARTITION_CONTENT_CERT,\n    FWU_CERT,\n    PLAT_COT_CERTS\n };\n\nWith PLAT_COT_CERTS_IDS being a macro defined in the platform layer. In your case:\n\n #define PLAT_COT_CERTS            \\\n\tDDR_FW_KEY_CERT,           \\\n\tDDR_UDIMM_FW_CONTENT_CERT, \\\n\tDDR_RDIMM_FW_CONTENT_CERT,",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 26
+      },
+      "revId": "f739e6bd39b8d00bccef3e8fb261a4a4610ce971",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ffda8e0_58a236a1",
+        "filename": "tools/cert_create/include/tbbr/tbb_cert.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-20T13:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "885663bc_481a8add",
       "range": {
         "startLine": 28,
         "startChar": 0,
