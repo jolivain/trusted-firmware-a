@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -166,6 +166,17 @@ ifeq (${ARM_CRYPTOCELL_INTEG},1)
     endif
 endif
 
+# Disable GPT parser support, use FIP image by default
+ARM_GPT_SUPPORT			:=	0
+$(eval $(call assert_boolean,ARM_GPT_SUPPORT))
+$(eval $(call add_define,ARM_GPT_SUPPORT))
+
+# Default FIP offset in GPT image immediately after reserved sector 0-33.
+# hence offset = 34 * 512 = 17408
+ARM_FIP_OFFSET_IN_GPT		:=	17408
+$(eval $(call assert_numerics,ARM_FIP_OFFSET_IN_GPT))
+$(eval $(call add_define,ARM_FIP_OFFSET_IN_GPT))
+
 ifeq (${ARCH}, aarch64)
 PLAT_INCLUDES		+=	-Iinclude/plat/arm/common/aarch64
 endif
@@ -327,6 +338,7 @@ ifneq (${TRUSTED_BOARD_BOOT},0)
 
     $(eval $(call TOOL_ADD_IMG,ns_bl2u,--fwu,FWU_))
 
+
     # We expect to locate the *.mk files under the directories specified below
 ifeq (${ARM_CRYPTOCELL_INTEG},0)
     CRYPTO_LIB_MK := drivers/auth/mbedtls/mbedtls_crypto.mk
@@ -341,6 +353,12 @@ endif
     $(info Including ${IMG_PARSER_LIB_MK})
     include ${IMG_PARSER_LIB_MK}
 
+endif
+
+# Include necessary sources to parse GPT image
+ifeq (${ARM_GPT_SUPPORT}, 1)
+	BL2_SOURCES	+=	drivers/partition/gpt.c		\
+				drivers/partition/partition.c
 endif
 
 ifeq (${RECLAIM_INIT_CODE}, 1)

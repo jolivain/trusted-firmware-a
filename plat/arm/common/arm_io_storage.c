@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited. All rights reserved.
+ * Copyright (c) 2015-2021, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,6 +9,7 @@
 #include <drivers/io/io_fip.h>
 #include <drivers/io/io_memmap.h>
 #include <drivers/io/io_storage.h>
+#include <drivers/partition/partition.h>
 #include <lib/utils.h>
 
 #include <plat/arm/common/arm_fconf_getter.h>
@@ -83,6 +84,20 @@ int arm_io_setup(void)
 
 	io_result = io_dev_open(memmap_dev_con, (uintptr_t)NULL,
 				&memmap_dev_handle);
+
+#if ARM_GPT_SUPPORT && defined(IMAGE_BL2)
+	partition_init(GPT_IMAGE_ID);
+
+	const partition_entry_t *entry = get_partition_entry("FIP_A");
+
+	if (entry == NULL) {
+		ERROR("Could NOT find the FIP_A partition!\n");
+		return -ENOENT;
+	}
+
+	fip_block_spec.offset = PLAT_ARM_FIP_BASE + entry->start;
+	fip_block_spec.length = entry->length;
+#endif /* ARM_GPT_SUPPORT && defined(IMAGE_BL2) */
 
 	return io_result;
 }
