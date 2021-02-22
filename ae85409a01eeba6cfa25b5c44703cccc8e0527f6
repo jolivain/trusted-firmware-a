@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7de7251_54366188",
+        "filename": "Makefile",
+        "patchSetId": 21
+      },
+      "lineNbr": 1309,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-22T13:10:20Z",
+      "side": 1,
+      "message": "This override cannot help here as no flags are overridden here.\n\nnew targets are added here: one for TBBR and other one for fip_ddr.\n\nI can create a new .mk and park these targets there.",
+      "parentUuid": "e73983b3_a890ff67",
+      "range": {
+        "startLine": 1294,
+        "startChar": 0,
+        "endLine": 1309,
+        "endChar": 20
+      },
+      "revId": "ae85409a01eeba6cfa25b5c44703cccc8e0527f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82cf9a14_21c1bf32",
@@ -157,6 +181,30 @@
       "side": 1,
       "message": "Are you sure we need this change to be able to override the filename of the certificate? It seems to me we can already do that. As an experiment, I tried the following build command line:\n\n make GENERATE_COT\u003d1 V\u003d1 TRUSTED_KEY_CERT\u003d/tmp/my-trusted-key.crt certificates\n\nand I could see my custom file being used:\n\n tools/cert_create/cert_create ...  --trusted-key-cert /tmp/my-trusted-key.crt ...\n\nCould you please test this on your end and let us know whether this works for you too?",
       "parentUuid": "17ccde3d_5b3af2ac",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 5
+      },
+      "revId": "ae85409a01eeba6cfa25b5c44703cccc8e0527f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99c8f43c_ce0c0437",
+        "filename": "make_helpers/tbbr/tbbr_tools.mk",
+        "patchSetId": 21
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-22T13:10:20Z",
+      "side": 1,
+      "message": "In case of this platform, there is an additional make file plat/nxp/soc-lx2160/ddr_fip.mk, which calls plat/nxp/soc-lx2160/ddr_tbbr.mk.\n\nThis makefile overrides filename TRUSTED_KEY_CERT.\n\nFor this platform, if make commands runs twice: one for bl2 + fip.bin and another one is for fip_ddr.bin\n\nthen if path varies in the \"plat/nxp/soc-lx2160/ddr_tbbr.mk\", there are two location where \"trusted_key.crt\" is created.\n\nIf this change is present, this problem goes away.",
+      "parentUuid": "bdf29c99_9cbf3fee",
       "range": {
         "startLine": 48,
         "startChar": 0,
