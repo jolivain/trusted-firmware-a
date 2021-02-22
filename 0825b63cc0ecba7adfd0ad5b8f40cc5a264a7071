@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "275d6b9a_3996d6e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-22T03:05:05Z",
+      "side": 1,
+      "message": "Thanks for reviewing Madhukar. Will address all the comments in the next patch",
+      "revId": "0825b63cc0ecba7adfd0ad5b8f40cc5a264a7071",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b833910_2a005d03",
@@ -18,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e6dd6fd_0d6e62f3",
+        "filename": "include/drivers/brcm/usbh_xhci_regs.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-22T03:05:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4b833910_2a005d03",
+      "revId": "0825b63cc0ecba7adfd0ad5b8f40cc5a264a7071",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6483cd2_1b90b2bd",
@@ -31,6 +66,30 @@
       "writtenOn": "2021-02-19T23:10:30Z",
       "side": 1,
       "message": "Please use tabs instead of spaces to align all the lines with each other.",
+      "range": {
+        "startLine": 17,
+        "startChar": 27,
+        "endLine": 17,
+        "endChar": 28
+      },
+      "revId": "0825b63cc0ecba7adfd0ad5b8f40cc5a264a7071",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "583c783b_2c3edc1e",
+        "filename": "include/drivers/brcm/usbh_xhci_regs.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-22T03:05:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d6483cd2_1b90b2bd",
       "range": {
         "startLine": 17,
         "startChar": 27,
@@ -138,6 +197,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "003e0128_7b390b62",
+        "filename": "plat/brcm/board/stingray/driver/usb_phy.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-22T03:05:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "79b30f64_ebe38bb6",
+      "revId": "0825b63cc0ecba7adfd0ad5b8f40cc5a264a7071",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7e2a649_0db3b5b5",
@@ -151,6 +228,30 @@
       "writtenOn": "2021-02-19T23:10:30Z",
       "side": 1,
       "message": "!\u003d 0U",
+      "range": {
+        "startLine": 54,
+        "startChar": 6,
+        "endLine": 54,
+        "endChar": 16
+      },
+      "revId": "0825b63cc0ecba7adfd0ad5b8f40cc5a264a7071",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4a5e5c0_dd92b778",
+        "filename": "plat/brcm/board/stingray/driver/usb_phy.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-22T03:05:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f7e2a649_0db3b5b5",
       "range": {
         "startLine": 54,
         "startChar": 6,
@@ -184,6 +285,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b435a49_60713a8b",
+        "filename": "plat/brcm/board/stingray/driver/usb_phy.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-22T03:05:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "29c6e52c_301a8190",
+      "range": {
+        "startLine": 55,
+        "startChar": 10,
+        "endLine": 55,
+        "endChar": 12
+      },
+      "revId": "0825b63cc0ecba7adfd0ad5b8f40cc5a264a7071",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50cdf1aa_9c7f5e6d",
@@ -197,6 +322,30 @@
       "writtenOn": "2021-02-19T23:10:30Z",
       "side": 1,
       "message": "same as above",
+      "range": {
+        "startLine": 199,
+        "startChar": 5,
+        "endLine": 199,
+        "endChar": 11
+      },
+      "revId": "0825b63cc0ecba7adfd0ad5b8f40cc5a264a7071",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c7dee3a_6b75c516",
+        "filename": "plat/brcm/board/stingray/driver/usb_phy.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-22T03:05:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "50cdf1aa_9c7f5e6d",
       "range": {
         "startLine": 199,
         "startChar": 5,
@@ -230,6 +379,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05f350c4_7eec6dda",
+        "filename": "plat/brcm/board/stingray/driver/usb_phy.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-22T03:05:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "001936d5_dcc9c71d",
+      "range": {
+        "startLine": 307,
+        "startChar": 1,
+        "endLine": 307,
+        "endChar": 2
+      },
+      "revId": "0825b63cc0ecba7adfd0ad5b8f40cc5a264a7071",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f369f27b_7c07fe14",
@@ -243,6 +416,30 @@
       "writtenOn": "2021-02-19T23:10:30Z",
       "side": 1,
       "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 24,
+        "endLine": 2,
+        "endChar": 28
+      },
+      "revId": "0825b63cc0ecba7adfd0ad5b8f40cc5a264a7071",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "225f12bf_3baa561a",
+        "filename": "plat/brcm/board/stingray/include/usb_phy.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-22T03:05:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f369f27b_7c07fe14",
       "range": {
         "startLine": 2,
         "startChar": 24,
