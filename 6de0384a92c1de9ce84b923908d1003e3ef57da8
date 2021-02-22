@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "184aed1b_304f3ffb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-02-22T00:56:24Z",
+      "side": 1,
+      "message": "Please use the new format:\ngit push origin HEAD:refs/for/integration -o topic\u003dmy-topic-name",
+      "parentUuid": "bdd196f5_2d784e67",
+      "range": {
+        "startLine": 9,
+        "startChar": 31,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "6de0384a92c1de9ce84b923908d1003e3ef57da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "423d7244_49e8744b",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
