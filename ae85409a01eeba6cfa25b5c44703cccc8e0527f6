@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e73983b3_a890ff67",
+        "filename": "Makefile",
+        "patchSetId": 21
+      },
+      "lineNbr": 1309,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-22T09:31:51Z",
+      "side": 1,
+      "message": "You\u0027re right. Only the \u0027ddr_certificates\u0027 target is specific to TBBR so this one at least could be moved to the platform specific TBBR makefile, right?\n\nRegarding the fip_ddr target, which is not TBBR-specific but is platform-specific, could you move it to your platform makefile under plat/nxp/?",
+      "parentUuid": "a3b7b639_33a60bdb",
+      "range": {
+        "startLine": 1294,
+        "startChar": 0,
+        "endLine": 1309,
+        "endChar": 20
+      },
+      "revId": "ae85409a01eeba6cfa25b5c44703cccc8e0527f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82cf9a14_21c1bf32",
         "filename": "make_helpers/tbbr/tbbr_tools.mk",
         "patchSetId": 21
@@ -109,6 +133,30 @@
       "side": 1,
       "message": "We need to change the following, as it will create file with below hardcoded path and name.\nTRUSTED_KEY_CERT\t?\u003d\t${BUILD_PLAT}/trusted_key.crt",
       "parentUuid": "096e3803_a6157d28",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 5
+      },
+      "revId": "ae85409a01eeba6cfa25b5c44703cccc8e0527f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdf29c99_9cbf3fee",
+        "filename": "make_helpers/tbbr/tbbr_tools.mk",
+        "patchSetId": 21
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-22T09:31:51Z",
+      "side": 1,
+      "message": "Are you sure we need this change to be able to override the filename of the certificate? It seems to me we can already do that. As an experiment, I tried the following build command line:\n\n make GENERATE_COT\u003d1 V\u003d1 TRUSTED_KEY_CERT\u003d/tmp/my-trusted-key.crt certificates\n\nand I could see my custom file being used:\n\n tools/cert_create/cert_create ...  --trusted-key-cert /tmp/my-trusted-key.crt ...\n\nCould you please test this on your end and let us know whether this works for you too?",
+      "parentUuid": "17ccde3d_5b3af2ac",
       "range": {
         "startLine": 48,
         "startChar": 0,
