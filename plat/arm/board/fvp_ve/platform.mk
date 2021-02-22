@@ -131,4 +131,3 @@ include lib/libfdt/libfdt.mk
 DYN_CFG_SOURCES		+=	plat/arm/common/arm_dyn_cfg.c		\
 				plat/arm/common/arm_dyn_cfg_helpers.c	\
 				common/fdt_wrappers.c
-
