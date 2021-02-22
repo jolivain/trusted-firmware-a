@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited. All rights reserved.
+ * Copyright (c) 2015-2021, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,6 +9,9 @@
 #include <drivers/io/io_fip.h>
 #include <drivers/io/io_memmap.h>
 #include <drivers/io/io_storage.h>
+#if ARM_GPT_SUPPORT
+#include <drivers/partition/partition.h>
+#endif
 #include <lib/utils.h>
 
 #include <plat/arm/common/arm_fconf_getter.h>
@@ -136,3 +139,25 @@ bool arm_io_is_toc_valid(void)
 {
 	return (io_dev_init(fip_dev_handle, (uintptr_t)FIP_IMAGE_ID) == 0);
 }
+
+/*************************************************************
+ * arm_set_fip_addr: Set base address of FIP
+ *
+ * Read FIP partition in flash and set the base address of
+ * the FIP.
+ ************************************************************/
+#if ARM_GPT_SUPPORT
+void arm_set_fip_addr(void)
+{
+	const partition_entry_t *entry;
+	entry = get_partition_entry("FIP_A");
+
+	if (entry == NULL) {
+		ERROR("Could NOT find the FIP_A partition!\n");
+		panic();
+	}
+
+	fip_block_spec.offset = PLAT_ARM_FIP_BASE + entry->start;
+	fip_block_spec.length = entry->length;
+}
+#endif /* ARM_GPT_SUPPORT */
