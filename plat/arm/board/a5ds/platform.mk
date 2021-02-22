@@ -104,3 +104,18 @@ $(eval $(call add_define,ARM_XLAT_TABLES_LIB_V1))
 
 $(eval $(call assert_boolean,ARM_DISABLE_TRUSTED_WDOG))
 $(eval $(call add_define,ARM_DISABLE_TRUSTED_WDOG))
+
+# Disable GPT parser support, use FIP image by default
+ARM_GPT_SUPPORT			:=	0
+$(eval $(call assert_boolean,ARM_GPT_SUPPORT))
+$(eval $(call add_define,ARM_GPT_SUPPORT))
+
+# Default FIP offset in GPT image immediately after reserved sectors 0-33.
+# hence offset = 34 * 512 = 17408
+ARM_FIP_OFFSET_IN_GPT		:=	17408
+$(eval $(call assert_numerics,ARM_FIP_OFFSET_IN_GPT))
+$(eval $(call add_define,ARM_FIP_OFFSET_IN_GPT))
+
+# Default GPT image base address
+PLAT_ARM_GPT_BASE		:=	BOOT_BASE
+$(eval $(call add_define,PLAT_ARM_GPT_BASE))

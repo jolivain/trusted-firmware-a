@@ -167,6 +167,27 @@ ifeq (${ARM_CRYPTOCELL_INTEG},1)
     endif
 endif
 
+# Disable GPT parser support, use FIP image by default
+ARM_GPT_SUPPORT			:=	0
+$(eval $(call assert_boolean,ARM_GPT_SUPPORT))
+$(eval $(call add_define,ARM_GPT_SUPPORT))
+
+# Default FIP offset in GPT image immediately after reserved sectors 0-33.
+# hence offset = 34 * 512 = 17408
+ARM_FIP_OFFSET_IN_GPT		:=	17408
+$(eval $(call assert_numerics,ARM_FIP_OFFSET_IN_GPT))
+$(eval $(call add_define,ARM_FIP_OFFSET_IN_GPT))
+
+# Default GPT image base address
+PLAT_ARM_GPT_BASE		:=	V2M_FLASH0_BASE
+$(eval $(call add_define,PLAT_ARM_GPT_BASE))
+
+# Include necessary sources to parse GPT image
+ifeq (${ARM_GPT_SUPPORT}, 1)
+  BL2_SOURCES	+=	drivers/partition/gpt.c		\
+			drivers/partition/partition.c
+endif
+
 ifeq (${ARCH}, aarch64)
 PLAT_INCLUDES		+=	-Iinclude/plat/arm/common/aarch64
 endif
