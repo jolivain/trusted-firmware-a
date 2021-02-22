@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,6 +14,9 @@
 #include <common/debug.h>
 #include <common/desc_image_load.h>
 #include <drivers/generic_delay_timer.h>
+#if ARM_GPT_SUPPORT
+#include <drivers/partition/partition.h>
+#endif
 #include <lib/fconf/fconf.h>
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
 #ifdef SPD_opteed
@@ -70,6 +73,12 @@ void arm_bl2_early_platform_setup(uintptr_t fw_config,
 
 	/* Initialise the IO layer and register platform IO devices */
 	plat_arm_io_setup();
+
+	/* Load partition table */
+#if ARM_GPT_SUPPORT
+	partition_init(GPT_IMAGE_ID);
+#endif /* ARM_GPT_SUPPORT */
+
 }
 
 void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1, u_register_t arg2, u_register_t arg3)
@@ -86,6 +95,10 @@ void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1, u_register_
 void bl2_plat_preload_setup(void)
 {
 	arm_bl2_dyn_cfg_init();
+
+#if ARM_GPT_SUPPORT
+	arm_set_fip_addr();
+#endif
 }
 
 /*
