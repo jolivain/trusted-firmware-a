@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -115,7 +115,7 @@
 #if USE_ROMLIB
 #define PLAT_ARM_MAX_ROMLIB_RW_SIZE	UL(0x1000)
 #define PLAT_ARM_MAX_ROMLIB_RO_SIZE	UL(0xe000)
-#define FVP_BL2_ROMLIB_OPTIMIZATION UL(0x6000)
+#define FVP_BL2_ROMLIB_OPTIMIZATION 	UL(0x5000)
 #else
 #define PLAT_ARM_MAX_ROMLIB_RW_SIZE	UL(0)
 #define PLAT_ARM_MAX_ROMLIB_RO_SIZE	UL(0)
