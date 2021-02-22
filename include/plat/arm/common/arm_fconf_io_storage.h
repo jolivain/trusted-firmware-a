@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited. All rights reserved.
+ * Copyright (c) 2020-2021, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,6 +11,8 @@
 /* IO devices handle */
 extern uintptr_t memmap_dev_handle;
 extern uintptr_t fip_dev_handle;
+
+extern io_block_spec_t fip_block_spec;
 
 /* Function declarations */
 int open_fip(const uintptr_t spec);

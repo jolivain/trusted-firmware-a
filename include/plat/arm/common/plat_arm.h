@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -151,6 +151,10 @@ void arm_setup_romlib(void);
 
 /* IO storage utility functions */
 int arm_io_setup(void);
+
+#if ARM_GPT_SUPPORT
+void arm_set_fip_addr(void);
+#endif /* ARM_GPT_SUPPORT */
 
 /* Security utility functions */
 void arm_tzc400_setup(uintptr_t tzc_base,
