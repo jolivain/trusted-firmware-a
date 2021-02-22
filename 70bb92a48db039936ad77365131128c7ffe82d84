@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb48b7e0_7aef4e86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-22T02:41:52Z",
+      "side": 1,
+      "message": "Thanks for reviewing Madhukar. Next patch will address all your comments.",
+      "revId": "70bb92a48db039936ad77365131128c7ffe82d84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b9d5360_5521f240",
@@ -14,6 +31,30 @@
       "writtenOn": "2021-02-19T22:28:06Z",
       "side": 1,
       "message": "val is unsigned but \u0027result\u0027 is signed. I think you can make result as unsigned as well.",
+      "range": {
+        "startLine": 22,
+        "startChar": 7,
+        "endLine": 22,
+        "endChar": 38
+      },
+      "revId": "70bb92a48db039936ad77365131128c7ffe82d84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e86956c5_84ffa706",
+        "filename": "drivers/brcm/mdio/mdio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-22T02:41:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0b9d5360_5521f240",
       "range": {
         "startLine": 22,
         "startChar": 7,
@@ -47,6 +88,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37e8cd95_5bda4efc",
+        "filename": "drivers/brcm/mdio/mdio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-22T02:41:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e7383bcd_f4bf34f4",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 12
+      },
+      "revId": "70bb92a48db039936ad77365131128c7ffe82d84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e619f7c_d947f9de",
@@ -70,6 +135,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4170123a_44e39ff6",
+        "filename": "drivers/brcm/mdio/mdio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-22T02:41:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5e619f7c_d947f9de",
+      "range": {
+        "startLine": 27,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "70bb92a48db039936ad77365131128c7ffe82d84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a6d47d1_5fe2dc7a",
@@ -83,6 +172,24 @@
       "writtenOn": "2021-02-19T22:28:06Z",
       "side": 1,
       "message": "ret is not boolean. perhaps,\nif(ret !\u003d 0)",
+      "revId": "70bb92a48db039936ad77365131128c7ffe82d84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ba11c7b_db6d24e3",
+        "filename": "drivers/brcm/mdio/mdio.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-02-22T02:41:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3a6d47d1_5fe2dc7a",
       "revId": "70bb92a48db039936ad77365131128c7ffe82d84",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
