@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5a888ff_d922fbc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-02-23T07:00:32Z",
+      "side": 1,
+      "message": "I tested this on H6 both with and without SCP firmware, and other than the hardware getting stuck, it works pretty well. The conditional compilation is a bit messy, since \"platforms with CPUIDLE\" and \"platforms with SCPI\" overlap. Still, I still like this version better than having separate implementations for with/without SCPI (plus it has better latency!).",
+      "revId": "ad5791a8345d8fbfce50fb3ce87a2043f68aaa6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
