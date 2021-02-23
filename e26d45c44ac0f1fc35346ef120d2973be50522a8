@@ -16,6 +16,24 @@
       "message": "\u003e Patch Set 1: Verified-1\n\u003e \n\u003e Build Failed \n\u003e \n\u003e https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l1/3769/ : This Jenkins server is not publicly accessible. A core maintainer will let you know if this CI failure is blocking the merge of this patch.\n\n@Madhukar, could you tell me what\u0027s wrong with this build?\nThanks",
       "revId": "e26d45c44ac0f1fc35346ef120d2973be50522a8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "568301b6_e7807ffe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-02-23T15:33:41Z",
+      "side": 1,
+      "message": "Please rebase the patch stack on top of current integration branch",
+      "parentUuid": "5c0829c4_7b097b86",
+      "revId": "e26d45c44ac0f1fc35346ef120d2973be50522a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
