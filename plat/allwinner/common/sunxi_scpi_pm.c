@@ -17,6 +17,11 @@
 
 #include <sunxi_mmap.h>
 #include <sunxi_private.h>
+#include <drivers/sunxi_cpuidle.h>
+
+#undef sunxi_cpuidle_suspend
+#undef sunxi_cpuidle_suspend_finish
+#undef sunxi_cpuidle_validate_power_state
 
 /*
  * The addresses for the SCP exception vectors are defined in the or1k
@@ -55,17 +60,6 @@ static inline scpi_power_state_t scpi_map_state(plat_local_state_t psci_state)
 	return scpi_power_off;
 }
 
-static void sunxi_cpu_standby(plat_local_state_t cpu_state)
-{
-	u_register_t scr = read_scr_el3();
-
-	assert(is_local_state_retn(cpu_state));
-
-	write_scr_el3(scr | SCR_IRQ_BIT);
-	wfi();
-	write_scr_el3(scr);
-}
-
 static int sunxi_pwr_domain_on(u_register_t mpidr)
 {
 	scpi_set_css_power_state(mpidr,
@@ -82,9 +76,9 @@ static void sunxi_pwr_domain_off(const psci_power_state_t *target_state)
 	plat_local_state_t cluster_pwr_state = CLUSTER_PWR_STATE(target_state);
 	plat_local_state_t system_pwr_state  = SYSTEM_PWR_STATE(target_state);
 
-	if (is_local_state_off(cpu_pwr_state)) {
-		gicv2_cpuif_disable();
-	}
+	gicv2_cpuif_disable();
+
+	sunxi_cpuidle_off();
 
 	scpi_set_css_power_state(read_mpidr(),
 				 scpi_map_state(cpu_pwr_state),
@@ -92,14 +86,33 @@ static void sunxi_pwr_domain_off(const psci_power_state_t *target_state)
 				 scpi_map_state(system_pwr_state));
 }
 
+static void sunxi_pwr_domain_suspend(const psci_power_state_t *target_state)
+{
+	if (is_local_state_run(CLUSTER_PWR_STATE(target_state))) {
+		sunxi_cpuidle_suspend(target_state);
+	} else {
+		sunxi_pwr_domain_off(target_state);
+	}
+}
+
 static void sunxi_pwr_domain_on_finish(const psci_power_state_t *target_state)
 {
 	if (is_local_state_off(SYSTEM_PWR_STATE(target_state))) {
 		gicv2_distif_init();
 	}
-	if (is_local_state_off(CPU_PWR_STATE(target_state))) {
-		gicv2_pcpu_distif_init();
-		gicv2_cpuif_enable();
+
+	sunxi_cpuidle_on_finish();
+
+	gicv2_pcpu_distif_init();
+	gicv2_cpuif_enable();
+}
+
+static void sunxi_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
+{
+	if (is_local_state_run(CLUSTER_PWR_STATE(target_state))) {
+		sunxi_cpuidle_suspend_finish(target_state);
+	} else {
+		sunxi_pwr_domain_on_finish(target_state);
 	}
 }
 
@@ -133,47 +146,6 @@ static void __dead2 sunxi_system_reset(void)
 	psci_power_down_wfi();
 }
 
-static int sunxi_validate_power_state(unsigned int power_state,
-				      psci_power_state_t *req_state)
-{
-	unsigned int power_level = psci_get_pstate_pwrlvl(power_state);
-	unsigned int type = psci_get_pstate_type(power_state);
-
-	assert(req_state != NULL);
-
-	if (power_level > PLAT_MAX_PWR_LVL) {
-		return PSCI_E_INVALID_PARAMS;
-	}
-
-	if (type == PSTATE_TYPE_STANDBY) {
-		/* Only one retention power state is supported. */
-		if (psci_get_pstate_id(power_state) > 0) {
-			return PSCI_E_INVALID_PARAMS;
-		}
-		/* The SoC cannot be suspended without losing state */
-		if (power_level == SYSTEM_PWR_LVL) {
-			return PSCI_E_INVALID_PARAMS;
-		}
-		for (unsigned int i = 0; i <= power_level; ++i) {
-			req_state->pwr_domain_state[i] = PLAT_MAX_RET_STATE;
-		}
-	} else {
-		/* Only one off power state is supported. */
-		if (psci_get_pstate_id(power_state) > 0) {
-			return PSCI_E_INVALID_PARAMS;
-		}
-		for (unsigned int i = 0; i <= power_level; ++i) {
-			req_state->pwr_domain_state[i] = PLAT_MAX_OFF_STATE;
-		}
-	}
-	/* Higher power domain levels should all remain running */
-	for (unsigned int i = power_level + 1; i <= PLAT_MAX_PWR_LVL; ++i) {
-		req_state->pwr_domain_state[i] = PSCI_LOCAL_STATE_RUN;
-	}
-
-	return PSCI_E_SUCCESS;
-}
-
 static void sunxi_get_sys_suspend_power_state(psci_power_state_t *req_state)
 {
 	assert(req_state != NULL);
@@ -183,13 +155,27 @@ static void sunxi_get_sys_suspend_power_state(psci_power_state_t *req_state)
 	}
 }
 
+static int sunxi_validate_power_state(unsigned int power_state,
+				      psci_power_state_t *req_state)
+{
+	int ret;
+
+	ret = sunxi_cpuidle_validate_power_state(power_state, req_state);
+	if (ret == PSCI_E_SUCCESS) {
+		return ret;
+	}
+
+	/* TODO: Add additional cluster idle states here. */
+	return PSCI_E_INVALID_PARAMS;
+}
+
 static const plat_psci_ops_t sunxi_scpi_psci_ops = {
 	.cpu_standby			= sunxi_cpu_standby,
 	.pwr_domain_on			= sunxi_pwr_domain_on,
 	.pwr_domain_off			= sunxi_pwr_domain_off,
-	.pwr_domain_suspend		= sunxi_pwr_domain_off,
+	.pwr_domain_suspend		= sunxi_pwr_domain_suspend,
 	.pwr_domain_on_finish		= sunxi_pwr_domain_on_finish,
-	.pwr_domain_suspend_finish	= sunxi_pwr_domain_on_finish,
+	.pwr_domain_suspend_finish	= sunxi_pwr_domain_suspend_finish,
 	.system_off			= sunxi_system_off,
 	.system_reset			= sunxi_system_reset,
 	.validate_power_state		= sunxi_validate_power_state,

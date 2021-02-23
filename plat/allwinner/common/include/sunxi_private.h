@@ -16,6 +16,9 @@ void sunxi_cpu_power_off_others(void);
 void sunxi_cpu_power_off_self(void);
 void sunxi_power_down(void);
 
+void sunxi_cpu_standby(plat_local_state_t cpu_state);
+int sunxi_validate_ns_entrypoint(uintptr_t ns_entrypoint);
+
 #if SUNXI_PSCI_USE_NATIVE
 void sunxi_set_native_psci_ops(const plat_psci_ops_t **psci_ops);
 #else
@@ -31,7 +34,6 @@ static inline int sunxi_set_scpi_psci_ops(const plat_psci_ops_t **psci_ops)
 	return -1;
 }
 #endif
-int sunxi_validate_ns_entrypoint(uintptr_t ns_entrypoint);
 
 int sunxi_pmic_setup(uint16_t socid, const void *fdt);
 void sunxi_security_setup(void);

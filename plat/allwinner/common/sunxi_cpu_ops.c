@@ -64,6 +64,8 @@ static void sunxi_cpu_off(u_register_t mpidr)
 	sunxi_cpu_disable_power(cluster, core);
 }
 
+#pragma weak sunxi_cpu_power_off_self
+
 void sunxi_cpu_power_off_self(void)
 {
 	u_register_t mpidr = read_mpidr();
@@ -92,8 +94,6 @@ void sunxi_cpu_on(u_register_t mpidr)
 	mmio_clrbits_32(SUNXI_CPUCFG_RST_CTRL_REG(cluster), BIT(core));
 	/* Assert CPU power-on reset */
 	mmio_clrbits_32(SUNXI_POWERON_RST_REG(cluster), BIT(core));
-	/* Set CPU to start in AArch64 mode */
-	mmio_setbits_32(SUNXI_CPUCFG_CLS_CTRL_REG0(cluster), BIT(24 + core));
 	/* Apply power to the CPU */
 	sunxi_cpu_enable_power(cluster, core);
 	/* Release the core output clamps */

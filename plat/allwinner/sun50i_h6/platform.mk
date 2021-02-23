@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+SUNXI_HAVE_CPUIDLE	:=	1
+
 # The differences between the platform are covered by the include files.
 include plat/allwinner/common/allwinner-common.mk
 

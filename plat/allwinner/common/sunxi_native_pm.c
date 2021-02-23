@@ -13,6 +13,7 @@
 
 #include <sunxi_mmap.h>
 #include <sunxi_private.h>
+#include <drivers/sunxi_cpuidle.h>
 
 #define SUNXI_WDOG0_CTRL_REG		(SUNXI_R_WDOG_BASE + 0x0010)
 #define SUNXI_WDOG0_CFG_REG		(SUNXI_R_WDOG_BASE + 0x0014)
@@ -29,11 +30,15 @@ static void sunxi_pwr_domain_off(const psci_power_state_t *target_state)
 {
 	gicv2_cpuif_disable();
 
+	sunxi_cpuidle_off();
+
 	sunxi_cpu_power_off_self();
 }
 
 static void sunxi_pwr_domain_on_finish(const psci_power_state_t *target_state)
 {
+	sunxi_cpuidle_on_finish();
+
 	gicv2_pcpu_distif_init();
 	gicv2_cpuif_enable();
 }
@@ -67,12 +72,17 @@ static void __dead2 sunxi_system_reset(void)
 }
 
 static const plat_psci_ops_t sunxi_native_psci_ops = {
+	.cpu_standby			= sunxi_cpu_standby,
 	.pwr_domain_on			= sunxi_pwr_domain_on,
 	.pwr_domain_off			= sunxi_pwr_domain_off,
+	.pwr_domain_suspend		= sunxi_cpuidle_suspend,
 	.pwr_domain_on_finish		= sunxi_pwr_domain_on_finish,
+	.pwr_domain_suspend_finish	= sunxi_cpuidle_suspend_finish,
 	.system_off			= sunxi_system_off,
 	.system_reset			= sunxi_system_reset,
+	.validate_power_state		= sunxi_cpuidle_validate_power_state,
 	.validate_ns_entrypoint		= sunxi_validate_ns_entrypoint,
+	.get_sys_suspend_power_state	= sunxi_cpuidle_get_sys_suspend_power_state,
 };
 
 void sunxi_set_native_psci_ops(const plat_psci_ops_t **psci_ops)

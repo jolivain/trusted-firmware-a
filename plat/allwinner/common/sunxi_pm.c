@@ -14,6 +14,18 @@
 
 #include <sunxi_cpucfg.h>
 #include <sunxi_private.h>
+#include <drivers/sunxi_cpuidle.h>
+
+void sunxi_cpu_standby(plat_local_state_t cpu_state)
+{
+	u_register_t scr = read_scr_el3();
+
+	assert(is_local_state_retn(cpu_state));
+
+	write_scr_el3(scr | SCR_IRQ_BIT);
+	wfi();
+	write_scr_el3(scr);
+}
 
 int sunxi_validate_ns_entrypoint(uintptr_t ns_entrypoint)
 {
@@ -37,6 +49,11 @@ int plat_setup_psci_ops(uintptr_t sec_entrypoint,
 		mmio_write_32(SUNXI_CPUCFG_RVBAR_HI_REG(cpu),
 			      sec_entrypoint >> 32);
 	}
+
+	/* Set CPUs to start in AArch64 mode */
+	mmio_setbits_32(SUNXI_CPUCFG_CLS_CTRL_REG0(0), 0xf << 24);
+
+	sunxi_cpuidle_init();
 
 	if (sunxi_set_scpi_psci_ops(psci_ops) == 0) {
 		INFO("PSCI: Suspend is available via SCPI\n");

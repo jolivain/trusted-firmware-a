@@ -32,6 +32,12 @@ BL31_SOURCES		+=	drivers/allwinner/axp/common.c		\
 				${AW_PLAT}/common/sunxi_security.c	\
 				${AW_PLAT}/common/sunxi_topology.c
 
+# Set this on platforms that have CPUIDLE hardware.
+SUNXI_HAVE_CPUIDLE	?=	0
+
+$(eval $(call assert_boolean,SUNXI_HAVE_CPUIDLE))
+$(eval $(call add_define,SUNXI_HAVE_CPUIDLE))
+
 # By default, attempt to use SCPI to the ARISC management processor. If SCPI
 # is not enabled or SCP firmware is not loaded, fall back to a simpler native
 # implementation that does not support CPU or system suspend.
@@ -48,6 +54,10 @@ $(eval $(call add_define,SUNXI_PSCI_USE_SCPI))
 
 ifeq (${SUNXI_PSCI_USE_NATIVE}${SUNXI_PSCI_USE_SCPI},00)
 $(error "At least one of SCPI or native PSCI ops must be enabled")
+endif
+
+ifeq (${SUNXI_HAVE_CPUIDLE},1)
+BL31_SOURCES		+=	${AW_PLAT}/common/drivers/sunxi_cpuidle.c
 endif
 
 ifeq (${SUNXI_PSCI_USE_NATIVE},1)
