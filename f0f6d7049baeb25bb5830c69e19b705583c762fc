@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "7f6df632_b1561a68",
         "filename": "/COMMIT_MSG",
@@ -20,10 +21,10 @@
         "endChar": 28
       },
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c0608bb6_3134413d",
         "filename": "/COMMIT_MSG",
@@ -44,10 +45,27 @@
         "endChar": 28
       },
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb4b6365_2e3a14bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-02-23T16:06:20Z",
+      "side": 1,
+      "message": "Hi Bharat\nPlease post the updated patch fixing the agreed review comments.",
+      "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "83c1ff2f_8721d2be",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -67,10 +85,10 @@
         "endChar": 17
       },
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "857ff828_0ac07650",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -91,10 +109,10 @@
         "endChar": 17
       },
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "4a3d117e_924abf8a",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -108,10 +126,10 @@
       "side": 1,
       "message": "remove ,",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "bf0c376e_35b7bf90",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -126,10 +144,10 @@
       "message": "Ack",
       "parentUuid": "4a3d117e_924abf8a",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8689277e_b1be448a",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -143,10 +161,10 @@
       "side": 1,
       "message": "1. unsigned int bus_id, so use %u, not %d. Fix everywhere\n2. violation of MISRA Rule 7.2. Fix everywhere.",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "5d936d1b_264febe8",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -161,10 +179,10 @@
       "message": "Ack",
       "parentUuid": "8689277e_b1be448a",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9d4603c6_40634078",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -178,10 +196,10 @@
       "side": 1,
       "message": "Can this return 0?",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f53523fb_b9da159d",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -196,10 +214,10 @@
       "message": "Its a SMBUS registers read value. Some times register read value might be 0x0.",
       "parentUuid": "9d4603c6_40634078",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0c6466ab_207fd123",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -213,10 +231,10 @@
       "side": 1,
       "message": "Do you need panic() in the case of this error?",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "9cf75d21_923d5ba1",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -231,10 +249,10 @@
       "message": "Thanks for the suggestion. \nThis is trivial error and do not want to stop the system boot process.",
       "parentUuid": "0c6466ab_207fd123",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2dd9add0_b6cc2a42",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -248,10 +266,10 @@
       "side": 1,
       "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c2909e4e_4db7236b",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -266,10 +284,10 @@
       "message": "Thanks. \nWill correct it every where.",
       "parentUuid": "2dd9add0_b6cc2a42",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0d8b1986_41b45c1f",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -283,10 +301,10 @@
       "side": 1,
       "message": "the same. Fix everywhere.",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "6a7494a4_cd3a26b3",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -301,10 +319,10 @@
       "message": "Ack",
       "parentUuid": "0d8b1986_41b45c1f",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c7b307c8_22e36f90",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -318,10 +336,10 @@
       "side": 1,
       "message": "1U. Fix everywhere.",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "b8916067_c59a664a",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -336,10 +354,10 @@
       "message": "Ack",
       "parentUuid": "c7b307c8_22e36f90",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "28b4ee30_c947af27",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -353,10 +371,10 @@
       "side": 1,
       "message": "violation of MISRA Rule 14.4. Fix everywhere.",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "fa96e4d8_acaa1357",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -371,10 +389,10 @@
       "message": "Ack",
       "parentUuid": "28b4ee30_c947af27",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "189be136_d776b42b",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -388,10 +406,10 @@
       "side": 1,
       "message": "unsigned int",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "bba86681_a675fdb3",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -406,10 +424,10 @@
       "message": "Ack",
       "parentUuid": "189be136_d776b42b",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "711abb8d_43271a01",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -423,10 +441,10 @@
       "side": 1,
       "message": "unsigned. Fix everywhere",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "dc1055f2_d0368c3a",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -441,10 +459,10 @@
       "message": "Ack",
       "parentUuid": "711abb8d_43271a01",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c79114e4_50718c18",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -464,10 +482,10 @@
         "endChar": 9
       },
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "b63f5aba_6d0a5afa",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -488,10 +506,10 @@
         "endChar": 9
       },
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "392e8dcf_923b30f6",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -511,10 +529,10 @@
         "endChar": 39
       },
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "01cb874b_efb81a72",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -535,10 +553,10 @@
         "endChar": 39
       },
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "814b5122_3a607e81",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -558,10 +576,10 @@
         "endChar": 23
       },
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "08300ffb_f50ef3b2",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -582,10 +600,10 @@
         "endChar": 23
       },
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a458accd_14dae8c0",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -605,10 +623,10 @@
         "endChar": 11
       },
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "80544334_a51dd8d2",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -629,10 +647,10 @@
         "endChar": 11
       },
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "4be6ffa7_4bc5e9ed",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -652,10 +670,10 @@
         "endChar": 13
       },
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "8a4cb0e5_f276d705",
         "filename": "drivers/brcm/i2c/i2c.c",
@@ -676,10 +694,10 @@
         "endChar": 13
       },
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8e0d76dc_1a68b822",
         "filename": "plat/brcm/board/common/board_common.mk",
@@ -693,10 +711,10 @@
       "side": 1,
       "message": "Does\nDRIVER_I2C_ENABLE :\u003d 1\nenable driver?",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "553b6ab8_c9df59cc",
         "filename": "plat/brcm/board/common/board_common.mk",
@@ -711,8 +729,7 @@
       "message": "Yes. \nFor consistency I maintained the same",
       "parentUuid": "8e0d76dc_1a68b822",
       "revId": "f0f6d7049baeb25bb5830c69e19b705583c762fc",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
