@@ -16,6 +16,24 @@
       "message": "What should be fixed in this patch to pass the review?",
       "revId": "c42d5eeaf1be694a759a647994efc5ce0eea6a98",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e52a2b38_1d288118",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-02-23T10:31:04Z",
+      "side": 1,
+      "message": "Currently there are 2 CIs running, one on internal arm servers and other one on Linaro open CI(Work in Progress), for this patch former CI passed and provided +1 but the later overridden it  with -1",
+      "parentUuid": "fa49ee57_faded133",
+      "revId": "c42d5eeaf1be694a759a647994efc5ce0eea6a98",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
