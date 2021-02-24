@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae400e76_f50d6c71",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-02-24T20:17:13Z",
+      "side": 1,
+      "message": "Can you please double confirm that the order is according to the coding guidelines?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 32
+      },
+      "revId": "0e111db9c05b58d240bd22490d0f51943d042f75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2196e1cc_89ea614e",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-02-24T20:17:13Z",
+      "side": 1,
+      "message": "U(0x4000000)",
+      "range": {
+        "startLine": 43,
+        "startChar": 23,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "0e111db9c05b58d240bd22490d0f51943d042f75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e96cee5_69da02ce",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-02-24T20:17:13Z",
+      "side": 1,
+      "message": "Is this in nano seconds? I suggest renaming the macro to TIMEOUT_NS, if so. It is a good idea to always state the units clearly in the name of the macro or variable.",
+      "range": {
+        "startLine": 74,
+        "startChar": 36,
+        "endLine": 74,
+        "endChar": 49
+      },
+      "revId": "0e111db9c05b58d240bd22490d0f51943d042f75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "321ab7dd_a92c9f7c",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-02-24T20:17:13Z",
+      "side": 1,
+      "message": "if (",
+      "range": {
+        "startLine": 82,
+        "startChar": 2,
+        "endLine": 82,
+        "endChar": 5
+      },
+      "revId": "0e111db9c05b58d240bd22490d0f51943d042f75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
