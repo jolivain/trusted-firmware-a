@@ -16,6 +16,24 @@
       "message": "This inclusion breaks the H6 build for me. I have a patch to fix this properly (by moving the whole sunxi_cpu_power_off_self() to the SoCs\u0027 directories), but the patch would be nasty to have before this one (b/c of code duplication). So can we just protect this with \"#ifndef SUNXI_CPUIDLE_EN_REG\" for this one patch? This uglyness would be removed one patch later then.",
       "revId": "aa1d7951dd325422062bf231a3ed21739de857c2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "162a744b_9c1d7e37",
+        "filename": "plat/allwinner/common/sunxi_cpu_ops.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-02-24T03:14:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d628c5a_731259b3",
+      "revId": "aa1d7951dd325422062bf231a3ed21739de857c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
