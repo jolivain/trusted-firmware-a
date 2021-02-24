@@ -91,8 +91,9 @@ int emi_mpu_set_protection(struct emi_region_info_t *region_info)
 
 void emi_mpu_init(void)
 {
-	/* Set permission */
 	struct emi_region_info_t region_info;
+
+	/* reserve region 0 for future use*/
 
 	/* PCI-e protect address(64MB) */
 	region_info.start = 0xC0000000ULL;
@@ -114,6 +115,17 @@ void emi_mpu_init(void)
 			      NO_PROT, NO_PROT, NO_PROT, NO_PROT,
 			      NO_PROT, NO_PROT, NO_PROT, NO_PROT,
 			      NO_PROT, FORBIDDEN, NO_PROT, NO_PROT);
+	emi_mpu_set_protection(&region_info);
+
+	/* SCP protect address */
+	region_info.start = 0x50000000ULL;
+	region_info.end = 0x513F0000ULL;
+	region_info.region = 3;
+	SET_ACCESS_PERMISSION(region_info.apc, 1,
+			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
+			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
+			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
+			      NO_PROT, FORBIDDEN, FORBIDDEN, FORBIDDEN);
 	emi_mpu_set_protection(&region_info);
 
 	dump_emi_mpu_regions();
