@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2576835_59d59b9f",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-02-24T02:05:37Z",
+      "side": 1,
+      "message": "static gpio_init_info_t *gpio_init_info \u003d NULL;\nso we can check whether gpio_init() is called before using ”gpio_init_info“",
+      "revId": "287794f4265b1430900f43ee4fb4d86a9ab3d93b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "accfa377_2a70e9c0",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-02-24T02:05:37Z",
+      "side": 1,
+      "message": "if (gpio_init_info \u003d\u003d NULL)\n    ERROR(\"GPIO is not initialized\");",
+      "revId": "287794f4265b1430900f43ee4fb4d86a9ab3d93b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1aae7e9_17ec0b18",
+        "filename": "drivers/nxp/gpio/nxp_gpio.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-02-24T02:05:37Z",
+      "side": 1,
+      "message": "replace \"donot\" with \"doesn\u0027t\"",
+      "revId": "287794f4265b1430900f43ee4fb4d86a9ab3d93b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "514467ff_38c331bf",
+        "filename": "drivers/nxp/gpio/nxp_gpio.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-02-24T02:05:37Z",
+      "side": 1,
+      "message": "It should be \"error Please define GPIO register endianness\", right?",
+      "revId": "287794f4265b1430900f43ee4fb4d86a9ab3d93b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
