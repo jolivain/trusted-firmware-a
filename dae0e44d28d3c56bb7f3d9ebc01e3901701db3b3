@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7cf81d0_f9229d58",
+        "filename": "drivers/nxp/gic/include/gicv2/plat_gic.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-24T07:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d5a54e8_c2858849",
+      "revId": "dae0e44d28d3c56bb7f3d9ebc01e3901701db3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c9ef073_9edcde48",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-02-24T02:33:41Z",
       "side": 1,
       "message": "s/_PLAT_GICV3_H/PLAT_GICV3_H",
+      "range": {
+        "startLine": 114,
+        "startChar": 10,
+        "endLine": 114,
+        "endChar": 23
+      },
+      "revId": "dae0e44d28d3c56bb7f3d9ebc01e3901701db3b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5de0011a_e8014600",
+        "filename": "drivers/nxp/gic/include/gicv3/plat_gic.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-24T07:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c9ef073_9edcde48",
       "range": {
         "startLine": 114,
         "startChar": 10,
