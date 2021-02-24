@@ -35,6 +35,8 @@
 #include <plat/common/platform.h>
 #include <services/ffa_svc.h>
 
+#include <services/spmc_svc.h>
+
 typedef enum spmc_state {
 	SPMC_STATE_RESET = 0,
 	SPMC_STATE_OFF,
@@ -88,6 +90,32 @@ spmd_spm_core_context_t *spmd_get_context(void);
 
 int spmd_pm_secondary_ep_register(uintptr_t entry_point);
 bool spmd_check_address_in_binary_image(uint64_t address);
+
+uint64_t spmd_smc_forward_to_spmc(uint32_t smc_fid,
+				 bool secure_origin,
+				 uint64_t x1, uint64_t x2,
+				 uint64_t x3, uint64_t x4,
+				 void *handle);
+
+#if SPMC_AT_EL3
+static inline uint64_t spmd_smc_forward(uint32_t smc_fid, bool secure_origin,
+					uint64_t x1, uint64_t x2,
+					uint64_t x3, uint64_t x4,
+					void *handle,  void *cookie,
+					uint64_t flags)
+{
+	return spmc_smc_handler(smc_fid, x1, x2, x3, x4, cookie, handle, flags);
+}
+#else
+static inline uint64_t spmd_smc_forward(uint32_t smc_fid, bool secure_origin,
+					uint64_t x1, uint64_t x2,
+					uint64_t x3, uint64_t x4,
+					void *handle,  void *cookie,
+					uint64_t flags)
+{
+	return spmd_smc_forward_to_spmc(smc_fid, secure_origin, x1, x2, x3, x4, handle);
+}
+#endif /* SPMC_AT_EL3 */
 
 #endif /* __ASSEMBLER__ */
 

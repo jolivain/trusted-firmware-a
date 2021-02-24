@@ -25,6 +25,8 @@
 #include <smccc_helpers.h>
 #include "spmd_private.h"
 
+#include <services/spmc_svc.h>
+
 /*******************************************************************************
  * SPM Core context information.
  ******************************************************************************/
@@ -87,14 +89,6 @@ static int32_t spmd_init(void);
 static int spmd_spmc_init(void *pm_addr);
 static uint64_t spmd_ffa_error_return(void *handle,
 				       int error_code);
-static uint64_t spmd_smc_forward(uint32_t smc_fid,
-				 bool secure_origin,
-				 uint64_t x1,
-				 uint64_t x2,
-				 uint64_t x3,
-				 uint64_t x4,
-				 void *handle);
-
 /*******************************************************************************
  * This function takes an SPMC context pointer and performs a synchronous
  * SPMC entry.
@@ -300,8 +294,51 @@ static int spmd_spmc_init(void *pm_addr)
  ******************************************************************************/
 int spmd_setup(void)
 {
+	uint64_t rc;
+
 	void *spmc_manifest;
-	int rc;
+#if SPMC_AT_EL3
+	spmd_spm_core_context_t *ctx = spmd_get_context();
+	unsigned int linear_id = plat_my_core_pos();
+	unsigned int core_id;
+
+	VERBOSE("SPM Core init start.\n");
+
+	ctx->state = SPMC_STATE_ON_PENDING;
+
+	/* Set the SPMC context state on other CPUs to OFF */
+	for (core_id = 0U; core_id < PLATFORM_CORE_COUNT; core_id++) {
+		if (core_id != linear_id) {
+			spm_core_context[core_id].state = SPMC_STATE_OFF;
+			spm_core_context[core_id].secondary_ep.entry_point = 0UL;
+		}
+	}
+
+	/* Get SPMC manifest address */
+	spmc_manifest = spmc_get_config_addr();
+	if (spmc_manifest == NULL) {
+		ERROR("Invalid or absent SPM Core manifest.\n");
+		return -EINVAL;
+	}
+
+	/* Load the SPM Core manifest */
+	rc = plat_spm_core_manifest_load(&spmc_attrs, spmc_manifest);
+	if (rc != 0) {
+		WARN("No or invalid SPM Core manifest image provided by BL2\n");
+		return rc;
+	}
+
+	rc = spmc_setup();
+	if (rc != 0ULL) {
+		ERROR("SPMC initialisation failed 0x%llx\n", rc);
+		return 0;
+	}
+
+	ctx->state = SPMC_STATE_ON;
+
+	VERBOSE("SPM Core init end.\n");
+	return 0;
+#endif
 
 	spmc_ep_info = bl31_plat_get_next_image_ep_info(SECURE);
 	if (spmc_ep_info == NULL) {
@@ -331,10 +368,11 @@ int spmd_setup(void)
 	return rc;
 }
 
+#if !(SPMC_AT_EL3)
 /*******************************************************************************
  * Forward SMC to the other security state
  ******************************************************************************/
-static uint64_t spmd_smc_forward(uint32_t smc_fid,
+uint64_t spmd_smc_forward_to_spmc(uint32_t smc_fid,
 				 bool secure_origin,
 				 uint64_t x1,
 				 uint64_t x2,
@@ -363,6 +401,7 @@ static uint64_t spmd_smc_forward(uint32_t smc_fid,
 			SMC_GET_GP(handle, CTX_GPREG_X6),
 			SMC_GET_GP(handle, CTX_GPREG_X7));
 }
+#endif
 
 /*******************************************************************************
  * Return FFA_ERROR with specified error code
@@ -449,7 +488,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		}
 
 		return spmd_smc_forward(smc_fid, secure_origin,
-					x1, x2, x3, x4, handle);
+					x1, x2, x3, x4, handle,
+					cookie, flags);
 		break; /* not reached */
 
 	case FFA_VERSION:
@@ -493,7 +533,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		/* Forward SMC from Normal world to the SPM Core */
 		if (!secure_origin) {
 			return spmd_smc_forward(smc_fid, secure_origin,
-						x1, x2, x3, x4, handle);
+						x1, x2, x3, x4, handle,
+						cookie, flags);
 		}
 
 		/*
@@ -565,7 +606,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		} else {
 			/* Forward direct message to the other world */
 			return spmd_smc_forward(smc_fid, secure_origin,
-				x1, x2, x3, x4, handle);
+						x1, x2, x3, x4, handle,
+						cookie, flags);
 		}
 		break; /* Not reached */
 
@@ -575,7 +617,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		} else {
 			/* Forward direct message to the other world */
 			return spmd_smc_forward(smc_fid, secure_origin,
-				x1, x2, x3, x4, handle);
+						x1, x2, x3, x4, handle,
+						cookie, flags);
 		}
 		break; /* Not reached */
 
@@ -623,7 +666,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		 */
 
 		return spmd_smc_forward(smc_fid, secure_origin,
-					x1, x2, x3, x4, handle);
+					x1, x2, x3, x4, handle,
+					cookie, flags);
 		break; /* not reached */
 
 	case FFA_MSG_WAIT:
@@ -646,7 +690,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		}
 
 		return spmd_smc_forward(smc_fid, secure_origin,
-					x1, x2, x3, x4, handle);
+					x1, x2, x3, x4, handle,
+					cookie, flags);
 		break; /* not reached */
 
 	default:
