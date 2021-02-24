@@ -276,6 +276,10 @@ BL31_SOURCES		+=	lib/extensions/ras/std_err_record.c		\
 				lib/extensions/ras/ras_common.c
 endif
 
+ifeq (${SPMC_AT_EL3},1)
+BL31_SOURCES		+=	services/std_svc/spm/spmc/spmc_main.c
+endif
+
 # Pointer Authentication sources
 ifeq (${ENABLE_PAUTH}, 1)
 PLAT_BL_COMMON_SOURCES	+=	plat/arm/common/aarch64/arm_pauth.c	\

@@ -344,4 +344,8 @@ void plat_arm_secure_wdt_stop(void);
 /* Get SOC-ID of ARM platform */
 uint32_t plat_arm_get_soc_id(void);
 
+#if SPMC_AT_EL3
+void spmc_config_addr(uintptr_t soc_fw_config);
+#endif
+
 #endif /* PLAT_ARM_H */
