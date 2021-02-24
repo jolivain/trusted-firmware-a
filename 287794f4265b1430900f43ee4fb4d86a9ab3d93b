@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5524551a_69d63ae3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 28
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-02-24T04:28:04Z",
+      "side": 1,
+      "message": "Hi, Pankaj,\n\nI suggest to move device driver header files which will be used for platform code from \"driver\" directory to \"include\" directory, for example:\n\nmove \"drivers/nxp/gpio/nxp_gpio.h\" to \"include/nxp/gpio/nxp_gpio.h\"\n\nsame with all the other drivers, thanks.\n\nJiafei.",
+      "revId": "287794f4265b1430900f43ee4fb4d86a9ab3d93b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2576835_59d59b9f",
         "filename": "drivers/nxp/gpio/nxp_gpio.c",
         "patchSetId": 28
