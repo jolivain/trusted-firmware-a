@@ -215,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b59f8695_2485f59b",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-24T08:50:32Z",
+      "side": 1,
+      "message": "Perhaps... But most (if not all of) other SMC handlers use SMC_RETx() only (no break statement) and I assume we must have cleaned this code from MISRA violations so I don\u0027t think the break statement is requested by the MISRA checker. But I could be wrong.\n\nIt was only a minor comment anyway, it\u0027s not gating from my point of view.",
+      "parentUuid": "f6ac0250_6eebfd16",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 7
+      },
+      "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c67b6302_647af47b",
         "filename": "services/std_svc/pci_svc.c",
         "patchSetId": 4
