@@ -14,7 +14,7 @@
 
 #include "sptool.h"
 
-#define PAGE_SIZE		4096
+#define PAGE_SIZE_64KB		0x10000
 
 /*
  * Entry describing Secure Partition package.
@@ -239,7 +239,7 @@ static void output_write(const char *path, struct sp_pkg_info *sp, bool header)
 	xfwrite(sp->pm_data, sp->pm_size, f);
 
 	/* Save partition image aligned to Page size */
-	file_ptr = align_to((sp->pm_offset + sp->pm_size), PAGE_SIZE);
+	file_ptr = align_to((sp->pm_offset + sp->pm_size), PAGE_SIZE_64KB);
 	xfseek(f, file_ptr, SEEK_SET);
 	printf("Writing SP Image at offset 0x%x (%u bytes)\n",
 	       file_ptr, sp->img_size);
