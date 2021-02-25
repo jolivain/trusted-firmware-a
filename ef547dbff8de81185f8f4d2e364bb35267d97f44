@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20c0e552_e5cd53d1",
+        "filename": "tools/cert_create/Makefile",
+        "patchSetId": 25
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-25T15:08:00Z",
+      "side": 1,
+      "message": "This makefile should not include the NXP sub-makefile specifically, otherwise it will only work on this platform. Instead, the name of the platform should be abstracted away. Something like\n\n include ../../tools/$PLAT/cert_create_helper/tbbr.mk\n\nObviously we need to handle the case where the platform does not provide any such makefile so we probably need to test for the file existence before including it.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 50
+      },
+      "revId": "ef547dbff8de81185f8f4d2e364bb35267d97f44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35ab7b9e_33d94c3e",
+        "filename": "tools/cert_create/Makefile",
+        "patchSetId": 25
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-25T15:08:00Z",
+      "side": 1,
+      "message": "Could you please explain the purpose of this change from :\u003d to +\u003d ? I\u0027d like to better understand the rationale and the consequences of this change.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 68
+      },
+      "revId": "ef547dbff8de81185f8f4d2e364bb35267d97f44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd84a3c2_aa16f0d0",
+        "filename": "tools/cert_create/include/cert.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-25T15:08:00Z",
+      "side": 1,
+      "message": "We tend to use a different naming convention for platform specific interfaces, we usually use the plat* prefix so here PLAT_REGISTER_COT would sound more appropriate (as in, more aligned with the rest of the code base). Same comment for other similar identifiers throughout the patch.",
+      "range": {
+        "startLine": 64,
+        "startChar": 8,
+        "endLine": 64,
+        "endChar": 25
+      },
+      "revId": "ef547dbff8de81185f8f4d2e364bb35267d97f44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a09b45b_83c65066",
+        "filename": "tools/cert_create/src/cert.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-25T15:08:00Z",
+      "side": 1,
+      "message": "If possible, I\u0027d like us to avoid using #ifdefs, it makes the code difficult to read and maintain... It looks like if num_pdef_certs was initialized to 0 when PDEF_CERTS is not defined then this code would not need to make any distinction. Is that right?",
+      "range": {
+        "startLine": 226,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 0
+      },
+      "revId": "ef547dbff8de81185f8f4d2e364bb35267d97f44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "780e30b7_171e1a77",
+        "filename": "tools/cert_create/src/ext.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-25T15:08:00Z",
+      "side": 1,
+      "message": "Just like in cert.c, if we could make num_pdef_extensions equal to 0 when PDEF_EXTS is not defined then we could remove #ifdefs from this code.",
+      "range": {
+        "startLine": 60,
+        "startChar": 10,
+        "endLine": 60,
+        "endChar": 29
+      },
+      "revId": "ef547dbff8de81185f8f4d2e364bb35267d97f44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72d23605_d2fc5ac0",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-25T15:08:00Z",
+      "side": 1,
+      "message": "Same comment/question as for cert.c and key.c.",
+      "range": {
+        "startLine": 190,
+        "startChar": 11,
+        "endLine": 190,
+        "endChar": 24
+      },
+      "revId": "ef547dbff8de81185f8f4d2e364bb35267d97f44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
