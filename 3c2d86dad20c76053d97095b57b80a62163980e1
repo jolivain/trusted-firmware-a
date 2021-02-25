@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad11d66_2cc5a8d5",
+        "filename": "plat/xilinx/zynqmp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2021-02-25T09:10:47Z",
+      "side": 1,
+      "message": "I think that will be better if this is the part of previous patch to make sure that these two changes are done together.\n\nIs there any need/rule to keep ZYNQMP_IPI_CRC_CHECK for sometime for people have time for transition? \nI can imagine that new common symbol IPI_CRC_CHECK is checked and used but users can still use ZYNQMP_IPI_CRC_CHECK for sometime with any generated warning to swich to IPI_CRC_CHECK.",
+      "revId": "3c2d86dad20c76053d97095b57b80a62163980e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
