@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "125fc189_c44553c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 25
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-02-25T14:43:43Z",
+      "side": 1,
+      "message": "Sorry, I am still not sure I understood this patch correctly... As this is ultimately a generic change (i.e. one that does not affect any plat/* files), could you please reword this commit message to explain what this patch is trying to solve in *generic* terms? Ideally people (not just me) should not need to know the details of your platform to understand a commit message if it\u0027s a patch in the generic layer. This would help other platform maintainers understanding how this patch affects (or not) their platform.\n\nI sense the motivation for this patch might be related to the platform makefile being included *before* tbbr_tools.mk in the top makefile. Is the idea to allow the platform makefile to define the value of TRUSTED_KEY_CERT and prevent tbbr_tools.mk from overriding the latter?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "012b6e9fae37d8fe65f9f4f90405e102f147ff05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
