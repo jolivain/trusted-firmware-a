@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b80d8353_909020a4",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-02-25T18:19:56Z",
+      "side": 1,
+      "message": "Hmm\nThis looks wrong to me:\ntimeout_count is TIMEOUT_COUNT_NS, which looks like a measure in nanoseconds.\nHowever it\u0027s being passed to timeout_init_us, which implies that the argument should be in microseconds.\n\nAlso a \u0027* 1000\u0027 has been removed since the last patchset (although the names would imply that a \u0027/ 1000\u0027 is required).\nAm I missing something here?",
+      "range": {
+        "startLine": 78,
+        "startChar": 27,
+        "endLine": 78,
+        "endChar": 40
+      },
+      "revId": "c304f8cd1d0a2d3c525417bb78d16286b683b03c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
