@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c2393c2_af59ec49",
+        "filename": "tools/cert_create/Makefile",
+        "patchSetId": 25
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-26T19:03:28Z",
+      "side": 1,
+      "message": "Accepted.",
+      "parentUuid": "20c0e552_e5cd53d1",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 50
+      },
+      "revId": "ef547dbff8de81185f8f4d2e364bb35267d97f44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35ab7b9e_33d94c3e",
@@ -70,6 +94,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef98d4a4_037e6b24",
+        "filename": "tools/cert_create/include/cert.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-26T19:03:28Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "bd84a3c2_aa16f0d0",
+      "range": {
+        "startLine": 64,
+        "startChar": 8,
+        "endLine": 64,
+        "endChar": 25
+      },
+      "revId": "ef547dbff8de81185f8f4d2e364bb35267d97f44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a09b45b_83c65066",
@@ -83,6 +131,30 @@
       "writtenOn": "2021-02-25T15:08:00Z",
       "side": 1,
       "message": "If possible, I\u0027d like us to avoid using #ifdefs, it makes the code difficult to read and maintain... It looks like if num_pdef_certs was initialized to 0 when PDEF_CERTS is not defined then this code would not need to make any distinction. Is that right?",
+      "range": {
+        "startLine": 226,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 0
+      },
+      "revId": "ef547dbff8de81185f8f4d2e364bb35267d97f44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "478495f4_c041b31e",
+        "filename": "tools/cert_create/src/cert.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-26T19:03:28Z",
+      "side": 1,
+      "message": "Hi Sandrine,\n\nI analyzed, and for that PLAT_REGISTER_COT(NULL) needs to be put under #ifdef in the tools/cert_create/src/tbbr/tbb_cert.c\n\n#ifdef cannot be simply avoided until different approach is taken. In that case, PLAT_REGISTER_COT will be not be similar to REGISTER_COT.\n\nPankaj",
+      "parentUuid": "3a09b45b_83c65066",
       "range": {
         "startLine": 226,
         "startChar": 0,
@@ -118,6 +190,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "86533edf_4e8cf305",
+        "filename": "tools/cert_create/src/ext.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-26T19:03:28Z",
+      "side": 1,
+      "message": "I analyzed, and for that PLAT_REGISTER_EXTENSION(NULL) needs to be put under #ifdef in the tools/cert_create/src/tbbr/tbb_ext.c\n\n#ifdef cannot be simply avoided until different approach is taken. In that case, PLAT_REGISTER_EXTENSION will be not be similar to REGISTER_EXTENSION.",
+      "parentUuid": "780e30b7_171e1a77",
+      "range": {
+        "startLine": 60,
+        "startChar": 10,
+        "endLine": 60,
+        "endChar": 29
+      },
+      "revId": "ef547dbff8de81185f8f4d2e364bb35267d97f44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72d23605_d2fc5ac0",
         "filename": "tools/cert_create/src/key.c",
         "patchSetId": 25
@@ -129,6 +225,30 @@
       "writtenOn": "2021-02-25T15:08:00Z",
       "side": 1,
       "message": "Same comment/question as for cert.c and key.c.",
+      "range": {
+        "startLine": 190,
+        "startChar": 11,
+        "endLine": 190,
+        "endChar": 24
+      },
+      "revId": "ef547dbff8de81185f8f4d2e364bb35267d97f44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e299688_396358d1",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-26T19:03:28Z",
+      "side": 1,
+      "message": "I analyzed, and for that PLAT_REGISTER_KEY(NULL) needs to be put under #ifdef in the tools/cert_create/src/tbbr/tbb_key.c\n\n#ifdef cannot be simply avoided until different approach is taken. In that case, PLAT_REGISTER_EXTENSION will be not be similar to REGISTER_KEY.",
+      "parentUuid": "72d23605_d2fc5ac0",
       "range": {
         "startLine": 190,
         "startChar": 11,
