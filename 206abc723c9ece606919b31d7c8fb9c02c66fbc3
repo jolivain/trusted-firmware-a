@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afa421af_f55ed67e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-27T05:28:30Z",
+      "side": 1,
+      "message": "rename the tools/nxp/cert_create_helper/tbbr.mk to tools/nxp/cert_create_helper/cert_create_tbbr.mk\n\nregards\nPankaj",
+      "revId": "206abc723c9ece606919b31d7c8fb9c02c66fbc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ffd6c56_95f74981",
@@ -54,6 +71,30 @@
       "writtenOn": "2021-02-25T15:17:39Z",
       "side": 1,
       "message": "Same comment.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 5
+      },
+      "revId": "206abc723c9ece606919b31d7c8fb9c02c66fbc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8dca399_242c53c8",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 27
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-02-27T05:28:30Z",
+      "side": 1,
+      "message": "Removed the platform specific includes.",
+      "parentUuid": "fe34dc66_5f1ee3bb",
       "range": {
         "startLine": 40,
         "startChar": 0,
