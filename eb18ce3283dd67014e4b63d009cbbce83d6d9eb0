@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29d8f98f_22241f75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-02-28T12:54:44Z",
+      "side": 1,
+      "message": "CCed Chris who is working on Cmake build system. I think we should think seriously on how much we want to invest in extending/enhancing the makefile system for Juno given the coming Cmake alternative. I would rather table this discussion and address in Cmake system if we can to move this patch forward? ",
+      "revId": "eb18ce3283dd67014e4b63d009cbbce83d6d9eb0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d7fc299_48b051f2",
