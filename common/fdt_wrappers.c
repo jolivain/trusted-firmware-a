@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,6 +13,7 @@
 
 #include <common/debug.h>
 #include <common/fdt_wrappers.h>
+#include <common/uuid.h>
 
 /*
  * Read cells from a given property of the given node. Any number of 32-bit
@@ -146,6 +147,39 @@ int fdtw_read_string(const void *dtb, int node, const char *prop,
 	if (len >= size) {
 		WARN("String of property %s in dtb has been truncated\n", prop);
 		return -1;
+	}
+
+	return 0;
+}
+
+/*
+ * Read UUID from a given property of the given node. Returns 0 on success,
+ * and a negative value upon error.
+ */
+int fdtw_read_uuid(const void *dtb, int node, const char *prop,
+		   unsigned int length, uint8_t *uuid)
+{
+	/* Buffer for UUID string (plus NUL terminator) */
+	char uuid_string[UUID_STRING_LENGTH + 1U];
+	int err;
+
+	assert(dtb != NULL);
+	assert(prop != NULL);
+	assert(uuid != NULL);
+	assert(node >= 0);
+
+	if (length < UUID_BYTES_LENGTH) {
+		return -FDT_ERR_BADVALUE;
+	}
+
+	err = fdtw_read_string(dtb, node, prop, uuid_string,
+			       UUID_STRING_LENGTH + 1U);
+	if (err != 0) {
+		return err;
+	}
+
+	if (read_uuid(uuid, uuid_string) != 0) {
+		return -FDT_ERR_BADVALUE;
 	}
 
 	return 0;
