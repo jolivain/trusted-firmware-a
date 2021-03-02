@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "916ca8d5_514bdf2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 28
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-03-02T19:37:06Z",
+      "side": 1,
+      "message": "Yes, it was discussed latter in the review.",
+      "parentUuid": "737106a4_614e20bd",
+      "revId": "73181d6d9e213e2812ee572996a83c6fd7fc0b95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "441853ba_fd60af63",
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f182e21_d87d88a8",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 28
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-03-02T19:37:06Z",
+      "side": 1,
+      "message": "I tried, but the ${PLAT_FIPTOOL_HELPER_MK} is not included.\nno print on terminal $(info Entered ${PLAT_FIPTOOL_HELPER_MK}...), added to ${PLAT_FIPTOOL_HELPER_MK}.\n\nAs if this file is not included.\n\nPlease suggest if I am missing something.\n\nTill then retaining the old change.",
+      "parentUuid": "441853ba_fd60af63",
+      "revId": "73181d6d9e213e2812ee572996a83c6fd7fc0b95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92e42faf_6d91db86",
         "filename": "tools/fiptool/Makefile",
         "patchSetId": 28
@@ -65,6 +101,24 @@
       "writtenOn": "2021-03-02T12:53:04Z",
       "side": 1,
       "message": "For me this rule shouldn\u0027t be required as ${PLAT_DEF_UUID_CONFIG_FILE_NAME}.o is in ${OBJECTS}, but it may be defined with the full path in the plat_fiptool.mk.\nThe clean rule may then not need to be updated.\nAnd you also may have to add -I./ at line 31.",
+      "revId": "73181d6d9e213e2812ee572996a83c6fd7fc0b95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "add8634e_96cb3211",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 28
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-03-02T19:37:06Z",
+      "side": 1,
+      "message": "Accepted.\n\nBut due to this change, line no 63 will also be modified.\nas there is no ${PLAT_DEF_UUID_CONFIG_FILE_NAME}.h exists.",
+      "parentUuid": "92e42faf_6d91db86",
       "revId": "73181d6d9e213e2812ee572996a83c6fd7fc0b95",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
