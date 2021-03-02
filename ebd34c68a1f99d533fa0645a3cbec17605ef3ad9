@@ -56,6 +56,29 @@
       },
       "revId": "ebd34c68a1f99d533fa0645a3cbec17605ef3ad9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b94dc4e_eb11077b",
+        "filename": "plat/arm/common/fconf/fconf_ethosn_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-03-02T16:26:35Z",
+      "side": 1,
+      "message": "what happens when the sub node is not \"ethosn-core\" compatible or if the property itself is missing from the dts? Should you check for that condition and return -1?",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 56
+      },
+      "revId": "ebd34c68a1f99d533fa0645a3cbec17605ef3ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
