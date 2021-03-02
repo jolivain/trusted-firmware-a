@@ -16,6 +16,24 @@
       "message": "Hi John\nDid you test this patch on a Makalu CPU specific FVP Model?",
       "revId": "aaabf9789ae7d73724c43e7225b1313b7e228054",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e46f29cf_d22c0888",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-03-02T15:19:03Z",
+      "side": 1,
+      "message": "Yes, this patch was blocked for a while due to an FVP bug but that has since been resolved and TFTF tests pass using this code on the Makalu FVP.",
+      "parentUuid": "3c8d6f3d_87a5364e",
+      "revId": "aaabf9789ae7d73724c43e7225b1313b7e228054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
