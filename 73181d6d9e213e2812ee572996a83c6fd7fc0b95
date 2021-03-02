@@ -16,6 +16,57 @@
       "message": "please share your review comments.\n\nPankaj",
       "revId": "73181d6d9e213e2812ee572996a83c6fd7fc0b95",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "737106a4_614e20bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 28
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-03-02T12:53:04Z",
+      "side": 1,
+      "message": "Sorry to come quite late in this review.\nPlease check my comments in tools/fiptool/Makefile.\nFor me this patch should also be split in 2: 1 for the modified files, 1 for the NXP added files. But it might have been discussed earlier in the review. If so forget about this split.",
+      "revId": "73181d6d9e213e2812ee572996a83c6fd7fc0b95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "441853ba_fd60af63",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 28
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-03-02T12:53:04Z",
+      "side": 1,
+      "message": "You should directly add ${PLAT_FIPTOOL_HELPER_MK} as a dependency here. It will avoid cleaning the tool if nothing changed. It still works if PLAT_FIPTOOL_HELPER_MK is not defined.\nThis line would then become:\n${PROJECT}: ${OBJECTS} Makefile ${PLAT_FIPTOOL_HELPER_MK}\nThe comment should also be updated in this case.",
+      "revId": "73181d6d9e213e2812ee572996a83c6fd7fc0b95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92e42faf_6d91db86",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 28
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-03-02T12:53:04Z",
+      "side": 1,
+      "message": "For me this rule shouldn\u0027t be required as ${PLAT_DEF_UUID_CONFIG_FILE_NAME}.o is in ${OBJECTS}, but it may be defined with the full path in the plat_fiptool.mk.\nThe clean rule may then not need to be updated.\nAnd you also may have to add -I./ at line 31.",
+      "revId": "73181d6d9e213e2812ee572996a83c6fd7fc0b95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
