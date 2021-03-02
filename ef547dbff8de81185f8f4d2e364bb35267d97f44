@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d36fa012_bba9d819",
+        "filename": "tools/cert_create/Makefile",
+        "patchSetId": 25
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-03-02T20:08:47Z",
+      "side": 1,
+      "message": "Platform defined UUID Header file \"plat_def_fip_uuid.h\", needs to be included in include/tool_share/firmware_image_package.h.\n\nPath to this header file \"plat_def_fip_uuid.h\" needs to be included before include/tool_share/firmware_image_package.h, is included.\n\nPlatform specific .mk file is including the path for the header file \"plat_def_fip_uuid.h in the variable INC_DIR.\n\nhence +\u003d is required.",
+      "parentUuid": "35ab7b9e_33d94c3e",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 68
+      },
+      "revId": "ef547dbff8de81185f8f4d2e364bb35267d97f44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd84a3c2_aa16f0d0",
         "filename": "tools/cert_create/include/cert.h",
         "patchSetId": 25
