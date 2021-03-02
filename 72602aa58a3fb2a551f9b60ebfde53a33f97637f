@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "3ba9234f_47e173b4",
         "filename": "services/std_svc/sdei/sdei_intr_mgmt.c",
@@ -14,8 +15,25 @@
       "side": 1,
       "message": "J1-7635 also talks about UAO and BTI bits. Can you point me to the handling for that part of the pseudocode?",
       "revId": "72602aa58a3fb2a551f9b60ebfde53a33f97637f",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb7b5813_4576dc8c",
+        "filename": "services/std_svc/sdei/sdei_intr_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-03-02T12:13:22Z",
+      "side": 1,
+      "message": "Sorry for being so slow to reply to this, I missed this comment and have also been working on tests to go along side the change so wasn\u0027t regularly checking up on the patch till they are done.\n\nSince these bits can be set to 0 in both the case the FEAT_UAO (or FEAT_BTI) is enabled or disabled (when the bit is Res0), it is covered in the initial setting spsr using the SPSR_64 macro which sets all bits that aren\u0027t in the arguments to zero",
+      "parentUuid": "3ba9234f_47e173b4",
+      "revId": "72602aa58a3fb2a551f9b60ebfde53a33f97637f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
