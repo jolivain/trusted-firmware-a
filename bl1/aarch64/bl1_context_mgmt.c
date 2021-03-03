@@ -44,7 +44,11 @@ void bl1_prepare_next_image(unsigned int image_id)
 	 */
 	static cpu_context_t bl1_cpu_context[2];
 
+#ifndef NO_EL3
 	unsigned int security_state, mode = MODE_EL1;
+#else
+	unsigned int security_state, mode = MODE_EL2;
+#endif
 	image_desc_t *desc;
 	entry_point_info_t *next_bl_ep;
 
@@ -75,9 +79,11 @@ void bl1_prepare_next_image(unsigned int image_id)
 		cm_set_context(&bl1_cpu_context[security_state], security_state);
 
 	/* Prepare the SPSR for the next BL image. */
+#ifndef NO_EL3
 	if ((security_state != SECURE) && (el_implemented(2) != EL_IMPL_NONE)) {
 		mode = MODE_EL2;
 	}
+#endif
 
 	next_bl_ep->spsr = (uint32_t)SPSR_64((uint64_t) mode,
 		(uint64_t)MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
@@ -86,12 +92,10 @@ void bl1_prepare_next_image(unsigned int image_id)
 	bl1_plat_set_ep_info(image_id, next_bl_ep);
 
 	/* Prepare the context for the next BL image. */
+#ifndef NO_EL3
 	cm_init_my_context(next_bl_ep);
-#ifdef NO_EL3
-	cm_prepare_el2_exit(security_state);
-#else
 	cm_prepare_el3_exit(security_state);
-#endif  /* def NO_EL3 */
+#endif
 
 	/* Indicate that image is in execution state. */
 	desc->state = IMAGE_STATE_EXECUTED;
