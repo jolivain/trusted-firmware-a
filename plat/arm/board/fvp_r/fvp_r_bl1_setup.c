@@ -14,6 +14,8 @@
 #include <common/tbbr/tbbr_img_def.h>
 #include <drivers/arm/sp805.h>
 #include "fvp_r_private.h"
+#include <lib/fconf/fconf.h>
+#include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <plat/arm/common/arm_config.h>
 #include <plat/arm/common/arm_def.h>
 #include <plat/arm/common/plat_arm.h>
@@ -43,6 +45,9 @@ void arm_bl1_early_platform_setup(void)
 	bl1_tzram_layout.total_base = ARM_BL_RAM_BASE;
 	bl1_tzram_layout.total_size = ARM_BL_RAM_SIZE;
 }
+
+/* Boolean variable to hold condition whether firmware update needed or not */
+static bool is_fwu_needed;
 
 /*******************************************************************************
  * Perform any BL1 specific platform actions.
@@ -131,4 +136,61 @@ __dead2 void bl1_plat_fwu_done(void *client_cookie, void *reserved)
 	while (true) {
 		wfi();
 	}
+}
+
+unsigned int bl1_plat_get_next_image_id(void)
+{
+	return  is_fwu_needed ? NS_BL1U_IMAGE_ID : BL33_IMAGE_ID;
+}
+
+/*
+ * Returns BL33 image details.
+ */
+struct image_desc *bl1_plat_get_image_desc(unsigned int image_id)
+{
+	static image_desc_t bl33_img_desc = BL33_IMAGE_DESC;
+	return &bl33_img_desc;
+}
+
+/*
+ * This function populates the default arguments to BL33.
+ * The BL33 memory layout structure is allocated and the
+ * calculated layout is populated in arg1 to BL33.
+ */
+int bl1_plat_handle_post_image_load(unsigned int image_id)
+{
+	meminfo_t *bl33_secram_layout;
+	meminfo_t *bl1_secram_layout;
+	image_desc_t *image_desc;
+	entry_point_info_t *ep_info;
+
+	if (image_id != BL33_IMAGE_ID)
+		return 0;
+
+	/* Get the image descriptor */
+	image_desc = bl1_plat_get_image_desc(BL33_IMAGE_ID);
+	assert(image_desc != NULL);
+
+	/* Get the entry point info */
+	ep_info = &image_desc->ep_info;
+
+	/* Find out how much free trusted ram remains after BL1 load */
+	bl1_secram_layout = bl1_plat_sec_mem_layout();
+
+	/*
+	 * Create a new layout of memory for BL33 as seen by BL1 i.e.
+	 * tell it the amount of total and free memory available.
+	 * This layout is created at the first free address visible
+	 * to BL33. BL33 will read the memory layout before using its
+	 * memory for other purposes.
+	 */
+	bl33_secram_layout = (meminfo_t *) bl1_secram_layout->total_base;
+
+	bl1_calc_bl2_mem_layout(bl1_secram_layout, bl33_secram_layout);
+
+	ep_info->args.arg1 = (uintptr_t)bl33_secram_layout;
+
+	VERBOSE("BL1: BL3 memory layout address = %p\n",
+		(void *) bl33_secram_layout);
+	return 0;
 }
