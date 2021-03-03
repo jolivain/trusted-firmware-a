@@ -1,6 +1,7 @@
 /* SPDX-License-Identifier: BSD-3-Clause
  *
  * Copyright (c) 2020, Linaro Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021, NVIDIA Corporation. All rights reserved.
  */
 
 #include <libfdt.h>
@@ -124,6 +125,36 @@ int dt_add_ns_buf_node(uintptr_t *base)
 /* Plug in QEMU exceptions to Exception Handling Framework. */
 EHF_REGISTER_PRIORITIES(qemu_exceptions, ARRAY_SIZE(qemu_exceptions),
 			QEMU_PRI_BITS);
+
+uint64_t plat_spm_get_sp_image_base(void)
+{
+	return (uint64_t)PLAT_QEMU_SP_IMAGE_BASE;
+}
+
+uint64_t plat_spm_get_spm_buf_base(void)
+{
+	return (uint64_t)PLAT_SPM_BUF_BASE;
+}
+
+uint64_t plat_spm_get_spm_buf_size(void)
+{
+	return (uint64_t)PLAT_SPM_BUF_SIZE;
+}
+
+uint64_t plat_spm_get_ns_buf_base(void)
+{
+	return (uint64_t)PLAT_QEMU_SP_IMAGE_NS_BUF_BASE;
+}
+
+uint64_t plat_spm_get_ns_buf_size(void)
+{
+	return (uint64_t)PLAT_QEMU_SP_IMAGE_NS_BUF_SIZE;
+}
+
+uint64_t plat_spm_get_sp_stack_base(void)
+{
+	return (uint64_t)PLAT_SP_IMAGE_STACK_BASE;
+}
 
 const mmap_region_t *plat_get_secure_partition_mmap(void *cookie)
 {

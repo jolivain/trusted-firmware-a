@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -301,6 +302,12 @@ const struct spm_mm_boot_info *plat_get_secure_partition_boot_info(
 int plat_spm_sp_rd_load(struct sp_res_desc *rd, const void *ptr, size_t size);
 int plat_spm_sp_get_next_address(void **sp_base, size_t *sp_size,
 				 void **rd_base, size_t *rd_size);
+uint64_t plat_spm_get_sp_image_base(void);
+uint64_t plat_spm_get_spm_buf_base(void);
+uint64_t plat_spm_get_spm_buf_size(void);
+uint64_t plat_spm_get_ns_buf_base(void);
+uint64_t plat_spm_get_ns_buf_size(void);
+uint64_t plat_spm_get_sp_stack_base(void);
 #if defined(SPD_spmd)
 int plat_spm_core_manifest_load(spmc_manifest_attribute_t *manifest,
 				const void *pm_addr);
