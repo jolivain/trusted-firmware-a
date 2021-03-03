@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -57,6 +58,36 @@ const spm_mm_boot_info_t plat_arm_secure_partition_boot_info = {
 	.num_cpus		= PLATFORM_CORE_COUNT,
 	.mp_info		= sp_mp_info,
 };
+
+uintptr_t plat_spm_get_sp_image_base(void)
+{
+	return BL32_BASE;
+}
+
+uintptr_t plat_spm_get_spm_buf_base(void)
+{
+	return PLAT_SPM_BUF_BASE;
+}
+
+uintptr_t plat_spm_get_spm_buf_size(void)
+{
+	return PLAT_SPM_BUF_SIZE;
+}
+
+uintptr_t plat_spm_get_ns_buf_base(void)
+{
+	return PLAT_SP_IMAGE_NS_BUF_BASE;
+}
+
+uintptr_t plat_spm_get_ns_buf_size(void)
+{
+	return PLAT_SP_IMAGE_NS_BUF_SIZE;
+}
+
+uintptr_t plat_spm_get_sp_stack_base(void)
+{
+	return PLAT_SP_IMAGE_STACK_BASE;
+}
 
 const struct mmap_region *plat_get_secure_partition_mmap(void *cookie)
 {
