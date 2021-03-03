@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3651223b_917feedd",
+        "filename": "plat/arm/board/juno/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-03-03T14:32:32Z",
+      "side": 1,
+      "message": "I think, this size should match with \u0027max-size\u0027 given to hw-config here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/8467/1/plat/arm/board/juno/fdts/juno_fw_config.dts#23 ?",
+      "range": {
+        "startLine": 57,
+        "startChar": 37,
+        "endLine": 57,
+        "endChar": 43
+      },
+      "revId": "c9fdb157d8d15a6708cd9c5ad6f7b24918833468",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35ef348c_ecd4a8d6",
         "filename": "plat/arm/board/juno/include/platform_def.h",
         "patchSetId": 1
@@ -19,6 +42,29 @@
         "startChar": 27,
         "endLine": 119,
         "endChar": 28
+      },
+      "revId": "c9fdb157d8d15a6708cd9c5ad6f7b24918833468",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da65e1f1_2b0f444c",
+        "filename": "plat/arm/board/juno/juno_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-03-03T14:32:32Z",
+      "side": 1,
+      "message": "IMO,we should retrieve this address from fw_config device tree (arg1) same as in FVP [1].\n\nIt\u0027s fine to go ahead with a little overload to populate fw_config device tree to get the hw_config dtb address as we are aiming towards passing only single fw_config dtb address to BL components. Let me know what do you think?\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/fvp/fvp_bl31_setup.c#n28",
+      "range": {
+        "startLine": 17,
+        "startChar": 1,
+        "endLine": 17,
+        "endChar": 22
       },
       "revId": "c9fdb157d8d15a6708cd9c5ad6f7b24918833468",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
