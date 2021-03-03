@@ -19,9 +19,83 @@
 #include <lib/utils.h>
 #include <smccc_helpers.h>
 #include <tools_share/uuid.h>
+#include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 
 #include <platform_def.h>
+
+
+void bl1_run_next_image(const struct entry_point_info *bl_ep_info);
+
+/*******************************************************************************
+ * Function to perform late architectural and platform specific initialization.
+ * It also queries the platform to load and run next BL image. Only called
+ * by the primary cpu after a cold boot.
+ ******************************************************************************/
+void bl1_transfer_bl33 (void)
+{
+	unsigned int image_id;
+
+	/* Get the image id of next image to load and run. */
+	image_id = bl1_plat_get_next_image_id();
+
+#if ENABLE_PAUTH
+	/*
+	 * Disable pointer authentication before running next boot image
+	 */
+	pauth_disable_el2();
+#endif /* ENABLE_PAUTH */
+
+#if !ARM_DISABLE_TRUSTED_WDOG
+	/* Disable watchdog before leaving BL1 */
+	plat_arm_secure_wdt_stop();
+#endif
+
+	bl1_run_next_image(&bl1_plat_get_image_desc(image_id)->ep_info);
+}
+
+/*******************************************************************************
+ * This function locates and loads the BL33 raw binary image in the trusted SRAM.
+ * Called by the primary cpu after a cold boot.
+ * TODO: Add support for alternative image load mechanism e.g using virtio/elf
+ * loader etc.
+ ******************************************************************************/
+void bl1_load_bl33(void)
+{
+	image_desc_t *desc;
+	image_info_t *info;
+	int err;
+
+	/* Get the image descriptor */
+	desc = bl1_plat_get_image_desc(BL33_IMAGE_ID);
+	assert(desc != NULL);
+
+	/* Get the image info */
+	info = &desc->image_info;
+	INFO("BL1: Loading BL33\n");
+
+	err = bl1_plat_handle_pre_image_load(BL33_IMAGE_ID);
+	if (err != 0) {
+		ERROR("Failure in pre image load handling of BL33 (%d)\n", err);
+		plat_error_handler(err);
+	}
+
+	err = load_auth_image(BL33_IMAGE_ID, info);
+	if (err != 0) {
+		ERROR("Failed to load BL33 firmware.\n");
+		plat_error_handler(err);
+	}
+
+	/* Allow platform to handle image information. */
+	err = bl1_plat_handle_post_image_load(BL33_IMAGE_ID);
+	if (err != 0) {
+		ERROR("Failure in post image load handling of BL33 (%d)\n", err);
+		plat_error_handler(err);
+	}
+
+	NOTICE("BL1: Booting BL33\n");
+}
+
 
 static void bl1_load_bl2(void);
 
@@ -77,75 +151,81 @@ void bl1_setup(void)
  ******************************************************************************/
 void bl1_main(void)
 {
-	unsigned int image_id;
+        unsigned int image_id;
 
-	/* Announce our arrival */
-	NOTICE(FIRMWARE_WELCOME_STR);
-	NOTICE("BL1: %s\n", version_string);
-	NOTICE("BL1: %s\n", build_message);
+        /* Announce our arrival */
+        NOTICE(FIRMWARE_WELCOME_STR);
+        NOTICE("BL1: %s\n", version_string);
+        NOTICE("BL1: %s\n", build_message);
 
-	INFO("BL1: RAM %p - %p\n", (void *)BL1_RAM_BASE, (void *)BL1_RAM_LIMIT);
+        INFO("BL1: RAM %p - %p\n", (void *)BL1_RAM_BASE, (void *)BL1_RAM_LIMIT);
 
-	print_errata_status();
+        print_errata_status();
 
 #if ENABLE_ASSERTIONS
-	u_register_t val;
-	/*
-	 * Ensure that MMU/Caches and coherency are turned on
-	 */
-	val = read_sctlr_el2();
+        u_register_t val;
+        /*
+         * Ensure that MMU/Caches and coherency are turned on
+         */
+        val = read_sctlr_el2();
 
-	assert((val & SCTLR_M_BIT) != 0);
-	assert((val & SCTLR_C_BIT) != 0);
-	assert((val & SCTLR_I_BIT) != 0);
-	/*
-	 * Check that Cache Writeback Granule (CWG) in CTR_EL0 matches the
-	 * provided platform value
-	 */
-	val = (read_ctr_el0() >> CTR_CWG_SHIFT) & CTR_CWG_MASK;
-	/*
-	 * If CWG is zero, then no CWG information is available but we can
-	 * at least check the platform value is less than the architectural
-	 * maximum.
-	 */
-	if (val != 0)
-		assert(CACHE_WRITEBACK_GRANULE == SIZE_FROM_LOG2_WORDS(val));
-	else
-		assert(CACHE_WRITEBACK_GRANULE <= MAX_CACHE_LINE_SIZE);
+        assert((val & SCTLR_M_BIT) != 0);
+        assert((val & SCTLR_C_BIT) != 0);
+        assert((val & SCTLR_I_BIT) != 0);
+        /*
+         * Check that Cache Writeback Granule (CWG) in CTR_EL0 matches the
+         * provided platform value
+         */
+        val = (read_ctr_el0() >> CTR_CWG_SHIFT) & CTR_CWG_MASK;
+        /*
+         * If CWG is zero, then no CWG information is available but we can
+         * at least check the platform value is less than the architectural
+         * maximum.
+         */
+        if (val != 0) {
+                assert(CACHE_WRITEBACK_GRANULE == SIZE_FROM_LOG2_WORDS(val));
+        } else {
+                assert(CACHE_WRITEBACK_GRANULE <= MAX_CACHE_LINE_SIZE);
+	}
 #endif /* ENABLE_ASSERTIONS */
 
-	/* Perform remaining generic architectural setup from EL2 */
-	bl1_arch_setup();
+        /* Perform remaining generic architectural setup from ELmax */
+        bl1_arch_setup();
 
 #if TRUSTED_BOARD_BOOT
-	/* Initialize authentication module */
-	auth_mod_init();
+        /* Initialize authentication module */
+        auth_mod_init();
 #endif /* TRUSTED_BOARD_BOOT */
 
-	/* Perform platform setup in BL1. */
-	bl1_platform_setup();
+        /* Perform platform setup in BL1. */
+        bl1_platform_setup();
 
 #if ENABLE_PAUTH
-	/* Store APIAKey_EL1 key */
-	bl1_apiakey[0] = read_apiakeylo_el1();
-	bl1_apiakey[1] = read_apiakeyhi_el1();
+        /* Store APIAKey_EL1 key */
+        bl1_apiakey[0] = read_apiakeylo_el1();
+        bl1_apiakey[1] = read_apiakeyhi_el1();
 #endif /* ENABLE_PAUTH */
 
-	/* Get the image id of next image to load and run. */
-	image_id = bl1_plat_get_next_image_id();
+        /* Get the image id of next image to load and run. */
+        image_id = bl1_plat_get_next_image_id();
 
-	/*
-	 * We currently interpret any image id other than
-	 * BL2_IMAGE_ID as the start of firmware update.
-	 */
-	if (image_id == BL2_IMAGE_ID)
-		bl1_load_bl2();
-	else
-		NOTICE("BL1-FWU: *******FWU Process Started*******\n");
+        /*
+         * We currently interpret any image id other than
+         * BL2_IMAGE_ID as the start of firmware update.
+         */
+        if (image_id == BL2_IMAGE_ID) {
+                bl1_load_bl2();
+        } else if (image_id == BL33_IMAGE_ID) {
+                bl1_load_bl33();
+        } else {
+                NOTICE("BL1-FWU: *******FWU Process Started*******\n");
+	}
+	
+        bl1_prepare_next_image(image_id);
 
-	bl1_prepare_next_image(image_id);
+        console_flush();
 
-	console_flush();
+        bl1_transfer_bl33();
 }
 
 /*******************************************************************************
