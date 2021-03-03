@@ -27,6 +27,7 @@
 #pragma weak bl1_plat_get_next_image_id
 #pragma weak plat_arm_bl1_fwu_needed
 #pragma weak arm_bl1_plat_arch_setup
+#pragma weak arm_bl1_platform_setup
 
 /* Data structure which holds the extents of the trusted SRAM for BL1*/
 static meminfo_t bl1_tzram_layout;
