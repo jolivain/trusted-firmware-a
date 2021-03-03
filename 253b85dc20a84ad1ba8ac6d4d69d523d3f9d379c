@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aab046ae_5e49dcba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-03-03T17:21:06Z",
+      "side": 1,
+      "message": "tangential question: Is there some place in code where we make sure /check that the first boot SP is a MP partition? There are assumptions around first sp being called on PSCI CPU on so we need to enforce this.",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 19
+      },
+      "revId": "253b85dc20a84ad1ba8ac6d4d69d523d3f9d379c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
