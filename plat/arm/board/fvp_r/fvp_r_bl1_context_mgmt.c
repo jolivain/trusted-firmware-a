@@ -55,7 +55,7 @@ void bl1_prepare_next_image(unsigned int image_id)
 	 * context is not set for AArch64-only platforms.
 	 */
 	if (el_implemented(1) == EL_IMPL_A64ONLY) {
-		ERROR("EL1 supports AArch64-only. Please set build flag "
+		ERROR("EL1 supports AArch64-only. Please set build flag %s"
 				"CTX_INCLUDE_AARCH32_REGS = 0\n");
 		panic();
 	}
@@ -76,19 +76,11 @@ void bl1_prepare_next_image(unsigned int image_id)
 		cm_set_context(&bl1_cpu_context[security_state], security_state);
 
 	/* Prepare the SPSR for the next BL image. */
-	if ((security_state != SECURE) && (el_implemented(2) != EL_IMPL_NONE)) {
-		mode = MODE_EL2;
-	}
-
 	next_bl_ep->spsr = (uint32_t)SPSR_64((uint64_t) mode,
 		(uint64_t)MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 
 	/* Allow platform to make change */
 	bl1_plat_set_ep_info(image_id, next_bl_ep);
-
-	/* Prepare the context for the next BL image. */
-	cm_init_my_context(next_bl_ep);
-	cm_prepare_el2_exit(security_state);
 
 	/* Indicate that image is in execution state. */
 	desc->state = IMAGE_STATE_EXECUTED;

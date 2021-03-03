@@ -123,10 +123,12 @@ void bl1_plat_arch_setup(void)
  */
 void arm_bl1_platform_setup(void)
 {
+#ifndef NO_EL3
 	const struct dyn_cfg_dtb_info_t *fw_config_info;
+	int err = -1;
+#endif /* NO_EL3 */
 	image_desc_t *desc;
 	uint32_t fw_config_max_size;
-	int err = -1;
 
 	/* Initialise the IO layer and register platform IO devices */
 	plat_arm_io_setup();
@@ -142,6 +144,7 @@ void arm_bl1_platform_setup(void)
 	fw_config_max_size = ARM_FW_CONFIG_LIMIT - ARM_FW_CONFIG_BASE;
 	set_config_info(ARM_FW_CONFIG_BASE, fw_config_max_size, FW_CONFIG_ID);
 
+#ifndef NO_EL3
 	/* Fill the device tree information struct with the info from the config dtb */
 	err = fconf_load_config(FW_CONFIG_ID);
 	if (err < 0) {
@@ -180,6 +183,11 @@ void arm_bl1_platform_setup(void)
 	/* Share the Mbed TLS heap info with other images */
 	arm_bl1_set_mbedtls_heap();
 #endif /* TRUSTED_BOARD_BOOT */
+
+#else
+	desc = bl1_plat_get_image_desc(BL33_IMAGE_ID);
+	assert(desc != NULL);
+#endif /* NO_EL3 */
 
 	/*
 	 * Allow access to the System counter timer module and program
