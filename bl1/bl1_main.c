@@ -12,6 +12,7 @@
 #include <arch_features.h>
 #include <arch_helpers.h>
 #include <bl1/bl1.h>
+#include <plat/arm/board/fvp_r/fvp_r_bl1.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/auth/auth_mod.h>
@@ -149,12 +150,20 @@ void bl1_main(void)
 	 */
 	if (image_id == BL2_IMAGE_ID)
 		bl1_load_bl2();
+#ifdef NO_EL3
+	else if (image_id == BL33_IMAGE_ID)
+		bl1_load_bl33();
+#endif /* NO_EL3 */
 	else
 		NOTICE("BL1-FWU: *******FWU Process Started*******\n");
 
 	bl1_prepare_next_image(image_id);
 
 	console_flush();
+
+#ifdef NO_EL3
+	bl1_transfer_bl33();
+#endif /* NO_EL3 */
 }
 
 /*******************************************************************************
