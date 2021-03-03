@@ -73,6 +73,30 @@
       },
       "revId": "92137c96cd69327e027d050d2c8640c32aa7aa69",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52e472bf_f306ce0d",
+        "filename": "plat/mediatek/mt8192/drivers/spm/constraints/mt_spm_rc_cpu_buck_ldo.c",
+        "patchSetId": 84
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-03-03T10:36:33Z",
+      "side": 1,
+      "message": "Hi Madhukar, thanks for the review. We need to keep these unconditionally `return 0` because of below reasons.\n1. mtk lpm is a common library for each mtk spm platform (such as mt8192) driver to register. These unconditionally `return 0` in mt8192 is to match the mtk lpm declaration.\n2. Our future IC will use this mtk lpm and `return !\u003d 0` in these functions. Therefore, we keep these `return 0` in mt8192 so that we won\u0027t remove them now and add them back when other mtk ICs need to use the `return int`.",
+      "parentUuid": "f6496ce0_35b34299",
+      "range": {
+        "startLine": 103,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 10
+      },
+      "revId": "92137c96cd69327e027d050d2c8640c32aa7aa69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
