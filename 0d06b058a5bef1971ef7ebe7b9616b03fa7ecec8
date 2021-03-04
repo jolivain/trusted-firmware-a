@@ -16,6 +16,24 @@
       "message": "Can you please update the commit message to limit the length of the body? Right now the text wraps around inconsistently in the gerrit UI leading to an unpleasant experience.",
       "revId": "0d06b058a5bef1971ef7ebe7b9616b03fa7ecec8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bc0e0ba_ff2e5eee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-03-04T10:21:46Z",
+      "side": 1,
+      "message": "It is too late, this commit was already merged into integration branch and also into master branch.\n\nAnyway for commit message I have followed rules described in https://www.kernel.org/doc/html/latest/process/submitting-patches.html#the-canonical-patch-format where length of line should be wrapped at 75 columns. Seems that lot of projects follow this \"75 columns\" and therefore I have configured my editor to autowrap commit messages at this limit. But if TF-A has own style I can change editor. I just did not find information about TF-A style, so I followed rules/style which are common for lot of other projects.",
+      "parentUuid": "73f7fb6f_a12dc2e5",
+      "revId": "0d06b058a5bef1971ef7ebe7b9616b03fa7ecec8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
