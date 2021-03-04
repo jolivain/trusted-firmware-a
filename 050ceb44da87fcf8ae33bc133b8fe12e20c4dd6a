@@ -22,6 +22,29 @@
       },
       "revId": "050ceb44da87fcf8ae33bc133b8fe12e20c4dd6a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f849dbb_42acdea6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-03-04T08:34:46Z",
+      "side": 1,
+      "message": "You can add those details:\nIf FFA_SPM_ID_GET is invoked from the non-secure physical FF-A instance, the SPMD returns the SPMC id (defined in the SPMC manifest).\nIf FFA_SPM_ID_GET is invoked from the secure physical FF-A instance (e.g. the SPMC), the SPMD returns the SPMD id.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 42
+      },
+      "revId": "050ceb44da87fcf8ae33bc133b8fe12e20c4dd6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
