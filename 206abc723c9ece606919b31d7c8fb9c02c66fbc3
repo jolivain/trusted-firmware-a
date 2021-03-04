@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f112641c_99dabcab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-03-04T07:05:43Z",
+      "side": 1,
+      "message": "Changes from the tools/encrypt_fw/Makefile is removed.",
+      "parentUuid": "a73583a6_c6255ce7",
+      "revId": "206abc723c9ece606919b31d7c8fb9c02c66fbc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ffd6c56_95f74981",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-02-25T15:17:39Z",
       "side": 1,
       "message": "It sounds wrong to me to have code specific to the NXP platform in a generic makefile such as this one. Would it be possible to move this code to some NXP specific platform file and include it from here in a generic manner (using the PLAT variable or something like that)?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 0
+      },
+      "revId": "206abc723c9ece606919b31d7c8fb9c02c66fbc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b215829f_3ca471e1",
+        "filename": "tools/encrypt_fw/Makefile",
+        "patchSetId": 27
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-03-04T07:05:43Z",
+      "side": 1,
+      "message": "Changes from this Makefile is removed.",
+      "parentUuid": "7ffd6c56_95f74981",
       "range": {
         "startLine": 39,
         "startChar": 0,
