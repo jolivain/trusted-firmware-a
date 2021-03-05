@@ -1362,6 +1362,49 @@ int gicv3_rdistif_probe(const uintptr_t gicr_frame)
 	return 0; /* Found matching GICR frame */
 }
 
+/*******************************************************************************
+ * gicv3_rdistif_disable_cpus_for_grp_ints: Disable CPUs selection for group
+ * 					    interrupts.
+ * @rdistif_base: base address of the GICR region.
+ * @redist_frame_count: number of redistributor frames in the given GICR region.
+ *
+ * This function disables the selection of CPUs for group interrupts identified
+ * under the given GICR region i.e. from rdistif_base till the last
+ * redistributor.
+ *
+ * Note: This function mainly gets called from the boot CPU.
+ * Platform with many GICR regions needs to call this function multiple
+ * times with the base address of the GICR region.
+ * Also, it assumes that each GICR region passed is fully accessible from first
+ * to the last redistributor.
+ ******************************************************************************/
+void gicv3_rdistif_disable_cpus_for_grp_ints(uintptr_t rdistif_base,
+					     unsigned int redist_frame_count)
+{
+	uint64_t typer_val;
+
+	assert((redist_frame_count > 0) &&
+	       (redist_frame_count <= PLATFORM_CORE_COUNT));
+
+	/*
+	 * Disable CPU selection for group interrupts until
+	 * highest-numbered redistributor reached in a series
+	 * of contiguous redistributor pages.
+	 */
+	do {
+		gicv3_rdistif_disable_cpu_for_grp_ints(rdistif_base);
+		typer_val = gicr_read_typer(rdistif_base);
+		rdistif_base += (1U << GICR_PCPUBASE_SHIFT);
+		redist_frame_count--;
+	} while (((typer_val & TYPER_LAST_BIT) == 0U) &&
+		 redist_frame_count > 0U);
+
+	if (redist_frame_count == 0U) {
+		ERROR("Unable to get redist frame with LAST bit set\n");
+		panic();
+	}
+}
+
 /******************************************************************************
  * This function checks the interrupt ID and returns true for SGIs and (E)PPIs
  * and false for (E)SPIs IDs.

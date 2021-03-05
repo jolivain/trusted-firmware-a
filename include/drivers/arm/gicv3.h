@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -193,6 +193,15 @@
 #define GICR_CTLR_UWP_SHIFT	31
 #define GICR_CTLR_UWP_MASK	U(0x1)
 #define GICR_CTLR_UWP_BIT	BIT_32(GICR_CTLR_UWP_SHIFT)
+#define GICR_CTLR_DPG1S_SHIFT	26
+#define GICR_CTLR_DPG1S_MASK	U(0x1)
+#define GICR_CTLR_DPG1S_BIT	BIT_32(GICR_CTLR_DPG1S_SHIFT)
+#define GICR_CTLR_DPG1NS_SHIFT	25
+#define GICR_CTLR_DPG1NS_MASK	U(0x1)
+#define GICR_CTLR_DPG1NS_BIT	BIT_32(GICR_CTLR_DPG1NS_SHIFT)
+#define GICR_CTLR_DPG0_SHIFT	24
+#define GICR_CTLR_DPG0_MASK	U(0x1)
+#define GICR_CTLR_DPG0_BIT	BIT_32(GICR_CTLR_DPG0_SHIFT)
 #define GICR_CTLR_RWP_SHIFT	3
 #define GICR_CTLR_RWP_MASK	U(0x1)
 #define GICR_CTLR_RWP_BIT	BIT_32(GICR_CTLR_RWP_SHIFT)
@@ -212,12 +221,15 @@
 #define TYPER_AFF_VAL_SHIFT	32
 #define TYPER_PROC_NUM_SHIFT	8
 #define TYPER_LAST_SHIFT	4
+#define TYPER_DPGS_SHIFT	5
 
 #define TYPER_AFF_VAL_MASK	U(0xffffffff)
 #define TYPER_PROC_NUM_MASK	U(0xffff)
 #define TYPER_LAST_MASK		U(0x1)
+#define TYPER_DPGS_MASK		U(0x1)
 
 #define TYPER_LAST_BIT		BIT_32(TYPER_LAST_SHIFT)
+#define TYPER_DPGS_BIT		BIT_32(TYPER_DPGS_SHIFT)
 
 #define TYPER_PPI_NUM_SHIFT	U(27)
 #define TYPER_PPI_NUM_MASK	U(0x1f)
@@ -524,6 +536,11 @@ void gicv3_set_spi_routing(unsigned int id, unsigned int irm,
 void gicv3_set_interrupt_pending(unsigned int id, unsigned int proc_num);
 void gicv3_clear_interrupt_pending(unsigned int id, unsigned int proc_num);
 unsigned int gicv3_set_pmr(unsigned int mask);
+
+void gicv3_rdistif_enable_cpu_for_grp_ints(uintptr_t rdistif_base);
+void gicv3_rdistif_disable_cpu_for_grp_ints(uintptr_t rdistif_base);
+void gicv3_rdistif_disable_cpus_for_grp_ints(uintptr_t rdistif_base,
+					     unsigned int redist_frame_count);
 
 #endif /* __ASSEMBLER__ */
 #endif /* GICV3_H */
