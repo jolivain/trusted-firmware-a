@@ -368,3 +368,31 @@ unsigned int gicv3_rdistif_get_number_frames(const uintptr_t gicr_frame)
 
 	return count;
 }
+
+/******************************************************************************
+ * gicv3_rdistif_enable_cpu_for_grp_ints: Enable CPU selection for group
+ *					  interrupts.
+ * @rdistif_base: Base address of redistributor frame.
+ *****************************************************************************/
+void gicv3_rdistif_enable_cpu_for_grp_ints(uintptr_t rdistif_base)
+{
+	if ((gicr_read_typer(rdistif_base) & TYPER_DPGS_BIT) != 0U) {
+		uint32_t val = gicr_read_ctlr(rdistif_base);
+		gicr_write_ctlr(rdistif_base, (val & ~(GICR_CTLR_DPG1S_BIT |
+				GICR_CTLR_DPG1NS_BIT | GICR_CTLR_DPG0_BIT)));
+	}
+}
+
+/******************************************************************************
+ * gicv3_rdistif_disable_cpu_for_grp_ints: Disable CPU selection for group
+ *					   interrupts.
+ * @rdistif_base: Base address of redistributor frame.
+ *****************************************************************************/
+void gicv3_rdistif_disable_cpu_for_grp_ints(uintptr_t rdistif_base)
+{
+	if ((gicr_read_typer(rdistif_base) & TYPER_DPGS_BIT) != 0U) {
+		uint32_t val = gicr_read_ctlr(rdistif_base);
+		gicr_write_ctlr(rdistif_base, (val | GICR_CTLR_DPG1S_BIT |
+				GICR_CTLR_DPG1NS_BIT | GICR_CTLR_DPG0_BIT));
+	}
+}
