@@ -100,6 +100,12 @@ void plat_arm_gic_driver_init(void)
 {
 	fvp_gicv3_make_rdistrif_rw();
 	/*
+	 * Disable all CPUs selection for group interrupts.
+	 * Assuming, FVP platform has only one GICR region.
+	 */
+	gicv3_rdistif_disable_cpus_for_grp_ints((uintptr_t)BASE_GICR_BASE);
+
+	/*
 	 * Get GICD and GICR base addressed through FCONF APIs.
 	 * FCONF is not supported in BL32 for FVP.
 	 */
@@ -140,6 +146,11 @@ void plat_arm_gic_driver_init(void)
 		ERROR("No GICR base frame found for Primary CPU\n");
 		panic();
 	}
+
+	unsigned int core_pos = plat_my_core_pos();
+
+	/* enable this CPU selection for grp interrupts */
+	gicv3_rdistif_enable_cpu_for_grp_ints(fvp_rdistif_base_addrs[core_pos]);
 #endif
 }
 
@@ -169,5 +180,9 @@ void plat_arm_gic_pcpu_init(void)
 		ERROR("No GICR base frame found for CPU 0x%lx\n", read_mpidr());
 		panic();
 	}
-	gicv3_rdistif_init(plat_my_core_pos());
+
+	unsigned int core_pos = plat_my_core_pos();
+
+	gicv3_rdistif_enable_cpu_for_grp_ints(fvp_rdistif_base_addrs[core_pos]);
+	gicv3_rdistif_init(core_pos);
 }
