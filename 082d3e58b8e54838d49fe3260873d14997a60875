@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e38397f_a7d014c5",
+        "filename": "plat/brcm/board/stingray/driver/usb_phy.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000354
+      },
+      "writtenOn": "2021-03-05T17:40:08Z",
+      "side": 1,
+      "message": "@Bharat can you sync up the fix to move this soft reset under \"case D3DHS_PORT\"?",
+      "revId": "082d3e58b8e54838d49fe3260873d14997a60875",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
