@@ -16,7 +16,7 @@
 #include <drivers/arm/sbsa.h>
 #include <sgi_base_platform_def.h>
 
-#if SPM_MM
+#if SPM_MM || SPMC_AT_EL3
 #include "spm_partition.h"
 #endif
 
@@ -61,7 +61,7 @@ const mmap_region_t plat_arm_mmap[] = {
 #if ARM_BL31_IN_DRAM
 	ARM_MAP_BL31_SEC_DRAM,
 #endif
-#if SPM_MM
+#if SPM_MM || SPMC_AT_EL3
 	ARM_SP_IMAGE_MMAP,
 #endif
 #if TRUSTED_BOARD_BOOT && !BL2_AT_EL3
@@ -79,13 +79,13 @@ const mmap_region_t plat_arm_mmap[] = {
 	ARM_V2M_MAP_MEM_PROTECT,
 #endif
 	SOC_CSS_MAP_DEVICE,
-#if SPM_MM
+#if SPM_MM || SPMC_AT_EL3
 	ARM_SPM_BUF_EL3_MMAP,
 #endif
 	{0}
 };
 
-#if SPM_MM && defined(IMAGE_BL31)
+#if (SPM_MM || SPMC_AT_EL3) && defined(IMAGE_BL31)
 const mmap_region_t plat_arm_secure_partition_mmap[] = {
 	PLAT_ARM_SECURE_MAP_SYSTEMREG,
 	PLAT_ARM_SECURE_MAP_NOR2,
@@ -104,7 +104,7 @@ const mmap_region_t plat_arm_secure_partition_mmap[] = {
 
 ARM_CASSERT_MMAP
 
-#if SPM_MM && defined(IMAGE_BL31)
+#if (SPM_MM || SPMC_AT_EL3) && defined(IMAGE_BL31)
 /*
  * Boot information passed to a secure partition during initialisation. Linear
  * indices in MP information will be filled at runtime.
@@ -152,7 +152,7 @@ const struct spm_boot_info *plat_get_secure_partition_boot_info(
 {
 	return &plat_arm_secure_partition_boot_info;
 }
-#endif /* SPM_MM && defined(IMAGE_BL31) */
+#endif /* (SPM_MM || SPMC_AT_EL3) && defined(IMAGE_BL31) */
 
 #if TRUSTED_BOARD_BOOT
 int plat_get_mbedtls_heap(void **heap_addr, size_t *heap_size)
