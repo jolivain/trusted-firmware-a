@@ -29,7 +29,7 @@
  * plat_arm_mmap array defined for each BL stage.
  */
 #if defined(IMAGE_BL31)
-# if SPM_MM
+# if SPM_MM || SPMC_AT_EL3
 #  define PLAT_ARM_MMAP_ENTRIES		9
 #  define MAX_XLAT_TABLES		7
 #  define PLAT_SP_IMAGE_MMAP_REGIONS	7
@@ -72,7 +72,7 @@
  * little space for growth.
  */
 #if TRUSTED_BOARD_BOOT
-# define PLAT_ARM_MAX_BL2_SIZE		0x1D000
+# define PLAT_ARM_MAX_BL2_SIZE		0x1E000
 #else
 # define PLAT_ARM_MAX_BL2_SIZE		0x14000
 #endif
@@ -102,7 +102,7 @@
 #elif defined(IMAGE_BL2U)
 # define PLATFORM_STACK_SIZE 0x400
 #elif defined(IMAGE_BL31)
-# if SPM_MM
+# if SPM_MM || SPMC_AT_EL3
 #  define PLATFORM_STACK_SIZE 0x500
 # else
 #  define PLATFORM_STACK_SIZE 0x400
