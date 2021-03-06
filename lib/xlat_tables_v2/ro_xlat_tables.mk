@@ -34,4 +34,8 @@ else # if AArch64
                  attributes, which is not possible once the translation tables \
                  have been made read-only.")
     endif
+    ifeq (${SPMC_AT_EL3},1)
+        $(error "The EL3 SPMC requires functionality from the dynamic translation \
+                 library and is incompatible with ALLOW_RO_XLAT_TABLES.")
+    endif
 endif
