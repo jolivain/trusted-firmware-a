@@ -16,6 +16,24 @@
       "message": "Was it intentional to remove the ERROR message which could help with debug?",
       "revId": "2b9437fb9de0f23803e9687ce068eeb667b1b2be",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d166af7_d310b80a",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-03-08T10:46:34Z",
+      "side": 1,
+      "message": "Yes this was intentional but for high level reasons that I admit may not fully apply here:\n-The code is in a section protected by a spin lock. It is usually preferable to keep execution cycles to a minimum while a spin lock is held (this is esp. true in MP systems for helping with scheduling). Printing while holding a lock doesn\u0027t look fair as it can take much time going through the UART. Eventually we\u0027d have to remove the VERBOSE statement below as well.\n-Avoid a possible case where logging itself requires locking. Holding two locks starts to exercise interlocking cases. If the first lock is released while second is held this may lead to deadlocks. It doesn\u0027t seem to be the case with the standard multiconsole driver; but this is a platform dependent assumption that the console driver may use such locking.\nThis code is not a critical performance path so above justification may not hold.\nIf you feel it\u0027s safe to print while the lock is held I can put the ERROR statement back eventually.",
+      "parentUuid": "426e7426_08fb12fe",
+      "revId": "2b9437fb9de0f23803e9687ce068eeb667b1b2be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
