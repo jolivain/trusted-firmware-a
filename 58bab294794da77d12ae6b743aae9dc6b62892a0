@@ -22,6 +22,30 @@
       },
       "revId": "58bab294794da77d12ae6b743aae9dc6b62892a0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82124fb7_336495a7",
+        "filename": "services/spd/tspd/tspd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-03-08T21:14:37Z",
+      "side": 1,
+      "message": "I am not sure I completely understand your suggestions. Can you clarify the statement \"if that happens, and the HPPIR is a S-EL1 interrupt, on ERET to normal world, we would simply enter back EL3\" ?\n\nI have provided my replies here:\n\nIt is done in the common exception handler code: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/bl31/aarch64/runtime_exceptions.S#n232\nIt helps to know which interrupt caused the exception and then invoke the appropriate handler. In this scenario, the world switch to EL3 was originally due to a NS interrupt routed as an FIQ when core was in S-EL1. But in the meantime, since a secure timer interrupt got triggered, I think we should drop back to S-EL1 since it has been configured to be of higher priority, service the secure timer and then switch to EL3 and then further to normal world where the non-secure interrupt will be handled. \nPlease suggest if there is any issue in this implementation. I think I have not violated the basic principles of interrupt management framework:\n1. Secure world should be in charge of handling secure interrupts\n2. Interrupts from other world need a context(world) switch while making sure the pre-empted context is preserved.\nPlease correct me if I am wrong.",
+      "parentUuid": "6b5c76e8_cafa3c4e",
+      "range": {
+        "startLine": 136,
+        "startChar": 7,
+        "endLine": 137,
+        "endChar": 32
+      },
+      "revId": "58bab294794da77d12ae6b743aae9dc6b62892a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
