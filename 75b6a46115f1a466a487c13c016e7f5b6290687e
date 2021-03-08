@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37293cc3_af5bc601",
+        "filename": "drivers/arm/tzc/tzc400.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-08T13:38:29Z",
+      "side": 1,
+      "message": "Existing interfaces in this file use uintptr_t for the type of the base argument. Could we use the same type for new interfaces for consistency?",
+      "range": {
+        "startLine": 73,
+        "startChar": 29,
+        "endLine": 73,
+        "endChar": 33
+      },
+      "revId": "75b6a46115f1a466a487c13c016e7f5b6290687e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a57e0ada_faeed436",
+        "filename": "drivers/arm/tzc/tzc400.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-08T13:38:29Z",
+      "side": 1,
+      "message": "Would it be more appropriate to use BIT32() here, given that we\u0027re passing this value to mmio_write_32()?",
+      "range": {
+        "startLine": 75,
+        "startChar": 33,
+        "endLine": 75,
+        "endChar": 36
+      },
+      "revId": "75b6a46115f1a466a487c13c016e7f5b6290687e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e7b016b_10a7e206",
+        "filename": "drivers/arm/tzc/tzc400.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-08T13:38:29Z",
+      "side": 1,
+      "message": "I\u0027ve not read the TZC-400 manual in details to understand everything here so please bare with me... I am wondering whether panicking is the right thing to do or whether it is a bit too extreme?\n\nIIUC, this code is catching the situation where the TZC-400 raised an interrupt but this does not get reflected in some of the TZC-400 registers. Am I right? In which circumstances is that likely to happen? Would it be because of software misconfiguration? hardware misconfiguration? something else? And what if we chose to let the execution continue instead of panicking? Are we saying that this is bad enough that we cannot trust the state of the system? I also wonder whether it would make sense to let this decision up to the platform (if at all possible)?",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 335,
+        "endChar": 2
+      },
+      "revId": "75b6a46115f1a466a487c13c016e7f5b6290687e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
