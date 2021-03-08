@@ -140,6 +140,30 @@
       },
       "revId": "75b6a46115f1a466a487c13c016e7f5b6290687e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2b7f8e3_98a37a98",
+        "filename": "drivers/arm/tzc/tzc400.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-03-08T17:14:31Z",
+      "side": 1,
+      "message": "This code was added to check the previous loop has found the TZC filter interrupt that rose. It could happen if the GIC config in TF-A is not correct and the interrupt number is wrongly defined with PLATFORM_G1S_PROPS for example. But if the SW is correct that should not happen. I don\u0027t know if a HW issue could bring this. Anyway, I\u0027ll change the panic() to return.",
+      "parentUuid": "1020b685_1cd19332",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 335,
+        "endChar": 2
+      },
+      "revId": "75b6a46115f1a466a487c13c016e7f5b6290687e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
