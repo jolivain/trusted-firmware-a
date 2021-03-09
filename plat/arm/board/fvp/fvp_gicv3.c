@@ -67,25 +67,29 @@ static gicv3_driver_data_t fvp_gic_data = {
 };
 
 /******************************************************************************
- * This function gets called per core to make its redistributor frame rw
+ * fvp_gicv3_make_rdistrif_rw: make redistributor frame read-write
+ * @core_pos: core position
+ * @rdistif_base: redistribution frame base address
+ *
+ * This function gets called per core to make its redistributor frame read-
+ * write
  *****************************************************************************/
-static void fvp_gicv3_make_rdistrif_rw(void)
+static void fvp_gicv3_make_rdistrif_rw(unsigned int core_pos,
+				       uintptr_t rdistif_base)
 {
 #if FVP_GICR_REGION_PROTECTION
-	unsigned int core_pos = plat_my_core_pos();
 
 	/* Make the redistributor frame RW if it is not done previously */
 	if (fvp_gicr_rw_region_init[core_pos] != true) {
-		int ret = xlat_change_mem_attributes(BASE_GICR_BASE +
-						     (core_pos * BASE_GICR_SIZE),
+		int ret = xlat_change_mem_attributes(rdistif_base,
 						     BASE_GICR_SIZE,
 						     MT_EXECUTE_NEVER |
 						     MT_DEVICE | MT_RW |
 						     MT_SECURE);
 
 		if (ret != 0) {
-			ERROR("Failed to make redistributor frame \
-			       read write = %d\n", ret);
+			ERROR("%s read-write = %d\n",
+			      "Failed to make redistributor frame", ret);
 			panic();
 		} else {
 			fvp_gicr_rw_region_init[core_pos] = true;
@@ -98,7 +102,22 @@ static void fvp_gicv3_make_rdistrif_rw(void)
 
 void plat_arm_gic_driver_init(void)
 {
-	fvp_gicv3_make_rdistrif_rw();
+#if FVP_GICR_REGION_PROTECTION
+	/* make redistributor region read-write */
+	int ret = xlat_change_mem_attributes(BASE_GICR_BASE,
+					     (PLATFORM_CORE_COUNT *
+					      BASE_GICR_SIZE),
+					     MT_EXECUTE_NEVER |
+					     MT_DEVICE | MT_RW |
+					     MT_SECURE);
+
+	if (ret != 0) {
+		ERROR("%s read-write = %d\n",
+		      "Failed to make redistributor frame", ret);
+		panic();
+	}
+#endif /* FVP_GICR_REGION_PROTECTION */
+
 	/*
 	 * Disable all CPUs selection for group interrupts.
 	 * Assuming, FVP platform has only one GICR region.
@@ -147,8 +166,26 @@ void plat_arm_gic_driver_init(void)
 		panic();
 	}
 
+#if FVP_GICR_REGION_PROTECTION
+	/* make redistributor region read only */
+	ret = xlat_change_mem_attributes(BASE_GICR_BASE,
+					 (PLATFORM_CORE_COUNT *
+					  BASE_GICR_SIZE),
+					 MT_EXECUTE_NEVER |
+					 MT_DEVICE | MT_RO |
+					 MT_SECURE);
+
+	if (ret != 0) {
+		ERROR("%s read-write = %d\n",
+		      "Failed to make redistributor frame", ret);
+		panic();
+	}
+#endif /* FVP_GICR_REGION_PROTECTION */
+
 	unsigned int core_pos = plat_my_core_pos();
 
+	fvp_gicv3_make_rdistrif_rw(core_pos,
+				   fvp_rdistif_base_addrs[core_pos]);
 	/* enable this CPU selection for grp interrupts */
 	gicv3_rdistif_enable_cpu_for_grp_ints(fvp_rdistif_base_addrs[core_pos]);
 #endif
@@ -163,8 +200,6 @@ void plat_arm_gic_pcpu_init(void)
 {
 	int result;
 	const uint64_t *plat_gicr_frames = fvp_gicr_frames;
-
-	fvp_gicv3_make_rdistrif_rw();
 
 	do {
 		result = gicv3_rdistif_probe(*plat_gicr_frames);
@@ -182,6 +217,9 @@ void plat_arm_gic_pcpu_init(void)
 	}
 
 	unsigned int core_pos = plat_my_core_pos();
+
+	fvp_gicv3_make_rdistrif_rw(core_pos,
+				   fvp_rdistif_base_addrs[core_pos]);
 
 	gicv3_rdistif_enable_cpu_for_grp_ints(fvp_rdistif_base_addrs[core_pos]);
 	gicv3_rdistif_init(core_pos);
