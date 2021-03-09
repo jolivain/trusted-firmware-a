@@ -235,6 +235,12 @@ Common build options
    builds, but this behaviour can be overridden in each platform's Makefile or
    in the build command line.
 
+-  ``ENABLE_FEAT_SB``: Boolean option dictating whether support for the
+   Speculation Barrier feature (``FEAT_SB``) is available. This feature was made
+   mandatory in Armv8.5-A, but is optional from Armv8.0-A onwards. As such, this
+   option is always enabled when targeting Armv8.5-A or later, but is disabled
+   by default otherwise.
+
 -  ``ENABLE_LTO``: Boolean option to enable Link Time Optimization (LTO)
    support in GCC for TF-A. This option is currently only supported for
    AArch64. Default is 0.
