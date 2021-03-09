@@ -16,6 +16,24 @@
       "message": "Getting static check failure:\n\ndrivers/nxp/gpio/nxp_gpio.c:12: ERROR: do not initialise statics to NULL\n+static gpio_init_info_t *gpio_init_info \u003d NULL;",
       "revId": "68fbb56e4724e89d5066ce88f680213f34c85f92",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "185950aa_3d1f1b57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 39
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-03-09T05:46:06Z",
+      "side": 1,
+      "message": "ok.",
+      "parentUuid": "7435620e_f890fedc",
+      "revId": "68fbb56e4724e89d5066ce88f680213f34c85f92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
