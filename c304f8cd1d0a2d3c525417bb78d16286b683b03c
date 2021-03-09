@@ -115,6 +115,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2087eef0_c51d7474",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-03-09T23:01:10Z",
+      "side": 1,
+      "message": "Hi Venkatesh,\nCan you fix the issue pointed by David?",
+      "parentUuid": "9232b9e8_18fac04c",
+      "range": {
+        "startLine": 78,
+        "startChar": 27,
+        "endLine": 78,
+        "endChar": 40
+      },
+      "revId": "c304f8cd1d0a2d3c525417bb78d16286b683b03c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "88fe287d_e4ef1632",
         "filename": "drivers/arm/dcc/dcc_console.c",
         "patchSetId": 8
