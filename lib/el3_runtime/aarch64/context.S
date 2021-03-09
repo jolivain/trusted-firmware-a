@@ -154,8 +154,7 @@ func el2_sysregs_context_save
 	str	x10, [x0, #CTX_MPAMVPMV_EL2]
 #endif
 
-
-#if ARM_ARCH_AT_LEAST(8, 6)
+#if ENABLE_FEAT_FGT
 	mrs	x11, HAFGRTR_EL2
 	mrs	x12, HDFGRTR_EL2
 	stp	x11, x12, [x0, #CTX_HAFGRTR_EL2]
@@ -172,7 +171,7 @@ func el2_sysregs_context_save
 	str	x17, [x0, #CTX_CNTPOFF_EL2]
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 4)
+#if ENABLE_FEAT_SEL2
 	mrs	x9, cnthps_ctl_el2
 	mrs	x10, cnthps_cval_el2
 	stp	x9, x10, [x0, #CTX_CNTHPS_CTL_EL2]
@@ -222,7 +221,7 @@ func el2_sysregs_context_save
 	str	x17, [x0, #CTX_TRFCR_EL2]
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 5)
+#if ENABLE_FEAT_CSV2_2
 	mrs	x9, scxtnum_el2
 	str	x9, [x0, #CTX_SCXTNUM_EL2]
 #endif
@@ -356,7 +355,7 @@ func el2_sysregs_context_restore
 	msr	MPAMVPMV_EL2, x11
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 6)
+#if ENABLE_FEAT_FGT
 	ldp	x12, x13, [x0, #CTX_HAFGRTR_EL2]
 	msr	HAFGRTR_EL2, x12
 	msr	HDFGRTR_EL2, x13
@@ -373,7 +372,7 @@ func el2_sysregs_context_restore
 	msr	CNTPOFF_EL2, x9
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 4)
+#if ENABLE_FEAT_SEL2
 	ldp	x10, x11, [x0, #CTX_CNTHPS_CTL_EL2]
 	msr	cnthps_ctl_el2, x10
 	msr	cnthps_cval_el2, x11
@@ -423,7 +422,7 @@ func el2_sysregs_context_restore
 	msr	TRFCR_EL2, x9
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 5)
+#if ENABLE_FEAT_CSV2_2
 	ldr	x10, [x0, #CTX_SCXTNUM_EL2]
 	msr	scxtnum_el2, x10
 #endif
