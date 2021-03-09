@@ -7,6 +7,8 @@ Utility Modules
 .. toctree::
     :maxdepth: 1
 
+    ./module/ArmConfigOption
+
 Find Modules
 ------------
 
