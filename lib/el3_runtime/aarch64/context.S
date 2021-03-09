@@ -145,7 +145,7 @@ func el2_sysregs_context_save
 	stp	x11, x12, [x0, #CTX_MPAMVPM7_EL2]
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 6)
+#if ENABLE_FEAT_FGT
 	mrs	x13, HAFGRTR_EL2
 	mrs	x14, HDFGRTR_EL2
 	stp	x13, x14, [x0, #CTX_HAFGRTR_EL2]
@@ -162,7 +162,7 @@ func el2_sysregs_context_save
 	str	x11, [x0, #CTX_CNTPOFF_EL2]
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 4)
+#if ENABLE_FEAT_SEL2
 	mrs	x12, contextidr_el2
 	str	x12, [x0, #CTX_CONTEXTIDR_EL2]
 
@@ -195,7 +195,6 @@ func el2_sysregs_context_save
 
 	ret
 endfunc el2_sysregs_context_save
-
 
 /* -----------------------------------------------------
  * The following function strictly follows the AArch64
@@ -314,7 +313,7 @@ func el2_sysregs_context_restore
 	msr	MPAMVPMV_EL2, x12
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 6)
+#if ENABLE_FEAT_FGT
 	ldp	x13, x14, [x0, #CTX_HAFGRTR_EL2]
 	msr	HAFGRTR_EL2, x13
 	msr	HDFGRTR_EL2, x14
@@ -331,7 +330,7 @@ func el2_sysregs_context_restore
 	msr	CNTPOFF_EL2, x11
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 4)
+#if ENABLE_FEAT_SEL2
 	ldr	x12, [x0, #CTX_CONTEXTIDR_EL2]
 	msr	contextidr_el2, x12
 
@@ -357,7 +356,7 @@ func el2_sysregs_context_restore
 	msr	TRFCR_EL2, x12
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 5)
+#if ENABLE_FEAT_CSV2_2
 	ldr	x13, [x0, #CTX_SCXTNUM_EL2]
 	msr	scxtnum_el2, x13
 #endif

@@ -249,7 +249,35 @@ ENABLE_FEAT_RNG		=	$(if $(findstring rng,${arch-features}),1,0)
 ENABLE_FEAT_SB		=	$(if $(findstring sb,${arch-features}),1,0)
 
 ifeq "8.5" "$(word 1, $(sort 8.5 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
-ENABLE_FEAT_SB		= 	1
+ENABLE_FEAT_SB		=	1
+endif
+
+# Determine if FEAT_FGT is supported
+ifeq "8.6" "$(word 1, $(sort 8.6 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+ENABLE_FEAT_FGT		= 	1
+else
+ENABLE_FEAT_FGT		= 	0
+endif
+
+# Determine if FEAT_SEL2 is supported
+ifeq "8.4" "$(word 1, $(sort 8.4 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+ENABLE_FEAT_SEL2	= 	1
+else
+ENABLE_FEAT_SEL2	= 	0
+endif
+
+# Determine if FEAT_CSV2_2 is supported
+ifeq "8.5" "$(word 1, $(sort 8.5 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+ENABLE_FEAT_CSV2_2	= 	1
+else
+ENABLE_FEAT_CSV2_2	= 	0
+endif
+
+# Determine if FEAT_LSE is supported
+ENABLE_FEAT_LSE		=	$(if $(findstring lse,${arch-features}),1,0)
+
+ifeq "8.1" "$(word 1, $(sort 8.1 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+ENABLE_FEAT_LSE		=	1
 endif
 
 ifneq ($(findstring armclang,$(notdir $(CC))),)
@@ -959,6 +987,10 @@ $(eval $(call assert_booleans,\
         USE_SP804_TIMER \
         ENABLE_FEAT_RNG \
         ENABLE_FEAT_SB \
+	ENABLE_FEAT_FGT \
+	ENABLE_FEAT_SEL2 \
+	ENABLE_FEAT_CSV2_2 \
+	ENABLE_FEAT_LSE \
 )))
 
 $(eval $(call assert_numerics,\
@@ -1054,6 +1086,10 @@ $(eval $(call add_defines,\
         USE_SP804_TIMER \
         ENABLE_FEAT_RNG \
         ENABLE_FEAT_SB \
+        ENABLE_FEAT_FGT \
+        ENABLE_FEAT_SEL2 \
+	ENABLE_FEAT_CSV2_2 \
+	ENABLE_FEAT_LSE \
 )))
 
 ifeq (${SANITIZE_UB},trap)

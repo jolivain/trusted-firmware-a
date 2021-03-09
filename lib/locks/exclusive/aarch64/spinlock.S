@@ -10,8 +10,8 @@
 	.globl	spin_unlock
 
 #if USE_SPINLOCK_CAS
-#if !ARM_ARCH_AT_LEAST(8, 1)
-#error USE_SPINLOCK_CAS option requires at least an ARMv8.1 platform
+#if !ENABLE_FEAT_LSE
+#error USE_SPINLOCK_CAS option requires FEAT_LSE
 #endif
 
 /*
