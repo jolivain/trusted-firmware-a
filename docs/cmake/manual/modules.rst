@@ -8,6 +8,7 @@ Utility Modules
     :maxdepth: 1
 
     ./module/ArmAssert
+    ./module/ArmConfigOption
 
 Find Modules
 ------------
