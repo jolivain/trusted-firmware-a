@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d3f322c_c9c8f79e",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-03-09T21:11:54Z",
+      "side": 1,
+      "message": "I have a question about a corner case which could seem like illegal. \nWhat happens if someone compiles TF-A with ENABLE_FEAT_SEL2\u003d1 from command line when ARM_ARCH_MINOR is \u003c 4? I believe the compiler will emit instructions related to SEL2 extensions but CPU will encounter exception when it executes them. Would it be possible to provide a build assertion ? something like this:\nif (major.minor \u003c 8.4) \u0026\u0026 FEAT_SEL2\u003dENABLED \n      ERROR(\"FEAT_SEL2 needs 8.4 extensions enabled\");\nendif",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 16
+      },
+      "revId": "e710824abb8e0f3f6878b2850652a4fc0f2fc28a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
