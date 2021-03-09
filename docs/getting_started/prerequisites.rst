@@ -75,6 +75,13 @@ These tools are optional:
    The standard software package used for debugging software on Arm development
    platforms and |FVP| models.
 
+.. _CMake Prerequisites:
+
+CMake
+^^^^^
+
+TODO.
+
 Package Installation (Linux)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

@@ -1,5 +1,5 @@
-TF-A CMake buildsystem
-======================
+TF-A CMake Build System Proposal
+================================
 
 :Author: Balint Dobszay
 :Organization: Arm Limited
@@ -134,7 +134,7 @@ executable, and add some source files. Since the target has the parameters from
 the settings group, we can use it for conditionally adding source files. E.g.
 *dram_controller.c* will only be added if MEM_TYPE equals dram.
 
-.. code-block:: cmake
+.. code:: cmake
 
    group_new(NAME mem_conf)
    group_add(NAME mem_conf TYPE DEFINE KEY MEM_SIZE VAL 1024)
