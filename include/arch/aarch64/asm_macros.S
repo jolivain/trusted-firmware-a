@@ -224,7 +224,7 @@
 	 */
 	.macro exception_return
 	eret
-#if ARM_ARCH_AT_LEAST(8, 5)
+#if ENABLE_FEAT_SB
 	sb
 #else
 	dsb	nsh
