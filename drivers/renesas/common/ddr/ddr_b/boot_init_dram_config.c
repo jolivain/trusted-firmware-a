@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2015-2020, Renesas Electronics Corporation.
+ * Copyright (c) 2015-2021, Renesas Electronics Corporation.
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#define BOARDNUM 22
+#define BOARDNUM 24
 #define BOARD_JUDGE_AUTO
 
 #ifdef BOARD_JUDGE_AUTO
@@ -1533,6 +1533,104 @@ static const struct _boardcnf boardcnfs[BOARDNUM] = {
 	    0, 0, 0, 0, 0, 0, 0, 0}
 	}
 	}
+	},
+	{
+/* boardcnf[22] HopeRun HiHope RZ/G2M 16Gbit/1rank/2ch board with G2M SoC */
+	 .phyvalid = 0x03U,
+	 .dbi_en = 0x01U,
+	 .cacs_dly = 0x02c0U,
+	 .cacs_dly_adj = 0x0U,
+	 .dqdm_dly_w = 0x0300U,
+	 .dqdm_dly_r = 0x00a0U,
+	 .ch = {
+		{
+		 { 0x04U, 0xffU },
+		 0x00345201UL,
+		 0x3201U,
+		 { 0x01672543U, 0x45361207U, 0x45632107U, 0x60715234U },
+		 { 0x08U, 0x08U, 0x08U, 0x08U },
+		 WDQLVL_PAT,
+		 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+		 { 0, 0, 0, 0 },
+		 { 0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0 },
+		 { 0, 0, 0, 0 },
+		 { 0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0 }
+		},
+		{
+		 { 0x04U, 0xffU },
+		 0x00302154UL,
+		 0x2310U,
+		 { 0x01672543U, 0x45361207U, 0x45632107U, 0x60715234U },
+		 { 0x08U, 0x08U, 0x08U, 0x08U },
+		 WDQLVL_PAT,
+		 { 0, 0, 0, 0, 0, 0, 0, 0,  0, 0 },
+		 { 0, 0, 0, 0 },
+		 { 0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0 },
+		 { 0, 0, 0, 0 },
+		 { 0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0 }
+		}
+		}
+	},
+/* boardcnf[23] HopeRun HiHope RZ/G2M 8Gbit/2rank/2ch board with G2M SoC */
+	{
+	 0x03U,
+	 0x01U,
+	 0x02c0U,
+	 0x0U,
+	 0x0300U,
+	 0x00a0U,
+	{
+		{
+		 { 0x02U, 0x02U },
+		 0x00345201UL,
+		 0x3201U,
+		 { 0x01672543U, 0x45361207U, 0x45632107U, 0x60715234U },
+		 { 0x08U, 0x08U, 0x08U, 0x08U },
+		 WDQLVL_PAT,
+		 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+		 { 0, 0, 0, 0 },
+		 { 0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0 },
+		 { 0, 0, 0, 0 },
+		 { 0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0 }
+		},
+		{
+		 { 0x02U, 0x02U },
+		 0x00302154UL,
+		 0x2310,
+		 { 0x01672543U, 0x45361207U, 0x45632107U, 0x60715234U },
+		 { 0x08U, 0x08U, 0x08U, 0x08U },
+		 WDQLVL_PAT,
+		 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+		 { 0, 0, 0, 0 },
+		 { 0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0,
+		   0, 0, 0, 0, 0, 0, 0, 0 },
+		{ 0, 0, 0, 0 },
+		{ 0, 0, 0, 0, 0, 0, 0, 0,
+		  0, 0, 0, 0, 0, 0, 0, 0,
+		  0, 0, 0, 0, 0, 0, 0, 0,
+		  0, 0, 0, 0, 0, 0, 0, 0 }
+		}
+	}
 	}
 };
 
@@ -1709,9 +1807,27 @@ static uint32_t opencheck_SSI_WS6(void)
 
 #endif
 
+#define LPDDR4_2RANK   (0x01U << 25U)
+
 static uint32_t _board_judge(void)
 {
 	uint32_t brd;
+
+#if (RCAR_LSI == RZ_G2M)
+	if (prr_product == PRR_PRODUCT_M3) {
+		brd = 23U;
+		if ((mmio_read_32(PRR) & PRR_CUT_MASK) != RCAR_M3_CUT_VER11) {
+			if ((mmio_read_32(GPIO_INDT5) & LPDDR4_2RANK) == 0U) {
+				brd = 22U;
+			}
+		}
+	} else {
+		brd = 99U;
+	}
+
+	return brd;
+#endif
+
 #if (RCAR_GEN3_ULCB == 1)
 	/* Starter Kit */
 	if (prr_product == PRR_PRODUCT_H3) {
