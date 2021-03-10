@@ -22,6 +22,30 @@
       },
       "revId": "e710824abb8e0f3f6878b2850652a4fc0f2fc28a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eec22452_5b03b126",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-03-10T18:38:50Z",
+      "side": 1,
+      "message": "This option doesn\u0027t have any documentation of its own - it\u0027s entirely internal - so I would not expect users to attempt to set it. We could use `override` here to make sure the user\u0027s choice is never used, but to be honest we don\u0027t do it anywhere else where this comment is also true (e.g. ENABLE_PAUTH/ENABLE_BTI).",
+      "parentUuid": "6d3f322c_c9c8f79e",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 16
+      },
+      "revId": "e710824abb8e0f3f6878b2850652a4fc0f2fc28a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
