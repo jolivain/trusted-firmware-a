@@ -46,6 +46,30 @@
       },
       "revId": "58bab294794da77d12ae6b743aae9dc6b62892a0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99eaa3c4_3019c45e",
+        "filename": "services/spd/tspd/tspd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-03-10T22:29:30Z",
+      "side": 1,
+      "message": "Hi Madhukar, i think what you have is fine. I\u0027m trying to understand the sequence correctly:\n1) we are executing in S-EL1.\n2) We get a NS interrupt. This takes us to EL3 FIQ handler.\n3) EL3 FIQ handler starts executing and within a few instructions the secure timer fires, making it the HPPIR.\n3) EL3 FIQ handler sees the HPPIR and sees that it is a secure interrupt and calls this function?\n\nWhen a NS interrup fires, i thought tspd_ns_interrupt_handler is called so i\u0027m trying to understand why the fix is in this function. It seems fundamentally wrong that this function is called when execution is in secure world...",
+      "parentUuid": "82124fb7_336495a7",
+      "range": {
+        "startLine": 136,
+        "startChar": 7,
+        "endLine": 137,
+        "endChar": 32
+      },
+      "revId": "58bab294794da77d12ae6b743aae9dc6b62892a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
