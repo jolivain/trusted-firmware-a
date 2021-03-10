@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2021, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -27,6 +27,16 @@
 
 	secure-partitions {
 		compatible = "arm,sp";
+#if TS_SP_FW_CONFIG
+		secure-storage {
+		       uuid = <0xdc1eef48 0x4ccfb17a 0xcfdf8bac 0x141b71f7>;
+		       load-address = <0xfee00000>;
+		};
+		crypto {
+		       uuid = <0xd9df52d5 0x4bb216a2 0x6dd2a49a 0xc0e8843b>;
+		       load-address = <0xfec00000>;
+		};
+#endif
 #if OPTEE_SP_FW_CONFIG
 		op-tee {
 		       uuid = <0x486178e0 0xe7f811e3 0xbc5e0002 0xa5d5c51b>;

@@ -104,6 +104,10 @@ Arm Platform Build Options
    device tree. This flag is defined only when ``ARM_SPMC_MANIFEST_DTS`` manifest
    file name contains pattern optee_sp.
 
+ -  ``TS_SP_FW_CONFIG``: DTC build flag to include Trusted Services (Crypto and
+   secure-storage) as SP in tb_fw_config device tree. This flag is defined only
+   when ``ARM_SPMC_MANIFEST_DTS`` manifest file name contains pattern ts_optee_sp.
+
 For a better understanding of these options, the Arm development platform memory
 map is explained in the :ref:`Firmware Design`.
 
