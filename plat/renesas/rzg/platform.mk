@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018-2020, Renesas Electronics Corporation. All rights reserved.
+# Copyright (c) 2018-2021, Renesas Electronics Corporation. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -168,12 +168,12 @@ RCAR_SYSTEM_RESET_KEEPON_DDR := 0
 endif
 $(eval $(call add_define,RCAR_SYSTEM_RESET_KEEPON_DDR))
 
-include drivers/renesas/rzg/ddr/ddr.mk
+include drivers/renesas/common/ddr/ddr.mk
 include drivers/renesas/rzg/qos/qos.mk
 include drivers/renesas/rzg/pfc/pfc.mk
 include lib/libfdt/libfdt.mk
 
-PLAT_INCLUDES	+=	-Idrivers/renesas/rzg/ddr		\
+PLAT_INCLUDES	+=	-Idrivers/renesas/common/ddr		\
 			-Idrivers/renesas/rzg/qos		\
 			-Idrivers/renesas/rzg/board		\
 			-Idrivers/renesas/common		\
