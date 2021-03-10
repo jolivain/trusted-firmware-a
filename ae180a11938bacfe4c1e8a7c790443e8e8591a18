@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a13e8b1_efec183b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-03-10T16:18:40Z",
+      "side": 1,
+      "message": "LGTM. Minor comment.",
+      "revId": "ae180a11938bacfe4c1e8a7c790443e8e8591a18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d48629a5_f4e19877",
+        "filename": "plat/xilinx/zynqmp/bl31_zynqmp_setup.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-03-10T16:18:40Z",
+      "side": 1,
+      "message": "if (rc \u003d\u003d 0) {",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 12
+      },
+      "revId": "ae180a11938bacfe4c1e8a7c790443e8e8591a18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
