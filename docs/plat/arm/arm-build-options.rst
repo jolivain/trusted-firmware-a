@@ -98,6 +98,17 @@ Arm Platform Build Options
    device tree. This flag is defined only when ``ARM_SPMC_MANIFEST_DTS`` manifest
    file name contains pattern optee_sp.
 
+-  ``ARM_FIP_OFFSET_IN_GPT``: Offset of the FIP in the GPT image. BL1 component
+   uses this option as it does not load the partition table to get the FIP base
+   address.
+
+-  ``ARM_GPT_SUPPORT``: Enable GPT parser to get the entry address and length of
+   the various partitions present in the GPT image. This support is available only
+   for the BL2 component, and it is disabled by default.
+   The following diagram shows the view of the FIP partition inside the GPT image:
+
+   |FIP in a GPT image|
+
 For a better understanding of these options, the Arm development platform memory
 map is explained in the :ref:`Firmware Design`.
 
@@ -128,4 +139,6 @@ Arm CSS Platform-Specific Build Options
 
 --------------
 
-*Copyright (c) 2019-2020, Arm Limited. All rights reserved.*
+.. |FIP in a GPT image| image:: ../../resources/diagrams/FIP_in_a_GPT_image.png
+
+*Copyright (c) 2019-2021, Arm Limited. All rights reserved.*
