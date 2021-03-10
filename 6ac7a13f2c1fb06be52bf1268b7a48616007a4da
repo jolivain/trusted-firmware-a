@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c4d164_4041077f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-03-10T01:53:14Z",
+      "side": 1,
+      "message": "Thanks. Will correct and upload the new patch.",
+      "revId": "6ac7a13f2c1fb06be52bf1268b7a48616007a4da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d30ff0de_6d9f9f23",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-03-10T01:45:11Z",
       "side": 1,
       "message": "The function is returning either 0 or -1.",
+      "range": {
+        "startLine": 547,
+        "startChar": 3,
+        "endLine": 547,
+        "endChar": 7
+      },
+      "revId": "6ac7a13f2c1fb06be52bf1268b7a48616007a4da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0576676f_af51d74a",
+        "filename": "drivers/brcm/i2c/i2c.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-03-10T01:53:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d30ff0de_6d9f9f23",
       "range": {
         "startLine": 547,
         "startChar": 3,
