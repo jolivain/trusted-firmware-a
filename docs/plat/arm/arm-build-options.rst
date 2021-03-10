@@ -98,6 +98,11 @@ Arm Platform Build Options
    device tree. This flag is defined only when ``ARM_SPMC_MANIFEST_DTS`` manifest
    file name contains pattern optee_sp.
 
+-  ``ARM_FIP_OFFSET_IN_GPT``: Offset of the FIP in the the GPT image.
+
+-  ``ARM_GPT_SUPPORT``: Enable GPT parser to get the entry address and length of
+   the various partitions present in the GPT image.
+
 For a better understanding of these options, the Arm development platform memory
 map is explained in the :ref:`Firmware Design`.
 
