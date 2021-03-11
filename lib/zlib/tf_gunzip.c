@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -99,4 +99,10 @@ int gunzip(uintptr_t *in_buf, size_t in_len, uintptr_t *out_buf,
 	inflateEnd(&stream);
 
 	return ret;
+}
+
+int tf_crc32(unsigned long crc, unsigned char *buf, size_t size)
+{
+	crc = crc32(crc, buf, size);
+	return crc;
 }
