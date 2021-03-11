@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09d6871e_1e78fe8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-03-11T08:23:44Z",
+      "side": 1,
+      "message": "Build failed with a test configuration: tf-l1-boot-tests-misc/fvp-mb-256-optee-romlib:fvp-optee.mb-linux.rootfs+ftpm-romlib-fip.ftpm-aemv8a with error:\naarch64-none-elf-ld.bfd: /work/workspace/workspace/tf-worker_ws_6/trusted_firmware/build/fvp/debug/bl2/bl2.elf section `xlat_table\u0027 will not fit in region `RAM\u0027\naarch64-none-elf-ld.bfd: BL2 image has exceeded its limit.\naarch64-none-elf-ld.bfd: region `RAM\u0027 overflowed by 4096 bytes\n\nputting -1 to fix this error.",
+      "revId": "c2b6945d011488e52af6c3d1e8a9a33b8e6a954a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
