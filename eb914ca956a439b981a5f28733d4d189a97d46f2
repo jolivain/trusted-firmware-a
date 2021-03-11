@@ -16,6 +16,24 @@
       "message": "I am not familiar with i2c protocol but it looks like it is a generic protocol, not specific to a platform. In that case, can you make this driver available to other platforms by placing the source files in trusted-firmware-a/driver/i2c/",
       "revId": "eb914ca956a439b981a5f28733d4d189a97d46f2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "775de575_2e787acc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000314
+      },
+      "writtenOn": "2021-03-11T12:14:31Z",
+      "side": 1,
+      "message": "Hello Madhukar,\nThough I2C is a standard protocol, each platform (or SOC company) has its own platform specific changes.  Register programming is different for each SOC vendor. Though protocol is standard, register programming is SOC platform specific. \n\ntrusted-firmware-a does not have I2C driver frame work, which should have generic I2C protocol stuff and platform specific changes should be in the platform specific I2C drivers. This is a big change. Already existing I2C drivers from ST, Mentor graphics etc needs to be updated accordingly.\n\nThanks,\n-Bharat",
+      "parentUuid": "3249426e_d1c66195",
+      "revId": "eb914ca956a439b981a5f28733d4d189a97d46f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
