@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "353e8552_544ae767",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0bb87b2_d6b8a18f",
+      "revId": "ebd34c68a1f99d533fa0645a3cbec17605ef3ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cad65671_91e55946",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-03-02T15:50:24Z",
       "side": 1,
       "message": "Perhaps, this can be modified as \n(hard_reset !\u003d 0)",
+      "range": {
+        "startLine": 83,
+        "startChar": 28,
+        "endLine": 83,
+        "endChar": 38
+      },
+      "revId": "ebd34c68a1f99d533fa0645a3cbec17605ef3ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bad4463c_5eac4a54",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cad65671_91e55946",
       "range": {
         "startLine": 83,
         "startChar": 28,
@@ -81,6 +123,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "039effb7_bea178e8",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "991b9b10_4c244680",
+      "range": {
+        "startLine": 89,
+        "startChar": 16,
+        "endLine": 89,
+        "endChar": 17
+      },
+      "revId": "ebd34c68a1f99d533fa0645a3cbec17605ef3ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "351a7a3f_a4d911c7",
@@ -94,6 +160,30 @@
       "writtenOn": "2021-03-02T16:28:24Z",
       "side": 1,
       "message": "Change to is_ethosn_fid(smc_fid) \u003d\u003d 0",
+      "range": {
+        "startLine": 128,
+        "startChar": 5,
+        "endLine": 128,
+        "endChar": 28
+      },
+      "revId": "ebd34c68a1f99d533fa0645a3cbec17605ef3ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60f75336_3ac9cb60",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "351a7a3f_a4d911c7",
       "range": {
         "startLine": 128,
         "startChar": 5,
@@ -127,6 +217,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32c3122e_8400f0c1",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07ae500b_221f14cc",
+      "range": {
+        "startLine": 153,
+        "startChar": 5,
+        "endLine": 153,
+        "endChar": 42
+      },
+      "revId": "ebd34c68a1f99d533fa0645a3cbec17605ef3ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66c32f31_c6a93575",
@@ -140,6 +254,30 @@
       "writtenOn": "2021-03-02T16:28:24Z",
       "side": 1,
       "message": "Change to is_pmf_fid(smc_fid) !\u003d 0",
+      "range": {
+        "startLine": 60,
+        "startChar": 5,
+        "endLine": 60,
+        "endChar": 24
+      },
+      "revId": "ebd34c68a1f99d533fa0645a3cbec17605ef3ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d33dec1_7094a44d",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66c32f31_c6a93575",
       "range": {
         "startLine": 60,
         "startChar": 5,
@@ -173,6 +311,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ff2f1cf_c0d792b2",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aaecc65_2bc251a0",
+      "range": {
+        "startLine": 69,
+        "startChar": 5,
+        "endLine": 69,
+        "endChar": 28
+      },
+      "revId": "ebd34c68a1f99d533fa0645a3cbec17605ef3ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98eaeaec_ff2993bc",
@@ -186,6 +348,30 @@
       "writtenOn": "2021-03-02T16:28:24Z",
       "side": 1,
       "message": "Same here",
+      "range": {
+        "startLine": 78,
+        "startChar": 5,
+        "endLine": 78,
+        "endChar": 27
+      },
+      "revId": "ebd34c68a1f99d533fa0645a3cbec17605ef3ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc00c4ff_ac25d718",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98eaeaec_ff2993bc",
       "range": {
         "startLine": 78,
         "startChar": 5,
@@ -219,6 +405,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcb21273_40ea2330",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "199819f1_bcfce99c",
+      "range": {
+        "startLine": 90,
+        "startChar": 7,
+        "endLine": 90,
+        "endChar": 34
+      },
+      "revId": "ebd34c68a1f99d533fa0645a3cbec17605ef3ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b403478_94f94388",
@@ -232,6 +442,30 @@
       "writtenOn": "2021-03-02T16:28:24Z",
       "side": 1,
       "message": "Change to (node_status \u003d\u003d 0) || (strncmp(node_status, \"okay\", (size_t)len) \u003d\u003d 0)",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 63
+      },
+      "revId": "ebd34c68a1f99d533fa0645a3cbec17605ef3ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ab38197_edb27b4b",
+        "filename": "plat/arm/common/fconf/fconf_ethosn_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b403478_94f94388",
       "range": {
         "startLine": 24,
         "startChar": 5,
@@ -265,6 +499,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "274132e6_4ec5394c",
+        "filename": "plat/arm/common/fconf/fconf_ethosn_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a28ed41_8070b22f",
+      "range": {
+        "startLine": 35,
+        "startChar": 23,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "ebd34c68a1f99d533fa0645a3cbec17605ef3ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b94dc4e_eb11077b",
@@ -278,6 +536,30 @@
       "writtenOn": "2021-03-02T16:26:35Z",
       "side": 1,
       "message": "what happens when the sub node is not \"ethosn-core\" compatible or if the property itself is missing from the dts? Should you check for that condition and return -1?",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 56
+      },
+      "revId": "ebd34c68a1f99d533fa0645a3cbec17605ef3ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baa58797_5e357381",
+        "filename": "plat/arm/common/fconf/fconf_ethosn_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:36Z",
+      "side": 1,
+      "message": "Incompatible sub nodes and sub nodes missing the property, should be ignored. I\u0027ll change the code below the loop to return an error if no cores were found or an unexpected error was received from fdt_for_each_subnode.",
+      "parentUuid": "7b94dc4e_eb11077b",
       "range": {
         "startLine": 56,
         "startChar": 5,
