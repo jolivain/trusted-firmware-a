@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab886e8d_b870099b",
+        "filename": "plat/arm/board/juno/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3651223b_917feedd",
+      "range": {
+        "startLine": 57,
+        "startChar": 37,
+        "endLine": 57,
+        "endChar": 43
+      },
+      "revId": "c9fdb157d8d15a6708cd9c5ad6f7b24918833468",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35ef348c_ecd4a8d6",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-02T14:27:05Z",
       "side": 1,
       "message": "I was wondering why is count increased by 2 units? Why not just 1 for mapping the HW_CONFIG dtb in memory?",
+      "range": {
+        "startLine": 119,
+        "startChar": 27,
+        "endLine": 119,
+        "endChar": 28
+      },
+      "revId": "c9fdb157d8d15a6708cd9c5ad6f7b24918833468",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fe3714d_fe1b6e50",
+        "filename": "plat/arm/board/juno/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35ef348c_ecd4a8d6",
       "range": {
         "startLine": 119,
         "startChar": 27,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "faa47c82_37877d58",
+        "filename": "plat/arm/board/juno/juno_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da65e1f1_2b0f444c",
+      "range": {
+        "startLine": 17,
+        "startChar": 1,
+        "endLine": 17,
+        "endChar": 22
+      },
+      "revId": "c9fdb157d8d15a6708cd9c5ad6f7b24918833468",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca22ad16_291f6fa7",
@@ -83,6 +155,24 @@
       "writtenOn": "2021-03-02T14:27:05Z",
       "side": 1,
       "message": "Please make sure hw_config_dtb is well defined before being used in line 42.\nassert(hw_config_dtb !\u003d 0U);",
+      "revId": "c9fdb157d8d15a6708cd9c5ad6f7b24918833468",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0a10c29_df2152e5",
+        "filename": "plat/arm/board/juno/juno_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-03-11T16:06:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca22ad16_291f6fa7",
       "revId": "c9fdb157d8d15a6708cd9c5ad6f7b24918833468",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
