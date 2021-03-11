@@ -103,6 +103,9 @@ Arm Platform Build Options
 -  ``ARM_GPT_SUPPORT``: Enable GPT parser to get the entry address and length of
    the various partitions present in the GPT image.
 
+-  ``ARM_ZLIB_SUPPORT``: This build flag is used to enable ZLIB support in BL2
+   for Arm platforms.
+
 For a better understanding of these options, the Arm development platform memory
 map is explained in the :ref:`Firmware Design`.
 
