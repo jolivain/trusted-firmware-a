@@ -16,6 +16,24 @@
       "message": "Similar change may be required for tc0_spmc_manifest.dts",
       "revId": "3e02a63d8dad463b47a48a7781513c5966227234",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68927868_5dffb857",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-03-11T17:48:51Z",
+      "side": 1,
+      "message": "That\u0027s right; though TC0 is not (yet) supported in the TF-A CI (beyond a single linux boot test configuration not involving S-EL2).\nCan we let this change to the OSS platforms team when SPM+TFTF support is added for TC0?",
+      "parentUuid": "3fc09066_13190bc5",
+      "revId": "3e02a63d8dad463b47a48a7781513c5966227234",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
