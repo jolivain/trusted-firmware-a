@@ -177,6 +177,16 @@ ARM_FIP_OFFSET_IN_GPT		:=	17408
 $(eval $(call assert_numerics,ARM_FIP_OFFSET_IN_GPT))
 $(eval $(call add_define,ARM_FIP_OFFSET_IN_GPT))
 
+# Disable ZLIB_SUPPORT by default
+ARM_ZLIB_SUPPORT           :=      0
+$(eval $(call assert_boolean,ARM_ZLIB_SUPPORT))
+$(eval $(call add_define,ARM_ZLIB_SUPPORT))
+
+ifeq ($(ARM_ZLIB_SUPPORT),1)
+include lib/zlib/zlib.mk
+BL2_SOURCES             +=      $(ZLIB_SOURCES)
+endif
+
 ifeq (${ARCH}, aarch64)
 PLAT_INCLUDES		+=	-Iinclude/plat/arm/common/aarch64
 endif

@@ -100,3 +100,9 @@ int gunzip(uintptr_t *in_buf, size_t in_len, uintptr_t *out_buf,
 
 	return ret;
 }
+
+int tf_crc32(unsigned long crc, unsigned char *buf, size_t size)
+{
+	crc = crc32(crc, buf, size);
+	return crc;
+}
