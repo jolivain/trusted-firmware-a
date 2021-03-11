@@ -112,6 +112,9 @@ Arm Platform Build Options
 
    |FIP in a GPT image|
 
+-  ``ARM_ZLIB_SUPPORT``: This build flag is used to enable ZLIB support in BL2
+   for Arm platforms. This support is disabled by default.
+
 For a better understanding of these options, the Arm development platform memory
 map is explained in the :ref:`Firmware Design`.
 
