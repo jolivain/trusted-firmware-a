@@ -157,13 +157,38 @@ void __dead2 imx_system_reset(void)
 	uintptr_t wdog_base = IMX_WDOG_BASE;
 	unsigned int val;
 
-	/* WDOG_B reset */
 	val = mmio_read_16(wdog_base);
+	/*
+	 * Common watchdog init flags, for additional details check
+	 * 4.10.5.1 Watchdog Control Register
+	 *
+	 * Initial bit selection:
+	 * WDOG_WCR_WDZST - Suspend the watchdog timer.
+	 * WDOG_WCR_WDE - Enable the watchdog.
+	 *
+	 * 0x000E mask is used to keep previous values (that could be set
+	 * in SPL) of WDBG and WDE/WDT (both are write-one once-only bits).
+	 */
+	val = (val & 0x000E) | WDOG_WCR_WDZST | WDOG_WCR_WDE;
+
 #ifdef IMX_WDOG_B_RESET
-	val = (val & 0x00FF) | WDOG_WCR_WDZST | WDOG_WCR_WDE |
-		WDOG_WCR_WDT | WDOG_WCR_SRS;
+	/*
+	 * For WDOG_B immediate assertion (external reset),
+	 * we need to have WDA bit set to 0 (already set in previous step),
+	 * and SRS to 1 (no effect on system).
+	 */
+	val |= WDOG_WCR_SRS;
 #else
-	val = (val & 0x00FF) | WDOG_WCR_WDZST | WDOG_WCR_SRS;
+	/*
+	 * To assert Software Reset Signal (internal reset) we have to
+	 * set SRS bit to 0 (already set in previous step).
+	 * SRE bit is required to be set to 1 when used in conjunction
+	 * with the Software Reset Signal before SRS asserton,
+	 * otherwise SRS bit will just automatically reset to 1.
+	 *
+	 * Also we set WDA to 1 (no effect on system).
+	 */
+	val |= WDOG_WCR_SRE | WDOG_WCR_WDA;
 #endif
 	mmio_write_16(wdog_base, val);
 
