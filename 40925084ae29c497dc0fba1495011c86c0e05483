@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce0c0f09_a53ff080",
+        "filename": "lib/zlib/tf_gunzip.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-03-12T20:13:27Z",
+      "side": 1,
+      "message": "Would it be simpler if we directly return:\n{\n   return crc32(crc, bug, size);\n}",
+      "range": {
+        "startLine": 106,
+        "startChar": 1,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "40925084ae29c497dc0fba1495011c86c0e05483",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
