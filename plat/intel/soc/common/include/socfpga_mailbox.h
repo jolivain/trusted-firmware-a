@@ -40,15 +40,16 @@
 #define MBOX_CMD_SYNC			0x01
 #define MBOX_CMD_RESTART		0x02
 #define MBOX_CMD_CANCEL			0x03
-#define MBOX_CMD_VAB_SRC_CERT		0x0B
+#define MBOX_CMD_VAB_SRC_CERT	0x0B
 #define MBOX_CMD_GET_IDCODE		0x10
+#define MBOX_CMD_GET_USERCODE	0x13
 #define MBOX_CMD_REBOOT_HPS		0x47
 
 /* Reconfiguration Commands */
 #define MBOX_CONFIG_STATUS		0x04
 #define MBOX_RECONFIG			0x06
 #define MBOX_RECONFIG_DATA		0x08
-#define MBOX_RECONFIG_STATUS		0x09
+#define MBOX_RECONFIG_STATUS	0x09
 
 /* QSPI Commands */
 #define MBOX_CMD_QSPI_OPEN		0x32
