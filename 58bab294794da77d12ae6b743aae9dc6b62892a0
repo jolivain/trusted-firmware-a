@@ -129,6 +129,30 @@
       },
       "revId": "58bab294794da77d12ae6b743aae9dc6b62892a0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b16ea72b_30e93cd9",
+        "filename": "services/spd/tspd/tspd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-03-13T02:26:10Z",
+      "side": 1,
+      "message": "Yep, answered my question. Seems like this only affects TSPD because other dispatchers like OPTEED, TLKD dont trap to EL3 for Non-secure interrupts. They handle it themselves and call EL3 to yield right?\nMarking as resolved. Thanks for your response.",
+      "parentUuid": "ca3e0672_6fdd4d8d",
+      "range": {
+        "startLine": 136,
+        "startChar": 7,
+        "endLine": 137,
+        "endChar": 32
+      },
+      "revId": "58bab294794da77d12ae6b743aae9dc6b62892a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
