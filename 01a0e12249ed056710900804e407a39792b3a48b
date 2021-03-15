@@ -16,6 +16,24 @@
       "message": "Just wait a while.\nDo you mean that you want to access MMC/SD in runtime, such as BL33?",
       "revId": "01a0e12249ed056710900804e407a39792b3a48b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "556df60d_fe133dc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000537
+      },
+      "writtenOn": "2021-03-15T02:41:55Z",
+      "side": 1,
+      "message": "First of all, thank you for your reply.\n\nWhat I worry about is that the mmc_read_blocks function may be called at runtime. This function will access the released temporary variables through mmc_dev_info.\n\nThis is my immature idea, please continue to discuss it with me.",
+      "parentUuid": "51f1d3a8_0d44d01b",
+      "revId": "01a0e12249ed056710900804e407a39792b3a48b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
