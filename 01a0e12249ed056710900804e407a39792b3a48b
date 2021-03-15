@@ -51,6 +51,24 @@
       "message": "Hi,\n\nCould you describe a bit more the use case where you see the issue?\nI agree having this data in the stack is not very good here.\nBut my idea is that this data should be in platform code, like what is done in plat/rpi/rpi3/rpi3_bl2_setup.c. But it means modifying several platforms (hikey, poplar, agilex, stratix10, imx7, st). Let me check that.\nWhat platform do you use?\n\nFor the runtime part, all upstream platforms using MMC framework compile this only for BL1 and/or BL2.\nAnd those stages are used for boot, not for platform runtime.\nBut maybe you use another config/platform?\n\nRegards,\nYann",
       "revId": "01a0e12249ed056710900804e407a39792b3a48b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b881527b_76155a67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000537
+      },
+      "writtenOn": "2021-03-15T13:18:26Z",
+      "side": 1,
+      "message": "Hello,\n\n   When learning from the mmc code, I analyzed that there may be problems here, and I have not encountered any problems due to this reason. \n   But in the BL2 stage, after mmc is initialized, calling mmc_read_blocks may have problems.\n\n   Compared to constraining/modifying the code of several platforms, I think it is better to ensure the reliability of the code from the common code in the framework.\n\nRegards,\nDeqi",
+      "parentUuid": "9ef293c8_741b723d",
+      "revId": "01a0e12249ed056710900804e407a39792b3a48b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
