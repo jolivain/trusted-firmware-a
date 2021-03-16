@@ -17,7 +17,7 @@
 
 #include <imx_usdhc.h>
 
-static void imx_usdhc_initialize(void);
+static int imx_usdhc_initialize(void);
 static int imx_usdhc_send_cmd(struct mmc_cmd *cmd);
 static int imx_usdhc_set_ios(unsigned int clk, unsigned int width);
 static int imx_usdhc_prepare(int lba, uintptr_t buf, size_t size);
@@ -62,7 +62,7 @@ static void imx_usdhc_set_clk(int clk)
 	mmio_setbits32(reg_base + VENDSPEC, VENDSPEC_PER_CLKEN | VENDSPEC_CARD_CLKEN);
 }
 
-static void imx_usdhc_initialize(void)
+static int imx_usdhc_initialize(void)
 {
 	unsigned int timeout = 10000;
 	uintptr_t reg_base = imx_usdhc_params.reg_base;
@@ -74,8 +74,10 @@ static void imx_usdhc_initialize(void)
 
 	/* wait for reset done */
 	while ((mmio_read_32(reg_base + SYSCTRL) & SYSCTRL_RSTA)) {
-		if (!timeout)
+		if (!timeout) {
 			ERROR("IMX MMC reset timeout.\n");
+			return -EBUSY;
+		}
 		timeout--;
 	}
 
@@ -103,6 +105,8 @@ static void imx_usdhc_initialize(void)
 
 	/* set wartermark level as 16 for safe for MMC */
 	mmio_clrsetbits32(reg_base + WATERMARKLEV, WMKLV_MASK, 16 | (16 << 16));
+
+	return 0;
 }
 
 #define FSL_CMD_RETRIES	1000
