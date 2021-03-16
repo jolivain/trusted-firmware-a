@@ -420,7 +420,10 @@ static int mmc_enumerate(unsigned int clk, unsigned int bus_width)
 	int ret;
 	unsigned int resp_data[4];
 
-	ops->init();
+	ret = ops->init();
+	if (ret) {
+		return ret;
+	}
 
 	ret = mmc_reset_to_idle();
 	if (ret != 0) {
