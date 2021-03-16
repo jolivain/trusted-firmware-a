@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2dbfab4_a481d97c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-03-16T10:33:00Z",
+      "side": 1,
+      "message": "I generally agree and it\u0027s certainly an appropriate long term improvement. Although I think the direction the Arm architecture took with breaking down arch extension into multiple features breaks much of legacy TF-A code (that had assumptions that an arch extension number corresponds to a defined set of \"features\").\nIn the example of the EL2 context save/restore, Armv8.4 formerly refered to a number of features and now it\u0027s spliting into finer grained FEAT_xxx features. If you look at context.S you eventually need to introduce a lot of other FEAT_xxx macros to migrate it properly from an arch extension condition to feature extensions (FEAT_VHE, FEAT_RAS, FEAT_NV2, FEAT_TRF...).",
+      "range": {
+        "startLine": 10,
+        "startChar": 57,
+        "endLine": 12,
+        "endChar": 71
+      },
+      "revId": "9ef9091b6d0ba981b0cbf1ce48ddc7b7b094d760",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0781404d_d9a8c08b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-03-16T10:33:00Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 15,
+        "startChar": 19,
+        "endLine": 15,
+        "endChar": 28
+      },
+      "revId": "9ef9091b6d0ba981b0cbf1ce48ddc7b7b094d760",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e97c1a8_b51cd346",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-03-16T10:33:00Z",
+      "side": 1,
+      "message": "A bit out of scope for this change but I think we may eventually remove CNTHPS_CVAL/TVAL/CTL_EL2 fully from save/restore sequences as they are only present in the secure side.\nThere is no reason to save/restore SWd/NWd copies.",
+      "range": {
+        "startLine": 175,
+        "startChar": 9,
+        "endLine": 175,
+        "endChar": 23
+      },
+      "revId": "9ef9091b6d0ba981b0cbf1ce48ddc7b7b094d760",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0f9593b_12d6e58c",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-03-16T10:33:00Z",
+      "side": 1,
+      "message": "CNTHV_TVAL/CVAL/CTL_EL2 are implemented with FEAT_VHE, not specifically FEAT_SEL2",
+      "range": {
+        "startLine": 187,
+        "startChar": 10,
+        "endLine": 187,
+        "endChar": 23
+      },
+      "revId": "9ef9091b6d0ba981b0cbf1ce48ddc7b7b094d760",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d38fd29d_fd124635",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-03-16T10:33:00Z",
+      "side": 1,
+      "message": "FEAT_VHE or FEAT_Debugv8p2",
+      "range": {
+        "startLine": 192,
+        "startChar": 9,
+        "endLine": 192,
+        "endChar": 23
+      },
+      "revId": "9ef9091b6d0ba981b0cbf1ce48ddc7b7b094d760",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4f5eaf1_414c0c2f",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-03-16T10:33:00Z",
+      "side": 1,
+      "message": "FEAT_VHE",
+      "range": {
+        "startLine": 200,
+        "startChar": 10,
+        "endLine": 200,
+        "endChar": 19
+      },
+      "revId": "9ef9091b6d0ba981b0cbf1ce48ddc7b7b094d760",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe0f4c38_67bd687a",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-03-16T10:33:00Z",
+      "side": 1,
+      "message": "FEAT_RAS",
+      "range": {
+        "startLine": 203,
+        "startChar": 10,
+        "endLine": 203,
+        "endChar": 19
+      },
+      "revId": "9ef9091b6d0ba981b0cbf1ce48ddc7b7b094d760",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "878ce75c_be25688d",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-03-16T10:33:00Z",
+      "side": 1,
+      "message": "FEAT_NV2",
+      "range": {
+        "startLine": 207,
+        "startChar": 10,
+        "endLine": 207,
+        "endChar": 18
+      },
+      "revId": "9ef9091b6d0ba981b0cbf1ce48ddc7b7b094d760",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "586535ea_857e7f85",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-03-16T10:33:00Z",
+      "side": 1,
+      "message": "FEAT_RAS",
+      "range": {
+        "startLine": 211,
+        "startChar": 10,
+        "endLine": 211,
+        "endChar": 19
+      },
+      "revId": "9ef9091b6d0ba981b0cbf1ce48ddc7b7b094d760",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff960745_a6b69642",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-03-16T10:33:00Z",
+      "side": 1,
+      "message": "FEAT_TRF",
+      "range": {
+        "startLine": 220,
+        "startChar": 10,
+        "endLine": 220,
+        "endChar": 19
+      },
+      "revId": "9ef9091b6d0ba981b0cbf1ce48ddc7b7b094d760",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
