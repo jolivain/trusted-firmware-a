@@ -187,7 +187,6 @@ void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 #if !POPLAR_RECOVERY
 	/* SoC-specific emmc register are initialized/configured by bootrom */
 	INFO("BL2: initializing emmc\n");
-	info.mmc_dev_type = MMC_IS_EMMC;
 	dw_mmc_init(&params, &info);
 #endif
 

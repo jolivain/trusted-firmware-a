@@ -429,9 +429,16 @@ static int mmc_enumerate(unsigned int clk, unsigned int bus_width)
 		return ret;
 	};
 
-	if (mmc_dev_info->mmc_dev_type == MMC_IS_EMMC) {
-		ret = mmc_send_op_cond();
-	} else {
+	/* Assume card is eMMC. If eMMC CMD1 failed, try SD command sequence. */
+	mmc_dev_info->mmc_dev_type = MMC_IS_EMMC;
+	ret = mmc_send_op_cond();
+	if (ret) {
+		mmc_dev_info->mmc_dev_type = MMC_IS_SD;
+
+		ret = mmc_reset_to_idle();
+		if (ret)
+			return ret;
+
 		/* CMD8: Send Interface Condition Command */
 		ret = mmc_send_cmd(MMC_CMD(8), VHS_2_7_3_6_V | CMD8_CHECK_PATTERN,
 				   MMC_RESPONSE_R5, &resp_data[0]);

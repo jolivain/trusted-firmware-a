@@ -103,7 +103,6 @@ void bl1_platform_setup(void)
 #if !POPLAR_RECOVERY
 	/* SoC-specific emmc register are initialized/configured by bootrom */
 	INFO("BL1: initializing emmc\n");
-	info.mmc_dev_type = MMC_IS_EMMC;
 	dw_mmc_init(&params, &info);
 #endif
 
