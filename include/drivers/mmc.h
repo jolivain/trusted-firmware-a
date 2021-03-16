@@ -119,7 +119,7 @@ struct mmc_cmd {
 };
 
 struct mmc_ops {
-	void (*init)(void);
+	int (*init)(void);
 	int (*send_cmd)(struct mmc_cmd *cmd);
 	int (*set_ios)(unsigned int clk, unsigned int width);
 	int (*prepare)(int lba, uintptr_t buf, size_t size);
