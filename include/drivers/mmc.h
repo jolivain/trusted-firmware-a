@@ -211,6 +211,7 @@ struct mmc_csd_sd_v2 {
 };
 
 enum mmc_device_type {
+	MMC_IS_UNKNOWN,
 	MMC_IS_EMMC,
 	MMC_IS_SD,
 	MMC_IS_SD_HC,
