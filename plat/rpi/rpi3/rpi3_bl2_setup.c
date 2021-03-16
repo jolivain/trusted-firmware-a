@@ -35,7 +35,6 @@ static void rpi3_sdhost_setup(void)
 	params.reg_base = RPI3_SDHOST_BASE;
 	params.bus_width = MMC_BUS_WIDTH_1;
 	params.clk_rate = 50000000;
-	mmc_info.mmc_dev_type = MMC_IS_SD_HC;
 	rpi3_sdhost_init(&params, &mmc_info);
 }
 
