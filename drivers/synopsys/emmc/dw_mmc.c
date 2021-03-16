@@ -120,7 +120,7 @@ struct dw_idmac_desc {
 	unsigned int	des3;
 };
 
-static void dw_init(void);
+static int dw_init(void);
 static int dw_send_cmd(struct mmc_cmd *cmd);
 static int dw_set_ios(unsigned int clk, unsigned int width);
 static int dw_prepare(int lba, uintptr_t buf, size_t size);
@@ -186,7 +186,7 @@ static void dw_set_clk(int clk)
 	dw_update_clk();
 }
 
-static void dw_init(void)
+static int dw_init(void)
 {
 	unsigned int data;
 	uintptr_t base;
@@ -221,6 +221,7 @@ static void dw_init(void)
 	udelay(100);
 	dw_set_clk(MMC_BOOT_CLK_RATE);
 	udelay(100);
+	return 0;
 }
 
 static int dw_send_cmd(struct mmc_cmd *cmd)

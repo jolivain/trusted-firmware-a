@@ -119,7 +119,7 @@
 
 #define DT_SDMMC2_COMPAT		"st,stm32-sdmmc2"
 
-static void stm32_sdmmc2_init(void);
+static int stm32_sdmmc2_init(void);
 static int stm32_sdmmc2_send_cmd_req(struct mmc_cmd *cmd);
 static int stm32_sdmmc2_send_cmd(struct mmc_cmd *cmd);
 static int stm32_sdmmc2_set_ios(unsigned int clk, unsigned int width);
@@ -144,7 +144,7 @@ bool plat_sdmmc2_use_dma(unsigned int instance, unsigned int memory)
 	return false;
 }
 
-static void stm32_sdmmc2_init(void)
+static int stm32_sdmmc2_init(void)
 {
 	uint32_t clock_div;
 	uint32_t freq = STM32MP_MMC_INIT_FREQ;
@@ -164,6 +164,7 @@ static void stm32_sdmmc2_init(void)
 		      SDMMC_POWER_PWRCTRL | sdmmc2_params.dirpol);
 
 	mdelay(1);
+	return 0;
 }
 
 static int stm32_sdmmc2_stop_transfer(void)

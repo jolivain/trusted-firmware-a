@@ -17,7 +17,7 @@
 #include <errno.h>
 #include <string.h>
 
-static void rpi3_sdhost_initialize(void);
+static int rpi3_sdhost_initialize(void);
 static int rpi3_sdhost_send_cmd(struct mmc_cmd *cmd);
 static int rpi3_sdhost_set_ios(unsigned int clk, unsigned int width);
 static int rpi3_sdhost_prepare(int lba, uintptr_t buf, size_t size);
@@ -243,7 +243,7 @@ static void rpi3_sdhost_reset(void)
 	mmio_write_32(reg_base + HC_HOSTCONFIG, tmp1 | HC_HSTCF_INT_BUSY);
 }
 
-static void rpi3_sdhost_initialize(void)
+static int rpi3_sdhost_initialize(void)
 {
 	uintptr_t reg_base = rpi3_sdhost_params.reg_base;
 
@@ -253,6 +253,7 @@ static void rpi3_sdhost_initialize(void)
 
 	mmio_write_32(reg_base + HC_CLOCKDIVISOR, HC_CLOCKDIVISOR_PREFERVAL);
 	udelay(300);
+	return 0;
 }
 
 static int rpi3_sdhost_send_cmd(struct mmc_cmd *cmd)
