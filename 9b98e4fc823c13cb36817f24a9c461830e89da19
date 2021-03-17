@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50140487_5ba0e14f",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-03-17T03:41:25Z",
+      "side": 1,
+      "message": "Also, i think this function needs to ensure that the current context is a non-secure context based on a recent change that went into tspd where a race condition causes this handler to be entered even when executing in secure state. May not happen here, but good to use asserts to explicitly document assumptions..",
+      "parentUuid": "92a02de0_bf5127b5",
+      "range": {
+        "startLine": 231,
+        "startChar": 8,
+        "endLine": 231,
+        "endChar": 10
+      },
+      "revId": "9b98e4fc823c13cb36817f24a9c461830e89da19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5adb459_fffc243e",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-16T09:36:52Z",
       "side": 1,
       "message": "In case of error, can we return this value with some error message?",
+      "range": {
+        "startLine": 352,
+        "startChar": 1,
+        "endLine": 352,
+        "endChar": 3
+      },
+      "revId": "9b98e4fc823c13cb36817f24a9c461830e89da19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc23c731_d29dc4a5",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-03-17T03:41:25Z",
+      "side": 1,
+      "message": "should not fail, so panic would be appropriate here i think.",
+      "parentUuid": "a5adb459_fffc243e",
       "range": {
         "startLine": 352,
         "startChar": 1,
