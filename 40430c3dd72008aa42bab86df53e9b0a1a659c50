@@ -16,6 +16,24 @@
       "message": "Thank you for your comments.\nActually I did both SD boot and eMMC boot test on NXP LS1046ARDB board whose peripheral circuit supports switching signals betwenn SD card and eMMC. Worked fine.\nI kown this is not any standard method, but it benefits developers and users, like current u-boot and linux do.\nPlease let me know if I can help during your tests.\nThanks.",
       "revId": "40430c3dd72008aa42bab86df53e9b0a1a659c50",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd054e75_96d350b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000542
+      },
+      "writtenOn": "2021-03-17T06:16:31Z",
+      "side": 1,
+      "message": "Unfortunately, NXP LS1046ARDB hasn\u0027t been upstreamed in TFA:)",
+      "parentUuid": "3642147d_97e5cfa7",
+      "revId": "40430c3dd72008aa42bab86df53e9b0a1a659c50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
