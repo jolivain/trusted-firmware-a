@@ -46,6 +46,30 @@
       },
       "revId": "bb6d3c5651e9b139574de8daa77969c64fe35489",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78924887_2269edc0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-17T15:55:34Z",
+      "side": 1,
+      "message": "Ah I see, I did not know about the --strict option, thanks.\n\nRunning checkpatch with --strict option is not a requirement in any part of TF-A, though. We do not even enforce warnings, only errors raised by the script need fixing. And because they are not enforced by the project\u0027s policy at the moment, one might consider these changes as gratuitous. I am just trying to be fair to all contributors, especially as it is a generic driver (as opposed to pure platform code, where there is more freedom).\n\nFor these reasons, I would prefer if we dropped this patch, if that\u0027s fine with you.",
+      "parentUuid": "c8eec038_9887a5e6",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 23
+      },
+      "revId": "bb6d3c5651e9b139574de8daa77969c64fe35489",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
