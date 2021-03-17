@@ -16,6 +16,24 @@
       "message": "Please share what is the next step, here.\n\nThanks\n\nPankaj",
       "revId": "350c7bd10ef60314588c042d0a85fdbf52f3e2ce",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff9e685_6db34a6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 45
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-03-17T18:23:44Z",
+      "side": 1,
+      "message": "Hi Pankaj for this and other patches in the patch stack you need a code owner review. For different platforms especially for large patch stacks which you know we prefer to be broken down NXP should provide do that. I believe Bai Ping at NXP has provided that previously? When you rebase or update the patch you start anew getting approvals so you should chase them. Once we have a Code Owner, a Maintainer and the Verified all have +1 the patch should flag up ready for submit/merge. As this is top of the patch stack we just need the verified set for this patch from the CI and we can manually set the verified for all the others but you need to ensure you have code owner reviews on all the patches from one of the NXP designated code owners.",
+      "parentUuid": "29c878d9_01e0e7f6",
+      "revId": "350c7bd10ef60314588c042d0a85fdbf52f3e2ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
