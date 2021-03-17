@@ -22,6 +22,30 @@
       },
       "revId": "bb6d3c5651e9b139574de8daa77969c64fe35489",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8eec038_9887a5e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-03-17T13:03:46Z",
+      "side": 1,
+      "message": "I usually run checkpatch with --strict option, which asks for this alignment.\nThis option is sometimes asked in some parts of the kernel, depending on the maintainer.\nAs I wanted to add code in this file that would follow the --strict option (which we use in stm32mp1 platform), I wanted to have something coherent in the whole file. But I can remove that patch if this is a no-go.",
+      "parentUuid": "d081e3b6_bbec8118",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 23
+      },
+      "revId": "bb6d3c5651e9b139574de8daa77969c64fe35489",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
