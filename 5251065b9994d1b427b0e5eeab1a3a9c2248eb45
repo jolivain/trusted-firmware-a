@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81f3f746_51def132",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-03-17T23:49:01Z",
+      "side": 1,
+      "message": "The idea is not bad, but does this really help? I see that we don\u0027t have many status properties in the regulators nodes.\nSo can you say what this particular problem / which device this fixes?\nI\u0027d say we are saved by the fact the we only support a subset of regulators, in fact only those for which I can\u0027t find a status property in the mainline DTs.",
+      "revId": "5251065b9994d1b427b0e5eeab1a3a9c2248eb45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d028b0b_423015c6",
+        "filename": "drivers/allwinner/axp/common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-03-17T23:49:01Z",
+      "side": 1,
+      "message": "Can you make this return a bool, please? And adjust the returns below, accordingly?",
+      "revId": "5251065b9994d1b427b0e5eeab1a3a9c2248eb45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b356a8d_fc193a9a",
