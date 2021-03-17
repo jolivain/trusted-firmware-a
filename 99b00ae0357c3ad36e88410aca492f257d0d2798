@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2a3c92e_9f943873",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000542
+      },
+      "writtenOn": "2021-03-17T06:14:21Z",
+      "side": 1,
+      "message": "Thank you very much. I think with the patch (and no code changes in ST), a test with SD boot will be fine.",
+      "parentUuid": "a1ab3952_3206ff35",
+      "revId": "99b00ae0357c3ad36e88410aca492f257d0d2798",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e1710cce_0c58cf50",
@@ -55,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a21272f6_57a0fdc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000542
+      },
+      "writtenOn": "2021-03-17T06:14:21Z",
+      "side": 1,
+      "message": "Thank you. I think so. SD boot test with the patch and without STM code changes will be fine.",
+      "parentUuid": "9c2f8648_cfe87403",
+      "revId": "99b00ae0357c3ad36e88410aca492f257d0d2798",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b5f1d1e_8803f757",
         "filename": "drivers/mmc/mmc.c",
         "patchSetId": 1
@@ -66,6 +102,30 @@
       "writtenOn": "2021-03-16T13:15:24Z",
       "side": 1,
       "message": "you should change that to VERBOSE, as this becomes a possible awaited error",
+      "range": {
+        "startLine": 413,
+        "startChar": 1,
+        "endLine": 413,
+        "endChar": 6
+      },
+      "revId": "99b00ae0357c3ad36e88410aca492f257d0d2798",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d86dbfe9_4bbd3b3a",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000542
+      },
+      "writtenOn": "2021-03-17T06:14:21Z",
+      "side": 1,
+      "message": "You are right! I missed that. Fixed in v2.",
+      "parentUuid": "3b5f1d1e_8803f757",
       "range": {
         "startLine": 413,
         "startChar": 1,
@@ -89,6 +149,24 @@
       "writtenOn": "2021-03-16T13:15:24Z",
       "side": 1,
       "message": "Use braces, see my comment in the other patch",
+      "revId": "99b00ae0357c3ad36e88410aca492f257d0d2798",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f284e0c4_5dc1ae88",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1000542
+      },
+      "writtenOn": "2021-03-17T06:14:21Z",
+      "side": 1,
+      "message": "Done. Thanks.",
+      "parentUuid": "f3bd303f_6bd79fa5",
       "revId": "99b00ae0357c3ad36e88410aca492f257d0d2798",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
