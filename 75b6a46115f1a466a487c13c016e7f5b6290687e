@@ -164,6 +164,30 @@
       },
       "revId": "75b6a46115f1a466a487c13c016e7f5b6290687e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e01cd73e_df79e205",
+        "filename": "drivers/arm/tzc/tzc400.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-17T12:12:16Z",
+      "side": 1,
+      "message": "OK thanks for the explanation.\n\nWould it make sense to return an error code in this case? For your platform, you\u0027ve chosen to panic() in any case but other platforms might choose to do something different and might want to know that the interrupt was not properly handled?",
+      "parentUuid": "c2b7f8e3_98a37a98",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 335,
+        "endChar": 2
+      },
+      "revId": "75b6a46115f1a466a487c13c016e7f5b6290687e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
