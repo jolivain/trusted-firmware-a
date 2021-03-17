@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d081e3b6_bbec8118",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-17T12:49:19Z",
+      "side": 1,
+      "message": "I just ran the latest version of checkpatch.pl on these 2 files and it found no violation in the header file and only 1 violation in the C file (which you\u0027ve fixed in this patch):\n\n drivers/arm/tzc/tzc400.c:228: WARNING: quoted string split across lines\n+                       ERROR(\"TZC-400 : Filter %d Gatekeeper already\"\n+                               \" enabled.\\n\", filter);\n\nAre you seeing more errors/warnings getting reported in your setup?\n\nLooking at the Linux coding style (which we roughly use in TF-A), I am not sure it is so strict on alignment of function arguments for example. Even in the Linux kernel, I see people using different styles across files.\n\nHere is an example where function arguments are aligned: \nhttps://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/kernel/cpu.c#n148\n\nAnd here is another one where they\u0027re not:\nhttps://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/kernel/exit.c#n269\n\nI am just worried that this patch will generate some noise in the git history, which might be down to personal style preference in the end...",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 23
+      },
+      "revId": "bb6d3c5651e9b139574de8daa77969c64fe35489",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
