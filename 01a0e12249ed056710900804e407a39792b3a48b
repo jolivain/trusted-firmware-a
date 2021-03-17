@@ -122,6 +122,24 @@
       "parentUuid": "8282962a_25fb1cc9",
       "revId": "01a0e12249ed056710900804e407a39792b3a48b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a263bc12_80ea6a49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000537
+      },
+      "writtenOn": "2021-03-17T10:06:57Z",
+      "side": 1,
+      "message": "\u003e \u003e Hello, I agree that your statement is correct in most occasions.\n\u003e \u003e \n\u003e \u003e But the interface of MMC cannot remind users to use internal static variables, such as hikey, agilex, stratix10, imx7 these platforms.\n\u003e \u003e \n\u003e \u003e So I need your help to determine whether to defend against misuse under a small probability.\n\u003e \n\u003e As I mentioned, I\u0027m fine on this change.\n\u003e \n\u003e And I need the comments be accurate. This commit comment is not good since it is discussing a impossible case -- RUNTIME. I need your help to resubmit the commit with accurate comments.\n\nSorry, I just misunderstood what you meant. I revised the commit message",
+      "parentUuid": "674b58e9_41e01654",
+      "revId": "01a0e12249ed056710900804e407a39792b3a48b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
