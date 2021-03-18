@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2021, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,11 +13,18 @@
 #include <drivers/delay_timer.h>
 #include <drivers/generic_delay_timer.h>
 #include <lib/extensions/spe.h>
+#include <lib/xlat_tables/xlat_tables_compat.h>
 #include <libfdt.h>
 
 #include "fpga_private.h"
+#include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
+
+#define MAP_BL31_TOTAL		MAP_REGION_FLAT(			\
+					BL31_START,			\
+					BL31_END - BL31_START,		\
+					MT_MEMORY | MT_RW | MT_SECURE)
 
 static entry_point_info_t bl33_image_ep_info;
 volatile uint32_t secondary_core_spinlock;
@@ -63,8 +70,94 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	bl33_image_ep_info.args.arg3 = 0U;
 }
 
-void bl31_plat_arch_setup(void)
+void __init fpga_bl31_plat_arch_setup(void)
 {
+	uintptr_t gicd_base, gicr_base, uart_base, fdt_uart_base;
+	size_t gicd_size, gicr_size, uart_size, fdt_uart_size;
+
+	const void *fdt = (void *)(uintptr_t)FPGA_PRELOADED_DTB_BASE;
+	int node, ret;
+
+	const mmap_region_t bl_regions[] = {
+		MAP_BL31_TOTAL,
+		ARM_MAP_BL_RO,
+		{0}
+	};
+
+	/*
+	 * Read GICD and GICR base addresses and sizes from the DT.
+	 */
+	node = fdt_node_offset_by_compatible(fdt, 0, "arm,gic-v3");
+	if (node < 0) {
+		ERROR("No \"arm,gic-v3\" compatible node found in DT, no GIC support.\n");
+		panic();
+	}
+
+	/* TODO: Assuming only empty "ranges;" properties up the bus path. */
+	ret = fdt_get_reg_props_by_index(fdt, node, 0,
+				 &gicd_base, &gicd_size);
+	if (ret < 0) {
+		ERROR("Could not read GIC distributor address from DT.\n");
+		panic();
+	}
+
+	ret = fdt_get_reg_props_by_index(fdt, node, 1,
+				 &gicr_base, &gicr_size);
+	if (ret < 0) {
+		ERROR("Could not read GIC redistributor address from DT.\n");
+		panic();
+	}
+
+	/*
+	 * Read UART base address and size from the DT, falling back to
+	 * PLAT_FPGA_CRASH_UART_BASE as a default if this fails.
+	 */
+	uart_base = PLAT_FPGA_CRASH_UART_BASE;
+	uart_size = PAGE_SIZE;
+
+	node = fdt_get_stdout_node_offset(fdt);
+	if (node >= 0) {
+		ret = fdt_get_reg_props_by_index(fdt, node, 0,
+						 &fdt_uart_base,
+						 &fdt_uart_size);
+		if (ret == 0) {
+			uart_base = fdt_uart_base;
+			uart_size = fdt_uart_size;
+		} else {
+			WARN("Could not read UART address from DT, using hardcoded default.\n");
+		}
+	} else {
+		WARN("Could not read UART address from DT, using hardcoded default.\n");
+	}
+
+	/*
+	 * Add the memory regions read from the DT.
+	 *
+	 * FIXME: below code is a bit "ad-hoc", as mmap_add_region calls should
+	 * be done from setup_pable_tables() to make everything more
+	 * consistent. However it does not seem to be a straight forward
+	 * way of doing that (setup_page_tabes() receives consts and bl_regions
+	 * is declared at the beginning of the fucntion to cope with MISRA).
+	 * So just make the calls here and refactor the code in the future if
+	 * it becomes possible.
+	 */
+	mmap_add_region((unsigned long long)uart_base, uart_base,
+			uart_size, (MT_DEVICE | MT_RW | MT_SECURE));
+	mmap_add_region((unsigned long long)gicd_base, gicd_base,
+			gicd_size, (MT_DEVICE | MT_RW | MT_SECURE));
+	/* Note: GICR size is multiplied by the core count */
+	mmap_add_region((unsigned long long)gicr_base, gicr_base,
+			gicr_size * PLATFORM_CORE_COUNT,
+			(MT_DEVICE | MT_RW | MT_SECURE));
+
+	setup_page_tables(bl_regions, plat_arm_get_mmap());
+
+	enable_mmu_el3(0);
+}
+
+void __init bl31_plat_arch_setup(void)
+{
+	fpga_bl31_plat_arch_setup();
 }
 
 void bl31_platform_setup(void)
