@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7fb92684_8fa7d8c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000545
+      },
+      "writtenOn": "2021-03-18T10:50:30Z",
+      "side": 1,
+      "message": "Well, the situation that prompted me to submit this PR was that I received a batch of assembled PCBs of which all have DLDO3 shorted to GND. Disabling its node via the \u0027status\u0027 property was the very first idea of how to remedy this situation that came to my mind, as it\u0027s a very well-established convention both in Linux and U-boot (and an omission to check it is considered a bug there).\nAbsence of the \u0027status\u0027 property indicates an enabled node, thus nodes without it get exactly the same treatment as they did before the property became recognized.",
+      "parentUuid": "81f3f746_51def132",
+      "revId": "5251065b9994d1b427b0e5eeab1a3a9c2248eb45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d028b0b_423015c6",
         "filename": "drivers/allwinner/axp/common.c",
         "patchSetId": 1
