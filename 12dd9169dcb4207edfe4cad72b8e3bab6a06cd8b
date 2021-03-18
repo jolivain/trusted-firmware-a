@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81e72762_5d728eba",
+        "filename": "plat/arm/board/rdv1mc/rdv1mc_security.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-03-18T20:39:48Z",
+      "side": 1,
+      "message": "As per coding guidelines, https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html?highlight\u003dbraces#conditional-statement-bodies put braces around \u0027for\u0027 loop.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 35
+      },
+      "revId": "12dd9169dcb4207edfe4cad72b8e3bab6a06cd8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
