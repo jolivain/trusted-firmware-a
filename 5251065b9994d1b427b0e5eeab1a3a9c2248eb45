@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0a78646_284c2c68",
+        "filename": "drivers/allwinner/axp/common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000545
+      },
+      "writtenOn": "2021-03-18T09:58:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d028b0b_423015c6",
+      "revId": "5251065b9994d1b427b0e5eeab1a3a9c2248eb45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b356a8d_fc193a9a",
@@ -58,6 +76,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "301a100e_a8414912",
+        "filename": "drivers/allwinner/axp/common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000545
+      },
+      "writtenOn": "2021-03-18T09:58:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b356a8d_fc193a9a",
+      "range": {
+        "startLine": 103,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 10
+      },
+      "revId": "5251065b9994d1b427b0e5eeab1a3a9c2248eb45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3284125_e9abd0e2",
@@ -71,6 +113,24 @@
       "writtenOn": "2021-03-17T16:49:54Z",
       "side": 1,
       "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies\nPlease use braces.",
+      "revId": "5251065b9994d1b427b0e5eeab1a3a9c2248eb45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37b45d87_6bf98835",
+        "filename": "drivers/allwinner/axp/common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000545
+      },
+      "writtenOn": "2021-03-18T09:58:41Z",
+      "side": 1,
+      "message": "Well if I only put them there, the rest of the function body would look a bit awkward, wouldn\u0027t it? Shall I then put the braces around the other statements also?",
+      "parentUuid": "b3284125_e9abd0e2",
       "revId": "5251065b9994d1b427b0e5eeab1a3a9c2248eb45",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
