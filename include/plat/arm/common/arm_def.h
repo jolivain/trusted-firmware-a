@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2021, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -433,18 +433,14 @@
 #define BL31_NOBITS_BASE		BL2_BASE
 #define BL31_NOBITS_LIMIT		BL2_LIMIT
 #endif /* SEPARATE_NOBITS_REGION */
-#elif (RESET_TO_BL31)
-/* Ensure Position Independent support (PIE) is enabled for this config.*/
-# if !ENABLE_PIE
-#  error "BL31 must be a PIE if RESET_TO_BL31=1."
-#endif
+#elif (RESET_TO_BL31 && ENABLE_PIE)
 /*
  * Since this is PIE, we can define BL31_BASE to 0x0 since this macro is solely
  * used for building BL31 and not used for loading BL31.
  */
 #  define BL31_BASE			0x0
 #  define BL31_LIMIT			PLAT_ARM_MAX_BL31_SIZE
-#else
+#elif (!RESET_TO_BL31)
 /* Put BL31 below BL2 in the Trusted SRAM.*/
 #define BL31_BASE			((ARM_BL_RAM_BASE + ARM_BL_RAM_SIZE)\
 						- PLAT_ARM_MAX_BL31_SIZE)
