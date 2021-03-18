@@ -16,6 +16,40 @@
       "message": "Looks fine.",
       "revId": "2268bc5cc89ef072fc226e45e9248bd2aab94ac9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f503f18_c2b2556d",
+        "filename": "plat/xilinx/versal/plat_psci.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-03-18T15:39:32Z",
+      "side": 1,
+      "message": "Can you create a macro, SECURE_FLAG, similar to non-secure flag and use it everywhere rather than 0?\n#define NON_SECURE_FLAG\t\t1U\n#define SECURE_FLAG\t\t0U",
+      "revId": "2268bc5cc89ef072fc226e45e9248bd2aab94ac9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c2a51f7_275cb034",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-03-18T15:39:32Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "2268bc5cc89ef072fc226e45e9248bd2aab94ac9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
