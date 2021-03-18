@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2021, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,7 @@
 #define PLATFORM_DEF_H
 
 #include <arch.h>
+#include <plat/arm/common/arm_def.h>
 #include <plat/common/common_def.h>
 #include <platform_def.h>
 #include "../fpga_def.h"
@@ -17,9 +18,6 @@
 #define PLATFORM_LINKER_ARCH		aarch64
 
 #define PLATFORM_STACK_SIZE		UL(0x800)
-
-#define CACHE_WRITEBACK_SHIFT		U(6)
-#define CACHE_WRITEBACK_GRANULE		(U(1) << CACHE_WRITEBACK_SHIFT)
 
 #define PLATFORM_CORE_COUNT		\
 	(FPGA_MAX_CLUSTER_COUNT *	\
@@ -76,6 +74,17 @@
 	INTR_PROP_DESC(ARM_IRQ_SEC_SGI_6, GIC_HIGHEST_SEC_PRIORITY, (grp), \
 			GIC_INTR_CFG_EDGE)
 
+/* Virtual and physical address size for MMU */
+#define PLAT_PHY_ADDR_SPACE_SIZE	(1ULL << 36)
+#define PLAT_VIRT_ADDR_SPACE_SIZE	(1ULL << 36)
+
+#define MAX_XLAT_TABLES			10
+#define PLAT_ARM_MMAP_ENTRIES		8
+/* This works for now, TODO revisit to check that it is correct. */
+#define PLAT_ARM_NSTIMER_FRAME_ID	U(1)
+
+#undef PLAT_MAX_RET_STATE
+#undef PLAT_MAX_OFF_STATE
 #define PLAT_MAX_RET_STATE 		1
 #define PLAT_MAX_OFF_STATE 		2
 
