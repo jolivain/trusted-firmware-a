@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,14 +13,69 @@
 #include <drivers/delay_timer.h>
 #include <drivers/generic_delay_timer.h>
 #include <lib/extensions/spe.h>
+#include <lib/xlat_tables/xlat_tables_compat.h>
 #include <libfdt.h>
 
 #include "fpga_private.h"
+#include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
+#define MAP_BL31_TOTAL		MAP_REGION_FLAT(			\
+					BL31_START,			\
+					BL31_END - BL31_START,		\
+					MT_MEMORY | MT_RW | MT_SECURE)
+
+#define FPGA_PRELOADED_DTB						\
+				MAP_REGION_FLAT(			\
+					FPGA_PRELOADED_DTB_BASE,	\
+					FPGA_MAX_DTB_SIZE,		\
+					MT_MEMORY | MT_RW | MT_SECURE)
+
+/* Needs to be big enough to contain the fpga cmdline. */
+#define FPGA_CMD_LINE_SIZE	U(0x1000)
+/* The cmdline must be loaded in as device memory. */
+#define FPGA_CMD_LINE		MAP_REGION_FLAT(			\
+					FPGA_PRELOADED_CMD_LINE,	\
+					FPGA_CMD_LINE_SIZE,		\
+					MT_DEVICE | MT_RO | MT_SECURE)
+
+#define FPGA_UART_BASE		U(0x7ff80000)
+#define FPGA_UART_SIZE		U(0x1000)
+
+#define FPGA_UART		MAP_REGION_FLAT(			\
+					FPGA_UART_BASE,			\
+					FPGA_UART_SIZE,			\
+					MT_DEVICE | MT_RW | MT_SECURE)
+
+#define FPGA_GICD_BASE		U(0x30000000)
+#define FPGA_GICD_SIZE		U(0x10000)
+
+#define FPGA_GICD		MAP_REGION_FLAT(			\
+					FPGA_GICD_BASE,			\
+					FPGA_GICD_SIZE,			\
+					MT_DEVICE | MT_RW | MT_SECURE)
+
+#define FPGA_GICR_BASE		U(0x30040000)
+#define FPGA_GICR_SIZE		(U(0x20000) * PLATFORM_CORE_COUNT)
+
+#define FPGA_GICR		MAP_REGION_FLAT(			\
+					FPGA_GICR_BASE,			\
+					FPGA_GICR_SIZE,			\
+					MT_DEVICE | MT_RW | MT_SECURE)
+
 static entry_point_info_t bl33_image_ep_info;
 volatile uint32_t secondary_core_spinlock;
+
+const mmap_region_t plat_arm_mmap[] = {
+	ARM_MAP_SHARED_RAM,
+	FPGA_UART,
+	FPGA_GICD,
+	FPGA_GICR,
+	FPGA_PRELOADED_DTB,
+	FPGA_CMD_LINE,
+	{0}
+};
 
 uintptr_t plat_get_ns_image_entrypoint(void)
 {
@@ -63,8 +118,19 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	bl33_image_ep_info.args.arg3 = 0U;
 }
 
-void bl31_plat_arch_setup(void)
+void __init bl31_plat_arch_setup(void)
 {
+	const mmap_region_t bl_regions[] = {
+		MAP_BL31_TOTAL,
+
+		ARM_MAP_BL_RO,
+
+		{0}
+	};
+
+	setup_page_tables(bl_regions, plat_arm_get_mmap());
+
+	enable_mmu_el3(0);
 }
 
 void bl31_platform_setup(void)
