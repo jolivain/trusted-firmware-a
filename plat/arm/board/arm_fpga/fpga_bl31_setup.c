@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2021, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,11 +13,18 @@
 #include <drivers/delay_timer.h>
 #include <drivers/generic_delay_timer.h>
 #include <lib/extensions/spe.h>
+#include <lib/xlat_tables/xlat_tables_compat.h>
 #include <libfdt.h>
 
 #include "fpga_private.h"
+#include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
+
+#define MAP_BL31_TOTAL		MAP_REGION_FLAT(			\
+					BL31_START,			\
+					BL31_END - BL31_START,		\
+					MT_MEMORY | MT_RW | MT_SECURE)
 
 static entry_point_info_t bl33_image_ep_info;
 volatile uint32_t secondary_core_spinlock;
@@ -63,8 +70,24 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	bl33_image_ep_info.args.arg3 = 0U;
 }
 
-void bl31_plat_arch_setup(void)
+void __init fpga_bl31_plat_arch_setup(void)
 {
+	const mmap_region_t bl_regions[] = {
+		MAP_BL31_TOTAL,
+
+		ARM_MAP_BL_RO,
+
+		{0}
+	};
+
+	setup_page_tables(bl_regions, plat_arm_get_mmap());
+
+	enable_mmu_el3(0);
+}
+
+void __init bl31_plat_arch_setup(void)
+{
+	fpga_bl31_plat_arch_setup();
 }
 
 void bl31_platform_setup(void)
