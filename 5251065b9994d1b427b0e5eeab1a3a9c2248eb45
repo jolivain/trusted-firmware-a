@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4aa9627c_ce025320",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-03-18T11:03:40Z",
+      "side": 1,
+      "message": "I see, thanks. I was just scratching my head about it, because I didn\u0027t see any difference given the mainline DTs I looked at (as we barely have status properties in the regulator nodes at all).\nSo can you please mention this in the commit message? At the moment the message reads more like it would limit the number of pointlessly activated regulators (which isn\u0027t really the case, given the existing DTs), but it is really about *preventing disabled* regulators from being enabled and causing harm (which is subtly different).\nThanks!",
+      "parentUuid": "7fb92684_8fa7d8c0",
+      "revId": "5251065b9994d1b427b0e5eeab1a3a9c2248eb45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d028b0b_423015c6",
         "filename": "drivers/allwinner/axp/common.c",
         "patchSetId": 1
