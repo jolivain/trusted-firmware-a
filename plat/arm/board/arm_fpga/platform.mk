@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2021, Arm Limited. All rights reserved.
+# Copyright (c) 2020-2021, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -90,6 +90,9 @@ GICV3_SUPPORT_GIC600	:=	1
 # Include GICv3 driver files
 include drivers/arm/gic/v3/gicv3.mk
 
+# Include xlat_tables_v2
+include lib/xlat_tables_v2/xlat_tables.mk
+
 FPGA_GIC_SOURCES	:=	${GICV3_SOURCES}			\
 				plat/common/plat_gicv3.c		\
 				plat/arm/board/arm_fpga/fpga_gicv3.c
@@ -106,12 +109,15 @@ BL31_SOURCES		+=	common/fdt_wrappers.c				\
 				drivers/delay_timer/generic_delay_timer.c	\
 				drivers/arm/pl011/${ARCH}/pl011_console.S	\
 				plat/common/plat_psci_common.c			\
-				plat/arm/board/arm_fpga/fpga_pm.c			\
+				plat/arm/common/arm_common.c			\
+				plat/arm/board/arm_fpga/fpga_common.c		\
+				plat/arm/board/arm_fpga/fpga_pm.c		\
 				plat/arm/board/arm_fpga/fpga_topology.c		\
 				plat/arm/board/arm_fpga/fpga_console.c		\
-				plat/arm/board/arm_fpga/fpga_bl31_setup.c		\
+				plat/arm/board/arm_fpga/fpga_bl31_setup.c	\
 				${FPGA_CPU_LIBS}				\
-				${FPGA_GIC_SOURCES}
+				${FPGA_GIC_SOURCES}				\
+				${XLAT_TABLES_LIB_SRCS}
 
 $(eval $(call MAKE_S,$(BUILD_PLAT),plat/arm/board/arm_fpga/rom_trampoline.S,31))
 $(eval $(call MAKE_LD,$(BUILD_PLAT)/build_axf.ld,plat/arm/board/arm_fpga/build_axf.ld.S,31))
