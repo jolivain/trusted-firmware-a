@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c268ecf8_debc991e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000545
+      },
+      "writtenOn": "2021-03-19T13:33:28Z",
+      "side": 1,
+      "message": "Yes, you\u0027re right, I agree. Thank you for pointing it out.\nSo I rewrote the commit message as an introduction of a new feature, basically.\n\nHowever, to also act upon the overlay/phandle news before finishing off, I propose following up with a commit which drops the phandle/regulator-always-on checks.",
+      "parentUuid": "4aa9627c_ce025320",
+      "revId": "5251065b9994d1b427b0e5eeab1a3a9c2248eb45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d028b0b_423015c6",
         "filename": "drivers/allwinner/axp/common.c",
         "patchSetId": 1
