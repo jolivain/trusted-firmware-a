@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84c9486a_ba70f774",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-03-19T16:35:15Z",
+      "side": 1,
+      "message": "Pankaj, the CI issue is being actively investigated its a breakage in another component due to this patch change but it may be a few days before we can advise what the best course is here. One option you have is to remove this patch from the patch stack and we proceed with the rest of the patch stack submission once you have your code owner reviews. I appreciate that your platform will not work without this change for now hence as I said we will follow up with you on that.\n\nThere is another patch regarding fiptool update that you are still discussing with one of the maintainers. Again you may wan to remove that patch as well and follow up after unless it can be resolved quickly.\n\nAlternatively for both these patches we await their resolution as part of this patch stack but then no patches will be able to be processed for submission at this time.\nJoanna",
+      "revId": "7a4a44c50a019f871046553e733a67156dd5dab4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "837900ea_1c65df68",
