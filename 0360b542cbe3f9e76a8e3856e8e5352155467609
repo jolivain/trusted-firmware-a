@@ -53,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63cf86db_b7eba1e0",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-03-19T01:45:43Z",
+      "side": 1,
+      "message": "Yes :)",
+      "parentUuid": "faf4886b_c75eb1c8",
+      "revId": "0360b542cbe3f9e76a8e3856e8e5352155467609",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b84a38e5_3309ec88",
@@ -72,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "832fa978_912f2bcc",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-03-19T01:45:43Z",
+      "side": 1,
+      "message": "There were several pieces of similar code and I picked up one comment from my bug fix patch which was merged into integration branch recently. I\u0027m OK with the original comment \"Filter out special INTIDs 1020-1023\".",
+      "parentUuid": "b84a38e5_3309ec88",
+      "revId": "0360b542cbe3f9e76a8e3856e8e5352155467609",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9342c28_be57a239",
         "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
         "patchSetId": 1
@@ -83,6 +119,30 @@
       "writtenOn": "2021-03-15T18:06:41Z",
       "side": 1,
       "message": "nit: architecture",
+      "range": {
+        "startLine": 106,
+        "startChar": 14,
+        "endLine": 106,
+        "endChar": 26
+      },
+      "revId": "0360b542cbe3f9e76a8e3856e8e5352155467609",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28cea5b3_aae02270",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-03-19T01:45:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a9342c28_be57a239",
       "range": {
         "startLine": 106,
         "startChar": 14,
@@ -116,6 +176,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "005ebad0_ecbd5a97",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-03-19T01:45:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f2e05fba_32ed109d",
+      "range": {
+        "startLine": 107,
+        "startChar": 35,
+        "endLine": 107,
+        "endChar": 43
+      },
+      "revId": "0360b542cbe3f9e76a8e3856e8e5352155467609",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d416e6ba_19563b36",
@@ -129,6 +213,30 @@
       "writtenOn": "2021-03-15T18:06:41Z",
       "side": 1,
       "message": "Bit of a nit: could you make precedence explicit here?\nspi_limit \u003e (MAX_SPI_ID + 1U)",
+      "range": {
+        "startLine": 110,
+        "startChar": 5,
+        "endLine": 110,
+        "endChar": 32
+      },
+      "revId": "0360b542cbe3f9e76a8e3856e8e5352155467609",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5167755_adeaeda5",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-03-19T01:45:43Z",
+      "side": 1,
+      "message": "Sorry, but isn\u0027t it obvious enough for \"+\" takes higher precedence than \"\u003e\" in C language?",
+      "parentUuid": "d416e6ba_19563b36",
       "range": {
         "startLine": 110,
         "startChar": 5,
