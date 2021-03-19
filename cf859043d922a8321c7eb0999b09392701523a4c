@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "680645b2_ddeb3c98",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 33
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-19T13:16:36Z",
+      "side": 1,
+      "message": "I don\u0027t think this change will make the problem go away. Order-only prerequisites (despite their name!) do not enforce any order on prerequisites. See for yourself:\n\n all: | foo bar\n\n foo:\n        @echo foo\n bar:\n        @echo bar\n\nIf I run this through \"make -j\", I sometimes see\n\n foo\n bar\n\nand other times\n\n bar\n foo\n\nAFAIK, the only way to solve this issue is to restructure your rules to make the chain of dependencies explicit.",
+      "parentUuid": "2d5bfde2_88e85faf",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 37
+      },
+      "revId": "cf859043d922a8321c7eb0999b09392701523a4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fecfb902_532f1082",
         "filename": "tools/fiptool/Makefile",
         "patchSetId": 33
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "The platform specific file \"tools/nxp/plat_fiptool/plat_def_uuid_config.c\", added do not have the corresponding header.\nDue to which there are error in make.\n\nThis was the reason I removed it.\nThis can be fixed, if I add the \"tools/nxp/plat_fiptool/plat_def_uuid_config.h\".\n\nBut the content of it would be:\n\n/*\n * Copyright 2021 NXP\n *\n * SPDX-License-Identifier: BSD-3-Clause\n */\n\n#ifndef PLAT_DEF_UUID \n#define PLAT_DEF_UUID\n\n#endif\n\nIf that is fine, request you to promptly confirm it.\n\nSince this patchset is towards getting merged, I would add this change as a another patch if you confirm so.",
       "parentUuid": "fecfb902_532f1082",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 17
+      },
+      "revId": "cf859043d922a8321c7eb0999b09392701523a4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "060053b1_d37563d6",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 33
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-19T13:16:36Z",
+      "side": 1,
+      "message": "Ah yes, I understand, thanks for the explanation.\n\nNo, please do not add an empty \"tools/nxp/plat_fiptool/plat_def_uuid_config.h\" file just to satisfy this dependency, that sounds wrong to me. The original rule (\"%.o: %.c %.h Makefile\") was not well-constructed anyway, I now realize that. I guess, since this makefile was just for building a couple of files for a simple tool, we went for the quickest and easiest way and that was good enough at the time.\n\nThe new version you propose is still not right to my understanding but it\u0027s not making things worse in my view. The proper way to handle dependencies would be through the compiler\u0027s -MD/-MT types of options, just like we do in the main Makefile for the firmware. But this is beyond the scope of this patch. I am fine with the changes you\u0027re proposing on line 46.",
+      "parentUuid": "fc5ce0c0_98a5bc13",
       "range": {
         "startLine": 58,
         "startChar": 0,
