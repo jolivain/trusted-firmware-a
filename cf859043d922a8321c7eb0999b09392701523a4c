@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d5bfde2_88e85faf",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 33
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-03-19T04:45:01Z",
+      "side": 1,
+      "message": "${PROJECT}: clean ${OBJECTS} Makefile, needs to be changed to:\n\n${PROJECT}: | clean ${OBJECTS} Makefile\n\nSince this patchset is towards getting merged, I would add this change as a another patch.",
+      "parentUuid": "c9c29bb8_f22a19e8",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 37
+      },
+      "revId": "cf859043d922a8321c7eb0999b09392701523a4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fecfb902_532f1082",
         "filename": "tools/fiptool/Makefile",
         "patchSetId": 33
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-18T10:02:25Z",
       "side": 1,
       "message": "What is the rationale for this change?\n\nThe previous version made sure that object files would be rebuilt if a header file was changed, which sounds to me like something we want to continue doing...",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 17
+      },
+      "revId": "cf859043d922a8321c7eb0999b09392701523a4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc5ce0c0_98a5bc13",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 33
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-03-19T04:45:01Z",
+      "side": 1,
+      "message": "The platform specific file \"tools/nxp/plat_fiptool/plat_def_uuid_config.c\", added do not have the corresponding header.\nDue to which there are error in make.\n\nThis was the reason I removed it.\nThis can be fixed, if I add the \"tools/nxp/plat_fiptool/plat_def_uuid_config.h\".\n\nBut the content of it would be:\n\n/*\n * Copyright 2021 NXP\n *\n * SPDX-License-Identifier: BSD-3-Clause\n */\n\n#ifndef PLAT_DEF_UUID \n#define PLAT_DEF_UUID\n\n#endif\n\nIf that is fine, request you to promptly confirm it.\n\nSince this patchset is towards getting merged, I would add this change as a another patch if you confirm so.",
+      "parentUuid": "fecfb902_532f1082",
       "range": {
         "startLine": 58,
         "startChar": 0,
