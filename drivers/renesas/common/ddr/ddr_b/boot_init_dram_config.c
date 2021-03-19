@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#define BOARDNUM 25
+#define BOARDNUM 26
 #define BOARD_JUDGE_AUTO
 
 #ifdef BOARD_JUDGE_AUTO
@@ -1718,7 +1718,37 @@ static const struct _boardcnf boardcnfs[BOARDNUM] = {
 				  0, 0, 0, 0, 0, 0, 0, 0 }
 			}
 		}
-	}
+	},
+/* boardcnf[25] HopeRun HiHope RZ/G2N board 16Gbit/2rank/1ch */
+	{
+		0x01U,
+		0x01U,
+		0x0300U,
+		0,
+		0x0300U,
+		0x00a0U,
+		{
+			{
+				{ 0x04U, 0x04U },
+				0x00345201UL,
+				0x3201U,
+				{ 0x01672543U, 0x45361207U, 0x45632107U, 0x60715234U },
+				{ 0x08U, 0x08U, 0x08U, 0x08U },
+				WDQLVL_PAT,
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0,
+				  0, 0, 0, 0, 0, 0, 0, 0,
+				  0, 0, 0, 0, 0, 0, 0, 0,
+				  0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0,
+				  0, 0, 0, 0, 0, 0, 0, 0,
+				  0, 0, 0, 0, 0, 0, 0, 0,
+				  0, 0, 0, 0, 0, 0, 0, 0 }
+			}
+		}
+	},
 };
 
 void boardcnf_get_brd_clk(uint32_t brd, uint32_t *clk, uint32_t *div)
@@ -1900,7 +1930,7 @@ static uint32_t _board_judge(void)
 {
 	uint32_t brd;
 
-#if (RCAR_LSI == RZ_G2M) || (RCAR_LSI == RZ_G2H)
+#if (RCAR_LSI == RZ_G2M) || (RCAR_LSI == RZ_G2H) || (RCAR_LSI == RZ_G2N)
 	if (prr_product == PRR_PRODUCT_M3) {
 		brd = 23U;
 		if ((mmio_read_32(PRR) & PRR_CUT_MASK) != RCAR_M3_CUT_VER11) {
@@ -1910,12 +1940,14 @@ static uint32_t _board_judge(void)
 		}
 	} else if (prr_product == PRR_PRODUCT_H3) {
 		brd = 24U;
+	} else if (prr_product == PRR_PRODUCT_M3N) {
+		brd = 25U;
 	} else {
 		brd = 99U;
 	}
 
 	return brd;
-#endif /*  RCAR_LSI == RZ_G2{M,H} */
+#endif /*  RCAR_LSI == RZ_G2{M,H,N} */
 
 #if (RCAR_GEN3_ULCB == 1)
 	/* Starter Kit */
