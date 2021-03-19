@@ -106,6 +106,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8f13ddc_e26ae93c",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-03-19T12:43:34Z",
+      "side": 1,
+      "message": "Ah I see - thanks!\nNo problem - whichever comment works best.",
+      "parentUuid": "832fa978_912f2bcc",
+      "revId": "0360b542cbe3f9e76a8e3856e8e5352155467609",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9342c28_be57a239",
@@ -237,6 +255,30 @@
       "side": 1,
       "message": "Sorry, but isn\u0027t it obvious enough for \"+\" takes higher precedence than \"\u003e\" in C language?",
       "parentUuid": "d416e6ba_19563b36",
+      "range": {
+        "startLine": 110,
+        "startChar": 5,
+        "endLine": 110,
+        "endChar": 32
+      },
+      "revId": "0360b542cbe3f9e76a8e3856e8e5352155467609",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74b46d34_1e0ddec8",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-03-19T12:43:34Z",
+      "side": 1,
+      "message": "In theory, yes, but there\u0027s a MISRA rule (12.1) that says that all operator precedence should be made explicit.\n\nI guess this is to prevent mistakes like:\nif (x \u0026 0x7 \u003d\u003d 0) {\n\nThe MISRA rules we use are in the spreadsheet linked here: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#misra-compliance\n\nTechnically this rule is advisory for TF-A, so I\u0027ll mark as resolved.",
+      "parentUuid": "e5167755_adeaeda5",
       "range": {
         "startLine": 110,
         "startChar": 5,
