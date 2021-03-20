@@ -58,6 +58,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f71dd504_36a01d33",
+        "filename": "common/bl_common.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-03-20T06:25:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "837900ea_1c65df68",
+      "range": {
+        "startLine": 202,
+        "startChar": 4,
+        "endLine": 203,
+        "endChar": 16
+      },
+      "revId": "7a4a44c50a019f871046553e733a67156dd5dab4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22af219c_3d9ef9d5",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-03-18T15:27:58Z",
       "side": 1,
       "message": "I understand why you need to do this change in the context of your platform but I am worried about the performance penalty it might have for other TF-A users. If we now invalidate the cache (using flush_dcache_range(), which does a data cache clean + invalidate maintenance operation) after the image loading operation then the authentication operation is likely to be slower because it won\u0027t benefit from the data being cached.\n\nI wonder whether you could move this cache maintenance operation down in the crypto library layer, closer to the h/w accelerator backend. We would also need a way to avoid the second flush_dcache_range() call after the authentication phase in your case. I need to give it more thoughts... Let me get back to you on this one.",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 0
+      },
+      "revId": "7a4a44c50a019f871046553e733a67156dd5dab4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "861925b4_d3862c6f",
+        "filename": "common/bl_common.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-03-20T06:25:38Z",
+      "side": 1,
+      "message": "Suggestion:\nCan we use CVAC(clean_dcache_range) instead of CIVAC(flush_dcache_range)?",
+      "parentUuid": "22af219c_3d9ef9d5",
       "range": {
         "startLine": 205,
         "startChar": 0,
