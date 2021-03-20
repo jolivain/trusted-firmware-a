@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dc6c8a0e_edca126c",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 33
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-03-20T05:28:47Z",
+      "side": 1,
+      "message": "- ${PROJECT}: clean ${OBJECTS} Makefile\n+ ${PROJECT}: ${OBJECTS} Makefile\n+       @$(call SHELL_DELETE_ALL, ${PROJECT})\n\n\nThis change will make sure the order.\nPlease share your view",
+      "parentUuid": "680645b2_ddeb3c98",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 37
+      },
+      "revId": "cf859043d922a8321c7eb0999b09392701523a4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fecfb902_532f1082",
         "filename": "tools/fiptool/Makefile",
         "patchSetId": 33
