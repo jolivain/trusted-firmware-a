@@ -9,12 +9,15 @@
  * IPI interrupts
  */
 
+#include <lib/mmio.h>
 #include <pm_common.h>
 #include <pm_ipi.h>
 #include <plat/common/platform.h>
+#include <plat_private.h>
 #include "pm_api_sys.h"
 #include "pm_client.h"
 #include "pm_defs.h"
+#include "pm_svc_main.h"
 
 /*********************************************************************
  * Target module IDs macros
@@ -871,6 +874,10 @@ enum pm_ret_status pm_api_ioctl(uint32_t device_id, uint32_t ioctl_id,
 		return pm_pll_set_param(arg1, PM_PLL_PARAM_DATA, arg2, flag);
 	case IOCTL_GET_PLL_FRAC_DATA:
 		return pm_pll_get_param(arg1, PM_PLL_PARAM_DATA, value, flag);
+	case IOCTL_GET_ERROR_DATA:
+		pm_register_ipi_interrupt(arg1);
+		mmio_write_32(0xF90061F0, 0x80000000);
+		return PM_RET_SUCCESS;
 	default:
 		/* Send request to the PMC */
 		PM_PACK_PAYLOAD5(payload, LIBPM_MODULE_ID, flag, PM_IOCTL,

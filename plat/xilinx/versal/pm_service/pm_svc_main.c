@@ -13,12 +13,58 @@
 #include <plat_private.h>
 #include <stdbool.h>
 #include <common/runtime_svc.h>
+#include <drivers/arm/gicv3.h>
+#include <plat/common/platform.h>
+#include <lib/mmio.h>
 #include "pm_api_sys.h"
 #include "pm_client.h"
 #include "pm_ipi.h"
 
+#define SGI  0x7
+#define XSCUGIC_SGIR_EL1_INITID_SHIFT    24U
+DEFINE_RENAME_SYSREG_RW_FUNCS(icc_asgi1r_el1, S3_0_C12_C11_6)
+
 /* pm_up = true - UP, pm_up = false - DOWN */
 static bool pm_up;
+static bool ipi_irq_flag;
+
+static uint64_t ipi_fiq_handler(uint32_t id, uint32_t flags, void *handle,
+				void *cookie)
+{
+	int cpu;
+	unsigned int reg;
+	(void)plat_ic_acknowledge_interrupt();
+	cpu = plat_my_core_pos() + 1;
+
+	reg = (cpu | (SGI << XSCUGIC_SGIR_EL1_INITID_SHIFT));
+	write_icc_asgi1r_el1(reg);
+
+	/* Clear FIQ */
+	plat_ic_end_of_interrupt(id);
+	return 0;
+}
+
+/**
+ * pm_register_ipi_interrupt() - PM register the IPI interrupt
+ *
+ * @irq -  IRQ no to be registered.
+ * @return	On success, the initialization function must return 0.
+ *		Any other return value will cause the framework to ignore
+ *		the service
+ *
+ * Register the ipi interrupt.
+ *
+ */
+int pm_register_ipi_interrupt(unsigned int irq)
+{
+	int ret;
+
+	ret = request_intr_type_el3(irq, ipi_fiq_handler);
+
+	if (ret)
+		WARN("BL31: registering IPI interrupt failed\n");
+	return ret;
+}
 
 /**
  * pm_setup() - PM service setup
@@ -141,6 +187,16 @@ uint64_t pm_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2, uint64_t x3,
 	case PM_GET_API_VERSION:
 	{
 		uint32_t api_version;
+		if (!ipi_irq_flag) {
+			/*
+			 * Enable IPI IRQ
+			 * assume the rich OS is OK to handle callback IRQs now.
+			 * Even if we were wrong, it would not enable the IRQ in
+			 * the GIC.
+			 */
+			pm_ipi_irq_enable(primary_proc);
+			ipi_irq_flag = true;
+		}
 
 		ret = pm_get_api_version(&api_version, security_flag);
 		SMC_RET1(handle, (uint64_t)PM_RET_SUCCESS |

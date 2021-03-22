@@ -60,6 +60,7 @@
 #define PLAT_ARM_CCI_BASE		0xFD000000
 #define PLAT_ARM_CCI_CLUSTER0_SL_IFACE_IX	4
 #define PLAT_ARM_CCI_CLUSTER1_SL_IFACE_IX	5
+#define MAX_INTR_EL3			128
 
 /*******************************************************************************
  * UART related constants
