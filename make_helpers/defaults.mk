@@ -303,6 +303,7 @@ ifneq (${ARCH},aarch32)
     ENABLE_SVE_FOR_NS		:= 1
 else
     override ENABLE_SVE_FOR_NS	:= 0
+    override ENABLE_SVE_FOR_SWD  := 0
 endif
 
 SANITIZE_UB := off
