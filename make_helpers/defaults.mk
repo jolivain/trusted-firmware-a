@@ -20,7 +20,7 @@ AARCH32_SP			:= none
 ARCH				:= aarch64
 
 # ARM Architecture feature modifiers: none by default
-ARM_ARCH_FEATURE		:= none
+ARM_ARCH_FEATURE		:= sve
 
 # ARM Architecture major and minor versions: 8.0 by default.
 ARM_ARCH_MAJOR			:= 8
@@ -296,13 +296,15 @@ CTX_INCLUDE_MTE_REGS		:= 0
 ENABLE_AMU			:= 0
 AMU_RESTRICT_COUNTERS		:= 0
 
-# By default, enable Scalable Vector Extension if implemented for Non-secure
+# By default, enable Scalable Vector Extension if implemented only for Non-secure
 # lower ELs
 # Note SVE is only supported on AArch64 - therefore do not enable in AArch32
 ifneq (${ARCH},aarch32)
     ENABLE_SVE_FOR_NS		:= 1
+    ENABLE_SVE_FOR_SWD		:= 0
 else
     override ENABLE_SVE_FOR_NS	:= 0
+    override ENABLE_SVE_FOR_SWD  := 0
 endif
 
 SANITIZE_UB := off
