@@ -6,8 +6,6 @@
 
 #include <assert.h>
 
-#include <libfdt.h>
-
 #include <platform_def.h>
 
 #include <common/bl_common.h>
@@ -151,76 +149,10 @@ void bl31_plat_arch_setup(void)
 	enable_mmu_el3(0);
 }
 
-#ifdef RPI3_PRELOADED_DTB_BASE
-/*
- * Add information to the device tree (if any) about the reserved DRAM used by
- * the Trusted Firmware.
- */
-static void rpi3_dtb_add_mem_rsv(void)
-{
-	int i, regions, rc;
-	uint64_t addr, size;
-	void *dtb = (void *)RPI3_PRELOADED_DTB_BASE;
-
-	INFO("rpi3: Checking DTB...\n");
-
-	/* Return if no device tree is detected */
-	if (fdt_check_header(dtb) != 0)
-		return;
-
-	regions = fdt_num_mem_rsv(dtb);
-
-	VERBOSE("rpi3: Found %d mem reserve region(s)\n", regions);
-
-	/* We expect to find one reserved region that we can modify */
-	if (regions < 1)
-		return;
-
-	/*
-	 * Look for the region that corresponds to the default boot firmware. It
-	 * starts at address 0, and it is not needed when the default firmware
-	 * is replaced by this port of the Trusted Firmware.
-	 */
-	for (i = 0; i < regions; i++) {
-		if (fdt_get_mem_rsv(dtb, i, &addr, &size) != 0)
-			continue;
-
-		if (addr != 0x0)
-			continue;
-
-		VERBOSE("rpi3: Firmware mem reserve region found\n");
-
-		rc = fdt_del_mem_rsv(dtb, i);
-		if (rc != 0) {
-			INFO("rpi3: Can't remove mem reserve region (%d)\n", rc);
-		}
-
-		break;
-	}
-
-	if (i == regions) {
-		VERBOSE("rpi3: Firmware mem reserve region not found\n");
-	}
-
-	/*
-	 * Reserve all SRAM. As said in the documentation, this isn't actually
-	 * secure memory, so it is needed to tell BL33 that this is a reserved
-	 * memory region. It doesn't guarantee it won't use it, though.
-	 */
-	rc = fdt_add_mem_rsv(dtb, SEC_SRAM_BASE, SEC_SRAM_SIZE);
-	if (rc != 0) {
-		WARN("rpi3: Can't add mem reserve region (%d)\n", rc);
-	}
-
-	INFO("rpi3: Reserved 0x%llx - 0x%llx in DTB\n", SEC_SRAM_BASE,
-	     SEC_SRAM_BASE + SEC_SRAM_SIZE);
-}
-#endif
-
 void bl31_platform_setup(void)
 {
 #ifdef RPI3_PRELOADED_DTB_BASE
 	/* Only modify a DTB if we know where to look for it */
-	rpi3_dtb_add_mem_rsv();
+	rpi3_dtb_add_mem_rsv((void *)RPI3_PRELOADED_DTB_BASE, SEC_SRAM_BASE, SEC_SRAM_SIZE);
 #endif
 }

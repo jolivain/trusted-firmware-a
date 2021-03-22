@@ -38,4 +38,6 @@ int rpi3_vc_hardware_get_board_revision(uint32_t *revision);
 
 int plat_rpi_get_model(void);
 
+void rpi3_dtb_add_mem_rsv(void *dtb, uint64_t rsc_base, uint64_t rsv_size);
+
 #endif /* RPI3_PRIVATE_H */

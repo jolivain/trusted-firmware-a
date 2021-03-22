@@ -228,8 +228,7 @@ static void rpi4_prepare_dtb(void)
 	}
 
 	/* Reserve memory used by Trusted Firmware. */
-	if (fdt_add_reserved_memory(dtb, "atf@0", 0, 0x80000))
-		WARN("Failed to add reserved memory nodes to DT.\n");
+	rpi3_dtb_add_mem_rsv(dtb, 0, 0x80000);
 
 	offs = fdt_node_offset_by_compatible(dtb, 0, "arm,gic-400");
 	gic_int_prop[0] = cpu_to_fdt32(1);		// PPI
