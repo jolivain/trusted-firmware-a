@@ -229,6 +229,11 @@ $(error "Error: stack memory tagging is not supported for architecture \
 endif	# mem_tag_arch_support
 endif	# SUPPORT_STACK_MEMTAG
 
+# Enable SVE feature support for aarch64 platforms
+ifeq ($(ARCH), aarch64)
+arch-features           :=       $(arch-features)+sve
+endif   # SVE
+
 # Set the compiler's architecture feature modifiers
 ifneq ($(arch-features), none)
 # Strip "none+" from arch-features
@@ -909,6 +914,7 @@ $(eval $(call assert_booleans,\
         ENABLE_RUNTIME_INSTRUMENTATION \
         ENABLE_SPE_FOR_LOWER_ELS \
         ENABLE_SVE_FOR_NS \
+        ENABLE_SVE_FOR_SWD \
         ERROR_DEPRECATED \
         FAULT_INJECTION_SUPPORT \
         GENERATE_COT \
@@ -1002,6 +1008,7 @@ $(eval $(call add_defines,\
         ENABLE_RUNTIME_INSTRUMENTATION \
         ENABLE_SPE_FOR_LOWER_ELS \
         ENABLE_SVE_FOR_NS \
+        ENABLE_SVE_FOR_SWD \
         ENCRYPT_BL31 \
         ENCRYPT_BL32 \
         ERROR_DEPRECATED \
