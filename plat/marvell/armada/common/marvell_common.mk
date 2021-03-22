@@ -6,9 +6,7 @@
 MARVELL_PLAT_BASE		:= plat/marvell/armada
 MARVELL_PLAT_INCLUDE_BASE	:= include/plat/marvell/armada
 
-include plat/marvell/version.mk
-
-VERSION_STRING			+=(Marvell-${SUBVERSION})
+VERSION_STRING			+=(Marvell)
 
 SEPARATE_CODE_AND_RODATA	:= 1
 
