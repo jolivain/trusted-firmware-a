@@ -70,6 +70,30 @@
       },
       "revId": "c02f7cbad878a17752634f8fbb9e2d24b95b7e4b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f1fc328_ddad7fb2",
+        "filename": "plat/arm/css/sgi/include/sgi_base_platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000063
+      },
+      "writtenOn": "2021-03-22T04:55:40Z",
+      "side": 1,
+      "message": "Thanks Manish for adding details about this. The reason for adding the additional mmap and xlat entries for bl31 is - in bl31 execution context, there is inter-chip access to memory and io regions and there are dynamic mmap entries added for the same (see #1, #2, #3 and #4).\n\nAs to why this change is being introduced now (where as #1, #2, #3 and #4) have been in upstream code for sometime now, the reason is, this change is under \"#if SPM_MM\", meaning, SPM_MM was not enabled for multi-chip platforms until this patch series. And so the need for this change now. For non-SPM-MM case, please see #5 - this change had been introduced and is upstream.\n\n\n[#1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/css/sgi/include/sgi_base_platform_def.h#n136\n\n[#2] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/css/sgi/include/sgi_base_platform_def.h#n144\n\n[#3] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/css/sgi/include/sgi_base_platform_def.h#n152\n\n[#4] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/rdv1mc/rdv1mc_plat.c#n112\n\n[#5] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/css/sgi/include/sgi_base_platform_def.h#n38",
+      "parentUuid": "1e97bbe2_7daea4c8",
+      "range": {
+        "startLine": 33,
+        "startChar": 1,
+        "endLine": 34,
+        "endChar": 64
+      },
+      "revId": "c02f7cbad878a17752634f8fbb9e2d24b95b7e4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
