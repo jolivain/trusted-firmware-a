@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "34044047_9bd95e00",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 33
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-03-22T12:52:21Z",
+      "side": 1,
+      "message": "After reading the article from the web-page: \"https://www.gnu.org/software/make/manual/html_node/Prerequisite-Types.html\"\nBest solution is to use Order-only perquisite.\nThough I could not able to reproduce the issue you mentioned above.\n\nAs per your suggestion, I have made the following change:\n\n%.o: %.c clean Makefile\n        @echo \"  HOSTCC  $\u003c\"\n        ${Q}${HOSTCC} -c ${CPPFLAGS} ${HOSTCCFLAGS} ${INCLUDE_PATHS} $\u003c -o $@\n\nclean:\n        @echo \"Cleaning................\"\n        $(call SHELL_DELETE_ALL, ${PROJECT} ${OBJECTS})\n\n\nCleaning...... is printed once.\n\nIf you fine with this solution, I will make this change.\nPlease revert.",
+      "parentUuid": "b3a768cc_abcbbceb",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 37
+      },
+      "revId": "cf859043d922a8321c7eb0999b09392701523a4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fecfb902_532f1082",
         "filename": "tools/fiptool/Makefile",
         "patchSetId": 33
