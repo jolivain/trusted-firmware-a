@@ -127,6 +127,30 @@
       },
       "revId": "7a4a44c50a019f871046553e733a67156dd5dab4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ff346cb_84fa122d",
+        "filename": "common/bl_common.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-22T07:09:17Z",
+      "side": 1,
+      "message": "Yes, actually that\u0027s also the conclusion we reached after discussing this within the team. There\u0027s a caveat, however. If we turn the clean+invalidate into a clean here, this seems to break some other test configs. We think there\u0027s code that implicitly relied on the cache being invalidated at this point. We\u0027re currently investigating this.",
+      "parentUuid": "861925b4_d3862c6f",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 0
+      },
+      "revId": "7a4a44c50a019f871046553e733a67156dd5dab4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
