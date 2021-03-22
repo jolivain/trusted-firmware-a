@@ -16,6 +16,29 @@
       "message": "Patchset v2 addressed comments. Thanks.",
       "revId": "c3b46593e7ae2ad8f726768b7a3a341143231039",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28cfeb98_6bb0141e",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-03-22T15:45:44Z",
+      "side": 1,
+      "message": "ret !\u003d 0\nStill because of MISRA.",
+      "range": {
+        "startLine": 424,
+        "startChar": 5,
+        "endLine": 424,
+        "endChar": 8
+      },
+      "revId": "c3b46593e7ae2ad8f726768b7a3a341143231039",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
