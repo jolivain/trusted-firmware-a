@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,7 +19,30 @@ bool sve_supported(void)
 	return (features & ID_AA64PFR0_SVE_MASK) == 1U;
 }
 
-static void *disable_sve_hook(const void *arg)
+void *enable_sve_hook(const void *arg)
+{
+	uint64_t cptr;
+
+	if (!sve_supported())
+		return (void *)-1;
+
+	/*
+	 * Enable SVE, SIMD and FP access for the Non-secure world.
+	 */
+	cptr = read_cptr_el3();
+	cptr = (cptr | CPTR_EZ_BIT) & ~(TFP_BIT);
+	write_cptr_el3(cptr);
+
+	write_zcr_el3(ZCR_EL3_LEN_MASK);
+
+	/*
+	 * No explicit ISB required here as ERET to switch to Non-secure
+	 * world covers it
+	 */
+	return (void *)0;
+}
+
+void *disable_sve_hook(const void *arg)
 {
 	uint64_t cptr;
 
@@ -39,27 +62,6 @@ static void *disable_sve_hook(const void *arg)
 
 	/*
 	 * No explicit ISB required here as ERET to switch to Secure
-	 * world covers it
-	 */
-	return (void *)0;
-}
-
-static void *enable_sve_hook(const void *arg)
-{
-	uint64_t cptr;
-
-	if (!sve_supported())
-		return (void *)-1;
-
-	/*
-	 * Enable SVE, SIMD and FP access for the Non-secure world.
-	 */
-	cptr = read_cptr_el3();
-	cptr = (cptr | CPTR_EZ_BIT) & ~(TFP_BIT);
-	write_cptr_el3(cptr);
-
-	/*
-	 * No explicit ISB required here as ERET to switch to Non-secure
 	 * world covers it
 	 */
 	return (void *)0;
@@ -127,5 +129,9 @@ void sve_enable(bool el2_unused)
 	 */
 }
 
-SUBSCRIBE_TO_EVENT(cm_exited_normal_world, disable_sve_hook);
+#if ENABLE_SVE_FOR_SW
+SUBSCRIBE_TO_EVENT(cm_entering_secure_world, enable_sve_hook);
+#else
+SUBSCRIBE_TO_EVENT(cm_entering_secure_world, disable_sve_hook);
+#endif
 SUBSCRIBE_TO_EVENT(cm_entering_normal_world, enable_sve_hook);
