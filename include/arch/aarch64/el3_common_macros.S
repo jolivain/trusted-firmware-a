@@ -185,8 +185,19 @@
 	 * CPTR_EL3.TFP: Set to zero so that accesses to the V- or Z- registers
 	 *  by Advanced SIMD, floating-point or SVE instructions (if implemented)
 	 *  do not trap to EL3.
+	 *
+	 * CPTR_EL3.EZ: If FEAT_SVE is implemented set to zero so that SVE
+	 *  functionality is accessable from all Exception levels and
+	 *  Security states.
 	 */
+
 	mov_imm x0, (CPTR_EL3_RESET_VAL & ~(TCPAC_BIT | TTA_BIT | TFP_BIT))
+
+	mrs	x1, id_aa64pfr0_el1
+	ubfx	x1, x1, #ID_AA64PFR0_SVE_SHIFT, #ID_AA64PFR0_SVE_LENGTH
+	cbz	x1, 1f
+	and	x0, x0, (~CPTR_EZ_BIT)
+1:
 	msr	cptr_el3, x0
 
 	/*
@@ -196,10 +207,10 @@
 	mrs	x0, id_aa64pfr0_el1
 	ubfx	x0, x0, #ID_AA64PFR0_DIT_SHIFT, #ID_AA64PFR0_DIT_LENGTH
 	cmp	x0, #ID_AA64PFR0_DIT_SUPPORTED
-	bne	1f
+	bne	2f
 	mov	x0, #DIT_BIT
 	msr	DIT, x0
-1:
+2:
 	.endm
 
 /* -----------------------------------------------------------------------------
