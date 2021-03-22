@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98fc3a61_f52cf55a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-03-22T12:56:42Z",
+      "side": 1,
+      "message": "Sorry, I\u0027ll have to revert the patch, and propose a new one. This breaks STM32MP1 boot on SD-card. The issue is that the new structure in framework will evolve without the driver being aware of it. I think the patch will be adding the static struct in each platforms, the way it is done for rpi3.\nSorry again for not testing it before acknowledging the patch.",
+      "revId": "13f3c5166f126b021e5f6e09e4a7c97f12495a35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
