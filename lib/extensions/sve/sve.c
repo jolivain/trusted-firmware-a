@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,32 +19,7 @@ bool sve_supported(void)
 	return (features & ID_AA64PFR0_SVE_MASK) == 1U;
 }
 
-static void *disable_sve_hook(const void *arg)
-{
-	uint64_t cptr;
-
-	if (!sve_supported())
-		return (void *)-1;
-
-	/*
-	 * Disable SVE, SIMD and FP access for the Secure world.
-	 * As the SIMD/FP registers are part of the SVE Z-registers, any
-	 * use of SIMD/FP functionality will corrupt the SVE registers.
-	 * Therefore it is necessary to prevent use of SIMD/FP support
-	 * in the Secure world as well as SVE functionality.
-	 */
-	cptr = read_cptr_el3();
-	cptr = (cptr | TFP_BIT) & ~(CPTR_EZ_BIT);
-	write_cptr_el3(cptr);
-
-	/*
-	 * No explicit ISB required here as ERET to switch to Secure
-	 * world covers it
-	 */
-	return (void *)0;
-}
-
-static void *enable_sve_hook(const void *arg)
+void *enable_sve_hook(const void *arg)
 {
 	uint64_t cptr;
 
@@ -57,6 +32,8 @@ static void *enable_sve_hook(const void *arg)
 	cptr = read_cptr_el3();
 	cptr = (cptr | CPTR_EZ_BIT) & ~(TFP_BIT);
 	write_cptr_el3(cptr);
+
+	write_zcr_el3(ZCR_EL3_LEN_MASK);
 
 	/*
 	 * No explicit ISB required here as ERET to switch to Non-secure
@@ -127,5 +104,5 @@ void sve_enable(bool el2_unused)
 	 */
 }
 
-SUBSCRIBE_TO_EVENT(cm_exited_normal_world, disable_sve_hook);
+SUBSCRIBE_TO_EVENT(cm_entering_secure_world, enable_sve_hook);
 SUBSCRIBE_TO_EVENT(cm_entering_normal_world, enable_sve_hook);
