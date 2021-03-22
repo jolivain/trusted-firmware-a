@@ -185,7 +185,14 @@
 	 * CPTR_EL3.TFP: Set to zero so that accesses to the V- or Z- registers
 	 *  by Advanced SIMD, floating-point or SVE instructions (if implemented)
 	 *  do not trap to EL3.
+	 *
+	 * CPTR_EL3.TAM: Reset value is one, so Activity Monitor access is
+	 *  trapped to EL3 by default.
+	 *
+	 * CPTR_EL3.EZ: Reset value is zero, so all SVE functionality is trapped
+	 *  to EL3 by default.
 	 */
+
 	mov_imm x0, (CPTR_EL3_RESET_VAL & ~(TCPAC_BIT | TTA_BIT | TFP_BIT))
 	msr	cptr_el3, x0
 
