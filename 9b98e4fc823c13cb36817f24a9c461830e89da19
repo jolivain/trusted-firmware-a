@@ -224,6 +224,30 @@
       },
       "revId": "9b98e4fc823c13cb36817f24a9c461830e89da19",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ccc2501_d013a30a",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-03-22T16:37:15Z",
+      "side": 1,
+      "message": "@Raghu Thanks, agree with your explanation! It doesn\u0027t make sense to run SPM without this interrupt registration.\n\nLooking through code, I observed this is not quite followed in all dispatchers [1],[2]. Do we need to correct these also?\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/services/spd/tlkd/tlkd_main.c?h\u003dintegration#n142\n[2] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/services/spd/trusty/trusty.c?h\u003dintegration#n484",
+      "parentUuid": "91e3dd6b_fcfe8294",
+      "range": {
+        "startLine": 352,
+        "startChar": 1,
+        "endLine": 352,
+        "endChar": 3
+      },
+      "revId": "9b98e4fc823c13cb36817f24a9c461830e89da19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
