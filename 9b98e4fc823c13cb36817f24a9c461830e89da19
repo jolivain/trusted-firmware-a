@@ -176,6 +176,30 @@
       },
       "revId": "9b98e4fc823c13cb36817f24a9c461830e89da19",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bbde2c4_3427e8e9",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-03-22T00:00:46Z",
+      "side": 1,
+      "message": "right, but what does it really mean to run the SPM if we cannot route secure interrupts when running the normal world? Are we just saying we drop the interrupts? without an interrupt handler, who clears the interrupt etc? I\u0027m not sure it is meaningful here or at line 387.. perhaps that needs to be changed as well to panic...",
+      "parentUuid": "4c535980_758938ab",
+      "range": {
+        "startLine": 352,
+        "startChar": 1,
+        "endLine": 352,
+        "endChar": 3
+      },
+      "revId": "9b98e4fc823c13cb36817f24a9c461830e89da19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
