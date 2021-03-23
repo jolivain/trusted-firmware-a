@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5e310b0_04dc22b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-03-23T01:01:34Z",
+      "side": 1,
+      "message": "But this is switching to a different way of reserving memory, right? From the /reserved-memory *DT node* (Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt) to that now somewhat deprecated /memreserve/ special FDT feature? At the very least this deserves some comment in the commit message.\nBut actually I wonder if we should keep the node version, but enhance the code to properly detect overlaps, and merge them?",
+      "revId": "cc9b02e52bd956cd10e33662570eb8b39e4deadc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
