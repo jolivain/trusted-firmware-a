@@ -16,6 +16,24 @@
       "message": "But this is switching to a different way of reserving memory, right? From the /reserved-memory *DT node* (Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt) to that now somewhat deprecated /memreserve/ special FDT feature? At the very least this deserves some comment in the commit message.\nBut actually I wonder if we should keep the node version, but enhance the code to properly detect overlaps, and merge them?",
       "revId": "cc9b02e52bd956cd10e33662570eb8b39e4deadc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "590dde7d_40f3f522",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000306
+      },
+      "writtenOn": "2021-03-23T14:58:41Z",
+      "side": 1,
+      "message": "Yes, and that is the trick to make things work: The kernel uses memreserve already (probably just like for rpi3), and we cannot put reserved-memory over that any more. See https://lore.kernel.org/lkml/6a283aef-388d-c300-8304-503bc88a4dcf@siemens.com/ for more background.",
+      "parentUuid": "c5e310b0_04dc22b6",
+      "revId": "cc9b02e52bd956cd10e33662570eb8b39e4deadc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
