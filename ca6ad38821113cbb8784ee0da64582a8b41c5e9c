@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eec2688e_0a610d37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-23T09:54:02Z",
+      "side": 1,
+      "message": "I just have one last minor, non-blocking comment. Feel free to ignore it if you disagree or if the rest of the patch stack is good to go!",
+      "revId": "ca6ad38821113cbb8784ee0da64582a8b41c5e9c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2e278f7_708e4b77",
+        "filename": "drivers/arm/tzc/tzc400.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-23T09:54:02Z",
+      "side": 1,
+      "message": "(minor) TBH I am not sure I would have returned an errno code here... EINVAL does not sound particularly suited to the error condition here, as it is supposed to flag an invalid argument (according to POSIX) and this function does not receive any argument. To be fair, none of the errno codes sound appropriate to me in this case, I think a simple -1 would have done the job 😉",
+      "range": {
+        "startLine": 333,
+        "startChar": 9,
+        "endLine": 333,
+        "endChar": 16
+      },
+      "revId": "ca6ad38821113cbb8784ee0da64582a8b41c5e9c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
