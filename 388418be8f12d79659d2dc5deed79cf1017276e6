@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "182c14fb_4afa013a",
+        "filename": "drivers/renesas/common/ddr/ddr_b/boot_init_dram_config.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1828,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-03-23T12:33:06Z",
+      "side": 1,
+      "message": "IMO, this is redundant as return already available already at line no.1918.",
+      "range": {
+        "startLine": 1828,
+        "startChar": 1,
+        "endLine": 1828,
+        "endChar": 12
+      },
+      "revId": "388418be8f12d79659d2dc5deed79cf1017276e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
