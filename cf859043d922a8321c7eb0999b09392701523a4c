@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e3c5e1a9_1d75ebff",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 33
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-23T08:16:24Z",
+      "side": 1,
+      "message": "AFAIU, your latest suggestion should work as expected. But it\u0027s not very intuitive... At least for me.\n\nAlternatively, how about changing the \u0027all\u0027 rule in this way instead:\n\n all:\n   ${MAKE} clean\n   ${MAKE} ${PROJECT}\n\nThe downside is that these will spawn 2 sub-processes so this is likely to be a bit slower but I would argue that it does not matter much in this context.\n\nWith the changes above, we do not need to put \u0027clean\u0027 as a dependency of the \u0027%o\u0027 target, the rule remains:\n\n %.o: %.c Makefile\n        @echo \"  HOSTCC  $\u003c\"\n        ${Q}${HOSTCC} -c ${CPPFLAGS} ${HOSTCCFLAGS} ${INCLUDE_PATHS} $\u003c -o $@",
+      "parentUuid": "34044047_9bd95e00",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 37
+      },
+      "revId": "cf859043d922a8321c7eb0999b09392701523a4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fecfb902_532f1082",
         "filename": "tools/fiptool/Makefile",
         "patchSetId": 33
