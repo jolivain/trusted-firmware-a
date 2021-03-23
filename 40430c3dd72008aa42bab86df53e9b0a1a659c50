@@ -51,6 +51,24 @@
       "message": "Hi,\n\nI\u0027ve tested the patch and it is not very good for SD-card boot. As CMD1 can loop 100 times, I can see that the boot time increased on STM32MP1 platform (~1second but I didn\u0027t measure it precisely).\nMost of the platforms you\u0027ve changed have a way to determine the boot device, or have only one.\nIf you need to have some detection in the framework, maybe we could add an entry at the beginning of enum mmc_device_type (e.g. MMC_IS_UNKNOWN), and in this case check eMMC or SD, and not touch the platforms code?\n\nRegards,\nYann",
       "revId": "40430c3dd72008aa42bab86df53e9b0a1a659c50",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7c3d64d_b28c01d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000542
+      },
+      "writtenOn": "2021-03-23T04:32:53Z",
+      "side": 1,
+      "message": "Hi Yann,\nThank you so much for testing.\nAs I understand, CMD1 is not valid for SD. So there is no response for CMD1 for SD, and command timeout interrupt will generate.(This is also what I oberseved on my board.) The command error should not trigger retrying.\nI assume ST is using driver stm32_sdmmc2.c. In stm32_sdmmc2_send_cmd(), I see 0 is returned for CMD1 error to let framework retry. Is this causing the long boot time with my patch?\nOf course, using MMC_IS_UNKNOWN is a safe plan. I just would like to confirm do you want me to use MMC_IS_UNKNOWN after seeing the anylisis on ST code?\nThank you:)",
+      "parentUuid": "7cfe5455_73db4e44",
+      "revId": "40430c3dd72008aa42bab86df53e9b0a1a659c50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
