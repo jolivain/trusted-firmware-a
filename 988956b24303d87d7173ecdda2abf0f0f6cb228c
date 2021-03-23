@@ -402,6 +402,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c8bd6e5a_5390d4dd",
+        "filename": "plat/mediatek/mt8192/drivers/devapc/devapc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2158,
+      "author": {
+        "id": 1000362
+      },
+      "writtenOn": "2021-03-23T03:53:12Z",
+      "side": 1,
+      "message": "usually in user load.\nfor security concern.",
+      "parentUuid": "15f815ab_b6f13c6a",
+      "range": {
+        "startLine": 2154,
+        "startChar": 0,
+        "endLine": 2158,
+        "endChar": 6
+      },
+      "revId": "988956b24303d87d7173ecdda2abf0f0f6cb228c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe8a4a1a_74cf8091",
         "filename": "plat/mediatek/mt8192/drivers/devapc/devapc.h",
         "patchSetId": 8
