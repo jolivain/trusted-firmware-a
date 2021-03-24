@@ -22,6 +22,30 @@
       },
       "revId": "73ddaea0e9da3018334811374c4e5d7b5bb8b3cf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2d5729f_4e88c0fe",
+        "filename": "plat/mediatek/mt8192/drivers/devapc/devapc.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 2802,
+      "author": {
+        "id": 1000361
+      },
+      "writtenOn": "2021-03-24T02:39:11Z",
+      "side": 1,
+      "message": "Sorry, should be #if (DEBUG \u003d\u003d 0)",
+      "parentUuid": "273455eb_35662e15",
+      "range": {
+        "startLine": 2802,
+        "startChar": 7,
+        "endLine": 2802,
+        "endChar": 24
+      },
+      "revId": "73ddaea0e9da3018334811374c4e5d7b5bb8b3cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
