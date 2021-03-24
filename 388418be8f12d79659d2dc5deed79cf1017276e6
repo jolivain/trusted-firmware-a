@@ -70,6 +70,30 @@
       },
       "revId": "388418be8f12d79659d2dc5deed79cf1017276e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fe1e1b0_94559905",
+        "filename": "drivers/renesas/common/ddr/ddr_b/boot_init_dram_config.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1828,
+      "author": {
+        "id": 1000470
+      },
+      "writtenOn": "2021-03-24T16:43:33Z",
+      "side": 1,
+      "message": "Agreed its not readable, it already has run time checks, I\u0027ll move the code under if (RCAR_LSI \u003d\u003d RZ_G2M)/#endif to a separate function (which will be extended for RZ/G2{H,N,E} rzg2_board_judge(void){} does that sound good this way the R-Car and RZ/G2 code will be separate ?",
+      "parentUuid": "7f159002_85971bec",
+      "range": {
+        "startLine": 1828,
+        "startChar": 1,
+        "endLine": 1828,
+        "endChar": 12
+      },
+      "revId": "388418be8f12d79659d2dc5deed79cf1017276e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
