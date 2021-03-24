@@ -16,6 +16,24 @@
       "message": "This should use BL31_BASE and BL31_LIMIT",
       "revId": "c60cea81fee548c007057b598293efbf900bda5f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67f70a9c_f9bedcc8",
+        "filename": "plat/allwinner/sun50i_h616/prepare_dtb.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-03-24T01:59:41Z",
+      "side": 1,
+      "message": "Eh, it\u0027s fine as it is. It\u0027s not worth the string manipulation.",
+      "parentUuid": "fff527ec_97269e55",
+      "revId": "c60cea81fee548c007057b598293efbf900bda5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
