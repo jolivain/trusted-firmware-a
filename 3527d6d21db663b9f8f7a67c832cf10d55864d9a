@@ -16,6 +16,24 @@
       "message": "Now after this change was merged, it is causing recompilation of TF-A at every \u0027make\u0027 call.\n\nThis should be fixed! Calling \u0027make clean\u0027 during \u0027all\u0027 target is wrong.",
       "revId": "3527d6d21db663b9f8f7a67c832cf10d55864d9a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d7fef44_0958e751",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 36
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-03-25T15:13:08Z",
+      "side": 1,
+      "message": "I sent fix/revert here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/9411\n\nThis change caused whole recompilation of all dependent parts for Marvell Armada 3720 platform at every \u0027make\u0027 call. Which is really a problem.",
+      "parentUuid": "1e98adb3_c543f501",
+      "revId": "3527d6d21db663b9f8f7a67c832cf10d55864d9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
