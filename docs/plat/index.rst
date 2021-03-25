@@ -21,6 +21,7 @@ Platform Ports
    mt8183
    mt8192
    nvidia-tegra
+   nxp/index
    warp7
    imx8
    imx8m
