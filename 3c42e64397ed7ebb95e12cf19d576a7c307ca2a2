@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a32c6fe_219fb19d",
+        "filename": "services/std_svc/spm/spmc/spmc.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-03-25T01:06:43Z",
+      "side": 1,
+      "message": "is this really required? isnt it sufficient for S-EL0 to access counters? Timers without interrupts effectively degenerates to counters..\nwould be good if you can explain why timer registers are required.",
+      "range": {
+        "startLine": 18,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 21
+      },
+      "revId": "3c42e64397ed7ebb95e12cf19d576a7c307ca2a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
