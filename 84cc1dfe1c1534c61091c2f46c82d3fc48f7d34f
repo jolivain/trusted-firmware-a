@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d66fa71_e26e1d0c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-03-25T01:58:08Z",
+      "side": 1,
+      "message": "commit message does not seem to be formatted right..can you clone the commit hooks using directions in docs/getting_started/prerequisites.rst? if you already did this, then im not sure why the commit message looks weird on gerrit..",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "84cc1dfe1c1534c61091c2f46c82d3fc48f7d34f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af3accd3_ed547888",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-03-25T01:58:08Z",
+      "side": 1,
+      "message": "might want to use void * for base address pointers. uint64_t might be overkill for 32 bit platforms(aarch32).",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 305,
+        "endChar": 9
+      },
+      "revId": "84cc1dfe1c1534c61091c2f46c82d3fc48f7d34f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
