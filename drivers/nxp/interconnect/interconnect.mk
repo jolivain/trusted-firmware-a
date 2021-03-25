@@ -12,7 +12,7 @@
 ifeq (${ADD_INTERCONNECT},)
 
 ADD_INTERCONNECT	:= 1
-PLAT_INCLUDES		+= -I${PLAT_DRIVERS_PATH}/interconnect
+PLAT_INCLUDES		+= -I${PLAT_DRIVERS_INCLUDE_PATH}/interconnect
 
 ifeq (, $(filter $(INTERCONNECT), CCI400 CCN502 CCN504 CCN508))
     $(error -> Interconnect type not set!)
