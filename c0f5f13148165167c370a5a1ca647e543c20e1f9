@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94b5b68f_53baca07",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-03-25T01:06:35Z",
+      "side": 1,
+      "message": "it is odd to me that this is in plat_arm.h yet defined in the spmc_main.c file. I think this needs to be in an spmc specific header file, or the implementation moved to a file under plat.",
+      "range": {
+        "startLine": 348,
+        "startChar": 5,
+        "endLine": 348,
+        "endChar": 21
+      },
+      "revId": "c0f5f13148165167c370a5a1ca647e543c20e1f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
