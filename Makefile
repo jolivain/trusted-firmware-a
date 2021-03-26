@@ -529,6 +529,10 @@ ifneq (${SPD},none)
         ifneq ($(ARM_BL2_SP_LIST_DTS),)
             DTC_CPPFLAGS += -DARM_BL2_SP_LIST_DTS=$(ARM_BL2_SP_LIST_DTS)
         endif
+
+        ifneq ($(SP_LAYOUT_FILE),)
+            SPMD_LOAD_SP_PKG := 1
+        endif
     else
         # All other SPDs in spd directory
         SPD_DIR := spd
@@ -945,6 +949,7 @@ $(eval $(call assert_booleans,\
         SEPARATE_NOBITS_REGION \
         SPIN_ON_BL1_EXIT \
         SPM_MM \
+        SPMD_LOAD_SP_PKG \
         SPMD_SPM_AT_SEL2 \
         TRUSTED_BOARD_BOOT \
         USE_COHERENT_MEM \
@@ -1044,6 +1049,7 @@ $(eval $(call add_defines,\
         SPD_${SPD} \
         SPIN_ON_BL1_EXIT \
         SPM_MM \
+        SPMD_LOAD_SP_PKG \
         SPMD_SPM_AT_SEL2 \
         TRUSTED_BOARD_BOOT \
         TRNG_SUPPORT \
@@ -1097,9 +1103,6 @@ endif
 # Generate and include sp_gen.mk if SPD is spmd and SP_LAYOUT_FILE is defined
 ifeq (${SPD},spmd)
 ifdef SP_LAYOUT_FILE
-        ifeq (${SPMD_SPM_AT_SEL2},0)
-            $(error "SPMD with SPM at S-EL1 does not require SP_LAYOUT_FILE")
-        endif
         -include $(BUILD_PLAT)/sp_gen.mk
         FIP_DEPS += sp
         CRT_DEPS += sp
