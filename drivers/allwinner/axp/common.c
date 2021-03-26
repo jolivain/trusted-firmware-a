@@ -106,20 +106,6 @@ static bool is_node_disabled(const void *fdt, int node)
 	return strcmp(cell, "okay") != 0;
 }
 
-static bool should_enable_regulator(const void *fdt, int node)
-{
-	if (is_node_disabled(fdt, node)) {
-		return false;
-	}
-	if (fdt_getprop(fdt, node, "phandle", NULL) != NULL) {
-		return true;
-	}
-	if (fdt_getprop(fdt, node, "regulator-always-on", NULL) != NULL) {
-		return true;
-	}
-	return false;
-}
-
 static bool board_uses_usb0_host_mode(const void *fdt)
 {
 	int node, length;
@@ -175,9 +161,9 @@ void axp_setup_regulators(const void *fdt)
 		const char *name;
 		int length;
 
-		/* We only care if it's always on or referenced. */
-		if (!should_enable_regulator(fdt, node))
+		if (is_node_disabled(fdt, node)) {
 			continue;
+		}
 
 		name = fdt_get_name(fdt, node, &length);
 
