@@ -625,6 +625,9 @@ Common build options
    package all secure partition blobs into the FIP. This file is not
    necessarily part of TF-A tree. Only available when ``SPD=spmd``.
 
+-  ``SPMD_LOAD_SP_PKG``: Boolean option to enable loading SP packages from the
+   FIP. Automatically enabled if ``SP_LAYOUT_FILE`` is provided.
+
 -  ``SP_MIN_WITH_SECURE_FIQ``: Boolean flag to indicate the SP_MIN handles
    secure interrupts (caught through the FIQ line). Platforms can enable
    this directive if they need to handle such interruption. When enabled,
