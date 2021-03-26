@@ -233,6 +233,9 @@ SPD				:= none
 # Enable the Management Mode (MM)-based Secure Partition Manager implementation
 SPM_MM				:= 0
 
+# Only use SP packages if SP layout JSON is defined
+SPMD_LOAD_SP_PKG		:= 0
+
 # Use SPM at S-EL2 as a default config for SPMD
 SPMD_SPM_AT_SEL2		:= 1
 
