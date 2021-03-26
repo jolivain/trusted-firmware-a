@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf85f81e_1c99728f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2021-03-26T01:08:54Z",
+      "side": 1,
+      "message": "i.MX8MP?",
+      "revId": "58f2dee0bbf179c95f6b6f29752bfae6bd0198ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f65d5e2_9cda32cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2021-03-26T01:08:54Z",
+      "side": 1,
+      "message": "Enable SDEI by default will break the OPTEE support and DDR DVFS support(all i.MX8M family share one piece of code)? As it will break the common case, if possible, config SDEI support as disabled by default.",
+      "revId": "58f2dee0bbf179c95f6b6f29752bfae6bd0198ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
