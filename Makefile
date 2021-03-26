@@ -521,6 +521,10 @@ ifneq (${SPD},none)
         ifeq ($(findstring optee_sp,$(ARM_SPMC_MANIFEST_DTS)),optee_sp)
             DTC_CPPFLAGS	+=	-DOPTEE_SP_FW_CONFIG
         endif
+
+        ifneq ($(ARM_BL2_SP_LIST_DTS),)
+            DTC_CPPFLAGS += -DARM_BL2_SP_LIST_DTS=$(ARM_BL2_SP_LIST_DTS)
+        endif
     else
         # All other SPDs in spd directory
         SPD_DIR := spd
