@@ -10,6 +10,12 @@
 
 /* This struct provides the PM wake up src configuration */
 static struct pm_wake_up_src_config wake_up_src_cfg = {
+	/*
+	 * PM wake up src configuration is board specific.
+	 * Below is some example configuration which is disabled.
+	 * Please adjust it for HW design of specific board.
+	 */
+#if 0
 	.wake_up_src_num = 3,
 	.wake_up_src[0] = {
 		.wake_up_src_type = WAKE_UP_SRC_GPIO,
@@ -28,6 +34,7 @@ static struct pm_wake_up_src_config wake_up_src_cfg = {
 	.wake_up_src[2] = {
 		.wake_up_src_type = WAKE_UP_SRC_UART1,
 	}
+#endif
 };
 
 struct pm_wake_up_src_config *mv_wake_up_src_config_get(void)
