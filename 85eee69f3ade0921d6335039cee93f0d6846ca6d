@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "806f24be_1508a641",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2021-03-29T19:13:41Z",
+      "side": 1,
+      "message": "I think this actual definition made for Marvell DB board. This is what we use as PLAT for builds. The A8K and CN913x, for instance, have separate folders for different boards (platforms). So far A3700 DB definitions worked well for EspressoBin board too, but if different board-specific stuff is needed, we have to add a new folder under the top a3700 directory for handling it. For instance, for example a3k_nic_cz, a3k_espresso, etc.",
+      "revId": "85eee69f3ade0921d6335039cee93f0d6846ca6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
