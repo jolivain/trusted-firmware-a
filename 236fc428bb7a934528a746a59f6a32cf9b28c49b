@@ -16,6 +16,23 @@
       "message": "Unfortunately we\u0027ve got no official code owner for the TZC-400 driver but I think this patch has been reviewed by enough people to consider it good to go. So I am setting COR+1 myself to get it through the system.\n\nI am just waiting for the results from the CI builds and if this flags no concerns, I\u0027ll merge the series. Setting a maintainer-1 score in the meantime (even though I am happy with the patches), just to avoid merging it by mistake.",
       "revId": "236fc428bb7a934528a746a59f6a32cf9b28c49b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "beb8057c_9199562a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-29T16:20:44Z",
+      "side": 1,
+      "message": "The CI results look good to me.",
+      "revId": "236fc428bb7a934528a746a59f6a32cf9b28c49b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
