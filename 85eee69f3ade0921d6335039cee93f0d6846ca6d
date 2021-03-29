@@ -34,6 +34,24 @@
       "parentUuid": "806f24be_1508a641",
       "revId": "85eee69f3ade0921d6335039cee93f0d6846ca6d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3de80bf4_82bb73f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2021-03-29T20:21:33Z",
+      "side": 1,
+      "message": "As far as I remember, DB has a push button connected to GPIO that defined in this structure. So by removing these definitions you disable a feature that was working (and probably tested by QA). I believe also UART wake up source should work with all other A3700 platforms.",
+      "parentUuid": "ee9d6b4d_0be69021",
+      "revId": "85eee69f3ade0921d6335039cee93f0d6846ca6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
