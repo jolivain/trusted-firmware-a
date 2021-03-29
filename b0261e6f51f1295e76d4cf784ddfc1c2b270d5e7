@@ -46,6 +46,30 @@
       },
       "revId": "b0261e6f51f1295e76d4cf784ddfc1c2b270d5e7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36430826_61621866",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-03-29T13:09:23Z",
+      "side": 1,
+      "message": "There was similar issue in ${DOIMAGETOOL} target which I have fixed in:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/7174\n\nAnd e.g. Manish Pandey has already complaining about it, see:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/6279/2#message-9f674f071e80e9929305958defa6d07a1f07db5a\n\nThere were also circular dependences in make caused by these patterns, so it is really bad to introduce them again, after they were removed.",
+      "parentUuid": "3830e72b_6be96aa6",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "b0261e6f51f1295e76d4cf784ddfc1c2b270d5e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
