@@ -159,6 +159,29 @@
       "parentUuid": "fb2b5f75_0adb730f",
       "revId": "73b99795e3bc480eeab9d2b892755b2ecaececde",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a58c28d_fd78000c",
+        "filename": "plat/imx/common/imx_sip_handler.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-03-29T19:34:50Z",
+      "side": 1,
+      "message": "nitpick: Please use braces. https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies\n Also, as per MISRA guidelines:\n\nif (x2 !\u003d 0U){\n\n} else {\n\n}",
+      "range": {
+        "startLine": 160,
+        "startChar": 2,
+        "endLine": 160,
+        "endChar": 9
+      },
+      "revId": "73b99795e3bc480eeab9d2b892755b2ecaececde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
