@@ -52,6 +52,24 @@
       "parentUuid": "ee9d6b4d_0be69021",
       "revId": "85eee69f3ade0921d6335039cee93f0d6846ca6d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8efa86ba_823a9043",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2021-03-29T20:30:49Z",
+      "side": 1,
+      "message": "Konstantin, wouldn\u0027t it be better if counfiguration of wake up sources was done by kernel as directed by the user or device tree? What do you think?\n\nBTW do you know of any users who use this feature? I know that Miquel Raynal did som work on suspending A3720, but whether this feature is actually used by someone is another question.",
+      "parentUuid": "3de80bf4_82bb73f8",
+      "revId": "85eee69f3ade0921d6335039cee93f0d6846ca6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
