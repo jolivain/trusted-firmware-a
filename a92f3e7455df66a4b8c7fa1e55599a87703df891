@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74e12e77_72c13e6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-29T14:17:09Z",
+      "side": 1,
+      "message": "I\u0027ve not reviewed the patch just yet. Just 2 early comments.\n\nOne is about the documentation updates (see inline comment).\n\nThe other is about CI support, I suspect we\u0027re gonna need to extend the CI scripts to get this properly tested in the CI loop going forward. I see that PIE support has been unconditionally enabled for STM32MP1 platform in the next patch so at least we\u0027ll get the build test for free, as there\u0027s already one for your platform:\n\nhttps://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/tf_config/stm32mp1-default\nhttps://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/group/tf-l1-build-plat/stm32mp1-default:nil\n\nBut of course, building the code is not enough to prove that it works as expected, we also need to run it on the target. I am confident you\u0027ve tested this patch on your platform but I am concerned about ensuring we\u0027ve got proper regression checks in the CI loop for the future. Now, the problem is that there\u0027s no STM32MP1 platform plugged into the CI system (yet?) so this is not an option right now. We could test this on ARM FVPs but looking at the next patch in the stack, enabling PIE support requires some platform changes, it does not work out of the box, so we\u0027d need to schedule this work at our end...\n\nI\u0027ll get back to you on this one after discussing this with my team. If you\u0027ve got any suggestions in this area, please let me know!\n\nFor the record, I am not keen on merging this patch until we\u0027ve got proper regression checks for it in the CI system (or at least, that the CI work is agreed/planned out).",
+      "revId": "a92f3e7455df66a4b8c7fa1e55599a87703df891",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16b0223c_b2fe6d25",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-03-29T14:17:09Z",
+      "side": 1,
+      "message": "This text needs updating. Actually keeping this in sync with the code is painful, I suggest we stop listing images that support ENABLE_PIE, this will remove the risk of the doc going stale again the future. Something like:\n\n Note that this is not supported for all firmware images.\n\nOr is it supported for all images with your patch now? I\u0027ve lost track...",
+      "range": {
+        "startLine": 254,
+        "startChar": 40,
+        "endLine": 255,
+        "endChar": 39
+      },
+      "revId": "a92f3e7455df66a4b8c7fa1e55599a87703df891",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
