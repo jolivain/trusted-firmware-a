@@ -9,6 +9,10 @@
 
 #include <drivers/io/io_driver.h>
 
+struct io_mmc_dev_spec {
+	bool use_boot_part;
+};
+
 int register_io_dev_mmc(const io_dev_connector_t **dev_con);
 
 #endif /* IO_MMC_H */
