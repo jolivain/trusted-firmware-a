@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fe2ff2b_8b5fce92",
+        "filename": "include/drivers/mmc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2021-03-30T09:13:44Z",
+      "side": 1,
+      "message": "Note that not all eMMCs can be trusted to indicate a correct part switch time. For this reason Linux uses 300ms at minimum. I don\u0027t mind leaving it as is for now though and see if people want to use this and complain.",
+      "revId": "41c23b4f0941d82c7411865af3c376805763438f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
