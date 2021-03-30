@@ -277,7 +277,7 @@ static void boot_mmc(enum mmc_device_type mmc_dev_type,
 	uint8_t idx;
 	struct stm32image_part_info *part;
 	struct stm32_sdmmc2_params params;
-	const partition_entry_t *entry;
+	const partition_entry_t *entry __unused;
 
 	zeromem(&params, sizeof(struct stm32_sdmmc2_params));
 
@@ -319,13 +319,19 @@ static void boot_mmc(enum mmc_device_type mmc_dev_type,
 				&storage_dev_handle);
 	assert(io_result == 0);
 
+	stm32image_dev_info_spec.device_size =
+		stm32_sdmmc2_mmc_get_device_size();
+
+#ifdef STM32MP_EMMC_BOOT
+	idx = IMG_IDX_BL33;
+	part = &stm32image_dev_info_spec.part_info[idx];
+	part->part_offset = PLAT_EMMC_BOOT_SSBL_OFFSET;
+	part->bkp_offset = 0U;
+#else
 	partition_init(GPT_IMAGE_ID);
 
 	io_result = io_dev_close(storage_dev_handle);
 	assert(io_result == 0);
-
-	stm32image_dev_info_spec.device_size =
-		stm32_sdmmc2_mmc_get_device_size();
 
 	for (idx = 0U; idx < IMG_IDX_NUM; idx++) {
 		part = &stm32image_dev_info_spec.part_info[idx];
@@ -338,6 +344,7 @@ static void boot_mmc(enum mmc_device_type mmc_dev_type,
 		part->part_offset = entry->start;
 		part->bkp_offset = 0U;
 	}
+#endif
 
 	/*
 	 * Re-open MMC with io_mmc, for better perfs compared to
