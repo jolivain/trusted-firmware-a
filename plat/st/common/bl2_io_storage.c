@@ -277,7 +277,9 @@ static void boot_mmc(enum mmc_device_type mmc_dev_type,
 	struct stm32image_part_info *part;
 	struct stm32_sdmmc2_params params;
 	struct mmc_device_info device_info;
+#if !STM32MP_SSBL_OFFSET
 	const partition_entry_t *entry;
+#endif
 
 	zeromem(&device_info, sizeof(struct mmc_device_info));
 	zeromem(&params, sizeof(struct stm32_sdmmc2_params));
@@ -320,13 +322,14 @@ static void boot_mmc(enum mmc_device_type mmc_dev_type,
 				&storage_dev_handle);
 	assert(io_result == 0);
 
+	stm32image_dev_info_spec.device_size =
+		stm32_sdmmc2_mmc_get_device_size();
+
+#if !STM32MP_SSBL_OFFSET
 	partition_init(GPT_IMAGE_ID);
 
 	io_result = io_dev_close(storage_dev_handle);
 	assert(io_result == 0);
-
-	stm32image_dev_info_spec.device_size =
-		stm32_sdmmc2_mmc_get_device_size();
 
 	for (idx = 0U; idx < IMG_IDX_NUM; idx++) {
 		part = &stm32image_dev_info_spec.part_info[idx];
@@ -339,6 +342,15 @@ static void boot_mmc(enum mmc_device_type mmc_dev_type,
 		part->part_offset = entry->start;
 		part->bkp_offset = 0U;
 	}
+
+#else
+
+	idx = IMG_IDX_BL33;
+	part = &stm32image_dev_info_spec.part_info[idx];
+	part->part_offset = STM32MP_SSBL_OFFSET;
+	part->bkp_offset = 0U;
+
+#endif
 
 	/*
 	 * Re-open MMC with io_mmc, for better perfs compared to
