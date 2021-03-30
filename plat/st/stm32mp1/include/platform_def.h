@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -82,6 +82,12 @@
  * Load address of BL33 for this platform port
  */
 #define PLAT_STM32MP_NS_IMAGE_OFFSET	BL33_BASE
+
+/*
+ * SSBL offset in case it's stored in eMMC boot partition.
+ * We can fix it to 256K because TF-A size can't be bigger than SRAM
+ */
+#define PLAT_EMMC_BOOT_SSBL_OFFSET		U(0x40000)
 
 /*******************************************************************************
  * DTB specific defines.
