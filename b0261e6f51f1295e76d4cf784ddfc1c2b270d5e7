@@ -94,6 +94,30 @@
       },
       "revId": "b0261e6f51f1295e76d4cf784ddfc1c2b270d5e7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1016b7aa_24ab8f75",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-03-30T14:24:29Z",
+      "side": 1,
+      "message": "\u003e Just for my understanding, which target currently depends on fiptool?\n\nFor example ${BUILD_PLAT}/${FIP_NAME} target depends on ${FIPTOOL} (fiptool) target.\n\nAnd then for example Marvell\u0027s $(BUILD_PLAT)/$(BOOT_IMAGE) target depends on $(BUILD_PLAT)/$(FIP_NAME). And Marvell\u0027s $(BUILD_PLAT)/$(FLASH_IMAGE) depends on $(BUILD_PLAT)/$(BOOT_IMAGE).\n\nIt is long chain of targets which transitionally depends on fiptool.\n\n\u003e Could you please provide an example of \"make\" command that triggers an undesirable rebuild?\n\n\"make PLAT\u003da3700 mrvl_flash\" with correctly set MV_DDR_PATH, WTP, CRYPTOPP_PATH and BL33.\n\nFor whole command please look into TF-A documentation for Marvell platfoms:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/plat/marvell/armada/build.html\n\nSearch for \"full example how to build production release of Marvell firmware image\" where are exact command which triggers this undesirable rebuild.",
+      "parentUuid": "d7dfa313_0869b7e1",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "b0261e6f51f1295e76d4cf784ddfc1c2b270d5e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
