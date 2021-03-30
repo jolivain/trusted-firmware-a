@@ -86,6 +86,24 @@
       "message": "I\u0027d prefer this not be configurable. The TF-A is known to be always 256K big on this platform, because that\u0027s a limit enforced by SRAM size. Why not assume SSBL_OFFSET to be 256K?\n\nUsers should still be able to decide whether they want to boot from eMMC boot partition or not. STM32MP_EMMC_BOOT could be the new option to select this. If it\u0027s selected, the boot code would check the header at SSBL_OFFSET and if not valid header is found, it would continue with STM32MP_EMMC if defined.\n\nDoing it this way would make life easier for SSBL and later stages: need to update bootloader?\njust round up TF-A size to 256K and append SSBL and write both to the start of the inactive boot partition.",
       "revId": "9ece311061379d0dca126606c8d8a560cf52a27c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "285dab1f_ea744e7a",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-03-30T12:01:34Z",
+      "side": 1,
+      "message": "I agree on a fixed offset. I made it configurable in order to be able to place OPTEE there too, if someone has that use case.\n\nAs for the fallback part, that sounds reasonable, but easier said than done. Current implementation of EMMC boot (in plat/st/common/bl2_io_storage.c) always expects a GPT partition with label \"ssbl\", which makes suggested boot workflow (when SSBL in the same boot partition) mutually exclusive.",
+      "parentUuid": "27dd0ae4_5d6a4ec6",
+      "revId": "9ece311061379d0dca126606c8d8a560cf52a27c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
