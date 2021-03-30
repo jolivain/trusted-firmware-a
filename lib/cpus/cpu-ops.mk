@@ -401,6 +401,10 @@ ERRATA_V1_1966096   ?=0
 # to revisions r0p0, r1p0, and r1p1 of the Neoverse V1 cpu and is still open.
 ERRATA_V1_2139242   ?=0
 
+# Flag to apply erratum 2067956 workaround during reset. This erratum applies
+# to revision r0p0 of the Neoverse N2 cpu and is still open.
+ERRATA_N2_2067956	?=0
+
 # Flag to apply DSU erratum 798953. This erratum applies to DSUs revision r0p0.
 # Applying the workaround results in higher DSU power consumption on idle.
 ERRATA_DSU_798953	?=0
@@ -733,6 +737,10 @@ $(eval $(call add_define,ERRATA_V1_1966096))
 # Process ERRATA_V1_2139242 flag
 $(eval $(call assert_boolean,ERRATA_V1_2139242))
 $(eval $(call add_define,ERRATA_V1_2139242))
+
+# Process ERRATA_N2_2067956 flag
+$(eval $(call assert_boolean,ERRATA_N2_2067956))
+$(eval $(call add_define,ERRATA_N2_2067956))
 
 # Process ERRATA_DSU_798953 flag
 $(eval $(call assert_boolean,ERRATA_DSU_798953))
