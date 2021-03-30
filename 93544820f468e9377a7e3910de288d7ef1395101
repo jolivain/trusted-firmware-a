@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd723e0c_bbc053ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-03-30T21:38:52Z",
+      "side": 1,
+      "message": "Can you say why (ideally in the commit message)? It sounds a bit like an unmotivated change to me? It\u0027s frowned upon to change the format of DT properties, but I guess it\u0027s fine here because this is only ever used internally, and DT and parsing code are always tied together?",
+      "revId": "93544820f468e9377a7e3910de288d7ef1395101",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
