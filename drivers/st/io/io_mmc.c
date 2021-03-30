@@ -100,8 +100,13 @@ static int mmc_block_read(io_entity_t *entity, uintptr_t buffer,
 	uint8_t retries;
 
 	for (retries = 0U; retries < 3U; retries++) {
+#if STM32MP_SSBL_OFFSET
+		*length_read = mmc_boot_part_read_blocks(seek_offset / MMC_BLOCK_SIZE,
+				buffer, length);
+#else
 		*length_read = mmc_read_blocks(seek_offset / MMC_BLOCK_SIZE,
-					       buffer, length);
+				buffer, length);
+#endif
 
 		if (*length_read == length) {
 			return 0;
