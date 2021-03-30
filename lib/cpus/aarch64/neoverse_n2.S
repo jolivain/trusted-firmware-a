@@ -19,6 +19,7 @@
 #error "Neoverse-N2 supports only AArch64. Compile with CTX_INCLUDE_AARCH32_REGS=0"
 #endif
 
+<<<<<<< HEAD
 /* --------------------------------------------------
  * Errata Workaround for Neoverse N2 Erratum 2002655.
  * This applies to revision r0p0 of Neoverse N2. it is still open.
@@ -61,6 +62,32 @@ func check_errata_2002655
 	b	cpu_rev_var_ls
 endfunc check_errata_2002655
 
+/* ---------------------------------------------------------------
+ * Errata Workaround for Neoverse N2 Erratum 2067956.
+ * This applies to revision r0p0 of Neoverse N2 and is still open.
+ * Inputs:
+ * x0: variant[4:7] and revision[0:3] of current cpu.
+ * Shall clobber: x0-x17
+ * ---------------------------------------------------------------
+ */
+func errata_n2_2067956_wa
+        /* Compare x0 against revision r0p0 */
+        mov     x17, x30
+        bl      check_errata_2067956
+        cbz     x0, 1f
+        mrs     x1, NEOVERSE_N2_CPUACTLR_EL1
+        orr     x1, x1, NEOVERSE_N2_CPUACTLR_EL1_BIT_46
+        msr     NEOVERSE_N2_CPUACTLR_EL1, x1
+1:
+        ret     x17
+endfunc errata_n2_2067956_wa
+
+func check_errata_2067956
+        /* Applies to r0p0 */
+        mov     x1, #0x00
+        b       cpu_rev_var_ls
+endfunc check_errata_2067956
+
 	/* -------------------------------------------------
 	 * The CPU Ops reset function for Neoverse N2.
 	 * -------------------------------------------------
@@ -80,6 +107,11 @@ func neoverse_n2_reset_func
 	mrs	x0, NEOVERSE_N2_CPUACTLR2_EL1
 	orr	x0, x0, #NEOVERSE_N2_CPUACTLR2_EL1_BIT_2
 	msr	NEOVERSE_N2_CPUACTLR2_EL1, x0
+
+#if ERRATA_N2_2067956
+        mov     x0, x18
+        bl      errata_n2_2067956_wa
+#endif
 
 #if ENABLE_AMU
 	/* Make sure accesses from EL0/EL1 and EL2 are not trapped to EL3 */
@@ -111,7 +143,7 @@ func neoverse_n2_reset_func
 #endif
 
 	isb
-	ret x19
+	ret     x19
 endfunc neoverse_n2_reset_func
 
 func neoverse_n2_core_pwr_dwn
@@ -142,6 +174,7 @@ func neoverse_n2_errata_report
 	 * checking functions of each errata.
 	 */
 	report_errata ERRATA_N2_2002655, neoverse_n2, 2002655
+        report_errata ERRATA_N2_2067956, neoverse_n2, 2067956
 
 	ldp	x8, x30, [sp], #16
 	ret
