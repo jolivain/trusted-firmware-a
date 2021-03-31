@@ -107,10 +107,37 @@ func check_errata_2081180
 	b	cpu_rev_var_ls
 endfunc check_errata_2081180
 
+/* ---------------------------------------------------------------------
+ * Errata Workaround for Cortex-A710 Erratum 2055002.
+ * This applies to revision r1p0, r2p0 of Cortex-A710 and is still open.
+ * Inputs:
+ * x0: variant[4:7] and revision[0:3] of current cpu.
+ * Shall clobber: x0-x17
+ * ---------------------------------------------------------------------
+ */
+func errata_a710_2055002_wa
+	/* Compare x0 against revision r2p0 */
+	mov     x17, x30
+	bl      check_errata_2055002
+	cbz     x0, 1f
+	mrs     x1, CORTEX_A710_CPUACTLR_EL1
+	orr     x1, x1, CORTEX_A710_CPUACTLR_EL1_BIT_46
+	msr     CORTEX_A710_CPUACTLR_EL1, x1
+1:
+	ret     x17
+endfunc errata_a710_2055002_wa
+
+func check_errata_2055002
+	/* Applies to r1p0, r2p0 */
+	mov     x1, #0x20
+	b       cpu_rev_var_ls
+endfunc check_errata_2055002
+
 	/* ----------------------------------------------------
 	 * HW will do the cache maintenance while powering down
 	 * ----------------------------------------------------
 	 */
+
 func cortex_a710_core_pwr_dwn
 	/* ---------------------------------------------------
 	 * Enable CPU power down bit in power control register
@@ -124,9 +151,13 @@ func cortex_a710_core_pwr_dwn
 endfunc cortex_a710_core_pwr_dwn
 
 	/*
-	 * Errata printing function for Cortex A710. Must follow AAPCS.
+	 * Errata printing function for Cortex-A710. Must follow AAPCS.
 	 */
+
 #if REPORT_ERRATA
+	/*
+	 * Errata printing function for Cortex-A710. Must follow AAPCS.
+	 */
 func cortex_a710_errata_report
 	stp	x8, x30, [sp, #-16]!
 
@@ -139,9 +170,11 @@ func cortex_a710_errata_report
 	 */
 	report_errata ERRATA_A710_1987031, cortex_a710, 1987031
 	report_errata ERRATA_A710_2081180, cortex_a710, 2081180
+	report_errata ERRATA_A710_2055002, cortex_a710, 2055002
 
 	ldp	x8, x30, [sp], #16
 	ret
+
 endfunc cortex_a710_errata_report
 #endif
 
@@ -164,8 +197,13 @@ func cortex_a710_reset_func
 	bl	errata_a710_2081180_wa
 #endif
 
+#if ERRATA_A710_2055002
+	mov     x0, x18
+	bl      errata_a710_2055002_wa
+#endif
+
 	isb
-	ret x19
+	ret     x19
 endfunc cortex_a710_reset_func
 
 	/* ---------------------------------------------
