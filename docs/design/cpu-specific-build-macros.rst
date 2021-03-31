@@ -360,6 +360,10 @@ For Neoverse N2, the following errata build flags are defined :
 -  ``ERRATA_N2_2025414``: This applies errata 2025414 workaround to Neoverse-N2
    CPU. This needs to be enabled only for revision r0p0 of the CPU.
 
+For Cortex-A710, the following errata build flags are defined :
+-  ``ERRATA_A710_2055002``: This applies errata 2055002 workaround to Cortex-A710
+   CPU. This needs to be enabled only for revisions r1p0, r2p0 of the CPU.
+
 DSU Errata Workarounds
 ----------------------
 
