@@ -34,6 +34,24 @@
       "parentUuid": "fd723e0c_bbc053ff",
       "revId": "93544820f468e9377a7e3910de288d7ef1395101",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26c15d2f_dfb075b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-03-31T16:08:17Z",
+      "side": 1,
+      "message": "Ah, endianness, indeed. Thanks for the explanation, and yes, please add this to the commit message. I couldn\u0027t find much usage of UUIDs/GUIDs in DTs, hence was asking.",
+      "parentUuid": "72371cc0_be884495",
+      "revId": "93544820f468e9377a7e3910de288d7ef1395101",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
