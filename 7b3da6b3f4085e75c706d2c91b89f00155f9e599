@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62f4bdf7_7fe8a339",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-03-31T22:23:41Z",
+      "side": 1,
+      "message": "It is needed to set SUBVERSION at all? Does this \"devel\" string without any version information brings some value?\n\nI\u0027m thinking if setting just TF-A version (with commit id) in logs is not enough. And this is already done.",
+      "revId": "7b3da6b3f4085e75c706d2c91b89f00155f9e599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
