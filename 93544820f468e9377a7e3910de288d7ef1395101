@@ -16,6 +16,24 @@
       "message": "Can you say why (ideally in the commit message)? It sounds a bit like an unmotivated change to me? It\u0027s frowned upon to change the format of DT properties, but I guess it\u0027s fine here because this is only ever used internally, and DT and parsing code are always tied together?",
       "revId": "93544820f468e9377a7e3910de288d7ef1395101",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72371cc0_be884495",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-03-31T15:23:35Z",
+      "side": 1,
+      "message": "Currently, UUIDs are stored as arrays of integers. This is okay, but in there is a mismatch in endianness between device tree parsing and UUID storage.\nThe result is that either the UUIDs are stored little-endian in the device tree (which doesn\u0027t match the string representation of UUIDs) or we have to convert the endianness in arm_fconf_{sp,io}.h.\n\nTo tidy this up, we need to change the representation of UUIDs.\nSince we are changing their representation, we may as well store them as strings and parse them from the DT, making it much more readable.\n\nIf that makes sense, I\u0027ll add something similar to the above to the commit message.\n\nFor some more context to this change, see this change that flipped the endianness of UUIDs in the DT:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/5254",
+      "parentUuid": "fd723e0c_bbc053ff",
+      "revId": "93544820f468e9377a7e3910de288d7ef1395101",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
