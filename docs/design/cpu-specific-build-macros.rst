@@ -364,6 +364,9 @@ For Cortex-A710, the following errata build flags are defined :
 -  ``ERRATA_A710_2055002``: This applies errata 2055002 workaround to Cortex-A710
    CPU. This needs to be enabled only for revisions r1p0, r2p0 of the CPU.
 
+-  ``ERRATA_A710_2017096``: This applies errata 2017096 workaround to Cortex-A710
+   CPU. This needs to be enabled only for revisions r1p0, r2p0 of the CPU.
+
 DSU Errata Workarounds
 ----------------------
 
