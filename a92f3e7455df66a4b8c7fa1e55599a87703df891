@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbb5e3dc_912a61fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-01T11:04:37Z",
+      "side": 1,
+      "message": "\u003e By the way, how could we have an STM32MP1 board in CI system?\n\nAFAIK, this is not possible just yet but it will be one day. Being able to integrate partners\u0027 boards into the OpenCI has been a goal from day one so I am pretty sure it\u0027s on the OpenCI roadmap, I am just not sure when.\n\n\u003e The platform changes are not so big, but I don\u0027t know if the porting on FVP can easily be done. I\u0027m not sure I\u0027ll have time soon to check that, your team will be faster for this porting I think.\n\nOK I\u0027ll have a look to see if it can easily be ported on FVP. Yes for sure, our team is best placed to do this work.",
+      "parentUuid": "d3c7fa91_1f599bd2",
+      "revId": "a92f3e7455df66a4b8c7fa1e55599a87703df891",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16b0223c_b2fe6d25",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "This only concerns AARCH64 binaries. But I agree this should be precised, and I should add BL32 (SP_min) for AARCH32, which I have only implemented and tested. This may work in BL2_AT_EL3, but the code is not ready, I haven\u0027t tested it, as we do not intend to support that on STM32MP1.\nI may rephrase it this way:\nThis option is currently only supported in BL2_AT_EL3, BL31, and BL32 (TSP) for AARCH64 binaries, and in BL32 (SP_min) for AARCH32.",
       "parentUuid": "16b0223c_b2fe6d25",
+      "range": {
+        "startLine": 254,
+        "startChar": 40,
+        "endLine": 255,
+        "endChar": 39
+      },
+      "revId": "a92f3e7455df66a4b8c7fa1e55599a87703df891",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bd3cae4_95ab6cbd",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-01T11:04:37Z",
+      "side": 1,
+      "message": "Sounds good to me!",
+      "parentUuid": "de62141f_4ec9c602",
       "range": {
         "startLine": 254,
         "startChar": 40,
