@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "062d42b2_eb3b8e56",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-01T13:30:48Z",
+      "side": 1,
+      "message": "For example the CNTHV timer registers might be programmed in the normal world to expect a timer interrupt firing at a later time. For the following scenario where NS calls a secure service in a secure partition:\n\n1. from NS to SPMD, save non-secure CNTV_TVAL (it has a timestamp value X0)\n2. restore secure CNTV_TVAL value Y0\n3. enter SPMC and/or a secure partition\n4. back to SPMD save secure CNTV_TVAL value Y1\n5. restore non-secure CNTV_TVAL X0\n\nBetween steps 1 and 5 counter is still supposed to run so from the perspective of the normal world it happens as if no time had elapsed during the secure world execution. On complex scenarios (e.g. xtest calling OP-TEE on top of Hafnium), linux warns about rcu stalls and cores lagging behind (sometimes hangs) when it does its scheduler housekeeping.\nBy applying those errors/hangs are gone.\nTo put it short, secure side is not meant to touch NS timers.\nSecure world shall use its own timer resources which are banked secure in HW (and hence not accessible to normal world).",
+      "parentUuid": "3adfb8fd_49c6e6bd",
+      "revId": "64229f8a39d9352e4d48c3ab760fe392924a2532",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "059a471d_273a2d6c",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
