@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3c7fa91_1f599bd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-04-01T09:45:45Z",
+      "side": 1,
+      "message": "Hi Sandrine,\n\nThanks for the comments.\n\nI\u0027ve replied inline for the documentation part.\n\nThis of course should be tested in CI. It has been in our downstream code for several months and is tested OK, but it should also be tested on other platforms.\nBy the way, how could we have an STM32MP1 board in CI system?\nI\u0027ll also check internally how this could be handled.\n\nThe platform changes are not so big, but I don\u0027t know if the porting on FVP can easily be done. I\u0027m not sure I\u0027ll have time soon to check that, your team will be faster for this porting I think.\n\n\nBest regards,\nYann",
+      "parentUuid": "74e12e77_72c13e6d",
+      "revId": "a92f3e7455df66a4b8c7fa1e55599a87703df891",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16b0223c_b2fe6d25",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-03-29T14:17:09Z",
       "side": 1,
       "message": "This text needs updating. Actually keeping this in sync with the code is painful, I suggest we stop listing images that support ENABLE_PIE, this will remove the risk of the doc going stale again the future. Something like:\n\n Note that this is not supported for all firmware images.\n\nOr is it supported for all images with your patch now? I\u0027ve lost track...",
+      "range": {
+        "startLine": 254,
+        "startChar": 40,
+        "endLine": 255,
+        "endChar": 39
+      },
+      "revId": "a92f3e7455df66a4b8c7fa1e55599a87703df891",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de62141f_4ec9c602",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-04-01T09:45:45Z",
+      "side": 1,
+      "message": "This only concerns AARCH64 binaries. But I agree this should be precised, and I should add BL32 (SP_min) for AARCH32, which I have only implemented and tested. This may work in BL2_AT_EL3, but the code is not ready, I haven\u0027t tested it, as we do not intend to support that on STM32MP1.\nI may rephrase it this way:\nThis option is currently only supported in BL2_AT_EL3, BL31, and BL32 (TSP) for AARCH64 binaries, and in BL32 (SP_min) for AARCH32.",
+      "parentUuid": "16b0223c_b2fe6d25",
       "range": {
         "startLine": 254,
         "startChar": 40,
