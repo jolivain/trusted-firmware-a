@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eabb5bd1_d10f2802",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-01T12:29:05Z",
+      "side": 1,
+      "message": "This is a valid question provided this would normally be updated by a Hypervisor VM save/restore sequence (in secure or normal worlds). Although this register is not banked in HW so isn\u0027t there a possibility to leak some timing information from S to NS (or either way?)",
+      "parentUuid": "463c6342_fdda4366",
+      "revId": "64229f8a39d9352e4d48c3ab760fe392924a2532",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "059a471d_273a2d6c",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
