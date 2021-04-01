@@ -262,6 +262,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e3cf28e_0e6ac0e6",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-01T21:30:58Z",
+      "side": 1,
+      "message": "Sure that makes sense here.",
+      "parentUuid": "c67b6302_647af47b",
+      "range": {
+        "startLine": 67,
+        "startChar": 20,
+        "endLine": 67,
+        "endChar": 21
+      },
+      "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "362c0fc7_e7812aca",
         "filename": "services/std_svc/pci_svc.c",
         "patchSetId": 4
@@ -285,6 +309,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "42b6ff10_4ac26f89",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-01T21:30:58Z",
+      "side": 1,
+      "message": "No, that doesn\u0027t make sense here because I\u0027m just explicitly assuring the MBZ fields are cleared. Although, now that I\u0027m considering that more, it seems that like the SMC_32 sanitation the default is somewhat brittle as we probably should be clearing fields that MBZ on input but aren\u0027t specified for output to 0.",
+      "parentUuid": "362c0fc7_e7812aca",
+      "range": {
+        "startLine": 82,
+        "startChar": 43,
+        "endLine": 82,
+        "endChar": 45
+      },
+      "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8b8be54f_cf055a50",
         "filename": "services/std_svc/pci_svc.c",
         "patchSetId": 4
@@ -296,6 +344,30 @@
       "writtenOn": "2021-01-28T12:31:02Z",
       "side": 1,
       "message": "(minor) Would it make sense to fold these 3 tests, as in\n\n if ((validate...() !\u003d SUCCESS) ||\n     (x4 !\u003d 0) ||\n     (pci_read_config() !\u003d 0)) {\n   SMC_RET2(handle, SMC_PCI_CALL_INVAL_PARAM, 0);\n }\n\n? I would find it easier to the eye but that\u0027s personal style...",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 49
+      },
+      "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba83cbd5_8303c4f3",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-01T21:30:58Z",
+      "side": 1,
+      "message": "Godbolt tell me that gcc at -O2 and above, and clang at -O, and above will collapse the duplicate returns. \n\nSo its mostly a style thing left over from dumb compilers, AFAIK its discouraged in most projects to create long chained conditionals due to readability, usually because people tend to mix their \u0026\u0026, ||\u0027s and () in unexpected ways. OTOH, I think misra wants single function return (don\u0027t actually have it handy) but this SMC_RETX makes that nearly impossible.\n\nUnless you have a strong opinion I think this one should be left alone.",
+      "parentUuid": "8b8be54f_cf055a50",
       "range": {
         "startLine": 76,
         "startChar": 0,
@@ -347,6 +419,30 @@
         "startChar": 23,
         "endLine": 85,
         "endChar": 24
+      },
+      "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "815e0f97_e392a98c",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-01T21:30:58Z",
+      "side": 1,
+      "message": "Yup makes sense here.",
+      "parentUuid": "85ca61ab_3717eb52",
+      "range": {
+        "startLine": 85,
+        "startChar": 20,
+        "endLine": 85,
+        "endChar": 21
       },
       "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
