@@ -16,6 +16,40 @@
       "message": "More context to the commit message will be useful , like \"there is a NS and S version of the EL2 timer registers and hence saving and restoring them from EL3 is not needed\"..",
       "revId": "64229f8a39d9352e4d48c3ab760fe392924a2532",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "463c6342_fdda4366",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-04-01T12:11:40Z",
+      "side": 1,
+      "message": "Do we need to save/restore CNTVOFF_EL2?",
+      "revId": "64229f8a39d9352e4d48c3ab760fe392924a2532",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "059a471d_273a2d6c",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-04-01T12:11:40Z",
+      "side": 1,
+      "message": "Do we need to save/restore CNTPOFF_EL2?",
+      "revId": "64229f8a39d9352e4d48c3ab760fe392924a2532",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
