@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dfe747c7_06689194",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-01T13:35:11Z",
+      "side": 1,
+      "message": "Btw there are other problems like which entity owns the CNTV interrupt. If configured as non-secure, there is no simple way to toggle it secure on world switch and keep the time information consistent.",
+      "parentUuid": "062d42b2_eb3b8e56",
+      "revId": "64229f8a39d9352e4d48c3ab760fe392924a2532",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "059a471d_273a2d6c",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
