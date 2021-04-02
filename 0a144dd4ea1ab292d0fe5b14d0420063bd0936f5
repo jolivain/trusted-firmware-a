@@ -16,6 +16,46 @@
       "message": "@Sandrine does this change look good to you?",
       "revId": "0a144dd4ea1ab292d0fe5b14d0420063bd0936f5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d23856d_aeba2c2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-02T06:14:07Z",
+      "side": 1,
+      "message": "Yes, LGTM.",
+      "revId": "0a144dd4ea1ab292d0fe5b14d0420063bd0936f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7a5aca3_87e43538",
+        "filename": "lib/cpus/aarch64/cortex_a78c.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-02T06:14:07Z",
+      "side": 1,
+      "message": "I thought we would remove this function from the time being... Anyway, it\u0027s not a big deal.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 33
+      },
+      "revId": "0a144dd4ea1ab292d0fe5b14d0420063bd0936f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
