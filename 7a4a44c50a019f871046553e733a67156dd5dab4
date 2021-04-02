@@ -247,6 +247,30 @@
       },
       "revId": "7a4a44c50a019f871046553e733a67156dd5dab4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e031d45b_cc35f791",
+        "filename": "common/bl_common.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-02T13:49:34Z",
+      "side": 1,
+      "message": "Hi Pankaj,\n\nSorry for not getting back to you earlier.\n\nWhile we wait for Olivier\u0027s SPM patches to be accepted, would you mind changing your patch as we\u0027ve discussed please? i.e. replacing the call to flush_dcache_range() by a call to clean_dcache_range() (keeping it between load_image() and auth_mod_verify_img())?\n\nThis will allow us to trigger the CI loop on this patch as soon as the dependent SPM patches are merged.",
+      "parentUuid": "dbc25623_b6ff3b56",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 0
+      },
+      "revId": "7a4a44c50a019f871046553e733a67156dd5dab4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
