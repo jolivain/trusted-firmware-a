@@ -5,11 +5,11 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#if (RCAR_LSI == RZ_G2M) || (RCAR_LSI == RZ_G2H)
-#define BOARDNUM 3
+#if (RCAR_LSI == RZ_G2M) || (RCAR_LSI == RZ_G2H) || (RCAR_LSI == RZ_G2N)
+#define BOARDNUM 4
 #else
 #define BOARDNUM 22
-#endif /*  RCAR_LSI == RZ_G2{M,H} */
+#endif /*  RCAR_LSI == RZ_G2{M,H,N} */
 #define BOARD_JUDGE_AUTO
 
 #ifdef BOARD_JUDGE_AUTO
@@ -70,7 +70,7 @@ struct _boardcnf {
 	0x000F,\
 	0x010F}
 
-#if (RCAR_LSI == RZ_G2M) || (RCAR_LSI == RZ_G2H)
+#if (RCAR_LSI == RZ_G2M) || (RCAR_LSI == RZ_G2H) || (RCAR_LSI == RZ_G2N)
 static const struct _boardcnf boardcnfs[BOARDNUM] = {
 	{
 /* boardcnf[0] HopeRun HiHope RZ/G2M 16Gbit/1rank/2ch board with G2M SoC */
@@ -256,7 +256,37 @@ static const struct _boardcnf boardcnfs[BOARDNUM] = {
 				  0, 0, 0, 0, 0, 0, 0, 0 }
 			}
 		}
-	}
+	},
+/* boardcnf[3] HopeRun HiHope RZ/G2N board 16Gbit/2rank/1ch */
+	{
+		0x01U,
+		0x01U,
+		0x0300U,
+		0,
+		0x0300U,
+		0x00a0U,
+		{
+			{
+				{ 0x04U, 0x04U },
+				0x00345201UL,
+				0x3201U,
+				{ 0x01672543U, 0x45361207U, 0x45632107U, 0x60715234U },
+				{ 0x08U, 0x08U, 0x08U, 0x08U },
+				WDQLVL_PAT,
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0,
+				  0, 0, 0, 0, 0, 0, 0, 0,
+				  0, 0, 0, 0, 0, 0, 0, 0,
+				  0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0,
+				  0, 0, 0, 0, 0, 0, 0, 0,
+				  0, 0, 0, 0, 0, 0, 0, 0,
+				  0, 0, 0, 0, 0, 0, 0, 0 }
+			}
+		}
+	},
 };
 #else
 static const struct _boardcnf boardcnfs[BOARDNUM] = {
@@ -1728,7 +1758,7 @@ static const struct _boardcnf boardcnfs[BOARDNUM] = {
 	}
 	}
 };
-#endif /*  RCAR_LSI == RZ_G2{M,H} */
+#endif /*  RCAR_LSI == RZ_G2{M,H,N} */
 
 void boardcnf_get_brd_clk(uint32_t brd, uint32_t *clk, uint32_t *div)
 {
@@ -1830,7 +1860,7 @@ static const uint32_t termcode_by_sample[20][3] = {
 #define GPIO_INDT5	0xE605500CU
 #define GPIO_GPSR6	0xE6060118U
 
-#if (RCAR_GEN3_ULCB == 0) && (RCAR_LSI != RZ_G2M) && (RCAR_LSI != RZ_G2H)
+#if (RCAR_GEN3_ULCB == 0) && (RCAR_LSI != RZ_G2M) && (RCAR_LSI != RZ_G2H) && (RCAR_LSI != RZ_G2N)
 static void pfc_write_and_poll(uint32_t a, uint32_t v)
 {
 	mmio_write_32(PFC_PMMR, ~v);
@@ -1846,8 +1876,9 @@ static void pfc_write_and_poll(uint32_t a, uint32_t v)
 #define RCAR_GEN3_ULCB		0
 #endif
 
-#if (RCAR_GEN3_ULCB == 0) && (RCAR_LSI != RZ_G2M) && (RCAR_LSI != RZ_G2H) /* non Starter Kit */
 
+#if (RCAR_GEN3_ULCB == 0) && (RCAR_LSI != RZ_G2M) && (RCAR_LSI != RZ_G2H) && (RCAR_LSI != RZ_G2N)
+/* non Starter Kit */
 static uint32_t opencheck_SSI_WS6(void)
 {
 	uint32_t dataL, down, up;
@@ -1903,7 +1934,7 @@ static uint32_t opencheck_SSI_WS6(void)
 
 #endif
 
-#if (RCAR_LSI == RZ_G2M) || (RCAR_LSI == RZ_G2H)
+#if (RCAR_LSI == RZ_G2M) || (RCAR_LSI == RZ_G2H) || (RCAR_LSI == RZ_G2N)
 #define LPDDR4_2RANK   (0x01U << 25U)
 
 static uint32_t rzg2_board_judge(void)
@@ -1926,19 +1957,24 @@ static uint32_t rzg2_board_judge(void)
 		brd = 2U;
 		break;
 #endif
+#if (RCAR_LSI == RZ_G2N)
+	case PRR_PRODUCT_M3N:
+		brd = 3U;
+		break;
+#endif
 	default:
 		brd = 99U;
 	}
 
 	return brd;
 }
-#endif /* RCAR_LSI == RZ_G2{M,H} */
+#endif /* RCAR_LSI == RZ_G2{M,H,N} */
 
 static uint32_t _board_judge(void)
 {
 	uint32_t brd;
 
-#if (RCAR_LSI == RZ_G2M) || (RCAR_LSI == RZ_G2H)
+#if (RCAR_LSI == RZ_G2M) || (RCAR_LSI == RZ_G2H) || (RCAR_LSI == RZ_G2N)
 	brd = rzg2_board_judge();
 #else
 #if (RCAR_GEN3_ULCB == 1)
@@ -2027,7 +2063,7 @@ static uint32_t _board_judge(void)
 		}
 	}
 #endif
-#endif /* RCAR_LSI == RZ_G2{M,H} */
+#endif /* RCAR_LSI == RZ_G2{M,H,N} */
 
 	return brd;
 }
