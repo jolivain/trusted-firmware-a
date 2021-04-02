@@ -9,6 +9,7 @@
  * IPI interrupts
  */
 
+#include <stdbool.h>
 #include <pm_common.h>
 #include <pm_ipi.h>
 #include <plat/common/platform.h>
@@ -364,14 +365,20 @@ enum pm_ret_status pm_reset_get_status(uint32_t reset, uint32_t *status,
  * @data - array of PAYLOAD_ARG_CNT elements
  * @flag - 0 - Call from secure source
  *	   1 - Call from non-secure source
+ * @ack - 0 - Do not ack IPI after reading payload
+ *        1 - Ack IPI after reading payload
  *
  * Read value from ipi buffer response buffer.
  */
-void pm_get_callbackdata(uint32_t *data, size_t count, uint32_t flag)
+void pm_get_callbackdata(uint32_t *data, size_t count, uint32_t flag, bool ack)
 {
 	/* Return if interrupt is not from PMU */
 	if (!pm_ipi_irq_status(primary_proc))
 		return;
+
+	if (ack != 0) {
+		pm_ipi_irq_clear(primary_proc);
+	}
 
 	pm_ipi_buff_read_callb(data, count);
 	pm_ipi_irq_clear(primary_proc);
