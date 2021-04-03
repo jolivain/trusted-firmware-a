@@ -87,6 +87,24 @@
       "message": "Look!\n\n$ git grep SUBVERSION\nplat/marvell/armada/common/marvell_common.mk:VERSION_STRING                     +\u003d(Marvell-${SUBVERSION})\nplat/marvell/version.mk:SUBVERSION \u003d devel-18.12.2\n\n$ git grep version.mk\nplat/marvell/armada/common/marvell_common.mk:include plat/marvell/version.mk\n\nThis variable SUBVERSION is used only in plat/marvell/armada/common/marvell_common.mk file and  version.mk is also included only in this file.\n\nSo what about completely removing this plat/marvell/version.mk file?",
       "revId": "7b3da6b3f4085e75c706d2c91b89f00155f9e599",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24dc5080_b7858970",
+        "filename": "plat/marvell/version.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2021-04-03T08:41:30Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "e4e04654_8eb179a5",
+      "revId": "7b3da6b3f4085e75c706d2c91b89f00155f9e599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
