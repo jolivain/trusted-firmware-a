@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77a1449c_18b01a83",
+        "filename": "plat/rpi/rpi4/include/rpi_hw.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-04-03T15:56:12Z",
+      "side": 1,
+      "message": "According to the kernel DT this BMC2711 specific range starts at 0xfc000000 (even though indeed PCI only starts at 0xfd500000), can you please adjust this, to be consistent?",
+      "revId": "2f30f57dba3f549ba427eec16df0b00672bbf52c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
