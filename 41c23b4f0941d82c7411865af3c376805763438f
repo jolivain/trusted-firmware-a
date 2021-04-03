@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c96984f5_443a6913",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-03T15:33:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bc524b0_6fc74a8e",
+      "revId": "41c23b4f0941d82c7411865af3c376805763438f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d910572f_32ad4b09",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-04-01T01:07:19Z",
       "side": 1,
       "message": "PART_CFG_CURRENT_BOOT_PARTITION() fetch the right field in PARTITION_CONFIG register.\nI\u0027ve some concerns on this mmc_current_boot_part().\n\nAccording to eMMC 4.5 spec, the definition of BOOT_PARTITION_ENABLE field is in below.\n0x0: Device not boot enabled (default)\n0x1: Boot partition 1 enabled for boot\n0x2: Boot partition 2 enabled for boot\n0x3-0x6: Reserved\n0x7: User area enabled for boot\n\nmmc_current_boot_part() just fetchs BOOT_PARTITION_ENABLE field and return. So it assumes the value should be either 0x1 or 0x2. But it could be any value according to definition. I think that you need add some checking at here. If the setting isn\u0027t for boot partition, you should not continue to access boot partition any more. Since your logic is to read current boot partition.",
+      "revId": "41c23b4f0941d82c7411865af3c376805763438f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0c16167_23a08862",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-03T15:33:32Z",
+      "side": 1,
+      "message": "So if I encounter unexpected value I print an error message and give up then? Because that would mean incorrect configuration.",
+      "parentUuid": "d910572f_32ad4b09",
       "revId": "41c23b4f0941d82c7411865af3c376805763438f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -66,6 +102,24 @@
       "side": 1,
       "message": "I already thought about that. So setting 300 if CMD_EXTCSD_PART_SWITCH_TIME returns 0 would be a way to go?",
       "parentUuid": "9fe2ff2b_8b5fce92",
+      "revId": "41c23b4f0941d82c7411865af3c376805763438f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b802346_5b1f094f",
+        "filename": "include/drivers/mmc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-03T15:33:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "850be17f_5d25f115",
       "revId": "41c23b4f0941d82c7411865af3c376805763438f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
