@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee5f2077_c913b775",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-04T21:46:13Z",
+      "side": 1,
+      "message": "IO storage open call needs FIP base address which is currently statically defined.\nWith GPT parser, this address needs to be a dynamic i.e. read FIP partition details to get its entry address, and then update the FIP base address accordingly.",
+      "parentUuid": "4ac8eb1d_72914932",
+      "revId": "d11077a9deca6099aa4d5348538ee7c201ae0370",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06c6cc59_746775df",
         "filename": "plat/arm/common/arm_common.mk",
         "patchSetId": 5
@@ -31,6 +49,30 @@
       "writtenOn": "2021-04-02T16:36:53Z",
       "side": 1,
       "message": "sectors",
+      "range": {
+        "startLine": 170,
+        "startChar": 61,
+        "endLine": 170,
+        "endChar": 67
+      },
+      "revId": "d11077a9deca6099aa4d5348538ee7c201ae0370",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4aead24b_62641549",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-04T21:46:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "06c6cc59_746775df",
       "range": {
         "startLine": 170,
         "startChar": 61,
@@ -54,6 +96,24 @@
       "writtenOn": "2021-04-02T16:36:53Z",
       "side": 1,
       "message": "Can\u0027t this value be extracted more dynamically e.g. from the partition entry array?\nDepending on the tool used to generate the GPT compliant image, can\u0027t there be other datas (e.g. another partition) stored from LBA 34? Or do you rely on always generating the image with assumption that first partition is always FIP_A anyways?",
+      "revId": "d11077a9deca6099aa4d5348538ee7c201ae0370",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4df1d1f8_b1e75259",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-04T21:46:13Z",
+      "side": 1,
+      "message": "This fixed offset needed only in case of BL1 as partition table not get loaded and parsed in BL1.\nThis is default address, but can be overridden by the platform depend upon FIP location.\nIn case of BL2, this offset always get read from the partition table.",
+      "parentUuid": "45c1ce72_26e49d48",
       "revId": "d11077a9deca6099aa4d5348538ee7c201ae0370",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
