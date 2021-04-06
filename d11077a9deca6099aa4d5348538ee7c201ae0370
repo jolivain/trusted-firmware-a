@@ -134,6 +134,24 @@
       "parentUuid": "4df1d1f8_b1e75259",
       "revId": "d11077a9deca6099aa4d5348538ee7c201ae0370",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c24c5fd_9b0e8bed",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-06T14:44:38Z",
+      "side": 1,
+      "message": "\u003e Ok, why doesn\u0027t BL1 read the partition table? \nBL1 can read the partition table but we have not added GPT parsing support in BL1\n\u003e Is this to avoid growing BL1 with the GPT parser code?\nYes, we thought it is always good to have BL1 with minimal size.\n\u003e Do we have an assumption FIP_A (and maybe FIP_B) always reside at the same LBA in flash for the whole product life time? (this can be a plausible design decision)\nYes, we assumed one FIP (that contains BL2) at fixed location so that BL1 can use it without GPT and metadata parsing.",
+      "parentUuid": "8fca6bcc_e5956f90",
+      "revId": "d11077a9deca6099aa4d5348538ee7c201ae0370",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
