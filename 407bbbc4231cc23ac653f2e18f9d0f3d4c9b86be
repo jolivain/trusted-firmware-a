@@ -22,6 +22,30 @@
       },
       "revId": "407bbbc4231cc23ac653f2e18f9d0f3d4c9b86be",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe7cfbf4_f126aaf7",
+        "filename": "plat/arm/board/juno/include/platform_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000521
+      },
+      "writtenOn": "2021-04-06T09:26:17Z",
+      "side": 1,
+      "message": "An extra level is required in the translation table for 32KB compared to 16MB because of its granularity.",
+      "parentUuid": "6b6c2fa3_144a429f",
+      "range": {
+        "startLine": 119,
+        "startChar": 27,
+        "endLine": 119,
+        "endChar": 28
+      },
+      "revId": "407bbbc4231cc23ac653f2e18f9d0f3d4c9b86be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
