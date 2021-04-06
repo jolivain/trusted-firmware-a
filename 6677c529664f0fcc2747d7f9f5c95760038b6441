@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5e032e6_93cf1e08",
+        "filename": "plat/marvell/armada/common/marvell_common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-04-06T17:30:53Z",
+      "side": 1,
+      "message": "It it still needed to modify and append Marvell vendor suffix into VERSION_STRING variable?\n\nNow when code is in upstream TF-A repository, I think this line can be deleted too.\n\nI looked into TF-A sources and no other platform is modifying VERSION_STRING variable, so should not be needed here too.",
+      "revId": "6677c529664f0fcc2747d7f9f5c95760038b6441",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
