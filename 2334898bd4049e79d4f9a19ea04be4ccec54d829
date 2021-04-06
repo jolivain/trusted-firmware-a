@@ -16,6 +16,24 @@
       "message": "As explained above, \"ToT patch\" not for merge.\n\nHi Yidi Lin,\n\nThis change regularly pops in our dashboards as stalled, hence to consider for abandonning.\n\nMoving forward can you discuss with your team about using the branch checkout option?\n(three dot menu at top right corner)\ne.g. latest changes below the ToT patch can be checked out all in a row by:\n\ngit fetch ssh://odeprez@review.trustedfirmware.org:29418/TF-A/trusted-firmware-a refs/changes/85/7785/20 \u0026\u0026 git checkout FETCH_HEAD\n\nThere are other options in this menu like branch checkout.\n\nBut eventually this would help dropping this change which doesn\u0027t being much value in the patchset beyond being a trick for your development teams.\n\nThanks.\n\n",
       "revId": "2334898bd4049e79d4f9a19ea04be4ccec54d829",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcbbae18_52476e10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 99
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-06T13:54:10Z",
+      "side": 1,
+      "message": "Obviously use your own gerrit id in the suggested command line.",
+      "parentUuid": "94e5e0e7_07cfc148",
+      "revId": "2334898bd4049e79d4f9a19ea04be4ccec54d829",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
