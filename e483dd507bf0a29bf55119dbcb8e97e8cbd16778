@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfd22df1_31226b0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-04-06T15:04:56Z",
+      "side": 1,
+      "message": "Hi Biju\nJust a small note. Please put either -1 or +1 vote along with your comment. This will help us to understand if its a blocking comment.",
+      "revId": "e483dd507bf0a29bf55119dbcb8e97e8cbd16778",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1aa9901e_039f4240",
@@ -14,6 +31,24 @@
       "writtenOn": "2021-03-15T10:03:23Z",
       "side": 1,
       "message": "Hi Marek,\n\nI believe, you need the below patch. Otherwise, u-boot will report incorrect memory size as well as OPTEE test cases will fail. Have you tested U-boot/OP-TEE on R-Car M3N board with 4GB memory?\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/commit/plat/renesas/rzg/bl2_plat_setup.c?id\u003d94a73ef330078b0d7cd1b5433a5a07d5cf976714",
+      "revId": "e483dd507bf0a29bf55119dbcb8e97e8cbd16778",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "880d5955_222b2c7a",
+        "filename": "plat/renesas/rcar/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-04-06T15:04:56Z",
+      "side": 1,
+      "message": "Gentle reminder",
+      "parentUuid": "1aa9901e_039f4240",
       "revId": "e483dd507bf0a29bf55119dbcb8e97e8cbd16778",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
