@@ -6,10 +6,10 @@
 
 #include <assert.h>
 
+#include <common/debug.h>
 #include <drivers/io/io_block.h>
 #include <drivers/io/io_driver.h>
 #include <drivers/io/io_fip.h>
-#include <drivers/io/io_driver.h>
 #include <drivers/io/io_memmap.h>
 #include <drivers/mmc.h>
 #include <lib/utils_def.h>
@@ -21,21 +21,21 @@
 static const io_dev_connector_t *fip_dev_con;
 static uintptr_t fip_dev_handle;
 
-#ifndef IMX8MM_FIP_MMAP
+#ifndef IMX8M_FIP_MMAP
 static const io_dev_connector_t *mmc_dev_con;
 static uintptr_t mmc_dev_handle;
 
 static const io_block_spec_t mmc_fip_spec = {
-	.offset = IMX8MM_FIP_MMC_BASE,
-	.length = IMX8MM_FIP_SIZE
+	.offset = IMX8M_FIP_MMC_BASE,
+	.length = IMX8M_FIP_SIZE
 };
 
 static const io_block_dev_spec_t mmc_dev_spec = {
 	/* It's used as temp buffer in block driver. */
 	.buffer		= {
-		.offset	= IMX8MM_FIP_BASE,
+		.offset	= IMX8M_FIP_BASE,
 		/* do we need a new value? */
-		.length = IMX8MM_FIP_SIZE
+		.length = IMX8M_FIP_SIZE
 	},
 	.ops		= {
 		.read	= mmc_read_blocks,
@@ -51,8 +51,8 @@ static const io_dev_connector_t *memmap_dev_con;
 static uintptr_t memmap_dev_handle;
 
 static const io_block_spec_t fip_block_spec = {
-	.offset = IMX8MM_FIP_BASE,
-	.length = IMX8MM_FIP_SIZE
+	.offset = IMX8M_FIP_BASE,
+	.length = IMX8M_FIP_SIZE
 };
 static int open_memmap(const uintptr_t spec);
 #endif
@@ -120,7 +120,7 @@ struct plat_io_policy {
 };
 
 static const struct plat_io_policy policies[] = {
-#ifndef IMX8MM_FIP_MMAP
+#ifndef IMX8M_FIP_MMAP
 	[FIP_IMAGE_ID] = {
 		&mmc_dev_handle,
 		(uintptr_t)&mmc_fip_spec,
@@ -219,7 +219,7 @@ static int open_fip(const uintptr_t spec)
 	return result;
 }
 
-#ifndef IMX8MM_FIP_MMAP
+#ifndef IMX8M_FIP_MMAP
 static int open_mmc(const uintptr_t spec)
 {
 	int result;
@@ -270,11 +270,11 @@ int plat_get_image_source(unsigned int image_id, uintptr_t *dev_handle,
 	return result;
 }
 
-void plat_imx8mm_io_setup(void)
+void plat_imx8m_io_setup(void)
 {
 	int result __unused;
 
-#ifndef IMX8MM_FIP_MMAP
+#ifndef IMX8M_FIP_MMAP
 	result = register_io_dev_block(&mmc_dev_con);
 	assert(result == 0);
 
