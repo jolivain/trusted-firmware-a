@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a9b0722_30323feb",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-06T10:15:43Z",
+      "side": 1,
+      "message": "use U()?",
+      "range": {
+        "startLine": 33,
+        "startChar": 33,
+        "endLine": 33,
+        "endChar": 51
+      },
+      "revId": "9a6747389cd554778442acc6e114c3dfb12b1c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da8bb0c8_099145eb",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-06T10:15:43Z",
+      "side": 1,
+      "message": "U(1)",
+      "range": {
+        "startLine": 34,
+        "startChar": 30,
+        "endLine": 34,
+        "endChar": 31
+      },
+      "revId": "9a6747389cd554778442acc6e114c3dfb12b1c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10efc4c8_61491053",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-06T10:15:43Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 73,
+        "startChar": 3,
+        "endLine": 73,
+        "endChar": 9
+      },
+      "revId": "9a6747389cd554778442acc6e114c3dfb12b1c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c35e559_b9b50a9d",
+        "filename": "include/drivers/arm/ethosn.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-06T10:15:43Z",
+      "side": 1,
+      "message": "Do you want to keep 0.1 or move to 1.0 ?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 33
+      },
+      "revId": "9a6747389cd554778442acc6e114c3dfb12b1c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e644a228_0e2337a0",
+        "filename": "include/plat/arm/common/fconf_ethosn_getter.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-06T10:15:43Z",
+      "side": 1,
+      "message": "U(0)",
+      "range": {
+        "startLine": 20,
+        "startChar": 31,
+        "endLine": 20,
+        "endChar": 32
+      },
+      "revId": "9a6747389cd554778442acc6e114c3dfb12b1c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f9c5744_411717b1",
+        "filename": "include/plat/arm/common/fconf_ethosn_getter.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-06T10:15:43Z",
+      "side": 1,
+      "message": "U(1)",
+      "range": {
+        "startLine": 21,
+        "startChar": 30,
+        "endLine": 21,
+        "endChar": 31
+      },
+      "revId": "9a6747389cd554778442acc6e114c3dfb12b1c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d18bc5e5_12606496",
+        "filename": "include/plat/arm/common/fconf_ethosn_getter.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-06T10:15:43Z",
+      "side": 1,
+      "message": "U(64)",
+      "range": {
+        "startLine": 23,
+        "startChar": 28,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "9a6747389cd554778442acc6e114c3dfb12b1c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45753925_94adfe12",
+        "filename": "plat/arm/common/fconf/fconf_ethosn_getter.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-06T10:15:43Z",
+      "side": 1,
+      "message": "Can you recall the reasoning for this \"okay\" property?\nWould checking the node_status result be sufficient to figure out the node is present or not (hence ethos status enabled / disabled)?\nI don\u0027t recall of a similar pratice in device tree in general (e.g. linux DT), but maybe I miss that.",
+      "range": {
+        "startLine": 25,
+        "startChar": 27,
+        "endLine": 25,
+        "endChar": 32
+      },
+      "revId": "9a6747389cd554778442acc6e114c3dfb12b1c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d7742ca_b8418e18",
+        "filename": "plat/arm/common/fconf/fconf_ethosn_getter.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-06T10:15:43Z",
+      "side": 1,
+      "message": "Use a fixed size (e.g. 4 bytes const for \"okay\" string) rather than relying on what\u0027s returned by the fdt parser?",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 45
+      },
+      "revId": "9a6747389cd554778442acc6e114c3dfb12b1c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
