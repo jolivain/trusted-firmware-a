@@ -98,6 +98,24 @@
       "parentUuid": "b49dc205_ebd0eabb",
       "revId": "2c6f6a9cb8399ba35b013bd6e3eff915063a2294",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57993bfa_7bd29a28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-06T13:03:07Z",
+      "side": 1,
+      "message": "I don\u0027t really mind. Just mentioned this option if growing BL2 with zlib becomes a concern in terms of footprint. Also I see crc instruction is a bare primitive and computing crc for a whole buffer might require a bit more code.",
+      "parentUuid": "fc00f522_f8635f31",
+      "revId": "2c6f6a9cb8399ba35b013bd6e3eff915063a2294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
