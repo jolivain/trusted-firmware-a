@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94a56228_f2507d3e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-04-07T19:00:00Z",
+      "side": 1,
+      "message": "From the patch, I understood that this is done through spmc_smc_foward() helper. Can you advise where exactly in the normal world does execution resume? \nIs it at the irq exception vector of the NS-Endpoint (running in NS-EL1) or the instruction whose address is held in ELR_EL1?",
+      "range": {
+        "startLine": 10,
+        "startChar": 51,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "39fd10f8a180d1e0c6bc7d537b8ed95e80423db3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
