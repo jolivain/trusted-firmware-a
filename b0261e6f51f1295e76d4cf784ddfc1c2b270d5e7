@@ -142,6 +142,30 @@
       },
       "revId": "b0261e6f51f1295e76d4cf784ddfc1c2b270d5e7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88a9da09_5923e9b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-04-07T15:33:47Z",
+      "side": 1,
+      "message": "\u003e Hi Pali,\n\u003e \n\u003e OK I get it, thank you for the details.\n\u003e \n\u003e I am happy with this patch then. Still, if you can contribute a proper fix in the near future, that would be great.\n\u003e \n\u003e I would like to hear from Pankaj Gupta in this patch review. I see you\u0027ve added him as a reviewer so hopefully he should receive email notifications from Gerrit. Let\u0027s wait for a couple more days to give him a chance to raise any concerns he may have. I guess NXP will have to modify their build scripts to explicitly clean the fiptool directory before they attempt to build it again, until the dependency is properly handled in the makefile.\n\nAny comments on this?\n\n\u003e If we don\u0027t hear anything from Pankaj Gupta before the end of the week, I\u0027ll change my Maintainer-Review -1 score into a +1.\n\nWhat else is needed for merging this revert/fix? I would like to move forward as it is two weeks since I proposed this change and fixing integration/master git branches is needed...",
+      "parentUuid": "0dcb2600_3aa29b1e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "b0261e6f51f1295e76d4cf784ddfc1c2b270d5e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
