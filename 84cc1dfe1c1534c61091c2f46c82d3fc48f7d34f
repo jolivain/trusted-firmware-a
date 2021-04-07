@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "72cb2f03_282e3274",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000438
+      },
+      "writtenOn": "2021-04-07T14:12:06Z",
+      "side": 1,
+      "message": "NO I have not done this. will do it thanks.",
+      "parentUuid": "5d66fa71_e26e1d0c",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "84cc1dfe1c1534c61091c2f46c82d3fc48f7d34f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "af3accd3_ed547888",
         "filename": "include/plat/common/platform.h",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-25T01:58:08Z",
       "side": 1,
       "message": "might want to use void * for base address pointers. uint64_t might be overkill for 32 bit platforms(aarch32).",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 305,
+        "endChar": 9
+      },
+      "revId": "84cc1dfe1c1534c61091c2f46c82d3fc48f7d34f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8aaabbb_344c3eaa",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000438
+      },
+      "writtenOn": "2021-04-07T14:12:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "af3accd3_ed547888",
       "range": {
         "startLine": 305,
         "startChar": 0,
