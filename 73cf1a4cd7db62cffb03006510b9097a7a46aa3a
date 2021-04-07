@@ -16,6 +16,24 @@
       "message": "Hi maintainers,\n\nWithout this patch, the STM32MP1 platform does no more boot.\nHow can help having this merged soon?\nMaybe sending the series in the opposite order, starting with the revert?\nWe\u0027ll have the previous status (without the correction reported by a tool, and AFAIK not in a real situation), and then having the different platform patches that could come later when they are reviewed.\n\nThanks,\nYann",
       "revId": "73cf1a4cd7db62cffb03006510b9097a7a46aa3a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f9093bb_5f4e0b12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-04-07T17:21:18Z",
+      "side": 1,
+      "message": "Hi Yann\nI have given the MR+1 vote. The patches in the stack need COR+1 from respective code owners. If getting votes is delayed, I believe changing the order of the patches is a good idea as you suggested.",
+      "parentUuid": "ca4d08ca_fb418028",
+      "revId": "73cf1a4cd7db62cffb03006510b9097a7a46aa3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
