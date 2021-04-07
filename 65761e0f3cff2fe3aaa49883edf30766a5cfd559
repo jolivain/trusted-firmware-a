@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86f6ee30_4792dc09",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-04-07T10:18:44Z",
+      "side": 1,
+      "message": "Doesn\u0027t matter from funtionallity perspective. But it\u0027s good to keep list consistent. Moved",
+      "parentUuid": "2c347460_c8223f7f",
+      "range": {
+        "startLine": 91,
+        "startChar": 1,
+        "endLine": 92,
+        "endChar": 30
+      },
+      "revId": "65761e0f3cff2fe3aaa49883edf30766a5cfd559",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8172d62c_f4bd5f35",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "511daca5_28e1ecaa",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-04-07T10:18:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8172d62c_f4bd5f35",
+      "range": {
+        "startLine": 260,
+        "startChar": 1,
+        "endLine": 261,
+        "endChar": 19
+      },
+      "revId": "65761e0f3cff2fe3aaa49883edf30766a5cfd559",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58fd7688_18d56826",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-04-07T08:29:23Z",
       "side": 1,
       "message": "ldr x13, [x0, #CTX_PMSCR_EL2]",
+      "range": {
+        "startLine": 263,
+        "startChar": 1,
+        "endLine": 263,
+        "endChar": 35
+      },
+      "revId": "65761e0f3cff2fe3aaa49883edf30766a5cfd559",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e0a012_9618c378",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-04-07T10:18:44Z",
+      "side": 1,
+      "message": "Thanks for spotting!",
+      "parentUuid": "58fd7688_18d56826",
       "range": {
         "startLine": 263,
         "startChar": 1,
