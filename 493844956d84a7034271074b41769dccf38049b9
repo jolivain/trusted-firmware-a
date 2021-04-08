@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8706c7eb_5f18894c",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-08T10:15:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73d1cc36_0f736c49",
+      "revId": "493844956d84a7034271074b41769dccf38049b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3426271c_220c0f7a",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-04-08T09:35:48Z",
       "side": 1,
       "message": "minor: those lines could be aligned with open parenthesis",
+      "revId": "493844956d84a7034271074b41769dccf38049b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "720d9b98_fe809e63",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-08T10:15:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3426271c_220c0f7a",
       "revId": "493844956d84a7034271074b41769dccf38049b9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "038dc96d_a09ec5bd",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-08T10:15:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2787416a_92e43aa5",
+      "revId": "493844956d84a7034271074b41769dccf38049b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc79c35c_b914d896",
@@ -65,6 +119,24 @@
       "writtenOn": "2021-04-08T09:35:48Z",
       "side": 1,
       "message": "minor: this line could also be aligned with open parenthesis",
+      "revId": "493844956d84a7034271074b41769dccf38049b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff949b03_8aa24b93",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-08T10:15:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc79c35c_b914d896",
       "revId": "493844956d84a7034271074b41769dccf38049b9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -92,6 +164,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4c2fcda_13c1389e",
+        "filename": "include/drivers/mmc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-08T10:15:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3963b2f_dc598a8b",
+      "range": {
+        "startLine": 66,
+        "startChar": 37,
+        "endLine": 66,
+        "endChar": 43
+      },
+      "revId": "493844956d84a7034271074b41769dccf38049b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e5e6f8d_23923a24",
@@ -105,6 +201,24 @@
       "writtenOn": "2021-04-08T09:35:48Z",
       "side": 1,
       "message": "I\u0027d prefer:\n\n#define PART_CFG_BOOT_PART_EN_MASK\tGENMASK(5, 3)\n#define PART_CFG_BOOT_PART_EN_SHIFT\t3\n#define PART_CFG_CURRENT_BOOT_PARTITION\t(((x) \u0026 PART_CFG_BOOT_PART_EN_MASK) \u003e\u003e \\\n\t\t\t\t\t PART_CFG_BOOT_PART_EN_SHIFT)",
+      "revId": "493844956d84a7034271074b41769dccf38049b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4360b073_f906a930",
+        "filename": "include/drivers/mmc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-08T10:15:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e5e6f8d_23923a24",
       "revId": "493844956d84a7034271074b41769dccf38049b9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
