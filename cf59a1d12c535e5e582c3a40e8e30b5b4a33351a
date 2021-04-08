@@ -16,6 +16,24 @@
       "message": "perhaps just removing the echo \"Building..\" would be enough? Blank lines should be for a reason, and most probably for \u0027log readability\u0027, but if this is not the case, all removals make sense.",
       "revId": "cf59a1d12c535e5e582c3a40e8e30b5b4a33351a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e4ed27c_a02f83bd",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-04-08T14:38:21Z",
+      "side": 0,
+      "message": "fiptool Makefile is printing also blank link, so it is not needed to print duplicate blank lines in top level Makefile too.",
+      "parentUuid": "df2fa224_3298d456",
+      "revId": "cf59a1d12c535e5e582c3a40e8e30b5b4a33351a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
