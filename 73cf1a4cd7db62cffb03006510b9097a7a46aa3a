@@ -52,6 +52,24 @@
       "parentUuid": "7f9093bb_5f4e0b12",
       "revId": "73cf1a4cd7db62cffb03006510b9097a7a46aa3a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb7d6166_cdaaff32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-04-08T15:11:35Z",
+      "side": 1,
+      "message": "The hisilicon patch (set 3) doesn\u0027t have COR+1 yet. So , I cant merge ST patch. Is it okay if I just merge this patch\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/9300",
+      "parentUuid": "5bcea052_9082d681",
+      "revId": "73cf1a4cd7db62cffb03006510b9097a7a46aa3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
