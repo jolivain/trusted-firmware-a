@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df2fa224_3298d456",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-04-08T14:34:23Z",
+      "side": 0,
+      "message": "perhaps just removing the echo \"Building..\" would be enough? Blank lines should be for a reason, and most probably for \u0027log readability\u0027, but if this is not the case, all removals make sense.",
+      "revId": "cf59a1d12c535e5e582c3a40e8e30b5b4a33351a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
