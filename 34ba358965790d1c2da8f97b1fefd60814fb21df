@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77480d81_af371c82",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-04-08T09:44:01Z",
+      "side": 1,
+      "message": "I\u0027d prefer this macro is linked with the feature, e.g. PLAT_EMMC_BOOT_SSBL_OFFSET",
+      "range": {
+        "startLine": 329,
+        "startChar": 21,
+        "endLine": 329,
+        "endChar": 37
+      },
+      "revId": "34ba358965790d1c2da8f97b1fefd60814fb21df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ec18eae_9caa8bb4",
+        "filename": "plat/st/stm32mp1/include/platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-04-08T09:44:01Z",
+      "side": 1,
+      "message": "U(0x40000)\ntry to align it with BL33_BASE with tabs",
+      "range": {
+        "startLine": 90,
+        "startChar": 25,
+        "endLine": 90,
+        "endChar": 31
+      },
+      "revId": "34ba358965790d1c2da8f97b1fefd60814fb21df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
