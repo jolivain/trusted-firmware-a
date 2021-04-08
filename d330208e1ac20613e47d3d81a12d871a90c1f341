@@ -72,6 +72,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "413a5ee4_6c519d46",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-04-08T16:20:17Z",
+      "side": 1,
+      "message": "it could be a missing env var. This is the output, not quite useful but at least you see where it fails.\n\n$ set +x; curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | \"$SHELL\" exec \"$SHELL\" -ic \"nvm install 10; exec $SHELL\"\n/bin/bash: exec: No such file or directory\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n 35 13527   35  4836    0     0  18671      0 --:--:-- --:--:-- --:--:-- 18671\ncurl: (23) Failed writing body (598 !\u003d 1338)\n\n\nHowever, this works fine (although the tool is already installed)\n\n$ set +x; curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n100 13527  100 13527    0     0  54108      0 --:--:-- --:--:-- --:--:-- 53892\n\u003d\u003e nvm is already installed in /home/lsandov1/.nvm, trying to update using git\n\u003d\u003e \u003d\u003e Compressing and cleaning up git repository\n\n\u003d\u003e nvm source string already in /home/lsandov1/.bashrc\n\u003d\u003e bash_completion source string already in /home/lsandov1/.bashrc\n\u003d\u003e Close and reopen your terminal to start using nvm or run the following to use it now:\n\nexport NVM_DIR\u003d\"$HOME/.nvm\"\n[ -s \"$NVM_DIR/nvm.sh\" ] \u0026\u0026 \\. \"$NVM_DIR/nvm.sh\"  # This loads nvm\n[ -s \"$NVM_DIR/bash_completion\" ] \u0026\u0026 \\. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion",
+      "parentUuid": "2bb13211_cc1948ac",
+      "revId": "d330208e1ac20613e47d3d81a12d871a90c1f341",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc9a0da6_e6724570",
