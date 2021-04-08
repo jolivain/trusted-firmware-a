@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73d1cc36_0f736c49",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-04-08T09:35:48Z",
+      "side": 1,
+      "message": "comment should be:\n\n/*\n * ...\n */",
+      "revId": "493844956d84a7034271074b41769dccf38049b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3426271c_220c0f7a",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-04-08T09:35:48Z",
+      "side": 1,
+      "message": "minor: those lines could be aligned with open parenthesis",
+      "revId": "493844956d84a7034271074b41769dccf38049b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2787416a_92e43aa5",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-04-08T09:35:48Z",
+      "side": 1,
+      "message": "missing braces for MISRA compliance",
+      "revId": "493844956d84a7034271074b41769dccf38049b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc79c35c_b914d896",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-04-08T09:35:48Z",
+      "side": 1,
+      "message": "minor: this line could also be aligned with open parenthesis",
+      "revId": "493844956d84a7034271074b41769dccf38049b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3963b2f_dc598a8b",
+        "filename": "include/drivers/mmc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-04-08T09:35:48Z",
+      "side": 1,
+      "message": "could be changed to: GENMASK(2, 0)",
+      "range": {
+        "startLine": 66,
+        "startChar": 37,
+        "endLine": 66,
+        "endChar": 43
+      },
+      "revId": "493844956d84a7034271074b41769dccf38049b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e5e6f8d_23923a24",
+        "filename": "include/drivers/mmc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-04-08T09:35:48Z",
+      "side": 1,
+      "message": "I\u0027d prefer:\n\n#define PART_CFG_BOOT_PART_EN_MASK\tGENMASK(5, 3)\n#define PART_CFG_BOOT_PART_EN_SHIFT\t3\n#define PART_CFG_CURRENT_BOOT_PARTITION\t(((x) \u0026 PART_CFG_BOOT_PART_EN_MASK) \u003e\u003e \\\n\t\t\t\t\t PART_CFG_BOOT_PART_EN_SHIFT)",
+      "revId": "493844956d84a7034271074b41769dccf38049b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
