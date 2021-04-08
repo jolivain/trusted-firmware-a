@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "7d6536b6_e0d1a62c",
         "filename": "drivers/arm/dcc/dcc_console.c",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Can you please review https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering to update the ordering?",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "3b558708_bb8f6f84",
         "filename": "drivers/arm/dcc/dcc_console.c",
@@ -32,10 +33,28 @@
       "message": "Will check and update in v2.",
       "parentUuid": "7d6536b6_e0d1a62c",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbeed3d7_9c978133",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2021-04-08T06:45:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3b558708_bb8f6f84",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "8c6c58c7_a99572bc",
         "filename": "drivers/arm/dcc/dcc_console.c",
@@ -55,10 +74,10 @@
         "endChar": 32
       },
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "6079a408_c353c7c6",
         "filename": "drivers/arm/dcc/dcc_console.c",
@@ -79,10 +98,34 @@
         "endChar": 32
       },
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fd8b088_8f809638",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2021-04-08T06:45:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6079a408_c353c7c6",
+      "range": {
+        "startLine": 39,
+        "startChar": 23,
+        "endLine": 39,
+        "endChar": 32
+      },
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "e1d934a8_be0317a1",
         "filename": "drivers/arm/dcc/dcc_console.c",
@@ -102,10 +145,10 @@
         "endChar": 32
       },
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "492305b0_24ce4446",
         "filename": "drivers/arm/dcc/dcc_console.c",
@@ -126,10 +169,34 @@
         "endChar": 32
       },
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e91c288e_81ae9627",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2021-04-08T06:45:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "492305b0_24ce4446",
+      "range": {
+        "startLine": 40,
+        "startChar": 23,
+        "endLine": 40,
+        "endChar": 32
+      },
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "78b48d55_f797b7cc",
         "filename": "drivers/arm/dcc/dcc_console.c",
@@ -143,10 +210,10 @@
       "side": 1,
       "message": "Can you try to use macros from arch_helpers.h instead?",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c92823fd_c9603202",
         "filename": "drivers/arm/dcc/dcc_console.c",
@@ -161,10 +228,28 @@
       "message": "Will check and update in v2.",
       "parentUuid": "78b48d55_f797b7cc",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "616f5932_6ee90a47",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2021-04-08T06:45:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c92823fd_c9603202",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "16341ff5_f6121a49",
         "filename": "drivers/arm/dcc/dcc_console.c",
@@ -178,10 +263,10 @@
       "side": 1,
       "message": "should we worry about potential hangs? infinite loops makes me nervous. Suggest adding a timeout",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "956ec4af_59232a99",
         "filename": "drivers/arm/dcc/dcc_console.c",
@@ -196,10 +281,28 @@
       "message": "Will check and update in v2.",
       "parentUuid": "16341ff5_f6121a49",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b3930f6_3d1688d9",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2021-04-08T06:45:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "956ec4af_59232a99",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "0c628b1a_bd312df5",
         "filename": "drivers/arm/dcc/dcc_console.c",
@@ -213,10 +316,10 @@
       "side": 1,
       "message": "should we worry about potential hangs? infinite loops makes me nervous. Suggest adding a timeout",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9b82fe6f_f38bb31a",
         "filename": "drivers/arm/dcc/dcc_console.c",
@@ -231,10 +334,28 @@
       "message": "Will check and update in v2.",
       "parentUuid": "0c628b1a_bd312df5",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "456a2b2f_1c409450",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2021-04-08T06:45:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9b82fe6f_f38bb31a",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "e8492c12_a08625bb",
         "filename": "drivers/arm/dcc/dcc_console.c",
@@ -248,10 +369,10 @@
       "side": 1,
       "message": "should we worry about potential hangs? infinite loops makes me nervous. Suggest adding a timeout",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "69866ea7_3390b255",
         "filename": "drivers/arm/dcc/dcc_console.c",
@@ -266,10 +387,28 @@
       "message": "Will check and update in v2.",
       "parentUuid": "e8492c12_a08625bb",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fed3e0f9_c3a4e229",
+        "filename": "drivers/arm/dcc/dcc_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2021-04-08T06:45:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "69866ea7_3390b255",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "9e77c295_772275d2",
         "filename": "include/drivers/arm/dcc.h",
@@ -283,10 +422,10 @@
       "side": 1,
       "message": "Can you please review https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering to update the ordering?",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "ac16e176_0caa04b5",
         "filename": "include/drivers/arm/dcc.h",
@@ -301,8 +440,25 @@
       "message": "Will check and update in v2.",
       "parentUuid": "9e77c295_772275d2",
       "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5fde62d_d29441fd",
+        "filename": "include/drivers/arm/dcc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2021-04-08T06:45:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ac16e176_0caa04b5",
+      "revId": "af0c09ce4bf21014f668b497192f2e740d4ec94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
