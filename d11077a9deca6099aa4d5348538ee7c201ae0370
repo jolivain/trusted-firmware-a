@@ -83,6 +83,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9af9da8f_bd0a5759",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-08T09:44:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4aead24b_62641549",
+      "range": {
+        "startLine": 170,
+        "startChar": 61,
+        "endLine": 170,
+        "endChar": 67
+      },
+      "revId": "d11077a9deca6099aa4d5348538ee7c201ae0370",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45c1ce72_26e49d48",
@@ -168,6 +192,24 @@
       "side": 1,
       "message": "Hi Manish\nWould it be possible for you to create a picture(using text/ascii characters) in the documentation representing the layout of the partitions along with offsets pointing to base of each FIP image?",
       "parentUuid": "5c24c5fd_9b0e8bed",
+      "revId": "d11077a9deca6099aa4d5348538ee7c201ae0370",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf4147af_fe9bdad9",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-08T09:44:15Z",
+      "side": 1,
+      "message": "Hi Madhukar,\nI updated the documentation with the diagram to show the FIP inside the GPT image. Let me know if that works for you. Thanks!",
+      "parentUuid": "f04aa5f7_d4fba828",
       "revId": "d11077a9deca6099aa4d5348538ee7c201ae0370",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
