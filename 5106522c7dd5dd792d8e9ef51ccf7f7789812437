@@ -294,6 +294,30 @@
       },
       "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "350cc15f_8d7436b6",
+        "filename": "services/std_svc/spm_mm/spm_mm_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-04-09T22:21:31Z",
+      "side": 1,
+      "message": "I dont agree with your reasoning, Raghu and Mayur. My ask is simple, plat_get_secure_partition_boot_info() returns the same information as the newly added platform handlers. I dont see a need for these new platform handlers as we can use the member variables from sp_boot_info to achieve the same outcome.\n\nI dont see why it matters if we set the pagetables before or after a call to plat_get_secure_partition_boot_info()? This function only returns static information that will not change if the MMU is disabled/enabled.\n\nI think the original code should have used this approach.",
+      "parentUuid": "19e6bbf6_4400d220",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 45
+      },
+      "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
