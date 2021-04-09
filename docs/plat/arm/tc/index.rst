@@ -34,8 +34,8 @@ Build Procedure (TF-A only)
 
    .. code:: shell
 
-      make PLAT=tc0 BL33=<path_to_uboot.bin> \
-      SCP_BL2=<path_to_scp_ramfw.bin>  all fip
+      make PLAT=tc BL33=<path_to_uboot.bin> \
+      SCP_BL2=<path_to_scp_ramfw.bin> TARGET_PLATFORM={0,1} all fip
 
    Enable TBBR by adding the following options to the make command:
 
