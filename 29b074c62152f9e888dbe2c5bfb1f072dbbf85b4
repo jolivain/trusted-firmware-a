@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "efe20826_6bee911b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-04-09T09:26:39Z",
+      "side": 1,
+      "message": "The message seems to suggest there is a problem in the TF-A source, while there is not. The fdt_read_uint32_array() used previously does take care of endianess.\n\nThe current patch is making it easier for the user to copy paste UUID string from tools. The Hex representation was a bit incovenient.\n\nSo it has to be made more explicit.\n\nChanging representation of DT property is a breaking change for platforms so it needs flagging up. Suggest to add a \"NOTE:\" for platform integrators to flag this commit as a breaking change.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 32
+      },
+      "revId": "29b074c62152f9e888dbe2c5bfb1f072dbbf85b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "df9c1238_f5c2fb3d",
