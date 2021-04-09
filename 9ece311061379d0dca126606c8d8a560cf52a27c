@@ -233,6 +233,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da8fb1ae_3a8464b0",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2021-04-09T09:18:41Z",
+      "side": 1,
+      "message": "Sorry, but without fallback this breaks a nice property about STM32 TF-A: You can use the same image on SD, eMMC or flash as the boot source detection does the right thing. This is no longer possible if you hardcode eMMC specifics into the common function used for SD.\n\nAs for mutual exclusion, you can avoid the issue by specifying an order. My suggestion would be:\n\nif (eMMC \u0026\u0026 read_4_bytes_from_emmc(SZ_256K) \u003d\u003d \u0027STM\\x32\u0027) {\nemmc_boot_from_offset(SZ_256k);\n}\n/* if sd, or no valid header */\ncontinue with normal boot\n\nThis allows to use the same bootloader for both SD, eMMC + GPT, eMMC boot.",
+      "parentUuid": "a58b4abc_cc3df348",
+      "revId": "9ece311061379d0dca126606c8d8a560cf52a27c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4f725f4_327b8875",
         "filename": "plat/st/stm32mp1/platform.mk",
         "patchSetId": 1
