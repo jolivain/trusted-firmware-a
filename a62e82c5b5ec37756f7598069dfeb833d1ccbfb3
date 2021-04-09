@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3fcf2ac4_6ff9f43d",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-09T17:36:25Z",
+      "side": 1,
+      "message": "Hmm\nThis is a good point. It\u0027s mainly to protect against use by people who don\u0027t know very much about UUIDs. Assuming they\u0027re honest about the length of their buffer, the function will fail rather than buffer-overflow.\n\nHowever, I can see that it\u0027s maybe a bit superfluous. Should I remove this?",
+      "parentUuid": "03e0811b_b0245bf0",
+      "range": {
+        "startLine": 160,
+        "startChar": 5,
+        "endLine": 160,
+        "endChar": 24
+      },
+      "revId": "a62e82c5b5ec37756f7598069dfeb833d1ccbfb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "85bffae3_4a411eb7",
         "filename": "common/uuid.c",
         "patchSetId": 6
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-09T15:44:12Z",
       "side": 1,
       "message": "The compiler would probably optimize this, but wouldn\u0027t it be better (slightly efficient) assert((hex_src_len \u0026 0x01) \u003d\u003d 0U) instead?",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 34
+      },
+      "revId": "a62e82c5b5ec37756f7598069dfeb833d1ccbfb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0476c5a8_52539264",
+        "filename": "common/uuid.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-09T17:36:25Z",
+      "side": 1,
+      "message": "Hmm\nI disagree - this will probably be optimized to \u0027\u0026\u0027 by the compiler as you say. Even further - because this is a static function the entire assert statement is probably optimized out after constant propagation.\nIt\u0027s only there to communicate the intent that the argument should be a multiple of 2, and I think modulo communicates this most clearly.",
+      "parentUuid": "85bffae3_4a411eb7",
       "range": {
         "startLine": 44,
         "startChar": 1,
@@ -95,6 +143,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1a83aee4_e23e2bc5",
+        "filename": "common/uuid.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-09T17:36:25Z",
+      "side": 1,
+      "message": "Similarly to below, I think the extra validation code would clutter the function unnecessarily, for little benefit. The worst case here is that someone parses a different string of the right length with hex characters in all the right places, and it is parsed as a UUID. The extra validation is only slightly helpful.\n\nThere seems to be no great danger in ignoring the \u0027-\u0027es, as there are no memory safety issues. I agree it would be neater to validate them, but I feel that the readability penalty is quite high.\n\nWhat do you think?",
+      "parentUuid": "269b911a_532f409b",
+      "range": {
+        "startLine": 85,
+        "startChar": 1,
+        "endLine": 85,
+        "endChar": 19
+      },
+      "revId": "a62e82c5b5ec37756f7598069dfeb833d1ccbfb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1aea0584_eb433d70",
         "filename": "common/uuid.c",
         "patchSetId": 6
@@ -106,6 +178,30 @@
       "writtenOn": "2021-04-09T15:44:12Z",
       "side": 1,
       "message": "If the previous call to read_hex() returned error you could just return with your error code instead of keep on going. You couldn\u0027t use the value anyway and in general that would be safer than keep on going with a malformed argument.",
+      "range": {
+        "startLine": 89,
+        "startChar": 1,
+        "endLine": 89,
+        "endChar": 32
+      },
+      "revId": "a62e82c5b5ec37756f7598069dfeb833d1ccbfb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54534126_0223cbed",
+        "filename": "common/uuid.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-09T17:36:25Z",
+      "side": 1,
+      "message": "I thought long and hard about this issue when I first wrote this function.\nIn theory I agree, but the many if statements that would be required would decrease readability and distract from the main point of what the function is doing I think.\n\nAt this point, we\u0027ve already checked the length of the string so we have already traversed the full length of the input buffer if we\u0027re here, so we know it\u0027s safe to visit all parts of the string. Likewise, the read_hex() function is robust enough to any input that it should fail gracefully, and the we guarantee that the dest buffer is long enough. The worst we can do by continuing to parse is write some weird values to the dest buffer.\n\nThis seems like a fair price to pay for the neatness and readability gain.\n\nI can add this validation, though, if it seems best to you.",
+      "parentUuid": "1aea0584_eb433d70",
       "range": {
         "startLine": 89,
         "startChar": 1,
