@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92c8228e_b2d862be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-04-09T02:15:55Z",
+      "side": 1,
+      "message": "I think the length of the message body needs to be reduced to fix the weird wrapping on gerrit.",
+      "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0ce9941_05718a0b",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-04-09T02:15:55Z",
+      "side": 1,
+      "message": "Why was this changed?",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b6d26cc_1b136554",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-04-09T02:15:55Z",
+      "side": 1,
+      "message": "Why was this changed?",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4be116b6_117f909e",
+        "filename": "plat/arm/css/sgi/sgi_plat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-04-09T02:15:55Z",
+      "side": 1,
+      "message": "Why was this changed?",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "481921ce_5f309d71",
+        "filename": "services/std_svc/spm_mm/spm_mm_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-04-09T02:15:55Z",
+      "side": 1,
+      "message": "IIUC \u0027sp_boot_info\u0027 contains the same information. Sorry, I didnt realize this earlier, but can we move this statement to the start of the function and then use \u0027sp_boot_info\u0027 member variables? If yes, we wont need the platform callback functions.",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 45
+      },
+      "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
