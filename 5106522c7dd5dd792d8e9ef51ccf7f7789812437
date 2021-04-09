@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bddf8c2d_c1424df7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000438
+      },
+      "writtenOn": "2021-04-09T17:37:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "92c8228e_b2d862be",
+      "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0ce9941_05718a0b",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-04-09T02:15:55Z",
       "side": 1,
       "message": "Why was this changed?",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed58be4b_9c6fc08a",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000438
+      },
+      "writtenOn": "2021-04-09T17:37:27Z",
+      "side": 1,
+      "message": "well, rebase was not done right. Will fix it. Thanks",
+      "parentUuid": "f0ce9941_05718a0b",
       "range": {
         "startLine": 2,
         "startChar": 25,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d466e4e8_7aa72f28",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000438
+      },
+      "writtenOn": "2021-04-09T17:37:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6b6d26cc_1b136554",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4be116b6_117f909e",
@@ -87,6 +153,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec77a376_69167d1f",
+        "filename": "plat/arm/css/sgi/sgi_plat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000438
+      },
+      "writtenOn": "2021-04-09T17:37:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4be116b6_117f909e",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "481921ce_5f309d71",
@@ -100,6 +190,30 @@
       "writtenOn": "2021-04-09T02:15:55Z",
       "side": 1,
       "message": "IIUC \u0027sp_boot_info\u0027 contains the same information. Sorry, I didnt realize this earlier, but can we move this statement to the start of the function and then use \u0027sp_boot_info\u0027 member variables? If yes, we wont need the platform callback functions.",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 45
+      },
+      "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "410d18c0_bdb99751",
+        "filename": "services/std_svc/spm_mm/spm_mm_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000438
+      },
+      "writtenOn": "2021-04-09T17:37:27Z",
+      "side": 1,
+      "message": "My understanding of code flow, sp_boot_info is passed to and consumed by SP. So spm_mm_setup function is first setting up context, page tables with memory regions and then calling for SP boot info which has this mem regions. So hence they have done it this way. Let me know if you think otherwise.",
+      "parentUuid": "481921ce_5f309d71",
       "range": {
         "startLine": 209,
         "startChar": 0,
