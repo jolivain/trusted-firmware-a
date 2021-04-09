@@ -270,6 +270,30 @@
       },
       "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19e6bbf6_4400d220",
+        "filename": "services/std_svc/spm_mm/spm_mm_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-04-09T21:58:44Z",
+      "side": 1,
+      "message": "I think that cleanup can be done as part of a separate patch. This patch is easy to review the way it is and a follow up patch could do what Varun is asking.",
+      "parentUuid": "f9525b92_599f2c10",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 45
+      },
+      "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
