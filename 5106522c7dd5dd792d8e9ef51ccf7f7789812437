@@ -246,6 +246,30 @@
       },
       "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9525b92_599f2c10",
+        "filename": "services/std_svc/spm_mm/spm_mm_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000438
+      },
+      "writtenOn": "2021-04-09T20:50:00Z",
+      "side": 1,
+      "message": "Well, thats not what I meant. I am talking about the flow which original code has adopted. The change which you are suggesting should have worked before new platform handlers were introduced too. But I think they chose to not do it that way because of the reason specified in my first comment.",
+      "parentUuid": "a6170083_a1d25819",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 45
+      },
+      "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
