@@ -251,6 +251,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7cece08_19b2fe5e",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-09T09:30:25Z",
+      "side": 1,
+      "message": "The question is where\u0027s a proper place for that. Currently plat/st/common/bl2_io_storage.c doesn\u0027t deal with lower level functions and I don\u0027t think calling something like \"check for STM32\" header directory from there is not a right thing to do, isn\u0027t it?",
+      "parentUuid": "da8fb1ae_3a8464b0",
+      "revId": "9ece311061379d0dca126606c8d8a560cf52a27c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4f725f4_327b8875",
         "filename": "plat/st/stm32mp1/platform.mk",
         "patchSetId": 1
