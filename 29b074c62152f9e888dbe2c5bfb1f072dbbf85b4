@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a9187ae_9bb86a43",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-09T11:34:55Z",
+      "side": 1,
+      "message": "This patch has now been split into 2, the other patch being here:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/9563\n\nI have added a sentence to the other commit message that should make it clearer - let me know what you think.",
+      "parentUuid": "efe20826_6bee911b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 32
+      },
+      "revId": "29b074c62152f9e888dbe2c5bfb1f072dbbf85b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "df9c1238_f5c2fb3d",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-04-08T11:28:56Z",
       "side": 1,
       "message": "Could you please divide this patch in two\n1. Generic patch: Introducing fdt API for reading UUID\n2. Platform specific patch: change in plat/arm",
+      "revId": "29b074c62152f9e888dbe2c5bfb1f072dbbf85b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b7f6aa8_4f6e1404",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-09T11:34:55Z",
+      "side": 1,
+      "message": "Done - other patch is here:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/9563",
+      "parentUuid": "df9c1238_f5c2fb3d",
       "revId": "29b074c62152f9e888dbe2c5bfb1f072dbbf85b4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
