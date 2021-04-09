@@ -222,6 +222,30 @@
       },
       "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6170083_a1d25819",
+        "filename": "services/std_svc/spm_mm/spm_mm_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-04-09T19:25:33Z",
+      "side": 1,
+      "message": "I dont think the memmap should affect the return value from plat_get_secure_partition_boot_info. This platform handler only returns a static configuration. The newly introduced platform handlers return the same values IIUC. I beleive if we call plat_get_secure_partition_boot_info() earlier, then we can use sp_boot_info member variables and can remove the usage of PLAT_SPM* macros from this function.",
+      "parentUuid": "410d18c0_bdb99751",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 45
+      },
+      "revId": "5106522c7dd5dd792d8e9ef51ccf7f7789812437",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
