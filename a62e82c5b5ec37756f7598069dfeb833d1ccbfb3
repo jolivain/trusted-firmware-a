@@ -118,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "451c6093_be1ba844",
+        "filename": "common/uuid.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-09T17:50:57Z",
+      "side": 1,
+      "message": "Since this is separate from libfdt, it doesn\u0027t have libfdt.h and associated return values. I have fixed this in fdt_wrappers.c though.",
+      "parentUuid": "76834de3_436b0034",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 12
+      },
+      "revId": "a62e82c5b5ec37756f7598069dfeb833d1ccbfb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "269b911a_532f409b",
