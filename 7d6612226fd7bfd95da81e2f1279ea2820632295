@@ -96,6 +96,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef992551_2556884b",
+        "filename": "drivers/st/io/io_mmc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-11T21:42:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "03f5be2f_9a029249",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 24
+      },
+      "revId": "7d6612226fd7bfd95da81e2f1279ea2820632295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2f7b8f9_80ec79f1",
@@ -240,6 +264,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "41e87ad2_94adb929",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-11T21:42:51Z",
+      "side": 1,
+      "message": "Does this mean \u0027eMMC user partition + GPT\u0027 should be covered under the \u0027STM32MP_EMMC_BOOT\u0027 option in a failure case (when invalid header at SZ_256K)? If yes, then IMO this patch needs to be restructured to have all three options you mentioned.",
+      "parentUuid": "4b08539f_525473f1",
+      "range": {
+        "startLine": 325,
+        "startChar": 7,
+        "endLine": 325,
+        "endChar": 24
+      },
+      "revId": "7d6612226fd7bfd95da81e2f1279ea2820632295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee4bf652_884d752a",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 7
@@ -275,6 +323,30 @@
       "side": 1,
       "message": "The mmc_block_dev_spec and storage_dev_handle are used to read the GPT table. I wonder if the io_dev_open is correct then, and if it could directly use another io_block_dev_spec_t struct, with the mmc_boot_part_read_blocks() read function in its ops?",
       "parentUuid": "ee4bf652_884d752a",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 24
+      },
+      "revId": "7d6612226fd7bfd95da81e2f1279ea2820632295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7626ab7_2f8f788d",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-11T21:42:51Z",
+      "side": 1,
+      "message": "Thanks, Yann!\nYes, creating another io_block_dev_spec_t struct and adding mmc_boot_part_read_blocks() read function in its ops looks to be cleaner approach.",
+      "parentUuid": "986c1d46_54697c58",
       "range": {
         "startLine": 333,
         "startChar": 0,
