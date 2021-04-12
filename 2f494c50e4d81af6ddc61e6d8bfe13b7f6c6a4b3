@@ -16,6 +16,24 @@
       "message": "With commitizen being added the -s flag doesn\u0027t seem to work meaning you need to do git commit --amend -s after the original commit to sign the commits. Can this be fixed?",
       "revId": "2f494c50e4d81af6ddc61e6d8bfe13b7f6c6a4b3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ea0e365_79216190",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-04-12T18:28:45Z",
+      "side": 1,
+      "message": "I\u0027ve managed to work around this, and have reported the bug: https://github.com/commitizen/cz-cli/issues/820",
+      "parentUuid": "ba9338dd_429933c3",
+      "revId": "2f494c50e4d81af6ddc61e6d8bfe13b7f6c6a4b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
