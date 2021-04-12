@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c3bd2ad7_71295d2d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-12T07:25:57Z",
+      "side": 1,
+      "message": "nit: BL31",
+      "range": {
+        "startLine": 10,
+        "startChar": 56,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "c0f5f13148165167c370a5a1ca647e543c20e1f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94b5b68f_53baca07",
         "filename": "include/plat/arm/common/plat_arm.h",
         "patchSetId": 1
@@ -19,6 +42,52 @@
         "startChar": 5,
         "endLine": 348,
         "endChar": 21
+      },
+      "revId": "c0f5f13148165167c370a5a1ca647e543c20e1f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fc89523_a9d2dd40",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-12T07:25:57Z",
+      "side": 1,
+      "message": "nit: no need for parentheses",
+      "range": {
+        "startLine": 196,
+        "startChar": 4,
+        "endLine": 196,
+        "endChar": 17
+      },
+      "revId": "c0f5f13148165167c370a5a1ca647e543c20e1f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ef5704f_80caa28b",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-12T07:25:57Z",
+      "side": 1,
+      "message": "nit: move after line #294 to group with the other [ SPMD+EL1/EL2 SPMC ] implementation.",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 5
       },
       "revId": "c0f5f13148165167c370a5a1ca647e543c20e1f9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
