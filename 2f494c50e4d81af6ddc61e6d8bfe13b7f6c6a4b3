@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba9338dd_429933c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-04-12T14:34:15Z",
+      "side": 1,
+      "message": "With commitizen being added the -s flag doesn\u0027t seem to work meaning you need to do git commit --amend -s after the original commit to sign the commits. Can this be fixed?",
+      "revId": "2f494c50e4d81af6ddc61e6d8bfe13b7f6c6a4b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
