@@ -336,6 +336,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2707b7f8_62a602e2",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2021-04-12T09:07:27Z",
+      "side": 1,
+      "message": "Yes. 1.b and 2 are the same code. Only difference with STM32MP_EMMC_BOOT should be that eMMC boot partitions are tried first, _if_ device is a eMMC.",
+      "parentUuid": "6819d4e2_96f1163c",
+      "range": {
+        "startLine": 325,
+        "startChar": 7,
+        "endLine": 325,
+        "endChar": 24
+      },
+      "revId": "7d6612226fd7bfd95da81e2f1279ea2820632295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee4bf652_884d752a",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 7
