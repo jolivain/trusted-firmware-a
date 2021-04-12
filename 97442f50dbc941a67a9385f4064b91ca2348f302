@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97fb2aae_7d110d13",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-12T07:25:41Z",
+      "side": 1,
+      "message": "FF-A",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 10
+      },
+      "revId": "97442f50dbc941a67a9385f4064b91ca2348f302",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42b2fd82_64852503",
+        "filename": "services/std_svc/spm/common/include/spm_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-12T07:25:41Z",
+      "side": 1,
+      "message": "Should this remain in spm_mm_svc.h (MM_COMMUNICATE_AARCH32/64)?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 59
+      },
+      "revId": "97442f50dbc941a67a9385f4064b91ca2348f302",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8082f7a7_c93df237",
+        "filename": "services/std_svc/spm/common/include/spm_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-12T07:25:41Z",
+      "side": 1,
+      "message": "Should \"MM\" prefixes be removed from this common file?",
+      "revId": "97442f50dbc941a67a9385f4064b91ca2348f302",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "109adc25_47de8709",
+        "filename": "services/std_svc/spm/common/spm_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-12T07:25:41Z",
+      "side": 1,
+      "message": "Actively reading the state while locking/unlocking looks prone to contention.\nWill it happen the SP is called from multiple cores concurrently? This might not scale well to many cores.\nI know this comes from the initial SPM MM design but a bit of re-thinking may be needed there especially if the intent is to support multiple SPs as well.",
+      "revId": "97442f50dbc941a67a9385f4064b91ca2348f302",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f17399fc_e7b26e3c",
+        "filename": "services/std_svc/spm/common/spm_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-12T07:25:41Z",
+      "side": 1,
+      "message": "Can\u0027t this use sp_state_try_switch?",
+      "range": {
+        "startLine": 47,
+        "startChar": 1,
+        "endLine": 55,
+        "endChar": 37
+      },
+      "revId": "97442f50dbc941a67a9385f4064b91ca2348f302",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49ece7de_23a510a2",
+        "filename": "services/std_svc/spm/common/spm_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-12T07:25:41Z",
+      "side": 1,
+      "message": "Is this required when a single SP exists?",
+      "range": {
+        "startLine": 97,
+        "startChar": 1,
+        "endLine": 99,
+        "endChar": 10
+      },
+      "revId": "97442f50dbc941a67a9385f4064b91ca2348f302",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
