@@ -280,6 +280,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ffd6eb0_f20f6ecb",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T19:47:16Z",
+      "side": 1,
+      "message": "Ok, so there was an off by one here because I am using the mask instead of the size which meant the last access would incorrectly fail. Which probably could have existing for a while before someone actually plugged in a device with exactly a 4k config space.\n\nI\u0027m going to mark this resolved because I don\u0027t think there is an \"overflow\" problem.",
+      "parentUuid": "07eaf656_bc80ab89",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 36
+      },
+      "revId": "6768eaafed916c16fa063c7507c6a2ac4d8bfd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e40303d7_76dab31a",
@@ -351,6 +375,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6e5f814_6f9b3d75",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T19:47:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7082caa1_975fd831",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 17
+      },
+      "revId": "6768eaafed916c16fa063c7507c6a2ac4d8bfd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44fe0c9a_d78e93ae",
@@ -412,6 +460,30 @@
       "side": 1,
       "message": "Understood. Thanks.",
       "parentUuid": "0749107f_85a18349",
+      "range": {
+        "startLine": 92,
+        "startChar": 37,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "6768eaafed916c16fa063c7507c6a2ac4d8bfd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1cd4a2f_d9bee9a2",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T19:47:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a13fd863_fdb522a4",
       "range": {
         "startLine": 92,
         "startChar": 37,
