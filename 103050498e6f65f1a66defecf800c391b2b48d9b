@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "650b0f41_1b43c1cd",
         "filename": "/COMMIT_MSG",
@@ -20,10 +21,10 @@
         "endChar": 12
       },
       "revId": "103050498e6f65f1a66defecf800c391b2b48d9b",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "99816b58_4aa011c4",
         "filename": "/COMMIT_MSG",
@@ -44,10 +45,10 @@
         "endChar": 12
       },
       "revId": "103050498e6f65f1a66defecf800c391b2b48d9b",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9f750d07_1380aef0",
         "filename": "include/services/std_svc.h",
@@ -61,10 +62,10 @@
       "side": 1,
       "message": "Not sure if this is the right place to put the definitions. Other standard services such as PSCI are defined in include/lib directory.",
       "revId": "103050498e6f65f1a66defecf800c391b2b48d9b",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2a1fe98e_fbb5f802",
         "filename": "include/services/std_svc.h",
@@ -79,10 +80,10 @@
       "message": "I\u0027ve moved this into pci_svc.h",
       "parentUuid": "9f750d07_1380aef0",
       "revId": "103050498e6f65f1a66defecf800c391b2b48d9b",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "577b55b0_47dceb08",
         "filename": "include/services/std_svc.h",
@@ -97,10 +98,10 @@
       "message": "Ack",
       "parentUuid": "2a1fe98e_fbb5f802",
       "revId": "103050498e6f65f1a66defecf800c391b2b48d9b",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a99d6d83_c9cbee56",
         "filename": "include/services/std_svc.h",
@@ -120,10 +121,34 @@
         "endChar": 7
       },
       "revId": "103050498e6f65f1a66defecf800c391b2b48d9b",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95d0595f_3305c689",
+        "filename": "include/services/std_svc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-13T15:00:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a99d6d83_c9cbee56",
+      "range": {
+        "startLine": 17,
+        "startChar": 3,
+        "endLine": 17,
+        "endChar": 7
+      },
+      "revId": "103050498e6f65f1a66defecf800c391b2b48d9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "ab9e2338_cea795af",
         "filename": "include/services/std_svc.h",
@@ -143,10 +168,10 @@
         "endChar": 33
       },
       "revId": "103050498e6f65f1a66defecf800c391b2b48d9b",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "69148411_a4140540",
         "filename": "include/services/std_svc.h",
@@ -167,8 +192,7 @@
         "endChar": 33
       },
       "revId": "103050498e6f65f1a66defecf800c391b2b48d9b",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
