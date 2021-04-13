@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "1154849a_4ef81b6f",
         "filename": "/COMMIT_MSG",
@@ -20,10 +21,10 @@
         "endChar": 33
       },
       "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2bfff7a9_e8cf5ba3",
         "filename": "/COMMIT_MSG",
@@ -44,10 +45,10 @@
         "endChar": 33
       },
       "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0aa71edc_66d7aa6c",
         "filename": "services/std_svc/std_svc_setup.c",
@@ -61,10 +62,10 @@
       "side": 1,
       "message": "MISRA rules 10.1 and 14.4 - this should be:\nif (pci_read_config(...) !\u003d 0U)",
       "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "1541e617_bd0ac1c1",
         "filename": "services/std_svc/std_svc_setup.c",
@@ -79,10 +80,10 @@
       "message": "Done",
       "parentUuid": "0aa71edc_66d7aa6c",
       "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "35babdbc_ce12608f",
         "filename": "services/std_svc/std_svc_setup.c",
@@ -96,10 +97,10 @@
       "side": 1,
       "message": "MISRA rule 10.1 - this needs to be:\nif ((x2 !\u003d 0U) || (x3 !\u003d 0U) || (x4 !\u003d 0U)) {\nas the operands of the \u0027||\u0027 must have essentially boolean type.",
       "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "a8c0972b_48d18021",
         "filename": "services/std_svc/std_svc_setup.c",
@@ -114,10 +115,10 @@
       "message": "Done",
       "parentUuid": "35babdbc_ce12608f",
       "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f776b930_12ece149",
         "filename": "services/std_svc/std_svc_setup.c",
@@ -137,10 +138,10 @@
         "endChar": 10
       },
       "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "454838a8_158e862b",
         "filename": "services/std_svc/std_svc_setup.c",
@@ -154,10 +155,10 @@
       "side": 1,
       "message": "I need to point out that my own testing found a compliance (bug) issue with the spec here. So if anyone is testing/looking at this code. Its wrong, and I need to add another parameter to pci_get_bus_for_seg() and handle the return properly.",
       "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "286cfcba_69ef676f",
         "filename": "services/std_svc/std_svc_setup.c",
@@ -178,10 +179,28 @@
         "endChar": 10
       },
       "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3193c66_91655e2a",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T20:19:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "454838a8_158e862b",
+      "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "a7e65274_3d8d8d67",
         "filename": "services/std_svc/std_svc_setup.c",
@@ -201,10 +220,10 @@
         "endChar": 0
       },
       "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f8b19fe1_bc694069",
         "filename": "services/std_svc/std_svc_setup.c",
@@ -225,8 +244,31 @@
         "endChar": 0
       },
       "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69d7fdaa_29ef6e00",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T20:19:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8b19fe1_bc694069",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 0
+      },
+      "revId": "84ae155dcf126188dbc7cb37429e831c26001500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
