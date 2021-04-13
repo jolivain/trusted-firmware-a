@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "613d9bd8_e397fc5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-04-13T23:46:23Z",
+      "side": 1,
+      "message": "Thanks for the responses Julius! Agreed that it\u0027s hard to figure out what\u0027s going wrong here.",
+      "revId": "0ff42b17c6a71cd4cb0ca6a93a3cace744bf7ec8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9791df1_c10bdf2b",
@@ -18,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b17757d0_71d29bf7",
+        "filename": "plat/rockchip/rk3399/drivers/dram/suspend.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-04-13T23:46:23Z",
+      "side": 1,
+      "message": "I tested with only this patch, applied to master. It does seem to be missing a step where the watchdog is enabled, as it stops/crashes after it gets back into Linux as it\u0027s turning CPUs. For what it\u0027s worth, the timeout looked something like 250ms, which does not match the 8s figure in the code. Perhaps it\u0027s not running at the speed we think it\u0027s running at?",
+      "parentUuid": "d9791df1_c10bdf2b",
+      "revId": "0ff42b17c6a71cd4cb0ca6a93a3cace744bf7ec8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "839f7782_7ad005e8",
@@ -31,6 +66,24 @@
       "writtenOn": "2021-04-13T22:08:30Z",
       "side": 1,
       "message": "(Gotta be honest, I know it\u0027s hard to do this without support from Rockchip and I understand it\u0027s better than LPDDR4 not working at all, but this doesn\u0027t look right at all. You\u0027re basically skipping the whole training step and then just running the controller with god knows what settings. Maybe this worked a few times in your test environment when you just suspend a device and resume it again a few seconds later, but I don\u0027t think it could really be reliable long-term when you suspend a device in one environment and resume it in another days later. Perhaps you comparing with the training code in U-Boot could help you figure out what is missing here?)",
+      "revId": "0ff42b17c6a71cd4cb0ca6a93a3cace744bf7ec8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fc30eec_e76d5ea2",
+        "filename": "plat/rockchip/rk3399/drivers/dram/suspend.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2021-04-13T23:46:23Z",
+      "side": 1,
+      "message": "I appreciate the honesty. For what it\u0027s worth, `dram_switch_to_next_index` also does training, so we\u0027re not skipping all training, we\u0027re skipping the first set of training.",
+      "parentUuid": "839f7782_7ad005e8",
       "revId": "0ff42b17c6a71cd4cb0ca6a93a3cace744bf7ec8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
