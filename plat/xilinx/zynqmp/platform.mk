@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
@@ -15,7 +15,7 @@ override GICV2_G0_FOR_EL3 := 1
 override WARMBOOT_ENABLE_DCACHE_EARLY := 1
 
 # Do not enable SVE
-ENABLE_SVE_FOR_NS	:= 0
+ENABLE_SVE	:= 0
 
 WORKAROUND_CVE_2017_5715	:=	0
 

@@ -334,7 +334,7 @@ static void enable_extensions_nonsecure(bool el2_unused)
 	amu_enable(el2_unused);
 #endif
 
-#if ENABLE_SVE_FOR_NS
+#if ENABLE_SVE
 	sve_enable(el2_unused);
 #endif
 

@@ -274,16 +274,12 @@ Common build options
    The default is 1 but is automatically disabled when the target architecture
    is AArch32.
 
--  ``ENABLE_SVE_FOR_NS``: Boolean option to enable Scalable Vector Extension
-   (SVE) for the Non-secure world only. SVE is an optional architectural feature
-   for AArch64. Note that when SVE is enabled for the Non-secure world, access
-   to SIMD and floating-point functionality from the Secure world is disabled.
-   This is to avoid corruption of the Non-secure world data in the Z-registers
-   which are aliased by the SIMD and FP registers. The build option is not
+-  ``ENABLE_SVE``: Boolean option to enable Scalable Vector Extension (SVE). SVE
+   is an optional architectural feature for AArch64. The build option is not
    compatible with the ``CTX_INCLUDE_FPREGS`` build option, and will raise an
-   assert on platforms where SVE is implemented and ``ENABLE_SVE_FOR_NS`` set to
-   1. The default is 1 but is automatically disabled when the target
-   architecture is AArch32.
+   assert on platforms where SVE is implemented and ``ENABLE_SVE`` set to 1. The
+   default is 1 but is automatically disabled when the target architecture is
+   AArch32.
 
 -  ``ENABLE_STACK_PROTECTOR``: String option to enable the stack protection
    checks in GCC. Allowed values are "all", "strong", "default" and "none". The
@@ -847,4 +843,4 @@ commands can be used:
 
 --------------
 
-*Copyright (c) 2019-2020, Arm Limited. All rights reserved.*
+*Copyright (c) 2019-2021, Arm Limited. All rights reserved.*

@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -216,4 +216,4 @@ ARM_PRELOADED_DTB_BASE := PLAT_QEMU_DT_BASE
 $(eval $(call add_define,ARM_PRELOADED_DTB_BASE))
 
 # Do not enable SVE
-ENABLE_SVE_FOR_NS	:=	0
+ENABLE_SVE	:=	0

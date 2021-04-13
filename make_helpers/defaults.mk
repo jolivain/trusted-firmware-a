@@ -300,9 +300,9 @@ AMU_RESTRICT_COUNTERS		:= 0
 # lower ELs
 # Note SVE is only supported on AArch64 - therefore do not enable in AArch32
 ifneq (${ARCH},aarch32)
-    ENABLE_SVE_FOR_NS		:= 1
+    ENABLE_SVE		:= 1
 else
-    override ENABLE_SVE_FOR_NS	:= 0
+    override ENABLE_SVE	:= 0
 endif
 
 SANITIZE_UB := off

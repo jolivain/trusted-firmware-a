@@ -118,4 +118,4 @@ ARM_PRELOADED_DTB_BASE := PLAT_QEMU_DT_BASE
 $(eval $(call add_define,ARM_PRELOADED_DTB_BASE))
 
 # Do not enable SVE
-ENABLE_SVE_FOR_NS	:= 0
+ENABLE_SVE	:= 0

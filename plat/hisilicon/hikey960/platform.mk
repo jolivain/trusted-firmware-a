@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -21,7 +21,7 @@ CRASH_CONSOLE_BASE		:=	PL011_UART6_BASE
 COLD_BOOT_SINGLE_CPU		:=	1
 PLAT_PL061_MAX_GPIOS		:=	232
 PROGRAMMABLE_RESET_ADDRESS	:=	1
-ENABLE_SVE_FOR_NS		:=	0
+ENABLE_SVE		:=	0
 PLAT_PARTITION_BLOCK_SIZE	:=	4096
 
 # Process flags

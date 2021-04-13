@@ -82,7 +82,7 @@ BL31_SOURCES		+=	lib/extensions/amu/aarch64/amu.c		\
 				lib/extensions/amu/aarch64/amu_helpers.S
 endif
 
-ifeq (${ENABLE_SVE_FOR_NS},1)
+ifeq (${ENABLE_SVE},1)
 BL31_SOURCES		+=	lib/extensions/sve/sve.c
 endif
 

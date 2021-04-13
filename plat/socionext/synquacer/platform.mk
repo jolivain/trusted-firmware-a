@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2018-2021, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -8,7 +8,7 @@ override RESET_TO_BL31			:= 1
 override PROGRAMMABLE_RESET_ADDRESS	:= 1
 override USE_COHERENT_MEM		:= 1
 override SEPARATE_CODE_AND_RODATA	:= 1
-override ENABLE_SVE_FOR_NS		:= 0
+override ENABLE_SVE		:= 0
 # Enable workarounds for selected Cortex-A53 erratas.
 ERRATA_A53_855873		:= 1
 # Enable SCMI support

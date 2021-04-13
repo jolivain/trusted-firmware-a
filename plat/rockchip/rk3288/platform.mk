@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2016-2021, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -64,6 +64,6 @@ include lib/libfdt/libfdt.mk
 $(eval $(call add_define,PLAT_SP_MIN_EXTRA_LD_SCRIPT))
 
 # Do not enable SVE
-ENABLE_SVE_FOR_NS	:=	0
+ENABLE_SVE	:=	0
 
 WORKAROUND_CVE_2017_5715	:=	0

@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -70,6 +70,6 @@ $(eval $(call add_define,PLAT_EXTRA_LD_SCRIPT))
 $(eval $(call add_define,PLAT_SKIP_OPTEE_S_EL1_INT_REGISTER))
 
 # Do not enable SVE
-ENABLE_SVE_FOR_NS	:=	0
+ENABLE_SVE	:=	0
 
 WORKAROUND_CVE_2017_5715	:=	0

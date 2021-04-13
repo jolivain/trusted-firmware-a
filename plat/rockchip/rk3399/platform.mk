@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2016-2021, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -110,4 +110,4 @@ $(RK3399M0FW): | ${BUILD_M0}
 	$(MAKE) -C ${RK_PLAT_SOC}/drivers/m0 BUILD=$(abspath ${BUILD_PLAT}/m0)
 
 # Do not enable SVE
-ENABLE_SVE_FOR_NS	:=	0
+ENABLE_SVE	:=	0

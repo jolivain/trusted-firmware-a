@@ -145,7 +145,7 @@ ERRATA_A72_859971		:=	0
 SKIP_A57_L1_FLUSH_PWR_DWN	:=	 1
 
 # Do not enable SVE
-ENABLE_SVE_FOR_NS		:=	0
+ENABLE_SVE		:=	0
 
 # Enable the dynamic translation tables library.
 ifeq (${ARCH},aarch32)

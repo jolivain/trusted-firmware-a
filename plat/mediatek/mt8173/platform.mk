@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2017, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -69,6 +69,6 @@ PROGRAMMABLE_RESET_ADDRESS	:=	1
 $(eval $(call add_define,MTK_SIP_SET_AUTHORIZED_SECURE_REG_ENABLE))
 
 # Do not enable SVE
-ENABLE_SVE_FOR_NS		:=	0
+ENABLE_SVE		:=	0
 
 MULTI_CONSOLE_API		:=	1

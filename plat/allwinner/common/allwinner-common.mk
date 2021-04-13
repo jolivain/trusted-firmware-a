@@ -68,7 +68,7 @@ COLD_BOOT_SINGLE_CPU		:=	1
 ENABLE_SPE_FOR_LOWER_ELS	:=	0
 
 # Do not enable SVE (not supported on ARM v8.0).
-ENABLE_SVE_FOR_NS		:=	0
+ENABLE_SVE		:=	0
 
 # Enable workarounds for Cortex-A53 errata. Allwinner uses at least r0p4.
 ERRATA_A53_835769		:=	1
