@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5804741_6f6711d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-04-13T09:16:35Z",
+      "side": 1,
+      "message": "Currently yes, but this can be used in future to pass other dt files from BL31 to BL33",
+      "parentUuid": "e38bf6f1_bb69924b",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 55
+      },
+      "revId": "2b6fc535840ddda7d696753e4136681c48a4d53e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dcc93bda_0426564f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-13T07:29:14Z",
       "side": 1,
       "message": "This seems to be a case to be further thought of (beyond this change) e.g. fTPM could well be implemented as a TA within a OP-TEE SP on top of Hafnium for the simplest case.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 29
+      },
+      "revId": "2b6fc535840ddda7d696753e4136681c48a4d53e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36c5f986_1f82bbe8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-04-13T09:16:35Z",
+      "side": 1,
+      "message": "Yes, you are right it certainly needs more thought.\n\nCurrently we do not have mechanism to pass cascaded information, we can pass information to next level (using x0) but in future if we come up with a design where we use x0/x1/x2/x3 to pass information then it is possible to pass info from BL31 to TA via hafnium-\u003eoptee-\u003eTA.\nImmediately consumed information will be passed in x0 and next level in x1 and so on, x1 will be x0 for 2nd interface.",
+      "parentUuid": "dcc93bda_0426564f",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -60,6 +108,41 @@
       "writtenOn": "2021-04-13T06:34:58Z",
       "side": 1,
       "message": "\u003e Patch Set 2: Verified-1\n\u003e \n\u003e Build Failed \n\u003e \n\u003e https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l2/2123/ : This Jenkins server is not publicly accessible. A core maintainer will let you know if this CI failure is blocking the merge of this patch.\n\nThere are infra failures possibly unrelated to this change.",
+      "revId": "2b6fc535840ddda7d696753e4136681c48a4d53e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a27fc3d4_1ec9ea75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-04-13T09:16:35Z",
+      "side": 1,
+      "message": "Yes, i tested this patch with currently failing CI testcase and it was successful",
+      "parentUuid": "a138f40e_069fe1aa",
+      "revId": "2b6fc535840ddda7d696753e4136681c48a4d53e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "195b2ed3_70008b68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-04-13T09:16:35Z",
+      "side": 1,
+      "message": "@Manish, if the looks good to you then we can get it merged.",
       "revId": "2b6fc535840ddda7d696753e4136681c48a4d53e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -125,6 +208,30 @@
       "side": 1,
       "message": "Thanks Olivier! \nCurrently , BL2 code always retrieve tos_fw-config address from this device tree and load the tos-fw_config in case of SPMD and TSPD only. With this understanding, can we not guard tos-fw_config node to avoid its un-necessary parsing (enable only for SPMD and TSPD) as below:\n#if defined(SPD_tspd) || defined(SPD_spmd)\ntos_fw-config {\n\tload-address \u003d \u003c0x0 0x04001500\u003e;\n\tmax-size \u003d \u003c0xB00\u003e;\n\tid \u003d \u003cTOS_FW_CONFIG_ID\u003e;\n};\n#endif\n\nThere is always option to enable parsing of this node using additional compilation switches.\nLet me know what you think? or am I missing something here?",
       "parentUuid": "b0e4c799_fbc6c0f0",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "2b6fc535840ddda7d696753e4136681c48a4d53e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa1c1523_e89d0154",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-04-13T09:16:35Z",
+      "side": 1,
+      "message": "Ack to Manish\u0027s first comment.",
+      "parentUuid": "db9f58b7_4b7d75e4",
       "range": {
         "startLine": 45,
         "startChar": 0,
