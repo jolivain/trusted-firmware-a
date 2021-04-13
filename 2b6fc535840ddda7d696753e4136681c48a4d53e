@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4820fd0a_a480df7d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-13T12:16:04Z",
+      "side": 1,
+      "message": "Yes it was the intent for the Hafnium Hypervisor case ;)",
+      "parentUuid": "e5804741_6f6711d5",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 55
+      },
+      "revId": "2b6fc535840ddda7d696753e4136681c48a4d53e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcc93bda_0426564f",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Yes, you are right it certainly needs more thought.\n\nCurrently we do not have mechanism to pass cascaded information, we can pass information to next level (using x0) but in future if we come up with a design where we use x0/x1/x2/x3 to pass information then it is possible to pass info from BL31 to TA via hafnium-\u003eoptee-\u003eTA.\nImmediately consumed information will be passed in x0 and next level in x1 and so on, x1 will be x0 for 2nd interface.",
       "parentUuid": "dcc93bda_0426564f",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 29
+      },
+      "revId": "2b6fc535840ddda7d696753e4136681c48a4d53e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae2aeaba_618c93c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-13T12:16:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "36c5f986_1f82bbe8",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -214,6 +262,24 @@
       "writtenOn": "2021-04-13T11:19:05Z",
       "side": 1,
       "message": "All failed tests passed in re-run",
+      "parentUuid": "a27fc3d4_1ec9ea75",
+      "revId": "2b6fc535840ddda7d696753e4136681c48a4d53e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f38d4bbd_379ab9d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-13T12:16:04Z",
+      "side": 1,
+      "message": "Ack.",
       "parentUuid": "a27fc3d4_1ec9ea75",
       "revId": "2b6fc535840ddda7d696753e4136681c48a4d53e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
