@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa479610_e6075f93",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T17:28:38Z",
+      "side": 1,
+      "message": "This is AFAIK the only sanitation/validation we can do in the generic case. All combinations of bus/device/function are valid, but the platform+hardware is required to assure that if a device isn\u0027t fitted into that portion of the address space that reads return as specified by the pcie spec (which says -1).",
+      "parentUuid": "5578eecb_a11af0a2",
+      "range": {
+        "startLine": 22,
+        "startChar": 40,
+        "endLine": 22,
+        "endChar": 44
+      },
+      "revId": "6768eaafed916c16fa063c7507c6a2ac4d8bfd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94d4acd6_29ced581",
         "filename": "services/std_svc/pci_svc.c",
         "patchSetId": 5
@@ -150,6 +174,30 @@
       "side": 1,
       "message": "Thanks for that explanation. Are you confident that (off + sz) \u003e PCI_OFFSET_MASK will always detect wrap around cases?",
       "parentUuid": "1f0b6b8e_20e99006",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 36
+      },
+      "revId": "6768eaafed916c16fa063c7507c6a2ac4d8bfd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f39e61ce_d4ec4a1e",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T17:28:38Z",
+      "side": 1,
+      "message": "Its possible the platform code can mess up and write a size \u003e than the requested sz at an unaligned offset and overflow the 4K device window. I don\u0027t think its possible to validate that in this code path. The platform code will have to be carefully reviewed to assure that if that happens to matter on the given platform, the case is handled correctly.",
+      "parentUuid": "8dbebbd8_3ce8ac44",
       "range": {
         "startLine": 35,
         "startChar": 1,
