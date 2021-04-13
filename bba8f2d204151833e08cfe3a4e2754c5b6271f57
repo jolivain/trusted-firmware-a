@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "6d9f63f9_06046f04",
         "filename": "plat/rpi/rpi4/platform.mk",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Hi Jeremy,\nI was wondering why this file is unconditionally added to the source list. Shouldn\u0027t we check if PCI Support is enabled?",
       "revId": "bba8f2d204151833e08cfe3a4e2754c5b6271f57",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "73b46b8b_bf1a316a",
         "filename": "plat/rpi/rpi4/platform.mk",
@@ -32,10 +33,28 @@
       "message": "That is a good suggestion, I\u0027ve moved it to the end of the file right after the other conditional ENABLE_STACK_PROTECTOR.\n\nThanks.",
       "parentUuid": "6d9f63f9_06046f04",
       "revId": "bba8f2d204151833e08cfe3a4e2754c5b6271f57",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c523bada_9d8ad658",
+        "filename": "plat/rpi/rpi4/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T14:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73b46b8b_bf1a316a",
+      "revId": "bba8f2d204151833e08cfe3a4e2754c5b6271f57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "d5d586c6_c31056c7",
         "filename": "plat/rpi/rpi4/platform.mk",
@@ -55,10 +74,10 @@
         "endChar": 8
       },
       "revId": "bba8f2d204151833e08cfe3a4e2754c5b6271f57",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a4b75d54_04b8c9de",
         "filename": "plat/rpi/rpi4/platform.mk",
@@ -79,10 +98,10 @@
         "endChar": 8
       },
       "revId": "bba8f2d204151833e08cfe3a4e2754c5b6271f57",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "33ec94ef_321654ac",
         "filename": "plat/rpi/rpi4/platform.mk",
@@ -103,8 +122,7 @@
         "endChar": 8
       },
       "revId": "bba8f2d204151833e08cfe3a4e2754c5b6271f57",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": false
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
