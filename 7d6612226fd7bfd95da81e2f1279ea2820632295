@@ -523,6 +523,30 @@
       },
       "revId": "7d6612226fd7bfd95da81e2f1279ea2820632295",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76ef711c_83c30dee",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-13T14:06:40Z",
+      "side": 1,
+      "message": "Thanks for the hint guys, good catch.",
+      "parentUuid": "b7626ab7_2f8f788d",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 24
+      },
+      "revId": "7d6612226fd7bfd95da81e2f1279ea2820632295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
