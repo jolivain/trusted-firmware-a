@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "a91d5c06_352c95dc",
         "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
@@ -20,10 +21,10 @@
         "endChar": 21
       },
       "revId": "2eb12853ff9deba3ae44bc2ebbcb3266301a9c6b",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "07fdf07c_2a6c9aa6",
         "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
@@ -44,8 +45,31 @@
         "endChar": 21
       },
       "revId": "2eb12853ff9deba3ae44bc2ebbcb3266301a9c6b",
-      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda",
-      "unresolved": true
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a43112b_dbd3a0df",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T20:13:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07fdf07c_2a6c9aa6",
+      "range": {
+        "startLine": 47,
+        "startChar": 20,
+        "endLine": 47,
+        "endChar": 21
+      },
+      "revId": "2eb12853ff9deba3ae44bc2ebbcb3266301a9c6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
