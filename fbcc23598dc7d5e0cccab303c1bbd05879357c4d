@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4310ea13_b2e00a08",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T14:44:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b5c9880_acb5f78a",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cf54e9d_8afb41a6",
@@ -61,6 +85,30 @@
       "writtenOn": "2021-01-28T12:31:02Z",
       "side": 1,
       "message": "(minor) Is sdei.h really needed here? If it is, what definition do you need from it?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 26
+      },
+      "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e77d1f9_57bc2477",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T14:44:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cf54e9d_8afb41a6",
       "range": {
         "startLine": 13,
         "startChar": 0,
@@ -166,6 +214,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0b6a52f_ba5ec6c5",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T14:44:11Z",
+      "side": 1,
+      "message": "This should be taken care of by the first patch in the series now.",
+      "parentUuid": "e2066c60_2770acc2",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 14
+      },
+      "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c45868bc_0f9a8287",
@@ -237,6 +309,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "082b5bb5_fad630b7",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T14:44:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b59f8695_2485f59b",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 7
+      },
+      "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c67b6302_647af47b",
@@ -274,6 +370,30 @@
       "side": 1,
       "message": "Sure that makes sense here.",
       "parentUuid": "c67b6302_647af47b",
+      "range": {
+        "startLine": 67,
+        "startChar": 20,
+        "endLine": 67,
+        "endChar": 21
+      },
+      "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d04a7c9_5001d501",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T14:44:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e3cf28e_0e6ac0e6",
       "range": {
         "startLine": 67,
         "startChar": 20,
@@ -438,6 +558,54 @@
       "side": 1,
       "message": "Yup makes sense here.",
       "parentUuid": "85ca61ab_3717eb52",
+      "range": {
+        "startLine": 85,
+        "startChar": 20,
+        "endLine": 85,
+        "endChar": 21
+      },
+      "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccdf3abd_260e1473",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T14:44:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54b711d5_7d955b2e",
+      "range": {
+        "startLine": 85,
+        "startChar": 23,
+        "endLine": 85,
+        "endChar": 24
+      },
+      "revId": "fbcc23598dc7d5e0cccab303c1bbd05879357c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cd33236_02419aa6",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T14:44:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "815e0f97_e392a98c",
       "range": {
         "startLine": 85,
         "startChar": 20,
