@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b1bdbdb0_055f3c72",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T17:09:41Z",
+      "side": 1,
+      "message": "I don\u0027t understand the concern. \n\nWe are picking the 16bit segment out of the addr field and passing it to the platform to validate the request is for a valid segment as a sanity check ahead of calling the platform to perform the read/write. The remaining fields in the addr field are valid with any value set. This allows the platform code to assume everything in the addr field is valid.",
+      "parentUuid": "82289c20_4612610e",
+      "range": {
+        "startLine": 22,
+        "startChar": 40,
+        "endLine": 22,
+        "endChar": 44
+      },
+      "revId": "6768eaafed916c16fa063c7507c6a2ac4d8bfd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94d4acd6_29ced581",
         "filename": "services/std_svc/pci_svc.c",
         "patchSetId": 5
@@ -54,6 +78,30 @@
       "writtenOn": "2021-04-13T16:31:03Z",
       "side": 1,
       "message": "We should also check for wrap around",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 36
+      },
+      "revId": "6768eaafed916c16fa063c7507c6a2ac4d8bfd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f0b6b8e_20e99006",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T17:09:41Z",
+      "side": 1,
+      "message": "I\u0027m confused, shall I truncate them again? because both of them while 64-bit parameters, are now guaranteed to be \u003c\u003d 32-bits. Meaning is not possible to overflow.",
+      "parentUuid": "94d4acd6_29ced581",
       "range": {
         "startLine": 35,
         "startChar": 1,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "864b4cd3_4af60197",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T17:09:41Z",
+      "side": 1,
+      "message": "Top limit? This code is validating the 2.3 portion of the spec which says that W4 must be zero.",
+      "parentUuid": "e40303d7_76dab31a",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 17
+      },
+      "revId": "6768eaafed916c16fa063c7507c6a2ac4d8bfd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44fe0c9a_d78e93ae",
         "filename": "services/std_svc/pci_svc.c",
         "patchSetId": 5
@@ -100,6 +172,30 @@
       "writtenOn": "2021-04-13T16:31:03Z",
       "side": 1,
       "message": "Why is this variable not sanity checked like the read case?",
+      "range": {
+        "startLine": 92,
+        "startChar": 37,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "6768eaafed916c16fa063c7507c6a2ac4d8bfd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0749107f_85a18349",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-13T17:09:41Z",
+      "side": 1,
+      "message": "2.4 of the spec says that w4 is the write data (where as for reads it must be zero). The assumption here is that the platform code is going to be responsible for aligning/whatever is needed on the particular platform to write the given size to the appropriate platform registers/etc as the platform dictates.",
+      "parentUuid": "44fe0c9a_d78e93ae",
       "range": {
         "startLine": 92,
         "startChar": 37,
