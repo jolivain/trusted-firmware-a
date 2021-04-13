@@ -16,6 +16,24 @@
       "message": "It would be good to understand how this dependancy information is obtained. This will help in maintaining these going forward. A comment in the file should help.",
       "revId": "c9aa73df08c346f00f03ef58db584421146c9469",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ebc88e9_4eb69227",
+        "filename": "package-lock.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-04-13T10:52:45Z",
+      "side": 1,
+      "message": "This file is a generated file, and isn\u0027t intended to be maintained manually - all dependency maintenance happens through package.json.\n\nWhen you run `npm install`, NPM either reads or generates this file from the dependency tree starting at our package and working its way down, which is where the entries in this file originate. By committing the lock file to the repository, we are asking NPM to install the frozen-in-time view of the dependency tree. See the documentation for a more verbose description: https://nodejs.dev/learn/the-package-lock-json-file",
+      "parentUuid": "e657d927_bd27c94a",
+      "revId": "c9aa73df08c346f00f03ef58db584421146c9469",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
