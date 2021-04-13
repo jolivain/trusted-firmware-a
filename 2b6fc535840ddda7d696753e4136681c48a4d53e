@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e38bf6f1_bb69924b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-13T07:29:14Z",
+      "side": 1,
+      "message": "Does this mean NT_FW_CONFIG is exclusively for use of measured boot?",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 55
+      },
+      "revId": "2b6fc535840ddda7d696753e4136681c48a4d53e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcc93bda_0426564f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-13T07:29:14Z",
+      "side": 1,
+      "message": "This seems to be a case to be further thought of (beyond this change) e.g. fTPM could well be implemented as a TA within a OP-TEE SP on top of Hafnium for the simplest case.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 29
+      },
+      "revId": "2b6fc535840ddda7d696753e4136681c48a4d53e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a138f40e_069fe1aa",
@@ -31,6 +77,30 @@
       "writtenOn": "2021-04-11T14:24:24Z",
       "side": 1,
       "message": "Changes look good to me, this helps in unnecessary device tree node parsing.\n\nJust wondering, can loading of tos_fw-config be enabled in this similar way as a separate patch to look the code consistent?\nCurrently, loading of tos_fw-config enabled here [1] without changing the device tree.\n[1] https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/refs/heads/integration/plat/arm/common/arm_dyn_cfg.c#211.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "2b6fc535840ddda7d696753e4136681c48a4d53e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0e4c799_fbc6c0f0",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-13T07:29:14Z",
+      "side": 1,
+      "message": "TOS FW CFG can be used by other SPDs like opteed. Not sure of others (Trusty?..)\nSo this might not be restricted to SPMD or TSPD usage.",
+      "parentUuid": "102865a8_4be7b9f0",
       "range": {
         "startLine": 45,
         "startChar": 0,
