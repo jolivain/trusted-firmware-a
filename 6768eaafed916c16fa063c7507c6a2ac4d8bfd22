@@ -16,6 +16,98 @@
       "message": "I think I\u0027ve handled the comments here, I\u0027ve left the couple open where I didn\u0027t do exactly what was requested in case someone disagrees with what I\u0027ve done. That is the SUCCESS vs 0 parameters where I\u0027m clearing a field which isn\u0027t the SMC return code and the slight style issue, which I understand was sorta on the fence to begin with (and I\u0027m following the lkml style). The SMC_RET calls with 0 as the return code have been updated to use SUCCESS as asked though. While maybe a bit subtle, the code is now differentiating the return code from fields being cleared.\n\n\n",
       "revId": "6768eaafed916c16fa063c7507c6a2ac4d8bfd22",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82289c20_4612610e",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-04-13T16:31:03Z",
+      "side": 1,
+      "message": "Is the validity of the addr value checked within this call?",
+      "range": {
+        "startLine": 22,
+        "startChar": 40,
+        "endLine": 22,
+        "endChar": 44
+      },
+      "revId": "6768eaafed916c16fa063c7507c6a2ac4d8bfd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94d4acd6_29ced581",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-04-13T16:31:03Z",
+      "side": 1,
+      "message": "We should also check for wrap around",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 36
+      },
+      "revId": "6768eaafed916c16fa063c7507c6a2ac4d8bfd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e40303d7_76dab31a",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-04-13T16:31:03Z",
+      "side": 1,
+      "message": "is there a top limit for this value?",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 17
+      },
+      "revId": "6768eaafed916c16fa063c7507c6a2ac4d8bfd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44fe0c9a_d78e93ae",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-04-13T16:31:03Z",
+      "side": 1,
+      "message": "Why is this variable not sanity checked like the read case?",
+      "range": {
+        "startLine": 92,
+        "startChar": 37,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "6768eaafed916c16fa063c7507c6a2ac4d8bfd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
