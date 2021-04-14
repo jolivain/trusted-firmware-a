@@ -53,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eceac0a_cb9eca2d",
+        "filename": "plat/rockchip/rk3399/drivers/dram/suspend.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-04-14T00:48:35Z",
+      "side": 1,
+      "message": "Do you have the watchdog enabled in Linux? Do you have a /dev/watchdog, and if you do an `echo x \u003e /dev/watchdog`, does it reboot your machine after a while? I guess it\u0027s possible that if you don\u0027t have the driver built in at all or something that leaves the watchdog in a state that our save/restore mechanism doesn\u0027t deal with right, although I wouldn\u0027t see how right now. (It could help if you instrument wdt_register_save()/_restore() to print which values are being saved/restored into the registers. Really these should be the same whether you remove the pmusram part or not, so I\u0027m surprised it makes a difference.)",
+      "parentUuid": "b17757d0_71d29bf7",
+      "revId": "0ff42b17c6a71cd4cb0ca6a93a3cace744bf7ec8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "839f7782_7ad005e8",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "I appreciate the honesty. For what it\u0027s worth, `dram_switch_to_next_index` also does training, so we\u0027re not skipping all training, we\u0027re skipping the first set of training.",
       "parentUuid": "839f7782_7ad005e8",
+      "revId": "0ff42b17c6a71cd4cb0ca6a93a3cace744bf7ec8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c32156db_85236751",
+        "filename": "plat/rockchip/rk3399/drivers/dram/suspend.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-04-14T00:48:35Z",
+      "side": 1,
+      "message": "The RK3399 has two separate DRAM controller register blocks, so that it can instantly switch from one to the other for runtime DDR frequency switching. This here trains the first block and dram_switch_to_next_index() the second one. That probably explains why this is working for you at all, you probably don\u0027t have DDR frequency switching enabled in the kernel. If you did, I would expect it to break the first time it\u0027s trying to change frequencies after resume and switch back to index 0.",
+      "parentUuid": "5fc30eec_e76d5ea2",
       "revId": "0ff42b17c6a71cd4cb0ca6a93a3cace744bf7ec8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }

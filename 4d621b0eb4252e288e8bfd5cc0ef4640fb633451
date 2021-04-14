@@ -16,6 +16,23 @@
       "message": "For reference on the watchdog-removal issue, I see the following log:\n```\n[    4.110180] psci: CPU5 killed (polled 4 ms)\n----- Suspend happens here ------\n[    4.110829] Enabling non-boot CPUs ...\n[    4.111344] Detected VIPT I-cache on CPU1\n[\n```\n(yes it crashes after printing the starting `[`; that\u0027s not a copy mistake)",
       "revId": "4d621b0eb4252e288e8bfd5cc0ef4640fb633451",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "491988f6_695aa9ef",
+        "filename": "plat/rockchip/rk3399/drivers/dram/suspend.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-04-14T00:48:35Z",
+      "side": 1,
+      "message": "btw have you considered that maybe this might need to apply for LPDDR4 as well?",
+      "revId": "4d621b0eb4252e288e8bfd5cc0ef4640fb633451",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
