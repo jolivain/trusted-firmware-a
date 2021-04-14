@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efed40c0_476643e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-14T16:58:31Z",
+      "side": 1,
+      "message": "nit: expect",
+      "revId": "8f6b94031545ffefbfe1d851c7b2ac728c115b63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac529744_24276157",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-14T16:58:31Z",
+      "side": 1,
+      "message": "typo",
+      "revId": "8f6b94031545ffefbfe1d851c7b2ac728c115b63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4605ca9_57cbfb9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-14T16:58:31Z",
+      "side": 1,
+      "message": "It seems there is some room for making the code more readable, but I let you judge if this makes sense.",
+      "revId": "8f6b94031545ffefbfe1d851c7b2ac728c115b63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3209cbad_5137d483",
+        "filename": "services/std_svc/spm_mm/spm_mm_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-14T16:58:31Z",
+      "side": 1,
+      "message": "sp_boot_info-\u003esp_pcpu_stack_size ?",
+      "range": {
+        "startLine": 74,
+        "startChar": 33,
+        "endLine": 74,
+        "endChar": 62
+      },
+      "revId": "8f6b94031545ffefbfe1d851c7b2ac728c115b63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18a96131_734937a6",
+        "filename": "services/std_svc/spm_mm/spm_mm_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-14T16:58:31Z",
+      "side": 1,
+      "message": "Can we use sp_boot_info-\u003esp_shared_buf_base rather than casting?",
+      "range": {
+        "startLine": 202,
+        "startChar": 8,
+        "endLine": 202,
+        "endChar": 33
+      },
+      "revId": "8f6b94031545ffefbfe1d851c7b2ac728c115b63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d2872eb_a1d57efb",
+        "filename": "services/std_svc/spm_mm/spm_mm_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-14T16:58:31Z",
+      "side": 1,
+      "message": "sp_boot_info-\u003esp_shared_buf_base here and line #215, 223, 224",
+      "range": {
+        "startLine": 210,
+        "startChar": 17,
+        "endLine": 210,
+        "endChar": 31
+      },
+      "revId": "8f6b94031545ffefbfe1d851c7b2ac728c115b63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee16f1ea_bda6dedc",
+        "filename": "services/std_svc/spm_mm/spm_mm_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-14T16:58:31Z",
+      "side": 1,
+      "message": "this looks convoluted to use shared_buf_ptr and re-assign it in the same line, maybe some room for simplification?",
+      "revId": "8f6b94031545ffefbfe1d851c7b2ac728c115b63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
