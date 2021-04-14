@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04f4d5f2_53471858",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-14T18:04:23Z",
+      "side": 1,
+      "message": "tf-main jobs looks ok on this patch and corresponding CI patches: https://jenkins.oss.arm.com/job/tf-main/2240/console. There is one failing job (other than windows build) but it passes on a rerun (https://jenkins.oss.arm.com/job/tf-ci-gateway/95023/console).",
+      "revId": "b67e9880fcc768b1ddc60cdb3cd8f71c8dc15b7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
