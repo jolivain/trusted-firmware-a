@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a1a7435_2d2ccb09",
+        "filename": "drivers/renesas/common/ddr/ddr_b/boot_init_dram_config.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1880,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2021-04-15T17:04:50Z",
+      "side": 1,
+      "message": "Can we have check like #if (RCAR_GEN3_ULCB \u003d\u003d 0)  \u0026\u0026 (RZ_G2_SOC \u003d\u003d 0)\n\n#if (RCAR_LSI \u003d\u003d RZ_G2M) || (RCAR_LSI \u003d\u003d RZ_G2H) !! (RCAR_LSI \u003d\u003d RZ_G2N)\n#define RZG2_SOC 1\n#else\n#define RZG2_SOC 0\n#endif",
+      "revId": "24b3db50dffdf590c03f7b35e196dbefc80f8fd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2d532732_49709145",
         "filename": "drivers/renesas/common/ddr/ddr_b/boot_init_dram_config.c",
         "patchSetId": 2
