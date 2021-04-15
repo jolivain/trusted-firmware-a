@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a12d324c_f0acdf7f",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-15T19:24:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fc66c199_1f8cb05a",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "0521c29b9d91499bb0104aeaadfec940722de482",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d5103678_5f96fd3e",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2021-04-15T14:43:57Z",
       "side": 1,
       "message": "Other platforms seem to define this in a platform common file so fpga_fvp_common.c for this platform. I think for consistency you should move this and the memory region definitions to there",
+      "range": {
+        "startLine": 70,
+        "startChar": 20,
+        "endLine": 70,
+        "endChar": 33
+      },
+      "revId": "0521c29b9d91499bb0104aeaadfec940722de482",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "094f5075_c721ffe2",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-15T19:24:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d5103678_5f96fd3e",
       "range": {
         "startLine": 70,
         "startChar": 20,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10cb2a78_93b62347",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-15T19:24:54Z",
+      "side": 1,
+      "message": "The problem with this is that including the arm common header file required for this causes other build errors. However I\u0027ll have another look at this issue and see if I can resolve those errors.",
+      "parentUuid": "d95c6521_4d6b536f",
+      "range": {
+        "startLine": 121,
+        "startChar": 12,
+        "endLine": 121,
+        "endChar": 32
+      },
+      "revId": "0521c29b9d91499bb0104aeaadfec940722de482",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52755ca2_19133861",
         "filename": "plat/arm/board/arm_fpga/include/platform_def.h",
         "patchSetId": 1
@@ -100,6 +172,30 @@
       "writtenOn": "2021-04-15T14:22:24Z",
       "side": 1,
       "message": "Is this TODO meant to be here?",
+      "range": {
+        "startLine": 89,
+        "startChar": 23,
+        "endLine": 89,
+        "endChar": 27
+      },
+      "revId": "0521c29b9d91499bb0104aeaadfec940722de482",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1ffa9e8_3acb95cf",
+        "filename": "plat/arm/board/arm_fpga/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-15T19:24:54Z",
+      "side": 1,
+      "message": "Yes - this value seems to work for now but it really needs to be revisited in future to make sure that it is correct.",
+      "parentUuid": "52755ca2_19133861",
       "range": {
         "startLine": 89,
         "startChar": 23,
