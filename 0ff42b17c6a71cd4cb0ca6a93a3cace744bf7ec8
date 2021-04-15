@@ -107,6 +107,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b9d4630_a524202b",
+        "filename": "plat/rockchip/rk3399/drivers/dram/suspend.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-04-15T00:55:22Z",
+      "side": 1,
+      "message": "Ooooohhh... huh... you know what? That\u0027s funny. The Rockchip manual says \"Once this bit has been enabled, it can be cleared only by a system reset.\" for this bit. I don\u0027t think we ever noticed that. Looks like the kernel driver actually has support for petting the watchdog internally if userspace opens it and then closes it again.\n\nIn that case, I guess we\u0027ll have to make sure the watchdog was already running or else we can\u0027t do this pmusram thing. Would you mind adding a __pmusramdata byte to keep track of whether the watchdog was running at wdt_register_save() time and then use that to decide whether to enable the watchdog on resume?",
+      "parentUuid": "d98d070e_dde9280b",
+      "revId": "0ff42b17c6a71cd4cb0ca6a93a3cace744bf7ec8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "839f7782_7ad005e8",
@@ -174,6 +192,24 @@
       "side": 1,
       "message": "True, I probably don\u0027t have DDR frequency switching enabled. I\u0027ll have a look at enabling DDR frequency switching in my test kernel. If we did enable training of 2 frequencies, I\u0027m worried we might no longer fit in pmusram. That being said, what we have here in still a step forward.",
       "parentUuid": "c32156db_85236751",
+      "revId": "0ff42b17c6a71cd4cb0ca6a93a3cace744bf7ec8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "755ac55b_a125bbe5",
+        "filename": "plat/rockchip/rk3399/drivers/dram/suspend.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-04-15T00:55:22Z",
+      "side": 1,
+      "message": "It\u0027s using the same piece of code to train both so SRAM requirements shouldn\u0027t get any bigger from this. I mean, you already ran that configuration before you disabled the data_training() call here.",
+      "parentUuid": "eb4a274c_74da0352",
       "revId": "0ff42b17c6a71cd4cb0ca6a93a3cace744bf7ec8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
