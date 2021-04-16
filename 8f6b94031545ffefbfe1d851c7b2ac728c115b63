@@ -69,6 +69,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "785e994b_9782e69c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000438
+      },
+      "writtenOn": "2021-04-16T10:55:33Z",
+      "side": 1,
+      "message": "I think I have added the possible core maintainers to the review. Can someone please take a look or added the actual core maintainer.",
+      "parentUuid": "b556d935_bca019eb",
+      "revId": "8f6b94031545ffefbfe1d851c7b2ac728c115b63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3209cbad_5137d483",
@@ -92,6 +110,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b59fccd_6064ca7d",
+        "filename": "services/std_svc/spm_mm/spm_mm_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000438
+      },
+      "writtenOn": "2021-04-16T10:55:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3209cbad_5137d483",
+      "range": {
+        "startLine": 74,
+        "startChar": 33,
+        "endLine": 74,
+        "endChar": 62
+      },
+      "revId": "8f6b94031545ffefbfe1d851c7b2ac728c115b63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18a96131_734937a6",
@@ -105,6 +147,30 @@
       "writtenOn": "2021-04-14T16:58:31Z",
       "side": 1,
       "message": "Can we use sp_boot_info-\u003esp_shared_buf_base rather than casting?",
+      "range": {
+        "startLine": 202,
+        "startChar": 8,
+        "endLine": 202,
+        "endChar": 33
+      },
+      "revId": "8f6b94031545ffefbfe1d851c7b2ac728c115b63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acd14fe0_45509464",
+        "filename": "services/std_svc/spm_mm/spm_mm_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000438
+      },
+      "writtenOn": "2021-04-16T10:55:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "18a96131_734937a6",
       "range": {
         "startLine": 202,
         "startChar": 8,
