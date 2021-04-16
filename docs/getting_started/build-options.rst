@@ -857,6 +857,12 @@ Firmware update options
    images in each firmware bank. This flag is used in defining the firmware
    update metadata structure. This flag is by default set to '1'.
 
+-  ``PSA_FWU_SUPPORT``: This flag is used to enable firmware update mechanism
+   as per the PSA specification document `_PSA FW update specification`. The
+   default value is 0, and this is an experimental feature.
+
 --------------
 
 *Copyright (c) 2019-2021, Arm Limited. All rights reserved.*
+
+.. _PSA FW update specification: https://developer.arm.com/-/media/Files/pdf/FWU-PSA-A_DEN0118_1.0ALP3.pdf
