@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17966a6e_549f4ebb",
+        "filename": "docs/_static/css/custom.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-16T22:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf240d14_a129da68",
+      "revId": "c27e1dbd8d526481a5183804bbf73029a3e90652",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11a17e40_2ab351c4",
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "56912ec4_6e3ac8b6",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-16T22:16:55Z",
+      "side": 1,
+      "message": "Agreed. Exploited sounds better.",
+      "parentUuid": "11a17e40_2ab351c4",
+      "range": {
+        "startLine": 161,
+        "startChar": 70,
+        "endLine": 161,
+        "endChar": 74
+      },
+      "revId": "c27e1dbd8d526481a5183804bbf73029a3e90652",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb737153_1045c04e",
         "filename": "docs/threat_model/threat_model.rst",
         "patchSetId": 1
@@ -54,6 +96,24 @@
       "writtenOn": "2021-04-16T16:45:58Z",
       "side": 1,
       "message": "Generic comment: Can you please add a row to document the SW components that are affected? I\u0027m sure not all threats affect BL1, BL2, BL3x.",
+      "revId": "c27e1dbd8d526481a5183804bbf73029a3e90652",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72b683d4_250f9027",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-16T22:16:55Z",
+      "side": 1,
+      "message": "I agree, not all threats affect all components. I added \"Affected TF-A components\" row.",
+      "parentUuid": "cb737153_1045c04e",
       "revId": "c27e1dbd8d526481a5183804bbf73029a3e90652",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -94,6 +154,30 @@
       "writtenOn": "2021-04-16T16:45:58Z",
       "side": 1,
       "message": "This mitigation does not cover all platforms. I assume you run these test suites only on certain platforms. We should make that clear in this comment.",
+      "range": {
+        "startLine": 594,
+        "startChar": 29,
+        "endLine": 596,
+        "endChar": 61
+      },
+      "revId": "c27e1dbd8d526481a5183804bbf73029a3e90652",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efdd91e1_7eb48d3e",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-16T22:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c72516f5_a47f556a",
       "range": {
         "startLine": 594,
         "startChar": 29,
