@@ -16,6 +16,24 @@
       "message": "This define macro may not be required, since prr_product check the same?",
       "revId": "02db6f0bcfdfea3852146374079de89bf6243c83",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e639a92_cd41989f",
+        "filename": "drivers/renesas/common/ddr/ddr_b/boot_init_dram_config.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1924,
+      "author": {
+        "id": 1000470
+      },
+      "writtenOn": "2021-04-16T15:43:07Z",
+      "side": 1,
+      "message": "Biju, thank you for the review. Agreed but this check is will reduce code size on other SoC\u0027s.\nLet me know if you think otherwise.",
+      "parentUuid": "d9f895a7_f95c78a7",
+      "revId": "02db6f0bcfdfea3852146374079de89bf6243c83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
