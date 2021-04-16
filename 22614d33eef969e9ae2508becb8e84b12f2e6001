@@ -16,6 +16,24 @@
       "message": "May be we need to make this board specific like EXTAL_EK874 or EXTAL_CAT874??",
       "revId": "22614d33eef969e9ae2508becb8e84b12f2e6001",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0535985c_d7613739",
+        "filename": "plat/renesas/rzg/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1000470
+      },
+      "writtenOn": "2021-04-16T15:46:09Z",
+      "side": 1,
+      "message": "Idea here is to re-use as much as possible instead re-defining the same macros. If in future if this changes I will add new macros.",
+      "parentUuid": "8f479c34_cf302e1b",
+      "revId": "22614d33eef969e9ae2508becb8e84b12f2e6001",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
