@@ -65,6 +65,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10d884e0_b52cca86",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-16T14:01:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a12d324c_f0acdf7f",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "0521c29b9d91499bb0104aeaadfec940722de482",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5103678_5f96fd3e",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "d5103678_5f96fd3e",
+      "range": {
+        "startLine": 70,
+        "startChar": 20,
+        "endLine": 70,
+        "endChar": 33
+      },
+      "revId": "0521c29b9d91499bb0104aeaadfec940722de482",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe94cfae_4a8a2490",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-16T14:01:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "094f5075_c721ffe2",
       "range": {
         "startLine": 70,
         "startChar": 20,
