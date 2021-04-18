@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e07e2c9_589dfabd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-04-18T03:24:38Z",
+      "side": 1,
+      "message": "This generally looks good and is a great step forward, and i dont intend the comments to be blocking, so feel free to resolve them without addressing it. The general theme is that i dont agree entirely with the threat analysis for servers.",
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ae321a8_11d40182",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-04-18T03:24:38Z",
+      "side": 1,
+      "message": "Would be good to describe what threats are automatically eliminated by use of trusted SRAM and the following two assumptions.",
+      "range": {
+        "startLine": 25,
+        "startChar": 42,
+        "endLine": 25,
+        "endChar": 54
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0624b830_65f2147d",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-04-18T03:24:38Z",
+      "side": 1,
+      "message": "Does the threat model also leave out SPA/DPA atacks?",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 26
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e622108f_6321b965",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-04-18T03:24:38Z",
+      "side": 1,
+      "message": "in the very near future, this assumption is likely to be untrue and obsolete. Server environments are moving to a zero trust model and almost have the same requirements as edge/iot environments. Advanced Physical and supply chain attacks are entirely in scope, specially with confidential computing becoming a major part of the future of data centers.\nWould be good if we adjust the scores assuming a stronger model even for servers.",
+      "range": {
+        "startLine": 224,
+        "startChar": 13,
+        "endLine": 224,
+        "endChar": 63
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49c2d81d_94f4b111",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-04-18T03:24:38Z",
+      "side": 1,
+      "message": "most of these numbers are how ARM perceives the threats impact and likelyhood so i dont want to debate it. In 2021, likelihood is extremely high that attackers will perform this attack. The total risk rating for this should be extremely high in my view.",
+      "range": {
+        "startLine": 262,
+        "startChar": 27,
+        "endLine": 262,
+        "endChar": 34
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cda9435_8a0bb6e1",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-04-18T03:24:38Z",
+      "side": 1,
+      "message": "dont agree with this in 2021 for servers. Supply chain attacks that add smart interposers make this trivial.",
+      "range": {
+        "startLine": 344,
+        "startChar": 27,
+        "endLine": 344,
+        "endChar": 30
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bb738f3_128b6e35",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-04-18T03:24:38Z",
+      "side": 1,
+      "message": "this needs to be in bold or caps :) It looks like this attack is mitigated because it is in the description of the mitigations row.",
+      "range": {
+        "startLine": 401,
+        "startChar": 29,
+        "endLine": 402,
+        "endChar": 40
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f13454e_d7b26d5c",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-04-18T03:24:38Z",
+      "side": 1,
+      "message": "nit: probably should just say malicious instead of A malicious",
+      "range": {
+        "startLine": 546,
+        "startChar": 48,
+        "endLine": 546,
+        "endChar": 59
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bab10d61_ba1330c5",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-04-18T03:24:38Z",
+      "side": 1,
+      "message": "not sure i understand why this is different from iot/mobile? isnt this purely a software attack? Would recommend making all SW attacks equal for server/iot/mobile and generally consider the likelihood very high.",
+      "range": {
+        "startLine": 564,
+        "startChar": 27,
+        "endLine": 564,
+        "endChar": 37
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3141507f_345708fc",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-04-18T03:24:38Z",
+      "side": 1,
+      "message": "not strictly true. platforms such as NVIDIA platforms use asserts even in production builds. TF-A permits an option to enable asserts even in release builds. Perhaps it should be clear that this is the generally expected use case but platforms that use it differently are responsible for their own security by doing so.",
+      "range": {
+        "startLine": 637,
+        "startChar": 29,
+        "endLine": 638,
+        "endChar": 51
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
