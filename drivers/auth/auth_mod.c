@@ -348,9 +348,11 @@ int auth_mod_verify_img(unsigned int img_id,
 {
 	const auth_img_desc_t *img_desc = NULL;
 	const auth_method_desc_t *auth_method = NULL;
+	const auth_method_desc_t *nv_cntr_auth_method = NULL;
 	void *param_ptr;
 	unsigned int param_len;
 	int rc, i;
+	bool is_sig_check_done = false;
 
 	/* Get the image descriptor from the chain of trust */
 	img_desc = FCONF_GET_PROPERTY(tbbr, cot, img_id);
@@ -376,16 +378,33 @@ int auth_mod_verify_img(unsigned int img_id,
 		case AUTH_METHOD_SIG:
 			rc = auth_signature(&auth_method->param.sig,
 					img_desc, img_ptr, img_len);
+			is_sig_check_done = true;
 			break;
 		case AUTH_METHOD_NV_CTR:
-			rc = auth_nvctr(&auth_method->param.nv_ctr,
-					img_desc, img_ptr, img_len);
+			rc = 0;
+			/*
+			 * get auth method handle and use it after
+			 * certificate's signature authentication
+			 * for NV counter check and update
+			 */
+			nv_cntr_auth_method = &img_desc->img_auth_methods[i];
 			break;
 		default:
 			/* Unknown authentication method */
 			rc = 1;
 			break;
 		}
+		return_if_error(rc);
+	}
+
+	if (nv_cntr_auth_method != NULL) {
+		if (!is_sig_check_done) {
+			WARN("NV counter check and update happening without "
+			     "signature authentication for image-id = %u\n",
+			     img_id);
+		}
+		rc = auth_nvctr(&nv_cntr_auth_method->param.nv_ctr,
+				img_desc, img_ptr, img_len);
 		return_if_error(rc);
 	}
 
