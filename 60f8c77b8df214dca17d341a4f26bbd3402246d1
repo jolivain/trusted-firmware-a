@@ -16,6 +16,24 @@
       "message": "I don\u0027t think we should be enabling this by default. It shouldn\u0027t be a problem to do so if we stay inside OCM but this is completely change the location and it is optional things now. That\u0027s why remove this.\n\nAlso in commit message you have two \"while\".",
       "revId": "60f8c77b8df214dca17d341a4f26bbd3402246d1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9ab4895_bb503065",
+        "filename": "plat/xilinx/zynqmp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000306
+      },
+      "writtenOn": "2021-04-19T16:26:33Z",
+      "side": 1,
+      "message": "Thanks, updated the patch, also making EL3_EXCEPTION_HANDLING depend on SDEI_SUPPORT by default now.\n\nTo answer your question of usage/testing on LKML: I\u0027m not yet done with full integration yet, partly due to the reservation issue (https://lists.trustedfirmware.org/pipermail/tf-a/2021-April/001093.html), but earlier adopters were already able to use this for running Jailhouse in GICC pass-through mode (https://groups.google.com/d/msgid/jailhouse-dev/CADiTV-03GyURVJ2De-Fe5reAcvveWQq7JxAUTh2kES2DSbwcWA%40mail.gmail.com). There, we use Event 0 as IPI in EL2 while leaving non-secure interrupts completely to the guest, which enables vmexit-free GICC access. Not invented here, used before at least in the Bao hypervisor,but there via an ugly downstream TF-A patch.\n\nOnce integration is done, you will find ready-to-use Ultra96 images in https://github.com/siemens/jailhouse-images.",
+      "parentUuid": "5e8e7598_971b7092",
+      "revId": "60f8c77b8df214dca17d341a4f26bbd3402246d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
