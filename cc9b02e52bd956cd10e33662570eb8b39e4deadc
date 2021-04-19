@@ -106,6 +106,24 @@
       "parentUuid": "c0344e28_5752fa82",
       "revId": "cc9b02e52bd956cd10e33662570eb8b39e4deadc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41cd63e5_8a694fb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000306
+      },
+      "writtenOn": "2021-04-19T06:41:11Z",
+      "side": 1,
+      "message": "Yes, double-reserve fails now, and the TF-A provided reserved-memory region was the victim. If we get rid of memreserve, existing code should work. But I did not test that path yet. And I\u0027m also not sure if the kernel should/could already drop the memreserve or if that would cause compatibility issues.",
+      "parentUuid": "b9884642_00f783bc",
+      "revId": "cc9b02e52bd956cd10e33662570eb8b39e4deadc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
