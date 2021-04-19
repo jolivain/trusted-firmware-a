@@ -52,6 +52,24 @@
       "parentUuid": "c5816c2f_4e2084ba",
       "revId": "373902482aeda42f2d960cc06627732d9cbff33e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82906089_5e4ed04d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-04-19T09:40:45Z",
+      "side": 1,
+      "message": "In principle i agree to Varun\u0027s idea, infact my original thinking was to have this capability in libfdt(so that other projects can also get help from it e.g hafnimum/linux), but up-streaming that in libfdt may take longer so the short term solution was to keep this in wrapper files specific to TF-A.\n\nWe certainly should start a discussion on libfdt mailing list to proposal for having this capability.(devicetree-compiler@vger.kernel.org)",
+      "parentUuid": "9a6b5925_e0d9e80a",
+      "revId": "373902482aeda42f2d960cc06627732d9cbff33e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
