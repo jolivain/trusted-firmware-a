@@ -39,6 +39,30 @@
       },
       "revId": "ce9eba5463dbcb28a8a09e0c5dd655ec8ed6170a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e8b3e9b_75661e99",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-04-19T15:14:28Z",
+      "side": 1,
+      "message": "Probably worth referencing: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/7777/comment/94d4acd6_29ced581/\n\nBut the summary, is that both 64-bit values are guaranteed to only be 32-bits (due to the first patch in the series assuring compliance with SMC32). So, it should not be possible to overflow a 64-bit unsigned comparison with 32-bit unsigned values. The correct fix, if one were to be made, would be to mask/clamp the value here appropriately, but since its already clamped, it shouldn\u0027t be needed.\n\nThe value here is that the platform doesn\u0027t need to revalidate the \u0027sz\u0027, because of the check above assuring its valid, and the \u0027off\u0027 is now guaranteed to be within a single devices ECAM region. So, the API is validated, whether the platform code uses it properly should it need to expand/realign the request, was my point.\n\n\nIts possible I\u0027m misunderstanding something, but the question will have to be more specific if that is the case and point to where the overflow is coming from, because I don\u0027t believe its possible at this point.",
+      "parentUuid": "a5e534dd_bd191413",
+      "range": {
+        "startLine": 35,
+        "startChar": 6,
+        "endLine": 35,
+        "endChar": 14
+      },
+      "revId": "ce9eba5463dbcb28a8a09e0c5dd655ec8ed6170a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
