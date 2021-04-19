@@ -117,6 +117,30 @@
       },
       "revId": "63570d45913f2f7eb355804ae56f376563d5dbbf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a4a95d7_d9e7af66",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-19T22:09:10Z",
+      "side": 1,
+      "message": "\u003e correct. this was pretty much the situation i had in my mind. This problem is really caused by a malformed CoT that puts NVCTR before signature check. \nThis is not CoT malformed case, it is quite legal that some platform puts NVCTR check before the signature in CoT, and expect authentication driver should handle the signature authentication first, and then NVCTR check. Implementation did in this patch hold true for this case.\n\n\u003e And if that can happen, i think it is plausible that we may come up with a CoT that only has NV counter method. It appears that we are coming up with a set of rules for a valid CoT and we should potentially have a function to validate the CoT with these rules, such as NV CTR check cannot be before signature verif or that a CoT cannot only contain nvctr.\n\nOn second thought, I think platform may not want to do the signature authentication, but want to go ahead with NV counter check and update (Though not recommended, but some platform may chose it that way.).\nAlso as a side note, \u0027AUTH_METHOD_NONE\u0027 marked as a valid case  in \u0027drivers/auth/auth_mod.c\u0027, so if some certificate comes up with \u0027AUTH_METHOD_NONE\u0027 as first method, and NV counter method later, then we still end up in NV counter check and update.\n\nIntention of this patch, if there is signature method specified in CoT, then do the signature verification first (as platform looking for trusted data), and then do the rest later, as in here NV counter check and update. This is what I think, but I may be wrong. Like to know more from you and what other thinks about this.",
+      "parentUuid": "f7b44e59_bd095d3b",
+      "range": {
+        "startLine": 384,
+        "startChar": 6,
+        "endLine": 386,
+        "endChar": 37
+      },
+      "revId": "63570d45913f2f7eb355804ae56f376563d5dbbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
