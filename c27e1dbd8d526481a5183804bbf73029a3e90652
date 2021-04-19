@@ -167,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9dd71003_2676e293",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-19T21:48:53Z",
+      "side": 1,
+      "message": "This statement is based on the assumption listed above: all TF-A images are run from an on-chip trusted SRAM. AFAIK, images are loaded to memory before authentication for all platforms, or am I missing something?",
+      "parentUuid": "63b0d3df_1b017d6f",
+      "range": {
+        "startLine": 341,
+        "startChar": 29,
+        "endLine": 342,
+        "endChar": 67
+      },
+      "revId": "c27e1dbd8d526481a5183804bbf73029a3e90652",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c72516f5_a47f556a",
         "filename": "docs/threat_model/threat_model.rst",
         "patchSetId": 1
