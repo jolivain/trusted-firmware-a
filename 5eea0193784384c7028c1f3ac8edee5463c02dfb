@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad8bee57_8d384ad2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-19T08:45:35Z",
+      "side": 1,
+      "message": "@Leonardo: Thanks for the review! Please see my answer inline.\nBTW, while you\u0027re looking at this patch, is it expected that the \"Trusted Firmware Code Review\" bot is voting on both the Code-Review and Validation-Bot-Review labels? Should it not vote only on the latter?",
+      "revId": "5eea0193784384c7028c1f3ac8edee5463c02dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3dc83bc3_62ec8869",
@@ -14,6 +31,24 @@
       "writtenOn": "2021-04-16T16:16:13Z",
       "side": 1,
       "message": "I think spaces (instead of removing the tab) would be enough and it will keep indentation clean. BTW, this would also apply to if bodies, not just else bodies.",
+      "revId": "5eea0193784384c7028c1f3ac8edee5463c02dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ea6791c_65c7b95e",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-19T08:45:35Z",
+      "side": 1,
+      "message": "The trouble is, the indentation is so inconsistent throughout this makefile... I thought about using spaces but I didn\u0027t want to put 8 of them and make it look like a tabulation, as then it might become difficult to differentiate tabs from spaces, depending on how your text editor is configured. Another option could have been to use 2 spaces for example, in order to clearly mark the indentation but make it obvious it\u0027s not a tab, but I didn\u0027t see this pattern used anywhere else in this file and didn\u0027t want to make my own style rule. So I thought, let\u0027s keep it consistent with lines 23/25/33 and remove all spaces...",
+      "parentUuid": "3dc83bc3_62ec8869",
       "revId": "5eea0193784384c7028c1f3ac8edee5463c02dfb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
