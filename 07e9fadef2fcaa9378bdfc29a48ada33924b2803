@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a041a267_10aaa698",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-19T19:11:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2ddc091_9976d4cf",
+      "range": {
+        "startLine": 2,
+        "startChar": 28,
+        "endLine": 2,
+        "endChar": 31
+      },
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80ab91cb_0c498a6a",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-19T10:36:31Z",
       "side": 1,
       "message": "Nit: \"Arm\"",
+      "range": {
+        "startLine": 2,
+        "startChar": 28,
+        "endLine": 2,
+        "endChar": 31
+      },
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd61a477_3482f7a5",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-19T19:11:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80ab91cb_0c498a6a",
       "range": {
         "startLine": 2,
         "startChar": 28,
@@ -83,6 +131,30 @@
       "writtenOn": "2021-04-19T10:36:31Z",
       "side": 1,
       "message": "\"Arm\".\nIf this file is new, remove the \"and Contributors\".",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67785244_07de5ecb",
+        "filename": "plat/arm/board/arm_fpga/fpga_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-19T19:11:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91d4f13a_7a8a08e5",
       "range": {
         "startLine": 2,
         "startChar": 22,
@@ -179,6 +251,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7aaf352a_e7a02a12",
+        "filename": "plat/arm/board/arm_fpga/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-19T19:11:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6009842_576ce867",
+      "range": {
+        "startLine": 2,
+        "startChar": 28,
+        "endLine": 2,
+        "endChar": 31
+      },
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05b38dab_e3dcd792",
@@ -192,6 +288,30 @@
       "writtenOn": "2021-04-19T10:36:31Z",
       "side": 1,
       "message": "Why do we need the undefs here? I am assuming that this is because of the arm_def.h inclusion. \n\nIf that is the reason, try removing the redundant definitions from platform_def.h and use the ones in arm_def.h instead (CACHE_WRITEBACK_GRANUULE for instance seems to be defined with the same value).\n\nOn the other hand, if the number of definitions from arm_def.h you need is small, maybe you can copy them to your platform_def.h.\n\nIn case none of the above is suitable for you, then I guess it is fine to use the undef, but try to use that as last resort.",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4f90575_b7762c07",
+        "filename": "plat/arm/board/arm_fpga/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-19T19:11:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05b38dab_e3dcd792",
       "range": {
         "startLine": 23,
         "startChar": 1,
