@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "128eea84_5b14e742",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-19T20:04:22Z",
+      "side": 1,
+      "message": "Yes, there is possibility that platforms comes up with CoT where NV counter auth method get specified first and signature auth method later. for e.g. as below:\n\n.img_auth_methods \u003d (const auth_method_desc_t[AUTH_METHOD_NUM]) {                \n  [0]\u003d{\n        .type \u003d AUTH_METHOD_NV_CTR,                        \n        .param.nv_ctr \u003d {                                \n                       .cert_nv_ctr \u003d \u0026non_trusted_nv_ctr,                                \n                       .plat_nv_ctr \u003d \u0026non_trusted_nv_ctr                        \n  },   \n  [1]\u003d{                                                                                                        \n        .type \u003d AUTH_METHOD_SIG,                                                                                      \n        .param.sig \u003d {\n                        .pk \u003d \u0026nt_fw_content_pk,\n                        .sig \u003d \u0026sig,                                \n                        .alg \u003d \u0026sig_alg,                                \n                        .data \u003d \u0026raw_data   \n        }               \n  }\n}",
+      "parentUuid": "5a8167b1_b8a92262",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "63570d45913f2f7eb355804ae56f376563d5dbbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dce05b3f_74a6b4b4",
         "filename": "drivers/auth/auth_mod.c",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-19T19:03:37Z",
       "side": 1,
       "message": "Where are we checking that the signature verification is done? Do we need a flag that is set to ensure that signature verification is done before auth_nvctr below?",
+      "range": {
+        "startLine": 384,
+        "startChar": 6,
+        "endLine": 386,
+        "endChar": 37
+      },
+      "revId": "63570d45913f2f7eb355804ae56f376563d5dbbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e4a84be_34bd1a25",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-19T20:04:22Z",
+      "side": 1,
+      "message": "If the signature verification gets failed, we return at line no.395, so explicit check for signature verification done is not required with the assumption CoT certificate always with signature and NV counter authentication method, but I can think now malformed CoT may come up with only NV counter method, and then it is must to do signature done check before processing NV counter check \u0026 update.\nPlease let me know, what do you think?",
+      "parentUuid": "dce05b3f_74a6b4b4",
       "range": {
         "startLine": 384,
         "startChar": 6,
