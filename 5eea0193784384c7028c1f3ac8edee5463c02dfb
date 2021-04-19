@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a230e6e4_f0926bc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-04-19T14:50:06Z",
+      "side": 1,
+      "message": "@Sandrine,\nthere is one single gerrit bot \"Trusted Firmware Code Review\" and both, Jenkins and SQUAD are using the right labels to vote, Code-Review and Validation-bot-Review, with the following base URL paths http://ci.trustedfirmware.org/job/tf-gerrit-tforg-l1/454/ , https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/454/ , respectively",
+      "parentUuid": "ad8bee57_8d384ad2",
+      "revId": "5eea0193784384c7028c1f3ac8edee5463c02dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3dc83bc3_62ec8869",
@@ -49,6 +67,24 @@
       "side": 1,
       "message": "The trouble is, the indentation is so inconsistent throughout this makefile... I thought about using spaces but I didn\u0027t want to put 8 of them and make it look like a tabulation, as then it might become difficult to differentiate tabs from spaces, depending on how your text editor is configured. Another option could have been to use 2 spaces for example, in order to clearly mark the indentation but make it obvious it\u0027s not a tab, but I didn\u0027t see this pattern used anywhere else in this file and didn\u0027t want to make my own style rule. So I thought, let\u0027s keep it consistent with lines 23/25/33 and remove all spaces...",
       "parentUuid": "3dc83bc3_62ec8869",
+      "revId": "5eea0193784384c7028c1f3ac8edee5463c02dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "930ebc5f_8b82ac86",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-04-19T14:50:06Z",
+      "side": 1,
+      "message": "Agree, a two-spaces would be a good solution overall. \n\nOk, for the moment, let\u0027s just remove the leading spaces for this piece but we should change \u0027tab-spaces\u0027 in all (makefile) non-target places.",
+      "parentUuid": "0ea6791c_65c7b95e",
       "revId": "5eea0193784384c7028c1f3ac8edee5463c02dfb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
