@@ -295,6 +295,30 @@
       },
       "revId": "7a4a44c50a019f871046553e733a67156dd5dab4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "852385cf_cd6cee30",
+        "filename": "common/bl_common.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-19T11:54:59Z",
+      "side": 1,
+      "message": "Hi Pankaj,\n\nThank you for reworking the patch.\n\nAs you might know [1], we\u0027re planning to do a release of TF-A pretty soon. We doubt this patch will be merged before the code freeze date because we feel we need more time to fully analyse its implications.\n\nIn the meantime, I am afraid you\u0027ll have to keep this patch in your tree downstream until we\u0027ve got the bandwidth to properly look into this. \n\nAlternatively, there is still the option I mentioned some time ago, which is to post a new patch that moves the cache maintenance operation down into the NXP CAAM driver, leaving the generic code unchanged. This would be a temporary solution and you could always revert the patch once this gets properly fixed.\n------\n\n[1] https://lists.trustedfirmware.org/pipermail/tf-a/2021-April/001077.html",
+      "parentUuid": "5238750a_2e77997e",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 0
+      },
+      "revId": "7a4a44c50a019f871046553e733a67156dd5dab4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
