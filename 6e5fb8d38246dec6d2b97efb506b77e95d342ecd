@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "103995f8_d837ffb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-19T16:48:38Z",
+      "side": 1,
+      "message": "Thanks Raghu, these are really good comments. The analysis is a work in progress and we expect to make updates in the future as assumptions change. I\u0027ve tried to address the comments I can address now. \n\nIn general the assumption in this document is that access to server environments (data centers) is restricted, therefore attacks that require physical access are unlikely. As you also pointed out, I expect this assumption to change in the future, especially with confidential computing. Regarding supply chain attacks, both hardware and software supply chain attacks are out of scope in this threat analysis.",
+      "parentUuid": "6e07e2c9_589dfabd",
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ae321a8_11d40182",
@@ -41,6 +59,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65cb5ae3_9abe2804",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-19T16:48:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0ae321a8_11d40182",
+      "range": {
+        "startLine": 25,
+        "startChar": 42,
+        "endLine": 25,
+        "endChar": 54
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0624b830_65f2147d",
@@ -54,6 +96,30 @@
       "writtenOn": "2021-04-18T03:24:38Z",
       "side": 1,
       "message": "Does the threat model also leave out SPA/DPA atacks?",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 26
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de5eaa82_792a8b4d",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-19T16:48:38Z",
+      "side": 1,
+      "message": "We don\u0027t consider SPA/DPA attacks in the the threat model although I wouldn\u0027t put them in the same category as these advanced physical attacks. I will take a note to consider them in the future.",
+      "parentUuid": "0624b830_65f2147d",
       "range": {
         "startLine": 134,
         "startChar": 0,
@@ -110,6 +176,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c59aa1_8f663385",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-19T16:48:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "49c2d81d_94f4b111",
+      "range": {
+        "startLine": 262,
+        "startChar": 27,
+        "endLine": 262,
+        "endChar": 34
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2cda9435_8a0bb6e1",
@@ -156,6 +246,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d403212_e7878100",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-19T16:48:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bb738f3_128b6e35",
+      "range": {
+        "startLine": 401,
+        "startChar": 29,
+        "endLine": 402,
+        "endChar": 40
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f13454e_d7b26d5c",
@@ -169,6 +283,30 @@
       "writtenOn": "2021-04-18T03:24:38Z",
       "side": 1,
       "message": "nit: probably should just say malicious instead of A malicious",
+      "range": {
+        "startLine": 546,
+        "startChar": 48,
+        "endLine": 546,
+        "endChar": 59
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70050427_2f4633ba",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-19T16:48:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f13454e_d7b26d5c",
       "range": {
         "startLine": 546,
         "startChar": 48,
@@ -202,6 +340,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec3afcad_0f351d7a",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-19T16:48:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bab10d61_ba1330c5",
+      "range": {
+        "startLine": 564,
+        "startChar": 27,
+        "endLine": 564,
+        "endChar": 37
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3141507f_345708fc",
@@ -215,6 +377,30 @@
       "writtenOn": "2021-04-18T03:24:38Z",
       "side": 1,
       "message": "not strictly true. platforms such as NVIDIA platforms use asserts even in production builds. TF-A permits an option to enable asserts even in release builds. Perhaps it should be clear that this is the generally expected use case but platforms that use it differently are responsible for their own security by doing so.",
+      "range": {
+        "startLine": 637,
+        "startChar": 29,
+        "endLine": 638,
+        "endChar": 51
+      },
+      "revId": "6e5fb8d38246dec6d2b97efb506b77e95d342ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a751dd3c_af5d7cb1",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-19T16:48:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3141507f_345708fc",
       "range": {
         "startLine": 637,
         "startChar": 29,
