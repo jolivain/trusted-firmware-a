@@ -63,6 +63,30 @@
       },
       "revId": "ce9eba5463dbcb28a8a09e0c5dd655ec8ed6170a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b0314ed_210ace4f",
+        "filename": "services/std_svc/pci_svc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-04-19T15:45:12Z",
+      "side": 1,
+      "message": "aah, thanks, i missed the sanitization. Thanks for your response. Makes sense.",
+      "parentUuid": "6e8b3e9b_75661e99",
+      "range": {
+        "startLine": 35,
+        "startChar": 6,
+        "endLine": 35,
+        "endChar": 14
+      },
+      "revId": "ce9eba5463dbcb28a8a09e0c5dd655ec8ed6170a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
