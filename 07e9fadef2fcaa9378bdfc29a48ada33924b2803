@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2ddc091_9976d4cf",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-04-19T10:36:31Z",
+      "side": 1,
+      "message": "Nit: \"Arm\"\n(We are updating the name on older files for consistency with newer ones)",
+      "range": {
+        "startLine": 2,
+        "startChar": 28,
+        "endLine": 2,
+        "endChar": 31
+      },
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80ab91cb_0c498a6a",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-04-19T10:36:31Z",
+      "side": 1,
+      "message": "Nit: \"Arm\"",
+      "range": {
+        "startLine": 2,
+        "startChar": 28,
+        "endLine": 2,
+        "endChar": 31
+      },
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d47083f_ec054c45",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-04-19T10:36:31Z",
+      "side": 1,
+      "message": "For consistency with other platforms, maybe this should be place inside fpga_bl31_plat_arch_setup() function and then call that function from here. See bl31_plat_arch_setup@arm_bl31_setup.c, for an example.",
+      "range": {
+        "startLine": 75,
+        "startChar": 1,
+        "endLine": 85,
+        "endChar": 19
+      },
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91d4f13a_7a8a08e5",
+        "filename": "plat/arm/board/arm_fpga/fpga_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-04-19T10:36:31Z",
+      "side": 1,
+      "message": "\"Arm\".\nIf this file is new, remove the \"and Contributors\".",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6f9ede6_2b370f55",
+        "filename": "plat/arm/board/arm_fpga/fpga_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-04-19T10:36:31Z",
+      "side": 1,
+      "message": "In this case, use the system smaller granularity (in this case PAGE_SIZE, defined in xlat_tables_def.h)\n\nThe rationale comment can be removed as it is understood and you may even remove FPGA_CMD_LINE_SIZE and use PAGE_SIZE instead.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 36
+      },
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a6efbc7_ca977eff",
+        "filename": "plat/arm/board/arm_fpga/fpga_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-04-19T10:36:31Z",
+      "side": 1,
+      "message": "Same as above.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 33
+      },
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "859b70f4_5ead8db6",
+        "filename": "plat/arm/board/arm_fpga/fpga_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-04-19T10:36:31Z",
+      "side": 1,
+      "message": "This should be a header file as it only have definitions. Some platforms have these definitions inside platform_def.h so maybe that would be a better place.",
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6009842_576ce867",
+        "filename": "plat/arm/board/arm_fpga/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-04-19T10:36:31Z",
+      "side": 1,
+      "message": "\"Arm\"",
+      "range": {
+        "startLine": 2,
+        "startChar": 28,
+        "endLine": 2,
+        "endChar": 31
+      },
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05b38dab_e3dcd792",
+        "filename": "plat/arm/board/arm_fpga/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-04-19T10:36:31Z",
+      "side": 1,
+      "message": "Why do we need the undefs here? I am assuming that this is because of the arm_def.h inclusion. \n\nIf that is the reason, try removing the redundant definitions from platform_def.h and use the ones in arm_def.h instead (CACHE_WRITEBACK_GRANUULE for instance seems to be defined with the same value).\n\nOn the other hand, if the number of definitions from arm_def.h you need is small, maybe you can copy them to your platform_def.h.\n\nIn case none of the above is suitable for you, then I guess it is fine to use the undef, but try to use that as last resort.",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
