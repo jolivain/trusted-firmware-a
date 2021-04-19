@@ -201,6 +201,33 @@ void bl31_plat_arch_setup(void)
 	enable_mmu_el3(0);
 }
 
+/*
+ * Remove the FDT /memreserve/ entry that covers the region at the very
+ * beginning of memory (if that exists). This is where the secondaries
+ * originally spin, but we pull them out there.
+ * Having overlapping /reserved-memory and /memreserve/ regions confuses
+ * the Linux kernel, so we need to get rid of this one.
+ */
+static void remove_spintable_memreserve(void *dtb)
+{
+	uint64_t addr, size;
+	int regions = fdt_num_mem_rsv(dtb);
+	int i;
+
+	for (i = 0; i < regions; i++) {
+		if (fdt_get_mem_rsv(dtb, i, &addr, &size) != 0) {
+			return;
+		}
+		if (size == 0U) {
+			return;
+		}
+		if (addr == 0U) {
+			fdt_del_mem_rsv(dtb, i);
+			return;
+		}
+	}
+}
+
 static void rpi4_prepare_dtb(void)
 {
 	void *dtb = (void *)rpi4_get_dtb_address();
@@ -227,7 +254,11 @@ static void rpi4_prepare_dtb(void)
 		return;
 	}
 
-	/* Reserve memory used by Trusted Firmware. */
+	/*
+	 * Remove the original reserved region (used for the spintable), and
+	 * replace it with a region describing the whole of Trusted Firmware.
+	 */
+	remove_spintable_memreserve(dtb);
 	if (fdt_add_reserved_memory(dtb, "atf@0", 0, 0x80000))
 		WARN("Failed to add reserved memory nodes to DT.\n");
 
