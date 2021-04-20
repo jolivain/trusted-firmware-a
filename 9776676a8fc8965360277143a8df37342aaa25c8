@@ -34,6 +34,29 @@
       "parentUuid": "6612a9af_31f9e0c9",
       "revId": "9776676a8fc8965360277143a8df37342aaa25c8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "211f4477_8c888902",
+        "filename": "fdts/fvp-base-gicv2-psci.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-04-20T19:17:15Z",
+      "side": 1,
+      "message": "nit: is it possible to also use some macro for this? \nRefer to DTs and include/dt-bindings/interrupt-controller/arm-gic.h in linux source tree",
+      "range": {
+        "startLine": 103,
+        "startChar": 28,
+        "endLine": 103,
+        "endChar": 34
+      },
+      "revId": "9776676a8fc8965360277143a8df37342aaa25c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
