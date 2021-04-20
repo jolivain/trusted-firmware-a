@@ -16,6 +16,24 @@
       "message": "This is a compatibility break for platforms which have enabled this option. The trouble is that if SVE is enabled for both NS and S in a single option, and if the Secure world doesn\u0027t support save and restore of SVE, then there could be silent corruption if it tries to use FPU (even if FPU is saved and restored in Secure). So this option has to be Separate for Non Secure and Secure.",
       "revId": "7de4e7aedffd3ee1604954d2f8b1d7d28e1b3cba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8120f113_15de9a65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-04-20T15:46:34Z",
+      "side": 1,
+      "message": "Done. Squashed to the previous commit as it makes more sense. Abandoning this one.",
+      "parentUuid": "08e5f4ca_ff776d05",
+      "revId": "7de4e7aedffd3ee1604954d2f8b1d7d28e1b3cba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
