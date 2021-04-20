@@ -33,6 +33,24 @@
       "message": "https://ci.trustedfirmware.org/job/tf-ci-gateway/5784/\n\nHmmm... I am not even touching juno code base or even a common code base.. so i assume master is broken and the build fail has nothing to do with my patch.",
       "revId": "3dd87efb2e63249c7896dcae5324e1303bfc7b40",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "050fd8b3_df6a94b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-20T17:30:21Z",
+      "side": 1,
+      "message": "Correct - I have seen Juno failures on a few different patches lately, so I think you\u0027re probably in the clear.",
+      "parentUuid": "f6967053_dee8cc11",
+      "revId": "3dd87efb2e63249c7896dcae5324e1303bfc7b40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
