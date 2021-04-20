@@ -165,6 +165,30 @@
       },
       "revId": "63570d45913f2f7eb355804ae56f376563d5dbbf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b980c52b_9e77089c",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-20T17:54:26Z",
+      "side": 1,
+      "message": "Hi Raghu,\n\nThanks for your review comments!\n\n\u003e Correct, as a writer of CoT, i would expect that the driver would do the right thing. In this case, the code not and if you did mess up the CoT, you could potentially have an undetected/unknown security issue(mostly DoS i think).\n\u003e As for the case of using NVCTR without signature authentication, i agree. If someone wants to shoot their own foot, you cannot do anything about it. I also agree that if the intent was to ONLY ensure that the common case, where people expect nvctr update after authentication works properly, this patch is fine. I thought we might have wanted to go further and prevent the uncommon scenario.\n\u003e Perhaps a middle ground is to add a warning message, that says no authentication was performed but nv counter is being updated to at least inform readers of the log that something uncommon is occurring.\n\nAgree, let me add a warning message to inform the log readers in uncommon case.\n(i.e. when NV counter check and update happen without certificate authentication).\n\n\u003e Would also be good to summarize this discussion in the commit message that we are only fixing for the common case but we are still allowing the uncommon case.\n\nSure, let me summarize this discussion in the commit message.",
+      "parentUuid": "6434fa46_933857e6",
+      "range": {
+        "startLine": 384,
+        "startChar": 6,
+        "endLine": 386,
+        "endChar": 37
+      },
+      "revId": "63570d45913f2f7eb355804ae56f376563d5dbbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
