@@ -22,6 +22,30 @@
       },
       "revId": "f64c04a303e4460391bf746425bdd222703bc8a2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee3707d6_e7860f8c",
+        "filename": "plat/arm/board/arm_fpga/include/platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-20T17:03:05Z",
+      "side": 1,
+      "message": "It turns out that these are not needed.",
+      "parentUuid": "021a417f_7a7ad2a1",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 17
+      },
+      "revId": "f64c04a303e4460391bf746425bdd222703bc8a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
