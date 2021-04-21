@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "866723f9_831f37db",
+        "filename": "plat/arm/common/arm_io_storage.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-04-21T07:23:55Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 170,
+        "startChar": 22,
+        "endLine": 170,
+        "endChar": 39
+      },
+      "revId": "53da942be792db1a6dc9a88c99c1ee2ff8c62915",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e127b238_7fb223e6",
+        "filename": "plat/arm/common/fconf/arm_fconf_io.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-04-21T07:23:55Z",
+      "side": 1,
+      "message": "FIP is part of GPT and deriving this address based on FIP Base does not look good.\n\nWhat you can do is, define a new Macro say PLAT_ARM_GPT_BASE in platform make files, this will also help in catching errors if a platform unintentionally use GPT.",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 28
+      },
+      "revId": "53da942be792db1a6dc9a88c99c1ee2ff8c62915",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
