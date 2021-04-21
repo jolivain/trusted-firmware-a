@@ -16,6 +16,46 @@
       "message": "Rebased. Any comments on the new version?\nThank you.",
       "revId": "a2a7af85a5bfc79a14d12dbbf8dd7da5438c5aeb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad17345_fc84f6cd",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-04-21T13:19:17Z",
+      "side": 1,
+      "message": "should be only \u003d",
+      "range": {
+        "startLine": 440,
+        "startChar": 30,
+        "endLine": 440,
+        "endChar": 32
+      },
+      "revId": "a2a7af85a5bfc79a14d12dbbf8dd7da5438c5aeb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccba62e4_e61c922a",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-04-21T13:19:17Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "a2a7af85a5bfc79a14d12dbbf8dd7da5438c5aeb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
