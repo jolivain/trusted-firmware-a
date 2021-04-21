@@ -189,6 +189,30 @@
       },
       "revId": "53da942be792db1a6dc9a88c99c1ee2ff8c62915",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05cecca3_39e0f214",
+        "filename": "plat/arm/common/fconf/arm_fconf_io.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-21T17:38:54Z",
+      "side": 1,
+      "message": "Also, I extended this support for a5ds and fvp_ve that does not make use of arm_common.mk file.",
+      "parentUuid": "8fa0019b_92f67c53",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 28
+      },
+      "revId": "53da942be792db1a6dc9a88c99c1ee2ff8c62915",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
