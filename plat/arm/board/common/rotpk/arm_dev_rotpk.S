@@ -4,7 +4,11 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#if !defined(TARGET_PLATFORM_FVP) && !defined(TARGET_PLATFORM_FPGA)
 #include "plat/arm/common/arm_def.h"
+#else
+#include <platform_def.h>
+#endif
 
 	.global arm_rotpk_header
 	.global arm_rotpk_header_end
