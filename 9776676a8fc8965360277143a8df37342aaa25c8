@@ -72,6 +72,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e50a0832_48e6a83e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-04-21T17:23:51Z",
+      "side": 1,
+      "message": "I see. The problem is that this ticket is in a different project, LSS (Lava and System Software) so this is why you do not have access (and perhaps there is no need in general). Copy and pasting what I wrote there\n\n\n-------------------------------------------\n\nI have triggered a jenkins job [1] that triggers multiple LAVA Juno jobs and most of them (if not all) are failing. Looking at the logs (one can follow the jenkins job dependency chain until one gets to LAVA), i.e [2,3], one of these two errors (or both) can be seen at different boot phases:\n\nboot loader phase:\n\nTesting motherboard interfaces (FPGA build 118)...\nSRAM 32MB test: PASSED\nLAN9118 test: PASSED\nERROR: SMC USB SRAM mode lock\nSMC USB test: FAILED\nKMI1/2 test: PASSED\nMMC test: PASSED\nPB/LEDs test: PASSED\nFPGA UART test: PASSED\nPCIe init test: PASSED\nMAC addrs test: PASSED\n\nkernel phase:\n\nWARNING: SCMI power domain protocol version 0x10000 incompatible with driver version x20000ERROR: SCMI Initialization failed on channel 0\n\nI am not sure if these issues are related but that is what I can pointed out in a first sight. This problem is hitting production and staging CI.\n\n[1] https://ci.staging.trustedfirmware.org/job/lsandov1-tf-main/61/\n[2] https://tf.validation.linaro.org/scheduler/job/167105\n[3] https://tf.validation.linaro.org/scheduler/job/166898\n\n-------------------------------------",
+      "parentUuid": "00212643_854d06a1",
+      "revId": "9776676a8fc8965360277143a8df37342aaa25c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "211f4477_8c888902",
