@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "489f686e_67a02616",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-04-21T20:38:01Z",
+      "side": 1,
+      "message": "Since you renamed this to a header file, this line should be removed.",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 44
+      },
+      "revId": "dab34450ee257be1d9fb9b6c74ea39febe5ab9bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
