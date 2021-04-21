@@ -22,6 +22,30 @@
       },
       "revId": "b4c83a1db589f5c0b8be3fe12f771335418d1bb2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a56ebca8_3af59ce3",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-21T20:00:29Z",
+      "side": 1,
+      "message": "As per MISRA rule R14.4,  The controlling expression of an if statement shall have essentially Boolean type.\nHere, \u0027is_sig_check_done\u0027 is boolean type so \u0027!is_sig_check_done\u0027 should not throw any MISRA error. \nPlease let me know if I am missing something.",
+      "parentUuid": "03c69c11_eb8c8784",
+      "range": {
+        "startLine": 401,
+        "startChar": 2,
+        "endLine": 401,
+        "endChar": 27
+      },
+      "revId": "b4c83a1db589f5c0b8be3fe12f771335418d1bb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
