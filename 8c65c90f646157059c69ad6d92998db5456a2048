@@ -63,6 +63,30 @@
       },
       "revId": "8c65c90f646157059c69ad6d92998db5456a2048",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8adf2dc7_c307e98c",
+        "filename": "plat/arm/board/fvp/fvp_bl1_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-21T13:27:50Z",
+      "side": 1,
+      "message": "\u003e I am not sure how to do that\n\u003e easily.\n\u003e In plat/arm/board/fvp/fvp_err.c:26\n\u003e the FIP erase procedure happens.\n\u003e It is followed by reboot and by FWU.\n\u003e FWU is triggered right at the start,\n\u003e if it finds FIP erased.\n\u003e To implement your suggestion, perhaps\n\u003e we need to somehow distinguish the\n\u003e \"FIP was found bad, erased and rebooted\"\n\u003e from \"there was no FIP at all, the\n\u003e boot was supposed to happen from\n\u003e semihosting\".\n\nYes, we need a support to distinguish between\n1. No FIP 2. Bad/Erased FIP case.\nUnfortunately, I don\u0027t have any suggestion, how to \ndistinguish between these 2 cases. Let me get back\nto you on this. \n\n\u003e \n\u003e Is FWU on FVP needed at all?\n\nYes, we need FWU on FIP. There is a test case to update\nthe flash with a backup (proper) FIP image when FIP gets\ncorrupted. If we add this implementation, then we never \nable to execute that particular test path for FVP.\n\n\u003e If FIP is missing on FVP, then it\n\u003e means that it wasn\u0027t loaded with\n\u003e -C bp.flashloader0.fname\u003d$FIP\n\u003e Which IMHO means a desire to boot\n\u003e from semihosting.\n\nIdeally, yes but we have a mechanism to recover FIP without\nusing semi-hosting as explained above.\n\n\u003e \n\u003e Please clarify how exactly you see\n\u003e the check for the semihosting-only\n\u003e case. AFAICS there is no such parameter\n\u003e like \"semihosting-only boot\" on FVP,\n\u003e or something else that can allow to\n\u003e implement such check in some simple\n\u003e way.\n\nWe don\u0027t have any simple check as of now. \nThinking loud, may be we need to guard \u0027register_io_dev_sh\u0027 \nwith compile time check, and also relative APIs of \nsemihosting. Update the \u0027plat_arm_bl1_fwu_needed\u0027 \nfunction present in \u0027plat/arm/common/arm_bl1_setup.c\u0027 to \nreturn 0 always in case of semihosting defined.\n\nAdding Soby and Sandrine for more suggestion.",
+      "parentUuid": "fabc8067_3ff3eec7",
+      "range": {
+        "startLine": 128,
+        "startChar": 5,
+        "endLine": 128,
+        "endChar": 28
+      },
+      "revId": "8c65c90f646157059c69ad6d92998db5456a2048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
