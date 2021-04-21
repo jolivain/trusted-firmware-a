@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39e5da43_b5c3024b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000550
+      },
+      "writtenOn": "2021-04-21T12:39:03Z",
+      "side": 1,
+      "message": "Hi Manish,",
+      "revId": "8c65c90f646157059c69ad6d92998db5456a2048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02ab84e4_a393bf7c",
@@ -14,6 +31,30 @@
       "writtenOn": "2021-04-21T11:21:41Z",
       "side": 1,
       "message": "This doesn\u0027t look correct as it breaks firmware update when we don\u0027t use semihosting.\n\nIIUC, semihosting not uses FIP, hence fwu_needed check always returns true in case of semihosting, and hence you added this change.\n\nFor time being, can you avoid doing fwu_needed check in case of semihosting only?",
+      "range": {
+        "startLine": 128,
+        "startChar": 5,
+        "endLine": 128,
+        "endChar": 28
+      },
+      "revId": "8c65c90f646157059c69ad6d92998db5456a2048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fabc8067_3ff3eec7",
+        "filename": "plat/arm/board/fvp/fvp_bl1_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000550
+      },
+      "writtenOn": "2021-04-21T12:39:03Z",
+      "side": 1,
+      "message": "I am not sure how to do that\neasily.\nIn plat/arm/board/fvp/fvp_err.c:26\nthe FIP erase procedure happens.\nIt is followed by reboot and by FWU.\nFWU is triggered right at the start,\nif it finds FIP erased.\nTo implement your suggestion, perhaps\nwe need to somehow distinguish the\n\"FIP was found bad, erased and rebooted\"\nfrom \"there was no FIP at all, the\nboot was supposed to happen from\nsemihosting\".\n\nIs FWU on FVP needed at all?\nIf FIP is missing on FVP, then it\nmeans that it wasn\u0027t loaded with\n-C bp.flashloader0.fname\u003d$FIP\nWhich IMHO means a desire to boot\nfrom semihosting.\n\nPlease clarify how exactly you see\nthe check for the semihosting-only\ncase. AFAICS there is no such parameter\nlike \"semihosting-only boot\" on FVP,\nor something else that can allow to\nimplement such check in some simple\nway.",
+      "parentUuid": "02ab84e4_a393bf7c",
       "range": {
         "startLine": 128,
         "startChar": 5,
