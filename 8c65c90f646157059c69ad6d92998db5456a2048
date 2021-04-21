@@ -128,6 +128,30 @@
       },
       "revId": "8c65c90f646157059c69ad6d92998db5456a2048",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48f2e604_a913fb42",
+        "filename": "plat/arm/board/fvp/fvp_bl1_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-21T14:36:11Z",
+      "side": 1,
+      "message": "Firmware update is done by NS-BL1U and NS-BL2U components running at normal world. so, only normal world aware about the back-up image. it copies back-up image to primary FIP (to recover).\nBL1 and BL2 (secure side) always check primary FIP, and do basic sanity of FIP and authentication for boot success and in boot flow, we do not check the integrity of back-up FIP.",
+      "parentUuid": "2625f31e_4d0ff6c2",
+      "range": {
+        "startLine": 128,
+        "startChar": 5,
+        "endLine": 128,
+        "endChar": 28
+      },
+      "revId": "8c65c90f646157059c69ad6d92998db5456a2048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
