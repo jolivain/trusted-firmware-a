@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4f353ba_c63b592b",
+        "filename": "plat/arm/board/arm_fpga/fpga_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-04-21T17:48:38Z",
+      "side": 1,
+      "message": "I think you can remove this comment. Doesn\u0027t seem to make much sense (we choose PAGE_SIZE size because the size has to be aligned to the minimum granularity, not because we want to give enough space to the buffer).",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 1
+      },
+      "revId": "c310ba43bc4af7f69271e1a766abba4d13c37fca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
