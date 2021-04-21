@@ -302,6 +302,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab13f224_0ca4cc19",
+        "filename": "plat/arm/board/arm_fpga/fpga_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-21T18:03:43Z",
+      "side": 1,
+      "message": "Have renamed to a header file - putting these definitions in platform_def.h causes some issues it seems",
+      "parentUuid": "859b70f4_5ead8db6",
+      "revId": "07e9fadef2fcaa9378bdfc29a48ada33924b2803",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6009842_576ce867",
         "filename": "plat/arm/board/arm_fpga/include/platform_def.h",
         "patchSetId": 3
