@@ -93,6 +93,30 @@
       },
       "revId": "53da942be792db1a6dc9a88c99c1ee2ff8c62915",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ce066fc_0e627832",
+        "filename": "plat/arm/common/fconf/arm_fconf_io.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-21T10:52:45Z",
+      "side": 1,
+      "message": "If we use FLASH0_BASE for GPT, then this common code will not work on fvp_ve (same as you mentioned), and similarly on a5ds platform. If we are okay with this, then I will do the modifications accordingly. \n\nOtherwise, can we have default base address in arm_common.mk file as below:\n# Default GPT image base address\nPLAT_ARM_GPT_BASE                   :\u003d      0x8000000 \u003cFLASH0 base\u003e\nand give opportunity to platform to override it?\n\nor, let\u0027s have PLAT_ARM_GPT_BASE define in every Arm platform defined header, same as how PLAT_ARM_FIP_BASE defined.\n\nPlease let me know what do you think?",
+      "parentUuid": "4734e24f_28662421",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 28
+      },
+      "revId": "53da942be792db1a6dc9a88c99c1ee2ff8c62915",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
