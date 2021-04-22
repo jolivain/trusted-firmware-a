@@ -1,6 +1,86 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f699f281_a2857d68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-22T11:12:23Z",
+      "side": 1,
+      "message": "The patch looks OK to me but I would like us to discuss the alternate implementation I am suggesting. That\u0027s why I am putting a -1 against this patch, just so that we don\u0027t miss it.",
+      "revId": "b4c83a1db589f5c0b8be3fe12f771335418d1bb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ef32c99_b75cf211",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-22T11:12:23Z",
+      "side": 1,
+      "message": "I\u0027ve been thinking about an alternate way to handle this. We could consider doing the NVcounter check separately from the NVCounter upgrade. We could do the former only in the for loop at line 368, and once all checks (authentication, integrity, ...) have passed, we\u0027d upgrade the NVcounter if needed. This would require changes to the auth_nvctr() function, which would no longer be responsible for calling plat_set_nv_ctr2().\n\nThat being said, auth_nvctr() has done all the work to figure out whether the NVcounter needs upgrading (i.e. getting the counter values from the certificate and the platform) so we don\u0027t want to throw this information away and figure it out all again in the caller. Thus, we could propagate this information to the caller using the return value:\n* 0 for no error, no need to upgrade the platform counter.\n* 1 for no error, need to upgrade it.\n\nHow does that sound?",
+      "revId": "b4c83a1db589f5c0b8be3fe12f771335418d1bb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9cd1959_056c79e8",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-22T11:12:23Z",
+      "side": 1,
+      "message": "(minor) Suggest:\n\n Defer the anti-rollback check until all other checks have passed, in particular\n authentication/integrity checks. This is to prevent the NVcounter from\n being upgraded by a malformed/compromised certificate.\n\nwhich reads better to me (but that is subjective).",
+      "range": {
+        "startLine": 386,
+        "startChar": 6,
+        "endLine": 388,
+        "endChar": 37
+      },
+      "revId": "b4c83a1db589f5c0b8be3fe12f771335418d1bb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79ad3e1f_ec1c19b2",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-22T11:12:23Z",
+      "side": 1,
+      "message": "(minor) Perhaps turn this break statement into a \"continue\", and remove the initialization of rc variable above. This would seem more intuitive to me.",
+      "range": {
+        "startLine": 391,
+        "startChar": 3,
+        "endLine": 391,
+        "endChar": 9
+      },
+      "revId": "b4c83a1db589f5c0b8be3fe12f771335418d1bb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03c69c11_eb8c8784",
