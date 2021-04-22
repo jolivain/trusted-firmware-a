@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed03fb35_502a509f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-04-22T10:06:01Z",
+      "side": 1,
+      "message": "@Alexei, i think this patch needs a Linux boot test and i see CI+2 has been triggered earlier also.\nWe also need to check the linux boot log to confirm following warnings are no longer coming\narch_timer: WARNING: Invalid trigger for IRQ5, assuming level low\narch_timer: WARNING: Please fix your firmware",
+      "revId": "dfa6c540713ba546da65fe179ec1ef0fc1b1f7f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
