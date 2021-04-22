@@ -16,6 +16,24 @@
       "message": "I\u0027ve tested the binaries generated there:\nhttps://ci.trustedfirmware.org/job/tf-a-builder/197892/\n\nThe STM32MP157C-EV1 board properly boots.",
       "revId": "62fbb31516807207d58cdba705d2adf54fec3a5d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a68e2a23_21e83333",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-22T08:21:45Z",
+      "side": 1,
+      "message": "Brilliant, thanks for confirming! I will manually apply Verified+1 to the patch series then.\n\nFor the record, http://ci.trustedfirmware.org/job/tf-gerrit-tforg-l1/475/ reported some static checks failures but AFAICS there\u0027s nothing you need to fix.\n* One of the failures looks like a false positive to me. checkpatch is flagging some space error in include/common/bl_common.ld.h, which is some LD linker script, not C code so it should not even look at that. We should probably add this file to the list of files ignored by checkpatch but that is outside of the scope of this patch.\n* There are some errors on the order of #include directives but all of them are in code untouched by this patch.",
+      "parentUuid": "98f89c64_53b099a4",
+      "revId": "62fbb31516807207d58cdba705d2adf54fec3a5d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
