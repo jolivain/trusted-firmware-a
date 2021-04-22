@@ -51,6 +51,23 @@
       "message": "The failures are due to tf-static-checks for non-Arm platforms.",
       "revId": "dfa6c540713ba546da65fe179ec1ef0fc1b1f7f5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6d3eed8_485dcf69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-04-22T20:45:43Z",
+      "side": 1,
+      "message": "Build failures are unrelated and other juno test failures were transient(passed on re-run).\nAlso, as expected the warning related with timer were no longer coming in linux boot.",
+      "revId": "dfa6c540713ba546da65fe179ec1ef0fc1b1f7f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
