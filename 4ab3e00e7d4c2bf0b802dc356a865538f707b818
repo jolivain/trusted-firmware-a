@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1259c406_b02be0f9",
+        "filename": "plat/mediatek/mt8195/aarch64/plat_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-04-22T19:28:04Z",
+      "side": 1,
+      "message": "tab?",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 5
+      },
+      "revId": "4ab3e00e7d4c2bf0b802dc356a865538f707b818",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6930278b_ad711893",
+        "filename": "plat/mediatek/mt8195/aarch64/plat_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-04-22T19:28:04Z",
+      "side": 1,
+      "message": "Other tabs for these lines here...",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 17,
+        "endChar": 5
+      },
+      "revId": "4ab3e00e7d4c2bf0b802dc356a865538f707b818",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1f5afe6_781463f3",
+        "filename": "plat/mediatek/mt8195/aarch64/plat_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-04-22T19:28:04Z",
+      "side": 1,
+      "message": "tab?",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 3
+      },
+      "revId": "4ab3e00e7d4c2bf0b802dc356a865538f707b818",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bfa836c_d08dcfe1",
+        "filename": "plat/mediatek/mt8195/plat_topology.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-04-22T19:28:04Z",
+      "side": 1,
+      "message": "if ((read_mpidr() \u0026 MPIDR_MT_MASK) !\u003d 0) {\nAccording to Misra rules...",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 36
+      },
+      "revId": "4ab3e00e7d4c2bf0b802dc356a865538f707b818",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e8420b3_7c375845",
+        "filename": "plat/mediatek/mt8195/plat_topology.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-04-22T19:28:04Z",
+      "side": 1,
+      "message": "if ((mpidr \u0026 (MPIDR_AFFLVL_MASK \u003c\u003c MPIDR_AFF0_SHIFT)) !\u003d 0)\nAccording to Misra rules...",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 54
+      },
+      "revId": "4ab3e00e7d4c2bf0b802dc356a865538f707b818",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
