@@ -241,6 +241,30 @@
       },
       "revId": "8c65c90f646157059c69ad6d92998db5456a2048",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "236fc979_74a8bb36",
+        "filename": "plat/arm/board/fvp/fvp_bl1_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000550
+      },
+      "writtenOn": "2021-04-22T12:08:49Z",
+      "side": 1,
+      "message": "\u003e In case of FIP boot flow, if expected files are missing in FIP then that\n\u003e triggers FWU action.\n\n... or just the FIP itself is\nmissing. Which is a biggest problem.\nBut I think that comes only from\nthe fact that FWU is preceded with\nFIP erasure and reboot.\nIf we could avoid that, things would\nsuddenly become very simple.\n\n\u003e similarly, if expected files are missing for semi-hosting,\n\u003e then what is expected action code need to take here?\n\nI think FWU procedure should\nstart. But instead, you do FIP\nerasure+reboot.\n\nWould it be possible to start\nFWU in-place, when just the file\nis found missing?\nIf you avoid these erase+reboot\nsteps, everything will become trivial.",
+      "parentUuid": "9d5aaaf2_40e08aef",
+      "range": {
+        "startLine": 128,
+        "startChar": 5,
+        "endLine": 128,
+        "endChar": 28
+      },
+      "revId": "8c65c90f646157059c69ad6d92998db5456a2048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
