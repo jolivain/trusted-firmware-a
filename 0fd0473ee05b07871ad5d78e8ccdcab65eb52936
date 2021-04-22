@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d74646f3_5d3206bf",
+        "filename": "drivers/st/io/io_mmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-22T12:52:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20b2d1ea_3e793ae3",
+      "revId": "0fd0473ee05b07871ad5d78e8ccdcab65eb52936",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c908b3e_8b9592ff",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-04-22T09:26:54Z",
       "side": 1,
       "message": "use tabs instead of spaces",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 370,
+        "endChar": 4
+      },
+      "revId": "0fd0473ee05b07871ad5d78e8ccdcab65eb52936",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e6de283_a9e6291d",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-22T12:52:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c908b3e_8b9592ff",
       "range": {
         "startLine": 370,
         "startChar": 0,
@@ -75,6 +117,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03e793f9_3911b35f",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-22T12:52:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8458f031_b6ab39b1",
+      "revId": "0fd0473ee05b07871ad5d78e8ccdcab65eb52936",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0dc109aa_935de345",
@@ -88,6 +148,30 @@
       "writtenOn": "2021-04-22T09:26:54Z",
       "side": 1,
       "message": "1U",
+      "range": {
+        "startLine": 378,
+        "startChar": 24,
+        "endLine": 378,
+        "endChar": 25
+      },
+      "revId": "0fd0473ee05b07871ad5d78e8ccdcab65eb52936",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0c85192_d4d54751",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-04-22T12:52:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dc109aa_935de345",
       "range": {
         "startLine": 378,
         "startChar": 24,
