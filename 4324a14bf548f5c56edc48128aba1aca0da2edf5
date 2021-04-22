@@ -33,6 +33,24 @@
       "message": "Just checking:  Do you want this, or this plus 1?  More specifically, is BL32_LIMIT the first address *outside* this range or the last value inside that range?",
       "revId": "4324a14bf548f5c56edc48128aba1aca0da2edf5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71f40645_556b151a",
+        "filename": "bl32/sp_min/aarch32/entrypoint.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-04-22T07:38:32Z",
+      "side": 1,
+      "message": "Hi Gary, I just copied what was done in bl2/aarch64/bl2_el3_entrypoint.S. But I know I had to use a bhi in lib/aarch32/misc_helpers.S (line 256) instead of a b.hs in aarch64, with an updated comment. Else it was not booting.",
+      "parentUuid": "a3640107_1ef4c519",
+      "revId": "4324a14bf548f5c56edc48128aba1aca0da2edf5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
