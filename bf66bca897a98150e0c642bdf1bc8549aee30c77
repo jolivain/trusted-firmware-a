@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7f4caf9_67bf7cee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-04-22T08:26:00Z",
+      "side": 1,
+      "message": "May I ask if this whole PCIe SMC support is actually useful, as it seems the Linux support has been NAKed? There may have not been the last work spoken on this, but I wonder if we should commit code at this point, as future acceptance might be dependent on spec changes?",
+      "revId": "bf66bca897a98150e0c642bdf1bc8549aee30c77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
