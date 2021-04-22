@@ -18,7 +18,7 @@
 #include <platform_def.h>
 
 const io_block_spec_t fip_block_spec = {
-	.offset = PLAT_ARM_FIP_BASE,
+	.offset = PLAT_ARM_FLASH_IMAGE_BASE,
 	.length = PLAT_ARM_FIP_MAX_SIZE
 };
 
