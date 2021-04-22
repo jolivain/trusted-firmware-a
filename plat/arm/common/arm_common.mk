@@ -178,6 +178,10 @@ ifeq (${ARM_GPT_SUPPORT}, 1)
 			drivers/partition/partition.c
 endif
 
+# enabled HW computed CRC support unconditionally in BL2 component
+BL2_CPPFLAGS += -march=armv8-a+crc
+BL2_SOURCES  += common/hw_crc32.c
+
 ifeq (${ARCH}, aarch64)
 PLAT_INCLUDES		+=	-Iinclude/plat/arm/common/aarch64
 endif
