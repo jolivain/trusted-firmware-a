@@ -46,6 +46,30 @@
       },
       "revId": "4ec3ccb4599d7dded9757701a82aea712b791cb0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "828ac431_736050f2",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-04-22T01:43:00Z",
+      "side": 1,
+      "message": "Actually, if i\u0027m being pedantic, the spec separates out PE endpoint and a proxy endpoint. For example \"The device could be either assigned to its proxy endpoint or a different PE endpoint\" in section 8.2.1. Want to keep the terminology consistent.",
+      "parentUuid": "65435891_1392a23f",
+      "range": {
+        "startLine": 908,
+        "startChar": 0,
+        "endLine": 909,
+        "endChar": 39
+      },
+      "revId": "4ec3ccb4599d7dded9757701a82aea712b791cb0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
