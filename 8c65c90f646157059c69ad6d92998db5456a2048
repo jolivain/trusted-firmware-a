@@ -289,6 +289,30 @@
       },
       "revId": "8c65c90f646157059c69ad6d92998db5456a2048",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "626d77f4_f440ff0a",
+        "filename": "plat/arm/board/fvp/fvp_bl1_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000550
+      },
+      "writtenOn": "2021-04-22T12:44:56Z",
+      "side": 1,
+      "message": "Another point here is that\nany file can be missing on\nsemihosting. The file that\nis missing on FIP, will be\nsearched on semihosting just\nbecause the FVP platform provides\nit as an alternative media.\nBut there may be no files at\nall, if the semihosting boot\nwas not intended.\nSo it seems very unlikely that\nyou can use the missing file\non semihosting as an indication\nof anything at all.\n\nI really think that the solution\nmay be somewhere in getting rid\nof FIP erase+reboot steps.\nIn that case you will be able\nto use as an indication the\ncondition when the file is missing\nin both FIP, semihosting and\nwhatever else file-providers were\nregistered by the platform or by\nspd (yes, we register the file\nproviders even in spd).",
+      "parentUuid": "24cc5a72_8d5840df",
+      "range": {
+        "startLine": 128,
+        "startChar": 5,
+        "endLine": 128,
+        "endChar": 28
+      },
+      "revId": "8c65c90f646157059c69ad6d92998db5456a2048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
