@@ -265,6 +265,30 @@
       },
       "revId": "8c65c90f646157059c69ad6d92998db5456a2048",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24cc5a72_8d5840df",
+        "filename": "plat/arm/board/fvp/fvp_bl1_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000550
+      },
+      "writtenOn": "2021-04-22T12:17:28Z",
+      "side": 1,
+      "message": "\u003e similarly, if expected files are missing for semi-hosting,\n\u003e then what is expected action code need to take here?\n\nTo answer your question more\nprecisely. There is no such thing\nas \"semihosting-only\" boot, it seems.\nAny file is first searched in a\nprimary store (FIP), and then goes\nto alternatives (whichever the platform\nprovides).\nSo its not as simple as to say\n\"if semihosting file is missing,\nwe execute semihosting exit\".\nWho knows what mix of boot medias\ncan some user come up with...",
+      "parentUuid": "236fc979_74a8bb36",
+      "range": {
+        "startLine": 128,
+        "startChar": 5,
+        "endLine": 128,
+        "endChar": 28
+      },
+      "revId": "8c65c90f646157059c69ad6d92998db5456a2048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
