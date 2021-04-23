@@ -353,6 +353,30 @@
       },
       "revId": "b4c83a1db589f5c0b8be3fe12f771335418d1bb2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26e28e3b_28298cb5",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-23T14:20:04Z",
+      "side": 1,
+      "message": "Yes.\n\nThere is still the question of whether we should allow chains of trust to specify AUTH_METHOD_NV_CTR as the *only* \"authentication method\" (\"authentication method\" does not sound like the right term to me here but it is how TF-A refers to it through the auth_method_desc_t type...). With the new rules we\u0027ve been establishing in this patch, this would result in a NVcounter comparison check only (no NVcounter upgrade), which might be better handled at another level IMO.\n\nHowever, I think we need more input on this and anyway I feel this is slightly orthogonal to this patch, which is specifically preventing unauthorized NVcounter updates. Let\u0027s roll out this patch and carry on the discussions on this other topic in parallel.",
+      "parentUuid": "e9e89975_ea7ce633",
+      "range": {
+        "startLine": 401,
+        "startChar": 2,
+        "endLine": 401,
+        "endChar": 27
+      },
+      "revId": "b4c83a1db589f5c0b8be3fe12f771335418d1bb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
