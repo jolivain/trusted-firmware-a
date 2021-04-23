@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "063fadb6_ee45d6d1",
+        "filename": "lib/cpus/aarch64/qemu_max.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2021-04-23T14:05:53Z",
+      "side": 1,
+      "message": "So the ask is to make the asm less readable because while there is no rule regarding it, existing TF-A authors have decided using common syntax is for wimps?\n\nI\u0027ll jump through the hoops. But I do request to be asked explicitly to do so. And I strongly suggest such rules be documented somewhere.\n\n---\n\nThis is mentioned neither in coding-style.rst nor coding-guidelines.rst.\n\nWhy make asm harder to read?",
+      "parentUuid": "f8fe1720_5b4cbf51",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 12
+      },
+      "revId": "e6ecfea5db4c543ecc7ab4bd406729941121aa03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0c771a01_973eaa28",
         "filename": "lib/cpus/aarch64/qemu_max.S",
         "patchSetId": 3
@@ -61,6 +85,30 @@
       "writtenOn": "2021-03-29T13:42:49Z",
       "side": 1,
       "message": "should this be bl(branch and link)?",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 2
+      },
+      "revId": "e6ecfea5db4c543ecc7ab4bd406729941121aa03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd88fd78_44c390e9",
+        "filename": "lib/cpus/aarch64/qemu_max.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2021-04-23T14:05:53Z",
+      "side": 1,
+      "message": "Yeah.\nThat\u0027s what I get for briefly contemplating a tail-call optimization and then putting the normal return back in for clarity.",
+      "parentUuid": "0c771a01_973eaa28",
       "range": {
         "startLine": 27,
         "startChar": 1,

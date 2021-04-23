@@ -73,6 +73,30 @@
       },
       "revId": "c710f193b1a2f7012754678873e5913e000be769",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dea967f_e7d17235",
+        "filename": "lib/cpus/aarch64/qemu_max.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2021-04-23T14:05:53Z",
+      "side": 1,
+      "message": "No - in fact it never does. I missed deleting this statement when I deleted the detection code from the arm file I used as template. Which also left the \"Flush L1 cache to L2\" incorrect.\n(Of course, all of this is philosophical, since QEMU doesn\u0027t emulate caches.)",
+      "parentUuid": "72d31b93_da601dd6",
+      "range": {
+        "startLine": 29,
+        "startChar": 22,
+        "endLine": 29,
+        "endChar": 24
+      },
+      "revId": "c710f193b1a2f7012754678873e5913e000be769",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
