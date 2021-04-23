@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f22ad3b3_7a8dfd3b",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-23T08:12:16Z",
+      "side": 1,
+      "message": "\u003e I\u0027ve been thinking about an alternate way to handle this. We could consider doing the NVcounter check separately from the NVCounter upgrade. We could do the former only in the for loop at line 368, and once all checks (authentication, integrity, ...) have passed, we\u0027d upgrade the NVcounter if needed. This would require changes to the auth_nvctr() function, which would no longer be responsible for calling plat_set_nv_ctr2().\n\nConsidering NV-counter check separately from the NVCounter upgrade seems to be a good idea. In case of a compromised certificate, the below code flow may happen.\n1. NV counter check gets an un-trusted NV counter value from the certificate\n-\u003e if CoT specifies NV counter method before signature check method\n2. Certificate gets authenticated with signature method\n3. On successful authentication (2), boot continues, and upgrade platform NV-counter (if certificate\u0027s NV counter value is higher than platform NV-counter)   \n4. On failure authentication (2), abort the boot\nStep(1) seems to be an extra step for a compromised certificate, but the boot gets aborted anyways at step(4) so that way it looks proper.\n\u003e \n\u003e That being said, auth_nvctr() has done all the work to figure out whether the NVcounter needs upgrading (i.e. getting the counter values from the certificate and the platform) so we don\u0027t want to throw this information away and figure it out all again in the caller. Thus, we could propagate this information to the caller using the return value:\n\u003e * 0 for no error, no need to upgrade the platform counter.\n\u003e * 1 for no error, need to upgrade it.\n\u003e \nLet\u0027s have 2 separate method auth_nvcntr_check and auth_nvcntr_upgrade. \nauth_nvcntr_check function should returns whether platform NV counter upgrade is needed or not and the value of certificate\u0027s NV counter. Any thoughts? \n\n\u003e How does that sound?",
+      "parentUuid": "9ef32c99_b75cf211",
+      "revId": "b4c83a1db589f5c0b8be3fe12f771335418d1bb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9cd1959_056c79e8",
         "filename": "drivers/auth/auth_mod.c",
         "patchSetId": 3
@@ -48,6 +66,30 @@
       "writtenOn": "2021-04-22T11:12:23Z",
       "side": 1,
       "message": "(minor) Suggest:\n\n Defer the anti-rollback check until all other checks have passed, in particular\n authentication/integrity checks. This is to prevent the NVcounter from\n being upgraded by a malformed/compromised certificate.\n\nwhich reads better to me (but that is subjective).",
+      "range": {
+        "startLine": 386,
+        "startChar": 6,
+        "endLine": 388,
+        "endChar": 37
+      },
+      "revId": "b4c83a1db589f5c0b8be3fe12f771335418d1bb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07e7e572_7ee8f228",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-23T08:12:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a9cd1959_056c79e8",
       "range": {
         "startLine": 386,
         "startChar": 6,
@@ -71,6 +113,30 @@
       "writtenOn": "2021-04-22T11:12:23Z",
       "side": 1,
       "message": "(minor) Perhaps turn this break statement into a \"continue\", and remove the initialization of rc variable above. This would seem more intuitive to me.",
+      "range": {
+        "startLine": 391,
+        "startChar": 3,
+        "endLine": 391,
+        "endChar": 9
+      },
+      "revId": "b4c83a1db589f5c0b8be3fe12f771335418d1bb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc5fd4f0_400a7a11",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-23T08:12:16Z",
+      "side": 1,
+      "message": "IIUC, replacing break with continue will not work as the code flow lands up in the \u0027default\u0027 case where \u0027rc\u0027 value gets updated to \u00271\u0027, and eventually, this function returns an error falsely.",
+      "parentUuid": "79ad3e1f_ec1c19b2",
       "range": {
         "startLine": 391,
         "startChar": 3,
@@ -142,6 +208,29 @@
       "side": 1,
       "message": "You are correct... retracting...",
       "parentUuid": "a56ebca8_3af59ce3",
+      "range": {
+        "startLine": 401,
+        "startChar": 2,
+        "endLine": 401,
+        "endChar": 27
+      },
+      "revId": "b4c83a1db589f5c0b8be3fe12f771335418d1bb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19e62725_a23c0c03",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-23T08:12:16Z",
+      "side": 1,
+      "message": "Do we need handle this un-usual case with warning?\nCan we have hardening check instead as \u0027(nv_cntr_auth_method !\u003d NULL) \u0026\u0026 is_sig_check_done)\u0027, then go for NV counter authentication?",
       "range": {
         "startLine": 401,
         "startChar": 2,
