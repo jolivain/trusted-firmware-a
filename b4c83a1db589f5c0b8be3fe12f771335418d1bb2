@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e26a5cba_cb7a48d4",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-23T12:04:51Z",
+      "side": 1,
+      "message": "Sounds good to me.",
+      "parentUuid": "f22ad3b3_7a8dfd3b",
+      "revId": "b4c83a1db589f5c0b8be3fe12f771335418d1bb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9cd1959_056c79e8",
         "filename": "drivers/auth/auth_mod.c",
         "patchSetId": 3
@@ -231,6 +249,30 @@
       "writtenOn": "2021-04-23T08:12:16Z",
       "side": 1,
       "message": "Do we need handle this un-usual case with warning?\nCan we have hardening check instead as \u0027(nv_cntr_auth_method !\u003d NULL) \u0026\u0026 is_sig_check_done)\u0027, then go for NV counter authentication?",
+      "range": {
+        "startLine": 401,
+        "startChar": 2,
+        "endLine": 401,
+        "endChar": 27
+      },
+      "revId": "b4c83a1db589f5c0b8be3fe12f771335418d1bb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c6eba2a_c8f4cd74",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-23T12:04:51Z",
+      "side": 1,
+      "message": "\u003e Can we have hardening check instead as \u0027(nv_cntr_auth_method !\u003d NULL) \u0026\u0026 is_sig_check_done)\u0027, then go for NV counter authentication?\n\nI guess you meant, then go for NV counter \"update\" (authentication here made me wonder whether you were rather referring to the counters comparison)? If yes, then as discussed offline I think we should not upgrade the platform counter if the new value is untrusted, i.e. if it\u0027s coming from a certificate we did not authenticate first. Otherwise it might be possible to brick the device using a compromised certificate that triggers a spurious NVcounter upgrade.",
+      "parentUuid": "19e62725_a23c0c03",
       "range": {
         "startLine": 401,
         "startChar": 2,
