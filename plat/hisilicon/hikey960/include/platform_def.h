@@ -114,8 +114,8 @@
 /*
  * Platform specific page table and MMU setup constants
  */
-#define PLAT_VIRT_ADDR_SPACE_SIZE   (1ULL << 32)
-#define PLAT_PHY_ADDR_SPACE_SIZE    (1ULL << 32)
+#define PLAT_VIRT_ADDR_SPACE_SIZE   (1ULL << 36)
+#define PLAT_PHY_ADDR_SPACE_SIZE    (1ULL << 36)
 
 #if defined(IMAGE_BL1) || defined(IMAGE_BL31) || defined(IMAGE_BL32)
 #define MAX_XLAT_TABLES			3
