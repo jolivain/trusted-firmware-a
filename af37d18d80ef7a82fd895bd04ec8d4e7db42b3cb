@@ -157,6 +157,30 @@
       },
       "revId": "af37d18d80ef7a82fd895bd04ec8d4e7db42b3cb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "015be4cc_92098845",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-26T15:06:37Z",
+      "side": 1,
+      "message": "Yes, exactly. That\u0027s what I had suggested in an earlier comment (see patch set 3).\n\nWe could continue using the negative values space for error codes, and have:\n- 0 for no error, no need to upgrade the platform counter.\n- 1 for no error, need to upgrade it.\n\nSame values really as what you\u0027ve done in this patch (as true\u003d\u003d1 and false\u003d\u003d0 underneath) but just put these values in the return value rather than having a dedicated argument variable for that.",
+      "parentUuid": "a4d1c6d2_62945bf6",
+      "range": {
+        "startLine": 237,
+        "startChar": 8,
+        "endLine": 237,
+        "endChar": 33
+      },
+      "revId": "af37d18d80ef7a82fd895bd04ec8d4e7db42b3cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
