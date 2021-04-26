@@ -16,6 +16,24 @@
       "message": "Is a CI+2 needed here?",
       "revId": "a63c2bdea76e229f07aa6f071f46ea5908c55572",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7c54963_d3908b2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-26T20:28:20Z",
+      "side": 1,
+      "message": "Not needed, CI+2 needed only on top of the patch: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/9135/17 in this series.",
+      "parentUuid": "2af95c29_82460d97",
+      "revId": "a63c2bdea76e229f07aa6f071f46ea5908c55572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
