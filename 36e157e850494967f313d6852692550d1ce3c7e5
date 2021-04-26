@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d555443f_4ddbec1a",
+        "filename": "plat/renesas/rcar/bl2_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-26T18:00:37Z",
+      "side": 1,
+      "message": "style: this if needs braces (also in ln 456)\nSee our style guide here:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies\n\n(We differ from the Linux kernel\u0027s style on this issue)",
+      "revId": "36e157e850494967f313d6852692550d1ce3c7e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b756038_9089cd46",
+        "filename": "plat/renesas/rcar/bl2_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-26T18:00:37Z",
+      "side": 1,
+      "message": "style: this needs to be of boolean essential type, so:\n(ret !\u003d 0)\nThis is for compliance with MISRA rule 14.4",
+      "range": {
+        "startLine": 456,
+        "startChar": 6,
+        "endLine": 456,
+        "endChar": 11
+      },
+      "revId": "36e157e850494967f313d6852692550d1ce3c7e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
