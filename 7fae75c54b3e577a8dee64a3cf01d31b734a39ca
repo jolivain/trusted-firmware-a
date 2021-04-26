@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd6122d7_99c8f749",
+        "filename": "drivers/renesas/common/ddr/ddr_b/boot_init_dram_config.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2000,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-04-26T15:52:41Z",
+      "side": 1,
+      "message": "I was wondering if this else condition with empty body is needed.",
+      "range": {
+        "startLine": 1998,
+        "startChar": 4,
+        "endLine": 2000,
+        "endChar": 3
+      },
+      "revId": "7fae75c54b3e577a8dee64a3cf01d31b734a39ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
