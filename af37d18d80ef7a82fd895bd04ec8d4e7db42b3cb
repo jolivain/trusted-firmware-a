@@ -181,6 +181,30 @@
       },
       "revId": "af37d18d80ef7a82fd895bd04ec8d4e7db42b3cb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cf5bb38_77a3358d",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-26T17:06:31Z",
+      "side": 1,
+      "message": "\u003e Yes, exactly. That\u0027s what I had suggested in an earlier comment (see patch set 3).\n\u003e \n\u003e We could continue using the negative values space for error codes, and have:\nCurrently, we are using positive values as errors. See line 259, 256, 263, 269, 284.\n\u003e - 0 for no error, no need to upgrade the platform counter.\n\u003e - 1 for no error, need to upgrade it.\n\u003e \n\u003e Same values really as what you\u0027ve done in this patch (as true\u003d\u003d1 and false\u003d\u003d0 underneath) but just put these values in the return value rather than having a dedicated argument variable for that.\n\nWe need to change all these return error values to negative (we need to do changes in intermediate call functions such as \u0027img_parser_get_auth_param\u0027 and \u0027plat_get_nv_ctr\u0027 to make sure that they should return negative values), then we can use positive values \u00270\u0027 and \u00271\u0027 for platform counter upgraded or not.\n\nPlease correct me if I understand wrongly. Thanks!",
+      "parentUuid": "015be4cc_92098845",
+      "range": {
+        "startLine": 237,
+        "startChar": 8,
+        "endLine": 237,
+        "endChar": 33
+      },
+      "revId": "af37d18d80ef7a82fd895bd04ec8d4e7db42b3cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
