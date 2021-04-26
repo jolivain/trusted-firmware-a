@@ -22,6 +22,46 @@
       },
       "revId": "7fae75c54b3e577a8dee64a3cf01d31b734a39ca",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba00e25e_90b6609e",
+        "filename": "drivers/renesas/common/ddr/ddr_b/boot_init_dram_config.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2008,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-26T19:45:51Z",
+      "side": 1,
+      "message": "style nit: An explanatory comment on this endif (and the one on line 2011) would be helpful here.\nLike this:\n\n#endif /* (RCAR_DRAM_MEMRANK \u003d\u003d 0) */\n...\n#endif /* (RCAR_DRAM_LPDDR4_MEMCONF !\u003d 0) */",
+      "revId": "7fae75c54b3e577a8dee64a3cf01d31b734a39ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6fb14aa_b1e81dea",
+        "filename": "drivers/renesas/common/ddr/ddr_b/boot_init_dram_config.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2105,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-26T19:45:51Z",
+      "side": 1,
+      "message": "style nit: a comment here would also be useful, also in 2110",
+      "range": {
+        "startLine": 2105,
+        "startChar": 0,
+        "endLine": 2105,
+        "endChar": 1
+      },
+      "revId": "7fae75c54b3e577a8dee64a3cf01d31b734a39ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
