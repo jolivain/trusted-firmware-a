@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "32ff29cb_c6a25da0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-26T14:31:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0b654f3b_ec89baa5",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 20
+      },
+      "revId": "af37d18d80ef7a82fd895bd04ec8d4e7db42b3cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d3feb989_5a5f8da9",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -64,6 +88,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6bb0df4_c62c4282",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-26T14:31:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a6b2308c_388020d3",
+      "range": {
+        "startLine": 225,
+        "startChar": 20,
+        "endLine": 225,
+        "endChar": 58
+      },
+      "revId": "af37d18d80ef7a82fd895bd04ec8d4e7db42b3cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df104b23_2fe5d3ee",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-04-26T14:17:31Z",
       "side": 1,
       "message": "(minor) I still think we do not need a dedicated output argument for that but could instead encode this in the return value. That\u0027s mostly personal style I guess but also I think (TBC, I have not checked the disassembly) this would free up one register, making the code slightly more efficient.",
+      "range": {
+        "startLine": 237,
+        "startChar": 8,
+        "endLine": 237,
+        "endChar": 33
+      },
+      "revId": "af37d18d80ef7a82fd895bd04ec8d4e7db42b3cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4d1c6d2_62945bf6",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-26T14:31:12Z",
+      "side": 1,
+      "message": "Do you mean encode the return variable value so that it can be used to return both\n\u0027Success/failure (i.e. valid or invalid NV counter)\u0027 and \u0027NV counter upgrade needed\u0027?",
+      "parentUuid": "df104b23_2fe5d3ee",
       "range": {
         "startLine": 237,
         "startChar": 8,
