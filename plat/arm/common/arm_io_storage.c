@@ -9,6 +9,7 @@
 #include <drivers/io/io_fip.h>
 #include <drivers/io/io_memmap.h>
 #include <drivers/io/io_storage.h>
+#include <plat/arm/common/arm_fwu_metadata.h>
 #include <drivers/partition/partition.h>
 #include <lib/utils.h>
 
@@ -173,4 +174,29 @@ int arm_set_image_source(unsigned int image_id, const char *part_name)
 
 	return 0;
 }
-#endif
+
+/*************************************************************
+ * arm_set_fip_addr: Set base address of FIP
+ *
+ * Read FIP partition in flash and set the base address of
+ * the FIP.
+ ************************************************************/
+void arm_set_fip_addr(void)
+{
+	/* fip partition names */
+	const char *fip_part_name[NR_OF_FW_BANKS] = {"FIP_A", "FIP_B"};
+	uint32_t active_fw_idx = 0;
+
+#if PSA_FWU_SUPPORT
+	active_fw_idx = arm_get_fw_bank_active_idx();
+#endif /* PSA_FWU_SUPPORT */
+
+	INFO("Booting with partition %s\n", fip_part_name[active_fw_idx]);
+
+	int result = arm_set_image_source(FIP_IMAGE_ID,
+					  fip_part_name[active_fw_idx]);
+	if (result != 0) {
+		panic();
+	}
+}
+#endif /* ARM_GPT_SUPPORT */
