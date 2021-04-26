@@ -188,6 +188,16 @@ ifeq ($(ARM_ZLIB_SUPPORT),1)
   BL2_SOURCES	+=	$(ZLIB_SOURCES)
 endif
 
+ifeq ($(PSA_FWU_SUPPORT),1)
+  ifneq ($(ARM_ZLIB_SUPPORT),1)
+    $(error For PSA_FWU_SUPPORT, ARM_ZLIB_SUPPORT must be enabled)
+  endif
+  ifneq ($(ARM_GPT_SUPPORT),1)
+    $(error For PSA_FWU_SUPPORT, ARM_GPT_SUPPORT must be enabled)
+  endif
+  BL2_SOURCES  +=	plat/arm/common/arm_fwu_metadata.c
+endif
+
 ifeq (${ARCH}, aarch64)
 PLAT_INCLUDES		+=	-Iinclude/plat/arm/common/aarch64
 endif
