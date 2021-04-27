@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "06d6ec3b_76f96c56",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-27T13:18:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32ff29cb_c6a25da0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 20
+      },
+      "revId": "af37d18d80ef7a82fd895bd04ec8d4e7db42b3cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d3feb989_5a5f8da9",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "a6b2308c_388020d3",
+      "range": {
+        "startLine": 225,
+        "startChar": 20,
+        "endLine": 225,
+        "endChar": 58
+      },
+      "revId": "af37d18d80ef7a82fd895bd04ec8d4e7db42b3cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d02e34a_358c6ace",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-27T13:18:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6bb0df4_c62c4282",
       "range": {
         "startLine": 225,
         "startChar": 20,
@@ -221,6 +269,30 @@
       "side": 1,
       "message": "Apologies, I had overlooked the fact that we use positive values for error codes today. Thanks for pointing that out. I was under the wrong assumption that all functions called from auth_nvctr() returned either a negative error code or 0 on success. Thus I thought that all values greater than 0 were currently unused, hence my proposal to use them in this patch.\n\nNever mind, please disregard this comment then. I am fine with your current implementation, which handles this through an extra output argument to auth_nvctr().",
       "parentUuid": "7cf5bb38_77a3358d",
+      "range": {
+        "startLine": 237,
+        "startChar": 8,
+        "endLine": 237,
+        "endChar": 33
+      },
+      "revId": "af37d18d80ef7a82fd895bd04ec8d4e7db42b3cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77dc7873_60f9c01c",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-27T13:18:49Z",
+      "side": 1,
+      "message": "Thanks, I retained this implementation.",
+      "parentUuid": "bbe741b2_824d841f",
       "range": {
         "startLine": 237,
         "startChar": 8,
