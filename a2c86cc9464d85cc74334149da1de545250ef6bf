@@ -140,6 +140,30 @@
       },
       "revId": "a2c86cc9464d85cc74334149da1de545250ef6bf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90fa8dbd_e813bd25",
+        "filename": "plat/arm/common/arm_fwu_metadata.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-27T21:02:48Z",
+      "side": 1,
+      "message": "Done, I have seen the use of the \u0027io_read\u0027 function in the code, and a similar issue is present in other places [1].  The \u0027load_image\u0027 function continues its execution even after no read/partial read that looks incorrect(though it throws some warning message).\n\n[1]: common/bl_common.c +126",
+      "parentUuid": "cba34975_34a170d0",
+      "range": {
+        "startLine": 122,
+        "startChar": 22,
+        "endLine": 122,
+        "endChar": 60
+      },
+      "revId": "a2c86cc9464d85cc74334149da1de545250ef6bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
