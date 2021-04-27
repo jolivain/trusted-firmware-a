@@ -22,6 +22,30 @@
       },
       "revId": "643b41e4c9542194e891a10359289b840bed3100",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a592dff_41a78e97",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-27T18:39:31Z",
+      "side": 1,
+      "message": "Ah.\n\nIt seems my build is not including that file - thanks for spotting that.",
+      "parentUuid": "ab856273_5bd1d071",
+      "range": {
+        "startLine": 62,
+        "startChar": 20,
+        "endLine": 62,
+        "endChar": 37
+      },
+      "revId": "643b41e4c9542194e891a10359289b840bed3100",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
