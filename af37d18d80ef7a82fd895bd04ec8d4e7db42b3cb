@@ -205,6 +205,30 @@
       },
       "revId": "af37d18d80ef7a82fd895bd04ec8d4e7db42b3cb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbe741b2_824d841f",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-27T12:42:12Z",
+      "side": 1,
+      "message": "Apologies, I had overlooked the fact that we use positive values for error codes today. Thanks for pointing that out. I was under the wrong assumption that all functions called from auth_nvctr() returned either a negative error code or 0 on success. Thus I thought that all values greater than 0 were currently unused, hence my proposal to use them in this patch.\n\nNever mind, please disregard this comment then. I am fine with your current implementation, which handles this through an extra output argument to auth_nvctr().",
+      "parentUuid": "7cf5bb38_77a3358d",
+      "range": {
+        "startLine": 237,
+        "startChar": 8,
+        "endLine": 237,
+        "endChar": 33
+      },
+      "revId": "af37d18d80ef7a82fd895bd04ec8d4e7db42b3cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
