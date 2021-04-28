@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97bd75f1_3daa3f25",
+        "filename": "include/dt-bindings/interrupt-controller/arm-gic.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-04-28T08:15:42Z",
+      "side": 1,
+      "message": "IIUC this is not a valid license to pass the static check script:\nhttps://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/script/static-checks/check-copyright.py?h\u003dv2.4#n63",
+      "range": {
+        "startLine": 4,
+        "startChar": 28,
+        "endLine": 4,
+        "endChar": 31
+      },
+      "revId": "0861fcdd3e3f2625e133de3dae9c548de7c1ee48",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
