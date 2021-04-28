@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adb079df_9dbd32cf",
+        "filename": "plat/arm/board/arm_fpga/fpga_common.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-04-28T13:17:07Z",
+      "side": 1,
+      "message": "So this address is determined at runtime, from the devicetree. We just have this value in as a fallback crash dump address, but that does not mean we rely on this.",
+      "revId": "b03273079c4259bc434838fcfe073dc3da1d014b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "506ccc27_d55abe82",
+        "filename": "plat/arm/board/arm_fpga/fpga_common.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-04-28T13:17:07Z",
+      "side": 1,
+      "message": "Same here and with the GICR: those are read at runtime from the DTB.\nCan\u0027t we dynamically map then when we learn those addresses?",
+      "revId": "b03273079c4259bc434838fcfe073dc3da1d014b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
