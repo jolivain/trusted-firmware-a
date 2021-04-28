@@ -69,6 +69,24 @@
       "parentUuid": "241b17b9_d8f35349",
       "revId": "e23ad6aff4706192b4f8eeec40864f5b204499c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d24ce2d_7a505955",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-04-28T17:32:27Z",
+      "side": 1,
+      "message": "So there are several points to consider:\n- CRC instructions are strictly speaking optional, although the Arm Ltd. cores implement it, and it\u0027s mandatory from v8.1 onwards anyway. So I\u0027d say it\u0027s safe for plat/arm, at least.\n- The h/w CRC insns provide support for two widely used polynomials, and are raw instructions. The zlib polynomial is one of the supported ones (crc32, without the \"c\"), but it might still need some massaging to make the raw instructions fully compatible to the zlib function.\n- I don\u0027t think it\u0027s too useful to have *two* implementations: either we go all software, or always use the hardware implementation. Making this a compile time choice only increases the test matrix, and I think we are not performance sensitive here, aren\u0027t we?\n- Beside code size I think the instructions are much easier to use, and there is less risk of security issues - given that the actual zlib algorithm can be easily constructed using the instructions.\n- I think compiler support is solvable, as it\u0027s required for Juno already, and I think we use multiple (if not all supported?) toolchains already for Juno in the CI.\n\nSo I\u0027d give it a try, it should be easier, smaller and even faster using the instructions.",
+      "parentUuid": "f75b4dd0_e46d0a2d",
+      "revId": "e23ad6aff4706192b4f8eeec40864f5b204499c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
