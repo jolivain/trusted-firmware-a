@@ -191,6 +191,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0cd86fa9_7535916e",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-28T14:03:37Z",
+      "side": 1,
+      "message": "I think what Varun meant is that the list of images to load and their original/final location in memory, is platform specific. If you look at the code, bl2_load_images() gets this list of images through plat_get_bl_image_load_info(), so the platform layer gets to specify where an image is loaded before it gets authenticated.\n\nThat being said, AFAIK the TBBR spec mandates that images are loaded in trusted RAM before being authenticated. For example for certificates:\n\n\u003e R040_TBBR_CERTIFICATE. Prior to any authentication of a Trusted Firmware certificate, the certificate must be present in Trusted RAM.\n\nAnd for other types of images:\n\n\u003e R050_TBBR_CERTIFICATE. Prior to any integrity check of a modifiable Trusted software image involved in the Trusted boot process, the software image must be downloaded into the Trusted RAM.\n\nGiven that this threat model assumes that trusted boot is enabled/implemented, I would argue that the platform layer should obey these TBBR rules as well.",
+      "parentUuid": "9dd71003_2676e293",
+      "range": {
+        "startLine": 341,
+        "startChar": 29,
+        "endLine": 342,
+        "endChar": 67
+      },
+      "revId": "c27e1dbd8d526481a5183804bbf73029a3e90652",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c72516f5_a47f556a",
         "filename": "docs/threat_model/threat_model.rst",
         "patchSetId": 1

@@ -69,6 +69,132 @@
       "parentUuid": "310f3b87_5e8bd3cd",
       "revId": "430326dc65d8734f7359ed69eda076be3e0f78eb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28decf2c_5a2928bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-28T14:03:37Z",
+      "side": 1,
+      "message": "Looks good to me! Just some minor comments from me.\n\nIt would be worth uploading another patch to designate code owners for this threat model document. I guess you\u0027d want to take ownership of that? I can second you, and perhaps Raghu and Varun would like to as well, given the interest they\u0027ve shown in reviewing this (but please check with them first!)",
+      "revId": "430326dc65d8734f7359ed69eda076be3e0f78eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e662207_5eeaf3f2",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-28T14:03:37Z",
+      "side": 1,
+      "message": "(minor) BL1 is executed in place (from ROM), it\u0027s not relocated to trusted SRAM so I suggest extending this sentence to cover this case, e.g.:\n\n All TF-A images are run from either ROM or on-chip trusted SRAM.",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 25,
+        "endChar": 55
+      },
+      "revId": "430326dc65d8734f7359ed69eda076be3e0f78eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a8ec18e_3b87811d",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-28T14:03:37Z",
+      "side": 1,
+      "message": "I guess we also rule out dynamic configuration of TF-A components (e.g. through DTB config files)? Otherwise I think this opens up some new threats which are not covered in this first version of the threat model.",
+      "revId": "430326dc65d8734f7359ed69eda076be3e0f78eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9d463dc_e49f310d",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-28T14:03:37Z",
+      "side": 1,
+      "message": "(minor) kinds",
+      "range": {
+        "startLine": 601,
+        "startChar": 68,
+        "endLine": 601,
+        "endChar": 72
+      },
+      "revId": "430326dc65d8734f7359ed69eda076be3e0f78eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "983a4b4d_d50f99f6",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-28T14:03:37Z",
+      "side": 1,
+      "message": "I would not say it\u0027s not recommended, it makes it sound like it\u0027s a bad idea from a security point of view. The next part of the sentence echoes that feeling. But really all it should do is slowing down a bit the software by adding extra checks. From a security point of view, it\u0027s not an issue, if anything it might make things more secure if some checks were incorrectly enforced by assertions instead of proper runtime checks.\n\nPerhaps reword the part of the sentence I highlighted or remove it entirely?",
+      "range": {
+        "startLine": 645,
+        "startChar": 72,
+        "endLine": 648,
+        "endChar": 38
+      },
+      "revId": "430326dc65d8734f7359ed69eda076be3e0f78eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebdca416_f78e63ca",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-04-28T14:03:37Z",
+      "side": 1,
+      "message": "This goes beyond just GP registers, it applies to any register that is not banked and which is used by more than 1 world.",
+      "range": {
+        "startLine": 681,
+        "startChar": 53,
+        "endLine": 681,
+        "endChar": 78
+      },
+      "revId": "430326dc65d8734f7359ed69eda076be3e0f78eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
