@@ -16,6 +16,24 @@
       "message": "I guess we are not targeting this patches to be merged before release?",
       "revId": "09312cfbdb5b17e1ab30e21bec4b9b49be4b2ca1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbc3a36a_7e403b3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-28T08:25:04Z",
+      "side": 1,
+      "message": "Happy to merge this series: https://review.trustedfirmware.org/q/topic:%22fw-update-2%22+(status:open%20OR%20status:merged) before release, \nbut it is possible only after merging this dependent series: https://review.trustedfirmware.org/q/topic:%22fw-update%22+(status:open%20OR%20status:merged)",
+      "parentUuid": "36705b0c_f618e391",
+      "revId": "09312cfbdb5b17e1ab30e21bec4b9b49be4b2ca1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
