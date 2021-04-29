@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68d3340f_a11bef69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-29T12:59:52Z",
+      "side": 1,
+      "message": "Sorry for the late response",
+      "revId": "5f67e199965e14ec7e3c3828f738eca1decd0799",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cb6b617_aa7e3240",
@@ -38,6 +55,30 @@
       "side": 1,
       "message": "I can see this is helpful if somebody tries to extend this array without incrementing \u0027NR_OF_FW_BANKS\u0027 that will cause build warning at first place.\nThough agree it is not needed but doesn\u0027t harm also.",
       "parentUuid": "9cb6b617_aa7e3240",
+      "range": {
+        "startLine": 187,
+        "startChar": 27,
+        "endLine": 187,
+        "endChar": 41
+      },
+      "revId": "5f67e199965e14ec7e3c3828f738eca1decd0799",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8912d82_05eb9310",
+        "filename": "plat/arm/common/arm_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-29T12:59:52Z",
+      "side": 1,
+      "message": "Hmm\nI see what you\u0027re saying - that takes care of NR_OF_FW_BANKS \u003c 2, but if NR_OF_FW_BANKS \u003e 2, there will be no compiler errors, and no issues until someone tries to access fip_part_name[2] or later, which will likely lead to dereferencing a NULL pointer.\n\nPerhaps a CASSERT(NR_OF_FW_BANKS \u003d\u003d 2) or similar would guard this against future issues?",
+      "parentUuid": "673a9595_7299f141",
       "range": {
         "startLine": 187,
         "startChar": 27,
