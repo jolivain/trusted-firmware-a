@@ -4,6 +4,669 @@ Change Log & Release Notes
 This document contains a summary of the new features, changes, fixes and known
 issues in each release of Trusted Firmware-A.
 
+Version 2.5
+-----------
+
+New Features
+^^^^^^^^^^^^
+
+- Architecture support
+    - Added support for ``FEAT_SB`` for non-Armv8.5 platforms
+    - Added support for Armv8.6 AMU enhancements(``FEAT_AMUv1p1``)
+    - Added helper functions for ``FEAT_RNG`` registers
+    - Added support for Armv8.6 ``FEAT_MTPMU`` extensions
+    - Added support for ``FEAT_MTE3`` extensions
+    - Added support for ``FEAT_PANx`` extensions
+
+- Bootloader images
+    - Added PIE support for AArch32 builds
+    - Enable TRNG service for BL32
+
+- Build System
+    - Added build option for Arm Feature Modifiers
+
+- Drivers
+    - Added support for interrupts in TZC400 driver
+
+    - Broadcom
+        - Added support for i2c, mdio and USB drivers
+
+    - Marvell
+        - Added support for secure read/write of dfc register-set
+        - Added support for thermal sensor driver
+        - Implement a3700_core_getc API in console driver
+        - Added rx traning on 10G port
+
+    - Marvell Mochi
+        - Added support for cn913x in PCIe mode
+
+    - Marvell Armada A8K
+        - Added support for TRNG-IP-76 driver and accessing for RNG register
+
+    - Mediatek MT8192
+        - Added support for following drivers
+            - MPU configuration for SCP/PCIe
+            - SPM suspend
+            - Vcore DVFS
+            - LPM
+            - PTP3
+            - UART save and restore
+            - Power-off
+            - PMIC
+            - CPU hotplug and MCDI support
+            - SPMC
+            - MPU
+
+    - Mediatek MT8195
+        - Added support for following drivers
+            - GPIO, NCDI, SPMC drivers
+            - Power-off
+            - CPU hotplug, reboot and MCDI
+            - Delay timer and sys timer
+            - GIC
+
+    - NXP
+        - Added support for non-volatile storage API
+        - Added support for chain of trust and trusted board boot using two
+          modes: MBEDTLS and CSF
+        - Added support for fip-handler necessary for DDR initialization
+        - Added support for SMMU and console drivers
+        - Added support for crypto hardware accelerator driver
+        - Added support for following drivers: SD, EMMC, QSPI, FLEXSPI, GPIO, GIC, CSU, PMU, DDR
+        - Added support for NXP Security Monitor and SFP driver
+        - Added interconnect config APIs using ARM CCN-CCI driver
+        - Added TZC APIs to configure DDR region
+        - Added support for generic timer driver
+        - Added support for Device configuration driver
+
+    - IMX
+        - Added support for image loading and io-storage driver for TBBR fip booting
+
+    - Renesas
+        - Added support for PFC and EMMC driver
+
+        - RZ Family:
+            - G2N, G2E and G2H SoCs
+                - Added support for watchdog, QoS, PFC and DRAM initialization
+
+        - RZG Family:
+            - G2M
+                - Added support for QoS and DRAM initialization
+
+    - Xilinx
+        - Added JTAG DCC support for versal and ZynqMP SoC family.
+
+- Libraries
+    - C standard library
+        - Added support to print ``%`` in ``snprintf()`` and ``printf()`` APIs
+        - Added support for strtoull, strtoll, strtoul, strtol APIs from FreeBSD project
+
+    - CPU support
+        - Added support for Cortex_A78C CPU
+        - Added support for Makalu ELP CPU
+        - Added support for Makalu CPU
+        - Added support for Matterhorn CPU
+        - Added support for Neoverse-N2 CPU
+
+        - Arm Cortex-A76
+            - Added workaround for erratum 1946160
+
+        - Arm Cortex-A77
+            - Added workaround for erratum 1946167
+
+        - Arm Cortex-A78
+            - Added workaround for erratum 1941498
+            - Added workaround for erratum 1951500
+
+        - Arm Cortex N1
+            - Added workaround for erratum 1946160
+
+    - Flattened device tree(libfdt)
+        - Added suuport for wrapper function to read UUIDs from dtb
+
+- Platforms
+    - Added support for MediaTek MT8195
+    - Added support for Arm RD-N2 board
+
+    - Allwinner
+        - Added support for H616 SoC
+
+    - Arm
+        - Added support for GPT parser
+        - Protect GICR frames for fused/unused cores
+
+    - Arm Morello
+        - Added VirtIO network device to Morello FVP fdts
+
+    - Arm RD-N2
+        - Added support for variant 1 of RD-N2 platform
+        - Enable AMU support
+
+    - Arm RD-V1
+        - Enable AMU support
+
+    - Arm SGI
+        - Added support for platform variant build option
+
+    - Arm TC0
+        - Added Matterhorn ELP CPU support
+        - Added support for opteed
+
+    - Arm Juno
+        - Added support to use hw_config in BL31
+        - Use TRNG entropy source for SMCCC TRNG interface
+        - Condition Juno entropy source with CRC instructions
+
+    - Marvell Mochi
+        - Added support for detection of secure mode
+
+    - Marvell ARMADA
+        - Added support for new compile option A3720_DB_PM_WAKEUP_SRC
+        - Added support doing system reset via CM3 secure coprocessor
+        - Made several makefile enhancements required to build WTMI_MULTI_IMG and TIMDDRTOOL
+        - Added support for building DOIMAGETOOL tool
+        - Added new target mrvl_bootimage
+
+    - Mediatek MT8192
+        - Added support for rtc power off sequence
+
+    - Mediatek MT8195
+        - Added support for SiP service
+
+    - STM32MP1
+        - Added support for Seeed ODYSSEY SoM and board
+        - Added support for SDMMC2 and I2C2 pins in pinctrl
+        - Added support for I2C2 peripheral in DTS
+        - Added support for PIE for BL32
+        - Added support for TZC400 interrupt managament
+        - Added support for Linux Automation MC-1 board
+
+    - Renesas RZG
+        - Added support for identifying EK874 RZ/G2E board
+        - Added support for identifying HopeRun HiHope RZ/G2H and RZ/G2H boards
+
+    - Rockchip
+        - Added support for stack protector
+
+    - Qemu
+        - Added support for ``max`` CPU
+        - Added Cortex-A72 support to ``virt`` platform
+        - Enabled trigger reboot from secure pl061
+
+    - Qemu SBSA
+        - Added support for sbsa-ref Embedded Controller
+
+    - NXP
+        - Added support for warm reset to retain ddr content
+        - Added support for image loader necessary for loading fip image
+
+        - lx2160a SoC Family
+            - Added support for new platform lx2160a-aqds
+            - Added support for new platform lx2160a-rdb
+            - Added support for new platform lx2162a-aqds
+            - Added support for errata handling
+
+    - IMX imx8mm
+        - Added support for trusted board boot
+
+    - TI K3
+        - Added support for lite device board
+        - Enabled Cortex-A72 erratum 1319367
+        - Enabled Cortex-A53 erratum 1530924
+
+    - Xilinx ZynqMP
+        - Added support for PS and system reset on WDT restart
+        - Added support for error management
+        - Enable support for log messages necessary for debug
+        - Added support for PM API SMC call for efuse and register access
+
+- Processes
+    - Introduced process for platform deprecation
+    - Added documentation for TF-A threat model
+
+- Services
+    - Added support for TRNG firmware interface service
+
+    - Arm
+        - Added SiP service to configure Ethos-N NPU
+
+    - SPMC
+        - Added documentation for SPM(Hafnium) SMMUv3 driver
+
+    - SPMD
+        - Added support for FFA_INTERRUPT forwading ABI
+        - Added support for FFA_SECONDARY_EP_REGISTER ABI
+
+- Tools
+
+    - FIPTool
+        - Added mechanism to allow platform specific image UUID
+
+    - git hooks
+        - Added support for conventional commits through commitlint hook,
+          commitizen hook and necessary husky configuration files.
+
+    - NXP tool
+        - Added support for a tool that creates pbl file from BL2
+
+    - Renesas RZ/G2
+        - Added tool support for creating bootparam and cert_header images
+
+    - TBBRtool
+        - Enabled overriding the TRUSTED_KEY_CERT from platform's makefile structure.
+
+    - shared tools
+        - Added EFI_GUID representation to uuid helper data structure
+
+Changed
+^^^^^^^
+
+- Common components
+    - Print newline after hex address in aarch64 el3_panic function
+    - Use proper ``#address-cells`` and ``#size-cells`` for reserved-memory in dtbs
+
+- Drivers
+
+    - Move SCMI driver from st platform directory and make it common to all platforms
+
+    - Arm GICv3
+        - Shift eSPI register offset in GICD_OFFSET_64()
+        - Use mpidr to probe GICR for current CPU
+
+    - Arm TZC400
+        - Adjust filter tag if it set to FILTER_BIT_ALL
+
+    - Cadence
+        - Enhance uart driver APIs to put characters to fifo
+
+    - Mediatek MT8192
+        - Move timer driver to common folder
+        - Enhanced sys_cirq driver to add more IC services
+
+    - Renesas
+        - Move ddr and delay driver to common directory
+
+    - Renesas rcar
+        - Treat log as device memory in console driver
+
+    - Renesas RZ Family:
+        - G2N and G2H SoCs
+             - Select MMC_CH1 for eMMC channel
+
+    - Marvell
+        - Added support for checking if TRNG unit is present
+
+    - Marvell A3K
+        - Set TXDCLK_2X_SEL bit during PCIe initialization
+        - Set mask parameter for every reg_set call
+
+    - Marvell Mochi
+        - Added missing stream IDs configurations
+
+    - MbedTLS
+        - Migrated to Mbed TLS v2.25.0
+
+    - IMX imx8mp
+        - Change the bl31 physical load address
+
+    - QEMU SBSA
+        - Enable secure variable storage
+
+    - SCMI
+        - Update power domain protocol version to 2.0
+
+    - STM32
+        - Remove dead code from nand FMC driver
+
+- Libraries
+    - C Standard Library
+        - Use macros to reduce duplicated code between snprintf and printf
+
+    - CPU support
+        - Sanity check pointers before use in AArch32 builds
+
+        - Arm Cortex-A78
+            - Remove rainier cpu workaround for errata 1542319
+
+        - Arm Makalu ELP
+            - Added "_arm" suffix to Makalu ELP CPU lib
+
+
+- Miscellaneous
+    - Editorconfig
+        - set max line length to 100
+
+- Platforms
+    - Allwinner
+        - Added reserved-memory node to DT
+        - Express memmap more dynamically
+        - Move SEPARATE_NOBITS_REGION to platforms
+        - Limit FDT checks to reduce code size
+        - Use CPUIDLE hardware when available
+        - Allow conditional compilation of SCPI and native PSCI ops
+        - Always use a 3MHz RSB bus clock
+        - Enable workaround for Cortex-A53 erratum 1530924
+        - Fixed non-default PRELOADED_BL33_BASE
+        - Leave CPU power alone during BL31 setup
+        - Added several psci hooks enhancements to improve system shutdown/reset
+          sequence
+        - Return the PMIC to I2C mode after use
+        - Separate code to power off self and other CPUs
+        - Split native and SCPI-based PSCI implementations
+
+    - Allwinner H6
+        - Added R_PRCM security setup for H6 board
+        - Added SPC security setup for H6 board
+        - Use RSB for the PMIC connection on H6
+
+    - Arm
+        - Store UUID as a string, rather than ints
+        - Replace FIP base and size macro with a generic name
+        - move compile time switch from source to dt file
+        - Don't provide NT_FW_CONFIG when booting hafnium
+        - Do not setup 'disabled' regulator
+        - Always allow ARM_LINUX_KERNEL_AS_BL33
+        - Increase SP max size
+        - Remove ARM_LINUX_KERNEL_AS_BL33 relying on RESET_TO_BL31
+
+    - Arm FVP
+        - Do not map GIC region in BL1 and BL2
+
+    - Arm Juno
+        - Refactor juno_getentropy() to return 64 bits on each call
+
+    - Arm Morello
+        - Remove "virtio-rng" from Morello FVP
+        - enable virtIO P9 device for Morello fvp
+
+    - Arm RDN2
+        - Update gic redistributor and TZC base address
+
+    - Arm RDV1
+        - Allow all PSCI callbacks on RD-V1
+        - Rename rddaniel to rdv1
+
+    - Arm RDV1MC
+        - Rename rddanielxlr to rdv1mc
+        - Initialize tzc400 controllers
+
+    - Arm TC0
+        - Updated GICR base address
+        - Use scmi_dvfs clock index 1 for cores 4-7 through fdt
+        - Added reserved-memory node for OP-TEE fdts
+        - Enabled Theodul DSU in TC platform
+        - OP-TEE as S-EL1 SP with SPMC at S-EL2
+        - Update Matterhorm ELP DVFS clock index
+
+    - Arm SGI
+        - Allow usage of secure partions on rdn2 platform
+        - Allow access to TZC controller on all chips
+        - Define memory regions for multi-chip platforms
+        - Allow access to nor2 flash and system registers from s-el0
+        - Define default list of memory regions for dmc620 tzc
+        - improve macros defining cper buffer memory region
+        - Refactor DMC-620 error handling SMC function id
+        - Refactor SDEI specific macros
+        - Added platform id value for rdn2 platform
+        - platform definitions for upcoming platforms
+        - Refactor header file inclusions and inclusion of memory mapping
+
+    - Arm SGM775
+        - Deprecate Arm sgm775 FVP platform
+
+    - Marvell
+        - Increase TX FIFO EMPTY timeout from 2ms to 3ms
+        - Update delay code to be compatible with 1200 MHz CPU
+
+    - Marvell ARMADA
+        - postpone MSS CPU startup to BL31 stage
+        - Allow builds without MSS support
+        - Use MSS SRAM in secure mode
+        - Added missing FORCE, .PHONY and clean targets
+        - Cleanup MSS SRAM if used for copy
+        - Move definition of mrvl_flash target to common marvell_common.mk file
+        - Show informative build messages and blank lines
+
+    - Marvell ARMADA A3K
+        - Added a new target mrvl_uart which builds UART image
+        - Added checks that WTP, MV_DDR_PATH and CRYPTOPP_PATH are correctly defined
+        - Allow use of the system Crypto++ library
+        - Build $(WTMI_ENC_IMG) in $(BUILD_PLAT) directory
+        - Build intermediate files in $(BUILD_PLAT) directory
+        - Build UART image files directly in $(BUILD_UART) subdirectory
+        - Correctly set DDR_TOPOLOGY and CLOCKSPRESET for WTMI
+        - Do not use 'echo -e' in Makefile
+        - improve 4GB DRAM usage from 3.375 GB to 3.75 GB
+        - Remove unused variable WTMI_SYSINIT_IMG from Makefile
+        - Simplify check if WTP variable is defined
+        - Split building $(WTMI_MULTI_IMG) and $(TIMDDRTOOL)
+
+    - Marvell ARMADA A8K
+        - Allow CP1/CP2 mapping at BLE stage
+
+    - Mediatek MT8183
+        - Added timer V20 compensation
+
+    - Nvidia Tegra
+        - Rename SMC API
+
+    - TI K3
+        - Make plat_get_syscnt_freq2 helper check CNT_FID0 register
+        - Fill non-message data fields in sec_proxy with 0x0
+        - Update ti_sci_msg_req_reboot ABI to include domain
+        - Enable USE_COHERENT_MEM only for the generic board
+        - Explicitly map SEC_SRAM_BASE to 0x0
+        - Use BL31_SIZE instead of computing
+        - Define the correct number of max table entries and increase SRAM size
+          to account for additional table
+
+    - Raspberry Pi4
+        - Switch to gicv2.mk and GICV2_SOURCES
+
+    - Renesas
+        - Move headers and assembly files to common folder
+
+    - Renesas rzg
+        - Added device tree memory node enhancements
+
+    - Rockchip
+        - Switch to using common gicv3.mk
+
+    - STM32MP1
+        - Set BL sizes regardless of flags
+
+    - QEMU
+        - Include gicv2.mk for compiling GICv2 source files
+        - Change DEVICE2 definition for MMU
+        - Added helper to calculate the position shift
+
+    - QEMU SBSA
+        - Include libraries for Cortex-A72
+        - increase SHARED_RAM_SIZE
+        - spm_mm supports 512 cores
+        - topology is different from qemu so add handling
+
+    - QTI
+        - Mandate SMC implementaion
+
+    - Xilinx
+        - Rename the IPI CRC checksum macro
+        - Use fno-jump-tables flag in CPPFLAGS
+
+    - Xilinx versal
+        - Added the IPI CRC checksum macro support
+        - Mark IPI calls secure/non-secure
+        - Enable sgi to communicate with linux using IPI
+        - Remove Cortex-A53 compilation
+
+    - Xilinx ZynqMP
+        - Configure counter frequency during initialization
+        - Filter errors related to clock gate permissions
+        - Implement pinctrl request/release EEMI API
+        - Reimplement pinctrl get/set config parameter EEMI API calls
+        - Reimplement pinctrl set/get function EEMI API
+        - Update error codes to match Linux and PMU Firmware
+        - Update PM version and support PM version check
+        - Update return type in query functions
+        - Added missing ids for 43/46/47dr devices
+        - Checked for DLL status before doing reset
+        - Disable ITAPDLYENA bit for zero ITAP delay
+        - Include GICv2 makefile
+        - Remove the custom crash implementation
+
+- Services
+
+    - SPMD
+        - lock the g_spmd_pm structure
+
+    - SPMC
+        - Declare third cactus instance as UP SP
+        - provide number of vCPUs and VM size for first SP
+        - Remove ``chosen`` node from SPMC manifests
+        - move OP-TEE SP manifest DTS to FVP platform
+        - Update OP-TEE SP manifest with device-regions node
+        - Remove device-memory node from SPMC manifests
+
+    - SPM_MM
+        - Use sp_boot_info to set SP context
+
+    - SDEI
+        - Updata the affinity of shared event
+
+- Tools
+    - FIPtool
+        - Do not print duplicate verbose lines about building fiptool
+
+    - CertCreate
+        - Updated tool for platform defined certs, keys & extensions
+        - Create only requested certificates
+        - Avoid duplicates in extension stack
+
+Resolved Issues
+^^^^^^^^^^^^^^^
+- Several fixes for typos and mis-spellings in documentation
+
+- Build system
+    - Fixed ${FIP_NAME} to be rebuilt only when needed in Makefile
+    - Do not mark file targets as .PHONY target in Makefile
+
+- Drivers
+    - Authorization
+        - Avoid NV counter upgrade without certificate validation
+
+    - Arm GICv3
+        - Fixed logical issue for num_eints
+        - Limit SPI ID to avoid misjudgement in GICD_OFFSET()
+        - Fixed potential GICD context override with ESPI enabled
+
+    - Marvell A3700
+        - Fixed configuring polarity invert bits
+
+    - Arm TZC400
+        - Correct FAIL_CONTROL Privileged bit
+        - Fixed logical error in FILTER_BIT definitions
+
+    - Renesas rcar
+        - Fixed several coding style violations reported by checkpatch
+
+- Libraries
+    - Arch helpers
+        - Fixed assertions in processing dynamic relocations for AArch64 builds
+
+    - C standard library
+        - Fixed MISRA issues in memset() ABI
+
+    - RAS
+        - Fixed bug of binary search in RAS interrupt handler
+
+- Platforms
+
+    - Arm
+        - Fixed missing copyrights in arm-gic.h file
+        - Fixed the order of header files in several dts files
+        - Fixed error message printing in board makefile
+        - Fixed bug of overriding the last node in image load helper API
+        - Fixed stdout-path in fdts files of TC0 and N1SDP platforms
+        - Turn ON/OFF redistributor in sync with GIC CPU interface ON/OFF for css platforms
+        - Rectify license in arm-gic.h file
+
+    - Arm FVP
+        - Fixed Generic Timer interrupt types in platform dts files
+
+    - Arm Juno
+        - Fixed parallel build issue for romlib config
+
+    - Arm SGI
+        - Fixed bug in SDEI receive event of RAS handler
+
+    - Intel Agilex
+        - Fixed PLAT_MAX_PWR_LVL value
+
+    - Marvell
+        - Fixed SPD handling in dram port
+
+    - Marvell ARMADA
+        - Fixed TRNG return SMC handling
+        - Fixed the logic used for LD selector mask
+        - Fixed MSS firmware loader for A8K family
+
+    - ST
+        - Fixed few violations reported by coverity static checks
+
+    - STM32MP1
+        - Fixed SELFREF_TO_X32 mask in ddr driver
+        - Do not keep mmc_device_info in stack
+        - Correct plat_crash_console_flush()
+
+    - QEMU SBSA
+        - Fixed memory type of secure NOR flash
+
+    - QTI
+        - Fixed NUM_APID and REG_APID_MAP() argument in SPMI driver
+
+    - Intel
+        - Do not keep mmc_device_info in stack
+
+    - Hisilicon
+        - Do not keep mmc_device_info in stack
+
+
+- Services
+
+    - EL3 runtime
+        - Added fix to remove save and restore of EL2 generic timer registers
+        - Added fix for expection handler in BL31 by synchronizing pending EA
+          using DS
+
+    - SPMD
+        - Fixed error codes in smc handler
+
+    - TSPD
+        - Added bug fix in tspd interrupt handling when TSP_NS_INTR_ASYNC_PREEMPT is enabled
+
+    - TRNG
+        - Fixed compilation erros with -O0 compile option
+
+    - DebugFS
+        - Checked channel index before calling clone function
+
+    - PSCI
+        - Fixed limit of 256 CPUs caused by cast to unsigned char
+
+    - TSP
+        - Fixed compilation erros when built with GCC 11.0.0 toolchain
+
+- Tools
+    - FIPtool
+        - Do not call ``make clean`` for ``all`` target
+
+    - CertCreate
+        - Fixed bug to avoid cleaning when building the binary
+        - Used preallocated parts of the HASH struct to avoid leaking HASH struct fields
+        - Free arguments copied with strdup
+        - Free keys after use
+        - Free X509_EXTENSION strucrtures on stack to avoid leaking them
+
 Version 2.4
 -----------
 
