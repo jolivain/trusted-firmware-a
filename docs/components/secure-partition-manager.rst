@@ -17,7 +17,7 @@ Acronyms
 +--------+-----------------------------------+
 | FIP    | Firmware Image Package            |
 +--------+-----------------------------------+
-| FF-A   | Firmware Framework for A-class    |
+| FF-A   | Firmware Framework for Armv8-A    |
 +--------+-----------------------------------+
 | IPA    | Intermediate Physical Address     |
 +--------+-----------------------------------+
@@ -73,19 +73,21 @@ This document:
    on sections mandated as implementation-defined in the specification.
 -  covers the implications to TF-A used as a bootloader, and Hafnium
    used as a reference code base for an S-EL2 secure firmware on
-   platforms implementing Armv8.4-SecEL2.
+   platforms implementing the FEAT_SEL2 (formerly Armv8.4 Secure EL2)
+   architecture extension.
 
 Terminology
 -----------
 
--  Hypervisor refers to the NS-EL2 component managing Virtual Machines (or
-   partitions) in the Normal World.
--  SPMC refers to the S-EL2 component managing Virtual Machines (or Secure
-   Partitions) in the Secure World when Armv8.4-SecEL2 extension is implemented.
--  Alternatively, SPMC can refer to an S-EL1 component, itself being a Secure
-   Partition and implementing the FF-A ABI on pre-Armv8.4 platforms.
--  VM refers to a Normal World Virtual Machine managed by an Hypervisor.
--  SP refers to a Secure World "Virtual Machine" managed by the SPMC component.
+-  The term Hypervisor refers to the NS-EL2 component managing Virtual Machines
+   (or partitions) in the normal world.
+-  The term SPMC refers to the S-EL2 component managing secure partitions in
+   the secure world when the FEAT_SEL2 architecture extension is implemented.
+-  Alternatively, SPMC can refer to an S-EL1 component, itself being a secure
+   partition and implementing the FF-A ABI on platforms not implementing the
+   FEAT_SEL2 architecture extension.
+-  The term VM refers to a normal world Virtual Machine managed by an Hypervisor.
+-  The term SP refers to a secure world "Virtual Machine" managed by an SPMC.
 
 Support for legacy platforms
 ----------------------------
@@ -95,21 +97,23 @@ In the implementation, the SPM is split into SPMD and SPMC components
 at EL3 and principally relays FF-A messages from NWd (Hypervisor or OS
 kernel) to SPMC located either at S-EL1 or S-EL2.
 
-Hence TF-A must support both cases where SPMC is either located at:
+Hence TF-A supports both cases where the SPMC is located either at:
 
--  S-EL1 supporting pre-Armv8.4 platforms. SPMD conveys FF-A protocol
-   from EL3 to S-EL1.
--  S-EL2 supporting platforms implementing Armv8.4-SecEL2 extension.
-   SPMD conveys FF-A protocol from EL3 to S-EL2.
+-  S-EL1 supporting platforms not implementing the FEAT_SEL2 architecture
+   extension. The SPMD relays the FF-A protocol from EL3 to S-EL1.
+-  or S-EL2 supporting platforms implementing the FEAT_SEL2 architecture
+   extension. The SPMD relays the FF-A protocol from EL3 to S-EL2.
 
-The same SPMD component is used to support both configurations. The SPMC
-execution level is a build time choice.
+The same TF-A SPMD component is used to support both configurations.
+The SPMC exception level is a build time choice.
 
 Sample reference stack
 ======================
 
-The following diagram illustrates a possible configuration with SPMD and SPMC,
-one or multiple Secure Partitions, with or without an optional Hypervisor:
+The following diagram illustrates a possible configuration when the
+FEAT_SEL2 architecture extension is implemented, showing the SPMD
+and SPMD, one or multiple secure partitions, with or without an
+optional Hypervisor:
 
 .. image:: ../resources/diagrams/ff-a-spm-sel2.png
 
@@ -163,7 +167,7 @@ BL33 option can specify either:
 -  a minimal loader performing the loading of VMs and Hafnium.
 
 Sample TF-A build command line when SPMC is located at S-EL1
-(typically pre-Armv8.4):
+(e.g. when the FEAT_EL2 architecture extension is not implemented):
 
 .. code:: shell
 
@@ -172,24 +176,26 @@ Sample TF-A build command line when SPMC is located at S-EL1
     SPD=spmd \
     SPMD_SPM_AT_SEL2=0 \
     BL32=<path-to-tee-binary> \
-    BL33=<path-to-nwd-binary> \
+    BL33=<path-to-bl33-binary> \
     PLAT=fvp \
     all fip
 
-Sample TF-A build command line for an Armv8.4-SecEL2 enabled system
-where SPMC is located at S-EL2:
+Sample TF-A build command line for a FEAT_SEL2 enabled system where the SPMC is
+located at S-EL2:
 
 .. code:: shell
 
     make \
     CROSS_COMPILE=aarch64-none-elf- \
+    PLAT=fvp \
     SPD=spmd \
     CTX_INCLUDE_EL2_REGS=1 \
-    ARM_ARCH_MINOR=4 \
-    BL32=<path-to-swd-hafnium-binary>
-    BL33=<path-to-nwd-binary> \
+    ARM_ARCH_MINOR=5 \
+    BRANCH_PROTECTION=1 \
+    CTX_INCLUDE_PAUTH_REGS=1 \
+    BL32=<path-to-hafnium-binary> \
+    BL33=<path-to-bl33-binary> \
     SP_LAYOUT_FILE=sp_layout.json \
-    PLAT=fvp \
     all fip
 
 Build options to enable secure boot:
@@ -198,25 +204,72 @@ Build options to enable secure boot:
 
     make \
     CROSS_COMPILE=aarch64-none-elf- \
+    PLAT=fvp \
     SPD=spmd \
     CTX_INCLUDE_EL2_REGS=1 \
-    ARM_ARCH_MINOR=4 \
-    BL32=<path-to-swd-hafnium-binary>
-    BL33=<path-to-nwd-binary> \
-    SP_LAYOUT_FILE=../tf-a-tests/build/fvp/debug/sp_layout.json \
+    ARM_ARCH_MINOR=5 \
+    BRANCH_PROTECTION=1 \
+    CTX_INCLUDE_PAUTH_REGS=1 \
+    BL32=<path-to-hafnium-binary> \
+    BL33=<path-to-bl33-binary> \
+    SP_LAYOUT_FILE=sp_layout.json \
     MBEDTLS_DIR=<path-to-mbedtls-lib> \
     TRUSTED_BOARD_BOOT=1 \
     COT=dualroot \
     ARM_ROTPK_LOCATION=devel_rsa \
     ROT_KEY=plat/arm/board/common/rotpk/arm_rotprivk_rsa.pem \
     GENERATE_COT=1 \
-    PLAT=fvp \
     all fip
+
+FVP model invocation
+====================
+
+The FVP command line needs the following options to exercise the S-EL2 SPMC:
+
++----------------------------------------------------+------------------------------------+
+| -C cluster0.has_arm_v8-5=1                         | Allows implementing FEAT_SEL2 and  |
+| -C cluster1.has_arm_v8-5=1                         | and FEAT_BTI.                      |
++----------------------------------------------------+------------------------------------+
+| -C pci.pci_smmuv3.mmu.SMMU_AIDR=2                  | Parameters required for the        |
+| -C pci.pci_smmuv3.mmu.SMMU_IDR0=0x0046123B         | SMMUv3.2 modeling.                 |
+| -C pci.pci_smmuv3.mmu.SMMU_IDR1=0x00600002         |                                    |
+| -C pci.pci_smmuv3.mmu.SMMU_IDR3=0x1714             |                                    |
+| -C pci.pci_smmuv3.mmu.SMMU_IDR5=0xFFFF0472         |                                    |
+| -C pci.pci_smmuv3.mmu.SMMU_S_IDR1=0xA0000002       |                                    |
+| -C pci.pci_smmuv3.mmu.SMMU_S_IDR2=0                |                                    |
+| -C pci.pci_smmuv3.mmu.SMMU_S_IDR3=0                |                                    |
++----------------------------------------------------+------------------------------------+
+| -C cluster0.has_branch_target_exception=1          | Implements FEAT_BTI.               |
+| -C cluster1.has_branch_target_exception=1          |                                    |
++----------------------------------------------------+------------------------------------+
+| -C cluster0.restriction_on_speculative_execution=2 | Required by the EL2 context        |
+| -C cluster1.restriction_on_speculative_execution=2 | save/restore routine.              |
++----------------------------------------------------+------------------------------------+
+
+Sample FVP command line invocation:
+
+.. code:: shell
+
+    <path-to-fvp-model>/FVP_Base_RevC-2xAEMv8A -C pctl.startup=0.0.0.0
+    -C cluster0.NUM_CORES=4 -C cluster1.NUM_CORES=4 -C bp.secure_memory=1 \
+    -C bp.secureflashloader.fname=trusted-firmware-a/build/fvp/debug/bl1.bin \
+    -C bp.flashloader0.fname=trusted-firmware-a/build/fvp/debug/fip.bin \
+    -C bp.pl011_uart0.out_file=fvp-uart0.log -C bp.pl011_uart1.out_file=fvp-uart1.log \
+    -C bp.pl011_uart2.out_file=fvp-uart2.log \
+    -C cluster0.has_arm_v8-5=1 -C cluster1.has_arm_v8-5=1 -C pci.pci_smmuv3.mmu.SMMU_AIDR=2 \
+    -C pci.pci_smmuv3.mmu.SMMU_IDR0=0x0046123B -C pci.pci_smmuv3.mmu.SMMU_IDR1=0x00600002 \
+    -C pci.pci_smmuv3.mmu.SMMU_IDR3=0x1714 -C pci.pci_smmuv3.mmu.SMMU_IDR5=0xFFFF0472 \
+    -C pci.pci_smmuv3.mmu.SMMU_S_IDR1=0xA0000002 -C pci.pci_smmuv3.mmu.SMMU_S_IDR2=0 \
+    -C pci.pci_smmuv3.mmu.SMMU_S_IDR3=0 \
+    -C cluster0.has_branch_target_exception=1 \
+    -C cluster1.has_branch_target_exception=1 \
+    -C cluster0.restriction_on_speculative_execution=2 \
+    -C cluster1.restriction_on_speculative_execution=2
 
 Boot process
 ============
 
-Loading Hafnium and Secure Partitions in the secure world
+Loading Hafnium and secure partitions in the secure world
 ---------------------------------------------------------
 
 The Hafnium implementation in normal world requires VMs to be loaded in
@@ -248,7 +301,7 @@ provided by `[5]`_. A binding document is provided by `[6]`_.
 Secure Partition packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Secure Partitions are bundled as independent package files consisting
+Secure partitions are bundled as independent package files consisting
 of:
 
 -  a header
@@ -379,7 +432,7 @@ Secure boot
 ~~~~~~~~~~~
 
 The SP content certificate is inserted as a separate FIP item so that BL2 loads SPMC,
-SPMC manifest and Secure Partitions and verifies them for authenticity and integrity.
+SPMC manifest and secure partitions and verifies them for authenticity and integrity.
 Refer to TBBR specification `[3]`_.
 
 The multiple-signing domain feature (in current state dual signing domain) allows
@@ -410,14 +463,14 @@ The implementation might add specific code parts only relevant to the
 secure world. Such code parts might be isolated into different files
 and/or conditional code enclosed by a ``SECURE_WORLD`` macro.
 
-Secure Partitions CPU scheduling
+Secure partitions CPU scheduling
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the normal world, VMs are scheduled by the FFA_RUN ABI invoked from the
 primary scheduler (in the primary VM), or by a direct message request or
 response.
 
-With the FF-A EAC specification, Secure Partitions are scheduled by direct
+With the FF-A v1.0 specification, secure partitions are scheduled by direct
 message invocations from a NWd VM or another SP.
 
 Platform topology
@@ -426,7 +479,7 @@ Platform topology
 As stated in `[1]`_ section 4.4.1 the SPMC implementation assumes the
 following SP types:
 
--  Pinned MP SPs: an Execution Context id matches a physical PE id. MP
+-  Pinned MP SPs: an execution context id matches a physical PE id. MP
    SPs must implement the same number of ECs as the number of PEs in the
    platform. Hence the *execution-ctx-count* as defined by
    `[1]`_ (or NWd-Hafnium *vcpu_count*) can only take the
@@ -438,7 +491,7 @@ following SP types:
 Usage of PSCI services in the secure world
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- The normal world Hypervisor (optional) or OS kernel issues PSCI service
+- The Hypervisor (optional) or OS kernel issues PSCI service
   invocations e.g. to request PSCI version, wake-up a secondary core, or request
   core suspend. This happens at the non-secure physical FF-A instance. In the
   example case of Hafnium in the normal world, it boots on the primary core and
@@ -487,7 +540,7 @@ Passing boot data to the SP
 `[1]`_ Section 3.4.2 “Protocol for passing data” defines a
 method to passing boot data to SPs (not currently implemented).
 
-Provided that the whole Secure Partition package image (see `Secure
+Provided that the whole secure partition package image (see `Secure
 Partition packages`_) is mapped to the SP's secure Stage-2 translation
 regime, an SP can access its own manifest DTB blob and extract its partition
 manifest properties.
@@ -508,13 +561,13 @@ Primary core boot-up
 The SPMC performs its platform initializations then loads and creates
 secure partitions based on SP packages and manifests. Then each secure
 partition is launched in sequence (see `SP Boot order`_) on their primary
-Execution Context.
+execution context.
 
 Notice the primary physical core may not be core 0. Hence if the primary
 core linear id is N, the 1:1 mapping requires MP SPs are launched using
 EC[N] on PE[N] (see `Platform topology`_).
 
-The SP's primary Execution Context (or the EC used when the partition is booted)
+The SP's primary EC (or the EC used when the partition is booted)
 exits through ``FFA_MSG_WAIT`` to indicate successful initialization.
 
 Secondary physical core boot-up
@@ -533,7 +586,7 @@ to register the secondary physical cores entry points and context information:
 -  The SPMC/SPMD interface can consist of FF-A direct message requests/responses
    transporting PM events.
 
-If there is no Hypervisor in the normal world, the OS Kernel issues
+If there is no Hypervisor, the OS Kernel issues
 ``PSCI_CPU_ON`` calls that are directly trapped to EL3.
 
 When a secondary physical core wakes-up the SPMD notifies the SPMC which updates
@@ -563,7 +616,7 @@ either *(under discussion)*:
 -  Re-purposing the ``PSCI_CPU_ON`` function id. It is
    assumed that even if the input arguments are the same as the ones defined in
    the PSCI standard, the usage deviates by the fact the secondary EC is not
-   woken up immediately. At least for the FF-A EAC where only
+   woken up immediately. At least for the FF-A v1.0 where only
    direct messaging is allowed, it is only after the first direct
    message invocation that the secondary EC is entered. This option
    might be preferred when the same code base is re-used for a VM or
@@ -617,7 +670,7 @@ In the current implementation when ``FFA_VERSION`` is invoked from:
 FFA_FEATURES
 ~~~~~~~~~~~~
 
-FF-A features may be discovered by Secure Partitions while booting
+FF-A features may be discovered by secure partitions while booting
 through the SPMC. However, SPMC cannot get features from Hypervisor
 early at boot time as NS world is not setup yet.
 
@@ -632,15 +685,17 @@ value doing the systematic forwarding.
 FFA_RXTX_MAP/FFA_RXTX_UNMAP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-VM mailboxes are re-purposed to serve as SP RX/TX buffers. The RX/TX
-map API maps the send and receive buffer IPAs to the SP Stage-2 translation regime.
+The RX/TX map API maps the send and receive buffer IPAs to the SP Stage-2 translation
+regime.
 
-Hafnium in the normal world defines VMs and their attributes as logical structures,
+The Hypervisor defines VMs and their attributes as logical structures,
 including a mailbox used for FF-A indirect messaging, memory sharing, or the
-`FFA_PARTITION_INFO_GET`_  ABI.
-This same mailbox structure is re-used in the SPMC. `[1]`_ states only direct
-messaging is allowed to SPs. Thus mailbox usage is restricted to implementing
-`FFA_PARTITION_INFO_GET`_ and memory sharing ABIs.
+`FFA_PARTITION_INFO_GET`_  ABI. This same mailbox structure is re-used in the
+SPMC. `[1]`_ states only direct messaging is allowed to SPs. Thus mailbox usage
+is restricted to implementing `FFA_PARTITION_INFO_GET`_ and memory sharing ABIs.
+
+Note:
+-  FFA_RXTX_UNMAP is not implemented in current Hafnium reference code base.
 
 FFA_PARTITION_INFO_GET
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -696,7 +751,7 @@ id is not consistent:
 Direct messaging
 ----------------
 
-This is a mandatory interface for Secure Partitions consisting in direct
+This is a mandatory interface for secure partitions consisting in direct
 message request and responses.
 
 The ``ffa_handler`` Hafnium function may:
@@ -734,6 +789,11 @@ Per `[1]`_ Table 118 Config No. 1 (physical FF-A instance):
 -  SPMC=>SPMD direct message response uses SMC conduit
 -  SPMD=>SPMC direct message response uses ERET conduit
 
+Optional interfaces
+-------------------
+
+TODO: MEM_SHARE/MEM_LEND/MEM_DONATE
+
 Memory management
 -----------------
 
@@ -760,6 +820,24 @@ NS/S IPA translations (``VSTCR_EL2.SW``, ``VSTCR_EL2.SA``, ``VTCR_EL2.NSW``,
 Interrupt management
 --------------------
 
+Non-secure interrupt handling
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following pictures describe the scenarios of non secure physical interrupts
+trapped by the SPMC for the cases where a SP handles the managed exit operation
+or not:
+
+.. image:: ../resources/diagrams/ffa-ns-interrupt-handling-managed-exit.png
+
+.. image:: ../resources/diagrams/ffa-ns-interrupt-handling-sp-preemption.png
+
+Secure interrupt handling
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The current implementation does not support handling of secure interrupts
+trapped by the SPMC at S-EL2. This is work in progress planned for future
+iterations.
+
 Road to a para-virtualized interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -774,7 +852,7 @@ of the GIC configuration.
 The SPMC fully owns the GIC configuration at S-EL2. The SPMC manages
 interrupt resources and allocates interrupt ID based on SP manifests.
 The SPMC acknowledges physical interrupts and injects virtual interrupts
-by setting the vIRQ bit when resuming an SP. A Secure Partition gathers
+by setting the vIRQ bit when resuming a SP. A secure partition gathers
 the interrupt number through an hypercall.
 
 Notice the SPMC/SPMD has to handle Group0 secure interrupts in addition
@@ -856,7 +934,7 @@ several I/O devices along with Interconnect and Memory system.
 .. image:: ../resources/diagrams/MMU-600.png
 
 SMMU has several versions including SMMUv1, SMMUv2 and SMMUv3. Hafnium provides
-support for SMMUv3 driver in both Normal and Secure World. A brief introduction
+support for SMMUv3 driver in both normal and secure world. A brief introduction
 of SMMUv3 functionality and the corresponding software support in Hafnium is
 provided here.
 
