@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e0992a3_b1e19dbf",
+        "filename": "plat/arm/board/arm_fpga/fpga_common.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-30T17:24:14Z",
+      "side": 1,
+      "message": "I\u0027ve added the code to read the relevant addresses and sizes from the devicetree at runtime.",
+      "parentUuid": "668ca439_f4934b37",
+      "revId": "b03273079c4259bc434838fcfe073dc3da1d014b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "506ccc27_d55abe82",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "xlat v2 has support for direct mapping, but we should not use it here. We should only enable the MMU when the GIC and the UART are mapped or otherwise the MMU will fault when trying to access those regions (e.g. if we print logs between enabling the MMU and mapping it)",
       "parentUuid": "506ccc27_d55abe82",
+      "revId": "b03273079c4259bc434838fcfe073dc3da1d014b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96e3a5eb_0685a1cf",
+        "filename": "plat/arm/board/arm_fpga/fpga_common.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-04-30T17:24:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fca06757_28e7a145",
       "revId": "b03273079c4259bc434838fcfe073dc3da1d014b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
