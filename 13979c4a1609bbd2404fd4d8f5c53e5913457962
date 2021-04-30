@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a836f0a_45daa993",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:29:49Z",
+      "side": 1,
+      "message": "Right, it should be S-EL1. Updated in next version.",
+      "parentUuid": "3d8e990d_fc900d15",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 14
+      },
+      "revId": "13979c4a1609bbd2404fd4d8f5c53e5913457962",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae4e66a6_04cff711",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-25T01:48:29Z",
       "side": 1,
       "message": "does this patch work when the SP(MM) migrates to other cores? It doesnt appear so from the code.",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 42
+      },
+      "revId": "13979c4a1609bbd2404fd4d8f5c53e5913457962",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a91e83fa_11e140ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:29:49Z",
+      "side": 1,
+      "message": "Didn\u0027t get the exact point, but current SP(STMM) can run on any of the core with it\u0027s single execution context.",
+      "parentUuid": "ae4e66a6_04cff711",
       "range": {
         "startLine": 20,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99aa481f_30e69e12",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:29:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea238ab4_55ce2648",
+      "range": {
+        "startLine": 375,
+        "startChar": 9,
+        "endLine": 375,
+        "endChar": 33
+      },
+      "revId": "13979c4a1609bbd2404fd4d8f5c53e5913457962",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2afad6cb_69581aad",
@@ -83,6 +155,24 @@
       "writtenOn": "2021-03-25T01:48:29Z",
       "side": 1,
       "message": "what happens here if the MM app makes this FFA CALL? Seems like most calls need to be predicated on SPMC_IN_EL3...and only direct msg req/resp and a couple others such as ffa_features should be allowed..i think...",
+      "revId": "13979c4a1609bbd2404fd4d8f5c53e5913457962",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52b1518e_ba0313ec",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:29:49Z",
+      "side": 1,
+      "message": "Agree. Added a check of spmd_is_spmc_message() and modified the function to return 0 in case SPMC is at EL3.",
+      "parentUuid": "2afad6cb_69581aad",
       "revId": "13979c4a1609bbd2404fd4d8f5c53e5913457962",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -112,6 +202,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ca98d9d5_e5917a36",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:29:49Z",
+      "side": 1,
+      "message": "Agree. Modified spmd_is_spmc_message to consider SPMC at EL3 configuration.",
+      "parentUuid": "51a7e7d0_043dccaf",
+      "range": {
+        "startLine": 595,
+        "startChar": 23,
+        "endLine": 595,
+        "endChar": 43
+      },
+      "revId": "13979c4a1609bbd2404fd4d8f5c53e5913457962",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2586b48a_7b5239a1",
         "filename": "services/std_svc/spmd/spmd_private.h",
         "patchSetId": 1
@@ -123,6 +237,30 @@
       "writtenOn": "2021-03-25T01:48:29Z",
       "side": 1,
       "message": "honestly dont think this split is worth it. would suggest simply extending spmd_smc_forward_to_spmc to include the same signature..this just makes the code much harder to read...",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 15
+      },
+      "revId": "13979c4a1609bbd2404fd4d8f5c53e5913457962",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38d621de_3cc47464",
+        "filename": "services/std_svc/spmd/spmd_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:29:49Z",
+      "side": 1,
+      "message": "Done. Updated code as suggested.",
+      "parentUuid": "2586b48a_7b5239a1",
       "range": {
         "startLine": 100,
         "startChar": 4,
