@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed6d1a2f_376f7344",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:25:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3bd2ad7_71295d2d",
+      "range": {
+        "startLine": 10,
+        "startChar": 56,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "c0f5f13148165167c370a5a1ca647e543c20e1f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94b5b68f_53baca07",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-25T01:06:35Z",
       "side": 1,
       "message": "it is odd to me that this is in plat_arm.h yet defined in the spmc_main.c file. I think this needs to be in an spmc specific header file, or the implementation moved to a file under plat.",
+      "range": {
+        "startLine": 348,
+        "startChar": 5,
+        "endLine": 348,
+        "endChar": 21
+      },
+      "revId": "c0f5f13148165167c370a5a1ca647e543c20e1f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e216fd05_198d2125",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:25:32Z",
+      "side": 1,
+      "message": "Agree, moved the declaration in spmc_svc.h.",
+      "parentUuid": "94b5b68f_53baca07",
       "range": {
         "startLine": 348,
         "startChar": 5,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6abee4b_8f4deac0",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:25:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fc89523_a9d2dd40",
+      "range": {
+        "startLine": 196,
+        "startChar": 4,
+        "endLine": 196,
+        "endChar": 17
+      },
+      "revId": "c0f5f13148165167c370a5a1ca647e543c20e1f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ef5704f_80caa28b",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-04-12T07:25:57Z",
       "side": 1,
       "message": "nit: move after line #294 to group with the other [ SPMD+EL1/EL2 SPMC ] implementation.",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 5
+      },
+      "revId": "c0f5f13148165167c370a5a1ca647e543c20e1f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e4fc435_5a19ba63",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:25:32Z",
+      "side": 1,
+      "message": "Done in the next version, hope this is what suggested.",
+      "parentUuid": "4ef5704f_80caa28b",
       "range": {
         "startLine": 279,
         "startChar": 0,
