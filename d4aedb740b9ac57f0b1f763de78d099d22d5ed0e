@@ -52,6 +52,24 @@
       "parentUuid": "8d5a40c0_0aaac659",
       "revId": "d4aedb740b9ac57f0b1f763de78d099d22d5ed0e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c3ee52a_9d9fadca",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-04-30T18:36:54Z",
+      "side": 1,
+      "message": "we still needs default UART mapping if line no.120 fails to get a node right?\nif yes, can we make use of \u0027uart_base\u0027 after computation to throw the warning?",
+      "parentUuid": "741ada62_096a4a21",
+      "revId": "d4aedb740b9ac57f0b1f763de78d099d22d5ed0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
