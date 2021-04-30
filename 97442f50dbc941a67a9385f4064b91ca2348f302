@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1465c4a_5de90747",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:20:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97fb2aae_7d110d13",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 10
+      },
+      "revId": "97442f50dbc941a67a9385f4064b91ca2348f302",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42b2fd82_64852503",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-12T07:25:41Z",
       "side": 1,
       "message": "Should this remain in spm_mm_svc.h (MM_COMMUNICATE_AARCH32/64)?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 59
+      },
+      "revId": "97442f50dbc941a67a9385f4064b91ca2348f302",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68198a20_64ad3ba2",
+        "filename": "services/std_svc/spm/common/include/spm_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:20:41Z",
+      "side": 1,
+      "message": "These MM Interface IDs are used in spmc_main.c during handling of FF-A Direct message requests from Normal world.",
+      "parentUuid": "42b2fd82_64852503",
       "range": {
         "startLine": 35,
         "startChar": 0,
@@ -66,6 +114,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8ba7d9df_eee68fa2",
+        "filename": "services/std_svc/spm/common/include/spm_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:20:41Z",
+      "side": 1,
+      "message": "Agree. It\u0027s been done in next patch(https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/9358/1).\nPurpose of this patch, is to just reorganize the secure partition manager code without modifying any of the logic or structure,  for accommodating SPMC in subsequent patches.",
+      "parentUuid": "8082f7a7_c93df237",
+      "revId": "97442f50dbc941a67a9385f4064b91ca2348f302",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "109adc25_47de8709",
         "filename": "services/std_svc/spm/common/spm_common.c",
         "patchSetId": 1
@@ -83,6 +149,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c19865a1_e4bd2032",
+        "filename": "services/std_svc/spm/common/spm_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:20:41Z",
+      "side": 1,
+      "message": "Agree.\n\n\u003e Will it happen the SP is called from multiple cores concurrently? This might not scale well to many cores.\n\nOne scenario could be interrupts triggered at multiple cores simultaneously and targeting particular SP.\n\nThe logic needs to be changed for supporting multiple SPs.\n\nThese improvements can be taken up as future tasks. As mentioned earlier, intention of this patch is to just reorganize the secure partition manager code without modifying any of the logic or structure,  for accommodating SPMC in subsequent patches.",
+      "parentUuid": "109adc25_47de8709",
+      "revId": "97442f50dbc941a67a9385f4064b91ca2348f302",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "718667ce_45184d57",
         "filename": "services/std_svc/spm/common/spm_common.c",
         "patchSetId": 1
@@ -94,6 +178,30 @@
       "writtenOn": "2021-04-15T02:14:02Z",
       "side": 1,
       "message": "Do we need cache operations to ensure latest values are read at all times?",
+      "range": {
+        "startLine": 52,
+        "startChar": 3,
+        "endLine": 52,
+        "endChar": 15
+      },
+      "revId": "97442f50dbc941a67a9385f4064b91ca2348f302",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b236b63_054dd3b9",
+        "filename": "services/std_svc/spm/common/spm_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:20:41Z",
+      "side": 1,
+      "message": "Right, there can be a barrier instruction, which can be done as part of improvement patch. Didn\u0027t intend to change any logic or structure, but just to reorganize the secure partition manager in this patch.",
+      "parentUuid": "718667ce_45184d57",
       "range": {
         "startLine": 52,
         "startChar": 3,
@@ -129,6 +237,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9998a7d_49460532",
+        "filename": "services/std_svc/spm/common/spm_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:20:41Z",
+      "side": 1,
+      "message": "sp_state_try_switch() just checks whether current state is same as \"from\", and if so then change the state. If you are suggesting to use sp_state_try_switch() in sp_state_wait_switch() then it needs bit of change as both are trying to acquire the lock.",
+      "parentUuid": "f17399fc_e7b26e3c",
+      "range": {
+        "startLine": 47,
+        "startChar": 1,
+        "endLine": 55,
+        "endChar": 37
+      },
+      "revId": "97442f50dbc941a67a9385f4064b91ca2348f302",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49ece7de_23a510a2",
         "filename": "services/std_svc/spm/common/spm_common.c",
         "patchSetId": 1
@@ -140,6 +272,30 @@
       "writtenOn": "2021-04-12T07:25:41Z",
       "side": 1,
       "message": "Is this required when a single SP exists?",
+      "range": {
+        "startLine": 97,
+        "startChar": 1,
+        "endLine": 99,
+        "endChar": 10
+      },
+      "revId": "97442f50dbc941a67a9385f4064b91ca2348f302",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85c22382_dab07712",
+        "filename": "services/std_svc/spm/common/spm_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-04-30T14:20:41Z",
+      "side": 1,
+      "message": "Agree, not required I feel. Can be considered for improvement patches.",
+      "parentUuid": "49ece7de_23a510a2",
       "range": {
         "startLine": 97,
         "startChar": 1,
