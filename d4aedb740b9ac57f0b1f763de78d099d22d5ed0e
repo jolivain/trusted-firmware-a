@@ -88,6 +88,24 @@
       "parentUuid": "2c3ee52a_9d9fadca",
       "revId": "d4aedb740b9ac57f0b1f763de78d099d22d5ed0e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e25df6ec_72cb7465",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-05-04T10:01:25Z",
+      "side": 1,
+      "message": "Hmm.. I am not sure whether the default UART base address passed via device tree is a valid case or not? If it is, then we should use simple warning message to mention \u0027crash UART is being used\u0027 to satisfy the default case (if DT parsing failed to get UART base) or the device tree itself passes the crash UART base.",
+      "parentUuid": "a713106e_a7cb82d8",
+      "revId": "d4aedb740b9ac57f0b1f763de78d099d22d5ed0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
