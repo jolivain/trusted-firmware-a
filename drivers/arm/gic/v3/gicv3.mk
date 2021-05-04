@@ -14,7 +14,9 @@ GIC_EXT_INTID			?=	0
 GICV3_SOURCES	+=	drivers/arm/gic/v3/gicv3_main.c		\
 			drivers/arm/gic/v3/gicv3_helpers.c	\
 			drivers/arm/gic/v3/gicdv3_helpers.c	\
-			drivers/arm/gic/v3/gicrv3_helpers.c
+			drivers/arm/gic/v3/gicrv3_helpers.c	\
+			drivers/arm/gic/v3/gic600_fmu.c		\
+			drivers/arm/gic/v3/gic600_fmu_helpers.c
 
 ifeq (${GICV3_OVERRIDE_DISTIF_PWR_OPS}, 0)
 GICV3_SOURCES	+=	drivers/arm/gic/v3/arm_gicv3_common.c
