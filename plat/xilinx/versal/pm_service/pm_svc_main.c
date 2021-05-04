@@ -42,6 +42,21 @@ static void notify_os(void)
 	write_icc_asgi1r_el1(reg);
 }
 
+static uint64_t __unused __dead2 versal_sgi_irq_handler(uint32_t id,
+							uint32_t flags,
+							void *handle,
+							void *cookie)
+{
+	VERBOSE("Received SGI IRQ\n");
+
+	plat_ic_clear_interrupt_pending(id);
+
+	dsb();
+
+	while (1) {
+	}
+}
+
 static void request_cpu_idle(void)
 {
 	VERBOSE("CPU idle request received\n");
@@ -131,6 +146,13 @@ int pm_setup(void)
 		ret = status;
 	} else {
 		pm_up = true;
+	}
+
+	/* register IRQ handler for CPU idle SGI */
+	ret = request_intr_type_el3(VERSAL_CPU_IDLE_SGI, versal_sgi_irq_handler);
+	if (ret != 0) {
+		INFO("BL31: registering SGI interrupt failed\n");
+		goto err;
 	}
 
 	/*
