@@ -14,6 +14,7 @@
 #include <stdbool.h>
 #include <common/runtime_svc.h>
 #include <plat/common/platform.h>
+#include <lib/psci/psci.h>
 #include "pm_api_sys.h"
 #include "pm_client.h"
 #include "pm_ipi.h"
@@ -60,8 +61,25 @@ static uint64_t versal_sgi_irq_handler(uint32_t id, uint32_t flags,
 
 static void request_cpu_idle(void)
 {
+	int i;
+	static int idle_requests = 0;
+	int active_cores = 0;
+
 	VERBOSE("CPU idle request received\n");
-	pm_ipi_irq_clear(primary_proc);
+
+	active_cores = psci_get_number_of_active_cores();
+	idle_requests++;
+
+	if (idle_requests < active_cores) {
+		pm_ipi_irq_clear(primary_proc);
+	} else {
+		idle_requests = 0;
+		for (i = 0; i < PLATFORM_CORE_COUNT; i++) {
+			/* trigger SGI to active cores */
+			VERBOSE("Raise SGI for %d\n", i);
+			plat_ic_raise_el3_sgi(VERSAL_CPU_IDLE_SGI, i);
+		}
+	}
 }
 
 static uint64_t ipi_fiq_handler(uint32_t id, uint32_t flags, void *handle,
