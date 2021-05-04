@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9348567a_1661fa5c",
+        "filename": "common/hw_crc32.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-05-04T13:14:42Z",
+      "side": 1,
+      "message": "Yes, This is the same prototype used in zlib for crc32 function, and hence used in similar way for HW CRC. It is useful to prototype compatible if somebody like to make use of either zlib or hw_crc32 (which is not the case now, but not sure in future).\nHaving said that I don\u0027t have any issue in changing the function prototype as you mentioned.",
+      "parentUuid": "e074659e_cf168ea9",
+      "revId": "2ead87f982f0fe42959e55ecc5ce41e030b6ef54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a800f79_a6f2cde1",
         "filename": "common/hw_crc32.c",
         "patchSetId": 23
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5778de1_7d2aee9a",
+        "filename": "common/hw_crc32.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-05-04T13:14:42Z",
+      "side": 1,
+      "message": "I can\u0027t imagine any special case, but in general buffer with some size get passed to this function. If caller pass the size as \u00270\u0027 (and expecting CRC of the passed buffer), then eventually this function will return same passed CRC, it is better to flag that out in debug build. Let me know what do you think.",
+      "parentUuid": "7a800f79_a6f2cde1",
+      "revId": "2ead87f982f0fe42959e55ecc5ce41e030b6ef54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "80e9ee00_61eef777",
         "filename": "common/hw_crc32.c",
         "patchSetId": 23
@@ -65,6 +101,24 @@
       "writtenOn": "2021-05-04T12:41:18Z",
       "side": 1,
       "message": "I guess MISRA will dislike:\n- changing a parameter variable\n- having a post-increment expression in a function argument\n(just saying, I would have written it exactly like you did!)",
+      "revId": "2ead87f982f0fe42959e55ecc5ce41e030b6ef54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4100c8f_fa0866bb",
+        "filename": "common/hw_crc32.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-05-04T13:14:42Z",
+      "side": 1,
+      "message": "Let me increment the \u0027buf\u0027 separately after \u0027__crc32b\u0027 call.",
+      "parentUuid": "80e9ee00_61eef777",
       "revId": "2ead87f982f0fe42959e55ecc5ce41e030b6ef54",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
