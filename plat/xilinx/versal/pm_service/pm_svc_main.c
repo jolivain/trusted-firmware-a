@@ -19,6 +19,7 @@
 #include "pm_ipi.h"
 #include <drivers/arm/gicv3.h>
 #include "../drivers/arm/gic/v3/gicv3_private.h"
+#include "../lib/psci/psci_private.h"
 
 #define MODE				0x80000000U
 #define XSCUGIC_SGIR_EL1_INITID_SHIFT    24U
@@ -59,8 +60,31 @@ static uint64_t __unused __dead2 versal_sgi_irq_handler(uint32_t id,
 
 static void request_cpu_idle(void)
 {
+	int i;
+	uint8_t state;
+	static int idle_requests = 0;
+	int active_cores = 0;
+
 	VERBOSE("CPU idle request received\n");
-	pm_ipi_irq_clear(primary_proc);
+
+	for (i = 0; i < psci_plat_core_count; i++) {
+		state = psci_get_aff_info_state_by_idx(i);
+		if (state == AFF_STATE_ON) {
+			active_cores++;
+		}
+	}
+	idle_requests++;
+
+	if (idle_requests < active_cores) {
+		pm_ipi_irq_clear(primary_proc);
+	} else {
+		idle_requests = 0;
+		for (i = 0; i < PLATFORM_CORE_COUNT; i++) {
+			/* trigger SGI to active cores */
+			VERBOSE("Raise SGI for %d\n", i);
+			plat_ic_raise_el3_sgi(VERSAL_CPU_IDLE_SGI, i);
+		}
+	}
 }
 
 static uint64_t ipi_fiq_handler(uint32_t id, uint32_t flags, void *handle,
