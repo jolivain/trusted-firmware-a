@@ -13,6 +13,7 @@
 #include <plat_private.h>
 #include <stdbool.h>
 #include <common/runtime_svc.h>
+#include <lib/mmio.h>
 #include <plat/common/platform.h>
 #include "pm_api_sys.h"
 #include "pm_client.h"
@@ -46,13 +47,26 @@ static void notify_os(void)
 static uint64_t versal_sgi_irq_handler(uint32_t id, uint32_t flags,
 					       void *handle, void *cookie)
 {
-	VERBOSE("Received SGI IRQ\n");
+	unsigned int cpu_id = plat_my_core_pos();
+	const struct pm_proc *proc = pm_get_proc(cpu_id);
+
+	VERBOSE("Entering wfi %d\n", cpu_id);
 
 	plat_ic_clear_interrupt_pending(id);
 
 	dsb();
 
+	/* Prevent interrupts from spuriously waking up this cpu */
+	plat_versal_gic_cpuif_disable();
+
+	pm_ipi_irq_clear(primary_proc);
+
+	mmio_write_32(FPD_APU_PWRCTL, mmio_read_32(FPD_APU_PWRCTL) |
+			proc->pwrdn_mask);
+
+	/* enter wfi and stay there */
 	while (1) {
+		wfi();
 	}
 
 	/* execution should not reach here */
