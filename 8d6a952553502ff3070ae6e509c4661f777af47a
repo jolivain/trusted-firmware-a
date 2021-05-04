@@ -80,6 +80,30 @@
       },
       "revId": "8d6a952553502ff3070ae6e509c4661f777af47a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8033d77d_73569c39",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-05-04T04:13:48Z",
+      "side": 1,
+      "message": "Understand. What i\u0027m saying is you can achieve the same effect without the sync entry. Save nwd and restore secure world context in this function and do an eret.\nThe next smc will be nwd_resume and instead of sync exit, you do the restore of non secure context.\nI guess my question is why do you need the sync entry in this case? whta does the sync entry buy you that you cannot do without sync exit/?\ntspd for example does not use synchronous entry for a sel1 interrupt. Not saying we should do that buy i\u0027m trying to understand what do we gain by using a sync entry/exit.",
+      "parentUuid": "78a2cb83_c98c0194",
+      "range": {
+        "startLine": 224,
+        "startChar": 6,
+        "endLine": 224,
+        "endChar": 29
+      },
+      "revId": "8d6a952553502ff3070ae6e509c4661f777af47a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
