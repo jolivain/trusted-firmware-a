@@ -70,6 +70,24 @@
       "parentUuid": "741ada62_096a4a21",
       "revId": "d4aedb740b9ac57f0b1f763de78d099d22d5ed0e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a713106e_a7cb82d8",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-05-04T09:31:25Z",
+      "side": 1,
+      "message": "Ah - I see your point, that\u0027s a problem.\n\nWe can make use of \u0027uart_base\u0027 if we are sure that the default UART mapping and the devicetree UART mapping are always guaranteed to be different, but I suspect they will be the same sometimes.",
+      "parentUuid": "2c3ee52a_9d9fadca",
+      "revId": "d4aedb740b9ac57f0b1f763de78d099d22d5ed0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
