@@ -1,0 +1,514 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1f5d854_6eed3ea3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "Thanks for compiling all this. This looks good overall.\nI\u0027m putting -1 at least to fix typos and re-phrase here and here; feel free to fix or ignore others based on your own judgement.",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "944fe0ed_4f33d413",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "starting from Armv8.0 ?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27a214f4_fa19e865",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "Should this just be FEAT_AMUv1p1?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff4bc600_a4dd85eb",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "remove?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99573437_50cea83c",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "Out of curiosity, is this really for BL32 (e.g. a TEE)?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89b193fa_02437b9e",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "typo",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afbb7111_14270f59",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "need re-phrase?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93406df8_61dad2df",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "nit: maybe you can put \"Added support\" only once at top (and other places)",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0b3abcc_506f9b81",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "nit: Versal?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34dcb646_d85011c1",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "Group the below in a \u0027CPU Errata\u0027 section (one line per core)?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "047ac23f_b3fe3f86",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "Is this reading UUIDs as strings? Is this worth mentioning?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd1553c1_b49b028b",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "I guess you can add:\nFF-A v1.0: boot time power management, SPMC secondary core boot support, early run-time power management (PM events relayed to SPMC).",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5959da9_545813a3",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "remove necessary?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21a12b27_46c5d3cf",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "capital",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c90de7f_27abed61",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "capital in other places for acronyms",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b315760c_b3fe3034",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "capital",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cfb2141_591eee43",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "typo",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "983f4c45_840cffb8",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "S-EL0",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89194be4_28c7a163",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "looks a bit cryptic",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd815f92_b1562533",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "re-phrase?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c09e579c_62debaf7",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "typo",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cc3356b_bd95ab2d",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "I think you can group all into SPMD with the above.\nAll those changes are related to SPMD or changes to SPMC manifests that are processed by the SPMD.\n\nThe SPMC being Hafnium or OP-TEE have their own change log.",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afe94420_1ce9b7b2",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "Is this similar to first item in this group?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8356a0c6_67934310",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "Just checking, is this duplicated from above?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92e0d503_0d3d3c39",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "Fixed the EL2 context save/restore routine by removing EL2 generic timer system registers",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "219a75e2_449c2992",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "typo",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79a6773c_9c7c78cc",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "Fixed FF-A error codes to use int32_t type.",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2efc44dc_7170be45",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "typo",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31b23f59_e6262489",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "typo",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26418dbe_5ba214f8",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-05-04T20:18:37Z",
+      "side": 1,
+      "message": "typo",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
