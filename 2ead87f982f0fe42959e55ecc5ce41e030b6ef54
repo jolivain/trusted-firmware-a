@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "682cde7e_d0a6c584",
+        "filename": "common/hw_crc32.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-04T14:55:16Z",
+      "side": 1,
+      "message": "So this is common code here, so I\u0027d rather make this correct than trying to stay compatible with some 25 year old library. If you will ever going to plumb zlib support into this, you can always make this interface compatible then, because you have some justification.\nBut on its own it just looks wrong to use \"long\" here.",
+      "parentUuid": "9348567a_1661fa5c",
+      "revId": "2ead87f982f0fe42959e55ecc5ce41e030b6ef54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a800f79_a6f2cde1",
         "filename": "common/hw_crc32.c",
         "patchSetId": 23
@@ -90,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8b82dadf_d13c1f7e",
+        "filename": "common/hw_crc32.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-04T14:55:16Z",
+      "side": 1,
+      "message": "Actually there is no real special case here, because it just naturally works with a buffer of size 0: you get your old CRC value back. zlib behaves the same way.\nAnd I don\u0027t think you need any use cases, really, but verifying the checksum of an empty payload could be one of them.\nBut the main thing is: At the moment you needlessly panic the firmware(!), with something the user cannot do anything about.\nRemoving this assert would just work anyway and carries on the operation, without any harm.",
+      "parentUuid": "e5778de1_7d2aee9a",
+      "revId": "2ead87f982f0fe42959e55ecc5ce41e030b6ef54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "80e9ee00_61eef777",
         "filename": "common/hw_crc32.c",
         "patchSetId": 23
@@ -119,6 +155,24 @@
       "side": 1,
       "message": "Let me increment the \u0027buf\u0027 separately after \u0027__crc32b\u0027 call.",
       "parentUuid": "80e9ee00_61eef777",
+      "revId": "2ead87f982f0fe42959e55ecc5ce41e030b6ef54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7407559d_3cb6d224",
+        "filename": "common/hw_crc32.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-04T14:55:16Z",
+      "side": 1,
+      "message": "Yes, thanks. And if you want to intercept MISRA (this is common code, so I think needs to compliant), you also need separate variables for buffer and size. The compiler will probably do the right thing (and not use them, really), so it\u0027s just a some two extra lines of code to write.",
+      "parentUuid": "f4100c8f_fa0866bb",
       "revId": "2ead87f982f0fe42959e55ecc5ce41e030b6ef54",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
