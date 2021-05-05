@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "753a569d_e29fa9ba",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "944fe0ed_4f33d413",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27a214f4_fa19e865",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "Should this just be FEAT_AMUv1p1?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e2a18e3_713c7f3f",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27a214f4_fa19e865",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -71,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3beb088f_111aa921",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Can you clarify? Do you want me to remove line 17?",
+      "parentUuid": "ff4bc600_a4dd85eb",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99573437_50cea83c",
         "filename": "docs/change-log.rst",
         "patchSetId": 1
@@ -82,6 +136,24 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "Out of curiosity, is this really for BL32 (e.g. a TEE)?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbda4bb7_8ffe0ca3",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Here,BL32 refers to the secure monitor(sp_min) for AArch32 builds. I will make necessary update.",
+      "parentUuid": "99573437_50cea83c",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -109,6 +181,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2619865a_c7062eec",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c72cba02_b577a1d2",
+      "range": {
+        "startLine": 32,
+        "startChar": 28,
+        "endLine": 32,
+        "endChar": 45
+      },
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89b193fa_02437b9e",
@@ -122,6 +218,24 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "typo",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "314ac61c_b376529a",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89b193fa_02437b9e",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -143,6 +257,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92a90493_adf21a2c",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afbb7111_14270f59",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93406df8_61dad2df",
@@ -156,6 +288,24 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "nit: maybe you can put \"Added support\" only once at top (and other places)",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1ef100e_0ac5468b",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93406df8_61dad2df",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -177,6 +327,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "129cc5f9_62939951",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0b3abcc_506f9b81",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34dcb646_d85011c1",
@@ -190,6 +358,24 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "Group the below in a \u0027CPU Errata\u0027 section (one line per core)?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "681f3959_6c682b4a",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34dcb646_d85011c1",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -234,6 +420,48 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be0a24f1_a535d6a7",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "047ac23f_b3fe3f86",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7b8c1ff_7532e249",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f46f4985_bcaf6c46",
+      "range": {
+        "startLine": 125,
+        "startChar": 16,
+        "endLine": 125,
+        "endChar": 24
+      },
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd1553c1_b49b028b",
@@ -247,6 +475,24 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "I guess you can add:\nFF-A v1.0: boot time power management, SPMC secondary core boot support, early run-time power management (PM events relayed to SPMC).",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f54d2d77_ef00d530",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd1553c1_b49b028b",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -268,6 +514,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08e6e9cb_9c384e04",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5959da9_545813a3",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c43fd5b9_340ddb20",
@@ -281,6 +545,30 @@
       "writtenOn": "2021-05-05T09:00:51Z",
       "side": 1,
       "message": "TBBR Certcreate/Certcreate instead?",
+      "range": {
+        "startLine": 255,
+        "startChar": 6,
+        "endLine": 255,
+        "endChar": 14
+      },
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84478b3e_375cad51",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c43fd5b9_340ddb20",
       "range": {
         "startLine": 255,
         "startChar": 6,
@@ -316,6 +604,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a4c31641_16a70ca5",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "I am not familiar with the feature. Can you advise the best way to rephrase it?",
+      "parentUuid": "26d657ae_e1f71f1c",
+      "range": {
+        "startLine": 256,
+        "startChar": 10,
+        "endLine": 256,
+        "endChar": 84
+      },
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "21a12b27_46c5d3cf",
         "filename": "docs/change-log.rst",
         "patchSetId": 1
@@ -327,6 +639,24 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "capital",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "278132b3_5bf3fb57",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21a12b27_46c5d3cf",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -371,6 +701,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f4521c2_98c6d51d",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54234ea7_4eb1a3fd",
+      "range": {
+        "startLine": 307,
+        "startChar": 31,
+        "endLine": 307,
+        "endChar": 38
+      },
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b315760c_b3fe3034",
@@ -384,6 +738,24 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "capital",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2474c9f_b59cc9e0",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b315760c_b3fe3034",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -405,6 +777,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "baa11a95_39d9d800",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cfb2141_591eee43",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "983f4c45_840cffb8",
@@ -418,6 +808,24 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "S-EL0",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "848d40ac_56aaa92d",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "983f4c45_840cffb8",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -439,6 +847,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c26890_e3fd3e41",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89194be4_28c7a163",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd815f92_b1562533",
@@ -452,6 +878,24 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "re-phrase?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f323afae_27a8089f",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd815f92_b1562533",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -473,6 +917,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40fa4d5f_5512fdb0",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c09e579c_62debaf7",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cc3356b_bd95ab2d",
@@ -486,6 +948,24 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "I think you can group all into SPMD with the above.\nAll those changes are related to SPMD or changes to SPMC manifests that are processed by the SPMD.\n\nThe SPMC being Hafnium or OP-TEE have their own change log.",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eefe425_0b51fbe8",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cc3356b_bd95ab2d",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -509,6 +989,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8a934c08_9dca4170",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Okay, I will remove it.",
+      "parentUuid": "afe94420_1ce9b7b2",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8356a0c6_67934310",
         "filename": "docs/change-log.rst",
         "patchSetId": 1
@@ -520,6 +1018,24 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "Just checking, is this duplicated from above?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b477c8a5_78b47711",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "The same fix was made concurrently for multiple platforms. So I thought I should list them across each platform.",
+      "parentUuid": "8356a0c6_67934310",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -541,6 +1057,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d32d7db_0f458280",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92e0d503_0d3d3c39",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "219a75e2_449c2992",
@@ -554,6 +1088,24 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "typo",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "374c8669_cba844c6",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "219a75e2_449c2992",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -575,6 +1127,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c00db2f3_7f0239cb",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79a6773c_9c7c78cc",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2efc44dc_7170be45",
@@ -588,6 +1158,24 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "typo",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cfb02e3_92a5adfa",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2efc44dc_7170be45",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -609,6 +1197,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "356f5893_2450641e",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31b23f59_e6262489",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbae11a8_df8a3a27",
@@ -622,6 +1228,30 @@
       "writtenOn": "2021-05-05T09:00:51Z",
       "side": 1,
       "message": "Good to have same name at line no. 255 for consistency.",
+      "range": {
+        "startLine": 663,
+        "startChar": 6,
+        "endLine": 663,
+        "endChar": 16
+      },
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59cf0adb_d252fb36",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fbae11a8_df8a3a27",
       "range": {
         "startLine": 663,
         "startChar": 6,
@@ -666,6 +1296,42 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4601267_0329fed0",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88061d55_3da92127",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7d5ca9d_67b4779a",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26418dbe_5ba214f8",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a813d293_b88ad105",
@@ -679,6 +1345,24 @@
       "writtenOn": "2021-05-04T20:27:36Z",
       "side": 1,
       "message": "Do we have any Deprecations or Known Issues to document?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abfe5e89_93db4c27",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-05T17:01:29Z",
+      "side": 1,
+      "message": "I have documented SM775 deprecation in line 414. Should I create a new section?\n\nAlso, I am not aware of outstanding known issues.",
+      "parentUuid": "a813d293_b88ad105",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
