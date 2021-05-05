@@ -964,6 +964,7 @@ $(eval $(call assert_booleans,\
         ENABLE_FEAT_RNG \
         ENABLE_FEAT_SB \
         PSA_FWU_SUPPORT \
+        ENABLE_MPMM \
 )))
 
 $(eval $(call assert_numerics,\
@@ -1065,6 +1066,7 @@ $(eval $(call add_defines,\
         NR_OF_FW_BANKS \
         NR_OF_IMAGES_IN_FW_BANK \
         PSA_FWU_SUPPORT \
+        ENABLE_MPMM \
 )))
 
 ifeq (${SANITIZE_UB},trap)
