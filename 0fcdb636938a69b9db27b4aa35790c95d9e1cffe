@@ -88,6 +88,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c72cba02_b577a1d2",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-05-05T09:00:51Z",
+      "side": 1,
+      "message": "this all should be either capital or small.",
+      "range": {
+        "startLine": 32,
+        "startChar": 28,
+        "endLine": 32,
+        "endChar": 45
+      },
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "89b193fa_02437b9e",
         "filename": "docs/change-log.rst",
         "patchSetId": 1
@@ -241,6 +264,52 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "remove necessary?",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c43fd5b9_340ddb20",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-05-05T09:00:51Z",
+      "side": 1,
+      "message": "TBBR Certcreate/Certcreate instead?",
+      "range": {
+        "startLine": 255,
+        "startChar": 6,
+        "endLine": 255,
+        "endChar": 14
+      },
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26d657ae_e1f71f1c",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-05-05T09:00:51Z",
+      "side": 1,
+      "message": "IIUC, you are referring to the platform defined certs, key and extension support in certcreate tool right? then this message need to be updated accordingly.",
+      "range": {
+        "startLine": 256,
+        "startChar": 10,
+        "endLine": 256,
+        "endChar": 84
+      },
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -519,6 +588,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fbae11a8_df8a3a27",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-05-05T09:00:51Z",
+      "side": 1,
+      "message": "Good to have same name at line no. 255 for consistency.",
+      "range": {
+        "startLine": 663,
+        "startChar": 6,
+        "endLine": 663,
+        "endChar": 16
+      },
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26418dbe_5ba214f8",
         "filename": "docs/change-log.rst",
         "patchSetId": 1
@@ -530,6 +622,23 @@
       "writtenOn": "2021-05-04T20:18:37Z",
       "side": 1,
       "message": "typo",
+      "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88061d55_3da92127",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-05-05T09:00:51Z",
+      "side": 1,
+      "message": "Additionally, \u0027Optimised the code to avoid unnecessary attempts to create non-requested certificates\u0027.",
       "revId": "0fcdb636938a69b9db27b4aa35790c95d9e1cffe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
