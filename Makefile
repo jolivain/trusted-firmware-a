@@ -979,6 +979,8 @@ $(eval $(call assert_booleans,\
         ENABLE_SYS_REG_TRACE_FOR_NS \
         ENABLE_TRF_FOR_NS \
         ENABLE_FEAT_HCX \
+        ENABLE_MPMM \
+        ENABLE_MPMM_FCONF \
 )))
 
 $(eval $(call assert_numerics,\
@@ -1086,6 +1088,8 @@ $(eval $(call add_defines,\
         ENABLE_SYS_REG_TRACE_FOR_NS \
         ENABLE_TRF_FOR_NS \
         ENABLE_FEAT_HCX \
+        ENABLE_MPMM \
+        ENABLE_MPMM_FCONF \
 )))
 
 ifeq (${SANITIZE_UB},trap)
