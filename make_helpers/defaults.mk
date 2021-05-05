@@ -93,6 +93,9 @@ DYN_DISABLE_AUTH		:= 0
 # Build option to enable MPAM for lower ELs
 ENABLE_MPAM_FOR_LOWER_ELS	:= 0
 
+# Enable the Maximum Power Mitigation Mechanism on supporting cores.
+ENABLE_MPMM			:= 0
+
 # Flag to Enable Position Independant support (PIE)
 ENABLE_PIE			:= 0
 
