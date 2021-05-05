@@ -540,6 +540,10 @@ DEFINE_RENAME_SYSREG_RW_FUNCS(hcrx_el2, HCRX_EL2)
 /* DynamIQ Shared Unit power management */
 DEFINE_RENAME_SYSREG_RW_FUNCS(clusterpwrdn_el1, CLUSTERPWRDN_EL1)
 
+/* CPU Power/Performance Management registers */
+DEFINE_RENAME_SYSREG_RW_FUNCS(cpuppmcr_el3, CPUPPMCR_EL3)
+DEFINE_RENAME_SYSREG_RW_FUNCS(cpumpmmcr_el3, CPUMPMMCR_EL3)
+
 #define IS_IN_EL(x) \
 	(GET_EL(read_CurrentEl()) == MODE_EL##x)
 
