@@ -41,6 +41,48 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38324040_d36f1f43",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000457
+      },
+      "writtenOn": "2021-05-07T09:52:06Z",
+      "side": 1,
+      "message": "I tried to run the commit linter locally and according to that looks like only the first letter of the subject is checked for lower case.  I have made changes accordingly.",
+      "parentUuid": "72ce62a9_80339a80",
+      "revId": "1183063a461f52de36ae8eb4bc80114f87d636c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9d09b95_a6dbacf4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000457
+      },
+      "writtenOn": "2021-05-07T09:52:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0f95dce_9c996f41",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "1183063a461f52de36ae8eb4bc80114f87d636c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be627fdd_e527d559",
@@ -54,6 +96,30 @@
       "writtenOn": "2021-05-07T06:33:17Z",
       "side": 1,
       "message": "This can be addressed in a later platform patch but I guess those UUIDs will need update as well.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 31
+      },
+      "revId": "1183063a461f52de36ae8eb4bc80114f87d636c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd979279_a60fb3c6",
+        "filename": "plat/arm/board/tc0/fdts/tc0_tb_fw_config.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000457
+      },
+      "writtenOn": "2021-05-07T09:52:06Z",
+      "side": 1,
+      "message": "Yeah, I would like to make this commit only to add trusted services.  This will be addressed later as a separate commit",
+      "parentUuid": "be627fdd_e527d559",
       "range": {
         "startLine": 40,
         "startChar": 0,
