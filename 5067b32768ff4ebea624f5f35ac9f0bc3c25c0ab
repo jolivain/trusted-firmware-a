@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45943108_23b0915f",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-05-07T13:40:24Z",
+      "side": 1,
+      "message": "Would it be clearer to spell out the architecture features names rather than providing the build option for enabling them in TF-A? E.g.\n\n - Added support for the Speculation Barrier (FEAT_SB) for non-Armv8.5 platforms starting from Armv8.0",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 48
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c257bde_468d9e4a",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-05-07T13:40:24Z",
+      "side": 1,
+      "message": "I believe this has only been implemented for the STM32 platform.",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 42
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cd4c7a6_2b8c9066",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-05-07T13:40:24Z",
+      "side": 1,
+      "message": "True Random Number Generator (TRNG)?",
+      "range": {
+        "startLine": 23,
+        "startChar": 13,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "593f6432_cbf59755",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-05-07T13:40:24Z",
+      "side": 1,
+      "message": "TZC-400",
+      "range": {
+        "startLine": 29,
+        "startChar": 38,
+        "endLine": 29,
+        "endChar": 44
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "381df781_ac2868c5",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-05-07T13:40:24Z",
+      "side": 1,
+      "message": "(nit) trailing whitespace",
+      "range": {
+        "startLine": 105,
+        "startChar": 27,
+        "endLine": 105,
+        "endChar": 28
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f5016f_74c71634",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-05-07T13:40:24Z",
+      "side": 1,
+      "message": "Please double-check but I think the N1 is not part of the Cortex family but rather part of the Neoverse family.\n\nhttps://www.arm.com/products/silicon-ip-cpu/neoverse/neoverse-n1",
+      "range": {
+        "startLine": 119,
+        "startChar": 10,
+        "endLine": 119,
+        "endChar": 23
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd32cf47_de869a67",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-05-07T13:40:24Z",
+      "side": 1,
+      "message": "QEMU",
+      "range": {
+        "startLine": 189,
+        "startChar": 6,
+        "endLine": 189,
+        "endChar": 10
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c098181_84777744",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-05-07T13:40:24Z",
+      "side": 1,
+      "message": "I think this needs rewording, it might read as if the TF-A project is now dual licensed BSD3/MIT. Perhaps something along these lines:\n\n Provided a copy of the MIT license to comply with the license requirements of\n the arm-gic.h source file (originating from the Linux kernel project\n and re-distributed in TF-A).",
+      "range": {
+        "startLine": 225,
+        "startChar": 6,
+        "endLine": 225,
+        "endChar": 39
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c5e2d93_32f643a6",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-05-07T13:40:24Z",
+      "side": 1,
+      "message": "certificates?",
+      "range": {
+        "startLine": 259,
+        "startChar": 45,
+        "endLine": 259,
+        "endChar": 50
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa525e55_0ba81863",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-05-07T13:40:24Z",
+      "side": 1,
+      "message": "TZC-400",
+      "range": {
+        "startLine": 280,
+        "startChar": 10,
+        "endLine": 280,
+        "endChar": 16
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db056f94_4ce9ab09",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-05-07T13:40:24Z",
+      "side": 1,
+      "message": "How does this differ from the last bullet point in this section?",
+      "range": {
+        "startLine": 372,
+        "startChar": 10,
+        "endLine": 372,
+        "endChar": 47
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e4e8bc9_ea715afd",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-05-07T13:40:24Z",
+      "side": 1,
+      "message": "Is the indentation proper here? Or should it be lessened by one level to be at the same level as Arm SGI and Arm SGM775?",
+      "range": {
+        "startLine": 413,
+        "startChar": 8,
+        "endLine": 413,
+        "endChar": 18
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb4d41ff_02ab7311",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-05-07T13:40:24Z",
+      "side": 1,
+      "message": "attempts",
+      "range": {
+        "startLine": 670,
+        "startChar": 50,
+        "endLine": 670,
+        "endChar": 58
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
