@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abab652c_3d701715",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-05-07T09:59:37Z",
+      "side": 1,
+      "message": "\u003e Patch Set 25: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 240 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l2/build/240/)\n\u003e Some tests failed (5)\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/228944/console -\u003e looks to be a script issue, not relate to this patch\n17:53:27 Traceback (most recent call last):\n17:53:33   File \"/home/buildslave/workspace/tf-a-builder/tf-a-job-configs/tf-a-builder/log-splitter.py\", line 52, in \u003cmodule\u003e\n17:53:33     log_list \u003d yaml.load(job_log, Loader\u003dyaml.SafeLoader)\n17:53:33   File \"/usr/local/lib/python3.6/dist-packages/yaml/__init__.py\", line 72, in load\n17:53:33     return loader.get_single_data()\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/228959/console -\u003e looks to be a script issue, not relate to this patch\n17:45:41 + LAVAJOB_ID\u003d\u0027{\"job_id\":null}\u0027\n17:45:41 ++ echo \u0027{\"job_id\":null}\u0027\n17:45:41 ++ jq .job_id\n17:45:41 + LAVAJOB_ID\u003dnull\n17:45:41 + LAVAJOB_ID\u003dnull\n17:45:41 + iter\u003d10\n17:45:41 + [[ null \u003d~ ^[0-9]+$ ]]\n17:45:41 + \u0027[\u0027 10 -eq 10 \u0027]\u0027\n17:45:41 + LAVAJOB_ID\u003d\n17:45:41 + break\n17:45:41 + \u0027[\u0027 -n \u0027\u0027 \u0027]\u0027\n17:45:41 + echo \u0027LAVA Job ID could not be obtained\u0027\n17:45:41 LAVA Job ID could not be obtained\n17:45:41 + exit 1\n17:45:41 LAVA JOB RESULT: 1\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/228958/console\nFixed by the patch : https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/9919, and it is merged.",
+      "revId": "5716d847eb4dc05e94d1815ac4da7f13816cff37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
