@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc4a77c3_cf8a1c39",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-07T15:35:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "45943108_23b0915f",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 48
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c257bde_468d9e4a",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-05-07T13:40:24Z",
       "side": 1,
       "message": "I believe this has only been implemented for the STM32 platform.",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 42
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53d7ffe2_e5e20dc4",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-07T15:35:17Z",
+      "side": 1,
+      "message": "My understanding is that the support is added to the project[1] unilaterally but it has to be enabled independently by each platform[2]. Hence added lines 22 and 178 separately. \n\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/8579/2\n[2] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/8580/2",
+      "parentUuid": "5c257bde_468d9e4a",
       "range": {
         "startLine": 22,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e85431a1_6fa6b500",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-07T15:35:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5cd4c7a6_2b8c9066",
+      "range": {
+        "startLine": 23,
+        "startChar": 13,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "593f6432_cbf59755",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-05-07T13:40:24Z",
       "side": 1,
       "message": "TZC-400",
+      "range": {
+        "startLine": 29,
+        "startChar": 38,
+        "endLine": 29,
+        "endChar": 44
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b6bc951_da23c2e3",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-07T15:35:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "593f6432_cbf59755",
       "range": {
         "startLine": 29,
         "startChar": 38,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea6aeb09_56993b2e",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-07T15:35:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "381df781_ac2868c5",
+      "range": {
+        "startLine": 105,
+        "startChar": 27,
+        "endLine": 105,
+        "endChar": 28
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85f5016f_74c71634",
@@ -139,6 +259,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e16c6e3_f40bae37",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-07T15:35:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85f5016f_74c71634",
+      "range": {
+        "startLine": 119,
+        "startChar": 10,
+        "endLine": 119,
+        "endChar": 23
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd32cf47_de869a67",
@@ -152,6 +296,30 @@
       "writtenOn": "2021-05-07T13:40:24Z",
       "side": 1,
       "message": "QEMU",
+      "range": {
+        "startLine": 189,
+        "startChar": 6,
+        "endLine": 189,
+        "endChar": 10
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0cfb21c_7a7277f4",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-07T15:35:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd32cf47_de869a67",
       "range": {
         "startLine": 189,
         "startChar": 6,
@@ -187,6 +355,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "482f70fb_48e05a86",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-07T15:35:17Z",
+      "side": 1,
+      "message": "Thank you! I will modify it accordingly.",
+      "parentUuid": "7c098181_84777744",
+      "range": {
+        "startLine": 225,
+        "startChar": 6,
+        "endLine": 225,
+        "endChar": 39
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c5e2d93_32f643a6",
         "filename": "docs/change-log.rst",
         "patchSetId": 3
@@ -198,6 +390,30 @@
       "writtenOn": "2021-05-07T13:40:24Z",
       "side": 1,
       "message": "certificates?",
+      "range": {
+        "startLine": 259,
+        "startChar": 45,
+        "endLine": 259,
+        "endChar": 50
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9e68542_6364dd11",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-07T15:35:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c5e2d93_32f643a6",
       "range": {
         "startLine": 259,
         "startChar": 45,
@@ -231,6 +447,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1d450d5_62fa5b87",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-07T15:35:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa525e55_0ba81863",
+      "range": {
+        "startLine": 280,
+        "startChar": 10,
+        "endLine": 280,
+        "endChar": 16
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db056f94_4ce9ab09",
@@ -244,6 +484,30 @@
       "writtenOn": "2021-05-07T13:40:24Z",
       "side": 1,
       "message": "How does this differ from the last bullet point in this section?",
+      "range": {
+        "startLine": 372,
+        "startChar": 10,
+        "endLine": 372,
+        "endChar": 47
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "062d5476_7f708904",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-07T15:35:17Z",
+      "side": 1,
+      "message": "I will modify it appropriately.",
+      "parentUuid": "db056f94_4ce9ab09",
       "range": {
         "startLine": 372,
         "startChar": 10,
@@ -279,6 +543,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce3493f3_f01c38d9",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-07T15:35:17Z",
+      "side": 1,
+      "message": "I will make the necessary fix.",
+      "parentUuid": "1e4e8bc9_ea715afd",
+      "range": {
+        "startLine": 413,
+        "startChar": 8,
+        "endLine": 413,
+        "endChar": 18
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb4d41ff_02ab7311",
         "filename": "docs/change-log.rst",
         "patchSetId": 3
@@ -290,6 +578,30 @@
       "writtenOn": "2021-05-07T13:40:24Z",
       "side": 1,
       "message": "attempts",
+      "range": {
+        "startLine": 670,
+        "startChar": 50,
+        "endLine": 670,
+        "endChar": 58
+      },
+      "revId": "5067b32768ff4ebea624f5f35ac9f0bc3c25c0ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76348b09_13e29953",
+        "filename": "docs/change-log.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-07T15:35:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb4d41ff_02ab7311",
       "range": {
         "startLine": 670,
         "startChar": 50,
