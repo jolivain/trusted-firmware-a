@@ -1,8 +1,8 @@
 Qualcomm Technologies, Inc.
 ===========================
 
-Trusted Firmware-A (TF-A) implements the EL3 firmware layer for QTI SC7180.
-
+Trusted Firmware-A (TF-A) implements the EL3 firmware layer for QTI SC7180,
+SC7280.
 
 Boot Trace
 -------------
@@ -39,3 +39,6 @@ added to satisfy compilation.
 
 QTISELIB for SC7180 is available at
 `link <https://review.coreboot.org/cgit/qc_blobs.git/plain/sc7180/qtiseclib/libqtisec.a>`__
+QTISELIB for SC7280 is available at
+`link
+<https://review.coreboot.org/plugins/gitiles/qc_blobs/+/refs/heads/master/sc7280/qtiseclib>`__
