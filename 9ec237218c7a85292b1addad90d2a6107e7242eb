@@ -16,6 +16,24 @@
       "message": "The mem_size needs to be set conditionally, it has to be 0x1980000 if TS_SP_FW_CONFIG is enabled.",
       "revId": "9ec237218c7a85292b1addad90d2a6107e7242eb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e74edb6_c43a2645",
+        "filename": "plat/arm/board/tc0/fdts/tc0_spmc_optee_sp_manifest.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000457
+      },
+      "writtenOn": "2021-05-10T14:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87b9f570_9db35948",
+      "revId": "9ec237218c7a85292b1addad90d2a6107e7242eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
