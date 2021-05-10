@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3703af5_c86aed3a",
+        "filename": "plat/mediatek/mt8192/drivers/apusys/mtk_apusys_apc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2021-05-10T13:47:43Z",
+      "side": 1,
+      "message": "will this violate misrac?",
+      "range": {
+        "startLine": 428,
+        "startChar": 11,
+        "endLine": 428,
+        "endChar": 25
+      },
+      "revId": "a241a772fa9bed3dbce0e168b0941875bec30140",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "271387f6_ecf5e2d3",
+        "filename": "plat/mediatek/mt8192/drivers/apusys/mtk_apusys_apc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2021-05-10T13:47:43Z",
+      "side": 1,
+      "message": "misrac:\nif (i \u003c APUSYS_NOC_DAPC_GAP_BOUNDARY) {\n    ...\n} else {\n    ...\n}",
+      "range": {
+        "startLine": 481,
+        "startChar": 2,
+        "endLine": 481,
+        "endChar": 39
+      },
+      "revId": "a241a772fa9bed3dbce0e168b0941875bec30140",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68db9ccf_78981e0d",
+        "filename": "plat/mediatek/mt8192/drivers/apusys/mtk_apusys_apc_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2021-05-10T13:47:43Z",
+      "side": 1,
+      "message": "(4)?\nsame below",
+      "range": {
+        "startLine": 96,
+        "startChar": 40,
+        "endLine": 96,
+        "endChar": 41
+      },
+      "revId": "a241a772fa9bed3dbce0e168b0941875bec30140",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
