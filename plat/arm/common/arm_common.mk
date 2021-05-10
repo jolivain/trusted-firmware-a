@@ -358,8 +358,11 @@ ifneq (${TRUSTED_BOARD_BOOT},0)
 				plat/arm/common/arm_bl1_fwu.c			\
 				plat/common/tbbr/plat_tbbr.c
 
-    BL2_SOURCES		+=	${AUTH_SOURCES}					\
-				plat/common/tbbr/plat_tbbr.c
+    BL2_SOURCES		+=	${AUTH_SOURCES}
+
+    ifeq ($(filter ${TARGET_PLATFORM}, fpga fvp),)
+    BL2_SOURCES		+=	plat/common/tbbr/plat_tbbr.c
+    endif
 
     $(eval $(call TOOL_ADD_IMG,ns_bl2u,--fwu,FWU_))
 
