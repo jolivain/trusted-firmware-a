@@ -15,6 +15,9 @@ PLAT_INCLUDES		:=	-Iplat/arm/board/diphda/common/include	\
 				-Iinclude/plat/arm/common	\
 				-Iplat/arm/board/diphda/include
 
+TFW_NVCTR_VAL		:=	255
+NTFW_NVCTR_VAL		:=	255
+
 override NEED_BL1	:=	no
 
 override NEED_BL2	:=	yes
