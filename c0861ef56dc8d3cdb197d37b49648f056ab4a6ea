@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee280e4d_924d9a0b",
+        "filename": "drivers/st/io/io_mmc.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-05-12T13:18:58Z",
+      "side": 1,
+      "message": "This doesn\u0027t look good to assign the \u0027const uintptr_t\u0027 to the \u0027unsigned char\u0027, and also \u0027use_boot_part\u0027 looks like boolean variable by usage.\nInstead of this, can we introduce a dev_spec for mmc mentioning \u0027use_boot_part\u0027 as boolean member, and then pass that structure to this function?",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 43
+      },
+      "revId": "c0861ef56dc8d3cdb197d37b49648f056ab4a6ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
