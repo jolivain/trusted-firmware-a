@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5019b9fc_568ebe64",
+        "filename": "plat/renesas/rcar/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-05-12T20:49:08Z",
+      "side": 1,
+      "message": "Enhanced readability:\nstatic void unsigned_num_print(unsigned long long int unum,\n\t\t\t       unsigned int radix,\n\t\t\t       char *string)",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 17
+      },
+      "revId": "fa446508f8971c15c008f9669150e5f70fc7ceed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66d19b68_8b8bade6",
+        "filename": "plat/renesas/rcar/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-05-12T20:49:08Z",
+      "side": 1,
+      "message": "Enhanced readability:\nstatic void bl2_lossy_gen_fdt(uint32_t no,\n\t\t\t      uint64_t start_addr,\n\t\t\t      uint64_t end_addr,\n\t\t\t      uint32_t format,\n\t\t\t      uint32_t enable,\n\t\t\t      int fcnlnode)",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 39
+      },
+      "revId": "fa446508f8971c15c008f9669150e5f70fc7ceed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88d1003c_d05fc5b4",
+        "filename": "plat/renesas/rcar/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-05-12T20:49:08Z",
+      "side": 1,
+      "message": "Enhanced readability:\nstatic void bl2_lossy_setting(uint32_t no,\n\t\t\t      uint64_t start_addr,\n\t\t\t      uint64_t end_addr,\n\t\t\t      uint32_t format,\n\t\t\t      uint32_t enable,\n\t\t\t      int fcnlnode)",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 1
+      },
+      "revId": "fa446508f8971c15c008f9669150e5f70fc7ceed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e65262e_c97ee716",
+        "filename": "plat/renesas/rcar/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-05-12T20:49:08Z",
+      "side": 1,
+      "message": "Tabs for alignment:\n#elif (RCAR_DRAM_LPDDR4_MEMCONF \u003d\u003d 1) \u0026\u0026    \\\n\t\t(RCAR_DRAM_CHANNEL \u003d\u003d 5) \u0026\u0026 \\\n\t\t(RCAR_DRAM_SPLIT \u003d\u003d 2)",
+      "range": {
+        "startLine": 665,
+        "startChar": 0,
+        "endLine": 667,
+        "endChar": 37
+      },
+      "revId": "fa446508f8971c15c008f9669150e5f70fc7ceed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b924833_4e867ba0",
+        "filename": "plat/renesas/rcar/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-05-12T20:49:08Z",
+      "side": 1,
+      "message": "Enhanced readability:\nvoid bl2_el3_early_platform_setup(u_register_t arg1,\n\t\t\t\t  u_register_t arg2,\n\t\t\t\t  u_register_t arg3,\n\t\t\t\t  u_register_t arg4)",
+      "range": {
+        "startLine": 724,
+        "startChar": 0,
+        "endLine": 726,
+        "endChar": 1
+      },
+      "revId": "fa446508f8971c15c008f9669150e5f70fc7ceed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
