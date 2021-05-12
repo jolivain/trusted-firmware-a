@@ -899,6 +899,16 @@ func el3_exit
 	msr	spsr_el3, x16
 	msr	elr_el3, x17
 
+	/* ----------------------------------------------------------
+	 * Restore CPTR_EL3, ZCR_EL3 for SVE support.
+	 * ----------------------------------------------------------
+	 */
+#if IMAGE_BL31
+	ldp	x19, x20, [sp, #CTX_EL3STATE_OFFSET + CTX_CPTR_EL3]
+	msr	cptr_el3, x19
+	msr	S3_6_C1_C2_0, x20
+#endif
+
 #if IMAGE_BL31 && DYNAMIC_WORKAROUND_CVE_2018_3639
 	/* ----------------------------------------------------------
 	 * Restore mitigation state as it was on entry to EL3
