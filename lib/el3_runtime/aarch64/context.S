@@ -895,9 +895,12 @@ func el3_exit
 	 */
 	ldr	x18, [sp, #CTX_EL3STATE_OFFSET + CTX_SCR_EL3]
 	ldp	x16, x17, [sp, #CTX_EL3STATE_OFFSET + CTX_SPSR_EL3]
+	ldp	x19, x20, [sp, #CTX_EL3STATE_OFFSET + CTX_CPTR_EL3]
 	msr	scr_el3, x18
 	msr	spsr_el3, x16
 	msr	elr_el3, x17
+	msr	cptr_el3, x19
+	msr	S3_6_C1_C2_0, x20 /* zcr_el3 */
 
 #if IMAGE_BL31 && DYNAMIC_WORKAROUND_CVE_2018_3639
 	/* ----------------------------------------------------------
