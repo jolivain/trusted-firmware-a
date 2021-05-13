@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "82f15473_0a056d15",
+        "filename": "plat/mediatek/mt8192/drivers/apusys/mtk_apusys_apc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000474
+      },
+      "writtenOn": "2021-05-13T10:26:07Z",
+      "side": 1,
+      "message": "The operation shall be misra C (Rule 12.2 example) compliant.",
+      "parentUuid": "b3703af5_c86aed3a",
+      "range": {
+        "startLine": 428,
+        "startChar": 11,
+        "endLine": 428,
+        "endChar": 25
+      },
+      "revId": "a241a772fa9bed3dbce0e168b0941875bec30140",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "271387f6_ecf5e2d3",
         "filename": "plat/mediatek/mt8192/drivers/apusys/mtk_apusys_apc.c",
         "patchSetId": 6
@@ -37,6 +61,30 @@
       "writtenOn": "2021-05-10T13:47:43Z",
       "side": 1,
       "message": "misrac:\nif (i \u003c APUSYS_NOC_DAPC_GAP_BOUNDARY) {\n    ...\n} else {\n    ...\n}",
+      "range": {
+        "startLine": 481,
+        "startChar": 2,
+        "endLine": 481,
+        "endChar": 39
+      },
+      "revId": "a241a772fa9bed3dbce0e168b0941875bec30140",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "142b555a_10bd6efe",
+        "filename": "plat/mediatek/mt8192/drivers/apusys/mtk_apusys_apc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000474
+      },
+      "writtenOn": "2021-05-13T10:26:07Z",
+      "side": 1,
+      "message": "Done. Thanks.",
+      "parentUuid": "271387f6_ecf5e2d3",
       "range": {
         "startLine": 481,
         "startChar": 2,
@@ -60,6 +108,30 @@
       "writtenOn": "2021-05-10T13:47:43Z",
       "side": 1,
       "message": "(4)?\nsame below",
+      "range": {
+        "startLine": 96,
+        "startChar": 40,
+        "endLine": 96,
+        "endChar": 41
+      },
+      "revId": "a241a772fa9bed3dbce0e168b0941875bec30140",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bd0723b_3b5a6935",
+        "filename": "plat/mediatek/mt8192/drivers/apusys/mtk_apusys_apc_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000474
+      },
+      "writtenOn": "2021-05-13T10:26:07Z",
+      "side": 1,
+      "message": "The parentheses is not necessary in the case. \nBut another violation, I should change it to 4U. Thanks...",
+      "parentUuid": "68db9ccf_78981e0d",
       "range": {
         "startLine": 96,
         "startChar": 40,
