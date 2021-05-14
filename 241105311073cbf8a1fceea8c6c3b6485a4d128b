@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fd056d5_52daab8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-05-14T08:31:16Z",
+      "side": 1,
+      "message": "I think \u0027xxx(yyy):\u0027 format as per commit lint mentioned here: https://www.conventionalcommits.org/en/v1.0.0/ is enforced only to Arm developers until v2.5 release, and hence commit lint job passed for this patch.\n\nThere is patch from Chris (planned to merge post v2.5 release): https://review.trustedfirmware.org/c/ci/tf-a-job-configs/+/9788 to enforce conventional commits style for the rest of the developers.",
+      "parentUuid": "15fd27da_c8372fe5",
+      "revId": "241105311073cbf8a1fceea8c6c3b6485a4d128b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4d3127e1_ea4b06e8",
