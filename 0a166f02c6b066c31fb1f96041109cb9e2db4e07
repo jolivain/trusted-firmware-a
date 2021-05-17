@@ -67,6 +67,23 @@
       "message": "Yes the SCP v2.8 release binaries we had updated to had a bug with an SCMI assert which should have been cleared. I\u0027ve restarted a CI run.\n\nAt the moment the tree is frozen while we finalise the v2.5 TF-A release which we expect to be finalised in the next day or so which is when integration/master branches will open up to merges.\n",
       "revId": "0a166f02c6b066c31fb1f96041109cb9e2db4e07",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36f79029_0dcd47a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-05-17T08:23:00Z",
+      "side": 1,
+      "message": "Pankaj, if you can get Jiafei to give CodeOwner review +1 I\u0027ll be happy to to do the maintainer review once the verified is set by the CI.",
+      "revId": "0a166f02c6b066c31fb1f96041109cb9e2db4e07",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
