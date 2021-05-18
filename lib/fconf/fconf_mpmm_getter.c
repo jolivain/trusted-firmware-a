@@ -68,7 +68,7 @@ static int fconf_populate_mpmm(uintptr_t config)
 {
 	int ret = fdtw_for_each_cpu(
 		(const void *)config, fconf_populate_mpmm_cpu);
-	if (ret >= 0) {
+	if (ret == 0) {
 		fconf_mpmm_config.topology = &fconf_mpmm_topology;
 	} else {
 		ERROR("FCONF: failed to configure MPMM: %d\n", ret);
