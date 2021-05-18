@@ -19,6 +19,8 @@
 
 #warning "GIC-600 Multichip driver is currently experimental and the API may change in future."
 
+#define IIDR_MODEL_ARM_GIC_600	U(0x0200043b)
+
 /*******************************************************************************
  * GIC-600 multichip operation related helper functions
  ******************************************************************************/
@@ -73,6 +75,7 @@ static void set_gicd_chipr_n(uintptr_t base,
 				unsigned int spi_id_max)
 {
 	unsigned int spi_block_min, spi_blocks;
+	unsigned int gicd_iidr_val = gicd_read_iidr(base);
 	uint64_t chipr_n_val;
 
 	/*
@@ -100,8 +103,16 @@ static void set_gicd_chipr_n(uintptr_t base,
 	spi_block_min = SPI_BLOCK_MIN_VALUE(spi_id_min);
 	spi_blocks    = SPI_BLOCKS_VALUE(spi_id_min, spi_id_max);
 
-	chipr_n_val = (GICD_CHIPR_VALUE(chip_addr, spi_block_min, spi_blocks)) |
-		GICD_CHIPRx_SOCKET_STATE;
+	if ((gicd_iidr_val & IIDR_MODEL_MASK) == IIDR_MODEL_ARM_GIC_600) {
+		chipr_n_val = GICD_CHIPR_VALUE_GIC_600(chip_addr,
+						       spi_block_min,
+						       spi_blocks);
+	} else {
+		chipr_n_val = GICD_CHIPR_VALUE_GIC_700(chip_addr,
+						       spi_block_min,
+						       spi_blocks);
+	}
+	chipr_n_val |= GICD_CHIPRx_SOCKET_STATE;
 
 	/*
 	 * Wait for DCHIPR.PUP to be zero before commencing writes to
