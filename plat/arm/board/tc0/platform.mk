@@ -3,6 +3,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+ENABLE_AMU		:=	1
+ENABLE_MPMM		:=	1
+
 CSS_LOAD_SCP_IMAGES	:=	1
 
 CSS_USE_SCMI_SDS_DRIVER	:=	1
