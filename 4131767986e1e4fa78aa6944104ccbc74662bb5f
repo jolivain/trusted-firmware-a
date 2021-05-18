@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff514842_92cae953",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-05-18T00:56:46Z",
+      "side": 1,
+      "message": "(Whoops, I wrote these last week already but I guess I forgot to click \"Send\".)",
+      "revId": "4131767986e1e4fa78aa6944104ccbc74662bb5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0b8c246_421a1d1a",
+        "filename": "docs/plat/qti.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-05-18T00:56:46Z",
+      "side": 1,
+      "message": "Please put the full path for consistency with the SC7180 one.",
+      "revId": "4131767986e1e4fa78aa6944104ccbc74662bb5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0af97239_853ab6c7",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-05-18T00:56:46Z",
+      "side": 1,
+      "message": "This is a common feature for all plat/qti platforms, so please separate that out into a separate patch from all the SC7280 support stuff.",
+      "revId": "4131767986e1e4fa78aa6944104ccbc74662bb5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b27166b_3e083206",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-05-18T00:56:46Z",
+      "side": 1,
+      "message": "Please actually evaluate the passed-in arguments and return success or failure based on whether that SVC is actually available.",
+      "revId": "4131767986e1e4fa78aa6944104ccbc74662bb5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
