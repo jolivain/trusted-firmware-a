@@ -7,6 +7,10 @@ ifeq ($(filter ${TARGET_PLATFORM}, 0 1),)
         $(error TARGET_PLATFORM must be 0 or 1)
 endif
 
+ENABLE_AMU		:=	1
+ENABLE_AMU_FCONF	:=	1
+ENABLE_MPMM		:=	1
+
 CSS_LOAD_SCP_IMAGES	:=	1
 
 CSS_USE_SCMI_SDS_DRIVER	:=	1
