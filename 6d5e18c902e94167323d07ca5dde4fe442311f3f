@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "792b2c82_8775a861",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-05-19T13:09:29Z",
+      "side": 1,
+      "message": "Remove multiple colon.\n\nSuggestion:\n\n1. Added the build macro \"add_boot_mode_define\", to add definition based on BOOT_MODE.\n\n2. nxp: added if  to validate BOOT_MODE\n\nAdded build macro:\n- To validate current BOOT_MODE against the pre-determined list of  SUPPORTED_BOOT_MODE.\n\n- Used by each platform, hence part of plat_common_def.mk\n\n- Reports error if BOOT_MODE is not in SUPPORTED_BOOT_MODE\nlist.",
+      "revId": "6d5e18c902e94167323d07ca5dde4fe442311f3f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3c899e2_30ac18f7",
+        "filename": "plat/nxp/common/plat_make_helper/plat_common_def.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-05-19T13:09:29Z",
+      "side": 1,
+      "message": "Please add the condition when non of the above condition holds true.\nAnd throw error",
+      "revId": "6d5e18c902e94167323d07ca5dde4fe442311f3f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
