@@ -1,8 +1,10 @@
 #
-# Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2016-2021, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
+
+include lib/extensions/amu/amu.mk
 
 ifneq (${ARCH}, aarch32)
 	$(error SP_MIN is only supported on AArch32 platforms)
@@ -27,9 +29,8 @@ ifeq (${ENABLE_PMF}, 1)
 BL32_SOURCES		+=	lib/pmf/pmf_main.c
 endif
 
-ifeq (${ENABLE_AMU}, 1)
-BL32_SOURCES		+=	lib/extensions/amu/aarch32/amu.c\
-				lib/extensions/amu/aarch32/amu_helpers.S
+ifeq (${ENABLE_AMU},1)
+BL32_SOURCES		+=	${AMU_SOURCES}
 endif
 
 ifeq (${WORKAROUND_CVE_2017_5715},1)
