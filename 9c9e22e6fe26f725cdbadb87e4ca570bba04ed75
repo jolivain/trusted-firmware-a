@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52393376_d29db8ea",
+        "filename": "plat/st/common/stm32mp_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-19T21:53:07Z",
+      "side": 1,
+      "message": "nitpick:\nCan you use macros?\n#define ST_CONTINUATION_SHIFT U(24)\n#define ST_IDENTIFICATION_SHIFT U(16)\n\nmanfid \u003d (JEDEC_ST_BKID \u003c\u003c ST_CONTINUATION_SHIFT) | (JEDEC_ST_MFID \u003c\u003c ST_IDENTIFICATION_SHIFT);",
+      "revId": "9c9e22e6fe26f725cdbadb87e4ca570bba04ed75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
