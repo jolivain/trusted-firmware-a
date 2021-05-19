@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+include lib/extensions/amu/amu.mk
+
 # Use the GICv3 driver on the FVP by default
 FVP_USE_GIC_DRIVER	:= FVP_GICV3
 
@@ -305,8 +307,7 @@ endif
 endif
 
 ifeq (${ENABLE_AMU},1)
-BL31_SOURCES		+=	lib/cpus/aarch64/cpuamu.c		\
-				lib/cpus/aarch64/cpuamu_helpers.S
+BL31_SOURCES		+=	${AMU_SOURCES}
 
 ifeq (${HW_ASSISTED_COHERENCY}, 1)
 BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a75_pubsub.c	\
