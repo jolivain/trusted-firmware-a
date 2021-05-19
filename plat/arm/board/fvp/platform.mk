@@ -304,9 +304,10 @@ RECLAIM_INIT_CODE	:=	1
 endif
 endif
 
+include lib/extensions/amu/amu.mk
+
 ifeq (${ENABLE_AMU},1)
-BL31_SOURCES		+=	lib/cpus/aarch64/cpuamu.c		\
-				lib/cpus/aarch64/cpuamu_helpers.S
+BL31_SOURCES		+=	${AMU_SOURCES}
 
 ifeq (${HW_ASSISTED_COHERENCY}, 1)
 BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a75_pubsub.c	\
