@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019-2020, Arm Limited. All rights reserved.
+# Copyright (c) 2019-2021, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -125,10 +125,12 @@ endif
 # Firmware Configuration Framework sources
 include lib/fconf/fconf.mk
 
+BL1_SOURCES		+=	${FCONF_SOURCES} ${FCONF_DYN_SOURCES}
+BL2_SOURCES		+=	${FCONF_SOURCES} ${FCONF_DYN_SOURCES}
+
 # Add `libfdt` and Arm common helpers required for Dynamic Config
 include lib/libfdt/libfdt.mk
 
 DYN_CFG_SOURCES		+=	plat/arm/common/arm_dyn_cfg.c		\
 				plat/arm/common/arm_dyn_cfg_helpers.c	\
 				common/fdt_wrappers.c
-
