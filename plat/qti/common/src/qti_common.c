@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
- * Copyright (c) 2018-2020, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2018-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2021, The Linux Foundation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -160,9 +160,8 @@ int qti_mmap_remove_dynamic_region(uintptr_t base_va, size_t size)
 int32_t plat_get_soc_version(void)
 {
 	uint32_t soc_version = (QTI_SOC_VERSION & QTI_SOC_VERSION_MASK);
-	uint32_t jep106az_code = (JEDEC_QTI_BKID << QTI_SOC_CONTINUATION_SHIFT)
-			 | (JEDEC_QTI_MFID << QTI_SOC_IDENTIFICATION_SHIFT);
-	return (int32_t)(jep106az_code | (soc_version));
+	uint32_t jep106az_code = SOC_ID_SET_JEP_106(JEDEC_QTI_BKID, JEDEC_QTI_MFID);
+	return (int32_t)(jep106az_code | (soc_version & SOC_ID_IMPL_DEF_MASK));
 }
 
 /*
@@ -172,7 +171,7 @@ int32_t plat_get_soc_version(void)
  */
 int32_t plat_get_soc_revision(void)
 {
-	return mmio_read_32(QTI_SOC_REVISION_REG) & QTI_SOC_REVISION_MASK;
+	return (mmio_read_32(QTI_SOC_REVISION_REG) & QTI_SOC_REVISION_MASK) & SOC_ID_REV_MASK;
 }
 
 /*****************************************************************************
