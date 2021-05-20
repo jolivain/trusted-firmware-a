@@ -16,6 +16,24 @@
       "message": "nitpick:\nCan you use macros?\n#define ST_CONTINUATION_SHIFT U(24)\n#define ST_IDENTIFICATION_SHIFT U(16)\n\nmanfid \u003d (JEDEC_ST_BKID \u003c\u003c ST_CONTINUATION_SHIFT) | (JEDEC_ST_MFID \u003c\u003c ST_IDENTIFICATION_SHIFT);",
       "revId": "9c9e22e6fe26f725cdbadb87e4ca570bba04ed75",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14b086e9_43369319",
+        "filename": "plat/st/common/stm32mp_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-05-20T07:20:16Z",
+      "side": 1,
+      "message": "Hi Madhukar,\nI agree that would be better with macros. But those are not ST specific, they are defined in SMCCC. We could use something like: JEP_106_BANK_IDX_SHIFT and JEP_106_ID_CODE_SHIFT. Should they be in include/lib/smccc.h or include/services/arm_arch_svc.h?\nI may also update what is done in other platforms.\nI\u0027ll push a new patch set.",
+      "parentUuid": "52393376_d29db8ea",
+      "revId": "9c9e22e6fe26f725cdbadb87e4ca570bba04ed75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
