@@ -150,6 +150,9 @@ static void write_amcntenclr1_el0_px(uint64_t px)
  */
 void amu_enable(bool el2_unused)
 {
+	const struct amu_fconf_topology *topology = NULL;
+	unsigned int core_pos = plat_my_core_pos();
+
 	uint64_t id_aa64pfr0_el1_amu; /* AMU version */
 
 	uint64_t amcfgr_el0_ncg; /* Number of counter groups */
@@ -190,6 +193,17 @@ void amu_enable(bool el2_unused)
 	amcntenset0_el0_px = (1 << (amcgcr_el0_cg0nc)) - 1;
 
 	assert(amcgcr_el0_cg0nc <= 16); /* Maximum of 16 counters */
+
+	/*
+	 * The platform may opt to enable specific auxiliary counters at boot
+	 * through the hardware configuration device tree. These are enabled
+	 * here.
+	 */
+
+	topology = amu_topology();
+	if (topology != NULL) {
+		amcntenset1_el0_px = topology->cores[core_pos].enable;
+	}
 
 	/*
 	 * Enable the requested counters.
