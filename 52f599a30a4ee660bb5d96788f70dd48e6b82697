@@ -33,6 +33,24 @@
       "message": "Temporarily changing to MR-1.",
       "revId": "52f599a30a4ee660bb5d96788f70dd48e6b82697",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfb4ba8c_58b3d1cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2021-05-20T16:33:09Z",
+      "side": 1,
+      "message": "repushed new version.\nIMHO that would save a lot of time if such CI sanity checks were invoked automatically by post-push hooks instead of asking maintainers to trigger that checks manually.",
+      "parentUuid": "92c98eb2_b3df8b6b",
+      "revId": "52f599a30a4ee660bb5d96788f70dd48e6b82697",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
