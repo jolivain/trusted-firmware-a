@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7937345a_2ee00680",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-05-20T14:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cef1174_7767c39c",
+      "range": {
+        "startLine": 65,
+        "startChar": 23,
+        "endLine": 65,
+        "endChar": 25
+      },
+      "revId": "daea531f3bffeed5a74cbd39a1128076e001b310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "700860d3_a62b4ba5",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-05-19T17:00:51Z",
       "side": 1,
       "message": "Where are those registers initially set up in the context?",
+      "range": {
+        "startLine": 908,
+        "startChar": 5,
+        "endLine": 909,
+        "endChar": 22
+      },
+      "revId": "daea531f3bffeed5a74cbd39a1128076e001b310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43934d90_365fdf62",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-05-20T14:49:37Z",
+      "side": 1,
+      "message": "cm_setuop_context(...) from context_mgmt.c calls sve_enable(... ) from sve.c that writes the initial values to the context.\nShould add a check of sve support here, as discussed privately.",
+      "parentUuid": "700860d3_a62b4ba5",
       "range": {
         "startLine": 908,
         "startChar": 5,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62d8ff89_acddb780",
+        "filename": "lib/extensions/sve/sve.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-05-20T14:49:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "68afb82a_760cf527",
+      "range": {
+        "startLine": 14,
+        "startChar": 28,
+        "endLine": 14,
+        "endChar": 31
+      },
+      "revId": "daea531f3bffeed5a74cbd39a1128076e001b310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dd0e0ce3_416d7349",
         "filename": "lib/extensions/sve/sve.c",
         "patchSetId": 3
@@ -83,6 +155,30 @@
       "writtenOn": "2021-05-19T17:00:51Z",
       "side": 1,
       "message": "It may be better doing the read after the check for sve support.",
+      "range": {
+        "startLine": 28,
+        "startChar": 25,
+        "endLine": 28,
+        "endChar": 40
+      },
+      "revId": "daea531f3bffeed5a74cbd39a1128076e001b310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2cfa5da_11e27eee",
+        "filename": "lib/extensions/sve/sve.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-05-20T14:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd0e0ce3_416d7349",
       "range": {
         "startLine": 28,
         "startChar": 25,
@@ -106,6 +202,42 @@
       "writtenOn": "2021-05-19T17:00:51Z",
       "side": 1,
       "message": "nit: blank",
+      "revId": "daea531f3bffeed5a74cbd39a1128076e001b310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb24ad80_c3c9d75b",
+        "filename": "lib/extensions/sve/sve.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-05-20T14:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e94fe89_4765fd94",
+      "revId": "daea531f3bffeed5a74cbd39a1128076e001b310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21cc1f1a_4a383732",
+        "filename": "lib/extensions/sve/sve.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-05-20T14:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e94fe89_4765fd94",
       "revId": "daea531f3bffeed5a74cbd39a1128076e001b310",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
