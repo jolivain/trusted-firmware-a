@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2018-2020, The Linux Foundation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -17,8 +17,6 @@
  */
 #define JEDEC_QTI_BKID	U(0x0)
 #define JEDEC_QTI_MFID	U(0x70)
-#define QTI_SOC_CONTINUATION_SHIFT	U(24)
-#define QTI_SOC_IDENTIFICATION_SHIFT	U(16)
 
 /* Size of cacheable stacks */
 #define PLATFORM_STACK_SIZE	0x1000
