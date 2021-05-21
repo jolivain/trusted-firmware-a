@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "02ea6359_ceda8218",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-21T11:55:37Z",
+      "side": 1,
+      "message": "In any case that smells like a separate patch ;-)",
+      "parentUuid": "3f4d4417_43714568",
+      "revId": "b6ca9640847b5178049e6335bb8f2109af885e7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "53de4118_1e1b8966",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 19
@@ -155,6 +173,24 @@
       "side": 1,
       "message": "I think we got this from the FVP platform. I will double check to confirm and I will also test with 32 bits",
       "parentUuid": "dca22535_4ef012c1",
+      "revId": "b6ca9640847b5178049e6335bb8f2109af885e7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d246c5c_9c2ad940",
+        "filename": "plat/arm/board/arm_fpga/include/platform_def.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-21T11:55:37Z",
+      "side": 1,
+      "message": "I think that\u0027s a trap I fell into before: For the EL3 page tables we don\u0027t need to cover all of memory, but just the memory that BL31 will ever need for its own purposes. And in our case this is 2GB -\u003e 2GB+512KB, to cover BL31\u0027s sections.\nNon-secure might ask for a secondary to enter outside of this region, but that doesn\u0027t bother us and the page tables, since we never touch this memory in EL3.",
+      "parentUuid": "91002a13_87e71c53",
       "revId": "b6ca9640847b5178049e6335bb8f2109af885e7f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
