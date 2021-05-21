@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d653919_417d1a31",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-21T10:53:35Z",
+      "side": 1,
+      "message": "Can you mention in the commit message why this change is necessary? It seems unrelated to the MMU change on the first glance?",
+      "revId": "b6ca9640847b5178049e6335bb8f2109af885e7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53de4118_1e1b8966",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-21T10:53:35Z",
+      "side": 1,
+      "message": "So this is duplicating the code from fpga_gicv3.c, right?\nI actually have patches to change this one, so is there any chance we can unify this code?\nSomething like fpga_get_resources(), which fills some struct with GICD_BASE, GICR_BASE, UART_BASE, and then uses this later on?",
+      "revId": "b6ca9640847b5178049e6335bb8f2109af885e7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee89bdce_8e111186",
+        "filename": "plat/arm/board/arm_fpga/fpga_common.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-21T10:53:35Z",
+      "side": 1,
+      "message": "Why is this in a separate file? Can\u0027t this be just inside fpga_bl31_setup.c? That should export parm_arm_mmap[] as well, shouldn\u0027t it?",
+      "revId": "b6ca9640847b5178049e6335bb8f2109af885e7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dca22535_4ef012c1",
+        "filename": "plat/arm/board/arm_fpga/include/platform_def.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-21T10:53:35Z",
+      "side": 1,
+      "message": "Is there any reason we use 36 bits here? Wouldn\u0027t 32 be totally sufficient?",
+      "revId": "b6ca9640847b5178049e6335bb8f2109af885e7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
