@@ -159,6 +159,24 @@
       "parentUuid": "7f0f61ea_54ed3799",
       "revId": "52f599a30a4ee660bb5d96788f70dd48e6b82697",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de36d884_f5287b97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2021-05-21T12:04:02Z",
+      "side": 1,
+      "message": "I\u0027ve swapped Commit-id and S-o-b lines, lets if the CI behavior is still the same \nAlso decreased header to 50 symbols\n\nChris, could you please re-trigger CI build?",
+      "parentUuid": "de403eec_b3f6b3be",
+      "revId": "52f599a30a4ee660bb5d96788f70dd48e6b82697",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
