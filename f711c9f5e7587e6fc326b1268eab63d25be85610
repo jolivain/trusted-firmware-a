@@ -16,6 +16,24 @@
       "message": "I am trying to figure why the double \u0027$\u0027 is required in this case? Can you explain the reason behind?",
       "revId": "f711c9f5e7587e6fc326b1268eab63d25be85610",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b35629c_6d9e6113",
+        "filename": "plat/nxp/common/plat_make_helper/plat_common_def.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-05-21T02:16:40Z",
+      "side": 1,
+      "message": "we call this macro by using \"$(eval $(call add_boot_mode_define,$(strip $(BOOT_MODE))))\"\n\nIf use a single \u0027$\u0027, the code (call SET_NXP_MAKE_FLAG,QSPI_NEEDED,BL2) will be execued in the steps of executing \"$(call add_boot_mode_define,$(strip $(BOOT_MODE))\", that is to say it will execute $(call add_boot_mode_define,$(strip $(BOOT_MODE))) even $(1) is not equal to qspi.\n\nIf I use the code \"$(info $(call add_boot_mode_define,$(strip $(BOOT_MODE))))\" to dump the macro, the following out is with double $:\n\nifeq (sd,qspi)\n        $(eval $(call SET_NXP_MAKE_FLAG,QSPI_NEEDED,BL2))\n        $(eval $(call add_define,QSPI_BOOT))\n    else ifeq (sd,sd)\n        $(eval $(call SET_NXP_MAKE_FLAG,SD_MMC_NEEDED,BL2))\n        $(eval $(call add_define,SD_BOOT))\n    else ifeq (sd,emmc)\n        $(eval $(call SET_NXP_MAKE_FLAG,SD_MMC_NEEDED,BL2))\n        $(eval $(call add_define,EMMC_BOOT))\n    else ifeq (sd,nor)\n        $(eval $(call SET_NXP_MAKE_FLAG,IFC_NOR_NEEDED,BL2))\n        $(eval $(call add_define,NOR_BOOT))\n    else ifeq (sd,nand)\n        $(eval $(call SET_NXP_MAKE_FLAG,IFC_NAND_NEEDED,BL2))\n        $(eval $(call add_define,NAND_BOOT))\n    else ifeq (sd,flexspi_nor)\n        $(eval $(call SET_NXP_MAKE_FLAG,XSPI_NEEDED,BL2))\n        $(eval $(call add_define,FLEXSPI_NOR_BOOT))\n    else\n        $(error lx2160ardb Cannot Support Boot Mode: sd)\n    endif\n\nBut if we use single $, the output is as follows:\n\n    ifeq (sd,qspi)\n\n\n    else ifeq (sd,sd)\n\n\n    else ifeq (sd,emmc)\n\n\n    else ifeq (sd,nor)\n\n\n    else ifeq (sd,nand)\n\n\n    else ifeq (sd,flexspi_nor)\n\n\n    else\n        $(error lx2160ardb Cannot Support Boot Mode: sd)\n    endif\n\nSo we must use dobule $ here.",
+      "parentUuid": "2b3d7383_acb9f904",
+      "revId": "f711c9f5e7587e6fc326b1268eab63d25be85610",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
