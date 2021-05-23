@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2021, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -17,25 +17,10 @@
  */
 __dead2 void plat_arm_error_handler(int err)
 {
-	int ret;
+	uint32_t *flags_ptr = (uint32_t *)V2M_SYS_NVFLAGS_ADDR;
 
-	switch (err) {
-	case -ENOENT:
-	case -EAUTH:
-		/* Image load or authentication error. Erase the ToC */
-		INFO("Erasing FIP ToC from flash...\n");
-		(void)nor_unlock(PLAT_ARM_FLASH_IMAGE_BASE);
-		ret = nor_word_program(PLAT_ARM_FLASH_IMAGE_BASE, 0);
-		if (ret != 0) {
-			ERROR("Cannot erase ToC\n");
-		} else {
-			INFO("Done\n");
-		}
-		break;
-	default:
-		/* Unexpected error */
-		break;
-	}
+	/* Propagate the err code in the NV-flags register */
+	*flags_ptr = err;
 
 	console_flush();
 
