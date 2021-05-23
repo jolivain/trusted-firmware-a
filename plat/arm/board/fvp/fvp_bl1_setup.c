@@ -5,6 +5,7 @@
  */
 
 #include <assert.h>
+#include <errno.h>
 
 #include <bl1/bl1.h>
 #include <common/tbbr/tbbr_img_def.h>
@@ -61,6 +62,14 @@ void bl1_platform_setup(void)
 
 __dead2 void bl1_plat_fwu_done(void *client_cookie, void *reserved)
 {
+	unsigned int *nv_flags_clr = (unsigned int *)
+		(V2M_SYSREGS_BASE + V2M_SYS_NVFLAGSCLR);
+	unsigned int *nv_flags_ptr = (unsigned int *)
+		(V2M_SYSREGS_BASE + V2M_SYS_NVFLAGS);
+
+	/* Clear the NV flags register. */
+	*nv_flags_clr = *nv_flags_ptr;
+
 	/* Setup the watchdog to reset the system as soon as possible */
 	sp805_refresh(ARM_SP805_TWDG_BASE, 1U);
 
@@ -124,3 +133,15 @@ int bl1_plat_handle_post_image_load(unsigned int image_id)
 	return 0;
 }
 #endif /* MEASURED_BOOT */
+
+/*******************************************************************************
+ * The following function checks if Firmware update is needed by checking error
+ * reported in NV flag.
+ ******************************************************************************/
+bool plat_arm_bl1_fwu_needed(void)
+{
+        const int32_t *nv_flags_ptr = (const int32_t *)V2M_SYS_NVFLAGS_ADDR;
+
+        /* if image load/authentication failed */
+        return ((*nv_flags_ptr == -EAUTH) || (*nv_flags_ptr == -ENOENT));
+}
