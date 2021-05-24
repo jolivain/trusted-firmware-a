@@ -16,6 +16,70 @@
       "message": "If I am not wrong, the convention is to use parenthesis instead of square brackets on the optional scope, so it should be \u0027feat(SVE): ...\u0027 as commit subject.",
       "revId": "3f08edf922a53eecaf2178b2c3ed4045c4fc7202",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4332b5b8_4917b838",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-05-24T13:34:59Z",
+      "side": 1,
+      "message": "https://www.conventionalcommits.org/en/v1.0.0/\n\nHas an example using \u0027()\u0027. the use of \u0027[]\u0027 is to refer to it as being optional, I think...",
+      "parentUuid": "53bbe446_fad7b8d8",
+      "revId": "3f08edf922a53eecaf2178b2c3ed4045c4fc7202",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a62cc5_9094aa9f",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-05-24T13:34:59Z",
+      "side": 1,
+      "message": "I think, as the acronym has been defined above, you can use to SVE",
+      "range": {
+        "startLine": 290,
+        "startChar": 52,
+        "endLine": 291,
+        "endChar": 8
+      },
+      "revId": "3f08edf922a53eecaf2178b2c3ed4045c4fc7202",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0537d3d_9d5b9167",
+        "filename": "lib/extensions/sve/sve.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-05-24T13:34:59Z",
+      "side": 1,
+      "message": "Why creating these three macros?\nI only see SVE_VECTOR_LENGTH being used in the code below. Why not squash them into one macro?\nEither that, or provide more specific names to those prefixed with \u0027_\u0027\nAlso might be good to write some comments explain these values, and perhaps reference the arm arm.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 65
+      },
+      "revId": "3f08edf922a53eecaf2178b2c3ed4045c4fc7202",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
