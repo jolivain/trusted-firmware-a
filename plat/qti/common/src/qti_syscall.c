@@ -29,7 +29,7 @@
 #define	QTI_SIP_SVC_UID_ID				U(0x0200ff01)
 /*							0x8200ff02 is reserved*/
 #define	QTI_SIP_SVC_VERSION_ID				U(0x0200ff03)
-
+#define QTI_SIP_SVC_AVAILABLE_ID			U(0x02000601)
 /*
  * Syscall's to allow Non Secure world accessing peripheral/IO memory
  * those are secure/proteced BUT not required to be secure.
@@ -313,6 +313,11 @@ static uintptr_t qti_sip_handler(uint32_t smc_fid,
 			/* Return the version of current implementation */
 			SMC_RET2(handle, QTI_SIP_SVC_VERSION_MAJOR,
 				 QTI_SIP_SVC_VERSION_MINOR);
+			break;
+		}
+	case QTI_SIP_SVC_AVAILABLE_ID:
+		{
+			SMC_RET2(handle, QTI_SIP_SUCCESS, 0);
 			break;
 		}
 	case QTI_SIP_SVC_SECURE_IO_READ_ID:
