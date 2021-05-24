@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "36d682b6_5f4766c1",
+        "filename": "docs/plat/qti.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2021-05-24T07:41:45Z",
+      "side": 1,
+      "message": "Link doesn\u0027t seems to work as cgit support is removed. will it come back?\njust asking so that we can take correct action.",
+      "parentUuid": "f0b8c246_421a1d1a",
+      "revId": "4131767986e1e4fa78aa6944104ccbc74662bb5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0af97239_853ab6c7",
         "filename": "plat/qti/common/src/qti_syscall.c",
         "patchSetId": 1
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b404c251_90c537a5",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2021-05-24T07:41:45Z",
+      "side": 1,
+      "message": "sure",
+      "parentUuid": "0af97239_853ab6c7",
+      "revId": "4131767986e1e4fa78aa6944104ccbc74662bb5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b27166b_3e083206",
         "filename": "plat/qti/common/src/qti_syscall.c",
         "patchSetId": 1
@@ -65,6 +101,24 @@
       "writtenOn": "2021-05-18T00:56:46Z",
       "side": 1,
       "message": "Please actually evaluate the passed-in arguments and return success or failure based on whether that SVC is actually available.",
+      "revId": "4131767986e1e4fa78aa6944104ccbc74662bb5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27b38a8b_94796872",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2021-05-24T07:41:45Z",
+      "side": 1,
+      "message": "i think only one argument which is confirmed once we hit this case, so nothing to add here.",
+      "parentUuid": "2b27166b_3e083206",
       "revId": "4131767986e1e4fa78aa6944104ccbc74662bb5f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
