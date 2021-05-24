@@ -18,20 +18,7 @@
 #define AMU_GROUP0_MAX_COUNTERS		U(16)
 #define AMU_GROUP1_MAX_COUNTERS		U(16)
 
-#define AMU_GROUP1_COUNTERS_MASK	U(0)
-
-struct amu_ctx {
-	uint64_t group0_cnts[AMU_GROUP0_MAX_COUNTERS];
-#if __aarch64__
-	/* Architected event counter 1 does not have an offset register. */
-	uint64_t group0_voffsets[AMU_GROUP0_MAX_COUNTERS-1];
-#endif
-
-	uint64_t group1_cnts[AMU_GROUP1_MAX_COUNTERS];
-#if __aarch64__
-	uint64_t group1_voffsets[AMU_GROUP1_MAX_COUNTERS];
-#endif
-};
+#define AMU_AMCGCR_CG0NC_MAX U(16)
 
 uint64_t amu_group0_cnt_read_internal(unsigned int idx);
 void amu_group0_cnt_write_internal(unsigned int idx, uint64_t val);
