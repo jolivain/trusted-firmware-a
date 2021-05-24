@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3b35534f_c9c879df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-05-24T20:56:47Z",
+      "side": 1,
+      "message": "It is - the auditor runs automatically after installing all the tools. It won\u0027t fail the build though, so you have to look for it in the output or run it manually (`npm audit`).",
+      "parentUuid": "ed323900_cbe7dc9a",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 14
+      },
+      "revId": "7fff6c70ed9de55ace9cccc1d9b65375bcdc33e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ee26defb_bb5db8bb",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
