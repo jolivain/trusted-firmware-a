@@ -145,6 +145,9 @@ ENABLE_FEAT_FGT			:= 0
 # Flag to enable access to the CNTPOFF_EL2 register
 ENABLE_FEAT_ECV			:= 0
 
+# Flag to enable use of the DIT feature.
+ENABLE_FEAT_DIT			:= 0
+
 # By default BL31 encryption disabled
 ENCRYPT_BL31			:= 0
 
