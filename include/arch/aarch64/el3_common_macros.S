@@ -9,6 +9,7 @@
 
 #include <arch.h>
 #include <asm_macros.S>
+#include <assert_macros.S>
 #include <context.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
 
@@ -237,15 +238,24 @@
 
 	/*
 	 * If Data Independent Timing (DIT) functionality is implemented,
-	 * always enable DIT in EL3
+	 * always enable DIT in EL3.
+	 * First assert that the FEAT_DIT build flag matches the feature id
+	 * register value for DIT.
 	 */
+#if ENABLE_ASSERTIONS
 	mrs	x0, id_aa64pfr0_el1
 	ubfx	x0, x0, #ID_AA64PFR0_DIT_SHIFT, #ID_AA64PFR0_DIT_LENGTH
-	cmp	x0, #ID_AA64PFR0_DIT_SUPPORTED
-	bne	1f
+#if ENABLE_FEAT_DIT
+	cmp	x0, #1
+#else
+	cmp	x0, #0
+#endif /* ENABLE_FEAT_DIT */
+	ASM_ASSERT(eq)
+#endif /* ENABLE_ASSERTIONS */
+#if ENABLE_FEAT_DIT
 	mov	x0, #DIT_BIT
 	msr	DIT, x0
-1:
+#endif
 	.endm
 
 /* -----------------------------------------------------------------------------
