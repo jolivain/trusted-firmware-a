@@ -36,7 +36,6 @@ static void write_amcr_cg1rz(uint32_t value)
 		((value << AMCR_CG1RZ_SHIFT) & AMCR_CG1RZ_BIT));
 }
 
-#if AMU_GROUP1_NR_COUNTERS
 static uint32_t read_amcfgr_ncg(void)
 {
 	return (read_amcfgr() >> AMCFGR_NCG_SHIFT) &
@@ -48,7 +47,6 @@ static uint32_t read_amcgcr_cg1nc(void)
 	return (read_amcgcr() >> AMCGCR_CG1NC_SHIFT) &
 		AMCGCR_CG1NC_MASK;
 }
-#endif
 
 #if ENABLE_ASSERTIONS
 static uint32_t read_amcntenset0_px(void)
@@ -56,9 +54,7 @@ static uint32_t read_amcntenset0_px(void)
 	return (read_amcntenset0() >> AMCNTENSET0_Pn_SHIFT) &
 		AMCNTENSET0_Pn_MASK;
 }
-#endif
 
-#if AMU_GROUP1_NR_COUNTERS && ENABLE_ASSERTIONS
 static uint32_t read_amcntenset1_px(void)
 {
 	return (read_amcntenset1() >> AMCNTENSET1_Pn_SHIFT) &
@@ -77,7 +73,6 @@ static void write_amcntenset0_px(uint32_t px)
 	write_amcntenset0(value);
 }
 
-#if AMU_GROUP1_NR_COUNTERS
 static void write_amcntenset1_px(uint32_t px)
 {
 	uint32_t value = read_amcntenset1();
@@ -88,7 +83,6 @@ static void write_amcntenset1_px(uint32_t px)
 
 	write_amcntenset1(value);
 }
-#endif
 
 static void write_amcntenclr0_px(uint32_t px)
 {
@@ -100,7 +94,6 @@ static void write_amcntenclr0_px(uint32_t px)
 	write_amcntenclr0(value);
 }
 
-#if AMU_GROUP1_NR_COUNTERS
 static void write_amcntenclr1_px(uint32_t px)
 {
 	uint32_t value = read_amcntenclr1();
@@ -110,7 +103,6 @@ static void write_amcntenclr1_px(uint32_t px)
 
 	write_amcntenclr1(value);
 }
-#endif
 
 /*
  * Enable counters. This function is meant to be invoked
@@ -122,26 +114,27 @@ void amu_enable(bool el2_unused)
 		return;
 	}
 
-#if AMU_GROUP1_NR_COUNTERS
-	/* Check and set presence of group 1 counters */
-	if (read_amcfgr_ncg() < 1) {
-		ERROR("AMU Counter Group 1 is not implemented\n");
-		panic();
-	}
+	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+		/* Check and set presence of group 1 counters */
+		if (read_amcfgr_ncg() < 1) {
+			ERROR("AMU Counter Group 1 is not implemented\n");
+			panic();
+		}
 
-	/* Check number of group 1 counters */
-	uint32_t cnt_num = read_amcgcr_cg1nc();
-	VERBOSE("%s%u. %s%u\n",
-		"Number of AMU Group 1 Counters ", cnt_num,
-		"Requested number ", AMU_GROUP1_NR_COUNTERS);
+		/* Check number of group 1 counters */
+		uint32_t cnt_num = read_amcgcr_cg1nc();
 
-	if (cnt_num < AMU_GROUP1_NR_COUNTERS) {
-		ERROR("%s%u is less than %s%u\n",
-		"Number of AMU Group 1 Counters ", cnt_num,
-		"Requested number ", AMU_GROUP1_NR_COUNTERS);
-		panic();
+		VERBOSE("%s%u. %s%u\n",
+			"Number of AMU Group 1 Counters ", cnt_num,
+			"Requested number ", AMU_GROUP1_NR_COUNTERS);
+
+		if (cnt_num < AMU_GROUP1_NR_COUNTERS) {
+			ERROR("%s%u is less than %s%u\n",
+			"Number of AMU Group 1 Counters ", cnt_num,
+			"Requested number ", AMU_GROUP1_NR_COUNTERS);
+			panic();
+		}
 	}
-#endif
 
 	if (el2_unused) {
 		/*
@@ -154,10 +147,10 @@ void amu_enable(bool el2_unused)
 	/* Enable group 0 counters */
 	write_amcntenset0_px(AMU_GROUP0_COUNTERS_MASK);
 
-#if AMU_GROUP1_NR_COUNTERS
-	/* Enable group 1 counters */
-	write_amcntenset1_px(AMU_GROUP1_COUNTERS_MASK);
-#endif
+	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+		/* Enable group 1 counters */
+		write_amcntenset1_px(AMU_GROUP1_COUNTERS_MASK);
+	}
 
 	/* Initialize FEAT_AMUv1p1 features if present. */
 	if (read_id_pfr0_amu() < ID_PFR0_AMU_V1P1) {
@@ -198,7 +191,6 @@ void amu_group0_cnt_write(unsigned  int idx, uint64_t val)
 	isb();
 }
 
-#if AMU_GROUP1_NR_COUNTERS
 /* Read the group 1 counter identified by the given `idx` */
 uint64_t amu_group1_cnt_read(unsigned  int idx)
 {
@@ -233,7 +225,6 @@ void amu_group1_set_evtype(unsigned int idx, unsigned int val)
 	amu_group1_set_evtype_internal(idx, val);
 	isb();
 }
-#endif	/* AMU_GROUP1_NR_COUNTERS */
 
 static void *amu_context_save(const void *arg)
 {
@@ -244,26 +235,26 @@ static void *amu_context_save(const void *arg)
 		return (void *)-1;
 	}
 
-#if AMU_GROUP1_NR_COUNTERS
-	if (read_amcfgr_ncg() < 1) {
-		return (void *)-1;
+	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+		if (read_amcfgr_ncg() < 1) {
+			return (void *)-1;
+		}
 	}
-#endif
 	/* Assert that group 0/1 counter configuration is what we expect */
 	assert(read_amcntenset0_px() == AMU_GROUP0_COUNTERS_MASK);
 
-#if AMU_GROUP1_NR_COUNTERS
-	assert(read_amcntenset1_px() == AMU_GROUP1_COUNTERS_MASK);
-#endif
+	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+		assert(read_amcntenset1_px() == AMU_GROUP1_COUNTERS_MASK);
+	}
 	/*
 	 * Disable group 0/1 counters to avoid other observers like SCP sampling
 	 * counter values from the future via the memory mapped view.
 	 */
 	write_amcntenclr0_px(AMU_GROUP0_COUNTERS_MASK);
 
-#if AMU_GROUP1_NR_COUNTERS
-	write_amcntenclr1_px(AMU_GROUP1_COUNTERS_MASK);
-#endif
+	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+		write_amcntenclr1_px(AMU_GROUP1_COUNTERS_MASK);
+	}
 	isb();
 
 	/* Save all group 0 counters */
@@ -271,14 +262,14 @@ static void *amu_context_save(const void *arg)
 		ctx->group0_cnts[i] = amu_group0_cnt_read(i);
 	}
 
-#if AMU_GROUP1_NR_COUNTERS
-	/* Save group 1 counters */
-	for (i = 0U; i < AMU_GROUP1_NR_COUNTERS; i++) {
-		if ((AMU_GROUP1_COUNTERS_MASK & (1U << i)) != 0U) {
-			ctx->group1_cnts[i] = amu_group1_cnt_read(i);
+	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+		/* Save group 1 counters */
+		for (i = 0U; i < AMU_GROUP1_NR_COUNTERS; i++) {
+			if ((AMU_GROUP1_COUNTERS_MASK & (1U << i)) != 0U) {
+				ctx->group1_cnts[i] = amu_group1_cnt_read(i);
+			}
 		}
 	}
-#endif
 	return (void *)0;
 }
 
@@ -291,17 +282,17 @@ static void *amu_context_restore(const void *arg)
 		return (void *)-1;
 	}
 
-#if AMU_GROUP1_NR_COUNTERS
-	if (read_amcfgr_ncg() < 1) {
-		return (void *)-1;
+	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+		if (read_amcfgr_ncg() < 1) {
+			return (void *)-1;
+		}
 	}
-#endif
 	/* Counters were disabled in `amu_context_save()` */
 	assert(read_amcntenset0_px() == 0U);
 
-#if AMU_GROUP1_NR_COUNTERS
-	assert(read_amcntenset1_px() == 0U);
-#endif
+	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+		assert(read_amcntenset1_px() == 0U);
+	}
 
 	/* Restore all group 0 counters */
 	for (i = 0U; i < AMU_GROUP0_NR_COUNTERS; i++) {
@@ -311,17 +302,17 @@ static void *amu_context_restore(const void *arg)
 	/* Restore group 0 counter configuration */
 	write_amcntenset0_px(AMU_GROUP0_COUNTERS_MASK);
 
-#if AMU_GROUP1_NR_COUNTERS
-	/* Restore group 1 counters */
-	for (i = 0U; i < AMU_GROUP1_NR_COUNTERS; i++) {
-		if ((AMU_GROUP1_COUNTERS_MASK & (1U << i)) != 0U) {
-			amu_group1_cnt_write(i, ctx->group1_cnts[i]);
+	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+		/* Restore group 1 counters */
+		for (i = 0U; i < AMU_GROUP1_NR_COUNTERS; i++) {
+			if ((AMU_GROUP1_COUNTERS_MASK & (1U << i)) != 0U) {
+				amu_group1_cnt_write(i, ctx->group1_cnts[i]);
+			}
 		}
-	}
 
-	/* Restore group 1 counter configuration */
-	write_amcntenset1_px(AMU_GROUP1_COUNTERS_MASK);
-#endif
+		/* Restore group 1 counter configuration */
+		write_amcntenset1_px(AMU_GROUP1_COUNTERS_MASK);
+	}
 
 	return (void *)0;
 }
