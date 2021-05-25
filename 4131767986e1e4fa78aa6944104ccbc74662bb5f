@@ -88,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c39bfbd_2745170d",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2021-05-25T11:38:24Z",
+      "side": 1,
+      "message": "update patch",
+      "parentUuid": "b404c251_90c537a5",
+      "revId": "4131767986e1e4fa78aa6944104ccbc74662bb5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b27166b_3e083206",
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "i think only one argument which is confirmed once we hit this case, so nothing to add here.",
       "parentUuid": "2b27166b_3e083206",
+      "revId": "4131767986e1e4fa78aa6944104ccbc74662bb5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae7ac92b_2e286afa",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2021-05-25T11:38:24Z",
+      "side": 1,
+      "message": "marking resolved",
+      "parentUuid": "27b38a8b_94796872",
       "revId": "4131767986e1e4fa78aa6944104ccbc74662bb5f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
