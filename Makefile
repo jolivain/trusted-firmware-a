@@ -267,6 +267,13 @@ ifeq "8.5" "$(word 1, $(sort 8.5 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
 ENABLE_FEAT_SB		= 	1
 endif
 
+# Determine if FEAT_DIT is supported
+ENABLE_FEAT_DIT		=	$(if $(findstring dit,${arch-features}),1,0)
+
+ifeq "8.4" "$(word 1, $(sort 8.4 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+ENABLE_FEAT_DIT		= 	1
+endif
+
 ifneq ($(findstring armclang,$(notdir $(CC))),)
 TF_CFLAGS_aarch32	=	-target arm-arm-none-eabi $(march32-directive)
 TF_CFLAGS_aarch64	=	-target aarch64-arm-none-eabi $(march64-directive)
