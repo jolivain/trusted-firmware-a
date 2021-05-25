@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a8b144c3_4c0da357",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2021-05-25T11:36:54Z",
+      "side": 1,
+      "message": "sure",
+      "parentUuid": "e1a1c704_b47384e1",
+      "revId": "cd351b977a7554236dfc6453137ca0eb0937e969",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "163b31a0_01de0375",
         "filename": "plat/qti/common/src/aarch64/qti_kryo6_gold.S",
         "patchSetId": 3
@@ -31,6 +49,24 @@
       "writtenOn": "2021-05-24T14:40:02Z",
       "side": 1,
       "message": "s/2018/2021 ?\n\nwould it be \u0027Arm\u0027 instead of \u0027ARM\u0027? Copyrights in the repository are defined in both ways so I believe it does matter.",
+      "revId": "cd351b977a7554236dfc6453137ca0eb0937e969",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6100464_799627c1",
+        "filename": "plat/qti/common/src/aarch64/qti_kryo6_gold.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2021-05-25T11:36:54Z",
+      "side": 1,
+      "message": "Not an expert on this but used ARM in earlier files so used in similar way. Please recommend what is needed.",
+      "parentUuid": "163b31a0_01de0375",
       "revId": "cd351b977a7554236dfc6453137ca0eb0937e969",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
