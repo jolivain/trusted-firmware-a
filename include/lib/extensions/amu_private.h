@@ -67,11 +67,9 @@ struct amu_ctx {
 	uint64_t group0_voffsets[AMU_GROUP0_NR_COUNTERS-1];
 #endif
 
-#if AMU_GROUP1_NR_COUNTERS
 	uint64_t group1_cnts[AMU_GROUP1_NR_COUNTERS];
 #if __aarch64__
 	uint64_t group1_voffsets[AMU_GROUP1_NR_COUNTERS];
-#endif
 #endif
 };
 
