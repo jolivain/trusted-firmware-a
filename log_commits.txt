@@ -1,0 +1,752 @@
+08532d75c Merge "docs: update list of supported FVP platforms" into integration
+9738cf968 Merge "docs(threat model): add TF-A threat model" into integration
+7006f208b docs(threat model): add TF-A threat model
+6f09bcced docs: update list of supported FVP platforms
+44de593d1 Merge "plat/st: do not rely on tainted value for dt property length" into integration
+711505f04 Merge changes from topic "imx8mp_fix" into integration
+7f9390d3a plat: imx8mp: change the bl31 physical load address
+8c72a7ab2 plat: imx8m: Fix the macro define error
+dd6efc9ea Merge changes I8e67a921,I0dc06072,I5e149063,I962cdfc7,I5c5d0444 into integration
+674803667 Merge "feat(tc0): update Matterhorn ELP DVFS clock index" into integration
+a2f6294c9 feat(tc0): update Matterhorn ELP DVFS clock index
+5c3bcfcdf Merge "docs: remove PSA wording for SPM chapters" into integration
+8ff71de7c Merge "revert(commitlint): disable `signed-off-by` rule" into integration
+1b17f4f1f docs: remove PSA wording for SPM chapters
+f714ca80b plat/st: do not rely on tainted value for dt property length
+6794378d2 Merge changes from topic "fw-update" into integration
+08e7cc533 Merge changes I15e7cc43,Id7411bd5,I92bafe70,I8f1c0658 into integration
+e3be1086c docs: add build options for GPT support enablement
+ef1daa420 feat(plat/arm): add GPT parser support
+800b8849c Merge "refactor(plat/arm): replace FIP base and size macro with a generic name" into integration
+081c5e5af Merge "refactor(plat/arm): store UUID as a string, rather than ints" into integration
+b29dec5c2 Merge "feat(fdt): introduce wrapper function to read DT UUIDs" into integration
+2ba56793d Merge "fix(driver/auth): avoid NV counter upgrade without certificate validation" into integration
+50b11c3c2 Merge changes from topic "mp/update_release_timelines" into integration
+1328076cd docs: update release information for v2.6
+a6edefe00 docs: update code freeze & target date for v2.5
+967f0621b Merge changes from topic "mit-license" into integration
+7d111d99c refactor(plat/arm): store UUID as a string, rather than ints
+d13dbb6f1 feat(fdt): introduce wrapper function to read DT UUIDs
+49e9ac281 refactor(plat/arm): replace FIP base and size macro with a generic name
+067cb3aed Merge changes I2c9aecc9,Ie6a019f4,Ief6f0a63,Iec9c80f2 into integration
+5d3cf7450 Merge "plat: marvell: armada: a3k: Add new compile option A3720_DB_PM_WAKEUP_SRC" into integration
+f2800a472 plat: marvell: armada: a3k: Add new compile option A3720_DB_PM_WAKEUP_SRC
+8a73b563e revert(commitlint): disable `signed-off-by` rule
+a2a5a9456 fix(driver/auth): avoid NV counter upgrade without certificate validation
+d35556516 Merge changes from topic "rd_plat_variants" into integration
+0861fcdd3 fix(dt-bindings): fix static checks
+fe5d5bbfe feat(board/rdn2): add support for variant 1 of rd-n2 platform
+cfe1506ee feat(plat/sgi): introduce platform variant build option
+815794220 Merge changes I36e45c0a,I69c21293 into integration
+303f543e1 Merge changes from topic "sgm775_deprecation" into integration
+461e0d3e9 Merge "plat/arm: move compile time switch from source to dt file" into integration
+a92b02566 Merge changes I20c73f6e,I9962263c,I177796e3,I6ff6875c,I21fe9d85, ... into integration
+c404794a6 plat/arm: move compile time switch from source to dt file
+3dbbbca29 docs(license): rectify `arm-gic.h` license
+7bcb8ad26 Merge "Arm: Fix error message printing in board makefile" into integration
+37ee58d13 build: deprecate Arm sgm775 FVP platform
+67e3a8903 docs: introduce process for platform deprecation
+c52a10a28 mediatek: mt8195: add rtc power off sequence
+0909819a4 mediatek: mt8195: add power-off support
+fcc661739 mediatek: mt8195: Add reboot function for PSCI
+aebd4dc8f mediatek: mt8195: Add gpio driver
+938fd425d mediatek: mt8195: Add SiP service
+fe9854284 mediatek: mt8195: Add CPU hotplug and MCDI support
+acc855488 mediatek: mt8195: Add MCDI drivers
+0d82eff6f mediatek: mt8195: Add SPMC driver
+65f0dd138 mediatek: mt8195: Initialize delay_timer
+915507773 mediatek: mt8195: initialize systimer
+46946036d mediatek: mt8192: move timer driver to common folder
+e5490f955 mediatek: mt8195: add sys_cirq support
+c63f1451e mediatek: mt8195: initialize GIC
+174a1cfec Initialize platform for MediaTek MT8195
+65070a521 Merge changes Ib0a2ce81,I5332fb52 into integration
+0fd0a6c11 Merge changes from topic "xlnx_error_management" into integration
+78c7beb49 plat: send an sgi to communicate to linux
+8b48bfb89 plat: xilinx: Error management support
+3e942205f Merge "Plat FVP: Fix Generic Timer interrupt types" into integration
+a262546fc Merge "mediatek: mt8192: devapc: Add devapc driver" into integration
+a05b3ad02 Merge changes from topic "my-topic-name" into integration
+c3c6732f8 fdts: stm32mp1: add support for the Seeed Odyssey SoM and board
+0e480e0e8 fdts: stm32mp1: add alternative SDMMC2 pins to the pinctrl
+214b4f9a4 fdts: stm32mp1: add I2C2 pins in the pinctrl
+3ef2208b6 fdts: stm32mp1: add the I2C2 peripheral in the SoC DTS
+1d1e50064 Merge "Add documentation for SMMUv3 driver in Hafnium(SPM)" into integration
+dfe646659 Merge "Add "_arm" suffix to Makalu ELP CPU lib" into integration
+e9cd36f56 Merge changes Id7bdbc9b,Ia813e051,I2c437380,I736724cc,I454fb40a, ... into integration
+d8dc8c9e2 Merge "plat: xilinx: zynqmp: Configure counter frequency during initialization" into integration
+62fbb3151 stm32mp1: enable PIE for BL32
+d2130da2b stm32mp1: set BL sizes regardless of flags
+4324a14bf Add PIE support for AARCH32
+fb4f511f9 Avoid the use of linker *_SIZE__ macros
+dfa6c5407 Plat FVP: Fix Generic Timer interrupt types
+617632bf8 Merge changes I3c25c715,I6d30b081 into integration
+745df3051 Merge changes from topic "ck/conventional-commits" into integration
+9f0ddae31 plat: xilinx: zynqmp: Configure counter frequency during initialization
+654bd99dc plat: xilinx: versal: Add the IPI CRC checksum macro support
+d77583549 plat: xilinx: common: Rename the IPI CRC checksum macro
+89a05821e Merge changes from topic "od/ns-interrupts" into integration
+97bc7f0dc Add "_arm" suffix to Makalu ELP CPU lib
+207ef6290 Merge changes from topic "arm_ethosn_npu_sip" into integration
+386dc3654 spmd: add FFA_INTERRUPT forwarding
+2480e4c3e doc: spm: update messaging method field
+bcf43f048 renesas: rzg: Add support to identify EK874 RZ/G2E board
+2c10d4e29 drivers: renesas: common: watchdog: Add support for RZ/G2E
+05cc21de5 drivers: renesas: rzg: Add QoS support for RZ/G2E
+5bfea97e1 drivers: renesas: rzg: Add PFC support for RZ/G2E
+30663f34e drivers: renesas: common: Add support for DRAM initialization on RZ/G2E SoC
+a4d86f676 renesas: rzg: Add support to identify HopeRun HiHope RZ/G2N board
+bf007a56e drivers: renesas: common: emmc: Select eMMC channel for RZ/G2N SoC
+f8ecfd68e drivers: renesas: rzg: Add QoS support for RZ/G2N
+744c56648 drivers: renesas: rzg: Add PFC support for RZ/G2N
+b939cbbb8 drivers: renesas: common: Add support for DRAM initialization on RZ/G2N SoC
+ec3e2f671 renesas: rzg: Add support to identify HopeRun HiHope RZ/G2H board
+4a6f4d2ec drivers: renesas: common: emmc: Select eMMC channel for RZ/G2H SoC
+86c3cc305 drivers: renesas: rzg: Add QoS support for RZ/G2H
+a51d70629 drivers: renesas: rzg: Add PFC support for RZ/G2H
+fe5929c19 drivers: renesas: common: Add support for DRAM initialization on RZ/G2H SoC
+778db0e92 drivers: renesas: rzg: Switch using common ddr code
+faf5587cf drivers: renesas: ddr: Move to common
+404bcbd70 Merge "mediatek: move uart.h to common folder" into integration
+76a21174d Add SiP service to configure Arm Ethos-N NPU
+5d5fb10f9 plat/arm/juno: Add support to use hw_config in BL31
+a9e14e202 Merge "docs: marvell: Add information about CZ.NIC Armada 3720 Secure Firmware" into integration
+2939f68ad Merge changes I8f3afbe3,I441e7c69,I2e9465f7,Ib8756cd3,Iebe6ea7c, ... into integration
+e3afea439 plat/marvell: remove subversion from Marvell make files
+4eb72fe92 drivers/marvell: check if TRNG unit is present
+90eac1703 plat/marvell: a8k: move efuse definitions to separate header
+2e1dba44f plat/marvell/armada: fix TRNG return SMC handling
+550a06dfd drivers: marvell: comphy: add rx training on 10G port
+b5a066377 plat/marvell/armada: postpone MSS CPU startup to BL31 stage
+ed1587d02 plat: marvell: armada: a8k: Fix LD selector mask
+718dbcac9 plat/marvell/armada: allow builds without MSS support
+667893adb drivers: marvell: misc-dfx: extend dfx whitelist
+81c2a044e drivers: marvell: add support for secure read/write of dfx register-set
+b81444e84 ddr_phy: use smc calls to access ddr phy registers
+0cedca636 drivers: marvell: thermal: use dedicated function for thermal SiPs
+ad416958d drivers: marvell: add thermal sensor driver and expose it via SIP service
+dceac436f fix: plat: marvell: fix MSS loader for A8K family
+6b822d494 mediatek: mt8192: devapc: Add devapc driver
+52c24e307 Merge "services: spm_mm: Use sp_boot_info to set SP context" into integration
+4ec3ccb45 Add documentation for SMMUv3 driver in Hafnium(SPM)
+21583a315 services: spm_mm: Use sp_boot_info to set SP context
+d97bade10 build(hooks): add commitlint hook
+c75ce067a build(hooks): add Commitizen hook
+4b7eee81e build(hooks): add Gerrit hook
+ba39362f2 build(hooks): add Husky configuration
+5eea01937 Arm: Fix error message printing in board makefile
+38b7c9c65 Merge "docs: Update Mbed TLS supported version" into integration
+866e6721f Merge changes from topic "scmi_v2_0" into integration
+7e78300fc mediatek: move uart.h to common folder
+b67e9880f drivers/arm/css/scmi: Update power domain protocol version to 2.0
+69f2ace10 tc0: update GICR base address
+641c5ff69 docs: Update Mbed TLS supported version
+511c7f3a9 Merge changes from topic "dcc_console" into integration
+3b9e06a6d Merge "plat/arm: don't provide NT_FW_CONFIG when booting hafnium" into integration
+c7d314746 plat/qemu: add "max" cpu support
+5d764e05e Add support for QEMU "max" CPU
+103ee1b1c plat/qemu: add cortex-a72 support to 'virt' platform
+d799d168e plat/qemu: include gicv2.mk
+c55497a20 Merge "fiptool: Do not print duplicate verbose lines about building fiptool" into integration
+29e11bb29 Merge "driver: brcm: add USB driver" into integration
+bab737d39 Merge "driver: brcm: add mdio driver" into integration
+9fa849d36 Merge "arch: Enable `FEAT_SB` for supported non-Armv8.5-A platforms" into integration
+2b6fc5358 plat/arm: don't provide NT_FW_CONFIG when booting hafnium
+4fe571b83 docs: marvell: Add information about CZ.NIC Armada 3720 Secure Firmware
+160bfb278 Merge changes from topic "mmc_device_info" into integration
+cc031fbe4 Merge changes from topic "mmc_device_info" into integration
+bda4e0301 fiptool: Do not print duplicate verbose lines about building fiptool
+cf59a1d12 Merge "fiptool: Do not call 'make clean' in 'all' target" into integration
+cddf1bd76 plat/st: do not keep mmc_device_info in stack
+4ecd2417c mmc: remove useless extra semicolons
+5cb7fc826 plat/intel: do not keep mmc_device_info in stack
+70eb88b7d Revert "mmc:prevent accessing to the released space in case of wrong usage"
+9171ced34 plat/hisilicon: do not keep mmc_device_info in stack
+de2dd4e70 Merge "lib/cpu: Workaround for Cortex A77 erratum 1946167" into integration
+e729595fa Merge "Fix: Remove save/restore of EL2 timer registers" into integration
+dbeab0da9 fiptool: Do not call 'make clean' in 'all' target
+f0d84287b Merge changes Id2a538c3,Ifa0339e7,I8b09fab8 into integration
+51672950e Merge changes from topic "my-topic-name" into integration
+a7cf2743f Fix: Remove save/restore of EL2 timer registers
+32f1b1d97 Merge changes I4061428b,Icaee5da1 into integration
+40d08192a drivers: marvell: comphy-a3700: Set TXDCLK_2X_SEL bit during PCIe initialization
+ccec1bd5c drivers: marvell: comphy-a3700: Set mask parameter for every reg_set call
+ee4c70ebb drivers: marvell: comphy-a3700: Fix configuring polarity invert bits
+abe6ce1d1 plat/arm/arm_image_load: refine plat_add_sp_images_load_info
+47fe4c4fe plat/arm/arm_image_load: fix bug of overriding the last node
+a492edc49 lib/cpu: Workaround for Cortex A77 erratum 1946167
+045b209cc Merge "Add Cortex_A78C CPU lib" into integration
+0b25f4045 plat:xilinx:versal: Add JTAG DCC support
+c00baeecb plat:xilinx:zynqmp: Add JTAG DCC support
+e5936205a drivers: dcc: Support JTAG DCC console
+0a144dd4e Add Cortex_A78C CPU lib
+8078b5c5a Merge changes from topic "allwinner_h616" into integration
+e5fa7459e Merge "Add Makalu ELP CPU lib" into integration
+cba9c0c2a Merge changes from topic "rd_updates" into integration
+c0d55ef7c plat/sgi: allow usage of secure partions on rdn2 platform
+27d593ad9 Merge changes from topic "tzc400_stm32mp" into integration
+f97b57950 board/rdv1mc: initialize tzc400 controllers
+218034911 plat/sgi: allow access to TZC controller on all chips
+05b5c4175 plat/sgi: define memory regions for multi-chip platforms
+5dae6bc71 plat/sgi: allow access to nor2 flash and system registers from s-el0
+b4d548f14 plat/sgi: define default list of memory regions for dmc620 tzc
+d306eb801 plat/sgi: improve macros defining cper buffer memory region
+513ba5c97 plat/sgi: refactor DMC-620 error handling SMC function id
+a88344740 plat/sgi: refactor SDEI specific macros
+ab496a338 Merge "driver: brcm: add i2c driver" into integration
+713b0c068 Merge "doc: update maintainer list for Arm platforms" into integration
+0c50076ff Merge "doc: re-format maintainer.rst file rendering" into integration
+48c6a6b65 driver: brcm: add i2c driver
+0be10ee37 allwinner: H616: Add reserved-memory node to DT
+3dd87efb2 plat: ti: k3: board: Let explicitly map our SEC_SRAM_BASE to 0x0
+f5872a004 plat: ti: k3: board: Lets cast our macros
+a2b56476b plat: ti: k3: common: bl31_setup: Use BL31_SIZE instead of computing
+c9f887d8b plat: ti: k3: platform_def.h: Define the correct number of max table entries
+2fb5312f6 plat: ti: k3: board: lite: Increase SRAM size to account for additional table
+26123ca35 allwinner: Add Allwinner H616 SoC support
+bb104f27d allwinner: Add H616 SoC ID
+01cec8f40 allwinner: Express memmap more dynamically
+9227719db allwinner: Move sunxi_cpu_power_off_self() into platforms
+eb15bdaad allwinner: Move SEPARATE_NOBITS_REGION to platforms
+fe90f9aec doc: allwinner: Reorder sections, document memory mapping
+9ad103140 Merge "allwinner: Use CPUIDLE hardware when available" into integration
+cebe4ccd9 Merge "allwinner: A64: Limit FDT checks to reduce code size" into integration
+8fa5592b8 allwinner: A64: Limit FDT checks to reduce code size
+71e7cb732 Merge "plat/allwinner: do not setup 'disabled' regulators" into integration
+cb090c192 Add Makalu ELP CPU lib
+9719e19a9 Merge changes I500ddbe9,I9c10dac9,I53bfff85,I06f7594d,I24bff8d4, ... into integration
+b59444ea8 Merge "rpi4: Switch to gicv2.mk and GICV2_SOURCES" into integration
+f359a3822 nxp lx2160a-aqds: new plat based on soc lx2160a
+eb2b193d7 NXP lx2160a-rdb: new plat based on SoC lx2160a
+1f4973086 nxp lx2162aqds: new plat based on soc lx2160a
+9877084b2 nxp: errata handling at soc level for lx2160a
+18498657f nxp: make file for loading additional ddr image
+87056d319 nxp: adding support of soc lx2160a
+dc05e50b8 nxp: deflt hdr files for soc & their platforms
+b53c2c5f2 nxp: platform files for bl2 and bl31 setup
+0f33f50e2 nxp: warm reset support to retain ddr content
+7c2d17792 nxp: nv storage api on platforms
+99cd54f31 nxp: supports two mode of trusted board boot
+6df5c0c9f nxp: fip-handler for additional fip_fuse.bin
+34d483565 nxp: fip-handler for additional ddr-fip.bin
+ed7cf3bff nxp: image loader for loading fip image
+c2d621db5 nxp: svp & sip smc handling
+dd4268a2d nxp: psci platform functions used by lib/psci
+044ddf9ea nxp: helper function used by plat & common code
+bdfad087d nxp: add data handler used by bl31
+b2fa071b3 nxp: adding the driver.mk file
+326694760 nxp-tool: for creating pbl file from bl2
+39faa9b29 nxp: adding the smmu driver
+359881935 nxp: cot using nxp internal and mbedtls
+a0edacb8f nxp:driver for crypto h/w accelerator caam
+066ee1add nxp:add driver support for sd and emmc
+c20e123ca nxp:add qspi driver
+b525a8f0d nxp: add flexspi driver support
+b53334dac nxp: adding gic apis for nxp soc
+e3e48b5c3 nxp: gpio driver support
+34412eda3 nxp: added csu driver
+d57186ea2 nxp: driver pmu for nxp soc
+b35ce0c41 nxp: ddr driver enablement for nxp layerscape soc
+c6d9fdbc7 nxp: i2c driver support.
+d8e979992 NXP: Driver for NXP Security Monitor
+3979c6d92 NXP: SFP driver support for NXP SoC
+76f735fd8 NXP: Interconnect API based on ARM CCN-CCI driver
+de0b10124 NXP: TZC API to configure ddr region
+447a42e73 NXP: Timer API added to enable ARM generic timer
+86b1b89fb nxp: add dcfg driver
+0499215e1 nxp:add console driver for nxp platform
+3527d6d21 tools: add mechanism to allow platform specific image UUID
+18644159a tbbr-cot: conditional definition for the macro
+ff67fca5a tbbr-cot: fix the issue of compiling time define
+b94bf967e cert_create: updated tool for platform defined certs, keys & extensions
+6c74c9977 tbbr-tools: enable override TRUSTED_KEY_CERT
+de37db6c5 allwinner: Use CPUIDLE hardware when available
+4a81a9f1b Merge "fdt: Use proper #address-cells and #size-cells for reserved-memory" into integration
+81146c46f fdt: Use proper #address-cells and #size-cells for reserved-memory
+ad329e50b plat: imx8mm: Add in BL2 with FIP
+e364a8c36 plat: imx8mm: Add image load logic for TBBR FIP booting
+f255cad71 plat: imx8mm: Enable Trusted Boot
+37ac9b7f1 plat: imx8mm: Add initial defintions to facilitate FIP layout
+ee4d094ac plat: imx8mm: Add image io-storage logic for TBBR FIP booting
+1329f9647 plat: imx8mm: Add imx8mm_private.h to the build
+236fc428b stm32mp1: add TZC400 interrupt management
+1e80c4981 stm32mp1: use TZC400 macro to describe filters
+34c1a1a43 tzc400: add support for interrupts
+9e28b8544 Merge "SPM: Fix error codes size in SPMD handler" into integration
+830c7657d rpi4: Switch to gicv2.mk and GICV2_SOURCES
+e84ca5713 Merge "plat: xilinx: versal: Mark IPI calls secure/non-secure" into integration
+4697164a3 plat: xilinx: versal: Mark IPI calls secure/non-secure
+e46b2fd21 SPM: Fix error codes size in SPMD handler
+9655a1f54 plat/allwinner: do not setup 'disabled' regulators
+2e0e51f42 Merge "Bug fix in tspd interrupt handling when TSP_NS_INTR_ASYNC_PREEMPT is enabled" into integration
+cab2b183b Merge "tools_share/uuid: Add EFI_GUID representation" into integration
+0888fcf25 Merge "plat: xilinx: versal: Remove cortex-a53 compilation" into integration
+51bb1d736 Bug fix in tspd interrupt handling when TSP_NS_INTR_ASYNC_PREEMPT is enabled
+0fb736389 Merge "plat: xilinx: Add timeout while waiting for IPI Ack" into integration
+e831923f9 tools_share/uuid: Add EFI_GUID representation
+706058c25 Merge "mmc:prevent accessing to the released space in case of wrong usage" into integration
+4e04478aa arch: Enable `FEAT_SB` for supported non-Armv8.5-A platforms
+e3ff1766e Merge "tzc400: correct FAIL_CONTROL Privileged bit" into integration
+13f3c5166 mmc:prevent accessing to the released space in case of wrong usage
+ae030052a Merge changes from topic "od/ffa_spmc_pwr" into integration
+4a7b060b3 plat: xilinx: versal: Remove cortex-a53 compilation
+332649da4 Merge changes from topic "matterhorn_elp" into integration
+e96fc8e7d SPM: declare third cactus instance as UP SP
+473ced567 SPMD: lock the g_spmd_pm structure
+cdb49d475 FF-A: implement FFA_SECONDARY_EP_REGISTER
+5491208af Merge changes from topic "linux_as_bl33" into integration
+13d25345e doc: update maintainer list for Arm platforms
+32d440c77 doc: re-format maintainer.rst file rendering
+72bdcb9a2 plat: tc0: add matterhorn_elp_arm library to tc0
+614c14e77 cpus: add Matterhorn ELP ARM cpu library
+a8fb76e59 Merge changes I9c9ed516,I2788eaf6 into integration
+ce19ac906 Merge "plat: xilinx: zynqmp: Add missing ids for 43/46/47dr devices" into integration
+682fe3703 driver: brcm: add USB driver
+23be96cb4 Merge "plat/rockchip: Use common gicv2.mk" into integration
+c414019bc plat/rockchip: Use common gicv2.mk
+4e5c3104f Merge "mediatek: mt8192: fix MISSING_BREAK" into integration
+4f81ed8e1 tzc400: correct FAIL_CONTROL Privileged bit
+6d98e7503 mediatek: mt8192: fix MISSING_BREAK
+2c62b00e8 Merge "SDEI: updata the affinity of shared event" into integration
+6ccbcff50 SDEI: updata the affinity of shared event
+8c8efa862 Merge changes I76eee5c5,Ie45ab1d8,Iddcb83d3,I4425777d,I5be2837c, ... into integration
+42de214f8 Merge "Print newline after hex address in aarch64 el3_panic function" into integration
+805f22bab Print newline after hex address in aarch64 el3_panic function
+893716d7f Merge "docs: Add GIC600AE FVP model version information" into integration
+88ddb6012 Merge "mediatek: mt8192: Add MPU Support for SCP/PCIe" into integration
+258f6a2d4 Merge changes I4bd4612a,Id13a06d4,I0ea7f610,Ie6a7063b into integration
+a564bdc55 mediatek: mt8192: Add MPU Support for SCP/PCIe
+f3febcca5 mediatek: mt8192: Add Vcore DVFS driver
+ebb44440a mediatek: mt8192: Add SPM suspend driver
+df60025fe mediatek: mt8192: supports mcusys off when system suspend
+cab491995 mediatek: mt8192: Add lpm driver
+1b7e5ca99 plat: xilinx: zynqmp: Add missing ids for 43/46/47dr devices
+c0f0ab53b Merge "fdts: enable virtIO P9 device for morello fvp platform" into integration
+8ef06b6cd Merge "Add Makalu CPU lib" into integration
+0cd5d1d19 Merge "lib/extensions/ras: fix bug of binary search" into integration
+4bf98b27d fdts: enable virtIO P9 device for morello fvp platform
+ef4c1e19b Merge "Enable v8.6 AMU enhancements (FEAT_AMUv1p1)" into integration
+4d9b9b235 plat: xilinx: Add timeout while waiting for IPI Ack
+aaabf9789 Add Makalu CPU lib
+174551d59 Merge changes from topic "trng-svc" into integration
+051906bb2 docs: Add GIC600AE FVP model version information
+206fa996b qemu/qemu_sbsa: fix memory type of secure NOR flash
+cf952b0fb qemu/qemu_sbsa: spm_mm supports 512 cores
+0aa70f4c4 Merge "plat/qemu: trigger reboot with secure pl061" into integration
+873d4241e Enable v8.6 AMU enhancements (FEAT_AMUv1p1)
+8909fa9bb Merge changes I23f600b5,Icf9ffdf2,Iee7a51d1,I99afc312,I4bf8e8c0, ... into integration
+5a9f58905 plat/marvell/armada: cleanup MSS SRAM if used for copy
+109873cf4 plat/marvell: cn913x: allow CP1/CP2 mapping at BLE stage
+57870747e plat/marvell/armada/common/mss: use MSS SRAM in secure mode
+441a065aa driver: brcm: add mdio driver
+b852f2c35 Merge "libc: memset: Fix MISRA issues" into integration
+005415a39 libc: memset: Fix MISRA issues
+0125b42e9 Merge "plat:xilinx:zynqmp: Remove the custom crash implementation" into integration
+830774bfd plat:xilinx:zynqmp: Remove the custom crash implementation
+964df136f Merge "allwinner: Allow conditional compilation of SCPI and native PSCI ops" into integration
+3243cbf03 Merge "lib: cpus: aarch32: sanity check pointers before use" into integration
+1d93ce633 Merge "nand: stm32_fmc_nand: remove dead code" into integration
+e3b9cc126 lib: cpus: aarch32: sanity check pointers before use
+1272391ee Merge changes Ie5c48303,I5d363c46 into integration
+c36e2d488 Merge changes from topic "sunxi-split-psci" into integration
+6e8610231 Merge changes I8ea4ea58,I1f0b4aab,I2cccad40 into integration
+8b3e1b791 Merge "qti: spmi_arb: Fix NUM_APID and REG_APID_MAP() argument" into integration
+d7439276a Merge "docs: stm32mp1: correct formatting issues" into integration
+5fc34d6a0 Merge "Revert "spmd: ensure SIMD context is saved/restored on SPMC entry/exit"" into integration
+801ff6b7f Merge "plat/arm/css: rename rd_n1e1_edge_scmi_plat_info array" into integration
+f36e62e3c Revert "spmd: ensure SIMD context is saved/restored on SPMC entry/exit"
+0557734dc plat/arm/css: rename rd_n1e1_edge_scmi_plat_info array
+cb5f0faa7 plat/arm: juno: Use TRNG entropy source for SMCCC TRNG interface
+f11279268 docs: stm32mp1: correct formatting issues
+0d06b058a marvell: uart: a3720: Increase TX FIFO EMPTY timeout from 2ms to 3ms
+98641515a marvell: uart: a3720: Update delay code to be compatible with 1200 MHz CPU
+ab1fe1884 marvell: uart: a3720: Fix comments in console_a3700_core_init() function
+eb18ce328 plat/arm: juno: Condition Juno entropy source with CRC instructions
+663068145 Merge "spmd: ensure SIMD context is saved/restored on SPMC entry/exit" into integration
+305135716 Merge "nxp: added the makefile helper macros" into integration
+b749ae3d3 nxp: added the makefile helper macros
+bedb13f50 spmd: ensure SIMD context is saved/restored on SPMC entry/exit
+d3e145b4c Merge "plat/arm: juno: Refactor juno_getentropy()" into integration
+7eff04006 Merge "bl32: Enable TRNG service build" into integration
+b2e5e56f0 Merge "plat/arm/rdn2: update TZC base address" into integration
+3ed016571 nand: stm32_fmc_nand: remove dead code
+94b0c3341 Merge changes from topic "mp/strto_libc" into integration
+edbe490ba Merge "morello: Modify morello_plat_info structure" into integration
+543f0d8b0 plat/arm: juno: Refactor juno_getentropy()
+0e14948e2 bl32: Enable TRNG service build
+c42d5eeaf include/drivers/marvell/mochi: add detection of secure mode
+1e179c794 plat/marvell: fix SPD handling in dram port
+27528f720 marvell: drivers: move XOR0/1 DIOB from WIN 0 to 1
+2bcde264f drivers/marvell/mochi: add support for cn913x in PCIe EP mode
+c82cf21d6 drivers/marvell/mochi: add missing stream IDs configurations
+57660d9d7 plat/marvell/armada/a8k: support HW RNG by SMC
+6aa9f5d16 drivers/rambus: add TRNG-IP-76 driver
+4e8060d2f plat/arm/rdn2: update TZC base address
+04c122310 Merge "services: TRNG: Fix -O0 compilation" into integration
+323b6c630 services: TRNG: Fix -O0 compilation
+925477ece Merge changes from topic "GIC-work" into integration
+f98630fbb plat/arm: fvp: Protect GICR frames for fused/unused cores
+d30a6615d doc: Build option to protect GICR frame
+e0cea7831 plat/arm: fvp: Do not map GIC region in BL1 and BL2
+bb9ecd0d5 Merge "fdts: use scmi_dvfs clock index 1 for cores 4-7" into integration
+a97c390b9 fdts: use scmi_dvfs clock index 1 for cores 4-7
+e27340a74 plat/arm: Remove ARM_LINUX_KERNEL_AS_BL33 relying on RESET_TO_BL31
+c99b8c893 plat/arm: Always allow ARM_LINUX_KERNEL_AS_BL33
+d4c61c387 tzc400: adjust filter flag if it is set to FILTER_BIT_ALL
+3d66ca6d8 tzc400: fix logical error in FILTER_BIT definitions
+42ea8d673 morello: Modify morello_plat_info structure
+8098d5440 Merge "ddr: stm32mp1_ddr: correct SELFREF_TO_X32 mask" into integration
+8c7f156f9 Merge "rainier: remove cpu workaround for errata 1542419" into integration
+6080aac97 Merge "Add TRNG Firmware Interface service" into integration
+7dfb99118 Add TRNG Firmware Interface service
+041d7c7ba rainier: remove cpu workaround for errata 1542419
+edaaa98fc ddr: stm32mp1_ddr: correct SELFREF_TO_X32 mask
+ffb07b043 plat/qemu: trigger reboot with secure pl061
+de67080fb qti: spmi_arb: Fix NUM_APID and REG_APID_MAP() argument
+d56b957c2 libc: Import strtoull from FreeBSD project
+587c15565 libc: Import strtoll from FreeBSD project
+15c1c1473 libc: Import strtoul from FreeBSD project
+015240d9d libc: Import strtol from FreeBSD project
+d5105d994 Merge changes from topic "RD_INFRA_POWER_MODING" into integration
+6d0dcc7d9 Merge "plat/arm:juno: fix parallel build issue for romlib config" into integration
+9bc3007d3 Merge "product/tc0: Enable Theodul DSU in TC platform" into integration
+612b4a3f2 drivers/gicv3: also shift eSPI register offset in GICD_OFFSET_64()
+705032dee drivers/gicv3: add debug log for maximum INTID of SPI and eSPI
+4e42c227b drivers/gicv3: limit SPI ID to avoid misjudgement in GICD_OFFSET()
+69ae4427f drivers/gicv3: fix logical issue for num_eints
+deb18901d drivers/gicv3: fix potential GICD context override with ESPI enabled
+60cd8030b drivers/gicv3: use mpidr to probe GICR for current CPU
+e5da15e04 product/tc0: Enable Theodul DSU in TC platform
+5e508f06a plat/arm:juno: fix parallel build issue for romlib config
+96edbe034 Merge "Fix exception handlers in BL31: Use DSB to synchronize pending EA" into integration
+477e28de5 Merge changes from topic "marvell-armada-docs" into integration
+6803d9894 Merge changes from topic "marvell-a3k-separate-flash-and-uart" into integration
+72645d5b6 Merge changes from topic "marvell-a3k-separate-flash-and-uart" into integration
+ff46a41dc docs: marvell: Replace ESPRESSObin-Ultra TF-A build example by full example how to build production release of Marvell firmware image
+f60f1e848 docs: marvell: Fix description of flash-image.bin image
+23abf07ce docs: marvell: Add information into CLOCKSPRESET option how to identify CPU frequency
+9c3fffdc8 docs: marvell: Reformat DDR_TOPOLOGY option and mention EspressoBin-Ultra board
+24e6e10b9 docs: marvell: Move Supported Marvell platforms to PLAT build option
+9192f34e6 Merge changes from topic "sunxi-split-psci" into integration
+f7bab2761 plat/arm/board: enable AMU for RD-N2
+c9bf2cf5e plat/arm/board: enable AMU for RD-V1
+92264f86a plat/arm/sgi: allow all PSCI callbacks on RD-V1
+e01658ea9 plat: marvell: armada: a3k: Do not use 'echo -e' in Makefile
+711a6bb79 docs: marvell: Update info about WTMI_IMG option
+33af2937c docs: marvell: Update info about BOOTDEV=SATA
+4e80d1513 plat: marvell: armada: a3k: Remove unused variable WTMI_SYSINIT_IMG from Makefile
+07924f822 plat: marvell: armada: Show informative build messages and blank lines
+c0f60e783 plat: marvell: armada: Move definition of mrvl_flash target to common marvell_common.mk file
+907f8fc10 plat: marvell: armada: a3k: Use $(Q) instead of @
+8b9209736 plat: marvell: armada: a3k: Add a new target mrvl_uart which builds UART image
+57987415b plat: marvell: armada: a3k: Build UART image files directly in $(BUILD_UART) subdirectory
+d4dc8311f plat: marvell: armada: a3k: Build intermediate files in $(BUILD_PLAT) directory
+b50c715b9 plat: marvell: armada: a3k: Correctly set DDR_TOPOLOGY and CLOCKSPRESET for WTMI
+8708a884a plat: marvell: armada: a3k: Allow use of the system Crypto++ library
+c2d32a5f8 Fix exception handlers in BL31: Use DSB to synchronize pending EA
+5bc6f2842 Merge "tools: cert_create: Create only requested certificates" into integration
+af99182c0 Merge "fdts: Fix stdout-path in various platforms" into integration
+494be3ee0 docs: marvell: Update info about WTP and MV_DDR_PATH parameters
+edb4a8a29 plat: marvell: armada: a3k: Add checks that WTP, MV_DDR_PATH and CRYPTOPP_PATH are correctly defined
+42ea70e86 Merge "cert-tool: avoid duplicates in extension stack" into integration
+fcb0ea19a fdts: Fix stdout-path in various platforms
+26dccba6d Merge changes from topic "scmi-msg" into integration
+1ed941c0b cert-tool: avoid duplicates in extension stack
+294e26566 tools: cert_create: Create only requested certificates
+70311692f Merge "Fix documentation typos and misspellings" into integration
+1ddf38e85 Merge changes from topic "tp-feat-rng" into integration
+1cea02133 docs: marvell: Update mv-ddr-marvell and A3700-utils-marvell branches
+036e9c177 Merge changes I635cf82e,Iee3b4e0d into integration
+009553fc1 Merge "plat/arm: css: Turn ON/OFF redistributor in sync with GIC CPU interface ON/OFF" into integration
+12b66a919 doc: maintainers: add scmi server
+b23ab8eb3 allwinner: Allow conditional compilation of SCPI and native PSCI ops
+fe753c974 allwinner: Split native and SCPI-based PSCI implementations
+dae98b3a9 allwinner: psci: Improve system shutdown/reset sequence
+975d076d4 allwinner: psci: Drop .pwr_domain_pwr_down_wfi callback
+a1d349beb allwinner: Separate code to power off self and other CPUs
+ed267c92a allwinner: Leave CPU power alone during BL31 setup
+814dce8f9 allwinner: psci: Invert check in .validate_ns_entrypoint
+772ef7e7a allwinner: psci: Drop MPIDR check from .pwr_domain_on
+a1473c99e allwinner: psci: Drop .get_node_hw_state callback
+49e4a5fca Merge "docs: marvell: armada: Update MARVELL_PLATFORM list and build instructions" into integration
+d4d55f99a Merge "stm32mp1: correct plat_crash_console_flush()" into integration
+0ac8591df Merge "DebugFS: Check channel index before calling clone function" into integration
+aeb727f3b stm32mp1: correct plat_crash_console_flush()
+0b2b83ea9 Merge changes I2add6b4b,I9b296372,I7af2f1d1 into integration
+b226c7473 DebugFS: Check channel index before calling clone function
+47147013b Fix documentation typos and misspellings
+d194afa71 Merge changes I44ef50da,I9802e9a3 into integration
+c5a25e403 Merge "plat: xilinx: versal: Remove code duplication" into integration
+0301d09ce plat/arm/css/sgi: Fix assert expression issue
+9feb1e2f4 plat/arm/css/sgi: Fix bl32 receive event - 0xC4000061 issue
+6b2924bbb Merge changes Ic9bacaf3,I99a18dbb,I34803060,I3ed55aa4,Ic8eed072, ... into integration
+3adf6012f Merge changes I19e4e7f5,I226b6e33 into integration
+43d97fae9 Merge changes from topic "qemu-sbsa-topology-psci" into integration
+4d8c18196 plat/arm: css: Turn ON/OFF redistributor in sync with GIC CPU interface ON/OFF
+f621d5fb4 plat: xilinx: versal: Remove code duplication
+7981c5043 libc/snprintf: use macro to reduce duplicated code
+c65461546 libc/snprintf: add support to print "%" character
+128c5f028 libc/printf: add support to print "%" character
+b47343089 drivers: move scmi-msg out of st
+2fb5ed473 qemu/qemu_sbsa: add support for sbsa-ref Embedded Controller
+5565ede44 qemu/qemu_sbsa: topology is different from qemu so add handling
+916a7e11e qemu/common : change DEVICE2 definition for MMU
+3063177e3 qemu/aarch64/plat_helpers.S : calculate the position shift
+f03c4ea8e Merge "fdts: stm32mp1: add support for Linux Automation MC-1 board" into integration
+83683ddd3 plat/qemu: Use RNDR in stack protector
+2fbb60642 fdts: stm32mp1: add support for Linux Automation MC-1 board
+b8e637f49 marvell: uart: a3720: Fix macro name for 6th bit of Status Register
+74867756e marvell: uart: a3720: Implement console_a3700_core_getc
+6047a1053 Merge changes I3c0a402f,I9ce5b9df,I08719015,If541278f,I99f1a697 into integration
+12cd65e09 Makefile: Add FEAT_RNG support define
+7c802c715 Define registers for FEAT_RNG support
+dfa04b3dc Merge changes from topic "certtool-memleak" into integration
+57d6f8392 Merge "tools: don't clean when building" into integration
+337e49330 Merge changes I36e4d672,I47610cee into integration
+65d227c3a Merge changes Ie8922309,I1001bea1,I66265e5e,I2cc0ceda,I04805d72, ... into integration
+fc037ffc9 Merge changes Id2b1822c,Ia9a563a1,I11f65d49,If9318a51,I46801b56, ... into integration
+88e33b0c6 Merge "docs: update fvp version to be used for rdv1 platform" into integration
+d0b367b77 docs: marvell: armada: Update MARVELL_PLATFORM list and build instructions
+0b1838a97 lib/extensions/ras: fix bug of binary search
+263ee781c Workaround for Cortex N1 erratum 1946160
+3a2710dca Workaround for Cortex A78 erratum 1951500
+afda405b3 doc: renesas: Update RZ/G2 code owner list
+d60642a46 doc: renesas: Update code owner for Renesas platforms
+94a73ef33 plat: renesas: rzg: DT memory node enhancements
+2bc485858 doc: renesas: Document platforms based on RZ/G2 SoC's
+b9adcf563 renesas: rzg: emmc: Enable RZ/G2M support
+618522eb2 renesas: rzg: Add PFC support for RZ/G2M
+db10bad9f plat: renesas: rzg: Add HopeRun HiHope RZ/G2M board support
+5948f47ff drivers: renesas: rzg: Add HiHope RZ/G2M board support
+6369498c0 tools: renesas: Add tool support for RZ/G2 platforms
+f4db9216f renesas: rzg: Add QoS support for RZ/G2M
+06ea86fee docs: update fvp version to be used for rdv1 platform
+69a916595 tools: don't clean when building
+27bbfca97 plat: renesas: common: Include ulcb_cpld.h conditionally
+ed4fde312 renesas: rzg: Add support for DRAM initialization
+499c2713f plat: renesas: Move to common
+fd9b3c5ae plat: renesas: aarch64: Move to common
+662d3cc80 drivers: renesas: Move ddr/qos/qos header files
+f1be07922 drivers: renesas: rpc: Move to common
+b50b6c814 drivers: renesas: avs: Move to common
+9a0c8b7c5 drivers: renesas: auth: Move to common
+6f97490e2 drivers: renesas: dma: Move to common
+d58da3140 drivers: renesas: watchdog: Move to common
+be92e5a22 drivers: renesas: Move plat common sources
+e17997dfd drivers: renesas: rom: Move to common
+011a4c2f0 plat: renesas: Move headers and assembly files to common folder
+cdcf1f149 drivers: renesas: delay: Move to common
+f02096399 plat: renesas: rcar: include: Code cleanup
+865e34741 drivers: renesas: console: Move to common
+157c4fcaf plat: renesas:rcar: Fix checkpatch warnings
+c40739a68 drivers: renesas: pwrc: Move to common
+384345874 plat: renesas: rcar: Fix checkpatch warnings
+2ddb55752 drivers: renesas: io: Move to common
+788ec26b5 plat: renesas:rcar: Code cleanup
+b28c29d00 drivers: renesas: eMMC: Move to common
+ca7145009 plat: renesas: rcar: Fix coding style
+986f8330e Merge "qemu/qemu_sbsa: enable secure variable storage" into integration
+74c87a4bc qemu/qemu_sbsa: enable secure variable storage
+031d479dd Merge "Workaround for Cortex A78 erratum 1941498" into integration
+e26c59d2c Workaround for Cortex A78 erratum 1941498
+6e886a475 Merge "zynqmp: pm: Add support for PS and system reset on WDT restart" into integration
+0a67923b9 zynqmp: pm: Add support for PS and system reset on WDT restart
+1f64caeac Merge "plat: marvell: armada: a3k: improve 4GB DRAM usage from 3.375 GB to 3.75 GB" into integration
+a968304fd Merge "zynqmp: pm: Update PM version and support PM version check" into integration
+dccad4778 Merge changes from topic "renaming_daniel" into integration
+19fe3c729 zynqmp: pm: Update PM version and support PM version check
+a33668bd9 Merge "plat: xilinx: Fix non-MISRA compliant code" into integration
+b04921f73 plat: marvell: armada: a3k: improve 4GB DRAM usage from 3.375 GB to 3.75 GB
+e8a96e3e2 Merge changes I46cd4d9b,Iba009587,I41d146e8,Ic66ceab3,Iff46838a, ... into integration
+974214d4a Merge "cadence: Change logic in uart driver" into integration
+bc0d8c741 Merge changes I07c35829,Iec7dd019,Ic7406aa8,I4eac94f0 into integration
+0b3d4273f cadence: Change logic in uart driver
+eb52759a1 drivers: renesas: rcar: io: Code cleanup
+240c9cbf1 drivers: renesas: rcar: dma: Fix coding style
+cb413426f drivers: renesas: rcar: pwrc: Code cleanup
+ee0dbc410 drivers: renesas: rcar: delay: Fix checkpatch warnings
+95e1166e8 drivers: renesas: rcar: common: Code cleanup
+41b1a3009 drivers: renesas: rcar: avs: Fix checkpatch warnings
+041c581e2 drivers: renesas: rcar: watchdog: Fix typo
+5ee92a748 drivers: renesas: rcar: auth: Use space instead of TAB
+2f943087b drivers: renesas: rcar: scif: Fix coding style
+c58633854 drivers: renesas: rcar: iic_dvfs: Fix coding style
+90aecf1e0 plat/arm: rename rddanielxlr to rdv1mc
+edf771a11 plat/arm: rename rddaniel to rdv1
+e43258fa0 plat: xilinx: Fix non-MISRA compliant code
+4727fd132 Makefile: Fix ${FIP_NAME} to be rebuilt only when needed
+a98122064 Makefile: Do not mark file targets as .PHONY target
+f422a7bf5 Merge "AArch64: Fix assertions in processing dynamic relocations" into integration
+a59085b55 Merge "drivers: renesas: rcar: eMMC driver code clean up" into integration
+fde125cb6 Merge "plat: marvell: armada: a3k: support doing system reset via CM3 secure coprocessor" into integration
+24ca0fa6a Merge changes from topic "xilinx-sd-tap-delay" into integration
+db9736e3d AArch64: Fix assertions in processing dynamic relocations
+d9243f264 plat: marvell: armada: a3k: support doing system reset via CM3 secure coprocessor
+4811168aa Merge "Plat AXG: Fix PLAT_MAX_PWR_LVL value" into integration
+a31de1e80 Merge changes from topic "zynqmp-new-apis" into integration
+504925f99 xilinx: zynqmp: Add support for Error Management
+1f9101945 zynqmp:pm: Adds new zynqmp-pm api SMC call for efuse
+d716f045f zynqmp : pm : Adds new zynqmp-pm api SMC call for register access
+484752f32 Merge "marvell: uart: a3720: Implement console_a3700_core_flush" into integration
+47f2445ad Plat AXG: Fix PLAT_MAX_PWR_LVL value
+c390ecd6d Merge changes I8cd2c1c9,I697711ee,I4a0ec150,I4f8064b9,Ie22cb2a3, ... into integration
+e63e4140e marvell: uart: a3720: Implement console_a3700_core_flush
+84af89563 ti: k3: Introduce lite device board support
+7f323eb2d ti: k3: common: sec_proxy: Introduce sec_proxy_lite definition
+ff7b75e21 ti: k3: Move USE_COHERENT_MEM only for the generic board
+22b7a2298 ti: k3: drivers: ti_sci: Update ti_sci_msg_req_reboot to include domain
+f577388a3 ti: k3: common: sec_proxy: Fill non-message data fields with 0x0
+6a22d9ea3 ti: k3: common: Make plat_get_syscnt_freq2 check CNT_FID0 GTC reg
+60fba7c8e ti: k3: common: Enable A72 erratum 1319367
+c3e23332b ti: k3: common: Enable A53 erratum 1530924
+74ac817a6 maintainers: Update maintainers for TI port
+db7571a2e Merge changes from topic "zynqmp-update-pinctrl-api" into integration
+dea59794f Merge "PSCI: fix limit of 256 CPUs caused by cast to unsigned char" into integration
+8fdebc945 Merge changes I65450c63,I71d0aa82,Ia395eb32,I4aaed371 into integration
+fe7366ab1 Merge changes I3703868b,Ie77476db into integration
+be7dc2df9 Merge "allwinner: Fix non-default PRELOADED_BL33_BASE" into integration
+b51d466ae Merge "allwinner: Enable workaround for Cortex-A53 erratum 1530924" into integration
+29912cb65 Merge changes I0c5f32e8,Id49c124c,Idcfe933d into integration
+a86865ac4 PSCI: fix limit of 256 CPUs caused by cast to unsigned char
+669ee776c Merge changes from topic "tc0_optee_sp" into integration
+a492527b1 drivers: renesas: rcar: eMMC driver code clean up
+bc607ccc4 Merge "Workaround for Cortex A76 erratum 1946160" into integration
+3f0d83695 Workaround for Cortex A76 erratum 1946160
+2773536b1 Merge "plat/arm/rdn2: update gic redistributor base address" into integration
+b686d3309 mediatek: mt8192: add rtc power off sequence
+44ad5d67c mediatek: mt8192: Fix non-MISRA compliant code
+04589e2b1 mediatek: mt8192: Fix non-MISRA compliant code
+42f2fa823 mediatek: mt8192: Add MPU support
+fb86e5373 plat/arm/rdn2: update gic redistributor base address
+29a8814f4 Merge "Add support for FEAT_MTPMU for Armv8.6" into integration
+95c3ebcb8 zynqmp: pm: Reimplement pinctrl get/set config parameter EEMI API calls
+10a346d9c zynqmp: pm: Reimplement pinctrl set/get function EEMI API
+43a029cb9 zynqmp: pm: Implement pinctrl request/release EEMI API
+4b310108b zynqmp: pm: Update return type in query functions
+b153ce039 fdts: tc0: Add reserved-memory node for OP-TEE
+39460d057 plat: tc0: OP-TEE as S-EL1 SP with SPMC at S-EL2
+be3a3bc71 docs: arm: Add OPTEE_SP_FW_CONFIG
+86069c0cb plat: tc0: enable opteed support
+f66827c0a plat: arm: Increase SP max size
+7060e0d89 allwinner: Use RSB for the PMIC connection on H6
+447029833 allwinner: Return the PMIC to I2C mode after use
+d6fdb52b9 allwinner: Always use a 3MHz RSB bus clock
+74665119f allwinner: Enable workaround for Cortex-A53 erratum 1530924
+3d36d8e60 allwinner: Fix non-default PRELOADED_BL33_BASE
+49d98cd54 allwinner: Add SPC security setup for H6
+978a82409 allwinner: Add R_PRCM security setup for H6
+de1557905 Merge "TF-A: Add build option for Arm Feature Modifiers" into integration
+bd054fd66 Merge changes from topic "rdevans" into integration
+0063dd170 Add support for FEAT_MTPMU for Armv8.6
+f18217902 TF-A: Add build option for Arm Feature Modifiers
+fe1fa205f plat: zynqmp: Disable ITAPDLYENA bit for zero ITAP delay
+2ab0ef8db plat: zynqmp: Check for DLL status before doing reset
+2736aca59 Merge "xilinx: versal: fix static failure" into integration
+a82b5f70f xilinx: versal: fix static failure
+852e49407 Merge changes from topic "versal-bug-fixes-and-new-apis" into integration
+c8e862367 Merge changes from topic "secure_no_primary" into integration
+b4b23c780 Merge "docs: Update the FIP generation process using SP images" into integration
+745da67b2 docs: Update the FIP generation process using SP images
+7b24e48a4 doc: Update list of supported FVP platforms
+34e443e21 board/rdn2: add board support for rdn2 platform
+6bb9f7a1a plat/arm/sgi: adapt to changes in memory map
+1b19ad684 plat/arm/sgi: add platform id value for rdn2 platform
+284efb16b plat/arm/sgi: platform definitions for upcoming platforms
+60f995fd9 plat/arm/sgi: refactor header file inclusions
+db2aeddc7 plat/arm/sgi: refactor the inclusion of memory mapping
+aa47d59d4 Merge "rcar_gen3: drivers: console: Treat log as device memory" into integration
+f0f3d3687 Merge changes from topic "zynqmp-bug-fixes" into integration
+605767475 rcar_gen3: drivers: console: Treat log as device memory
+c8f625368 zynqmp: pm: Update flags in common clk divisor node
+f2afaad07 zynqmp: pm_api_clock: Copy only the valid bytes
+77990838a Merge changes Ibbee37c8,Ic3a13c83,Ib7f2380a,I83b477fd,I284956d4, ... into integration
+89832ac9e spm: provide number of vCPUs and VM size for first SP
+5134fcbb4 spm: remove chosen node from SPMC manifests
+76d22f06d spm: move OP-TEE SP manifest DTS to FVP platform
+3ac8680cb spm: update OP-TEE SP manifest with device-regions node
+b635d11bc spm: remove device-memory node from SPMC manifests
+43d7bbcc6 mediatek: mt8192: dcm: Add mcusys related dcm drivers
+8709c939d mediatek: mt8192: add ptp3 driver
+189f038f5 mediatek: mt8192: Add SiP service
+bb28dc7ae mediatek: mt8192: add uart save and restore api
+49fd68abe mediatek: mt8192: modify sys_cirq driver
+26f3dbe2d mediatek: mt8192: add power-off support
+cbd6331be mediatek: mt8192: add pmic mt6359p driver
+95cc88948 mediatek: mt8192: Initialize delay_timer
+f3fbacaa9 mediatek: mt8192: enable NS access for systimer
+82c00c2ff mediatek: mt8192: Add CPU hotplug and MCDI support
+271d9497d mediatek: mt8192: Add MCDI drivers
+3d1e536ee mediatek: mt8192: Add SPMC driver
+0b18d5a5d Merge changes from topic "zynqmp-misc-enhancement" into integration
+cd6eaab62 Merge changes from topic "marvell-a3k-makefile" into integration
+6af122867 plat: xilinx: versal: Add support of register notifier
+b6d7b3e9d plat: xilinx: versal: Add support to get clock rate value
+07d8a5f7d plat: xilinx: versal: Add support of set max latency for the device
+2cc1fa953 plat: versal: Add InitFinalize API call
+1ba2d84fe xilinx: versal: Updated Response of QueryData API call
+abf27efac plat:xilinx:versal: Use defaults when PDI is without sw partitions
+addc4e969 plat: xilinx: Mask unnecessary bytes of return error code
+d4c7b5505 xilinx: versal: Skip store/restore of GIC during CPU idle
+4b8ab607e plat: versal: Update API list in feature check
+b05d2792a xilinx: versal: Do not pass ACPU0 always in set_wakeup_source()
+e33370828 plat: marvell: armada: a3k: Simplify check if WTP variable is defined
+bc1f36874 plat: marvell: armada: a3k: Split building $(WTMI_MULTI_IMG) and $(TIMDDRTOOL)
+23b1be79d plat: marvell: armada: Maximal size of bl1 image in mrvl_bootimage is 128kB
+e4bbd39c6 plat: marvell: armada: Add missing FORCE, .PHONY and clean targets
+ed9bae6ad plat: marvell: armada: a3k: Use make ifeq/endif syntax for $(MARVELL_SECURE_BOOT) code
+bafc9476b plat: marvell: armada: a3k: Build $(WTMI_ENC_IMG) in $(BUILD_PLAT) directory
+2f852b89b plat: marvell: armada: a3k: Do not remove external WTMI image files outside of TF-A repository
+13aa89562 plat: marvell: armada: a3k: Do not modify $(WTMI_MULTI_IMG)
+bdcd1bd0a plat: marvell: armada: a3k: Do not modify $(WTMI_IMG)
+490d81d2f plat: xilinx: zynqmp: Enable log messages for debug
+a7379a2ab plat: zynqmp: Change macro name of PM_BOOT_HEALTH_STATUS_REG
+7fc19b8ea Merge "qemu/qemu_sbsa: increase SHARED_RAM_SIZE" into integration
+307f3b90c Merge "plat: xilinx: zynqmp: Include GICv2 makefile" into integration
+84f2e34fe plat: xilinx: zynqmp: Include GICv2 makefile
+79df6ea43 Merge "plat: xilinx: Use fno-jump-tables flag in CPPFLAGS" into integration
+49462851a Merge ".editorconfig: set max line length to 100" into integration
+5e5c399de Merge "plat: marvell: Update SUBVERSION to match Marvell's forked version" into integration
+279f77b49 .editorconfig: set max line length to 100
+99ddfc0e4 Merge "Aarch64: Add support for FEAT_PANx extensions" into integration
+5e8911a03 Merge "Aarch64: Add support for FEAT_MTE3" into integration
+088869407 Merge "rockchip: Add support for the stack protector" into integration
+0563ab08e Aarch64: Add support for FEAT_MTE3
+91cc872c6 Merge "Add myself and Venkatesh Yadav Abbarapu as code owners for Xilinx platforms" into integration
+9dd2896e6 Merge "Add support for Neoverse-N2 CPUs." into integration
+54b590ec0 qemu/qemu_sbsa: increase SHARED_RAM_SIZE
+826ba363c rockchip: Add support for the stack protector
+25bbbd2d6 Add support for Neoverse-N2 CPUs.
+a83103c82 Aarch64: Add support for FEAT_PANx extensions
+9acf57362 Merge changes from topic "xilinx-pm-mainline-linux" into integration
+441e7f489 Merge "mediatek: mt8183: add timer V20 compensation" into integration
+38f7e32ea Merge changes I5ad52909,Iea3214a2 into integration
+9272a8fd7 Merge "plat:qti Mandate SMC implementaion" into integration
+de7091a1f fdts: Add VirtIO network device to Morello FVP
+5c336e063 fdts: Remove "virtio-rng" from Morello FVP
+7cf307d20 Merge "plat/nvidia: tegra: Rename SMC API" into integration
+a68626070 Merge "plat/qemu_sbsa: Include libraries for Cortex-A72" into integration
+5f14ca993 plat/qemu_sbsa: Include libraries for Cortex-A72
+840fa94aa plat/nvidia: tegra: Rename SMC API
+7a0f795ee plat:qti Mandate SMC implementaion
+20c378920 Merge changes from topic "mrvl_bootimage" into integration
+d22db1b05 plat: marvell: Update SUBVERSION to match Marvell's forked version
+f20cb7e54 docs: marvell: Update build documentation to reflect mrvl_bootimage and mrvl_flash changes
+91bc2da73 plat: marvell: armada: Add new target mrvl_bootimage
+c6a7ab778 plat: marvell: armada: a3k: Add support for building $(DOIMAGETOOL)
+7b12a8d67 Merge "Revert workaround for A77 erratum 1800714" into integration
+b9ad2bb83 Merge "Revert workaround for A76 erratum 1800710" into integration
+7096a45ae Merge "Fix typos and misspellings" into integration
+730495c7c Merge "TSP: Fix GCC 11.0.0 compilation error." into integration
+caff3c872 TSP: Fix GCC 11.0.0 compilation error.
+9bbc03a6e Revert workaround for A77 erratum 1800714
+95ed9a9e0 Revert workaround for A76 erratum 1800710
+5d9101b39 Fix typos and misspellings
+942d0c7c1 Add myself and Venkatesh Yadav Abbarapu as code owners for Xilinx platforms
+e9930d42c plat: xilinx: Use fno-jump-tables flag in CPPFLAGS
+a8b10c649 zynqmp: pm: update error codes to match Linux and PMU Firmware
+c23cf0530 zynqmp: pm: Filter errors related to clock gate permissions
+774ba5a23 mediatek: mt8183: add timer V20 compensation
+bcad20308 Use preallocated parts of the HASH struct
+4a34d18f3 Free arguments copied with strdup
+1f111f12b Free keys after use
+bea801982 Free X509_EXTENSIONs
