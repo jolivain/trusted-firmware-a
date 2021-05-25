@@ -23,6 +23,7 @@
 #endif
 	.global	save_gp_pmcr_pauth_regs
 	.global	restore_gp_pmcr_pauth_regs
+	.global reset_unset_pstate_bits
 	.global save_and_update_ptw_el1_sys_regs
 	.global	el3_exit
 
@@ -677,6 +678,9 @@ endfunc fpregs_context_restore
  * It also checks if Secure Cycle Counter is not disabled in MDCR_EL3
  * when ARMv8.5-PMU is implemented, and if called from Non-secure
  * state saves PMCR_EL0 and disables Cycle Counter.
+ * Finally it sets any of the PSTATE bits that are not set by hardware
+ * according to the Aarch64.TakeException pseudocode in the Arm
+ * Architecture Reference Manual
  *
  * Ideally we would only save and restore the callee saved registers
  * when a world switch occurs but that type of implementation is more
@@ -759,6 +763,12 @@ func save_gp_pmcr_pauth_regs
 	stp	x28, x29, [x19, #CTX_PACGAKEY_LO]
 #endif /* CTX_INCLUDE_PAUTH_REGS */
 
+	/*
+	 * Set the PSTATE bits not described in the Aarch64.TakeException
+	 * pseudocode to their default values.
+	 */
+	bl reset_unset_pstate_bits
+
 	ret
 endfunc save_gp_pmcr_pauth_regs
 
@@ -834,6 +844,29 @@ func restore_gp_pmcr_pauth_regs
 	ldp	x28, x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X28]
 	ret
 endfunc restore_gp_pmcr_pauth_regs
+
+/*
+ * Set the PSTATE bits not set when the exception was taken as described
+ * in the AArch64.TakeException() pseudocode function in ARM DDI 0487F.c
+ * page J1-7635 to a default value.
+ */
+func reset_unset_pstate_bits
+	/* Clear the condition bits to prevent leaking state from a lower EL */
+        msr     nzcv, xzr
+        /*
+         * If Data Independent Timing (DIT) functionality is implemented,
+         * always enable DIT in EL3
+         */
+        mrs     x8, id_aa64pfr0_el1
+        ubfx    x8, x8, #ID_AA64PFR0_DIT_SHIFT, #ID_AA64PFR0_DIT_LENGTH
+        cmp     x8, #ID_AA64PFR0_DIT_SUPPORTED
+        bne     1f
+        mov     x8, #DIT_BIT
+        msr     DIT, x8
+        1:
+        ret
+endfunc reset_unset_pstate_bits
+
 
 /*
  * In case of ERRATA_SPECULATIVE_AT, save SCTLR_EL1 and TCR_EL1
