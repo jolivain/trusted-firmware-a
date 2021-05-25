@@ -120,30 +120,6 @@ void amu_enable(bool el2_unused)
 		return;
 	}
 
-#if ENABLE_AMU_AUXILIARY_COUNTERS
-	if (AMU_GROUP1_NR_COUNTERS > 0U) {
-		/* Check and set presence of group 1 counters */
-		if (read_amcfgr_ncg() < 1U) {
-			ERROR("AMU Counter Group 1 is not implemented\n");
-			panic();
-		}
-
-		/* Check number of group 1 counters */
-		uint32_t cnt_num = read_amcgcr_cg1nc();
-
-		VERBOSE("%s%u. %s%u\n",
-			"Number of AMU Group 1 Counters ", cnt_num,
-			"Requested number ", AMU_GROUP1_NR_COUNTERS);
-
-		if (cnt_num < AMU_GROUP1_NR_COUNTERS) {
-			ERROR("%s%u is less than %s%u\n",
-			"Number of AMU Group 1 Counters ", cnt_num,
-			"Requested number ", AMU_GROUP1_NR_COUNTERS);
-			panic();
-		}
-	}
-#endif
-
 	if (el2_unused) {
 		/*
 		 * Non-secure access from EL0 or EL1 to the Activity Monitor
@@ -156,7 +132,7 @@ void amu_enable(bool el2_unused)
 	write_amcntenset0_px((UINT32_C(1) << read_amcgcr_cg0nc()) - 1U);
 
 #if ENABLE_AMU_AUXILIARY_COUNTERS
-	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+	if (read_amcfgr_ncg() > 0U) {
 		/* Enable group 1 counters */
 		write_amcntenset1_px(AMU_GROUP1_COUNTERS_MASK);
 	}
@@ -207,7 +183,7 @@ uint64_t amu_group1_cnt_read(unsigned  int idx)
 {
 	assert(read_id_pfr0_amu() != ID_PFR0_AMU_NOT_SUPPORTED);
 	assert(read_amcfgr_ncg() > 0U);
-	assert(idx < AMU_GROUP1_NR_COUNTERS);
+	assert(idx < read_amcgcr_cg1nc());
 
 	return amu_group1_cnt_read_internal(idx);
 }
@@ -217,7 +193,7 @@ void amu_group1_cnt_write(unsigned  int idx, uint64_t val)
 {
 	assert(read_id_pfr0_amu() != ID_PFR0_AMU_NOT_SUPPORTED);
 	assert(read_amcfgr_ncg() > 0U);
-	assert(idx < AMU_GROUP1_NR_COUNTERS);
+	assert(idx < read_amcgcr_cg1nc());
 
 	amu_group1_cnt_write_internal(idx, val);
 	isb();
@@ -231,7 +207,7 @@ void amu_group1_set_evtype(unsigned int idx, unsigned int val)
 {
 	assert(read_id_pfr0_amu() != ID_PFR0_AMU_NOT_SUPPORTED);
 	assert(read_amcfgr_ncg() > 0U);
-	assert(idx < AMU_GROUP1_NR_COUNTERS);
+	assert(idx < read_amcgcr_cg1nc());
 
 	amu_group1_set_evtype_internal(idx, val);
 	isb();
@@ -247,20 +223,12 @@ static void *amu_context_save(const void *arg)
 		return (void *)-1;
 	}
 
-#if ENABLE_AMU_AUXILIARY_COUNTERS
-	if (AMU_GROUP1_NR_COUNTERS > 0U) {
-		if (read_amcfgr_ncg() < 1U) {
-			return (void *)-1;
-		}
-	}
-#endif
-
 	/* Assert that group 0/1 counter configuration is what we expect */
 	assert(read_amcntenset0_px() ==
 		((UINT32_C(1) << read_amcgcr_cg0nc()) - 1U));
 
 #if ENABLE_AMU_AUXILIARY_COUNTERS
-	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+	if (read_amcfgr_ncg() > 0U) {
 		assert(read_amcntenset1_px() == AMU_GROUP1_COUNTERS_MASK);
 	}
 #endif
@@ -271,7 +239,7 @@ static void *amu_context_save(const void *arg)
 	write_amcntenclr0_px((UINT32_C(1) << read_amcgcr_cg0nc()) - 1U);
 
 #if ENABLE_AMU_AUXILIARY_COUNTERS
-	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+	if (read_amcfgr_ncg() > 0U) {
 		write_amcntenclr1_px(AMU_GROUP1_COUNTERS_MASK);
 	}
 #endif
@@ -284,9 +252,9 @@ static void *amu_context_save(const void *arg)
 	}
 
 #if ENABLE_AMU_AUXILIARY_COUNTERS
-	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+	if (read_amcfgr_ncg() > 0U) {
 		/* Save group 1 counters */
-		for (i = 0U; i < AMU_GROUP1_NR_COUNTERS; i++) {
+		for (i = 0U; i < read_amcgcr_cg1nc(); i++) {
 			if ((AMU_GROUP1_COUNTERS_MASK & (1U << i)) != 0U) {
 				ctx->group1_cnts[i] = amu_group1_cnt_read(i);
 			}
@@ -306,19 +274,11 @@ static void *amu_context_restore(const void *arg)
 		return (void *)-1;
 	}
 
-#if ENABLE_AMU_AUXILIARY_COUNTERS
-	if (AMU_GROUP1_NR_COUNTERS > 0U) {
-		if (read_amcfgr_ncg() < 1U) {
-			return (void *)-1;
-		}
-	}
-#endif
-
 	/* Counters were disabled in `amu_context_save()` */
 	assert(read_amcntenset0_px() == 0U);
 
 #if ENABLE_AMU_AUXILIARY_COUNTERS
-	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+	if (read_amcfgr_ncg() > 0U) {
 		assert(read_amcntenset1_px() == 0U);
 	}
 #endif
@@ -332,9 +292,9 @@ static void *amu_context_restore(const void *arg)
 	write_amcntenset0_px((UINT32_C(1) << read_amcgcr_cg0nc()) - 1U);
 
 #if ENABLE_AMU_AUXILIARY_COUNTERS
-	if (AMU_GROUP1_NR_COUNTERS > 0U) {
+	if (read_amcfgr_ncg() > 0U) {
 		/* Restore group 1 counters */
-		for (i = 0U; i < AMU_GROUP1_NR_COUNTERS; i++) {
+		for (i = 0U; i < read_amcgcr_cg1nc(); i++) {
 			if ((AMU_GROUP1_COUNTERS_MASK & (1U << i)) != 0U) {
 				amu_group1_cnt_write(i, ctx->group1_cnts[i]);
 			}
