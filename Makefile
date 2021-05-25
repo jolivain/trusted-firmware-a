@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2021, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -275,6 +275,13 @@ endif
 # Determine and enable FEAT_ECV to access CNTPOFF_EL2 register for v8.6 and higher versions.
 ifeq "8.6" "$(word 1, $(sort 8.6 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
 ENABLE_FEAT_ECV		=	1
+endif
+
+# Determine if FEAT_DIT is supported
+ENABLE_FEAT_DIT		=	$(if $(findstring dit,${arch-features}),1,0)
+
+ifeq "8.4" "$(word 1, $(sort 8.4 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+ENABLE_FEAT_DIT		= 	1
 endif
 
 ifneq ($(findstring armclang,$(notdir $(CC))),)
@@ -1044,6 +1051,7 @@ $(eval $(call assert_booleans,\
         USE_SP804_TIMER \
         ENABLE_FEAT_RNG \
         ENABLE_FEAT_SB \
+	ENABLE_FEAT_DIT \
         PSA_FWU_SUPPORT \
         ENABLE_TRBE_FOR_NS \
         ENABLE_SYS_REG_TRACE_FOR_NS \
@@ -1157,6 +1165,7 @@ $(eval $(call add_defines,\
         USE_SP804_TIMER \
         ENABLE_FEAT_RNG \
         ENABLE_FEAT_SB \
+	ENABLE_FEAT_DIT \
         NR_OF_FW_BANKS \
         NR_OF_IMAGES_IN_FW_BANK \
         PSA_FWU_SUPPORT \
