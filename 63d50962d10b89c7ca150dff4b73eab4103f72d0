@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b4e7f43_ba998e9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-05-25T16:57:49Z",
+      "side": 1,
+      "message": "\u003e Patch Set 14:\n\u003e \n\u003e Build finished: 247 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l2/build/247/)\n\u003e Some tests failed (6)\n\nLooking at these and some of the other results, it looks like there is a juno in the test framework which is unreliable. None of my changes are going to be early enough to cause the usb_on command to fail.\n\nAnd the scmi bits have failures on sets other than mine.\n",
+      "revId": "63d50962d10b89c7ca150dff4b73eab4103f72d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
