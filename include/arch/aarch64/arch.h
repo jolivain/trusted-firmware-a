@@ -496,7 +496,8 @@
 #define VTTBR_BADDR_SHIFT	U(0)
 
 /* HCR definitions */
-#define HCR_AMVOFFEN_BIT	(ULL(1) << 51)
+#define HCR_AMVOFFEN_SHIFT	U(51)
+#define HCR_AMVOFFEN_BIT	(ULL(1) << HCR_AMVOFFEN_SHIFT)
 #define HCR_API_BIT		(ULL(1) << 41)
 #define HCR_APK_BIT		(ULL(1) << 40)
 #define HCR_E2H_BIT		(ULL(1) << 34)
@@ -530,7 +531,8 @@
 
 /* CPTR_EL3 definitions */
 #define TCPAC_BIT		(U(1) << 31)
-#define TAM_BIT			(U(1) << 30)
+#define TAM_SHIFT		U(30)
+#define TAM_BIT			(U(1) << TAM_SHIFT)
 #define TTA_BIT			(U(1) << 20)
 #define TFP_BIT			(U(1) << 10)
 #define CPTR_EZ_BIT		(U(1) << 8)
@@ -539,7 +541,8 @@
 /* CPTR_EL2 definitions */
 #define CPTR_EL2_RES1		((U(1) << 13) | (U(1) << 12) | (U(0x3ff)))
 #define CPTR_EL2_TCPAC_BIT	(U(1) << 31)
-#define CPTR_EL2_TAM_BIT	(U(1) << 30)
+#define CPTR_EL2_TAM_SHIFT	U(30)
+#define CPTR_EL2_TAM_BIT	(U(1) << CPTR_EL2_TAM_SHIFT)
 #define CPTR_EL2_TTA_BIT	(U(1) << 20)
 #define CPTR_EL2_TFP_BIT	(U(1) << 10)
 #define CPTR_EL2_TZ_BIT		(U(1) << 8)
@@ -998,6 +1001,22 @@
 #define AMEVTYPER1E_EL0		S3_3_C13_C15_6
 #define AMEVTYPER1F_EL0		S3_3_C13_C15_7
 
+/* AMCNTENSET0_EL0 definitions */
+#define AMCNTENSET0_EL0_Pn_SHIFT	U(0)
+#define AMCNTENSET0_EL0_Pn_MASK		ULL(0xffff)
+
+/* AMCNTENSET1_EL0 definitions */
+#define AMCNTENSET1_EL0_Pn_SHIFT	U(0)
+#define AMCNTENSET1_EL0_Pn_MASK		ULL(0xffff)
+
+/* AMCNTENCLR0_EL0 definitions */
+#define AMCNTENCLR0_EL0_Pn_SHIFT	U(0)
+#define AMCNTENCLR0_EL0_Pn_MASK		ULL(0xffff)
+
+/* AMCNTENCLR1_EL0 definitions */
+#define AMCNTENCLR1_EL0_Pn_SHIFT	U(0)
+#define AMCNTENCLR1_EL0_Pn_MASK		ULL(0xffff)
+
 /* AMCFGR_EL0 definitions */
 #define AMCFGR_EL0_NCG_SHIFT	U(28)
 #define AMCFGR_EL0_NCG_MASK	U(0xf)
@@ -1029,7 +1048,8 @@
 #define AMCG1IDR_VOFF_SHIFT	U(16)
 
 /* New bit added to AMCR_EL0 */
-#define AMCR_CG1RZ_BIT		(ULL(0x1) << 17)
+#define AMCR_CG1RZ_SHIFT	U(17)
+#define AMCR_CG1RZ_BIT		(ULL(0x1) << AMCR_CG1RZ_SHIFT)
 
 /*
  * Definitions for virtual offset registers for architected activity monitor
