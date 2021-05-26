@@ -16,6 +16,23 @@
       "message": "Please fix the static check fails:\nhttps://ci.trustedfirmware.org/job/tf-static-checks/518/",
       "revId": "1f38d325ae947f00cb4b8c2c051787dc0dd6c274",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "483f692f_1708db23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000133
+      },
+      "writtenOn": "2021-05-26T01:01:04Z",
+      "side": 1,
+      "message": "quick question: did MTK run the static checks? @Rex can you help Flora to make sure the changes always have passed the checks before uploading?",
+      "revId": "1f38d325ae947f00cb4b8c2c051787dc0dd6c274",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
