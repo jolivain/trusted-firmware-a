@@ -19,26 +19,123 @@
 
 static struct amu_ctx amu_ctxs[PLATFORM_CORE_COUNT];
 
-/*
- * Get AMU version value from aa64pfr0.
- * Return values
- *   ID_AA64PFR0_AMU_V1: FEAT_AMUv1 supported (introduced in ARM v8.4)
- *   ID_AA64PFR0_AMU_V1P1: FEAT_AMUv1p1 supported (introduced in ARM v8.6)
- *   ID_AA64PFR0_AMU_NOT_SUPPORTED: not supported
- */
-static unsigned int amu_get_version(void)
+static inline uint64_t read_id_aa64pfr0_el1_amu(void)
 {
-	return (unsigned int)(read_id_aa64pfr0_el1() >> ID_AA64PFR0_AMU_SHIFT) &
+	return (read_id_aa64pfr0_el1() >> ID_AA64PFR0_AMU_SHIFT) &
 		ID_AA64PFR0_AMU_MASK;
 }
 
-#if AMU_GROUP1_NR_COUNTERS
-/* Check if group 1 counters is implemented */
-static bool amu_group1_supported(void)
+static inline uint64_t read_hcr_el2_amvoffen(void)
 {
-	uint64_t features = read_amcfgr_el0() >> AMCFGR_EL0_NCG_SHIFT;
+	return (read_hcr_el2() & HCR_AMVOFFEN_BIT) >>
+		HCR_AMVOFFEN_SHIFT;
+}
 
-	return (features & AMCFGR_EL0_NCG_MASK) == 1U;
+static inline void write_cptr_el2_tam(uint64_t value)
+{
+	write_cptr_el2((read_cptr_el2() & ~CPTR_EL2_TAM_BIT) |
+		((value << CPTR_EL2_TAM_SHIFT) & CPTR_EL2_TAM_BIT));
+}
+
+static inline void write_cptr_el3_tam(cpu_context_t *ctx, uint64_t tam)
+{
+	uint64_t value = read_ctx_reg(get_el3state_ctx(ctx), CTX_CPTR_EL3);
+
+	value &= ~TAM_BIT;
+	value |= (tam << TAM_SHIFT) & TAM_BIT;
+
+	write_ctx_reg(get_el3state_ctx(ctx), CTX_CPTR_EL3, value);
+}
+
+static inline void write_hcr_el2_amvoffen(uint64_t value)
+{
+	write_hcr_el2((read_hcr_el2() & ~HCR_AMVOFFEN_BIT) |
+		((value << HCR_AMVOFFEN_SHIFT) & HCR_AMVOFFEN_BIT));
+}
+
+static inline void write_amcr_el0_cg1rz(uint64_t value)
+{
+	write_amcr_el0((read_amcr_el0() & ~AMCR_CG1RZ_BIT) |
+		((value << AMCR_CG1RZ_SHIFT) & AMCR_CG1RZ_BIT));
+}
+
+#if AMU_GROUP1_NR_COUNTERS
+static inline uint64_t read_amcfgr_el0_ncg(void)
+{
+	return (read_amcfgr_el0() >> AMCFGR_EL0_NCG_SHIFT) &
+		AMCFGR_EL0_NCG_MASK;
+}
+
+static inline uint64_t read_amcg1idr_el0_voff(void)
+{
+	return (read_amcg1idr_el0() >> AMCG1IDR_VOFF_SHIFT) &
+		AMCG1IDR_VOFF_MASK;
+}
+
+static inline uint64_t read_amcgcr_el0_cg1nc(void)
+{
+	return (read_amcgcr_el0() >> AMCGCR_EL0_CG1NC_SHIFT) &
+		AMCGCR_EL0_CG1NC_MASK;
+}
+#endif
+
+#if ENABLE_ASSERTIONS
+static inline uint64_t read_amcntenset0_el0_px(void)
+{
+	return (read_amcntenset0_el0() >> AMCNTENSET0_EL0_Pn_SHIFT) &
+		AMCNTENSET0_EL0_Pn_MASK;
+}
+#endif
+
+#if AMU_GROUP1_NR_COUNTERS && ENABLE_ASSERTIONS
+static inline uint64_t read_amcntenset1_el0_px(void)
+{
+	return (read_amcntenset1_el0() >> AMCNTENSET1_EL0_Pn_SHIFT) &
+		AMCNTENSET1_EL0_Pn_MASK;
+}
+#endif
+
+static inline void write_amcntenset0_el0_px(uint64_t px)
+{
+	uint64_t value = read_amcntenset0_el0();
+
+	value &= ~AMCNTENSET0_EL0_Pn_MASK;
+	value |= (px << AMCNTENSET0_EL0_Pn_SHIFT) & AMCNTENSET0_EL0_Pn_MASK;
+
+	write_amcntenset0_el0(value);
+}
+
+#if AMU_GROUP1_NR_COUNTERS
+static inline void write_amcntenset1_el0_px(uint64_t px)
+{
+	uint64_t value = read_amcntenset1_el0();
+
+	value &= ~AMCNTENSET1_EL0_Pn_MASK;
+	value |= (px << AMCNTENSET1_EL0_Pn_SHIFT) & AMCNTENSET1_EL0_Pn_MASK;
+
+	write_amcntenset1_el0(value);
+}
+#endif
+
+static inline void write_amcntenclr0_el0_px(uint64_t px)
+{
+	uint64_t value = read_amcntenclr0_el0();
+
+	value &= ~AMCNTENCLR0_EL0_Pn_MASK;
+	value |= (px << AMCNTENCLR0_EL0_Pn_SHIFT) & AMCNTENCLR0_EL0_Pn_MASK;
+
+	write_amcntenclr0_el0(value);
+}
+
+#if AMU_GROUP1_NR_COUNTERS
+static inline void write_amcntenclr1_el0_px(uint64_t px)
+{
+	uint64_t value = read_amcntenclr1_el0();
+
+	value &= ~AMCNTENCLR1_EL0_Pn_MASK;
+	value |= (px << AMCNTENCLR1_EL0_Pn_SHIFT) & AMCNTENCLR1_EL0_Pn_MASK;
+
+	write_amcntenclr1_el0(value);
 }
 #endif
 
@@ -48,23 +145,19 @@ static bool amu_group1_supported(void)
  */
 void amu_enable(bool el2_unused, cpu_context_t *ctx)
 {
-	uint64_t v;
-	unsigned int amu_version = amu_get_version();
-
-	if (amu_version == ID_AA64PFR0_AMU_NOT_SUPPORTED) {
+	if (read_id_aa64pfr0_el1_amu() == ID_AA64PFR0_AMU_NOT_SUPPORTED) {
 		return;
 	}
 
 #if AMU_GROUP1_NR_COUNTERS
 	/* Check and set presence of group 1 counters */
-	if (!amu_group1_supported()) {
+	if (read_amcfgr_el0_ncg() < 1) {
 		ERROR("AMU Counter Group 1 is not implemented\n");
 		panic();
 	}
 
 	/* Check number of group 1 counters */
-	uint64_t cnt_num = (read_amcgcr_el0() >> AMCGCR_EL0_CG1NC_SHIFT) &
-				AMCGCR_EL0_CG1NC_MASK;
+	uint64_t cnt_num = read_amcgcr_el0_cg1nc();
 	VERBOSE("%s%llu. %s%u\n",
 		"Number of AMU Group 1 Counters ", cnt_num,
 		"Requested number ", AMU_GROUP1_NR_COUNTERS);
@@ -82,9 +175,7 @@ void amu_enable(bool el2_unused, cpu_context_t *ctx)
 		 * CPTR_EL2.TAM: Set to zero so any accesses to
 		 * the Activity Monitor registers do not trap to EL2.
 		 */
-		v = read_cptr_el2();
-		v &= ~CPTR_EL2_TAM_BIT;
-		write_cptr_el2(v);
+		write_cptr_el2_tam(0);
 	}
 
 	/*
@@ -92,26 +183,24 @@ void amu_enable(bool el2_unused, cpu_context_t *ctx)
 	 * in 'ctx'. Set CPTR_EL3.TAM to zero so that any accesses to
 	 * the Activity Monitor registers do not trap to EL3.
 	 */
-	v = read_ctx_reg(get_el3state_ctx(ctx), CTX_CPTR_EL3);
-	v &= ~TAM_BIT;
-	write_ctx_reg(get_el3state_ctx(ctx), CTX_CPTR_EL3, v);
+	write_cptr_el3_tam(ctx, 0);
 
 	/* Enable group 0 counters */
-	write_amcntenset0_el0(AMU_GROUP0_COUNTERS_MASK);
+	write_amcntenset0_el0_px(AMU_GROUP0_COUNTERS_MASK);
 
 #if AMU_GROUP1_NR_COUNTERS
 	/* Enable group 1 counters */
-	write_amcntenset1_el0(AMU_GROUP1_COUNTERS_MASK);
+	write_amcntenset1_el0_px(AMU_GROUP1_COUNTERS_MASK);
 #endif
 
 	/* Initialize FEAT_AMUv1p1 features if present. */
-	if (amu_version < ID_AA64PFR0_AMU_V1P1) {
+	if (read_id_aa64pfr0_el1_amu() < ID_AA64PFR0_AMU_V1P1) {
 		return;
 	}
 
 	if (el2_unused) {
 		/* Make sure virtual offsets are disabled if EL2 not used. */
-		write_hcr_el2(read_hcr_el2() & ~HCR_AMVOFFEN_BIT);
+		write_hcr_el2_amvoffen(0);
 	}
 
 #if AMU_RESTRICT_COUNTERS
@@ -123,16 +212,16 @@ void amu_enable(bool el2_unused, cpu_context_t *ctx)
 	 * mapped view are unaffected.
 	 */
 	VERBOSE("AMU group 1 counter access restricted.\n");
-	write_amcr_el0(read_amcr_el0() | AMCR_CG1RZ_BIT);
+	write_amcr_el0_cg1rz(1U);
 #else
-	write_amcr_el0(read_amcr_el0() & ~AMCR_CG1RZ_BIT);
+	write_amcr_el0_cg1rz(0U);
 #endif
 }
 
 /* Read the group 0 counter identified by the given `idx`. */
 static uint64_t amu_group0_cnt_read(unsigned int idx)
 {
-	assert(amu_get_version() != ID_AA64PFR0_AMU_NOT_SUPPORTED);
+	assert(read_id_aa64pfr0_el1_amu() != ID_AA64PFR0_AMU_NOT_SUPPORTED);
 	assert(idx < AMU_GROUP0_NR_COUNTERS);
 
 	return amu_group0_cnt_read_internal(idx);
@@ -141,7 +230,7 @@ static uint64_t amu_group0_cnt_read(unsigned int idx)
 /* Write the group 0 counter identified by the given `idx` with `val` */
 static void amu_group0_cnt_write(unsigned  int idx, uint64_t val)
 {
-	assert(amu_get_version() != ID_AA64PFR0_AMU_NOT_SUPPORTED);
+	assert(read_id_aa64pfr0_el1_amu() != ID_AA64PFR0_AMU_NOT_SUPPORTED);
 	assert(idx < AMU_GROUP0_NR_COUNTERS);
 
 	amu_group0_cnt_write_internal(idx, val);
@@ -156,7 +245,7 @@ static void amu_group0_cnt_write(unsigned  int idx, uint64_t val)
  */
 static uint64_t amu_group0_voffset_read(unsigned int idx)
 {
-	assert(amu_get_version() >= ID_AA64PFR0_AMU_V1P1);
+	assert(read_id_aa64pfr0_el1_amu() >= ID_AA64PFR0_AMU_V1P1);
 	assert(idx < AMU_GROUP0_NR_COUNTERS);
 	assert(idx != 1U);
 
@@ -171,7 +260,7 @@ static uint64_t amu_group0_voffset_read(unsigned int idx)
  */
 static void amu_group0_voffset_write(unsigned int idx, uint64_t val)
 {
-	assert(amu_get_version() >= ID_AA64PFR0_AMU_V1P1);
+	assert(read_id_aa64pfr0_el1_amu() >= ID_AA64PFR0_AMU_V1P1);
 	assert(idx < AMU_GROUP0_NR_COUNTERS);
 	assert(idx != 1U);
 
@@ -183,8 +272,8 @@ static void amu_group0_voffset_write(unsigned int idx, uint64_t val)
 /* Read the group 1 counter identified by the given `idx` */
 static uint64_t amu_group1_cnt_read(unsigned int idx)
 {
-	assert(amu_get_version() != ID_AA64PFR0_AMU_NOT_SUPPORTED);
-	assert(amu_group1_supported());
+	assert(read_id_aa64pfr0_el1_amu() != ID_AA64PFR0_AMU_NOT_SUPPORTED);
+	assert(read_amcfgr_el0_ncg() > 0);
 	assert(idx < AMU_GROUP1_NR_COUNTERS);
 
 	return amu_group1_cnt_read_internal(idx);
@@ -193,8 +282,8 @@ static uint64_t amu_group1_cnt_read(unsigned int idx)
 /* Write the group 1 counter identified by the given `idx` with `val` */
 static void amu_group1_cnt_write(unsigned int idx, uint64_t val)
 {
-	assert(amu_get_version() != ID_AA64PFR0_AMU_NOT_SUPPORTED);
-	assert(amu_group1_supported());
+	assert(read_id_aa64pfr0_el1_amu() != ID_AA64PFR0_AMU_NOT_SUPPORTED);
+	assert(read_amcfgr_el0_ncg() > 0);
 	assert(idx < AMU_GROUP1_NR_COUNTERS);
 
 	amu_group1_cnt_write_internal(idx, val);
@@ -208,11 +297,10 @@ static void amu_group1_cnt_write(unsigned int idx, uint64_t val)
  */
 static uint64_t amu_group1_voffset_read(unsigned int idx)
 {
-	assert(amu_get_version() >= ID_AA64PFR0_AMU_V1P1);
-	assert(amu_group1_supported());
+	assert(read_id_aa64pfr0_el1_amu() >= ID_AA64PFR0_AMU_V1P1);
+	assert(read_amcfgr_el0_ncg() > 0);
 	assert(idx < AMU_GROUP1_NR_COUNTERS);
-	assert(((read_amcg1idr_el0() >> AMCG1IDR_VOFF_SHIFT) &
-		(1ULL << idx)) != 0ULL);
+	assert((read_amcg1idr_el0_voff() & (1ULL << idx)) != 0ULL);
 
 	return amu_group1_voffset_read_internal(idx);
 }
@@ -224,11 +312,10 @@ static uint64_t amu_group1_voffset_read(unsigned int idx)
  */
 static void amu_group1_voffset_write(unsigned int idx, uint64_t val)
 {
-	assert(amu_get_version() >= ID_AA64PFR0_AMU_V1P1);
-	assert(amu_group1_supported());
+	assert(read_id_aa64pfr0_el1_amu() >= ID_AA64PFR0_AMU_V1P1);
+	assert(read_amcfgr_el0_ncg() > 0);
 	assert(idx < AMU_GROUP1_NR_COUNTERS);
-	assert(((read_amcg1idr_el0() >> AMCG1IDR_VOFF_SHIFT) &
-		(1ULL << idx)) != 0ULL);
+	assert((read_amcg1idr_el0_voff() & (1ULL << idx)) != 0ULL);
 
 	amu_group1_voffset_write_internal(idx, val);
 	isb();
@@ -240,29 +327,29 @@ static void *amu_context_save(const void *arg)
 	struct amu_ctx *ctx = &amu_ctxs[plat_my_core_pos()];
 	unsigned int i;
 
-	if (amu_get_version() == ID_AA64PFR0_AMU_NOT_SUPPORTED) {
+	if (read_id_aa64pfr0_el1_amu() == ID_AA64PFR0_AMU_NOT_SUPPORTED) {
 		return (void *)-1;
 	}
 
 #if AMU_GROUP1_NR_COUNTERS
-	if (!amu_group1_supported()) {
+	if (read_amcfgr_el0_ncg() < 1) {
 		return (void *)-1;
 	}
 #endif
 	/* Assert that group 0/1 counter configuration is what we expect */
-	assert(read_amcntenset0_el0() == AMU_GROUP0_COUNTERS_MASK);
+	assert(read_amcntenset0_el0_px() == AMU_GROUP0_COUNTERS_MASK);
 
 #if AMU_GROUP1_NR_COUNTERS
-	assert(read_amcntenset1_el0() == AMU_GROUP1_COUNTERS_MASK);
+	assert(read_amcntenset1_el0_px() == AMU_GROUP1_COUNTERS_MASK);
 #endif
 	/*
 	 * Disable group 0/1 counters to avoid other observers like SCP sampling
 	 * counter values from the future via the memory mapped view.
 	 */
-	write_amcntenclr0_el0(AMU_GROUP0_COUNTERS_MASK);
+	write_amcntenclr0_el0_px(AMU_GROUP0_COUNTERS_MASK);
 
 #if AMU_GROUP1_NR_COUNTERS
-	write_amcntenclr1_el0(AMU_GROUP1_COUNTERS_MASK);
+	write_amcntenclr1_el0_px(AMU_GROUP1_COUNTERS_MASK);
 #endif
 	isb();
 
@@ -272,8 +359,8 @@ static void *amu_context_save(const void *arg)
 	}
 
 	/* Save group 0 virtual offsets if supported and enabled. */
-	if ((amu_get_version() >= ID_AA64PFR0_AMU_V1P1) &&
-			((read_hcr_el2() & HCR_AMVOFFEN_BIT) != 0ULL)) {
+	if ((read_id_aa64pfr0_el1_amu() >= ID_AA64PFR0_AMU_V1P1) &&
+			read_hcr_el2_amvoffen()) {
 		/* Not using a loop because count is fixed and index 1 DNE. */
 		ctx->group0_voffsets[0U] = amu_group0_voffset_read(0U);
 		ctx->group0_voffsets[1U] = amu_group0_voffset_read(2U);
@@ -289,10 +376,9 @@ static void *amu_context_save(const void *arg)
 	}
 
 	/* Save group 1 virtual offsets if supported and enabled. */
-	if ((amu_get_version() >= ID_AA64PFR0_AMU_V1P1) &&
-			((read_hcr_el2() & HCR_AMVOFFEN_BIT) != 0ULL)) {
-		u_register_t amcg1idr = read_amcg1idr_el0() >>
-			AMCG1IDR_VOFF_SHIFT;
+	if ((read_id_aa64pfr0_el1_amu() >= ID_AA64PFR0_AMU_V1P1) &&
+			read_hcr_el2_amvoffen()) {
+		uint64_t amcg1idr = read_amcg1idr_el0_voff();
 		amcg1idr = amcg1idr & AMU_GROUP1_COUNTERS_MASK;
 
 		for (i = 0U; i < AMU_GROUP1_NR_COUNTERS; i++) {
@@ -311,20 +397,20 @@ static void *amu_context_restore(const void *arg)
 	struct amu_ctx *ctx = &amu_ctxs[plat_my_core_pos()];
 	unsigned int i;
 
-	if (amu_get_version() == ID_AA64PFR0_AMU_NOT_SUPPORTED) {
+	if (read_id_aa64pfr0_el1_amu() == ID_AA64PFR0_AMU_NOT_SUPPORTED) {
 		return (void *)-1;
 	}
 
 #if AMU_GROUP1_NR_COUNTERS
-	if (!amu_group1_supported()) {
+	if (read_amcfgr_el0_ncg() < 1) {
 		return (void *)-1;
 	}
 #endif
 	/* Counters were disabled in `amu_context_save()` */
-	assert(read_amcntenset0_el0() == 0U);
+	assert(read_amcntenset0_el0_px() == 0U);
 
 #if AMU_GROUP1_NR_COUNTERS
-	assert(read_amcntenset1_el0() == 0U);
+	assert(read_amcntenset1_el0_px() == 0U);
 #endif
 
 	/* Restore all group 0 counters */
@@ -333,8 +419,8 @@ static void *amu_context_restore(const void *arg)
 	}
 
 	/* Restore group 0 virtual offsets if supported and enabled. */
-	if ((amu_get_version() >= ID_AA64PFR0_AMU_V1P1) &&
-			((read_hcr_el2() & HCR_AMVOFFEN_BIT) != 0ULL)) {
+	if ((read_id_aa64pfr0_el1_amu() >= ID_AA64PFR0_AMU_V1P1) &&
+			read_hcr_el2_amvoffen()) {
 		/* Not using a loop because count is fixed and index 1 DNE. */
 		amu_group0_voffset_write(0U, ctx->group0_voffsets[0U]);
 		amu_group0_voffset_write(2U, ctx->group0_voffsets[1U]);
@@ -342,7 +428,7 @@ static void *amu_context_restore(const void *arg)
 	}
 
 	/* Restore group 0 counter configuration */
-	write_amcntenset0_el0(AMU_GROUP0_COUNTERS_MASK);
+	write_amcntenset0_el0_px(AMU_GROUP0_COUNTERS_MASK);
 
 #if AMU_GROUP1_NR_COUNTERS
 	/* Restore group 1 counters */
@@ -353,10 +439,9 @@ static void *amu_context_restore(const void *arg)
 	}
 
 	/* Restore group 1 virtual offsets if supported and enabled. */
-	if ((amu_get_version() >= ID_AA64PFR0_AMU_V1P1) &&
-			((read_hcr_el2() & HCR_AMVOFFEN_BIT) != 0ULL)) {
-		u_register_t amcg1idr = read_amcg1idr_el0() >>
-			AMCG1IDR_VOFF_SHIFT;
+	if ((read_id_aa64pfr0_el1_amu() >= ID_AA64PFR0_AMU_V1P1) &&
+			read_hcr_el2_amvoffen()) {
+		uint64_t amcg1idr = read_amcg1idr_el0_voff();
 		amcg1idr = amcg1idr & AMU_GROUP1_COUNTERS_MASK;
 
 		for (i = 0U; i < AMU_GROUP1_NR_COUNTERS; i++) {
@@ -368,7 +453,7 @@ static void *amu_context_restore(const void *arg)
 	}
 
 	/* Restore group 1 counter configuration */
-	write_amcntenset1_el0(AMU_GROUP1_COUNTERS_MASK);
+	write_amcntenset1_el0_px(AMU_GROUP1_COUNTERS_MASK);
 #endif
 
 	return (void *)0;
