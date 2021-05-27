@@ -18,6 +18,10 @@
 
 #include "../amu_private.h"
 
+#if ENABLE_MPMM
+#	include <lib/mpmm/mpmm.h>
+#endif
+
 struct amu_ctx {
 	uint64_t group0_enable;
 	uint64_t group1_enable;
@@ -222,27 +226,32 @@ void amu_enable(bool el2_unused, cpu_context_t *ctx)
 	}
 
 	/* Initialize FEAT_AMUv1p1 features if present. */
-	if (id_aa64pfr0_el1_amu < ID_AA64PFR0_AMU_V1P1) {
-		return;
-	}
-
-	if (el2_unused) {
-		/* Make sure virtual offsets are disabled if EL2 not used. */
-		write_hcr_el2_amvoffen(0U);
-	}
+	if (id_aa64pfr0_el1_amu >= ID_AA64PFR0_AMU_V1P1) {
+		if (el2_unused) {
+			/*
+			 * Make sure virtual offsets are disabled if EL2 not
+			 * used.
+			 */
+			write_hcr_el2_amvoffen(0U);
+		}
 
 #if AMU_RESTRICT_COUNTERS
-	/*
-	 * FEAT_AMUv1p1 adds a register field to restrict access to group 1
-	 * counters at all but the highest implemented EL.  This is controlled
-	 * with the AMU_RESTRICT_COUNTERS compile time flag, when set, system
-	 * register reads at lower ELs return zero.  Reads from the memory
-	 * mapped view are unaffected.
-	 */
-	VERBOSE("AMU group 1 counter access restricted.\n");
-	write_amcr_el0_cg1rz(1U);
+		/*
+		 * FEAT_AMUv1p1 adds a register field to restrict access to
+		 * group 1 counters at all but the highest implemented EL. This
+		 * is controlled with the `AMU_RESTRICT_COUNTERS` compile time
+		 * flag, when set, system register reads at lower ELs return
+		 * zero. Reads from the memory mapped view are unaffected.
+		 */
+		VERBOSE("AMU group 1 counter access restricted.\n");
+		write_amcr_el0_cg1rz(1U);
 #else
-	write_amcr_el0_cg1rz(0U);
+		write_amcr_el0_cg1rz(0U);
+#endif
+	}
+
+#if ENABLE_MPMM
+	mpmm_enable();
 #endif
 }
 
@@ -517,6 +526,10 @@ static void *amu_context_restore(const void *arg)
 	if (amcfgr_el0_ncg > 0) {
 		write_amcntenset1_el0_px(ctx->group1_enable);
 	}
+
+#if ENABLE_MPMM
+	mpmm_context_restore();
+#endif
 
 	return (void *)0;
 }
