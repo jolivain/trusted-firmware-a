@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a035482e_d4a7353c",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-05-27T17:55:56Z",
+      "side": 1,
+      "message": "Right, the root port is in one place, and then there is a movable window to a single devices 4k config space in another location in the processors address space. I don\u0027t have any docs on this other than the Linux host bridge driver.\n\nI can move something similar to the commit message verbiage into a comment here.",
+      "parentUuid": "30661681_becdad2f",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6a3ddd5_eac63b9c",
         "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
         "patchSetId": 13
@@ -31,6 +49,24 @@
       "writtenOn": "2021-05-27T14:58:04Z",
       "side": 1,
       "message": "Should this be RPI_IO_BASE + 0x01500000?",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07b27ce0_95d597f1",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-05-27T17:55:56Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "a6a3ddd5_eac63b9c",
       "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5a361afe_94af3da9",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-05-27T17:55:56Z",
+      "side": 1,
+      "message": "Yes, in this case, i\u0027m not sure that is universal with these \"move the window\" implementations. Which is what I was trying to imply here, rather than that these are standard constants that happen to apply in this situation. I would like to get a feeling for whether they end up being something that are used by most of these implementations (in which case the entire block of 49-54 should probably be a common macro).\n\nAKA, can we hold off on this until we get a couple more implementations?",
+      "parentUuid": "2888ff61_4903d9fe",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6ae12ecf_d5dc1913",
         "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
         "patchSetId": 13
@@ -65,6 +119,24 @@
       "writtenOn": "2021-05-27T14:58:04Z",
       "side": 1,
       "message": "Can you put some wording around \"window\" in here, to make it clearer what\u0027s going on?\nLike saying that this is the base address of the window holding the extended config space for the currently selected device?",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed1d47ab_c0775d17",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-05-27T17:55:56Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "6ae12ecf_d5dc1913",
       "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -88,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b7980be_558fba74",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-05-27T17:55:56Z",
+      "side": 1,
+      "message": "What I think is going on here is the root pcie implementation isn\u0027t handing the case of missing completions correctly (AFAIK that is the common bug), so we must initially restrict it to just the known devices, which for this SoC is a single PCIe slot/device. If we access parts of the config address space for which a completion isn\u0027t returned by something on the bus the root port won\u0027t generate a completion for the core, which results in it faulting rather than getting a -1 return as pci specifies.\n\nAgain this appears to be some kind of restriction/result of these \"root ports\" just being pcie device IP masquerading as a host bridge rather than a fully featured root complex that can have multiple slots on bus0.\n\nAKA you add another port/bridge if you want another slot, they can\u0027t dynamically bifurcate X lanes into Y slots.\n\nAnyway, so we limit accesses on bus 0/1 to the first device. If the first device on bus1 (aka in the slot) turns out to be a switch then that switch becomes responsible for the completions on its children so at that point we can scan at will. This is all my interpretation of what is going on based on some rough pcie knowledge and trying some random stuff and seeing what happens. Its quite possible there is some lever to control how the root port behaves around unclaimed transactions (for a pcie-\u003eisa bridge that we don\u0027t have), but I\u0027ve not seen any documentation on this implementation, and presumably that would have been pulled rather than implementing a custom host bridge driver in linux if it were an option.",
+      "parentUuid": "c9602ddc_50ebc38d",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b14943a9_c1cca7b6",
         "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
         "patchSetId": 13
@@ -99,6 +189,24 @@
       "writtenOn": "2021-05-27T14:58:04Z",
       "side": 1,
       "message": "This comment (and the check) puzzles me, in particular when reading the comment above.\nWhy is this check behind the PCIE_MISC_PCIE_STATUS read?\nShould it be merged into the check above?\nAnd maybe move the word \"only\"? \"allow only dev 0 on first bus/root port\"",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62f2dd8c_c899a83c",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-05-27T17:55:56Z",
+      "side": 1,
+      "message": "The check above restricts the address range, if the address range is outside of the root (bus 0) then we are checking the link state of what is attached to slot 0. If that link is down then there is nothing attached to the root port (or its not setup correctly) and we want to avoid sending any config transactions anywhere.",
+      "parentUuid": "b14943a9_c1cca7b6",
       "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -122,6 +230,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9ed61e8_e8a9ee71",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-05-27T17:55:56Z",
+      "side": 1,
+      "message": "the BDF in this case is the one defined by Arm and encodes the \"segment\" as well. I think the second half of the comment noting that these parameters map directly to the DEN0115 spec\u0027s tries to assure that is understood.",
+      "parentUuid": "e65e8852_f12a67fd",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b9cbbf8_b21b1d02",
         "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
         "patchSetId": 13
@@ -133,6 +259,24 @@
       "writtenOn": "2021-05-27T14:58:04Z",
       "side": 1,
       "message": "Not sure that really matters, but should we avoid writing to this unconditionally? I would expect it to be not touched when we return an error.\nWhy is this needed anyway?",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a33a4aa_061c1e0f",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-05-27T17:55:56Z",
+      "side": 1,
+      "message": "I think this was to assure a bit of defensive coding against copy/paste, since the DEN0115 spec requires it to be zeroed in the case of protocol error. It does nothing in this code path since the case it applies to (the default) should be unreachable due to the calling code having already validated the sz/etc fields. All the other handed cases here either return a real value or the pcie specified -1 for registers that aren\u0027t implemented.\n\n\nI\u0027m running on the assumption that the next couple implementations will probably just copy/paste this file and modify it to suit most of these constants/etc in here will be adjusted/removed as needed and worse case we have a bit of redundant code, like that default case.",
+      "parentUuid": "3b9cbbf8_b21b1d02",
       "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
