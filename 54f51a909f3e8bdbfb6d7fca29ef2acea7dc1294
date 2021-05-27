@@ -213,6 +213,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f72c85d_979e52e7",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-05-27T18:43:29Z",
+      "side": 1,
+      "message": "I guess maybe I didn\u0027t address the core of the question, which is your right the linux/etc systems merge the bus1/0 check together. That can be done here too, but I split them because I think it makes more sense from a probing perspective, First one checks bus0 and skips the ports without anything attached, then one checks the link state, if that is good then as one is walking bus1 skip the invalid locations.\n\nBTW: I will fix the wording.",
+      "parentUuid": "62f2dd8c_c899a83c",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e65e8852_f12a67fd",
         "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
         "patchSetId": 13
