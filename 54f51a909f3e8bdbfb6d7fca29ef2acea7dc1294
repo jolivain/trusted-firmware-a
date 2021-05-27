@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30661681_becdad2f",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-27T14:58:04Z",
+      "side": 1,
+      "message": "Can you briefly describe here how this works on the RPi4? From reading through the code for a while I understand there is a window holding the config space of exactly one function, and we need to tell the h/w which BDF to map into this window?\n\nAnd possibly link to some documentation?",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6a3ddd5_eac63b9c",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-27T14:58:04Z",
+      "side": 1,
+      "message": "Should this be RPI_IO_BASE + 0x01500000?",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2888ff61_4903d9fe",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-27T14:58:04Z",
+      "side": 1,
+      "message": "Aren\u0027t those the ECAM constants? Shall those be defined elsewhere then?",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ae12ecf_d5dc1913",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-27T14:58:04Z",
+      "side": 1,
+      "message": "Can you put some wording around \"window\" in here, to make it clearer what\u0027s going on?\nLike saying that this is the base address of the window holding the extended config space for the currently selected device?",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9602ddc_50ebc38d",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-27T14:58:04Z",
+      "side": 1,
+      "message": "Just bus 1? Or any bus other than 0?",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b14943a9_c1cca7b6",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-27T14:58:04Z",
+      "side": 1,
+      "message": "This comment (and the check) puzzles me, in particular when reading the comment above.\nWhy is this check behind the PCIE_MISC_PCIE_STATUS read?\nShould it be merged into the check above?\nAnd maybe move the word \"only\"? \"allow only dev 0 on first bus/root port\"",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e65e8852_f12a67fd",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-27T14:58:04Z",
+      "side": 1,
+      "message": "Is that encoded according to ECAM?",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b9cbbf8_b21b1d02",
+        "filename": "plat/rpi/rpi4/rpi4_pci_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-05-27T14:58:04Z",
+      "side": 1,
+      "message": "Not sure that really matters, but should we avoid writing to this unconditionally? I would expect it to be not touched when we return an error.\nWhy is this needed anyway?",
+      "revId": "54f51a909f3e8bdbfb6d7fca29ef2acea7dc1294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
