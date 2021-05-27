@@ -16,6 +16,11 @@
 
 #include <plat/common/platform.h>
 
+#if ENABLE_MPMM
+#	include <lib/mpmm/mpmm.h>
+#endif
+
+
 struct amu_ctx {
 	uint64_t group0_enable;
 	uint64_t group1_enable;
