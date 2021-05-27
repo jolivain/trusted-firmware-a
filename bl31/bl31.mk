@@ -5,6 +5,7 @@
 #
 
 include lib/extensions/amu/amu.mk
+include lib/mpmm/mpmm.mk
 
 ################################################################################
 # Include Makefile for the SPM-MM implementation
@@ -81,6 +82,10 @@ endif
 
 ifeq (${ENABLE_AMU},1)
 BL31_SOURCES		+=	${AMU_SOURCES}
+endif
+
+ifeq (${ENABLE_MPMM},1)
+BL31_SOURCES		+=	${MPMM_SOURCES}
 endif
 
 ifeq (${ENABLE_SVE_FOR_NS},1)

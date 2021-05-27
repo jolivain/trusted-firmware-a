@@ -18,6 +18,10 @@
 
 #include "../amu.h"
 
+#ifdef ENABLE_MPMM
+#	include <lib/mpmm/mpmm.h>
+#endif
+
 struct amu_ctx {
 	uint64_t group0_enable;
 	uint64_t group1_enable;
@@ -243,6 +247,10 @@ void amu_enable(bool el2_unused, cpu_context_t *ctx)
 	write_amcr_el0_cg1rz(1U);
 #else
 	write_amcr_el0_cg1rz(0U);
+#endif
+
+#ifdef ENABLE_MPMM
+	mpmm_enable();
 #endif
 }
 
@@ -517,6 +525,10 @@ static void *amu_context_restore(const void *arg)
 	if (amcfgr_el0_ncg > 0) {
 		write_amcntenset1_el0_px(ctx->group1_enable);
 	}
+
+#ifdef ENABLE_MPMM
+	mpmm_context_restore();
+#endif
 
 	return (void *)0;
 }
