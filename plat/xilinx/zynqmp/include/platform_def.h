@@ -85,7 +85,11 @@
  ******************************************************************************/
 #define PLAT_PHY_ADDR_SPACE_SIZE	(1ULL << 32)
 #define PLAT_VIRT_ADDR_SPACE_SIZE	(1ULL << 32)
+#if (BL31_LIMIT < 0x80000000)
+#define MAX_MMAP_REGIONS		8
+#else
 #define MAX_MMAP_REGIONS		7
+#endif
 #define MAX_XLAT_TABLES			5
 
 #define CACHE_WRITEBACK_SHIFT   6
