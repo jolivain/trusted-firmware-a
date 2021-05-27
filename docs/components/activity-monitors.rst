@@ -159,6 +159,31 @@ Activity Monitor Unit.
 |                   |       |             | be enabled prior to EL3 exit.      |
 +-------------------+-------+-------------+------------------------------------+
 
+Maximum Power Mitigation Mechanism (MPMM)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+MPMM is a feature optionally supported by certain Arm Armv9-A cores, beginning
+with the Cortex-X2, Cortex-A710 and Cortex-A510 cores. The presence of MPMM
+cannot be determined at runtime by the firmware, and therefore the AMU counters
+which form its implementation must be specified in the device tree. This is done
+through the standard mechanisms described in the previous sections.
+
+Additionally, because MPMM is not necessarily available to every core,
+additional properties are required in the ``HW_CONFIG`` device tree blob.
+
+``/cpus/cpus/cpu*`` node properties
+"""""""""""""""""""""""""""""""""""
+
+The ``cpu`` node has been augmented to allow the platform to indicate support
+for MPMM on a given core.
+
++-------------------+-------+-------------+------------------------------------+
+| Property name     | Usage | Value type  | Description                        |
++===================+=======+=============+====================================+
+| ``supports-mpmm`` | O     | ``<empty>`` | If present, indicates that MPMM is |
+|                   |       |             | available on this core.            |
++-------------------+-------+-------------+------------------------------------+
+
 --------------
 
 *Copyright (c) 2021, Arm Limited. All rights reserved.*
