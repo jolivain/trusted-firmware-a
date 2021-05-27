@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e75244fd_1e803279",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-05-27T07:46:12Z",
+      "side": 1,
+      "message": "Looks like the commit description needs updating.\nVarious other OpenCI tests failing but fall back LegacyCI passes. Reruning failed OpenCI tests to see if they are infrastructure but I thing as LegacyCI passed we are good to go once the comment message updated to adhere to the format requirements.",
+      "revId": "7b0003338ed679be1adfaf0d8d6920ef92e82f06",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
