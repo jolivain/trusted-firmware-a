@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e82386d1_465c9a2c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-27T15:43:29Z",
+      "side": 1,
+      "message": "https://ci.trustedfirmware.org/job/tf-a-commitlint/168/console\nChanging \"Correct\" to \"correct\" would solve the issue.",
+      "revId": "c005d68c8aaf535a664ed1cb5ca94ddfccfcf2ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1cef9269_3efa83e1",
@@ -14,6 +31,23 @@
       "writtenOn": "2021-05-27T01:09:43Z",
       "side": 1,
       "message": "LGTM as far as I can help you with this now. (Looks like +Heiko and +Tony are code owner for this platform?)",
+      "revId": "c005d68c8aaf535a664ed1cb5ca94ddfccfcf2ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2a60e72_1a98bd58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-05-27T15:43:29Z",
+      "side": 1,
+      "message": "Temporary MR-1",
       "revId": "c005d68c8aaf535a664ed1cb5ca94ddfccfcf2ec",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
