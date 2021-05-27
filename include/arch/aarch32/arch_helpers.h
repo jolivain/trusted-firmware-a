@@ -347,6 +347,10 @@ DEFINE_DCOP_PARAM_FUNC(cvac, DCCMVAC)
  */
 DEFINE_COPROCR_RW_FUNCS(clusterpwrdn, CLUSTERPWRDN)
 
+/* CPU Power/Performance Management registers */
+DEFINE_RENAME_SYSREG_RW_FUNCS(cpuppmcr_el3, CPUPPMCR_EL3)
+DEFINE_RENAME_SYSREG_RW_FUNCS(cpumpmmcr_el3, CPUMPMMCR_EL3)
+
 /* Previously defined accessor functions with incomplete register names  */
 #define dsb()			dsbsy()
 #define dmb()			dmbsy()
