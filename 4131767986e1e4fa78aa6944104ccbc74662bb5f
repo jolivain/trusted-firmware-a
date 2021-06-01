@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f6eb4846_ecc94215",
+        "filename": "docs/plat/qti.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-06-01T21:10:47Z",
+      "side": 1,
+      "message": "Found a better solution -- these links should work:\n\nhttps://github.com/coreboot/qc_blobs/blob/master/sc7180/qtiseclib/libqtisec.a?raw\u003dtrue\nhttps://github.com/coreboot/qc_blobs/blob/master/sc7280/qtiseclib/libqtisec.a?raw\u003dtrue",
+      "parentUuid": "9a82ea9c_97d76d8e",
+      "revId": "4131767986e1e4fa78aa6944104ccbc74662bb5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0af97239_853ab6c7",
         "filename": "plat/qti/common/src/qti_syscall.c",
         "patchSetId": 1
