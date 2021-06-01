@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77cca604_82a98fdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-06-01T14:22:47Z",
+      "side": 1,
+      "message": "Could not perform action: Failed to submit 1 change due to the following problems:\nChange 10052: Depends on change that was not submitted. Commit 67ccd25d7248be0c91fd7e725cadd4389a70a61b depends on commit 3f259e2c2d5f7a302d70cd07c6d1907f3a13a3b4, which is outdated patch set 1 of change 10051. The latest patch set is 2",
+      "revId": "67ccd25d7248be0c91fd7e725cadd4389a70a61b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
