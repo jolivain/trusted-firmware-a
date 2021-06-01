@@ -16,6 +16,24 @@
       "message": "\u003e Patch Set 9: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 644 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/644/)\n\u003e Some tests failed (1)\n\nChris, Madhukar,\n\nLooks like something wrong with Lava CI:\n\nInfrastructureError: The Infrastructure is not working correctly. Please report this error to LAVA admins.",
       "revId": "9ce232fe985a0bb308af459ede8a22629255d4e7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8c72162_ddc1cc5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-06-01T13:38:55Z",
+      "side": 1,
+      "message": "I can merge the patch once it has Code-owner-review+1 vote.",
+      "parentUuid": "27a00b03_fddada4b",
+      "revId": "9ce232fe985a0bb308af459ede8a22629255d4e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
