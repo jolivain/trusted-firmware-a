@@ -38,6 +38,14 @@
 #define FCS_BIG_CNTR_VAL_MAX		495U
 #define FCS_SVN_CNTR_VAL_MAX		64U
 
+/* FCS Attestation Cert Request Parameter */
+
+#define FCS_ALIAS_CERT			0x01
+#define FCS_DEV_ID_SELF_SIGN_CERT	0x02
+#define FCS_DEV_ID_ENROLL_CERT		0x04
+#define FCS_ENROLL_SELF_SIGN_CERT	0x08
+#define FCS_PLAT_KEY_CERT		0x10
+
 /* FCS Payload Structure */
 
 typedef struct fcs_encrypt_payload_t {
@@ -95,5 +103,10 @@ int intel_fcs_attestation_subkey(uint64_t src_addr, uint32_t src_size,
 int intel_fcs_get_measurement(uint64_t src_addr, uint32_t src_size,
 				uint64_t dst_addr, uint32_t *dst_size,
 				uint32_t *mbox_error);
+
+int intel_fcs_create_cert_on_reload(uint32_t cert_request,
+				uint32_t *mbox_error);
+int intel_fcs_get_attestation_cert(uint32_t cert_request, uint64_t dst_addr,
+				uint32_t *dst_size, uint32_t *mbox_error);
 
 #endif /* SOCFPGA_FCS_H */
