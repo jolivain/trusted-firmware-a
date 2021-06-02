@@ -633,6 +633,15 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 					(uint32_t *) &x4, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x3, x4);
 
+	case INTEL_SIP_SMC_FCS_GET_ATTESTATION_CERT:
+		status = intel_fcs_get_attestation_cert(x1, x2,
+					(uint32_t *) &x3, &mbox_error);
+		SMC_RET4(handle, status, mbox_error, x2, x3);
+
+	case INTEL_SIP_SMC_FCS_CREATE_CERT_ON_RELOAD:
+		status = intel_fcs_create_cert_on_reload(x1, &mbox_error);
+		SMC_RET2(handle, status, mbox_error);
+
 	default:
 		return socfpga_sip_handler(smc_fid, x1, x2, x3, x4,
 			cookie, handle, flags);
