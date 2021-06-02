@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5c9572b_09e856c3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-06-02T11:09:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4332b5b8_4917b838",
+      "revId": "3f08edf922a53eecaf2178b2c3ed4045c4fc7202",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0a62cc5_9094aa9f",
@@ -49,6 +67,30 @@
       "writtenOn": "2021-05-24T13:34:59Z",
       "side": 1,
       "message": "I think, as the acronym has been defined above, you can use to SVE",
+      "range": {
+        "startLine": 290,
+        "startChar": 52,
+        "endLine": 291,
+        "endChar": 8
+      },
+      "revId": "3f08edf922a53eecaf2178b2c3ed4045c4fc7202",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4312d353_a857410f",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-06-02T11:09:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0a62cc5_9094aa9f",
       "range": {
         "startLine": 290,
         "startChar": 52,
@@ -82,6 +124,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7d9c2c8_985484b7",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-06-02T11:09:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f7c8085_69d6daff",
+      "range": {
+        "startLine": 905,
+        "startChar": 13,
+        "endLine": 905,
+        "endChar": 23
+      },
+      "revId": "3f08edf922a53eecaf2178b2c3ed4045c4fc7202",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0537d3d_9d5b9167",
@@ -95,6 +161,30 @@
       "writtenOn": "2021-05-24T13:34:59Z",
       "side": 1,
       "message": "Why creating these three macros?\nI only see SVE_VECTOR_LENGTH being used in the code below. Why not squash them into one macro?\nEither that, or provide more specific names to those prefixed with \u0027_\u0027\nAlso might be good to write some comments explain these values, and perhaps reference the arm arm.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 65
+      },
+      "revId": "3f08edf922a53eecaf2178b2c3ed4045c4fc7202",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a1ba456_dce1b7d6",
+        "filename": "lib/extensions/sve/sve.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-06-02T11:09:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0537d3d_9d5b9167",
       "range": {
         "startLine": 14,
         "startChar": 0,
