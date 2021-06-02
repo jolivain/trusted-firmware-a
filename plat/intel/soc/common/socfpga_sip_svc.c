@@ -56,8 +56,9 @@ static int intel_fpga_sdm_write_buffer(struct fpga_config_info *buffer)
 			args[2] = buffer->size - buffer->size_written;
 			current_buffer++;
 			current_buffer %= FPGA_CONFIG_BUFFER_SIZE;
-		} else
+		} else {
 			args[2] = bytes_per_block;
+		}
 
 		buffer->size_written += args[2];
 		mailbox_send_cmd_async(&send_id, MBOX_RECONFIG_DATA, args,
@@ -72,10 +73,12 @@ static int intel_fpga_sdm_write_buffer(struct fpga_config_info *buffer)
 
 static int intel_fpga_sdm_write_all(void)
 {
-	for (int i = 0; i < FPGA_CONFIG_BUFFER_SIZE; i++)
+	for (int i = 0; i < FPGA_CONFIG_BUFFER_SIZE; i++) {
 		if (intel_fpga_sdm_write_buffer(
-			&fpga_config_buffers[current_buffer]))
-			break;
+			&fpga_config_buffers[current_buffer])) {
+			break; 
+		}
+	}
 	return 0;
 }
 
@@ -83,22 +86,25 @@ static uint32_t intel_mailbox_fpga_config_isdone(uint32_t query_type)
 {
 	uint32_t ret;
 
-	if (query_type == 1)
+	if (query_type == 1) {
 		ret = intel_mailbox_get_config_status(MBOX_CONFIG_STATUS, false);
-	else
+	} else {
 		ret = intel_mailbox_get_config_status(MBOX_RECONFIG_STATUS, true);
+	}
 
 	if (ret) {
-		if (ret == MBOX_CFGSTAT_STATE_CONFIG)
+		if (ret == MBOX_CFGSTAT_STATE_CONFIG) {
 			return INTEL_SIP_SMC_STATUS_BUSY;
-		else
+		} else {
 			return INTEL_SIP_SMC_STATUS_ERROR;
+		}
 	}
 
 	if (query_type != 1) {
 		/* full reconfiguration */
-		if (!is_partial_reconfig)
+		if (!is_partial_reconfig) {
 			socfpga_bridges_enable();	/* Enable bridge */
+		}
 	}
 
 	return INTEL_SIP_SMC_STATUS_OK;
@@ -166,10 +172,12 @@ static int intel_fpga_config_completed_write(uint32_t *completed_addr,
 
 	intel_fpga_sdm_write_all();
 
-	if (*count > 0)
+	if (*count > 0) {
 		status = INTEL_SIP_SMC_STATUS_OK;
-	else if (*count == 0)
+	}
+	else if (*count == 0) {
 		status = INTEL_SIP_SMC_STATUS_BUSY;
+	}
 
 	for (int i = 0; i < FPGA_CONFIG_BUFFER_SIZE; i++) {
 		if (fpga_config_buffers[i].write_requested != 0) {
@@ -178,8 +186,9 @@ static int intel_fpga_config_completed_write(uint32_t *completed_addr,
 		}
 	}
 
-	if (all_completed == 1)
+	if (all_completed == 1) {
 		return INTEL_SIP_SMC_STATUS_OK;
+	}
 
 	return status;
 }
@@ -202,8 +211,9 @@ static int intel_fpga_config_start(uint32_t config_type)
 	status = mailbox_send_cmd(MBOX_JOB_ID, MBOX_RECONFIG, &argument, size,
 			CMD_CASUAL, response, &resp_len);
 
-	if (status < 0)
+	if (status < 0) {
 		return status;
+	}
 
 	max_blocks = response[0];
 	bytes_per_block = response[1];
@@ -233,9 +243,11 @@ static int intel_fpga_config_start(uint32_t config_type)
 
 static bool is_fpga_config_buffer_full(void)
 {
-	for (int i = 0; i < FPGA_CONFIG_BUFFER_SIZE; i++)
-		if (!fpga_config_buffers[i].write_requested)
+	for (int i = 0; i < FPGA_CONFIG_BUFFER_SIZE; i++) {
+		if (!fpga_config_buffers[i].write_requested) {
 			return false;
+		}
+	}
 	return true;
 }
 
@@ -244,12 +256,15 @@ bool is_address_in_ddr_range(uint64_t addr, uint64_t size)
 	if (!addr && !size) {
 		return true;
 	}
-	if (size > (UINT64_MAX - addr))
+	if (size > (UINT64_MAX - addr)) {
 		return false;
-	if (addr < BL31_LIMIT)
+	}
+	if (addr < BL31_LIMIT) {
 		return false;
-	if (addr + size > DRAM_BASE + DRAM_SIZE)
+	}
+	if (addr + size > DRAM_BASE + DRAM_SIZE) {
 		return false;
+	}
 
 	return true;
 }
@@ -261,8 +276,9 @@ static uint32_t intel_fpga_config_write(uint64_t mem, uint64_t size)
 	intel_fpga_sdm_write_all();
 
 	if (!is_address_in_ddr_range(mem, size) ||
-		is_fpga_config_buffer_full())
+		is_fpga_config_buffer_full()) {
 		return INTEL_SIP_SMC_STATUS_REJECTED;
+	}
 
 	for (i = 0; i < FPGA_CONFIG_BUFFER_SIZE; i++) {
 		int j = (i + current_buffer) % FPGA_CONFIG_BUFFER_SIZE;
@@ -279,8 +295,9 @@ static uint32_t intel_fpga_config_write(uint64_t mem, uint64_t size)
 		}
 	}
 
-	if (is_fpga_config_buffer_full())
+	if (is_fpga_config_buffer_full()) {
 		return INTEL_SIP_SMC_STATUS_BUSY;
+	}
 
 	return INTEL_SIP_SMC_STATUS_OK;
 }
@@ -327,8 +344,9 @@ static int is_out_of_sec_range(uint64_t reg_addr)
 /* Secure register access */
 uint32_t intel_secure_reg_read(uint64_t reg_addr, uint32_t *retval)
 {
-	if (is_out_of_sec_range(reg_addr))
+	if (is_out_of_sec_range(reg_addr)) {
 		return INTEL_SIP_SMC_STATUS_ERROR;
+	}
 
 	*retval = mmio_read_32(reg_addr);
 
@@ -338,8 +356,9 @@ uint32_t intel_secure_reg_read(uint64_t reg_addr, uint32_t *retval)
 uint32_t intel_secure_reg_write(uint64_t reg_addr, uint32_t val,
 				uint32_t *retval)
 {
-	if (is_out_of_sec_range(reg_addr))
+	if (is_out_of_sec_range(reg_addr)) {
 		return INTEL_SIP_SMC_STATUS_ERROR;
+	}
 
 	mmio_write_32(reg_addr, val);
 
@@ -363,8 +382,9 @@ uint64_t intel_rsu_update_address;
 
 static uint32_t intel_rsu_status(uint64_t *respbuf, unsigned int respbuf_sz)
 {
-	if (mailbox_rsu_status((uint32_t *)respbuf, respbuf_sz) < 0)
+	if (mailbox_rsu_status((uint32_t *)respbuf, respbuf_sz) < 0) {
 		return INTEL_SIP_SMC_RSU_ERROR;
+	}
 
 	return INTEL_SIP_SMC_STATUS_OK;
 }
@@ -377,8 +397,9 @@ static uint32_t intel_rsu_update(uint64_t update_address)
 
 static uint32_t intel_rsu_notify(uint32_t execution_stage)
 {
-	if (mailbox_hps_stage_notify(execution_stage) < 0)
+	if (mailbox_hps_stage_notify(execution_stage) < 0) {
 		return INTEL_SIP_SMC_RSU_ERROR;
+	}
 
 	return INTEL_SIP_SMC_STATUS_OK;
 }
@@ -386,8 +407,9 @@ static uint32_t intel_rsu_notify(uint32_t execution_stage)
 static uint32_t intel_rsu_retry_counter(uint32_t *respbuf, uint32_t respbuf_sz,
 					uint32_t *ret_stat)
 {
-	if (mailbox_rsu_status((uint32_t *)respbuf, respbuf_sz) < 0)
+	if (mailbox_rsu_status((uint32_t *)respbuf, respbuf_sz) < 0) {
 		return INTEL_SIP_SMC_RSU_ERROR;
+	}
 
 	*ret_stat = respbuf[8];
 	return INTEL_SIP_SMC_STATUS_OK;
@@ -403,8 +425,9 @@ static uint32_t intel_mbox_send_cmd(uint32_t cmd, uint32_t *args,
 	*len_in_resp = 0;
 	*mbox_status = GENERIC_RESPONSE_ERROR;
 
-	if (!is_address_in_ddr_range((uint64_t)args, sizeof(uint32_t) * len))
+	if (!is_address_in_ddr_range((uint64_t)args, sizeof(uint32_t) * len)) {
 		return INTEL_SIP_SMC_STATUS_REJECTED;
+	}
 
 	int status = mailbox_send_cmd(MBOX_JOB_ID, cmd, args, len, urgent,
 				      response, &resp_len);
@@ -426,11 +449,13 @@ uint32_t intel_smc_service_completed(uint64_t addr, uint32_t size,
 	int status = 0;
 	uint32_t resp_len = size / MBOX_WORD_BYTE;
 
-	if (resp_len > MBOX_DATA_MAX_LEN)
+	if (resp_len > MBOX_DATA_MAX_LEN) {
 		return INTEL_SIP_SMC_STATUS_REJECTED;
+	}
 
-	if (!is_address_in_ddr_range(addr, size))
+	if (!is_address_in_ddr_range(addr, size)) {
 		return INTEL_SIP_SMC_STATUS_REJECTED;
+	}
 
 	if (mode == SERVICE_COMPLETED_MODE_ASYNC) {
 		status = mailbox_read_response_async(job_id,
@@ -439,15 +464,18 @@ uint32_t intel_smc_service_completed(uint64_t addr, uint32_t size,
 		status = mailbox_read_response(job_id,
 				(uint32_t *) addr, &resp_len);
 
-		if (status == MBOX_NO_RESPONSE)
+		if (status == MBOX_NO_RESPONSE) {
 			status = MBOX_BUSY;
+		}
 	}
 
-	if (status == MBOX_NO_RESPONSE)
+	if (status == MBOX_NO_RESPONSE) {
 		return INTEL_SIP_SMC_STATUS_NO_RESPONSE;
+	}
 
-	if (status == MBOX_BUSY)
+	if (status == MBOX_BUSY) {
 		return INTEL_SIP_SMC_STATUS_BUSY;
+	}
 
 	*ret_size = resp_len * MBOX_WORD_BYTE;
 	flush_dcache_range(addr, *ret_size);
@@ -632,6 +660,15 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 		status = intel_fcs_get_measurement(x1, x2, x3,
 					(uint32_t *) &x4, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x3, x4);
+
+	case INTEL_SIP_SMC_FCS_GET_ATTESTATION_CERT:
+		status = intel_fcs_get_attestation_cert(x1, x2,
+					(uint32_t *) &x3, &mbox_error);
+		SMC_RET4(handle, status, mbox_error, x2, x3);
+
+	case INTEL_SIP_SMC_FCS_CREATE_CERT_ON_RELOAD:
+		status = intel_fcs_create_cert_on_reload(x1, &mbox_error);
+		SMC_RET2(handle, status, mbox_error);
 
 	default:
 		return socfpga_sip_handler(smc_fid, x1, x2, x3, x4,
