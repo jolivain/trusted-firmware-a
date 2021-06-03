@@ -237,6 +237,30 @@
       },
       "revId": "2ca74aaa0fb1d647cc572d191e3997a98e8f1227",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3a26825_eb59ec41",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-03T12:35:57Z",
+      "side": 1,
+      "message": "Thanks for trying out experiment with all compilers. \nI am fine with the current implementation, but just thought if there is any way to provide actual register instead of S* form. \n\nMay I know which aarch64 compiler does not have sve extension support? Interesting to know if there is any other way to provide the extension, or compiler really not support this extension.",
+      "parentUuid": "c99e1119_93835486",
+      "range": {
+        "startLine": 916,
+        "startChar": 5,
+        "endLine": 916,
+        "endChar": 17
+      },
+      "revId": "2ca74aaa0fb1d647cc572d191e3997a98e8f1227",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
