@@ -261,6 +261,30 @@
       },
       "revId": "2ca74aaa0fb1d647cc572d191e3997a98e8f1227",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c619460d_7d2d4ffa",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-06-04T09:52:34Z",
+      "side": 1,
+      "message": "See this CI build for details: https://ci.trustedfirmware.org/job/tf-ci-gateway/8042/\ngcc-linaro-6.2.1-2016.11-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc for example.",
+      "parentUuid": "d3a26825_eb59ec41",
+      "range": {
+        "startLine": 916,
+        "startChar": 5,
+        "endLine": 916,
+        "endChar": 17
+      },
+      "revId": "2ca74aaa0fb1d647cc572d191e3997a98e8f1227",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
