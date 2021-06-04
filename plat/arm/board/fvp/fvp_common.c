@@ -17,6 +17,9 @@
 #include <lib/xlat_tables/xlat_tables_compat.h>
 #include <platform_def.h>
 #include <services/arm_arch_svc.h>
+#if ATTEST_TOKEN_PROTO
+#include <services/attest.h>
+#endif /* ATTEST_TOKEN_PROTO */
 #if SPM_MM
 #include <services/spm_mm_partition.h>
 #endif
@@ -478,6 +481,17 @@ void fvp_timer_init(void)
 			CNTCR_FCREQ(0U) | CNTCR_EN);
 #endif /* USE_SP804_TIMER */
 }
+
+#if ATTEST_TOKEN_PROTO
+static const attest_ops_t plat_attest_ops = {
+	.get_token	= plat_get_attestation_token,
+};
+
+void fvp_attest_init(void)
+{
+	plat_arm_attest_init(&plat_attest_ops);
+}
+#endif /* ATTEST_TOKEN_PROTO */
 
 /*****************************************************************************
  * plat_is_smccc_feature_available() - This function checks whether SMCCC

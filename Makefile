@@ -995,6 +995,7 @@ $(eval $(call assert_booleans,\
         ENABLE_PMF \
         ENABLE_PSCI_STAT \
         ENABLE_RME \
+        ATTEST_TOKEN_PROTO \
         ENABLE_RUNTIME_INSTRUMENTATION \
         ENABLE_SME_FOR_NS \
         ENABLE_SME_FOR_SWD \
@@ -1109,6 +1110,7 @@ $(eval $(call add_defines,\
         ENABLE_PMF \
         ENABLE_PSCI_STAT \
         ENABLE_RME \
+        ATTEST_TOKEN_PROTO \
         ENABLE_RUNTIME_INSTRUMENTATION \
         ENABLE_SME_FOR_NS \
         ENABLE_SME_FOR_SWD \

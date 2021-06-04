@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -20,5 +20,8 @@ void fvp_interconnect_enable(void);
 void fvp_interconnect_disable(void);
 void fvp_timer_init(void);
 void tsp_early_platform_setup(void);
+#if ATTEST_TOKEN_PROTO
+void fvp_attest_init(void);
+#endif /* ATTEST_TOKEN_PROTO */
 
 #endif /* FVP_PRIVATE_H */

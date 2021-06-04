@@ -2017,6 +2017,32 @@ state. This function must return a pointer to the ``entry_point_info`` structure
 (that was copied during ``bl31_early_platform_setup()``) if the image exists. It
 should return NULL otherwise.
 
+Function : plat_get_attestation_token() [mandatory when ATTEST_TOKEN_PROTO == 1]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : uint8_t *, size_t *, uint8_t *, size_t
+    Return   : int
+
+This function returns the Platform attestation token.
+
+The parameters of the function are:
+
+    arg0 - A pointer to the buffer where the Platform token should be copied by
+           this function. The buffer must be big enough to hold the Platform
+           token.
+
+    arg1 - Contains the size of the buffer passed in arg0. The function returns
+           the Platform token length in this parameter.
+
+    arg2 - A pointer to the buffer where the challenge object is stored.
+
+    arg3 - The length of the challenge object in bytes. Possible values are 32,
+           48 and 64.
+
+The function returns 0 on success, -EINVAL on failure.
+
 Function : bl31_plat_enable_mmu [optional]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -3154,7 +3180,7 @@ amount of open resources per driver.
 
 --------------
 
-*Copyright (c) 2013-2021, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.*
 
 .. _PSCI: http://infocenter.arm.com/help/topic/com.arm.doc.den0022c/DEN0022C_Power_State_Coordination_Interface.pdf
 .. _Arm Generic Interrupt Controller version 2.0 (GICv2): http://infocenter.arm.com/help/topic/com.arm.doc.ihi0048b/index.html

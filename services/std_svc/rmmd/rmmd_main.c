@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -26,6 +26,10 @@
 #include <plat/common/common_def.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
+#if ATTEST_TOKEN_PROTO
+#include <services/attest_svc.h>
+#include <services/attest.h>
+#endif /* ATTEST_TOKEN_PROTO */
 #include <services/gtsi_svc.h>
 #include <services/rmi_svc.h>
 #include <services/rmmd_svc.h>
@@ -33,6 +37,18 @@
 #include <lib/extensions/sve.h>
 #include "rmmd_initial_context.h"
 #include "rmmd_private.h"
+
+#if ATTEST_TOKEN_PROTO
+/*******************************************************************************
+ * Platform attestation buffer
+ ******************************************************************************/
+static uint8_t attestation_data[PAGE_SIZE] __aligned(PAGE_SIZE);
+
+/*******************************************************************************
+ * Lock for dynamic mapping
+ ******************************************************************************/
+static spinlock_t lock;
+#endif /* ATTEST_TOKEN_PROTO */
 
 /*******************************************************************************
  * RMM context information.
@@ -240,6 +256,133 @@ static uint64_t	rmmd_smc_forward(uint32_t src_sec_state,
 		SMC_RET4(cm_get_context(dst_sec_state), x0, x1, x2, x3);
 	}
 }
+
+#if ATTEST_TOKEN_PROTO
+static void print_hash(uint8_t *hash, size_t hash_size)
+{
+	size_t leftover;
+	/*
+	 * bytes_per_line is always a power of two, so it can be used to
+	 * construct mask with it when it is necessary to count remainder.
+	 *
+	 */
+	const size_t bytes_per_line = 1 << BYTES_PER_LINE_BASE;
+	char hash_text[(1 << BYTES_PER_LINE_BASE) * DIGITS_PER_BYTE +
+		LENGTH_OF_TERMINATING_ZERO_IN_BYTES];
+	const char hex_chars[] = {'0', '1', '2', '3', '4', '5', '6', '7',
+				  '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+	unsigned int i;
+
+	for (i = 0U; i < hash_size; ++i) {
+		hash_text[(i & (bytes_per_line - 1)) * DIGITS_PER_BYTE] =
+			hex_chars[hash[i] >> 4];
+		hash_text[(i & (bytes_per_line - 1)) * DIGITS_PER_BYTE + 1] =
+			hex_chars[hash[i] & 0x0f];
+		if (((i + 1) & (bytes_per_line - 1)) == 0U) {
+			hash_text[bytes_per_line * DIGITS_PER_BYTE] = '\0';
+			VERBOSE("hash part %u = %s\n",
+				(i >> BYTES_PER_LINE_BASE) + 1, hash_text);
+		}
+	}
+
+	leftover = (size_t)i & (bytes_per_line - 1);
+
+	if (leftover != 0UL) {
+		hash_text[leftover * DIGITS_PER_BYTE] = '\0';
+		VERBOSE("hash part %u = %s\n", (i >> BYTES_PER_LINE_BASE) + 1,
+			hash_text);
+	}
+}
+
+uint64_t rmmd_attest_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
+			     uint64_t x3, uint64_t x4, void *cookie,
+			     void *handle, uint64_t flags)
+{
+	unsigned int src_sec_state;
+	size_t attestation_data_length = sizeof(attestation_data);
+	int err;
+	uintptr_t va;
+
+	/* Determine which security state this SMC originated from */
+	src_sec_state = caller_sec_state(flags);
+
+	if (src_sec_state != SMC_FROM_REALM) {
+		WARN("RMM: Attestation call originated from secure or normal world\n");
+		SMC_RET1(handle, SMC_UNK);
+	}
+
+	switch (smc_fid) {
+	case ATTEST_GET_PLAT_TOKEN:
+
+		if (x2 > PAGE_SIZE) {
+			ERROR("Can't map regions larger than a page.\n");
+			SMC_RET1(handle, SMC_UNK);
+		}
+
+		if ((x3 != SHA256_DIGEST_SIZE) && (x3 != SHA384_DIGEST_SIZE) &&
+		    (x3 != SHA512_DIGEST_SIZE)) {
+			ERROR("Invalid hash size: %lu instead of %d/%d/%d.\n",
+			      x3, SHA256_DIGEST_SIZE, SHA384_DIGEST_SIZE,
+			      SHA512_DIGEST_SIZE);
+			SMC_RET1(handle, SMC_UNK);
+		}
+
+		spin_lock(&lock);
+
+		/* Map the buffer that was provided by the RMM. */
+		err = mmap_add_dynamic_region_alloc_va(x1, &va, PAGE_SIZE,
+						       MT_RW_DATA | MT_REALM);
+		if (err != 0) {
+			ERROR("mmap_add_dynamic_region_alloc_va failed: %d (%p).\n"
+			      , err, (void *)x1);
+			spin_unlock(&lock);
+			SMC_RET1(handle, SMC_UNK);
+		}
+
+		/*
+		 * Get the hash of the Realm token from the SMC parameters's
+		 * platform token buffer. In a later version this will be used
+		 * as an input for the platform token generation. However for
+		 * now only print it.
+		 */
+		print_hash((uint8_t *)va, x3);
+
+		/* Get the platform token. */
+		err = get_attestation_token(attestation_data,
+			&attestation_data_length, (uint8_t *)va, x3);
+		if (err != 0) {
+			ERROR("Failed to get platform token: %d.\n", err);
+			mmap_remove_dynamic_region(va, PAGE_SIZE);
+			spin_unlock(&lock);
+			SMC_RET1(handle, SMC_UNK);
+		}
+
+		/* Copy the platform token to the RMM's memory. */
+		if (attestation_data_length > x2) {
+			ERROR("Invalid buffer size from RMM: %lu.\n", x2);
+			mmap_remove_dynamic_region(va, PAGE_SIZE);
+			spin_unlock(&lock);
+			SMC_RET1(handle, SMC_UNK);
+		}
+		(void)memcpy((uint8_t *)va, attestation_data,
+			attestation_data_length);
+
+		/* Unmap RMM memory. */
+		err = mmap_remove_dynamic_region(va, PAGE_SIZE);
+		spin_unlock(&lock);
+		if (err != 0) {
+			ERROR("mmap_remove_dynamic_region failed: %d (%p).\n",
+			      err, (void *)x1);
+			SMC_RET1(handle, SMC_UNK);
+		}
+
+		SMC_RET2(handle, SMC_OK, attestation_data_length);
+	default:
+		WARN("RMM: Unsupported Attestation call 0x%08x\n", smc_fid);
+		SMC_RET1(handle, SMC_UNK);
+	}
+}
+#endif /* ATTEST_TOKEN_PROTO */
 
 /*******************************************************************************
  * This function handles all SMCs in the range reserved for RMI. Each call is

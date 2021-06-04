@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2021-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -9,6 +9,9 @@ ifneq (${ARCH},aarch64)
 endif
 
 include services/std_svc/rmmd/trp/trp.mk
+ifeq (${ATTEST_TOKEN_PROTO},1)
+include services/std_svc/rmmd/attest/attest.mk
+endif
 
 RMMD_SOURCES	+=	$(addprefix services/std_svc/rmmd/,	\
 			${ARCH}/rmmd_helpers.S			\

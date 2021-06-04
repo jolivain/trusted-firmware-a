@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -21,6 +21,15 @@ uint64_t rmmd_rmi_handler(uint32_t smc_fid,
 		uint64_t flags);
 
 uint64_t rmmd_gtsi_handler(uint32_t smc_fid,
+		uint64_t x1,
+		uint64_t x2,
+		uint64_t x3,
+		uint64_t x4,
+		void *cookie,
+		void *handle,
+		uint64_t flags);
+
+uint64_t rmmd_attest_handler(uint32_t smc_fid,
 		uint64_t x1,
 		uint64_t x2,
 		uint64_t x3,
