@@ -16,6 +16,24 @@
       "message": "Is there anything else required to have this series merged?",
       "revId": "4de33cecc76cf5da0ef3f18922a1608715df1386",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24b78851_4ac0d5a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-06-04T07:42:34Z",
+      "side": 1,
+      "message": "Hi Vyacheslav,\nTF-A adopted Conventional Commits (https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html?highlight\u003dconventional#making-changes), so you may have to update the commit message first line to:\nfeat(plat/st): add STM32MP_EMMC_BOOT option\n\nBut you also may have to split it in 2 (one for drivers, one for platform):\nfeat(drivers/st): manage boot part in io_mmc\nfeat(plat/st): add STM32MP_EMMC_BOOT option\n\nSorry again for this late change.",
+      "parentUuid": "d0768d74_f49ace72",
+      "revId": "4de33cecc76cf5da0ef3f18922a1608715df1386",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
