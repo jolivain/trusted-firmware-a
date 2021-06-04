@@ -285,6 +285,30 @@
       },
       "revId": "2ca74aaa0fb1d647cc572d191e3997a98e8f1227",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "139ebe04_9ce88df1",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-04T14:45:43Z",
+      "side": 1,
+      "message": "Ah ok. I think latest Linaro toolchain is needed to make this work.\nAnyways, once we have all latest toolchains (that supports \u0027sve\u0027 extension) then S* form of the instruction can be replaced with actual register as a part of separate patch.",
+      "parentUuid": "c619460d_7d2d4ffa",
+      "range": {
+        "startLine": 916,
+        "startChar": 5,
+        "endLine": 916,
+        "endChar": 17
+      },
+      "revId": "2ca74aaa0fb1d647cc572d191e3997a98e8f1227",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
