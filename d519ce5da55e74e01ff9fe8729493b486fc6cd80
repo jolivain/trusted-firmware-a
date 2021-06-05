@@ -67,6 +67,24 @@
       "message": "I was wondering why is the spi_limit \u003d 32(N+1) . Spec says maximum SPI should be 32(N+1)-1",
       "revId": "d519ce5da55e74e01ff9fe8729493b486fc6cd80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6966dd4_7d39a9be",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-06-05T14:20:20Z",
+      "side": 1,
+      "message": "Sorry for the delay; I also missed the notification of the comments until now.\nI\u0027ll fix all the commit message of these patches; \"refactor\" should be good for them. However, I\u0027m not quite sure if this comment above requires any change to the patch. I supposed the word \"exclusive\" in the comment would remind developers about the real maximum SPI.\n\nThanks,\nHeyi",
+      "parentUuid": "a26c8c3e_1d9fc30e",
+      "revId": "d519ce5da55e74e01ff9fe8729493b486fc6cd80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
