@@ -85,6 +85,24 @@
       "parentUuid": "a26c8c3e_1d9fc30e",
       "revId": "d519ce5da55e74e01ff9fe8729493b486fc6cd80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b3f6667_1ba523cc",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000440
+      },
+      "writtenOn": "2021-06-07T11:12:41Z",
+      "side": 1,
+      "message": "I guess this is a semantic issue - \u0027maximum value\u0027 vs \u0027limit\u0027. For example, in for loops, the limit is always one more than the maximum value of i.\nAs long as the checks all use \u0027x \u003c spi_limit\u0027 or equivalent, this should work fine.",
+      "parentUuid": "a6966dd4_7d39a9be",
+      "revId": "d519ce5da55e74e01ff9fe8729493b486fc6cd80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
