@@ -16,6 +16,24 @@
       "message": "There is one build failure for \u0027imx8mq\u0027 platform otherwise patch looks good to me,  ",
       "revId": "8fa24937f54896c99e5f040160669ac3d07f8a0e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a76aca5d_422e6813",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-06-07T11:11:02Z",
+      "side": 1,
+      "message": "Should be resolved soon with this set of patches:\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/10229\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10230",
+      "parentUuid": "0fcbbfff_5da787c9",
+      "revId": "8fa24937f54896c99e5f040160669ac3d07f8a0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
