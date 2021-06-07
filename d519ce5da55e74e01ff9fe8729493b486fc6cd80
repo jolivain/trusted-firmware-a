@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f5a4c11_b6839e51",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-06-07T13:31:17Z",
+      "side": 1,
+      "message": "Why \"exclusive\"?",
+      "revId": "d519ce5da55e74e01ff9fe8729493b486fc6cd80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e159d025_38ff3019",
@@ -48,6 +65,23 @@
       "writtenOn": "2021-04-20T17:47:47Z",
       "side": 1,
       "message": "Thanks, and sorry about the wait!",
+      "revId": "d519ce5da55e74e01ff9fe8729493b486fc6cd80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "612888d7_e6a8cdce",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-06-07T13:31:17Z",
+      "side": 1,
+      "message": "Why \"exclusive\"?",
       "revId": "d519ce5da55e74e01ff9fe8729493b486fc6cd80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -119,6 +153,23 @@
       "side": 1,
       "message": "Ack. Please fix the commit message.",
       "parentUuid": "1b3f6667_1ba523cc",
+      "revId": "d519ce5da55e74e01ff9fe8729493b486fc6cd80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "982453db_3c929ccc",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-06-07T13:31:17Z",
+      "side": 1,
+      "message": "return MAX_SPI_ID + 1U;",
       "revId": "d519ce5da55e74e01ff9fe8729493b486fc6cd80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
