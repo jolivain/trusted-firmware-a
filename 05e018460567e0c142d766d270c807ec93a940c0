@@ -16,6 +16,41 @@
       "message": "Our TEE, Kinibi, is used to receive the core linear ID in the x3 register of secondary cores.\nThis patch is necessary to bring up secondary cores with Kinibi as an SPMC in SEL1.\n\nIn Kinibi, the TEE is mostly platform-independent and all platform-specifics like topology is concentrated in ATF of our customers. That is why we don\u0027t have the MPIDR - linear ID mapping in Kinibi.\nWe need the correct linear ID to program the GICv2 target register, for example in power management case.",
       "revId": "05e018460567e0c142d766d270c807ec93a940c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8a76560_c74f797e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-06-07T18:51:44Z",
+      "side": 1,
+      "message": "Some questions inline.",
+      "revId": "05e018460567e0c142d766d270c807ec93a940c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "372e7566_ecdad2a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-06-07T18:51:44Z",
+      "side": 1,
+      "message": "Hi Lukas,\n\n\u003e Our TEE, Kinibi, is used to receive the core linear ID in the x3 register of secondary cores.\n\u003e This patch is necessary to bring up secondary cores with Kinibi as an SPMC in SEL1.\n\u003e \n\u003e In Kinibi, the TEE is mostly platform-independent and all platform-specifics like topology is concentrated in ATF of our customers. That is why we don\u0027t have the MPIDR - linear ID mapping in Kinibi.\n\u003e We need the correct linear ID to program the GICv2 target register, for example in power management case.\n\nI don\u0027t see an issue with the patch but could not help but think if the spec should describe a mechanism for passing the linear id. Some thoughts below to help me decide one way or the other. Could you please comment.\n\nThe mapping between an MPIDR and linear ID is not really platform dependent at least for the purpose of programming the GIC_ITARGETSR on both GICv2/v3. It could very well be a Kinibi specific mapping function as long as fn(mpidr) \u003d x such that 0 \u003c\u003d x \u003c\u003d 7. Using a linear ID calculated by TF-A is just more convenient.\n\nWhat I am trying to say is that for a given value of mpidr, it is possible that fn_tf-a(mpidr) \u003d x and fn_kinibi(mpidr) \u003d y such that x !\u003d y. This would not cause any issues since TF-A and Kinibi\u0027s respective mpidr to linear id mapping does not have to match. Do you agree with this claim?\n\nFurthermore, I am thinking if the need for TF-A to pass the linear id is specific to GICv2. On GICv3, can the Affinity value and Processor Number fields in the GICR_TYPER register be read to map an MPIDR to Linear id?\n\nI am also wondering if the same approach could be used when S-EL2 is enabled and a SP accesses the virtual GIC.\n\n@Olivier @Manish. I vaguely remember there was some issue in using the GICR_TYPER in this way. Do you see any?",
+      "parentUuid": "8455f368_8525d57a",
+      "revId": "05e018460567e0c142d766d270c807ec93a940c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
