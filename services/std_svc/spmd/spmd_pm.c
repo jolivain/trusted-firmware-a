@@ -99,6 +99,13 @@ static void spmd_cpu_on_finish_handler(u_register_t unused)
 
 	cm_setup_context(&ctx->cpu_ctx, spmc_ep_info);
 
+	/*
+	 * Pass linear id of secondary cores in x3 to SPMC.
+	 * SPMC can use this to index into a per-core boot stack array, etc.
+	 * That way SPMC reuses the platform-specific MPIDR topology of TF-A.
+	 */
+	write_ctx_reg(get_gpregs_ctx(&ctx->cpu_ctx), CTX_GPREG_X3, linear_id);
+
 	/* Mark CPU as initiating ON operation */
 	ctx->state = SPMC_STATE_ON_PENDING;
 
