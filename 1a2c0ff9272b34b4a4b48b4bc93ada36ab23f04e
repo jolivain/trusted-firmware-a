@@ -16,6 +16,24 @@
       "message": "Just curious: \nIs there a benefit of using explicit makefile target rule \"check_boot_device\" rather than the existing build flag checks? May be it can be enhanced with another check for BL2\n\nifeq ${BL2}\n    .. existing check\nendif",
       "revId": "1a2c0ff9272b34b4a4b48b4bc93ada36ab23f04e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83319872_6d2cfbd0",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-06-07T15:20:13Z",
+      "side": 0,
+      "message": "Hi Madhukar,\nNo other reason than having this check just for BL2, as BL32 does not need those boot devices flags.\nI\u0027ll check with the ifeq ${BL2}",
+      "parentUuid": "e9933f89_bc9309b1",
+      "revId": "1a2c0ff9272b34b4a4b48b4bc93ada36ab23f04e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
