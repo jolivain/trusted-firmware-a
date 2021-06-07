@@ -169,6 +169,12 @@ static int32_t spmd_init(void)
 		}
 	}
 
+	/*
+	 * Pass linear id to SPMC.
+	 * Note that booting core may not have linear id 0.
+	 */
+	write_ctx_reg(get_gpregs_ctx(&ctx->cpu_ctx), CTX_GPREG_X3, linear_id);
+
 	rc = spmd_spm_core_sync_entry(ctx);
 	if (rc != 0ULL) {
 		ERROR("SPMC initialisation failed 0x%llx\n", rc);
