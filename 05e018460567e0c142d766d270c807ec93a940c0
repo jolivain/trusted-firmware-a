@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8455f368_8525d57a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-06-07T16:44:31Z",
+      "side": 1,
+      "message": "Our TEE, Kinibi, is used to receive the core linear ID in the x3 register of secondary cores.\nThis patch is necessary to bring up secondary cores with Kinibi as an SPMC in SEL1.\n\nIn Kinibi, the TEE is mostly platform-independent and all platform-specifics like topology is concentrated in ATF of our customers. That is why we don\u0027t have the MPIDR - linear ID mapping in Kinibi.\nWe need the correct linear ID to program the GICv2 target register, for example in power management case.",
+      "revId": "05e018460567e0c142d766d270c807ec93a940c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
