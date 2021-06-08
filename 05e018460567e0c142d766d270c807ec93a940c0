@@ -85,6 +85,41 @@
       "message": "\u003e Patch Set 1: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 258 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l2/build/258/)\n\u003e Some tests failed (4)\n\nSPM tests passed.\n\nFailures look to be test timeouts due to infrastructure.\n",
       "revId": "05e018460567e0c142d766d270c807ec93a940c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc0b109c_efde6bba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-08T07:46:48Z",
+      "side": 1,
+      "message": "@Lukas can you move the rationale in this comment to the commit message to give some background.\n\n@Achin few comments below:\n\n\u003e it is possible that fn_tf-a(mpidr) \u003d x and fn_kinibi(mpidr) \u003d y such that x !\u003d y\nThis might be theoretically possible, but I still have the feeling this doesn\u0027t look absolutely correct that the TEE/SPMC does not use the same mapping as the other system ingredients (OS kernel, TF-A etc.). To be checked further if it flies with any chipset implementation.\n\n\u003e I am thinking if the need for TF-A to pass the linear id \nI think the most important aspect is that a TEE/SPMC needs to figure out the core linear id very early so to setup a core-local stack. In general the early boot kernel head snippets run in a limited/constrained environment (possibly MMU off, no access to the whole TEE memory map etc.). With Hafnium we have a tricky extraction of the linear id from the cpu structs that are populated by the SPMC manifest parsing. But not all SPMC solutions have this processor topology information available. And an MPIDR to linear id conversion macro is highly chipset specific, not flying well with the desire for a generic code base/image.\n\n\u003e On GICv3, can the Affinity value and Processor Number fields in the GICR_TYPER register be read to map an MPIDR to Linear id?\nI did few experiments with the FVP and indeed it can be a path forward. The only hurdle is for the secondary core code path to figure out the running core GICR base address (again without a stack yet ready). Although not fully scalable when the system is GICv2 based.\n\n\u003e I am also wondering if the same approach could be used when S-EL2 is enabled and a SP accesses the virtual GIC.\nThe re-distributor might not accessible by a SP unless emulated (which doesn\u0027t look to be PoR at the moment). The virtual CPU interface does not expose the processor information AFAIK. With S-EL2 an SP reads the MPIDR as the virtual value exposed through VMPIDR. With Hafnium this value is the core linear id so it might be an easy solution when S-EL2/Hafnium is used.",
+      "parentUuid": "372e7566_ecdad2a5",
+      "revId": "05e018460567e0c142d766d270c807ec93a940c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c42f973d_ea42decc",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-08T07:46:48Z",
+      "side": 1,
+      "message": "nit: can you add a brief comment here explaining what it does?",
+      "revId": "05e018460567e0c142d766d270c807ec93a940c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
