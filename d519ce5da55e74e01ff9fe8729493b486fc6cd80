@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "36e4f19f_58b0b07c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-06-08T05:00:17Z",
+      "side": 1,
+      "message": "The return value is equal to (the maximum valid SPI ID + 1), so I add the word \"exclusive\" here, to remind users of this function not to consider the return value as the last valid SPI INT ID.\n\nThanks.",
+      "parentUuid": "0f5a4c11_b6839e51",
+      "revId": "d519ce5da55e74e01ff9fe8729493b486fc6cd80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e159d025_38ff3019",
@@ -82,6 +100,24 @@
       "writtenOn": "2021-06-07T13:31:17Z",
       "side": 1,
       "message": "Why \"exclusive\"?",
+      "revId": "d519ce5da55e74e01ff9fe8729493b486fc6cd80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de084143_f899096d",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-06-08T05:00:17Z",
+      "side": 1,
+      "message": "The return value is equal to (the maximum valid SPI ID + 1), so I add the word \"exclusive\" here, to remind users of this function not to consider the return value as the last valid SPI INT ID.\n\nThanks.",
+      "parentUuid": "612888d7_e6a8cdce",
       "revId": "d519ce5da55e74e01ff9fe8729493b486fc6cd80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -170,6 +206,24 @@
       "writtenOn": "2021-06-07T13:31:17Z",
       "side": 1,
       "message": "return MAX_SPI_ID + 1U;",
+      "revId": "d519ce5da55e74e01ff9fe8729493b486fc6cd80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f04569f3_d4f0bb36",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2021-06-08T05:00:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "982453db_3c929ccc",
       "revId": "d519ce5da55e74e01ff9fe8729493b486fc6cd80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
