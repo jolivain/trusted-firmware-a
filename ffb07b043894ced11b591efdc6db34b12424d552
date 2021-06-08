@@ -51,6 +51,24 @@
       "message": "Hi Maxim,\n\nI figure out this change is breaking the CI in context of Hafnium project. The latter uses Qemu and the default behavior has changed from using semihosting to GPIO control for a system reset.\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/qemu/common/qemu_pm.c?h\u003dv2.5#n214\n\nThis CI python script expects Qemu to shut down when a test completes but this doesn\u0027t seem to happen:\nhttps://git.trustedfirmware.org/hafnium/hafnium.git/tree/test/hftest/hftest.py?h\u003dv2.5#n164\n\nInstead Qemu just reboots after the system off GPIO has triggered, and consequently the test is running in a deadly reboot loop\n\nERROR:   QEMU System Power off: with GPIO.\nNOTICE:  Booting Trusted Firmware\nNOTICE:  BL1: v2.5(release):v2.5-73-gcbf65cbbd\nNOTICE:  BL1: Built : 09:56:26, Jun  7 2021\n\nIn which context did you test this change? In particular the system off case?\nWould you mind if we revert a default behavior to using semihosting, or provide a qemu platform build option?\n\nThanks \u0026 Regards,\nOlivier.",
       "revId": "ffb07b043894ced11b591efdc6db34b12424d552",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98539159_26cefb0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000514
+      },
+      "writtenOn": "2021-06-08T08:14:31Z",
+      "side": 1,
+      "message": "\u003e Hi Maxim,\n\u003e \n\u003e I figure out this change is breaking the CI in context of Hafnium project. The latter uses Qemu and the default behavior has changed from using semihosting to GPIO control for a system reset.\n\u003e https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/qemu/common/qemu_pm.c?h\u003dv2.5#n214\n\u003e \n\u003e This CI python script expects Qemu to shut down when a test completes but this doesn\u0027t seem to happen:\n\u003e https://git.trustedfirmware.org/hafnium/hafnium.git/tree/test/hftest/hftest.py?h\u003dv2.5#n164\n\u003e \n\u003e Instead Qemu just reboots after the system off GPIO has triggered, and consequently the test is running in a deadly reboot loop\n\u003e \n\u003e ERROR:   QEMU System Power off: with GPIO.\n\u003e NOTICE:  Booting Trusted Firmware\n\u003e NOTICE:  BL1: v2.5(release):v2.5-73-gcbf65cbbd\n\u003e NOTICE:  BL1: Built : 09:56:26, Jun  7 2021\n\u003e \n\u003e In which context did you test this change? In particular the system off case?\n\u003e Would you mind if we revert a default behavior to using semihosting, or provide a qemu platform build option?\n\n\nIn qemu secure boot there is no semihisting and firmware passed as secure flash. In qemu secure pl061(gpio) device was created to do power off and reboot.\nhttps://github.com/qemu/qemu/blob/master/hw/gpio/gpio_pwr.c\n\nI.e. in case of poweroff there is call to qemu to shutdown machine\"\nqemu_system_reset_request(SHUTDOWN_CAUSE_GUEST_SHUTDOWN);\n\nIf qemu reboots on that call it looks like it\u0027s qemu bug. Might be related to semihosting option. Quick ugly fix might be to add --no-reboot option to qemu. So reboot will work as shutdown. But the main problem is why SHUTDOWN_CAUSE_GUEST_SHUTDOWN reboots VM instead of real shutdown.\n\nBR,\nMaxim.\n\n\u003e \n\u003e Thanks \u0026 Regards,\n\u003e Olivier.",
+      "parentUuid": "aa6daaf1_7e3c91d3",
+      "revId": "ffb07b043894ced11b591efdc6db34b12424d552",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
