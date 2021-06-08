@@ -68,6 +68,23 @@
       "parentUuid": "8455f368_8525d57a",
       "revId": "05e018460567e0c142d766d270c807ec93a940c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "073d0a9c_43b5a323",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-08T06:26:35Z",
+      "side": 1,
+      "message": "\u003e Patch Set 1: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 258 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l2/build/258/)\n\u003e Some tests failed (4)\n\nSPM tests passed.\n\nFailures look to be test timeouts due to infrastructure.\n",
+      "revId": "05e018460567e0c142d766d270c807ec93a940c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
