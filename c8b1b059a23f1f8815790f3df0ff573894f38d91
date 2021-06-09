@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2ec69e6_baf979bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-06-09T22:01:26Z",
+      "side": 1,
+      "message": "\u003e Patch Set 3: Verified-1\n\u003e \n\u003e Build Failed \n\u003e \n\u003e https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l1/4138/ : This Jenkins server is not publicly accessible. A core maintainer will let you know if this CI failure is blocking the merge of this patch.\n\nGetting compile error in one test for this file:\n16:26:56 In file included from drivers/renesas/common/ddr/ddr_b/boot_init_dram.c:310:\n16:26:56 drivers/renesas/common/ddr/ddr_b/boot_init_dram_config.c: In function \u0027ddr_rank_judge\u0027:\n16:26:56 drivers/renesas/common/ddr/ddr_b/boot_init_dram_config.c:1984:8: error: implicit declaration of function \u0027rcar_get_board_type\u0027 [-Werror\u003dimplicit-function-declaration]\n16:26:56  1984 |  ret \u003d rcar_get_board_type(\u0026type, \u0026rev);\n16:26:56       |        ^~~~~~~~~~~~~~~~~~~\n16:26:56 drivers/renesas/common/ddr/ddr_b/boot_init_dram_config.c:1986:25: error: \u0027BOARD_SALVATOR_XS\u0027 undeclared (first use in this function); did you mean \u0027EXTAL_SALVATOR_XS\u0027?\n16:26:56  1986 |   if (type \u003d\u003d (uint32_t)BOARD_SALVATOR_XS) {\n16:26:56       |                         ^~~~~~~~~~~~~~~~~\n16:26:56       |                         EXTAL_SALVATOR_XS\n16:26:56 drivers/renesas/common/ddr/ddr_b/boot_init_dram_config.c:1986:25: note: each undeclared identifier is reported only once for each function it appears in\n16:26:56 drivers/renesas/common/ddr/ddr_b/boot_init_dram_config.c:1992:32: error: \u0027BOARD_STARTER_KIT_PRE\u0027 undeclared (first use in this function)\n16:26:56  1992 |   } else if (type \u003d\u003d (uint32_t)BOARD_STARTER_KIT_PRE) {\n16:26:56       |                                ^~~~~~~~~~~~~~~~~~~~~\n16:26:56 At top level:\n16:26:56 drivers/renesas/common/ddr/ddr_b/boot_init_dram_config.c:1974:17: error: \u0027ddr_rank_judge\u0027 defined but not used [-Werror\u003dunused-function]\n16:26:56  1974 | static uint32_t ddr_rank_judge(void)\n16:26:56       |                 ^~~~~~~~~~~~~~\n16:26:56 cc1: all warnings being treated as errors\n16:26:56 Makefile:1125: recipe for target \u0027/work/workspace/workspace/tf-worker_ws_3/trusted_firmware/build/rzg/debug/bl2/boot_init_dram.o\u0027 failed\n",
+      "revId": "c8b1b059a23f1f8815790f3df0ff573894f38d91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
