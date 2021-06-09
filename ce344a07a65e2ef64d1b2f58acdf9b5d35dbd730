@@ -16,6 +16,29 @@
       "message": "@olivier @varun I have uploaded a new patch that addresses your issues, please have a look.",
       "revId": "ce344a07a65e2ef64d1b2f58acdf9b5d35dbd730",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ba7f194_fe99e8a0",
+        "filename": "services/std_svc/spmd/spmd_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-06-09T09:21:34Z",
+      "side": 1,
+      "message": "This seems to be a Kinibi specific requirement. Since this is common code the SPMC will receive this value by default even if it does not run Kinibi. We need to standardise this interface. I propose we get a sign off on the mailing list and document this as a generic interface requirement somewhere.",
+      "range": {
+        "startLine": 107,
+        "startChar": 1,
+        "endLine": 107,
+        "endChar": 71
+      },
+      "revId": "ce344a07a65e2ef64d1b2f58acdf9b5d35dbd730",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
