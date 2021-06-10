@@ -125,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32281141_eeec192d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-06-10T19:39:03Z",
+      "side": 1,
+      "message": "\u003e @Achin\n\u003e I agree, on GICv3 and GICv4 it is not needed. We use a fixed mapping from MPIDR to ICDIPTR/GICD_ITARGETSRn register.\n\u003e In our code, it is only for GICv2, where we use the linear_id value from TF-A.\n\u003e \n\u003e For debug and power management purpose, we also want a unified view to linear_id between Linux and the TEE. E.g. to disable a core, to see what cores are printing a trace / an event.\n\u003e \n\u003e In the past, Kinibi had several other designs, but the complexity was getting out of control:\n\u003e * Platform-specific assembler macros in the kernel.\n\u003e * Then later, a per core SMC from Linux to tell the linear ID after the boot.\n\u003e * Also, not the forget DynamiQ and the ability to play with MPIDR register values, them not being fixed or unique.\n\nI guess using the SMC is the only reliable way to obtain a MPIDR to linear ID mapping from Linux. Else we would have to assume that Linux uses the same hash function as TF-A or Kinibi so each will have exactly the same mapping.\n\n@Olivier. Some thoughts.\n\nI realise that today the linear id is calculated in a platform specific manner on almost all SoCs. There is a platform function for this in TF-A. I am asking whether it needs to be calculated in this way in future i.e. what would stop working if TF-A and TEE do not have the same mpidr to linear id mapping. \n\nI also realise that it is easy for the TOS to receive the linear id from TF-A instead of accessing a mapping table in assembler but this is not a gating issue. But is that the only reason?\n\nTF-A needs a platform specific hash function since all cpus could be released from reset at the same time and the complexity of synchronising accesses to the mapping table with MMU turned off (no exclusive monitor possibly) would be huge. \n\nHowever, a TEE would not suffer from the same problem as long as the OS calls PSCI CPU_ON on each secondary core serially instead of allowing multiple secondaries to boot up concurrently. \n\nSince TEEs are making changes to adopt FF-A, I see a choice between using a truly platform independent mechanism vs using the linear id calculated by TF-A.\n\nIf things cannot work without the linear id calculated by TF-A, then passing it to a TEE is trivial as demonstrated by this patch. I am more concerned about the definition of a linear id. Is it a number x such that 0 \u003c\u003d x \u003c NUM_CPUS? Is it guaranteed that the MPIDR to linear id mapping will not change until the next cold reset? Is this linear id related to a similar id being used in the Normal world? IIUC, these could easily be different today.\n\nThis might seem obvious but it is worth capturing in the documentation so that a strict contract is defined. What do you reckon?\n\nOn the topic of using the VMPIDR register to carry the linear id...\n\nThis would indeed be a simple solution as we have discussed before. But I am thinking that a SP would have to know whether it is virtualized or not to determine whether it can use the MPIDR directly or it should continue relying on the passed linear id. Is this desirable? In any case, the contract would need to be defined between the SPMC and a SP such that the latter can rely on it irrespective of the SPMC implementation.\n\nI am leaning towards not making any spec changes for now. Please let me know if this sounds reasonable to you. If the contracts are defined in Hafnium and TF-A documentation, they can be retrospectively added to the FF-A spec in future if the need arises.\n\nLastly, I think it would be safer to pick a register outside w0-w7. The boot protocol information from a SPMC to SP could be passed in any register between w0-w3. The cold boot reason could be specified in any register between w0-w7. This is specified in the manifest. The FF-A spec was not sure that it could simply choose registers in these ranges and this would not break some TEE. So choosing a register outside these ranges would be better to avoid a clash with the manifest.",
+      "parentUuid": "cc421bda_7de9e355",
+      "revId": "05e018460567e0c142d766d270c807ec93a940c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c42f973d_ea42decc",
         "filename": "services/std_svc/spmd/spmd_pm.c",
         "patchSetId": 1
