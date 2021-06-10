@@ -16,6 +16,24 @@
       "message": "Not sure if this is a blocker, but it looks like this file is almost identical to corresponding imx8m and imx7 xxx_io_storage.c files except for some macros. I think there a lot of opportunity reuse code here.",
       "revId": "e2ba51e4bab15e590cbadd1801fbaa0a73e62227",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f08850f6_4bc12360",
+        "filename": "plat/imx/imx8m/imx8mp/imx8mp_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000148
+      },
+      "writtenOn": "2021-06-10T23:47:15Z",
+      "side": 0,
+      "message": "Hi Zelalem, \n\nYes. Maybe. I can try to merge all the xxx_io_storage.c to common directory.\nBai, what do you think?",
+      "parentUuid": "053942a2_4bff2512",
+      "revId": "e2ba51e4bab15e590cbadd1801fbaa0a73e62227",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
