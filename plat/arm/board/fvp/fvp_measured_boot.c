@@ -20,7 +20,6 @@ static const image_data_t fvp_images_data[] = {
 	{ NT_FW_CONFIG_ID, NT_FW_CONFIG_STRING, PCR_0 },
 	{ SCP_BL2_IMAGE_ID, SCP_BL2_IMAGE_STRING, PCR_0 },
 	{ SOC_FW_CONFIG_ID, SOC_FW_CONFIG_STRING, PCR_0 },
-	{ STM32_IMAGE_ID, STM32_IMAGE_STRING, PCR_0 },
 	{ TOS_FW_CONFIG_ID, TOS_FW_CONFIG_STRING, PCR_0 },
 	{ INVALID_ID, NULL, (unsigned int)(-1) }	/* Terminator */
 };
