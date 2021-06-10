@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f740d60_bb42a2b3",
+        "filename": "plat/xilinx/zynqmp/bl31_zynqmp_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-06-10T23:21:58Z",
+      "side": 1,
+      "message": "Please add a macro. Something like\n#define DDR_MAX 0x80000000",
+      "range": {
+        "startLine": 185,
+        "startChar": 18,
+        "endLine": 185,
+        "endChar": 27
+      },
+      "revId": "fb6b6f150dfe2cfcf9a81a186155a310a69b9a28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "163aa1f9_a5fb2b84",
+        "filename": "plat/xilinx/zynqmp/bl31_zynqmp_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-06-10T23:21:58Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "fb6b6f150dfe2cfcf9a81a186155a310a69b9a28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b3cf3e2_d5f8897e",
+        "filename": "plat/xilinx/zynqmp/bl31_zynqmp_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-06-10T23:21:58Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "fb6b6f150dfe2cfcf9a81a186155a310a69b9a28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
