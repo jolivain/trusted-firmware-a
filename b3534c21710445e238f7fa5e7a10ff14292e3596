@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "048a1f3c_82a5b075",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-11T09:43:07Z",
+      "side": 1,
+      "message": "(minor) Indent with spaces rather than tabs for consistency.",
+      "range": {
+        "startLine": 966,
+        "startChar": 0,
+        "endLine": 966,
+        "endChar": 1
+      },
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5a6a395_f90a93c5",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-11T09:43:07Z",
+      "side": 1,
+      "message": "Should we prefix these build options with \"FWU_\"? The current names look a bit too generic to me.",
+      "range": {
+        "startLine": 966,
+        "startChar": 1,
+        "endLine": 966,
+        "endChar": 15
+      },
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ede98c8_ebc5113d",
+        "filename": "include/plat/common/fwu_metadata.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-11T09:43:07Z",
+      "side": 1,
+      "message": "I am not sure include/plat/common is the best place for this header file... I don\u0027t see anything platform-specific in there. What was the rationale for choosing this location?",
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eea3f6a1_1cbbc6f2",
+        "filename": "include/plat/common/fwu_metadata.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-11T09:43:07Z",
+      "side": 1,
+      "message": "Should be \"Arm Limited\", drop the \"and Contributors\".",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "252b6c0a_13b53551",
+        "filename": "include/plat/common/fwu_metadata.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-11T09:43:07Z",
+      "side": 1,
+      "message": "The FWU spec expects UUIDs to be 10 bytes. It looks like our UUIDs (as defined in include/tools_share/uuid.h) are bigger than that (16 bytes)...",
+      "range": {
+        "startLine": 37,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 7
+      },
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
