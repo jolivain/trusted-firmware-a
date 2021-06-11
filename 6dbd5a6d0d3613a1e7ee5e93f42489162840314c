@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a47a7ade_d8d83887",
+        "filename": "plat/xilinx/zynqmp/bl31_zynqmp_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-06-11T14:09:57Z",
+      "side": 1,
+      "message": "I am curious why is the cache clean operation needed here.",
+      "revId": "6dbd5a6d0d3613a1e7ee5e93f42489162840314c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
