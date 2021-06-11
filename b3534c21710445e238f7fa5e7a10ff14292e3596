@@ -191,6 +191,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "02131329_e5f00773",
+        "filename": "include/plat/common/fwu_metadata.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-11T11:46:40Z",
+      "side": 1,
+      "message": "Please see below how this header is used and what is the future plan.\n\n1. As per patches in this series, this header is used by Arm platforms, but only in case of BL2.\n2. There is a plan to use this header in BL1 code, but only in case of Arm platform. I will post a patch for this soon.\n3. Any other platforms can use this header in their own implementation to load the FWU metadata.\n\nAs of now, this header is used only in Arm platforms, and giving opportunity to other platforms to include it in their own implementation. \nThat means, FWU header is common (every platform should abide with that), but implementation to use this header is platform specific.\n\nI am not quite sure then where to fit this header. Please provide your suggestion here? Thanks!",
+      "parentUuid": "bea48df5_c0986392",
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eea3f6a1_1cbbc6f2",
         "filename": "include/plat/common/fwu_metadata.h",
         "patchSetId": 4
