@@ -112,6 +112,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8bc39c7_c92e03bb",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-11T11:15:49Z",
+      "side": 1,
+      "message": "Good point. OK let\u0027s keep the names you\u0027ve used then.",
+      "parentUuid": "c739df5a_b63a687c",
+      "range": {
+        "startLine": 966,
+        "startChar": 1,
+        "endLine": 966,
+        "endChar": 15
+      },
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ede98c8_ebc5113d",
@@ -143,6 +167,24 @@
       "side": 1,
       "message": "That\u0027s correct this header does not have any platform specific information.\nI added in this location so that any platforms can make use of it. \nDo you have any other prefer location? \nCan we put this header in \u0027include/common/\u0027 instead?",
       "parentUuid": "5ede98c8_ebc5113d",
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bea48df5_c0986392",
+        "filename": "include/plat/common/fwu_metadata.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-11T11:15:49Z",
+      "side": 1,
+      "message": "\u003e I added in this location so that any platforms can make use of it.\n\nIn my mind, include/plat/common is for things that all platforms must implement. For example, include/plat/common/platform.h contains the prototypes of all platform interfaces. I don\u0027t think this quite fits the FWU metadata, does it?\n\n\u003e Can we put this header in \u0027include/common/\u0027 instead?\n\nI think include/common is for header files that are shared across multiple BL images. Is this the case for the FWU code? I can\u0027t quite say for now, I\u0027ll have to go through the whole patch series to get a better understanding first. Possible alternatives could be include/drivers or include/lib, if that makes sense. Any of these 3 locations can still be used by any platform.",
+      "parentUuid": "92c78d26_3f35b261",
       "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -231,6 +273,30 @@
       "side": 1,
       "message": "No, As per FWU specs size of UUIDs should be 0x10h i.e. 16 bytes (see table 6 in specification).",
       "parentUuid": "252b6c0a_13b53551",
+      "range": {
+        "startLine": 37,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 7
+      },
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f0be838_e25d4c1e",
+        "filename": "include/plat/common/fwu_metadata.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-11T11:15:49Z",
+      "side": 1,
+      "message": "Aaah I missed the hexadecimal base of these numbers, thanks for pointing this out!",
+      "parentUuid": "20e50751_8cee7e11",
       "range": {
         "startLine": 37,
         "startChar": 1,
