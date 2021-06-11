@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45683396_d4d7bf7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-06-11T03:15:59Z",
+      "side": 1,
+      "message": "Hi,\n\nWhy commitlint report the following error? the commit already had a signed-off-by, thanks.\n\n⧗   input: refactor(plat/nxp/common): moved plat make-variables to new plat_common_def.mk\n\nMove some common make variables to new plat_common_def.mk,\nthen it can be reused by other platforms.\n\nSigned-off-by: Jiafei Pan \u003cJiafei.Pan@nxp.com\u003e\nChange-Id: I37bd65b0f8124f63074fa03339f886c2cdb30bd3\n✖   message must be signed off [signed-off-by]\n\n",
+      "revId": "94abf479bfeafd5e881c66dcf4c560096f665e8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
