@@ -16,6 +16,23 @@
       "message": "Seems reasonable.",
       "revId": "b3e0fc52e61076b93f018b1cfeaff4faca935c09",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f987793b_38f7d093",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-06-11T20:54:47Z",
+      "side": 1,
+      "message": "I\u0027ll assume you \"did your homework\" here, but are you confident that these are *all* relevant mentions of SPM_MM where this modification is needed?  I ask because:\n\n$ grep -R SPM_MM | grep -v SPM_MM_ | grep \"#if\" | wc -l\n37\n$\n\nThat is, SPM_MM is used fair number number of places in the code...",
+      "revId": "b3e0fc52e61076b93f018b1cfeaff4faca935c09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
