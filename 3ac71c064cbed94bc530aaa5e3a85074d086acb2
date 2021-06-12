@@ -56,6 +56,23 @@
       "message": "OK, reasonable.",
       "revId": "3ac71c064cbed94bc530aaa5e3a85074d086acb2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85bfc328_787ca0d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-06-12T17:40:05Z",
+      "side": 1,
+      "message": "I was thinking similarly (that using a v8.5-capable compiler doesn\u0027t necessarily mean that the system supports BTI).  However, I gather there\u0027s a compiler switch \"-mbranch-protection\u003dpac-ret+bti\" to turn on that feature, or not.  So, I presumed it was not so much whether it\u0027s not only that it\u0027s a v8.5-capabile GCC, but also having that switch turned on.",
+      "revId": "3ac71c064cbed94bc530aaa5e3a85074d086acb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
