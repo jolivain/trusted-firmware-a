@@ -16,6 +16,40 @@
       "message": "Need COR+1 from your side...",
       "revId": "2a0f138dc53c0794cb842cfa5d39ed5556f2b64e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ecc7328_bc5c1910",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-06-12T00:18:47Z",
+      "side": 1,
+      "message": "Looks pretty straight-forward.",
+      "revId": "2a0f138dc53c0794cb842cfa5d39ed5556f2b64e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48e23f23_eff472be",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-06-12T00:18:47Z",
+      "side": 1,
+      "message": "Not super-important in this case, since the block of code is (so far) short, but ideally, on \"#endif\"s it can be helpful to add a comment along the lines:\n\n#endif /* GIC_EXT_INTID */\n\nAgain though, not a huge concern here, currently.",
+      "revId": "2a0f138dc53c0794cb842cfa5d39ed5556f2b64e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
