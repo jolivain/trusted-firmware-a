@@ -73,6 +73,24 @@
       "message": "I was thinking similarly (that using a v8.5-capable compiler doesn\u0027t necessarily mean that the system supports BTI).  However, I gather there\u0027s a compiler switch \"-mbranch-protection\u003dpac-ret+bti\" to turn on that feature, or not.  So, I presumed it was not so much whether it\u0027s not only that it\u0027s a v8.5-capabile GCC, but also having that switch turned on.",
       "revId": "3ac71c064cbed94bc530aaa5e3a85074d086acb2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b294a500_a168873f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-13T17:07:00Z",
+      "side": 1,
+      "message": "So the problem with that assumption is that just because we are compiling with the BTI switch, does not mean a binary will run on an v8.5 platform. BTI instructions are in the NOP space so the same binary can run on pre-v8.5 platforms without BTI as well. This is something we are considering for FF-A S-EL0 partitions. We will always compile a partition with BTI enabled but it can run with either BTI enabled or disabled.\nNow i\u0027m not saying that can happen with TF-A binaries but i dont see a strong reason to preclude it.\nHaving said all that, i dont have a strong opinion, just throwing it out there for consideration. If we think this is unlikely or we dont support it until someone asks for it, i\u0027m fine. This patch infact removes the check and enables the use case above. I guess i would like the commit message reworded to not assume if we ENABLE_BIT, we run on ARMv8.5 platform.",
+      "parentUuid": "85bfc328_787ca0d0",
+      "revId": "3ac71c064cbed94bc530aaa5e3a85074d086acb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
