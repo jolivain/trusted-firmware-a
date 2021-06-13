@@ -91,6 +91,24 @@
       "parentUuid": "85bfc328_787ca0d0",
       "revId": "3ac71c064cbed94bc530aaa5e3a85074d086acb2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb875eef_97facc8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-06-13T17:41:18Z",
+      "side": 1,
+      "message": "Yeah, I\u0027m not convinced either way as to what value this check has.  It seems to be little more than a consistency check on the build, but I don\u0027t see much value in removing it either.",
+      "parentUuid": "b294a500_a168873f",
+      "revId": "3ac71c064cbed94bc530aaa5e3a85074d086acb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
