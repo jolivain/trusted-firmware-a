@@ -279,6 +279,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6904a687_830e78fa",
+        "filename": "include/plat/common/fwu_metadata.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-14T17:40:29Z",
+      "side": 1,
+      "message": "\u0027fwu_image_properties\u0027 makes more sense.",
+      "parentUuid": "9be7807a_564d83a7",
+      "range": {
+        "startLine": 17,
+        "startChar": 7,
+        "endLine": 17,
+        "endChar": 22
+      },
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d18393cb_770bcacc",
         "filename": "include/plat/common/fwu_metadata.h",
         "patchSetId": 4
@@ -290,6 +314,30 @@
       "writtenOn": "2021-06-14T15:13:40Z",
       "side": 1,
       "message": "Should we call this fwu_image_entry (and fwu_image_properties for the one above)? Just like we\u0027ve called the one below fwu_metadata? Namespacing all these structures names sounds like a good idea to me. If we keep such generic names, I am worried that they will be too close to the existing structures we use for image loading, such as \u0027struct image_desc\u0027 or \u0027struct image_info\u0027 defined in bl_common_exp.h.",
+      "range": {
+        "startLine": 34,
+        "startChar": 7,
+        "endLine": 34,
+        "endChar": 18
+      },
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b7ec044_efcccec3",
+        "filename": "include/plat/common/fwu_metadata.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-14T17:40:29Z",
+      "side": 1,
+      "message": "Okay, I will change this to \u0027fwu_image_entry\u0027",
+      "parentUuid": "d18393cb_770bcacc",
       "range": {
         "startLine": 34,
         "startChar": 7,
@@ -394,6 +442,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "875c13f1_07c32a9d",
+        "filename": "include/plat/common/fwu_metadata.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-14T17:40:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b231205e_f1434ed4",
+      "range": {
+        "startLine": 62,
+        "startChar": 33,
+        "endLine": 62,
+        "endChar": 37
+      },
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50d26b49_d156772a",
@@ -407,6 +479,30 @@
       "writtenOn": "2021-06-14T15:13:40Z",
       "side": 1,
       "message": "(minor) booted?",
+      "range": {
+        "startLine": 65,
+        "startChar": 42,
+        "endLine": 65,
+        "endChar": 46
+      },
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa14ef05_51da92c9",
+        "filename": "include/plat/common/fwu_metadata.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-14T17:40:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "50d26b49_d156772a",
       "range": {
         "startLine": 65,
         "startChar": 42,
