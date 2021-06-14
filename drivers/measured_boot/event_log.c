@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2021, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -286,7 +286,7 @@ int event_log_finalise(uint8_t **log_addr, size_t *log_size)
 	assert(log_addr != NULL);
 	assert(log_size != NULL);
 
-	if (nt_fw_config_base == 0UL) {
+	if ((nt_fw_config_base == 0UL) && (tos_fw_config_base == 0UL)) {
 		ERROR("%s(): %s_FW_CONFIG not loaded\n", __func__, "NT");
 		return -ENOENT;
 	}
@@ -295,7 +295,8 @@ int event_log_finalise(uint8_t **log_addr, size_t *log_size)
 	 * Set Event Log data in NT_FW_CONFIG and
 	 * get Event Log address in Non-Secure memory
 	 */
-	if (plat_data_ptr->set_nt_fw_info != NULL) {
+	if ((nt_fw_config_base != 0UL) &&
+	    (plat_data_ptr->set_nt_fw_info != NULL)) {
 
 		/* Event Log address in Non-Secure memory */
 		uintptr_t ns_log_addr;
