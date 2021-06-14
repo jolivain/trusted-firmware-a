@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0b167e16_e3db0abe",
+        "filename": "include/plat/arm/common/arm_fwu_metadata.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-14T10:09:51Z",
+      "side": 1,
+      "message": "\u003e Do you think we should make the FWU metadata load function generic irrespective of whether the platform support GPT or not?\n\nYes, I think so.\n\nI need to do some more reading of the FWU spec before I can provide a good answer to this but my initial impression was that there was nothing Arm specific in there, neither in arm_fwu_metadata.h nor in arm_fwu_metadata.c. This looked like generic data structures to me, as defined by the spec, and the associated code to manipulate them. If we\u0027ve got some dependency on the storage medium used by the platform for the metadata and firmware images, then I would think the I/O abstraction layer should handle this and it would be transparent from the point of view of this code.\n\nBut maybe I am missing something, I\u0027ll hold off commenting further until I have a better understanding of the whole patch series and spec.",
+      "parentUuid": "38376abb_4d930325",
+      "revId": "fc93e0d1682a72bb60f56f60fe9a954bb454a4c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f82c922e_36fb5ee2",
         "filename": "include/plat/arm/common/arm_fwu_metadata.h",
         "patchSetId": 5
