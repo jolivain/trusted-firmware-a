@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "388a8916_0904fcac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2021-06-14T07:37:46Z",
+      "side": 1,
+      "message": "s/atf/tf-a/",
+      "revId": "6dbd5a6d0d3613a1e7ee5e93f42489162840314c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57b167f1_8bd9cfda",
@@ -41,6 +58,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cf78d3f_5996d5d1",
+        "filename": "plat/xilinx/zynqmp/bl31_zynqmp_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2021-06-14T07:37:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a47a7ade_d8d83887",
+      "revId": "6dbd5a6d0d3613a1e7ee5e93f42489162840314c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b06cec4b_a6e4e611",
@@ -54,6 +89,30 @@
       "writtenOn": "2021-06-11T20:56:03Z",
       "side": 1,
       "message": "out of curiosity, is it fine to proceed even after this function failed to change the device tree for PSCI and reserved memories?",
+      "range": {
+        "startLine": 231,
+        "startChar": 2,
+        "endLine": 231,
+        "endChar": 15
+      },
+      "revId": "6dbd5a6d0d3613a1e7ee5e93f42489162840314c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9c75b0b_15266bbd",
+        "filename": "plat/xilinx/zynqmp/bl31_zynqmp_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2021-06-14T07:37:46Z",
+      "side": 1,
+      "message": "All that errors will be visible and it is not end of life that DT is not updated. Also DT doesn\u0027t need to be there at this address. I don\u0027t think it should really fail that\u0027s why it is done like this. RPI4 is also not failing in this case.",
+      "parentUuid": "b06cec4b_a6e4e611",
       "range": {
         "startLine": 231,
         "startChar": 2,
