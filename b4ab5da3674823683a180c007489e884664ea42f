@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4770625a_917b0050",
+        "filename": "Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-14T15:24:25Z",
+      "side": 1,
+      "message": "(minor) replace tab with spaces",
+      "range": {
+        "startLine": 958,
+        "startChar": 0,
+        "endLine": 958,
+        "endChar": 1
+      },
+      "revId": "b4ab5da3674823683a180c007489e884664ea42f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb52b7e7_f1c65a1a",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-14T15:24:25Z",
+      "side": 1,
+      "message": "Just for my understanding (no change requested)... Is this code implementing the redundancy checks described in section 4.1 of the FWU spec? I am referring to the following text:\n\n The metadata representation is replicated to ensure reliable operation. \n\nHere, are we saying that we\u0027ve got one copy of the metadata on partition \"FWU-Metadata\" and another copy on partition \"Bkup-FWU-Metadata\"?\n\nIf the answer is yes, I guess this will be the place where we\u0027ll implement the metadata fixup, correct? I am referring to the following text:\n\n During initialization, the Update Agent must correct a corrupted \n metadata region by copying the intact replica over.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 2
+      },
+      "revId": "b4ab5da3674823683a180c007489e884664ea42f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc0e1256_e7acad17",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-14T15:24:25Z",
+      "side": 1,
+      "message": "Sorry this is out of scope of this patch but why is that in arm_common.mk? Presumably any v8.1+ platform could benefit from this so this should be moved to the top-level Makefile?",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 5
+      },
+      "revId": "b4ab5da3674823683a180c007489e884664ea42f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb806fb7_03683285",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-14T15:24:25Z",
+      "side": 1,
+      "message": "Is this an Arm specific dependency? IOW, if some other platform wanted to enable FWU support without GPT support, would that work? Or is this not supported right now? If it\u0027s not supported then this would be a general limitation and should be moved to the top-level Makefile.\n\nBTW I see that the GPT support is branded as specific to Arm platforms, is that really the case? Is that not a generic packaging format? If GPT support is indeed Arm specific then this would be a good reason for keeping this piece of code in arm_common.mk, irrespective of the answer to my previous question... There\u0027s no point allowing all platforms to enable PSA FWU support if this depends on an Arm-specific feature (which presumably they can\u0027t use)...",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 5
+      },
+      "revId": "b4ab5da3674823683a180c007489e884664ea42f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
