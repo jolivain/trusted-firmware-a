@@ -138,6 +138,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89ebbb5e_88a4ef3e",
+        "filename": "plat/arm/common/arm_fwu_metadata.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-14T17:08:08Z",
+      "side": 1,
+      "message": "\u003e So I\u0027ve been going through the code in more details and I still think most of the code in this file should be moved to the generic layer. At least it\u0027s clear to me that arm_get_fw_bank_active_idx(), arm_is_trial_run_state(), arm_fwu_metadata_crc_check() and arm_fwu_metadata_sanity_check() are generic.\n\u003e \n\nI too think these functions can be used in generic way.\nI thought to restrict this whole implementation initially for Arm platforms only\n\n\u003e Things are a bit more hairy for arm_load_fwu_metadata() and I think we might have to redesign it a bit. Loading the metadata from the right storage medium into the g_fwu_metadata variable probably has to stay in some form in the platform layer. However, once the data is in g_fwu_metadata, the CRC check and the sanity checks are generic. So perhaps  arm_load_fwu_metadata() as it is right now needs some further splitting?\n\nAs first version I restricted this file only for Arm platforms, as there are some calls inside \u0027arm_load_fwu_metadata\u0027 function which are Arm specific.\n\nLet me think around it how effectively I can split this function. As of now, I can think as below:\n1. To load metadata -\u003e using platform hook and grab data in \u0027g_fwu_metadata\u0027\n2. check metadata -\u003e generic function to check sanity and CRC.",
+      "parentUuid": "5ca81eff_d0d6de20",
+      "revId": "fc93e0d1682a72bb60f56f60fe9a954bb454a4c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50549721_7df60632",
         "filename": "plat/arm/common/arm_fwu_metadata.c",
         "patchSetId": 5
