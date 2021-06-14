@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30c4a71d_244f4194",
+        "filename": "Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-14T16:46:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4770625a_917b0050",
+      "range": {
+        "startLine": 958,
+        "startChar": 0,
+        "endLine": 958,
+        "endChar": 1
+      },
+      "revId": "b4ab5da3674823683a180c007489e884664ea42f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb52b7e7_f1c65a1a",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-14T15:24:25Z",
       "side": 1,
       "message": "Just for my understanding (no change requested)... Is this code implementing the redundancy checks described in section 4.1 of the FWU spec? I am referring to the following text:\n\n The metadata representation is replicated to ensure reliable operation. \n\nHere, are we saying that we\u0027ve got one copy of the metadata on partition \"FWU-Metadata\" and another copy on partition \"Bkup-FWU-Metadata\"?\n\nIf the answer is yes, I guess this will be the place where we\u0027ll implement the metadata fixup, correct? I am referring to the following text:\n\n During initialization, the Update Agent must correct a corrupted \n metadata region by copying the intact replica over.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 2
+      },
+      "revId": "b4ab5da3674823683a180c007489e884664ea42f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39323296_927ac915",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-14T16:46:30Z",
+      "side": 1,
+      "message": "Yes, this is correct understanding. In Beta specification it is mentioned quite clearly\nRefer recently released specification: https://developer.arm.com/documentation/den0118/a/ section 4.1 mentions.\n\n\"\nMetadata management at serialization by the Update Agent: When the Update Agent introduces changes to the Metadata, it must update the replicas in sequence. The representation of the two metadata replicas must be kept in a disjoint set of NV memory blocks.\n\nMetadata management at early system boot: the immutable or secondary stage must use an intact\nmetadata. The metadata replicas are inspected, using the procedure described in Section 4.1.1, to ensure that they are intact.\n\nMetadata management at Update Agent initialization: During its initialization, the Update Agent must check both metadata replicas for corruption (see Section 4.1.1). If one of the metadata replicas is found to be corrupted, the Update Agent overwrites the corrupted metadata with the intact replica. \"\n\nMetadata fixup is a job of update agent. \nTF-A BL do the CRC check only, if primary metadata fails, use back-up one and if that fails go to either \u0027panic\u0027 or \u0027recovery\u0027(currently not implemented).",
+      "parentUuid": "cb52b7e7_f1c65a1a",
       "range": {
         "startLine": 83,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d590da4e_8cbe7ade",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-14T16:46:30Z",
+      "side": 1,
+      "message": "CRC is supported in v8.1+ architecture by default, and hence no need to add extra compilation switch for v8.1+ architecture. \nFor v8.0 architecture, CRC support is optional, and compiler must use this compilation switch to understand CRC32 intrinsics functions.\n\nAll Arm platforms with v8.0 architecture support CRC, and hence it make sense to unconditionally use this compilation switch for all such platforms.\n\nI don\u0027t think we should use this compilation switch unconditionally without knowing platforms with v8.0 architecture support CRC or not.",
+      "parentUuid": "dc0e1256_e7acad17",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 5
+      },
+      "revId": "b4ab5da3674823683a180c007489e884664ea42f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb806fb7_03683285",
         "filename": "plat/arm/common/arm_common.mk",
         "patchSetId": 5
@@ -83,6 +155,30 @@
       "writtenOn": "2021-06-14T15:24:25Z",
       "side": 1,
       "message": "Is this an Arm specific dependency? IOW, if some other platform wanted to enable FWU support without GPT support, would that work? Or is this not supported right now? If it\u0027s not supported then this would be a general limitation and should be moved to the top-level Makefile.\n\nBTW I see that the GPT support is branded as specific to Arm platforms, is that really the case? Is that not a generic packaging format? If GPT support is indeed Arm specific then this would be a good reason for keeping this piece of code in arm_common.mk, irrespective of the answer to my previous question... There\u0027s no point allowing all platforms to enable PSA FWU support if this depends on an Arm-specific feature (which presumably they can\u0027t use)...",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 5
+      },
+      "revId": "b4ab5da3674823683a180c007489e884664ea42f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24e898f7_a5d0d5c5",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-14T16:46:30Z",
+      "side": 1,
+      "message": "GPT support is recommended as per the FWU specification, and hence Arm platforms follows that way (please check specification 4.1.2). \nFWU support without GPT is not implemented. I don\u0027t think we need to enable that support. \n\nGPT is not Arm specific thing, it is generic. \nI presume platform should use PSA_FWU_SUPPORT flag for their own implementation to load FWU metadata. May be I need to add more documentation for this flag to make it clear? this flag in later on patches is used in common driver to get trial run state.\n\nI think this discussion is leading to have platform hooks, so that every platform can have their own implementation to load FWU metadata. Guard all such platform calls under PSA_FWU_SUPPORT build flag.\n\nor do you think we should have common \u0027fwu_load\u0027 function which can be used by all platforms irrespective whether they support GPT or not? This can be tricky, FWU metadata is not part of FIP, platform can use their own method to save and grab this metadata information (though GPT is recommended in specification but it is not mandatory).",
+      "parentUuid": "fb806fb7_03683285",
       "range": {
         "startLine": 188,
         "startChar": 0,
