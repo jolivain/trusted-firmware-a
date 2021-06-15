@@ -245,6 +245,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "47ce1464_b22039b4",
+        "filename": "include/plat/common/fwu_metadata.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-15T15:17:40Z",
+      "side": 1,
+      "message": "\u003e As we are thinking to make FWU metadata as generic module then can we put this header under \u0027driver\u0027?\n\u003e 1. include/drivers/fwu/fwu_metadata.h -\u003e FWU metadata header\n\u003e 2. drivers/fwu/fwu_metadata.c -\u003e FWU metadata load implementation.\n\u003e \n\u003e Let me know what do you think?\n\nYes, I guess drivers/ is just as good as lib/. TBH I never quite got the difference between the two in TF-A, I think some of the \"drivers\" could be \"libraries\" and vice-versa... I am not sure we ever got a good definition of what to put under each directory.\n\n\u003e I didn\u0027t get any requirement as such to expose this file, and hence to put it under \u0027export\u0027 folder. I think better scope this header only for internal TF-A purpose as of now.\n\nOK. I agree with you.",
+      "parentUuid": "a82a1229_5c696913",
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eea3f6a1_1cbbc6f2",
         "filename": "include/plat/common/fwu_metadata.h",
         "patchSetId": 4
