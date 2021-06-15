@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cc0ca061_735dfd98",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-15T12:43:34Z",
+      "side": 1,
+      "message": "Thanks for spotting this. Yes, \u0027_\u0027 should be at the end like this: `PSA FW update specification`_.",
+      "parentUuid": "2e8ddb5a_a7d77802",
+      "range": {
+        "startLine": 865,
+        "startChar": 68,
+        "endLine": 866,
+        "endChar": 56
+      },
+      "revId": "394d52ee9fa7045d4abcd371621e4f2815863623",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b096ec10_e2afbac9",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 5
@@ -54,6 +78,30 @@
       "writtenOn": "2021-06-15T11:20:49Z",
       "side": 1,
       "message": "I think I\u0027ve seen a different link in another patch [1]. Which one is the best?\n\n[1] https://developer.arm.com/-/media/Files/pdf/FWU-PSA-A_DEN0118_1.0ALP3.pdf",
+      "range": {
+        "startLine": 874,
+        "startChar": 33,
+        "endLine": 874,
+        "endChar": 83
+      },
+      "revId": "394d52ee9fa7045d4abcd371621e4f2815863623",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d7f856e_8be9706f",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-15T12:43:34Z",
+      "side": 1,
+      "message": "https://developer.arm.com/documentation/den0118/a/ this is latest beta release. I updated documentation, but missed to put same details in the code.",
+      "parentUuid": "b096ec10_e2afbac9",
       "range": {
         "startLine": 874,
         "startChar": 33,
