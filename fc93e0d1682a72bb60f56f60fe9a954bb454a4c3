@@ -156,6 +156,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e92594b_1acbd6fb",
+        "filename": "plat/arm/common/arm_fwu_metadata.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-15T11:40:44Z",
+      "side": 1,
+      "message": "\u003e Let me think around it how effectively I can split this function. As of now, I can think as below:\n\u003e 1. To load metadata -\u003e using platform hook and grab data in \u0027g_fwu_metadata\u0027\n\u003e 2. check metadata -\u003e generic function to check sanity and CRC.\n\nSounds good to me. In fact that\u0027s what I tried to suggest above, looks like we are on the same page!",
+      "parentUuid": "89ebbb5e_88a4ef3e",
+      "revId": "fc93e0d1682a72bb60f56f60fe9a954bb454a4c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50549721_7df60632",
         "filename": "plat/arm/common/arm_fwu_metadata.c",
         "patchSetId": 5
