@@ -209,6 +209,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dc0e59e1_32be6728",
+        "filename": "include/plat/common/fwu_metadata.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-15T11:34:39Z",
+      "side": 1,
+      "message": "\u003e Please see below how this header is used and what is the future plan.\n\u003e \u003csnip\u003e\n\nThanks for clarifying the intent, Manish.\n\n\u003e I am not quite sure then where to fit this header. Please provide your suggestion here? Thanks!\n\nI think we could put the implementation under lib/. The header file could go under include/lib/. Probably as a single file to start with - if in the future this ends up growing too much we might want to consider moving this under its own sub-directory (e.g. include/lib/firmware_update/).\n\nAlternatively, we might want to put the header file under include/export/. Why? Because the update client will need to have the same view of the FWU metadata structures and potentially the update client project might want to pull the header file from the TF-A project. That being said, it\u0027s probably too early days and I guess we don\u0027t have visibility on such a requirement as of now (unless you\u0027ve heard otherwise?). Maybe something to keep on the back of our minds...",
+      "parentUuid": "02131329_e5f00773",
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eea3f6a1_1cbbc6f2",
         "filename": "include/plat/common/fwu_metadata.h",
         "patchSetId": 4
