@@ -33,6 +33,24 @@
       "message": "I\u0027ll assume you \"did your homework\" here, but are you confident that these are *all* relevant mentions of SPM_MM where this modification is needed?  I ask because:\n\n$ grep -R SPM_MM | grep -v SPM_MM_ | grep \"#if\" | wc -l\n37\n$\n\nThat is, SPM_MM is used fair number number of places in the code...",
       "revId": "b3e0fc52e61076b93f018b1cfeaff4faca935c09",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21c65c77_f01f225b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-06-15T18:14:49Z",
+      "side": 1,
+      "message": "You are correct, there are more instances of SPM_MM than covered in current patchset. At present only those SPM_MM instances are covered, that exist in common code or on platform in which SPMC_AT_EL3 configuration has been verified.",
+      "parentUuid": "f987793b_38f7d093",
+      "revId": "b3e0fc52e61076b93f018b1cfeaff4faca935c09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
