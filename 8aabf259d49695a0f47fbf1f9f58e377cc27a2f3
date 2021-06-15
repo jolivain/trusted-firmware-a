@@ -105,6 +105,24 @@
       "parentUuid": "4bbfc26d_b56c9ea6",
       "revId": "8aabf259d49695a0f47fbf1f9f58e377cc27a2f3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "191a8ecc_88c20b3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000550
+      },
+      "writtenOn": "2021-06-15T22:02:56Z",
+      "side": 1,
+      "message": "\u003e sorry, if what is called from dram?\n\nIf tzc400_disable_filters() is called\nfrom DRAM. Then it hangs.\n\n\u003e Also if what is used locally?\n\nModified/fixed code of tzc400_disable_filters()\nand tzc400_enable_filters(). I.e.\nthe ones with my patch applied.\nbl32 can use the locally modified\nversion to get the work done.\n\n\u003e but the upstream implementation should work for all.\n\nUpstream implementation works\nbecause it never calls these\nfunctions from DRAM.\nBut I call these functions from\nSPD/bl32, and that\u0027s where the whole\nthing hangs.",
+      "parentUuid": "162a1f9c_db2ac258",
+      "revId": "8aabf259d49695a0f47fbf1f9f58e377cc27a2f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
