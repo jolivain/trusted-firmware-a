@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0efc8b8_19731e63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000550
+      },
+      "writtenOn": "2021-06-15T18:20:37Z",
+      "side": 1,
+      "message": "So you made this fix FVP-specific?\nIts fine for solving my problem with\nsemihosting boot, AFAICT.\nBut I suspect there are more\nsemihosting-enabled platforms out\nthere, maybe qemu?\n\nAn alternative may be to replace\nerase-FIP/reboot with\nerase-FIP/FWU/reboot.\nShould be simpler and more universal.\nWhat do you think?\n\nBut in any case, this patch is\ngoing to fix my problem just as well.",
+      "revId": "b22cc266214c4add5203253152a97bea632bfa00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
