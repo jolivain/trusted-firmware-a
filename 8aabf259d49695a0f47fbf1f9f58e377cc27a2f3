@@ -16,6 +16,41 @@
       "message": "Shouldnt this behavior be a build option? This sounds like we are disabling a security feature where a platform may want to configure TZC and then lock the door behind it and not change any settings for the rest of the boot cycle.",
       "revId": "8aabf259d49695a0f47fbf1f9f58e377cc27a2f3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74fb9474_2bccdc8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000550
+      },
+      "writtenOn": "2021-06-15T17:45:14Z",
+      "side": 1,
+      "message": "I find it very unlikely that\nthe hanging library function\ncan be thought as a security\nfeature.\nAfter all, anyone can copy this\ncode locally, modify it, and\nreconfigure filters.",
+      "parentUuid": "56941b53_5d4fde4e",
+      "revId": "8aabf259d49695a0f47fbf1f9f58e377cc27a2f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dab47eb8_a61111e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000550
+      },
+      "writtenOn": "2021-06-15T17:45:14Z",
+      "side": 1,
+      "message": "Raghu,",
+      "revId": "8aabf259d49695a0f47fbf1f9f58e377cc27a2f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
