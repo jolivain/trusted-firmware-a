@@ -69,6 +69,24 @@
       "parentUuid": "dab47eb8_a61111e9",
       "revId": "8aabf259d49695a0f47fbf1f9f58e377cc27a2f3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bbfc26d_b56c9ea6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000550
+      },
+      "writtenOn": "2021-06-15T21:31:31Z",
+      "side": 1,
+      "message": "\u003e Do you mean it was not working all along and we are just finding this issue?\n\nIf ever called from DRAM - hang.\nBut you don\u0027t call it from DRAM.\nI call it from DRAM.\nBut it can\u0027t be regarded as a\nsecurity enforcement, because I\ncan just as well use the locally\nmodified copy of the same function.",
+      "parentUuid": "453ef55d_ac68ee34",
+      "revId": "8aabf259d49695a0f47fbf1f9f58e377cc27a2f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
