@@ -190,6 +190,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad5f32c5_c40f266f",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-15T13:20:06Z",
+      "side": 1,
+      "message": "This is quite tricky as I mentioned.\nEven if we compile with the code with this flag \u0027-march\u003darmv8-a+crc\u0027 does not necessary promised the CRC functionality, As I mentioned earlier, in v8.0 CRC support is optional, so platform with v8.0 architecture may/may not support CRC functionality.\n\nLet me do below changes:\n1. Move this compilation switch to top-level makefile retaining same condition i.e. add compilation switch for v8.0 architecture.\n2. Read this register ID_AA64ISAR0_EL1 for CRC architectural support before handling CRC operation only in case of architecture v8.0. For v8.1+ CRC functionality by default supported in architecture.\n\nLet me know what do you think?",
+      "parentUuid": "ea935edb_e2bf657f",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 5
+      },
+      "revId": "b4ab5da3674823683a180c007489e884664ea42f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb806fb7_03683285",
@@ -251,6 +275,30 @@
       "side": 1,
       "message": "\u003e GPT support is recommended as per the FWU specification, and hence Arm platforms follows that way (please check specification 4.1.2). \n\u003e FWU support without GPT is not implemented.\n\nOK thanks for clarifying.\n\n\u003e I don\u0027t think we need to enable that support.\n\nI agree, I was not suggesting we enable this support, just trying to understand things better.\n\n\u003e GPT is not Arm specific thing, it is generic.\n\nOK. Should we rename ARM_GPT_SUPPORT into GPT_SUPPORT then?\n\n\u003e I presume platform should use PSA_FWU_SUPPORT flag for their own implementation to load FWU metadata.\n\u003e \n\u003e May be I need to add more documentation for this flag to make it clear? this flag in later on patches is used in common driver to get \n\u003e trial run state.\n\u003e \n\u003e I think this discussion is leading to have platform hooks, so that every platform can have their own implementation to load FWU metadata. Guard all such platform calls under PSA_FWU_SUPPORT build flag.\n\nYes, I agree. I guess PSA_FWU_SUPPORT generic code would call some kind of plat_fwu_load_metadata() platform hook, which platforms have to implement. \n\n\u003e or do you think we should have common \u0027fwu_load\u0027 function which can be used by all platforms irrespective whether they support GPT or not? This can be tricky, FWU metadata is not part of FIP, platform can use their own method to save and grab this metadata information (though GPT is recommended in specification but it is not mandatory).\n\nIf you think this would be hard to pull off, let\u0027s go for the first approach. Especially if we don\u0027t have any use case for FWU without GPT support right now!",
       "parentUuid": "24e898f7_a5d0d5c5",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 5
+      },
+      "revId": "b4ab5da3674823683a180c007489e884664ea42f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43c44ec9_03d6b456",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-15T13:20:06Z",
+      "side": 1,
+      "message": "\u003e \u003e GPT support is recommended as per the FWU specification, and hence Arm platforms follows that way (please check specification 4.1.2). \n\u003e \u003e FWU support without GPT is not implemented.\n\u003e \n\u003e OK thanks for clarifying.\n\u003e \n\u003e \u003e I don\u0027t think we need to enable that support.\n\u003e \n\u003e I agree, I was not suggesting we enable this support, just trying to understand things better.\n\u003e \n\u003e \u003e GPT is not Arm specific thing, it is generic.\n\u003e \n\u003e OK. Should we rename ARM_GPT_SUPPORT into GPT_SUPPORT then?\n\nDo you mean add GPT_SUPPORT as generic macro? ARM_GPT_SUPPORT is used Arm platform as below:\n1. To load partition table -\u003e this is generic code\n2. To get the \u0027FIP\u0027 partition details inside GPT image -\u003e this code is specific to Arm \n   platform as loading.\n\nAs of now, I think we should go ahead with ARM_GPT_SUPPORT macro, I am thinking to get partition details using UUID to make code more generic, but that can be done in future patches.\n\n\u003e \n\u003e \u003e I presume platform should use PSA_FWU_SUPPORT flag for their own implementation to load FWU metadata.\n\u003e \u003e \n\u003e \u003e May be I need to add more documentation for this flag to make it clear? this flag in later on patches is used in common driver to get \n\u003e \u003e trial run state.\n\u003e \u003e \n\u003e \u003e I think this discussion is leading to have platform hooks, so that every platform can have their own implementation to load FWU metadata. Guard all such platform calls under PSA_FWU_SUPPORT build flag.\n\u003e \n\u003e Yes, I agree. I guess PSA_FWU_SUPPORT generic code would call some kind of plat_fwu_load_metadata() platform hook, which platforms have to implement. \n\u003e \n\u003e \u003e or do you think we should have common \u0027fwu_load\u0027 function which can be used by all platforms irrespective whether they support GPT or not? This can be tricky, FWU metadata is not part of FIP, platform can use their own method to save and grab this metadata information (though GPT is recommended in specification but it is not mandatory).\n\u003e \n\u003e If you think this would be hard to pull off, let\u0027s go for the first approach. Especially if we don\u0027t have any use case for FWU without GPT support right now!\n\nI think we can remove GPT specific code from FWU module so that it can used across (with GPT or non-GPT support). Gathering details of FWU metadata partition from GPT image can be done in platform specific way. \nLet me think more about it to come to some conclusion.",
+      "parentUuid": "ccf7fdee_564e71e3",
       "range": {
         "startLine": 188,
         "startChar": 0,
