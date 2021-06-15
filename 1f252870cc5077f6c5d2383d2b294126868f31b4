@@ -22,6 +22,30 @@
       },
       "revId": "1f252870cc5077f6c5d2383d2b294126868f31b4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be35c4ac_23f89ad8",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-15T14:06:52Z",
+      "side": 1,
+      "message": "I think this is enough information by the the usage of this flag. \nAlso, there is no other provision to define number of images per bank so it is quite implicitly mentioning that each bank have same number of images.",
+      "parentUuid": "698a347b_dc75a230",
+      "range": {
+        "startLine": 861,
+        "startChar": 3,
+        "endLine": 862,
+        "endChar": 17
+      },
+      "revId": "1f252870cc5077f6c5d2383d2b294126868f31b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
