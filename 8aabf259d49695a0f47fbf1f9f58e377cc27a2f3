@@ -141,6 +141,24 @@
       "parentUuid": "191a8ecc_88c20b3a",
       "revId": "8aabf259d49695a0f47fbf1f9f58e377cc27a2f3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06df1085_9f5e9d76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000550
+      },
+      "writtenOn": "2021-06-15T22:27:08Z",
+      "side": 1,
+      "message": "\u003e an exploit in the secure world, would that allow exploited code\n\u003e to change TZC settings?\n\nThe main thing to understand is\nthat the buggy library function\ndoes not prevent an exploit from\nwork. It prevents the correct code\nfrom work. In fact, the bl32 binary\nwill have the private copies of\ntzc400_disable_filters() and\ntzc400_enable_filters() in any case.\nIt doesn\u0027t call to bl2 to set up\ntzc, no. So it always has the local\ncopy, but it would be good to have\nthat copy from the same known-good\nsources.\n\n\u003e I still dont get why executing the same function in\n\u003e dram(as opposed to SRAM) causes issues.\n\nBecause disabling region 0 seems\nto be disabling the whole DRAM.\nIts not said in the docs explicitly\n(at least I haven\u0027t found), but the\ndoc says region 0 should not be disabled:\n---\nRegion access rules\n\nThe TZC-400 implements the following region rules:\n    A region must be enabled for a filter unit to provide a valid match.\n    Region 0 is always enabled.\n---",
+      "parentUuid": "f7d9e677_eca451f0",
+      "revId": "8aabf259d49695a0f47fbf1f9f58e377cc27a2f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
