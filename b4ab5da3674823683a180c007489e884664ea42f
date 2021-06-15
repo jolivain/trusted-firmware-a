@@ -95,6 +95,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f25e2ca7_4567ce5d",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-15T12:38:39Z",
+      "side": 1,
+      "message": "\u003e Yes, this is correct understanding. In Beta specification it is mentioned quite clearly\n\u003e Refer recently released specification: https://developer.arm.com/documentation/den0118/a/ section 4.1 mentions.\n\u003e \"\n\u003e Metadata management at serialization by the Update Agent: When the Update Agent introduces changes to the Metadata, it must update the replicas in sequence. The representation of the two metadata replicas must be kept in a disjoint set of NV memory blocks.\n\u003e \n\u003e Metadata management at early system boot: the immutable or secondary stage must use an intact\n\u003e metadata. The metadata replicas are inspected, using the procedure described in Section 4.1.1, to ensure that they are intact.\n\u003e \n\u003e Metadata management at Update Agent initialization: During its initialization, the Update Agent must check both metadata replicas for corruption (see Section 4.1.1). If one of the metadata replicas is found to be corrupted, the Update Agent overwrites the corrupted metadata with the intact replica. \"\n\nAh thank you, I was missing some of this text, as I was looking at the link you provided in the first patch\u0027s commit message, which points to the *Alpha* version of the spec. You might want to update the link in the commit message ;)\n\n\u003e Metadata fixup is a job of update agent. \n\u003e TF-A BL do the CRC check only, if primary metadata fails, use back-up one and if that fails go to either \u0027panic\u0027 or \u0027recovery\u0027(currently not implemented).\n\nRight, thank you, I stand corrected.",
+      "parentUuid": "39323296_927ac915",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 2
+      },
+      "revId": "b4ab5da3674823683a180c007489e884664ea42f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc0e1256_e7acad17",
@@ -142,6 +166,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea935edb_e2bf657f",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-15T12:38:39Z",
+      "side": 1,
+      "message": "Got it, thanks.\n\nStill, I think there is room for improvement. It sounds like we could provide some boolean flag, say HW_CRC_SUPPORT, which if disabled would automatically compile BL2 with -march\u003darmv8-a+crc flag, so that people don\u0027t have to look up the option in the compiler\u0027s manual. Anyway, something for the future maybe...",
+      "parentUuid": "d590da4e_8cbe7ade",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 5
+      },
+      "revId": "b4ab5da3674823683a180c007489e884664ea42f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb806fb7_03683285",
@@ -179,6 +227,30 @@
       "side": 1,
       "message": "GPT support is recommended as per the FWU specification, and hence Arm platforms follows that way (please check specification 4.1.2). \nFWU support without GPT is not implemented. I don\u0027t think we need to enable that support. \n\nGPT is not Arm specific thing, it is generic. \nI presume platform should use PSA_FWU_SUPPORT flag for their own implementation to load FWU metadata. May be I need to add more documentation for this flag to make it clear? this flag in later on patches is used in common driver to get trial run state.\n\nI think this discussion is leading to have platform hooks, so that every platform can have their own implementation to load FWU metadata. Guard all such platform calls under PSA_FWU_SUPPORT build flag.\n\nor do you think we should have common \u0027fwu_load\u0027 function which can be used by all platforms irrespective whether they support GPT or not? This can be tricky, FWU metadata is not part of FIP, platform can use their own method to save and grab this metadata information (though GPT is recommended in specification but it is not mandatory).",
       "parentUuid": "fb806fb7_03683285",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 5
+      },
+      "revId": "b4ab5da3674823683a180c007489e884664ea42f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccf7fdee_564e71e3",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-15T12:38:39Z",
+      "side": 1,
+      "message": "\u003e GPT support is recommended as per the FWU specification, and hence Arm platforms follows that way (please check specification 4.1.2). \n\u003e FWU support without GPT is not implemented.\n\nOK thanks for clarifying.\n\n\u003e I don\u0027t think we need to enable that support.\n\nI agree, I was not suggesting we enable this support, just trying to understand things better.\n\n\u003e GPT is not Arm specific thing, it is generic.\n\nOK. Should we rename ARM_GPT_SUPPORT into GPT_SUPPORT then?\n\n\u003e I presume platform should use PSA_FWU_SUPPORT flag for their own implementation to load FWU metadata.\n\u003e \n\u003e May be I need to add more documentation for this flag to make it clear? this flag in later on patches is used in common driver to get \n\u003e trial run state.\n\u003e \n\u003e I think this discussion is leading to have platform hooks, so that every platform can have their own implementation to load FWU metadata. Guard all such platform calls under PSA_FWU_SUPPORT build flag.\n\nYes, I agree. I guess PSA_FWU_SUPPORT generic code would call some kind of plat_fwu_load_metadata() platform hook, which platforms have to implement. \n\n\u003e or do you think we should have common \u0027fwu_load\u0027 function which can be used by all platforms irrespective whether they support GPT or not? This can be tricky, FWU metadata is not part of FIP, platform can use their own method to save and grab this metadata information (though GPT is recommended in specification but it is not mandatory).\n\nIf you think this would be hard to pull off, let\u0027s go for the first approach. Especially if we don\u0027t have any use case for FWU without GPT support right now!",
+      "parentUuid": "24e898f7_a5d0d5c5",
       "range": {
         "startLine": 188,
         "startChar": 0,
