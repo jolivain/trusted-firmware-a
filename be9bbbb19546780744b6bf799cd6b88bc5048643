@@ -22,6 +22,30 @@
       },
       "revId": "be9bbbb19546780744b6bf799cd6b88bc5048643",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c73b48cb_a49f1b31",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-15T09:21:19Z",
+      "side": 1,
+      "message": "In this patch series, FWU driver is quite tied up to Arm platform, and hence I added this function as a platform specific. \nI am looking into making the FWU module as generic as possible then will get rid of this platform specific function. Agree it should be generic as you mentioned.\n\nNote: Usage of this function comes under the trusted boot, hence I added platform function in this file which in turn calls function present in FWU module.",
+      "parentUuid": "e3cbe82b_02d90200",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 1
+      },
+      "revId": "be9bbbb19546780744b6bf799cd6b88bc5048643",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
