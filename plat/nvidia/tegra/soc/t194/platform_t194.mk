@@ -78,6 +78,7 @@ ifeq (${SPD},spmd)
 include lib/libfdt/libfdt.mk
 # sources to support spmd
 BL31_SOURCES		+=	plat/common/plat_spmd_manifest.c	\
+				plat/common/plat_spmd_service.c		\
 				common/fdt_wrappers.c			\
 				${LIBFDT_SRCS}
 endif

@@ -62,6 +62,7 @@ typedef struct spmd_spm_core_context {
 #define SPMC_SECURE_ID_SHIFT			U(15)
 
 #define SPMD_DIRECT_MSG_ENDPOINT_ID		U(FFA_ENDPOINT_ID_MAX - 1)
+#define SPM_PLAT_DIRECT_MSG_ENDPOINT_ID		U(FFA_ENDPOINT_ID_MAX - 2)
 
 /* Functions used to enter/exit SPMC synchronously */
 uint64_t spmd_spm_core_sync_entry(spmd_spm_core_context_t *ctx);

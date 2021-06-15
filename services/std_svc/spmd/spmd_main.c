@@ -22,6 +22,7 @@
 #include <platform_def.h>
 #include <services/ffa_svc.h>
 #include <services/spmd_svc.h>
+#include <services/spmd_plat.h>
 #include <smccc_helpers.h>
 #include "spmd_private.h"
 
@@ -418,6 +419,16 @@ static int spmd_handle_spmc_message(unsigned long long msg,
 	return -EINVAL;
 }
 
+/******************************************************************************
+ * spmd_is_platform_message
+ *****************************************************************************/
+static bool spmd_is_platform_message(unsigned int ep)
+{
+	return ((ffa_endpoint_destination(ep) ==
+			SPM_PLAT_DIRECT_MSG_ENDPOINT_ID)
+		&& (ffa_endpoint_source(ep) == spmc_attrs.spmc_id));
+}
+
 /*******************************************************************************
  * This function handles all SMCs in the range reserved for FFA. Each call is
  * either forwarded to the other security state or handled by the SPM dispatcher
@@ -574,6 +585,11 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 				FFA_PARAM_MBZ, FFA_PARAM_MBZ,
 				FFA_PARAM_MBZ, FFA_PARAM_MBZ,
 				FFA_PARAM_MBZ);
+		} else if (secure_origin && spmd_is_platform_message(x1)) {
+			return spmd_handle_platform_message(x3, x4,
+				SMC_GET_GP(handle, CTX_GPREG_X5),
+				SMC_GET_GP(handle, CTX_GPREG_X6),
+				SMC_GET_GP(handle, CTX_GPREG_X7), handle);
 		} else {
 			/* Forward direct message to the other world */
 			return spmd_smc_forward(smc_fid, secure_origin,

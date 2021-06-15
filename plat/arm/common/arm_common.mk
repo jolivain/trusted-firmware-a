@@ -321,6 +321,7 @@ endif
 
 ifeq (${SPD},spmd)
 BL31_SOURCES		+=	plat/common/plat_spmd_manifest.c	\
+				plat/common/plat_spmd_service.c		\
 				common/fdt_wrappers.c			\
 				common/uuid.c				\
 				${LIBFDT_SRCS}
