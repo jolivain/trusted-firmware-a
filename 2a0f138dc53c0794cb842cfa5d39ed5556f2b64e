@@ -35,6 +35,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "428ff8f5_2e4d1b9e",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-06-15T11:37:50Z",
+      "side": 1,
+      "message": "Is this variable actually needed? Initial value of 0U will be overwritten if ESPI are supported.\nWhy not just use:\n...\nreturn ((((typer_reg \u003e\u003e TYPER_ESPI_RANGE_SHIFT) \u0026\n\t\t\tTYPER_ESPI_RANGE_MASK) + 1U) \u003c\u003c 5) + MIN_ESPI_ID;\n}\nreturn 0U;\n?\nAlso please add comment as Gary suggested.",
+      "revId": "2a0f138dc53c0794cb842cfa5d39ed5556f2b64e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "48e23f23_eff472be",
