@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56941b53_5d4fde4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-15T17:26:28Z",
+      "side": 1,
+      "message": "Shouldnt this behavior be a build option? This sounds like we are disabling a security feature where a platform may want to configure TZC and then lock the door behind it and not change any settings for the rest of the boot cycle.",
+      "revId": "8aabf259d49695a0f47fbf1f9f58e377cc27a2f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
