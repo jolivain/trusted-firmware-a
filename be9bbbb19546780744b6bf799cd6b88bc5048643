@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3cbe82b_02d90200",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-15T08:56:34Z",
+      "side": 1,
+      "message": "This function looks misplaced to me. IIUC the fact that the system is running in trial state has nothing to do with trusted boot per se. It is simply *called* by the trusted boot code to take some further decisions (in this case, deciding whether the non-volatile counter should be upgraded or not). I think this function should be provided by the FWU module instead.\n\nMoreover, I don\u0027t think this needs to be platform specific, right? The FWU spec simply says:\n\n The system is in the Trial state if any of the FW images in bankactive_index is pending acceptance\n\nwhich looks generic to me, it\u0027s just a matter of inspecting some fields of the FWU metadata, which contains no platform specific information.",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 1
+      },
+      "revId": "be9bbbb19546780744b6bf799cd6b88bc5048643",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
