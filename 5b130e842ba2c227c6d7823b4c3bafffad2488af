@@ -16,6 +16,23 @@
       "message": "Sorry, but I still don\u0027t get it: What is the purpose of this patch? What does it fix?\nIf we get passed an overlay-prepared DTB, we still enable all regulators, with or without this patch. If someone deliberately chooses to drop this overlay feature, this patch makes things worse, because we now enable all regulators, needlessly.\nSo overall I don\u0027t see an improvement.\nActually, this regulator handling is considered a kludge anyway. Ideally we just get proper DM compliant AXP regulator code in U-Boot (proper), then we can eventually phase out the whole regulator handling in TF-A, which fixes the two problems we have at the moment (too many regulators and enabled and not observing sequencing and timing for certain regulators).\nSo unless someone convinces me otherwise, I\u0027d rather not take this patch.",
       "revId": "5b130e842ba2c227c6d7823b4c3bafffad2488af",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1067be92_c63173b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-06-15T19:47:47Z",
+      "side": 1,
+      "message": "Hi Roman\nCan you respond to the comment from Andre?",
+      "revId": "5b130e842ba2c227c6d7823b4c3bafffad2488af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
