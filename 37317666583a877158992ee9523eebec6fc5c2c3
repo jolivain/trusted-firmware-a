@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b4b3865_17f4279a",
+        "filename": "plat/arm/common/arm_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-15T13:06:04Z",
+      "side": 1,
+      "message": "Consider making this array constant? Right now, it\u0027s a mutable array of constant strings.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "37317666583a877158992ee9523eebec6fc5c2c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5650faca_da382eb9",
+        "filename": "plat/arm/common/arm_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-15T13:06:04Z",
+      "side": 1,
+      "message": "Add an assertion checking that active_fw_idx does not cause an out-of-bounds access?",
+      "range": {
+        "startLine": 202,
+        "startChar": 22,
+        "endLine": 202,
+        "endChar": 35
+      },
+      "revId": "37317666583a877158992ee9523eebec6fc5c2c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f7cd069_900acd6b",
+        "filename": "plat/arm/common/arm_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-15T13:06:04Z",
+      "side": 1,
+      "message": "Could you please help me understand under which circumstances we might end up in this error case? Would that be a result of a malformed GPT image? Any other reason?\n\nI am trying to assess whether panic() is the right thing to do here. When we\u0027ll support the recovery mode, I guess we might try that here instead? Should we call plat_error_handler() instead? According to [1], panic() is for unexpected errors whereas plat_error_handler() is for expected errors. I think this one here might qualify as an expected error. We must be prepared for invalid GPT images because it gets updated by another software agent external to TF-A. But I am not sure, the difference between expected and unexpected irrecoverable is subtle and I find it hard to grasp. What do you think?\n\n[1] https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html#handling-unrecoverable-errors",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 204,
+        "endChar": 10
+      },
+      "revId": "37317666583a877158992ee9523eebec6fc5c2c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
