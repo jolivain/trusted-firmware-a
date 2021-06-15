@@ -227,6 +227,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a82a1229_5c696913",
+        "filename": "include/plat/common/fwu_metadata.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-15T14:20:35Z",
+      "side": 1,
+      "message": "As we are thinking to make FWU metadata as generic module then can we put this header under \u0027driver\u0027?\n1. include/drivers/fwu/fwu_metadata.h -\u003e FWU metadata header\n2. drivers/fwu/fwu_metadata.c -\u003e FWU metadata load implementation.\n\nLet me know what do you think?\n\nI didn\u0027t get any requirement as such to expose this file, and hence to put it under \u0027export\u0027 folder. I think better scope this header only for internal TF-A purpose as of now.",
+      "parentUuid": "dc0e59e1_32be6728",
+      "revId": "b3534c21710445e238f7fa5e7a10ff14292e3596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eea3f6a1_1cbbc6f2",
         "filename": "include/plat/common/fwu_metadata.h",
         "patchSetId": 4
