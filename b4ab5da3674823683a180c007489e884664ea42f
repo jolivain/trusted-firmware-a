@@ -307,6 +307,30 @@
       },
       "revId": "b4ab5da3674823683a180c007489e884664ea42f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e0e6c83_1427a352",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-16T08:24:43Z",
+      "side": 1,
+      "message": "\u003e Do you mean add GPT_SUPPORT as generic macro?\n\nYes.\n\n\u003e ARM_GPT_SUPPORT is used Arm platform as below:\n\u003e 1. To load partition table -\u003e this is generic code\n\u003e 2. To get the \u0027FIP\u0027 partition details inside GPT image -\u003e this code is specific to Arm \n\u003e    platform as loading.\n\nThat\u0027s fine. Even if GPT_SUPPORT is a generic macro, it can still have platform dependencies. Think about TRUSTED_BOARD_BOOT for example - every platform can enable this flag and most of the code is generic but not all of it. The TBB generic code calls some platform hooks, such as plat_get_rotpk_info(), which platforms must implement. IOW platform integrators cannot just turn TRUSTED_BOARD_BOOT on in their platform and expect the code to work out of the box - there is some level of platform porting they need to do.\n\nI would expect the same kind of things for the FWU code. It sounds like we need a platform hook to \"get the \u0027FIP\u0027 partition details inside GPT image\".\n\n\u003e As of now, I think we should go ahead with ARM_GPT_SUPPORT macro, I am thinking to get partition details using UUID to make code more generic, but that can be done in future patches.\n\nSure, I am not requesting you to change anything for the GPT code at this stage. I just wanted to talk it through.\n\n\u003e I think we can remove GPT specific code from FWU module so that it can used across (with GPT or non-GPT support). Gathering details of FWU metadata partition from GPT image can be done in platform specific way. \n\u003e Let me think more about it to come to some conclusion.\n\nI thought you said it would be hard to remove the coupling between GPT and FWU? Did you find an easy way to do that in the end? The idea sounds promising. I suggest you post a draft patch to give an idea of how the code and interfaces would look like, it will be easier for me to comment on a concrete proposal.",
+      "parentUuid": "43c44ec9_03d6b456",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 5
+      },
+      "revId": "b4ab5da3674823683a180c007489e884664ea42f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
