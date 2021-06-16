@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cc37afd_fbadb7be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-16T11:59:11Z",
+      "side": 1,
+      "message": "IMO \u0027plat/arm/fvp\u0027 seems more appropriate as it is very specific to FVP platform.",
+      "parentUuid": "2ed34d51_4906ec2c",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "b22cc266214c4add5203253152a97bea632bfa00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c0efc8b8_19731e63",
@@ -178,6 +202,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63196ed4_815b8989",
+        "filename": "plat/arm/board/fvp/fvp_bl1_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-16T11:59:11Z",
+      "side": 1,
+      "message": "Ack, will update this patch and for Juno will push a separate patch",
+      "parentUuid": "0f07999f_3b4be27e",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 39
+      },
+      "revId": "b22cc266214c4add5203253152a97bea632bfa00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7ac81a6_53cd4ac1",
@@ -239,6 +287,30 @@
       "side": 1,
       "message": "Yes, you\u0027re right, we do the same on Juno but I still question whether this is correct. Have a look at the Juno documentation:\n\nhttps://developer.arm.com/documentation/100114/0200/Programmers-Model/APB-system-registers/SYS-FLAG-Registers?lang\u003den\n\nThis clearly says:\n\n The SYS_FLAGS and SYS_NVFLAGS Registers are read-only.\n \n The SYS_FLAGSSET, SYS_FLAGSCLR, SYS_NVFLAGSSET, and SYS_NVFLAGSCLR Registers are write-only.\n\nIs it possible that this code has been incorrect from the beginning? Perhaps writes to these registers are ignored so this could have been undetected so far? I know we have FWU tests on Juno but I believe they trigger the FWU process by corrupting the FIP. In this case, this means they would have exercised only one part of plat_arm_bl1_fwu_needed() [1] but not the NVflags mechanism? This needs double-checking.\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/juno/juno_bl1_setup.c#n68",
       "parentUuid": "38810b84_243eead3",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 18
+      },
+      "revId": "b22cc266214c4add5203253152a97bea632bfa00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c23d917d_f229e35e",
+        "filename": "plat/arm/board/fvp/fvp_err.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-16T11:59:11Z",
+      "side": 1,
+      "message": "Let me double check. In case of FVP platform [1], these registers are only the way to detect FWU needed (as part of this patch).\n\nAlso, worth to mention, Juno has 2 test cases, \n1. Invalid FIP TOC -\u003e that gets checked in first part of plat_arm_bl1_fwu_needed()\n2. authentication failure - where FIP TOC is intact but BL2 is corrupted.\nThis is detected via second part of plat_arm_bl1_fwu_needed()\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10286/3/plat/arm/board/fvp/fvp_bl1_setup.c#141",
+      "parentUuid": "90c7ce7f_44b3711d",
       "range": {
         "startLine": 22,
         "startChar": 1,
