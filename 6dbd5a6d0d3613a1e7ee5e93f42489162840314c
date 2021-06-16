@@ -96,6 +96,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c951d9d1_b10f95fd",
+        "filename": "plat/xilinx/zynqmp/bl31_zynqmp_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2021-06-16T06:47:04Z",
+      "side": 1,
+      "message": "I have added this code above clean_dcache_range()\n\n+       if (is_dcache_enabled())\n+               NOTICE(\"dcache enabled\\n\");\n+       else\n+               NOTICE(\"dcache disabled\\n\");\n+\n\nAnd log is confirming that dcache is enabled.\n\nNOTICE:  TF-A running on XCZU9EG/silicon v4/RTL5.1 at 0x50000000\nNOTICE:  BL31: Secure code at 0x7e000000\nNOTICE:  BL31: Non secure code at 0x8000000\nNOTICE:  BL31: v2.5(release):v2.5-64-g54b464d71a3a-dirty\nNOTICE:  BL31: Built : 06:17:48, Jun 16 2021\nNOTICE:  dcache enabled\n\nAnd this is configuration is enabled only when TF-A runs out of DDR that\u0027s why it is necessary to maintain caches. \nBased on code I see two options flush_dcache_range which is based on comments in cache_helpers.S clean+invalidate or clean_dcache_range() which is just clean. \n\nThere shouldn\u0027t be a problem not to invalidate this range that\u0027s why only clean_dcache_range() is used. \nAlso RPI code was taken as pattern and they also use clean_dcache_range().",
+      "parentUuid": "9b51fd0e_59f261d0",
+      "revId": "6dbd5a6d0d3613a1e7ee5e93f42489162840314c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b06cec4b_a6e4e611",
         "filename": "plat/xilinx/zynqmp/bl31_zynqmp_setup.c",
         "patchSetId": 4
