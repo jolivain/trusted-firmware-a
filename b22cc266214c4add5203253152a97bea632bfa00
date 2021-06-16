@@ -96,6 +96,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "af7999cb_d9c1464b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-16T15:37:21Z",
+      "side": 1,
+      "message": "\u0027plat/arm/fvp\u0027 un-necessarily making commit title quite long hence stick with \u0027plat/arm\u0027 only.",
+      "parentUuid": "6cc37afd_fbadb7be",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "b22cc266214c4add5203253152a97bea632bfa00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c0efc8b8_19731e63",
@@ -216,6 +240,30 @@
       "side": 1,
       "message": "Ack, will update this patch and for Juno will push a separate patch",
       "parentUuid": "0f07999f_3b4be27e",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 39
+      },
+      "revId": "b22cc266214c4add5203253152a97bea632bfa00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11270aae_aeb87c1e",
+        "filename": "plat/arm/board/fvp/fvp_bl1_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-16T15:37:21Z",
+      "side": 1,
+      "message": "Updated the code to use mmio* apis to read/write of NVFLAG registers.",
+      "parentUuid": "63196ed4_815b8989",
       "range": {
         "startLine": 65,
         "startChar": 0,
