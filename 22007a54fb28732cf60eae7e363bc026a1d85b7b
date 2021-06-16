@@ -22,6 +22,30 @@
       },
       "revId": "22007a54fb28732cf60eae7e363bc026a1d85b7b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7256010d_b41c8954",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-16T00:29:14Z",
+      "side": 1,
+      "message": "It sounds like pthe problem is that there is no code path that triggers the ehf_entering_normal_world call and the platform must do something to trigger that, so that the NS priority saved at the beginning when the EL3 sync exception is received is saved. Moving activation to after the SDEI event dispatch means that you are executing the SDEI handler without proper increase in pmr priority..",
+      "parentUuid": "858a16f2_49204600",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 48
+      },
+      "revId": "22007a54fb28732cf60eae7e363bc026a1d85b7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
