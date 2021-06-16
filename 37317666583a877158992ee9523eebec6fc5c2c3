@@ -95,6 +95,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75aab059_fdbe725f",
+        "filename": "plat/arm/common/arm_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-16T09:11:29Z",
+      "side": 1,
+      "message": "\u003e \u0027arm_get_fw_bank_active_idx\u0027 function always returns value less than NR_OF_FW_BANK.\n\u003e \n\u003e Also, array size of fip_part_names always NR_OF_FW_BANK with CASSERT check in place at line no.31.\n\u003e \n\u003e With all this, I don\u0027t see we need one more assert check here.\n\nOK so you rely on arm_load_fwu_metadata() being called before arm_set_fip_addr(). And arm_load_fwu_metadata() checks that the active index is sane. I guess that\u0027s fair enough. I am probably over paranoid here. Especially given that g_fwu_metadata is a BSS variable, i.e. zero-initialized, so even if  arm_load_fwu_metadata() was not called before hand (which would be a bug!) then we\u0027d just access the first entry of the array.",
+      "parentUuid": "8fe63bff_c09c2c94",
+      "range": {
+        "startLine": 202,
+        "startChar": 22,
+        "endLine": 202,
+        "endChar": 35
+      },
+      "revId": "37317666583a877158992ee9523eebec6fc5c2c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f7cd069_900acd6b",
@@ -156,6 +180,30 @@
       "side": 1,
       "message": "\u003e \u003e Could you please help me understand under which circumstances we might end up in this error case? Would that be a result of a malformed GPT image? Any other reason?\n\u003e \n\u003e This error can be possible if \u0027fip\u0027 partition information is missing in the GPT image. Yes, you can say then it is malformed GPT. This is the only reason.\n\u003e \n\u003e \u003e \n\u003e \u003e I am trying to assess whether panic() is the right thing to do here. When we\u0027ll support the recovery mode, I guess we might try that here instead? Should we call plat_error_handler() instead? According to [1], panic() is for unexpected errors whereas plat_error_handler() is for expected errors. I think this one here might qualify as an expected error. We must be prepared for invalid GPT images because it gets updated by another software agent external to TF-A. But I am not sure, the difference between expected and unexpected irrecoverable is subtle and I find it hard to grasp. What do you think?\n\u003e \n\u003e I added \u0027panic()\u0027, but as I mentioned in the previous comments this should get changed to \u0027plat_error_handler\u0027 instead once we have recovery mechanism in place.\n\u003e Currently, the code support recovery of standalone FIP image, but not GPT image.\n\u003e \n\u003e \u003e \n\u003e \u003e [1] https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html#handling-unrecoverable-errors",
       "parentUuid": "87690e68_b843c1ae",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 204,
+        "endChar": 10
+      },
+      "revId": "37317666583a877158992ee9523eebec6fc5c2c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02bd42af_129e621d",
+        "filename": "plat/arm/common/arm_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-16T09:11:29Z",
+      "side": 1,
+      "message": "\u003e This error can be possible if \u0027fip\u0027 partition information is missing in the GPT image. Yes, you can say then it is malformed GPT. This is the only reason.\n\n\nOK thanks.\n\n\u003e \u003e I am trying to assess whether panic() is the right thing to do here. When we\u0027ll support the recovery mode, I guess we might try that here instead? Should we call plat_error_handler() instead? According to [1], panic() is for unexpected errors whereas plat_error_handler() is for expected errors. I think this one here might qualify as an expected error. We must be prepared for invalid GPT images because it gets updated by another software agent external to TF-A. But I am not sure, the difference between expected and unexpected irrecoverable is subtle and I find it hard to grasp. What do you think?\n\u003e \n\u003e I added \u0027panic()\u0027, but as I mentioned in the previous comments this should get changed to \u0027plat_error_handler\u0027 instead once we have recovery mechanism in place.\n\u003e \u003e Currently, the code support recovery of standalone FIP image, but not GPT image.\n\nOK, fair enough.",
+      "parentUuid": "f6239201_359a5499",
       "range": {
         "startLine": 204,
         "startChar": 2,
