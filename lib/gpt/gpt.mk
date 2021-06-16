@@ -5,4 +5,8 @@
 #
 
 GPT_LIB_SRCS	:=	$(addprefix lib/gpt/,        \
-			gpt_core.c)
+			gpt.c)
+
+GPT_LIB		:=	1
+
+$(eval $(call add_define,GPT_LIB))
