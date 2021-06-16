@@ -70,6 +70,30 @@
       },
       "revId": "ed0f0a096845d8b0c0ee9db7a2d6a6486e3ddb44",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffcad64e_0f8d777c",
+        "filename": "plat/arm/board/fvp/fvp_err.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-16T16:41:37Z",
+      "side": 0,
+      "message": "I can\u0027t see any flash writes from BL1 and BL2 component.\nBL2U uses flash for write during FWU use case, and hence map this flash region as RW during BL2U initialization.\nPlease review this patch: https://gerrit.oss.arm.com/c/pdcs-platforms/ap/tf-topics/+/198053 Thanks!",
+      "parentUuid": "aff2b88b_d9a1fb5e",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 8
+      },
+      "revId": "ed0f0a096845d8b0c0ee9db7a2d6a6486e3ddb44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
