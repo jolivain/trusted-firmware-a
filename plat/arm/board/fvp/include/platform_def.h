@@ -341,4 +341,10 @@
 #define PLAT_VIRT_ADDR_SPACE_SIZE	(1ULL << 32)
 #endif
 
+#ifdef ENABLE_RME
+    /* Granule Protection Table configuration */
+    #define PLAT_GPT_RME_PGS         GPCCR_PGS_4K
+    #define PLAT_GPT_RME_PPS         GPCCR_PPS_4GB
+#endif /* ENABLE_RME */
+
 #endif /* PLATFORM_DEF_H */
