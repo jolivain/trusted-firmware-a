@@ -65,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c7803e_f30a9e08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-16T11:21:56Z",
+      "side": 1,
+      "message": "\u003e So you made this fix FVP-specific?\n\nYes, it is FVP-specific fix, but can be used in similar way for other platforms.\n\n\u003e Its fine for solving my problem with\n\u003e semihosting boot, AFAICT.\n\u003e But I suspect there are more\n\u003e semihosting-enabled platforms out\n\u003e there, maybe qemu?\n\nI think such platforms can do the fix in similar way.\n\n\u003e \n\u003e An alternative may be to replace\n\u003e erase-FIP/reboot with\n\u003e erase-FIP/FWU/reboot.\n\u003e Should be simpler and more universal.\n\u003e What do you think?\n\nAs per current FWU design and implementation, reboot is mandatory to jump to secure firmware that can do the job of replacing corrupted/non-working FIP with back up FIP.\n\nWe can think of in future if there is any possibility to do recovery without reboot.\n\n\u003e \n\u003e But in any case, this patch is\n\u003e going to fix my problem just as well.",
+      "parentUuid": "c0efc8b8_19731e63",
+      "revId": "b22cc266214c4add5203253152a97bea632bfa00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad048389_711a5e30",
