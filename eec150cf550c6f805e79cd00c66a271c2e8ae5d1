@@ -22,6 +22,30 @@
       },
       "revId": "eec150cf550c6f805e79cd00c66a271c2e8ae5d1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a482f7da_590b96b3",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-06-16T08:01:03Z",
+      "side": 1,
+      "message": "Hi Raghu,\nthese changes were not meant to be one-or-the-other.\nYour suggestion is valid, we had not thought about this before.\nI guess because of following problem:\nWhen you boot a core, you potentially pass some parameters in w0-w7 to the SPMC.\nWhen you do an FFA fastcall, you would also need w0-w7 to pass arguments and results.\nSo the SPMC on a booting core would first need to save somewhere the boot arguments, then prepare and execute the FFA call, and then use the linear id to setup a stack, and then recover the other arguments.\nIt could work easily on secondary cores, where today we potentially have 0 arguments. On the boot core, we don\u0027t need the linear ID early, we could do the FFA call to get the linear ID a bit later.",
+      "parentUuid": "b17a9a0c_dd4cb82d",
+      "range": {
+        "startLine": 176,
+        "startChar": 1,
+        "endLine": 176,
+        "endChar": 70
+      },
+      "revId": "eec150cf550c6f805e79cd00c66a271c2e8ae5d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
