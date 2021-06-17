@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "512c4d69_233747a8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-17T15:24:30Z",
+      "side": 1,
+      "message": "resolving based on conversation in other comment threads.",
+      "parentUuid": "6006a000_c6eebe0f",
+      "range": {
+        "startLine": 9,
+        "startChar": 30,
+        "endLine": 9,
+        "endChar": 63
+      },
+      "revId": "3ac71c064cbed94bc530aaa5e3a85074d086acb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2d94b8f1_191f0829",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -125,6 +149,24 @@
       "side": 1,
       "message": "I don\u0027t think this is a situation that can currently occur in TF-A as compiled binaries are non-portable across platforms, so I cannot envisage a situation where you would run a TF-A binary with BTI support on a platform without BTI support. Nonetheless, considering BTI is part of the NOP-space do you think it would make sense to remove the v8.5 check alone? This patch is less about BTI itself and more about no longer relying on architecture versions for architectural features.",
       "parentUuid": "fb875eef_97facc8d",
+      "revId": "3ac71c064cbed94bc530aaa5e3a85074d086acb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d884625_b7795c03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-17T15:24:30Z",
+      "side": 1,
+      "message": "No objections from me given the discussions so far.",
+      "parentUuid": "43800970_80f81c8c",
       "revId": "3ac71c064cbed94bc530aaa5e3a85074d086acb2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
