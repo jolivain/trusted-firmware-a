@@ -33,6 +33,24 @@
       "message": "imx_wdog_restart can NOT return, the above return is just a place holder?",
       "revId": "6c9448fd89e6158f6b80b840e171d8345f189b37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfee445e_7e6a7d5f",
+        "filename": "plat/imx/imx8m/imx8m_psci_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2021-06-17T06:28:25Z",
+      "side": 1,
+      "message": "exactly, otherwise it hits compilation warning (\"control reaches end of non-void function\")",
+      "parentUuid": "ee8ce087_30d51eb8",
+      "revId": "6c9448fd89e6158f6b80b840e171d8345f189b37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
