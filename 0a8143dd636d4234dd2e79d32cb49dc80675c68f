@@ -16,6 +16,29 @@
       "message": "Add comment about cache.",
       "revId": "0a8143dd636d4234dd2e79d32cb49dc80675c68f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f146775f_28999474",
+        "filename": "plat/xilinx/zynqmp/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2021-06-17T07:09:21Z",
+      "side": 1,
+      "message": "Hi Michal,\nCan the fdt source files compiled only when TF-A runs in DDR?",
+      "range": {
+        "startLine": 98,
+        "startChar": 11,
+        "endLine": 98,
+        "endChar": 20
+      },
+      "revId": "0a8143dd636d4234dd2e79d32cb49dc80675c68f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
