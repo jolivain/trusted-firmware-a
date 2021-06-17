@@ -39,6 +39,30 @@
       },
       "revId": "0a8143dd636d4234dd2e79d32cb49dc80675c68f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7f40a3e_3bf28be0",
+        "filename": "plat/xilinx/zynqmp/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2021-06-17T10:36:56Z",
+      "side": 1,
+      "message": "It shouldn\u0027t increase any footprint because nothing from it is called and target binary should be the same. Or do you see any issue with size?",
+      "parentUuid": "f146775f_28999474",
+      "range": {
+        "startLine": 98,
+        "startChar": 11,
+        "endLine": 98,
+        "endChar": 20
+      },
+      "revId": "0a8143dd636d4234dd2e79d32cb49dc80675c68f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
