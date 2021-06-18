@@ -16,6 +16,24 @@
       "message": "Hi Venkatesh\nHow much improvement in bl31.bin size did you observe with this patch?",
       "revId": "db97f93963983c59999b95ab84aafa532626018a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2ed72c9_f18c58a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2021-06-18T08:49:26Z",
+      "side": 1,
+      "message": "Hi Madhukar,\nThe build is failing without this patch.I got a mail from CI as below\n\nFrom: Maksims Svecovs \u003cMaksims.Svecovs@arm.com\u003e \nSent: Wednesday, June 16, 2021 8:54 PM\nTo: Venkatesh Yadav Abbarapu \u003cVABBARAP@xilinx.com\u003e; Michal Simek \u003cmichals@xilinx.com\u003e\nCc: Joanna Farley \u003cJoanna.Farley@arm.com\u003e\nSubject: Re: zynqmp out of RAM with latest TF-A.\n\nHi Venkatesh.\nI tried building tf-a master branch locally: make CROSS_COMPILE\u003daarch64-none-elf- PLAT\u003dzynqmp RESET_TO_BL31\u003d1\n\nResults in:\naarch64-none-elf-ld.bfd: /home/maksve01/Work/trusted-firmware-a/build/zynqmp/release/bl31/bl31.elf section `coherent_ram\u0027 will not fit in region `RAM\u0027 \naarch64-none-elf-ld.bfd: BL31 image has exceeded its limit.\naarch64-none-elf-ld.bfd: region `RAM\u0027 overflowed by 1 byte\n\nThe same happens in the CI.\n\nKind regards,\nMax\n\nThanks\nVenkatesh",
+      "parentUuid": "55730aee_3e68c72b",
+      "revId": "db97f93963983c59999b95ab84aafa532626018a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
