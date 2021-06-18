@@ -104,6 +104,24 @@
       "message": "What\u0027s blocking this from going in?",
       "revId": "241105311073cbf8a1fceea8c6c3b6485a4d128b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c36bd58_8e130e6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-06-18T22:59:26Z",
+      "side": 1,
+      "message": "Peter needs to update the commit message format (e.g. to `fix(rockchip/rk3399): fix dram section placement declaration`), and then I think we technically also need a Code-Owner+1 from Tony or Heiko.",
+      "parentUuid": "58115099_0571e87a",
+      "revId": "241105311073cbf8a1fceea8c6c3b6485a4d128b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
