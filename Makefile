@@ -252,6 +252,13 @@ ifeq "8.5" "$(word 1, $(sort 8.5 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
 ENABLE_FEAT_SB		= 	1
 endif
 
+# Determine if HW_CRC32 is supported
+ENABLE_HW_CRC32         =       $(if $(findstring crc,${arch-features}),1,0)
+
+ifeq "8.1" "$(word 1, $(sort 8.1 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+ENABLE_HW_CRC32         =       1
+endif
+
 ifneq ($(findstring armclang,$(notdir $(CC))),)
 TF_CFLAGS_aarch32	=	-target arm-arm-none-eabi $(march32-directive)
 TF_CFLAGS_aarch64	=	-target aarch64-arm-none-eabi $(march64-directive)
@@ -955,6 +962,7 @@ $(eval $(call assert_booleans,\
         USE_SP804_TIMER \
         ENABLE_FEAT_RNG \
         ENABLE_FEAT_SB \
+        ENABLE_HW_CRC32 \
 )))
 
 $(eval $(call assert_numerics,\
@@ -1053,6 +1061,7 @@ $(eval $(call add_defines,\
         ENABLE_FEAT_SB \
         NR_OF_FW_BANKS \
         NR_OF_IMAGES_IN_FW_BANK \
+        ENABLE_HW_CRC32 \
 )))
 
 ifeq (${SANITIZE_UB},trap)

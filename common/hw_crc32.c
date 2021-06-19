@@ -4,11 +4,15 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <stdarg.h>
-#include <assert.h>
-
+#include <arch_features.h>
 #include <arm_acle.h>
+#include <assert.h>
+#include <stdarg.h>
+
 #include <common/debug.h>
+#include <lib/cassert.h>
+
+CASSERT(ENABLE_HW_CRC32 == 1, assert_hw_crc32_not_supported);
 
 /* hw_crc32 - compute CRC using Arm intrinsic function
  *
@@ -26,6 +30,17 @@
 uint32_t hw_crc32(uint32_t crc, const unsigned char *buf, size_t size)
 {
 	assert(buf != NULL);
+
+#if (ARM_ARCH_MAJOR == 8) && (ARM_ARCH_MINOR == 0)
+	/*
+	 * Assert that the ARMv8.0-CRC32 instructions are implemented
+	 * otherwise, a fault gets triggered on accessing CRC32
+	 * instructions.
+	 * CRC32 instructions are implemented by default in ARMv8.1+
+	 * architectures.
+	 */
+	assert(is_armv8_0_crc32_present());
+#endif /* (ARM_ARCH_MAJOR == 8) && (ARM_ARCH_MINOR == 0) */
 
 	uint32_t calc_crc = ~crc;
 	const unsigned char *local_buf = buf;

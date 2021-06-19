@@ -23,4 +23,10 @@ static inline bool is_armv8_2_ttcnp_present(void)
 		ID_MMFR4_CNP_MASK) != 0U;
 }
 
+static inline bool is_armv8_0_crc32_present(void)
+{
+	return ((read_id_isar5() >> ID_ISAR5_CRC32_SHIFT) &
+		ID_ISAR5_CRC32_MASK) != 0U;
+}
+
 #endif /* ARCH_FEATURES_H */
