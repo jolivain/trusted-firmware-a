@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2021, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -21,6 +21,12 @@ static inline bool is_armv8_2_ttcnp_present(void)
 {
 	return ((read_id_mmfr4() >> ID_MMFR4_CNP_SHIFT) &
 		ID_MMFR4_CNP_MASK) != 0U;
+}
+
+static inline bool is_armv8_0_crc32_present(void)
+{
+	return ((read_id_isar5() >> ID_ISAR5_CRC32_SHIFT) &
+		ID_ISAR5_CRC32_MASK) != 0U;
 }
 
 #endif /* ARCH_FEATURES_H */

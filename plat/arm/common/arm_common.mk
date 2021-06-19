@@ -181,8 +181,9 @@ endif
 # Enable CRC instructions via extension for ARMv8-A CPUs.
 # For ARMv8.1-A, and onwards CRC instructions are default enabled.
 # Enable HW computed CRC support unconditionally in BL2 component.
-ifeq (${ARM_ARCH_MINOR},0)
-  BL2_CPPFLAGS += -march=armv8-a+crc
+ifeq (${ENABLE_HW_CRC32},0)
+    ENABLE_HW_CRC32	:=	1
+    BL2_CPPFLAGS	+=	-march=armv8-a+crc
 endif
 
 ifeq (${ARCH}, aarch64)

@@ -105,4 +105,10 @@ static inline unsigned int get_mpam_version(void)
 		ID_AA64PFR1_MPAM_FRAC_SHIFT) & ID_AA64PFR1_MPAM_FRAC_MASK));
 }
 
+static inline bool is_armv8_0_crc32_present(void)
+{
+	return ((read_id_aa64isar0_el1() >> ID_AA64ISAR0_CRC32_SHIFT) &
+		ID_AA64ISAR0_CRC32_MASK) != 0U;
+}
+
 #endif /* ARCH_FEATURES_H */

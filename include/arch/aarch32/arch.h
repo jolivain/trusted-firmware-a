@@ -138,6 +138,10 @@
 #define ID_PFR1_SEC_MASK	U(0xf)
 #define ID_PFR1_ELx_ENABLED	U(1)
 
+/* ID_ISAR5 definitions */
+#define ID_ISAR5_CRC32_SHIFT	U(16)
+#define ID_ISAR5_CRC32_MASK	U(0xf)
+
 /* SCTLR definitions */
 #define SCTLR_RES1_DEF		((U(1) << 23) | (U(1) << 22) | (U(1) << 4) | \
 				 (U(1) << 3))
@@ -515,6 +519,7 @@
 #define DCISW		p15, 0, c7, c6, 2
 #define CTR		p15, 0, c0, c0, 1
 #define CNTFRQ		p15, 0, c14, c0, 0
+#define ID_ISAR5	p15, 0, c0, c2, 5
 #define ID_MMFR4	p15, 0, c0, c2, 6
 #define ID_DFR1		p15, 0, c0, c3, 5
 #define ID_PFR0		p15, 0, c0, c1, 0
