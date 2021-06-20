@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,6 +14,9 @@
 #include <common/debug.h>
 #include <drivers/auth/auth_mod.h>
 #include <drivers/console.h>
+#if PSA_FWU_SUPPORT
+#include <drivers/fwu/fwu.h>
+#endif /* PSA_FWU_SUPPORT */
 #if MEASURED_BOOT
 #include <drivers/measured_boot/measured_boot.h>
 #endif
@@ -87,6 +90,10 @@ void bl2_main(void)
 
 	/* Perform remaining generic architectural setup in S-EL1 */
 	bl2_arch_setup();
+
+#if PSA_FWU_SUPPORT
+	fwu_init();
+#endif /* PSA_FWU_SUPPORT */
 
 #if TRUSTED_BOARD_BOOT
 	/* Initialize authentication module */
