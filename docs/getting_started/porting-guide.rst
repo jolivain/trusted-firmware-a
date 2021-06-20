@@ -894,6 +894,37 @@ On success the function should return 0 and a negative error code otherwise.
 Note that this API depends on ``DECRYPTION_SUPPORT`` build flag which is
 marked as experimental.
 
+Function : plat_set_fwu_images_source() [when PSA_FWU_SUPPORT == 1]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : uint32_t
+    Return   : void
+
+This function is mandatory when PSA_FWU_SUPPORT is enabled, and it takes
+active firmware bank index as an input argument to set IO policies with
+the source address of various firmware updated images present in the
+underlying non-volatile memory.
+
+In Arm platforms, this function is used to set an IO policy with the
+source address of an updated FIP. An updated IO policy is used by bootloader
+to open the FIP, and load various images packed in FIP to SRAM/DRAM.
+
+Function : plat_set_fwu_metadata_image_souce() [when PSA_FWU_SUPPORT == 1]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : unsigned int
+    Return   : int
+
+This function is mandatory when PSA_FWU_SUPPORT is enabled, and it set the
+IO policy with the source address of metadata image present in the underlying
+non-volatile memory.
+
+It returns '0' on success, error otherwise.
+
 Common optional modifications
 -----------------------------
 
