@@ -24,6 +24,13 @@ uintptr_t fip_dev_handle;
 static const io_dev_connector_t *memmap_dev_con;
 uintptr_t memmap_dev_handle;
 
+#if ARM_GPT_SUPPORT
+/* fip partition names */
+static const char * const fip_part_names[] = {"FIP_A", "FIP_B"};
+CASSERT(sizeof(fip_part_names)/sizeof(char *) == NR_OF_FW_BANKS,
+	assert_fip_partition_names_missing);
+#endif /* ARM_GPT_SUPPORT */
+
 /* Weak definitions may be overridden in specific ARM standard platform */
 #pragma weak plat_arm_io_setup
 #pragma weak plat_arm_get_alt_image_source
@@ -173,4 +180,69 @@ int arm_set_image_source(unsigned int image_id, const char *part_name)
 
 	return 0;
 }
-#endif
+
+/*******************************************************************************
+ * arm_set_fip_addr:
+ *
+ * Set the base address of the FIP image in its IO policy.
+ *
+ * @active_fw_bank_idx: active firmware bank index gathered from FWU metadata.
+ ******************************************************************************/
+void arm_set_fip_addr(uint32_t active_fw_bank_idx)
+{
+	assert(active_fw_bank_idx < NR_OF_FW_BANKS);
+
+	INFO("Booting with partition %s\n", fip_part_names[active_fw_bank_idx]);
+
+	int result = arm_set_image_source(FIP_IMAGE_ID,
+					  fip_part_names[active_fw_bank_idx]);
+	if (result != 0) {
+		panic();
+	}
+}
+#endif /* ARM_GPT_SUPPORT */
+
+#if PSA_FWU_SUPPORT
+/*******************************************************************************
+ * plat_set_fwu_images_source:
+ *
+ * Read the FIP partition of the flash as per the active firmware bank index to
+ * get the base address of the FIP image, and then update the IO policy of the
+ * FIP image with this obtained address.
+ *
+ * @active_fw_bank_idx: active firmware bank index gathered from FWU metadata.
+ ******************************************************************************/
+void plat_set_fwu_images_source(uint32_t active_fw_bank_idx)
+{
+	arm_set_fip_addr(active_fw_bank_idx);
+}
+
+/*******************************************************************************
+ * plat_set_fwu_metadata_image_source:
+ *
+ * Read the requested FWU metadata partition of the flash to get the base
+ * address of FWU metadata image, and then update the IO policy of that
+ * requested FWU metadata image with this obtained address.
+ *
+ * @image_id: image id of either primary or backup FWU metadata image.
+ *
+ * Returns 0 on success, error otherwise
+ ******************************************************************************/
+int plat_set_fwu_metadata_image_source(unsigned int image_id)
+{
+	int result = -1;
+
+	assert((image_id == FWU_METADATA_IMAGE_ID) ||
+	       (image_id == BKUP_FWU_METADATA_IMAGE_ID));
+
+	if (image_id == FWU_METADATA_IMAGE_ID) {
+		result = arm_set_image_source(FWU_METADATA_IMAGE_ID,
+					      "FWU-Metadata");
+	} else if (image_id == BKUP_FWU_METADATA_IMAGE_ID) {
+		result = arm_set_image_source(BKUP_FWU_METADATA_IMAGE_ID,
+					      "Bkup-FWU-Metadata");
+	}
+
+	return result;
+}
+#endif /* PSA_FWU_SUPPORT */
