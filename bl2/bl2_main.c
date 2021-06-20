@@ -14,6 +14,7 @@
 #include <common/debug.h>
 #include <drivers/auth/auth_mod.h>
 #include <drivers/console.h>
+#include <drivers/fwu/fwu.h>
 #if MEASURED_BOOT
 #include <drivers/measured_boot/measured_boot.h>
 #endif
@@ -87,6 +88,10 @@ void bl2_main(void)
 
 	/* Perform remaining generic architectural setup in S-EL1 */
 	bl2_arch_setup();
+
+#if PSA_FWU_SUPPORT
+	fwu_init();
+#endif /* PSA_FWU_SUPPORT */
 
 #if TRUSTED_BOARD_BOOT
 	/* Initialize authentication module */

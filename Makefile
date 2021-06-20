@@ -963,6 +963,7 @@ $(eval $(call assert_booleans,\
         ENABLE_FEAT_RNG \
         ENABLE_FEAT_SB \
         ENABLE_HW_CRC32 \
+        PSA_FWU_SUPPORT \
 )))
 
 $(eval $(call assert_numerics,\
@@ -1062,6 +1063,7 @@ $(eval $(call add_defines,\
         NR_OF_FW_BANKS \
         NR_OF_IMAGES_IN_FW_BANK \
         ENABLE_HW_CRC32 \
+        PSA_FWU_SUPPORT \
 )))
 
 ifeq (${SANITIZE_UB},trap)
