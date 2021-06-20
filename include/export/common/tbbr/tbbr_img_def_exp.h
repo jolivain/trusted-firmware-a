@@ -91,7 +91,17 @@
 /* FW_CONFIG */
 #define FW_CONFIG_ID			U(31)
 
+/*
+ * Primary FWU metadata image ID
+ */
+#define FWU_METADATA_IMAGE_ID		U(32)
+
+/*
+ * Backup FWU metadata image ID
+ */
+#define BKUP_FWU_METADATA_IMAGE_ID	U(33)
+
 /* Max Images */
-#define MAX_IMAGE_IDS			U(32)
+#define MAX_IMAGE_IDS			U(34)
 
 #endif /* ARM_TRUSTED_FIRMWARE_EXPORT_COMMON_TBBR_TBBR_IMG_DEF_EXP_H */
