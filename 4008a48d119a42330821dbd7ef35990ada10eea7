@@ -16,6 +16,414 @@
       "message": "WORK IN PROGRESS\nBut already accepts early comments.",
       "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5940eb43_92d58c1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "Hi all,\n\nUnderstand this is a early draft, so please treat my comments accordingly :)\n\nThanks\nRaghu",
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7189e69_6ec9950b",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "called secure partitions?",
+      "range": {
+        "startLine": 16,
+        "startChar": 42,
+        "endLine": 16,
+        "endChar": 44
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8eca89f1_be2fc204",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "isnt this a consequence of the TrustZone architecture itself?",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 60
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2132e342_6c2c4317",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "is this understood given we already talk about sandboxes and isolation above?",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 39
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e74f1099_2fb058b9",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "Same here. perhaps we can say under the \"distinct sandboxes\" point that this enables mutual isolation of secure partitions and isolation of services from multiple vendors. No strong opinion all comments above. Looks fine, mostly nitpicking here.",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 46
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "706b38dd_0816e716",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "might be good to define if this means any physical attacks or if some physical attacks are in scope.",
+      "range": {
+        "startLine": 41,
+        "startChar": 15,
+        "endLine": 41,
+        "endChar": 41
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47c1bcf1_724bba18",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "nit: rephrase to \"is expected to have a small attack surface\" or \"is considered/assumed to have a small attack surface\"?",
+      "range": {
+        "startLine": 50,
+        "startChar": 71,
+        "endLine": 51,
+        "endChar": 10
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f28e5e28_e234f216",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "looking at the puml, i see that secure partitions are considered trusted(inside broken red line) but below it says SP\u0027s are not trusted. Similarly bl2 is outside the broken red lines.\nShould this be changed? or perhaps i dont understand what broken lines i should be looking at.",
+      "range": {
+        "startLine": 56,
+        "startChar": 22,
+        "endLine": 56,
+        "endChar": 63
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "506ffa94_39a15e11",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "should be add something about boot loaders? Understand that we have said above that we are focusing on run time threat modeling but the picture calls out boot loader so wondering if it might be worth stating that here.",
+      "range": {
+        "startLine": 97,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 40
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88b9f32e_cd4a7551",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "are spmc and spmd itself threat agents given that we are threat modeling the spmc and spmd?",
+      "range": {
+        "startLine": 126,
+        "startChar": 47,
+        "endLine": 126,
+        "endChar": 61
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87b66287_8de6707b",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "not sure i agree with this. to mitigate against this spoofing threat against the SPMD, SPMC, for sp\u0027s, SPMC/D can ensure that no spoofing is possible through module like you say. however, for normal world partitions, SPMC cannot do anything to prevent spoofing and even if normal world implement something, by definition we cannot trust it. So not sure we should include mitigatoins in the normal world, or if we want to, we should caveat it saying SPMC/D cannot trust it.\nSPMC can ensure secure world cannot spoof normal world ID\u0027s and secure world id\u0027s through checks during FF-A messages/or separate software module.\nAny normal world id provided by normal world is untrusted as a rule and has no impact on the spmc and spmc can ensure normal world cannot provide spmc.\nPoint is the mitigation really lives in the spmc and it must enforce the above rules for checking id\u0027s.",
+      "range": {
+        "startLine": 186,
+        "startChar": 31,
+        "endLine": 186,
+        "endChar": 59
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "843cbff9_b4d23286",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "is this threat valid? we are threat modeling the SPMC so not sure a compromised SPMC is a threat? this would be valid when threat modeling an SP for example.",
+      "range": {
+        "startLine": 198,
+        "startChar": 29,
+        "endLine": 198,
+        "endChar": 49
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26e3d5de_1347d5c3",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "same here. This is addressing an SP\u0027s threat model. a valid threat here would be if there is memory shared between an SP and the SPMC/D, and the toctou attack happens.",
+      "range": {
+        "startLine": 242,
+        "startChar": 28,
+        "endLine": 244,
+        "endChar": 37
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ebd52bf_ab61980f",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "another or its own no? If the goal is to attack the asset(SPMC, SP state), then this would apply to itself and another endpoint?",
+      "range": {
+        "startLine": 282,
+        "startChar": 30,
+        "endLine": 282,
+        "endChar": 46
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79469e64_fec535d7",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "not sure the threat is relevant for the same reason as above. We are threat modeling the SPMC so we cannot consider the SPMC already compromised.",
+      "range": {
+        "startLine": 333,
+        "startChar": 32,
+        "endLine": 333,
+        "endChar": 47
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c43f043_947778a2",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "same here. This threat should probably be a malicous device attempting to attack the spmc code/data region.",
+      "range": {
+        "startLine": 374,
+        "startChar": 35,
+        "endLine": 374,
+        "endChar": 49
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "433d800a_d8bfc955",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "again, this is an attack against sp, not spmc?",
+      "range": {
+        "startLine": 415,
+        "startChar": 28,
+        "endLine": 416,
+        "endChar": 37
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d933056a_527f3a36",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-20T14:55:32Z",
+      "side": 1,
+      "message": "not a threat against spmc.",
+      "range": {
+        "startLine": 622,
+        "startChar": 29,
+        "endLine": 622,
+        "endChar": 47
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
