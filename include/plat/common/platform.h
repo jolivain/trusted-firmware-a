@@ -16,6 +16,9 @@
 #if TRNG_SUPPORT
 #include "plat_trng.h"
 #endif
+#if PSA_FWU_SUPPORT
+#include "plat_fwu.h"
+#endif /* PSA_FWU_SUPPORT */
 
 /*******************************************************************************
  * Forward declarations
