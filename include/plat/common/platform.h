@@ -349,4 +349,12 @@ int32_t plat_get_soc_revision(void);
  */
 int32_t plat_is_smccc_feature_available(u_register_t fid);
 
+/*******************************************************************************
+ * FWU platform specific functions
+ ******************************************************************************/
+int plat_fwu_set_metadata_image_source(unsigned int image_id,
+				       uintptr_t *dev_handle,
+				       uintptr_t *image_spec);
+void plat_fwu_set_images_source(uint32_t active_fw_bank_idx);
+
 #endif /* PLATFORM_H */
