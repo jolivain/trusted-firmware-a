@@ -16,6 +16,29 @@
       "message": "Hi Jens,\n\nCan you please help review the patch.\n\nRegards,\nRuchika",
       "revId": "7a83b5e1aaca48881fa778206cc813601ef93de4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ae6c61e_aaf45a81",
+        "filename": "plat/qemu/qemu/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2021-06-21T12:25:56Z",
+      "side": 1,
+      "message": "When looking at the QEMU source (hw/arm/virt.c) it looks like there is not explicit upper limit. So it would make sense support as much as is free at least. Allowing up the the highest 32-bit address should come at no cost. \n\nWould 0xc0000000 make sense to you?\n\nNote that if BL2 is configured for more memory than is available it will abort if it tries to access that. If I\u0027ve understood it correctly it shouldn\u0027t much of a problem since bl2 isn\u0027t supposed to touch that memory unless the FIP says so.",
+      "range": {
+        "startLine": 84,
+        "startChar": 24,
+        "endLine": 84,
+        "endChar": 34
+      },
+      "revId": "7a83b5e1aaca48881fa778206cc813601ef93de4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
