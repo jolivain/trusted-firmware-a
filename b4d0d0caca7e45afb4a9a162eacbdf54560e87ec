@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "715d6902_83d8e5b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-21T08:13:35Z",
+      "side": 1,
+      "message": "nit: FF-A",
+      "range": {
+        "startLine": 13,
+        "startChar": 43,
+        "endLine": 13,
+        "endChar": 46
+      },
+      "revId": "b4d0d0caca7e45afb4a9a162eacbdf54560e87ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "480bf6a2_6bd6aea0",
@@ -14,6 +37,138 @@
       "writtenOn": "2021-06-15T15:22:08Z",
       "side": 1,
       "message": "More changes to enable Kinibi and FFA.\nIt would be required together with the PR here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10235",
+      "revId": "b4d0d0caca7e45afb4a9a162eacbdf54560e87ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69b1e20f_80aff47b",
+        "filename": "include/services/spmd_plat.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-21T08:13:35Z",
+      "side": 1,
+      "message": "nit: 2021 as this is a new file",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "b4d0d0caca7e45afb4a9a162eacbdf54560e87ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d84d7bb0_c69b581d",
+        "filename": "plat/common/plat_spmd_service.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-21T08:13:35Z",
+      "side": 1,
+      "message": "Tbc if this is the right response to a direct message request.\nDEN0077A FF-Av1.1 Alpha0 section 13.2 says the response to direct message request can be FFA_SUCCESS although all parameters MBZ.",
+      "range": {
+        "startLine": 20,
+        "startChar": 18,
+        "endLine": 20,
+        "endChar": 35
+      },
+      "revId": "b4d0d0caca7e45afb4a9a162eacbdf54560e87ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e96da6b_1d74f22c",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-21T08:13:35Z",
+      "side": 1,
+      "message": "Rather than creating a new \"platform message\" dispatcher would it be possible to just re-use the spmc-to-spmd handler above. It\u0027s currently unused and would be a better fit to keep the implementation generic.\n\nSee DEN0077A FF-A v1.1 Alpha0 section 2.8 SPMC and SPMD are assigned implementation defined IDs. But there is no such SPM_PLAT_DIRECT_MSG_ENDPOINT_ID.\n\nThe intent to pass a platform specific message in the higher level SPMC-to-SPMD handler can be conveyed into one of x3-x7.",
+      "range": {
+        "startLine": 425,
+        "startChar": 12,
+        "endLine": 425,
+        "endChar": 36
+      },
+      "revId": "b4d0d0caca7e45afb4a9a162eacbdf54560e87ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c8ade05_871f3c0e",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-21T08:13:35Z",
+      "side": 1,
+      "message": "This may be revisited to return FFA_MSG_SEND_DIRECT_RESP.",
+      "range": {
+        "startLine": 583,
+        "startChar": 3,
+        "endLine": 587,
+        "endChar": 19
+      },
+      "revId": "b4d0d0caca7e45afb4a9a162eacbdf54560e87ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "797f0326_e5c89cf4",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-21T08:13:35Z",
+      "side": 1,
+      "message": "Preferably re-use the above condition (spmd_is_spmc message).",
+      "range": {
+        "startLine": 588,
+        "startChar": 2,
+        "endLine": 592,
+        "endChar": 46
+      },
+      "revId": "b4d0d0caca7e45afb4a9a162eacbdf54560e87ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90e84cf9_7f3c484f",
+        "filename": "services/std_svc/spmd/spmd_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-21T08:13:35Z",
+      "side": 1,
+      "message": "Prefer using a generic ID defined by the spec e.g. SPMD_DIRECT_MSG_ENDPOINT_ID for a SPMC-to-SPMD message.",
       "revId": "b4d0d0caca7e45afb4a9a162eacbdf54560e87ec",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
