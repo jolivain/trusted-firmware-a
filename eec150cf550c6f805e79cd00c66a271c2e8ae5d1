@@ -163,6 +163,30 @@
       },
       "revId": "eec150cf550c6f805e79cd00c66a271c2e8ae5d1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1a719fd_9c119d75",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-21T13:57:10Z",
+      "side": 1,
+      "message": "\u003eDo you mean as soon as the boot or secondary core is entered, it immediately emits an SMC to \u003efigure out the running core linear id through an SPMC-to-SPMD platform direct message request?\n[RK] Yep, more or less what i had in mind.\n\n\u003e\u003ePer AAPCS64/SMCCCv1.2 you can copy x0-x7 to callee-saved registers (x8-x30) prior to emitting the SMC\n[RK] Clever trick. Did not think about that. That should work :)",
+      "parentUuid": "7f29a907_f5749403",
+      "range": {
+        "startLine": 176,
+        "startChar": 1,
+        "endLine": 176,
+        "endChar": 70
+      },
+      "revId": "eec150cf550c6f805e79cd00c66a271c2e8ae5d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
