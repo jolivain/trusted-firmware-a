@@ -37,6 +37,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb8cdd3e_9fb849cf",
+        "filename": "docs/resources/diagrams/plantuml/spm_dfd.puml",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-06-21T17:41:20Z",
+      "side": 1,
+      "message": "Does DF5 represent only interaction with SMMU? If that is the case, I think it\u0027s a good idea to specify that in the data flow diagram description table. Otherwise the end arrow should point to the entire HW IPs block.",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 16
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f90720a2_ab142a4c",
+        "filename": "docs/resources/diagrams/plantuml/spm_dfd.puml",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-06-21T17:41:20Z",
+      "side": 1,
+      "message": "Might be a good idea to differentiate the two DFs as the sources are different components.",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 41
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b7189e69_6ec9950b",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
@@ -198,6 +244,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4930c511_d2d929e4",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-06-21T17:41:20Z",
+      "side": 1,
+      "message": "Might be a good idea to add a \"In scope\" column that specifies whether a DF is in the scope of analysis or not. I\u0027m assuming some of them are not in scope, for example DF4.",
+      "range": {
+        "startLine": 61,
+        "startChar": 20,
+        "endLine": 61,
+        "endChar": 54
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "506ffa94_39a15e11",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
@@ -237,6 +306,29 @@
         "startChar": 47,
         "endLine": 126,
         "endChar": 61
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80f322de_ee3b6060",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-06-21T17:41:20Z",
+      "side": 1,
+      "message": "Similar to my earlier comment, should this be in scope of this threat model? It looks like it\u0027s outside of the control of SPMC from the diagram.",
+      "range": {
+        "startLine": 165,
+        "startChar": 42,
+        "endLine": 165,
+        "endChar": 45
       },
       "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -398,6 +490,52 @@
         "startChar": 28,
         "endLine": 416,
         "endChar": 37
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aae9ec2_62ffa338",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-06-21T17:41:20Z",
+      "side": 1,
+      "message": "This reads a bit strange. Did you mean to add this phrase?",
+      "range": {
+        "startLine": 459,
+        "startChar": 27,
+        "endLine": 459,
+        "endChar": 53
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e17e410_86e1fcf5",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-06-21T17:41:20Z",
+      "side": 1,
+      "message": "Does this threat exist due a weakness in the SPMC or SPs? If it is SPs than I think threat is out of scope considering the target of evaluation is SPMC.",
+      "range": {
+        "startLine": 500,
+        "startChar": 37,
+        "endLine": 501,
+        "endChar": 33
       },
       "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
