@@ -16,6 +16,24 @@
       "message": "Is AMU being used by any non-Arm platform, if so then it will be problem because currently on Arm platforms support HW_CONFIG through FCONF",
       "revId": "8496de2ea3daeb8364ed859a73320a4fc0ba4f7a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54b6360d_42946f4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-06-21T09:15:34Z",
+      "side": 1,
+      "message": "No, this mask is currently unused by all platforms (including Arm platforms) so it\u0027s safe for us to remove it.",
+      "parentUuid": "312980c1_b2b32ed1",
+      "revId": "8496de2ea3daeb8364ed859a73320a4fc0ba4f7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
