@@ -143,6 +143,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "172565ee_2119b09e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-21T09:10:59Z",
+      "side": 1,
+      "message": "\u003e There is a platform function for this in TF-A.\nYes. Linux gets it from device tree (same for Hafnium). In the past, TOSes had a similar assumption of knowning the linear id (hence either using a platform conversion macro or getting it from TF-A) such that all components in the system had an uniform view of the MPIDR to linear id mapping. We\u0027re trying here to revisit this legacy.\n\u003e the OS calls PSCI CPU_ON on each secondary core serially instead of allowing multiple secondaries to boot up concurrently. \nI don\u0027t think the fact the OS calls the PSCI service serially in a specific order for each core means the TOS is woken up on the targeted cores serially in the same order. This remains an asynchronous process and multiple cores can wake up in the SPMC be it SEL1 or SEL2 in an undetermined order, possibly concurrently.\n\u003e Since TEEs are making changes to adopt FF-A, I see a choice between using a truly platform independent mechanism vs using the linear id calculated by TF-A.\nI think there is a different contract for an SPMC at SEL1 (formerly a TOS) or SEL2. There are still platform/architecture constraints for the SEL1 SPMC (e.g. wrt to the GIC) that are less stringent for an SEL2 SPMC where the legacy TOS is in a sandbox.\n\u003e a SP would have to know whether it is virtualized or not to determine whether it can use the MPIDR directly or it should continue relying on the passed linear id. Is this desirable?\nTbh a TEE already knows it through build options (see CFG_CORE_SEL2_SPMC for OP-TEE)\n\u003e Lastly, I think it would be safer to pick a register outside w0-w7. \nOk, I think this one is for @Lukas as this implies modifying the TEE.",
+      "parentUuid": "32281141_eeec192d",
+      "revId": "05e018460567e0c142d766d270c807ec93a940c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c42f973d_ea42decc",
         "filename": "services/std_svc/spmd/spmd_pm.c",
         "patchSetId": 1
