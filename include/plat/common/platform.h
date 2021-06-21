@@ -140,6 +140,8 @@ int plat_sdei_validate_entry_point(uintptr_t ep, unsigned int client_mode);
 void plat_sdei_handle_masked_trigger(uint64_t mpidr, unsigned int intr);
 #endif
 
+void default_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
+		void *handle, uint64_t flags);
 void plat_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
 		void *handle, uint64_t flags);
 
