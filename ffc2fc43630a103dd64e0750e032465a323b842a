@@ -33,6 +33,24 @@
       "message": "Gentle reminder to fix the issues reported by CI",
       "revId": "ffc2fc43630a103dd64e0750e032465a323b842a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f9b8708_aa5cd9a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-06-21T09:09:30Z",
+      "side": 1,
+      "message": "\u003e\u003e the build configs for this deprecated platform needs to be removed from tf-a-ci-scripts.\n\n@Madhukar someone more conversant with the CI should do this. I dont know how to disable Tegra132 from the platform list.",
+      "parentUuid": "f33ca01c_d02adb7b",
+      "revId": "ffc2fc43630a103dd64e0750e032465a323b842a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
