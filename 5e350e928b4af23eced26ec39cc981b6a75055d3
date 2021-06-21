@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5843388_057b1d23",
+        "filename": "lib/extensions/sve/sve.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-21T16:03:52Z",
+      "side": 1,
+      "message": "Do we need to reset these bits \u0027CPTR_EZ_BIT\u0027 and \u0027TFP_BIT\u0027 to some known value on power up?\nAs per ARM Arm these bits are at \u0027UNKNOWN\u0027 value on reset.",
+      "range": {
+        "startLine": 37,
+        "startChar": 12,
+        "endLine": 37,
+        "endChar": 50
+      },
+      "revId": "5e350e928b4af23eced26ec39cc981b6a75055d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
