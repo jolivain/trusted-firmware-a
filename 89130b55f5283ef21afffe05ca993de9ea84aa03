@@ -70,6 +70,30 @@
       },
       "revId": "89130b55f5283ef21afffe05ca993de9ea84aa03",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61dcfd37_1494cee9",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-06-22T12:03:02Z",
+      "side": 1,
+      "message": "Having PIE is always better than linking with static addresses, because you can run from any address. This was a requirement long ago to make TF-A compiled as PIE, if possible. Compiling BL31 PIE was easier than BL1 and BL2, So BL31 was mandated to be compiled PIE if platform wants.(most of the platforms are now doing it).\nComing to Arm platforms, there may be scenario where BL31 not necessarily will be first piece of FW, Corstone700 for example has Secure enclave FW which then loads BL31 at some different address.\nIMO, the only reason i think is, having capability to run from any address(including 0x0) is always better than tied up to a single address.",
+      "parentUuid": "8e5f1a06_f70564bc",
+      "range": {
+        "startLine": 469,
+        "startChar": 0,
+        "endLine": 471,
+        "endChar": 6
+      },
+      "revId": "89130b55f5283ef21afffe05ca993de9ea84aa03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
