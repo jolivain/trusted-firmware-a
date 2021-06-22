@@ -69,6 +69,24 @@
       "parentUuid": "aa6daaf1_7e3c91d3",
       "revId": "ffb07b043894ced11b591efdc6db34b12424d552",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "123ba2ba_57765929",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-22T07:26:33Z",
+      "side": 1,
+      "message": "Hi Maxim,\nThanks for the comments and suggestions.\n\u003e add --no-reboot option to qemu\nThat\u0027s what I used as a workaround for know. Looks ok with the Hafnium CI and fair enough for us. I guess though it\u0027d require further investigation with qemu community.\nCheers, Olivier.",
+      "parentUuid": "98539159_26cefb0e",
+      "revId": "ffb07b043894ced11b591efdc6db34b12424d552",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
