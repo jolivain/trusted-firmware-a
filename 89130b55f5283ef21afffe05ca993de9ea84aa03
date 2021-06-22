@@ -46,6 +46,30 @@
       },
       "revId": "89130b55f5283ef21afffe05ca993de9ea84aa03",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e5f1a06_f70564bc",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-22T11:23:35Z",
+      "side": 1,
+      "message": "OK, we\u0027re following the same logic as for BL31. Then same question for BL31 really 😊 : Why is this a requirement to compile BL31 as a PIE if it\u0027s the first piece of firmware to run? I would have assumed we could just link it at address 0. Why does it need the ability to run from any address? I must be missing something...",
+      "parentUuid": "7d1866ba_9e324cd6",
+      "range": {
+        "startLine": 469,
+        "startChar": 0,
+        "endLine": 471,
+        "endChar": 6
+      },
+      "revId": "89130b55f5283ef21afffe05ca993de9ea84aa03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
