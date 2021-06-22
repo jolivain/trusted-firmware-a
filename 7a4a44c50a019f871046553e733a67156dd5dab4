@@ -319,6 +319,30 @@
       },
       "revId": "7a4a44c50a019f871046553e733a67156dd5dab4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b78346b1_a2d4ab7a",
+        "filename": "common/bl_common.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-22T13:54:27Z",
+      "side": 1,
+      "message": "Hi Pankaj,\nDid you decide how to progress this change?\nThe earlier concern about this change failing the CI because of SPM tests should be resolved now. I recall (and as said above) meanwhile you had performed a workaround downstream.\nIf you think this change is no longer required then shall we consider abandoning?\nRegards,\nOlivier.",
+      "parentUuid": "852385cf_cd6cee30",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 0
+      },
+      "revId": "7a4a44c50a019f871046553e733a67156dd5dab4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
