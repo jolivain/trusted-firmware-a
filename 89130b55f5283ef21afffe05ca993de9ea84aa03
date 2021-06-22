@@ -22,6 +22,30 @@
       },
       "revId": "89130b55f5283ef21afffe05ca993de9ea84aa03",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d1866ba_9e324cd6",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-06-22T11:18:44Z",
+      "side": 1,
+      "message": "This is same logic as in aarch64 RESET_TO_BL31 where BL31 is only binary.\nAlso being compiled as PIE it can run from any address, isn\u0027t it ?",
+      "parentUuid": "022f9321_fd4dd8af",
+      "range": {
+        "startLine": 469,
+        "startChar": 0,
+        "endLine": 471,
+        "endChar": 6
+      },
+      "revId": "89130b55f5283ef21afffe05ca993de9ea84aa03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
