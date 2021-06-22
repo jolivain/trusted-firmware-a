@@ -58,6 +58,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b09c53e9_ce2489dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-06-22T10:48:06Z",
+      "side": 1,
+      "message": "Hi Lukas,\n\nThanks for posting this patch. I agree with the intent but have some questions and concerns about the implementation.\n\nDoes this patch cover a configuration where SPMC is in S-EL1 and the platform service is in EL3? If so, then a couple of concerns in this regard.\n\n1. FF-A does not expect the SPMC and SPMD components to send and interpret partition messages sent using DIRECT_REQ/RESP. So, I am trying to understand why the source of the message is the SPMC. It should be the ID of the logical SP in S-EL1. It is logically distinct from the SPMC component in S-EL1 even though they are a part of the same image. Basically, the SPMC and SPMD should be able to just forward these messages to the correct target (logical or physical SP) without having to interpret them in any way.\n\n2. The SPMC component in FF-A is responsible for initialising and managing all SPs. With a S-EL1 SPMC, FF-A assumes that there is a single logical SP in S-EL1 and there could be other S-EL0 SPs. It does not currently cater for a logical SP to be deployed in EL3 for a platform service. This would be a SP that the SPMC did not initialise and does not manage. So, there are questions around who initialises these SPs (SPMD?), how does the SPMC discover their presence (use FFA_PARTITION_INFO_GET at the S-EL1/EL3 boundary?) etc.  \n\nI think 1) can be solved by using source and destination IDs that are not SPMC and SPMD IDs. 2) requires spec changes. Before considering that, I would like to get your take on placing the SPMC in EL3 instead of S-EL1. In this case, the above scenario would map naturally to two SPs talking to each other via the SPMC instead of via the SPMD. Their initialisation, management and discovery would be as per the FF-A spec.\n\nPlease let me know what you think.\n\ncheers,\nAchin",
+      "revId": "b4d0d0caca7e45afb4a9a162eacbdf54560e87ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69b1e20f_80aff47b",
