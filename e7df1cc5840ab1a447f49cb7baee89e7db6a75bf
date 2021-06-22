@@ -46,6 +46,30 @@
       },
       "revId": "e7df1cc5840ab1a447f49cb7baee89e7db6a75bf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a5e4e5a_2582426d",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-06-22T15:50:33Z",
+      "side": 1,
+      "message": "So actually x0 is prepared for SVE accessibility in a way. It\u0027s writing all zeros to cptr_el3 which what we want in the end. So from perspective on unknown value - it\u0027s solved by the original code. I agree that CPTR_EL3_RESET_VAL should be all-restrictive rather than all-allowing, but then we end up with\n#define CPTR_EL3_RESET_VAL\t(TCPAC_BIT | TAM_BIT | TTA_BIT | TFP_BIT | CPTR_EZ_BIT)\nand then\n\tmov_imm x0, (CPTR_EL3_RESET_VAL \u0026 ~(TCPAC_BIT | TTA_BIT | TFP_BIT | CPTR_EZ_BIT | TAM_BIT))\nwhich seems creating unnecessary complication.\nWhat do you think?",
+      "parentUuid": "9d893e11_9f3b736e",
+      "range": {
+        "startLine": 194,
+        "startChar": 14,
+        "endLine": 194,
+        "endChar": 32
+      },
+      "revId": "e7df1cc5840ab1a447f49cb7baee89e7db6a75bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
