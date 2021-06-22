@@ -22,6 +22,30 @@
       },
       "revId": "e7df1cc5840ab1a447f49cb7baee89e7db6a75bf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d893e11_9f3b736e",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-06-22T15:42:12Z",
+      "side": 1,
+      "message": "So you are suggesting that the reset value should be \"don\u0027t allow anything\" basically and then we clear the bits in arch_init? That makes sense from the security perspective, yes.\n\n\u003e As per ARM Arm EZ bit is reserved in the absence of SVE functionality so \u0027EZ\u0027 bit writes get ignored in that case.\nI didn\u0027t know that is the case. Thank you for clarifying!",
+      "parentUuid": "c74a7ce2_dcfb0497",
+      "range": {
+        "startLine": 194,
+        "startChar": 14,
+        "endLine": 194,
+        "endChar": 32
+      },
+      "revId": "e7df1cc5840ab1a447f49cb7baee89e7db6a75bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
