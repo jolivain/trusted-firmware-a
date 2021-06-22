@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a6d3ca7_322ef959",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-22T07:10:48Z",
+      "side": 1,
+      "message": "Not at EL3. To preserve a reasonable BL31 RAM footprint it is preferred to save/restore the SVE context in a lower EL (typically EL2 e.g. for the secure world in SPM/Hafnium if secure virtualization is enabled, or the SEL1 TOS). To do this, SVE vectors and instructions must be enabled for access and use in the secure world which is the reason for this change.",
+      "parentUuid": "2d9b0465_1cb2b700",
+      "revId": "5e350e928b4af23eced26ec39cc981b6a75055d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5843388_057b1d23",
