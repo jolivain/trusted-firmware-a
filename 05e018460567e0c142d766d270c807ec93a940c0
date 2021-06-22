@@ -179,6 +179,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e4b5eb9_b27b2ec0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-06-22T16:58:52Z",
+      "side": 1,
+      "message": "\u003e Btw on \"it would be safer to pick a register outside w0-w7\" is this friendly to SMCCC?\n\nI think the SMCCC is completely independent of the register usage convention at the time of entering the SP on the primary core for initialisation. So we are free to choose any register we like. w0-w3 is likely to clash with existing usages. So, the further away, the better.",
+      "parentUuid": "e94bef05_7bd48a2f",
+      "revId": "05e018460567e0c142d766d270c807ec93a940c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c42f973d_ea42decc",
         "filename": "services/std_svc/spmd/spmd_pm.c",
         "patchSetId": 1
