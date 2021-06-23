@@ -22,6 +22,30 @@
       },
       "revId": "cbfec2f702041ef6155075fb132b2f10f08f7083",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5f85343_cf17d414",
+        "filename": "plat/arm/board/fvp/fvp_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-23T08:06:31Z",
+      "side": 0,
+      "message": "Yes, I think you\u0027re right. GPT is a container, just like FIP is. We don\u0027t measure the FIP but rather the images inside it. It would seem logical to treat GPT the same way.\n\nBesides, only images that get loaded through load_auth_image() get measured right now. As you pointed out, the GPT does not get loaded through load_auth_image() but rather through partition_init().",
+      "parentUuid": "b23e5998_9f9c726a",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 15
+      },
+      "revId": "cbfec2f702041ef6155075fb132b2f10f08f7083",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
