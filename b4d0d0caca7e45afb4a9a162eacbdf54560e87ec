@@ -111,6 +111,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "991bb683_20a270de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-23T12:34:24Z",
+      "side": 1,
+      "message": "Makes sense. I think i may have misunderstood what we discussed last week. Can we not use framework messages between SPMC and SPMD to get the linear id then? \nWont placing the SPMC in EL3 instead of S-EL1 change the model that is being used(model being TOS has the SPMC similar to OPTEE).",
+      "parentUuid": "cc62d0b2_53e14679",
+      "revId": "b4d0d0caca7e45afb4a9a162eacbdf54560e87ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69b1e20f_80aff47b",
