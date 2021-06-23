@@ -94,6 +94,30 @@
       },
       "revId": "e7df1cc5840ab1a447f49cb7baee89e7db6a75bf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c79f54e5_910907eb",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-06-23T11:04:23Z",
+      "side": 1,
+      "message": "Agreed.\nChanging reset value of CPTR_EL3 to most restrictive one: (TCPAC_BIT | TAM_BIT | TTA_BIT | TFP_BIT \u0026 ~(CPTR_EZ_BIT))\nel3_arch_init_common is then relaxing restriction on everything other than EZ and TAM bit. These bits are set according to the flags in the later stages depending on ENABLE_SVE_* and ENABLE_AMU flags.",
+      "parentUuid": "a1748172_cf862d0a",
+      "range": {
+        "startLine": 194,
+        "startChar": 14,
+        "endLine": 194,
+        "endChar": 32
+      },
+      "revId": "e7df1cc5840ab1a447f49cb7baee89e7db6a75bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
