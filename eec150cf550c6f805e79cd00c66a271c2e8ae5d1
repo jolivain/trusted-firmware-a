@@ -211,6 +211,30 @@
       },
       "revId": "eec150cf550c6f805e79cd00c66a271c2e8ae5d1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0441439_edef1c48",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-23T01:09:38Z",
+      "side": 1,
+      "message": "This works for me as well. Wont ffa_id_get require to have stack etc and a C environment setup? We might need to get the linear ID real early to setup the stack for example.",
+      "parentUuid": "a50b1010_29416bee",
+      "range": {
+        "startLine": 176,
+        "startChar": 1,
+        "endLine": 176,
+        "endChar": 70
+      },
+      "revId": "eec150cf550c6f805e79cd00c66a271c2e8ae5d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
