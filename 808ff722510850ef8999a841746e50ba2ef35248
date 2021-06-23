@@ -52,6 +52,24 @@
       "parentUuid": "d6ac4610_f64258ba",
       "revId": "808ff722510850ef8999a841746e50ba2ef35248",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c55bd201_f5345e9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000160
+      },
+      "writtenOn": "2021-06-23T15:44:51Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand, do you mean having multiple include statements to inject the individual files? Or pass a list of files to TF-A as an argument and handle the concatenation in the TF-A build system?",
+      "parentUuid": "ff508e2b_ae7ae38f",
+      "revId": "808ff722510850ef8999a841746e50ba2ef35248",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
