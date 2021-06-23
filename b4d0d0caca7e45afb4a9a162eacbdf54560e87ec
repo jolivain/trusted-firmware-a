@@ -129,6 +129,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de515156_e8a5290c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-06-23T12:59:41Z",
+      "side": 1,
+      "message": "Hi Raghu,\n\nLets revisit our discussion on the RAS topic next time we meet. It would be good to realign and apologies for any confusion.\n\nFFA_ID_GET effectively uses a framework message to send the ID from the SPMD to the SPMC. The spec treats the content returned in the registers as a Framework message.\n\nThe same could be done by defining a separate message for obtaining the linear ID using DIRECT_REQ and RESP. This is what we do with PM messages.\n\nI think we can discuss the pros and cons of each approach which might be a matter of taste. \n\nThe bit I want to establish first is whether we are agreeing that using an SMC is the best way for the SPMC and an SP to obtain the linear ID. I think Trustonic\u0027s feedback in this regard is critical since they have the most pressing requirement. @Lukas, what do you think? I will check with other partners to see if they have an opinion on this.\n\nPlacing the SPMC in EL3 does change the model. But then it depends upon what we are trying to achieve. The reason why the SPMC was placed in OP-TEE was to enable use of FF-A based S-EL0 SPs e.g. StMM. IIUC, Trustonic do not have the same requirement. But happy to be corrected if I have misunderstood the requirement. \n\nI hope this sounds reasonable.\n\ncheers,\nAchin",
+      "parentUuid": "991bb683_20a270de",
+      "revId": "b4d0d0caca7e45afb4a9a162eacbdf54560e87ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69b1e20f_80aff47b",
