@@ -93,6 +93,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc62d0b2_53e14679",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-06-23T07:18:23Z",
+      "side": 1,
+      "message": "Hi Raghu,\n\nI am not sure I see the benefit of making the SPMD perform the same duties as the SPMC i.e. initialise logical SPs and route messages to them. A logical SP in EL3 can co-reside with a SPMC in EL3 as well. \n\nRAS communication between the SPMD and SPMC should be done through a set of generic/framework messages (if we go down this path). The semantics would be that EL3 receives an exception and uses a generic mechanism to transmit the exception information to the SPMC. The SPMC could forward it to a partition for platform specific handling.\n\nThis discussion is about creating logical SPs in EL3 for platform services that should ideally migrate to a SP with S-EL2 or to S-EL2 if the former is not possible. The idea is to remove as much platform specific code from EL3 as possible.\n\nSo yeah, I am not sure we should change the fundamental rules of FF-A to accommodate what is effectively a legacy configuration.\n\nWhat do you reckon?",
+      "parentUuid": "019c451c_caddafd1",
+      "revId": "b4d0d0caca7e45afb4a9a162eacbdf54560e87ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69b1e20f_80aff47b",
