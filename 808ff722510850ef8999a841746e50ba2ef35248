@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07c0b843_ebf2166a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000457
+      },
+      "writtenOn": "2021-06-23T07:02:25Z",
+      "side": 1,
+      "message": "Hi Balint,\n\nIn Total Compute, we currently have 3 secure partitions - optee, crypto ts, secure storage ts.  We are also adding support for trusty as a secure partition.  Since they are all different components, we will not be able to provide one file that has the UUID and load address of all the secure partitions.\n\nTo handle this scenario, I would suggest providing four different files for each secure partition and TF-A should able to parse and include that in tb_fw_config.  The content of each file shall be\n\nSP {\n    uuid \u003d \u003cSP UUID\u003e\n    load-address \u003d \u003cload address\u003e\n}\n\nLet me know if it makes sense",
+      "revId": "808ff722510850ef8999a841746e50ba2ef35248",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
