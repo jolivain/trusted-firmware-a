@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e02cb028_2ce1206c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-06-23T09:29:20Z",
+      "side": 1,
+      "message": "@Manish B @Madhu please review this patch\n",
+      "revId": "89130b55f5283ef21afffe05ca993de9ea84aa03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "022f9321_fd4dd8af",
@@ -110,6 +127,30 @@
       "side": 1,
       "message": "OK that makes sense to me, thanks. Sounds like as we support PIE for Arm platforms, we choose not to support non-PIE configs, as this would only increase the test matrix for something we consider sub-optimal.",
       "parentUuid": "61dcfd37_1494cee9",
+      "range": {
+        "startLine": 469,
+        "startChar": 0,
+        "endLine": 471,
+        "endChar": 6
+      },
+      "revId": "89130b55f5283ef21afffe05ca993de9ea84aa03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70a283a3_239856fc",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-06-23T09:29:20Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "8b480a16_9b08ba46",
       "range": {
         "startLine": 469,
         "startChar": 0,
