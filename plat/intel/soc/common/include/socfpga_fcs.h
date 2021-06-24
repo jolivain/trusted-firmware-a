@@ -103,10 +103,13 @@ int intel_fcs_attestation_subkey(uint64_t src_addr, uint32_t src_size,
 int intel_fcs_get_measurement(uint64_t src_addr, uint32_t src_size,
 				uint64_t dst_addr, uint32_t *dst_size,
 				uint32_t *mbox_error);
-
 int intel_fcs_create_cert_on_reload(uint32_t cert_request,
 				uint32_t *mbox_error);
 int intel_fcs_get_attestation_cert(uint32_t cert_request, uint64_t dst_addr,
 				uint32_t *dst_size, uint32_t *mbox_error);
+int intel_fcs_open_crypto_service_session(uint32_t *session_id,
+				uint32_t *mbox_error);
+int intel_fcs_close_crypto_service_session(uint32_t session_id,
+				uint32_t *mbox_error);
 
 #endif /* SOCFPGA_FCS_H */
