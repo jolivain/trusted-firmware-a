@@ -70,6 +70,24 @@
       "parentUuid": "ff508e2b_ae7ae38f",
       "revId": "808ff722510850ef8999a841746e50ba2ef35248",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28121682_02a7c892",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000457
+      },
+      "writtenOn": "2021-06-24T06:40:05Z",
+      "side": 1,
+      "message": "Like your second approach, where we pass a list of files and it shall be concatenated in the TF-A build.  Just a suggestion.  Anyway, the current patch can solve the problem in TF-A but have to rely on build system (yocto or shell based) for concatenation and generating a single file.",
+      "parentUuid": "c55bd201_f5345e9e",
+      "revId": "808ff722510850ef8999a841746e50ba2ef35248",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
