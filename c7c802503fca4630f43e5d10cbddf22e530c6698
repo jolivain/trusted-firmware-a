@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8a85bfb_57ca472f",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-24T15:31:04Z",
+      "side": 1,
+      "message": "Ack, Initially thought it is quite obvious, but now, I think better to add comment.",
+      "parentUuid": "15c692a8_225a0a3e",
+      "range": {
+        "startLine": 98,
+        "startChar": 1,
+        "endLine": 98,
+        "endChar": 17
+      },
+      "revId": "c7c802503fca4630f43e5d10cbddf22e530c6698",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "321da6d9_0bed448f",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "836c03ef_21970511",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-24T15:31:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "321da6d9_0bed448f",
+      "range": {
+        "startLine": 190,
+        "startChar": 4,
+        "endLine": 192,
+        "endChar": 9
+      },
+      "revId": "c7c802503fca4630f43e5d10cbddf22e530c6698",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02b5cfc3_5edab073",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-06-24T14:30:56Z",
       "side": 1,
       "message": "I think this assertion should be moved up into the caller, i.e. fwu_metadata_load(). The function documentation for fwu_metadata_load() already says:\n\n @image_id: FWU metadata image id (either primary or backup)\n\nso it seems logical to me to have the check there. That way, the platform layer can take it for granted that the image id is sane. Otherwise, all platforms have to do this check.",
+      "range": {
+        "startLine": 235,
+        "startChar": 1,
+        "endLine": 236,
+        "endChar": 50
+      },
+      "revId": "c7c802503fca4630f43e5d10cbddf22e530c6698",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee8f0c83_d34c7225",
+        "filename": "plat/arm/common/arm_io_storage.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-24T15:31:04Z",
+      "side": 1,
+      "message": "Agree, will move this assertion in fwu_metadata_load() function.",
+      "parentUuid": "02b5cfc3_5edab073",
       "range": {
         "startLine": 235,
         "startChar": 1,
