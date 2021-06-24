@@ -165,6 +165,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49d6f551_cd046102",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-06-24T12:40:46Z",
+      "side": 1,
+      "message": "Hi Achin,\n\u003e So, I am trying to understand why the source of the message is the SPMC. It should be the ID of the logical SP in S-EL1.\nYou got me. I do not yet think of the SPMC and the SEL1-TEE as something different. I understand better now why you make two boxes in the spec.\n\n\u003e Before considering that, I would like to get your take on placing the SPMC in EL3 instead of S-EL1.\nSPMC in EL3 is the preferred solution for Trustonic.\nThe proposed patch is about making things work on today\u0027s code base.\n\n\u003e Placing the SPMC in EL3 does change the model. But then it depends upon what we are trying to achieve. The reason why the SPMC was placed in OP-TEE was to enable use of FF-A based S-EL0 SPs\nTo be honest, I am not a fan of the SPMC/SPMD split.\nTo me, all components in EL3, SEL2 and SEL1 should be able to spawn several SPs or SPMs. I would like to have two SPs in SEL1 but also SPs in SEL0 (managed by the TEE).\n\n\u003e The bit I want to establish first is whether we are agreeing that using an SMC is the best way for the SPMC and an SP to obtain the linear ID.\nAfter discussing this in the other thread (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10235), I think Raghu\u0027s idea (using an SMC) can work. To some extend, our requirement is to not break compatibility, for that, linear id must be received in x3 on boot. On the other hand, as you say, we are changing so many things, we might as well do an SMC in the early instructions to get our real boot parameters from the platform-specific EL3 service.",
+      "parentUuid": "3f0e24bf_6b20fba0",
+      "revId": "b4d0d0caca7e45afb4a9a162eacbdf54560e87ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69b1e20f_80aff47b",
