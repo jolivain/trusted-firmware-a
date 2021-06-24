@@ -16,6 +16,98 @@
       "message": "Failed tests pasing on rerun: https://ci.trustedfirmware.org/job/tf-ci-gateway/9114/\nLava jobs hang out.",
       "revId": "4f886ff48579d06c169bc918c86adae8e5eaf66b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad47d9ef_df127648",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T16:51:04Z",
+      "side": 1,
+      "message": "Similar question, the bit is RES0 if system register access to trace functionality is not supported. Though I see it\u0027s cleared in common macros so this might not be an issue.",
+      "range": {
+        "startLine": 533,
+        "startChar": 50,
+        "endLine": 533,
+        "endChar": 57
+      },
+      "revId": "4f886ff48579d06c169bc918c86adae8e5eaf66b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db6608f6_6c2fc84a",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T16:51:04Z",
+      "side": 1,
+      "message": "Just a thought, this bit is RES0 if FEAT_AMUv1 is not implemented.\nWhen FEAT_AMUv1 is implemented it is effectively in unknown state at reset so agree it\u0027s better to force it to a known value. Though if we\u0027re picky we\u0027d need checking if the feature is implemented beforehand.",
+      "range": {
+        "startLine": 533,
+        "startChar": 40,
+        "endLine": 533,
+        "endChar": 47
+      },
+      "revId": "4f886ff48579d06c169bc918c86adae8e5eaf66b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f054800_8efd86c7",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 23
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T16:51:04Z",
+      "side": 1,
+      "message": "Arm ARM says the value is unknown at reset when FEAT_AMUv1 is implemented, RES0 otherwise.\nThe comment suggests the value is one out of reset.\nSo should it better say \"Set to one so that ...\" as above?",
+      "range": {
+        "startLine": 189,
+        "startChar": 18,
+        "endLine": 189,
+        "endChar": 36
+      },
+      "revId": "4f886ff48579d06c169bc918c86adae8e5eaf66b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f9006d2_03b45a24",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 23
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T16:51:04Z",
+      "side": 1,
+      "message": "Set to zero",
+      "range": {
+        "startLine": 192,
+        "startChar": 17,
+        "endLine": 192,
+        "endChar": 36
+      },
+      "revId": "4f886ff48579d06c169bc918c86adae8e5eaf66b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
