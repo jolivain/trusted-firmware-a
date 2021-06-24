@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db9e394a_6234fce1",
+        "filename": "include/plat/common/plat_fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:20:40Z",
+      "side": 1,
+      "message": "(minor) TBH I am not convinced we need a new file for 2 declarations. Unless you foresee this file getting much bigger in the furure (?), I suggest moving these into platform.h.",
+      "revId": "1d0c962eeb2167d0d0f16644eaed139704a53cf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d730ef26_269b7f8c",
+        "filename": "include/plat/common/plat_fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:20:40Z",
+      "side": 1,
+      "message": "(minor) We traditionally document platform interfaces in the porting guide. I agree it\u0027s desirable to have in-source documentation but in this case, this will result in duplication of information, which increases the maintenance cost. Suggest removing it.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 3
+      },
+      "revId": "1d0c962eeb2167d0d0f16644eaed139704a53cf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "608c1eae_bd4cd504",
+        "filename": "include/plat/common/plat_fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:20:40Z",
+      "side": 1,
+      "message": "(minor) I think it might be good to rename this function into plat_fwu_set_metadata_image_source() (and plat_fwu_set_images_source()) below to enforce proper namespacing. For generic functions, we\u0027d have fwu_*() naming scheme, e.g. fwu_init(), fwu_metadata_load() ; and for platform functions, we\u0027d have plat_fwu_*() naming scheme. This seems cleaner to me.",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 38
+      },
+      "revId": "1d0c962eeb2167d0d0f16644eaed139704a53cf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16842538_0e3eb9e3",
+        "filename": "include/plat/common/plat_fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:20:40Z",
+      "side": 1,
+      "message": "(minor) Need to #include \u003cstdint.h\u003e for uint32_t definition.",
+      "range": {
+        "startLine": 20,
+        "startChar": 32,
+        "endLine": 20,
+        "endChar": 40
+      },
+      "revId": "1d0c962eeb2167d0d0f16644eaed139704a53cf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
