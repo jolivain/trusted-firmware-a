@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a815f6_2534ff06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Hi Raghu and Zelalem, thanks for your comments, this is very useful.",
+      "parentUuid": "5940eb43_92d58c1f",
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb8cdd3e_9fb849cf",
@@ -104,6 +122,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2f70f2a_3f3d74cc",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7189e69_6ec9950b",
+      "range": {
+        "startLine": 16,
+        "startChar": 42,
+        "endLine": 16,
+        "endChar": 44
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8eca89f1_be2fc204",
@@ -117,6 +159,30 @@
       "writtenOn": "2021-06-20T14:55:32Z",
       "side": 1,
       "message": "isnt this a consequence of the TrustZone architecture itself?",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 60
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2ade82b_cc47d844",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Not only. Stage-2 mapping provides an additional isolation of a TOS vs the normal world (physical address space separation) which has been a concern in a number of \"recent\" attacks to TOSes. This is the fact that a TOS can map an arbitrary physical memory region (incl. the normal world kernel or hypervisor). This should no longer be easily possible with SEL2.",
+      "parentUuid": "8eca89f1_be2fc204",
       "range": {
         "startLine": 21,
         "startChar": 2,
@@ -150,6 +216,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8163da1_6295cee9",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2132e342_6c2c4317",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 39
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e74f1099_2fb058b9",
@@ -163,6 +253,30 @@
       "writtenOn": "2021-06-20T14:55:32Z",
       "side": 1,
       "message": "Same here. perhaps we can say under the \"distinct sandboxes\" point that this enables mutual isolation of secure partitions and isolation of services from multiple vendors. No strong opinion all comments above. Looks fine, mostly nitpicking here.",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 46
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39c1a003_f156babc",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Re-phrased above.",
+      "parentUuid": "e74f1099_2fb058b9",
       "range": {
         "startLine": 23,
         "startChar": 2,
@@ -198,6 +312,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d2bb237_5ee04a02",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "I\u0027m thinking relevant physical attacks may be:\n-power glitching as a matter of bypassing authentication (though already mentioned in the TF-A threat model)\n-DRAM style of attacks like rowhammer.\n\nFor the latter it may be more relevant than TF-A\u0027s because SPM is meant to run out of DDR (as opposed to BL1/BL2/BL31 typically running from SRAM).\n\nWhat do you reckon?",
+      "parentUuid": "706b38dd_0816e716",
+      "range": {
+        "startLine": 41,
+        "startChar": 15,
+        "endLine": 41,
+        "endChar": 41
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "47c1bcf1_724bba18",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
@@ -209,6 +347,30 @@
       "writtenOn": "2021-06-20T14:55:32Z",
       "side": 1,
       "message": "nit: rephrase to \"is expected to have a small attack surface\" or \"is considered/assumed to have a small attack surface\"?",
+      "range": {
+        "startLine": 50,
+        "startChar": 71,
+        "endLine": 51,
+        "endChar": 10
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52edea37_48fc2723",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Re-phrased.",
+      "parentUuid": "47c1bcf1_724bba18",
       "range": {
         "startLine": 50,
         "startChar": 71,
@@ -232,6 +394,30 @@
       "writtenOn": "2021-06-20T14:55:32Z",
       "side": 1,
       "message": "looking at the puml, i see that secure partitions are considered trusted(inside broken red line) but below it says SP\u0027s are not trusted. Similarly bl2 is outside the broken red lines.\nShould this be changed? or perhaps i dont understand what broken lines i should be looking at.",
+      "range": {
+        "startLine": 56,
+        "startChar": 22,
+        "endLine": 56,
+        "endChar": 63
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d2b8da5_82f7efd3",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Moved SPs out of the dotted line box.",
+      "parentUuid": "f28e5e28_e234f216",
       "range": {
         "startLine": 56,
         "startChar": 22,
@@ -267,6 +453,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "af74ca7d_a373fe31",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "I think DF4 is in scope but not well represented. SP to SP communication exists through the SPMC a bit like an IPC.\nSo the flow is rather SP1 (direct message request) \u003d\u003e SPMC \u003d\u003e SP2 (direct message response) \u003d\u003e SPMC \u003d\u003e SP1 but I thought it overloads the picture quite a bit. Anyway I can create two DF for request/response and represent in the diagram if it\u0027s preferable, let me know.\n\nI can add the \u0027In scope\u0027 column when we identify at least one DF not in scope.",
+      "parentUuid": "4930c511_d2d929e4",
+      "range": {
+        "startLine": 61,
+        "startChar": 20,
+        "endLine": 61,
+        "endChar": 54
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "506ffa94_39a15e11",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
@@ -290,6 +500,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0b954cca_aacbcce1",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Right. I have not made up my mind yet because the TF-A threat model already talks consistently about bootloader stages.\nThe BL2 representation may be removed if it leads to confusion. Though the TF-A threat model does not talk about loading the SPMC and SPs specifically.\nNeed to think more about it, let me know if you have suggestions.",
+      "parentUuid": "506ffa94_39a15e11",
+      "range": {
+        "startLine": 97,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 40
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "88b9f32e_cd4a7551",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
@@ -301,6 +535,30 @@
       "writtenOn": "2021-06-20T14:55:32Z",
       "side": 1,
       "message": "are spmc and spmd itself threat agents given that we are threat modeling the spmc and spmd?",
+      "range": {
+        "startLine": 126,
+        "startChar": 47,
+        "endLine": 126,
+        "endChar": 61
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1af9155f_d6b5a4dc",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Probably not indeed. Removed.",
+      "parentUuid": "88b9f32e_cd4a7551",
       "range": {
         "startLine": 126,
         "startChar": 47,
@@ -357,6 +615,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a46e929_ec576d34",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "87b66287_8de6707b",
+      "range": {
+        "startLine": 186,
+        "startChar": 31,
+        "endLine": 186,
+        "endChar": 59
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "843cbff9_b4d23286",
@@ -370,6 +652,30 @@
       "writtenOn": "2021-06-20T14:55:32Z",
       "side": 1,
       "message": "is this threat valid? we are threat modeling the SPMC so not sure a compromised SPMC is a threat? this would be valid when threat modeling an SP for example.",
+      "range": {
+        "startLine": 198,
+        "startChar": 29,
+        "endLine": 198,
+        "endChar": 49
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ff8927f_1f6a78ba",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "843cbff9_b4d23286",
       "range": {
         "startLine": 198,
         "startChar": 29,
@@ -405,6 +711,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e2a21a82_6ac7a8e7",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Yes that\u0027s the case of the RX/TX buffer (used for partition info get in context of FF-A v1.0). I will revisit.",
+      "parentUuid": "26e3d5de_1347d5c3",
+      "range": {
+        "startLine": 242,
+        "startChar": 28,
+        "endLine": 244,
+        "endChar": 37
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1ebd52bf_ab61980f",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
@@ -416,6 +746,30 @@
       "writtenOn": "2021-06-20T14:55:32Z",
       "side": 1,
       "message": "another or its own no? If the goal is to attack the asset(SPMC, SP state), then this would apply to itself and another endpoint?",
+      "range": {
+        "startLine": 282,
+        "startChar": 30,
+        "endLine": 282,
+        "endChar": 46
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed21f628_8ff950be",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1ebd52bf_ab61980f",
       "range": {
         "startLine": 282,
         "startChar": 30,
@@ -449,6 +803,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5803461_906d7e48",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "79469e64_fec535d7",
+      "range": {
+        "startLine": 333,
+        "startChar": 32,
+        "endLine": 333,
+        "endChar": 47
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c43f043_947778a2",
@@ -462,6 +840,30 @@
       "writtenOn": "2021-06-20T14:55:32Z",
       "side": 1,
       "message": "same here. This threat should probably be a malicous device attempting to attack the spmc code/data region.",
+      "range": {
+        "startLine": 374,
+        "startChar": 35,
+        "endLine": 374,
+        "endChar": 49
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e190518b_284ba80b",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3c43f043_947778a2",
       "range": {
         "startLine": 374,
         "startChar": 35,
@@ -497,6 +899,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46aeb04b_63cb03b2",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Can this still happen between a NWd enpoint and the SPMC e.g. in a mem share operation where the regions are passed in a fragmented manner?",
+      "parentUuid": "433d800a_d8bfc955",
+      "range": {
+        "startLine": 415,
+        "startChar": 28,
+        "endLine": 416,
+        "endChar": 37
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2aae9ec2_62ffa338",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
@@ -508,6 +934,30 @@
       "writtenOn": "2021-06-21T17:41:20Z",
       "side": 1,
       "message": "This reads a bit strange. Did you mean to add this phrase?",
+      "range": {
+        "startLine": 459,
+        "startChar": 27,
+        "endLine": 459,
+        "endChar": 53
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "289a6dff_fb3b2c4d",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Re-phrased, let me know if ok.",
+      "parentUuid": "2aae9ec2_62ffa338",
       "range": {
         "startLine": 459,
         "startChar": 27,
@@ -541,6 +991,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f369726e_1d320781",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5e17e410_86e1fcf5",
+      "range": {
+        "startLine": 500,
+        "startChar": 37,
+        "endLine": 501,
+        "endChar": 33
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d933056a_527f3a36",
@@ -554,6 +1028,30 @@
       "writtenOn": "2021-06-20T14:55:32Z",
       "side": 1,
       "message": "not a threat against spmc.",
+      "range": {
+        "startLine": 622,
+        "startChar": 29,
+        "endLine": 622,
+        "endChar": 47
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "059b7524_7fea397d",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-06-24T11:41:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d933056a_527f3a36",
       "range": {
         "startLine": 622,
         "startChar": 29,
