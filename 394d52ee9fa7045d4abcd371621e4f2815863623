@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3440906_b2721976",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:33:33Z",
+      "side": 1,
+      "message": "OK.\n\nAnother document we might want to update is docs/index.rst. The first section lists the specs that TF-A implements, maybe it would be worth mentioning the PSA FWU spec there?",
+      "parentUuid": "f0d5cc0f_f475d4a3",
+      "revId": "394d52ee9fa7045d4abcd371621e4f2815863623",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e8ddb5a_a7d77802",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 5
@@ -85,6 +103,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf000d1b_9b3a5839",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:33:33Z",
+      "side": 1,
+      "message": "The syntax is now correct in the latest version of your patch but isn\u0027t it redundant to have some text + the link? Right now, this is what I read:\n\n as per the PSA specification document PSA FW update specification.\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                                  link\n\nI think we could get rid of the \"PSA specification document\" text and keep only the link.",
+      "parentUuid": "cc0ca061_735dfd98",
+      "range": {
+        "startLine": 865,
+        "startChar": 68,
+        "endLine": 866,
+        "endChar": 56
+      },
+      "revId": "394d52ee9fa7045d4abcd371621e4f2815863623",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b096ec10_e2afbac9",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 5
@@ -120,6 +162,30 @@
       "side": 1,
       "message": "https://developer.arm.com/documentation/den0118/a/ this is latest beta release. I updated documentation, but missed to put same details in the code.",
       "parentUuid": "b096ec10_e2afbac9",
+      "range": {
+        "startLine": 874,
+        "startChar": 33,
+        "endLine": 874,
+        "endChar": 83
+      },
+      "revId": "394d52ee9fa7045d4abcd371621e4f2815863623",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dd7f7f4_fea16f76",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:33:33Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "8d7f856e_8be9706f",
       "range": {
         "startLine": 874,
         "startChar": 33,

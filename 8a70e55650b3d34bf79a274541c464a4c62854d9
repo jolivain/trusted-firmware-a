@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c1ca720_96590a78",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:33:33Z",
+      "side": 1,
+      "message": "(typo) _source()",
+      "range": {
+        "startLine": 914,
+        "startChar": 39,
+        "endLine": 914,
+        "endChar": 44
+      },
+      "revId": "8a70e55650b3d34bf79a274541c464a4c62854d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67320989_7385a39d",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:33:33Z",
+      "side": 1,
+      "message": "sets",
+      "range": {
+        "startLine": 922,
+        "startChar": 67,
+        "endLine": 922,
+        "endChar": 70
+      },
+      "revId": "8a70e55650b3d34bf79a274541c464a4c62854d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bf0cea7_a38eab7f",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:33:33Z",
+      "side": 1,
+      "message": "Could you elaborate a bit on this? If I were to implement this for my platform based on this explanation, I am not sure I would understand what\u0027s being asked of me. Perhaps something along these lines (if it makes sense! Again my I/O layer knowledge is limited):\n\n This function is responsible for setting up the platform I/O policy that will\n be used to load FWU metadata from platform non-volatile storage. Unlike most\n I/O policies, this one cannot always be defined statically. For example, the\n location of the FWU metadata might be provided in a Global Partition Table (GPT),\n which needs to be dynamically parsed. This function provides a mean to retrieve\n such dynamic information.\n\n Only after this function has been called can further I/O layer operations\n be performed on the FWU metadata, such as io_open() or io_read().",
+      "range": {
+        "startLine": 922,
+        "startChar": 60,
+        "endLine": 924,
+        "endChar": 20
+      },
+      "revId": "8a70e55650b3d34bf79a274541c464a4c62854d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
