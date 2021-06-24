@@ -236,6 +236,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a01e8da1_daba180a",
+        "filename": "plat/nvidia/tegra/soc/t194/platform_t194.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-06-24T12:12:50Z",
+      "side": 1,
+      "message": "Because the symbol spmd_handle_platform_message() must be defined for all platforms that activate SPMD. I looked through all the makefiles and found only FVP and T194 that activate SPMD. Otherwise this configuration would not build anymore.",
+      "parentUuid": "12f4b351_00ecfb3a",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 35
+      },
+      "revId": "b4d0d0caca7e45afb4a9a162eacbdf54560e87ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1e96da6b_1d74f22c",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 1
