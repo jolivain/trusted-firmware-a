@@ -1,0 +1,320 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa451cb4_e8b70bfd",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:24:25Z",
+      "side": 1,
+      "message": "Have you considered merging fwu.c and fwu_metadata.c files? What is the reason for splitting the functions across these 2 files? Neither of them seems too big to me to require a split (but that\u0027s a subjective opinion I guess).\n\nOne advantage I see in having the implementation self-contained within a single file is it would allow to make some of the global variables static.",
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58b1abd6_eff47be1",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:24:25Z",
+      "side": 1,
+      "message": "(nit) I don\u0027t think it\u0027s particularly useful to repeat the function name in the doc, it\u0027s right below.",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "061865ff_1168fb43",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:24:25Z",
+      "side": 1,
+      "message": "(minor) Remove one \u0027the\u0027, there\u0027s 2 of them.",
+      "range": {
+        "startLine": 21,
+        "startChar": 62,
+        "endLine": 21,
+        "endChar": 65
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0ea630a_d3ba13c7",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:24:25Z",
+      "side": 1,
+      "message": "I think panic() is not the right behaviour in this case. My understanding is that the condition for hitting this error case is if fwu_init() has not been called before this point, which sounds like a programming error to me. Thus, it should be handled through an assert().",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 10
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fef642a_b2d5803e",
+        "filename": "drivers/fwu/fwu.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:24:25Z",
+      "side": 1,
+      "message": "This line reminds me of one limitation we have, which is that BL2 is not updatable using the PSA FWU scheme. If we\u0027re using the spec terminology, I guess this means that BL2 is not part of the protocol-updatable images. If BL2 needs to be updated, this has to be done through another mechanism.\n\nHas this been called out somewhere in the documentation? I think it\u0027s worth mentioning to bridge the gap between the spec and how this maps to TF-A firmware stages.\n\nThis does not have to be done as part of this patch, I\u0027d rather have it in the documentation patch.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 29
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70943796_2b372501",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:24:25Z",
+      "side": 1,
+      "message": "Could you please add a comment to explain the concerns that justified introducing this?\n\nOr perhaps better, move it to fwu_metadata_crc_check(), just above the call to hw_crc32(), which would tell people that the 2 lines are related. Then perhaps we don\u0027t need a comment, or at least a shorter one.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 43
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1795fc8b_2180c0da",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:24:25Z",
+      "side": 1,
+      "message": "Would it make sense to be more explicit and reference the exact macro names (instead of plain English)? i.e. FWU_METADATA_IMAGE_ID / BKUP_FWU_METADATA_IMAGE_ID",
+      "range": {
+        "startLine": 64,
+        "startChar": 36,
+        "endLine": 64,
+        "endChar": 62
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a86b57db_bad9f962",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:24:25Z",
+      "side": 1,
+      "message": "Might as well return the error code from plat_set_fwu_metadata_image_source(), as we have this information at hand? It might provide more specific information to the caller. Perhaps in the future, when fwu_init() calls plat_error_handler() instead of panic(), it can pass this error code to plat_error_handler(), which might be able to take better decisions based on this value.",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 12
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9510da20_9360d6a0",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:24:25Z",
+      "side": 1,
+      "message": "We first call plat_set_fwu_metadata_image_source(), which updates the I/O policy for this image. Then we call plat_get_image_source(), which will retrieve the policy information we\u0027ve just set. It seems like a waste to me, can\u0027t plat_set_fwu_metadata_image_source() directly return the policy information we need? Or does it make not sense? I must admit my I/O layer knowledge is not that good so it\u0027s very possible I am missing some obvious reasons why it has to be designed in that way.\n\nLooking at plat_get_image_source() for Arm platforms, I see this is doing 2 things in addition to retrieving the policy information:\n\n1) Checking the policy (through the check() callback)\n2) Trying out an alternative image source in case this one does not pass the checks.\n\n1) might be needed (?) but 2) seems inappropriate to me. In the case of PSA FWU, do we really want to use something else than the partition information we set up through plat_set_fwu_metadata_image_source()?",
+      "range": {
+        "startLine": 81,
+        "startChar": 10,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36dd09ab_ecec7da6",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:24:25Z",
+      "side": 1,
+      "message": "Should that rather be image_id? The caller might pass BKUP_FWU_METADATA_IMAGE_ID, right?",
+      "range": {
+        "startLine": 107,
+        "startChar": 8,
+        "endLine": 107,
+        "endChar": 29
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d201e585_5682a3ed",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:24:25Z",
+      "side": 1,
+      "message": "My I/O layer knowledge is a bit rusty, can you remind me who is calling the companion io_dev_open()? Is it plat_get_image_source() or io_open()? If it\u0027s the former then we will have to introduce a new goto label and make io_open() error handling code jump to it.",
+      "range": {
+        "startLine": 128,
+        "startChar": 1,
+        "endLine": 128,
+        "endChar": 32
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "975ec31f_e2f1319c",
+        "filename": "drivers/fwu/fwu_private.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:24:25Z",
+      "side": 1,
+      "message": "From a quick git grep, it looks like this variable is only used by drivers/fwu/fwu.c. If this is right, this should not be exported as a global variable (even in a private header file) but rather keep it as a static variable within fwu.c.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8fc4bd9_39249ef8",
+        "filename": "drivers/fwu/fwu_private.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:24:25Z",
+      "side": 1,
+      "message": "We should include the header file that provides struct fwu_metadata type definition.\n\nAnd also stdbool.h.",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e3f9bb6_b5a97f21",
+        "filename": "drivers/fwu/fwu_private.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-24T14:24:25Z",
+      "side": 1,
+      "message": "\u0027metadata\u0027 sounds too generic for a global variable, the risk of name clashing is too high. I would have suggested fwu_metadata but unfortunately I think MISRA rules forbid using the same identifiers for a variable and a type (although C consider them as separate name spaces). I don\u0027t have good suggestions right now, I\u0027ll give it some more thoughts...",
+      "range": {
+        "startLine": 11,
+        "startChar": 27,
+        "endLine": 11,
+        "endChar": 35
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
