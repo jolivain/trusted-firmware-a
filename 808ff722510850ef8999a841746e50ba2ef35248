@@ -88,6 +88,24 @@
       "parentUuid": "c55bd201_f5345e9e",
       "revId": "808ff722510850ef8999a841746e50ba2ef35248",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41e16931_b7b01ad1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000160
+      },
+      "writtenOn": "2021-06-24T09:13:07Z",
+      "side": 1,
+      "message": "Okay, I see. I think this concatenation is out of scope for TF-A and should be handled by the build system, as you say. So I\u0027d rather keep the patch as it is, but thanks for the suggestion!",
+      "parentUuid": "28121682_02a7c892",
+      "revId": "808ff722510850ef8999a841746e50ba2ef35248",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
