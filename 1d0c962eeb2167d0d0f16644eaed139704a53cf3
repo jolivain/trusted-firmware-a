@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "afa2ced8_ce3e77d3",
+        "filename": "include/plat/common/plat_fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-25T05:49:16Z",
+      "side": 1,
+      "message": "Just from readability POV I thought to move these declarations to a separate header. I can\u0027t foresee this file getting bigger, but in any case, if we end up having more declarations in the future will create a separate header. As of now, I will move these declarations to platform.h.",
+      "parentUuid": "db9e394a_6234fce1",
+      "revId": "1d0c962eeb2167d0d0f16644eaed139704a53cf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d730ef26_269b7f8c",
         "filename": "include/plat/common/plat_fwu.h",
         "patchSetId": 2
@@ -31,6 +49,30 @@
       "writtenOn": "2021-06-24T14:20:40Z",
       "side": 1,
       "message": "(minor) We traditionally document platform interfaces in the porting guide. I agree it\u0027s desirable to have in-source documentation but in this case, this will result in duplication of information, which increases the maintenance cost. Suggest removing it.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 3
+      },
+      "revId": "1d0c962eeb2167d0d0f16644eaed139704a53cf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84076307_b5dd1224",
+        "filename": "include/plat/common/plat_fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-25T05:49:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d730ef26_269b7f8c",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -66,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d783db46_28e0e010",
+        "filename": "include/plat/common/plat_fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-25T05:49:16Z",
+      "side": 1,
+      "message": "I thought of aligning this with the current \u0027plat_get_image_source\u0027 API, but I\nagree, names you suggested look more cleaner. I will rename these APIs accordingly.",
+      "parentUuid": "608c1eae_bd4cd504",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 38
+      },
+      "revId": "1d0c962eeb2167d0d0f16644eaed139704a53cf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16842538_0e3eb9e3",
         "filename": "include/plat/common/plat_fwu.h",
         "patchSetId": 2
@@ -77,6 +143,30 @@
       "writtenOn": "2021-06-24T14:20:40Z",
       "side": 1,
       "message": "(minor) Need to #include \u003cstdint.h\u003e for uint32_t definition.",
+      "range": {
+        "startLine": 20,
+        "startChar": 32,
+        "endLine": 20,
+        "endChar": 40
+      },
+      "revId": "1d0c962eeb2167d0d0f16644eaed139704a53cf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9a4e7fc_a443bb25",
+        "filename": "include/plat/common/plat_fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-25T05:49:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "16842538_0e3eb9e3",
       "range": {
         "startLine": 20,
         "startChar": 32,
