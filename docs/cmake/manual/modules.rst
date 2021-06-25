@@ -8,6 +8,8 @@ Utility Modules
     :maxdepth: 1
 
     ./module/ArmConfigOption
+    ./module/ArmPreprocessSource
+    ./module/ArmTargetLinkerScript
 
 Find Modules
 ------------
