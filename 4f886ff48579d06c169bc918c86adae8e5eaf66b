@@ -101,6 +101,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fec1f81f_c65bb586",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-25T05:34:52Z",
+      "side": 1,
+      "message": "Why we should check feature implementation before operating this bit(TAM)?\n1. If FEAT_AMUv1 is not implemented, setting TAM does not impact anything. Expecting this bit does not get checked for trap from EL2 to EL3 while accessing AMU registers, maybe decoding instruction fault happen in this case.\n2. If FEAT_AMUv1 is implemented, setting TAM bit causes access of AMU registers from EL2 results in a trap in EL3. \n\nand, if any platform want to allow EL2 to access AMU registers , they can enable the option \u0027ENABLE_AMU\u0027 for that purpose (implementation under this option covers clearing of TAM bit). (assuming this feature is implemented).\n\nPlease let me know if this understanding is correct or not?",
+      "parentUuid": "db6608f6_6c2fc84a",
+      "range": {
+        "startLine": 533,
+        "startChar": 40,
+        "endLine": 533,
+        "endChar": 47
+      },
+      "revId": "4f886ff48579d06c169bc918c86adae8e5eaf66b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53e33073_a358ff40",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-25T05:34:52Z",
+      "side": 1,
+      "message": "IMO, default clearing of TTA bit serve below purposes:\n1. act as RES0 (ignoring it is 0), when system register access to the PE Trace Unit registers is not implemented.\n2. allows EL2 to access trace system registers, when system register access to the PE Trace Unit registers is implemented.\n\nCurrently, code does not clear TTA bit in any other places apart from this common macros routine.\n\nI can see in FVP model\u003cFVP_Base_RevC-2xAEMv8A\u003e there is an option \u0027cluster0.trace_has_sysreg_access\u003d1\u0027 to enable trace system register access to PE trace unit register, that means model is supporting both above options.\n\nLet me know, what do you think?",
+      "parentUuid": "ad47d9ef_df127648",
+      "range": {
+        "startLine": 533,
+        "startChar": 50,
+        "endLine": 533,
+        "endChar": 57
+      },
+      "revId": "4f886ff48579d06c169bc918c86adae8e5eaf66b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8f054800_8efd86c7",
         "filename": "include/arch/aarch64/el3_common_macros.S",
         "patchSetId": 23
