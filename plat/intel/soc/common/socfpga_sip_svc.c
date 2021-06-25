@@ -27,7 +27,7 @@ static bool bridge_disable;
 
 /* RSU static variables */
 static uint32_t rsu_dcmf_ver[4] = {0};
-static uint32_t rsu_max_retry = 0;
+static uint32_t rsu_max_retry;
 static uint16_t rsu_dcmf_stat[4] = {0};
 
 /*  SiP Service UUID */
@@ -273,7 +273,7 @@ static uint32_t intel_fpga_config_write(uint64_t mem, uint64_t size)
 	intel_fpga_sdm_write_all();
 
 	if (!is_address_in_ddr_range(mem, size) ||
-		is_fpga_config_buffer_full()){
+		is_fpga_config_buffer_full()) {
 		return INTEL_SIP_SMC_STATUS_REJECTED;
 	}
 
@@ -292,7 +292,7 @@ static uint32_t intel_fpga_config_write(uint64_t mem, uint64_t size)
 		}
 	}
 
-	if (is_fpga_config_buffer_full()){
+	if (is_fpga_config_buffer_full()) {
 		return INTEL_SIP_SMC_STATUS_BUSY;
 	}
 
@@ -432,8 +432,35 @@ static uint32_t intel_rsu_copy_dcmf_status(uint64_t dcmf_stat)
 	return INTEL_SIP_SMC_STATUS_OK;
 }
 
+/* Intel HWMON services */
+static uint32_t intel_hwmon_readtemp(uint32_t chan, uint32_t *retval)
+{
+	if (chan > TEMP_CHANNEL_MAX) {
+		return INTEL_SIP_SMC_STATUS_ERROR;
+	}
+
+	if (mailbox_hwmon_readtemp(chan, retval) < 0) {
+		return INTEL_SIP_SMC_STATUS_ERROR;
+	}
+
+	return INTEL_SIP_SMC_STATUS_OK;
+}
+
+static uint32_t intel_hwmon_readvolt(uint32_t chan, uint32_t *retval)
+{
+	if (chan > VOLT_CHANNEL_MAX) {
+		return INTEL_SIP_SMC_STATUS_ERROR;
+	}
+
+	if (mailbox_hwmon_readvolt(chan, retval) < 0) {
+		return INTEL_SIP_SMC_STATUS_ERROR;
+	}
+
+	return INTEL_SIP_SMC_STATUS_OK;
+}
+
 /* Mailbox services */
-static uint32_t intel_smc_fw_version(uint32_t * fw_version)
+static uint32_t intel_smc_fw_version(uint32_t *fw_version)
 {
 	int status;
 	unsigned int resp_len = CONFIG_STATUS_WORD_SIZE;
@@ -673,6 +700,14 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 	case INTEL_SIP_SMC_HPS_SET_BRIDGES:
 		status = intel_hps_set_bridges(x1);
 		SMC_RET1(handle, status);
+
+	case INTEL_SIP_SMC_HWMON_READTEMP:
+		status = intel_hwmon_readtemp(x1, &retval);
+		SMC_RET2(handle, status, retval);
+
+	case INTEL_SIP_SMC_HWMON_READVOLT:
+		status = intel_hwmon_readvolt(x1, &retval);
+		SMC_RET2(handle, status, retval);
 
 	default:
 		return socfpga_sip_handler(smc_fid, x1, x2, x3, x4,
