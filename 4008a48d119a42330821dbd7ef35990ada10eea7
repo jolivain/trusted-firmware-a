@@ -193,6 +193,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df7bbe8d_b73e2496",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-25T01:46:44Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "d2ade82b_cc47d844",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 60
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2132e342_6c2c4317",
@@ -324,6 +348,30 @@
       "side": 1,
       "message": "I\u0027m thinking relevant physical attacks may be:\n-power glitching as a matter of bypassing authentication (though already mentioned in the TF-A threat model)\n-DRAM style of attacks like rowhammer.\n\nFor the latter it may be more relevant than TF-A\u0027s because SPM is meant to run out of DDR (as opposed to BL1/BL2/BL31 typically running from SRAM).\n\nWhat do you reckon?",
       "parentUuid": "706b38dd_0816e716",
+      "range": {
+        "startLine": 41,
+        "startChar": 15,
+        "endLine": 41,
+        "endChar": 41
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "645109d0_cdd9c037",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-25T01:46:44Z",
+      "side": 1,
+      "message": "Yep that makes sense. Might be good to call them out in the document if appropriate.",
+      "parentUuid": "1d2bb237_5ee04a02",
       "range": {
         "startLine": 41,
         "startChar": 15,
@@ -512,6 +560,30 @@
       "side": 1,
       "message": "Right. I have not made up my mind yet because the TF-A threat model already talks consistently about bootloader stages.\nThe BL2 representation may be removed if it leads to confusion. Though the TF-A threat model does not talk about loading the SPMC and SPs specifically.\nNeed to think more about it, let me know if you have suggestions.",
       "parentUuid": "506ffa94_39a15e11",
+      "range": {
+        "startLine": 97,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 40
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3de5f824_59964032",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-25T01:46:44Z",
+      "side": 1,
+      "message": "I wouldnt mind at least a statement that says boot loaders or other software that runs before the SPMC/D are implicitly trusted.",
+      "parentUuid": "0b954cca_aacbcce1",
       "range": {
         "startLine": 97,
         "startChar": 2,
@@ -733,6 +805,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0de9220c_a22ece34",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-25T01:46:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e2a21a82_6ac7a8e7",
+      "range": {
+        "startLine": 242,
+        "startChar": 28,
+        "endLine": 244,
+        "endChar": 37
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ebd52bf_ab61980f",
@@ -911,6 +1007,30 @@
       "side": 1,
       "message": "Can this still happen between a NWd enpoint and the SPMC e.g. in a mem share operation where the regions are passed in a fragmented manner?",
       "parentUuid": "433d800a_d8bfc955",
+      "range": {
+        "startLine": 415,
+        "startChar": 28,
+        "endLine": 416,
+        "endChar": 37
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03c4dca2_6167b5e3",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-25T01:46:44Z",
+      "side": 1,
+      "message": "Ack. I guess i was not thinking SPMC when thinking endpoints. i was only thinking partitions so yes, if endpoints also includes SPMC then agree.",
+      "parentUuid": "46aeb04b_63cb03b2",
       "range": {
         "startLine": 415,
         "startChar": 28,
