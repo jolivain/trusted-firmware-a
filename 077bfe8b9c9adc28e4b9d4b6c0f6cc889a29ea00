@@ -484,6 +484,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10ba9283_ed28e139",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-25T17:00:01Z",
+      "side": 1,
+      "message": "My previous comment was solely regarding the Arm platform. Other platforms calls \u0027io_dev_open\u0027 during setup phase only same as Arm platforms, but preferred not to close the device.\n\nAs this is common code, I prefer to remove \u0027io_dev_close\u0027 call.",
+      "parentUuid": "976c7d23_56f17600",
+      "range": {
+        "startLine": 128,
+        "startChar": 1,
+        "endLine": 128,
+        "endChar": 32
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "975ec31f_e2f1319c",
         "filename": "drivers/fwu/fwu_private.h",
         "patchSetId": 7
