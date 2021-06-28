@@ -22,6 +22,30 @@
       },
       "revId": "3e94962d5a8a23fa8ddd63e1053813c740521a5b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "649a093c_1d97ec07",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T14:29:19Z",
+      "side": 1,
+      "message": "I think you are right, I missed to check this E2H condition. \nAlso, CPTR_EL2.TTA (bit 28) handling is not needed from El3 in case of hypervisor is enabled i.e.when E2H\u003d1 (rely on hypervisor to operate this bit)",
+      "parentUuid": "d6076299_2a394e99",
+      "range": {
+        "startLine": 538,
+        "startChar": 34,
+        "endLine": 538,
+        "endChar": 36
+      },
+      "revId": "3e94962d5a8a23fa8ddd63e1053813c740521a5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
