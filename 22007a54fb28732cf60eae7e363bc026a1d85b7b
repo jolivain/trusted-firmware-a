@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e00f8354_4695d07c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000464
+      },
+      "writtenOn": "2021-06-28T01:30:04Z",
+      "side": 1,
+      "message": "Thanks for your reply.\nYes, I solve the another problem by below change in sgi_ras_intr_handler():\n/*\n * intr \u003d\u003d 0 is EA, raise running priority to block any\n * interrupt from preempting this core;\n * For RAS interrupt, the running priority(icc_rpr_el1) is 0x10.\n */\nif (intr \u003d\u003d 0)\n\tehf_activate_priority(PLAT_SP_PRI);\n\nret \u003d spm_mm_sp_call(MM_COMMUNICATE_AARCH64, (uint64_t)header, 0, plat_my_core_pos());\nif (ret !\u003d 0)\n\tERROR(\"spm_mm_sp_call ret(%x) error\\n\", ret);\n\nif (intr \u003d\u003d 0)\n\tehf_deactivate_priority(PLAT_SP_PRI);",
+      "parentUuid": "62e44067_c4a1d221",
+      "range": {
+        "startLine": 16,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 31
+      },
+      "revId": "22007a54fb28732cf60eae7e363bc026a1d85b7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "858a16f2_49204600",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
