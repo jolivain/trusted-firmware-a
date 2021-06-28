@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6076299_2a394e99",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-28T14:06:28Z",
+      "side": 1,
+      "message": "isnt this conditioned on if E2H is enabled or not ? I think bit 20 is used when E2H is 0 and 28 when E2H is 1.",
+      "range": {
+        "startLine": 538,
+        "startChar": 34,
+        "endLine": 538,
+        "endChar": 36
+      },
+      "revId": "3e94962d5a8a23fa8ddd63e1053813c740521a5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
