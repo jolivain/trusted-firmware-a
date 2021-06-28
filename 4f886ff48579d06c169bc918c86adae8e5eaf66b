@@ -197,6 +197,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2342df0f_b272e89d",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T22:10:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "197d3137_c423cf72",
+      "range": {
+        "startLine": 533,
+        "startChar": 40,
+        "endLine": 533,
+        "endChar": 47
+      },
+      "revId": "4f886ff48579d06c169bc918c86adae8e5eaf66b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8f054800_8efd86c7",
         "filename": "include/arch/aarch64/el3_common_macros.S",
         "patchSetId": 23
