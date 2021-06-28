@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86e3807d_01321aa8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-06-28T15:26:29Z",
+      "side": 1,
+      "message": "Code de-duplication.",
+      "parentUuid": "09d3db25_b01b4272",
+      "revId": "f9faa1e1b0de0827afe9170ff56181f0397350b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9716ed2_e7dbf1ea",
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1315362_a6e3ea37",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-06-28T15:26:29Z",
+      "side": 1,
+      "message": "I can change name of this function if you think that new proposed name is better; no problem.",
+      "parentUuid": "b9716ed2_e7dbf1ea",
+      "range": {
+        "startLine": 143,
+        "startChar": 5,
+        "endLine": 143,
+        "endChar": 23
+      },
+      "revId": "f9faa1e1b0de0827afe9170ff56181f0397350b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f1a8193_b0c75a0c",
         "filename": "plat/marvell/armada/a3k/common/a3700_ea.c",
         "patchSetId": 1
@@ -54,6 +96,30 @@
       "writtenOn": "2021-06-28T15:17:20Z",
       "side": 1,
       "message": "this changes the behavior for the platform. default_ea_handler changes based on build options for HANDLE_EL3_EA and RAS_EXTENSIONS. However, these handlers dont account for that or change behavior.",
+      "range": {
+        "startLine": 20,
+        "startChar": 1,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "f9faa1e1b0de0827afe9170ff56181f0397350b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cb066bc_1f02c5fa",
+        "filename": "plat/marvell/armada/a3k/common/a3700_ea.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-06-28T15:26:29Z",
+      "side": 1,
+      "message": "For Armada 3700 we should really use default EA handler. One asynchronous abort is ignored due to bugs in kernel, but I\u0027m planning to submit a patch which adds comment with explanation about it.",
+      "parentUuid": "2f1a8193_b0c75a0c",
       "range": {
         "startLine": 20,
         "startChar": 1,
