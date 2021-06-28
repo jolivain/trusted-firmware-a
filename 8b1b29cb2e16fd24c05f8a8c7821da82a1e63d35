@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc1c14be_fde9a813",
+        "filename": "Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e73158a1_5382a3dc",
+      "revId": "8b1b29cb2e16fd24c05f8a8c7821da82a1e63d35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb8b77c1_bf3bb21f",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "Yes, this was I initially thought but many places we used preprocessor for includes so I added here inline with others.\n\nAgree will remove it from here and from other places too.",
       "parentUuid": "fb8b77c1_bf3bb21f",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 19
+      },
+      "revId": "8b1b29cb2e16fd24c05f8a8c7821da82a1e63d35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "038a3866_f59c2839",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4fc1ab3_2ddab7fd",
       "range": {
         "startLine": 17,
         "startChar": 0,
