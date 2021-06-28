@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d1154b38_03aec864",
+        "filename": "include/plat/common/plat_fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T09:10:36Z",
+      "side": 1,
+      "message": "Moved these declarations to platform.h",
+      "parentUuid": "afa2ced8_ce3e77d3",
+      "revId": "1d0c962eeb2167d0d0f16644eaed139704a53cf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d730ef26_269b7f8c",
         "filename": "include/plat/common/plat_fwu.h",
         "patchSetId": 2
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "d730ef26_269b7f8c",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 3
+      },
+      "revId": "1d0c962eeb2167d0d0f16644eaed139704a53cf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ce0dca4_11336a14",
+        "filename": "include/plat/common/plat_fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T09:10:36Z",
+      "side": 1,
+      "message": "removed these inline comments from source files.",
+      "parentUuid": "84076307_b5dd1224",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -132,6 +174,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bfb6b550_9a7d6357",
+        "filename": "include/plat/common/plat_fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T09:10:36Z",
+      "side": 1,
+      "message": "Renamed these functions as you suggested",
+      "parentUuid": "d783db46_28e0e010",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 38
+      },
+      "revId": "1d0c962eeb2167d0d0f16644eaed139704a53cf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16842538_0e3eb9e3",
         "filename": "include/plat/common/plat_fwu.h",
         "patchSetId": 2
@@ -167,6 +233,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "16842538_0e3eb9e3",
+      "range": {
+        "startLine": 20,
+        "startChar": 32,
+        "endLine": 20,
+        "endChar": 40
+      },
+      "revId": "1d0c962eeb2167d0d0f16644eaed139704a53cf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c59d85c_715e59c7",
+        "filename": "include/plat/common/plat_fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T09:10:36Z",
+      "side": 1,
+      "message": "Removed this header file.",
+      "parentUuid": "c9a4e7fc_a443bb25",
       "range": {
         "startLine": 20,
         "startChar": 32,
