@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bc73700_b40e3da3",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:48:43Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "f4a5cf87_2cfc5318",
+      "range": {
+        "startLine": 914,
+        "startChar": 39,
+        "endLine": 914,
+        "endChar": 44
+      },
+      "revId": "8a70e55650b3d34bf79a274541c464a4c62854d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67320989_7385a39d",
@@ -95,6 +119,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34debad0_c96343e8",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:48:43Z",
+      "side": 1,
+      "message": "Done, Updated the description of this function.",
+      "parentUuid": "96fc9675_a1096305",
+      "range": {
+        "startLine": 922,
+        "startChar": 67,
+        "endLine": 922,
+        "endChar": 70
+      },
+      "revId": "8a70e55650b3d34bf79a274541c464a4c62854d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bf0cea7_a38eab7f",
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "This function is limited to setting up I/O policies for FWU metadata image(s) only.\nMetadata images get stored in any in non-volatile storage decided by the platform, and can either be stored as raw image or as partition inside the GPT image, later is recommended though in PSA FWU spec.\n\nLet me add elaborated details to make clear expectation from this function.",
       "parentUuid": "3bf0cea7_a38eab7f",
+      "range": {
+        "startLine": 922,
+        "startChar": 60,
+        "endLine": 924,
+        "endChar": 20
+      },
+      "revId": "8a70e55650b3d34bf79a274541c464a4c62854d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "480e63cc_358e783c",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:48:43Z",
+      "side": 1,
+      "message": "Updated descriptions of platform functions, aligned with your suggestion. \nPlease let me know, how it looks? or do you think further more information needed here?",
+      "parentUuid": "55fe97be_812ea0a7",
       "range": {
         "startLine": 922,
         "startChar": 60,
