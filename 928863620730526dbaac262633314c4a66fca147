@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eacc6c9b_c0f45afa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-06-28T19:52:42Z",
+      "side": 1,
+      "message": "\u003e Patch Set 1: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 764 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/764/)\n\u003e Some tests failed (1)\n\nPlease fix the static check failures:\nplat/arm/board/diphda/common/diphda_plat.c:24: ERROR: code indent should use tabs where possible\n+        DIPHDA_EXTERNAL_FLASH,$\n\n\nplat/arm/board/diphda/common/fdts/diphda_spmc_manifest.dts:15: ERROR: code indent should use tabs where possible\n+        *$\n\nplat/arm/board/diphda/common/fdts/diphda_spmc_manifest.dts:16: ERROR: code indent should use tabs where possible\n+        * Note:$\n\nplat/arm/board/diphda/common/fdts/diphda_spmc_manifest.dts:17: ERROR: code indent should use tabs where possible\n+        * binary_size: size of BL32 + TOS_FW_CONFIG$\n\nand the commit message format:\n\nhttps://ci.trustedfirmware.org/job/tf-a-commitlint/292/console\n",
+      "revId": "928863620730526dbaac262633314c4a66fca147",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
