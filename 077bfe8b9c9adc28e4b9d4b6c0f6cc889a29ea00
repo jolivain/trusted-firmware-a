@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c42afe_d9a5df46",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:09:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81f87c14_a99021a4",
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58b1abd6_eff47be1",
@@ -130,6 +148,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce0120e2_659c8dbe",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:09:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab2ff88c_ec9e848c",
+      "range": {
+        "startLine": 21,
+        "startChar": 62,
+        "endLine": 21,
+        "endChar": 65
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0ea630a_d3ba13c7",
@@ -143,6 +185,30 @@
       "writtenOn": "2021-06-24T14:24:25Z",
       "side": 1,
       "message": "I think panic() is not the right behaviour in this case. My understanding is that the condition for hitting this error case is if fwu_init() has not been called before this point, which sounds like a programming error to me. Thus, it should be handled through an assert().",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 10
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e29f9a1f_66913577",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:09:37Z",
+      "side": 1,
+      "message": "Yes, make sense to put assert here.",
+      "parentUuid": "f0ea630a_d3ba13c7",
       "range": {
         "startLine": 42,
         "startChar": 2,
@@ -200,6 +266,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff2df253_8e1888a4",
+        "filename": "drivers/fwu/fwu.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:09:37Z",
+      "side": 1,
+      "message": "Done, added this in the documentation patch.",
+      "parentUuid": "cbbc56c7_b7964801",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 29
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70943796_2b372501",
@@ -237,6 +327,30 @@
       "side": 1,
       "message": "Ack, I will prefer to retain CASSERT here only (to be inlined with other CASSERTs used in TF-A code) with appropriate comment.",
       "parentUuid": "70943796_2b372501",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 43
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b75a5f7_f095ae6a",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:09:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a66f4e8_310ac505",
       "range": {
         "startLine": 18,
         "startChar": 0,
@@ -294,6 +408,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac51648d_a8614c30",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:09:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28155d60_0ee15b85",
+      "range": {
+        "startLine": 64,
+        "startChar": 36,
+        "endLine": 64,
+        "endChar": 62
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a86b57db_bad9f962",
@@ -331,6 +469,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "a86b57db_bad9f962",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 12
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ea9223a_05796ff5",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:09:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "374e115f_da89b20d",
       "range": {
         "startLine": 78,
         "startChar": 2,
@@ -390,6 +552,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "870f4026_a8392eae",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:09:37Z",
+      "side": 1,
+      "message": "\u0027plat_set_fwu_metadata_image_source\u0027 update up I/O policy information mainly for image specification. In Arm platform, this function retrieves partition information of \u0027FWU metadata\u0027 (offset inside NV storage and size), and then use this information to update image specification.\nI modified this API \u0027plat_set_fwu_metadata_image_source\u0027 now to set the image specification, and also return \u0027dev_handle\u0027 and \u0027image_spec\u0027 of requested metadata image.\n\nIMO, we should update \u0027load_auth_image\u0027 that provides an opportunity to load the image from the next boot source that will not work as per FWU specification.\nThis function nobody is using as of now, but it will cause a problem if partners start using this function along with FWU implementation. I prefer to have a separate do...while loop for FWU implementation as below:\n\n  #if PSA_FWU_SUPPORT\n\tdo {\n\t\terr \u003d load_auth_image_internal(image_id, image_data);\n\t} while (err !\u003d 0);\n  #else\n\tdo {\n\t\terr \u003d load_auth_image_internal(image_id, image_data);\n\t} while ((err !\u003d 0) \u0026\u0026 (plat_try_next_boot_source() !\u003d 0));\n  #endif /* PSA_FWU_SUPPORT */ \n\nLet me know what do you think about this accordingly will update the code?",
+      "parentUuid": "f0d864ee_e3a3abfb",
+      "range": {
+        "startLine": 81,
+        "startChar": 10,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "36dd09ab_ecec7da6",
         "filename": "drivers/fwu/fwu_metadata.c",
         "patchSetId": 7
@@ -425,6 +611,30 @@
       "side": 1,
       "message": "Ack, somehow I missed to change this to image_id after restructuring the code.",
       "parentUuid": "36dd09ab_ecec7da6",
+      "range": {
+        "startLine": 107,
+        "startChar": 8,
+        "endLine": 107,
+        "endChar": 29
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4686e25f_b96e1ad3",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:09:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09fd9bd3_7d0d1bf2",
       "range": {
         "startLine": 107,
         "startChar": 8,
@@ -506,6 +716,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b68bd36_3985f7d3",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:09:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10ba9283_ed28e139",
+      "range": {
+        "startLine": 128,
+        "startChar": 1,
+        "endLine": 128,
+        "endChar": 32
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "975ec31f_e2f1319c",
@@ -543,6 +777,30 @@
       "side": 1,
       "message": "Agree, will put this as a static.",
       "parentUuid": "975ec31f_e2f1319c",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec844713_2c505a4d",
+        "filename": "drivers/fwu/fwu_private.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:09:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1b4bf69_07ff4bbc",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -637,6 +895,54 @@
       "side": 1,
       "message": "As per your last comment, we decided to put \u0027metadata\u0027 as variable name instead of \u0027g_fwu_metadata\u0027. Agree \u0027metadata\u0027 looks quite generic name, but its usage are local to FWU module. (if I make this as static variable). still you think we need to change its name?",
       "parentUuid": "1e3f9bb6_b5a97f21",
+      "range": {
+        "startLine": 11,
+        "startChar": 27,
+        "endLine": 11,
+        "endChar": 35
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bd638b9_ee77610f",
+        "filename": "drivers/fwu/fwu_private.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:09:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6766251e_9aed69bd",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82bce719_901c5abd",
+        "filename": "drivers/fwu/fwu_private.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-28T10:09:37Z",
+      "side": 1,
+      "message": "I retained \u0027metadata\u0027 name only until we decide other name for this variable.",
+      "parentUuid": "fdf3a68f_f6f83935",
       "range": {
         "startLine": 11,
         "startChar": 27,
