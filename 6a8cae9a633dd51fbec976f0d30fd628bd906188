@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10597719_4b96f8f2",
+        "filename": "plat/common/aarch64/plat_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-06-28T15:13:23Z",
+      "side": 1,
+      "message": "This patch is assuming that the kernel and the error handler share the console. Is this really required? Why not just add it to to the ERROR statement below? I realize we may lose the string \"ERROR\".\nMoreover, if the kernel and EL3 share the same console, adding a new line may not help at all. On a multi core system, the kernel could still be printing on another core while this code executes on another core and you would still end up with garbled information.",
+      "revId": "6a8cae9a633dd51fbec976f0d30fd628bd906188",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
