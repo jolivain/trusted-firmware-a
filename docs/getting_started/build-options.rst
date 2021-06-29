@@ -779,6 +779,11 @@ Common build options
   control registers from NS ELs, NS-EL2 or NS-EL1(when NS-EL2 is implemented
   but unused) when FEAT_TRBE is implemented. This flag is enabled by default.
 
+- ``ENABLE_SYS_REG_TRACE_FOR_NS``: Boolean option to enable trace system
+  registers access from NS ELs, NS-EL2 or NS-EL1 (when NS-EL2 is implemented
+  but unused). This feature is available if trace unit such as ETMv4.x, and
+  ETE(extending ETM feature) is implemented. This flag is enabled by default.
+
 GICv3 driver options
 --------------------
 
