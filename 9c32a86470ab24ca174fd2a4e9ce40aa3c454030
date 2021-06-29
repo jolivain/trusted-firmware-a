@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d391bd3c_abf4b82e",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-29T20:21:03Z",
+      "side": 1,
+      "message": "This guard seems to be okay as per patch, but IMO better not to introduce platform-related checks in this file. This file is meant for all platforms following tbbr flow. Is it possible to avoid this check?",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 48
+      },
+      "revId": "9c32a86470ab24ca174fd2a4e9ce40aa3c454030",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
