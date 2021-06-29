@@ -352,3 +352,7 @@ ifneq (${ARCH},aarch32)
 else
     override ENABLE_TRBE_FOR_NS  := 0
 endif
+
+# By default, enable access of trace system registers from Non-secure lower
+# ELs  i.e. EL2, and EL1 if EL2 implemented but unused
+ENABLE_SYS_REG_TRACE_FOR_NS	:= 1
