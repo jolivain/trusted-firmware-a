@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ca141b2_67fc08b1",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-30T09:31:59Z",
+      "side": 1,
+      "message": "Should we also add a compile-time warning if PSA_FWU_SUPPORT\u003d\u003d1 and ENABLE_HW_CRC32\u003d\u003d0?\n\nAlso would it be worth adding a sentence to point out that this limitation only decreases robustness but does not undermine security because the images within the firmware bank still go through authentication checks?",
+      "range": {
+        "startLine": 872,
+        "startChar": 65,
+        "endLine": 874,
+        "endChar": 22
+      },
+      "revId": "b96f0c42837c43e13eea18c046c93d463f46d938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
