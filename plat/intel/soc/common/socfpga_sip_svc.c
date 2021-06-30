@@ -729,6 +729,19 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 					 x4, x5, (uint32_t *) &x6, x7, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
+	case INTEL_SIP_SMC_FCS_AES_CRYPT_INIT:
+		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
+		status = intel_fcs_aes_crypt_init(x1, x2, x3, x4, x5,
+					&mbox_error);
+		SMC_RET2(handle, status, mbox_error);
+
+	case INTEL_SIP_SMC_FCS_AES_CRYPT_FINALIZE:
+		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
+		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
+		status = intel_fcs_aes_crypt_finalize(x1, x2, x3, x4, x5, x6,
+					&send_id);
+		SMC_RET1(handle, status);
+
 	default:
 		return socfpga_sip_handler(smc_fid, x1, x2, x3, x4,
 			cookie, handle, flags);
