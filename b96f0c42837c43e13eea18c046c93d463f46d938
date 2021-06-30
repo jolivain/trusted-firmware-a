@@ -22,6 +22,30 @@
       },
       "revId": "b96f0c42837c43e13eea18c046c93d463f46d938",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c2fce23_8e85de77",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-30T11:12:12Z",
+      "side": 1,
+      "message": "Ack, let me add this compile-time warning.\nAlso, agree that avoiding the CRC32 check only decreases robustness and not make security less effective. Let me update the documentation accordingly.",
+      "parentUuid": "9ca141b2_67fc08b1",
+      "range": {
+        "startLine": 872,
+        "startChar": 65,
+        "endLine": 874,
+        "endChar": 22
+      },
+      "revId": "b96f0c42837c43e13eea18c046c93d463f46d938",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
