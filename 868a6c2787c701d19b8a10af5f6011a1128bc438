@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c2e5e51_46d92a5f",
+        "filename": "plat/arm/common/arm_io_storage.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-30T09:17:28Z",
+      "side": 1,
+      "message": "Perhaps this is off topic and should be addressed in a separate patch: at line 171, policy is declared as a pointer to a *const* struct but then here at lines 183-184, we are returning pointers to some its fields, allowing the caller to modify them. This breaks the \"const contract\". I think we should remove the const qualifier at line 171.",
+      "range": {
+        "startLine": 183,
+        "startChar": 1,
+        "endLine": 184,
+        "endChar": 34
+      },
+      "revId": "868a6c2787c701d19b8a10af5f6011a1128bc438",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
