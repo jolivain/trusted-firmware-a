@@ -101,6 +101,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a8847c2_2759e95e",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-30T08:59:24Z",
+      "side": 1,
+      "message": "\u003e I think there is no certain rule in TF-A for function header, we need to develop one to look every function header consistent.\n\nYes indeed, we could propose something in the coding guidelines.",
+      "parentUuid": "b2d086b9_9744ea32",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "061865ff_1168fb43",
@@ -576,6 +600,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38cd2a56_371f1cbb",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-30T08:59:24Z",
+      "side": 1,
+      "message": "\u003e IMO, we should update \u0027load_auth_image\u0027 that provides an opportunity to load the image from the next boot source that will not work as per FWU specification.\n\u003e This function nobody is using as of now, but it will cause a problem if partners start using this function along with FWU implementation.\n\nWhen you say that nobody is using this function, which function are you referring to? plat_try_next_boot_source()? If yes then I agree that no upstream platform uses it right now but I suspect there might be downstream users. The reason I am saying that is, this feature was requested by Broadcom a few years ago. If they requested it then they\u0027re probably relying on it. This Github pull request has all the details:\n\n https://github.com/ARM-software/arm-trusted-firmware/pull/868\n\n\u003e I prefer to have a separate do...while loop for FWU implementation as below:\n\u003e \n\u003e   #if PSA_FWU_SUPPORT\n\u003e \tdo {\n\u003e \t\terr \u003d load_auth_image_internal(image_id, image_data);\n\u003e \t} while (err !\u003d 0);\n\u003e   #else\n\u003e \tdo {\n\u003e \t\terr \u003d load_auth_image_internal(image_id, image_data);\n\u003e \t} while ((err !\u003d 0) \u0026\u0026 (plat_try_next_boot_source() !\u003d 0));\n\u003e   #endif /* PSA_FWU_SUPPORT */ \n\u003e \n\u003e Let me know what do you think about this accordingly will update the code?\n\nLet me first check my understanding with you. When PSA FWU support is disabled,\nplat_try_next_boot_source() provides a mean to try and load an image from a different boot source, in case the previous one did not work. For example, the platform layer might indicate that we should first attempt to load the image from NAND flash and if we find out that the image there is not valid, then fall back to eMMC.\n\nThe reason why we would like to bypass this boot redundancy feature in the case of PSA FWU is because the way we load images in this case looks completely different. The FWU metadata dictates where the images should come from. In particular, struct fwu_image_entry has a location_uuid field, which effectively indicates the boot source. Thus, we don\u0027t want plat_try_next_boot_source() to overwrite this decision.\n\nHow would we implement boot redundancy in the PSA FWU scheme then? Would each boot source be represented as a different firmware bank? That would mean that firmware banks may be stored on different boot sources. For example, one firmware bank on NAND flash, another one on eMMC, yet another one on USB...\n\nDoes that make sense?",
+      "parentUuid": "870f4026_a8392eae",
+      "range": {
+        "startLine": 81,
+        "startChar": 10,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "36dd09ab_ecec7da6",
         "filename": "drivers/fwu/fwu_metadata.c",
         "patchSetId": 7
@@ -943,6 +991,30 @@
       "side": 1,
       "message": "I retained \u0027metadata\u0027 name only until we decide other name for this variable.",
       "parentUuid": "fdf3a68f_f6f83935",
+      "range": {
+        "startLine": 11,
+        "startChar": 27,
+        "endLine": 11,
+        "endChar": 35
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be57d380_cf5aaf8c",
+        "filename": "drivers/fwu/fwu_private.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-06-30T08:59:24Z",
+      "side": 1,
+      "message": "I think \u0027metadata\u0027 name is fine now that it is a static variable (as opposed to a global one).",
+      "parentUuid": "82bce719_901c5abd",
       "range": {
         "startLine": 11,
         "startChar": 27,
