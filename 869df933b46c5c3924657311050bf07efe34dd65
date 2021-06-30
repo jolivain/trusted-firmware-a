@@ -16,6 +16,24 @@
       "message": "There seems to be qemu build failures, have a look at the CI results and logs:\nhttps://ci.trustedfirmware.org/job/tf-ci-gateway/9009/\nLet us know if any trouble accessing. Thanks.",
       "revId": "869df933b46c5c3924657311050bf07efe34dd65",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1eea6d0_52b53f9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2021-06-30T12:01:55Z",
+      "side": 1,
+      "message": "I can see the logs, but it\u0027s not clear to me which make flags are in use when it fails. Is there an easy way of extracting those?",
+      "parentUuid": "aeb7c718_529bfe5e",
+      "revId": "869df933b46c5c3924657311050bf07efe34dd65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
