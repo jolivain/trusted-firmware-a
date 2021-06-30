@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "158b0f8a_02dd0311",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-30T11:54:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "092ad419_6a023faf",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 21,
+        "endChar": 50
+      },
+      "revId": "85a9039cb52fe4710c6505045b85220fb3c7aa8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9dd9f47_515c4c0f",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-06-30T08:59:24Z",
       "side": 1,
       "message": "(minor) Should that rather be FWU_SRC? Perhaps a copy\u0026paste error from the previous line? It works but it sounds a bit weird to list files in a *DIR variable.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "85a9039cb52fe4710c6505045b85220fb3c7aa8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da9a8cd6_6cdcd2b3",
+        "filename": "drivers/fwu/fwu.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-30T11:54:59Z",
+      "side": 1,
+      "message": "Ack, it should be FWU_SRCS. Let me correct it.",
+      "parentUuid": "f9dd9f47_515c4c0f",
       "range": {
         "startLine": 9,
         "startChar": 0,

@@ -624,6 +624,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f3d0f07_70b60170",
+        "filename": "drivers/fwu/fwu_metadata.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-06-30T11:54:59Z",
+      "side": 1,
+      "message": "Specification says \"All FW images of the same type should be located in the same NV medium\" so there is no possibility that banks are stored on different boot sources.\nFor example in Arm platform, Bank#0 FIP and Bank#1 FIP must be stored in the same NV storage.",
+      "parentUuid": "38cd2a56_371f1cbb",
+      "range": {
+        "startLine": 81,
+        "startChar": 10,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "077bfe8b9c9adc28e4b9d4b6c0f6cc889a29ea00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "36dd09ab_ecec7da6",
         "filename": "drivers/fwu/fwu_metadata.c",
         "patchSetId": 7
