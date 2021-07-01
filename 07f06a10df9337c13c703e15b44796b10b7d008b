@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ae92f3f_98f9234b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-07-01T08:47:14Z",
+      "side": 1,
+      "message": "Hi guys, \n\nThese 3 patches revisit how we handle errors in the TCG event log driver. We’ve got a number of error cases that panic the firmware today and I think this is not what we want. I reckon that some of these errors should be treated as programming errors (using assert()). Some other errors cannot happen at all, unless I am missing something (in which case I would be glad to find out the concerns). \n\nThere are some more errors which I have not revisited yet, namely how we deal with a failure to pass the event log to the secure and non-secure worlds. These look a bit more complicated to assess to me. This is currently handled by platform hooks and so I wonder whether the platform itself should choose the right error management policy, whether it’s panicking the firmware or something else. I am planning to leave this issue open for now and come back to it later. \n\nThis patch stack is currently split in 3 patches to make the review easier. I might squash them into a single patch at the end if people think this is better, but I’d rather do it like this rather than the other way around. ",
+      "revId": "07f06a10df9337c13c703e15b44796b10b7d008b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
