@@ -22,6 +22,30 @@
       },
       "revId": "10d343171829d181eba3bd653a6c6f6d1cab808d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff61b837_4cfc5e6e",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-07-01T11:18:16Z",
+      "side": 1,
+      "message": "I tried to explain in the commit message why I think this should be an assert, let me try again.\n\nI am applying our error management policy here: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html#using-assert-to-check-for-programming-errors\n\nIn particular:\n\n\u003e In general, each secure world TF image (BL1, BL2, BL31 and BL32) should be treated as a tightly integrated package; the image builder should be aware of and responsible for all functionality within the image, even if code within that image is provided by multiple entities. This allows us to be more aggressive in interpreting invalid state or bad function arguments as programming errors using assert(), including arguments passed across platform porting interfaces. \n\nIn this specific instance, the event log is a memory buffer of EVENT_LOG_SIZE bytes (see line 21 in this file). EVENT_LOG_SIZE is a platform-specific macro (although that does not appear in its name, which is something I intend to change) and the platform layer is expected to choose it based on the number of images it loads and measures. Thus, if EVENT_LOG_SIZE is too small to hold all platform measurements, this qualifies as a programming error occurring at generic code/platform layer boundary and according to the text quoted above and it should be handled via assert().\n\npanic() is reserved for handling unrecoverable errors that are not programming errors, see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html#handling-unrecoverable-errors\n\nIs that clearer?",
+      "parentUuid": "b70889df_58fa13c5",
+      "range": {
+        "startLine": 101,
+        "startChar": 1,
+        "endLine": 101,
+        "endChar": 7
+      },
+      "revId": "10d343171829d181eba3bd653a6c6f6d1cab808d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
