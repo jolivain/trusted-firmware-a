@@ -33,6 +33,24 @@
       "message": "These \u0027ptr\u0027 checks were useful to find issues with code regarding pointer arithmetic.\nWould it make sense to convert these checks into \u0027assert()\u0027s?",
       "revId": "07f06a10df9337c13c703e15b44796b10b7d008b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c74a05bc_0dff620f",
+        "filename": "drivers/measured_boot/event_log.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-07-01T11:28:21Z",
+      "side": 1,
+      "message": "Considering that ID_EVENT_SIZE is defined as follows:\n\n #define ID_EVENT_SIZE\t(sizeof(id_event_headers_t) + \\\n\t\t\t(sizeof(id_event_algorithm_size_t) * HASH_ALG_COUNT) + \\\n\t\t\tsizeof(id_event_struct_data_t))\n\nand that the code increments ptr by sizeof(id_event_headers_t), then by sizeof(id_event_algorithm_size_t), and so on, I think this would just check what we\u0027ve just done above... Personally I don\u0027t think it\u0027s useful to keep these checks at all, even as assertions.",
+      "parentUuid": "124b96ee_c4f48f9a",
+      "revId": "07f06a10df9337c13c703e15b44796b10b7d008b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
