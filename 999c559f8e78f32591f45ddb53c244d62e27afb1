@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "333c668c_243e4cdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-07-02T19:24:40Z",
+      "side": 1,
+      "message": "Commit message needs to adhere to format.  Link to documentation below:\ntype must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test] [type-enum]\n\n✖   found 1 problems, 0 warnings\nⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint\n\nStatic error fail:\n\nplat/xilinx/versal/bl31_versal_setup.c:124: ERROR: do not initialise statics to 0\n+\tstatic uint32_t index \u003d 0;",
+      "revId": "999c559f8e78f32591f45ddb53c244d62e27afb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
