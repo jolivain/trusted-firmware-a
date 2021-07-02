@@ -775,6 +775,10 @@ Common build options
   functions that wait for an arbitrary time length (udelay and mdelay). The
   default value is 0.
 
+- ``ENABLE_TRBE_FOR_NS``: This flag is used to enable access of trace buffer
+  control registers from NS ELs, NS-EL2 or NS-EL1(when NS-EL2 is implemented
+  but unused) when FEAT_TRBE is implemented. This flag is disabled by default.
+
 GICv3 driver options
 --------------------
 
