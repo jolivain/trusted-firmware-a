@@ -11,6 +11,6 @@
 #include <stdint.h>
 
 /* compute CRC using Arm intrinsic function */
-uint32_t hw_crc32(uint32_t crc, const unsigned char *buf, size_t size);
+uint32_t tf_crc32(uint32_t crc, const unsigned char *buf, size_t size);
 
 #endif /* HW_CRC32_H */
