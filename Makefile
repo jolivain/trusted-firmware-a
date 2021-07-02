@@ -959,6 +959,7 @@ $(eval $(call assert_booleans,\
         USE_SP804_TIMER \
         ENABLE_FEAT_RNG \
         ENABLE_FEAT_SB \
+        ENABLE_TRBE_FOR_NS \
 )))
 
 $(eval $(call assert_numerics,\
@@ -1054,6 +1055,7 @@ $(eval $(call add_defines,\
         USE_SP804_TIMER \
         ENABLE_FEAT_RNG \
         ENABLE_FEAT_SB \
+        ENABLE_TRBE_FOR_NS \
 )))
 
 ifeq (${SANITIZE_UB},trap)

@@ -344,3 +344,11 @@ OPENSSL_DIR			:= /usr
 
 # Build option to use the SP804 timer instead of the generic one
 USE_SP804_TIMER			:= 0
+
+# By default, enable access of trace buffer control registers from Non-secure
+# lower ELs  i.e. EL2, and EL1 if EL2 implemented but unused
+ifneq (${ARCH},aarch32)
+    ENABLE_TRBE_FOR_NS           := 1
+else
+    override ENABLE_TRBE_FOR_NS  := 0
+endif
