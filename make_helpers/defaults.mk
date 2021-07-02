@@ -355,3 +355,11 @@ NR_OF_IMAGES_IN_FW_BANK		:= 1
 
 # Disable Firmware update support by default
 PSA_FWU_SUPPORT			:= 0
+
+# By default, enable access of trace buffer control registers from Non-secure
+# lower ELs  i.e. EL2, and EL1 if EL2 implemented but unused
+ifneq (${ARCH},aarch32)
+    ENABLE_TRBE_FOR_NS           := 1
+else
+    override ENABLE_TRBE_FOR_NS  := 0
+endif
