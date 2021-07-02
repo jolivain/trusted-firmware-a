@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50c451f7_cddf6688",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-07-02T16:18:32Z",
+      "side": 1,
+      "message": "Failures:\nThe commit message has issues, read the link below to understand the format:\n✖   type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test] [type-enum]\n⚠   header must not be longer than 50 characters, current length is 63 [header-max-length]\n\n✖   found 1 problems, 1 warnings\nⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint\n\nStatic checker fails:\nplat/xilinx/versal/pm_service/pm_svc_main.c:56: ERROR: space required before the open parenthesis \u0027(\u0027\n+\twhile(1);\n\nplat/xilinx/versal/pm_service/pm_svc_main.c:56: ERROR: trailing statements should be on next line\n+\twhile(1);\n\nplat/xilinx/versal/bl31_versal_setup.c:124: ERROR: do not initialise statics to 0\n+\tstatic uint32_t index \u003d 0;\n",
+      "revId": "ee97ade33e3adba7c399f79fbd3f954a5260a412",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
