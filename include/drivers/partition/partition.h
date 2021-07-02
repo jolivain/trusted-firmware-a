@@ -28,11 +28,13 @@ CASSERT((PLAT_PARTITION_BLOCK_SIZE == 512) ||
 #define LEGACY_PARTITION_BLOCK_SIZE	512
 
 #define EFI_NAMELEN			36
+#define GUID_LEN			16
 
 typedef struct partition_entry {
 	uint64_t		start;
 	uint64_t		length;
 	char			name[EFI_NAMELEN];
+	uint8_t			part_guid[GUID_LEN];
 } partition_entry_t;
 
 typedef struct partition_entry_list {
