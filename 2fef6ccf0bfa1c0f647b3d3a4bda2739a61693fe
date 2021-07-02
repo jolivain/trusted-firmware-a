@@ -16,6 +16,24 @@
       "message": "LGTM.\n\nDid you run the CI on this patch? Just as a regression check, to make sure no config got broken by this patch.",
       "revId": "2fef6ccf0bfa1c0f647b3d3a4bda2739a61693fe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0db5932_682b4faf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-07-02T11:31:24Z",
+      "side": 1,
+      "message": "I ran default FVP configuration that didn\u0027t complain anything, but it will be good to run all configuration to see if any breakage. I will do that. Thanks!",
+      "parentUuid": "a4d04de6_e553ea99",
+      "revId": "2fef6ccf0bfa1c0f647b3d3a4bda2739a61693fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
