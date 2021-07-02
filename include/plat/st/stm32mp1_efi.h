@@ -1,0 +1,10 @@
+#ifndef STM32MP1_EFI_H
+#define STM32MP1_EFI_H
+
+#include <common/efi.h>
+
+#define STM32MP1_FIP_GUID \
+	EFI_GUID(0x19d5df83, 0x11b0, 0x457b, \
+		 0xbe, 0x2c, 0x75, 0x59, 0xc1, 0x31, 0x42, 0xa5)
+
+#endif /* STM32MP1_EFI_H */
