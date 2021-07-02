@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1733b21_895e5c98",
+        "filename": "plat/arm/board/diphda/common/diphda_trusted_boot.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-07-02T09:54:57Z",
+      "side": 1,
+      "message": "It will be good if you provide a comment mentioning why this specific NV-counter value returned by the plat function?\nIIUC, this is a temporary change to avoid updating the NV-counter value by having its highest value both in the platform and certificates, and this hack will go away once a proper NV-counter set/get implementation will be available.",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 17
+      },
+      "revId": "897495d6672455bbe773d6e890b1fff9b84d947c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
