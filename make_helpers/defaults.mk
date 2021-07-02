@@ -355,3 +355,8 @@ NR_OF_IMAGES_IN_FW_BANK		:= 1
 
 # Disable Firmware update support by default
 PSA_FWU_SUPPORT			:= 0
+
+# By default, disable access of trace buffer control registers from NS
+# lower ELs  i.e. NS-EL2, or NS-EL1 if NS-EL2 implemented but unused
+# if FEAT_TRBE is implemented
+ENABLE_TRBE_FOR_NS		:= 0
