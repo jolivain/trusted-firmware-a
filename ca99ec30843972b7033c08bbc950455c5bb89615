@@ -22,6 +22,30 @@
       },
       "revId": "ca99ec30843972b7033c08bbc950455c5bb89615",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac429e2b_7ae1dde9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-07-05T13:09:00Z",
+      "side": 1,
+      "message": "Code was erasing the FIP TOC header on image load/authentication failure, and not during FWU fails. \n\nThis change is necessary so that the FVP semi-hosting driver avoids \u0027FWU needed\u0027 detection falsely on every boot in the absence of FIP. \n\nLet me amend the message mentioning erasing the FIP TOC header  present in a flash is replaced by updating NV flags with an error code on image authentication/load failure.\n\nLet me know what do you think?",
+      "parentUuid": "a00cfa1a_fb2c1570",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 67
+      },
+      "revId": "ca99ec30843972b7033c08bbc950455c5bb89615",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
