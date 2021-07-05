@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a00cfa1a_fb2c1570",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-07-05T11:26:58Z",
+      "side": 1,
+      "message": "In commit message you should also mention that we have removed the code to erase the flash when FWU fails.\nBTW what was the rationale to erase the flash and what has changed now?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 67
+      },
+      "revId": "ca99ec30843972b7033c08bbc950455c5bb89615",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
