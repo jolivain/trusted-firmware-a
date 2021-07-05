@@ -33,6 +33,42 @@
       "message": "\u003e Patch Set 2: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 767 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/767/)\n\u003e Some tests failed (1)\n\n\nCan you check the two platform build failures with fvp-spm-mm and synquacer? Thanks.",
       "revId": "6de4cb6d44aeb6fd381e286a530cae2654be5ce3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1def6ed6_ca79024c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-07-05T11:19:44Z",
+      "side": 1,
+      "message": "Hi Achin,\nThank you very much for detailed look into the patchset and sorry about late response.\n\nFirst point: Logical SP implementation, will have impact in all type of SPMC implementation and Secure partitions. Will follow up in separate discussion.\n\nSecond point: Agree, will make the design changes to initialize S-EL0 SP as per FF-A guidance.\n\nThird point: Agree, ideally SPMC shouldn\u0027t peek into message contents from either world, will make the necessary changes.\n\nIdea behind this patchset, was to reorganize SPM-MM code and accommodate both SPM-MM and SPMC together with minimal change. In subsequent patchset, bring in more FF-A compliant changes. The features you highlighted and changes needed for the same can be included in this patchset, will try to quickly post the changes in next version of patchset.\n\nPlease let me know if you have more suggestions to share.\nThanks,\nSayanta",
+      "parentUuid": "beccdb0d_7c03ab7f",
+      "revId": "6de4cb6d44aeb6fd381e286a530cae2654be5ce3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9a984e3_4548b134",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-07-05T11:19:44Z",
+      "side": 1,
+      "message": "Checked the CI log. Because SPM-MM code is reorganized and \"services/spm_mm_partition.h\" has been moved and renamed, the compilation error appeared for fvp-spm-mm and synquacer paltform.\nAs Achin, suggested to make some design and implementation changes in current patchset, will make the necessary changes and post the next version.\nCI can be initiated after review of the same. Thanks.",
+      "parentUuid": "9e5bad46_5f8b24a0",
+      "revId": "6de4cb6d44aeb6fd381e286a530cae2654be5ce3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
