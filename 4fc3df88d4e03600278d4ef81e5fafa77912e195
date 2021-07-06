@@ -34,6 +34,24 @@
       "parentUuid": "78abb326_b38091ad",
       "revId": "4fc3df88d4e03600278d4ef81e5fafa77912e195",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a8519fb_a4c26385",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-07-06T16:31:07Z",
+      "side": 1,
+      "message": "Sorry for the late reply, As mentioned in commit msg that GICv3/4 specification talks about dsb guarantees actual register write.\nConsidering both gicv3_cpuif_enable() \u0026 gicv3_cpuif_disable() functions are writing to these registers, IMO its better to keep same in both functions.",
+      "parentUuid": "8889225c_6de40195",
+      "revId": "4fc3df88d4e03600278d4ef81e5fafa77912e195",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
