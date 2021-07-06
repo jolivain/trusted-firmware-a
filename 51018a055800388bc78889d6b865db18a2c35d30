@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "236e73b7_1d1e9440",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-07-06T13:52:20Z",
+      "side": 1,
+      "message": "I had a look at the failures reported by the CI (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l2/build/277/). We\u0027ve got 4 failing test configs:\n* fvp-tspd,fvp-default:fvp-tftf-fip.tftf-aemv8a-tspd\n* fvp-pauth-standard-tsp-romlib,fvp-pauth-standard:fvp-tftf-fip.tftf-aemv8a.8_5+bti\n* fvp-pauth-standard-tsp-romlib,fvp-pauth-standard:fvp-tftf-fip.tftf-aemv8a.8_5+bti-debug\n* juno-mbedtls-rsa-opteed:juno-linux.optee\n\nMeasured boot is only supported on FVP so the Juno failure is unrelated to this patch.\nAlso, none of the FVP test configs above enable measured boot so they are not related to this patch either.\n\nThese assumptions are based on the fact that these patches only touch drivers/measured_boot/event_log.c, which is built only if MEASURED_BOOT\u003d1.",
+      "revId": "51018a055800388bc78889d6b865db18a2c35d30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
