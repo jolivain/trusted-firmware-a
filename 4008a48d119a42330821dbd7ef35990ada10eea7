@@ -547,6 +547,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abd5bd6d_5510e382",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-07-07T14:55:29Z",
+      "side": 1,
+      "message": "Added description to DF4.",
+      "parentUuid": "49e593b0_2b01458e",
+      "range": {
+        "startLine": 61,
+        "startChar": 20,
+        "endLine": 61,
+        "endChar": 54
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "506ffa94_39a15e11",
@@ -618,6 +642,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c09a5626_d86c262d",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-07-07T14:55:29Z",
+      "side": 1,
+      "message": "Added a bullet in Trust boundaries section.",
+      "parentUuid": "3de5f824_59964032",
+      "range": {
+        "startLine": 97,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 40
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88b9f32e_cd4a7551",
@@ -678,6 +726,30 @@
       "writtenOn": "2021-06-21T17:41:20Z",
       "side": 1,
       "message": "Similar to my earlier comment, should this be in scope of this threat model? It looks like it\u0027s outside of the control of SPMC from the diagram.",
+      "range": {
+        "startLine": 165,
+        "startChar": 42,
+        "endLine": 165,
+        "endChar": 45
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1253cd50_77947aa4",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-07-07T14:55:29Z",
+      "side": 1,
+      "message": "Clarified that DF4 is a SP to SP communication mediated by the SPMC.",
+      "parentUuid": "80f322de_ee3b6060",
       "range": {
         "startLine": 165,
         "startChar": 42,
@@ -843,6 +915,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "e2a21a82_6ac7a8e7",
+      "range": {
+        "startLine": 242,
+        "startChar": 28,
+        "endLine": 244,
+        "endChar": 37
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1259761_b53d1be3",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-07-07T14:55:29Z",
+      "side": 1,
+      "message": "Clarified the case of SPMC manipulating an endpoint\u0027s RX/TX buffer.",
+      "parentUuid": "0de9220c_a22ece34",
       "range": {
         "startLine": 242,
         "startChar": 28,
@@ -1126,6 +1222,30 @@
       "side": 1,
       "message": "It sounds better now.",
       "parentUuid": "289a6dff_fb3b2c4d",
+      "range": {
+        "startLine": 459,
+        "startChar": 27,
+        "endLine": 459,
+        "endChar": 53
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f279b436_6e0ce0b0",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-07-07T14:55:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dd995c32_d2cce7a2",
       "range": {
         "startLine": 459,
         "startChar": 27,
