@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0214d94_44ab522b",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-07-07T10:21:05Z",
+      "side": 1,
+      "message": "Perhaps we should emphasize that the TCG event log is the only measured boot backend we support right now? Something like:\n\n The current implementation of the driver included in Trusted Firmware-A\n (TF-A) stores the measurements into a TCG event log stored in secure\n memory. No other means of recording measurements (such as a discrete TPM)\n is supported right now.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 60
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "277a3961_d799a0f4",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-07-07T10:21:05Z",
+      "side": 1,
+      "message": "The copy in non-secure memory is something we do on the FVP platform but other platforms might choose to do something else than copying it. If we want to stay generic and leave platform-specific details out of the picture, I think we\u0027d better say that the driver provides a way to pass the event log to normal world.",
+      "range": {
+        "startLine": 9,
+        "startChar": 62,
+        "endLine": 11,
+        "endChar": 0
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ddaf19b_80c7818f",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-07-07T10:21:05Z",
+      "side": 1,
+      "message": "\"on top of OP-TEE\" might sound better?",
+      "range": {
+        "startLine": 14,
+        "startChar": 12,
+        "endLine": 14,
+        "endChar": 26
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9ed1ddd_80f200e7",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-07-07T10:21:05Z",
+      "side": 1,
+      "message": "\"event log\" (singular)? Or can there be several event logs?",
+      "range": {
+        "startLine": 46,
+        "startChar": 38,
+        "endLine": 46,
+        "endChar": 48
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbb3b80f_1decc291",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-07-07T10:21:05Z",
+      "side": 1,
+      "message": "(nit) Can we put an empty line between these 2 bullet points for readability? Or would that not render correctly through Sphinx?",
+      "range": {
+        "startLine": 49,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 5
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5f3dd1a_308e04d9",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-07-07T10:21:05Z",
+      "side": 1,
+      "message": "Perhaps be more specific, say that these instructions are specific to FVP?\n\n Building the PoC for the Arm FVP platform",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 16
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1606a35a_c9b725b1",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-07-07T10:21:05Z",
+      "side": 1,
+      "message": "Suggest:\n\n Running and using the PoC on the Armv8-A Foundation AEM FVP",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 25
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce7bf35b_f35188ee",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-07-07T10:21:05Z",
+      "side": 1,
+      "message": "This sounds misleading to me. It might read as if the fTPM TA is measuring images again. Suggest rewording along these lines:\n\n so it can retrieve all the entries on the log and record them",
+      "range": {
+        "startLine": 170,
+        "startChar": 16,
+        "endLine": 170,
+        "endChar": 60
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "814457a6_60fdf2de",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-07-07T10:21:05Z",
+      "side": 1,
+      "message": "If I am not mistaken, everything that is described in this document has been automated and integrated into the CI scripts (although I think this specific test config is temporarily disabled in the OpenCI). Would it be worth pointing people at the right scripts for reference, or even provide instructions to run them and reproduce this setup on their local machine?",
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
