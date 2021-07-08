@@ -777,6 +777,32 @@ ifneq (${DECRYPTION_SUPPORT},none)
     endif
 endif
 
+# Ensure SPD/SPM are not used with SME
+ifneq (${SPD},none)
+    ifeq (${ENABLE_SME_FOR_NS},1)
+        $(error SPD not compatible with ENABLE_SME_FOR_NS)
+    endif
+endif
+ifeq (${SPM_MM},1)
+    ifeq (${ENABLE_SME_FOR_NS},1)
+        $(error SPM_MM not compatible with ENABLE_SME_FOR_NS)
+    endif
+endif
+
+# Ensure that ENABLE_SVE_FOR_SWD is not used with SME
+ifeq (${ENABLE_SVE_FOR_SWD},1)
+    ifeq (${ENABLE_SME_FOR_NS},1)
+        $(error ENABLE_SVE_FOR_SWD not compatible with ENABLE_SME_FOR_NS)
+    endif
+endif
+
+# Ensure ENABLE_RME is not used with SME
+ifeq (${ENABLE_RME},1)
+    ifeq (${ENABLE_SME_FOR_NS},1)
+        $(error ENABLE_RME not compatible with ENABLE_SME_FOR_NS)
+    endif
+endif
+
 ################################################################################
 # Process platform overrideable behaviour
 ################################################################################
@@ -941,6 +967,7 @@ $(eval $(call assert_booleans,\
         ENABLE_PSCI_STAT \
         ENABLE_RME \
         ENABLE_RUNTIME_INSTRUMENTATION \
+        ENABLE_SME_FOR_NS \
         ENABLE_SPE_FOR_LOWER_ELS \
         ENABLE_SVE_FOR_NS \
         ENABLE_SVE_FOR_SWD \
@@ -1048,6 +1075,7 @@ $(eval $(call add_defines,\
         ENABLE_PSCI_STAT \
         ENABLE_RME \
         ENABLE_RUNTIME_INSTRUMENTATION \
+        ENABLE_SME_FOR_NS \
         ENABLE_SPE_FOR_LOWER_ELS \
         ENABLE_SVE_FOR_NS \
         ENABLE_SVE_FOR_SWD \
