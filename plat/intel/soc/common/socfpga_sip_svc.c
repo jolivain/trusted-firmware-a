@@ -674,6 +674,19 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 					(uint32_t *) &x4, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x3, x4);
 
+	case INTEL_SIP_SMC_FCS_GET_DIGEST_INIT:
+		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
+		status = intel_fcs_get_digest_init(x1, x2, x3,
+					x4, x5, &mbox_error);
+		SMC_RET2(handle, status, mbox_error);
+
+	case INTEL_SIP_SMC_FCS_GET_DIGEST_FINALIZE:
+		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
+		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
+		status = intel_fcs_get_digest_finalize(x1, x2, x3,
+					 x4, x5, (uint32_t *) &x6, &mbox_error);
+		SMC_RET4(handle, status, mbox_error, x5, x6);
+
 	default:
 		return socfpga_sip_handler(smc_fid, x1, x2, x3, x4,
 			cookie, handle, flags);
