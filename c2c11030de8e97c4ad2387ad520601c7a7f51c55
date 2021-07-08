@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "532b990f_7876bb2a",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-07-08T11:09:58Z",
+      "side": 1,
+      "message": "Thanks. I have rephrased this and included a link to the TGC event log spec as well.",
+      "parentUuid": "f0214d94_44ab522b",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 60
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "277a3961_d799a0f4",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-07-07T10:21:05Z",
       "side": 1,
       "message": "The copy in non-secure memory is something we do on the FVP platform but other platforms might choose to do something else than copying it. If we want to stay generic and leave platform-specific details out of the picture, I think we\u0027d better say that the driver provides a way to pass the event log to normal world.",
+      "range": {
+        "startLine": 9,
+        "startChar": 62,
+        "endLine": 11,
+        "endChar": 0
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b89808c2_a5b71a7d",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-07-08T11:09:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "277a3961_d799a0f4",
       "range": {
         "startLine": 9,
         "startChar": 62,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38d39757_3191c1af",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-07-08T11:09:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ddaf19b_80c7818f",
+      "range": {
+        "startLine": 14,
+        "startChar": 12,
+        "endLine": 14,
+        "endChar": 26
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9ed1ddd_80f200e7",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-07-07T10:21:05Z",
       "side": 1,
       "message": "\"event log\" (singular)? Or can there be several event logs?",
+      "range": {
+        "startLine": 46,
+        "startChar": 38,
+        "endLine": 46,
+        "endChar": 48
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c68482b_6cc8bb8b",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-07-08T11:09:58Z",
+      "side": 1,
+      "message": "Yes, I mixed up event log and measurements in my head. Thanks.",
+      "parentUuid": "d9ed1ddd_80f200e7",
       "range": {
         "startLine": 46,
         "startChar": 38,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ee23fa0_5755deac",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-07-08T11:09:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbb3b80f_1decc291",
+      "range": {
+        "startLine": 49,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 5
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5f3dd1a_308e04d9",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-07-07T10:21:05Z",
       "side": 1,
       "message": "Perhaps be more specific, say that these instructions are specific to FVP?\n\n Building the PoC for the Arm FVP platform",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 16
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8413f762_675f9eba",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-07-08T11:09:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5f3dd1a_308e04d9",
       "range": {
         "startLine": 69,
         "startChar": 0,
@@ -162,6 +306,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e4b20ea_63390131",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-07-08T11:09:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1606a35a_c9b725b1",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 25
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce7bf35b_f35188ee",
@@ -185,6 +353,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9df9e84_7d05fa50",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-07-08T11:09:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce7bf35b_f35188ee",
+      "range": {
+        "startLine": 170,
+        "startChar": 16,
+        "endLine": 170,
+        "endChar": 60
+      },
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "814457a6_60fdf2de",
@@ -198,6 +390,24 @@
       "writtenOn": "2021-07-07T10:21:05Z",
       "side": 1,
       "message": "If I am not mistaken, everything that is described in this document has been automated and integrated into the CI scripts (although I think this specific test config is temporarily disabled in the OpenCI). Would it be worth pointing people at the right scripts for reference, or even provide instructions to run them and reproduce this setup on their local machine?",
+      "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a10a853_f393b1d6",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-07-08T11:09:58Z",
+      "side": 1,
+      "message": "The CI scripts run the PoC and verify that the output of some commands are as expected (for instance, the measurements shown on the debug logs of both, TF-A and the TA, match or that PCR0 is not all 0 whilst the rest are) but they don\u0027t build the images as they use a pre-built set of them (generated using these instructions, though).\n\nOpenCI will not work with the images generated here, though as their output is different from the ones expected by the current set of scripts. I have a task to update all the scripts along with the set of images before the next release. I can update the instructions as part of that task to explain how to run the tests on OpenCI locally with the generated images.",
+      "parentUuid": "814457a6_60fdf2de",
       "revId": "c2c11030de8e97c4ad2387ad520601c7a7f51c55",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
