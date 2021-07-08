@@ -134,7 +134,7 @@ ENABLE_BTI			:= 0
 ENABLE_PAUTH			:= 0
 
 # Flag to enable access to the HCRX_EL2 register by setting SCR_EL3.HXEn.
-ENABLE_FEAT_HCX                 := 0
+ENABLE_FEAT_HCX			:= 0
 
 # By default BL31 encryption disabled
 ENCRYPT_BL31			:= 0
@@ -222,13 +222,13 @@ RESET_TO_BL31			:= 0
 SAVE_KEYS			:= 0
 
 # Software Delegated Exception support
-SDEI_SUPPORT            	:= 0
+SDEI_SUPPORT			:= 0
 
 # True Random Number firmware Interface
-TRNG_SUPPORT            	:= 0
+TRNG_SUPPORT			:= 0
 
 # SMCCC PCI support
-SMC_PCI_SUPPORT            	:= 0
+SMC_PCI_SUPPORT			:= 0
 
 # Whether code and read-only data should be put on separate memory pages. The
 # platform Makefile is free to override this value.
@@ -324,7 +324,21 @@ ifneq (${ARCH},aarch32)
     ENABLE_SVE_FOR_SWD		:= 0
 else
     override ENABLE_SVE_FOR_NS	:= 0
-    override ENABLE_SVE_FOR_SWD  := 0
+    override ENABLE_SVE_FOR_SWD	:= 0
+endif
+
+# SME is only supported on AArch64, force off for AArch32 builds.
+ifneq (${ARCH},aarch32)
+    ENABLE_SME_FOR_NS		:= 0
+else
+    override ENABLE_SME_FOR_NS  := 0
+endif
+
+# Ensure SPD is not used with SME
+ifneq (${SPD},none)
+    ifeq (${ENABLE_SME_FOR_NS},1)
+        $(error SPD not compatible with ENABLE_SME_FOR_NS)
+    endif
 endif
 
 SANITIZE_UB := off
@@ -348,7 +362,7 @@ CTX_INCLUDE_EL2_REGS		:= 0
 SUPPORT_STACK_MEMTAG		:= no
 
 # Select workaround for AT speculative behaviour.
-ERRATA_SPECULATIVE_AT           := 0
+ERRATA_SPECULATIVE_AT		:= 0
 
 # Trap RAS error record access from lower EL
 RAS_TRAP_LOWER_EL_ERR_ACCESS	:= 0
