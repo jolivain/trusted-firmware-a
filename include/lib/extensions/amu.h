@@ -13,6 +13,7 @@
 #include <lib/cassert.h>
 #include <lib/utils_def.h>
 
+#include <context.h>
 #include <platform_def.h>
 
 /* All group 0 counters */
@@ -80,7 +81,7 @@ struct amu_ctx {
 };
 
 unsigned int amu_get_version(void);
-void amu_enable(bool el2_unused);
+void amu_enable(bool el2_unused, cpu_context_t *ctx);
 
 /* Group 0 configuration helpers */
 uint64_t amu_group0_cnt_read(unsigned int idx);
