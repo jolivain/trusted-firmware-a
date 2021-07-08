@@ -20,6 +20,7 @@
 #include <lib/el3_runtime/pubsub_events.h>
 #include <lib/extensions/amu.h>
 #include <lib/extensions/mpam.h>
+#include <lib/extensions/sme.h>
 #include <lib/extensions/spe.h>
 #include <lib/extensions/sve.h>
 #include <lib/extensions/sys_reg_trace.h>
@@ -396,6 +397,9 @@ static void enable_extensions_nonsecure(bool el2_unused, cpu_context_t *ctx)
 	trf_enable();
 #endif /* ENABLE_TRF_FOR_NS */
 
+#if ENABLE_SME_FOR_NS
+	sme_enable_ns(ctx);
+#endif /* ENABLE_SME_FOR_NS */
 #endif
 }
 
