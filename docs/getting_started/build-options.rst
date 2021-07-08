@@ -299,6 +299,13 @@ Common build options
    instrumented. Enabling this option enables the ``ENABLE_PMF`` build option
    as well. Default is 0.
 
+-  ``ENABLE_SME_FOR_NS``: Boolean option to enable Scalable Matrix Extension
+   (SME) for the non-secure world only. SME is an optional architectural feature
+   for AArch64 and TF-A support is experimental. At this time, this build option
+   cannot be used on systems that have SPD, SPM_MM, ENABLE_RME, or
+   ENABLE_SVE_FOR_SWD, and attempting to build with these options will fail.
+   Default is 0.
+
 -  ``ENABLE_SPE_FOR_LOWER_ELS`` : Boolean option to enable Statistical Profiling
    extensions. This is an optional architectural feature for AArch64.
    The default is 1 but is automatically disabled when the target architecture
