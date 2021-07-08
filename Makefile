@@ -9,6 +9,8 @@
 #
 VERSION_MAJOR			:= 2
 VERSION_MINOR			:= 5
+#
+#This patch is to test CI
 
 # Default goal is build all images
 .DEFAULT_GOAL			:= all
