@@ -784,6 +784,10 @@ Common build options
   but unused). This feature is available if trace unit such as ETMv4.x, and
   ETE(extending ETM feature) is implemented. This flag is enabled by default.
 
+- ``ENABLE_TRF_FOR_NS``: Boolean option to enable trace filter control registers
+  access from non-secure ELs, EL2 and EL1 (when EL2 is implemented but unused),
+  if self hosted trace extension implemented. This flag is enabled by default.
+
 GICv3 driver options
 --------------------
 
