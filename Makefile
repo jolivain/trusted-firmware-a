@@ -941,6 +941,7 @@ $(eval $(call assert_booleans,\
         ENABLE_PSCI_STAT \
         ENABLE_RME \
         ENABLE_RUNTIME_INSTRUMENTATION \
+        ENABLE_SME_FOR_NS \
         ENABLE_SPE_FOR_LOWER_ELS \
         ENABLE_SVE_FOR_NS \
         ENABLE_SVE_FOR_SWD \
@@ -1048,6 +1049,7 @@ $(eval $(call add_defines,\
         ENABLE_PSCI_STAT \
         ENABLE_RME \
         ENABLE_RUNTIME_INSTRUMENTATION \
+        ENABLE_SME_FOR_NS \
         ENABLE_SPE_FOR_LOWER_ELS \
         ENABLE_SVE_FOR_NS \
         ENABLE_SVE_FOR_SWD \
