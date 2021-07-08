@@ -327,6 +327,15 @@ else
     override ENABLE_SVE_FOR_SWD  := 0
 endif
 
+# By default, enable Scalable Matrix Extension if implemented for Non-secure
+# lower ELs
+# Note SME is only supported on AArch64 - therefore do not enable in AArch32
+ifneq (${ARCH},aarch32)
+    ENABLE_SME_FOR_NS		:= 1
+else
+    override ENABLE_SME_FOR_NS	:= 0
+endif
+
 SANITIZE_UB := off
 
 # For ARMv8.1 (AArch64) platforms, enabling this option selects the spinlock

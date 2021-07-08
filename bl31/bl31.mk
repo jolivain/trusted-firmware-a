@@ -91,6 +91,12 @@ ifeq (${ENABLE_SVE_FOR_NS},1)
 BL31_SOURCES		+=	lib/extensions/sve/sve.c
 endif
 
+ifeq (${ENABLE_SME_FOR_NS},1)
+BL31_SOURCES		+=	lib/extensions/sme/sme.c
+BL31_SOURCES		+=	lib/extensions/sme/sme_helpers.S
+march64-directive	:= 	$(march64-directive)+sve
+endif
+
 ifeq (${ENABLE_MPAM_FOR_LOWER_ELS},1)
 BL31_SOURCES		+=	lib/extensions/mpam/mpam.c
 endif
