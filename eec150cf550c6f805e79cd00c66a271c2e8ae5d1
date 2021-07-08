@@ -259,6 +259,30 @@
       },
       "revId": "eec150cf550c6f805e79cd00c66a271c2e8ae5d1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "224e61f6_9c7a2132",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-07-08T16:41:21Z",
+      "side": 1,
+      "message": "Circling back to this after a while....\n\nThinking about this a bit further from a non-technical viewpoint, using FFA_ID_GET would work but it seems like a bigger change in the TEE and SPMC than just passing the linear ID in a register. When S-EL2 is enabled, the SPMC can populate the linear ID in the VMPIDR. Would that not just solve the problem in the cleanest way? If so, then FFA_ID_GET would be required only if the SPMC is not in S-EL2. \n\nThis gives 3 ways to solve the problem.\n\n1. Pass linear ID in any register x0-x3\n2. Use FFA_ID_GET to get the linear ID\n3. Read the VMPIDR to obtain the linear ID\n\nA TEE would have to migrate from 1 -\u003e 2 -\u003e 3. The following migration path seems simpler to me.\n\n1. Pass linear ID in any register x0-x3\n2. Pass linear ID in any register x4-x7\n3. Read the VMPIDR to obtain the linear ID\n\nWhat do you reckon?",
+      "parentUuid": "50152b34_6c63fdb5",
+      "range": {
+        "startLine": 176,
+        "startChar": 1,
+        "endLine": 176,
+        "endChar": 70
+      },
+      "revId": "eec150cf550c6f805e79cd00c66a271c2e8ae5d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
