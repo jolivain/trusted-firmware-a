@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -29,6 +29,7 @@
 #define EP_SECURITY_SHIFT	UL(0)
 #define EP_SECURE		UL(0x0)
 #define EP_NON_SECURE		UL(0x1)
+#define EP_REALM		UL(0x20)
 
 /* Endianness of the image. */
 #define EP_EE_MASK		U(0x2)
@@ -60,6 +61,10 @@
 #define EP_FIRST_EXE		U(0x10)
 #define EP_GET_FIRST_EXE(x)	((x) & EP_FIRST_EXE_MASK)
 #define EP_SET_FIRST_EXE(x, ee)	((x) = ((x) & ~EP_FIRST_EXE_MASK) | (ee))
+
+/* Flag to indicate if the image executes in Realm state. */
+#define EP_REALM_MASK		U(0x20)
+#define EP_REALM_SHIFT		U(4)
 
 #ifndef __ASSEMBLER__
 
