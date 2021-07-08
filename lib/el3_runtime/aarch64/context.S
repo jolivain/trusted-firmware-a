@@ -921,12 +921,25 @@ func el3_exit
 	ldp	x19, x20, [sp, #CTX_EL3STATE_OFFSET + CTX_CPTR_EL3]
 	msr	cptr_el3, x19
 
-	ands	x19, x19, #CPTR_EZ_BIT
+	ands	x18, x19, #CPTR_EZ_BIT
 	beq	sve_not_enabled
 
 	isb
-	msr	S3_6_C1_C2_0, x20 /* zcr_el3 */
+	msr	ZCR_EL3, x20
 sve_not_enabled:
+
+	/* ----------------------------------------------------------
+	 * Restore SMCR_EL3
+	 * SMCR is only restored if SME is supported and enabled.
+	 * note: x19 still contains CPTR_EL3 value from above
+	 * ----------------------------------------------------------
+	 */
+	ands	x18, x19, #ESM_BIT
+	beq	sme_not_enabled
+
+	ldr	x20, [sp, #CTX_EL3STATE_OFFSET + CTX_SMCR_EL3]
+	msr	SMCR_EL3, x20
+sme_not_enabled:
 #endif
 
 #if IMAGE_BL31 && DYNAMIC_WORKAROUND_CVE_2018_3639
