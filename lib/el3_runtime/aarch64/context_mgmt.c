@@ -20,6 +20,7 @@
 #include <lib/el3_runtime/pubsub_events.h>
 #include <lib/extensions/amu.h>
 #include <lib/extensions/mpam.h>
+#include <lib/extensions/sme.h>
 #include <lib/extensions/spe.h>
 #include <lib/extensions/sve.h>
 #include <lib/extensions/sys_reg_trace.h>
@@ -396,6 +397,9 @@ static void enable_extensions_nonsecure(bool el2_unused, cpu_context_t *ctx)
 	trf_enable();
 #endif /* ENABLE_TRF_FOR_NS */
 
+#if ENABLE_SME_FOR_NS
+	sme_enable_ns(ctx);
+#endif /* ENABLE_SME_FOR_NS */
 #endif
 }
 
@@ -407,6 +411,13 @@ static void enable_extensions_secure(cpu_context_t *ctx)
 #if IMAGE_BL31
 #if ENABLE_SVE_FOR_SWD
 	sve_enable(ctx);
+#endif
+#if ENABLE_SME_FOR_NS
+	/*
+	 * When SME is enabled for NS we must disable it along with SVE and FPU
+	 * in secure context.
+	 */
+	sme_disable_s(ctx);
 #endif
 #endif
 }
