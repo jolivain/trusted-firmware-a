@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -60,8 +60,6 @@
 #define MT_TYPE(_attr)		((_attr) & MT_TYPE_MASK)
 /* Access permissions (RO/RW) */
 #define MT_PERM_SHIFT		U(3)
-/* Security state (SECURE/NS) */
-#define MT_SEC_SHIFT		U(4)
 /* Access permissions for instruction execution (EXECUTE/EXECUTE_NEVER) */
 #define MT_EXECUTE_SHIFT	U(5)
 /* In the EL1&0 translation regime, User (EL0) or Privileged (EL1). */
@@ -71,6 +69,17 @@
 #define MT_SHAREABILITY_SHIFT	U(7)
 #define MT_SHAREABILITY_MASK	(U(3) << MT_SHAREABILITY_SHIFT)
 #define MT_SHAREABILITY(_attr)	((_attr) & MT_SHAREABILITY_MASK)
+
+#if ENABLE_RME
+/* Physical address space (SECURE/NS/Root/Realm) */
+#define MT_PAS_SHIFT		U(9)
+#define MT_PAS_MASK		(U(3) << MT_PAS_SHIFT)
+#define MT_PAS(_attr)		((_attr) & MT_PAS_MASK)
+#else
+/* Security state (SECURE/NS) */
+#define MT_SEC_SHIFT		U(4)
+#endif
+
 /* All other bits are reserved */
 
 /*
@@ -91,8 +100,15 @@
 #define MT_RO			(U(0) << MT_PERM_SHIFT)
 #define MT_RW			(U(1) << MT_PERM_SHIFT)
 
+#if ENABLE_RME
+#define MT_SECURE		(U(0) << MT_PAS_SHIFT)
+#define MT_NS			(U(1) << MT_PAS_SHIFT)
+#define MT_ROOT			(U(2) << MT_PAS_SHIFT)
+#define MT_REALM		(U(3) << MT_PAS_SHIFT)
+#else
 #define MT_SECURE		(U(0) << MT_SEC_SHIFT)
 #define MT_NS			(U(1) << MT_SEC_SHIFT)
+#endif
 
 /*
  * Access permissions for instruction execution are only relevant for normal
@@ -148,6 +164,13 @@ typedef struct mmap_region {
 #define EL2_REGIME		2
 #define EL3_REGIME		3
 #define EL_REGIME_INVALID	-1
+
+/* Memory type for EL3 regions. With RME, EL3 is in ROOT PAS */
+#if ENABLE_RME
+#define EL3_PAS			MT_ROOT
+#else
+#define EL3_PAS			MT_SECURE
+#endif /* ENABLE_RME */
 
 /*
  * Declare the translation context type.
