@@ -356,3 +356,7 @@ endif
 # By default, enable access of trace system registers from Non-secure lower
 # ELs  i.e. EL2, and EL1 if EL2 implemented but unused
 ENABLE_SYS_REG_TRACE_FOR_NS	:= 1
+
+# By default, enable trace filter control registers access to Non-secure
+# lower ELs, if self hosted trace extension implemented.
+ENABLE_TRF_FOR_NS	:= 1
