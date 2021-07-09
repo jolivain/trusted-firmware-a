@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ff6c446_bf2951c2",
+        "filename": "plat/arm/board/diphda/common/fdts/diphda_spmc_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-07-09T14:05:12Z",
+      "side": 1,
+      "message": "Okay. Looking at spmc manifests of TC0 platform, I am wondering how do you describe the various secure partitions that need to be booted by SPMC on this platform? Does your SPMC run in S-EL1 or S-EL2?",
+      "parentUuid": "a4d87f41_e84066d6",
+      "revId": "6a5c4acaa92775572d8b64ab8285dd73dd0c3a83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c4710780_04adf64a",
         "filename": "plat/arm/board/diphda/include/plat_macros.S",
         "patchSetId": 4
