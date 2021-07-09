@@ -148,6 +148,8 @@ IMPORT_SYM(uintptr_t, __COHERENT_RAM_START__,	BL_COHERENT_RAM_BASE);
 IMPORT_SYM(uintptr_t, __COHERENT_RAM_END__,	BL_COHERENT_RAM_END);
 #endif
 
+extern entry_point_info_t *bl2_ep_info;
+
 /*******************************************************************************
  * Structure used for telling the next BL how much of a particular type of
  * memory is available for its use and how much is already used.
