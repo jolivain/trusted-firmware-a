@@ -71,6 +71,10 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 	gp_regs_t *gp_regs;
 	u_register_t sctlr_elx, actlr_elx;
 
+#if ENABLE_RME
+	u_register_t hcr_el2;
+#endif /* ENABLE_RME */
+
 	assert(ctx != NULL);
 
 	security_state = GET_SECURITY_STATE(ep->h.attr);
@@ -90,24 +94,47 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 	scr_el3 = read_scr();
 	scr_el3 &= ~(SCR_NS_BIT | SCR_RW_BIT | SCR_FIQ_BIT | SCR_IRQ_BIT |
 			SCR_ST_BIT | SCR_HCE_BIT);
+
+#if ENABLE_RME
+	/* When RME support is enabled, clear the NSE bit as well. */
+	scr_el3 &= ~SCR_NSE_BIT;
+#endif /* ENABLE_RME */
+
 	/*
 	 * SCR_NS: Set the security state of the next EL.
 	 */
-	if (security_state != SECURE)
+	if (security_state == NON_SECURE) {
 		scr_el3 |= SCR_NS_BIT;
+	}
+
+#if ENABLE_RME
+	/* Check for realm state if RME support enabled. */
+	if (security_state == REALM) {
+		scr_el3 |= SCR_NS_BIT | SCR_NSE_BIT;
+
+		/*
+		 * RMM relies on EL3 to setup HCR_EL2 for page table setup.
+		 */
+		hcr_el2 = HCR_TEA_BIT | HCR_E2H_BIT | HCR_TGE_BIT;
+		write_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_HCR_EL2, hcr_el2);
+	}
+#endif /* ENABLE_RME */
+
 	/*
 	 * SCR_EL3.RW: Set the execution state, AArch32 or AArch64, for next
 	 *  Exception level as specified by SPSR.
 	 */
-	if (GET_RW(ep->spsr) == MODE_RW_64)
+	if (GET_RW(ep->spsr) == MODE_RW_64) {
 		scr_el3 |= SCR_RW_BIT;
+	}
 	/*
 	 * SCR_EL3.ST: Traps Secure EL1 accesses to the Counter-timer Physical
 	 *  Secure timer registers to EL3, from AArch64 state only, if specified
 	 *  by the entrypoint attributes.
 	 */
-	if (EP_GET_ST(ep->h.attr) != 0U)
+	if (EP_GET_ST(ep->h.attr) != 0U) {
 		scr_el3 |= SCR_ST_BIT;
+	}
 
 #if RAS_TRAP_LOWER_EL_ERR_ACCESS
 	/*
@@ -141,8 +168,9 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 	 * If the Secure world wants to use pointer authentication,
 	 * CTX_INCLUDE_PAUTH_REGS must be set to 1.
 	 */
-	if (security_state == NON_SECURE)
+	if (security_state == NON_SECURE) {
 		scr_el3 |= SCR_API_BIT | SCR_APK_BIT;
+	}
 #endif /* !CTX_INCLUDE_PAUTH_REGS */
 
 #if !CTX_INCLUDE_MTE_REGS || ENABLE_ASSERTIONS
@@ -213,10 +241,13 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 		}
 	}
 
-	/* Enable S-EL2 if the next EL is EL2 and security state is secure */
-	if ((security_state == SECURE) && (GET_EL(ep->spsr) == MODE_EL2)) {
+	/*
+	 * Enable S-EL2 if the next EL is EL2 and security state is secure or
+	 * realm.
+	 */
+	if ((security_state != NON_SECURE) && (GET_EL(ep->spsr) == MODE_EL2)) {
 		if (GET_RW(ep->spsr) != MODE_RW_64) {
-			ERROR("S-EL2 can not be used in AArch32.");
+			ERROR("S-EL2 cannot be used in AArch32.");
 			panic();
 		}
 
@@ -245,9 +276,9 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 	 *  required by PSCI specification)
 	 */
 	sctlr_elx = (EP_GET_EE(ep->h.attr) != 0U) ? SCTLR_EE_BIT : 0U;
-	if (GET_RW(ep->spsr) == MODE_RW_64)
+	if (GET_RW(ep->spsr) == MODE_RW_64) {
 		sctlr_elx |= SCTLR_EL1_RES1;
-	else {
+	} else {
 		/*
 		 * If the target execution state is AArch32 then the following
 		 * fields need to be set.
@@ -389,7 +420,8 @@ void cm_init_my_context(const entry_point_info_t *ep)
 }
 
 /*******************************************************************************
- * Prepare the CPU system registers for first entry into secure or normal world
+ * Prepare the CPU system registers for first entry into realm, secure, or
+ * normal world.
  *
  * If execution is requested to EL2 or hyp mode, SCTLR_EL2 is initialized
  * If execution is requested to non-secure EL1 or svc mode, and the CPU supports
@@ -471,7 +503,7 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			 * architecturally UNKNOWN on reset and are set to zero
 			 * except for field(s) listed below.
 			 *
-			 * CNTHCTL_EL2.EL1PCEN: Set to one to disable traps to
+			 * CNTHCTL_EL2.EL1PTEN: Set to one to disable traps to
 			 *  Hyp mode of Non-secure EL0 and EL1 accesses to the
 			 *  physical timer registers.
 			 *
@@ -480,7 +512,8 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			 *  physical counter registers.
 			 */
 			write_cnthctl_el2(CNTHCTL_RESET_VAL |
-						EL1PCEN_BIT | EL1PCTEN_BIT);
+					CNTHCTL_EL1PTEN_BIT |
+					CNTHCTL_EL1PCTEN_BIT);
 
 			/*
 			 * Initialise CNTVOFF_EL2 to zero as it resets to an
@@ -613,10 +646,10 @@ void cm_el2_sysregs_context_save(uint32_t security_state)
 	u_register_t scr_el3 = read_scr();
 
 	/*
-	 * Always save the non-secure EL2 context, only save the
+	 * Always save the non-secure and realm EL2 context, only save the
 	 * S-EL2 context if S-EL2 is enabled.
 	 */
-	if ((security_state == NON_SECURE) ||
+	if ((security_state != SECURE) ||
 	    ((security_state == SECURE) && ((scr_el3 & SCR_EEL2_BIT) != 0U))) {
 		cpu_context_t *ctx;
 
@@ -635,10 +668,10 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 	u_register_t scr_el3 = read_scr();
 
 	/*
-	 * Always restore the non-secure EL2 context, only restore the
+	 * Always restore the non-secure and realm EL2 context, only restore the
 	 * S-EL2 context if S-EL2 is enabled.
 	 */
-	if ((security_state == NON_SECURE) ||
+	if ((security_state != SECURE) ||
 	    ((security_state == SECURE) && ((scr_el3 & SCR_EEL2_BIT) != 0U))) {
 		cpu_context_t *ctx;
 

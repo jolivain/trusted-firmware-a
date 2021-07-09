@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2021, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,16 +19,25 @@
 /* 8-bytes aligned size of psci_cpu_data structure */
 #define PSCI_CPU_DATA_SIZE_ALIGNED	((PSCI_CPU_DATA_SIZE + 7) & ~7)
 
+#if ENABLE_RME
+/* Size of cpu_context array */
+#define CPU_DATA_CPU_CONTEXT_SIZE	3
 /* Offset of cpu_ops_ptr, size 8 bytes */
+#define CPU_DATA_CPU_OPS_PTR		0x18
+#else /* ENABLE_RME */
+#define CPU_DATA_CPU_CONTEXT_SIZE	2
 #define CPU_DATA_CPU_OPS_PTR		0x10
+#endif /* ENABLE_RME */
 
 #if ENABLE_PAUTH
 /* 8-bytes aligned offset of apiakey[2], size 16 bytes */
-#define	CPU_DATA_APIAKEY_OFFSET		(0x18 + PSCI_CPU_DATA_SIZE_ALIGNED)
-#define CPU_DATA_CRASH_BUF_OFFSET	(CPU_DATA_APIAKEY_OFFSET + 0x10)
-#else
-#define CPU_DATA_CRASH_BUF_OFFSET	(0x18 + PSCI_CPU_DATA_SIZE_ALIGNED)
-#endif	/* ENABLE_PAUTH */
+#define	CPU_DATA_APIAKEY_OFFSET		(0x8 + PSCI_CPU_DATA_SIZE_ALIGNED
+					     + CPU_DATA_CPU_OPS_PTR)
+#define CPU_DATA_CRASH_BUF_OFFSET	(0x10 + CPU_DATA_APIAKEY_OFFSET)
+#else /* ENABLE_PAUTH */
+#define CPU_DATA_CRASH_BUF_OFFSET	(0x8 + PSCI_CPU_DATA_SIZE_ALIGNED
+					     + CPU_DATA_CPU_OPS_PTR)
+#endif /* ENABLE_PAUTH */
 
 /* need enough space in crash buffer to save 8 registers */
 #define CPU_DATA_CRASH_BUF_SIZE		64
@@ -86,12 +95,10 @@
 
 /*******************************************************************************
  * Cache of frequently used per-cpu data:
- *   Pointers to non-secure and secure security state contexts
+ *   Pointers to non-secure, realm, and secure security state contexts
  *   Address of the crash stack
  * It is aligned to the cache line boundary to allow efficient concurrent
  * manipulation of these pointers on different cpus
- *
- * TODO: Add other commonly used variables to this (tf_issues#90)
  *
  * The data structure and the _cpu_data accessors should not be used directly
  * by components that have per-cpu members. The member access macros should be
@@ -99,8 +106,8 @@
  ******************************************************************************/
 typedef struct cpu_data {
 #ifdef __aarch64__
-	void *cpu_context[2];
-#endif
+	void *cpu_context[CPU_DATA_CPU_CONTEXT_SIZE];
+#endif /* __aarch64__ */
 	uintptr_t cpu_ops_ptr;
 	struct psci_cpu_data psci_svc_cpu_data;
 #if ENABLE_PAUTH
@@ -125,7 +132,7 @@ extern cpu_data_t percpu_data[PLATFORM_CORE_COUNT];
 #if ENABLE_PAUTH
 CASSERT(CPU_DATA_APIAKEY_OFFSET == __builtin_offsetof
 	(cpu_data_t, apiakey),
-	assert_cpu_data_crash_stack_offset_mismatch);
+	assert_cpu_data_pauth_stack_offset_mismatch);
 #endif
 
 #if CRASH_REPORTING
@@ -159,6 +166,23 @@ static inline struct cpu_data *_cpu_data(void)
 #else
 struct cpu_data *_cpu_data(void);
 #endif
+
+/*
+ * Returns the index of the cpu_context array for the given security state.
+ * All accesses to cpu_context should be through this helper to make sure
+ * an access is not out-of-bounds. The function assumes security_state is
+ * valid.
+ */
+static inline unsigned int get_cpu_context_index(uint32_t security_state)
+{
+	if (security_state == SECURE) {
+		return 0;
+	} else if (security_state == NON_SECURE) {
+		return 1;
+	} else {
+		return 2;
+	}
+}
 
 /**************************************************************************
  * APIs for initialising and accessing per-cpu data
