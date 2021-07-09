@@ -507,6 +507,7 @@
 #define HCR_AMVOFFEN_BIT	(ULL(1) << 51)
 #define HCR_API_BIT		(ULL(1) << 41)
 #define HCR_APK_BIT		(ULL(1) << 40)
+#define HCR_TEA_BIT		(ULL(1) << 37)
 #define HCR_E2H_BIT		(ULL(1) << 34)
 #define HCR_TGE_BIT		(ULL(1) << 27)
 #define HCR_RW_SHIFT		U(31)
@@ -522,9 +523,11 @@
 
 /* CNTHCTL_EL2 definitions */
 #define CNTHCTL_RESET_VAL	U(0x0)
-#define EVNTEN_BIT		(U(1) << 2)
-#define EL1PCEN_BIT		(U(1) << 1)
-#define EL1PCTEN_BIT		(U(1) << 0)
+#define CNTHCTL_EL1PTEN_BIT	(U(1) << 11)
+#define CNTHCTL_EL1PCTEN_BIT	(U(1) << 10)
+#define CNTHCTL_EVNTEN_BIT	(U(1) << 2)
+#define CNTHCTL_EL0VCTEN_BIT	(U(1) << 1)
+#define CNTHCTL_EL0PCTEN_BIT	(U(1) << 0)
 
 /* CNTKCTL_EL1 definitions */
 #define EL0PTEN_BIT		(U(1) << 9)
@@ -548,7 +551,9 @@
 #define CPTR_EL2_RES1		((U(1) << 13) | (U(1) << 12) | (U(0x3ff)))
 #define CPTR_EL2_TCPAC_BIT	(U(1) << 31)
 #define CPTR_EL2_TAM_BIT	(U(1) << 30)
-#define CPTR_EL2_TTA_BIT	(U(1) << 20)
+#define CPTR_EL2_TTA_BIT	(U(1) << 28)
+#define CPTR_EL2_FPEN_DISABLE_EL0	(U(1) << 20)
+#define CPTR_EL2_ZEN_DISABLE_EL0	(U(1) << 16)
 #define CPTR_EL2_TFP_BIT	(U(1) << 10)
 #define CPTR_EL2_TZ_BIT		(U(1) << 8)
 #define CPTR_EL2_RESET_VAL	CPTR_EL2_RES1
@@ -578,6 +583,7 @@
 #define SPSR_M_MASK		U(0x1)
 #define SPSR_M_AARCH64		U(0x0)
 #define SPSR_M_AARCH32		U(0x1)
+#define SPSR_M_EL2H		U(0x9)
 
 #define SPSR_EL_SHIFT		U(2)
 #define SPSR_EL_WIDTH		U(2)
@@ -616,6 +622,7 @@
 #define TCR_EL2_RES1		((ULL(1) << 31) | (ULL(1) << 23))
 #define TCR_EL1_IPS_SHIFT	U(32)
 #define TCR_EL2_PS_SHIFT	U(16)
+#define TCR_EL2_IPS_SHIFT	U(32)
 #define TCR_EL3_PS_SHIFT	U(16)
 
 #define TCR_TxSZ_MIN		ULL(16)
@@ -679,6 +686,11 @@
 #define TCR_TG1_16K		(ULL(1) << TCR_TG1_SHIFT)
 #define TCR_TG1_4K		(ULL(2) << TCR_TG1_SHIFT)
 #define TCR_TG1_64K		(ULL(3) << TCR_TG1_SHIFT)
+
+#define TCR_AS_BIT		(ULL(1) << 36)
+
+#define TCR_HPD0_BIT		(ULL(1) << 41)
+#define TCR_HPD1_BIT		(ULL(1) << 42)
 
 #define TCR_EPD0_BIT		(ULL(1) << 7)
 #define TCR_EPD1_BIT		(ULL(1) << 23)
