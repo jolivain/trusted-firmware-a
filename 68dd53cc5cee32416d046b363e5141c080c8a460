@@ -34,6 +34,24 @@
       "parentUuid": "84f24d1c_f5ca9f32",
       "revId": "68dd53cc5cee32416d046b363e5141c080c8a460",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a59a63b_7d5db17f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-07-12T13:24:51Z",
+      "side": 1,
+      "message": "Hi Pankaj,\n\nI tried compiling your patch by updating index.rst, but that results in build failure: \n\"../docs/plat/nxp/nxp-layerscape.rst:185:Could not lex literal_block as \"shell\". Highlighting skipped\"\n\nYou used the block \u0027code:: shell\u0027 many places in the documentation, but those blocks contain some more information along with shell commands. IMO, the shell block should have only commands information.Check some examples[1]. \n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/getting_started/prerequisites.rst#n90",
+      "parentUuid": "a55bcebc_d1f856a2",
+      "revId": "68dd53cc5cee32416d046b363e5141c080c8a460",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
