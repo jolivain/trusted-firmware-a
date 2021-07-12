@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84f24d1c_f5ca9f32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-07-12T12:42:04Z",
+      "side": 1,
+      "message": "Fixed the all the warning-errors.\n\nPlease help me on the following one error:\n\n$:\u003e make  DEBUG\u003d1 V\u003d1 doc\n  BUILD DOCUMENTATION\nmake --no-print-directory -C docs html\nRunning Sphinx v3.5.3\nmaking output directory... done\nbuilding [mo]: targets for 0 po files that are out of date\nbuilding [html]: targets for 132 source files that are out of date\nupdating environment: [new config] 132 added, 0 changed, 0 removed\nreading sources... [100%] threat_model/threat_model                                                                                                                                              \nlooking for now-outdated files... none found\npickling environment... done\nchecking consistency... failed\n\nWarning, treated as error:\n/home/pankaj/flexbuild/packages/firmware/trusted-firmware-a_Mar24/docs/plat/nxp/nxp-layerscape.rst:document isn\u0027t included in any toctree\nMakefile:25: recipe for target \u0027html\u0027 failed\nmake[1]: *** [html] Error 2\nMakefile:1337: recipe for target \u0027doc\u0027 failed\nmake: *** [doc] Error 2",
+      "revId": "68dd53cc5cee32416d046b363e5141c080c8a460",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
