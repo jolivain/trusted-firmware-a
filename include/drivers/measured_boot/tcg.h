@@ -19,7 +19,8 @@
 /*
  * Event types
  * Ref. Table 9 Events
- * TCG PC Client Platform Firmware Profile Specification.
+ * TCG PC Client Platform Firmware Profile Specification,
+ * Family "2.0", Level 00 Revision 1.04, June 3 2019.
  */
 #define EV_PREBOOT_CERT				U(0x00000000)
 #define EV_POST_CODE				U(0x00000001)
@@ -56,7 +57,8 @@
 /*
  * TPM_ALG_ID constants.
  * Ref. Table 9 - Definition of (UINT16) TPM_ALG_ID Constants
- * Trusted Platform Module Library. Part 2: Structures
+ * Trusted Platform Module Library. Part 2: Structures,
+ * Family "2.0", Level 00 Revision 01.38, September 29 2016.
  */
 #define TPM_ALG_SHA256		0x000B
 #define TPM_ALG_SHA384		0x000C
@@ -105,7 +107,8 @@ enum {
 
 /*
  * PCR Event Header
- * TCG EFI Protocol Specification
+ * TCG EFI Protocol Specification,
+ * Family "2.0", Level 00 Revision 00.13, March 30 2016.
  * 5.3 Event Log Header
  */
 typedef struct {
