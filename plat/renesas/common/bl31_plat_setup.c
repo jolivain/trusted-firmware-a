@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2013-2014, ARM Limited and Contributors. All rights reserved.
- * Copyright (c) 2015-2020, Renesas Electronics Corporation. All rights reserved.
+ * Copyright (c) 2015-2023, Renesas Electronics Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -131,3 +131,17 @@ void bl31_platform_setup(void)
 	rcar_boot_mpidr = read_mpidr_el1() & 0x0000ffffU;
 	rcar_pwrc_all_disable_interrupt_wakeup();
 }
+
+uint32_t bl31_plat_boot_mpidr_chk(void)
+{
+	uint32_t rc = RCAR_MPIDRCHK_NOT_BOOTCPU;
+	u_register_t tmp_mpidr;
+
+	tmp_mpidr = read_mpidr_el1() & 0x0000ffffU;
+
+	if (tmp_mpidr == rcar_boot_mpidr) {
+		rc = RCAR_MPIDRCHK_BOOTCPU;
+	}
+	return rc;
+}
+
