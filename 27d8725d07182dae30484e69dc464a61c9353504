@@ -88,6 +88,24 @@
       "parentUuid": "67af383e_71f2c308",
       "revId": "27d8725d07182dae30484e69dc464a61c9353504",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9fe04bb_4720661e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2021-07-13T21:50:38Z",
+      "side": 1,
+      "message": "\u003e but why does the hcr_el2 need to happen before ttbr1_el2 in EL3?\n\nIn ARM Architecture Reference Manual it says this about TTBR1_EL2: \n\n\"When HCR_EL2.E2H is 1, holds the base address of the translation table for the initial lookup for stage 1 of the translation of an address from the higher VA range in the EL2\u00260 translation regime, and other information for this translation regime\"\n\nIf msr ttbr_el2 syncs in out of order before hcr_el2.e2h SET bit syncs in, the wrong ASID (bits [63:48] of TTBR1_EL2) is used in ttbr_el2 giving translation error.\n\nI think this explains this explains well the working of ASID https://developer.arm.com/documentation/101811/0101/Address-spaces-in-AArch64 \n\n\u003e Or when PAUTH registers are swapped?\nI found a similar problem in hafnium where stale keys were being used, This occurs in both hardware and model, giving pointer authentication error. I inserted an isb at the end of pauth_restore_hypervisor_key and issue was solved, Olivier is trying to upstream that here: https://review.trustedfirmware.org/c/hafnium/hafnium/+/10578\n\n\u003e why dont we execute ISB\u0027s after writing SCTLR_EL1 for example?\nI havent yet encountered an issue over here, is there any reason you think there should be an isb over here?",
+      "parentUuid": "b2f57f37_d6cdf206",
+      "revId": "27d8725d07182dae30484e69dc464a61c9353504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
