@@ -52,6 +52,24 @@
       "parentUuid": "55d33382_03009d3d",
       "revId": "27d8725d07182dae30484e69dc464a61c9353504",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67af383e_71f2c308",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-07-13T19:29:21Z",
+      "side": 1,
+      "message": "true. but why does the hcr_el2 need to happen before ttbr1_el2 in EL3? I know we have to do this in EL2, i just dont know that it matters in EL3. Those registers should have no effect or use in EL3 whatsoever. When we go back to EL2, the CSE should ensure that it both operations complete and any execution in EL2 happens after the CSE, at which point both registers should have the correct value no?",
+      "parentUuid": "1c99ca26_274e1c23",
+      "revId": "27d8725d07182dae30484e69dc464a61c9353504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
