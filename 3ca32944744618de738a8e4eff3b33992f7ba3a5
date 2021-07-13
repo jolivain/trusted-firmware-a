@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2827bb8_b70e4189",
+        "filename": "plat/xilinx/versal/bl31_versal_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-07-13T13:10:22Z",
+      "side": 1,
+      "message": "Please do explicit comparison: \nif(handler !\u003d NULL)",
+      "revId": "3ca32944744618de738a8e4eff3b33992f7ba3a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "342f0dd6_e6f76119",
+        "filename": "plat/xilinx/versal/bl31_versal_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-07-13T13:10:22Z",
+      "side": 1,
+      "message": "shouldnt this be:\nreturn handler(intr_id, flags, handle, cookie);",
+      "revId": "3ca32944744618de738a8e4eff3b33992f7ba3a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
