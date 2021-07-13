@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d97afad9_19d0f092",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-07-13T14:12:52Z",
+      "side": 1,
+      "message": "Is it worth mentioning in commit msg about 2 new arguments.",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 19
+      },
+      "revId": "c298bf0e1c5fbf451760beca9abafb2fdd53d14a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8101a5e2_9c3145ad",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-07-13T14:12:52Z",
+      "side": 1,
+      "message": "A generic comment: should we rename it to something like \"SPMC_AT_SEL2\" for consistency. The reason why i am asking is SMP and SPMC usage are very confusing.",
+      "range": {
+        "startLine": 402,
+        "startChar": 4,
+        "endLine": 402,
+        "endChar": 20
+      },
+      "revId": "c298bf0e1c5fbf451760beca9abafb2fdd53d14a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
