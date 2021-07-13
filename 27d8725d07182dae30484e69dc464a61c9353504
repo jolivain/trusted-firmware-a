@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcab79b0_152c2e60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2021-07-13T17:30:50Z",
+      "side": 1,
+      "message": "The msr for hcr_el2 is only guaranteed to take affect on a CSE (context synchronization event). For a core executing out of order, this patch is needed to make sure that the write to hcr_el2 happens before ttbr1_el2.",
+      "revId": "27d8725d07182dae30484e69dc464a61c9353504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
