@@ -453,6 +453,12 @@
 #define	ARM_PAS_GPTS			MAP_GPT_REGION_TBL(ARM_L1_GPT_ADDR_BASE, \
 							   ARM_L1_GPT_SIZE,      \
 							   GPI_ROOT)
+
+/* GPT Configuration options */
+#define PLATFORM_PGS			GPCCR_PGS_4K
+#define PLATFORM_PPS			GPCCR_PPS_4GB
+#define PLATFORM_L0GPTSZ		GPCCR_L0GPTSZ_30BITS
+
 #endif /* ENABLE_RME */
 
 /* Memory mapped Generic timer interfaces  */
