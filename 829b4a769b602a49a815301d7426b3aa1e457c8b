@@ -50,6 +50,23 @@
       "message": "So I had a thought about this, in a more general fashion:\nI think we can do away with all this dynamic mapping, instead use a much more coarse grained static mapping: All the FPGAs comply to the same Arm memory map framework, which puts boundaries between SRAM/ROM, MMIO and DRAM.\nSo we can just map the *whole* MMIO region as Device-nGnRE, and the first MB (or so) of DRAM as normal WB cacheable.\nThis way we can just ignore all the dynamic details of the actual FPGA model in use.\n\nI will try to code this up and send it, to get some input.",
       "revId": "829b4a769b602a49a815301d7426b3aa1e457c8b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cacb1665_cf39ea9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-07-13T15:52:45Z",
+      "side": 1,
+      "message": "Is this patch a candidate to abandon for now? Seems from the comments Andre is pursuing an alternative approach. I\u0027ll abandon it but bring it back if we want to track this as an open patch however its been inactive for over 21 days.",
+      "revId": "829b4a769b602a49a815301d7426b3aa1e457c8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
