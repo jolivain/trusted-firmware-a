@@ -67,6 +67,24 @@
       "message": "Is this patch a candidate to abandon for now? Seems from the comments Andre is pursuing an alternative approach. I\u0027ll abandon it but bring it back if we want to track this as an open patch however its been inactive for over 21 days.",
       "revId": "829b4a769b602a49a815301d7426b3aa1e457c8b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40ff2a78_04d13a99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-07-14T09:26:41Z",
+      "side": 1,
+      "message": "Yes, I have something in the making (which will be a new patch), just need to decide how to best use arm/common code: atm I lose one hook when doing so.",
+      "parentUuid": "cacb1665_cf39ea9c",
+      "revId": "829b4a769b602a49a815301d7426b3aa1e457c8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
