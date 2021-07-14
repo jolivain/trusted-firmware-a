@@ -124,6 +124,24 @@
       "parentUuid": "d9fe04bb_4720661e",
       "revId": "27d8725d07182dae30484e69dc464a61c9353504",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce0504b9_195e95ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2021-07-14T13:44:32Z",
+      "side": 1,
+      "message": "\u003e At EL3, those registers should not affect code execution in EL3 and hence adding an ISB should not be necessary and when we return to EL2 we use an ERET which is a CSE at which point the ordering should not matter. \n\nI think this is where there is some confusion in the last part of the statement. I agree with you that at EL3, those registers should not affect code execution IN EL3 and it doesn\u0027t. It is DURING CSE (ERET) that it matters if there is no ISB, if you consider that this patch is not there, than both hcr_el2 and ttbr_el1 sync at eret. The order of these syncing in is not guaranteed, if the ttbr1_el2 syncs in before  hcr_le2 syncs in, it sees that HCR_EL2.E2H bit is 0, and from ARM arch reference manual we see that TTBR1_EL2 only \"When HCR_EL2.E2H is 1, holds the base address of the translation table\", therefore after ERET, TTBR1_EL2 is holding the wrong asid, as it was decided based on older value of HCR_EL2.E2H bit (0 instead of 1). Having wrong asid id results in translation fault AFTER eret when we are in EL2.\n\nBoth this patch and isb i had to insert at the end of pauth_restore_hypervisor_key in https://review.trustedfirmware.org/c/hafnium/hafnium/+/10578 is due to translation fault/pointer authentication errors i have been getting in model/hardware, and not based on theoretical assumptions. \n\nIt is not in errata as it is mentioned in ARM ARM both about how ttbr1_el2 functions when HCR_EL2.E2H has different bit values and that CSE only syncs registers in and does not guarantee the order of sync.\n\nI do understand that there is a performance penalty incurred especially in a function like context restore which we should avoid.",
+      "parentUuid": "07622fac_9482c9e3",
+      "revId": "27d8725d07182dae30484e69dc464a61c9353504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
