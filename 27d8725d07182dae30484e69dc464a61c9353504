@@ -177,6 +177,24 @@
       "message": "The only thing i see in D13.1.1 Synchronization requirements for AArch64 System registers, that could apply is in table D13-1. the msr to write HCR_EL2 is a direct write, and the direct write to ttbr1_el2 could cause an indirect read to HCR_EL2 for the E2H bit setting and according to the table, it requires synchronization. However, i dont understand why the same rule would not apply between TCR_EL1 and say TTBR1_EL1 for ASID bits for example...",
       "revId": "27d8725d07182dae30484e69dc464a61c9353504",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "476a1026_ee63085f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-07-14T20:51:06Z",
+      "side": 1,
+      "message": "Anyway, more reading of the ARM ARM. For TTBR1_EL2, the ARM ARM is somewhat confusing. The MSR psuedo-code to write ttbr1_el2 in EL3 is simply a write, without any regard to what HCR_EL2.E2H is and the ARM ARM also states \"When HCR_EL2.E2H is 0, the contents of this register are ignored by the PE, except for a direct read or write of the register.\", which gives support to my theory that it does not matter if we dont have the ISB synchronization.\nHowever, the same section(D13.2.139) also says \"TTBR1_EL2 is accessible only when the value of HCR_EL2.E2H is 1, meaning the current translation regime is the EL2\u00260 regime.\".\nIt could very well be that the model uses this rule as precedence when we write to EL3. It  would be great if you can confirm this internally and add the exact reason we need to do this in the commit message.",
+      "parentUuid": "1330e4b9_12f7d0ce",
+      "revId": "27d8725d07182dae30484e69dc464a61c9353504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
