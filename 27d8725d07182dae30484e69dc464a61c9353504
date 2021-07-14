@@ -106,6 +106,24 @@
       "parentUuid": "b2f57f37_d6cdf206",
       "revId": "27d8725d07182dae30484e69dc464a61c9353504",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07622fac_9482c9e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-07-14T01:47:05Z",
+      "side": 1,
+      "message": "Thanks Usama. In review 10578, the ISB makes perfect sense to me. The code is running in EL2 and we want code in EL2 following the writes to the pauth registers, to use the newly updated registers. In this case, we are talking about modifying/saving/restoring EL2 registers in EL3. Those order of save/restores of those registers don\u0027t matter when execution in EL3 unless there is an Errata(of which there have been a few - see ERRATA_SPECULATIVE_AT in the file modified in this commit). At EL3, those registers should not affect code execution in EL3 and hence adding an ISB should not be necessary and when we return to EL2 we use an ERET which is a CSE at which point the ordering should not matter. The statement from the ARM ARM again makes sense when we are executing in EL2 and we absolutely should use the ISB there. I\u0027m just debating if it is necessary in EL3. All these barriers are performance penalties and we should add them only if absolutely necessary and i\u0027m not convinced it is necessary still.\nSCTLR_EL1 was an example. We can replace HCR_EL2 with any other system register that requires ISB at the appropriate exception level but not in EL3 during the save/restore routings and should ask why we don\u0027t use ISB.\nIt is possible i\u0027m wrong, i\u0027m just asking for compelling evidence that it is necessary and i dont see it yet.",
+      "parentUuid": "d9fe04bb_4720661e",
+      "revId": "27d8725d07182dae30484e69dc464a61c9353504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
