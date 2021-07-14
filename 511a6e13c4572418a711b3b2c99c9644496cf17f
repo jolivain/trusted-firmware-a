@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd6dbff_1f6cd659",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-07-14T09:34:47Z",
+      "side": 1,
+      "message": "mostly looks good. just a few nits.",
+      "revId": "511a6e13c4572418a711b3b2c99c9644496cf17f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f26b4ceb_9bfeee58",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-07-14T09:34:47Z",
+      "side": 1,
+      "message": "incomplete statement?",
+      "range": {
+        "startLine": 37,
+        "startChar": 34,
+        "endLine": 37,
+        "endChar": 48
+      },
+      "revId": "511a6e13c4572418a711b3b2c99c9644496cf17f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a709400_23e8eb13",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-07-14T09:34:47Z",
+      "side": 1,
+      "message": "with?",
+      "range": {
+        "startLine": 38,
+        "startChar": 30,
+        "endLine": 38,
+        "endChar": 32
+      },
+      "revId": "511a6e13c4572418a711b3b2c99c9644496cf17f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18cd2fff_b2640e6f",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-07-14T09:34:47Z",
+      "side": 1,
+      "message": "this portion is not really a mitigation is it?",
+      "range": {
+        "startLine": 359,
+        "startChar": 57,
+        "endLine": 363,
+        "endChar": 70
+      },
+      "revId": "511a6e13c4572418a711b3b2c99c9644496cf17f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3db6852_8a25c98f",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-07-14T09:34:47Z",
+      "side": 1,
+      "message": "i think this should be high. this is trivial to attempt to do if NWd is compromised no?",
+      "range": {
+        "startLine": 396,
+        "startChar": 27,
+        "endLine": 396,
+        "endChar": 34
+      },
+      "revId": "511a6e13c4572418a711b3b2c99c9644496cf17f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08df17f3_138181d1",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-07-14T09:34:47Z",
+      "side": 1,
+      "message": "side: we should add stack canary as defense in depth.",
+      "range": {
+        "startLine": 445,
+        "startChar": 27,
+        "endLine": 446,
+        "endChar": 62
+      },
+      "revId": "511a6e13c4572418a711b3b2c99c9644496cf17f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
