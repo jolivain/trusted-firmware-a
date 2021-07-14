@@ -160,6 +160,23 @@
       "parentUuid": "ce0504b9_195e95ba",
       "revId": "27d8725d07182dae30484e69dc464a61c9353504",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1330e4b9_12f7d0ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-07-14T20:32:04Z",
+      "side": 1,
+      "message": "The only thing i see in D13.1.1 Synchronization requirements for AArch64 System registers, that could apply is in table D13-1. the msr to write HCR_EL2 is a direct write, and the direct write to ttbr1_el2 could cause an indirect read to HCR_EL2 for the E2H bit setting and according to the table, it requires synchronization. However, i dont understand why the same rule would not apply between TCR_EL1 and say TTBR1_EL1 for ASID bits for example...",
+      "revId": "27d8725d07182dae30484e69dc464a61c9353504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
