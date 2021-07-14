@@ -142,6 +142,24 @@
       "parentUuid": "07622fac_9482c9e3",
       "revId": "27d8725d07182dae30484e69dc464a61c9353504",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa6fe434_ad39b78f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-07-14T20:05:51Z",
+      "side": 1,
+      "message": "Thanks Usama, understand that you see this is in the model. It is possible that the model has a bug too, albeit unlikely. E2H support has been there on real HW for many years and this has never really been a problem on linux for example, so i\u0027m wondering why this is showing up now on the model. We shouldn\u0027t fix based on what the model shows, but instead on what the architecture expects. And i completely understand this may just be that implementations today dont allow these reorderings so we have been getting away with it.\nThe ARM ARM snippets you quote seem to apply to what needs to done in EL2, not in EL3, the way i read it. If similar statements were to apply for all system register writes, the save restore routines in EL3 could be filled with ISB\u0027s to avoid reordering.\n\nYou said: \"If msr ttbr_el2 syncs in out of order before hcr_el2.e2h SET bit syncs in, the wrong ASID (bits [63:48] of TTBR1_EL2) is used in ttbr_el2 giving translation error.\" - Where is this in the ARM ARM? This is observed behavior on an implementation, not an architecturally allowed behavior as far as i can tell. And when i asked about SCTLR_EL1, that was an example. I dont know of a problem, but why does the same logic not apply for ttbr1_el1 for example? E2H effectively converts EL2 to EL1, so on a system where there is no EL2, shouldnt we need to do the same for ttbr1_el1? Another example would be the number of ASID bits being used in ttbrx_el1 registers, that depend on TCR_EL1 or other system registers. top 8 bits of ASID are RES0 based on TCR_EL1 settings, yet our context restore routing has no ISB to ensure it has taken effect.\n\nYou may still be right, i would just like to see where in the ARM ARM it is said we need the ISB in EL3. Already mentioned, the PAUTH fix makes sense since that is localized to EL2 and ISB is required to affect execution of instructions following it in EL2. You can see in text about register accesses for ttbr1_el1 in the ARM ARM that talks about ordering w.r.t to using different mnemonic with E2H but there is no other statement like that for other ttbr\u0027s. I dont see anything related to this requirement in D13.1.1 either.\n\n\nAlso not sure i understand what you mean by DURING CSE. CSE as defined in the ARM ARM only talks about effects before and after the CSE.",
+      "parentUuid": "ce0504b9_195e95ba",
+      "revId": "27d8725d07182dae30484e69dc464a61c9353504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
