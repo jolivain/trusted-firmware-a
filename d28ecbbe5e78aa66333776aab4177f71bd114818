@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d929a169_25547c6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-07-14T19:32:11Z",
+      "side": 1,
+      "message": "Hey Shelley, just so you know... the Gerrit flags on trustedfirmware.org all have specific meanings, and Code-Owner-Review is reserved for people who are registered as Code Owners (maintainers) for the files in question. You can see the list of Code Owners in docs/about/maintainers.rst -- for plat/qti, Saurabh and Debasish from Qualcomm are currently listed (so Debasish technically needs to review this since Saurabh is the author). See docs/process/contributing.rst for more general info on the submission process.\n\nIf you want we can also look into adding one of us as Code Owner for plat/qti (assuming Qualcomm agrees), so Debasish doesn\u0027t always have to be the bottleneck on these reviews. But then we need to add that to the maintainers.rst file first. If you just want to give a general approval on a patch without acting as Code Owner, please use Code-Review+1.",
+      "revId": "d28ecbbe5e78aa66333776aab4177f71bd114818",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
