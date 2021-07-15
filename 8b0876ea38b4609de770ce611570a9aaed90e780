@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a7c1d84d_dfd0f1cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-07-15T23:12:11Z",
+      "side": 1,
+      "message": "Hi Achin, Would you mind answering the question in comment at : https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10569/comment/cad5ab0f_baa4c711/\n\nout of curiosity, why is there no capability for sending and receiving indirect messages? is it because all types of SP\u0027s and VM\u0027s(UP, MP, migratable, non-migratable etc) can support indirect messaging but not direct messaging?",
+      "revId": "8b0876ea38b4609de770ce611570a9aaed90e780",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cad5ab0f_baa4c711",
         "filename": "docs/components/ffa-manifest-binding.rst",
         "patchSetId": 2
@@ -38,6 +55,30 @@
       "side": 1,
       "message": "I think this is just how it is specified in the spec.\nThere is no support yet for Indirect Messaging with SPs, nothing that has been tested at least.\n\nAbout separating receiving and sending requests as a permission, might have to do with the fact one partition receives/donates cpu cycles. This allows for finer grained control over who can send requests (thus donating requests), and who can receive (thus receiving requests).\n\nThere could be other reasons to separate send and receive indirect messages, but I can\u0027t think of any.\n\nThis is just my interpretation anyway. Again, done like this because of spec.",
       "parentUuid": "cad5ab0f_baa4c711",
+      "range": {
+        "startLine": 115,
+        "startChar": 16,
+        "endLine": 115,
+        "endChar": 46
+      },
+      "revId": "8b0876ea38b4609de770ce611570a9aaed90e780",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "550bc0c8_aa5391ff",
+        "filename": "docs/components/ffa-manifest-binding.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-07-15T23:12:11Z",
+      "side": 1,
+      "message": "Understood. BTW, 1.1 beta does have SP messaging through the use of notifications (framework notification). I guess i should have directed my question to Achin. Let me add him to this review.",
+      "parentUuid": "d59d0ce7_c5ee9c3b",
       "range": {
         "startLine": 115,
         "startChar": 16,
