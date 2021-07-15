@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "851ff0e2_d4b6202a",
+        "filename": "plat/arm/board/diphda/common/fdts/diphda_spmc_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2021-07-15T11:50:03Z",
+      "side": 1,
+      "message": "On this platform. We are using \"opteesp\". Meaning, SP\u0027s are part of optee image. Optee will load the SP\u0027s provided in the manifest. This manifest is also part of optee image. On Dipdha platform as Abdel mentioned previously, there is no SEL2. SPMC is run in optee(SEL1).",
+      "parentUuid": "5cc0f738_ed20f1fd",
+      "revId": "6a5c4acaa92775572d8b64ab8285dd73dd0c3a83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c4710780_04adf64a",
         "filename": "plat/arm/board/diphda/include/plat_macros.S",
         "patchSetId": 4
