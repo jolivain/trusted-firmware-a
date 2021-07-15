@@ -22,6 +22,30 @@
       },
       "revId": "8b0876ea38b4609de770ce611570a9aaed90e780",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d59d0ce7_c5ee9c3b",
+        "filename": "docs/components/ffa-manifest-binding.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-07-15T17:39:16Z",
+      "side": 1,
+      "message": "I think this is just how it is specified in the spec.\nThere is no support yet for Indirect Messaging with SPs, nothing that has been tested at least.\n\nAbout separating receiving and sending requests as a permission, might have to do with the fact one partition receives/donates cpu cycles. This allows for finer grained control over who can send requests (thus donating requests), and who can receive (thus receiving requests).\n\nThere could be other reasons to separate send and receive indirect messages, but I can\u0027t think of any.\n\nThis is just my interpretation anyway. Again, done like this because of spec.",
+      "parentUuid": "cad5ab0f_baa4c711",
+      "range": {
+        "startLine": 115,
+        "startChar": 16,
+        "endLine": 115,
+        "endChar": 46
+      },
+      "revId": "8b0876ea38b4609de770ce611570a9aaed90e780",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
