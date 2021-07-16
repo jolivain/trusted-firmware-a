@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "786dfc92_c084c413",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T10:33:12Z",
+      "side": 1,
+      "message": "how do we make sure that BL31 is compatible with the kernel? If we provide compile time flags in both repos, it is hard to co-ordinate, correct? Is it possible to introduce runtime checks from the kernel instead?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 11
+      },
+      "revId": "80b4321a09b6a2ed8dac82980e737346ba87ff24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7019184b_40d4433d",
         "filename": "include/services/spmc_svc.h",
         "patchSetId": 3
@@ -20,6 +43,69 @@
         "endLine": 22,
         "endChar": 44
       },
+      "revId": "80b4321a09b6a2ed8dac82980e737346ba87ff24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "648bb80b_60958da9",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T10:33:12Z",
+      "side": 1,
+      "message": "spmc_set_config_addr",
+      "range": {
+        "startLine": 249,
+        "startChar": 5,
+        "endLine": 249,
+        "endChar": 21
+      },
+      "revId": "80b4321a09b6a2ed8dac82980e737346ba87ff24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "496ac058_dd3ace28",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T10:33:12Z",
+      "side": 1,
+      "message": "not all platforms need this, but will not have a negative impact AFAICT",
+      "range": {
+        "startLine": 267,
+        "startChar": 1,
+        "endLine": 268,
+        "endChar": 26
+      },
+      "revId": "80b4321a09b6a2ed8dac82980e737346ba87ff24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "905949b8_643e6da1",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T10:33:12Z",
+      "side": 1,
+      "message": "Doesnt the compiler complain about a missing break here?",
       "revId": "80b4321a09b6a2ed8dac82980e737346ba87ff24",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
