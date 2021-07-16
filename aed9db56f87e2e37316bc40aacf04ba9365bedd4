@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49c5f20c_dc9935cf",
+        "filename": "drivers/arm/gic/v3/gic600_fmu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T16:27:21Z",
+      "side": 1,
+      "message": "I am using corelink_gic600ae_trm_101206_0002_03_en.pdf for PL692-r0p2-00rel0 as reference. That doc says SMID 0 is \"Reserved\".",
+      "parentUuid": "5fb5d027_e129894d",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "aed9db56f87e2e37316bc40aacf04ba9365bedd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0d2d4cd_b5cf2c0c",
         "filename": "drivers/arm/gic/v3/gic600_fmu.c",
         "patchSetId": 1
@@ -71,6 +95,30 @@
       "writtenOn": "2021-06-09T15:41:09Z",
       "side": 1,
       "message": "nit: passed in blk_present_mask",
+      "range": {
+        "startLine": 119,
+        "startChar": 6,
+        "endLine": 119,
+        "endChar": 14
+      },
+      "revId": "aed9db56f87e2e37316bc40aacf04ba9365bedd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9973ed10_74c76e48",
+        "filename": "drivers/arm/gic/v3/gic600_fmu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T16:27:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e0d2d4cd_b5cf2c0c",
       "range": {
         "startLine": 119,
         "startChar": 6,
@@ -104,6 +152,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40fc47a9_9051c806",
+        "filename": "drivers/arm/gic/v3/gic600_fmu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T16:27:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ec857ca3_69ae0e10",
+      "range": {
+        "startLine": 147,
+        "startChar": 18,
+        "endLine": 147,
+        "endChar": 27
+      },
+      "revId": "aed9db56f87e2e37316bc40aacf04ba9365bedd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1209d8bd_9bef9baf",
@@ -117,6 +189,30 @@
       "writtenOn": "2021-06-09T15:41:09Z",
       "side": 1,
       "message": "Shouldn\u0027t it be platform choice?",
+      "range": {
+        "startLine": 152,
+        "startChar": 2,
+        "endLine": 154,
+        "endChar": 30
+      },
+      "revId": "aed9db56f87e2e37316bc40aacf04ba9365bedd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fed91a0_22c4afc0",
+        "filename": "drivers/arm/gic/v3/gic600_fmu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T16:27:21Z",
+      "side": 1,
+      "message": "I will introduce another input parameter for the platforms to use.",
+      "parentUuid": "1209d8bd_9bef9baf",
       "range": {
         "startLine": 152,
         "startChar": 2,
@@ -150,6 +246,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b5a0016_831ea436",
+        "filename": "drivers/arm/gic/v3/gic600_fmu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T16:27:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dd8ee0d5_de3116a6",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 58
+      },
+      "revId": "aed9db56f87e2e37316bc40aacf04ba9365bedd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3361ebf7_9d3c0394",
@@ -173,6 +293,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a12c0e84_db7b97d3",
+        "filename": "drivers/arm/gic/v3/gic600_fmu_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T16:27:21Z",
+      "side": 1,
+      "message": "I think it makes sense to remove the isb and rely on strongly ordered device memory",
+      "parentUuid": "3361ebf7_9d3c0394",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 7
+      },
+      "revId": "aed9db56f87e2e37316bc40aacf04ba9365bedd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69e2267e_28380925",
@@ -186,6 +330,30 @@
       "writtenOn": "2021-06-24T08:28:25Z",
       "side": 1,
       "message": "Do we need explicit timeout here, consider if the FMU does not go in idle because of any previous processing of command, we ends up in infinite loop here?",
+      "range": {
+        "startLine": 54,
+        "startChar": 10,
+        "endLine": 54,
+        "endChar": 24
+      },
+      "revId": "aed9db56f87e2e37316bc40aacf04ba9365bedd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c20a2818_a3b2843f",
+        "filename": "drivers/arm/gic/v3/gic600_fmu_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T16:27:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "69e2267e_28380925",
       "range": {
         "startLine": 54,
         "startChar": 10,
@@ -454,6 +622,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "baba1612_2d5ccaa5",
+        "filename": "drivers/arm/gic/v3/gic600_fmu_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T16:27:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ab2443e0_205d3443",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 1
+      },
+      "revId": "aed9db56f87e2e37316bc40aacf04ba9365bedd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7056646b_bffe1d58",
@@ -467,6 +659,30 @@
       "writtenOn": "2021-06-24T08:28:25Z",
       "side": 1,
       "message": "Can all this go in single define instead? Looks like this operation is repeating in all below register write cases:\n1. SMEN\n2. PINGNOW\n3. ERRSTATUS\n4. SMINJERR",
+      "range": {
+        "startLine": 211,
+        "startChar": 1,
+        "endLine": 216,
+        "endChar": 30
+      },
+      "revId": "aed9db56f87e2e37316bc40aacf04ba9365bedd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b72efa25_69216e64",
+        "filename": "drivers/arm/gic/v3/gic600_fmu_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T16:27:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7056646b_bffe1d58",
       "range": {
         "startLine": 211,
         "startChar": 1,
@@ -500,6 +716,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66b912e3_1864d925",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T16:27:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c92ec359_a5d2f4be",
+      "range": {
+        "startLine": 18,
+        "startChar": 22,
+        "endLine": 18,
+        "endChar": 34
+      },
+      "revId": "aed9db56f87e2e37316bc40aacf04ba9365bedd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a57fa2df_fbf94171",
@@ -513,6 +753,30 @@
       "writtenOn": "2021-06-24T08:28:25Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 19,
+        "startChar": 22,
+        "endLine": 19,
+        "endChar": 40
+      },
+      "revId": "aed9db56f87e2e37316bc40aacf04ba9365bedd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86774d48_47e004bc",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T16:27:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a57fa2df_fbf94171",
       "range": {
         "startLine": 19,
         "startChar": 22,
