@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e5de24f_45cd8ae7",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T10:15:56Z",
+      "side": 1,
+      "message": "I think spmd_smc_forward should just call two functions - spmc_el3_smc_formward, spmc_sel2_smc_forward\n\nif (is_spmc_at_el3())\n\treturn spmc_el3_smc_handler(...);\n\nif (is_spmc_at_sel2())\n        return spmc_sel2_smc_handler(...);\n\nreturn error;",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 396,
+        "endChar": 6
+      },
+      "revId": "c298bf0e1c5fbf451760beca9abafb2fdd53d14a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8101a5e2_9c3145ad",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 3
@@ -42,6 +65,53 @@
         "startChar": 4,
         "endLine": 402,
         "endChar": 20
+      },
+      "revId": "c298bf0e1c5fbf451760beca9abafb2fdd53d14a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "138d9dee_18084e0c",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T10:15:56Z",
+      "side": 1,
+      "message": "Agree",
+      "parentUuid": "8101a5e2_9c3145ad",
+      "range": {
+        "startLine": 402,
+        "startChar": 4,
+        "endLine": 402,
+        "endChar": 20
+      },
+      "revId": "c298bf0e1c5fbf451760beca9abafb2fdd53d14a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77e1eb00_752c75e1",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-07-16T10:15:56Z",
+      "side": 1,
+      "message": "Frankly, this does not look elegant. It would be great if we can come up with a runtime check and then return 0. Also, it is not clear why we return 0 from here.",
+      "range": {
+        "startLine": 455,
+        "startChar": 0,
+        "endLine": 457,
+        "endChar": 6
       },
       "revId": "c298bf0e1c5fbf451760beca9abafb2fdd53d14a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
