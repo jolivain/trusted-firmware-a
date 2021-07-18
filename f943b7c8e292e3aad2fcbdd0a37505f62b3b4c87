@@ -50,6 +50,23 @@
       "message": "I believe this is the last blocker for coreboot switching to GCC 11. Is there anything else that needs to be done here? It looks like a pretty simple change.",
       "revId": "f943b7c8e292e3aad2fcbdd0a37505f62b3b4c87",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2347e42_1c1ac0b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2021-07-18T09:10:24Z",
+      "side": 1,
+      "message": "I\u0027ve compared the compilation result against an older build as well.\nSo that change looks good me.\n\nSorry for only now finding the time to respond.",
+      "revId": "f943b7c8e292e3aad2fcbdd0a37505f62b3b4c87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
