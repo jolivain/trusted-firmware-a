@@ -16,6 +16,24 @@
       "message": "Looks like this patch failed for aarch32 build. Can we have separate \u0027amu_enable\u0027 function declaration for aarch32?\n\n21:03:11 lib/el3_runtime/aarch32/context_mgmt.c:137:2: error: too few arguments to function \u0027amu_enable\u0027\n21:03:11   137 |  amu_enable(el2_unused);\n21:03:11       |  ^~~~~~~~~~\n21:03:11 In file included from lib/el3_runtime/aarch32/context_mgmt.c:18:\n21:03:11 include/lib/extensions/amu.h:84:6: note: declared here\n21:03:11    84 | void amu_enable(bool el2_unused, cpu_context_t *ctx);\n21:03:11       |      ^~~~~~~~~~\n",
       "revId": "14e9c9f552d60bbe970c9c5a15c3fb6efab98d35",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f84c321f_11451806",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2021-07-19T11:49:26Z",
+      "side": 1,
+      "message": "Fixed. Added separate declaration for aarch32",
+      "parentUuid": "a72dc3d1_3fd62a7f",
+      "revId": "14e9c9f552d60bbe970c9c5a15c3fb6efab98d35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
