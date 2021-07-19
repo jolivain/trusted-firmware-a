@@ -84,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de1ca8f0_23c468a0",
+        "filename": "drivers/arm/gic/v3/gic600_fmu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-07-19T08:14:40Z",
+      "side": 1,
+      "message": "Ack, Latest version of TRM (r0p2) mentioned SIMD 0 as\"Reserved\". (was referring to r0p1 TRM where SIMD 0 was mentioned as \"Logical OR of all errors in that specified block\").",
+      "parentUuid": "49c5f20c_dc9935cf",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "aed9db56f87e2e37316bc40aacf04ba9365bedd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0d2d4cd_b5cf2c0c",
         "filename": "drivers/arm/gic/v3/gic600_fmu.c",
         "patchSetId": 1
