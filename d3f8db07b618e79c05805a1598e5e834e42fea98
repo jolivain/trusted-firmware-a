@@ -266,6 +266,24 @@
       "parentUuid": "e4e90089_0dd9cd28",
       "revId": "d3f8db07b618e79c05805a1598e5e834e42fea98",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27f85d6f_931c3ea6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-07-19T12:22:30Z",
+      "side": 1,
+      "message": "Could you re-run CI with above change (now it has also this topic)? It should fix error \"Please set BL33 to point to the right file\".",
+      "parentUuid": "c96f1239_0f4f81b2",
+      "revId": "d3f8db07b618e79c05805a1598e5e834e42fea98",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
