@@ -11,6 +11,7 @@ Utility Modules
     ./module/ArmConfigOption
     ./module/ArmExpand
     ./module/ArmPreprocessSource
+    ./module/ArmTargetLinkerScript
 
 Find Modules
 ------------
