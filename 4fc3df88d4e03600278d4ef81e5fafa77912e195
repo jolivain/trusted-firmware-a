@@ -98,6 +98,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "eb99a6f2_c76cc1e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-07-19T15:33:37Z",
+      "side": 1,
+      "message": "Sorry for intercepting here. IIUC from the discussion \u0027dsb\u0027 needed in both \u0027gicv3_cpuif_disable\u0027 and \u0027gicv3_cpuif_enable\u0027 function right? If yes, then this patch needs to be updated for \u0027dsb\u0027 addition in \u0027gicv3_cpuif_enable\u0027 function to guarantee the registers write.",
+      "parentUuid": "fffff522_8af664e3",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 54
+      },
+      "revId": "4fc3df88d4e03600278d4ef81e5fafa77912e195",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "78abb326_b38091ad",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
