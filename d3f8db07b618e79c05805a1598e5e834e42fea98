@@ -248,6 +248,24 @@
       "parentUuid": "195a6130_cdfb60ce",
       "revId": "d3f8db07b618e79c05805a1598e5e834e42fea98",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c96f1239_0f4f81b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-07-19T11:51:44Z",
+      "side": 1,
+      "message": "I think I see where is the issue. I created a new change which should fix it, see:\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/10761",
+      "parentUuid": "e4e90089_0dd9cd28",
+      "revId": "d3f8db07b618e79c05805a1598e5e834e42fea98",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
