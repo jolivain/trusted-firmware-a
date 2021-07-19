@@ -33,6 +33,165 @@
       "message": "CoR required",
       "revId": "6437cfc99db7e05de6b23e4d512fc999a4411049",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffa14786_5420baac",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-07-19T22:59:39Z",
+      "side": 1,
+      "message": "Last two could be uint8_t to save a bit of space.",
+      "revId": "6437cfc99db7e05de6b23e4d512fc999a4411049",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89edfc5d_98afc164",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-07-19T22:59:39Z",
+      "side": 1,
+      "message": "Shouldn\u0027t these both be ZDZU?",
+      "revId": "6437cfc99db7e05de6b23e4d512fc999a4411049",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f94ae54a_b7dd7cc9",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-07-19T22:59:39Z",
+      "side": 1,
+      "message": "These are ZUDR, technically, although there\u0027s no real reason to model that difference.",
+      "revId": "6437cfc99db7e05de6b23e4d512fc999a4411049",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dddb10e7_b3b6680d",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-07-19T22:59:39Z",
+      "side": 1,
+      "message": "Also all ZUDR.",
+      "revId": "6437cfc99db7e05de6b23e4d512fc999a4411049",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1de57dcb_5c4edad6",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-07-19T22:59:39Z",
+      "side": 1,
+      "message": "I would suggest writing these with explicit indices (e.g. [ENC_ZDZU] \u003d { ... }, [ENC_ZUDR] \u003d { ... }) to make it easier to verify that they are correct.",
+      "revId": "6437cfc99db7e05de6b23e4d512fc999a4411049",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d7fb151_cc8d9b10",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-07-19T22:59:39Z",
+      "side": 1,
+      "message": "\"Repeater\"? In my RK3399 manual, these all say \"reserved\"... (it\u0027s from 2017, is there a newer one?)",
+      "range": {
+        "startLine": 124,
+        "startChar": 48,
+        "endLine": 124,
+        "endChar": 66
+      },
+      "revId": "6437cfc99db7e05de6b23e4d512fc999a4411049",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "509e398d_20156549",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-07-19T22:59:39Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "6437cfc99db7e05de6b23e4d512fc999a4411049",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "580411f5_0b11e7f9",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-07-19T22:59:39Z",
+      "side": 1,
+      "message": "This looks wrong? I think you meant either\n\n if ((mmio_read_32(info-\u003eclkgate_reg) \u0026 (1U \u003c\u003c info-\u003eclkgate_bit)) \u003d\u003d 0U)\n\nor\n\n if (((mmio_read_32(info-\u003eclkgate_reg) \u003e\u003e info-\u003eclkgate_bit) \u0026 1U) \u003d\u003d 0U)",
+      "revId": "6437cfc99db7e05de6b23e4d512fc999a4411049",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b41da5d9_6cd15b49",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-07-19T22:59:39Z",
+      "side": 1,
+      "message": "I\u0027d suggest using `\u0026store_gpio[i - 2]` notation for this, I think it\u0027s more readable.",
+      "revId": "6437cfc99db7e05de6b23e4d512fc999a4411049",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
