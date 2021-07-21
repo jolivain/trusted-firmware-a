@@ -13,6 +13,7 @@ cmake_minimum_required(VERSION 3.20)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules")
 
 include(ArmConfigOption)
+include(ArmExpand)
 include(ArmPreprocessSource)
 include(ArmTargetLinkerScript)
 
@@ -46,6 +47,21 @@ else()
 endif()
 
 #
+# Retrieve the list of platforms from the global metadata file and present them
+# to the user.
+#
+
+tfa_platforms(platforms)
+
+arm_config_option(
+    NAME TFA_PLATFORM
+    HELP "Platform to build."
+    STRINGS ${platforms})
+
+tfa_platform_path(TFA_PLATFORM_SOURCE_DIR
+    PLATFORM "${TFA_PLATFORM}")
+
+#
 # We're done with very early setup, so we can now create the project. This will
 # do some of the automatic compiler detection, which we need for setting up
 # further configuration options.
@@ -70,4 +86,3 @@ endif()
 #
 
 project(TFA VERSION 2.5 LANGUAGES C ASM)
-
