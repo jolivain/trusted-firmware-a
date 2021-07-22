@@ -27,6 +27,43 @@ file(READ "metadata.json" TFA_METADATA)
 arm_expand(OUTPUT TFA_METADATA STRING "${TFA_METADATA}")
 
 #
+# Allow the user to provide their own platform list metadata. This allows
+# developers to use out-of-tree platforms (platforms that live outside of this
+# repository). The platforms list given by this file is superimposed onto the
+# global metadata file.
+#
+
+arm_config_option(
+    NAME TFA_PLATFORMS_METADATA_PATH
+    HELP "Path to an alternative platforms metadata file."
+    TYPE FILEPATH ADVANCED)
+
+if(TFA_PLATFORMS_METADATA_PATH)
+    cmake_path(GET TFA_PLATFORMS_METADATA_PATH
+        PARENT_PATH TFA_PLATFORMS_METADATA_DIR)
+
+    arm_assert(
+        CONDITION EXISTS "${TFA_PLATFORMS_METADATA_PATH}"
+        MESSAGE "The platforms metadata file does not exist: "
+                "${TFA_PLATFORMS_METADATA_PATH}")
+
+    file(READ "${TFA_PLATFORMS_METADATA_PATH}" platforms-metadata)
+    arm_expand(OUTPUT platforms-metadata STRING "${platforms-metadata}")
+
+    string(JSON platforms-count LENGTH "${platforms-metadata}")
+    math(EXPR platforms-count "${platforms-count} - 1")
+
+    foreach(i RANGE ${platforms-count})
+        string(JSON platform-name MEMBER "${platforms-metadata}" ${i})
+        string(JSON platform-path GET "${platforms-metadata}"
+            "${platform-name}")
+
+        string(JSON TFA_METADATA SET "${TFA_METADATA}" "platforms"
+            "${platform-name}" "\"${platform-path}\"")
+    endforeach()
+endif()
+
+#
 # Retrieve the list of platforms from the global metadata file and present them
 # to the user.
 #
