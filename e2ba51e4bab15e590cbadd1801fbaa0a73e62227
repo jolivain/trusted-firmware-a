@@ -70,6 +70,24 @@
       "parentUuid": "5743a213_a34ad2b5",
       "revId": "e2ba51e4bab15e590cbadd1801fbaa0a73e62227",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38c108a7_40ae58e0",
+        "filename": "plat/imx/imx8m/imx8mp/imx8mp_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000148
+      },
+      "writtenOn": "2021-07-22T18:37:26Z",
+      "side": 0,
+      "message": "I\u0027ve refactored the code for all imx8m platform. But for imx7 maybe. Because on 32-bit we don\u0027t have BL31. The only difference seems to me between imx7 and imx8 is the BL31. So I\u0027ll keep it as is and only re-use the code from imx8mm.",
+      "parentUuid": "3f106216_89d602da",
+      "revId": "e2ba51e4bab15e590cbadd1801fbaa0a73e62227",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
