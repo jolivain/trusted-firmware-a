@@ -16,6 +16,24 @@
       "message": "This seems odd that we are asking platforms to compile GIC600 files to enable support for GIC700. Shouldnt we fix the file naming too?",
       "revId": "9b53eb8ef189406ea251a84051de4ba9a054f8ac",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28e36556_b19c3640",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-07-22T17:58:52Z",
+      "side": 1,
+      "message": "Yeah, we can use either arm_gic_multichip.? or gic_x00_multichip.?.\nManish, Madhukar, would that make sense?",
+      "parentUuid": "2328d572_4a983ebc",
+      "revId": "9b53eb8ef189406ea251a84051de4ba9a054f8ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
