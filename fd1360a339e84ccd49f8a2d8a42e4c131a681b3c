@@ -16,6 +16,24 @@
       "message": "I think this condition is redundant since ERROR_NL() is defined as tf_log_newline(LOG_MARKER_ERROR) only when LOG_LEVEL \u003e\u003d LOG_LEVEL_ERROR",
       "revId": "fd1360a339e84ccd49f8a2d8a42e4c131a681b3c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4223bea_a7d7747d",
+        "filename": "common/tf_log.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-07-22T20:34:42Z",
+      "side": 1,
+      "message": "tf_log_newline() means to be generic (and not only for ERROR level), like tf_log() function.\n\nI defined just ERROR_NL() macro as it is the only one which I\u0027m using in followup patch. But tf_log_newline() can be used also for defining e.g. WARN_NL() or INFO_NL() or other macros.",
+      "parentUuid": "316cc095_d814863c",
+      "revId": "fd1360a339e84ccd49f8a2d8a42e4c131a681b3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
