@@ -101,6 +101,23 @@ file(READ "${TFA_PLATFORM_SOURCE_DIR}/platform.json" TFA_PLATFORM_METADATA)
 arm_expand(OUTPUT TFA_PLATFORM_METADATA STRING "${TFA_PLATFORM_METADATA}")
 
 #
+# Because the platform's source directory might have come from outside, CMake
+# may be unable to derive the platform's binary directory automatically. As an
+# alternative, we'll use the platform's target name as its binary directory.
+#
+
+string(JSON TFA_PLATFORM_TARGET ERROR_VARIABLE error
+    GET "${TFA_PLATFORM_METADATA}" "target")
+
+if(error)
+    message(FATAL_ERROR
+        "This platform's metadata file has not provided a target name.")
+endif()
+
+set(TFA_PLATFORM_BINARY_DIR
+    "${CMAKE_CURRENT_BINARY_DIR}/${TFA_PLATFORM_TARGET}")
+
+#
 # We're done with very early setup, so we can now create the project. This will
 # do some of the automatic compiler detection, which we need for setting up
 # further configuration options.
