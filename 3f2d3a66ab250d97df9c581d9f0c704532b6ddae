@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb72e7c1_2ed35ad4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000671
+      },
+      "writtenOn": "2021-07-22T05:34:43Z",
+      "side": 1,
+      "message": "By the way, the R329 SRAM A2 does not have the sparse area for or1k reset vector (because it just has no or1k processor).\n\nShould we place the load address directly to 0x120000? (",
+      "revId": "3f2d3a66ab250d97df9c581d9f0c704532b6ddae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
