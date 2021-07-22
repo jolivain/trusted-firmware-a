@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "470d29d8_4fe406a3",
+        "filename": "drivers/arm/gic/v3/gic600ae_fmu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-07-22T13:09:04Z",
+      "side": 1,
+      "message": "nit: also, FMU CLK gate override SM right?  This is mentioned at line no.160. Do you think this is redundant information? if yes, then we can remove line no.119.",
+      "range": {
+        "startLine": 119,
+        "startChar": 13,
+        "endLine": 119,
+        "endChar": 40
+      },
+      "revId": "6a0f835560ca010615d7f1c89050af06b4ed377d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c7bd15c_f6bbf399",
+        "filename": "drivers/arm/gic/v3/gic600ae_fmu_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-07-22T13:09:04Z",
+      "side": 1,
+      "message": "nit: can we have error log along with this panic?",
+      "range": {
+        "startLine": 58,
+        "startChar": 3,
+        "endLine": 58,
+        "endChar": 11
+      },
+      "revId": "6a0f835560ca010615d7f1c89050af06b4ed377d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
