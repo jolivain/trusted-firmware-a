@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38d8352f_df8721f6",
+        "filename": "plat/allwinner/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-07-22T10:44:29Z",
+      "side": 1,
+      "message": "So that brings especially the tight A64 build closer to its limit. Do we actually need to map all of this large SRAM?\nAnd are there other supposed users for this memory? DE/VE? Maybe we should at least logically partition this, to just take 128K or 256K for TF-A?",
+      "revId": "9f8778e886f18e74091de1f72335abd96dcc0453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
