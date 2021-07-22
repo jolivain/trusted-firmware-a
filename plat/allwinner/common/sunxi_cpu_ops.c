@@ -27,6 +27,7 @@ static void sunxi_cpu_disable_power(unsigned int cluster, unsigned int core)
 	VERBOSE("PSCI: Disabling power to cluster %d core %d\n", cluster, core);
 
 	mmio_write_32(SUNXI_CPU_POWER_CLAMP_REG(cluster, core), 0xff);
+	udelay(10);
 }
 
 static void sunxi_cpu_enable_power(unsigned int cluster, unsigned int core)
@@ -38,10 +39,15 @@ static void sunxi_cpu_enable_power(unsigned int cluster, unsigned int core)
 
 	/* Power enable sequence from original Allwinner sources */
 	mmio_write_32(SUNXI_CPU_POWER_CLAMP_REG(cluster, core), 0xfe);
+	udelay(10);
 	mmio_write_32(SUNXI_CPU_POWER_CLAMP_REG(cluster, core), 0xf8);
+	udelay(10);
 	mmio_write_32(SUNXI_CPU_POWER_CLAMP_REG(cluster, core), 0xe0);
+	udelay(10);
 	mmio_write_32(SUNXI_CPU_POWER_CLAMP_REG(cluster, core), 0x80);
+	udelay(10);
 	mmio_write_32(SUNXI_CPU_POWER_CLAMP_REG(cluster, core), 0x00);
+	udelay(10);
 }
 
 /* We can't turn ourself off like this, but it works for other cores. */
