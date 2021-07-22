@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4257c1a2_89bfbd0f",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-07-22T23:08:29Z",
+      "side": 1,
+      "message": "I am curious why the WARN macro was used here instead of ERROR().",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 6
+      },
+      "revId": "4b2c81d87fd55cb2b9ebe7c5d469c853b573aab1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
