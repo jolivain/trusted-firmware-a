@@ -9,6 +9,7 @@ Utility Modules
 
     ./module/ArmAssert
     ./module/ArmConfigOption
+    ./module/ArmExpand
 
 Find Modules
 ------------
