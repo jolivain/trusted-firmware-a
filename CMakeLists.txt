@@ -95,3 +95,14 @@ arm_assert(
 
 file(READ "${TFA_PLATFORM_SOURCE_DIR}/platform.json" TFA_PLATFORM_METADATA)
 arm_expand(OUTPUT TFA_PLATFORM_METADATA STRING "${TFA_PLATFORM_METADATA}")
+
+#
+# Because the platform's source directory might have come from outside, CMake
+# may be unable to derive the platform's binary directory automatically. As an
+# alternative, we'll use the platform's target name as its binary directory.
+#
+
+string(JSON TFA_PLATFORM_TARGET GET "${TFA_PLATFORM_METADATA}" "target")
+
+set(TFA_PLATFORM_BINARY_DIR
+    "${CMAKE_CURRENT_BINARY_DIR}/${TFA_PLATFORM_TARGET}")
