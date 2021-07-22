@@ -33,6 +33,41 @@
       "message": "(The 2*64K/27*64K area division is following a note on the user manual)",
       "revId": "3f2d3a66ab250d97df9c581d9f0c704532b6ddae",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21ccd0d7_6d18a245",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-07-22T10:51:44Z",
+      "side": 1,
+      "message": "If possible, yes. I haven\u0027t checked in detail, but I think Samuel\u0027s cleanup series: \nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/9845/2 should help with that?",
+      "parentUuid": "fb72e7c1_2ed35ad4",
+      "revId": "3f2d3a66ab250d97df9c581d9f0c704532b6ddae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7a03b59_8e044c04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-07-22T10:51:44Z",
+      "side": 1,
+      "message": "that looks roughly alright, but can you rebase this on Samuel\u0027s cleanup series?\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/9845/2\nIdeally that already helps with the OR1K reset vector offset question?\n\n",
+      "revId": "3f2d3a66ab250d97df9c581d9f0c704532b6ddae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
