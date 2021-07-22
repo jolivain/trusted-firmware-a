@@ -39,6 +39,30 @@
       },
       "revId": "7cf32bbbb41c0858d888a16c55828f0d71f81c5f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea3f7b14_50d6abcc",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-07-22T12:19:08Z",
+      "side": 1,
+      "message": "\u003e Are we expecting this handler to always print the EA information and panic in the future?\n\nWell, I do not know. This is rather question for other TF-A developers, what is expected from current (default) handler.",
+      "parentUuid": "75e99870_3c033589",
+      "range": {
+        "startLine": 496,
+        "startChar": 1,
+        "endLine": 496,
+        "endChar": 24
+      },
+      "revId": "7cf32bbbb41c0858d888a16c55828f0d71f81c5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
