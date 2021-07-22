@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c3ed1595_395a3a4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-07-22T14:19:37Z",
+      "side": 1,
+      "message": "Commitlint job throwing below error:\n✖   type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test] [type-enum]\n\nPlease update the commit header to fix this commitlint error.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "6a0f835560ca010615d7f1c89050af06b4ed377d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "470d29d8_4fe406a3",
         "filename": "drivers/arm/gic/v3/gic600ae_fmu.c",
         "patchSetId": 2
