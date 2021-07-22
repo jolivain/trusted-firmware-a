@@ -48,6 +48,35 @@ file(READ "${CMAKE_SOURCE_DIR}/metadata.json" _TFA_METADATA)
 arm_expand(OUTPUT _TFA_METADATA STRING "${_TFA_METADATA}")
 
 #
+# Allow the user to provide their own platform list metadata. This allows
+# developers to use out-of-tree platforms (platforms that live outside of this
+# repository). The platforms list given by this file is superimposed onto the
+# global metadata file.
+#
+
+arm_config_option(
+    NAME TFA_METADATA_PLATFORMS_PATH
+    HELP "Path to an alternative platforms metadata file."
+    TYPE FILEPATH ADVANCED)
+
+if(TFA_METADATA_PLATFORMS_PATH)
+    cmake_path(GET TFA_METADATA_PLATFORMS_PATH
+        PARENT_PATH TFA_PLATFORMS_METADATA_DIR)
+
+    arm_assert(
+        CONDITION EXISTS "${TFA_METADATA_PLATFORMS_PATH}"
+        MESSAGE "The platforms metadata file does not exist: ${TFA_METADATA_PLATFORMS_PATH}")
+
+    file(READ "${TFA_METADATA_PLATFORMS_PATH}" platforms-metadata)
+    arm_expand(OUTPUT platforms-metadata STRING "${platforms-metadata}")
+
+    tfa_json_merge(_TFA_METADATA
+        BOTTOM "${_TFA_METADATA}"
+        BOTTOM_PATH "platforms"
+        TOP "${platforms-metadata}")
+endif()
+
+#
 # Internal global metadata API.
 #
 
