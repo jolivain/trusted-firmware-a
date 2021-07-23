@@ -33,9 +33,11 @@
 					 SUNXI_SRAM_A2_SIZE - SUNXI_SCP_SIZE)
 #define SUNXI_SCP_BASE			BL31_LIMIT
 
+#if SEPARATE_NOBITS_REGION
 /* Overwrite U-Boot SPL, but reserve the first page for the SPL header. */
 #define BL31_NOBITS_BASE		(SUNXI_SRAM_A1_BASE + 0x1000)
 #define BL31_NOBITS_LIMIT		(SUNXI_SRAM_A1_BASE + SUNXI_SRAM_A1_SIZE)
+#endif /* SEPARATE_NOBITS_REGION */
 
 #define MAX_XLAT_TABLES			2
 #define PLAT_VIRT_ADDR_SPACE_SIZE	(1ULL << 28)
