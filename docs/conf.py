@@ -21,7 +21,12 @@ project = 'Trusted Firmware-A'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ['sphinx.ext.autosectionlabel', 'sphinx.ext.intersphinx',
-              'sphinxcontrib.moderncmakedomain', 'sphinxcontrib.plantuml' ]
+              'sphinx.ext.todo', 'sphinxcontrib.moderncmakedomain',
+              'sphinxcontrib.images', 'sphinxcontrib.plantuml' ]
+
+html_static_path = ['_static']
+html_css_files = ['collapsible.css', 'thumbnail.css']
+html_js_files = ['collapsible.js']
 
 # Configure intersphinx so that we can refer to external documentation.
 intersphinx_mapping = {
@@ -98,3 +103,8 @@ autosectionlabel_maxdepth = 1
 # -- Options for plantuml ----------------------------------------------------
 
 plantuml_output_format = 'svg_img'
+
+# -- Options for todo extension ----------------------------------------------
+
+# Display todos
+todo_include_todos = False
