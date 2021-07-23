@@ -111,6 +111,30 @@
       },
       "revId": "7cf32bbbb41c0858d888a16c55828f0d71f81c5f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0b8f322_86e10676",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-07-23T15:20:09Z",
+      "side": 1,
+      "message": "I haven\u0027t seen the earlier discussion.\nThere are few functions in platform.h(get_mbedtls_heap_helper()) which does not have plat_ prefix. Even in plat_common.c there is a helper function get_el_str().\nSo, IMHO it is not mandatory to keep plat_* prefix.\nHaving said that, i don\u0027t have strong opinion either way. @Varun/@Raghu\u0027s your thoughts.",
+      "parentUuid": "797db476_d77258c1",
+      "range": {
+        "startLine": 496,
+        "startChar": 1,
+        "endLine": 496,
+        "endChar": 24
+      },
+      "revId": "7cf32bbbb41c0858d888a16c55828f0d71f81c5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
