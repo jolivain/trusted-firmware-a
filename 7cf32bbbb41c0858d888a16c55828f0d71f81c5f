@@ -135,6 +135,30 @@
       },
       "revId": "7cf32bbbb41c0858d888a16c55828f0d71f81c5f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b178db9_6b275f3a",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-07-23T18:10:02Z",
+      "side": 1,
+      "message": "i prefer the plat prefix. or we can move it to a different file. Sure we have broken the convention, but my thinking was we dont make the problem worse. I\u0027m okay either way with a preference for plat prefix.",
+      "parentUuid": "e0b8f322_86e10676",
+      "range": {
+        "startLine": 496,
+        "startChar": 1,
+        "endLine": 496,
+        "endChar": 24
+      },
+      "revId": "7cf32bbbb41c0858d888a16c55828f0d71f81c5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
