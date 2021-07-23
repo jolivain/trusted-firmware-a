@@ -140,6 +140,30 @@
       },
       "revId": "5ffe135677cf307bbf4b82da7479c4adb7594f8e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96c7f567_2a563a07",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 17
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-07-23T14:26:50Z",
+      "side": 1,
+      "message": "Okay thanks. In that case, can we modify it to:\nIt returns \u00270\u0027 on success, otherwise a negative value on error.",
+      "parentUuid": "a85fd859_7a699f15",
+      "range": {
+        "startLine": 941,
+        "startChar": 27,
+        "endLine": 941,
+        "endChar": 32
+      },
+      "revId": "5ffe135677cf307bbf4b82da7479c4adb7594f8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
