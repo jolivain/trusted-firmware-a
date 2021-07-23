@@ -34,6 +34,24 @@
       "parentUuid": "ad62968e_a5261b7d",
       "revId": "99e6d7ed1b770dc4be0c875cac3d5aafe3fb14dd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f68f2c46_b18ad990",
+        "filename": "plat/arm/common/arm_io_storage.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-07-23T08:21:37Z",
+      "side": 1,
+      "message": "\u0027arm_set_image_source\u0027 function already throws an error message (see line no.168). In that case, adding a log before the panic will be redundant. Let me know what do you think?",
+      "parentUuid": "50327f2e_06d6a065",
+      "revId": "99e6d7ed1b770dc4be0c875cac3d5aafe3fb14dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
