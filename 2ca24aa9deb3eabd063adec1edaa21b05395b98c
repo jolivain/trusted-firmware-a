@@ -16,6 +16,23 @@
       "message": "Anson is no longer with NXP and has no time on i.MX8, so add myself as i.MX8 maintainer, I could reserve time on this.",
       "revId": "2ca24aa9deb3eabd063adec1edaa21b05395b98c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93a9d76a_c3cb5aa2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-07-23T10:23:07Z",
+      "side": 1,
+      "message": "Strictly speaking you should not Code Owner(CO) review a patch you submit yourself according to project contribution rules. Best if you can find another NXP person to CO review this patch.\n\nIts often advisable to have two code owners if either of you expect to be a code owner and submit patches so you can work together.\n\nAs a last resort a Maintainer can give the CO review but then they should not do both Maintainer and CO review. The goal here is to promote multiple eyes on patches.\n\nhttps://developer.trustedfirmware.org/w/collaboration/project-maintenance-process/",
+      "revId": "2ca24aa9deb3eabd063adec1edaa21b05395b98c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
