@@ -16,6 +16,24 @@
       "message": "So that brings especially the tight A64 build closer to its limit. Do we actually need to map all of this large SRAM?\nAnd are there other supposed users for this memory? DE/VE? Maybe we should at least logically partition this, to just take 128K or 256K for TF-A?",
       "revId": "9f8778e886f18e74091de1f72335abd96dcc0453",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f22fa119_54c2a184",
+        "filename": "plat/allwinner/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-07-25T13:16:06Z",
+      "side": 1,
+      "message": "Agreed, we should only map what we need to use. (Not just for code size, but also to prevent EL3 from interfering with other ELs, similar to PAN.)",
+      "parentUuid": "38d8352f_df8721f6",
+      "revId": "9f8778e886f18e74091de1f72335abd96dcc0453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
