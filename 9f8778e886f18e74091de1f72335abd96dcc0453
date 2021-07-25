@@ -34,6 +34,24 @@
       "parentUuid": "38d8352f_df8721f6",
       "revId": "9f8778e886f18e74091de1f72335abd96dcc0453",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14052eea_1c95684f",
+        "filename": "plat/allwinner/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000671
+      },
+      "writtenOn": "2021-07-25T16:18:38Z",
+      "side": 1,
+      "message": "Well, to be honest, I agree to only map a part.\n\nI think the SRAM is originally for the DSP, but we have nearly no possibility to use the DSP, because its development toolchain needs a NDA with Tensilica.\n\nIt might be possible to let the AIPU (NN accelerator, an IP from ARM China, and as I know ARM China is willing to be more open on it) use the SRAM.\n\nFor a partition, maybe 64K for SPL and 64K for ATF? (64K for SPL should be enough for a long time, but is 64K for ATF too tight? The partition is based on the user manual lists SRAM A2 size as 2*64K + 27*64K.)",
+      "parentUuid": "f22fa119_54c2a184",
+      "revId": "9f8778e886f18e74091de1f72335abd96dcc0453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
