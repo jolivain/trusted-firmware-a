@@ -33,6 +33,24 @@
       "message": "Side note: I wonder if this will be a problem for R329, if we put TF-A at the beginning of SRAM A2. We should probably come up with a better way of passing this information (considering this, differences with TOC0, etc.)",
       "revId": "1fb3fd98b50680963e7ae17a891dd744e4a3d615",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16d73b05_53c542be",
+        "filename": "plat/allwinner/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000671
+      },
+      "writtenOn": "2021-07-25T16:13:11Z",
+      "side": 1,
+      "message": "I think we just cannot put TF-A at the beginning of SRAM A2, because SPL just cannot override itself.\n\nCurrently I put SPL at the beginning, but put TF-A at 2*64K position (just because the manual lists the size of SRAM A2 as 2*64K + 27*64K)",
+      "parentUuid": "0f240e1f_513bb4f7",
+      "revId": "1fb3fd98b50680963e7ae17a891dd744e4a3d615",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
