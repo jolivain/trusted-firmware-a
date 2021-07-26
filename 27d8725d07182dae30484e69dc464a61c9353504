@@ -195,6 +195,24 @@
       "parentUuid": "1330e4b9_12f7d0ce",
       "revId": "27d8725d07182dae30484e69dc464a61c9353504",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d7b26be_6dbcf577",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-07-26T09:21:50Z",
+      "side": 1,
+      "message": "\u003e It is DURING CSE (ERET) that it matters if there is no ISB, if you consider that this patch is not there, than both hcr_el2 and ttbr_el1 sync at eret. The order of these syncing in is not guaranteed, if the ttbr1_el2 syncs in before  hcr_le2 syncs in, it sees that HCR_EL2.E2H bit is 0\n\nI think this summarizes quite well the problem though there is no mention (per my reading above) that SW has to provide this guarantee esp. at EL3. So it\u0027s important to understand if the (HW) context synchronization implementation must take care of committing HCR_EL2.E2H before the TTBR1_EL2 write per the architecture. If not, the Arm ARM shall explicitly mention this. At this stage (sorry to repeat what was said above) we cannot tell if this is a model quirk or a problem that will effectively trigger in HW.\n\nIn general we should refrain adding an ISB without a strong justification especially in this context switch sequence which may be traversed dozens/thousands of times for a simple transaction to a SP. Btw, this does no longer only affect SPM cases but also Arm CCA entities in the long term.",
+      "parentUuid": "476a1026_ee63085f",
+      "revId": "27d8725d07182dae30484e69dc464a61c9353504",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
