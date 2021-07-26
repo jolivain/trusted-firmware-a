@@ -16,6 +16,23 @@
       "message": "Tested by CI run on tip of patch-stack, https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/9563.",
       "revId": "d13dbb6f1d5e28737a3319af035a6cb991bc6f8f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e165a59_ee126635",
+        "filename": "common/uuid.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2021-07-26T14:53:18Z",
+      "side": 1,
+      "message": "If I understand the intent here correctly, this is meant to clear the UUID buffer if an error occurs during parsing. \n\nHowever, during parsing the `dest` pointer has been incremented, and by the time it hits this memset call, the pointer is no longer at the start of the buffer  therefore causing whatever is past the end of the uuid buffer to be overwritten, rather than clearing the buffer itself.",
+      "revId": "d13dbb6f1d5e28737a3319af035a6cb991bc6f8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
