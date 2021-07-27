@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73c691d6_45f32325",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-07-27T11:45:38Z",
+      "side": 1,
+      "message": "\u003e Patch Set 9:\n\u003e \n\u003e Sorry I did not notice this before this was submitted, but this change breaks platforms that use TRUSTY_SPD_WITH_GENERIC_SERVICES\n\nHi @Varun @Arve,\n\nAny idea how to properly resolve this? IIUC this is gating upstream TF-A merge into Android tree.",
+      "revId": "fc19818874f1f18c3617df9e426fc27e3425c910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
