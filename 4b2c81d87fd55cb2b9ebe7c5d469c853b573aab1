@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b6ac5c82_1c178d86",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-07-27T10:46:37Z",
+      "side": 1,
+      "message": "Agree. Let me update the code accordingly.\nI think logic you mentioned does not improve the performance though as in normal scenario (success case), this logic also ask for both checks \u0027result !\u003d 0\u0027 and \u0027sizeof(struct fwu_metadata) !\u003d bytes_read\u0027, but in failure case it avoid redundant \u0027result\u0027 check.",
+      "parentUuid": "2ab3c0fa_a8eab05d",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 2
+      },
+      "revId": "4b2c81d87fd55cb2b9ebe7c5d469c853b573aab1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0ef4ca3e_9e516b73",
         "filename": "drivers/fwu/fwu.c",
         "patchSetId": 15
@@ -108,6 +132,24 @@
       "writtenOn": "2021-07-26T23:21:51Z",
       "side": 1,
       "message": "nitpick:\nI am curious why was string qualifier used again? I am guessing there might be some reason that I am not aware of.\n\nWARN(\"Sanity check failed on FWU metadata\\n\");",
+      "revId": "4b2c81d87fd55cb2b9ebe7c5d469c853b573aab1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9db4896_4b8814be",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-07-27T10:46:37Z",
+      "side": 1,
+      "message": "This is a trick to have single \u0027check failed on FWU metadata\u0027 string (const char *) defined.",
+      "parentUuid": "0ef4ca3e_9e516b73",
       "revId": "4b2c81d87fd55cb2b9ebe7c5d469c853b573aab1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -172,6 +214,24 @@
       "writtenOn": "2021-07-26T23:21:51Z",
       "side": 1,
       "message": "I am curious why we need to declare this explicitly. Do we expect another set of firmware update drivers in the future for TF-A? Is it just for readability?\n\nBL2_SOURCES        +\u003d driver/fwu/fwu.c",
+      "revId": "4b2c81d87fd55cb2b9ebe7c5d469c853b573aab1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec4b96ca_24471218",
+        "filename": "drivers/fwu/fwu.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-07-27T10:46:37Z",
+      "side": 1,
+      "message": "Yes, this is only done for the readability purpose. I don\u0027t think there will be any another set for firmware update in near future. PSA FWU specification may get updated in future, but those changes will be part of this driver directory only.\n\nHaving said that I don\u0027t see any issue in putting source path explicitly as you mentioned. Please let me know what do you think.",
+      "parentUuid": "fd615136_2444e02c",
       "revId": "4b2c81d87fd55cb2b9ebe7c5d469c853b573aab1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
