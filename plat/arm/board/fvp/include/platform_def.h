@@ -67,8 +67,8 @@
 #define PLAT_ARM_DRAM2_SIZE		UL(0x80000000)
 
 /* Range of kernel DTB load address */
-#define FVP_DTB_DRAM_MAP_START          ULL(0x82000000)
-#define FVP_DTB_DRAM_MAP_END            ULL(0x8000)
+#define FVP_DTB_DRAM_MAP_START          ULL(0x80000000)
+#define FVP_DTB_DRAM_MAP_END            ULL(0x40000000)
 
 #define ARM_DTB_DRAM_NS			MAP_REGION_FLAT(		\
 					FVP_DTB_DRAM_MAP_START,		\
