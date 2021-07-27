@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c8d7b32_656b2c66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2021-07-27T16:07:14Z",
+      "side": 1,
+      "message": "HI Madhukar,\n\nSorry for the late reply.",
+      "revId": "59c2a027400d6b5a2853efdfa085052fcc11bd64",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73ac23ae_e5e484bd",
@@ -103,6 +120,30 @@
       "side": 1,
       "message": "Gentle reminder",
       "parentUuid": "fe7d8958_6718ddd3",
+      "range": {
+        "startLine": 60,
+        "startChar": 2,
+        "endLine": 60,
+        "endChar": 23
+      },
+      "revId": "59c2a027400d6b5a2853efdfa085052fcc11bd64",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d4be01e_5479ee63",
+        "filename": "plat/arm/css/sgi/sgi_ras.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2021-07-27T16:07:14Z",
+      "side": 1,
+      "message": "Hi Madhukar,\n\nEach platform has multiple DMC-620 instances. Every DMC registers to ras framework individually for fault events. Fault event for all DMC\u0027s are handled in a common handler and requires information on fault generating DMC instance. The aux_data field is a group specific metadata field that carries specific information pertaining to that group. In this case this field signifies the DMC instance number.",
+      "parentUuid": "c3bdf228_987df044",
       "range": {
         "startLine": 60,
         "startChar": 2,
