@@ -16,6 +16,23 @@
       "message": "\u003e Patch Set 4: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 926 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/926/)\n\u003e Some tests failed (3)\n\nI rebased the patch.\nHow can I re-trigger the build?",
       "revId": "9e10252a05341f6b1f735e26cd2b7b7d6139e12d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29be0410_b9c339a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-07-28T09:19:31Z",
+      "side": 1,
+      "message": "Code Owner review is not for the Author of the patch but for the maintainer of the module, @Manish B, could you please provide CoR on this?",
+      "revId": "9e10252a05341f6b1f735e26cd2b7b7d6139e12d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
