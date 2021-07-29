@@ -66,6 +66,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1a152a69_681c76a6",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2021-07-29T16:44:53Z",
+      "side": 1,
+      "message": "The mitigation that is actually implemented by the software needs to be described for each of these mitigations in the threat model. (Or alternatively, place a requirement on another party to mitigate it in their integration of the software.) From the current descriptions, it\u0027s not clear whether the mitigations are implemented by the software or just that we would like them to be.",
+      "range": {
+        "startLine": 186,
+        "startChar": 31,
+        "endLine": 186,
+        "endChar": 40
+      },
+      "revId": "511a6e13c4572418a711b3b2c99c9644496cf17f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "18cd2fff_b2640e6f",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 3
