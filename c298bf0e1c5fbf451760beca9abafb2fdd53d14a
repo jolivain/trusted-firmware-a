@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a322a8c_e0fb6ccb",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-07-30T15:23:59Z",
+      "side": 1,
+      "message": "ok, will add the purpose of these arguments. Just to add, these are not new arguments and are picked up from spmd_smc_handler. Flags is used by spmc for identifying the request origin.",
+      "parentUuid": "d97afad9_19d0f092",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 19
+      },
+      "revId": "c298bf0e1c5fbf451760beca9abafb2fdd53d14a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e5de24f_45cd8ae7",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-07-16T10:15:56Z",
       "side": 1,
       "message": "I think spmd_smc_forward should just call two functions - spmc_el3_smc_formward, spmc_sel2_smc_forward\n\nif (is_spmc_at_el3())\n\treturn spmc_el3_smc_handler(...);\n\nif (is_spmc_at_sel2())\n        return spmc_sel2_smc_handler(...);\n\nreturn error;",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 396,
+        "endChar": 6
+      },
+      "revId": "c298bf0e1c5fbf451760beca9abafb2fdd53d14a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e2b625d_77e8d1e4",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-07-30T15:23:59Z",
+      "side": 1,
+      "message": "spmc_sel1 also there, which would be quite similar to spmc_sel2. These two cases are already handled in existing solution, spmc_el3 is addition. In spmc_el3 case, just invoking the spmc_smc_handler should do the job.",
+      "parentUuid": "1e5de24f_45cd8ae7",
       "range": {
         "startLine": 394,
         "startChar": 0,
@@ -96,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e565705_dfdc467b",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-07-30T15:23:59Z",
+      "side": 1,
+      "message": "Agree, didn\u0027t intend to modify existing solution in current patchset. Will try to bring this change in separate patch.",
+      "parentUuid": "138d9dee_18084e0c",
+      "range": {
+        "startLine": 402,
+        "startChar": 4,
+        "endLine": 402,
+        "endChar": 20
+      },
+      "revId": "c298bf0e1c5fbf451760beca9abafb2fdd53d14a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77e1eb00_752c75e1",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 3
@@ -107,6 +179,30 @@
       "writtenOn": "2021-07-16T10:15:56Z",
       "side": 1,
       "message": "Frankly, this does not look elegant. It would be great if we can come up with a runtime check and then return 0. Also, it is not clear why we return 0 from here.",
+      "range": {
+        "startLine": 455,
+        "startChar": 0,
+        "endLine": 457,
+        "endChar": 6
+      },
+      "revId": "c298bf0e1c5fbf451760beca9abafb2fdd53d14a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb6f9889_3010c7e0",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-07-30T15:23:59Z",
+      "side": 1,
+      "message": "Ok. Will try to devise a runtime solution here.\nThis function is to identify whether a current request is originated from SPMC and action taken accordingly in spmd_smc_handler(). For SPMC_at_EL3 case, there will be direct interaction between SPMD and SPMC, so to avoid any kind of conflict returning 0.",
+      "parentUuid": "77e1eb00_752c75e1",
       "range": {
         "startLine": 455,
         "startChar": 0,
