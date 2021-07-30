@@ -16,6 +16,23 @@
       "message": "Should hopefully take care of the final error.",
       "revId": "0bf5e803413ea0f48b222f6bfd10b5d1c94c942f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2907d33c_8f136dad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2021-07-30T06:16:12Z",
+      "side": 1,
+      "message": "\u003e Patch Set 4: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 943 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/943/)\n\u003e Some tests failed (3)\n\nIt seems that some FVP tests are failing. I don\u0027t see how that connects with this change for QEMU.",
+      "revId": "0bf5e803413ea0f48b222f6bfd10b5d1c94c942f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
