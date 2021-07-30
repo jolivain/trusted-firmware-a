@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f383028a_68b91955",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-07-30T15:23:30Z",
+      "side": 1,
+      "message": "I may not have understood the point here. In any of the SPMC configuration(S-EL2, S-EL1, EL3), SPMD will remain the gateway, so do we need to have any check for kernel?",
+      "parentUuid": "786dfc92_c084c413",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 11
+      },
+      "revId": "80b4321a09b6a2ed8dac82980e737346ba87ff24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7019184b_40d4433d",
         "filename": "include/services/spmc_svc.h",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2021-07-13T14:07:01Z",
       "side": 1,
       "message": "nit: tab",
+      "range": {
+        "startLine": 22,
+        "startChar": 33,
+        "endLine": 22,
+        "endChar": 44
+      },
+      "revId": "80b4321a09b6a2ed8dac82980e737346ba87ff24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4d8c932_98dc9a15",
+        "filename": "include/services/spmc_svc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-07-30T15:23:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7019184b_40d4433d",
       "range": {
         "startLine": 22,
         "startChar": 33,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8bcd4ba_302c70f6",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-07-30T15:23:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "648bb80b_60958da9",
+      "range": {
+        "startLine": 249,
+        "startChar": 5,
+        "endLine": 249,
+        "endChar": 21
+      },
+      "revId": "80b4321a09b6a2ed8dac82980e737346ba87ff24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "496ac058_dd3ace28",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-07-16T10:33:12Z",
       "side": 1,
       "message": "not all platforms need this, but will not have a negative impact AFAICT",
+      "range": {
+        "startLine": 267,
+        "startChar": 1,
+        "endLine": 268,
+        "endChar": 26
+      },
+      "revId": "80b4321a09b6a2ed8dac82980e737346ba87ff24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43257154_8c1f923c",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-07-30T15:23:30Z",
+      "side": 1,
+      "message": "ok.",
+      "parentUuid": "496ac058_dd3ace28",
       "range": {
         "startLine": 267,
         "startChar": 1,
@@ -123,6 +219,42 @@
       "writtenOn": "2021-07-23T15:10:41Z",
       "side": 1,
       "message": "@Sayanta Would you be able to explain what the purpose of the `spm_sp_synchronous_exit` call during the `direct_resp` handling is for?",
+      "revId": "80b4321a09b6a2ed8dac82980e737346ba87ff24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db2a9390_637dbeac",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-07-30T15:23:30Z",
+      "side": 1,
+      "message": "No, compiler doesn\u0027t complain any. This function will eventually restores the runtime context, which was saved during spm_sp_synchronous_entry.",
+      "parentUuid": "905949b8_643e6da1",
+      "revId": "80b4321a09b6a2ed8dac82980e737346ba87ff24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acdccb0d_8b49e595",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-07-30T15:23:30Z",
+      "side": 1,
+      "message": "In current implementation following components are used for FF-A use case.\nMMCommunication(Nwd) -\u003e SPMD+SPMC(EL3) -\u003e StMM(S-EL0).\n\nIn currently tested use case, MM_Communicate makes FFA_Direct_request, which is passed on to StMM by SPMC, using spm_sp_synchronous_entry(). After handling the request, StMM invokes FFA_Direct_response and here spm_sp_synchronous_exit() restores the runtime context, which was saved during spm_sp_synchronous_entry().",
+      "parentUuid": "5e5dd487_f63d7330",
       "revId": "80b4321a09b6a2ed8dac82980e737346ba87ff24",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
