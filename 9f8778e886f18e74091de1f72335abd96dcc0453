@@ -52,6 +52,24 @@
       "parentUuid": "f22fa119_54c2a184",
       "revId": "9f8778e886f18e74091de1f72335abd96dcc0453",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f84b2320_f23cc0ec",
+        "filename": "plat/allwinner/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-07-31T00:10:09Z",
+      "side": 1,
+      "message": "So for now I think 64K for BL31 should be fine, the A64 is limited to 48K (64K SRAM A2 - 16K SCP), so we have some space left. And we won\u0027t need SCP support in BL31, so even less code compared to the A64.\n\nWould the accelerators take their SRAM addresses from the DT? Then we could actually adjust this later, should we ever need to grow BL31 beyond 64K.\n\nSo to summarise: the BROM loads eGON/TOC0 into the SRAM at 0x100000? And BL31 should then be loaded to 0x110000, with a limit at 0x120000? And everything beyond that belongs to the accelerators?",
+      "parentUuid": "14052eea_1c95684f",
+      "revId": "9f8778e886f18e74091de1f72335abd96dcc0453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
