@@ -130,6 +130,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05313567_c1c149ae",
+        "filename": "plat/rpi/rpi4/rpi4_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-07-31T00:46:19Z",
+      "side": 1,
+      "message": "I changed it, but I really wonder what those unsigned 0s are about, and whether it\u0027s worth commenting on them? I guess the signedness of 0 can really be debated over some pints, and IIRC MISRA rules are not enforced in platform code.",
+      "parentUuid": "27bf1ae0_05def3cd",
+      "range": {
+        "startLine": 221,
+        "startChar": 14,
+        "endLine": 221,
+        "endChar": 15
+      },
+      "revId": "2d0032148b8f7afe6c951e94e205d155b944a6a1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1f88226c_841f8807",
         "filename": "plat/rpi/rpi4/rpi4_bl31_setup.c",
         "patchSetId": 2
