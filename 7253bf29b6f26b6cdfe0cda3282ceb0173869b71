@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f708440e_41d95c8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-07-31T00:27:22Z",
+      "side": 1,
+      "message": "Looks good at the first glance, though I cannot verify anything: no manual, no hardware.\nIt would be good if you try your suggested SRAM split, with SEPARATE_NOBITS_REGION:\u003d1. That compiled fine here, but it needs to be tested, because the page tables are build at runtime.",
+      "revId": "7253bf29b6f26b6cdfe0cda3282ceb0173869b71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b83a1c0b_e1bd6c7f",
+        "filename": "plat/allwinner/sun50i_r329/include/sunxi_mmap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-07-31T00:27:22Z",
+      "side": 1,
+      "message": "So following your suggestion of a 64K/64K split for SPL/BL31, you would define SRAM_A1 here, beginning at 0x100000, with a size of 64K? Then SRAM_A2 beginning at 0x110000, also 64K big, then BL31_OFFSET being 0?",
+      "revId": "7253bf29b6f26b6cdfe0cda3282ceb0173869b71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
