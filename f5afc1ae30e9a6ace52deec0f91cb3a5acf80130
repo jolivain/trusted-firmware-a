@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb0c1db7_3b1d682d",
+        "filename": "bl32/sp_min/sp_min.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-01T13:02:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "46dcaecf_3dd4d261",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "f5afc1ae30e9a6ace52deec0f91cb3a5acf80130",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f449a059_acc4d00e",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "005505ed_d6349a8c",
+        "filename": "lib/extensions/sys_reg_trace/aarch32/sys_reg_trace.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-01T13:02:08Z",
+      "side": 1,
+      "message": "Agree to some extent to move this function to arch_features.h. Initially thought of adding it in the \u0027arch_features\u0027 header, but because of below two reasons kept it here: \n1. use of this function is restricted to this file and\n2. from a consistency point of view, few implemented extensions (such as SVE, SPE, AMU) not added such feature function in the \u0027arch_features\u0027 header.",
+      "parentUuid": "f449a059_acc4d00e",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 1
+      },
+      "revId": "f5afc1ae30e9a6ace52deec0f91cb3a5acf80130",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "39dcb121_53b54475",
         "filename": "lib/extensions/sys_reg_trace/aarch64/sys_reg_trace.c",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2021-07-30T22:10:32Z",
       "side": 1,
       "message": "This function should probably go in arch_features.h.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 1
+      },
+      "revId": "f5afc1ae30e9a6ace52deec0f91cb3a5acf80130",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29b78a65_64c6f853",
+        "filename": "lib/extensions/sys_reg_trace/aarch64/sys_reg_trace.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-01T13:02:08Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "39dcb121_53b54475",
       "range": {
         "startLine": 13,
         "startChar": 0,
