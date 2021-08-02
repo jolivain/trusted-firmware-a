@@ -86,6 +86,74 @@ arm_config_option(
     TYPE PATH)
 
 #
+# If no toolchain file has been provided through the default CMake mechanism, we
+# use our own mechanism for toolchain selection, with the intention of making it
+# easier for users to specify a valid toolchain file.
+#
+# Rather than ask the user to provide a toolchain file, we instead glob for
+# toolchain files in the `toolchains` directory of the repository. The filename
+# of each toolchain file becomes a value we accept in the `TFA_TOOLCHAIN`
+# configuration option.
+#
+
+
+set(toolchains "")
+file(GLOB toolchain-files "toolchains/*.cmake")
+
+arm_assert(
+    CONDITION toolchain-files
+    MESSAGE "No toolchain files defined!")
+
+foreach(toolchain-file IN LISTS toolchain-files)
+    cmake_path(GET toolchain-file STEM toolchain)
+    list(APPEND toolchains "${toolchain}")
+endforeach()
+
+if(DEFINED TFA_SOURCE_DIR)
+    arm_assert(
+        CONDITION TFA_TOOLCHAIN STREQUAL TFA_TOOLCHAIN_NEW
+        MESSAGE "Sorry, the toolchain cannot be changed after configuration "
+                "has succeeded. Please clear the CMake cache (e.g. by wiping "
+                "the build directory) and configure again.\n"
+
+                "The currently configured toolchain is ${TFA_TOOLCHAIN_NEW}, "
+                "but ${TFA_TOOLCHAIN} was requested.")
+endif()
+
+arm_config_option(
+    NAME TFA_TOOLCHAIN
+    HELP "Toolchain name."
+    STRINGS ${toolchains}
+    DEFAULT "GNU"
+    DEPENDS NOT DEFINED TFA_SOURCE_DIR
+    ELSE "${TFA_TOOLCHAIN}")
+
+#
+# Allow the user to configure the toolchain file. This uses the standard CMake
+# mechanism for describing the toolchain.
+#
+
+if(DEFINED TFA_SOURCE_DIR)
+    arm_assert(
+        CONDITION CMAKE_TOOLCHAIN_FILE STREQUAL CMAKE_TOOLCHAIN_FILE_NEW
+        MESSAGE "Sorry, the toolchain cannot be changed after configuration "
+                "has succeeded. Please clear the CMake cache (e.g. by wiping "
+                "the build directory) and configure again.")
+endif()
+
+arm_config_option(
+    NAME CMAKE_TOOLCHAIN_FILE
+    HELP "Path to the CMake toolchain file."
+    TYPE FILEPATH
+    DEFAULT "${CMAKE_CURRENT_LIST_DIR}/toolchains/${TFA_TOOLCHAIN}.cmake"
+    DEPENDS NOT DEFINED TFA_SOURCE_DIR
+    ELSE "${CMAKE_TOOLCHAIN_FILE}")
+
+arm_assert(
+    CONDITION EXISTS "${CMAKE_TOOLCHAIN_FILE}"
+    MESSAGE "Couldn't find toolchain file: ${CMAKE_TOOLCHAIN_FILE}")
+
+#
 # We're done with very early setup, so we can now create the project. This will
 # do some of the automatic compiler detection, which we need for setting up
 # further configuration options.
