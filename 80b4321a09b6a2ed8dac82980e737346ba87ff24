@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44d4428b_3c5e5114",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-02T13:44:19Z",
+      "side": 1,
+      "message": "My question was, how do we make sure that the same linux kernel works with a TF-A image that does or does not support SPMC_AT_EL3?",
+      "parentUuid": "f383028a_68b91955",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 11
+      },
+      "revId": "80b4321a09b6a2ed8dac82980e737346ba87ff24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7019184b_40d4433d",
         "filename": "include/services/spmc_svc.h",
         "patchSetId": 3
