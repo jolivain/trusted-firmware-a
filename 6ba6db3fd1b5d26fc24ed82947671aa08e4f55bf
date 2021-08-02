@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eb56aa2_e3ca0b48",
+        "filename": "services/std_svc/spm/spm_mm/spm_mm_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-02T16:58:06Z",
+      "side": 1,
+      "message": "Can we use this with DYNAMIC_XLAT_TABLES? Platforms might enable the MMU before this function entry.",
+      "range": {
+        "startLine": 141,
+        "startChar": 1,
+        "endLine": 145,
+        "endChar": 45
+      },
+      "revId": "6ba6db3fd1b5d26fc24ed82947671aa08e4f55bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db4175fe_a3cd710f",
+        "filename": "services/std_svc/spm/spm_mm/spm_mm_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-02T16:58:06Z",
+      "side": 1,
+      "message": "sp_mp_info?",
+      "range": {
+        "startLine": 178,
+        "startChar": 1,
+        "endLine": 178,
+        "endChar": 47
+      },
+      "revId": "6ba6db3fd1b5d26fc24ed82947671aa08e4f55bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc614472_2c32faf2",
+        "filename": "services/std_svc/spm/spm_mm/spm_mm_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-02T16:58:06Z",
+      "side": 1,
+      "message": "Should we check for address wrap around first?",
+      "range": {
+        "startLine": 195,
+        "startChar": 12,
+        "endLine": 196,
+        "endChar": 56
+      },
+      "revId": "6ba6db3fd1b5d26fc24ed82947671aa08e4f55bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
