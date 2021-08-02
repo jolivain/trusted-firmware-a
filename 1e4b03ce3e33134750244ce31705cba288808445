@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fe5de42_282a78b2",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-02T14:44:41Z",
+      "side": 1,
+      "message": "This might be problematic in the longer run. Is there a way to query the spmc_manifest size from the platform?",
+      "range": {
+        "startLine": 298,
+        "startChar": 10,
+        "endLine": 298,
+        "endChar": 23
+      },
+      "revId": "1e4b03ce3e33134750244ce31705cba288808445",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ad347d5_e1ea6b95",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-02T14:44:41Z",
+      "side": 1,
+      "message": "For sanity checking, we should ensure that the dtb is valid. Is there a way to check some dtb magic to avoid consuming a garbled dtb? Does that make sense?",
+      "revId": "1e4b03ce3e33134750244ce31705cba288808445",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6b8729d_10bc02f3",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-02T14:44:41Z",
+      "side": 1,
+      "message": "What does this signify? Can you use a macro describing the intent?",
+      "range": {
+        "startLine": 442,
+        "startChar": 38,
+        "endLine": 442,
+        "endChar": 41
+      },
+      "revId": "1e4b03ce3e33134750244ce31705cba288808445",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c58136e_d3471e08",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-02T14:44:41Z",
+      "side": 1,
+      "message": "Is this implementation dependent? Platforms that do not use BL2 might not need this, right?",
+      "range": {
+        "startLine": 592,
+        "startChar": 1,
+        "endLine": 593,
+        "endChar": 26
+      },
+      "revId": "1e4b03ce3e33134750244ce31705cba288808445",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "876e0f7c_e5cdd496",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-02T14:44:41Z",
+      "side": 1,
+      "message": "Does it make sense to add a panic() here to make it clear that returning from this function would be fatal?",
+      "revId": "1e4b03ce3e33134750244ce31705cba288808445",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
