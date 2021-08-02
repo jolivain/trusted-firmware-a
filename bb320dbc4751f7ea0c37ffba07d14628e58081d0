@@ -16,6 +16,24 @@
       "message": "I assume this change has to be revisited based on https://review.trustedfirmware.org/c/hafnium/hafnium/+/10904 ?",
       "revId": "bb320dbc4751f7ea0c37ffba07d14628e58081d0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69574a67_25052f7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-08-02T11:28:09Z",
+      "side": 1,
+      "message": "I have a separate Doc patch for the change you mentioned. This patch was not merged with the rest of acs work. I would prefer to merge this for the patch consistency. It also include the manifest change for the optee that would be out of context with the managed exit changes.",
+      "parentUuid": "df2cff6b_97e2ff62",
+      "revId": "bb320dbc4751f7ea0c37ffba07d14628e58081d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
