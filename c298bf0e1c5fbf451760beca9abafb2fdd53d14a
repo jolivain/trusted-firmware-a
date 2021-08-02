@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d459284a_df8b1f2a",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-02T13:50:57Z",
+      "side": 1,
+      "message": "The current code addition does not integrate well with the current code. Addition of smaller functions instead would make the implementation elegant",
+      "parentUuid": "4e2b625d_77e8d1e4",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 396,
+        "endChar": 6
+      },
+      "revId": "c298bf0e1c5fbf451760beca9abafb2fdd53d14a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8101a5e2_9c3145ad",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 3
