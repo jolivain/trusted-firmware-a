@@ -494,6 +494,276 @@ arm_config_option(
 target_compile_definitions(tfa-common
     INTERFACE "DISABLE_MTPMU=$<BOOL:${TFA_DISABLE_MTPMU}>")
 
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_AARCH32_INSTRUCTION_SET
+#
+#    Choose the AArch32 instruction set that the compiler should use. Valid values are T32 and A32. It defaults to T32 due to code having a smaller resulting size.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_AARCH32_INSTRUCTION_SET
+#     HELP "Choose the AArch32 instruction set that the compiler should use. Valid values are T32 and A32. It defaults to T32 due to code having a smaller resulting size.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_AARCH32_SP
+#
+#    Choose the AArch32 Secure Payload component to be built as as the BL32 image when ``ARCH=aarch32``. The value should be the path to the directory containing the SP source, relative to the ``bl32/``; the directory is expected to contain a makefile called ``<aarch32_sp-value>.mk``.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_AARCH32_SP
+#     HELP "Choose the AArch32 Secure Payload component to be built as as the BL32 image when ``ARCH=aarch32``. The value should be the path to the directory containing the SP source, relative to the ``bl32/``; the directory is expected to contain a makefile called ``<aarch32_sp-value>.mk``.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_ARCH
+#
+#    Choose the target build architecture for TF-A. It can take either ``aarch64`` or ``aarch32`` as values. By default, it is defined to ``aarch64``.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_ARCH
+#     HELP "Choose the target build architecture for TF-A. It can take either ``aarch64`` or ``aarch32`` as values. By default, it is defined to ``aarch64``.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_ARM_ARCH_FEATURE
+#
+#    Optional Arm Architecture build option which specifies one or more feature modifiers. This option has the form ``[no]feature+...`` and defaults to ``none``. It translates into compiler option ``-march=armvX[.Y]-a+[no]feature+...``. See compiler's documentation for the list of supported feature modifiers.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_ARM_ARCH_FEATURE
+#     HELP "Optional Arm Architecture build option which specifies one or more feature modifiers. This option has the form ``[no]feature+...`` and defaults to ``none``. It translates into compiler option ``-march=armvX[.Y]-a+[no]feature+...``. See compiler's documentation for the list of supported feature modifiers.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_BL2
+#
+#    This is an optional build option which specifies the path to BL2 image for the ``fip`` target. In this case, the BL2 in the TF-A will not be built.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_BL2
+#     HELP "This is an optional build option which specifies the path to BL2 image for the ``fip`` target. In this case, the BL2 in the TF-A will not be built.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_BL2U
+#
+#    This is an optional build option which specifies the path to BL2U image. In this case, the BL2U in TF-A will not be built.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_BL2U
+#     HELP "This is an optional build option which specifies the path to BL2U image. In this case, the BL2U in TF-A will not be built.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_BL31
+#
+#    This is an optional build option which specifies the path to BL31 image for the ``fip`` target. In this case, the BL31 in TF-A will not be built.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_BL31
+#     HELP "This is an optional build option which specifies the path to BL31 image for the ``fip`` target. In this case, the BL31 in TF-A will not be built.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_BL31_KEY
+#
+#    This option is used when ``GENERATE_COT=1``. It specifies the file that contains the BL31 private key in PEM format. If ``SAVE_KEYS=1``, this file name will be used to save the key.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_BL31_KEY
+#     HELP "This option is used when ``GENERATE_COT=1``. It specifies the file that contains the BL31 private key in PEM format. If ``SAVE_KEYS=1``, this file name will be used to save the key.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_BL32
+#
+#    This is an optional build option which specifies the path to BL32 image for the ``fip`` target. In this case, the BL32 in TF-A will not be built.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_BL32
+#     HELP "This is an optional build option which specifies the path to BL32 image for the ``fip`` target. In this case, the BL32 in TF-A will not be built.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_BL32_EXTRA1
+#
+#    This is an optional build option which specifies the path to Trusted OS Extra1 image for the  ``fip`` target.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_BL32_EXTRA1
+#     HELP "This is an optional build option which specifies the path to Trusted OS Extra1 image for the  ``fip`` target.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_BL32_EXTRA2
+#
+#    This is an optional build option which specifies the path to Trusted OS Extra2 image for the ``fip`` target.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_BL32_EXTRA2
+#     HELP "This is an optional build option which specifies the path to Trusted OS Extra2 image for the ``fip`` target.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_BL32_KEY
+#
+#    This option is used when ``GENERATE_COT=1``. It specifies the file that contains the BL32 private key in PEM format. If ``SAVE_KEYS=1``, this file name will be used to save the key.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_BL32_KEY
+#     HELP "This option is used when ``GENERATE_COT=1``. It specifies the file that contains the BL32 private key in PEM format. If ``SAVE_KEYS=1``, this file name will be used to save the key.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_BL33
+#
+#    Path to BL33 image in the host file system. This is mandatory for ``fip`` target in case TF-A BL2 is used.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_BL33
+#     HELP "Path to BL33 image in the host file system. This is mandatory for ``fip`` target in case TF-A BL2 is used.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_BL33_KEY
+#
+#    This option is used when ``GENERATE_COT=1``. It specifies the file that contains the BL33 private key in PEM format. If ``SAVE_KEYS=1``, this file name will be used to save the key.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_BL33_KEY
+#     HELP "This option is used when ``GENERATE_COT=1``. It specifies the file that contains the BL33 private key in PEM format. If ``SAVE_KEYS=1``, this file name will be used to save the key.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_BUILD_MESSAGE_TIMESTAMP
+#
+#    String used to identify the time and date of the compilation of each build. It must be set to a C string (including quotes where applicable). Defaults to a string that contains the time and date of the compilation.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_BUILD_MESSAGE_TIMESTAMP
+#     HELP "String used to identify the time and date of the compilation of each build. It must be set to a C string (including quotes where applicable). Defaults to a string that contains the time and date of the compilation.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_BUILD_STRING
+#
+#    Input string for VERSION_STRING, which allows the TF-A build to be uniquely identified. Defaults to the current git commit id.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_BUILD_STRING
+#     HELP "Input string for VERSION_STRING, which allows the TF-A build to be uniquely identified. Defaults to the current git commit id.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_BUILD_BASE
+#
+#    Output directory for the build. Defaults to ``./build``
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_BUILD_BASE
+#     HELP "Output directory for the build. Defaults to ``./build``")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_CFLAGS
+#
+#    Extra user options appended on the compiler's command line in addition to the options set by the build system.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_CFLAGS
+#     HELP "Extra user options appended on the compiler's command line in addition to the options set by the build system.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_COT
+#
+#    When Trusted Boot is enabled, selects the desired chain of trust. Defaults to ``tbbr``.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_COT
+#     HELP "When Trusted Boot is enabled, selects the desired chain of trust. Defaults to ``tbbr``.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_CREATE_KEYS
+#
+#    This option is used when ``GENERATE_COT=1``. It tells the certificate generation tool to create new keys in case no valid keys are present or specified. Allowed options are '0' or '1'. Default is '1'.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_CREATE_KEYS
+#     HELP "This option is used when ``GENERATE_COT=1``. It tells the certificate generation tool to create new keys in case no valid keys are present or specified. Allowed options are '0' or '1'. Default is '1'.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_CTX_INCLUDE_EL2_REGS
+#
+#    This boolean option provides context save/restore operations when entering/exiting an EL2 execution context. This is of primary interest when Armv8.4-SecEL2 extension is implemented. Default is 0 (disabled). This option must be equal to 1 (enabled) when ``SPD=spmd`` and ``SPMD_SPM_AT_SEL2`` is set.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_CTX_INCLUDE_EL2_REGS
+#     HELP "This boolean option provides context save/restore operations when entering/exiting an EL2 execution context. This is of primary interest when Armv8.4-SecEL2 extension is implemented. Default is 0 (disabled). This option must be equal to 1 (enabled) when ``SPD=spmd`` and ``SPMD_SPM_AT_SEL2`` is set.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_CTX_INCLUDE_FPREGS
+#
+#    Boolean option that, when set to 1, will cause the FP registers to be included when saving and restoring the CPU context. Default is 0.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_CTX_INCLUDE_FPREGS
+#     HELP "Boolean option that, when set to 1, will cause the FP registers to be included when saving and restoring the CPU context. Default is 0.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_CTX_INCLUDE_PAUTH_REGS
+#
+#    Boolean option that, when set to 1, enables Pointer Authentication for Secure world. This will cause the ARMv8.3-PAuth registers to be included when saving and restoring the CPU context as part of world switch. Default value is 0 and this is an experimental feature. Note that Pointer Authentication is enabled for Non-secure world irrespective of the value of this flag if the CPU supports it.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_CTX_INCLUDE_PAUTH_REGS
+#     HELP "Boolean option that, when set to 1, enables Pointer Authentication for Secure world. This will cause the ARMv8.3-PAuth registers to be included when saving and restoring the CPU context as part of world switch. Default value is 0 and this is an experimental feature. Note that Pointer Authentication is enabled for Non-secure world irrespective of the value of this flag if the CPU supports it.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_DISABLE_BIN_GENERATION
+#
+#    Boolean option to disable the generation of the binary image. If set to 1, then only the ELF image is built. 0 is the default.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_DISABLE_BIN_GENERATION
+#     HELP "Boolean option to disable the generation of the binary image. If set to 1, then only the ELF image is built. 0 is the default.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_DYN_DISABLE_AUTH
+#
+#    Provides the capability to dynamically disable Trusted Board Boot authentication at runtime. This option is meant to be enabled only for development platforms. ``TRUSTED_BOARD_BOOT`` flag must be set if this flag has to be enabled. 0 is the default.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_DYN_DISABLE_AUTH
+#     HELP "Provides the capability to dynamically disable Trusted Board Boot authentication at runtime. This option is meant to be enabled only for development platforms. ``TRUSTED_BOARD_BOOT`` flag must be set if this flag has to be enabled. 0 is the default.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_E
+#
+#    Boolean option to make warnings into errors. Default is 1.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_E
+#     HELP "Boolean option to make warnings into errors. Default is 1.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_EL3_PAYLOAD_BASE
+#
+#    This option enables booting an EL3 payload instead of the normal boot flow. It must specify the entry point address of the EL3 payload. Please refer to the "Booting an EL3 payload" section for more details.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_EL3_PAYLOAD_BASE
+#     HELP "This option enables booting an EL3 payload instead of the normal boot flow. It must specify the entry point address of the EL3 payload. Please refer to the \"Booting an EL3 payload\" section for more details.")
+
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_ENABLE_AMU
 
@@ -511,6 +781,26 @@ arm_config_option(
 
 target_compile_definitions(tfa-common
     INTERFACE "ENABLE_AMU=$<BOOL:${TFA_ENABLE_AMU}>")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_ENABLE_ASSERTIONS
+#
+#    This option controls whether or not calls to ``assert()`` are compiled out. For debug builds, this option defaults to 1, and calls to ``assert()`` are left in place. For release builds, this option defaults to 0 and calls to ``assert()`` function are compiled out. This option can be set independently of ``DEBUG``. It can also be used to hide any auxiliary code that is only required for the assertion and does not fit in the assertion itself.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_ENABLE_ASSERTIONS
+#     HELP "This option controls whether or not calls to ``assert()`` are compiled out. For debug builds, this option defaults to 1, and calls to ``assert()`` are left in place. For release builds, this option defaults to 0 and calls to ``assert()`` function are compiled out. This option can be set independently of ``DEBUG``. It can also be used to hide any auxiliary code that is only required for the assertion and does not fit in the assertion itself.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_ENABLE_LTO
+#
+#    Boolean option to enable Link Time Optimization (LTO) support in GCC for TF-A. This option is currently only supported for AArch64. Default is 0.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_ENABLE_LTO
+#     HELP "Boolean option to enable Link Time Optimization (LTO) support in GCC for TF-A. This option is currently only supported for AArch64. Default is 0.")
 
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_ENABLE_MPAM_FOR_LOWER_ELS
@@ -712,6 +1002,26 @@ arm_config_option(
 target_compile_definitions(tfa-common
     INTERFACE "ENCRYPT_BL32=$<BOOL:${TFA_ENCRYPT_BL32}>")
 
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_ENC_KEY
+#
+#    A 32-byte (256-bit) symmetric key in hex string format. It could either be SSK or BSSK depending on ``FW_ENC_STATUS`` flag. This value depends on ``DECRYPTION_SUPPORT`` build flag which is marked as experimental.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_ENC_KEY
+#     HELP "A 32-byte (256-bit) symmetric key in hex string format. It could either be SSK or BSSK depending on ``FW_ENC_STATUS`` flag. This value depends on ``DECRYPTION_SUPPORT`` build flag which is marked as experimental.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_ENC_NONCE
+#
+#    A 12-byte (96-bit) encryption nonce or Initialization Vector (IV) in hex string format. This value depends on ``DECRYPTION_SUPPORT`` build flag which is marked as experimental.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_ENC_NONCE
+#     HELP "A 12-byte (96-bit) encryption nonce or Initialization Vector (IV) in hex string format. This value depends on ``DECRYPTION_SUPPORT`` build flag which is marked as experimental.")
+
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_ERROR_DEPRECATED
 
@@ -761,6 +1071,16 @@ arm_config_option(
 target_compile_definitions(tfa-common
     INTERFACE "EL3_EXCEPTION_HANDLING=$<BOOL:${TFA_EL3_EXCEPTION_HANDLING}>")
 
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_EVENT_LOG_LEVEL
+#
+#    Chooses the log level to use for Measured Boot when ``MEASURED_BOOT`` is enabled. For a list of valid values, see ``LOG_LEVEL``. Default value is 40 (LOG_LEVEL_INFO).
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_EVENT_LOG_LEVEL
+#     HELP "Chooses the log level to use for Measured Boot when ``MEASURED_BOOT`` is enabled. For a list of valid values, see ``LOG_LEVEL``. Default value is 40 (LOG_LEVEL_INFO).")
+
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_FAULT_INJECTION_SUPPORT
 
@@ -781,6 +1101,59 @@ arm_config_option(
 
 target_compile_definitions(tfa-common
     INTERFACE "FAULT_INJECTION_SUPPORT=$<BOOL:${TFA_FAULT_INJECTION_SUPPORT}>")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_FIP_NAME
+#
+#    This is an optional build option which specifies the FIP filename for the ``fip`` target. Default is ``fip.bin``.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_FIP_NAME
+#     HELP "This is an optional build option which specifies the FIP filename for the ``fip`` target. Default is ``fip.bin``.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_FWU_FIP_NAME
+#
+#    This is an optional build option which specifies the FWU FIP filename for the ``fwu_fip`` target. Default is ``fwu_fip.bin``.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_FWU_FIP_NAME
+#     HELP "This is an optional build option which specifies the FWU FIP filename for the ``fwu_fip`` target. Default is ``fwu_fip.bin``.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_FW_ENC_STATUS
+#
+#    Top level firmware's encryption numeric flag, values:
+#
+#    ::
+#
+#      0: Encryption is done with Secret Symmetric Key (SSK) which is common for a class of devices.
+#      1: Encryption is done with Binding Secret Symmetric Key (BSSK) which is unique per device.
+#
+#    This flag depends on ``DECRYPTION_SUPPORT`` build flag which is marked as experimental.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_FW_ENC_STATUS
+#     HELP "Top level firmware's encryption numeric flag, values:")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_GENERATE_COT
+#
+#    Boolean flag used to build and execute the ``cert_create`` tool to create certificates as per the Chain of Trust described in :ref:`Trusted Board Boot`. The build system then calls ``fiptool`` to include the certificates in the FIP and FWU_FIP. Default value is '0'.
+#
+#    Specify both ``TRUSTED_BOARD_BOOT=1`` and ``GENERATE_COT=1`` to include support for the Trusted Board Boot feature in the BL1 and BL2 images, to generate the corresponding certificates, and to include those certificates in the FIP and FWU_FIP.
+#
+#    Note that if ``TRUSTED_BOARD_BOOT=0`` and ``GENERATE_COT=1``, the BL1 and BL2 images will not include support for Trusted Board Boot. The FIP will still include the corresponding certificates. This FIP can be used to verify the Chain of Trust on the host machine through other mechanisms.
+#
+#    Note that if ``TRUSTED_BOARD_BOOT=1`` and ``GENERATE_COT=0``, the BL1 and BL2 images will include support for Trusted Board Boot, but the FIP and FWU_FIP will not include the corresponding certificates, causing a boot failure.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_GENERATE_COT
+#     HELP "Boolean flag used to build and execute the ``cert_create`` tool to create certificates as per the Chain of Trust described in :ref:`Trusted Board Boot`. The build system then calls ``fiptool`` to include the certificates in the FIP and FWU_FIP. Default value is '0'.")
 
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_HANDLE_EA_EL3_FIRST
@@ -829,6 +1202,16 @@ arm_config_option(
 target_compile_definitions(tfa-common
     INTERFACE "HW_ASSISTED_COHERENCY=$<BOOL:${TFA_HW_ASSISTED_COHERENCY}>")
 
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_INVERTED_MEMMAP
+#
+#    memmap tool print by default lower addresses at the bottom, higher addresses at the top. This build flag can be set to '1' to invert this behavior. Lower addresses will be printed at the top and higher addresses at the bottom.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_INVERTED_MEMMAP
+#     HELP "memmap tool print by default lower addresses at the bottom, higher addresses at the top. This build flag can be set to '1' to invert this behavior. Lower addresses will be printed at the top and higher addresses at the bottom.")
+
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_JUNO_AARCH32_EL3_RUNTIME
 
@@ -845,6 +1228,57 @@ arm_config_option(
 
 target_compile_definitions(tfa-common
     INTERFACE "JUNO_AARCH32_EL3_RUNTIME=$<BOOL:${TFA_JUNO_AARCH32_EL3_RUNTIME}>")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_KEY_ALG
+#
+#    This build flag enables the user to select the algorithm to be used for generating the PKCS keys and subsequent signing of the certificate. It accepts 3 values: ``rsa``, ``rsa_1_5`` and ``ecdsa``. The option ``rsa_1_5`` is the legacy PKCS#1 RSA 1.5 algorithm which is not TBBR compliant and is retained only for compatibility. The default value of this flag is ``rsa`` which is the TBBR compliant PKCS#1 RSA 2.1 scheme.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_KEY_ALG
+#     HELP "This build flag enables the user to select the algorithm to be used for generating the PKCS keys and subsequent signing of the certificate. It accepts 3 values: ``rsa``, ``rsa_1_5`` and ``ecdsa``. The option ``rsa_1_5`` is the legacy PKCS#1 RSA 1.5 algorithm which is not TBBR compliant and is retained only for compatibility. The default value of this flag is ``rsa`` which is the TBBR compliant PKCS#1 RSA 2.1 scheme.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_KEY_SIZE
+#
+#    This build flag enables the user to select the key size for the algorithm specified by ``KEY_ALG``. The valid values for ``KEY_SIZE`` depend on the chosen algorithm and the cryptographic module.
+#
+#    +-----------+------------------------------------+
+#    |  KEY_ALG  |        Possible key sizes          |
+#    +===========+====================================+
+#    |    rsa    | 1024 , 2048 (default), 3072, 4096* |
+#    +-----------+------------------------------------+
+#    |   ecdsa   |            unavailable             |
+#    +-----------+------------------------------------+
+#
+#    * Only 2048 bits size is available with CryptoCell 712 SBROM release 1.
+#      Only 3072 bits size is available with CryptoCell 712 SBROM release 2.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_KEY_SIZE
+#     HELP "This build flag enables the user to select the key size for the algorithm specified by ``KEY_ALG``. The valid values for ``KEY_SIZE`` depend on the chosen algorithm and the cryptographic module.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_HASH_ALG
+#
+#    This build flag enables the user to select the secure hash algorithm. It accepts 3 values: ``sha256``, ``sha384`` and ``sha512``. The default value of this flag is ``sha256``.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_HASH_ALG
+#     HELP "This build flag enables the user to select the secure hash algorithm. It accepts 3 values: ``sha256``, ``sha384`` and ``sha512``. The default value of this flag is ``sha256``.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_LDFLAGS
+#
+#    Extra user options appended to the linkers' command line in addition to the one set by the build system.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_LDFLAGS
+#     HELP "Extra user options appended to the linkers' command line in addition to the one set by the build system.")
 
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_LOG_LEVEL
@@ -896,6 +1330,66 @@ arm_config_option(
 
 target_compile_definitions(tfa-common
     INTERFACE "MEASURED_BOOT=$<BOOL:${TFA_MEASURED_BOOT}>")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_NON_TRUSTED_WORLD_KEY
+#
+#    This option is used when ``GENERATE_COT=1``. It specifies the file that contains the Non-Trusted World private key in PEM format. If ``SAVE_KEYS=1``, this file name will be used to save the key.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_NON_TRUSTED_WORLD_KEY
+#     HELP "This option is used when ``GENERATE_COT=1``. It specifies the file that contains the Non-Trusted World private key in PEM format. If ``SAVE_KEYS=1``, this file name will be used to save the key.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_NS_BL2U
+#
+#    Path to NS_BL2U image in the host file system. This image is optional. It is only needed if the platform makefile specifies that it is required in order to build the ``fwu_fip`` target.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_NS_BL2U
+#     HELP "Path to NS_BL2U image in the host file system. This image is optional. It is only needed if the platform makefile specifies that it is required in order to build the ``fwu_fip`` target.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_NS_TIMER_SWITCH
+#
+#    Enable save and restore for non-secure timer register contents upon world switch. It can take either 0 (don't save and restore) or 1 (do save and restore). 0 is the default. An SPD may set this to 1 if it wants the timer registers to be saved and restored.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_NS_TIMER_SWITCH
+#     HELP "Enable save and restore for non-secure timer register contents upon world switch. It can take either 0 (don't save and restore) or 1 (do save and restore). 0 is the default. An SPD may set this to 1 if it wants the timer registers to be saved and restored.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_OVERRIDE_LIBC
+#
+#    This option allows platforms to override the default libc for the BL image. It can be either 0 (include) or 1 (remove). The default value is 0.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_OVERRIDE_LIBC
+#     HELP "This option allows platforms to override the default libc for the BL image. It can be either 0 (include) or 1 (remove). The default value is 0.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_PLAT
+#
+#    Choose a platform to build TF-A for. The chosen platform name must be subdirectory of any depth under ``plat/``, and must contain a platform makefile named ``platform.mk``. For example, to build TF-A for the Arm Juno board, select PLAT=juno.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_PLAT
+#     HELP "Choose a platform to build TF-A for. The chosen platform name must be subdirectory of any depth under ``plat/``, and must contain a platform makefile named ``platform.mk``. For example, to build TF-A for the Arm Juno board, select PLAT=juno.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_PRELOADED_BL33_BASE
+#
+#    This option enables booting a preloaded BL33 image instead of the normal boot flow. When defined, it must specify the entry point address for the preloaded BL33 image. This option is incompatible with ``EL3_PAYLOAD_BASE``. If both are defined, ``EL3_PAYLOAD_BASE`` has priority over ``PRELOADED_BL33_BASE``.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_PRELOADED_BL33_BASE
+#     HELP "This option enables booting a preloaded BL33 image instead of the normal boot flow. When defined, it must specify the entry point address for the preloaded BL33 image. This option is incompatible with ``EL3_PAYLOAD_BASE``. If both are defined, ``EL3_PAYLOAD_BASE`` has priority over ``PRELOADED_BL33_BASE``.")
 
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_PROGRAMMABLE_RESET_ADDRESS
@@ -994,6 +1488,66 @@ arm_config_option(
 target_compile_definitions(tfa-common
     INTERFACE "RESET_TO_BL31=$<BOOL:${TFA_RESET_TO_BL31}>")
 
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_RESET_TO_SP_MIN
+#
+#    SP_MIN is the minimal AArch32 Secure Payload provided in TF-A. This flag configures SP_MIN entrypoint as the CPU reset vector instead of the BL1 entrypoint. It can take the value 0 (CPU reset to BL1 entrypoint) or 1 (CPU reset to SP_MIN entrypoint). The default value is 0.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_RESET_TO_SP_MIN
+#     HELP "SP_MIN is the minimal AArch32 Secure Payload provided in TF-A. This flag configures SP_MIN entrypoint as the CPU reset vector instead of the BL1 entrypoint. It can take the value 0 (CPU reset to BL1 entrypoint) or 1 (CPU reset to SP_MIN entrypoint). The default value is 0.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_ROT_KEY
+#
+#    This option is used when ``GENERATE_COT=1``. It specifies the file that contains the ROT private key in PEM format and enforces public key hash generation. If ``SAVE_KEYS=1``, this file name will be used to save the key.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_ROT_KEY
+#     HELP "This option is used when ``GENERATE_COT=1``. It specifies the file that contains the ROT private key in PEM format and enforces public key hash generation. If ``SAVE_KEYS=1``, this file name will be used to save the key.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_SAVE_KEYS
+#
+#    This option is used when ``GENERATE_COT=1``. It tells the certificate generation tool to save the keys used to establish the Chain of Trust. Allowed options are '0' or '1'. Default is '0' (do not save).
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_SAVE_KEYS
+#     HELP "This option is used when ``GENERATE_COT=1``. It tells the certificate generation tool to save the keys used to establish the Chain of Trust. Allowed options are '0' or '1'. Default is '0' (do not save).")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_SCP_BL2
+#
+#    Path to SCP_BL2 image in the host file system. This image is optional. If a SCP_BL2 image is present then this option must be passed for the ``fip`` target.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_SCP_BL2
+#     HELP "Path to SCP_BL2 image in the host file system. This image is optional. If a SCP_BL2 image is present then this option must be passed for the ``fip`` target.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_SCP_BL2_KEY
+#
+#    This option is used when ``GENERATE_COT=1``. It specifies the file that contains the SCP_BL2 private key in PEM format. If ``SAVE_KEYS=1``, this file name will be used to save the key.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_SCP_BL2_KEY
+#     HELP "This option is used when ``GENERATE_COT=1``. It specifies the file that contains the SCP_BL2 private key in PEM format. If ``SAVE_KEYS=1``, this file name will be used to save the key.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_SCP_BL2U
+#
+#    Path to SCP_BL2U image in the host file system. This image is optional. It is only needed if the platform makefile specifies that it is required in order to build the ``fwu_fip`` target.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_SCP_BL2U
+#     HELP "Path to SCP_BL2U image in the host file system. This image is optional. It is only needed if the platform makefile specifies that it is required in order to build the ``fwu_fip`` target.")
+
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_SDEI_SUPPORT
 
@@ -1072,6 +1626,26 @@ arm_config_option(
 target_compile_definitions(tfa-common
     INTERFACE "SPD_$<LOWER_CASE:$<MAKE_C_IDENTIFIER:${TFA_SPD}>>")
 
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_SPIN_ON_BL1_EXIT
+#
+#    This option introduces an infinite loop in BL1. It can take either 0 (no loop) or 1 (add a loop). 0 is the default. This loop stops execution in BL1 just before handing over to BL31. At this point, all firmware images have been loaded in memory, and the MMU and caches are turned off. Refer to the "Debugging options" section for more details.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_SPIN_ON_BL1_EXIT
+#     HELP "This option introduces an infinite loop in BL1. It can take either 0 (no loop) or 1 (add a loop). 0 is the default. This loop stops execution in BL1 just before handing over to BL31. At this point, all firmware images have been loaded in memory, and the MMU and caches are turned off. Refer to the \"Debugging options\" section for more details.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_SPMD_SPM_AT_SEL2
+#
+#    this boolean option is used jointly with the SPM Dispatcher option (``SPD=spmd``). When enabled (1) it indicates the SPMC component runs at the S-EL2 execution state provided by the Armv8.4-SecEL2 extension. This is the default when enabling the SPM Dispatcher. When disabled (0) it indicates the SPMC component runs at the S-EL1 execution state. This latter configuration supports pre-Armv8.4 platforms (aka not implementing the Armv8.4-SecEL2 extension).
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_SPMD_SPM_AT_SEL2
+#     HELP "this boolean option is used jointly with the SPM Dispatcher option (``SPD=spmd``). When enabled (1) it indicates the SPMC component runs at the S-EL2 execution state provided by the Armv8.4-SecEL2 extension. This is the default when enabling the SPM Dispatcher. When disabled (0) it indicates the SPMC component runs at the S-EL1 execution state. This latter configuration supports pre-Armv8.4 platforms (aka not implementing the Armv8.4-SecEL2 extension).")
+
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_SPM_MM
 
@@ -1089,6 +1663,26 @@ arm_config_option(
 
 target_compile_definitions(tfa-common
     INTERFACE "SPM_MM=$<BOOL:${TFA_SPM_MM}>")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_SP_LAYOUT_FILE
+#
+#    Platform provided path to JSON file containing the description of secure partitions. The build system will parse this file and package all secure partition blobs into the FIP. This file is not necessarily part of TF-A tree. Only available when ``SPD=spmd``.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_SP_LAYOUT_FILE
+#     HELP "Platform provided path to JSON file containing the description of secure partitions. The build system will parse this file and package all secure partition blobs into the FIP. This file is not necessarily part of TF-A tree. Only available when ``SPD=spmd``.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_SP_MIN_WITH_SECURE_FIQ
+#
+#    Boolean flag to indicate the SP_MIN handles secure interrupts (caught through the FIQ line). Platforms can enable this directive if they need to handle such interruption. When enabled, the FIQ are handled in monitor mode and non secure world is not allowed to mask these events. Platforms that enable FIQ handling in SP_MIN shall implement the api ``sp_min_plat_fiq_handler()``. The default value is 0.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_SP_MIN_WITH_SECURE_FIQ
+#     HELP "Boolean flag to indicate the SP_MIN handles secure interrupts (caught through the FIQ line). Platforms can enable this directive if they need to handle such interruption. When enabled, the FIQ are handled in monitor mode and non secure world is not allowed to mask these events. Platforms that enable FIQ handling in SP_MIN shall implement the api ``sp_min_plat_fiq_handler()``. The default value is 0.")
 
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_TRNG_SUPPORT
@@ -1123,6 +1717,26 @@ arm_config_option(
 target_compile_definitions(tfa-common
     INTERFACE "TRUSTED_BOARD_BOOT=$<BOOL:${TFA_TRUSTED_BOARD_BOOT}>")
 
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_TRUSTED_WORLD_KEY
+#
+#    This option is used when ``GENERATE_COT=1``. It specifies the file that contains the Trusted World private key in PEM format. If ``SAVE_KEYS=1``, this file name will be used to save the key.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_TRUSTED_WORLD_KEY
+#     HELP "This option is used when ``GENERATE_COT=1``. It specifies the file that contains the Trusted World private key in PEM format. If ``SAVE_KEYS=1``, this file name will be used to save the key.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_TSP_INIT_ASYNC
+#
+#    Choose BL32 initialization method as asynchronous or synchronous, (see "Initializing a BL32 Image" section in :ref:`Firmware Design`). It can take the value 0 (BL32 is initialized using synchronous method) or 1 (BL32 is initialized using asynchronous method). Default is 0.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_TSP_INIT_ASYNC
+#     HELP "Choose BL32 initialization method as asynchronous or synchronous, (see \"Initializing a BL32 Image\" section in :ref:`Firmware Design`). It can take the value 0 (BL32 is initialized using synchronous method) or 1 (BL32 is initialized using asynchronous method). Default is 0.")
+
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_TSP_NS_INTR_ASYNC_PREEMPT
 
@@ -1135,6 +1749,16 @@ target_compile_definitions(tfa-common
 arm_config_option(
     NAME TFA_TSP_NS_INTR_ASYNC_PREEMPT
     HELP "A non zero value enables the interrupt routing model which routes non-secure interrupts asynchronously from TSP to EL3 causing immediate preemption of TSP. The EL3 is responsible for saving and restoring the TSP context in this routing model. The default routing model (when the value is 0) is to route non-secure interrupts to TSP allowing it to save its context and hand over synchronously to EL3 via an SMC.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_USE_ARM_LINK
+#
+#    This flag determines whether to enable support for ARM linker. When the ``LINKER`` build variable points to the armlink linker, this flag is enabled automatically. To enable support for armlink, platforms will have to provide a scatter file for the BL image. Currently, Tegra platforms use the armlink support to compile BL3-1 images.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_USE_ARM_LINK
+#     HELP "This flag determines whether to enable support for ARM linker. When the ``LINKER`` build variable points to the armlink linker, this flag is enabled automatically. To enable support for armlink, platforms will have to provide a scatter file for the BL image. Currently, Tegra platforms use the armlink support to compile BL3-1 images.")
 
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_USE_COHERENT_MEM
@@ -1247,6 +1871,36 @@ arm_config_option(
 target_compile_definitions(tfa-common
     INTERFACE "USE_ROMLIB=$<BOOL:${TFA_USE_ROMLIB}>")
 
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_V
+#
+#    Verbose build. If assigned anything other than 0, the build commands are printed. Default is 0.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_V
+#     HELP "Verbose build. If assigned anything other than 0, the build commands are printed. Default is 0.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_VERSION_STRING
+#
+#    String used in the log output for each TF-A image. Defaults to a string formed by concatenating the version number, build type and build string.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_VERSION_STRING
+#     HELP "String used in the log output for each TF-A image. Defaults to a string formed by concatenating the version number, build type and build string.")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_W
+#
+#    Warning level. Some compiler warning options of interest have been regrouped and put in the root Makefile. This flag can take the values 0 to 3, each level enabling more warning options. Default is 0.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_W
+#     HELP "Warning level. Some compiler warning options of interest have been regrouped and put in the root Makefile. This flag can take the values 0 to 3, each level enabling more warning options. Default is 0.")
+
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_WARMBOOT_ENABLE_DCACHE_EARLY
 
@@ -1265,6 +1919,16 @@ arm_config_option(
 target_compile_definitions(tfa-common
     INTERFACE "WARMBOOT_ENABLE_DCACHE_EARLY=$<BOOL:${TFA_WARMBOOT_ENABLE_DCACHE_EARLY}>")
 
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_SUPPORT_STACK_MEMTAG
+#
+#    This flag determines whether to enable memory tagging for stack or not. It accepts 2 values: ``yes`` and ``no``. The default value of this flag is ``no``. Note this option must be enabled only for ARM architecture greater than Armv8.5-A.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_SUPPORT_STACK_MEMTAG
+#     HELP "This flag determines whether to enable memory tagging for stack or not. It accepts 2 values: ``yes`` and ``no``. The default value of this flag is ``no``. Note this option must be enabled only for ARM architecture greater than Armv8.5-A.")
+
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_RAS_TRAP_LOWER_EL_ERR_ACCESS
 
@@ -1280,6 +1944,16 @@ arm_config_option(
 
 target_compile_definitions(tfa-common
     INTERFACE "RAS_TRAP_LOWER_EL_ERR_ACCESS=$<BOOL:${RAS_TRAP_LOWER_EL_ERR_ACCESS}>")
+
+# #[=======================================================================[.rst:
+# .. cmake:variable:: TFA_OPENSSL_DIR
+#
+#    This flag is used to provide the installed openssl directory path on the host machine which is used to build certificate generation and firmware encryption tool.
+# #]=======================================================================]
+#
+# arm_config_option(
+#     NAME TFA_OPENSSL_DIR
+#     HELP "This flag is used to provide the installed openssl directory path on the host machine which is used to build certificate generation and firmware encryption tool.")
 
 #[=======================================================================[.rst:
 .. cmake:variable:: TFA_USE_SP804_TIMER
