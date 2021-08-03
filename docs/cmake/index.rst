@@ -14,7 +14,7 @@ intended to eventually replace the existing GNU Make-based build system.
 
 The :ref:`User Guide <Getting Started (CMake)>` is aimed at developers wishing
 to get started with building Trusted Firmware-A using CMake. For a list of build
-system options, :ref:`Variables that Change Behavior`.
+system options, :ref:`Variables`.
 
 For maintainers and other developers who need to familiarize themselves with
 CMake itself, the :guide:`CMake Tutorial <guide:CMake Tutorial>` is a good
