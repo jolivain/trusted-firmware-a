@@ -50,13 +50,6 @@
 			vcpu_count = <1>;
 			mem_size = <1048576>;
 		};
-		vm4 {
-			is_ffa_partition;
-			debug_name = "ivy";
-			load_address = <0x7600000>;
-			vcpu_count = <1>;
-			mem_size = <1048576>;
-		};
 	};
 
 	cpus {
