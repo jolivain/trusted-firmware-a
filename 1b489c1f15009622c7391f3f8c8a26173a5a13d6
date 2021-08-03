@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc888a3f_37c46dd4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-08-03T12:43:09Z",
+      "side": 1,
+      "message": "It looks to me there is an unneeded/unnecessary dependency between the ACS test suite and TF-A-tests and/or TF-A.\nWhy isn\u0027t ACS suite delivering the SPMC and SPs manifests?\nThe SPMC manifest can be specified on TF-A command line by ARM_SPMC_MANIFEST_DTS. The layout file can be provided by SP_LAYOUT_FILE so it seems there is some sort of flexibility already.",
+      "revId": "1b489c1f15009622c7391f3f8c8a26173a5a13d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "35cb7413_98324dc0",
