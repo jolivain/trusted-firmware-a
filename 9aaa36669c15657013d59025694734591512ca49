@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26125f00_973c520e",
+        "filename": "lib/cpus/aarch64/neoverse_v1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-03T12:00:10Z",
+      "side": 1,
+      "message": "can \u0027mov\u0027 work here? I believe \u0027mov\u0027 works for 8-bit immediate value.",
+      "range": {
+        "startLine": 122,
+        "startChar": 1,
+        "endLine": 122,
+        "endChar": 13
+      },
+      "revId": "9aaa36669c15657013d59025694734591512ca49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
