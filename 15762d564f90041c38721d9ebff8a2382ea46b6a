@@ -16,6 +16,47 @@
       "message": "@Manish in the past we had discussed about adding a platform defined timeout value. But, the current timeout is too large. So, I am not convinced that platforms will find it useful to tweak it. We can consider that as an RFE, if required.",
       "revId": "15762d564f90041c38721d9ebff8a2382ea46b6a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "473a6cb9_92b768a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-03T11:03:25Z",
+      "side": 1,
+      "message": "Agree. For now, Let\u0027s go ahead with this timeout value that is large enough.",
+      "parentUuid": "0fec2d82_b58d469e",
+      "revId": "15762d564f90041c38721d9ebff8a2382ea46b6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e22cd56f_8689bcc9",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-03T11:03:25Z",
+      "side": 1,
+      "message": "sorry missed this in previous comment\nnit: s/Maangement/Management",
+      "range": {
+        "startLine": 793,
+        "startChar": 60,
+        "endLine": 793,
+        "endChar": 70
+      },
+      "revId": "15762d564f90041c38721d9ebff8a2382ea46b6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
