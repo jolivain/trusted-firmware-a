@@ -307,6 +307,30 @@
       },
       "revId": "eec150cf550c6f805e79cd00c66a271c2e8ae5d1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5373a71c_0fe46da3",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-08-03T14:24:48Z",
+      "side": 1,
+      "message": "\u003e 3. The following migration path seems simpler to me.\n\u003e  1. Pass linear ID in any register x0-x3\n\u003e  2. Pass linear ID in any register x4-x7\n\u003e  3. Read the VMPIDR to obtain the linear ID\nThis looks good to me.\n\n\u003e Any further thought Lukas/Achin? Btw I have some cosmetic SPMD refactoring/cleanup I can share soonish if still willing to pass the id through registers.\nHappy to have a look !",
+      "parentUuid": "3690c621_27296108",
+      "range": {
+        "startLine": 176,
+        "startChar": 1,
+        "endLine": 176,
+        "endChar": 70
+      },
+      "revId": "eec150cf550c6f805e79cd00c66a271c2e8ae5d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
