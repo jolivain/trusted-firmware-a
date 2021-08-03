@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bb80fbd_af459d89",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2021-08-03T20:55:18Z",
+      "side": 1,
+      "message": "The workaround in SDEN says \"This erratum can be avoided on r1p0 or r1p1 hardware through execution of the following code at EL3 as soon as possible after boot.\" So this workaround patch doesn\u0027t apply for r0p0. Maybe worth mentioning that.",
+      "range": {
+        "startLine": 10,
+        "startChar": 17,
+        "endLine": 11,
+        "endChar": 31
+      },
+      "revId": "c19e29f3058b2aa0aecf64d359856d89a62d31bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fe03bb4_7121eb68",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2021-08-03T20:55:18Z",
+      "side": 1,
+      "message": "This workaround doesn\u0027t need to be enabled for r0p0 per what I read from the workaround. \"The workaround in SDEN says \"This erratum can be avoided on r1p0 or r1p1 hardware through execution of the following code at EL3 as soon as possible after boot.\" So this workaround doesn\u0027t apply for r0p0. So, we do not want to apply the patch to r0p0.",
+      "range": {
+        "startLine": 337,
+        "startChar": 8,
+        "endLine": 338,
+        "endChar": 25
+      },
+      "revId": "c19e29f3058b2aa0aecf64d359856d89a62d31bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5fec2fb_fbd37613",
+        "filename": "lib/cpus/aarch64/neoverse_v1.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2021-08-03T20:55:18Z",
+      "side": 1,
+      "message": "Remove r0p0 as the workaround doesn\u0027t mention r0p0 OR rather the workaround explicitly calls out r1p0 and r1p1.",
+      "range": {
+        "startLine": 109,
+        "startChar": 30,
+        "endLine": 109,
+        "endChar": 36
+      },
+      "revId": "c19e29f3058b2aa0aecf64d359856d89a62d31bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52659dc3_49d9ed30",
+        "filename": "lib/cpus/aarch64/neoverse_v1.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2021-08-03T20:55:18Z",
+      "side": 1,
+      "message": "Fix to remove r0p0, comment and code.",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 14
+      },
+      "revId": "c19e29f3058b2aa0aecf64d359856d89a62d31bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c386065_9197bf2d",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2021-08-03T20:55:18Z",
+      "side": 1,
+      "message": "This statement is correct w.r.t errata, the errata exists for r0p0 but there is no workaround for that revision. So, please mention that the patch doesn\u0027t apply for r0p0.",
+      "range": {
+        "startLine": 383,
+        "startChar": 57,
+        "endLine": 384,
+        "endChar": 35
+      },
+      "revId": "c19e29f3058b2aa0aecf64d359856d89a62d31bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
