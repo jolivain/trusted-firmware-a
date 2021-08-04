@@ -20,6 +20,7 @@
 
 #include <imx_plat_common.h>
 #include <imx8_lpuart.h>
+#include <imx8ulp_caam.h>
 #include <plat_imx8.h>
 #include <platform_def.h>
 #include <upower_soc_defs.h>
@@ -113,6 +114,7 @@ void bl31_platform_setup(void)
 
 	imx8ulp_init_scmi_server();
 	upower_init();
+	imx8ulp_caam_init();
 }
 
 entry_point_info_t *bl31_plat_get_next_image_ep_info(unsigned int type)
