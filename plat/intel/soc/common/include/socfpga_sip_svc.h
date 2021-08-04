@@ -46,8 +46,8 @@
 #define INTEL_SIP_SMC_ECC_DBE				0xC200000D
 
 /* Generic Command */
-
 #define SERVICE_COMPLETED_MODE_ASYNC			0x00004F4E
+
 /* Send Mailbox Command */
 #define INTEL_SIP_SMC_MBOX_SEND_CMD			0xC200001E
 
@@ -95,9 +95,6 @@
 #define INTEL_SIP_SMC_FCS_DIGEST_SIZE_MASK		0xF
 #define INTEL_SIP_SMC_FCS_DIGEST_SIZE_OFFSET		4U
 #define INTEL_SIP_SMC_FCS_ECC_ALGO_MASK			0xF
-
-/* SiP Definitions */
-#define MAX_SVC_COMPLETED				0x3FF
 
 /* ECC DBE */
 #define WARM_RESET_WFI_FLAG				BIT(31)
