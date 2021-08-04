@@ -173,9 +173,8 @@ int mailbox_read_response(unsigned int *job_id, uint32_t *response,
 	return MBOX_NO_RESPONSE;
 }
 
-int mailbox_read_response_async(unsigned int *job_id, uint32_t *header,
-				uint32_t *response, unsigned int *resp_len,
-				uint8_t ignore_client_id)
+int mailbox_read_response_async(unsigned int *job_id, uint32_t *response,
+				unsigned int *resp_len)
 {
 	uint32_t rin;
 	uint32_t rout;
@@ -189,8 +188,9 @@ int mailbox_read_response_async(unsigned int *job_id, uint32_t *header,
 				mailbox_resp_ctr.index;
 	}
 
-	if (mmio_read_32(MBOX_OFFSET + MBOX_DOORBELL_FROM_SDM) == 1U)
+	if (mmio_read_32(MBOX_OFFSET + MBOX_DOORBELL_FROM_SDM) == 1U) {
 		mmio_write_32(MBOX_OFFSET + MBOX_DOORBELL_FROM_SDM, 0U);
+	}
 
 	rin = mmio_read_32(MBOX_OFFSET + MBOX_RIN);
 	rout = mmio_read_32(MBOX_OFFSET + MBOX_ROUT);
@@ -208,11 +208,8 @@ int mailbox_read_response_async(unsigned int *job_id, uint32_t *header,
 			mailbox_resp_ctr.index++;
 			ret_resp_len--;
 		} else {
-			if (!ignore_client_id) {
-				if (MBOX_RESP_CLIENT_ID(resp_data) != MBOX_ATF_CLIENT_ID) {
-					*resp_len = 0;
-					return MBOX_WRONG_ID;
-				}
+			if (MBOX_RESP_CLIENT_ID(resp_data) != MBOX_ATF_CLIENT_ID) {
+				return MBOX_WRONG_ID;
 			}
 
 			*job_id = MBOX_RESP_JOB_ID(resp_data);
@@ -221,15 +218,12 @@ int mailbox_read_response_async(unsigned int *job_id, uint32_t *header,
 			mailbox_resp_ctr.flag |= MBOX_PAYLOAD_FLAG_BUSY;
 		}
 
-		if (ret_resp_len == 0)
+		if (ret_resp_len == 0) {
 			is_done = 1;
+		}
 	}
 
 	if (is_done) {
-
-		/* copy header data to input address if applicable */
-		if (header)
-			*header = mailbox_resp_ctr.payload->header;
 
 		/* copy response data to input buffer if applicable */
 		ret_resp_len = MBOX_RESP_LEN(mailbox_resp_ctr.payload->header);
@@ -255,7 +249,6 @@ int mailbox_read_response_async(unsigned int *job_id, uint32_t *header,
 		return MBOX_RET_OK;
 	}
 
-	*resp_len = 0;
 	return (mailbox_resp_ctr.flag & MBOX_PAYLOAD_FLAG_BUSY) ? MBOX_BUSY : MBOX_NO_RESPONSE;
 }
 

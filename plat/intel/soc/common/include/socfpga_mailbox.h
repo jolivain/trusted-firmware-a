@@ -201,9 +201,8 @@ int mailbox_send_cmd_async(uint32_t *job_id, uint32_t cmd, uint32_t *args,
 			unsigned int len, unsigned int indirect);
 int mailbox_read_response(uint32_t *job_id, uint32_t *response,
 			unsigned int *resp_len);
-int mailbox_read_response_async(uint32_t *job_id, uint32_t *header,
-			uint32_t *response, unsigned int *resp_len,
-			uint8_t ignore_client_id);
+int mailbox_read_response_async(uint32_t *job_id, uint32_t *response,
+			unsigned int *resp_len);
 int iterate_resp(uint32_t mbox_resp_len, uint32_t *resp_buf,
 			unsigned int *resp_len);
 
