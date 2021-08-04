@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb98bc94_e8fc11f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000061
+      },
+      "writtenOn": "2021-08-04T06:47:23Z",
+      "side": 1,
+      "message": "ARM_SPMC_MANIFEST_DTS is useful to remove tfa-acs dependancy for fvp_spmc_manifest.dts file. \n\nBut it doesn\u0027t help in resolving secure-partitions information dependancy in fvp_tb_fw_config.dts file.  (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10931/1/plat/arm/board/fvp/fdts/fvp_tb_fw_config.dts#75). Due to this we get below runtime warning after successfully loading three SPs.:\n- WARNING: Failed to determine the size of the image id\u003d37 (0) \n\nThis warning is for Ivy partition as acs has only three SPs.\n\nThis can be resolved in two ways:\n 1. By enhancing secure-partitions function for ACS partitions\n 2. By enhancing sptool to derived secure-partitions information from secure partition dts file(ex, cactus.dts). With this, we may not require to populate partition information in fvp_tb_fw_config.dts file.\n\nLet me know if any other alternative is possible.",
+      "parentUuid": "bc888a3f_37c46dd4",
+      "revId": "1b489c1f15009622c7391f3f8c8a26173a5a13d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "35cb7413_98324dc0",
