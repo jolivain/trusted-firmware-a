@@ -33,6 +33,23 @@
       "message": "\u003e Patch Set 3: Verified-1\n\u003e \n\u003e Build Failed \n\u003e \n\u003e https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l1/4240/ : This Jenkins server is not publicly accessible. A core maintainer will let you know if this CI failure is blocking the merge of this patch.\n\nUnrelated Juno boot failure",
       "revId": "4db968358928799bddbbc94cf92d484d52b71f40",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0bad74f_c2947d63",
+        "filename": "plat/rpi/rpi4/rpi4_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2021-08-04T18:50:17Z",
+      "side": 1,
+      "message": "Sorry about the delay, Ive been OoO for the past month.\n\nAnyway, I don\u0027t think this has any effect on EFI based systems with linux since it should be deleting this node anyway (AFAIK) and edk2 is building its own memmap without DT. I can\u0027t comment on the *BSD\u0027s or what uboot might be doing with this node.\n\nOTOH, I don\u0027t really understand the size check behavior here (the couple FTD\u0027s I have lying about all have addr\u003d0, size\u003d4k). It brings up the question of what happens if someone has a future/past DT where this isn\u0027t a subset of the shared-dma-pool reservation. It seems to me that this code should really be stricter about removing this node and only remove if its addr\u003d0 size\u003d4k and ignore all other regions.",
+      "revId": "4db968358928799bddbbc94cf92d484d52b71f40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
