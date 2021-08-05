@@ -26,6 +26,8 @@ tables. The details of this library can be found in
 
 TF-A can be built to support either AArch64 or AArch32 execution state.
 
+.. _Cold Boot:
+
 Cold boot
 ---------
 
@@ -465,6 +467,8 @@ BL2 execution continues as follows:
    and invalidates the TLBs.
 
 #. BL1 passes control to BL31 at the specified entrypoint at EL3.
+
+.. _Running BL2 at EL3:
 
 Running BL2 at EL3 execution level
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1165,6 +1169,8 @@ returning through EL3 and running the non-trusted firmware (BL33):
    to the BL32 initialization function. On return from this function,
    ``bl31_main()`` will set up the return to the normal world firmware BL33 and
    continue the boot process in the normal world.
+
+.. _Crash Reporting in BL31:
 
 Crash Reporting in BL31
 -----------------------

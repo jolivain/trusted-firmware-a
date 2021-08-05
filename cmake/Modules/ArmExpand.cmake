@@ -10,19 +10,19 @@ Force expansion of variables in a string.
 
 .. code:: cmake
 
-    arm_assert(
-        CONDITION <condition>
-        MESSAGE <message)
+    arm_expand(OUTPUT <output> STRING <string> [ATONLY])
 
 This function scans the input string ``<string>`` for CMake-style variables and
-expands them into their current values.
+expands them into their current values, writing the result to ``<output>``. If
+``ATONLY`` is specified, variable replacement is restricted to references of the
+form ``@VAR``.
 
 Example
 ^^^^^^^
 
 .. code:: cmake
 
-    set(expand-me "\${CMAKE_CURRENT_SOURCE_DIR}")
+    set(expand-me "@CMAKE_CURRENT_SOURCE_DIR@")
 
     arm_expand(OUTPUT expanded STRING "${expand-me}")
 #]=======================================================================]
@@ -32,31 +32,37 @@ include_guard()
 include(ArmAssert)
 
 function(arm_expand)
-    set(options "")
-    set(single-args "")
-    set(multi-args "OUTPUT;STRING")
+    set(options ATONLY)
+    set(single-args OUTPUT STRING)
+    set(multi-args)
 
-    cmake_parse_arguments(PARSE_ARGV 0 _ARM_EXPAND
+    cmake_parse_arguments(PARSE_ARGV 0 ARG
         "${options}" "${single-args}" "${multi-args}")
 
     arm_assert(
-        CONDITION DEFINED _ARM_EXPAND_OUTPUT
+        CONDITION DEFINED ARG_OUTPUT
         MESSAGE "No value was given for the `OUTPUT` argument.")
 
-    arm_assert(
-        CONDITION DEFINED _ARM_EXPAND_STRING
-        MESSAGE "No value was given for the `STRING` argument.")
+    set(atonly-regex [[@([^@]+)@]])
+    set(brace-regex [[\${([^}]+)}]])
 
-    set(output "${_ARM_EXPAND_OUTPUT}")
-    set(string "${_ARM_EXPAND_STRING}")
-
-    string(REGEX MATCH "\\\${[^}]*}" match "${string}")
+    string(REGEX MATCH "${atonly-regex}" match "${ARG_STRING}")
 
     while(match)
-        string(REGEX REPLACE "\\\${(.*)}" "\\1" variable "${match}")
-        string(REPLACE "\${${variable}}" "${${variable}}" string "${string}")
-        string(REGEX MATCH "\\\${[^}]*}" match "${string}")
+        string(REPLACE "@${CMAKE_MATCH_1}@" "${${CMAKE_MATCH_1}}"
+            ARG_STRING "${ARG_STRING}")
+        string(REGEX MATCH ${atonly-regex} match "${ARG_STRING}")
     endwhile()
 
-    set(${output} "${string}" PARENT_SCOPE)
+    if(NOT ARG_ATONLY)
+        string(REGEX MATCH "${brace-regex}" match "${ARG_STRING}")
+
+        while(match)
+            string(REPLACE "\${${CMAKE_MATCH_1}}" "${${CMAKE_MATCH_1}}"
+                ARG_STRING "${ARG_STRING}")
+            string(REGEX MATCH "${brace-regex}" match "${ARG_STRING}")
+        endwhile()
+    endif()
+
+    set(${ARG_OUTPUT} "${ARG_STRING}" PARENT_SCOPE)
 endfunction()

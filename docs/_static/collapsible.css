@@ -1,0 +1,21 @@
+.collapsible > :first-child {
+    cursor: pointer;
+}
+
+.collapsible > :first-child:after {
+    content: '▶';
+    display: block;
+
+    float: right;
+    text-align: right;
+}
+
+.collapsible:not(.collapsed) > :first-child:after {
+    transform: rotate(90deg);
+    transition: transform, 400ms;
+}
+
+.collapsible.collapsed > :first-child:after {
+    transform: revert;
+    transition: transform, 400ms;
+}

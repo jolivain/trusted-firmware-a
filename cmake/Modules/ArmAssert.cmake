@@ -43,16 +43,14 @@ function(arm_assert)
     cmake_parse_arguments(PARSE_ARGV 0 _ARM_ASSERT
         "${options}" "${single-args}" "${multi-args}")
 
-    set(condition "${_ARM_ASSERT_CONDITION}")
-
-    string(REPLACE ";" " " condition-string "${condition}")
-    set(message "An assertion was triggered: ${condition-string}")
-
-    if(DEFINED _ARM_ASSERT_MESSAGE)
-        set(message "${_ARM_ASSERT_MESSAGE}")
+    if(NOT DEFINED _ARM_ASSERT_MESSAGE)
+        set(_ARM_ASSERT_MESSAGE
+            "An assertion was triggered: " ${_ARM_ASSERT_CONDITION})
     endif()
 
-    if(NOT (${condition}))
-        message(FATAL_ERROR ${message})
+    string(REPLACE ";" " " _ARM_ASSERT_MESSAGE "${_ARM_ASSERT_MESSAGE}")
+
+    if(NOT (${_ARM_ASSERT_CONDITION}))
+        message(FATAL_ERROR "${_ARM_ASSERT_MESSAGE}")
     endif()
 endfunction()
