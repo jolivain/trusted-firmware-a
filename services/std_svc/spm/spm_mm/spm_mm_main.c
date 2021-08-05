@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -281,6 +281,18 @@ static uint64_t mm_communicate(uint32_t smc_fid, uint64_t mm_cookie,
 	ehf_deactivate_priority(PLAT_SP_PRI);
 
 	SMC_RET1(handle, rc);
+}
+
+/* Predicate indicating that a function id is part of SPM-MM */
+bool is_spm_mm_fid(uint32_t smc_fid)
+{
+	return ((smc_fid == MM_VERSION_AARCH32) ||
+		(smc_fid == MM_COMMUNICATE_AARCH32) ||
+		(smc_fid == MM_COMMUNICATE_AARCH64) ||
+		(smc_fid == SPM_MM_VERSION_AARCH32) ||
+		(smc_fid == MM_SP_EVENT_COMPLETE_AARCH64) ||
+		(smc_fid == MM_SP_MEMORY_ATTRIBUTES_GET_AARCH64) ||
+		(smc_fid == MM_SP_MEMORY_ATTRIBUTES_SET_AARCH64));
 }
 
 /*******************************************************************************

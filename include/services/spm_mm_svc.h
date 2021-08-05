@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -38,17 +38,8 @@
 #define SPM_MM_VERSION_COMPILED	SPM_MM_VERSION_FORM(SPM_MM_VERSION_MAJOR, \
 						    SPM_MM_VERSION_MINOR)
 
-/* These macros are used to identify SPM-MM calls using the SMC function ID */
-#define SPM_MM_FID_MASK			U(0xffff)
-#define SPM_MM_FID_MIN_VALUE		U(0x40)
-#define SPM_MM_FID_MAX_VALUE		U(0x7f)
-#define is_spm_mm_fid(_fid)						 \
-		((((_fid) & SPM_MM_FID_MASK) >= SPM_MM_FID_MIN_VALUE) && \
-		 (((_fid) & SPM_MM_FID_MASK) <= SPM_MM_FID_MAX_VALUE))
-
 /*
  * SMC IDs defined in [1] for accessing MM services from the Non-secure world.
- * These FIDs occupy the range 0x40 - 0x5f.
  * [1] DEN0060A_ARM_MM_Interface_Specification.pdf
  */
 #define MM_VERSION_AARCH32		U(0x84000040)
@@ -59,7 +50,6 @@
  * SMC IDs defined for accessing services implemented by the Secure Partition
  * Manager from the Secure Partition(s). These services enable a partition to
  * handle delegated events and request privileged operations from the manager.
- * They occupy the range 0x60-0x7f.
  */
 #define SPM_MM_VERSION_AARCH32			U(0x84000060)
 #define MM_SP_EVENT_COMPLETE_AARCH64		U(0xC4000061)
@@ -93,6 +83,8 @@
 #include <stdint.h>
 
 int32_t spm_mm_setup(void);
+
+bool is_spm_mm_fid(uint32_t smc_fid);
 
 uint64_t spm_mm_smc_handler(uint32_t smc_fid,
 			    uint64_t x1,
