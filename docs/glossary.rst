@@ -9,11 +9,23 @@ You can find additional definitions in the `Arm Glossary`_.
 .. glossary::
    :sorted:
 
+   A32
+      32-bit Arm instruction set
+
+   A64
+      64-bit Arm instruction set
+
    AArch32
       32-bit execution state of the ARMv8 ISA
 
    AArch64
       64-bit execution state of the ARMv8 ISA
+
+   AAPCS
+      Arm Architecture Procedure Call Standard
+
+   ACLE
+      Arm C Language Extensions
 
    API
       Application Programming Interface
@@ -74,6 +86,9 @@ You can find additional definitions in the `Arm Glossary`_.
 
    GIC
       Generic Interrupt Controller
+
+   GUI
+      Graphical User Interface
 
    ISA
       Instruction Set Architecture
@@ -172,6 +187,9 @@ You can find additional definitions in the `Arm Glossary`_.
    SVE
       Scalable Vector Extension
 
+   T32
+      32-bit Thumb-2 instruction set
+
    TBB
       Trusted Board Boot
 
@@ -187,6 +205,9 @@ You can find additional definitions in the `Arm Glossary`_.
    TF-M
       Trusted Firmware-M
 
+   TFACMF
+      Trusted Firmware-A CMake Framework
+
    TLB
       Translation Lookaside Buffer
 
@@ -198,6 +219,9 @@ You can find additional definitions in the `Arm Glossary`_.
 
    TSP
       Test Secure Payload
+
+   TUI
+      Terminal User Interface
 
    TZC
       TrustZone Controller
