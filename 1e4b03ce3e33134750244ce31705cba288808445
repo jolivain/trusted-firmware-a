@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d313c67b_8dcba3df",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-08-05T13:47:09Z",
+      "side": 1,
+      "message": "True, fixed size is a limitation. With existing framework, getting the size information need further exploration. Most likely it needs additional logic.",
+      "parentUuid": "5fe5de42_282a78b2",
+      "range": {
+        "startLine": 298,
+        "startChar": 10,
+        "endLine": 298,
+        "endChar": 23
+      },
+      "revId": "1e4b03ce3e33134750244ce31705cba288808445",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ad347d5_e1ea6b95",
         "filename": "services/std_svc/spm/spmc/spmc_main.c",
         "patchSetId": 4
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0afc59f9_582c737d",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-08-05T13:47:09Z",
+      "side": 1,
+      "message": "This point would need larger discussion, I feel. Will try to check on this point.",
+      "parentUuid": "3ad347d5_e1ea6b95",
+      "revId": "1e4b03ce3e33134750244ce31705cba288808445",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6b8729d_10bc02f3",
         "filename": "services/std_svc/spm/spmc/spmc_main.c",
         "patchSetId": 4
@@ -54,6 +96,30 @@
       "writtenOn": "2021-08-02T14:44:41Z",
       "side": 1,
       "message": "What does this signify? Can you use a macro describing the intent?",
+      "range": {
+        "startLine": 442,
+        "startChar": 38,
+        "endLine": 442,
+        "endChar": 41
+      },
+      "revId": "1e4b03ce3e33134750244ce31705cba288808445",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b4d1b03_8a1b6b25",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-08-05T13:47:09Z",
+      "side": 1,
+      "message": "Thanks for pointing out. This value is not needed further with updated code. Will make the necessary change in next version.",
+      "parentUuid": "a6b8729d_10bc02f3",
       "range": {
         "startLine": 442,
         "startChar": 38,
@@ -89,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ecf96ba_7d177088",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-08-05T13:47:09Z",
+      "side": 1,
+      "message": "Yes, platform which doesn\u0027t enable MMU at EL1 prior to the BL32 or SP context setup may not need this step, but I guess that having this wouldn\u0027t harm anything.",
+      "parentUuid": "4c58136e_d3471e08",
+      "range": {
+        "startLine": 592,
+        "startChar": 1,
+        "endLine": 593,
+        "endChar": 26
+      },
+      "revId": "1e4b03ce3e33134750244ce31705cba288808445",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "876e0f7c_e5cdd496",
         "filename": "services/std_svc/spm/spmc/spmc_main.c",
         "patchSetId": 4
@@ -100,6 +190,24 @@
       "writtenOn": "2021-08-02T14:44:41Z",
       "side": 1,
       "message": "Does it make sense to add a panic() here to make it clear that returning from this function would be fatal?",
+      "revId": "1e4b03ce3e33134750244ce31705cba288808445",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b472fe27_66d90037",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-08-05T13:47:09Z",
+      "side": 1,
+      "message": "You are right. There is panic(), inside spm_sp_synchronous_exit().",
+      "parentUuid": "876e0f7c_e5cdd496",
       "revId": "1e4b03ce3e33134750244ce31705cba288808445",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
