@@ -403,6 +403,30 @@
       },
       "revId": "eec150cf550c6f805e79cd00c66a271c2e8ae5d1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3387461f_619d012a",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-08-05T21:41:44Z",
+      "side": 1,
+      "message": "Yep, this would definitely be good to have in the spec. Generally, for things that are IMPDEF, it would be good to have one spec defined method and while allowing the same to be IMPDEF as well.\n8-bits may be a bit short. We already have 96 core multi-socket servers in the market (Cavium) so \u003e 256 core systems are not too far away in the future. So 16 bits should be a safe bet for a while. Agree, stealing an entire register might be wasteful.",
+      "parentUuid": "a846b6ce_17d12d07",
+      "range": {
+        "startLine": 176,
+        "startChar": 1,
+        "endLine": 176,
+        "endChar": 70
+      },
+      "revId": "eec150cf550c6f805e79cd00c66a271c2e8ae5d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
