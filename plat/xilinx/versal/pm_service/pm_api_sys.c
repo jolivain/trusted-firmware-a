@@ -130,7 +130,7 @@ enum pm_ret_status pm_self_suspend(uint32_t nid,
 	unsigned int cpuid = plat_my_core_pos();
 	const struct pm_proc *proc = pm_get_proc(cpuid);
 
-	if (!proc) {
+	if (proc == NULL) {
 		WARN("Failed to get proc %d\n", cpuid);
 		return PM_RET_ERROR_INTERNAL;
 	}
@@ -373,7 +373,7 @@ enum pm_ret_status pm_reset_get_status(uint32_t reset, uint32_t *status,
 void pm_get_callbackdata(uint32_t *data, size_t count, uint32_t flag)
 {
 	/* Return if interrupt is not from PMU */
-	if (!pm_ipi_irq_status(primary_proc)) {
+	if (pm_ipi_irq_status(primary_proc) == 0) {
 		return;
 	}
 
@@ -885,7 +885,7 @@ enum pm_ret_status pm_api_ioctl(uint32_t device_id, uint32_t ioctl_id,
 	case IOCTL_SET_SGI:
 		/* Get the sgi number */
 		ret = pm_register_sgi(arg1);
-		if (ret) {
+		if (ret != 0) {
 			return PM_RET_ERROR_ARGS;
 		}
 		gicd_write_irouter(gicv3_driver_data->gicd_base,
