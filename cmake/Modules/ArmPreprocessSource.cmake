@@ -164,12 +164,12 @@ function(arm_preprocess_source)
 
     #
     # Here's the magic part. For every angle bracket-wrapped value in the
-    # command, replace it with its variable form, then replace it with the value
-    # of that variable.
+    # command, replace it with its at-variable form, then replace it with the
+    # value of that variable.
     #
 
-    string(REGEX REPLACE "<([[A-Z_]+)>" "\${\\1}" command "${command}")
-    arm_expand(OUTPUT command STRING "${command}")
+    string(REGEX REPLACE "<([[A-Z_]+)>" [[@\1@]] command "${command}")
+    arm_expand(OUTPUT command STRING "${command}" ATONLY)
 
     #
     # Finally, add the command which generates the preprocessed file.
