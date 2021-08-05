@@ -16,6 +16,24 @@
       "message": "Is this really required ? PLAT_RO_TABLES only affects EL3 tables. For Get/Set attributes we change attributes of the SP\u0027s xlat tables and not of EL3. So not sure this restriction is required. Please let me know if i\u0027m missing something here.",
       "revId": "784136ed3908b3d982c46e9c0ad7f911f4f86603",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2102ce90_2d4b7726",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-08-05T14:01:22Z",
+      "side": 1,
+      "message": "Thanks for pointing out. Looked further and it appears that PLAT_RO_XLAT_TABLES impact only tf_xlat_ctx. In that case, this change will not be needed.",
+      "parentUuid": "194bc0a9_a39f636e",
+      "revId": "784136ed3908b3d982c46e9c0ad7f911f4f86603",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
