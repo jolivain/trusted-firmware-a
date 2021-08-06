@@ -392,6 +392,10 @@ ERRATA_V1_1925756	?=0
 # to revisions r1p0 and r1p1 of the Neoverse V1 cpu.
 ERRATA_V1_1940577	?=0
 
+# Flag to apply erratum 1987031 workaround during reset. This erratum applies
+# to revisions r0p0, r1p0 and r2p0 of the Cortex-A710 cpu.
+ERRATA_A710_1987031	?=0
+
 # Flag to apply DSU erratum 798953. This erratum applies to DSUs revision r0p0.
 # Applying the workaround results in higher DSU power consumption on idle.
 ERRATA_DSU_798953	?=0
@@ -716,6 +720,10 @@ $(eval $(call add_define,ERRATA_V1_1925756))
 # Process ERRATA_V1_1940577 flag
 $(eval $(call assert_boolean,ERRATA_V1_1940577))
 $(eval $(call add_define,ERRATA_V1_1940577))
+
+# Process ERRATA_A710_1987031 flag
+$(eval $(call assert_boolean,ERRATA_A710_1987031))
+$(eval $(call add_define,ERRATA_A710_1987031))
 
 # Process ERRATA_DSU_798953 flag
 $(eval $(call assert_boolean,ERRATA_DSU_798953))
