@@ -34,6 +34,24 @@
       "parentUuid": "6fabada6_54905c12",
       "revId": "bb5b8242ab78637f190da5d9f7db39147034252e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecc467a7_7f6dc856",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-10T14:08:18Z",
+      "side": 1,
+      "message": "Hi Manish, I\u0027ve seen the check. But it still means a file is compiled and some code is executed at runtime. I agree it is not huge, but it is still some useless code for Armv7. Maybe we could override the values in the dedicated make_helpers/armv7-a-cpus.mk file?  I\u0027ve not checked if that could easily be done, but that would avoid modifying all the Armv7 plaform.mk files.\nSome more flags in make_helpers/defaults.mk may be concerned as well?\nAnyway all that could be in a separate patch, I\u0027ll remove my -1 here.",
+      "parentUuid": "b22da5d9_1661edd3",
+      "revId": "bb5b8242ab78637f190da5d9f7db39147034252e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
