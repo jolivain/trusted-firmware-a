@@ -427,6 +427,30 @@
       },
       "revId": "eec150cf550c6f805e79cd00c66a271c2e8ae5d1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aa4e2e8_b87f7e74",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-08-10T16:24:47Z",
+      "side": 1,
+      "message": "See https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/11009\nIIUC this takes care of option 2. I restricted the change to only passing the core linear id to an S-EL1 SPMC. If we\u0027re aligned I can update the TF-A doc as an impdef behavior (https://trustedfirmware-a.readthedocs.io/en/latest/components/secure-partition-manager.html#spmc-boot). Now I\u0027m wondering, are you suggesting above that when secure virtualization is enabled, we want to pass the information in the same way?\nI\u0027m thinking the following would apply:\nEL3 to SEL1 SPMC: pass the core linear id through X4\nEL3 to SEL2 SPMC: not passed\nSEL2 SPMC to SEL1 SP: the MPIDR is read by the SP to determine the core linear id (hence no need for passing through a register at boot)\nDoes it make sense?\n\n@Raghu, for SEL0 SPs, would it be ok to trap the MPIDR_EL1 system register read to Hafnium, service it and resume?",
+      "parentUuid": "3387461f_619d012a",
+      "range": {
+        "startLine": 176,
+        "startChar": 1,
+        "endLine": 176,
+        "endChar": 70
+      },
+      "revId": "eec150cf550c6f805e79cd00c66a271c2e8ae5d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
