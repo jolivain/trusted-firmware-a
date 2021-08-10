@@ -16,6 +16,24 @@
       "message": "Same here for Armv7 cores I think",
       "revId": "a1e4b92638accc0ef4b40089acacec0190c9ef8b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1f264c5_4b6fc5c4",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-10T13:52:16Z",
+      "side": 1,
+      "message": "Hi Yann, \nThis feature anyways gets checked during runtime [1] and [2] when this build flag is enabled, so I don\u0027t think default enablement of this flag in anyways hamper Armv7 based platforms. \nAlso, the platform can override this option via platform makefile if they want. \nWhether this works or, do you have a different opinion?\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10807/2/lib/extensions/trf/aarch32/trf.c#26\n[2]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10807/2/lib/extensions/trf/aarch64/trf.c#26",
+      "parentUuid": "3f41886f_585e911a",
+      "revId": "a1e4b92638accc0ef4b40089acacec0190c9ef8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
