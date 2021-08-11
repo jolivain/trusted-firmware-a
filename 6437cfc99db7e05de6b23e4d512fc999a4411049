@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dfbecae8_cc97227f",
+        "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-08-11T23:46:25Z",
+      "side": 1,
+      "message": "nit: this one\u0027s still open (though no big deal...)?",
+      "parentUuid": "2d7fb151_cc8d9b10",
+      "range": {
+        "startLine": 124,
+        "startChar": 48,
+        "endLine": 124,
+        "endChar": 66
+      },
+      "revId": "6437cfc99db7e05de6b23e4d512fc999a4411049",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "509e398d_20156549",
         "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.c",
         "patchSetId": 5
