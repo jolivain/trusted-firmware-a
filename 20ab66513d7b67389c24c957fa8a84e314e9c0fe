@@ -57,6 +57,24 @@
       "parentUuid": "74a0f5d2_f424208b",
       "revId": "20ab66513d7b67389c24c957fa8a84e314e9c0fe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1306b9c7_4f2cd0e8",
+        "filename": "services/std_svc/spm_mm/spm_mm_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-08-11T07:45:43Z",
+      "side": 1,
+      "message": "Alternative short term approach is to split TRUSTY_SPM and SPM_MM options in std_svc_smc_handler. Trusty SPD may call its own FF-A func id checks and SMC handler, or maybe just re-use the SPMD is_ffa_fid [1] and redefine spmd_smc_handler within the Trusty SPD.\n\n[1] https://android.googlesource.com/trusty/external/trusted-firmware-a/+/refs/heads/master/services/std_svc/std_svc_setup.c#129",
+      "parentUuid": "da2a82a0_ff8e7511",
+      "revId": "20ab66513d7b67389c24c957fa8a84e314e9c0fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
