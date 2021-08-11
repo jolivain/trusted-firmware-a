@@ -75,6 +75,24 @@
       "parentUuid": "da2a82a0_ff8e7511",
       "revId": "20ab66513d7b67389c24c957fa8a84e314e9c0fe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "672b5dba_858e0ddf",
+        "filename": "services/std_svc/spm_mm/spm_mm_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000519
+      },
+      "writtenOn": "2021-08-11T11:21:20Z",
+      "side": 1,
+      "message": "To hack around the issue in the trusty setup, I did just change SPM_MM_FID_MIN_VALUE from 0x40 to 0x60. That\u0027s not a complete solutions as it ignores the 0x40/1 range but was enough to let me use the TRNG. I didn\u0027t use the version uploaded here with Trusty but Olivier makes a good point that it would be nice to do something that will be compatible so the trusty fork can merge nicely. It seems the suggested approach of testing the two ranges independently would work well for that.",
+      "parentUuid": "1306b9c7_4f2cd0e8",
+      "revId": "20ab66513d7b67389c24c957fa8a84e314e9c0fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
