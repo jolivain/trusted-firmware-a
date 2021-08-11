@@ -14,9 +14,9 @@
 #include "pm_svc_main.h"
 
 /* SMC function IDs for SiP Service queries */
-#define VERSAL_SIP_SVC_CALL_COUNT	0x8200ff00
-#define VERSAL_SIP_SVC_UID		0x8200ff01
-#define VERSAL_SIP_SVC_VERSION		0x8200ff03
+#define VERSAL_SIP_SVC_CALL_COUNT	0x8200ff00U
+#define VERSAL_SIP_SVC_UID		0x8200ff01U
+#define VERSAL_SIP_SVC_VERSION		0x8200ff03U
 
 /* SiP Service Calls version numbers */
 #define SIP_SVC_VERSION_MAJOR	0
