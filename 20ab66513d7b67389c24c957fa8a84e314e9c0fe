@@ -16,6 +16,24 @@
       "message": "IIUC, there are two separate problems:\n\n1. Clash between TRNG and MM comm SMCs coming in from the normal world\n2. Clash between the StMM SP and SPM_MM SMCs and FF-A SMCs coming in from the secure world\n\n1) can be solved by restricting the MM comm range to 0x40-0x4f. 2) will be solved by keeping SPM_MM and FF-A SPM mutually exclusive.\n\nSo should this check not take the security state of the caller into account as well i.e.\n\n1) If caller is from NS, then return true only if 0x40 \u003c\u003d FID \u003c\u003d 0x4f else SMC_UNK\n2) If caller is from S,  then return true only if 0x60 \u003c\u003d FID \u003c\u003d 0x6f else SMC_UNK\n\nThis change works but the slight issue is that SPM_MM will attempt to handle a 0x60 \u003c\u003d FID \u003c\u003d 0x6f from NS and then reject it later (since it is not from Secure). Would it not be better to reject the call in this function itself.\n\nI realise that this is the way it was originally written but now that we are here..... :)",
       "revId": "20ab66513d7b67389c24c957fa8a84e314e9c0fe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da2a82a0_ff8e7511",
+        "filename": "services/std_svc/spm_mm/spm_mm_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-08-11T07:36:44Z",
+      "side": 1,
+      "message": "There is a discussion on the ML:\nhttps://lists.trustedfirmware.org/pipermail/tf-a/2021-August/001307.html\n\nAbout bullet 2) the intent is not about using SPM_MM + TRNG, but rather Trusty SPD (+FF-A mem sharing) + TRNG.\nThe caveat is that the Trusty SPD re-uses the spm_mm_smc_handler symbol to serve FF-A [1].\n\nThen I wonder if the current change really works because other FF-A func ids are filtered out and won\u0027t reach the SPD handler [2] (?)\n\nThe way to solve it would be for Trusty to adopt the SPMD (and merge the EL3 mem sharing bits).\nThen get rid of the spm_mm_smc_handler symbol re-use in Trusty context.\n\n[1] https://android.googlesource.com/trusty/external/trusted-firmware-a/+/refs/heads/master/services/std_svc/std_svc_setup.c#113\n\n[2] https://android.googlesource.com/trusty/external/trusted-firmware-a/+/refs/heads/master/services/spd/trusty/shared-mem-smcall.c#982",
+      "parentUuid": "74a0f5d2_f424208b",
+      "revId": "20ab66513d7b67389c24c957fa8a84e314e9c0fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
