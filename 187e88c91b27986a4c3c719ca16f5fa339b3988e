@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41025d38_12da8be1",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2021-08-11T20:32:29Z",
+      "side": 1,
+      "message": "Renaming END to SIZE makes sense as 1GB is a size.",
+      "range": {
+        "startLine": 71,
+        "startChar": 8,
+        "endLine": 71,
+        "endChar": 40
+      },
+      "revId": "187e88c91b27986a4c3c719ca16f5fa339b3988e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
