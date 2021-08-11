@@ -93,6 +93,24 @@
       "parentUuid": "1306b9c7_4f2cd0e8",
       "revId": "20ab66513d7b67389c24c957fa8a84e314e9c0fe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9062395_ad7023d7",
+        "filename": "services/std_svc/spm_mm/spm_mm_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-08-11T16:08:58Z",
+      "side": 1,
+      "message": "@Olivier, thanks for the background on the Trusty intersection.\n\nThis change won\u0027t allow Trusty to handle FF-A SMCs. In any case that is a separate requirement. IIRC Arve\u0027s work predates the FF-A SPMD support in EL3. Reusing the SPM_MM was the quickest option back then. The Trusty SPD and SPM_MM should not intersect in any way in upstream. \n\nSo, I think this solves the TRNG problem. Qualifying the 0x60-0x70 range with the security state (as suggested above) would prevent NS FF-A SMCs from landing in SPM_MM.\n\nTrusty\u0027s choice to use FF-A in bits implies that all FF-A calls should be routed to the Trusty SPD. It already handles most. So \"#if defined(SPD_spmd) || TRUSTY_SPM\" would be needed. Trying to use the SPMD with the Trusty SPD (essentially an SPMC) where it only handles a subset of FF-A calls would mean unnecessary complexity. \n\nIn any case, IIUC Trusty\u0027s choices are downstream right now so it can do what it wants really. I don\u0027t there is any point in carrying a Trusty EL3 SPMC+SPMD implementation upstream. The point of FF-A is to remove TOS specific code from EL3 rather than let the TOS cherry pick.",
+      "parentUuid": "672b5dba_858e0ddf",
+      "revId": "20ab66513d7b67389c24c957fa8a84e314e9c0fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
