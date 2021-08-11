@@ -82,8 +82,10 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 		int rc = console_dcc_register();
 		if (rc == 0) {
 			panic();
-		}
+	} else {
+		NOTICE("BL31: Did not register for any console.\n");
 	}
+
 	/* Initialize the platform config for future decision making */
 	versal_config_setup();
 	/* There are no parameters from BL2 if BL31 is a reset vector */
@@ -109,8 +111,10 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 						  atf_handoff_addr);
 	if (ret == FSBL_HANDOFF_NO_STRUCT || ret == FSBL_HANDOFF_INVAL_STRUCT) {
 		bl31_set_default_config();
-	} else if (ret != FSBL_HANDOFF_SUCCESS) {
-		panic();
+	} else {
+		if (ret != FSBL_HANDOFF_SUCCESS) {
+			panic();
+		}
 	}
 
 	NOTICE("BL31: Secure code at 0x%lx\n", bl32_image_ep_info.pc);
