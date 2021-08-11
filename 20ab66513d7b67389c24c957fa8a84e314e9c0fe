@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74a0f5d2_f424208b",
+        "filename": "services/std_svc/spm_mm/spm_mm_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-08-11T07:18:24Z",
+      "side": 1,
+      "message": "IIUC, there are two separate problems:\n\n1. Clash between TRNG and MM comm SMCs coming in from the normal world\n2. Clash between the StMM SP and SPM_MM SMCs and FF-A SMCs coming in from the secure world\n\n1) can be solved by restricting the MM comm range to 0x40-0x4f. 2) will be solved by keeping SPM_MM and FF-A SPM mutually exclusive.\n\nSo should this check not take the security state of the caller into account as well i.e.\n\n1) If caller is from NS, then return true only if 0x40 \u003c\u003d FID \u003c\u003d 0x4f else SMC_UNK\n2) If caller is from S,  then return true only if 0x60 \u003c\u003d FID \u003c\u003d 0x6f else SMC_UNK\n\nThis change works but the slight issue is that SPM_MM will attempt to handle a 0x60 \u003c\u003d FID \u003c\u003d 0x6f from NS and then reject it later (since it is not from Secure). Would it not be better to reject the call in this function itself.\n\nI realise that this is the way it was originally written but now that we are here..... :)",
+      "revId": "20ab66513d7b67389c24c957fa8a84e314e9c0fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
