@@ -16,6 +16,24 @@
       "message": "This Comment is for first 2 patches in the series\nIIUC in 1st patch you are initializing MDCR_NSTB/NSTBE values to a known value as these bits are UKNOWN at reset in 2nd patch you are setting these values in a way to allow NS access(which is going to be default behavior), I am just wondering why don\u0027t you club these patches together and set the default values at RESET.",
       "revId": "36d3cf6c44d529f21dd90cba83a489d15e0d3f10",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aff74e28_63a30f7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-11T21:45:00Z",
+      "side": 1,
+      "message": "Hi Manish,\n\nYour understanding regarding the first two patches in the series is correct. \nAs discussed offline, the first patch in the series provides initial settings of trap bits irrespective of whether the feature is supported in architecture or not, and the second patch enables feature registers access to lower NS ELs, hence retained these patches as separate. I have updated comments/commit-message for patches in this series to make it more clear.\nPlease review the updated patch series. Thanks!",
+      "parentUuid": "cc0d8d74_771dc298",
+      "revId": "36d3cf6c44d529f21dd90cba83a489d15e0d3f10",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
