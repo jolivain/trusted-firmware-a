@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd356a7f_6072ec0f",
+        "filename": "plat/arm/board/diphda/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-08-12T17:15:14Z",
+      "side": 1,
+      "message": "I was wondering if the default value should be set as well early in this makefile. May be as \"strong\". The default value in common makefile is 0(i.e. disabled/none)",
+      "range": {
+        "startLine": 62,
+        "startChar": 9,
+        "endLine": 62,
+        "endChar": 31
+      },
+      "revId": "c7e4f1cfb84136a7521f26e403a6635ffdce4a2b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
