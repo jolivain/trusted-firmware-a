@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "05dbb59c_148bbd40",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2021-08-12T19:39:32Z",
+      "side": 1,
+      "message": "Please mention this is still open",
+      "range": {
+        "startLine": 10,
+        "startChar": 3,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "d4ace2d3b06a37b315ad6e7897b907487bb1bef8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "17fb10b4_5f1b518a",
@@ -14,6 +37,46 @@
       "writtenOn": "2021-08-12T11:17:39Z",
       "side": 1,
       "message": "Added Bipin, John and Lauren who manage and implement many of the Errata mitigations in TF-A as reviews. Along with coping Manish EL3 Component lead.",
+      "revId": "d4ace2d3b06a37b315ad6e7897b907487bb1bef8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d0ab13f_4ac93bbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2021-08-12T19:39:32Z",
+      "side": 1,
+      "message": "Please add documentation of this Errata to docs/design/cpu-specific-build-macros.rst\n\n",
+      "revId": "d4ace2d3b06a37b315ad6e7897b907487bb1bef8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef4db2bf_7712db57",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2021-08-12T19:39:32Z",
+      "side": 1,
+      "message": "Please mention this is still open here too",
+      "range": {
+        "startLine": 315,
+        "startChar": 24,
+        "endLine": 315,
+        "endChar": 29
+      },
       "revId": "d4ace2d3b06a37b315ad6e7897b907487bb1bef8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
