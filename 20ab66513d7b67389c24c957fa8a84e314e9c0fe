@@ -111,6 +111,24 @@
       "parentUuid": "672b5dba_858e0ddf",
       "revId": "20ab66513d7b67389c24c957fa8a84e314e9c0fe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afe45f9a_9495837e",
+        "filename": "services/std_svc/spm_mm/spm_mm_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-08-12T08:52:03Z",
+      "side": 1,
+      "message": "@Andrew, would it be possible to do this downstream? \n\ndiff --git a/services/spd/trusty/shared-mem-smcall.c b/services/spd/trusty/shared-mem-smcall.c\nindex 8965f2d50..90255ccd3 100644\n--- a/services/spd/trusty/shared-mem-smcall.c\n+++ b/services/spd/trusty/shared-mem-smcall.c\n@@ -919,7 +919,7 @@ static int to_spi_err(int ret)\n /*\n  * trusty_shared_memory_smc - SMC call handler.\n  */\n-uintptr_t spm_mm_smc_handler(uint32_t smc_fid,\n+uintptr_t spmd_smc_handler(uint32_t smc_fid,\n                             u_register_t x1,\n                             u_register_t x2,\n                             u_register_t x3,\ndiff --git a/services/std_svc/std_svc_setup.c b/services/std_svc/std_svc_setup.c\nindex 1cc90f89f..9093de814 100644\n--- a/services/std_svc/std_svc_setup.c\n+++ b/services/std_svc/std_svc_setup.c\n@@ -123,7 +123,7 @@ static uintptr_t std_svc_smc_handler(uint32_t smc_fid,\n                SMC_RET1(handle, ret);\n        }\n \n-#if SPM_MM || TRUSTY_SPM\n+#if SPM_MM\n        /*\n         * Dispatch SPM calls to SPM SMC handler and return its return\n         * value\n@@ -134,7 +134,7 @@ static uintptr_t std_svc_smc_handler(uint32_t smc_fid,\n        }\n #endif\n \n-#if defined(SPD_spmd)\n+#if defined(SPD_spmd) || TRUSTY_SPM\n        /*\n         * Dispatch FFA calls to the FFA SMC handler implemented by the SPM\n         * dispatcher and return its return value\n\n\nThe clash between SPM_MM and TRNG func id ranges becomes a second priority problem (no longer intersected with Trusty). It can be resolved by reworking the current change with is_spm_mm_fid checking both the distinct changes of MM (0x40-0x4f) and \"SP_MM\" (0x60-0x6f).",
+      "parentUuid": "f9062395_ad7023d7",
+      "revId": "20ab66513d7b67389c24c957fa8a84e314e9c0fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
