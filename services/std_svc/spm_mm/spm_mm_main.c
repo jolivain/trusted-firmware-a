@@ -34,9 +34,9 @@ static sp_context_t sp_ctx;
  ******************************************************************************/
 void sp_state_set(sp_context_t *sp_ptr, sp_state_t state)
 {
-	spin_lock(&(sp_ptr->state_lock));
 	sp_ptr->state = state;
 	spin_unlock(&(sp_ptr->state_lock));
+	flush_dcache_range ((uint64_t)&sp_ptr->state, 8);
 }
 
 /*******************************************************************************
@@ -48,15 +48,14 @@ void sp_state_wait_switch(sp_context_t *sp_ptr, sp_state_t from, sp_state_t to)
 	int success = 0;
 
 	while (success == 0) {
-		spin_lock(&(sp_ptr->state_lock));
-
+		inv_dcache_range ((uint64_t)&sp_ptr->state, 8);
 		if (sp_ptr->state == from) {
+			spin_lock(&(sp_ptr->state_lock));
 			sp_ptr->state = to;
+			clean_dcache_range ((uint64_t)&sp_ptr->state, 8);
 
 			success = 1;
 		}
-
-		spin_unlock(&(sp_ptr->state_lock));
 	}
 }
 
