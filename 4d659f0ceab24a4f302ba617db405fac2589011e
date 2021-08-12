@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5a33ad7d_607c684a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-12T22:07:59Z",
+      "side": 1,
+      "message": "Yes, let me modify it as below:\n\"Enabled trace buffer control registers access using build flag\n\u0027ENABLE_TRBE_FOR_NS\u0027 in NS-EL2 or NS-EL1 (when NS-EL2 is \nimplemented but unused)\"\nPlease let me know if it is clear enough?",
+      "parentUuid": "945c11b5_19a5f2f1",
+      "revId": "4d659f0ceab24a4f302ba617db405fac2589011e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "39da4e2a_4e765c39",
         "filename": "lib/extensions/trbe/trbe.c",
         "patchSetId": 4
