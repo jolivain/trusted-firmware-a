@@ -22,6 +22,30 @@
       },
       "revId": "6c5d5ca880d3d6a410060fe2e9b2723ea52f16e1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ca09545_2c5f3792",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-12T22:12:10Z",
+      "side": 1,
+      "message": "This statement makes sense as these bits are getting set for non-secure state, and NS-EL2 un-used case.\nIn NS-EL2 un-used case, NS-EL1 is trace buffer owning exceptional level and trace buffer register access is disabled in NS-EL2.\nPlease let me know what do you think?",
+      "parentUuid": "e5446514_9d91f222",
+      "range": {
+        "startLine": 569,
+        "startChar": 6,
+        "endLine": 572,
+        "endChar": 36
+      },
+      "revId": "6c5d5ca880d3d6a410060fe2e9b2723ea52f16e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
