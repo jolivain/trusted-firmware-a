@@ -16,6 +16,24 @@
       "message": "Not sure how adding a blank line is fixing R16.3. This is redundant.\n\nTo fix R16.3 all we can do is add break; statement after each case here. One way to achieve that is following.\n\nWe need to store return values in temporary variable, and add break; statement and then once switch case is done, we can use just 1 SMC_RET2 call at the end of this function.",
       "revId": "2902f9464850feff5e161fd6e698579e62744932",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "307cbb4a_8b5b6245",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000534
+      },
+      "writtenOn": "2021-08-12T10:07:55Z",
+      "side": 1,
+      "message": "Thanks for the review.\n\nThis blank lines are added by mistakenly.\n\nTo solve MISRA Violation R10.1 cause due to SMC_RET1 and SMC_RET2 need changes in macro\u0027s definition at \"include/arch/aarch32/smccc_helpers.h\" and \"include/arch/aarch64/smccc_helpers.h\" which is not possible here as this MACROS are globally used. so need to justify this violation.",
+      "parentUuid": "a5257cf6_3addf845",
+      "revId": "2902f9464850feff5e161fd6e698579e62744932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
