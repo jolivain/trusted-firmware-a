@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "945c11b5_19a5f2f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-08-12T21:47:49Z",
+      "side": 1,
+      "message": "commit msg is bit unclear\nIIUC access is either from NS-EL2 (when EL2 is present) or NS-EL1\nAlso, this \"using build flag \u0027ENABLE_TRBE_FOR_NS\u0027.\" looks out of order.",
+      "revId": "4d659f0ceab24a4f302ba617db405fac2589011e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39da4e2a_4e765c39",
+        "filename": "lib/extensions/trbe/trbe.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-08-12T21:47:49Z",
+      "side": 1,
+      "message": "\"and\" or \"or\"",
+      "range": {
+        "startLine": 40,
+        "startChar": 56,
+        "endLine": 41,
+        "endChar": 14
+      },
+      "revId": "4d659f0ceab24a4f302ba617db405fac2589011e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
