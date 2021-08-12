@@ -16,6 +16,24 @@
       "message": "isn\u0027t this violating rule 10.1 ? instead of !ret can we use (ret \u003d\u003d 0)?\n\nso: pm_wakeup_nodes_set[node_idx] \u003d ((uint8_t)ret \u003d\u003d 0) ? 0 : 1;",
       "revId": "eeeed74553b81b0226d5b17ffa26da9b54bcb4c4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72eeb95f_ca0ecf5b",
+        "filename": "plat/xilinx/versal/pm_service/pm_client.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000534
+      },
+      "writtenOn": "2021-08-12T09:51:43Z",
+      "side": 1,
+      "message": "Actually This patch only resolve MISRA-C:2012 R.10.6. For MISRA-C:2012 R.10.1 there is an separate patch. \nAs this is assignment operation, so it is not violating rule 10.1",
+      "parentUuid": "9acd4d2f_dc770947",
+      "revId": "eeeed74553b81b0226d5b17ffa26da9b54bcb4c4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
