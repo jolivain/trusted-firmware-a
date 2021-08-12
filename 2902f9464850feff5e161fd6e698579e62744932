@@ -34,6 +34,24 @@
       "parentUuid": "a5257cf6_3addf845",
       "revId": "2902f9464850feff5e161fd6e698579e62744932",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "213d45f7_35a605e7",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000534
+      },
+      "writtenOn": "2021-08-12T10:13:02Z",
+      "side": 1,
+      "message": "Please ignore above comment.\n\nThanks for the review.\n\nThis blank lines are added by mistakenly.\n\nTo solve MISRA Violation R16.3 cause due to SMC_RET1 and SMC_RET2 need changes in macro\u0027s definition at \"include/arch/aarch32/smccc_helpers.h\" and \"include/arch/aarch64/smccc_helpers.h\" which is not possible here as this MACROS are globally used. so need to justify this violation.",
+      "parentUuid": "307cbb4a_8b5b6245",
+      "revId": "2902f9464850feff5e161fd6e698579e62744932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
