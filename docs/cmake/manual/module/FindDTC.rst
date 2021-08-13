@@ -1,4 +1,4 @@
-.. cmake-module:: ../../../../cmake/FindDTC.cmake
+.. cmake-module:: ../../../../cmake/Modules/FindDTC.cmake
 
 --------------
 

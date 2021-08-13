@@ -1,4 +1,4 @@
-.. cmake-module:: ../../../../cmake/ArmPreprocessSource.cmake
+.. cmake-module:: ../../../../cmake/Modules/ArmPreprocessSource.cmake
 
 --------------
 

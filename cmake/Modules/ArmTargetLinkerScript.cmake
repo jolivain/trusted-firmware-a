@@ -21,7 +21,7 @@ which is optionally first preprocessed with the preprocessor for the language
 given by ``<language>``, which creates the target ``<subtarget>``.
 
 When preprocessing, the following properties are automatically inherited from
-the target ``<target>`` and may also be set on the sub-target ``<subtarget>` in
+the target ``<target>`` and may also be set on the sub-target ``<subtarget>`` in
 order to pass additional information to the preprocessor:
 
  - :prop_tgt:`COMPILE_OPTIONS <prop_tgt:COMPILE_OPTIONS>`

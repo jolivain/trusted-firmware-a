@@ -1,4 +1,4 @@
-.. cmake-module:: ../../../../cmake/Modules/ArmTargetLinkerScript.cmake
+.. cmake-module:: ../../../../cmake/Modules/TFAJsonUtilities.cmake
 
 --------------
 
