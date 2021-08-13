@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1faaf2b6_bb519fc8",
+        "filename": "docs/components/ffa-manifest-binding.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-08-13T15:20:58Z",
+      "side": 1,
+      "message": "I think it should explicitly say this concerns direct requests.\npartition info get partition properties in Beta0 spec Table 13.34 says:\nbit0: (\u003d1) Support receipt of direct requests\nbit1: (\u003d1) Can send direct requests.\n\nSee also the definitions were this is made clear: https://git.trustedfirmware.org/hafnium/hafnium.git/tree/inc/vmapi/hf/ffa.h#n370",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 49
+      },
+      "revId": "93dc1f9b9e66a8ef0167b8dc638d65d21c35a29a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
