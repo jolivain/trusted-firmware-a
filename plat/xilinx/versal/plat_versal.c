@@ -17,5 +17,5 @@ int plat_core_pos_by_mpidr(u_register_t mpidr)
 		return -1;
 	}
 
-	return versal_calc_core_pos(mpidr);
+	return (int)versal_calc_core_pos(mpidr);
 }
