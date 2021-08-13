@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5484c06f_9192e00b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-08-13T17:27:53Z",
+      "side": 1,
+      "message": "I\u0027m looking at this change and is seems that all files there (except marvell_plat_config.c) are 1:1 copy+paste from plat/marvell/octeontx/otx2/t91/t9130 directory.\n\nThere are only some changes in marvell_plat_config.c file when comparing it with t9130.\n\nI would suggest to reuse code instead of copying files from directory to another. E.g. by adding compile time ifdefs in plat/marvell/octeontx/otx2/t91/t9130/board/marvell_plat_config.c file for this CEx7 board. Or by creating proper abstraction of t9130 platform, so it can be extended also for other boards.\n\nI guess it is expected to see more cn913x boards in future and having same code and same files N times in TF-A tree is not something nice...",
+      "revId": "4fb900633f3070eff2c426d130f2c58a402821c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "245ebe8b_f442bf7e",
         "filename": "docs/plat/marvell/armada/build.rst",
         "patchSetId": 4
