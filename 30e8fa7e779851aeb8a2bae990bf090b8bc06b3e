@@ -16,6 +16,24 @@
       "message": "And now it failed on error:\nhttps://ci.trustedfirmware.org/job/tf-a-builder/382004/console\n12:50:54  \u003e git fetch --tags --progress --depth\u003d1 -- https://git.gitlab.arm.com/tooling/qa-tools.git +refs/heads/*:refs/remotes/origin/* # timeout\u003d10\n12:54:30 ERROR: Error cloning remote repo \u0027origin\u0027\n12:54:30 hudson.plugins.git.GitException: Command \"git fetch --tags --progress --depth\u003d1 -- https://git.gitlab.arm.com/tooling/qa-tools.git +refs/heads/*:refs/remotes/origin/*\" returned status code 128:\n12:54:30 stdout: \n12:54:30 stderr: fatal: unable to access \u0027https://git.gitlab.arm.com/tooling/qa-tools.git/\u0027: Failed to connect to git.gitlab.arm.com port 443: Connection timed out",
       "revId": "30e8fa7e779851aeb8a2bae990bf090b8bc06b3e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb23372c_d3f40276",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-08-13T15:27:35Z",
+      "side": 1,
+      "message": "This is very unfortunate. We got notified by our Infrastructure support team that the gitlab server is down. They are working on restoring it.",
+      "parentUuid": "aa3c0c64_fed75f3c",
+      "revId": "30e8fa7e779851aeb8a2bae990bf090b8bc06b3e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
