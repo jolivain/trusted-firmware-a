@@ -16,6 +16,23 @@
       "message": "Waitinf for COR+1 vote",
       "revId": "12c75c8886a0ee69d7e279a48cbeb8d1602826b3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26b2763c_8444de7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-08-13T08:12:16Z",
+      "side": 1,
+      "message": "Conversing with the platform owner (Marek) it appears the second platform owner is no longer active so currently there is nobody to provide independent code owner reviews to patches that Marek submits. Requested Marek tries to find a second platform owner to aid in code owner reviews going forward as tis will be more efficient to the platform owners and the project maintainers. However, to temporary fill the gap while this is done otherwise the patches will stall I will step in as a second TF-A maintainer but it would be better in future for a second platform owner to be found as this is more of an administrative review.",
+      "revId": "12c75c8886a0ee69d7e279a48cbeb8d1602826b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
