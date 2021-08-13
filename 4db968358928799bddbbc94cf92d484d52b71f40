@@ -50,6 +50,24 @@
       "message": "Sorry about the delay, Ive been OoO for the past month.\n\nAnyway, I don\u0027t think this has any effect on EFI based systems with linux since it should be deleting this node anyway (AFAIK) and edk2 is building its own memmap without DT. I can\u0027t comment on the *BSD\u0027s or what uboot might be doing with this node.\n\nOTOH, I don\u0027t really understand the size check behavior here (the couple FTD\u0027s I have lying about all have addr\u003d0, size\u003d4k). It brings up the question of what happens if someone has a future/past DT where this isn\u0027t a subset of the shared-dma-pool reservation. It seems to me that this code should really be stricter about removing this node and only remove if its addr\u003d0 size\u003d4k and ignore all other regions.",
       "revId": "4db968358928799bddbbc94cf92d484d52b71f40",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88bd4257_aaf84bfa",
+        "filename": "plat/rpi/rpi4/rpi4_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-08-13T11:43:36Z",
+      "side": 1,
+      "message": "This size\u003d\u003d0 check is here is to check for the sentinel that terminates the /memreserve/ list.\nAs for the addr\u003d\u003d0 check below: I deliberately left the size out, to make it a bit more future proof, in case the RPi foundation decides to increase this region.\nHowever it could be argued that, should this happen, the assumption that deletion is fine requires some review. So I would add an extra check for the size, and output a warning if it\u0027s not 4K, to notify people about the change.",
+      "parentUuid": "b0bad74f_c2947d63",
+      "revId": "4db968358928799bddbbc94cf92d484d52b71f40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
