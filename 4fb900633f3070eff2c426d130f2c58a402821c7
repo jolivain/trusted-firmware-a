@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5a5f8c9a_1abcfb56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000104
+      },
+      "writtenOn": "2021-08-13T17:32:59Z",
+      "side": 1,
+      "message": "Same copy-paste issue is present in armada platforms, however I get your point. marvell_plat_config.c has substancial differences in the windows configuration, so ifdefs here would make it unreadable.\n\nHow about - using the new marvell_plat_config.c + Makefile pointing to t9130 files if unchanged?",
+      "parentUuid": "5484c06f_9192e00b",
+      "revId": "4fb900633f3070eff2c426d130f2c58a402821c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "245ebe8b_f442bf7e",
         "filename": "docs/plat/marvell/armada/build.rst",
         "patchSetId": 4
@@ -31,6 +49,24 @@
       "writtenOn": "2021-08-13T17:12:16Z",
       "side": 1,
       "message": "What about following current naming convention?\nSo platform should be called e.g. \"t9130_cex7\" to match how other platforms are named.",
+      "revId": "4fb900633f3070eff2c426d130f2c58a402821c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "810152bf_87a5b458",
+        "filename": "docs/plat/marvell/armada/build.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000104
+      },
+      "writtenOn": "2021-08-13T17:32:59Z",
+      "side": 1,
+      "message": "I disagree with the original naming, as it exists only in the TF-A (nowhere in documentation, product description and so on). It is a Marvell platform though, so I\u0027m only saying my opinion.\n\nWRT the new platform - t9130 does not match the actual SoC and the SolidRun\u0027s product name. The convention of CN913X CEx7 Eval Board is kept throughtout TF-A, EDK2, U-Boot port, DTS and ACPI naming. Therefore I insist to use it as-is :)",
+      "parentUuid": "245ebe8b_f442bf7e",
       "revId": "4fb900633f3070eff2c426d130f2c58a402821c7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
