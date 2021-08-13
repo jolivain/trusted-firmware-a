@@ -12,6 +12,7 @@ Utility Modules
     ./module/ArmExpand
     ./module/ArmPreprocessSource
     ./module/ArmTargetLinkerScript
+    ./module/TFAJsonUtilities
 
 Find Modules
 ------------

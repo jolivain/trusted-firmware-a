@@ -1,5 +1,5 @@
 TFA_PLATFORM_TOOLCHAINS
-==============
+=======================
 
 .. default-domain:: cmake
 

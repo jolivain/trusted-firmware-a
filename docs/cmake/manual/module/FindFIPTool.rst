@@ -1,4 +1,4 @@
-.. cmake-module:: ../../../../cmake/FindFIPTool.cmake
+.. cmake-module:: ../../../../cmake/Modules/FindFIPTool.cmake
 
 --------------
 
