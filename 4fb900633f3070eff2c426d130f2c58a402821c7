@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6626258_b6b8232e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-08-13T17:43:11Z",
+      "side": 1,
+      "message": "I think that the best way would be to move shared files, which are same for more boards into some \"common\" directory. And then just put board dependent files into their board directories, and in board Makefile just specify that also common directory is included and compiled.",
+      "parentUuid": "5a5f8c9a_1abcfb56",
+      "revId": "4fb900633f3070eff2c426d130f2c58a402821c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "245ebe8b_f442bf7e",
         "filename": "docs/plat/marvell/armada/build.rst",
         "patchSetId": 4
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "I disagree with the original naming, as it exists only in the TF-A (nowhere in documentation, product description and so on). It is a Marvell platform though, so I\u0027m only saying my opinion.\n\nWRT the new platform - t9130 does not match the actual SoC and the SolidRun\u0027s product name. The convention of CN913X CEx7 Eval Board is kept throughtout TF-A, EDK2, U-Boot port, DTS and ACPI naming. Therefore I insist to use it as-is :)",
       "parentUuid": "245ebe8b_f442bf7e",
+      "revId": "4fb900633f3070eff2c426d130f2c58a402821c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40e5faf7_452eb6b0",
+        "filename": "docs/plat/marvell/armada/build.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-08-13T17:43:11Z",
+      "side": 1,
+      "message": "So maybe renaming existing t9130 to some better name? I do not know which specific board (or boards) are supported by this t9130 target.\n\nManish: What do you think that TF-A should do in this case? Following existing TF-A naming (t9130), or rename existing t9130 platform and use a new naming, or something else?",
+      "parentUuid": "810152bf_87a5b458",
       "revId": "4fb900633f3070eff2c426d130f2c58a402821c7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
