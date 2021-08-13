@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53eaa062_0ee86559",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-08-13T10:38:59Z",
+      "side": 1,
+      "message": "This looks interesting to me, the platform is tc0 but the build command is \nPLAT\u003dtc TARGET_PLATFORM\u003d0, it seems that it is being divided in tc and 0, will investigate why its happening.\nSurely not related with your patch and most obvious reason could be rebasing which i have done.",
+      "parentUuid": "7a484792_f7604571",
+      "revId": "7cf32bbbb41c0858d888a16c55828f0d71f81c5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75e99870_3c033589",
         "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
         "patchSetId": 2
