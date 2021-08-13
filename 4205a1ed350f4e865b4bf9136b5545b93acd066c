@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce8b7956_b7ae4b82",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-13T08:38:22Z",
+      "side": 1,
+      "message": "Hi Zelalem, \n\nCPTR_EL2_TTA_BIT (bit 20) macro definition looks correct as it is used in EL2 un-used case i.e.when HCR_EL2.E2H\u003d0. \nI believe CPTR_EL2.TTA (bit 28), CPTR_EL2.FPEN(bit 20) and CPTR_EL2.ZEN(bit 16) handling is not needed from EL3 when Host Operating System at EL2 is enabled i.e. HCR_EL2.E2H\u003d1. Let\u0027s rely on the host operating system to operate these bit.\nFPEN and ZEN bits are reserved in EL2 un-used case (HCR_EL2.E2H\u003d0) in that case, can we remove the below two macros also?\nIMO, we don\u0027t need to handle explicitly the bits corresponding to HCR_EL2.E2H\u003d1 in EL3 apart from EL2 context save and restore.",
+      "range": {
+        "startLine": 554,
+        "startChar": 0,
+        "endLine": 554,
+        "endChar": 37
+      },
+      "revId": "4205a1ed350f4e865b4bf9136b5545b93acd066c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
