@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8ef57e4_50438f4c",
+        "filename": "bl1/bl1_private.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-14T00:25:42Z",
+      "side": 1,
+      "message": "Would be good to put #if ENABLE_RME tags around these prototypes, we\u0027ve done it with other RME-specific prototypes.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 54
+      },
+      "revId": "5b325d38421ff8e31844574f246e7ad693043eac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e7f316a_fad87991",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-14T00:25:42Z",
+      "side": 1,
+      "message": "It might be good to say \"this function is also used when ENABLE_RME\u003d1\" or just say nothing at all about RME here, as is it is a bit unclear whether it is normally used or exclusive to RME.",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 67
+      },
+      "revId": "5b325d38421ff8e31844574f246e7ad693043eac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
