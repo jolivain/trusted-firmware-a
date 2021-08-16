@@ -24,6 +24,8 @@ ifeq (${TRUSTED_BOARD_BOOT}, 1)
 $(error "TRUSTED_BOARD_BOOT must be disabled")
 endif
 
+override ENABLE_AMU := 1
+
 PRELOADED_BL33_BASE := 0x80080000
 
 FPGA_PRELOADED_DTB_BASE := 0x80070000
