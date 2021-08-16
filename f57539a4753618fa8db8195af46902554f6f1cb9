@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "265dbd9f_8e7d6829",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-08-16T23:01:06Z",
+      "side": 1,
+      "message": "Thanks for drilling down on this! Some minor comment inside.",
+      "revId": "f57539a4753618fa8db8195af46902554f6f1cb9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8ccc0ef_e4e4b222",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-08-16T23:01:06Z",
+      "side": 1,
+      "message": "Why does it have override here? IIUC, this is to force it on, but I think it would make sense to allow disabling it explicitly on the command line (which might be useful for debugging). People doing so would certainly know what they are doing, so I\u0027d like to keep the option to turn it off.\nAnd can you move this down to the other feature options, before USE_COHERENT_MEM, for instance? And align the \":\u003d\" while at it?",
+      "revId": "f57539a4753618fa8db8195af46902554f6f1cb9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
