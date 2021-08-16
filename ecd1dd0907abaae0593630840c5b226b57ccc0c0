@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98809bb9_2470d06b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-08-16T20:00:23Z",
+      "side": 1,
+      "message": "Hi Varun, I tend to agree to make this all runtime checks (after all this is    \nhow it\u0027s architected in the GIC spec), but last time I tried something\nsimilar I was told to keep the code minimal, if a platform wishes so.\n\nIf you want to support both v3 and v4 GICs in one build, you can always\nunconditionally define GIC_ENABLE_V4_EXTN in your platform.mk and be\ncovered.\n",
+      "revId": "ecd1dd0907abaae0593630840c5b226b57ccc0c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcb0bb5e_9b9fa640",
@@ -49,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad38c5c1_32622206",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-08-16T20:00:23Z",
+      "side": 1,
+      "message": "Well, this test is somewhat pointless, actually, I just kept it in to maintain the status quo. The idea seems to be to double check those things, and for most targets there is actually only one particular GIC model in use. So if this check fails, something went horribly wrong.\nPersonally I\u0027d prefer more flexible code, but this does not seems to be the idea here.  \nThe other reason I heard is to have minimal code, so by disabling GICv4 support you save some bytes.\nIf you don\u0027t care about this, there is no harm to just always enable GIC_ENABLE_V4_EXTN in your platform.mk, and it can cope with any old GICv3 as well.",
+      "parentUuid": "53429839_50ca15fe",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 23
+      },
+      "revId": "ecd1dd0907abaae0593630840c5b226b57ccc0c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8eb68eb4_156d6f2e",
         "filename": "include/drivers/arm/gicv3.h",
         "patchSetId": 1
@@ -83,6 +124,30 @@
       "writtenOn": "2021-08-16T19:42:28Z",
       "side": 1,
       "message": "Can we change this to a runtime check too?",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 22
+      },
+      "revId": "ecd1dd0907abaae0593630840c5b226b57ccc0c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "246491be_ecb1ecbd",
+        "filename": "include/drivers/arm/gicv3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-08-16T20:00:23Z",
+      "side": 1,
+      "message": "Same thing, we actually *have* a runtime check below, it\u0027s just disabled if you explicitly disable GICv4 support. Again to maintain the current status and to save some bytes (the compiler can optimise better, since this is a constant static inline function), but technically it\u0027s not needed, and it would work with all GICs alike.",
+      "parentUuid": "73ba5374_65e6d5f7",
       "range": {
         "startLine": 316,
         "startChar": 0,
