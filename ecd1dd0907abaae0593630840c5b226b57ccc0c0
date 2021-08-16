@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53429839_50ca15fe",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-16T19:42:28Z",
+      "side": 1,
+      "message": "Can we change this into a runtime check too?",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 23
+      },
+      "revId": "ecd1dd0907abaae0593630840c5b226b57ccc0c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8eb68eb4_156d6f2e",
         "filename": "include/drivers/arm/gicv3.h",
         "patchSetId": 1
@@ -42,6 +65,29 @@
         "startChar": 22,
         "endLine": 2,
         "endChar": 26
+      },
+      "revId": "ecd1dd0907abaae0593630840c5b226b57ccc0c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73ba5374_65e6d5f7",
+        "filename": "include/drivers/arm/gicv3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-16T19:42:28Z",
+      "side": 1,
+      "message": "Can we change this to a runtime check too?",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 22
       },
       "revId": "ecd1dd0907abaae0593630840c5b226b57ccc0c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
