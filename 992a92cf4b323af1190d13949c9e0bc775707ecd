@@ -85,6 +85,29 @@
       },
       "revId": "992a92cf4b323af1190d13949c9e0bc775707ecd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fb16ef3_235e6e73",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-16T19:44:08Z",
+      "side": 1,
+      "message": "I\u0027m a bit puzzled. If we want to change this macro into a runtime check, why not remove this completely?",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 18
+      },
+      "revId": "992a92cf4b323af1190d13949c9e0bc775707ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
