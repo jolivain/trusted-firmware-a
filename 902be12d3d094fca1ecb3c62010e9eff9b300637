@@ -16,6 +16,23 @@
       "message": "Some gitlab repo access (404) failure. Looks ok manually accessing gitlap repo so trying again.",
       "revId": "902be12d3d094fca1ecb3c62010e9eff9b300637",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a89e08f0_b69db18a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-08-16T13:47:36Z",
+      "side": 1,
+      "message": "5 tests that failed in full run passes when run individually. Looks to be a LegacyCI system issue not this patch.\n\nOpenCI tests all failing due to a gitlab infrastructure issue. Unrelated to this patch. Will investigate that separately.\n\nSo manually setting verified+1 as LegacyCI results enough.",
+      "revId": "902be12d3d094fca1ecb3c62010e9eff9b300637",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
