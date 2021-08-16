@@ -65,6 +65,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9879431_09726a80",
+        "filename": "services/std_svc/spm/spm_mm/spm_mm_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-16T19:37:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "40aee236_dca69766",
+      "range": {
+        "startLine": 141,
+        "startChar": 1,
+        "endLine": 145,
+        "endChar": 45
+      },
+      "revId": "6ba6db3fd1b5d26fc24ed82947671aa08e4f55bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db4175fe_a3cd710f",
@@ -112,6 +136,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b55aa807_73b75da0",
+        "filename": "services/std_svc/spm/spm_mm/spm_mm_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-16T19:37:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0c841b15_05c1b4d2",
+      "range": {
+        "startLine": 178,
+        "startChar": 1,
+        "endLine": 178,
+        "endChar": 47
+      },
+      "revId": "6ba6db3fd1b5d26fc24ed82947671aa08e4f55bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc614472_2c32faf2",
@@ -149,6 +197,30 @@
       "side": 1,
       "message": "This should be fine. First, shared_buf_ptr position is updated to the position where MP information will be populated, then the check is performed whether there is enough space in shared_buf to copy sp_mp_info for all CPUs.\n\nAgain there is no addition or change in code, it\u0027s just reorganized.",
       "parentUuid": "cc614472_2c32faf2",
+      "range": {
+        "startLine": 195,
+        "startChar": 12,
+        "endLine": 196,
+        "endChar": 56
+      },
+      "revId": "6ba6db3fd1b5d26fc24ed82947671aa08e4f55bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08d146a2_c7705d24",
+        "filename": "services/std_svc/spm/spm_mm/spm_mm_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-16T19:37:47Z",
+      "side": 1,
+      "message": "I am concerned that this limitation will go unnoticed in the later commits. Do you plan to address this later?",
+      "parentUuid": "d1e4ed18_776d1ad6",
       "range": {
         "startLine": 195,
         "startChar": 12,
