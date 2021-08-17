@@ -161,6 +161,9 @@ You can find additional definitions in the `Arm Glossary`_.
    SIP
       Silicon Provider
 
+   SIMD
+      Single Instruction Multiple Data
+
    SMC
       Secure Monitor Call
 
