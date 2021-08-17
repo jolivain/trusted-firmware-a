@@ -182,6 +182,11 @@
 #define FFA_SECURE_WORLD_ID_MASK		BIT(15)
 
 /*
+ * Check if Partition Count Flag is set in Partition Info Get.
+ */
+#define FFA_PARTITION_INFO_GET_COUNT_FLAG_MASK U(1 << 0)
+
+/*
  * Mask for source and destination endpoint id in
  * a direct message request/response.
  */
