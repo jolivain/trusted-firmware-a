@@ -142,6 +142,9 @@ You can find additional definitions in the `Arm Glossary`_.
    ROT
       Root of Trust
 
+   SBSA
+      Server Base System Architecture
+      
    SCMI
       System Control and Management Interface
 

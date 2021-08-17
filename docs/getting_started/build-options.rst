@@ -804,10 +804,12 @@ makefile:
 -  ``GIC_EXT_INTID``: When set to ``1``, GICv3 driver will support extended
    PPI (1056-1119) and SPI (4096-5119) range. This option defaults to 0.
 
+.. _Debugging options:
+
 Debugging options
 -----------------
 
-To compile a debug version and make the build more verbose use
+   To compile a debug version and make the build more verbose use
 
 .. code:: shell
 
