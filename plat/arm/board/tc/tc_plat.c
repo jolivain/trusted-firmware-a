@@ -63,6 +63,7 @@ const mmap_region_t plat_arm_mmap[] = {
 	ARM_MAP_SHARED_RAM,
 	V2M_MAP_IOFPGA,
 	TC_MAP_DEVICE,
+	TC0_DTB_DRAM_NS,
 #if SPM_MM
 	ARM_SPM_BUF_EL3_MMAP,
 #endif
