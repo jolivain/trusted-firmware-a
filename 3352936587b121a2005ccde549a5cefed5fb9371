@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1481eb83_a5c94fdc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-08-17T10:25:18Z",
+      "side": 1,
+      "message": "The register needs to be saved and restored on a world switch. Enabling it globally will require TF-A to save and restore the register on world switch. ",
+      "revId": "3352936587b121a2005ccde549a5cefed5fb9371",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
