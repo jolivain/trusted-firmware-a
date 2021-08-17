@@ -33,6 +33,24 @@
       "message": "Why does it have override here? IIUC, this is to force it on, but I think it would make sense to allow disabling it explicitly on the command line (which might be useful for debugging). People doing so would certainly know what they are doing, so I\u0027d like to keep the option to turn it off.\nAnd can you move this down to the other feature options, before USE_COHERENT_MEM, for instance? And align the \":\u003d\" while at it?",
       "revId": "f57539a4753618fa8db8195af46902554f6f1cb9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d91ea6c_e71102ea",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2021-08-17T07:51:33Z",
+      "side": 1,
+      "message": "I used override because commit b5863cab9, which does the same thing for plat/tc0, uses override, but happy to remove.\n\nNote that line 29 does not align its \u0027:-\u0027 😊 which is why I didn\u0027t here.",
+      "parentUuid": "d8ccc0ef_e4e4b222",
+      "revId": "f57539a4753618fa8db8195af46902554f6f1cb9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
