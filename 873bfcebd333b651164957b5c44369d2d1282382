@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79b71350_c83c4d51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-08-17T16:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ec92fc8_b891402c",
+      "revId": "873bfcebd333b651164957b5c44369d2d1282382",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ed660cd_56c1005e",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-06-22T21:09:39Z",
       "side": 1,
       "message": "IIUC do you mean counterZ here?",
+      "range": {
+        "startLine": 101,
+        "startChar": 38,
+        "endLine": 101,
+        "endChar": 46
+      },
+      "revId": "873bfcebd333b651164957b5c44369d2d1282382",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a1370da_6ed8f485",
+        "filename": "docs/components/activity-monitors.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-08-17T16:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ed660cd_56c1005e",
       "range": {
         "startLine": 101,
         "startChar": 38,
@@ -81,6 +123,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c60a44b1_4bc74481",
+        "filename": "docs/components/activity-monitors.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-08-17T16:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e645b9c1_38b8a777",
+      "range": {
+        "startLine": 162,
+        "startChar": 21,
+        "endLine": 162,
+        "endChar": 49
+      },
+      "revId": "873bfcebd333b651164957b5c44369d2d1282382",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "929f1645_b17e18d0",
@@ -94,6 +160,30 @@
       "writtenOn": "2021-06-22T21:09:39Z",
       "side": 1,
       "message": "Arm Limited?",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "873bfcebd333b651164957b5c44369d2d1282382",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8ce3bc7_b1a6a4ea",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-08-17T16:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "929f1645_b17e18d0",
       "range": {
         "startLine": 2,
         "startChar": 23,
@@ -129,6 +219,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a914c1bd_58573efc",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-08-17T16:41:08Z",
+      "side": 1,
+      "message": "It\u0027s to indicate that it\u0027s global - I don\u0027t think we have a standard naming scheme for this, to be honest. Happy to use some other marker if there\u0027s an accepted one.",
+      "parentUuid": "57b8caed_e933be98",
+      "range": {
+        "startLine": 20,
+        "startChar": 12,
+        "endLine": 20,
+        "endChar": 35
+      },
+      "revId": "873bfcebd333b651164957b5c44369d2d1282382",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82397e4c_4be9acf6",
         "filename": "lib/extensions/amu/amu_fconf.c",
         "patchSetId": 1
@@ -140,6 +254,30 @@
       "writtenOn": "2021-06-22T21:09:39Z",
       "side": 1,
       "message": "Add braces around \u0027if\u0027, similarly wherever applicable in this file.",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 30
+      },
+      "revId": "873bfcebd333b651164957b5c44369d2d1282382",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17e8ade0_be3eed8c",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-08-17T16:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82397e4c_4be9acf6",
       "range": {
         "startLine": 25,
         "startChar": 1,
@@ -175,6 +313,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b8062e8_81e87b43",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-08-17T16:41:08Z",
+      "side": 1,
+      "message": "They don\u0027t fit within the 80-column boundary, so rather than exceed the boundary I\u0027ve just moved them into a column.",
+      "parentUuid": "d68864f0_69462340",
+      "range": {
+        "startLine": 38,
+        "startChar": 1,
+        "endLine": 38,
+        "endChar": 17
+      },
+      "revId": "873bfcebd333b651164957b5c44369d2d1282382",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "baba37af_ea65894f",
         "filename": "lib/extensions/amu/amu_fconf.c",
         "patchSetId": 1
@@ -186,6 +348,30 @@
       "writtenOn": "2021-06-22T21:09:39Z",
       "side": 1,
       "message": "nit: This variable assignment doesn\u0027t look like part of \u0027for\u0027 statement. Can this be moved in previous line?",
+      "range": {
+        "startLine": 45,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 46
+      },
+      "revId": "873bfcebd333b651164957b5c44369d2d1282382",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dcd0fd8_e9e8ba50",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-08-17T16:41:08Z",
+      "side": 1,
+      "message": "It can be but it throws it out of alignment with line 46 and destabilises the `for()` - it\u0027s a big of an ugly line no matter what you do, and I\u0027m not sure how best to format this.",
+      "parentUuid": "baba37af_ea65894f",
       "range": {
         "startLine": 45,
         "startChar": 1,
@@ -213,6 +399,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55c843a9_11a822c4",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-08-17T16:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac75af7f_98179e7d",
+      "revId": "873bfcebd333b651164957b5c44369d2d1282382",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82b27c94_557405e5",
@@ -226,6 +430,24 @@
       "writtenOn": "2021-08-05T10:41:20Z",
       "side": 1,
       "message": "AFAIK strcmp requires an exact match, while our strings will be cpu@n. strncmp(name, \"cpu@\", 4) worked for me here.",
+      "revId": "873bfcebd333b651164957b5c44369d2d1282382",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d806789a_e2dcbf13",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-08-17T16:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82b27c94_557405e5",
       "revId": "873bfcebd333b651164957b5c44369d2d1282382",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
