@@ -185,6 +185,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c76e985_f5dd696f",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-08-17T13:58:22Z",
+      "side": 1,
+      "message": "perhaps this should be a separate doc that augments the threat model that says what mitigations are available/applied etc?",
+      "parentUuid": "ce34b11f_f418526b",
+      "range": {
+        "startLine": 186,
+        "startChar": 31,
+        "endLine": 186,
+        "endChar": 40
+      },
+      "revId": "511a6e13c4572418a711b3b2c99c9644496cf17f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "18cd2fff_b2640e6f",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 3
@@ -314,6 +338,30 @@
       "side": 1,
       "message": "IIUC -fstack-protector is used for building the SPMC so stack canaries are already used, right?",
       "parentUuid": "08df17f3_138181d1",
+      "range": {
+        "startLine": 445,
+        "startChar": 27,
+        "endLine": 446,
+        "endChar": 62
+      },
+      "revId": "511a6e13c4572418a711b3b2c99c9644496cf17f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40cca091_c77e8f2e",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-08-17T13:58:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aaf8323c_a59baf6c",
       "range": {
         "startLine": 445,
         "startChar": 27,
