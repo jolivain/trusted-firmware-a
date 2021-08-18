@@ -5,10 +5,9 @@ TFA_BL2_IN_XIP_MEM
 
 .. variable:: TFA_BL2_IN_XIP_MEM
 
-In some situations BL2 will be stored in eXecute In Place (XIP) memory, as BL1
-is. In these situations, it is necessary to initialize the read-write sections
-in RAM while leaving the read-only sections in place, which this option
-facilitates.
+Initializes the read-write sections in RAM while leaving the read-only sections
+in place, which is necessary when BL2 is stored in eXecute In Place (XIP)
+memory.
 
 This option is only supported in combination with :variable:`TFA_BL2_AT_EL3`,
 and is disabled by default.

@@ -27,6 +27,9 @@ You can find additional definitions in the `Arm Glossary`_.
    ACLE
       Arm C Language Extensions
 
+   AMU
+      Activity Monitors Unit
+
    API
       Application Programming Interface
 
@@ -142,6 +145,9 @@ You can find additional definitions in the `Arm Glossary`_.
    ROT
       Root of Trust
 
+   ROTPK
+      Root of Trust Private Key
+
    SCMI
       System Control and Management Interface
 
@@ -181,6 +187,12 @@ You can find additional definitions in the `Arm Glossary`_.
 
    SPM
       Secure Partition Manager
+
+   SPMC
+      Secure Partition Manager Core
+
+   SPMD
+      Secure Partition Manager Dispatcher
 
    SSBS
       Speculative Store Bypass Safe. Introduced in Armv8.5, this configuration

@@ -10,7 +10,8 @@ on the Cortex-A53 do not behave in a way most programmers
 expect, and will most probably result in a significant speed degradation to
 any code that employs them. The Armv8-A architecture (see `Arm DDI`_ 0487A.h,
 section D3.4.3) allows cores to ignore the non-temporal hint and treat
-LDNP/STNP as LDP/STP instead. Enabling this option enforces this behaviour.
+LDNP/STNP instructions as LDP/STP instead. Enabling this option enforces this
+behaviour.
 
 This needs to be enabled only for revisions <= r0p3 of the CPU and is enabled
 by default.
