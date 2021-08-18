@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0977d993_3b613b14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-18T16:25:35Z",
+      "side": 1,
+      "message": "(Sorry for not responding sooner;  I was on vacation.)\n\nA few follow-up questions...",
+      "revId": "94dcb254d0b809a6cd89309e7e524b57e2456dce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f87313ac_1bb2f0fa",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-07-12T13:11:33Z",
       "side": 1,
       "message": "Using the same macros to initialize EL3 and EL2 sysrgisters are a recipe for disaster as there is not architectural guarantee that the bit fields are the same across ELs. Also as seen in the patch , some of the registers are only relevant for EL3 (like SCR_EL3 ) and the patch needs to do the equivalent to hcr_el2. \n\nMy view is this EL2 reg init is better to be done separately from EL3. There are aspects of C runtime that be made common for initialization between EL3 and EL2 but not the register initialization.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 22
+      },
+      "revId": "94dcb254d0b809a6cd89309e7e524b57e2456dce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f6e4ab1_d1668475",
+        "filename": "include/arch/aarch64/el_max_common_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-18T16:25:35Z",
+      "side": 1,
+      "message": "First, thanks for pointing out SCR_EL3 vs. HCR_EL2;  that I\u0027ll check into that. \n\nI\u0027m OK to make this change -- or to undo it, in a sense -- creating mostly-separate EL2-equivalent code, rather than parameterizing this code as I did here.  I did it this way, after discussing it with colleagues, because I was concerned about creating too much near-duplicate code.\n\nBut OK;  can do!",
+      "parentUuid": "f87313ac_1bb2f0fa",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -66,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8aeb3214_1f1cce14",
+        "filename": "lib/xlat_mpu/xlat_mpu.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-18T16:25:35Z",
+      "side": 1,
+      "message": "Hmmm, I can\u0027t immediately recall how this came about, but I\u0027ll investigate.",
+      "parentUuid": "3b829691_b94cb646",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 16
+      },
+      "revId": "94dcb254d0b809a6cd89309e7e524b57e2456dce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e90ae530_9b2f857a",
         "filename": "lib/xlat_mpu/xlat_mpu_context.c",
         "patchSetId": 2
@@ -77,6 +142,30 @@
       "writtenOn": "2021-07-12T13:22:06Z",
       "side": 1,
       "message": "can rename to MPU.",
+      "range": {
+        "startLine": 23,
+        "startChar": 9,
+        "endLine": 23,
+        "endChar": 23
+      },
+      "revId": "94dcb254d0b809a6cd89309e7e524b57e2456dce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8e8c48d_2fec1c38",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-18T16:25:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e90ae530_9b2f857a",
       "range": {
         "startLine": 23,
         "startChar": 9,
@@ -112,6 +201,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "713f069a_e4ea0927",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-18T16:25:35Z",
+      "side": 1,
+      "message": "OK, we can do that.  The downside, however, is that every call to mmap_add_region() that needs to work for both MMU and MPU will need a little extra clutter:\n \n#ifdef USE_MPU\n       mmap_add_region(pa, size);\n#else\n       mmap_add_region(pa, va, size);\n#endif\n \nPersonally, I\u0027d prefer not have the callee, rather than each of the calls, reconcile this, but if you\u0027re fine with that, then OK, I can change that.  (BTW, mmap_add_region_check() is set to fail if they ask for VA !\u003d PA.)",
+      "parentUuid": "64d8a793_9e81008f",
+      "range": {
+        "startLine": 32,
+        "startChar": 59,
+        "endLine": 32,
+        "endChar": 66
+      },
+      "revId": "94dcb254d0b809a6cd89309e7e524b57e2456dce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da5cc5be_f27a9dfe",
         "filename": "lib/xlat_mpu/xlat_mpu_context.c",
         "patchSetId": 2
@@ -123,6 +236,30 @@
       "writtenOn": "2021-07-12T13:22:06Z",
       "side": 1,
       "message": "va is not relevant.",
+      "range": {
+        "startLine": 82,
+        "startChar": 15,
+        "endLine": 82,
+        "endChar": 22
+      },
+      "revId": "94dcb254d0b809a6cd89309e7e524b57e2456dce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5f74d21_e6a156b5",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-18T16:25:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "da5cc5be_f27a9dfe",
       "range": {
         "startLine": 82,
         "startChar": 15,
@@ -158,6 +295,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8dc4ea52_37160bc9",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-18T16:25:35Z",
+      "side": 1,
+      "message": "Ah, good catch.  Probably can be removed.",
+      "parentUuid": "6e3c3099_2fa3a697",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 30
+      },
+      "revId": "94dcb254d0b809a6cd89309e7e524b57e2456dce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc359113_1edf93d6",
         "filename": "lib/xlat_mpu/xlat_mpu_context.c",
         "patchSetId": 2
@@ -181,6 +342,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f1189c45_75b5eda6",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-18T16:25:35Z",
+      "side": 1,
+      "message": "OK, what would you recommend instead of \"NO_EL3\" to indicate that EL3 actions should be performed at EL2?\n\nv8-R64 also has an MPU for EL1\u00260.  We won\u0027t be able to address it immediately, but the eventual goal is for this library to manage that MPU as well.",
+      "parentUuid": "dc359113_1edf93d6",
+      "range": {
+        "startLine": 151,
+        "startChar": 7,
+        "endLine": 151,
+        "endChar": 13
+      },
+      "revId": "94dcb254d0b809a6cd89309e7e524b57e2456dce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "93ac8382_093beac5",
         "filename": "lib/xlat_mpu/xlat_mpu_core.c",
         "patchSetId": 2
@@ -192,6 +377,30 @@
       "writtenOn": "2021-07-12T13:22:06Z",
       "side": 1,
       "message": "Requirement for dynamic mapping of MPU regions needs to be defined. Given that the hardware slots for mapping a a MPU region is fixed for a given platform, need to understand how this will be catered for within the dynamic mapping usecase.",
+      "range": {
+        "startLine": 214,
+        "startChar": 4,
+        "endLine": 214,
+        "endChar": 28
+      },
+      "revId": "94dcb254d0b809a6cd89309e7e524b57e2456dce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e0f94c6_62a2808a",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-18T16:25:35Z",
+      "side": 1,
+      "message": "Ah, good catch.  This code block is probably not needed.",
+      "parentUuid": "93ac8382_093beac5",
       "range": {
         "startLine": 214,
         "startChar": 4,
