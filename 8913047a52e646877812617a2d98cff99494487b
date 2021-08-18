@@ -156,6 +156,24 @@
       "message": "\u003e Patch Set 4: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 1037 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/1037/)\n\u003e Some tests failed (3)\n\nI dont see any failures in the logs",
       "revId": "8913047a52e646877812617a2d98cff99494487b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb3e65ba_0fc3b6e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-08-18T18:07:37Z",
+      "side": 1,
+      "message": "Right, the https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/1037/ site. I should have mentioned this in the Tutorial :-) \n\nSo remember the pipeline https://tf-ci-users-guide.readthedocs.io/en/latest/#tf-a-ci-pipeline-description well qa-reports (aka Squad) is a UI system onto the LAVA farm where docker images (containing FVP\u0027s etc) and physical boards reside that the scheduling Jenkins system (https://ci.trustedfirmware.org) request time on to run the tests. \n\nIts best to ignore the qa-reports site as it can confuse matters and just stick with the Jenkins reports. I\u0027ve asked it to be removed from the gerrit reporting system. It can still be accessed via the https://ci.trustedfirmware.org Jenkins site and test artefacts (eg test reports, UART logs, binaries generated etc) are copied into the appropriate Jenkins pages so these can be viewed in the context of the CI results pages but where you see a URL to a \"Test Job Id:xxxxxxx\" referenced it will take you to the LAVA UI.\n\nThe reason it said 3 failures may be because it has a retry system not visible to the Jenkins reporting. That is where for some reason something failed in the infrastructure it re-tries and if it works Jenkins never knows but in the qa-reports site its logged as a failure possibly along side real failures that will be propagated up to Jenkins.\n\nIt can be an alternative view and useful if some test artefact is missing but its easy to get lost in and I\u0027m not sure I fully understand  how it all hangs together sometimes!\n\nHence the request to remove it and if you really need it and are a CI \"Expert\" it  may be useful to you.",
+      "parentUuid": "d2725da9_443bb8f3",
+      "revId": "8913047a52e646877812617a2d98cff99494487b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
