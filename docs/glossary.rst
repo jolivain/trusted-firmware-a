@@ -182,6 +182,12 @@ You can find additional definitions in the `Arm Glossary`_.
    SPM
       Secure Partition Manager
 
+   SPMC
+      Secure Partition Manager Core
+
+   SPMD
+      Secure Partition Manager Dispatcher
+
    SSBS
       Speculative Store Bypass Safe. Introduced in Armv8.5, this configuration
       bit can be set by software to allow or prevent the hardware from

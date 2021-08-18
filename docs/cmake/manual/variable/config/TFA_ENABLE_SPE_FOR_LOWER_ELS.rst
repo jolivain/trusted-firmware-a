@@ -5,7 +5,7 @@ TFA_ENABLE_SPE_FOR_LOWER_ELS
 
 .. variable:: TFA_ENABLE_SPE_FOR_LOWER_ELS
 
-Enable the Armv8.2-A Statistical Profiling Extension.
+Enables the Armv8.2-A Statistical Profiling Extension.
 
 Enabled by default. Forcibly disabled if not building for |AArch64|.
 
