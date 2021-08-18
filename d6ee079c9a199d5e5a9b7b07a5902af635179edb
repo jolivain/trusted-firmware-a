@@ -46,6 +46,30 @@
       },
       "revId": "d6ee079c9a199d5e5a9b7b07a5902af635179edb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "449db3e4_ab8f3f5d",
+        "filename": "lib/optee/optee_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-18T07:37:43Z",
+      "side": 1,
+      "message": "Or we could just move the warning message at line 180, as it is used only there.",
+      "parentUuid": "bd174f7a_76ad633d",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 1
+      },
+      "revId": "d6ee079c9a199d5e5a9b7b07a5902af635179edb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
