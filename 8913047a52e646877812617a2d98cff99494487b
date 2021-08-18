@@ -33,6 +33,24 @@
       "message": "@Joanna CI is failing due to the following error. Is this a known issue? Anyone working on the fix?\n\n21:11:31 ERROR: Error cloning remote repo \u0027origin\u0027\n21:11:31 hudson.plugins.git.GitException: Command \"git fetch --tags --progress --depth\u003d1 -- https://git.gitlab.arm.com/tooling/qa-tools.git +refs/heads/*:refs/remotes/origin/*\" returned status code 128:\n21:11:31 stdout: \n21:11:31 stderr: fatal: unable to access \u0027https://git.gitlab.arm.com/tooling/qa-tools.git/\u0027: Failed to connect to git.gitlab.arm.com port 443: Connection timed out",
       "revId": "8913047a52e646877812617a2d98cff99494487b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4351330_a61bca31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-08-18T12:13:36Z",
+      "side": 1,
+      "message": "I’m hoping this has been fixed with a change from Leonardo overnight.  Long story but as part of starting to build code coverage into the CI we are relying on tooling hosted on a site that is temporary unavailable. The change Leonardo has done has removed that dependency from the production VI so we should not be getting that now I hope.",
+      "parentUuid": "c4cb3721_d5ac5715",
+      "revId": "8913047a52e646877812617a2d98cff99494487b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
