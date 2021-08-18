@@ -121,6 +121,41 @@
       "message": "One other tip. If you do rerun tests you may then ask yourself, hang on where do I go for the results of the tests I kicked off as the CI UI does not tell me!!\n\nThe best approach is to visualise the CI pipeline to help you navigate to find them https://tf-ci-users-guide.readthedocs.io/en/latest/#tf-a-ci-pipeline-description\n\nWhen you trigger a job it starts a tf-ci-gateway job so navigate to that page. https://ci.trustedfirmware.org/job/tf-ci-gateway/ Down the left hand side you will see the various gateway jobs.You have to click on them until you find your job. Mine as I said was https://ci.trustedfirmware.org/job/tf-ci-gateway/12066/ and if you look at it it says it was started my me so thats normally a clue!\n\nIf you forget all these URL\u0027s remember https://ci.trustedfirmware.org as from that page you can find them all.\n\nOne last thing, make sure you are logged in to the CI site as you can look at results not logged in but to kick jobs off etc you need to be logged in. You should I hope be fully authorised but if not let me know.",
       "revId": "8913047a52e646877812617a2d98cff99494487b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a1aef42_e9871ae7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-18T16:14:08Z",
+      "side": 1,
+      "message": "Excellent tutorial. Thanks a lot. I am going to save this valuable information for the future.",
+      "parentUuid": "3c4b954b_51f05e76",
+      "revId": "8913047a52e646877812617a2d98cff99494487b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2725da9_443bb8f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-18T16:14:08Z",
+      "side": 1,
+      "message": "\u003e Patch Set 4: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 1037 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/1037/)\n\u003e Some tests failed (3)\n\nI dont see any failures in the logs",
+      "revId": "8913047a52e646877812617a2d98cff99494487b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
