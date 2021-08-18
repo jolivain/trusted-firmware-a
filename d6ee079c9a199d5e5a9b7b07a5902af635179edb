@@ -22,6 +22,30 @@
       },
       "revId": "d6ee079c9a199d5e5a9b7b07a5902af635179edb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd174f7a_76ad633d",
+        "filename": "lib/optee/optee_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-18T07:31:53Z",
+      "side": 1,
+      "message": "You\u0027re right, I\u0027ll modify that. Maybe add a new parameter to validate_header(): bool log. And modify the \u0027else\u0027 there with an \u0027else if (log)\u0027",
+      "parentUuid": "1dbe3c5e_8571ee04",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 1
+      },
+      "revId": "d6ee079c9a199d5e5a9b7b07a5902af635179edb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
