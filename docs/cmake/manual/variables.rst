@@ -66,6 +66,33 @@ BL2
 
     variable/image/bl2/*
 
+BL31
+^^^^
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    variable/image/bl31/*
+
+BL32
+^^^^
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    variable/image/bl32/*
+
+BL33
+^^^^
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    variable/image/bl33/*
+
 Library Variables
 -----------------
 
@@ -73,6 +100,18 @@ Variables defined by individual libraries and other non-core components. These
 variables may not be defined if the library or component is not being included
 in the build.
 
+<<<<<<< HEAD
+=======
+EL3 Runtime
+^^^^^^^^^^^
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    variable/library/el3-runtime/*
+
+>>>>>>> 1f48c50df... build(cmake): document missing cmake config vars
 Translation Tables
 ^^^^^^^^^^^^^^^^^^
 
