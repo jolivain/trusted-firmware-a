@@ -842,7 +842,7 @@ target_compile_definitions(tfa-lib-cpu-common
     INTERFACE "ERRATA_A76_1275112=$<BOOL:${TFA_ERRATA_A76_1275112}>")
 
 #[=======================================================================[.rst:
-.. cmake:variable:: ERRATA_A76_1286807
+.. cmake:variable:: TFA_ERRATA_A76_1286807
 
    This applies errata 1286807 workaround to the Cortex-A76 CPU. This needs to
    be enabled only for revision <= r3p0 of the CPU.
