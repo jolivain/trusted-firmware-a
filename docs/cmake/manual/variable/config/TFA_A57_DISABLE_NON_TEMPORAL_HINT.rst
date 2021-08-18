@@ -5,7 +5,7 @@ TFA_A57_DISABLE_NON_TEMPORAL_HINT
 
 .. variable:: TFA_A57_DISABLE_NON_TEMPORAL_HINT
 
-This option has the same behaviour as :variable:`A53_DISABLE_NON_TEMPORAL_HINT`
+Enables the same behaviour as :variable:`A53_DISABLE_NON_TEMPORAL_HINT`
 but for the Cortex-A57. This needs to be enabled only for revisions <= r1p2 of
 the CPU and is enabled by default, as recommended in section "4.7
 Non-Temporal Loads/Stores" of the `Cortex-A57 Software Optimization Guide`_.

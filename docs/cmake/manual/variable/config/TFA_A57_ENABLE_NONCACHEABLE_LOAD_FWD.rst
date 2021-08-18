@@ -5,7 +5,7 @@ TFA_A57_ENABLE_NONCACHEABLE_LOAD_FWD
 
 .. variable:: TFA_A57_ENABLE_NONCACHEABLE_LOAD_FWD
 
-This option enables higher-performance non-cacheable load forwarding for the
+Enables higher-performance non-cacheable load forwarding for the
 Cortex-A57.
 
 --------------
