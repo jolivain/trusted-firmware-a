@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dbe3c5e_8571ee04",
+        "filename": "lib/optee/optee_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2021-08-18T06:23:06Z",
+      "side": 1,
+      "message": "I\u0027d expect optee_header_is_valid() to only return the status without any logging, but if the header isn\u0027t valid we\u0027ll get an entry in the log that in this context seems a bit confusing.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 1
+      },
+      "revId": "d6ee079c9a199d5e5a9b7b07a5902af635179edb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
