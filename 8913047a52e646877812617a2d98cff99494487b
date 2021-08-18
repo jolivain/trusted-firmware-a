@@ -69,6 +69,24 @@
       "parentUuid": "b4351330_a61bca31",
       "revId": "8913047a52e646877812617a2d98cff99494487b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d637d84_28ddbf93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-08-18T14:03:26Z",
+      "side": 1,
+      "message": "Clear the AllowCI label (I don\u0027t thing to really have to do that but I tend to do so) and then set it to +1 or +2 depending on the level of testing you want. L2 includes all of L1 plus additional tests. that will start the OpenCI testing that should be reported back as comments. If you are just wanted to verify the commitment test L1 does that along with other tests like platform builds.",
+      "parentUuid": "17735074_77b027d1",
+      "revId": "8913047a52e646877812617a2d98cff99494487b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
