@@ -192,6 +192,24 @@
       "parentUuid": "eb3e65ba_0fc3b6e0",
       "revId": "8913047a52e646877812617a2d98cff99494487b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "993503ea_c1b0822e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-08-19T07:51:44Z",
+      "side": 1,
+      "message": "Hi Varun, yes, I think I mentioned that in one of the comments above but maybe it was a little cryptic.\n\n\u003e I\u0027ll let you do the honours and manually set verified if you are satisfied :-)\n\nBy which I mean that I don\u0027t see any CI related blockers and we can set Verified+1 but I will let you do it. We would like submitters where possible to run the CI on their own patches and fix any issues they see. Maintainers can then just review all looks good as part of their review.",
+      "parentUuid": "cbac614c_1ac54585",
+      "revId": "8913047a52e646877812617a2d98cff99494487b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
