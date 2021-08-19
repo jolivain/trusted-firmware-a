@@ -1006,6 +1006,7 @@ $(eval $(call add_defines,\
         DECRYPTION_SUPPORT_${DECRYPTION_SUPPORT} \
         DISABLE_MTPMU \
         ENABLE_AMU \
+        ENABLE_AMU_FCONF \
         AMU_RESTRICT_COUNTERS \
         ENABLE_ASSERTIONS \
         ENABLE_BTI \
