@@ -24,6 +24,7 @@
 #include <services/spmd_svc.h>
 #include <platform_def.h>
 
+#include "logical_sp.h"
 #include "spmc.h"
 
 /*
@@ -39,6 +40,20 @@ static sp_desc_t sp_desc[SECURE_PARTITION_COUNT];
  * properties when the SPMC supports indirect messaging.
  */
 static ns_ep_desc_t ns_ep_desc[NS_PARTITION_COUNT];
+
+/*
+ * Helper function to obtain the array storing the EL3
+ * Logical Partition descriptors.
+ */
+
+el3_lp_desc_t *get_el3_lp_array(void)
+{
+	el3_lp_desc_t *el3_lp_descs;
+
+	el3_lp_descs = (el3_lp_desc_t *) EL3_LP_DESCS_START;
+
+	return el3_lp_descs;
+}
 
 /*
  * Helper function to obtain the descriptor of the last SP to whom control was
@@ -97,6 +112,7 @@ uint64_t spmc_ffa_error_return(void *handle, int error_code)
  */
 bool validate_partition_id(uint16_t partition_id)
 {
+	el3_lp_desc_t *el3_lp_descs = get_el3_lp_array();
 
 	/*
 	 * Ensure the ID follows the convention to indidate it resides
@@ -116,12 +132,20 @@ bool validate_partition_id(uint16_t partition_id)
 		return false;
 	}
 
+	/* Ensure we don't clash with any Logical SP's. */
+	for (int i = 0; i < EL3_LP_DESCS_COUNT; i++) {
+		if (el3_lp_descs[i].sp_id == partition_id) {
+			return false;
+		}
+	}
+
 	return true;
 }
 
 /*******************************************************************************
  * This function either forwards the request to the other world or returns
  * with an ERET depending on the source of the call.
+ * We can assume if call is for a logical SP it has already been taken care of.
  ******************************************************************************/
 static uint64_t spmc_smc_return(uint32_t smc_fid,
 				bool secure_origin,
@@ -168,14 +192,26 @@ static uint64_t direct_req_smc_handler(uint32_t smc_fid,
 				       uint64_t flags)
 {
 	uint16_t dst_id = ffa_endpoint_destination(x1);
+	el3_lp_desc_t *el3_lp_descs;
 	sp_desc_t *sp;
 	unsigned int idx;
 
+	el3_lp_descs = get_el3_lp_array();
+
+	/* Check if the request is destined for a Logical Partition. */
+	for (int i = 0; i < MAX_EL3_LP_DESCS_COUNT; i++) {
+		if (el3_lp_descs[i].sp_id == dst_id) {
+			return el3_lp_descs[i].direct_req(smc_fid, secure_origin,
+							  x1, x2, x3, x4,
+							  cookie, handle, flags);
+		}
+	}
+
 	/*
-	 * If called by the secure world it is an invalid call since a
-	 * SP cannot call into the Normal world and there is no other SP to call
-	 * into. If there are other SPs in future then the partition runtime
-	 * model would need to be validated as well.
+	 * If the request was not targeted to a LSP and from the secure world then
+	 * it is invalid since a SP cannot call into the Normal world and there is
+	 * no other SP to call into. If there are other SPs in future then the
+	 * partition runtime model would need to be validated as well.
 	 */
 	if (secure_origin) {
 		return spmc_ffa_error_return(handle, FFA_ERROR_INVALID_PARAMETER);
@@ -542,6 +578,38 @@ static int find_and_prepare_sp_context(void)
  * This function takes an SP context pointer and performs a synchronous entry
  * into it.
  ******************************************************************************/
+
+static int32_t logical_sp_init(void)
+{
+	uint64_t rc = 0;
+	el3_lp_desc_t *el3_lp_descs;
+
+	/* Perform initial validation of the Logical Partitions. */
+	rc = el3_sp_desc_validate();
+	if (rc) {
+		ERROR("Logical Partition validation failed!\n");
+		return rc;
+	}
+
+	el3_lp_descs = get_el3_lp_array();
+
+	INFO("Logical Secure Partition init start.\n");
+	for (int i = 0; i < EL3_LP_DESCS_COUNT; i++) {
+		rc = el3_lp_descs[i].init();
+		if (rc) {
+			ERROR("Logical SP (0x%x) Failed to Initialize\n",
+			      el3_lp_descs[i].sp_id);
+			return rc;
+		}
+		VERBOSE("Logical SP (0x%x) Initialized\n",
+			      el3_lp_descs[i].sp_id);
+	}
+
+	INFO("Logical Secure Partition init completed.\n");
+
+	return rc;
+}
+
 uint64_t spmc_sp_synchronous_entry(sp_exec_ctx_t *ec)
 {
 	uint64_t rc;
@@ -648,6 +716,12 @@ int32_t spmc_setup(void)
 	initalize_sp_descs();
 	initalize_ns_ep_descs();
 
+	/* Setup logical SPs. */
+	ret = logical_sp_init();
+	if (ret) {
+		ERROR("Failed to initialize Logical Partitions.\n");
+		return ret;
+	}
 
 	/* Perform physical SP setup. */
 
