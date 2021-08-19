@@ -68,6 +68,23 @@
       "parentUuid": "938d7f4c_f6863ce5",
       "revId": "d810e30dd6b47e0725dccbcb42ca0a0c5215ee34",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d72e180e_73252786",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-08-19T10:04:27Z",
+      "side": 1,
+      "message": "Looks good now, thanks. I can also now reproduce the problem (after solving the problems with my new FPGA board), and can confirm that this fixes Linux booting.",
+      "revId": "d810e30dd6b47e0725dccbcb42ca0a0c5215ee34",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
