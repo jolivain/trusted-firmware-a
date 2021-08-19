@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93bd5c89_8418781d",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-19T07:17:40Z",
+      "side": 1,
+      "message": "gpt_init_done is already a boolean, so no need to check it against 0.",
+      "parentUuid": "a0dab666_cef3f93a",
+      "range": {
+        "startLine": 411,
+        "startChar": 7,
+        "endLine": 411,
+        "endChar": 20
+      },
+      "revId": "266fc2545d764ca4af6116434424cf33e9fe24b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a67a419_e6c76190",
         "filename": "plat/st/common/bl2_stm32_io_storage.c",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-18T20:29:20Z",
       "side": 1,
       "message": "U",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "266fc2545d764ca4af6116434424cf33e9fe24b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a07ad489_72d6b375",
+        "filename": "plat/st/common/bl2_stm32_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-19T07:17:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2a67a419_e6c76190",
       "range": {
         "startLine": 46,
         "startChar": 11,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62339155_5552b988",
+        "filename": "plat/st/common/bl2_stm32_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-19T07:17:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "303a8adf_225a9ef9",
+      "range": {
+        "startLine": 185,
+        "startChar": 11,
+        "endLine": 185,
+        "endChar": 12
+      },
+      "revId": "266fc2545d764ca4af6116434424cf33e9fe24b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6c475d5_9d4dc1ff",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22b5e938_67adbbf6",
+        "filename": "plat/st/common/bl2_stm32_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-19T07:17:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b6c475d5_9d4dc1ff",
+      "range": {
+        "startLine": 186,
+        "startChar": 11,
+        "endLine": 186,
+        "endChar": 12
+      },
+      "revId": "266fc2545d764ca4af6116434424cf33e9fe24b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25654548_f2aae1f2",
@@ -106,6 +202,30 @@
       "writtenOn": "2021-08-18T20:29:20Z",
       "side": 1,
       "message": "U",
+      "range": {
+        "startLine": 266,
+        "startChar": 18,
+        "endLine": 266,
+        "endChar": 19
+      },
+      "revId": "266fc2545d764ca4af6116434424cf33e9fe24b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12137bc6_4c7b6828",
+        "filename": "plat/st/common/bl2_stm32_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-19T07:17:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "25654548_f2aae1f2",
       "range": {
         "startLine": 266,
         "startChar": 18,
