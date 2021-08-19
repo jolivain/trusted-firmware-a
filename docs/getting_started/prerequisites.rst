@@ -81,6 +81,13 @@ These tools are optional:
    Git hooks and helper tools. Without these tools you will need to rely on the
    CI for feedback on commit message conformance.
 
+.. _CMake Prerequisites:
+
+CMake
+^^^^^
+
+TODO.
+
 Package Installation (Linux)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
