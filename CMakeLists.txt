@@ -174,6 +174,24 @@ foreach(architecture IN LISTS architectures)
 endforeach()
 
 #
+# Enable Thumb code generation on AArch32. This was previously done by giving
+# either `A32` or `T32` to `AARCH32_INSTRUCTION_SET`. This is now a boolean on
+# whether or not we build with Thumb code generation, visible only if we're
+# building for AArch32.
+#
+
+tfa_legacy_option(
+    OLD AARCH32_INSTRUCTION_SET
+    NEW TFA_ARCH_STATE_AARCH32_THUMB)
+
+arm_config_option(
+    NAME TFA_ARCH_STATE_AARCH32_THUMB
+    HELP "Generate code for the Thumb instruction set."
+    DEFAULT TRUE
+    DEPENDS TFA_ARCH_STATE_AARCH32
+    ELSE FALSE)
+
+#
 # If no toolchain file has been provided through the default CMake mechanism, we
 # use our own mechanism for toolchain selection, with the intention of making it
 # easier for users to specify a valid toolchain file.
