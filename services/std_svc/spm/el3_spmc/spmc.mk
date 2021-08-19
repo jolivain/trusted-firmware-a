@@ -13,6 +13,11 @@ SPMC_SOURCES	:=	$(addprefix services/std_svc/spm/el3_spmc/,	\
 			spmc_setup.c				\
 			logical_sp.c)
 
+# Specify LP implementations separately for clarity.
+SPMC_LP_SOURCES  := $(addprefix services/std_svc/spm/el3_spmc/,	\
+		    logical_sp_test.c)
+
+SPMC_SOURCES += $(SPMC_LP_SOURCES)
 
 # Let the top-level Makefile know that we intend to include a BL32 image
 NEED_BL32		:=	yes
