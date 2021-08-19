@@ -157,6 +157,22 @@ void amu_enable(bool el2_unused)
 	assert(amcgcr_cg0nc <= AMU_AMCGCR_CG0NC_MAX);
 
 	/*
+	 * The platform may opt to enable specific auxiliary counters at boot
+	 * through the hardware configuration device tree. These are enabled
+	 * here.
+	 */
+
+#if ENABLE_AMU_FCONF
+	const struct amu_fconf_topology *topology = NULL;
+	unsigned int core_pos = plat_my_core_pos();
+
+	topology = amu_topology();
+	if (topology != NULL) {
+		amcntenset1_px = topology->cores[core_pos].enable;
+	}
+#endif /* ENABLE_AMU_FCONF */
+
+	/*
 	 * Enable the requested counters.
 	 */
 
