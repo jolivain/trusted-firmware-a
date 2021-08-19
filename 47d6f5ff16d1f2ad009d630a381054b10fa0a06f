@@ -33,6 +33,24 @@
       "message": "\u003e Patch Set 6: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 1045 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/1045/)\n\u003e Some tests failed (4)\n\nChecked all the logs. Didnt find any failures. @Joanna do you agree?",
       "revId": "47d6f5ff16d1f2ad009d630a381054b10fa0a06f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bed6bd6b_81239c97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-08-19T13:56:38Z",
+      "side": 1,
+      "message": "Yes. Trust the Jenkins report. As I mentioned my plan is to get this report removed. Its on the OpenCI maintainers backlog along with some other improvements https://linaro.atlassian.net/browse/TFC-87 but sadly deemed lower priority. I\u0027m working on getting access and understanding to change this ourselves but been busy with my own higher priority work :-(",
+      "parentUuid": "31ab8edb_10549a6b",
+      "revId": "47d6f5ff16d1f2ad009d630a381054b10fa0a06f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
