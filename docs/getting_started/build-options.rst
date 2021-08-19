@@ -217,6 +217,11 @@ Common build options
    v8.2 implementations also implement an AMU and this option can be used to
    enable this feature on those systems as well. Default is 0.
 
+-  ``ENABLE_AMU_FCONF``: Enables FCONF support in the AMU component, which
+   allows platforms with auxiliary counters to describe them via the
+   ``HW_CONFIG`` device tree blob. No auxiliary counters are enabled if this is
+   disabled. Default is 0.
+
 -  ``ENABLE_ASSERTIONS``: This option controls whether or not calls to ``assert()``
    are compiled out. For debug builds, this option defaults to 1, and calls to
    ``assert()`` are left in place. For release builds, this option defaults to 0
@@ -887,4 +892,3 @@ Firmware update options
 
 .. _DEN0115: https://developer.arm.com/docs/den0115/latest
 .. _PSA FW update specification: https://developer.arm.com/documentation/den0118/a/
-
