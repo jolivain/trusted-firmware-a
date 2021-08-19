@@ -1,0 +1,2 @@
+const char version_string[] = "@GIT_DESC@";
+const char build_message[] = "Built: " __TIME__ ", " __DATE__;
