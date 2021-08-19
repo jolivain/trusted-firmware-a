@@ -35,4 +35,20 @@ uint64_t amu_group1_voffset_read_internal(unsigned int idx);
 void amu_group1_voffset_write_internal(unsigned int idx, uint64_t val);
 #endif
 
+#if ENABLE_AMU_FCONF
+struct amu_fconf_core {
+	uint16_t enable; /* Mask of auxiliary counters to enable */
+};
+
+struct amu_fconf_topology {
+	struct amu_fconf_core cores[PLATFORM_CORE_COUNT]; /* Per-core data */
+};
+
+/*
+ * Retrieve the AMU topology of the system. Returns `NULL` if the topology was
+ * not populated.
+ */
+const struct amu_fconf_topology *amu_topology(void);
+#endif /* ENABLE_AMU_FCONF */
+
 #endif /* AMU_PRIVATE_H */
