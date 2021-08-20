@@ -16,6 +16,29 @@
       "message": "Please review.",
       "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c9ab388_ff39704d",
+        "filename": "services/std_svc/spm_mm/spm_mm_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-08-20T01:06:01Z",
+      "side": 1,
+      "message": "sorry, where is the deadlock? the deadlock cannot happen because the loop acquires and releases the lock always....\ncore 1 changes state and executes mm, when it wants to release it, it will be able to acquire the lock when the second core releases it since it is not indefinitely holding the lock..",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 19
+      },
+      "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
