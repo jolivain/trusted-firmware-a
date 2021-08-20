@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f72b12cd_60245f2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-20T21:18:59Z",
+      "side": 1,
+      "message": "I\u0027m not very familiar with the markup language we use for these files but I noticed a few inconsistencies that I\u0027m not sure if are a problem or not.  Also there\u0027s a few lines over 80 chars long and such that might be worth touching up.",
+      "revId": "86555689aa2675b5e13acd777e1c3173f5b896b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "866bb452_ab143bff",
+        "filename": "docs/cmake/manual/variable/config/TFA_SDEI_SUPPORT.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-20T21:18:59Z",
+      "side": 1,
+      "message": "Inconsistent spaces at the beginning of lines, this one has 4 spaces, some have 3, some have no spaces.  Does this matter for the compiled documentation formatting and is this something we should try to standardize across these files?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 4
+      },
+      "revId": "86555689aa2675b5e13acd777e1c3173f5b896b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac5d6298_34e6c909",
+        "filename": "docs/cmake/manual/variable/config/TFA_USE_SPINLOCK_CAS.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-20T21:18:59Z",
+      "side": 1,
+      "message": "A lot of the other files have \".. variable:: TFA_USE_SPINLOCK_CAS\" and this file does not, so is it left out intentionally?",
+      "revId": "86555689aa2675b5e13acd777e1c3173f5b896b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
