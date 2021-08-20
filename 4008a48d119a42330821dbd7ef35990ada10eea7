@@ -78,6 +78,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e48b0c78_ec90c535",
+        "filename": "docs/resources/diagrams/plantuml/spm_dfd.puml",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-08-20T08:20:00Z",
+      "side": 1,
+      "message": "Leaving this comment open, I will improve in a next change.",
+      "parentUuid": "fb8cdd3e_9fb849cf",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 16
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f90720a2_ab142a4c",
         "filename": "docs/resources/diagrams/plantuml/spm_dfd.puml",
         "patchSetId": 1
@@ -89,6 +113,30 @@
       "writtenOn": "2021-06-21T17:41:20Z",
       "side": 1,
       "message": "Might be a good idea to differentiate the two DFs as the sources are different components.",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 41
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28cadbee_8c7d956f",
+        "filename": "docs/resources/diagrams/plantuml/spm_dfd.puml",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-08-20T08:20:00Z",
+      "side": 1,
+      "message": "Leaving this comment open, I will improve in a next change.",
+      "parentUuid": "f90720a2_ab142a4c",
       "range": {
         "startLine": 78,
         "startChar": 4,
@@ -372,6 +420,30 @@
       "side": 1,
       "message": "Yep that makes sense. Might be good to call them out in the document if appropriate.",
       "parentUuid": "1d2bb237_5ee04a02",
+      "range": {
+        "startLine": 41,
+        "startChar": 15,
+        "endLine": 41,
+        "endChar": 41
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77f14615_3059e01d",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-08-20T08:20:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "645109d0_cdd9c037",
       "range": {
         "startLine": 41,
         "startChar": 15,
@@ -1151,6 +1223,30 @@
       "side": 1,
       "message": "Ack. I guess i was not thinking SPMC when thinking endpoints. i was only thinking partitions so yes, if endpoints also includes SPMC then agree.",
       "parentUuid": "46aeb04b_63cb03b2",
+      "range": {
+        "startLine": 415,
+        "startChar": 28,
+        "endLine": 416,
+        "endChar": 37
+      },
+      "revId": "4008a48d119a42330821dbd7ef35990ada10eea7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7aabfaf0_edd79278",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-08-20T08:20:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03c4dca2_6167b5e3",
       "range": {
         "startLine": 415,
         "startChar": 28,
