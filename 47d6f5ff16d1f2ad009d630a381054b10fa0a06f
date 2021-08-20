@@ -86,6 +86,29 @@
       "message": "@Bipin @John @Lauren any concerns with the latest patch?",
       "revId": "47d6f5ff16d1f2ad009d630a381054b10fa0a06f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddbce0f9_48498c4b",
+        "filename": "include/lib/cpus/aarch64/cortex_a78_ae.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-20T21:29:11Z",
+      "side": 1,
+      "message": "nit: Remove a tab from the indents and these definitions will fit in 80 lines.",
+      "range": {
+        "startLine": 19,
+        "startChar": 41,
+        "endLine": 19,
+        "endChar": 42
+      },
+      "revId": "47d6f5ff16d1f2ad009d630a381054b10fa0a06f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
