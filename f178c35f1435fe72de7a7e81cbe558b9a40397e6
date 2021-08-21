@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cadfc39_12abbd98",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-21T09:22:33Z",
+      "side": 1,
+      "message": "nit: Introduced",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "f178c35f1435fe72de7a7e81cbe558b9a40397e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0706d2b_616547d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-21T09:22:33Z",
+      "side": 1,
+      "message": "nit: s/trusted boot/trusted boot firmware config",
+      "range": {
+        "startLine": 9,
+        "startChar": 45,
+        "endLine": 10,
+        "endChar": 4
+      },
+      "revId": "f178c35f1435fe72de7a7e81cbe558b9a40397e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31d0da35_b7c31716",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-21T09:22:33Z",
+      "side": 1,
+      "message": "patch looks good to me apart from few nits.",
+      "revId": "f178c35f1435fe72de7a7e81cbe558b9a40397e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e906dace_58111954",
+        "filename": "plat/st/common/include/stm32mp_fconf_getter.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-21T09:22:33Z",
+      "side": 1,
+      "message": "s/2020-2021/2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "f178c35f1435fe72de7a7e81cbe558b9a40397e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb9d3280_0d00a134",
+        "filename": "plat/st/common/include/stm32mp_io_storage.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-21T09:22:33Z",
+      "side": 1,
+      "message": "s/2020-2021/2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "f178c35f1435fe72de7a7e81cbe558b9a40397e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1641edea_6aa1db14",
+        "filename": "plat/st/common/stm32mp_fconf_io.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-21T09:22:33Z",
+      "side": 1,
+      "message": "Just wondering, why two copyrights mentioned for this new file?",
+      "range": {
+        "startLine": 2,
+        "startChar": 1,
+        "endLine": 3,
+        "endChar": 77
+      },
+      "revId": "f178c35f1435fe72de7a7e81cbe558b9a40397e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
