@@ -39,6 +39,30 @@
       },
       "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b00e57d_b4e6d2d8",
+        "filename": "services/std_svc/spm_mm/spm_mm_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000464
+      },
+      "writtenOn": "2021-08-21T07:50:19Z",
+      "side": 1,
+      "message": "In my test, core 1 can\u0027t acquire the lock. After modify with this patch, it works.\nMay be some wrong with the lib/locks/exclusive/aarch64/spinlock.S ?\nHas anyone done an experiment like me? The first core enter MM and the second core wait to enter MM.",
+      "parentUuid": "9c9ab388_ff39704d",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 19
+      },
+      "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
