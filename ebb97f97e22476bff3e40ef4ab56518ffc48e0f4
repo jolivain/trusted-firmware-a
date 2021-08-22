@@ -135,6 +135,30 @@
       },
       "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a34a102_8c5e29bf",
+        "filename": "services/std_svc/spm_mm/spm_mm_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000464
+      },
+      "writtenOn": "2021-08-22T14:39:58Z",
+      "side": 1,
+      "message": "I add debug log in sp_state_set() and sp_state_wait_switch().\nThe second core stuck in the loop but not within the spin_lock always. The first core go to sp_state_set(), but can\u0027t acquire the spin_lock.\n\nDebug code:\nvoid sp_state_set(sp_context_t *sp_ptr, sp_state_t state)\n{\n\tINFO(\"--exitmm:\\n\");\n\tspin_lock(\u0026(sp_ptr-\u003estate_lock));\n\tINFO(\"--get lock:\\n\");\n\tsp_ptr-\u003estate \u003d state;\n\tspin_unlock(\u0026(sp_ptr-\u003estate_lock));\n\tINFO(\"--unlock:\\n\");\n}\n\nvoid sp_state_wait_switch(sp_context_t *sp_ptr, sp_state_t from, sp_state_t to)\n{\n\tint success \u003d 0;\n\tint i \u003d 0;\n\n\twhile (success \u003d\u003d 0) {\n\t\tspin_lock(\u0026(sp_ptr-\u003estate_lock));\n\t\tif ((i % 10000) \u003d\u003d 0) INFO(\"--wait:%d\\n\", i);\n\t\ti++;\n\t\tinv_dcache_range ((uint64_t)\u0026sp_ptr-\u003estate, 8);\n\t\tif (sp_ptr-\u003estate \u003d\u003d from) {\n\t\t\tsp_ptr-\u003estate \u003d to;\n\t\t\tclean_dcache_range ((uint64_t)\u0026sp_ptr-\u003estate, 8);\n\n\t\t\tsuccess \u003d 1;\n\t\t}\n\t\tspin_unlock(\u0026(sp_ptr-\u003estate_lock));\n\t}\n}\n-----------------\nDebug log:\n[root@m1rootfs einj]$echo 1 \u003e error_inject\nINFO:    Core[0](0x81000000) received ras intr\u003d115, cnt\u003d3.\nINFO:    --wait:0\nEinj ErrType:100 Flags:1, ApicId:0\nInject PCIe error S:0 B:0 D:2 F:0\nRpEcam:50010000 DevEcam:50200000 VsecOffset:334\nINFO:    Core[1](0x81010000) received ras intr\u003d415, cnt\u003d1.\nINFO:    --wait:0\nINFO:    --exitmm:\nINFO:    --wait:10000\nINFO:    --wait:20000\nINFO:    --wait:30000\nINFO:    --wait:40000\nINFO:    --wait:50000\nINFO:    --wait:60000\n...",
+      "parentUuid": "4d12c265_3cb06626",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 19
+      },
+      "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
