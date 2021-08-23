@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ad06318_68225590",
+        "filename": "bl31/bl31.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-23T15:47:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2b62cfa9_e49d9e18",
+      "range": {
+        "startLine": 98,
+        "startChar": 1,
+        "endLine": 98,
+        "endChar": 25
+      },
+      "revId": "d26711a997fbf1910e577681202db441ee75663c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af2215fe_562725bf",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-23T15:25:02Z",
       "side": 1,
       "message": "same here",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 17
+      },
+      "revId": "d26711a997fbf1910e577681202db441ee75663c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd55c34f_765079ad",
+        "filename": "bl32/sp_min/sp_min.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-23T15:47:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "af2215fe_562725bf",
       "range": {
         "startLine": 46,
         "startChar": 11,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b61e265_db57f597",
+        "filename": "lib/extensions/sys_reg_trace/aarch32/sys_reg_trace.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-23T15:47:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ed5b070d_6d6fe651",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 9
+      },
+      "revId": "d26711a997fbf1910e577681202db441ee75663c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acb9cd3f_f4f93682",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "170af3bf_1a8327ba",
+        "filename": "lib/extensions/sys_reg_trace/aarch64/sys_reg_trace.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-23T15:47:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "acb9cd3f_f4f93682",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 9
+      },
+      "revId": "d26711a997fbf1910e577681202db441ee75663c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e69ca8a4_5588b169",
@@ -106,6 +202,30 @@
       "writtenOn": "2021-08-23T15:25:02Z",
       "side": 1,
       "message": "Engineers from Arm have made an argument in the past that enabling features by default increases code size of the firmware and we should avoid it. Has that policy changed?",
+      "range": {
+        "startLine": 371,
+        "startChar": 0,
+        "endLine": 371,
+        "endChar": 32
+      },
+      "revId": "d26711a997fbf1910e577681202db441ee75663c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ab7a558_363cd613",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-23T15:47:37Z",
+      "side": 1,
+      "message": "same as I mentioned here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10807/comment/68ff259d_cd4b0ac3/",
+      "parentUuid": "e69ca8a4_5588b169",
       "range": {
         "startLine": 371,
         "startChar": 0,
