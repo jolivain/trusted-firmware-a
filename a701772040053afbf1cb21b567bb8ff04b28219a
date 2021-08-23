@@ -140,6 +140,30 @@
       },
       "revId": "a701772040053afbf1cb21b567bb8ff04b28219a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "819b4760_a0865b06",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-23T16:16:30Z",
+      "side": 1,
+      "message": "One can argue that platforms needing this feature can also enable it, if required. So we can keep the feature disabled by default.\n\nI have no issues either way. But we need to finalize the approach and then follow it for all features.",
+      "parentUuid": "44730d6e_1ea36eff",
+      "range": {
+        "startLine": 376,
+        "startChar": 0,
+        "endLine": 376,
+        "endChar": 22
+      },
+      "revId": "a701772040053afbf1cb21b567bb8ff04b28219a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
