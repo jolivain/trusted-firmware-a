@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c9b2f3e_501f6bc5",
+        "filename": "plat/nxp/common/soc_errata/errata.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-08-23T17:29:43Z",
+      "side": 1,
+      "message": "Instead of adding all the errata from all the SoC(s) in one file, it is suggested to create a separate file for each errata. \nBased on the errata number part of the soc.mk, that file to be included here.",
+      "revId": "0ad11250d3cb1ad8ebcda54cf4c5a67723148954",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
