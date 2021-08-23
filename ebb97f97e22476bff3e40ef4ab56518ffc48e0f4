@@ -207,6 +207,30 @@
       },
       "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bc80934_bac5b11e",
+        "filename": "services/std_svc/spm_mm/spm_mm_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-08-23T14:19:21Z",
+      "side": 1,
+      "message": "alright, what other changes did you have to make to fix the issue on your build?\ni\u0027m not seeing how this code can dead lock..",
+      "parentUuid": "365554bf_bf276ffb",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 19
+      },
+      "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
