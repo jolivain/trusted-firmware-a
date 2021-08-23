@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b62cfa9_e49d9e18",
+        "filename": "bl31/bl31.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-23T15:25:02Z",
+      "side": 1,
+      "message": "I think we should maintain alignment with the other lines in this file",
+      "range": {
+        "startLine": 98,
+        "startChar": 1,
+        "endLine": 98,
+        "endChar": 25
+      },
+      "revId": "d26711a997fbf1910e577681202db441ee75663c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af2215fe_562725bf",
+        "filename": "bl32/sp_min/sp_min.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-23T15:25:02Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 17
+      },
+      "revId": "d26711a997fbf1910e577681202db441ee75663c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed5b070d_6d6fe651",
+        "filename": "lib/extensions/sys_reg_trace/aarch32/sys_reg_trace.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-23T15:25:02Z",
+      "side": 1,
+      "message": "how about \n\nif (sys_reg_trace_supported()) {\n   ...\n}\n\ninstead of returning from a void function?",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 9
+      },
+      "revId": "d26711a997fbf1910e577681202db441ee75663c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acb9cd3f_f4f93682",
+        "filename": "lib/extensions/sys_reg_trace/aarch64/sys_reg_trace.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-23T15:25:02Z",
+      "side": 1,
+      "message": "same comment here",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 9
+      },
+      "revId": "d26711a997fbf1910e577681202db441ee75663c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e69ca8a4_5588b169",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-23T15:25:02Z",
+      "side": 1,
+      "message": "Engineers from Arm have made an argument in the past that enabling features by default increases code size of the firmware and we should avoid it. Has that policy changed?",
+      "range": {
+        "startLine": 371,
+        "startChar": 0,
+        "endLine": 371,
+        "endChar": 32
+      },
+      "revId": "d26711a997fbf1910e577681202db441ee75663c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
