@@ -33,6 +33,98 @@
       "message": "\u003e Patch Set 6: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 1068 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/1068/)\n\u003e Some tests failed (3)\n\nThis seems to be a false positive as seen with other commits too.",
       "revId": "f60c7077fa209bde9a7bb08af404c1cdae1c4886",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fa88f83_eeb37425",
+        "filename": "drivers/arm/gic/v3/gic600ae_fmu.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-23T20:28:27Z",
+      "side": 1,
+      "message": "Change this also to boolean condition (blk_present_mask \u0026 BIT(i) !\u003d 0U)",
+      "range": {
+        "startLine": 180,
+        "startChar": 6,
+        "endLine": 180,
+        "endChar": 31
+      },
+      "revId": "f60c7077fa209bde9a7bb08af404c1cdae1c4886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45fa6f84_edbfd5a8",
+        "filename": "drivers/arm/gic/v3/gic600ae_fmu.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-23T20:28:27Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 192,
+        "startChar": 6,
+        "endLine": 192,
+        "endChar": 31
+      },
+      "revId": "f60c7077fa209bde9a7bb08af404c1cdae1c4886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1638a48_14c5d5f5",
+        "filename": "drivers/arm/gic/v3/gic600ae_fmu_helpers.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-23T20:28:27Z",
+      "side": 1,
+      "message": "for consistency change this to \u0027false\u0027",
+      "range": {
+        "startLine": 72,
+        "startChar": 10,
+        "endLine": 72,
+        "endChar": 11
+      },
+      "revId": "f60c7077fa209bde9a7bb08af404c1cdae1c4886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7830b6a9_55456bb1",
+        "filename": "drivers/arm/gic/v3/gic600ae_fmu_helpers.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-23T20:28:27Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 82,
+        "startChar": 10,
+        "endLine": 82,
+        "endChar": 11
+      },
+      "revId": "f60c7077fa209bde9a7bb08af404c1cdae1c4886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
