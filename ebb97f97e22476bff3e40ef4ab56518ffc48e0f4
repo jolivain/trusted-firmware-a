@@ -183,6 +183,30 @@
       },
       "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "365554bf_bf276ffb",
+        "filename": "services/std_svc/spm_mm/spm_mm_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000464
+      },
+      "writtenOn": "2021-08-23T11:58:05Z",
+      "side": 1,
+      "message": "The issue can\u0027t be fixed only add dcache maintenance. The sp_context is in range ARM_AP_TZC_DRAM1_BASE(DDR space), which is default configuration. I think it is normal cacheable and coherent memory.",
+      "parentUuid": "f05632bc_8a802321",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 19
+      },
+      "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
