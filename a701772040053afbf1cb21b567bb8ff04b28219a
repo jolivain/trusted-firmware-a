@@ -164,6 +164,30 @@
       },
       "revId": "a701772040053afbf1cb21b567bb8ff04b28219a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6c56f44_a88a28c6",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-23T18:08:32Z",
+      "side": 1,
+      "message": "In general, I believe we enable most features from NS side if the feature exist (unless there is any specific reason otherwise).\nIt is better to enable the feature by default and let the platform disable it if they wish for any specific reason.\n\nLet me discuss with this approach internally. If it turns out other way to do it then will post one more patch to disable these options by default.",
+      "parentUuid": "819b4760_a0865b06",
+      "range": {
+        "startLine": 376,
+        "startChar": 0,
+        "endLine": 376,
+        "endChar": 22
+      },
+      "revId": "a701772040053afbf1cb21b567bb8ff04b28219a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
