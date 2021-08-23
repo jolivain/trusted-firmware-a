@@ -241,6 +241,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf4e0ff4_65138d99",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-23T17:24:12Z",
+      "side": 1,
+      "message": "Ack, I too not sure for any specific naming scheme. Let\u0027s go ahead with this now.",
+      "parentUuid": "a914c1bd_58573efc",
+      "range": {
+        "startLine": 20,
+        "startChar": 12,
+        "endLine": 20,
+        "endChar": 35
+      },
+      "revId": "873bfcebd333b651164957b5c44369d2d1282382",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82397e4c_4be9acf6",
@@ -337,6 +361,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7921c81_1383ed43",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-23T17:24:12Z",
+      "side": 1,
+      "message": "Can you put few arguments after opening brace, and then put others in next line as below?\n\nstatic int amu_fconf_populate_cpu_amu(const void *fdt, int off,\n                                    ...)\n{\n    ....\n}\n\nIgnore it if you think existing looks fine.",
+      "parentUuid": "5b8062e8_81e87b43",
+      "range": {
+        "startLine": 38,
+        "startChar": 1,
+        "endLine": 38,
+        "endChar": 17
+      },
+      "revId": "873bfcebd333b651164957b5c44369d2d1282382",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "baba37af_ea65894f",
         "filename": "lib/extensions/amu/amu_fconf.c",
         "patchSetId": 1
@@ -396,6 +444,30 @@
       "side": 1,
       "message": "Using `fdt_for_each_subnode` to loop over these now, which conveniently avoid this problem altogether.",
       "parentUuid": "9dcd0fd8_e9e8ba50",
+      "range": {
+        "startLine": 45,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 46
+      },
+      "revId": "873bfcebd333b651164957b5c44369d2d1282382",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e682bfc7_81ffff40",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-23T17:24:12Z",
+      "side": 1,
+      "message": "this looks better now.",
+      "parentUuid": "28a335ed_f0f801f7",
       "range": {
         "startLine": 45,
         "startChar": 1,
