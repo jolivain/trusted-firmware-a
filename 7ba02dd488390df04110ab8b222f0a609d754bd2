@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f64b88d_bf2913e2",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-23T21:53:15Z",
+      "side": 1,
+      "message": "This errata is still open, so it might be better to say something like \"This needs to be enabled for revision r0p0 and is still open.\"",
+      "range": {
+        "startLine": 361,
+        "startChar": 8,
+        "endLine": 361,
+        "endChar": 67
+      },
+      "revId": "7ba02dd488390df04110ab8b222f0a609d754bd2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f9ca7ed_09b965f8",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-23T21:53:15Z",
+      "side": 1,
+      "message": "Please clarify that the errata is still open.",
+      "range": {
+        "startLine": 50,
+        "startChar": 45,
+        "endLine": 50,
+        "endChar": 48
+      },
+      "revId": "7ba02dd488390df04110ab8b222f0a609d754bd2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
