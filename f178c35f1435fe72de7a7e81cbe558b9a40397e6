@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "510f143f_051b1344",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-23T07:33:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1cadfc39_12abbd98",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "f178c35f1435fe72de7a7e81cbe558b9a40397e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0706d2b_616547d0",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-21T09:22:33Z",
       "side": 1,
       "message": "nit: s/trusted boot/trusted boot firmware config",
+      "range": {
+        "startLine": 9,
+        "startChar": 45,
+        "endLine": 10,
+        "endChar": 4
+      },
+      "revId": "f178c35f1435fe72de7a7e81cbe558b9a40397e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef3242b3_1e2cd99a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-23T07:33:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e0706d2b_616547d0",
       "range": {
         "startLine": 9,
         "startChar": 45,
@@ -87,6 +135,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5754e35_b11a2f7a",
+        "filename": "plat/st/common/include/stm32mp_fconf_getter.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-23T07:33:48Z",
+      "side": 1,
+      "message": "This file was created internally last year. But I can change that to 2021, as it was only published this year, even in ST github.",
+      "parentUuid": "e906dace_58111954",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "f178c35f1435fe72de7a7e81cbe558b9a40397e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb9d3280_0d00a134",
@@ -110,6 +182,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7609def9_1843f00a",
+        "filename": "plat/st/common/include/stm32mp_io_storage.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-23T07:33:48Z",
+      "side": 1,
+      "message": "same here",
+      "parentUuid": "bb9d3280_0d00a134",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "f178c35f1435fe72de7a7e81cbe558b9a40397e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1641edea_6aa1db14",
@@ -123,6 +219,30 @@
       "writtenOn": "2021-08-21T09:22:33Z",
       "side": 1,
       "message": "Just wondering, why two copyrights mentioned for this new file?",
+      "range": {
+        "startLine": 2,
+        "startChar": 1,
+        "endLine": 3,
+        "endChar": 77
+      },
+      "revId": "f178c35f1435fe72de7a7e81cbe558b9a40397e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d18088e_92878861",
+        "filename": "plat/st/common/stm32mp_fconf_io.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-23T07:33:48Z",
+      "side": 1,
+      "message": "This was mainly a copy/paste of the Arm file ./plat/arm/common/fconf/arm_fconf_io.c. And the Arm copyright remained. But I can remove one of the 2 lines.",
+      "parentUuid": "1641edea_6aa1db14",
       "range": {
         "startLine": 2,
         "startChar": 1,
