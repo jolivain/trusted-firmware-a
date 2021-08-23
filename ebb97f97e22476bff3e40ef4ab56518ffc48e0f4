@@ -159,6 +159,30 @@
       },
       "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f05632bc_8a802321",
+        "filename": "services/std_svc/spm_mm/spm_mm_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-08-23T02:40:17Z",
+      "side": 1,
+      "message": "i see statements that invalidate and clean dcache range that isnt in the original code. if that fixes the issue, it probably means memory is not marked appropriately and you are having coherency issues. is the sp_context_t structure in normal cacheable and coherent memory?\ni\u0027ve seen issues where some SRAM\u0027s where BL31 runs from, does not necessarily support exclusive monitors and cannot use load exclusive and store exclusive instructions.",
+      "parentUuid": "1a34a102_8c5e29bf",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 19
+      },
+      "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
