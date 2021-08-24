@@ -496,6 +496,13 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 		return node;
 	}
 
+	ret = fdt_read_uint32_array(sp_manifest, node, "uuid", 4,
+				    sp->uuid);
+	if (ret != 0) {
+		ERROR("Missing Secure Partition UUID.\n");
+		return ret;
+	}
+
 	ret = fdt_read_uint32(sp_manifest, node,
 			      "exception-level", &config_32);
 	if (ret != 0) {
