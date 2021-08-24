@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49a269dc_09a79643",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-24T17:26:56Z",
+      "side": 1,
+      "message": "The failure here appears to be due to the tc/tc0/tc1 platform build changes and not related to this patch so we should be fine to run the L2 tests.",
+      "revId": "d0da43bd754eda443384ea9177c6aec3228eadae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
