@@ -16,6 +16,24 @@
       "message": "Instead of adding all the errata from all the SoC(s) in one file, it is suggested to create a separate file for each errata. \nBased on the errata number part of the soc.mk, that file to be included here.",
       "revId": "0ad11250d3cb1ad8ebcda54cf4c5a67723148954",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6120de07_f52d1b3c",
+        "filename": "plat/nxp/common/soc_errata/errata.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-08-24T04:01:24Z",
+      "side": 1,
+      "message": "Hi, Pankaj, \n\nthanks for your comments, I created another patch to address your comments, refactor(plat/nxp): each errata use a seperate source file\n\nThanks.\nJiafei.",
+      "parentUuid": "7c9b2f3e_501f6bc5",
+      "revId": "0ad11250d3cb1ad8ebcda54cf4c5a67723148954",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
