@@ -155,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "08ba048b_c622e16a",
+        "filename": "include/drivers/arm/gicv3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-24T22:51:15Z",
+      "side": 1,
+      "message": "I agree with your stance here, but I\u0027ve had patches rejected for copyrights in the past so I thought it was something we were still enforcing.  I\u0027ll probably stop going forward, it does tend to create merge conflicts fairly often.",
+      "parentUuid": "c1068556_9d661b3b",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "ecd1dd0907abaae0593630840c5b226b57ccc0c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "73ba5374_65e6d5f7",
         "filename": "include/drivers/arm/gicv3.h",
         "patchSetId": 1
