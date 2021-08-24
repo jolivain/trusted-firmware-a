@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb559e0c_01ac094e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-08-24T19:10:12Z",
+      "side": 1,
+      "message": "if bakery locks succeeds, it means you are having coherency issues (which i suspected from your attempt to invalidate/clean caches). This likely means your spin lock variable is not living in memory marked coherent, or if marked coherent, in memory such as SRAM, that does not support exclusive monitors, for example. This is not an issue with the existing code, since it expects that the memory in which spinlocks exists is in normal, cacheable, inner shareable memory and your hardware must support that for the memory at which this spin lock lives..\nI dont think there is anything to be fixed in code, until we determine the cause for your coherency issues.",
+      "parentUuid": "0634d1cf_a3f4bcf4",
+      "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c9ab388_ff39704d",
         "filename": "services/std_svc/spm_mm/spm_mm_main.c",
         "patchSetId": 1
