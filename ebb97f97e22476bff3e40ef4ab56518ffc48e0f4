@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0fa21949_353ce528",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-08-24T19:11:07Z",
+      "side": 1,
+      "message": "\" in memory such as SRAM, that does not support exclusive monitors, for example. \" should really be \"in memory such as SRAM, that MAY not support exclusive monitors\".",
+      "parentUuid": "bb559e0c_01ac094e",
+      "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c9ab388_ff39704d",
         "filename": "services/std_svc/spm_mm/spm_mm_main.c",
         "patchSetId": 1
