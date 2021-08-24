@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30ffe787_b7ccc36e",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-08-24T23:49:11Z",
+      "side": 1,
+      "message": "Why is this being added here? It seems unused.",
+      "revId": "e95bf6a04487113a2869d7b9aff1ca4a8a74b4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d1a1ffc_2d25a6ea",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-08-24T23:49:11Z",
+      "side": 1,
+      "message": "Are you sure this is correct? Kernel code seems to suggest that `1` is the correct response for having the SMC available (e.g. here: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/firmware/qcom_scm.c#n145).",
+      "range": {
+        "startLine": 341,
+        "startChar": 38,
+        "endLine": 341,
+        "endChar": 39
+      },
+      "revId": "e95bf6a04487113a2869d7b9aff1ca4a8a74b4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "827d782e_ae0d395a",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-08-24T23:49:11Z",
+      "side": 1,
+      "message": "In the same way, I guess this would work but isn\u0027t the more correct answer (QTI_SIP_SUCCESS, 0)?",
+      "revId": "e95bf6a04487113a2869d7b9aff1ca4a8a74b4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
