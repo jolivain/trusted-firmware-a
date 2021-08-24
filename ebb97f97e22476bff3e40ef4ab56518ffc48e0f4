@@ -53,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0634d1cf_a3f4bcf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-24T07:32:09Z",
+      "side": 1,
+      "message": "IIUC, bakery lock works because it takes care of data coherency. I believe, if we add the same logic to spinlock.S it will work too.\n\nWe should ask the spm_mm owner how they want to proceed. @Joanna do you know who that would be?",
+      "parentUuid": "4231afc0_401f2186",
+      "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c9ab388_ff39704d",
