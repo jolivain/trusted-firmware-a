@@ -131,6 +131,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c1068556_9d661b3b",
+        "filename": "include/drivers/arm/gicv3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-08-24T13:44:47Z",
+      "side": 1,
+      "message": "So I was once told that we those copyright years updates are no longer commented on?\nAccording to my research the usefulness of listing the years in the copyright statement is highly debated, and especially the end year is of very little use. The start year could be used to establish when the code started to appear under the license conditions, but the end year is most likely just important to mark the expiration 75 years (or so) later on - and even that is somewhat contested.\nBesides, changes to the copyright statement are only indicated when *significant* contributions have been made to the file. I don\u0027t consider a trivial function, which mostly somewhat refactors existing code, to meet this demand.\nThose seemingly trivial changes just increase the likelihood of merge conflicts. Granted, they are easy to solve, but still create quite some churn and require manual intervention, blocking patches from being merged quickly.",
+      "parentUuid": "8eb68eb4_156d6f2e",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "ecd1dd0907abaae0593630840c5b226b57ccc0c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "73ba5374_65e6d5f7",
         "filename": "include/drivers/arm/gicv3.h",
         "patchSetId": 1
