@@ -16,6 +16,23 @@
       "message": "Hello! Could you review this change?",
       "revId": "3017e932768c7357a1a41493c58323419e9a1ec9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42010b5f_bbc7a1a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-08-24T09:28:10Z",
+      "side": 1,
+      "message": "Could you re-run this CI test? Seems that infrastructure is unstable and test failed due to error:\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/405616/console\n09:32:55  \u003e git fetch --tags --progress -- https://review.trustedfirmware.org/TF-A/tf-a-tests +refs/heads/*:refs/remotes/origin/* # timeout\u003d10\n09:32:56 ERROR: Error cloning remote repo \u0027origin\u0027\n09:32:56 hudson.plugins.git.GitException: Command \"git fetch --tags --progress -- https://review.trustedfirmware.org/TF-A/tf-a-tests +refs/heads/*:refs/remotes/origin/*\" returned status code 128:\n09:32:56 stdout: \n09:32:56 stderr: fatal: unable to access \u0027https://review.trustedfirmware.org/TF-A/tf-a-tests/\u0027: The requested URL returned error: 502",
+      "revId": "3017e932768c7357a1a41493c58323419e9a1ec9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
