@@ -69,6 +69,24 @@
       "parentUuid": "c9837f7b_8432b056",
       "revId": "51450866557605fb3775f201ff6fb2b6910cafbd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eec585f8_f96992d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-08-24T17:51:38Z",
+      "side": 1,
+      "message": "Hi Chris\nI believe we should support fconf in BL1/BL2 by default when a platform wants to use fconf later in BL31. The primary responsibility of fconf starts early in boot phase. For example, it parses the fw_config.dtb to know which config files to load to memory and also populate information about them such that any other driver/software component can query for dynamic information using fconf APIs.\n\nTechnically speaking,(relevant parts of ) fconf can be independently supported in BL31 but that would defeat the purpose of fconf to provide a scalable unified access to dynamic info about the platform.\n\nI am unable to see a benefit in this patch. Please let me know if I am missing something. I would be happy to discuss over a call.",
+      "parentUuid": "77b5b50e_d75a66de",
+      "revId": "51450866557605fb3775f201ff6fb2b6910cafbd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
