@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4231afc0_401f2186",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000464
+      },
+      "writtenOn": "2021-08-24T04:20:57Z",
+      "side": 1,
+      "message": "I try USE_SPINLOCK_CAS, it hang also and then I try bakery_lock. bakery_lock works in my platform. What means about this result? Should I send a patch to review for replace spinlock with bakery_lock?\n\nThanks!\n\nMy changes:\n--- a/Atf/services/std_svc/spm_mm/spm_mm_main.c\n+++ b/Atf/services/std_svc/spm_mm/spm_mm_main.c\n@@ -14,7 +14,7 @@\n #include \u003ccommon/runtime_svc.h\u003e\n #include \u003clib/el3_runtime/context_mgmt.h\u003e\n #include \u003clib/smccc.h\u003e\n-#include \u003clib/spinlock.h\u003e\n+#include \u003clib/bakery_lock.h\u003e\n #include \u003clib/utils.h\u003e\n #include \u003clib/xlat_tables/xlat_tables_v2.h\u003e\n #include \u003cplat/common/platform.h\u003e\n@@ -34,9 +34,9 @@ static sp_context_t sp_ctx;\n  ******************************************************************************/\n void sp_state_set(sp_context_t *sp_ptr, sp_state_t state)\n {\n-       spin_lock(\u0026(sp_ptr-\u003estate_lock));\n+       bakery_lock_get(\u0026(sp_ptr-\u003estate_lock));\n        sp_ptr-\u003estate \u003d state;\n-       spin_unlock(\u0026(sp_ptr-\u003estate_lock));\n+       bakery_lock_release(\u0026(sp_ptr-\u003estate_lock));\n }\n \n /*******************************************************************************\n@@ -48,7 +48,7 @@ void sp_state_wait_switch(sp_context_t *sp_ptr, sp_state_t from, sp_state_t to)\n        int success \u003d 0;\n \n        while (success \u003d\u003d 0) {\n-               spin_lock(\u0026(sp_ptr-\u003estate_lock));\n+               bakery_lock_get(\u0026(sp_ptr-\u003estate_lock));\n \n                if (sp_ptr-\u003estate \u003d\u003d from) {\n                        sp_ptr-\u003estate \u003d to;\n@@ -56,7 +56,7 @@ void sp_state_wait_switch(sp_context_t *sp_ptr, sp_state_t from, sp_state_t to)\n                        success \u003d 1;\n                }\n \n-               spin_unlock(\u0026(sp_ptr-\u003estate_lock));\n+               bakery_lock_release(\u0026(sp_ptr-\u003estate_lock));\n        }\n }\n \ndiff --git a/Atf/services/std_svc/spm_mm/spm_mm_private.h b/Atf/services/std_svc/spm_mm/spm_mm_private.h\nindex 45b4789a..78a41bd8 100644\n--- a/Atf/services/std_svc/spm_mm/spm_mm_private.h\n+++ b/Atf/services/std_svc/spm_mm/spm_mm_private.h\n@@ -48,7 +48,7 @@ typedef struct sp_context {\n        xlat_ctx_t *xlat_ctx_handle;\n \n        sp_state_t state;\n-       spinlock_t state_lock;\n+       bakery_lock_t state_lock;\n } sp_context_t;",
+      "parentUuid": "06d5007b_ddfa1c67",
+      "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c9ab388_ff39704d",
@@ -240,6 +258,30 @@
       "side": 1,
       "message": "alright, what other changes did you have to make to fix the issue on your build?\ni\u0027m not seeing how this code can dead lock..",
       "parentUuid": "365554bf_bf276ffb",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 19
+      },
+      "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "254ab7f4_b5bf4ade",
+        "filename": "services/std_svc/spm_mm/spm_mm_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000464
+      },
+      "writtenOn": "2021-08-24T04:20:57Z",
+      "side": 1,
+      "message": "All changes were in this patch, no other changes. My comments is not accurate. The issue is not dead lock, but something wrong else.\n\nThanks.",
+      "parentUuid": "5bc80934_bac5b11e",
       "range": {
         "startLine": 51,
         "startChar": 2,
