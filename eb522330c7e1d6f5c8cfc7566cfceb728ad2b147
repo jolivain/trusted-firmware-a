@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b50c983_8445423c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-24T23:39:25Z",
+      "side": 1,
+      "message": "Looks good just a few tiny things.",
+      "revId": "eb522330c7e1d6f5c8cfc7566cfceb728ad2b147",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e8fc0c4_db92f594",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-24T23:39:25Z",
+      "side": 1,
+      "message": "nit: add tabs to align definitions",
+      "range": {
+        "startLine": 1162,
+        "startChar": 20,
+        "endLine": 1162,
+        "endChar": 21
+      },
+      "revId": "eb522330c7e1d6f5c8cfc7566cfceb728ad2b147",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1197022b_97ee3265",
+        "filename": "lib/mpmm/mpmm_fconf.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-24T23:39:25Z",
+      "side": 1,
+      "message": "This string is 5 bytes long including a trailing 0, are we looking for the string \"cpu@\" specifically or do we want to match any string with that prefix?",
+      "range": {
+        "startLine": 86,
+        "startChar": 20,
+        "endLine": 86,
+        "endChar": 26
+      },
+      "revId": "eb522330c7e1d6f5c8cfc7566cfceb728ad2b147",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd055854_f0c169b3",
+        "filename": "lib/mpmm/mpmm_private.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-24T23:39:25Z",
+      "side": 1,
+      "message": "There should be a space between these 2 includes https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html",
+      "range": {
+        "startLine": 10,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 25
+      },
+      "revId": "eb522330c7e1d6f5c8cfc7566cfceb728ad2b147",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
