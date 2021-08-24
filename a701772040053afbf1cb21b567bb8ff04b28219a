@@ -188,6 +188,30 @@
       },
       "revId": "a701772040053afbf1cb21b567bb8ff04b28219a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dd27fba_e93d08a4",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-24T13:32:13Z",
+      "side": 1,
+      "message": "We came to below conclusion after discussing this internally:\n\nLet\u0027s disable the feature flag by default and let the platform decide to enable it. \nSome platforms may be sensitive to code size (even for few bytes) and don\u0027t need this pointless code for the execution if their CPU cores do not implement this feature.\nAs per Andre, the long-term implementation goal would be the CPU should enable automatically all the features that it comes with after its enablement. \n\nLet me update the patch series to disable all introduced build options by default. Let me know otherwise if you have a different opinion. Thanks!",
+      "parentUuid": "a6c56f44_a88a28c6",
+      "range": {
+        "startLine": 376,
+        "startChar": 0,
+        "endLine": 376,
+        "endChar": 22
+      },
+      "revId": "a701772040053afbf1cb21b567bb8ff04b28219a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
