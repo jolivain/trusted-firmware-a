@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c22d6a2_c897dc7b",
+        "filename": "services/std_svc/rmmd/trp/trp.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-24T00:47:59Z",
+      "side": 1,
+      "message": "nit: line over 80 chars",
+      "range": {
+        "startLine": 7,
+        "startChar": 55,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "aa2aae54843446d0cd149f7f0b19a91ef43f01d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ce0be30_ffd6820c",
+        "filename": "services/std_svc/rmmd/trp/trp_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-24T00:47:59Z",
+      "side": 1,
+      "message": "Move this above rmi_svc.h so the includes are alphabetical.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 30
+      },
+      "revId": "aa2aae54843446d0cd149f7f0b19a91ef43f01d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
