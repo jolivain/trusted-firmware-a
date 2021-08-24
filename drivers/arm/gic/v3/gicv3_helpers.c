@@ -393,3 +393,19 @@ unsigned int gicv3_rdistif_get_number_frames(const uintptr_t gicr_frame)
 
 	return count;
 }
+
+unsigned int gicv3_get_component_partnr(const uintptr_t gic_frame)
+{
+	uintptr_t pidr_base = gic_frame + 0xffe0;
+	unsigned int part_id;
+
+	/*
+	 * The lower 8 bits of PIDR0 and the lower 4 bits of PIDR1 contain
+	 * a part number identifying the GIC component at a particular
+	 * base address.
+	 */
+	part_id = mmio_read_32(pidr_base) & 0xff;
+	part_id |= (mmio_read_32(pidr_base + 4) << 8) & 0xf00;
+
+	return part_id;
+}

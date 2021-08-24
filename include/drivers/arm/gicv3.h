@@ -324,6 +324,8 @@ static inline uintptr_t gicv3_redist_size(uint64_t typer_val)
 #endif
 }
 
+unsigned int gicv3_get_component_partnr(const uintptr_t gic_frame);
+
 static inline bool gicv3_is_intr_id_special_identifier(unsigned int id)
 {
 	return (id >= PENDING_G1S_INTID) && (id <= GIC_SPURIOUS_INTERRUPT);
