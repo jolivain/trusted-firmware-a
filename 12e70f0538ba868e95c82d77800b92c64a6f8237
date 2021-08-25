@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec2f142b_7fdc55e9",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-08-25T15:59:12Z",
+      "side": 1,
+      "message": "This is for the 16 Pn bit-fields of the register, where P\u003cn\u003e would be the enable bit for the nth group 0 counter.",
+      "parentUuid": "7734a458_5304f9c7",
+      "range": {
+        "startLine": 721,
+        "startChar": 30,
+        "endLine": 721,
+        "endChar": 36
+      },
+      "revId": "12e70f0538ba868e95c82d77800b92c64a6f8237",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93202dca_2651f55a",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-25T13:41:06Z",
       "side": 1,
       "message": "I think only bits 0-3 are writable for this register so should the mask be 0xf?",
+      "range": {
+        "startLine": 1006,
+        "startChar": 8,
+        "endLine": 1006,
+        "endChar": 31
+      },
+      "revId": "12e70f0538ba868e95c82d77800b92c64a6f8237",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eab8a369_aa5f1db3",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1006,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-08-25T15:59:12Z",
+      "side": 1,
+      "message": "AMCNTENSET0_EL0[31:0] is architecturally mapped to the external register AMCNTENSET0[31:0], with two limitations:\n\n- AMCNTENSET0_ELO[31:15] is reserved (but not in AMCNTENSET0 for some reason)\n- AMCNTENSET0[31:N] is RAZ/WI, where N is AMCGCR.CG0NC\n\nSo the fields of AMCNTENSET0_EL0 in FEAT_AMUv1 are:\n\n - AMCNTENSET0_EL0[63:16]: RES0\n - AMCNTENSET0_EL0[15: 4]: RAZ/WI\n - AMCNTENSET0_EL0[ 3: 0]: P\u003cn\u003e\n\nSo we *could* today limit the mask to 0xF statically, but then we would have to use a different mask for any FEAT_AMU version that increases the number of counters. There\u0027s not much point to it when we can just generate the mask at runtime.",
+      "parentUuid": "93202dca_2651f55a",
       "range": {
         "startLine": 1006,
         "startChar": 8,
