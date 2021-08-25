@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73cee9f8_04c9929d",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2021-08-25T07:21:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30ffe787_b7ccc36e",
+      "revId": "e95bf6a04487113a2869d7b9aff1ca4a8a74b4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d1a1ffc_2d25a6ea",
@@ -41,6 +59,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c334d50e_b7695220",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2021-08-25T07:21:18Z",
+      "side": 1,
+      "message": "yes, checked on device as well.\nqcom_scm: convention: smc arm 64",
+      "parentUuid": "5d1a1ffc_2d25a6ea",
+      "range": {
+        "startLine": 341,
+        "startChar": 38,
+        "endLine": 341,
+        "endChar": 39
+      },
+      "revId": "e95bf6a04487113a2869d7b9aff1ca4a8a74b4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "827d782e_ae0d395a",
@@ -54,6 +96,24 @@
       "writtenOn": "2021-08-24T23:49:11Z",
       "side": 1,
       "message": "In the same way, I guess this would work but isn\u0027t the more correct answer (QTI_SIP_SUCCESS, 0)?",
+      "revId": "e95bf6a04487113a2869d7b9aff1ca4a8a74b4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79abf73e_b7158ec8",
+        "filename": "plat/qti/common/src/qti_syscall.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2021-08-25T07:21:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "827d782e_ae0d395a",
       "revId": "e95bf6a04487113a2869d7b9aff1ca4a8a74b4e1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
