@@ -93,6 +93,30 @@
       },
       "revId": "6c1994c03ebb2ac1665ce346615dec65e2cf97c4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e862c95f_84a1e0bb",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-08-25T21:27:23Z",
+      "side": 1,
+      "message": "In my opinion, we can remove the OR operation. Isnt \"(uint64_t)rate[1]\" good enough to resolve the violation?",
+      "parentUuid": "b29a5168_f6e0afd6",
+      "range": {
+        "startLine": 353,
+        "startChar": 22,
+        "endLine": 353,
+        "endChar": 45
+      },
+      "revId": "6c1994c03ebb2ac1665ce346615dec65e2cf97c4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
