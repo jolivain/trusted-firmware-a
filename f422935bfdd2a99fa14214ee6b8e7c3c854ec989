@@ -52,6 +52,24 @@
       "parentUuid": "3a973eb4_0453b076",
       "revId": "f422935bfdd2a99fa14214ee6b8e7c3c854ec989",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c308de1_eac0c737",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-08-25T15:52:09Z",
+      "side": 1,
+      "message": "From distribution (or end user) point of view who compiles TF-A, it looks like a mess if one (or more boards) are going to use different naming conventions like other existing boards which are in TF-A. This is how I see when compiling TF-A for all Marvell boards as defined in readme file.",
+      "parentUuid": "af29c6e3_3970277c",
+      "revId": "f422935bfdd2a99fa14214ee6b8e7c3c854ec989",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
