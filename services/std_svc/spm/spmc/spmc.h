@@ -42,6 +42,9 @@
 #define FFA_MSG_WAIT_EP_ID(ep_vcpu_ids) \
 		((ep_vcpu_ids >> FFA_PARTITION_ID_SHIFT) & FFA_ID_MASK)
 
+#define FFA_PAGE_SIZE (4096)
+#define FFA_RXTX_PAGE_COUNT_MASK 0x1F
+
 /*
  * Runtime states of an execution context as per the FF-A v1.1 specification.
  */
