@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5e74b4d_72f42d14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-08-25T17:28:51Z",
+      "side": 1,
+      "message": "****** Order of includes on the last patch(es) ******\n\nResult : FAILURE\n\nChecking files modified between patches origin/master and HEAD...\n3a77a2310:plat/nxp/common/setup/include/plat_common.h: [\u0027Project includes not in order.\n    Include order should be dcfg.h, lib/el3_runtime/cpu_data.h\u0027]",
+      "revId": "3a77a23102ff150e914c6a1d2005042616334606",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
