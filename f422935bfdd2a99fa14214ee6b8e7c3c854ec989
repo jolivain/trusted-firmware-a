@@ -88,6 +88,24 @@
       "parentUuid": "5c308de1_eac0c737",
       "revId": "f422935bfdd2a99fa14214ee6b8e7c3c854ec989",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0154203_adf54c20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-08-25T18:52:43Z",
+      "side": 1,
+      "message": "Just do not take me wrong, by my last comment I\u0027m not saying how it should be or how it should not be. I\u0027m just saying how current situation looks like from distribution point of view.\n\nI understand all 3 point of view (legacy naming cannot be easily changed; new platform should match product name; all platforms should have one naming convention). Every one has pros and cons and I wrote it here as probably developers of one platform do not have to see also this part.\n\nBut whatever is chosen, it is important to decide what should be the new \u0026 correct naming convention in TF-A for every new CN913X board. So every new / future product will follow only one naming convention. And not that everyone choose some \"random\" name here.\n\nAd mv-ddr: I see that both cn913x_cex7_eval and t9130 have exactly same Makefile compile options and definitions in mv-ddr-marvell repository. Therefore, cannot you change this TF-A code in this change to compile mv-ddr with t9130 definition? It would simplify this problem. And because mv-ddr-marvell contains just code for ddr3/4 training I would expect that different CN913X boards would not require different Makefile compile options and so it would simplify this problem for all new CN913X boards (as they would not have to patch mv-ddr-marvell repo).",
+      "parentUuid": "2c16b813_4bc1e4b2",
+      "revId": "f422935bfdd2a99fa14214ee6b8e7c3c854ec989",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
