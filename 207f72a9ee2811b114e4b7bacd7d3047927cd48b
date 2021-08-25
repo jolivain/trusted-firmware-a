@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c11628d_81e8cb75",
+        "filename": "plat/arm/css/sgi/include/sgi_base_platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-08-25T14:01:52Z",
+      "side": 1,
+      "message": "That\u0027s kind of correct. Above number is derived based on the number of mappings needed for StMM executing as SP, it may vary for a different SP.",
+      "parentUuid": "a5f7b054_a787db7b",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 42
+      },
+      "revId": "207f72a9ee2811b114e4b7bacd7d3047927cd48b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0ff1d232_86afda6e",
         "filename": "plat/arm/css/sgi/include/sgi_base_platform_def.h",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-16T12:35:45Z",
       "side": 1,
       "message": "Should\u0027nt this be 1 with current patches?",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 34
+      },
+      "revId": "207f72a9ee2811b114e4b7bacd7d3047927cd48b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "debaac8e_057c72d0",
+        "filename": "plat/arm/css/sgi/include/sgi_base_platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-08-25T14:01:52Z",
+      "side": 1,
+      "message": "This number is to indicate the maximum number of secure partitions which can be tried out, but yes in current patch only 1 partition is tried out.\n\nWill make it 1 if that\u0027ll be in better sync with current implementation.",
+      "parentUuid": "0ff1d232_86afda6e",
       "range": {
         "startLine": 267,
         "startChar": 0,
