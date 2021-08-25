@@ -33,6 +33,29 @@
       "message": "Just pondering:  Is there any way to rule this out at build-time instead of hanging at run-time?",
       "revId": "4083154415fc2ef30501cab3dc6fa74c18ce4c3d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d81341f_c2a8b097",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-25T07:54:55Z",
+      "side": 1,
+      "message": "IMO, this is a programming error (as the developer may unknowingly enable this build option:ENABLE_FEAT_HCX even though CPU does not support this feature) so this should be \u0027assert\u0027 instead of \u0027panic\u0027. Also, better to move this assert to \u0027bl31_setup\u0027 function for early checking. \n\nThis case looks very similar to pauth feature: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/bl31/bl31_main.c#n93",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 121,
+        "endChar": 10
+      },
+      "revId": "4083154415fc2ef30501cab3dc6fa74c18ce4c3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
