@@ -23,3 +23,4 @@ Components
    xlat-tables-lib-v2-design
    cot-binding
    realm-management-extension
+   granule-protection-tables-design
