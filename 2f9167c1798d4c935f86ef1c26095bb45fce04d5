@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d9f0e01_b65ab723",
+        "filename": "include/export/common/ep_info_exp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-25T12:57:28Z",
+      "side": 1,
+      "message": "Changes look good.\nJust curious to know, is there any issue in defining EP_REALM_MASK to 0x2 (next after EP_NON_SECURE(0x1)) and EP_REALM_SHIFT to 0x1, and then shift the rest of the defines accordingly(I am not sure complexity of doing this)?\nIt looks good if security state defines (secure, non-secure, and realm) placed after each other from code readability PoV.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 0
+      },
+      "revId": "2f9167c1798d4c935f86ef1c26095bb45fce04d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
