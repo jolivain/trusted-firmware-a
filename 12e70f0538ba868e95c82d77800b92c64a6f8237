@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7734a458_5304f9c7",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-08-25T13:41:06Z",
+      "side": 1,
+      "message": "These registers are 32 bits so I think the mask should be 0xffffffff\nAlso\nNit: It looks like the hex in this file is lower case. Would you mind changing for consistency?",
+      "range": {
+        "startLine": 721,
+        "startChar": 30,
+        "endLine": 721,
+        "endChar": 36
+      },
+      "revId": "12e70f0538ba868e95c82d77800b92c64a6f8237",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93202dca_2651f55a",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1006,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-08-25T13:41:06Z",
+      "side": 1,
+      "message": "I think only bits 0-3 are writable for this register so should the mask be 0xf?",
+      "range": {
+        "startLine": 1006,
+        "startChar": 8,
+        "endLine": 1006,
+        "endChar": 31
+      },
+      "revId": "12e70f0538ba868e95c82d77800b92c64a6f8237",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
