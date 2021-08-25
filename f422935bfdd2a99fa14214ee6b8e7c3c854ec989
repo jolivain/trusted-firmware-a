@@ -16,6 +16,24 @@
       "message": "\u003e Patch Set 5: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 1076 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/1076/)\n\u003e Some tests failed (3)\n\nFailures are unrelated to this platform.\n\n@Manish, @Pali - do you have any objections to the updated version (and the new preceding commit)? It would be great to have those landed.",
       "revId": "f422935bfdd2a99fa14214ee6b8e7c3c854ec989",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a973eb4_0453b076",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-08-25T14:29:43Z",
+      "side": 1,
+      "message": "I would like to hear what Manish thinks about inconsistency in platform names (about which I wrote in previous comments).\n\nOtherwise current approach of sharing code looks good.",
+      "parentUuid": "a6a43e37_f821577e",
+      "revId": "f422935bfdd2a99fa14214ee6b8e7c3c854ec989",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
