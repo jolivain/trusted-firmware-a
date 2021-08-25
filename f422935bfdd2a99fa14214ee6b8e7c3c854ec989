@@ -70,6 +70,24 @@
       "parentUuid": "af29c6e3_3970277c",
       "revId": "f422935bfdd2a99fa14214ee6b8e7c3c854ec989",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c16b813_4bc1e4b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000104
+      },
+      "writtenOn": "2021-08-25T18:18:07Z",
+      "side": 1,
+      "message": "Ok, you won. I\u0027m entirely against `t9130*` (it differs from the actual SoC name, product name, edk2 and device tree), but TF-A remains the last FW component awaiting upstream merge, so in order to push the things forward I\u0027ll resubmit with `t9130_cex7_eval` as PLAT and will create a follow-up update to mv-ddr (`cn913x_cex7_eval` is already merged there).",
+      "parentUuid": "5c308de1_eac0c737",
+      "revId": "f422935bfdd2a99fa14214ee6b8e7c3c854ec989",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
