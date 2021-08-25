@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58cd0fde_c2da0fa1",
+        "filename": "plat/xilinx/versal/pm_service/pm_client.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-25T11:54:18Z",
+      "side": 1,
+      "message": "I wonder if the proper correction for that shouldn\u0027t be to modify the zeromem function prototype in include/lib/utils.h, to use a size_t instead of an u_register_t. The comments in asm files (lib/aarch32/misc_helpers.S and lib/aarch64/misc_helpers.S) should be updated too.\n90% of the cases, zeromem is used with a sizeof.\nBut that will require TF-A maintainers agreement.",
+      "revId": "2fdb3d0bce4ebfac64ab9038860be4cfa570d300",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
