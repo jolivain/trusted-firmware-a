@@ -42,6 +42,9 @@
 #define FFA_PARTITION_DIRECT_REQ_SEND 	U(1 << 1)
 #define FFA_PARTITION_INDIRECT_MSG	U(1 << 2)
 
+#define FFA_PAGE_SIZE (4096)
+#define FFA_RXTX_PAGE_COUNT_MASK 0x1F
+
 /*
  * Runtime states of an execution context as per the FF-A v1.1 specification.
  */
