@@ -16,6 +16,24 @@
       "message": "pm_register_sgi() return int but is assigned to ret which is an enum. Can you rather do something like this?\n\nif(pm_register_sgi(arg1) !\u003d 0) {\n      return PM_RET_ERROR_ARGS;\n}",
       "revId": "a8f6ed69f4048e7352ea978cd843247974df13fd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0177c016_cd4fe7f8",
+        "filename": "plat/xilinx/versal/pm_service/pm_api_sys.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1000534
+      },
+      "writtenOn": "2021-08-25T09:10:51Z",
+      "side": 1,
+      "message": "I add this changes in patch-set 3.",
+      "parentUuid": "456288bf_72a4c129",
+      "revId": "a8f6ed69f4048e7352ea978cd843247974df13fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
