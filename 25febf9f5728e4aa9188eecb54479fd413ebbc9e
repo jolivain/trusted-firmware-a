@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9549979f_5e2f6804",
+        "filename": "plat/xilinx/versal/pm_service/pm_client.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-25T12:19:05Z",
+      "side": 1,
+      "message": "this may not be required as mmio_read_32() already return an uint32_t",
+      "range": {
+        "startLine": 179,
+        "startChar": 31,
+        "endLine": 179,
+        "endChar": 41
+      },
+      "revId": "25febf9f5728e4aa9188eecb54479fd413ebbc9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88b68c87_5c628318",
+        "filename": "plat/xilinx/versal/pm_service/pm_client.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-25T12:19:05Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 199,
+        "startChar": 31,
+        "endLine": 199,
+        "endChar": 41
+      },
+      "revId": "25febf9f5728e4aa9188eecb54479fd413ebbc9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a877e8f_af13415d",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-08-25T12:19:05Z",
+      "side": 1,
+      "message": "That looks weird, pm_up is a boolean. So the change shouldn\u0027t be necessary. But maybe I\u0027ve missed something in this MISRA rule.",
+      "revId": "25febf9f5728e4aa9188eecb54479fd413ebbc9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
