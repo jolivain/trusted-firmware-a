@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "71bfd6d9_807779e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000464
+      },
+      "writtenOn": "2021-08-25T02:08:21Z",
+      "side": 1,
+      "message": "Some configuration which i think is relative about this issue:\nWe use haps no real HW, is compatible with ARMv8.6, BL31 run at DRAM（PLAT_ARM_DRAM1_BASE） with attribute：\n#define SOC_CSS_MAP_DRAM_REMOTE_CHIP(n)\t\t\t\t\\\n\t\t\tMAP_REGION_FLAT(\t\t\t\\\n\t\t\t\tCSS_SGI_REMOTE_CHIP_MEM_OFFSET(n) +\\\n\t\t\t\tPLAT_ARM_DRAM1_BASE,\t\t\\\n\t\t\t\tPLAT_ARM_DRAM1_SIZE,\t\t\\\n\t\t\t\tMT_MEMORY | MT_RW | MT_NS\t\\\n\t\t\t)\n\nI am not sure which cache configuration is relative. The L3 caches is connect to CMN. AFAIK, no extra cache opt is requires.\n\nTest scenario:\nRegister a SPI(115) for error inject(ACPI:EINJ) with PLAT_RAS_PRI priority and other SPI for RAS.\n1 Use EINJ to tigger 115 interrupt and enter TF-A and then enter MM to inject a PCIe error, and delay about 1.5 second for injecting error.\n2 While the first core still in MM, the second core enter TF-A because PCIe error, and need enter MM for handling RAS.\n3 the second core wait in sp_state_wait_switch() for ever and the first core can\u0027t acquire the spin_lock for changing state.",
+      "parentUuid": "2f2d26e0_72083572",
+      "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c9ab388_ff39704d",
         "filename": "services/std_svc/spm_mm/spm_mm_main.c",
         "patchSetId": 1
