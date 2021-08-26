@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "147d5761_97448c84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-08-26T11:26:04Z",
+      "side": 1,
+      "message": "\u003e Patch Set 5:\n\u003e \n\u003e Build Started https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l2/2237/\n\nFew failures passed on re-triggering. \nRegarding static check failure, new files added as a part of this patchset are already covered as part of fvp-default build in tf-cov-make.",
+      "revId": "cd3f0ae6f855b2998bc09e5c3a458528c92acb90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
