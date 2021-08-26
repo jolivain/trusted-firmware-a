@@ -124,6 +124,24 @@
       "parentUuid": "b0154203_adf54c20",
       "revId": "f422935bfdd2a99fa14214ee6b8e7c3c854ec989",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c138ee6a_7ec0d57a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000104
+      },
+      "writtenOn": "2021-08-26T02:25:57Z",
+      "side": 1,
+      "message": "Thank you for your interest and all inputs.\n\n\u003e Ad mv-ddr: mv-ddr-marvell\u0027s Makefile is using \u0027ifneq ($(findstring t9130, $(PLATFORM)),)\u0027 checking. Therefore it matches also t9130_cex7_eval. But does not cn913x_cex7_eval.\n\u003e \n\u003e I see that same logic is used for A80x0: \u0027ifneq ($(findstring a80x0,$(PLATFORM)),)\u0027. So it matches all supported A80x0 TF-A platforms (a80x0, a80x0_mcbin, a80x0_puzzle).\n\u003e \n\u003e So it means that mv-ddr-marvell is already prepared for this t9130_* naming style...\n\nThis indeed works, thanks.",
+      "parentUuid": "43b93dab_954e3205",
+      "revId": "f422935bfdd2a99fa14214ee6b8e7c3c854ec989",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
