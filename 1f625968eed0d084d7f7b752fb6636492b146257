@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eea322a1_ec1b92e1",
+        "filename": "plat/xilinx/versal/bl31_versal_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-26T23:40:20Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem like it really changes anything. I believe the rationale behind this particular MISRA rule is that in the case of some unexpected data that is not caught by an \"else if\" block, the code does not just continue on assuming all is well.\n\nIf it is possible for no console to exist in the system, just adding an empty else block at the end would be a good solution, as that explicitly tells the reader that the programmer has considered the possibility and determined that nothing needs to be done.  Or if all systems should have a console, then an else with a panic in it would work.\n\nIt\u0027s your call, if you\u0027d like to leave it as is I\u0027ll +1 this patch as the current changes will work just fine, I just thought I\u0027d ask first.",
+      "revId": "1f625968eed0d084d7f7b752fb6636492b146257",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
