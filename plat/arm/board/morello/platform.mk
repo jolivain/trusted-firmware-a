@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2020, Arm Limited. All rights reserved.
+# Copyright (c) 2020-2021, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -61,6 +61,10 @@ HW_ASSISTED_COHERENCY			:=	1
 # When building for systems with hardware-assisted coherency, there's no need to
 # use USE_COHERENT_MEM. Require that USE_COHERENT_MEM must be set to 0 too.
 USE_COHERENT_MEM			:=	0
+
+# Add PLAT_FVP flag to differentiate between Morello FVP and Morello SoC platform
+$(eval $(call assert_boolean,PLAT_FVP))
+$(eval $(call add_define,PLAT_FVP))
 
 include plat/arm/common/arm_common.mk
 include plat/arm/css/common/css_common.mk
