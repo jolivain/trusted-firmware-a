@@ -215,15 +215,15 @@ void xlat_tables_print(xlat_ctx_t *ctx)
 		assert(ctx->xlat_regime == EL3_REGIME);
 		xlat_regime_str = "3";
 	}
-	VERBOSE("Translation tables state:\n");
-	VERBOSE("  Xlat regime:     EL%s\n", xlat_regime_str);
-	VERBOSE("  Max allowed PA:  0x%llx\n", ctx->pa_max_address);
-	VERBOSE("  Max allowed VA:  0x%lx\n", ctx->va_max_address);
-	VERBOSE("  Max mapped PA:   0x%llx\n", ctx->max_pa);
-	VERBOSE("  Max mapped VA:   0x%lx\n", ctx->max_va);
+	printf("VERBOSE: Translation tables state:\n");
+	printf("VERBOSE:   Xlat regime:     EL%s\n", xlat_regime_str);
+	printf("VERBOSE:   Max allowed PA:  0x%llx\n", ctx->pa_max_address);
+	printf("VERBOSE:   Max allowed VA:  0x%lx\n", ctx->va_max_address);
+	printf("VERBOSE:   Max mapped PA:   0x%llx\n", ctx->max_pa);
+	printf("VERBOSE:   Max mapped VA:   0x%lx\n", ctx->max_va);
 
-	VERBOSE("  Initial lookup level: %u\n", ctx->base_level);
-	VERBOSE("  Entries @initial lookup level: %u\n",
+	printf("VERBOSE:  Initial lookup level: %u\n", ctx->base_level);
+	printf("VERBOSE:  Entries @initial lookup level: %u\n",
 		ctx->base_table_entries);
 
 #if PLAT_XLAT_TABLES_DYNAMIC
@@ -235,7 +235,7 @@ void xlat_tables_print(xlat_ctx_t *ctx)
 #else
 	used_page_tables = ctx->next_table;
 #endif
-	VERBOSE("  Used %d sub-tables out of %d (spare: %d)\n",
+	printf("VERBOSE:  Used %d sub-tables out of %d (spare: %d)\n",
 		used_page_tables, ctx->tables_num,
 		ctx->tables_num - used_page_tables);
 

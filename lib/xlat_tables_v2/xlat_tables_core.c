@@ -1222,7 +1222,7 @@ void __init init_xlat_tables_ctx(xlat_ctx_t *ctx)
 				   ctx->base_table_entries * sizeof(uint64_t));
 #endif
 		if (end_va != (mm->base_va + mm->size - 1U)) {
-			ERROR("Not enough memory to map region:\n"
+			printf("ERROR: Not enough memory to map region:\n"
 			      " VA:0x%lx  PA:0x%llx  size:0x%zx  attr:0x%x\n",
 			      mm->base_va, mm->base_pa, mm->size, mm->attr);
 			panic();
