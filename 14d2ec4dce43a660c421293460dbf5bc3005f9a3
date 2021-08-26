@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70eeaf6b_4ee4a8f0",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-26T10:34:47Z",
+      "side": 1,
+      "message": "partnum?",
+      "range": {
+        "startLine": 397,
+        "startChar": 33,
+        "endLine": 397,
+        "endChar": 39
+      },
+      "revId": "14d2ec4dce43a660c421293460dbf5bc3005f9a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28027395_6793f156",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-26T10:34:47Z",
+      "side": 1,
+      "message": "Can we introduce a macro to describe the offset?",
+      "range": {
+        "startLine": 399,
+        "startChar": 35,
+        "endLine": 399,
+        "endChar": 41
+      },
+      "revId": "14d2ec4dce43a660c421293460dbf5bc3005f9a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c57c736_8eeade2d",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-26T10:34:47Z",
+      "side": 1,
+      "message": "Ideally, it would be great to use macros instead of magic numbers.",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 408,
+        "endChar": 55
+      },
+      "revId": "14d2ec4dce43a660c421293460dbf5bc3005f9a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
