@@ -1,0 +1,659 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94ac1246_d759cffc",
+        "filename": "bl31/aarch64/bl31_entrypoint.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "nit: extra space",
+      "range": {
+        "startLine": 54,
+        "startChar": 64,
+        "endLine": 54,
+        "endChar": 65
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0791ed81_aaf78657",
+        "filename": "bl31/aarch64/bl31_entrypoint.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "nit: extra space",
+      "range": {
+        "startLine": 72,
+        "startChar": 64,
+        "endLine": 72,
+        "endChar": 65
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45b31195_a2f41a10",
+        "filename": "lib/xlat_mpu/aarch64/enable_mpu.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "Seems like this would be easier to read to have the func and endfunc lines indented differently than the code.",
+      "range": {
+        "startLine": 15,
+        "startChar": 1,
+        "endLine": 15,
+        "endChar": 27
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efa81f07_3e735e86",
+        "filename": "lib/xlat_mpu/aarch64/xlat_mpu_arch.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "I think our misra rules require braces around the contents of if/else blocks even if there\u0027s only one line of code.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 33
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ebae958_2594074b",
+        "filename": "lib/xlat_mpu/ro_xlat_mpu.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "nit: currently",
+      "range": {
+        "startLine": 13,
+        "startChar": 43,
+        "endLine": 13,
+        "endChar": 50
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbd4a816_ae18dd9c",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "Just curious, why are addresses are passed as both unsigned long long and uintptr_t instead of just one or the other?",
+      "range": {
+        "startLine": 32,
+        "startChar": 21,
+        "endLine": 32,
+        "endChar": 58
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87af396e_c3170004",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "nit: The other long comments in this file have an empty line after the first /*.",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 3
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4e82013_7bad6f1b",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "nit: over 80 chars",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 95
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0998bba9_0e275257",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "Please use braces on if statements even if the contents are only one line, per misra rules.",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14819e3d_aa26354e",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 48,
+        "startChar": 16,
+        "endLine": 48,
+        "endChar": 17
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8034ccc_f1d545f1",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 61,
+        "startChar": 16,
+        "endLine": 61,
+        "endChar": 17
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e2777e5_fada3644",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "1U",
+      "range": {
+        "startLine": 95,
+        "startChar": 13,
+        "endLine": 95,
+        "endChar": 14
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cd8f281_401fb02e",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 120,
+        "startChar": 28,
+        "endLine": 120,
+        "endChar": 29
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5427952d_11162665",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "Should this be a #define somewhere? It looks like its being used to mask a bitfield.",
+      "range": {
+        "startLine": 132,
+        "startChar": 44,
+        "endLine": 132,
+        "endChar": 45
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9cdd76f_07786dbe",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "64U/0U",
+      "range": {
+        "startLine": 181,
+        "startChar": 23,
+        "endLine": 181,
+        "endChar": 24
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b48f35ff_5685b19e",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "braces",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16452847_6d129935",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "I think just casting to uint64_t should be enough, or just declaring as 0UL.",
+      "range": {
+        "startLine": 413,
+        "startChar": 30,
+        "endLine": 413,
+        "endChar": 32
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2460e96d_06445e90",
+        "filename": "lib/xlat_mpu/xlat_mpu_private.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "These would be easier to read if indented.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 0
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f069c78_32ac9bf7",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 126,
+        "startChar": 28,
+        "endLine": 126,
+        "endChar": 29
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bd0eac3_a28b7a8a",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 144,
+        "startChar": 50,
+        "endLine": 144,
+        "endChar": 51
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfc625fa_183256eb",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "This might be better as a definition since it looks like we\u0027re using it as a bitmask for a register field.",
+      "range": {
+        "startLine": 144,
+        "startChar": 44,
+        "endLine": 144,
+        "endChar": 45
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cded8f6b_1ee3095d",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 207,
+        "startChar": 28,
+        "endLine": 207,
+        "endChar": 29
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13f07105_00e5feda",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 235,
+        "startChar": 44,
+        "endLine": 235,
+        "endChar": 45
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d901889_7d25bdc6",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 284,
+        "startChar": 28,
+        "endLine": 284,
+        "endChar": 29
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0846cc8b_3ed08000",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 325,
+        "startChar": 44,
+        "endLine": 325,
+        "endChar": 45
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a9d215d_7498d13f",
+        "filename": "plat/arm/board/fvp_r/fvp_r_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "What is the purpose of placing this definition within a C file and not using it? Could this be done using the make system?",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 28
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5964ad66_23e31539",
+        "filename": "plat/arm/board/fvp_r/fvp_r_debug.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "Should this use the func and endfunc notation?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 9
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24e871dc_46d4b3dc",
+        "filename": "plat/arm/board/fvp_r/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "This is also defined in platform.mk, does it need to be here as well or can it be handled by the build system?",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27ae7eff_df99275f",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-27T01:00:37Z",
+      "side": 1,
+      "message": "Please make the formatting here consistent with the rest of the file, ie use tabs instead of spaces for indents and make the lines fit in 80 char limit.",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 5
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
