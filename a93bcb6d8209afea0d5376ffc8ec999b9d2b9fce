@@ -16,6 +16,24 @@
       "message": "A lot of false fails and what seems to be network issues with cloning:\n\nERROR: Error cloning remote repo \u0027origin\u0027",
       "revId": "a93bcb6d8209afea0d5376ffc8ec999b9d2b9fce",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "218e300f_c289424c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-08-27T15:22:11Z",
+      "side": 1,
+      "message": "Thanks Mark. What would be the next step? The code from this patch is disabled by default, so we shouldnt see any build failures ideally.",
+      "parentUuid": "55876a2c_b77fa6f6",
+      "revId": "a93bcb6d8209afea0d5376ffc8ec999b9d2b9fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
