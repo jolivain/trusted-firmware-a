@@ -163,6 +163,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d02c0d8a_c518df3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-08-29T16:09:01Z",
+      "side": 1,
+      "message": "Yep, that definitely sounds like a coherency issue. If the second core acquires the spin lock and releases it in a loop (that\u0027s what sp_state_wait_switch() does) and the first core cannot acquire the spin lock it usually means coherency issue, or that the spin lock loop is so tight that the memory location for the spin lock gets bounced around that no forward progress is being made...\nTo eliminate the latter, can you put a few milliseconds of sleep in sp_state_wait_switch before the lock is acquired or lock is released? If there is a hang after that, this would definitely seem like a coherency issue (specially given that bakery locks are working).\nWe would need some debugger that can view cache state...or perhaps \"haps\", which i\u0027m not familiar with, has an option to turn off cache modeling...",
+      "parentUuid": "71bfd6d9_807779e9",
+      "revId": "ebb97f97e22476bff3e40ef4ab56518ffc48e0f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c9ab388_ff39704d",
         "filename": "services/std_svc/spm_mm/spm_mm_main.c",
         "patchSetId": 1
