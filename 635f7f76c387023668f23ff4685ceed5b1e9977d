@@ -16,6 +16,24 @@
       "message": "This seems like something that is platform specific. Can you disassemble and pin point the exact instruction that is causing the issue? not sure why printf would generate an exclusive or atomic instruciton. There appears to be no such code...and is this with some specific compiler?",
       "revId": "635f7f76c387023668f23ff4685ceed5b1e9977d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68f23dae_d49409e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000492
+      },
+      "writtenOn": "2021-08-29T17:03:53Z",
+      "side": 1,
+      "message": "I\u0027m sorry， It\u0027s my fault, someone add a spin lock to tf_log function in my platform, I will abandon this patch. Sorry for disturb.",
+      "parentUuid": "0fc5be5a_09e485b1",
+      "revId": "635f7f76c387023668f23ff4685ceed5b1e9977d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
