@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fc5be5a_09e485b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-08-29T15:48:31Z",
+      "side": 1,
+      "message": "This seems like something that is platform specific. Can you disassemble and pin point the exact instruction that is causing the issue? not sure why printf would generate an exclusive or atomic instruciton. There appears to be no such code...and is this with some specific compiler?",
+      "revId": "635f7f76c387023668f23ff4685ceed5b1e9977d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
