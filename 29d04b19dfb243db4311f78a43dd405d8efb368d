@@ -618,6 +618,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e3cbddd6_bb03b7c6",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-30T23:17:36Z",
+      "side": 1,
+      "message": "After seeing your explanation I agree that just using 1 is as good as it\u0027s going to get.",
+      "parentUuid": "7d6f7a28_159ae047",
+      "range": {
+        "startLine": 132,
+        "startChar": 44,
+        "endLine": 132,
+        "endChar": 45
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c9cdd76f_07786dbe",
         "filename": "lib/xlat_mpu/xlat_mpu_core.c",
         "patchSetId": 3
@@ -653,6 +677,30 @@
       "side": 1,
       "message": "Ah, good catch, thanks.  This one was *not* inherited from xlat_tables_v2.\n\nAgain, I\u0027m thinking ULL?",
       "parentUuid": "c9cdd76f_07786dbe",
+      "range": {
+        "startLine": 181,
+        "startChar": 23,
+        "endLine": 181,
+        "endChar": 24
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75d2840e_298a2d2f",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-30T23:17:36Z",
+      "side": 1,
+      "message": "I don\u0027t think it really matters whether U or ULL is used here, I tend to use just U and let the compiler take care of making it wider if needed (and misra doesn\u0027t seem to care about widths so long as signed or unsigned matches) but since base_pa is unsigned long long then ULL would probably be the most consistent one to use.",
+      "parentUuid": "b9fdbda9_fc00a056",
       "range": {
         "startLine": 181,
         "startChar": 23,
@@ -782,6 +830,30 @@
       "side": 1,
       "message": "I presume you mean?\n\n#define PRBAR_SH_SHIFT\t\tUL(4)\n#define PRBAR_SH_MASK \t\tUL(0x3)\n#define PRBAR_AP_SHIFT \t\tUL(2)\n#define PRBAR_AP_MASK \t\tUL(0x3)\n...",
       "parentUuid": "2460e96d_06445e90",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 0
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0483a40_f8767580",
+        "filename": "lib/xlat_mpu/xlat_mpu_private.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-30T23:17:36Z",
+      "side": 1,
+      "message": "What I mean is having all of the names lined up in one column and then tabs added so that the values are all in the same column.\n\n#define PRBAR_SH_SHIFT\t\tUL(4)\n#define PRBAR_SH_MASK\t\tUL(0x3)\n#define PRBAR_AP_SHIFT\t\tUL(2)\n#define PRBAR_AP_MASK\t\tUL(0x3)\n...",
+      "parentUuid": "77b4d366_a6da686d",
       "range": {
         "startLine": 40,
         "startChar": 0,
@@ -1146,6 +1218,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9b8d08b_0c23810c",
+        "filename": "plat/arm/board/fvp_r/fvp_r_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-30T23:17:36Z",
+      "side": 1,
+      "message": "Ah okay, thanks for the clarification.",
+      "parentUuid": "e9a54dd8_4a7d7002",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 28
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5964ad66_23e31539",
         "filename": "plat/arm/board/fvp_r/fvp_r_debug.S",
         "patchSetId": 3
@@ -1181,6 +1277,30 @@
       "side": 1,
       "message": "el3_panic, which this is semi-cloned from, is directly branched to rather than \"bl\"ed to.\n\nThat being said though, el2_panic may no longer be needed;  I\u0027m not seeing any jumps to it.",
       "parentUuid": "5964ad66_23e31539",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 9
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fe7554d_4081ac05",
+        "filename": "plat/arm/board/fvp_r/fvp_r_debug.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-30T23:17:36Z",
+      "side": 1,
+      "message": "Ah okay, thanks for the explanation.",
+      "parentUuid": "9f91ad78_919ef884",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -1228,6 +1348,30 @@
       "side": 1,
       "message": "So, just checking (i.e., trying to recall):  does NO_EL3 :\u003d 1 in platform.mk -D an actual preprocessor label to that value or does it only set a makefile variable, (i.e., not visible to the C preprocessor) to that value ?",
       "parentUuid": "24e871dc_46d4b3dc",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "498b666e_856dcdb0",
+        "filename": "plat/arm/board/fvp_r/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-08-30T23:17:36Z",
+      "side": 1,
+      "message": "As it is now it appears to only set a makefile variable but I believe there is a way to set a preprocessor label based on it.  I think adding a line like this might work if placed after the definition in platform.mk.\n\n$(eval $(call add_define,NO_EL3))",
+      "parentUuid": "bd517c21_a39f0f1e",
       "range": {
         "startLine": 10,
         "startChar": 8,
