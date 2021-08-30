@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b597fdb_503f797a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000148
+      },
+      "writtenOn": "2021-08-30T01:53:42Z",
+      "side": 1,
+      "message": "\u003e Patch Set 8: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 1098 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/1098/)\n\u003e Some tests failed (3)\n\nThe build fail seems to be fvp related. I tried to build and run on imx8mm and imx8mp and warp7. There\u0027s no problem on my side.",
+      "revId": "7556c14b6b3a344ace825d3525e60330c6cd9e14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
