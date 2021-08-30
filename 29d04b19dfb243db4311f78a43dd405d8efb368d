@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1f049a0_dc1ae826",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Good comments, John, thanks.  A few questions about a few of them.",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94ac1246_d759cffc",
@@ -70,6 +87,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7a69f11_780d40cc",
+        "filename": "lib/xlat_mpu/aarch64/enable_mpu.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Good suggestion.  This indentation is a carry-over from the original version in xlat_tables_v2.  It looks like it is permissible to put the \"func\" and \"endfunc\" in column 1, so yes, I\u0027ll do that.  Thanks.",
+      "parentUuid": "45b31195_a2f41a10",
+      "range": {
+        "startLine": 15,
+        "startChar": 1,
+        "endLine": 15,
+        "endChar": 27
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efa81f07_3e735e86",
@@ -83,6 +124,30 @@
       "writtenOn": "2021-08-27T01:00:37Z",
       "side": 1,
       "message": "I think our misra rules require braces around the contents of if/else blocks even if there\u0027s only one line of code.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 33
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7411c3f_6ae19510",
+        "filename": "lib/xlat_mpu/aarch64/xlat_mpu_arch.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "IIRC, this was inherited from the original xlat_tables_v2 code, but good catch, I\u0027ll fix that.  Thanks.",
+      "parentUuid": "efa81f07_3e735e86",
       "range": {
         "startLine": 28,
         "startChar": 0,
@@ -116,6 +181,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10d1be50_d916587e",
+        "filename": "lib/xlat_mpu/ro_xlat_mpu.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5ebae958_2594074b",
+      "range": {
+        "startLine": 13,
+        "startChar": 43,
+        "endLine": 13,
+        "endChar": 50
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbd4a816_ae18dd9c",
@@ -129,6 +218,30 @@
       "writtenOn": "2021-08-27T01:00:37Z",
       "side": 1,
       "message": "Just curious, why are addresses are passed as both unsigned long long and uintptr_t instead of just one or the other?",
+      "range": {
+        "startLine": 32,
+        "startChar": 21,
+        "endLine": 32,
+        "endChar": 58
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7766fff_2ad8008a",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "In short, that\u0027s how xlat_tables_v2 types them.  Since code (such as BL1) exists that needs to be able to work with MMU or MPU, I wanted to keep the API as similar as realistically possible.",
+      "parentUuid": "bbd4a816_ae18dd9c",
       "range": {
         "startLine": 32,
         "startChar": 21,
@@ -162,6 +275,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99c54ad1_3eca4f81",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "87af396e_c3170004",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 3
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4e82013_7bad6f1b",
@@ -175,6 +312,30 @@
       "writtenOn": "2021-08-27T01:00:37Z",
       "side": 1,
       "message": "nit: over 80 chars",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 95
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5985b6c7_7f9b5621",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d4e82013_7bad6f1b",
       "range": {
         "startLine": 26,
         "startChar": 0,
@@ -202,6 +363,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b66b9ea_7cc4eb82",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "I think this was also inherited from xlat_tables_v2, but again, good catch.  Thanks.",
+      "parentUuid": "0998bba9_0e275257",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14819e3d_aa26354e",
@@ -215,6 +394,30 @@
       "writtenOn": "2021-08-27T01:00:37Z",
       "side": 1,
       "message": "0U",
+      "range": {
+        "startLine": 48,
+        "startChar": 16,
+        "endLine": 48,
+        "endChar": 17
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef7e4e74_55a28968",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "IIRC, also inherited from xlat_tables_v2, but again good catch!",
+      "parentUuid": "14819e3d_aa26354e",
       "range": {
         "startLine": 48,
         "startChar": 16,
@@ -248,6 +451,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84c1b262_fccaaec1",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d8034ccc_f1d545f1",
+      "range": {
+        "startLine": 61,
+        "startChar": 16,
+        "endLine": 61,
+        "endChar": 17
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e2777e5_fada3644",
@@ -271,6 +498,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cceaf520_39c9214a",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2e2777e5_fada3644",
+      "range": {
+        "startLine": 95,
+        "startChar": 13,
+        "endLine": 95,
+        "endChar": 14
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8cd8f281_401fb02e",
@@ -284,6 +535,30 @@
       "writtenOn": "2021-08-27T01:00:37Z",
       "side": 1,
       "message": "0U",
+      "range": {
+        "startLine": 120,
+        "startChar": 28,
+        "endLine": 120,
+        "endChar": 29
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7249ef02_5e9c31b0",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Again, IIRC, inherited from predecessor code, but again, good catch.  However, I\u0027m thinking 0UL or 0ULL?",
+      "parentUuid": "8cd8f281_401fb02e",
       "range": {
         "startLine": 120,
         "startChar": 28,
@@ -319,6 +594,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d6f7a28_159ae047",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Good thought, but I\u0027m not immediately sure how better to notate this;  I\u0027m open to suggestions.  \n\nPRENR is a bit mask of one bit per MPU region:  Bit 0 means that MPU region 0 is in-use, bit 1 means that MPU region 1 is in-use and so forth.  So this is code is just simply shifting the bit for the region of interest down to the low-order bit and checking whether it\u0027s a 0.\n\nI suppose I could:\n\n#define MPU_REGION_NOT_ENABLED 0\n\nDo you think that would clarify things?\n\nNot sure about the 1 though.  Perhaps I could:\n\n#define LOW_ORDER_BIT_MASK 1\n\nbut I\u0027m thinking that pretty much any competent C programmer knows what \"\u0026 1\" does, and if I #define something for that, it\u0027ll just force them to lose their place in the file to find out what I #defined it to.\n\nThoughts?",
+      "parentUuid": "5427952d_11162665",
+      "range": {
+        "startLine": 132,
+        "startChar": 44,
+        "endLine": 132,
+        "endChar": 45
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c9cdd76f_07786dbe",
         "filename": "lib/xlat_mpu/xlat_mpu_core.c",
         "patchSetId": 3
@@ -330,6 +629,30 @@
       "writtenOn": "2021-08-27T01:00:37Z",
       "side": 1,
       "message": "64U/0U",
+      "range": {
+        "startLine": 181,
+        "startChar": 23,
+        "endLine": 181,
+        "endChar": 24
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9fdbda9_fc00a056",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Ah, good catch, thanks.  This one was *not* inherited from xlat_tables_v2.\n\nAgain, I\u0027m thinking ULL?",
+      "parentUuid": "c9cdd76f_07786dbe",
       "range": {
         "startLine": 181,
         "startChar": 23,
@@ -357,6 +680,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22464a05_bfec464f",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b48f35ff_5685b19e",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16452847_6d129935",
@@ -370,6 +711,30 @@
       "writtenOn": "2021-08-27T01:00:37Z",
       "side": 1,
       "message": "I think just casting to uint64_t should be enough, or just declaring as 0UL.",
+      "range": {
+        "startLine": 413,
+        "startChar": 30,
+        "endLine": 413,
+        "endChar": 32
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08a71250_7238be8f",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "16452847_6d129935",
       "range": {
         "startLine": 413,
         "startChar": 30,
@@ -405,6 +770,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77b4d366_a6da686d",
+        "filename": "lib/xlat_mpu/xlat_mpu_private.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "I presume you mean?\n\n#define PRBAR_SH_SHIFT\t\tUL(4)\n#define PRBAR_SH_MASK \t\tUL(0x3)\n#define PRBAR_AP_SHIFT \t\tUL(2)\n#define PRBAR_AP_MASK \t\tUL(0x3)\n...",
+      "parentUuid": "2460e96d_06445e90",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 0
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7f069c78_32ac9bf7",
         "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
         "patchSetId": 3
@@ -416,6 +805,30 @@
       "writtenOn": "2021-08-27T01:00:37Z",
       "side": 1,
       "message": "0U",
+      "range": {
+        "startLine": 126,
+        "startChar": 28,
+        "endLine": 126,
+        "endChar": 29
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46de15c8_340e7330",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7f069c78_32ac9bf7",
       "range": {
         "startLine": 126,
         "startChar": 28,
@@ -474,6 +887,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bdd95d06_655340f2",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "(See my comment/question from xlat_mpu_core.c.)",
+      "parentUuid": "bfc625fa_183256eb",
+      "range": {
+        "startLine": 144,
+        "startChar": 44,
+        "endLine": 144,
+        "endChar": 45
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66b8c12a_2a732c88",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2bd0eac3_a28b7a8a",
+      "range": {
+        "startLine": 144,
+        "startChar": 50,
+        "endLine": 144,
+        "endChar": 51
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cded8f6b_1ee3095d",
         "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
         "patchSetId": 3
@@ -485,6 +946,30 @@
       "writtenOn": "2021-08-27T01:00:37Z",
       "side": 1,
       "message": "0U",
+      "range": {
+        "startLine": 207,
+        "startChar": 28,
+        "endLine": 207,
+        "endChar": 29
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f099cc7_70e3e72d",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cded8f6b_1ee3095d",
       "range": {
         "startLine": 207,
         "startChar": 28,
@@ -520,6 +1005,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4cde2c82_e54d380b",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Thanks.  And again, same comment/question as that in xlat_mpu_core.c.",
+      "parentUuid": "13f07105_00e5feda",
+      "range": {
+        "startLine": 235,
+        "startChar": 44,
+        "endLine": 235,
+        "endChar": 45
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d901889_7d25bdc6",
         "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
         "patchSetId": 3
@@ -531,6 +1040,30 @@
       "writtenOn": "2021-08-27T01:00:37Z",
       "side": 1,
       "message": "0U",
+      "range": {
+        "startLine": 284,
+        "startChar": 28,
+        "endLine": 284,
+        "endChar": 29
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22fc90bf_a99accb5",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7d901889_7d25bdc6",
       "range": {
         "startLine": 284,
         "startChar": 28,
@@ -589,6 +1122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9a54dd8_4a7d7002",
+        "filename": "plat/arm/board/fvp_r/fvp_r_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "The comment above points out that xlat_mpu re-uses the structs (especially mmap_region_t) defined for the xlat_tables_v2 library, as opposed to those in the xlat_tables library, to describe the memory regions to create.  It seemed a parallel-maintenance risk to create a duplicate header.\n\nIIRC, this #define affects which header gets pulled in from the #include \u003clib/xlat_tables/xlat_tables_compat.h\u003e line below.\n\nIt may be feasible to put this into platform_def.h;  will check.",
+      "parentUuid": "9a9d215d_7498d13f",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 28
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5964ad66_23e31539",
         "filename": "plat/arm/board/fvp_r/fvp_r_debug.S",
         "patchSetId": 3
@@ -600,6 +1157,30 @@
       "writtenOn": "2021-08-27T01:00:37Z",
       "side": 1,
       "message": "Should this use the func and endfunc notation?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 9
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f91ad78_919ef884",
+        "filename": "plat/arm/board/fvp_r/fvp_r_debug.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "el3_panic, which this is semi-cloned from, is directly branched to rather than \"bl\"ed to.\n\nThat being said though, el2_panic may no longer be needed;  I\u0027m not seeing any jumps to it.",
+      "parentUuid": "5964ad66_23e31539",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -635,6 +1216,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd517c21_a39f0f1e",
+        "filename": "plat/arm/board/fvp_r/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "So, just checking (i.e., trying to recall):  does NO_EL3 :\u003d 1 in platform.mk -D an actual preprocessor label to that value or does it only set a makefile variable, (i.e., not visible to the C preprocessor) to that value ?",
+      "parentUuid": "24e871dc_46d4b3dc",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "27ae7eff_df99275f",
         "filename": "plat/arm/common/arm_common.mk",
         "patchSetId": 3
@@ -646,6 +1251,30 @@
       "writtenOn": "2021-08-27T01:00:37Z",
       "side": 1,
       "message": "Please make the formatting here consistent with the rest of the file, ie use tabs instead of spaces for indents and make the lines fit in 80 char limit.",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 5
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aa2f57d_e18fe4ed",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-08-30T16:04:37Z",
+      "side": 1,
+      "message": "Ack.  Looks like my editor converted some tabs to spaces there...",
+      "parentUuid": "27ae7eff_df99275f",
       "range": {
         "startLine": 197,
         "startChar": 0,
