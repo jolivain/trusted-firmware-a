@@ -38,7 +38,12 @@
 #define FFA_WB_TYPE_NOTS2RAM	1
 
 /* FF-A Related helper macros. */
+#define FFA_ID_MASK			U(0xFFFF)
+#define FFA_PARTITION_ID_SHIFT		U(16)
 #define FFA_FEATURES_BIT31_MASK		U(0x1u << 31)
+
+#define FFA_RUN_EP_ID(src_dst_ids) \
+		((src_dst_ids >> FFA_PARTITION_ID_SHIFT) & FFA_ID_MASK)
 
 /* FF-A partition properties values. */
 #define FFA_PARTITION_PROPERTIES_DIR_MSG_REC	U(1 << 0)
