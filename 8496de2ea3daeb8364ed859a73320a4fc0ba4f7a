@@ -52,6 +52,24 @@
       "parentUuid": "54b6360d_42946f4e",
       "revId": "8496de2ea3daeb8364ed859a73320a4fc0ba4f7a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4fb309d_bffbde7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-08-31T10:20:31Z",
+      "side": 1,
+      "message": "In TFTF (as far as I know) we don\u0027t have FCONF and the HW_CONFIG DTB available to retrieve auxiliary AMU counters from, so if we applied this patch we would no longer be able to test these counters.",
+      "parentUuid": "a9f07438_9ebd51dd",
+      "revId": "8496de2ea3daeb8364ed859a73320a4fc0ba4f7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
