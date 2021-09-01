@@ -69,6 +69,24 @@
       "parentUuid": "5007630b_0b27c63c",
       "revId": "a93bcb6d8209afea0d5376ffc8ec999b9d2b9fce",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8884bb48_69f661a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-09-01T13:01:27Z",
+      "side": 1,
+      "message": "So the failed L2 tests passed in the Legacy CI except the static test failures also visible in the OpenCI L1 report:\n\n****** Order of includes on the last patch(es) ******\n\nResult : FAILURE\n\nChecking files modified between patches origin/master and HEAD...\na93bcb6d8:drivers/arm/gic/v3/gic600ae_fmu.c: [\u0027Project includes not in order. Include\n    order should be arch_helpers.h, common/debug.h, drivers/arm/gic600ae_fmu.h, drivers/arm/gicv3.h\u0027]\n\na93bcb6d8:drivers/arm/gic/v3/gic600ae_fmu_helpers.c: [\u0027Project includes not in order.\n    Include order should be arch.h, arch_helpers.h, drivers/arm/gic600ae_fmu.h, drivers/delay_timer.h,\n    lib/mmio.h\u0027]\n\n****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\n\nResult : FAILURE\n\n\nNew source files have been identified in your patch..\ndrivers/arm/gic/v3/gic600ae_fmu.c\ndrivers/arm/gic/v3/gic600ae_fmu_helpers.c\n\n1. Kindly ensure they are updated in the \"tf_cov_make\" build script as \n well to consider them for Coverity Scan analysis.\n\n2. Please ignore if files are already updated. Further the Code Maintainer \n will resolve the issue by taking appropriate action.",
+      "parentUuid": "e89bfede_0c11ea1b",
+      "revId": "a93bcb6d8209afea0d5376ffc8ec999b9d2b9fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
