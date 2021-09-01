@@ -13,6 +13,7 @@
 #include <drivers/delay_timer.h>
 #include <drivers/generic_delay_timer.h>
 #include <lib/extensions/spe.h>
+#include <lib/mmio.h>
 #include <libfdt.h>
 
 #include "fpga_private.h"
@@ -118,18 +119,63 @@ entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 	}
 }
 
-unsigned int plat_get_syscnt_freq2(void)
+/*
+ * Even though we sell the FPGA UART as an SBSA variant, it is actually
+ * a full fledged PL011. So the baudrate divider registers exist.
+ */
+#ifndef UARTIBRD
+#define UARTIBRD	0x024
+#define UARTFBRD	0x028
+#endif
+
+#define round(x, r) ((((x) + ((r) / 2 - 1)) / (r)) * (r))
+
+/*
+ * The FPGAs run most peripherals from one main clock, among them the CPUs,
+ * the arch timer, and the UART baud base clock.
+ * The SCP knows this frequency and programs the UART clock divider for a
+ * 38400 bps baudrate. Recalculate the base input clock from there.
+ */
+static unsigned int fpga_get_system_frequency(void)
 {
 	const void *fdt = (void *)(uintptr_t)FPGA_PRELOADED_DTB_BASE;
-	int node;
+	uint32_t freq;
+	int node, err;
 
+	/*
+	 * If the arch timer DT node has an explicit clock-frequency property
+	 * set, use that, to allow people overriding auto-detection.
+	 */
 	node = fdt_node_offset_by_compatible(fdt, 0, "arm,armv8-timer");
-	if (node < 0) {
-		return FPGA_DEFAULT_TIMER_FREQUENCY;
+	if (node >= 0) {
+		err = fdt_read_uint32(fdt, node, "clock-frequency", &freq);
+		if (err >= 0) {
+			return freq;
+		}
 	}
 
-	return fdt_read_uint32_default(fdt, node, "clock-frequency",
-				       FPGA_DEFAULT_TIMER_FREQUENCY);
+	node = fdt_node_offset_by_compatible(fdt, 0, "arm,pl011");
+	if (node >= 0) {
+		uintptr_t pl011_base;
+
+		err = fdt_get_reg_props_by_index(fdt, node, 0,
+						 &pl011_base, NULL);
+		if (err >= 0) {
+			freq = mmio_read_32(pl011_base + UARTIBRD) << 6;
+			freq += mmio_read_32(pl011_base + UARTFBRD);
+			freq = (freq * 38400 * 16) / 64;
+
+			return round(freq, 250000);
+		}
+	}
+
+	/* No PL011 DT node or calculation failed. */
+	return FPGA_DEFAULT_TIMER_FREQUENCY;
+}
+
+unsigned int plat_get_syscnt_freq2(void)
+{
+	return fpga_get_system_frequency();
 }
 
 static int fpga_dtb_set_commandline(void *fdt, const char *cmdline)
