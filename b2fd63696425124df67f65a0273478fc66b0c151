@@ -50,6 +50,115 @@
       "message": "LGTM from my knowledge of the measured boot support we have with the event log and the PoC environment using the fTPM and OPTEE TA to verify the measured boot behaviour. ",
       "revId": "b2fd63696425124df67f65a0273478fc66b0c151",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4b6f349_fc8e00d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-01T22:27:19Z",
+      "side": 1,
+      "message": "few nitpicks.",
+      "revId": "b2fd63696425124df67f65a0273478fc66b0c151",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be1f89fe_f7416cee",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-01T22:27:19Z",
+      "side": 1,
+      "message": "Just wondering, do we need to give information about how to build TF-A measured boot driver, and few words about its design, in a similar way you specified for OPTEE toolkit and fTPM service?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 6
+      },
+      "revId": "b2fd63696425124df67f65a0273478fc66b0c151",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5cb7da4_c003f729",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-01T22:27:19Z",
+      "side": 1,
+      "message": "nit:s/rigth/right",
+      "range": {
+        "startLine": 11,
+        "startChar": 10,
+        "endLine": 11,
+        "endChar": 15
+      },
+      "revId": "b2fd63696425124df67f65a0273478fc66b0c151",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cbc4c42_bb7c9ad2",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-01T22:27:19Z",
+      "side": 1,
+      "message": "Is it possible to show these components and their interactions in the block diagram?",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 0
+      },
+      "revId": "b2fd63696425124df67f65a0273478fc66b0c151",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87e1bb85_74f18e8b",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-01T22:27:19Z",
+      "side": 1,
+      "message": "nit: remove repeating \u0027to make\u0027",
+      "range": {
+        "startLine": 143,
+        "startChar": 38,
+        "endLine": 143,
+        "endChar": 45
+      },
+      "revId": "b2fd63696425124df67f65a0273478fc66b0c151",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
