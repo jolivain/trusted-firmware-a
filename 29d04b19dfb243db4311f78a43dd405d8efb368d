@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9d4d867_99f0db0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-01T21:05:10Z",
+      "side": 1,
+      "message": "One more question.",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94ac1246_d759cffc",
@@ -640,6 +657,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de07948a_79ad4a5f",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-01T21:05:10Z",
+      "side": 1,
+      "message": "I\u0027ll add a short comment to that effect before these occurrences to clarify what that code is doing.",
+      "parentUuid": "e3cbddd6_bb03b7c6",
+      "range": {
+        "startLine": 132,
+        "startChar": 44,
+        "endLine": 132,
+        "endChar": 45
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9cdd76f_07786dbe",
@@ -701,6 +742,30 @@
       "side": 1,
       "message": "I don\u0027t think it really matters whether U or ULL is used here, I tend to use just U and let the compiler take care of making it wider if needed (and misra doesn\u0027t seem to care about widths so long as signed or unsigned matches) but since base_pa is unsigned long long then ULL would probably be the most consistent one to use.",
       "parentUuid": "b9fdbda9_fc00a056",
+      "range": {
+        "startLine": 181,
+        "startChar": 23,
+        "endLine": 181,
+        "endChar": 24
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa8c48f2_9a4eafb5",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-01T21:05:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "75d2840e_298a2d2f",
       "range": {
         "startLine": 181,
         "startChar": 23,
@@ -854,6 +919,30 @@
       "side": 1,
       "message": "What I mean is having all of the names lined up in one column and then tabs added so that the values are all in the same column.\n\n#define PRBAR_SH_SHIFT\t\tUL(4)\n#define PRBAR_SH_MASK\t\tUL(0x3)\n#define PRBAR_AP_SHIFT\t\tUL(2)\n#define PRBAR_AP_MASK\t\tUL(0x3)\n...",
       "parentUuid": "77b4d366_a6da686d",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 0
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "640428e1_876de042",
+        "filename": "lib/xlat_mpu/xlat_mpu_private.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-01T21:05:10Z",
+      "side": 1,
+      "message": "Right.  Not sure why they showed up misaligned when I pasted them in above.  They look right in the file now.",
+      "parentUuid": "e0483a40_f8767580",
       "range": {
         "startLine": 40,
         "startChar": 0,
@@ -1372,6 +1461,30 @@
       "side": 1,
       "message": "As it is now it appears to only set a makefile variable but I believe there is a way to set a preprocessor label based on it.  I think adding a line like this might work if placed after the definition in platform.mk.\n\n$(eval $(call add_define,NO_EL3))",
       "parentUuid": "bd517c21_a39f0f1e",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db08f875_7f962b2d",
+        "filename": "plat/arm/board/fvp_r/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-01T21:05:10Z",
+      "side": 1,
+      "message": "OK.  So, I\u0027m thinking the #define NO_EL3 1 here is a easier to understand than $(eval $(call add_define,NO_EL3)) in platform.mk?  \"$(eval $(call add_define,NO_EL3))\" sounds kinda cryptic.",
+      "parentUuid": "498b666e_856dcdb0",
       "range": {
         "startLine": 10,
         "startChar": 8,
