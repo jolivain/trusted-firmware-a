@@ -381,16 +381,16 @@ For Cortex-A710, the following errata build flags are defined :
 For Neoverse N2, the following errata build flags are defined :
 
 -  ``ERRATA_N2_2067956``: This applies errata 2067956 workaround to Neoverse-N2
-   CPU. This needs to be enabled only for revision r0p0 of the CPU and is still
-   open.
+   CPU. This needs to be enabled for revision r0p0 of the CPU and is still open.
 
 -  ``ERRATA_N2_2025414``: This applies errata 2025414 workaround to Neoverse-N2
-   CPU. This needs to be enabled only for revision r0p0 of the CPU and is still
-   open.
+   CPU. This needs to be enabled for revision r0p0 of the CPU and is still open.
 
 -  ``ERRATA_N2_2189731``: This applies errata 2189731 workaround to Neoverse-N2
-   CPU. This needs to be enabled only for revision r0p0 of the CPU and is still
-   open.
+   CPU. This needs to be enabled for revision r0p0 of the CPU and is still open.
+
+-  ``ERRATA_N2_2138956``: This applies errata 2138956 workaround to Neoverse-N2
+   CPU. This needs to be enabled for revision r0p0 of the CPU and is still open.
 
 For Cortex-A710, the following errata build flags are defined :
 -  ``ERRATA_A710_2055002``: This applies errata 2055002 workaround to
