@@ -33,6 +33,23 @@
       "message": "Set verified docs builds ok.",
       "revId": "b2fd63696425124df67f65a0273478fc66b0c151",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3eddbae4_692fa518",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-09-01T14:37:19Z",
+      "side": 1,
+      "message": "LGTM from my knowledge of the measured boot support we have with the event log and the PoC environment using the fTPM and OPTEE TA to verify the measured boot behaviour. ",
+      "revId": "b2fd63696425124df67f65a0273478fc66b0c151",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
