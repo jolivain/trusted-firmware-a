@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f020793_f0ca8ac7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-01T16:20:21Z",
+      "side": 1,
+      "message": "LGTM, ",
+      "revId": "bce4827d7681cd56d04940d50fe52d9985054b52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24d1fa52_044f85bc",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-01T16:20:21Z",
+      "side": 1,
+      "message": "can we use weblink \u0027tf-cov-make\u0027_ \u003chttps://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/script/tf-coverity/tf-cov-make\u003e instead and remove previous statement that mentions its path?\nIMO it is easier to follow below examples by opening weblink of tf-cov-make file.",
+      "range": {
+        "startLine": 238,
+        "startChar": 8,
+        "endLine": 238,
+        "endChar": 18
+      },
+      "revId": "bce4827d7681cd56d04940d50fe52d9985054b52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
