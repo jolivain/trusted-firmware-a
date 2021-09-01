@@ -21,6 +21,7 @@
 #include <platform_def.h>
 
 static entry_point_info_t bl33_image_ep_info;
+static unsigned int system_freq;
 volatile uint32_t secondary_core_spinlock;
 
 uintptr_t plat_get_ns_image_entrypoint(void)
@@ -175,7 +176,35 @@ static unsigned int fpga_get_system_frequency(void)
 
 unsigned int plat_get_syscnt_freq2(void)
 {
-	return fpga_get_system_frequency();
+	if (system_freq == 0U)
+		system_freq = fpga_get_system_frequency();
+
+	return system_freq;
+}
+
+static void fpga_dtb_update_clock(void *fdt, unsigned int freq)
+{
+	uint32_t freq_dtb = fdt32_to_cpu(freq);
+	int node, err;
+
+	node = fdt_node_offset_by_compatible(fdt, 0, "arm,pl011");
+	if (node >= 0) {
+		uint32_t phandle;
+
+		err = fdt_read_uint32(fdt, node, "clocks", &phandle);
+		if (err == 0) {
+			node = fdt_node_offset_by_phandle(fdt, phandle);
+			if (node >= 0) {
+				err = fdt_setprop_inplace(fdt, node,
+							  "clock-frequency",
+							  &freq_dtb,
+							  sizeof(freq_dtb));
+				if (err < 0) {
+					WARN("Could not update DT baud clock frequency\n");
+				}
+			}
+		}
+	}
 }
 
 static int fpga_dtb_set_commandline(void *fdt, const char *cmdline)
@@ -283,6 +312,8 @@ static void fpga_prepare_dtb(void)
 			}
 		}
 	}
+
+	fpga_dtb_update_clock(fdt, system_freq);
 
 	/* Check whether we support the SPE PMU. Remove the DT node if not. */
 	if (!spe_supported()) {
