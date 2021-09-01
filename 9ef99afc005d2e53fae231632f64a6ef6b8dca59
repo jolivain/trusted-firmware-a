@@ -16,6 +16,24 @@
       "message": "nitpick: would an assert be helpful here? Dont we need to check for GIC600AE?\nassert((gicd_iidr_val \u0026 IIDR_MODEL_MASK) \u003d\u003d IIDR_MODEL_ARM_GIC_700);",
       "revId": "9ef99afc005d2e53fae231632f64a6ef6b8dca59",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd13c2ba_5b528076",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-09-01T10:48:58Z",
+      "side": 1,
+      "message": "I changed it into a switch/case, with the default outputting an error and panicking.",
+      "parentUuid": "74e65cd0_8e848dd7",
+      "revId": "9ef99afc005d2e53fae231632f64a6ef6b8dca59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
