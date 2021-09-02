@@ -33,6 +33,23 @@
       "message": "\u003e Patch Set 4: Verified-1 -Code-Review\n\u003e \n\u003e Build Failed \n\u003e \n\u003e https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l1/4365/ : This Jenkins server is not publicly accessible. A core maintainer will let you know if this CI failure is blocking the merge of this patch.\n\nHTTP 502 network error",
       "revId": "c69f815b09ab85d3ace8fd2979ffafb1184ec76c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0d19d25_a4c3d0a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-09-02T15:45:27Z",
+      "side": 1,
+      "message": "\u003e Patch Set 4: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 1133 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/1133/)\n\u003e Some tests failed (6)\n\nunidentified Juno boot issues, deleting the votes, reinstating the Verified+1 vote",
+      "revId": "c69f815b09ab85d3ace8fd2979ffafb1184ec76c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
