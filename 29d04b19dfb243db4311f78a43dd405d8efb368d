@@ -54,6 +54,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21d21d02_3f485770",
+        "filename": "bl1/aarch64/bl1_context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-02T14:00:10Z",
+      "side": 1,
+      "message": "The context management library does not make much sense for a v8-R system with just one security state. It would also avoid allocating redundant context memory for the CPU context since there is only one security state for R-Class CPUs.\n\nIt would be good to get some consensus on this.",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d2b5e6c_9b1a84ef",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-02T14:00:10Z",
+      "side": 1,
+      "message": "NO_EL3 is a misnomer.  AFAICS, the use of this macro can be avoided in most cases.\n\nIf we are changing this code, I think this can be done without any build flag :\n\nif (current_el \u003d\u003d EL3 )\n     read_sctlr_el3\nif (current_el \u003d\u003d EL2 )\n     read_sctlr_el2",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77456324_94321c57",
+        "filename": "bl2/aarch64/bl2_el3_entrypoint.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-02T14:00:10Z",
+      "side": 1,
+      "message": "AS mentioned in my comments, we should separate el3 init from el2 init and not reuse the same macro.",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94ac1246_d759cffc",
         "filename": "bl31/aarch64/bl31_entrypoint.S",
         "patchSetId": 3
@@ -94,6 +145,46 @@
         "endLine": 72,
         "endChar": 65
       },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2d242da_cb84a9b4",
+        "filename": "include/plat/arm/board/common/v2m_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-02T14:00:10Z",
+      "side": 1,
+      "message": "This will introduce circular inclusion problem which we spent lot of time in the past resolving. \n\nThe clean way here is , to have a separate defs file for fvp_r platform.",
+      "range": {
+        "startLine": 10,
+        "startChar": 10,
+        "endLine": 10,
+        "endChar": 22
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0ccad92_b487d39d",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-02T14:00:10Z",
+      "side": 1,
+      "message": "same comment as above.",
       "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -1270,6 +1361,80 @@
         "startChar": 44,
         "endLine": 325,
         "endChar": 45
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "617bbe03_0968a34f",
+        "filename": "plat/arm/board/fvp_r/fvp_r_arch_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-02T14:00:10Z",
+      "side": 1,
+      "message": "Why can we not use the arch_helpers.h file declared globally.",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1595af68_cecb6beb",
+        "filename": "plat/arm/board/fvp_r/fvp_r_arch_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-02T14:00:10Z",
+      "side": 1,
+      "message": "Same names for protection macros is a hazard.",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4680da58_11f93f9b",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_entrypoint.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-02T14:00:10Z",
+      "side": 1,
+      "message": "Why is this file replicated here ?",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbc0b7e6_de047b10",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_entrypoint.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-02T14:00:10Z",
+      "side": 1,
+      "message": "Is this correct ?",
+      "range": {
+        "startLine": 70,
+        "startChar": 3,
+        "endLine": 70,
+        "endChar": 11
       },
       "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
