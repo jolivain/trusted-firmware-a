@@ -51,6 +51,24 @@
       "parentUuid": "b8934387_c853389b",
       "revId": "2c248ade2e958eed33127b4ea767fbb7499f31a7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "907f1926_c6ba94de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-09-02T08:43:26Z",
+      "side": 1,
+      "message": "To cut a long story short a OpenCI performance improvement by the OpenCI providers in adding a new server to the CI Jenkins pool to allow more jobs to run in parallel and so shorten the job duration time has exposed a new bottleneck on git/gerrit servers causing intermittent failures. A ticket has been raised https://linaro.atlassian.net/browse/TFC-171 and they are looking into a temporary fix that may mean disabling the increase of parallel jobs while a longer term fix is sought. \n\nBest advice is try again as it is believed intermittent from other reports depending on load at that instance on the git/gerrit servers.",
+      "parentUuid": "873bef4a_c13ef194",
+      "revId": "2c248ade2e958eed33127b4ea767fbb7499f31a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
