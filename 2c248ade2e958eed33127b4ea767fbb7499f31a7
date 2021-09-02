@@ -69,6 +69,24 @@
       "parentUuid": "873bef4a_c13ef194",
       "revId": "2c248ade2e958eed33127b4ea767fbb7499f31a7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ced04d5_fc009689",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-09-02T09:59:39Z",
+      "side": 1,
+      "message": "@Joanna I checked that file and we dont have a platform that compiles the newly added files. We will have on in the future. So I propose we waive the coverity scan warning for now and revisit once we have a platform.",
+      "parentUuid": "612d0eb8_e76f86cf",
+      "revId": "2c248ade2e958eed33127b4ea767fbb7499f31a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
