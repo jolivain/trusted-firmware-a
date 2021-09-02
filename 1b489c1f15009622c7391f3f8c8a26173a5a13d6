@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "69357b93_09f2a313",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-02T14:21:17Z",
+      "side": 1,
+      "message": "The ACS test suite provides platform/manifest/tgt_tfa_fvp/fvp_spmc_manifest.dts which can be fed on the TF-A command line.\n\nOne easy option is add a possibility for an FVP_TB_FW_CONFIG_DTS option.\n\nA longer term approach we\u0027d like to introduce as requested by other projects is:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10113\n\nI think it may also fit ACS. Let me know.",
+      "parentUuid": "cb98bc94_e8fc11f3",
+      "revId": "1b489c1f15009622c7391f3f8c8a26173a5a13d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "35cb7413_98324dc0",
