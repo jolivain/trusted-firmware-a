@@ -22,6 +22,30 @@
       },
       "revId": "2f9167c1798d4c935f86ef1c26095bb45fce04d5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb6f472f_72d24e58",
+        "filename": "include/export/common/ep_info_exp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-02T14:33:32Z",
+      "side": 1,
+      "message": "Yes, that would have been the ideal scenario. Making the realm state 0x2 would mean shifting all the EP_* to make space for this bit. This has compatibility issues since ep_info is critical in handover from one BL stage to another and this would be a major compatibility break which requires TF to increment the major number. \n\nHence the decision to keep the compatibility and tradeoff readability a bit.",
+      "parentUuid": "1d9f0e01_b65ab723",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 0
+      },
+      "revId": "2f9167c1798d4c935f86ef1c26095bb45fce04d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
