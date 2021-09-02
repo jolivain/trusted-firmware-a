@@ -225,6 +225,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93a89e6d_6a09917d",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-02T13:42:17Z",
+      "side": 1,
+      "message": "Hmm, we would not have this case, since fvp_r is a different platform right ? Either the platform is a v8-A based or v8-R based. The platform files need not be shared between these 2 different architectures. In fact we dont need to have the same APIs names for these 2 architectures since the platform layer is going to be different between them.\n\nThese APIs can be just called mpu_add_region(pa, size, attr);",
+      "parentUuid": "713f069a_e4ea0927",
+      "range": {
+        "startLine": 32,
+        "startChar": 59,
+        "endLine": 32,
+        "endChar": 66
+      },
+      "revId": "94dcb254d0b809a6cd89309e7e524b57e2456dce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c6c79b1_dc635a60",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-02T13:42:17Z",
+      "side": 1,
+      "message": "alloc va may also not be relevant for an MPU system.",
+      "revId": "94dcb254d0b809a6cd89309e7e524b57e2456dce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da5cc5be_f27a9dfe",
         "filename": "lib/xlat_mpu/xlat_mpu_context.c",
         "patchSetId": 2
