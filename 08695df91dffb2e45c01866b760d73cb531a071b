@@ -16,6 +16,24 @@
       "message": "Hi Jiafei\nthis patch stack introduces a new source file [2] that is not currently covered by any existing build configs in coverity. Please refer to the (draft) guidelines here [1] and push a patch to tf-a-ci-scripts\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/11245\n[2] plat/nxp/common/soc_errata/errata.c\n",
       "revId": "08695df91dffb2e45c01866b760d73cb531a071b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ec756af_b449aeb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-09-02T01:16:41Z",
+      "side": 1,
+      "message": "Hi, Madhukar,\n\nI checked that errata.c is indeed built when build bl2.bin, for example the following two build command tf-a-ci-scripts/script/tf-coverity/tf-cov-make, so I don\u0027t know why \"a new source file [2] that is not currently covered by any existing build configs in coverity\"? thanks.\n\n# Platforms for NXP Layerscape\nmake PLAT\u003dlx2160aqds $(common_flags) all\nmake PLAT\u003dlx2160ardb $(common_flags) all\n\nJiafei.",
+      "parentUuid": "b6328ebc_5faf9ffd",
+      "revId": "08695df91dffb2e45c01866b760d73cb531a071b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
