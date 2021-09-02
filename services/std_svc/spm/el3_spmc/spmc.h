@@ -54,6 +54,11 @@
 #define FFA_RXTX_PAGE_COUNT_MASK 0x1F
 
 /*
+ * Defines to allow an SP to subscribe for power management messages
+ */
+#define FFA_PM_MSG_SUB_CPU_OFF		0x1
+
+/*
  * Runtime states of an execution context as per the FF-A v1.1 specification.
  */
 enum sp_runtime_states {
@@ -181,6 +186,12 @@ struct secure_partition_desc {
 	 * Lock to protect the secondary entrypoint update in a SP descriptor.
 	 */
 	spinlock_t secondary_ep_lock;
+
+	/*
+	 * Store whether the SP has subscribed to any power management messages.
+	 */
+	uint16_t pwr_mgmt_msgs;
+
 };
 
 /*
