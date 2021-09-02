@@ -745,6 +745,7 @@ static void initalize_sp_descs(void)
 	for (int i = 0; i < SECURE_PARTITION_COUNT; i++) {
 		sp = &sp_desc[i];
 		sp->sp_id = INV_SP_ID;
+		sp->mailbox.state = MAILBOX_STATE_EMPTY;
 		sp->secondary_ep = 0;
 	}
 }
@@ -760,7 +761,7 @@ static void initalize_ns_ep_descs(void)
 		 * problem in practice.
 		 */
 		ns_ep->ns_ep_id = 0;
-		ns_ep->ffa_version = 0;
+		ns_ep->mailbox.state = MAILBOX_STATE_EMPTY;
 	}
 }
 
