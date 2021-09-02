@@ -16,6 +16,46 @@
       "message": "Hi Team,\n\nPlease add your votes again as I lost it with my latest patch.\n\nBest regards,\nJayanth",
       "revId": "686d70c256f196b4b973a9978c5ff344f83d7b6d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67bbe2b4_a3a88ee2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-09-02T07:01:49Z",
+      "side": 1,
+      "message": "minor comment, other than that LGTM",
+      "revId": "686d70c256f196b4b973a9978c5ff344f83d7b6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9307170f_60240a92",
+        "filename": "docs/process/contributing.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-09-02T07:01:49Z",
+      "side": 1,
+      "message": "nit: missing space",
+      "range": {
+        "startLine": 250,
+        "startChar": 19,
+        "endLine": 250,
+        "endChar": 21
+      },
+      "revId": "686d70c256f196b4b973a9978c5ff344f83d7b6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
