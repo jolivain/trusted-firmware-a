@@ -33,6 +33,24 @@
       "message": "@Joanna @Manish @John can you please review again?",
       "revId": "2c248ade2e958eed33127b4ea767fbb7499f31a7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "612d0eb8_e76f86cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-02T06:57:07Z",
+      "side": 1,
+      "message": "Please add newly introduced files for \u0027Coverity Scan analysis\u0027 by updating tf-cov-make script.\n\nPlease follow detailed guidelines mentioned here:https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/11245/9/docs/process/contributing.rst (this patch soon will get merged)  Thanks!",
+      "parentUuid": "b8934387_c853389b",
+      "revId": "2c248ade2e958eed33127b4ea767fbb7499f31a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
