@@ -159,6 +159,24 @@
       "parentUuid": "77fd6ca8_2f211a3f",
       "revId": "2c248ade2e958eed33127b4ea767fbb7499f31a7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "238931c4_26ac8f6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-09-03T10:38:06Z",
+      "side": 1,
+      "message": "Apologies for being vague. In https://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/script/tf-coverity/coverity_tf_conf.py we can exclude new files if we have a reason.  Sound like for the files added here we don\u0027t today have an ability to build them as needed to do the Coverity check but will in the future? If so list them with a comment so in the future we remember why they are excluded.",
+      "parentUuid": "dbb30369_39949907",
+      "revId": "2c248ade2e958eed33127b4ea767fbb7499f31a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
