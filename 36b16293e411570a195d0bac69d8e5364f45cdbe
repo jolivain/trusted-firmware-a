@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b8c8d8e_07f9b97e",
+        "filename": "bl31/bl31_context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T14:03:06Z",
+      "side": 1,
+      "message": "we could define 2 variants of this fn and avoid the #if here. Same comment for below.",
+      "range": {
+        "startLine": 23,
+        "startChar": 8,
+        "endLine": 23,
+        "endChar": 26
+      },
+      "revId": "36b16293e411570a195d0bac69d8e5364f45cdbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d93e9d71_95c457bd",
+        "filename": "include/lib/el3_runtime/cpu_data.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T14:03:06Z",
+      "side": 1,
+      "message": "The offset should be based on previous offset. This way we avoid having to redefine all the offset below.",
+      "revId": "36b16293e411570a195d0bac69d8e5364f45cdbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36f6676b_fd448aad",
+        "filename": "include/lib/el3_runtime/cpu_data.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T14:03:06Z",
+      "side": 1,
+      "message": "should be a constant which is differentially defined based on RME flag.",
+      "range": {
+        "startLine": 113,
+        "startChar": 19,
+        "endLine": 113,
+        "endChar": 20
+      },
+      "revId": "36b16293e411570a195d0bac69d8e5364f45cdbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2588980_458bc139",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T14:03:06Z",
+      "side": 1,
+      "message": "This is no longer needed I believe. If not, this should be fixed by the component.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 64
+      },
+      "revId": "36b16293e411570a195d0bac69d8e5364f45cdbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edd83fbe_f7a64a8c",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T14:03:06Z",
+      "side": 1,
+      "message": "This check will work for both RME and non RME. The conditional flag can be removed. \n\nThe comment on line 251 can be amended to include Realm state as well.",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 72
+      },
+      "revId": "36b16293e411570a195d0bac69d8e5364f45cdbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b7b88fe_9e5f6978",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T14:03:06Z",
+      "side": 1,
+      "message": "The check can be inversed to avoid having a conditional flag here.",
+      "revId": "36b16293e411570a195d0bac69d8e5364f45cdbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ed783d4_2e4d76fe",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T14:03:06Z",
+      "side": 1,
+      "message": "same comment as above.",
+      "revId": "36b16293e411570a195d0bac69d8e5364f45cdbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00655b08_7d595f5c",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T14:03:06Z",
+      "side": 1,
+      "message": "This is having same effect previously as well ?",
+      "range": {
+        "startLine": 714,
+        "startChar": 0,
+        "endLine": 722,
+        "endChar": 6
+      },
+      "revId": "36b16293e411570a195d0bac69d8e5364f45cdbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "960fde29_3495f05d",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T14:03:06Z",
+      "side": 1,
+      "message": "same effect as previous ?",
+      "range": {
+        "startLine": 739,
+        "startChar": 0,
+        "endLine": 747,
+        "endChar": 23
+      },
+      "revId": "36b16293e411570a195d0bac69d8e5364f45cdbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
