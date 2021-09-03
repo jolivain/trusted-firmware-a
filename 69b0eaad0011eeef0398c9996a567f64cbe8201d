@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc377885_707b98ce",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-03T21:48:19Z",
+      "side": 1,
+      "message": "Coding style guidelines call for using tabs not spaces.",
+      "range": {
+        "startLine": 120,
+        "startChar": 4,
+        "endLine": 120,
+        "endChar": 9
+      },
+      "revId": "69b0eaad0011eeef0398c9996a567f64cbe8201d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b2857c5_8275e20c",
         "filename": "lib/cpus/aarch64/cortex_a710.S",
         "patchSetId": 7
