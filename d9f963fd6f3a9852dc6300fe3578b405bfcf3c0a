@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0eba72c_976bb50d",
+        "filename": "plat/st/common/bl2_stm32_io_storage.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-03T08:48:42Z",
+      "side": 1,
+      "message": "not sure why it is unused? it is getting used unconditionally at line no. 448.",
+      "range": {
+        "startLine": 444,
+        "startChar": 5,
+        "endLine": 444,
+        "endChar": 23
+      },
+      "revId": "d9f963fd6f3a9852dc6300fe3578b405bfcf3c0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e70c696a_a79a1fed",
+        "filename": "plat/st/common/bl2_stm32_io_storage.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-03T08:48:42Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 489,
+        "startChar": 15,
+        "endLine": 489,
+        "endChar": 23
+      },
+      "revId": "d9f963fd6f3a9852dc6300fe3578b405bfcf3c0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8260410_5017227c",
+        "filename": "plat/st/common/bl2_stm32_io_storage.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-03T08:48:42Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 534,
+        "startChar": 15,
+        "endLine": 534,
+        "endChar": 23
+      },
+      "revId": "d9f963fd6f3a9852dc6300fe3578b405bfcf3c0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44ab2aa2_64e93887",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-03T08:48:42Z",
+      "side": 1,
+      "message": "nit: add /* STM32MP_USE_STM32IMAGE */, in all other places in this series.",
+      "revId": "d9f963fd6f3a9852dc6300fe3578b405bfcf3c0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
