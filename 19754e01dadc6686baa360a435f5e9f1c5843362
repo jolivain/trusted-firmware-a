@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3d15f19_1f39304c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T12:46:18Z",
+      "side": 1,
+      "message": "Minor comments on shift values used.",
+      "revId": "19754e01dadc6686baa360a435f5e9f1c5843362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee563848_04be35d7",
+        "filename": "include/lib/xlat_tables/xlat_tables.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T12:46:18Z",
+      "side": 1,
+      "message": "Add an error for RME else this is confusing. If legacy xlat_tables are used with RME we should trigger a built error here.",
+      "revId": "19754e01dadc6686baa360a435f5e9f1c5843362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e430aea_4631ddf1",
+        "filename": "include/lib/xlat_tables/xlat_tables_v2.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T12:46:18Z",
+      "side": 1,
+      "message": "Changing the shift in xlat_table should not have any compatibility issue. So you could keep the PAS shift as 0x4 and define the mask as 0x3. All the shift after that should be shifted accordingly (MT_EXECUTE_SHIFT, MT_USER_SHIFT, MT_USER_SHIFT, MT_SHAREABILITY_SHIFT).",
+      "range": {
+        "startLine": 75,
+        "startChar": 22,
+        "endLine": 75,
+        "endChar": 26
+      },
+      "revId": "19754e01dadc6686baa360a435f5e9f1c5843362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03638706_e8041f9e",
+        "filename": "lib/xlat_tables_v2/aarch64/xlat_tables_arch.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T12:46:18Z",
+      "side": 1,
+      "message": "add a comment here to say TTD.NSE \u003d 1 and TTD.NS \u003d 0 for Root PAS.",
+      "revId": "19754e01dadc6686baa360a435f5e9f1c5843362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15677e69_3c0b38c6",
+        "filename": "lib/xlat_tables_v2/aarch64/xlat_tables_arch.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T12:46:18Z",
+      "side": 1,
+      "message": "A comment on similar lines as above will be useful.",
+      "revId": "19754e01dadc6686baa360a435f5e9f1c5843362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fc2fa2e_a8b0fab0",
+        "filename": "lib/xlat_tables_v2/xlat_tables_core.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-03T12:46:18Z",
+      "side": 1,
+      "message": "If the shift are not changing for RME flag, then possibly we can have a single function invocation xlat_arch_get_pas() here. The function can then implement different behaviour depending on whether RME is present or not.",
+      "revId": "19754e01dadc6686baa360a435f5e9f1c5843362",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
