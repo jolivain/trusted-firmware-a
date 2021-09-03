@@ -88,6 +88,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5df69c2d_2edbdb61",
+        "filename": "bl1/aarch64/bl1_context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-03T00:51:01Z",
+      "side": 1,
+      "message": "Hmmm, interesting observation.  I\u0027ll have to think about that.",
+      "parentUuid": "21d21d02_3f485770",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d2b5e6c_9b1a84ef",
         "filename": "bl1/bl1_main.c",
         "patchSetId": 3
@@ -99,6 +117,24 @@
       "writtenOn": "2021-09-02T14:00:10Z",
       "side": 1,
       "message": "NO_EL3 is a misnomer.  AFAICS, the use of this macro can be avoided in most cases.\n\nIf we are changing this code, I think this can be done without any build flag :\n\nif (current_el \u003d\u003d EL3 )\n     read_sctlr_el3\nif (current_el \u003d\u003d EL2 )\n     read_sctlr_el2",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eebf22e_3290afbf",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-03T00:51:01Z",
+      "side": 1,
+      "message": "So, in short, you\u0027d prefer run-time checks over a build-time checks for this?  That is certainly an option.",
+      "parentUuid": "8d2b5e6c_9b1a84ef",
       "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -143,6 +179,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da39d3dc_1bcdc1cf",
+        "filename": "bl31/aarch64/bl31_entrypoint.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-03T00:51:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "94ac1246_d759cffc",
+      "range": {
+        "startLine": 54,
+        "startChar": 64,
+        "endLine": 54,
+        "endChar": 65
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0791ed81_aaf78657",
@@ -156,6 +216,30 @@
       "writtenOn": "2021-08-27T01:00:37Z",
       "side": 1,
       "message": "nit: extra space",
+      "range": {
+        "startLine": 72,
+        "startChar": 64,
+        "endLine": 72,
+        "endChar": 65
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e07b42b_36a76419",
+        "filename": "bl31/aarch64/bl31_entrypoint.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-03T00:51:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0791ed81_aaf78657",
       "range": {
         "startLine": 72,
         "startChar": 64,
@@ -189,6 +273,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8481c94a_7b7c09b7",
+        "filename": "include/plat/arm/board/common/v2m_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-03T00:51:01Z",
+      "side": 1,
+      "message": "So, \u003cplatform_def.h\u003e here refers to .../plat/arm/board/fvp_r/include/platform_def.h, which is indeed the defs file for the fvp_r platform.\n\nThat being said though, It appears that I can remove this #include now.  Will do.",
+      "parentUuid": "c2d242da_cb84a9b4",
+      "range": {
+        "startLine": 10,
+        "startChar": 10,
+        "endLine": 10,
+        "endChar": 22
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0ccad92_b487d39d",
@@ -202,6 +310,24 @@
       "writtenOn": "2021-09-02T14:00:10Z",
       "side": 1,
       "message": "same comment as above.",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddf24a97_99c5d6bf",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-03T00:51:01Z",
+      "side": 1,
+      "message": "Apparently this was needed at some point, but it looks like it can be removed too.  Done.\n\nI don\u0027t know, but it\u0027s possible that something changed in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10512, making these #includes no longer needed.",
+      "parentUuid": "f0ccad92_b487d39d",
       "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -1402,6 +1528,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "acd92aa0_10dc1301",
+        "filename": "plat/arm/board/fvp_r/fvp_r_arch_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-03T00:51:01Z",
+      "side": 1,
+      "message": "This file contains definitions of v8-R64-specific registers.  IIRC, I originally added them to arch_helpers.h, but was asked to provide a different file for them.\n\nNow, I can\u0027t immediately recall why I didn\u0027t *only put those register definitions alone* into this file and then #include both files where needed.  I\u0027ll look into that.",
+      "parentUuid": "617bbe03_0968a34f",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1595af68_cecb6beb",
         "filename": "plat/arm/board/fvp_r/fvp_r_arch_helpers.h",
         "patchSetId": 3
@@ -1413,6 +1557,24 @@
       "writtenOn": "2021-09-02T14:00:10Z",
       "side": 1,
       "message": "Same names for protection macros is a hazard.",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1aad5b5_f85af7aa",
+        "filename": "plat/arm/board/fvp_r/fvp_r_arch_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-03T00:51:01Z",
+      "side": 1,
+      "message": "Ah, good catch!  Thanks.  Found and fixed one other instance of that.",
+      "parentUuid": "1595af68_cecb6beb",
       "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -1436,6 +1598,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9a170909_86c8aa2f",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_entrypoint.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-03T00:51:01Z",
+      "side": 1,
+      "message": "This may be a simplified power-up sequence for earlier testing purposes.  Investigating...",
+      "parentUuid": "4680da58_11f93f9b",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dbc0b7e6_de047b10",
         "filename": "plat/arm/board/fvp_r/fvp_r_bl1_entrypoint.S",
         "patchSetId": 3
@@ -1447,6 +1627,30 @@
       "writtenOn": "2021-09-02T14:00:10Z",
       "side": 1,
       "message": "Is this correct ?",
+      "range": {
+        "startLine": 70,
+        "startChar": 3,
+        "endLine": 70,
+        "endChar": 11
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "386b1f12_1cce18df",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_entrypoint.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-03T00:51:01Z",
+      "side": 1,
+      "message": "Probably not.  :-)",
+      "parentUuid": "dbc0b7e6_de047b10",
       "range": {
         "startLine": 70,
         "startChar": 3,

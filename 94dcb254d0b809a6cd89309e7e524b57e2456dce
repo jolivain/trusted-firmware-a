@@ -249,6 +249,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb5ed9ce_d21d4af3",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-03T00:51:01Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "93a89e6d_6a09917d",
+      "range": {
+        "startLine": 32,
+        "startChar": 59,
+        "endLine": 32,
+        "endChar": 66
+      },
+      "revId": "94dcb254d0b809a6cd89309e7e524b57e2456dce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c6c79b1_dc635a60",
         "filename": "lib/xlat_mpu/xlat_mpu_context.c",
         "patchSetId": 2
@@ -260,6 +284,24 @@
       "writtenOn": "2021-09-02T13:42:17Z",
       "side": 1,
       "message": "alloc va may also not be relevant for an MPU system.",
+      "revId": "94dcb254d0b809a6cd89309e7e524b57e2456dce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "092b955a_5f59a7dd",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-03T00:51:01Z",
+      "side": 1,
+      "message": "Hmmm, that may indeed be true.",
+      "parentUuid": "3c6c79b1_dc635a60",
       "revId": "94dcb254d0b809a6cd89309e7e524b57e2456dce",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
