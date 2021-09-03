@@ -16,6 +16,23 @@
       "message": "\u003e Patch Set 11: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 1135 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/1135/)\n\u003e Some tests failed (4)\n\nThis is misleading and is showing an intermittent infrastructure issue. Best to always ignore reports from qa-reports.linaro.org and concentrate reports from ci.trustedfirmware.org which shows this is passing: \"http://ci.trustedfirmware.org/job/tf-gerrit-tforg-l1/1135/ : SUCCESS\". \n\nIts confusing I understand and I have tickets in to the CI providers to clean up this reporting.\n\nI\u0027ll manually set verified+1.",
       "revId": "7c78e4f7df43f09e54c26637711c6341761f3314",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a9dd2d7_933ad1b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-09-03T10:09:24Z",
+      "side": 1,
+      "message": "Because you did a patch change some of the settings like Code-Owner etc are reset to 0. If you can get Jiafei to re-impose the CO+1 then I think your patch will be ready to merge.",
+      "revId": "7c78e4f7df43f09e54c26637711c6341761f3314",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
