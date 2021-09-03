@@ -52,6 +52,24 @@
       "parentUuid": "ac51505b_2a31824d",
       "revId": "a669983c78828e3f4a4f14b9e5a6ee79dcfde20f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d795df3_6a78bb72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-09-03T11:07:54Z",
+      "side": 1,
+      "message": "I should be able to add Stefan as reviewer here after he login via his github account to this gerrit system.\n\nAnyway, similar change was included also into Linux kernel:\nhttps://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id\u003db756bbec9cdd83c4702552d30c9fb11d07487000\nhttps://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id\u003d3f141ad617458a1dcbd8a473acb7d05fb35ac545\nhttps://lore.kernel.org/netdev/20210827092753.2359-1-pali@kernel.org/t/#u\n\nSee also PHY interface modes documentation:\nhttps://www.kernel.org/doc/html/latest/networking/phy.html#phy-interface-modes\nwhere is written difference between SGMII and BASE-X. So it should be really BASE-X and not SGMII.",
+      "parentUuid": "0ebb71c2_5558fcac",
+      "revId": "a669983c78828e3f4a4f14b9e5a6ee79dcfde20f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
