@@ -16,6 +16,40 @@
       "message": "Reinstating the pointlessly deleted Verified+1 as given by the Arm CI.",
       "revId": "8a9bcb652562ce52d89da0973d0d657056b0b079",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88299f58_b90f9a16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2021-09-03T16:06:29Z",
+      "side": 1,
+      "message": "We certainly need this! Very minor nit-pick on the messaging, sorry.",
+      "revId": "8a9bcb652562ce52d89da0973d0d657056b0b079",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caedfc82_c9d4a92b",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2021-09-03T16:06:29Z",
+      "side": 1,
+      "message": "(minor) since we\u0027re about to panic(), WARN should probably be ERROR\n\n(minor) we only tried to add one node, so \"nodes\" should probably be \"node\"\n\n(v minor) the WARN()s and ERROR()s in this file don\u0027t end their output with a full stop (seems to be inconsistent across the codebase, sadly)\n\n(and yes, mine looked exactly the same, but these things bugged me the second I sent it to you on Slack!)",
+      "revId": "8a9bcb652562ce52d89da0973d0d657056b0b079",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
