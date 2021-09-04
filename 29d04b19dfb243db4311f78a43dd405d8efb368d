@@ -1546,6 +1546,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c49f7fd_24cde37f",
+        "filename": "plat/arm/board/fvp_r/fvp_r_arch_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-04T00:50:28Z",
+      "side": 1,
+      "message": "Ah, it looks like I did start to correct this unnecessary duplication originally with plat/arm/board/fvp_r/include/fvp_r_arch_helpers.h, which only contains the additions atop the global arch_helpers.h file.  However, apparently I forgot to delete this file.",
+      "parentUuid": "acd92aa0_10dc1301",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1595af68_cecb6beb",
         "filename": "plat/arm/board/fvp_r/fvp_r_arch_helpers.h",
         "patchSetId": 3
