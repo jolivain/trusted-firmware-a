@@ -1562,6 +1562,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9078ea18_800e9aa5",
+        "filename": "plat/arm/board/fvp_r/fvp_r_arch_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-04T23:57:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0c49f7fd_24cde37f",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1595af68_cecb6beb",
@@ -1632,6 +1650,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99b0fea5_f393e9aa",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_entrypoint.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-04T23:57:49Z",
+      "side": 1,
+      "message": "Oh, this is fvp_r\u0027s version of plat/arm/board/fvp_r/fvp_r_bl1_entrypoint.S, invoking the el_max_entrypoint_common macro with _el_max \u003d 2.\n\nAs agreed in person, I\u0027ll switch this to invoking a new, separate el2_entrypoint_common macros.",
+      "parentUuid": "9a170909_86c8aa2f",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbc0b7e6_de047b10",
@@ -1669,6 +1705,30 @@
       "side": 1,
       "message": "Probably not.  :-)",
       "parentUuid": "dbc0b7e6_de047b10",
+      "range": {
+        "startLine": 70,
+        "startChar": 3,
+        "endLine": 70,
+        "endChar": 11
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc0a3093_564ca80a",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_entrypoint.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-04T23:57:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "386b1f12_1cce18df",
       "range": {
         "startLine": 70,
         "startChar": 3,
