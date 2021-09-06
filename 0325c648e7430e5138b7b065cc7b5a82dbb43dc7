@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fce4a18d_ddb98794",
+        "filename": "plat/xilinx/versal/pm_service/pm_api_sys.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000476
+      },
+      "writtenOn": "2021-09-06T10:14:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "465953dc_77a5bb52",
+      "range": {
+        "startLine": 379,
+        "startChar": 1,
+        "endLine": 379,
+        "endChar": 16
+      },
+      "revId": "0325c648e7430e5138b7b065cc7b5a82dbb43dc7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec3bf8cb_18238678",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-03T13:25:14Z",
       "side": 1,
       "message": "ack is boolean. You can pass true as the argument",
+      "range": {
+        "startLine": 265,
+        "startChar": 65,
+        "endLine": 265,
+        "endChar": 66
+      },
+      "revId": "0325c648e7430e5138b7b065cc7b5a82dbb43dc7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d87df3a_b3a21942",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000476
+      },
+      "writtenOn": "2021-09-06T10:14:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec3bf8cb_18238678",
       "range": {
         "startLine": 265,
         "startChar": 65,
