@@ -9,11 +9,23 @@ You can find additional definitions in the `Arm Glossary`_.
 .. glossary::
    :sorted:
 
+   A32
+      32-bit Arm instruction set
+
+   A64
+      64-bit Arm instruction set
+
    AArch32
       32-bit execution state of the ARMv8 ISA
 
    AArch64
       64-bit execution state of the ARMv8 ISA
+
+   AAPCS
+      Arm Architecture Procedure Call Standard
+
+   ACLE
+      Arm C Language Extensions
 
    API
       Application Programming Interface
@@ -75,6 +87,9 @@ You can find additional definitions in the `Arm Glossary`_.
    GIC
       Generic Interrupt Controller
 
+   GUI
+      Graphical User Interface
+
    ISA
       Instruction Set Architecture
 
@@ -127,6 +142,9 @@ You can find additional definitions in the `Arm Glossary`_.
    ROT
       Root of Trust
 
+   SBSA
+      Server Base System Architecture
+      
    SCMI
       System Control and Management Interface
 
@@ -146,6 +164,9 @@ You can find additional definitions in the `Arm Glossary`_.
    SIP
       Silicon Provider
 
+   SIMD
+      Single Instruction Multiple Data
+
    SMC
       Secure Monitor Call
 
@@ -164,6 +185,12 @@ You can find additional definitions in the `Arm Glossary`_.
    SPM
       Secure Partition Manager
 
+   SPMC
+      Secure Partition Manager Core
+
+   SPMD
+      Secure Partition Manager Dispatcher
+
    SSBS
       Speculative Store Bypass Safe. Introduced in Armv8.5, this configuration
       bit can be set by software to allow or prevent the hardware from
@@ -171,6 +198,9 @@ You can find additional definitions in the `Arm Glossary`_.
 
    SVE
       Scalable Vector Extension
+
+   T32
+      32-bit Thumb-2 instruction set
 
    TBB
       Trusted Board Boot
@@ -187,6 +217,9 @@ You can find additional definitions in the `Arm Glossary`_.
    TF-M
       Trusted Firmware-M
 
+   TFACMF
+      Trusted Firmware-A CMake Framework
+
    TLB
       Translation Lookaside Buffer
 
@@ -198,6 +231,9 @@ You can find additional definitions in the `Arm Glossary`_.
 
    TSP
       Test Secure Payload
+
+   TUI
+      Terminal User Interface
 
    TZC
       TrustZone Controller

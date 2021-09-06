@@ -35,11 +35,38 @@ Variables which are always defined.
 
     variable/common/*
 
+Architectural Features
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    variable/common/arch-features/*
+
+CPU Support
+^^^^^^^^^^^
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    variable/common/cpu-support/*
+
 Bootloader Variables
 --------------------
 
 Variables defined by individual bootloader images. These variables may not be
 defined if the bootloader image is not compatible with the platform.
+
+BL2
+^^^
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    variable/image/bl2/*
 
 Library Variables
 -----------------
@@ -47,6 +74,15 @@ Library Variables
 Variables defined by individual libraries and other non-core components. These
 variables may not be defined if the library or component is not being included
 in the build.
+
+Translation Tables
+^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    variable/library/xlat-tables/*
 
 Driver Variables
 ----------------

@@ -39,13 +39,16 @@ pyparsing==2.4.7
 pytz==2021.1
     # via babel
 requests==2.26.0
-    # via sphinx
+    # via
+    #   sphinx
+    #   sphinxcontrib-images
 snowballstemmer==2.1.0
     # via sphinx
 sphinx==2.0.0
     # via
     #   -r requirements.in
     #   sphinx-rtd-theme
+    #   sphinxcontrib-images
     #   sphinxcontrib-plantuml
 sphinx-rtd-theme==0.5.2
     # via -r requirements.in
@@ -55,6 +58,8 @@ sphinxcontrib-devhelp==1.0.2
     # via sphinx
 sphinxcontrib-htmlhelp==2.0.0
     # via sphinx
+sphinxcontrib-images==0.9.4
+    # via -r requirements.in
 sphinxcontrib-jsmath==1.0.1
     # via sphinx
 sphinxcontrib-moderncmakedomain==3.19

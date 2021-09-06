@@ -47,6 +47,8 @@ system.
     :glob:
     :maxdepth: 1
 
+    module/find/*
+
 --------------
 
 *Copyright (c) 2021, Arm Limited and Contributors. All rights reserved.*
