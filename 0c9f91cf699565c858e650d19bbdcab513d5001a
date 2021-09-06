@@ -50,6 +50,24 @@
       "message": "Any reason not to merge this as all approvals are in place.",
       "revId": "0c9f91cf699565c858e650d19bbdcab513d5001a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "018341ea_b61ff589",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-09-06T14:34:02Z",
+      "side": 1,
+      "message": "That\u0027s part of that gic-700-auto series, and on itself is not very helpful. The other patches are actually good, but gerrit deleted some previous votes, even though the changes were cosmetic or even just a rebase. So I was hoping on collecting those votes and then merge them all at once - I don\u0027t like those merge commits ;-)",
+      "parentUuid": "00d3ee73_3d47c73f",
+      "revId": "0c9f91cf699565c858e650d19bbdcab513d5001a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
