@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2d58260_53837ec4",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-06T11:33:04Z",
+      "side": 1,
+      "message": "@Yann, just curious to know what would be this remaining data?\nAlso, is there any chance this worst case will change in the future? If yes, then we should define it as macro right?",
+      "range": {
+        "startLine": 401,
+        "startChar": 4,
+        "endLine": 402,
+        "endChar": 49
+      },
+      "revId": "15751f3ab9004afa4404ae957e6c3043145564e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
