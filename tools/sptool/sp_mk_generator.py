@@ -112,6 +112,12 @@ with open(gen_file, 'w') as out_file:
         pm_file = open(dts)
         for line in pm_file:
             if "uuid" in line:
+                # re.findall returns a list of string tuples.
+                # uuid_hex is the first item in this list representing the four
+                # uuid hex integers from the manifest uuid field. The heading
+                # '0x' of the hexadecimal representation is stripped out.
+                # e.g. uuid = <0x1e67b5b4 0xe14f904a 0x13fb1fb8 0xcbdae1da>;
+                # uuid_hex = ('1e67b5b4', 'e14f904a', '13fb1fb8', 'cbdae1da')
                 uuid_hex = re.findall(r'0x([0-9a-f]+) 0x([0-9a-f]+) 0x([0-9a-f]+) 0x([0-9a-f]+)', line)[0];
 
         # uuid_hex is a list of four hex string values
