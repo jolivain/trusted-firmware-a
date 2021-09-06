@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "814752f8_13040075",
+        "filename": "plat/st/common/bl2_stm32_io_storage.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-09-06T09:43:29Z",
+      "side": 1,
+      "message": "If I don\u0027t put it, it fails to compile in release mode:\nplat/st/common/bl2_stm32_io_storage.c:444:6: error: variable \u0027io_result\u0027 set but not used [-Werror\u003dunused-but-set-variable]\n  444 |  int io_result;",
+      "parentUuid": "f0eba72c_976bb50d",
+      "range": {
+        "startLine": 444,
+        "startChar": 5,
+        "endLine": 444,
+        "endChar": 23
+      },
+      "revId": "d9f963fd6f3a9852dc6300fe3578b405bfcf3c0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e70c696a_a79a1fed",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-03T08:48:42Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 489,
+        "startChar": 15,
+        "endLine": 489,
+        "endChar": 23
+      },
+      "revId": "d9f963fd6f3a9852dc6300fe3578b405bfcf3c0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8960f8ec_3b15b482",
+        "filename": "plat/st/common/bl2_stm32_io_storage.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-09-06T09:43:29Z",
+      "side": 1,
+      "message": "same here",
+      "parentUuid": "e70c696a_a79a1fed",
       "range": {
         "startLine": 489,
         "startChar": 15,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0acc4549_ca1501cd",
+        "filename": "plat/st/common/bl2_stm32_io_storage.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-09-06T09:43:29Z",
+      "side": 1,
+      "message": "same here",
+      "parentUuid": "f8260410_5017227c",
+      "range": {
+        "startLine": 534,
+        "startChar": 15,
+        "endLine": 534,
+        "endChar": 23
+      },
+      "revId": "d9f963fd6f3a9852dc6300fe3578b405bfcf3c0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44ab2aa2_64e93887",
@@ -83,6 +155,24 @@
       "writtenOn": "2021-09-03T08:48:42Z",
       "side": 1,
       "message": "nit: add /* STM32MP_USE_STM32IMAGE */, in all other places in this series.",
+      "revId": "d9f963fd6f3a9852dc6300fe3578b405bfcf3c0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03982281_ddc84182",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-09-06T09:43:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "44ab2aa2_64e93887",
       "revId": "d9f963fd6f3a9852dc6300fe3578b405bfcf3c0a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
