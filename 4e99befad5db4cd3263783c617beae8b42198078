@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c06fc8c_16708bfc",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-09-06T16:07:58Z",
+      "side": 1,
+      "message": "Does it make sense to introduce a public function to calculate the number of active cores instead?",
+      "range": {
+        "startLine": 22,
+        "startChar": 9,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "4e99befad5db4cd3263783c617beae8b42198078",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
