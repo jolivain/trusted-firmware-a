@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4d35bd6_bc790d23",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-06T16:09:30Z",
+      "side": 1,
+      "message": "Is the naming appropriate?\nEventually this is a BL2 option to load certain types of blobs (here secure partitions packages).\nThis doesn\u0027t really have to do with the SPMD component (SPMC neither), but rather BL2 as a bootloader.",
+      "range": {
+        "startLine": 628,
+        "startChar": 5,
+        "endLine": 628,
+        "endChar": 21
+      },
+      "revId": "21dd9d02575b86160c61b1c4b33ecdeec04af97c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
