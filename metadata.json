@@ -1,3 +1,35 @@
 {
-  "platforms": {}
+  "platforms": {
+    "FVP": "plat/arm/board/fvp"
+  },
+
+  "architectures": {
+    "Armv8-A": {
+      "states": ["AArch64"],
+
+      "features": {
+        "optional": [
+          "FEAT_AES",
+          "FEAT_PMULL",
+          "FEAT_SHA1",
+          "FEAT_SHA256",
+
+          "FEAT_SB",
+          "FEAT_SSBS",
+          "FEAT_CSV2",
+          "FEAT_CSV2_2",
+          "FEAT_CSV2_1p1",
+          "FEAT_CSV2_1p2",
+          "FEAT_CSV3",
+          "FEAT_SPECRES",
+          "FEAT_CP15SDISABLE2",
+          "FEAT_DoubleLock",
+          "FEAT_DGH",
+          "FEAT_ETS",
+          "FEAT_nTLBPA",
+          "FEAT_PCSRv8"
+        ]
+      }
+    }
+  }
 }
