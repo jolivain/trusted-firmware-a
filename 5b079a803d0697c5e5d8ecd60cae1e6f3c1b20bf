@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c9039582_06e799dd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2021-09-07T13:39:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a3888c4_8c9f9657",
+      "range": {
+        "startLine": 10,
+        "startChar": 16,
+        "endLine": 10,
+        "endChar": 20
+      },
+      "revId": "5b079a803d0697c5e5d8ecd60cae1e6f3c1b20bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6aa9f5db_abc8089b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -90,6 +114,30 @@
       "writtenOn": "2021-09-07T12:27:36Z",
       "side": 1,
       "message": "For consistency with other platforms (FVP, Juno) would you rather define PLAT_HW_CONFIG_DTB_BASE?\nIn general for other platform definitions below use PLAT_ prefix?",
+      "range": {
+        "startLine": 59,
+        "startChar": 8,
+        "endLine": 59,
+        "endChar": 30
+      },
+      "revId": "5b079a803d0697c5e5d8ecd60cae1e6f3c1b20bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03fd694f_68525210",
+        "filename": "plat/arm/board/tc/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2021-09-07T13:39:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d412fae_cd8b4334",
       "range": {
         "startLine": 59,
         "startChar": 8,
