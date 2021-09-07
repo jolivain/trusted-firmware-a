@@ -1,6 +1,5 @@
 /*
- * Copyright (c) 2021-2022, ARM Limited and Contributors. All rights reserved.
- * Portions copyright (c) 2021-2022, ProvenRun S.A.S. All rights reserved.
+ * Copyright (c) 2021-2022, ProvenRun S.A.S. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -106,5 +105,5 @@ void pncd_synchronous_sp_exit(pnc_context_t *pnc_ctx, uint64_t ret)
 	pncd_exit_sp(pnc_ctx->c_rt_ctx, ret);
 
 	/* Should never reach here */
-	assert(0);
+	assert(false);
 }
