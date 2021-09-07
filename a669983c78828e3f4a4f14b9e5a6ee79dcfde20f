@@ -70,6 +70,24 @@
       "parentUuid": "0ebb71c2_5558fcac",
       "revId": "a669983c78828e3f4a4f14b9e5a6ee79dcfde20f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69a37541_a83c0ca1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2021-09-07T13:49:29Z",
+      "side": 1,
+      "message": "Konstantin, Stefan, I discussded this issue with Stefan some months ago on U-Boot mailing list.\n\nStefan replied this: https://lists.denx.de/pipermail/u-boot/2021-March/445520.html\n\nRussell King did a good recapitulation of the whole issue at https://lore.kernel.org/all/20210604192732.GW30436@shell.armlinux.org.uk/\n\nKonstantin, if you could get this through Marvell people to get into their heads to stop mixing these things, it would be great 😊",
+      "parentUuid": "2d795df3_6a78bb72",
+      "revId": "a669983c78828e3f4a4f14b9e5a6ee79dcfde20f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
