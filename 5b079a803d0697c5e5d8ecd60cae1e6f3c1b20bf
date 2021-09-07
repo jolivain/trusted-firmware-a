@@ -146,6 +146,30 @@
       },
       "revId": "5b079a803d0697c5e5d8ecd60cae1e6f3c1b20bf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33612df0_87ef46a8",
+        "filename": "plat/arm/board/tc/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2021-09-07T13:39:48Z",
+      "side": 1,
+      "message": "For the rest of the defines might be better to do it in a separate commit",
+      "parentUuid": "03fd694f_68525210",
+      "range": {
+        "startLine": 59,
+        "startChar": 8,
+        "endLine": 59,
+        "endChar": 30
+      },
+      "revId": "5b079a803d0697c5e5d8ecd60cae1e6f3c1b20bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
