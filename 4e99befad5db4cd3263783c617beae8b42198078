@@ -22,6 +22,30 @@
       },
       "revId": "4e99befad5db4cd3263783c617beae8b42198078",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd54dc72_df3401ba",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000476
+      },
+      "writtenOn": "2021-09-07T05:03:58Z",
+      "side": 1,
+      "message": "We should have public function. But as it is core I didn\u0027t make any changes to it.",
+      "parentUuid": "3c06fc8c_16708bfc",
+      "range": {
+        "startLine": 22,
+        "startChar": 9,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "4e99befad5db4cd3263783c617beae8b42198078",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
