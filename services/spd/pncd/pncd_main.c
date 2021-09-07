@@ -1,6 +1,5 @@
 /*
- * Copyright (c) 2021-2022, ARM Limited and Contributors. All rights reserved.
- * Portions copyright (c) 2021-2022, ProvenRun S.A.S. All rights reserved.
+ * Copyright (c) 2021-2022, ProvenRun S.A.S. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -307,6 +306,8 @@ uintptr_t plat_pncd_smc_handler(uint32_t smc_fid,
  * responsible for communicating with the Secure payload to delegate work and
  * return results back to the non-secure state. Lastly it will also return any
  * information that the secure payload needs to do the work assigned to it.
+ *
+ * It should only be called with the smc_handler_lock held.
  ******************************************************************************/
 static uintptr_t pncd_smc_handler_unsafe(uint32_t smc_fid,
 		u_register_t x1,
