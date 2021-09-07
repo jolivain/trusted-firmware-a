@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff5c763c_80ec4b7d",
+        "filename": "plat/imx/imx8m/imx8mp/imx8mp_bl2_el3_setup.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-09-07T17:06:55Z",
+      "side": 1,
+      "message": "Shouldnt this be before drivers/console.h?\n\nCheck this static check fail log:\nhttps://ci.trustedfirmware.org/job/tf-static-checks/1193/",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 31
+      },
+      "revId": "e9c90d6a0d8f62918cc2da9fd22427074a7ad5df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
