@@ -16,6 +16,24 @@
       "message": "Static checks are failing as new files are added and tf_coverity doesnt like that. One of the tf-a maintainers would need to manually override verified +1 and merge as discussed with Manish. Thanks!!",
       "revId": "5b079a803d0697c5e5d8ecd60cae1e6f3c1b20bf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43d3d233_538cefbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-07T07:01:02Z",
+      "side": 1,
+      "message": "Isn\u0027t it possible to submit the corresponding CI patch adding the build command to the coverity makefile?\nIf this doesn\u0027t resolve it, we\u0027d have to get back to Jayanthdodderi as it looks odd to override the Verified+1 vote because this static check failure.",
+      "parentUuid": "6aa9f5db_abc8089b",
+      "revId": "5b079a803d0697c5e5d8ecd60cae1e6f3c1b20bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
