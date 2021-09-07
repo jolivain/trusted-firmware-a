@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b9e0f6b_d69d5e26",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-09-07T16:57:29Z",
+      "side": 1,
+      "message": "Return type should be unsigned as per function declaration but -1  is being returned here.",
+      "revId": "1fd735dbe691bb7c9c4598358cb8c49a4470c947",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
