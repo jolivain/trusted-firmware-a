@@ -34,6 +34,8 @@
 #pragma weak plat_ic_set_interrupt_priority
 #pragma weak plat_ic_set_interrupt_type
 #pragma weak plat_ic_raise_el3_sgi
+#pragma weak plat_ic_raise_ns_sgi
+#pragma weak plat_ic_raise_s_el1_sgi
 #pragma weak plat_ic_set_spi_routing
 
 /*
@@ -250,6 +252,38 @@ void plat_ic_raise_el3_sgi(int sgi_num, u_register_t target)
 	gicv2_raise_sgi(sgi_num, id);
 #else
 	assert(false);
+#endif
+}
+
+void plat_ic_raise_ns_sgi(int sgi_num, u_register_t target)
+{
+	int id;
+
+	/* Target must be a valid MPIDR in the system */
+	id = plat_core_pos_by_mpidr(target);
+	assert(id >= 0);
+
+	/* Verify that this is a non-secure SGI */
+	assert(plat_ic_get_interrupt_type(sgi_num) == INTR_TYPE_NS);
+
+	gicv2_raise_sgi(sgi_num, id);
+}
+
+void plat_ic_raise_s_el1_sgi(int sgi_num, u_register_t target)
+{
+#if GICV2_G0_FOR_EL3
+	assert(false);
+#else
+	int id;
+
+	/* Target must be a valid MPIDR in the system */
+	id = plat_core_pos_by_mpidr(target);
+	assert(id >= 0);
+
+	/* Verify that this is a secure EL1 SGI */
+	assert(plat_ic_get_interrupt_type(sgi_num) == INTR_TYPE_S_EL1);
+
+	gicv2_raise_sgi(sgi_num, id);
 #endif
 }
 

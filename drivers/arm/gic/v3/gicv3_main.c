@@ -1130,6 +1130,45 @@ void gicv3_raise_secure_g0_sgi(unsigned int sgi_num, u_register_t target)
 }
 
 /*******************************************************************************
+ * This function raises the specified Group 1 SGI.
+ *
+ * The target parameter must be a valid MPIDR in the system.
+ ******************************************************************************/
+void gicv3_raise_g1_sgi(unsigned int sgi_num, u_register_t target)
+{
+	unsigned int tgt, aff3, aff2, aff1, aff0;
+	uint64_t sgi_val;
+
+	/* Verify interrupt number is in the SGI range */
+	assert((sgi_num >= MIN_SGI_ID) && (sgi_num < MIN_PPI_ID));
+
+	/* Extract affinity fields from target */
+	aff0 = MPIDR_AFFLVL0_VAL(target);
+	aff1 = MPIDR_AFFLVL1_VAL(target);
+	aff2 = MPIDR_AFFLVL2_VAL(target);
+	aff3 = MPIDR_AFFLVL3_VAL(target);
+
+	/*
+	 * Make target list from affinity 0, and ensure GICv3 SGI can target
+	 * this PE.
+	 */
+	assert(aff0 < GICV3_MAX_SGI_TARGETS);
+	tgt = BIT_32(aff0);
+
+	/* Raise SGI to PE specified by its affinity */
+	sgi_val = GICV3_SGIR_VALUE(aff3, aff2, aff1, sgi_num, SGIR_IRM_TO_AFF,
+			tgt);
+
+	/*
+	 * Ensure that any shared variable updates depending on out of band
+	 * interrupt trigger are observed before raising SGI.
+	 */
+	dsbishst();
+	write_icc_sgi1r(sgi_val);
+	isb();
+}
+
+/*******************************************************************************
  * This function sets the interrupt routing for the given (E)SPI interrupt id.
  * The interrupt routing is specified in routing mode and mpidr.
  *
