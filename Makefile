@@ -960,6 +960,7 @@ $(eval $(call assert_booleans,\
         ENABLE_MPAM_FOR_LOWER_ELS \
         ENABLE_PIE \
         ENABLE_PMF \
+        ENABLE_PSCI_FROM_BL32 \
         ENABLE_PSCI_STAT \
         ENABLE_RME \
         ENABLE_RUNTIME_INSTRUMENTATION \
@@ -1063,6 +1064,7 @@ $(eval $(call add_defines,\
         ENABLE_PAUTH \
         ENABLE_PIE \
         ENABLE_PMF \
+        ENABLE_PSCI_FROM_BL32 \
         ENABLE_PSCI_STAT \
         ENABLE_RME \
         ENABLE_RUNTIME_INSTRUMENTATION \

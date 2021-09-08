@@ -384,8 +384,10 @@ u_register_t psci_smc_handler(uint32_t smc_fid,
 {
 	u_register_t ret;
 
+#if !ENABLE_PSCI_FROM_BL32
 	if (is_caller_secure(flags))
 		return (u_register_t)SMC_UNK;
+#endif
 
 	/* Check the fid against the capabilities */
 	if ((psci_caps & define_psci_cap(smc_fid)) == 0U)

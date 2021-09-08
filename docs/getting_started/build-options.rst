@@ -265,6 +265,9 @@ Common build options
 -  ``ENABLE_PMF``: Boolean option to enable support for optional Performance
    Measurement Framework(PMF). Default is 0.
 
+-  ``ENABLE_PSCI_FROM_BL32``: Boolean option to enable support for PSCI SMCs
+   from the secure world. Default is 0.
+
 -  ``ENABLE_PSCI_STAT``: Boolean option to enable support for optional PSCI
    functions ``PSCI_STAT_RESIDENCY`` and ``PSCI_STAT_COUNT``. Default is 0.
    In the absence of an alternate stat collection backend, ``ENABLE_PMF`` must

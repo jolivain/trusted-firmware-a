@@ -102,6 +102,9 @@ ENABLE_PIE			:= 0
 # Flag to enable Performance Measurement Framework
 ENABLE_PMF			:= 0
 
+# Flag to enable PSCI SMCs from BL32
+ENABLE_PSCI_FROM_BL32		:= 0
+
 # Flag to enable PSCI STATs functionality
 ENABLE_PSCI_STAT		:= 0
 
