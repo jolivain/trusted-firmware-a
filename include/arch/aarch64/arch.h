@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -79,6 +79,7 @@
  ******************************************************************************/
 #define ICC_IGRPEN1_EL1		S3_0_C12_C12_7
 #define ICC_SGI1R		S3_0_C12_C11_5
+#define ICC_ASGI1R		S3_0_C12_C11_6
 #define ICC_SRE_EL1		S3_0_C12_C12_5
 #define ICC_SRE_EL2		S3_4_C12_C9_5
 #define ICC_SRE_EL3		S3_6_C12_C12_5
