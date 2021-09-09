@@ -359,8 +359,15 @@ static int64_t sdei_event_register(int ev_num,
 		return SDEI_EINVAL;
 
 	/* Private events always target the PE */
-	if (is_event_private(map))
+	if (is_event_private(map)) {
 		flags = SDEI_REGF_RM_PE;
+		/*
+		 * Kernel may pass 0 as mpidr, as we set flags to
+		 * SDEI_REGF_RM_PE, so set mpidr also.
+		 */
+		if (mpidr == 0)
+			mpidr = read_mpidr_el1();
+	}
 
 	se = get_event_entry(map);
 
