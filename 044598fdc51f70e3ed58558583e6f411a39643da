@@ -16,6 +16,98 @@
       "message": "Hello,\n\nI saw you\u0027ve been involved inquite a few changes in other SPDs so I thought you might be a good match to review this patchset. If not, then sorry about the noise.\n\nThank you for your help on this\nBest regards,\n\n-- \nJérémie",
       "revId": "044598fdc51f70e3ed58558583e6f411a39643da",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09ee693a_0f8cdedc",
+        "filename": "services/spd/pncd/pnc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-09-09T03:42:01Z",
+      "side": 1,
+      "message": "nit: year, update license to latest style? SPDX license format. update for all files that have the issue.",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "044598fdc51f70e3ed58558583e6f411a39643da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b013c06_c17788fa",
+        "filename": "services/spd/pncd/pncd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-09-09T03:42:01Z",
+      "side": 1,
+      "message": "Nit: comment style. did you run checkpatch ?",
+      "range": {
+        "startLine": 260,
+        "startChar": 2,
+        "endLine": 260,
+        "endChar": 15
+      },
+      "revId": "044598fdc51f70e3ed58558583e6f411a39643da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7746c06d_71e23343",
+        "filename": "services/spd/pncd/pncd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-09-09T03:42:01Z",
+      "side": 1,
+      "message": "there appear to be no locks protecting this variable or base_addr etc. do we not want to account for multi-core systems?\nalso ree_base_addr is not checked to see if it really is in the non-secure range?",
+      "range": {
+        "startLine": 275,
+        "startChar": 2,
+        "endLine": 275,
+        "endChar": 11
+      },
+      "revId": "044598fdc51f70e3ed58558583e6f411a39643da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b1e442a_30630887",
+        "filename": "services/spd/pncd/pncd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-09-09T03:42:01Z",
+      "side": 1,
+      "message": "why keep a secret key in the secure world if you are returning to normal world via smc anyway? or perhaps you dont intend this to be called by NS world?",
+      "range": {
+        "startLine": 368,
+        "startChar": 8,
+        "endLine": 368,
+        "endChar": 20
+      },
+      "revId": "044598fdc51f70e3ed58558583e6f411a39643da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
