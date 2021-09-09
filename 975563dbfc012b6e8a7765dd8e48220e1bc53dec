@@ -51,6 +51,24 @@
       "parentUuid": "b4a8aee5_40f6d58f",
       "revId": "975563dbfc012b6e8a7765dd8e48220e1bc53dec",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c42f32d_637b2ff1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2021-09-09T21:13:12Z",
+      "side": 1,
+      "message": "Sure I can fix this, but I am not sure what does this mean. bl31/ea_handle.h is included as last in that file. I don\u0027t understand how it could be included even later (after system group).",
+      "parentUuid": "6756382b_0ccd5d51",
+      "revId": "975563dbfc012b6e8a7765dd8e48220e1bc53dec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
