@@ -16,6 +16,23 @@
       "message": "Madhukar, could you allow CI here please?",
       "revId": "975563dbfc012b6e8a7765dd8e48220e1bc53dec",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4a8aee5_40f6d58f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2021-09-09T15:52:44Z",
+      "side": 1,
+      "message": "Madhukar, it seems that only static checks are failing (look at https://ci.trustedfirmware.org/job/tf-static-checks/1207/ ), but the failing issues are not related to this patch.",
+      "revId": "975563dbfc012b6e8a7765dd8e48220e1bc53dec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
