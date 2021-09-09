@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b46f1cd_bc7a318d",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-09-09T22:01:24Z",
+      "side": 1,
+      "message": "Just checking, we will never have ENABLE_RME and SPM_MM enabled at the same time?",
+      "range": {
+        "startLine": 54,
+        "startChar": 6,
+        "endLine": 54,
+        "endChar": 16
+      },
+      "revId": "e2ae805b8fcbe3f31a57f3cbe587689651576095",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
