@@ -69,6 +69,24 @@
       "parentUuid": "6756382b_0ccd5d51",
       "revId": "975563dbfc012b6e8a7765dd8e48220e1bc53dec",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df8a807e_ee57dfd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-09-09T23:02:49Z",
+      "side": 1,
+      "message": "I think the error message is not quite accurate. If I am not mistaken, \"plat/common/platform.h\" should be placed after \"bl31/ea_handle.h\" because the order is system-\u003eproject-\u003eplatform",
+      "parentUuid": "9c42f32d_637b2ff1",
+      "revId": "975563dbfc012b6e8a7765dd8e48220e1bc53dec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
