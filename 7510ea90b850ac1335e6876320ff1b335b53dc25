@@ -16,6 +16,24 @@
       "message": "gentle ping for this patch",
       "revId": "7510ea90b850ac1335e6876320ff1b335b53dc25",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31a6a3f3_84995c06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-09-09T18:23:11Z",
+      "side": 1,
+      "message": "Some static checks fail:\nhttps://ci.trustedfirmware.org/job/tf-static-checks/1208/",
+      "parentUuid": "2295980b_5f741ddd",
+      "revId": "7510ea90b850ac1335e6876320ff1b335b53dc25",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
