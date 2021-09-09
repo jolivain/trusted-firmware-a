@@ -643,7 +643,7 @@ int sdei_dispatch_event(int ev_num)
 	ns_ctx = restore_and_resume_ns_context();
 
 	/* Activate the priority corresponding to the event being dispatched */
-	ehf_activate_priority(sdei_event_priority(map));
+	ehf_activate_priority(PLAT_SP_PRI);
 
 	/* Dispatch event synchronously */
 	setup_ns_dispatch(map, se, ns_ctx, &dispatch_jmp);
@@ -655,7 +655,7 @@ int sdei_dispatch_event(int ev_num)
 	 * Deactivate the priority level that was activated at the time of
 	 * explicit dispatch.
 	 */
-	ehf_deactivate_priority(sdei_event_priority(map));
+	ehf_deactivate_priority(PLAT_SP_PRI);
 
 	return 0;
 }
