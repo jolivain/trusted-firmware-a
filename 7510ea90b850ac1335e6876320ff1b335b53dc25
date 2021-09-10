@@ -34,6 +34,24 @@
       "parentUuid": "2295980b_5f741ddd",
       "revId": "7510ea90b850ac1335e6876320ff1b335b53dc25",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e43dcc92_092edee5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2021-09-10T01:41:55Z",
+      "side": 1,
+      "message": "I am not sure what does this failure mean?\nWhat should I do to fix this error?\n\n--------\n****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\n\nResult : FAILURE\n\n\nNew source files have been identified in your patch..\nplat/mediatek/mt8195/drivers/spm/mt_spm_vcorefs.c\n\n1. Kindly ensure they are updated in the \"tf_cov_make\" build script as \n well to consider them for Coverity Scan analysis.\n\n2. Please ignore if files are already updated. Further the Code Maintainer \n will resolve the issue by taking appropriate action.",
+      "parentUuid": "31a6a3f3_84995c06",
+      "revId": "7510ea90b850ac1335e6876320ff1b335b53dc25",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
