@@ -33,6 +33,23 @@
       "message": "No core changes in the patch stack and reported failures were intermittent false failures that passed on re run. If no more changes done the verified label can be set manually in all patchstack. \n\nAny further changes if limited to platform code just an Allow-CI+1 would be needed.",
       "revId": "5601dd3557969af672f82968ee72a1be406db87a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a984bed_9ed3c1c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000121
+      },
+      "writtenOn": "2021-09-11T23:12:52Z",
+      "side": 1,
+      "message": "Should be OK, CoR+1",
+      "revId": "5601dd3557969af672f82968ee72a1be406db87a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
