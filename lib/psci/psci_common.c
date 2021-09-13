@@ -178,6 +178,23 @@ unsigned int psci_is_last_on_cpu(void)
 }
 
 /*******************************************************************************
+ * This function returns number of running CPU in the system.
+ * Returns number of active CPU.
+ ******************************************************************************/
+unsigned int psci_get_number_of_active_cores(void)
+{
+	unsigned int cpu_idx, active_cores = 0U;
+
+	for (cpu_idx = 0; cpu_idx < psci_plat_core_count; cpu_idx++) {
+		if (psci_get_aff_info_state_by_idx(cpu_idx) == AFF_STATE_ON) {
+			active_cores++;
+		}
+	}
+
+	return active_cores;
+}
+
+/*******************************************************************************
  * Routine to return the maximum power level to traverse to after a cpu has
  * been physically powered up. It is expected to be called immediately after
  * reset from assembler code.
