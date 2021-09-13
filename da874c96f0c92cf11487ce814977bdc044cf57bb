@@ -85,6 +85,24 @@
       "message": "Braces should be removed.",
       "revId": "da874c96f0c92cf11487ce814977bdc044cf57bb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef62b293_f7c9d903",
+        "filename": "plat/socionext/synquacer/sq_psci.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-09-13T15:36:37Z",
+      "side": 1,
+      "message": "Why should they be removed?\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html?highlight\u003dbraces#conditional-statement-bodies",
+      "parentUuid": "347546de_b072fce2",
+      "revId": "da874c96f0c92cf11487ce814977bdc044cf57bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
