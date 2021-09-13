@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "072dc2a8_a8b2f4f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-13T10:12:39Z",
+      "side": 1,
+      "message": "Can you mention the original commit?\n\ncommit 33993a3737737a03ee5a9d386d0a027bdc947c9c\nAuthor: Balint Dobszay \u003cbalint.dobszay@arm.com\u003e\nDate:   Fri Mar 26 15:19:11 2021 +0100\n    feat(fvp): enable external SP images in BL2 config",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 50
+      },
+      "revId": "ff49a1673bc0a37751f48f609ecbb566e362877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf09d5ea_d9768c50",
+        "filename": "plat/arm/board/tc/fdts/tc_tb_fw_config.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-13T10:12:39Z",
+      "side": 1,
+      "message": "If integrating this change, can you consider moving the secure partitions fragment below into a separate dts file (maybe in a next change on top of this one)?\nBtw this file fragment may not have to be stored in the TF-A tree, but rather taken care of by the upper build system be it yocto or something else.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 5
+      },
+      "revId": "ff49a1673bc0a37751f48f609ecbb566e362877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
