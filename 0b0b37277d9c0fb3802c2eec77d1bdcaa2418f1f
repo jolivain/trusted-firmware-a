@@ -16,6 +16,24 @@
       "message": "That could be an issue, as there already is a gpt.c file in drivers/partition/, which is used for GUID Partition Table. I don\u0027t know if both the gpt.c files could be compiled at the same time. Else it won\u0027t work as 2 files cannot have the same name, as compiled files go in he same directory, for a given BL.",
       "revId": "0b0b37277d9c0fb3802c2eec77d1bdcaa2418f1f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed04f551_fb20380e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-13T21:16:35Z",
+      "side": 1,
+      "message": "I have added an _rme suffix to the file names to correct this and differentiate the files.",
+      "parentUuid": "3962a99a_4cf095fb",
+      "revId": "0b0b37277d9c0fb3802c2eec77d1bdcaa2418f1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
