@@ -50,6 +50,24 @@
       "message": "Should be OK, CoR+1",
       "revId": "5601dd3557969af672f82968ee72a1be406db87a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c76ed15f_fbce0fb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-09-13T14:06:55Z",
+      "side": 1,
+      "message": "Did you author this patch stack code or are you submitting it on behalf of other developers to TF-A? If its the latter then you doing the COR+1 is acceptable as you can review their code. If though you authored the code we really would like a separate independent review and in that case Jorge can provide that. \n\nI see Toshiyuki Ogasahara now mentioned as author for most of the patches except this one. Sorry I missed that first time round.",
+      "parentUuid": "1a984bed_9ed3c1c9",
+      "revId": "5601dd3557969af672f82968ee72a1be406db87a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
