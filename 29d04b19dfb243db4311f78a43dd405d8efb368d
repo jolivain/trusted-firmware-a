@@ -104,6 +104,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c0dc829_7e60f40b",
+        "filename": "bl1/aarch64/bl1_context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-14T18:23:42Z",
+      "side": 1,
+      "message": "Separated this out to an fvp_r-specific file.",
+      "parentUuid": "5df69c2d_2edbdb61",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d2b5e6c_9b1a84ef",
@@ -135,6 +153,24 @@
       "side": 1,
       "message": "So, in short, you\u0027d prefer run-time checks over a build-time checks for this?  That is certainly an option.",
       "parentUuid": "8d2b5e6c_9b1a84ef",
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62f469e3_7ae1344a",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-14T18:23:42Z",
+      "side": 1,
+      "message": "In the latest patchset, there are no occurrences of NO_EL3 in any code shared with normal TF-A builds.",
+      "parentUuid": "5eebf22e_3290afbf",
       "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -1966,6 +2002,30 @@
       "side": 1,
       "message": "OK.  So, I\u0027m thinking the #define NO_EL3 1 here is a easier to understand than $(eval $(call add_define,NO_EL3)) in platform.mk?  \"$(eval $(call add_define,NO_EL3))\" sounds kinda cryptic.",
       "parentUuid": "498b666e_856dcdb0",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "29d04b19dfb243db4311f78a43dd405d8efb368d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd40d3eb_2da7495b",
+        "filename": "plat/arm/board/fvp_r/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-14T18:23:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "db08f875_7f962b2d",
       "range": {
         "startLine": 10,
         "startChar": 8,
