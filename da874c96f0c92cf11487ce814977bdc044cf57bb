@@ -103,6 +103,24 @@
       "parentUuid": "347546de_b072fce2",
       "revId": "da874c96f0c92cf11487ce814977bdc044cf57bb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5e35478_9bdab306",
+        "filename": "plat/socionext/synquacer/sq_psci.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000158
+      },
+      "writtenOn": "2021-09-14T02:16:47Z",
+      "side": 1,
+      "message": "I was confused with the linux kernel style, I will fix and resend patch.\nThank you.",
+      "parentUuid": "ef62b293_f7c9d903",
+      "revId": "da874c96f0c92cf11487ce814977bdc044cf57bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
