@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88b2df02_7ccb4089",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-09-14T07:19:29Z",
+      "side": 1,
+      "message": "As fconf.mk included a BL1_SOURCES, we couldn\u0027t use it on ST platform. As we use BL2 at EL3 instead.\nBut now, I think we could include it and add the BL2_SOURCES line in our platform.mk.\nI can prepare a patch for this.\nFor the moment the patch has no impact on STM32MP1 platform.",
+      "revId": "777f56e586ddea4ff2e61047bf480f76c1597aa4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
