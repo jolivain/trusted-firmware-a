@@ -535,7 +535,8 @@ QTI platform port
 ^^^^^^^^^^^^^^^^^
 :|M|: Saurabh Gorecha <sgorecha@codeaurora.org>
 :|G|: `sgorecha`_
-:|M|: Debasish Mandal <dmandal@codeaurora.org>
+:|M|: Lachit Patel <lpatel@codeaurora.org>
+:|M|: Sreevyshanavi Kare <skare@codeaurora.org>
 :|M|: QTI TF Maintainers <qti.trustedfirmware.maintainers@codeaurora.org>
 :|F|: docs/plat/qti.rst
 :|F|: plat/qti/
