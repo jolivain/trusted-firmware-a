@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cb77a10_6c2f26d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-09-14T07:29:22Z",
+      "side": 1,
+      "message": "Thanks John for the renaming. When reading the patch again, I found 2 minor issues",
+      "revId": "cd5e627532f67090a8b69c99020de8f1fe2698fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "905aaf13_8905c618",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-09-14T07:29:22Z",
+      "side": 1,
+      "message": "unsigned int i \u003d 0U\nAs pas_idx is unsigned int",
+      "range": {
+        "startLine": 134,
+        "startChar": 6,
+        "endLine": 134,
+        "endChar": 15
+      },
+      "revId": "cd5e627532f67090a8b69c99020de8f1fe2698fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3c1569b_a27becc3",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-09-14T07:29:22Z",
+      "side": 1,
+      "message": "very minor: you could have aligned on open parenthesis",
+      "revId": "cd5e627532f67090a8b69c99020de8f1fe2698fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
