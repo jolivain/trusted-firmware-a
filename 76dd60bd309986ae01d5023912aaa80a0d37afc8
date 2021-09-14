@@ -35,6 +35,92 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c02bd59d_f220c16f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-09-14T21:23:13Z",
+      "side": 1,
+      "message": "Some more comments to simplify the SPMD",
+      "revId": "76dd60bd309986ae01d5023912aaa80a0d37afc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18ef4a10_0fce5879",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-09-14T21:23:13Z",
+      "side": 1,
+      "message": "I don\u0027t think any of this is required when SPMC@EL3",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 41
+      },
+      "revId": "76dd60bd309986ae01d5023912aaa80a0d37afc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "513b2b1e_01ac67a7",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-09-14T21:23:13Z",
+      "side": 1,
+      "message": "Same as previous comment.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 0
+      },
+      "revId": "76dd60bd309986ae01d5023912aaa80a0d37afc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "109a4dee_17cf597c",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-09-14T21:23:13Z",
+      "side": 1,
+      "message": "Should this not be a signed int to match the return type of spmd_setup() and spmd_spmc_init()?",
+      "range": {
+        "startLine": 309,
+        "startChar": 1,
+        "endLine": 309,
+        "endChar": 13
+      },
+      "revId": "76dd60bd309986ae01d5023912aaa80a0d37afc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc254e0b_471b411d",
