@@ -33,6 +33,41 @@ Return the path to the platform ``<platform>`` in ``<out-var>``.
     tfa_platform_target(<out-var> PLATFORM <platform>)
 
 Return the CMake target name for the platform ``<platform>`` in ``<out-var>``.
+
+.. command:: tfa_architectures
+
+.. code:: cmake
+
+    tfa_architectures(<out-var>)
+
+Return the list of supported architectures in ``<out-var>``.
+
+.. command:: tfa_architecture_states
+
+.. code:: cmake
+
+    tfa_architecture_states(<out-var> ARCHITECTURE <architecture>)
+
+Return the list of architectural states supported by the architecture
+``<architecture>`` in ``<out-var>``.
+
+.. command:: tfa_architecture_mandatory_features
+
+.. code:: cmake
+
+    tfa_architecture_mandatory_features(<out-var> ARCHITECTURE <architecture>)
+
+Return the list of mandatory features required by an architecture
+``<architecture>`` in ``<out-var>``.
+
+.. command:: tfa_architecture_optional_features
+
+.. code:: cmake
+
+    tfa_architecture_optional_features(<out-var> ARCHITECTURE <architecture>)
+
+Return the list of optional features supported by an architecture
+``<architecture>`` in ``<out-var>``.
 #]=======================================================================]
 
 include_guard()
@@ -98,6 +133,31 @@ tfa_json_getter(tfa_metadata_platforms_platform
     PATH "@PLATFORM@" ARGUMENTS PLATFORM
     ERROR_MESSAGE "No such platform: @PLATFORM@.")
 
+tfa_json_getter(tfa_metadata_architectures
+    JSON "${_TFA_METADATA}" PARENT tfa_metadata
+    PATH "architectures")
+
+tfa_json_getter(tfa_metadata_architectures_architecture
+    JSON "${_TFA_METADATA}" PARENT tfa_metadata_architectures
+    PATH "@ARCHITECTURE@" ARGUMENTS ARCHITECTURE
+    ERROR_MESSAGE "No such architecture: @ARCHITECTURE@.")
+
+tfa_json_getter(tfa_metadata_architectures_architecture_states
+    JSON "${_TFA_METADATA}" PARENT tfa_metadata_architectures_architecture
+    PATH "states" DEFAULT "[]")
+
+tfa_json_getter(tfa_metadata_architectures_architecture_features
+    JSON "${_TFA_METADATA}" PARENT tfa_metadata_architectures_architecture
+    PATH "features" DEFAULT "{}")
+
+tfa_json_getter(tfa_metadata_architectures_architecture_features_mandatory
+    JSON "${_TFA_METADATA}" PARENT tfa_metadata_architectures_architecture_features
+    PATH "mandatory" DEFAULT "[]")
+
+tfa_json_getter(tfa_metadata_architectures_architecture_features_optional
+    JSON "${_TFA_METADATA}" PARENT tfa_metadata_architectures_architecture_features
+    PATH "optional" DEFAULT "[]")
+
 #
 # External global metadata API.
 #
@@ -109,6 +169,22 @@ tfa_json_getter(tfa_platforms
 tfa_json_getter(tfa_platform_path
     JSON "${_TFA_METADATA}" PARENT tfa_metadata_platforms_platform
     DECODE STRING)
+
+tfa_json_getter(tfa_architectures
+    JSON "${_TFA_METADATA}" PARENT tfa_metadata_architectures
+    DECODE MEMBERS)
+
+tfa_json_getter(tfa_architecture_states
+    JSON "${_TFA_METADATA}" PARENT tfa_metadata_architectures_architecture_states
+    DECODE ARRAY)
+
+tfa_json_getter(tfa_architecture_mandatory_features
+    JSON "${_TFA_METADATA}" PARENT tfa_metadata_architectures_architecture_features_mandatory
+    DECODE ARRAY)
+
+tfa_json_getter(tfa_architecture_optional_features
+    JSON "${_TFA_METADATA}" PARENT tfa_metadata_architectures_architecture_features_optional
+    DECODE ARRAY)
 
 #
 # Internal platform metadata API.
