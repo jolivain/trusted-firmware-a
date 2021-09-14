@@ -16,6 +16,23 @@
       "message": "gentle ping for this patch",
       "revId": "2374eff0b36257fbd4bdad8f711a4de50b92b498",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d192c94_7c339c1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-09-14T14:33:01Z",
+      "side": 1,
+      "message": "****** Order of includes on the last patch(es) ******\n\nResult : FAILURE\n\nChecking files modified between patches origin/master and HEAD...\n2374eff0b:plat/mediatek/mt8195/drivers/emi_mpu/emi_mpu.c: [\u0027Project includes not in\n    order. Include order should be common/debug.h, lib/mmio.h\u0027]",
+      "revId": "2374eff0b36257fbd4bdad8f711a4de50b92b498",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
