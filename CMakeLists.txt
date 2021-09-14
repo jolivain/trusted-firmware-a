@@ -76,6 +76,104 @@ set(TFA_PLATFORM_BINARY_DIR
     "${CMAKE_CURRENT_BINARY_DIR}/${target}")
 
 #
+# Configure the Arm architecture to target. In the legacy build system the
+# version parts were configured through `ARM_ARCH_MAJOR` and `ARM_ARCH_MINOR`.
+# Here, we instead accept a string in the branded format - "ArmvX.Y-Z" - and
+# derive the versions from that.
+#
+
+tfa_platform_architectures(architectures
+    PLATFORM ${TFA_PLATFORM})
+
+tfa_legacy_option(
+    OLD ARM_ARCH_MAJOR ARM_ARCH_MINOR
+    NEW TFA_ARCH)
+
+arm_config_option(
+    NAME TFA_ARCH
+    HELP "Arm architecture to target."
+    STRINGS ${architectures})
+
+tfa_parse_arch_version(
+    VERSION "${TFA_ARCH}"
+    MAJOR TFA_ARCH_VERSION_MAJOR
+    MINOR TFA_ARCH_VERSION_MINOR
+    CLASS TFA_ARCH_VERSION_CLASS)
+
+set(TFA_ARCH_VERSION "${TFA_ARCH_VERSION_MAJOR}.${TFA_ARCH_VERSION_MINOR}")
+
+string(TOUPPER "${TFA_ARCH}" TFA_ARCH_UPPER)
+string(MAKE_C_IDENTIFIER "${TFA_ARCH_UPPER}" TFA_ARCH_UPPER_IDENT)
+string(TOLOWER "${TFA_ARCH}" TFA_ARCH_LOWER)
+string(MAKE_C_IDENTIFIER "${TFA_ARCH_LOWER}" TFA_ARCH_LOWER_IDENT)
+
+arm_config_option_override(
+    NAME TFA_ARCH_${TFA_ARCH_UPPER_IDENT}
+    VALUE TRUE)
+
+#
+# Configure the instruction set state. In the legacy build system this was done
+# through `ARCH`, which took `aarch32` or `aarch64` regardless of the platform.
+# We do something similar here, except we ask the platform to provide the list
+# of architectures it supports if using an ISA supporting multiple instruction
+# set states.
+#
+
+tfa_platform_architecture_states(states
+    PLATFORM "${TFA_PLATFORM}"
+    ARCHITECTURE "${TFA_ARCH}")
+
+tfa_legacy_option(
+    OLD ARCH
+    NEW TFA_ARCH_STATE)
+
+arm_config_option(
+    NAME TFA_ARCH_STATE
+    HELP "Arm instruction set state."
+    STRINGS ${states})
+
+string(TOUPPER ${TFA_ARCH_STATE} TFA_ARCH_STATE_UPPER)
+string(MAKE_C_IDENTIFIER ${TFA_ARCH_STATE_UPPER} TFA_ARCH_STATE_UPPER_IDENT)
+string(TOLOWER ${TFA_ARCH_STATE} TFA_ARCH_STATE_LOWER)
+string(MAKE_C_IDENTIFIER ${TFA_ARCH_STATE_LOWER} TFA_ARCH_STATE_LOWER_IDENT)
+
+arm_config_option_override(
+    NAME TFA_ARCH_STATE_${TFA_ARCH_STATE_UPPER_IDENT}
+    VALUE TRUE)
+
+#
+# Create convenience variables for every architecture and state described by the
+# metadata. This allows build system developers to use short-hand variable names
+# for basic boolean operations on the current architecture, instead of relying
+# on string comparisons.
+#
+
+tfa_architectures(architectures)
+
+foreach(architecture IN LISTS architectures)
+    string(MAKE_C_IDENTIFIER ${architecture} architecture-ident)
+    string(TOUPPER ${architecture-ident} architecture-ident)
+
+    arm_config_option(
+        NAME TFA_ARCH_${architecture-ident} HIDDEN
+        HELP "Is the ${architecture} architecture in use?"
+        DEFAULT FALSE)
+
+    tfa_architecture_states(states
+        ARCHITECTURE "${architecture}")
+
+    foreach(state IN LISTS states)
+        string(MAKE_C_IDENTIFIER ${state} state-ident)
+        string(TOUPPER ${state-ident} state-ident)
+
+        arm_config_option(
+            NAME TFA_ARCH_STATE_${state-ident} HIDDEN
+            HELP "Is the ${architecture} ${state} state in use?"
+            DEFAULT FALSE)
+    endforeach()
+endforeach()
+
+#
 # If no toolchain file has been provided through the default CMake mechanism, we
 # use our own mechanism for toolchain selection, with the intention of making it
 # easier for users to specify a valid toolchain file.
