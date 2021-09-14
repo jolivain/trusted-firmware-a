@@ -64,6 +64,18 @@ tfa_platform_path(TFA_PLATFORM_SOURCE_DIR
     PLATFORM "${TFA_PLATFORM}")
 
 #
+# Because the platform's source directory might have come from outside, CMake
+# may be unable to derive the platform's binary directory automatically. As an
+# alternative, we'll use the platform's target name as its binary directory.
+#
+
+tfa_platform_target(target
+    PLATFORM "${TFA_PLATFORM}")
+
+set(TFA_PLATFORM_BINARY_DIR
+    "${CMAKE_CURRENT_BINARY_DIR}/${target}")
+
+#
 # We're done with very early setup, so we can now create the project. This will
 # do some of the automatic compiler detection, which we need for setting up
 # further configuration options.
