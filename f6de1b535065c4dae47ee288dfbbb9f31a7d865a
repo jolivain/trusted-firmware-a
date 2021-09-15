@@ -81,6 +81,30 @@
       },
       "revId": "f6de1b535065c4dae47ee288dfbbb9f31a7d865a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48c0d38f_4db4bad9",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-09-15T15:13:42Z",
+      "side": 1,
+      "message": "Not sure i understand. The state can change at any instance. so even if you check for !\u003d AFF_STATE_OFF, immediately after that it can change.. my question is the number of active cores only gives you the number of active cores as you observed at a given moment. What is the use case for this in TF-A?",
+      "parentUuid": "fdd5fd34_8b273fed",
+      "range": {
+        "startLine": 189,
+        "startChar": 2,
+        "endLine": 189,
+        "endChar": 62
+      },
+      "revId": "f6de1b535065c4dae47ee288dfbbb9f31a7d865a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
