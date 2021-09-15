@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19ec1b76_e4a60be6",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-15T23:57:06Z",
+      "side": 1,
+      "message": "I believe I made these changes by accident (misreading the documentation on this register) in the original patch set and they should be reverted.",
+      "range": {
+        "startLine": 526,
+        "startChar": 0,
+        "endLine": 530,
+        "endChar": 40
+      },
+      "revId": "37d073c61426ad349dbe73faa8ebeea0e573cb4e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
