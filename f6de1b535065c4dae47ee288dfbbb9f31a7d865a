@@ -39,6 +39,48 @@
       },
       "revId": "f6de1b535065c4dae47ee288dfbbb9f31a7d865a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a46edaf_a0d6f9bd",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000476
+      },
+      "writtenOn": "2021-09-15T12:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ad215ad_b463539d",
+      "revId": "f6de1b535065c4dae47ee288dfbbb9f31a7d865a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdd5fd34_8b273fed",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000476
+      },
+      "writtenOn": "2021-09-15T12:19:49Z",
+      "side": 1,
+      "message": "I am not sure whether race condition possible or not. But pending power up/down will be taken care by below condition:\nif (psci_get_aff_info_state_by_idx(cpu_idx) !\u003d AFF_STATE_OFF) {\nHere is scenario:\n1. Firmware will send idling request to all cores before firmware tries to power down CPU\n2. Since this is SMP case, TF-A does idling only when firmware sends requests for all active cores.",
+      "parentUuid": "5dc1c3ef_609bc0b7",
+      "range": {
+        "startLine": 189,
+        "startChar": 2,
+        "endLine": 189,
+        "endChar": 62
+      },
+      "revId": "f6de1b535065c4dae47ee288dfbbb9f31a7d865a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
