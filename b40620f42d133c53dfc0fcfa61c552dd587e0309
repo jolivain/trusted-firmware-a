@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffb83365_ac0a29a7",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000289
+      },
+      "writtenOn": "2021-09-15T19:30:44Z",
+      "side": 1,
+      "message": "I am heavily leaning towards not following the OP-TEE example 😞 Apologies for this but this SP ID allocation is not inline with the convention in Hf and OP-TEE i.e. top bit set to 1. \n\nThe hardcoded value of 0x1 for the StMM SP in OP-TEE predates this and was a hack. We would be incurring technical debt in making this the norm.\n\nIt would be best for TF-A to adopt the Hf/OP-TEE convention. The ID should be discovered through FFA_PARTITION_INFO_GET and FFA_ID_GET.\n\nBTW, I writing code to address my comments that I will share shortly. Raising the comments for alignment/visibility.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "b40620f42d133c53dfc0fcfa61c552dd587e0309",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
