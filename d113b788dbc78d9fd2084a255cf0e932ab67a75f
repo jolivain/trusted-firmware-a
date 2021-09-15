@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeecbefd_51c5aedc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-09-15T12:29:26Z",
+      "side": 1,
+      "message": "Looks like there is some error in the documentation patch:\nIf you follow http://ci.trustedfirmware.org/job/tf-gerrit-tforg-l1/1178/ that shows \"run doc build check\" failed if you click on the #13427 build number http://ci.trustedfirmware.org/job/tf-gerrit-tforg-l1/1178/ and there \"FAILURE\" link you are taken to a page where you should click on the \"Console Output on the left of that page https://ci.trustedfirmware.org/job/tf-a-builder/438388/console\n\nTowards the bottom this is shown:\n\n11:05:41 Warning, treated as error:\n11:05:41 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/docs/plat/nxp/nxp-layerscape.rst:54:Malformed table.\n11:05:41 Multiple head/body row separators (table lines 7 and 9); only one allowed.\n11:05:41 \n11:05:41 +---------------------+-------+--------+-------+-------+-------+-------------+--------------+-----------------+\n11:05:41 |                     |                          BOOT_MODE                                  |                 |\n11:05:41 |                     +\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+                 |\n11:05:41 |       PLAT          |  sd   |  qspi  |  nor  | nand  | emmc  | flexspi_nor | flexspi_nand | fip_ddr needed  |\n11:05:41 |                     |       |        |       |       |       |             |              |                 |\n11:05:41 |                     |       |        |       |       |       |             |              |                 |\n11:05:41 +\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\n11:05:41 |     lx2160ardb      |  yes  |        |       |       |  yes  |   yes       |              |       yes       |\n11:05:41 +\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\n11:05:41 |     ls1028ardb      |  yes  |        |       |       |  yes  |   yes       |              |       no        |\n11:05:41 +---------------------+-------+--------+-------+-------+-------+-------------+--------------+-----------------+\n11:05:41 Makefile:25: recipe for target \u0027html\u0027 failed\n11:05:41 make[1]: *** [html] Error 2\n11:05:41 Makefile:1351: recipe for target \u0027doc\u0027 failed\n11:05:41 make: *** [doc] Error 2\n11:05:41 + echo",
+      "revId": "d113b788dbc78d9fd2084a255cf0e932ab67a75f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
