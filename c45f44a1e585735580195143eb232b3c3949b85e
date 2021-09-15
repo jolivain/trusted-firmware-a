@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "042a6194_5332f3ea",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-15T23:56:21Z",
+      "side": 1,
+      "message": "I believe I made these changes by accident in the original patch set and they should be reverted.",
+      "range": {
+        "startLine": 504,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 27
+      },
+      "revId": "c45f44a1e585735580195143eb232b3c3949b85e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
