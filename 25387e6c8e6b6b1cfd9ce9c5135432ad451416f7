@@ -16,6 +16,24 @@
       "message": "Where is it used?",
       "revId": "25387e6c8e6b6b1cfd9ce9c5135432ad451416f7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ad4fba7_520bbece",
+        "filename": "plat/nxp/common/psci/include/plat_psci.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-09-15T02:10:36Z",
+      "side": 1,
+      "message": "it is used in plat/nxp/soc-ls1028a/aarch64/ls1028a.S",
+      "parentUuid": "d72a43c5_973ebec4",
+      "revId": "25387e6c8e6b6b1cfd9ce9c5135432ad451416f7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
