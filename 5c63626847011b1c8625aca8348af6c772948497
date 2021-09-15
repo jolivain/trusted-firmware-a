@@ -16,6 +16,24 @@
       "message": "static checks failed commit lint:\n\n✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]\n⚠   header must not be longer than 50 characters, current length is 66 [header-max-length]",
       "revId": "5c63626847011b1c8625aca8348af6c772948497",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d83732b1_1b42d964",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000457
+      },
+      "writtenOn": "2021-09-15T13:13:17Z",
+      "side": 1,
+      "message": "I have changed the \"Replace\" to \"replace\" in the subject.  Hope that is the issue reported in the commitlint.  And also made the header length less than 50 characters.",
+      "parentUuid": "ed61af64_1c0f06b9",
+      "revId": "5c63626847011b1c8625aca8348af6c772948497",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
