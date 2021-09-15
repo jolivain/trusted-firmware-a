@@ -16,6 +16,368 @@
       "message": "Failures are unrelated to this patch, so giving VBR+1 manually.\nAlso doc build tested manually, so giving V+1 as well.",
       "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2ba643e_676d172b",
+        "filename": "docs/perf/index.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "Is \u0027Performance \u0026 Testing\u0027 the right section to choose?\nProvided the documentation claims the implementation is a PoC (hence not necessarily used in production) should this rather go to the \u0027Design documents\u0027 section? IIUC this section was created specifically for this purpose.",
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b422b0ad_1f4bf03d",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "Does \u0027latter\u0027 relate to the TPM?\nTo which entity is the security state attested to?",
+      "range": {
+        "startLine": 6,
+        "startChar": 31,
+        "endLine": 6,
+        "endChar": 40
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c898361f_0817e388",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "This introductory section alludes to that the PoC effectively provides an fTPM implementation.\nI appreciate this is finer detailed in the following section(s), but should this be rephrased to state that the PoC does not actually implement an fTPM service?\nBut rather build system changes to facilitate importing a 3rd party fTPM implementation?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 32
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1b7957a_c5a6e843",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "in?",
+      "range": {
+        "startLine": 45,
+        "startChar": 58,
+        "endLine": 45,
+        "endChar": 60
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14ee5d13_a138891f",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "to include the OP-TEE OS image?",
+      "range": {
+        "startLine": 46,
+        "startChar": 37,
+        "endLine": 46,
+        "endChar": 54
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6958b82a_5a4c3821",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "remove \u0027read\u0027 ?\n\n...in order to validate the measured boot functionality.",
+      "range": {
+        "startLine": 54,
+        "startChar": 57,
+        "endLine": 55,
+        "endChar": 41
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25b9efbd_f64cba25",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 20
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "576dad53_0d945e1f",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "remove the quotes?",
+      "range": {
+        "startLine": 83,
+        "startChar": 27,
+        "endLine": 83,
+        "endChar": 28
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "725f4d54_3e50a2a7",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "Is this really about building a toolchain??",
+      "range": {
+        "startLine": 84,
+        "startChar": 4,
+        "endLine": 84,
+        "endChar": 17
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8cc32f6_7fb8828e",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "tree or hierarchy 😊 ??",
+      "range": {
+        "startLine": 95,
+        "startChar": 58,
+        "endLine": 95,
+        "endChar": 64
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1244f79a_353e8fff",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "I may have missed one step; when was it queried to clone the msft tree?\nOr is it getting synced by repo (hence in the fvp optee manifest)?",
+      "range": {
+        "startLine": 115,
+        "startChar": 59,
+        "endLine": 115,
+        "endChar": 72
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bcdc20b_1c1e628b",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "Maybe this needs a slight rephrase?\nThis seems to allude that BL33 is not measured?\nWhereas BL33 hash is shown in the log below.",
+      "range": {
+        "startLine": 180,
+        "startChar": 17,
+        "endLine": 180,
+        "endChar": 66
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "226898f7_eae1cc93",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "nit: startup?",
+      "range": {
+        "startLine": 403,
+        "startChar": 27,
+        "endLine": 403,
+        "endChar": 38
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a966d08b_a2db3697",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 432,
+        "startChar": 17,
+        "endLine": 432,
+        "endChar": 27
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a377f748_b70cd59d",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "nit: move this at the beginning of the sentence like\n\nWe are only interested in this PoC about PCR0 measurements (which must be non-null)",
+      "range": {
+        "startLine": 464,
+        "startChar": 49,
+        "endLine": 465,
+        "endChar": 1
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbb8934a_e7ff050b",
+        "filename": "docs/perf/measured-boot.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-15T08:29:27Z",
+      "side": 1,
+      "message": "This is a very long sentence, maybe break it down into two or three sentences or itemize.",
+      "range": {
+        "startLine": 473,
+        "startChar": 69,
+        "endLine": 478,
+        "endChar": 27
+      },
+      "revId": "c8653702f073b75bb034f600c80a9a840828f8e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
