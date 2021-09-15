@@ -16,6 +16,24 @@
       "message": "Jiafei I have invoked a Allow-CI+1 run please review the results in  http://ci.trustedfirmware.org/job/tf-gerrit-tforg-l1/1171/ if there are any failure once the run has complete. We can help you interpret these results if needed and help you filter out any false failures.\n\nJust for your information both yourself and Pankaj can invoke the Allow-CI+1 and Allow-CI+2 CI runs yourselves as code owners. The main difference between these is the +2 runs a lot more tests but your changes are all in platform code the +1 should be enough.\n\nMaintainers would prefer to see Code-Owner-Reviews to be present before engaging. Its why we request each platform have two code owners as that allows you to have separate person to the code-owner to the submitter. The only time the submitter should code owner review if they are not the original author and have already reviewed before they submit.\n\nIts not totally clear as the patch Owner/Author/Committer are all set as yourself but I see in the commit message various other nxp folks having sign offs recorded. Its important to the TF-A projects that patches have been independently reviews by one or more other people. For platform code maintainers understand that platform people know their platform best hence the Code Owner review.\n\nHopefully the above helps.",
       "revId": "a3dc88093ee909a36bcf3987c981e81beb78ccfa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26e3d913_4b5440e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-09-15T09:46:07Z",
+      "side": 1,
+      "message": "Thanks for your information, in fact some patches have a lot of contributors, we already had some internal review, but would like to have more reviewer, thanks.",
+      "parentUuid": "f703b4e4_83b49228",
+      "revId": "a3dc88093ee909a36bcf3987c981e81beb78ccfa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
