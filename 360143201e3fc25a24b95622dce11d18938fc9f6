@@ -16,6 +16,23 @@
       "message": "Added in a few other project maintainers.",
       "revId": "360143201e3fc25a24b95622dce11d18938fc9f6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e2cb519_5d6b48a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-09-15T11:20:33Z",
+      "side": 1,
+      "message": "\u003e Patch Set 1: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 1172 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/1172/)\n\u003e Some tests failed (3)\n\nIgnore this. Behind Jenkins is a LAVA system and that can report failures which pass on automatic retry that eventually gets reported to Jenkins. This is possibly one of these so ignore as Jenkins report passes.\n",
+      "revId": "360143201e3fc25a24b95622dce11d18938fc9f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
