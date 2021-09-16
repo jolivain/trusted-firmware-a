@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f356732_c11c6c93",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T15:24:53Z",
+      "side": 1,
+      "message": "This is a read only field. So this need not be defined ?",
+      "range": {
+        "startLine": 1086,
+        "startChar": 7,
+        "endLine": 1086,
+        "endChar": 28
+      },
+      "revId": "af354ac059a7ac6ae1b048087188514fa0763ab2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f0b50cf_0f2e0ecd",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1146,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T15:24:53Z",
+      "side": 1,
+      "message": "We could take a similar approach to xlat tables wherein these are defined in the gpt lib header rather than here.",
+      "range": {
+        "startLine": 1079,
+        "startChar": 1,
+        "endLine": 1146,
+        "endChar": 42
+      },
+      "revId": "af354ac059a7ac6ae1b048087188514fa0763ab2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c6a76b7_3f2ff914",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T15:24:53Z",
+      "side": 1,
+      "message": "same comment as above.",
+      "range": {
+        "startLine": 1151,
+        "startChar": 0,
+        "endLine": 1154,
+        "endChar": 43
+      },
+      "revId": "af354ac059a7ac6ae1b048087188514fa0763ab2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
