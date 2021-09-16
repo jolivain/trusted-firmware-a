@@ -3,6 +3,92 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b0203e9_6df8e360",
+        "filename": "include/lib/el3_runtime/cpu_data.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T12:14:42Z",
+      "side": 1,
+      "message": "Suggest: \"CPU_DATA_CONTEXT_NUM\"",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 34
+      },
+      "revId": "c45f44a1e585735580195143eb232b3c3949b85e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f60ad5d1_b494e767",
+        "filename": "include/lib/el3_runtime/cpu_data.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T12:14:42Z",
+      "side": 1,
+      "message": "We could introduce some typedef for readability.\n\ntypedef enum {\n    CPU_CONTEXT_SECURE,   //0\n    CPU_CONTEXT_NS,       //1\n#if ENABLE_RME\n    CPU_CONTEXT_REALM,     //2\n#endif\n    CPU_CONTEXT_NUM\n} context_pas_t;\n\nThis means the type to this function should use this type enum. Also CASSERT that (CPU_DATA_CONTEXT_NUM \u003d\u003d CPU_CONTEXT_NUM);",
+      "range": {
+        "startLine": 179,
+        "startChar": 9,
+        "endLine": 179,
+        "endChar": 10
+      },
+      "revId": "c45f44a1e585735580195143eb232b3c3949b85e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb446ed4_66477814",
+        "filename": "include/lib/el3_runtime/cpu_data.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T12:14:42Z",
+      "side": 1,
+      "message": "if (security_state \u003d\u003d SECURE) {\n\t\treturn 0;\n\t} else { \n#if ENABLE_RME\n        if (security_state \u003d\u003d NON_SECURE)\n\t\treturn 1;\n        else {\n\t        assert(security_state \u003d\u003d REALM)\n        \treturn 2;\n        }\n#else\n        return 1;\n#endif\n}\n\nThis is for better robustess so there is no invalid return if RME is not enabled.",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 2
+      },
+      "revId": "c45f44a1e585735580195143eb232b3c3949b85e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b581793_e5fe1295",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T12:14:42Z",
+      "side": 1,
+      "message": "Hopefully this will get removed.",
+      "revId": "c45f44a1e585735580195143eb232b3c3949b85e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "042a6194_5332f3ea",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 10
@@ -19,6 +105,29 @@
         "startChar": 0,
         "endLine": 506,
         "endChar": 27
+      },
+      "revId": "c45f44a1e585735580195143eb232b3c3949b85e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdf4c1ce_8771ea58",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T12:14:42Z",
+      "side": 1,
+      "message": "not sure why the caller would call EL2 save and restore if EL2 is not present. This check should have been as assert to ensure we have a sane caller I think. But can be picked up later (another item in context mgmt cleanup list).",
+      "range": {
+        "startLine": 642,
+        "startChar": 0,
+        "endLine": 643,
+        "endChar": 71
       },
       "revId": "c45f44a1e585735580195143eb232b3c3949b85e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
