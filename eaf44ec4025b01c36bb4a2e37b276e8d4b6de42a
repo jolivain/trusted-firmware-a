@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ed1eff1_dc25ad83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-16T01:58:03Z",
+      "side": 1,
+      "message": "Looks great to me, all I could find was two tiny nit picks.",
+      "revId": "eaf44ec4025b01c36bb4a2e37b276e8d4b6de42a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4c4cd94_134fa3cc",
+        "filename": "plat/arm/board/fvp_r/fvp_r_common.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-16T01:58:03Z",
+      "side": 1,
+      "message": "nit: Coding style guidelines require braces here. https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 49
+      },
+      "revId": "eaf44ec4025b01c36bb4a2e37b276e8d4b6de42a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fac63c9_b8cfd11d",
+        "filename": "plat/arm/board/fvp_r/include/platform_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-16T01:58:03Z",
+      "side": 1,
+      "message": "nit: remove this tab so it lines up with the other definitions",
+      "range": {
+        "startLine": 183,
+        "startChar": 34,
+        "endLine": 183,
+        "endChar": 35
+      },
+      "revId": "eaf44ec4025b01c36bb4a2e37b276e8d4b6de42a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
