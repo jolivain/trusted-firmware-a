@@ -16,6 +16,149 @@
       "message": "Thanks for the reviews Yann and Javier, I believe I have fixed the issues pointed out.",
       "revId": "eafc3505561d01409cc2e6c072a9169887634f70",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "deada9d2_0cf61531",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T15:50:14Z",
+      "side": 1,
+      "message": "Some initial comments, still analyzing.",
+      "revId": "eafc3505561d01409cc2e6c072a9169887634f70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f706750d_46eac918",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T15:50:14Z",
+      "side": 1,
+      "message": "should we introduce enum to describe these values for better readability and robustness ? \n some thing along the lines of\ntypedef enum {\n  PPS_4GB \u003d 0b00,\n  PPS_64GB \u003d 0b001,\n  ..\n}\n\nThis also means that the variables storing this type can be changed to this enum (also the input parameters).",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 8
+      },
+      "revId": "eafc3505561d01409cc2e6c072a9169887634f70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24424b26_65eacc99",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T15:50:14Z",
+      "side": 1,
+      "message": "Similar comment regarding to an enum",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 10
+      },
+      "revId": "eafc3505561d01409cc2e6c072a9169887634f70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44a8eb1c_ba30845c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T15:50:14Z",
+      "side": 1,
+      "message": "reference the relevant section in the RME specification for this table",
+      "revId": "eafc3505561d01409cc2e6c072a9169887634f70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e91a3592_ae0b208e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T15:50:14Z",
+      "side": 1,
+      "message": "Similar comment to introduce an enum",
+      "range": {
+        "startLine": 46,
+        "startChar": 5,
+        "endLine": 46,
+        "endChar": 9
+      },
+      "revId": "eafc3505561d01409cc2e6c072a9169887634f70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe08541e_c55d75ec",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T15:50:14Z",
+      "side": 1,
+      "message": "reference the relevant section in spec",
+      "revId": "eafc3505561d01409cc2e6c072a9169887634f70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6d27323_3693fd8a",
+        "filename": "lib/gpt_rme/gpt_rme_private.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T15:50:14Z",
+      "side": 1,
+      "message": "PLATFORM_ is the name convention for a platform macro. It is usually PLAT_ or a component specific prefix like GPT_RME_\n\nIt seems this can easily be read from the hardware in the current structure and avoid the need for platform to define this. \n\nIf you do something like \n\n#define GPT_S_VAL   (((read_gpccr_el3() \u003e\u003e 20) \u0026 GPCCR_L0GPTSZ_MASK) + 30) , we could remove the compile time mandate. But doing this could have a huge hit on the efficiency of the code since a lot of masks and offsets are derived based on this. Could you do the analysis and provide a report on this ?",
+      "range": {
+        "startLine": 64,
+        "startChar": 5,
+        "endLine": 64,
+        "endChar": 22
+      },
+      "revId": "eafc3505561d01409cc2e6c072a9169887634f70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
