@@ -140,6 +140,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38b9cda2_f2b6e15e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-09-16T20:22:22Z",
+      "side": 1,
+      "message": "Could we say that the mapping is not block aligned?",
+      "range": {
+        "startLine": 236,
+        "startChar": 25,
+        "endLine": 236,
+        "endChar": 35
+      },
+      "revId": "eafc3505561d01409cc2e6c072a9169887634f70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93acdd37_48e10022",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-09-16T20:22:22Z",
+      "side": 1,
+      "message": "Could we say that the granule mapping is not aligned?",
+      "range": {
+        "startLine": 249,
+        "startChar": 25,
+        "endLine": 249,
+        "endChar": 35
+      },
+      "revId": "eafc3505561d01409cc2e6c072a9169887634f70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd309202_4edc18f3",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-09-16T20:22:22Z",
+      "side": 1,
+      "message": "Would it be better to have a define for this?",
+      "range": {
+        "startLine": 328,
+        "startChar": 16,
+        "endLine": 328,
+        "endChar": 21
+      },
+      "revId": "eafc3505561d01409cc2e6c072a9169887634f70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6d27323_3693fd8a",
         "filename": "lib/gpt_rme/gpt_rme_private.h",
         "patchSetId": 10
