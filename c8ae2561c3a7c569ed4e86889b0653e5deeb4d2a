@@ -22,6 +22,30 @@
       },
       "revId": "c8ae2561c3a7c569ed4e86889b0653e5deeb4d2a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a180878e_d6769ccb",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-09-16T13:11:55Z",
+      "side": 1,
+      "message": "Can you compile out those cases if builtin FF-A version is lower than v1.1?\nSomething like:\n\n@@ -619,6 +617,9 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,\n        case FFA_RXTX_MAP_SMC32:\n        case FFA_RXTX_MAP_SMC64:\n        case FFA_RXTX_UNMAP:\n+       case FFA_PARTITION_INFO_GET:\n+\n+#if (MAKE_FFA_VERSION(1, 1) \u003c\u003d FFA_VERSION_COMPILED)\n        case FFA_NOTIFICATION_BITMAP_CREATE:\n        case FFA_NOTIFICATION_BITMAP_DESTROY:\n        case FFA_NOTIFICATION_BIND:\n@@ -627,7 +628,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,\n        case FFA_NOTIFICATION_GET:\n        case FFA_NOTIFICATION_INFO_GET:\n        case FFA_NOTIFICATION_INFO_GET_SMC64:\n-       case FFA_PARTITION_INFO_GET:\n+#endif\n+\n                /*\n                 * Should not be allowed to forward FFA_PARTITION_INFO_GET\n                 * from Secure world to Normal world",
+      "parentUuid": "19113e69_b78323ba",
+      "range": {
+        "startLine": 622,
+        "startChar": 1,
+        "endLine": 629,
+        "endChar": 38
+      },
+      "revId": "c8ae2561c3a7c569ed4e86889b0653e5deeb4d2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
