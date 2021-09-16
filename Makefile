@@ -208,11 +208,8 @@ endif
 arch-features		=	${ARM_ARCH_FEATURE}
 
 # Enable required options for memory stack tagging.
-# Currently, these options are enabled only for clang and armclang compiler.
 ifeq (${SUPPORT_STACK_MEMTAG},yes)
 ifdef mem_tag_arch_support
-# Check for armclang and clang compilers
-ifneq ( ,$(filter $(notdir $(CC)),armclang clang))
 # Add "memtag" architecture feature modifier if not specified
 ifeq ( ,$(findstring memtag,$(arch-features)))
 arch-features       	:=       $(arch-features)+memtag
@@ -222,7 +219,6 @@ TF_CFLAGS		+=	-mmemtag-stack
 else ifeq ($(notdir $(CC)),clang)
 TF_CFLAGS		+=	-fsanitize=memtag
 endif	# armclang
-endif	# armclang clang
 else
 $(error "Error: stack memory tagging is not supported for architecture \
 	${ARCH},armv${ARM_ARCH_MAJOR}.${ARM_ARCH_MINOR}-a")
