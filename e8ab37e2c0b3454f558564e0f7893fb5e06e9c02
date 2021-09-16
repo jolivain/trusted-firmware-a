@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bcc771dd_ab4306f6",
+        "filename": "bl1/aarch64/bl1_context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T11:48:40Z",
+      "side": 1,
+      "message": "\"Flush cache since bl2_ep_info is accessed after MMU is disabled before jumping..\"",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 59
+      },
+      "revId": "e8ab37e2c0b3454f558564e0f7893fb5e06e9c02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a5b7dae_54df2599",
+        "filename": "bl1/aarch64/bl1_entrypoint.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T11:48:40Z",
+      "side": 1,
+      "message": "nit: this #if is not required as the function will get garbage collected is not referenced.",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 14
+      },
+      "revId": "e8ab37e2c0b3454f558564e0f7893fb5e06e9c02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c8332a4_36713d3b",
+        "filename": "bl1/bl1_private.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T11:48:40Z",
+      "side": 1,
+      "message": "this #if is not strictly required.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "e8ab37e2c0b3454f558564e0f7893fb5e06e9c02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "13923b5e_d4ef7158",
         "filename": "include/common/bl_common.h",
         "patchSetId": 16
@@ -14,6 +83,23 @@
       "writtenOn": "2021-09-15T22:23:17Z",
       "side": 1,
       "message": "What is this change for?",
+      "revId": "e8ab37e2c0b3454f558564e0f7893fb5e06e9c02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6725d9a_a14971ab",
+        "filename": "lib/cpus/errata_report.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-16T11:48:40Z",
+      "side": 1,
+      "message": "Is this change required ? I think we will not be reporting errata for BL2. The #if should be placed for the callers of this function rather than here.",
       "revId": "e8ab37e2c0b3454f558564e0f7893fb5e06e9c02",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
