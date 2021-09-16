@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaec126f_af5eb624",
+        "filename": "plat/mediatek/mt8183/drivers/sspm/sspm.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-09-16T23:55:51Z",
+      "side": 1,
+      "message": "Is this overcounting? sspm_ipi_recv_non_blocking() calls memcpy_from_sspm() which seems to interpret `len` to count 32-bit words, but sizeof() is the size in bytes. (Found by Coverity.)",
+      "range": {
+        "startLine": 152,
+        "startChar": 7,
+        "endLine": 152,
+        "endChar": 23
+      },
+      "revId": "9fc34bbd8d804b5a89472b714a55ccfe7931f2ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
