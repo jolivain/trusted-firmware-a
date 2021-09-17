@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6e4e761_f12348b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-09-17T12:44:55Z",
+      "side": 1,
+      "message": "Varun, when you evaluate your CI results please be aware of this open CI issue https://linaro.atlassian.net/secure/RapidBoard.jspa?rapidView\u003d70\u0026projectKey\u003dTFC\u0026modal\u003ddetail\u0026selectedIssue\u003dTFC-176 in case you see any failures reporting \n\n2021-09-15T14:44:45 lava-test-interactive-retry failed: 1 of 1 attempts. \u0027lava-test-interactive timed out after 900 seconds\u0027\n2021-09-15T14:44:45 lava-test-interactive timed out after 900 seconds\n\nin LAVA logs.",
+      "revId": "efd2c24416cf3ec37cfde52966075ded6a498bd7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
