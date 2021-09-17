@@ -118,26 +118,6 @@ func cortex_a78_ae_reset_func
 	bl	errata_a78_ae_1951502_wa
 #endif
 
-#if ENABLE_AMU
-	/* Make sure accesses from EL0/EL1 and EL2 are not trapped to EL3 */
-	mrs	x0, actlr_el3
-	bic	x0, x0, #CORTEX_A78_ACTLR_TAM_BIT
-	msr	actlr_el3, x0
-
-	/* Make sure accesses from non-secure EL0/EL1 are not trapped to EL2 */
-	mrs	x0, actlr_el2
-	bic	x0, x0, #CORTEX_A78_ACTLR_TAM_BIT
-	msr	actlr_el2, x0
-
-	/* Enable group0 counters */
-	mov	x0, #CORTEX_A78_AMU_GROUP0_MASK
-	msr	CPUAMCNTENSET0_EL0, x0
-
-	/* Enable group1 counters */
-	mov	x0, #CORTEX_A78_AMU_GROUP1_MASK
-	msr	CPUAMCNTENSET1_EL0, x0
-#endif
-
 	isb
 
 	ret	x19
