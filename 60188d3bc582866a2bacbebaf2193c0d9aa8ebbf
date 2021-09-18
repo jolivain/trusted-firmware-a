@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "775b5045_db58016c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-09-18T15:48:57Z",
+      "side": 1,
+      "message": "can you update commit message? cannot tell what issue it is fixing. The fix doesnt make sense because we are going from using the priority for a given event in SDEI to a hard coded value. That does not seem right...What if RAS_PRI is lower than the event priority for example?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "60188d3bc582866a2bacbebaf2193c0d9aa8ebbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "602f2a66_c20639f3",
