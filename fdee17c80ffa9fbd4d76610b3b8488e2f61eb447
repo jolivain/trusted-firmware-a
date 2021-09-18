@@ -16,6 +16,29 @@
       "message": "Please review.",
       "revId": "fdee17c80ffa9fbd4d76610b3b8488e2f61eb447",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fbfb695_8c15e978",
+        "filename": "services/std_svc/sdei/sdei_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-09-18T15:42:34Z",
+      "side": 1,
+      "message": "why can the kernel not pass the correct mpidr? dont have a problem with the fix but i\u0027m curious to understand why we are encoding linux kernel behavior into TF-A. WHat happens when windows comes along and does something else? or some other OS?",
+      "range": {
+        "startLine": 365,
+        "startChar": 5,
+        "endLine": 366,
+        "endChar": 10
+      },
+      "revId": "fdee17c80ffa9fbd4d76610b3b8488e2f61eb447",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
