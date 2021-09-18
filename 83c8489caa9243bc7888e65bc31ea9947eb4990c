@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ac86036_b88a22a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-09-18T12:46:58Z",
+      "side": 1,
+      "message": "CI found some Static checks issues here https://ci.trustedfirmware.org/job/tf-static-checks/1255/\n\nCopied here incase the CI log times out and is removed:\n\n###### Static checks ######\n\n\n****** Copyright headers of files modified by this patch ******\n\nResult : SUCCESS\n\nChecking the copyrights in the code...\nChecking files modified between patches abd63ed0c575a2517c43fe8dc4321d6e9fc512c3 and HEAD...\nWARNING: Copyright is out of date in plat/xilinx/versal/include/platform_def.h: \u0027 * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.\u0027\nWARNING: Copyright is out of date in plat/xilinx/versal/plat_psci.c: \u0027 * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.\u0027\nWARNING: Copyright is out of date in plat/xilinx/versal/plat_versal.c: \u0027 * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.\u0027\nWARNING: Copyright is out of date in plat/xilinx/versal/pm_service/pm_api_sys.c: \u0027 * Copyright (c) 2019-2020, Xilinx, Inc. All rights reserved.\u0027\nWARNING: Copyright is out of date in plat/xilinx/versal/pm_service/pm_client.c: \u0027 * Copyright (c) 2019-2020, Xilinx, Inc. All rights reserved.\u0027\nWARNING: Copyright is out of date in plat/xilinx/versal/pm_service/pm_defs.h: \u0027 * Copyright (c) 2019-2020, Xilinx, Inc. All rights reserved.\u0027\nWARNING: Copyright is out of date in plat/xilinx/versal/pm_service/pm_svc_main.c: \u0027 * Copyright (c) 2019-2020, Xilinx, Inc. All rights reserved.\u0027\nWARNING: Copyright is out of date in plat/xilinx/versal/sip_svc_setup.c: \u0027 * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.\u0027\nWARNING: Copyright is out of date in plat/xilinx/versal/versal_ipi.c: \u0027 * Copyright (c) 2019, Xilinx, Inc. All rights reserved.\u0027\n\nSummary:\n\t11 files analyzed\n\tNo errors found\n\n\n****** Order of includes on the last patch(es) ******\n\nResult : SUCCESS\n\n\n****** Line endings not valid ******\n\nResult : SUCCESS\n\n****** Coding style on current patch ******\n\nResult : FAILURE\n\n  CHECKING STYLE\n\n[*] Checking style of \u002783c8489caa9243bc7888e65bc31ea9947eb4990c\u0027\n\n\n[*] Checking style of \u0027d18f2d543c30770244d4ee0a0cce70d1cbb212d3\u0027\n\n\n[*] Checking style of \u0027e68f798a9390875eca41fbe7449b5bf6bf7e5030\u0027\n\n\n[*] Checking style of \u00278010ee9449fa07038d420e8fe391f2767a2b0dd2\u0027\n\n\n[*] Checking style of \u0027e12b5f4b3889c331cf537c7746874d6e9d04e570\u0027\n\n\n[*] Checking style of \u00271f625968eed0d084d7f7b752fb6636492b146257\u0027\n\nplat/xilinx/versal/bl31_versal_setup.c:84: WARNING: Missing a blank line after declarations\n+\t\t\tint rc \u003d console_dcc_register();\n+\t\t\tif (rc \u003d\u003d 0) {\n\ntotal: 0 errors, 1 warnings, 33 lines checked\n\n[*] Checking style of \u0027ae352e5c258bc88d0078f7dc6012bb867eeaba28\u0027\n\n\n[*] Checking style of \u002725febf9f5728e4aa9188eecb54479fd413ebbc9e\u0027\n\n\n[*] Checking style of \u002712138343adb65a7ef5c20251ef94945007d5dbca\u0027\n\n\n[*] Checking style of \u0027659a2b976bcef0f7367062cb73a66a6c50fc88c3\u0027\n\nplat/xilinx/versal/pm_service/pm_api_sys.c:836: WARNING: space prohibited before semicolon\n+\t\tfw_api_version \u003d version \u0026 0xFFFFU ;\n\ntotal: 0 errors, 1 warnings, 345 lines checked\n\n[*] Checking style of \u00272fdb3d0bce4ebfac64ab9038860be4cfa570d300\u0027\n\n\n[*] Checking style of \u002766faf23d78c8c02144317fa74d1c55ae530fafcf\u0027\n\nplat/xilinx/versal/pm_service/pm_api_sys.c:887: ERROR: space required before the open parenthesis \u0027(\u0027\n+\t\tif(pm_register_sgi(arg1) !\u003d 0) {\n\nplat/xilinx/versal/pm_service/pm_api_sys.c:1018: ERROR: space required before the open brace \u0027{\u0027\n+\tif (status !\u003d PM_RET_SUCCESS){\n\ntotal: 2 errors, 0 warnings, 103 lines checked\n\n[*] Checking style of \u002790683d84a99caaf09b65dee2acc88684db82b6bc\u0027\n\n\n\n****** Banned API check on patch(es) ******\n\nResult : SUCCESS\n\n",
+      "revId": "83c8489caa9243bc7888e65bc31ea9947eb4990c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8627d84b_356713d2",
