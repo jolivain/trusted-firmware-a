@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8082ecbd_11e51916",
+        "filename": "tools/cmake_doctool/cmake_configvars.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-20T14:58:46Z",
+      "side": 1,
+      "message": "There\u0027s a lot of horizontal whitespace being wasted here. Could you run a Python formatter over these scripts if you haven\u0027t already? `black` is my own personal preference, but it\u0027s not strictly enforced in the project so doesn\u0027t matter that much which.",
+      "revId": "fd124d3f8434d214a929bdea26e94107b944a978",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3b9956a_fa7e35ca",
+        "filename": "tools/cmake_doctool/cmake_configvars_exclusions.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-20T14:58:46Z",
+      "side": 1,
+      "message": "This one looks like an anomaly... is it the case that this has documentation but not implementation?",
+      "revId": "fd124d3f8434d214a929bdea26e94107b944a978",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78652e3a_13829d2d",
+        "filename": "tools/cmake_doctool/requirements.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-20T14:58:46Z",
+      "side": 1,
+      "message": "In the patch at the very bottom of the stack I\u0027ve introduced pip-compile to the repository for the documentation requirements so that we can pin our indirect requirements. We should probably do the same thing here to avoid the issue that it was introduced for, which is that the indirect dependencies were not being specified in requirements.txt and PIP was just taking the latest version that matched the package\u0027s requirements, and that ended up causing conflicts between indirect dependencies.\n\nYou can do that by installing the pip-tools package into your virtual environment, renaming this file to `requirements.in`, and then just running `pip-compile` in the current directory.",
+      "revId": "fd124d3f8434d214a929bdea26e94107b944a978",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
