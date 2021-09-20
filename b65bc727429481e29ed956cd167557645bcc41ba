@@ -1,0 +1,327 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "301c796d_53f62e8c",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "Please use tabs to align comments",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "473b051a_8c02400b",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "0U?\namcntenset0_px and amcntenset1_px should be only set to 0 when id_pfr0_amu !\u003d ID_PFR0_AMU_NOT_SUPPORTED, See line #138.\namcntenset0_px is set on line #155, Why is set to 0?",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9692d031_6b26b8ee",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "0U?",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0201951_7c88ca0c",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "Can be initialised on line #124.",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14e2b59c_828ff345",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "amcntenset1_px is set 0 on line #129 and never set to other value. Can write_amcntenset1_px(0U) be used? Original code was using AMU_GROUP1_COUNTERS_MASK which was a configurable option.",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed7196e9_63db4f90",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "Use id_pfr0_amu, see line #132",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e60b38bf_40290c10",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "!\u003d 0U",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e7a8433_f786120b",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "as above",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f28d6090_122357b5",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "unsigned int i;",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eca9bcad_c8686f22",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "These variables shouldn\u0027t be initialised when (id_pfr0_amu \u003d\u003d ID_PFR0_AMU_NOT_SUPPORTED), see line #245.",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "279d77ba_50c29af6",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "Please use tabs to align comments.",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24071b12_c4c2178e",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "return NULL?",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aac28f2d_1a935843",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "!\u003d 0U",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71839c8f_6da09e38",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "NULL?",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92398ab5_a21b23c7",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "See all the comments for amu_context_save() above.",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "393bb80f_4926979c",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "See all the comments for aarch32 version.",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5297053_b8febee7",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "as above.",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18f23ad8_610410a7",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "See comments for aarch32 version.",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41a694a8_d7ad2192",
+        "filename": "lib/extensions/amu/amu_private.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T11:56:47Z",
+      "side": 1,
+      "message": "use tabs to aling with lines #18,19",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
