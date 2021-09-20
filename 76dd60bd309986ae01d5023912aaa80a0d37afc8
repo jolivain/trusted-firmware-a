@@ -77,6 +77,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f64b604_2174a20d",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-09-20T14:44:35Z",
+      "side": 1,
+      "message": "Right. When SPMC@EL3, the init routines are not used but spmd_get_context() is used by existing SPMD functions.",
+      "parentUuid": "18ef4a10_0fce5879",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 41
+      },
+      "revId": "76dd60bd309986ae01d5023912aaa80a0d37afc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "513b2b1e_01ac67a7",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 5
@@ -88,6 +112,30 @@
       "writtenOn": "2021-09-14T21:23:13Z",
       "side": 1,
       "message": "Same as previous comment.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 0
+      },
+      "revId": "76dd60bd309986ae01d5023912aaa80a0d37afc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adfd2adf_6042747b",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-09-20T14:44:35Z",
+      "side": 1,
+      "message": "Right, this is not used when SPMC@EL3.",
+      "parentUuid": "513b2b1e_01ac67a7",
       "range": {
         "startLine": 102,
         "startChar": 0,
@@ -123,6 +171,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7185f0f6_a9d2359a",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-09-20T14:44:35Z",
+      "side": 1,
+      "message": "Yes, that\u0027s correct. Will make the change.",
+      "parentUuid": "109a4dee_17cf597c",
+      "range": {
+        "startLine": 309,
+        "startChar": 1,
+        "endLine": 309,
+        "endChar": 13
+      },
+      "revId": "76dd60bd309986ae01d5023912aaa80a0d37afc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc254e0b_471b411d",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 5
@@ -140,6 +212,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "575910d4_e4f06e1b",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-09-20T14:44:35Z",
+      "side": 1,
+      "message": "Right, SPMC at EL3 can manage it\u0027s own context. Current implementation is done to keep the SPMD execution same across all SPMC versions. Current spmd_smc_handler looks for state of spmd_spm_core context through spmd_spm_core_context_t variable, so maintained the context state as required. If the context state management is not necessary then SPMD code can be modified to handle SPMC_AT_EL3 scenario.",
+      "parentUuid": "bc254e0b_471b411d",
+      "revId": "76dd60bd309986ae01d5023912aaa80a0d37afc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84606f97_5ec24935",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 5
@@ -151,6 +241,24 @@
       "writtenOn": "2021-09-14T13:55:49Z",
       "side": 1,
       "message": "Is a SPMC manifest strictly required when it co-resides with the SPMD in the same EL. Is there a property that the SPMD cannot deduce from the SPMC_AT_EL3 constant.",
+      "revId": "76dd60bd309986ae01d5023912aaa80a0d37afc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3487d53_36ed049e",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000409
+      },
+      "writtenOn": "2021-09-20T14:44:35Z",
+      "side": 1,
+      "message": "Not strictly necessary I feel. In current manifest, the Major, Minor versions are fetched. The manifest option is kept for fetching any SPMC property if needed for any platform. Manifest support can be removed if needed, that would need changes in SPMD to handle SPMC_AT_EL3 scenario.",
+      "parentUuid": "84606f97_5ec24935",
       "revId": "76dd60bd309986ae01d5023912aaa80a0d37afc8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
