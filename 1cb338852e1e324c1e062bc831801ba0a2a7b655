@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e0fb3b2_35a2d526",
+        "filename": "lib/mpmm/mpmm.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T13:17:37Z",
+      "side": 1,
+      "message": "\u003d NULL is obsolete",
+      "revId": "1cb338852e1e324c1e062bc831801ba0a2a7b655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "255a856d_5aa5813b",
+        "filename": "lib/mpmm/mpmm.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T13:17:37Z",
+      "side": 1,
+      "message": "read_cpuppmcr_el3_mpmmpinctl() is not boolean.",
+      "range": {
+        "startLine": 71,
+        "startChar": 3,
+        "endLine": 71,
+        "endChar": 4
+      },
+      "revId": "1cb338852e1e324c1e062bc831801ba0a2a7b655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "082bdc26_a5b0337d",
+        "filename": "lib/mpmm/mpmm.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T13:17:37Z",
+      "side": 1,
+      "message": "1ULL",
+      "revId": "1cb338852e1e324c1e062bc831801ba0a2a7b655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84ee0ddf_5505c3b8",
+        "filename": "lib/mpmm/mpmm.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T13:17:37Z",
+      "side": 1,
+      "message": "1ULL",
+      "revId": "1cb338852e1e324c1e062bc831801ba0a2a7b655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c2bea2f_b1ec427e",
+        "filename": "lib/mpmm/mpmm_fconf.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T13:17:37Z",
+      "side": 1,
+      "message": "Do these variable names comply to coding style?\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#naming",
+      "revId": "1cb338852e1e324c1e062bc831801ba0a2a7b655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
