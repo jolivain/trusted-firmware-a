@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad65429c_402ca84a",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T13:00:13Z",
+      "side": 1,
+      "message": "\u003d NULL is obsolete, amu_topology() will return NULL if topology is not populated.",
+      "revId": "60ee890c45417267c3164491dd7a77be45082c16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31529d29_f5ecfc59",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T13:00:13Z",
+      "side": 1,
+      "message": "\u003d NULL is obsolete, amu_topology() will return NULL if topology is not populated.",
+      "revId": "60ee890c45417267c3164491dd7a77be45082c16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebdb8e36_fea93aa8",
+        "filename": "lib/extensions/amu/amu.mk",
+        "patchSetId": 18
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T13:00:13Z",
+      "side": 1,
+      "message": "Arm",
+      "revId": "60ee890c45417267c3164491dd7a77be45082c16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "464bbb98_b1952164",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T13:00:13Z",
+      "side": 1,
+      "message": "Use tabs to align comments.\nDo these variable names with trailing _ comply to coding style?\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#naming",
+      "revId": "60ee890c45417267c3164491dd7a77be45082c16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf5b7aec_f75a21bc",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-09-20T13:00:13Z",
+      "side": 1,
+      "message": "amu_topology_populated_ is always set to true, even in the case of an error.",
+      "revId": "60ee890c45417267c3164491dd7a77be45082c16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
