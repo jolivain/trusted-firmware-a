@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e136a880_5a7e1335",
+        "filename": "lib/mpmm/mpmm.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T17:53:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e0fb3b2_35a2d526",
+      "revId": "1cb338852e1e324c1e062bc831801ba0a2a7b655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "255a856d_5aa5813b",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-09-20T13:17:37Z",
       "side": 1,
       "message": "read_cpuppmcr_el3_mpmmpinctl() is not boolean.",
+      "range": {
+        "startLine": 71,
+        "startChar": 3,
+        "endLine": 71,
+        "endChar": 4
+      },
+      "revId": "1cb338852e1e324c1e062bc831801ba0a2a7b655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c271a8f4_bfed3235",
+        "filename": "lib/mpmm/mpmm.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T17:53:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "255a856d_5aa5813b",
       "range": {
         "startLine": 71,
         "startChar": 3,
@@ -58,6 +100,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33062ed4_bcb7e773",
+        "filename": "lib/mpmm/mpmm.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T17:53:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "082bdc26_a5b0337d",
+      "revId": "1cb338852e1e324c1e062bc831801ba0a2a7b655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84ee0ddf_5505c3b8",
@@ -75,6 +135,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f8f5957_b941a80d",
+        "filename": "lib/mpmm/mpmm.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T17:53:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84ee0ddf_5505c3b8",
+      "revId": "1cb338852e1e324c1e062bc831801ba0a2a7b655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c2bea2f_b1ec427e",
@@ -88,6 +166,24 @@
       "writtenOn": "2021-09-20T13:17:37Z",
       "side": 1,
       "message": "Do these variable names comply to coding style?\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#naming",
+      "revId": "1cb338852e1e324c1e062bc831801ba0a2a7b655",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "780c0251_dba71c89",
+        "filename": "lib/mpmm/mpmm_fconf.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T17:53:51Z",
+      "side": 1,
+      "message": "As far as I can see, yes. There only seems to be a section on local variables/function parameters, but it doesn\u0027t violate that anyway.",
+      "parentUuid": "6c2bea2f_b1ec427e",
       "revId": "1cb338852e1e324c1e062bc831801ba0a2a7b655",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
