@@ -171,6 +171,57 @@
       "message": "If the function does not return, may it is better to execute WFI here rather than spinning forever.",
       "revId": "794a248281db1663804f8b3460ba9f81fd0d2155",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8028996e_690e37d9",
+        "filename": "plat/nxp/soc-ls1028a/soc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-09-21T15:58:37Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "794a248281db1663804f8b3460ba9f81fd0d2155",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8886c663_7501c3ec",
+        "filename": "plat/nxp/soc-ls1028a/soc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-09-21T15:58:37Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "794a248281db1663804f8b3460ba9f81fd0d2155",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fd0a4b9_028696bc",
+        "filename": "plat/nxp/soc-ls1028a/soc.def",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-09-21T15:58:37Z",
+      "side": 1,
+      "message": "How is this def file leveraged? I was wondering why cant it be a makefile.",
+      "revId": "794a248281db1663804f8b3460ba9f81fd0d2155",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
