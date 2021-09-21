@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ce3a545_6fc3aa86",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-09-21T17:41:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c11d6932_c41060c4",
+      "range": {
+        "startLine": 188,
+        "startChar": 35,
+        "endLine": 188,
+        "endChar": 42
+      },
+      "revId": "703767a9d4c4f629c08067b9f1269b29743d6c13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8c5f29a_d65577e8",
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "877e496c_8b044dfa",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-09-21T17:41:44Z",
+      "side": 1,
+      "message": "ok, moved to Makefile",
+      "parentUuid": "a8c5f29a_d65577e8",
+      "revId": "703767a9d4c4f629c08067b9f1269b29743d6c13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "feac5308_81d4ffc6",
         "filename": "plat/arm/common/arm_bl31_setup.c",
         "patchSetId": 9
@@ -54,6 +96,30 @@
       "writtenOn": "2021-09-16T12:28:05Z",
       "side": 1,
       "message": "switch case or else if semantics would be better ere.",
+      "range": {
+        "startLine": 189,
+        "startChar": 2,
+        "endLine": 196,
+        "endChar": 44
+      },
+      "revId": "703767a9d4c4f629c08067b9f1269b29743d6c13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fbe8fb6_ca528276",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-09-21T17:41:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "feac5308_81d4ffc6",
       "range": {
         "startLine": 189,
         "startChar": 2,
