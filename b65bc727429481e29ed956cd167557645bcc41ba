@@ -35,6 +35,42 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cea9aaf_6d54faba",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "301c796d_53f62e8c",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e255a20_841a508a",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "Theoretically, but it would use a fair amount of space because each variable needs to be stored for every possible core in the platform (the current context size on AArch32/AArch64 is already 2176/4160 bytes on an 8-core platform, but if we cache these variables it would increase by another 160/320), and I don\u0027t think it would be much faster to index into that static array than it is to just read and mask them directly in each function.\n\nThere\u0027s some potential room for optimisation here - some of the u64s/u32s could potentially be reduced to u32s/u16s, but we would need to see how it impacts code size - but I think that\u0027s best left for the future when it can be done in isolation.",
+      "parentUuid": "3a6dd4ea_0aa5eebd",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "473b051a_8c02400b",
@@ -48,6 +84,24 @@
       "writtenOn": "2021-09-20T11:56:47Z",
       "side": 1,
       "message": "0U?\namcntenset0_px and amcntenset1_px should be only set to 0 when id_pfr0_amu !\u003d ID_PFR0_AMU_NOT_SUPPORTED, See line #138.\namcntenset0_px is set on line #155, Why is set to 0?",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc045278_b06c97bf",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "No strong reason - it just helps to know that they both have valid values at all times, even if one or both aren\u0027t used under certain conditions. Detecting initialised values is an arbitrarily difficult problem for the analysers and the compiler, so it\u0027s safest just to initialise it as soon as possible in case it doesn\u0027t get picked up, particularly because it doesn\u0027t cost us anything to initialise this here.",
+      "parentUuid": "473b051a_8c02400b",
       "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -69,6 +123,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c5b08ee_e5a0ffcf",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "I\u0027ve used hexadecimal here because these represent masks.",
+      "parentUuid": "9692d031_6b26b8ee",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0201951_7c88ca0c",
@@ -82,6 +154,24 @@
       "writtenOn": "2021-09-20T11:56:47Z",
       "side": 1,
       "message": "Can be initialised on line #124.",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90096c06_fe67c26d",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "I\u0027ve initialised this here to prevent the side-effect from being hidden amongst the declarations and constant initialisers.",
+      "parentUuid": "a0201951_7c88ca0c",
       "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -103,6 +193,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38a52a7d_330793cd",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "This is done in preparation for the FCONF AMU management patch a bit later, which sets the value of amcntenset1_px.",
+      "parentUuid": "14e2b59c_828ff345",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed7196e9_63db4f90",
@@ -116,6 +224,24 @@
       "writtenOn": "2021-09-20T11:56:47Z",
       "side": 1,
       "message": "Use id_pfr0_amu, see line #132",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf9ad61c_f52345f2",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed7196e9_63db4f90",
       "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -137,6 +263,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3afc4811_c046ed26",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "While I know these are unsigned integers and !\u003d 0 and \u003e 0 are equivalent, I\u0027ve explicitly used \u003e 0 for three reasons:\n\n- we don\u0027t have to consider whether the return value is signed or unsigned\n- it\u0027s easier to read this as \"are there more than zero counter groups?\", rather than \"is the number of counter groups not zero?\"\n- it\u0027s what was already in use\n\nTo me, as a result, I think it makes the most sense to maintain \u003e over !\u003d.",
+      "parentUuid": "e60b38bf_40290c10",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e7a8433_f786120b",
@@ -150,6 +294,24 @@
       "writtenOn": "2021-09-20T11:56:47Z",
       "side": 1,
       "message": "as above",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88c693fd_d1cecb4a",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4e7a8433_f786120b",
       "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -173,6 +335,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "618c4645_373ed2ac",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "Doesn\u0027t this violate the MISRA-C rule to only use fixed-width integer types?",
+      "parentUuid": "f28d6090_122357b5",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eca9bcad_c8686f22",
         "filename": "lib/extensions/amu/aarch32/amu.c",
         "patchSetId": 13
@@ -184,6 +364,24 @@
       "writtenOn": "2021-09-20T11:56:47Z",
       "side": 1,
       "message": "These variables shouldn\u0027t be initialised when (id_pfr0_amu \u003d\u003d ID_PFR0_AMU_NOT_SUPPORTED), see line #245.",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fea93994_1813e1ae",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eca9bcad_c8686f22",
       "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -201,6 +399,24 @@
       "writtenOn": "2021-09-20T11:56:47Z",
       "side": 1,
       "message": "Please use tabs to align comments.",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccbb0745_f50badf5",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "279d77ba_50c29af6",
       "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -224,6 +440,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c318d529_f21f0e41",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "I think this is to indicate that the integer is type-punned? The rest of the code-base uses `(void *)0` and `(void *)-1`. It\u0027s odd to me, and I\u0027m quite sure very anti-MISRA, but I\u0027ve used how it is everywhere else in the code-base.",
+      "parentUuid": "24071b12_c4c2178e",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aac28f2d_1a935843",
         "filename": "lib/extensions/amu/aarch32/amu.c",
         "patchSetId": 13
@@ -235,6 +469,24 @@
       "writtenOn": "2021-09-20T11:56:47Z",
       "side": 1,
       "message": "!\u003d 0U",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "350dc802_01ec71b0",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "Ack, as above",
+      "parentUuid": "aac28f2d_1a935843",
       "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -258,6 +510,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e010643_375d68a3",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "Ack, as above",
+      "parentUuid": "71839c8f_6da09e38",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92398ab5_a21b23c7",
         "filename": "lib/extensions/amu/aarch32/amu.c",
         "patchSetId": 13
@@ -269,6 +539,24 @@
       "writtenOn": "2021-09-20T11:56:47Z",
       "side": 1,
       "message": "See all the comments for amu_context_save() above.",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ce44dab_431c10a1",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92398ab5_a21b23c7",
       "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -290,6 +578,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00eb1897_4c91a21d",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "393bb80f_4926979c",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5297053_b8febee7",
@@ -303,6 +609,24 @@
       "writtenOn": "2021-09-20T11:56:47Z",
       "side": 1,
       "message": "as above.",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a29dff1_7e196715",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5297053_b8febee7",
       "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -324,6 +648,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf8dd3af_4ff0831c",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18f23ad8_610410a7",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41a694a8_d7ad2192",
@@ -337,6 +679,24 @@
       "writtenOn": "2021-09-20T11:56:47Z",
       "side": 1,
       "message": "use tabs to aling with lines #18,19",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f57fc400_f76488fd",
+        "filename": "lib/extensions/amu/amu_private.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-21T16:36:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41a694a8_d7ad2192",
       "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
