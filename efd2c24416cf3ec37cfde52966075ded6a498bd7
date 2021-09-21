@@ -33,6 +33,24 @@
       "message": "I took a quick look at all your test failures and in every case they had the timeout error in their respective lava.log test artifact.\n\nI did not re-run the failed individual tests but I suspect like in my report eventually through multiple reruns the tests will pass.",
       "revId": "efd2c24416cf3ec37cfde52966075ded6a498bd7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68e19c95_6e2d4298",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-09-21T08:09:49Z",
+      "side": 1,
+      "message": "@Joanna are the intermittent failures now fixed? I will fire a (re)run if the testbed is stable again.",
+      "parentUuid": "145a48d1_4c68b5ee",
+      "revId": "efd2c24416cf3ec37cfde52966075ded6a498bd7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
