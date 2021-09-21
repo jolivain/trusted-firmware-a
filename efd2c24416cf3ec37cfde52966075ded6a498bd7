@@ -51,6 +51,24 @@
       "parentUuid": "145a48d1_4c68b5ee",
       "revId": "efd2c24416cf3ec37cfde52966075ded6a498bd7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa38246c_8abf2b95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-09-21T11:08:13Z",
+      "side": 1,
+      "message": "The fix to that LAVA timeout issue is being worked on still by Leonardo. \n\nThe safe workaround is to manually run those failed time out tests to prove they pass and then set the verified label manually. The less safe workaround is to assume they will all pass and set the verified label manually now and deal with any consequences later if that was a bad assumption.",
+      "parentUuid": "68e19c95_6e2d4298",
+      "revId": "efd2c24416cf3ec37cfde52966075ded6a498bd7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
