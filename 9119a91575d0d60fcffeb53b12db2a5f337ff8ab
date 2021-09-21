@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9369c31_9a563dab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-09-21T17:57:10Z",
+      "side": 1,
+      "message": "Should this be done with a different patch? Since it is not related to FEAT_RME",
+      "parentUuid": "14d9ed5c_29abd33c",
+      "revId": "9119a91575d0d60fcffeb53b12db2a5f337ff8ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "741d3e54_bed0618d",
@@ -71,6 +89,30 @@
       "writtenOn": "2021-09-16T12:36:57Z",
       "side": 1,
       "message": "This is not true since Bl2 need not use EL3_PAS attribute since it is meant to run at EL1 traditionally. \n\nThis is because BL2 is being  run at E3 for RME. So for this case, I would prefer an Explicit #if ENABLE_RME here.",
+      "range": {
+        "startLine": 51,
+        "startChar": 25,
+        "endLine": 51,
+        "endChar": 32
+      },
+      "revId": "9119a91575d0d60fcffeb53b12db2a5f337ff8ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3c25549_1eb6b292",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-09-21T17:57:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6499cf68_6abd0b83",
       "range": {
         "startLine": 51,
         "startChar": 25,
