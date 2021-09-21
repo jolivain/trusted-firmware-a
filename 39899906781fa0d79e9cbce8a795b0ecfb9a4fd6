@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4023c0cc_3e56dd82",
+        "filename": "plat/arm/board/fvp/fvp_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-21T10:57:54Z",
+      "side": 1,
+      "message": "Hi Alexei, just wondering why we need isb() here?",
+      "range": {
+        "startLine": 158,
+        "startChar": 1,
+        "endLine": 158,
+        "endChar": 7
+      },
+      "revId": "39899906781fa0d79e9cbce8a795b0ecfb9a4fd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
