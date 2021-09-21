@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "97d704b3_58c48db2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000464
+      },
+      "writtenOn": "2021-09-21T08:40:47Z",
+      "side": 1,
+      "message": "This assert issue was effect by 2 condition：\n1 kernel register sdei with flags \u003d\u003d 0 and affinity \u003d\u003d 0;\n2 TF-A set flag to SDEI_REGF_RM_PE but leave mpidr\u003d0\n\nI add log for explaining what happen(add some verbose debug):\n[  117.796718] Call trace: \n[  117.799193]  dump_backtrace+0x0/0x1ec \n[  117.802899]  show_stack+0x24/0x30 \n[  117.806255]  dump_stack+0xd0/0x128 \n[  117.809697]  panic+0x15c/0x378 \n[  117.812789]  sysrq_handle_crash+0x28/0x30 \n[  117.816847]  __handle_sysrq+0x94/0x1a0 \n[  117.820641]  write_sysrq_trigger+0xa0/0x1bc \n[  117.824878]  proc_reg_write+0xb4/0xf0 \n[  117.828585]  vfs_write+0xfc/0x2c0 \n[  117.831938]  ksys_write+0x78/0x10c \n[  117.835379]  __arm64_sys_write+0x28/0x34 \n[  117.839351]  el0_svc_common.constprop.0+0x80/0x220 \n[  117.844203]  do_el0_svc+0x80/0xa0 \n[  117.847557]  el0_svc+0x28/0x70 \n[  117.850645]  el0_sync_handler+0x1a4/0x1b0 \n[  117.854704]  el0_sync+0x158/0x180 \n[  117.858059] SMP: stopping secondary CPUs \nWARNING: \u003e MASK:81000000 \nWARNING: \u003e MASK:81010000 \nWARNING: \u003e MASK:81020000 \nWARNING: \u003e MASK:81030000 \nWARNING: \u003e MASK:81040000 \nWARNING: \u003e MASK:81050000 \nWARNING: \u003e MASK:81060000 \nWARNING: \u003e MASK:81070000 \nWARNING: \u003e MASK:81080000 \nWARNING: \u003e MASK:81090000 \nWARNING: \u003e MASK:810a0000 \nWARNING: \u003e MASK:810b0000 \nWARNING: \u003e MASK:810c0000 \nWARNING: \u003e MASK:810d0000 \nWARNING: \u003e MASK:810e0000 \nWARNING: \u003e MASK:810f0000 \nWARNING: \u003e MASK:81100000 \nWARNING: \u003e MASK:81110000 \nWARNING: \u003e MASK:81130000 \nWARNING: \u003e MASK:81140000 \nWARNING: \u003e MASK:81150000 \nWARNING: \u003e MASK:81160000 \nWARNING: \u003e MASK:81170000 \nWARNING: \u003e MASK:81190000 \nWARNING: \u003e MASK:811a0000 \nWARNING: \u003e MASK:811c0000 \nWARNING: \u003e MASK:811e0000 \nWARNING: \u003e MASK:81180000 \nWARNING: \u003e MASK:811b0000 \nWARNING: \u003e MASK:811d0000 \nWARNING: \u003e MASK:811f0000 \nWARNING: \u003e MASK:81200000 \nWARNING: \u003e MASK:81210000 \nWARNING: \u003e MASK:81220000 \nWARNING: \u003e MASK:81230000 \nWARNING: \u003e MASK:81240000 \nWARNING: \u003e MASK:81250000 \nWARNING: \u003e MASK:81260000 \nWARNING: \u003e MASK:81270000 \nWARNING: \u003e MASK:81280000 \nWARNING: \u003e MASK:81290000 \nWARNING: \u003e MASK:812a0000 \nWARNING: \u003e MASK:812b0000 \nWARNING: \u003e MASK:812c0000 \nWARNING: \u003e MASK:812d0000 \nWARNING: \u003e MASK:812e0000 \nWARNING: \u003e MASK:812f0000 \nWARNING: \u003e MASK:81300000 \nWARNING: \u003e MASK:81310000 \nWARNING: \u003e MASK:81320000 \nWARNING: \u003e MASK:81330000 \nWARNING: \u003e MASK:81340000 \nWARNING: \u003e MASK:81350000 \nWARNING: \u003e MASK:81370000 \nWARNING: \u003e MASK:81380000 \nWARNING: \u003e MASK:813a0000 \nWARNING: \u003e MASK:81360000 \nWARNING: \u003e MASK:81390000 \nWARNING: \u003e MASK:813b0000 \nWARNING: \u003e MASK:813c0000 \nWARNING: \u003e MASK:813d0000 \nWARNING: \u003e MASK:813e0000 \nWARNING: \u003e MASK:813f0000 \nWARNING: \u003e MASK:181000000 \nWARNING: \u003e MASK:181020000 \nWARNING: \u003e MASK:181060000 \nWARNING: \u003e MASK:181070000 \nWARNING: \u003e MASK:1810a0000 \nWARNING: \u003e MASK:181130000 \nWARNING: \u003e MASK:181140000 \nWARNING: \u003e MASK:181150000 \nWARNING: \u003e MASK:181230000 \nWARNING: \u003e MASK:1812b0000 \nWARNING: \u003e MASK:1812c0000 \nWARNING: \u003e MASK:1812f0000 \nWARNING: \u003e MASK:181320000 \nWARNING: \u003e MASK:1811f0000 \nWARNING: \u003e MASK:181220000 \nWARNING: \u003e MASK:181340000 \nWARNING: \u003e MASK:81120000 \n[  118.041730] Kernel Offset: disabled \nMASK:181040000 \nWARNING: \u003e MASK:181050000 \nWARNING: \u003e MASK:181090000 \nWARNING: \u003e MASK:1810e0000 \nWARNING: \u003e MASK:181160000 \nWARNING: \u003e MASK:181200000 \nWARNING: \u003e MASK:181240000 \nWARNING: \u003e MASK:181290000 \nWARNING: \u003e MASK:181330000 \nWARNING: \u003e MASK:181350000 \nWARNING: \u003e MASK:1810c0000 \nWARNING: \u003e MASK:181100000 \nWARNING: \u003e MASK:181180000 \nWARNING: \u003e MASK:181210000 \nWARNING: \u003e MASK:181260000 \nWARNING: \u003e MASK:1812e0000 \nWARNING: \u003e MASK:181300000 \nWARNING: \u003e MASK:181310000 \nWARNING: \u003e MASK:1813a0000 \nWARNING: \u003e MASK:1810b0000 \nWARNING: \u003e MASK:181120000 \nWARNING: \u003e MASK:1811a0000 \nWARNING: \u003e MASK:1811d0000 \nWARNING: \u003e MASK:1812d0000 \nWARNING: \u003e MASK:1813e0000 \nWARNING: \u003e MASK:181250000 \nWARNING: \u003e MASK:1812a0000 \nWARNING: \u003e MASK:1813f0000 \nWARNING: \u003e MASK:181030000 \nWARNING: \u003e MASK:181080000 \nWARNING: \u003e MASK:1810d0000 \nWARNING: \u003e MASK:1810f0000 \nWARNING: \u003e MASK:181110000 \nWARNING: \u003e MASK:181170000 \nWARNING: \u003e MASK:181190000 \nWARNING: \u003e MASK:1811b0000 \nWARNING: \u003e MASK:1811c0000 \nWARNING: \u003e MASK:1811e0000 \nWARNING: \u003e MASK:181270000 \nWARNING: \u003e MASK:181280000 \nWARNING: \u003e MASK:181360000 \nWARNING: \u003e MASK:181370000 \nWARNING: \u003e MASK:181380000 \nWARNING: \u003e MASK:181390000 \nWARNING: \u003e MASK:1813b0000 \nWARNING: \u003e MASK:1813c0000 \nWARNING: \u003e MASK:1813d0000 \n[  118.157314] CPU features: 0x9dd0957,7a60aa38 \n[  118.161637] Memory Limit: none \n[  118.165021] Starting crashdump kernel... \n[  118.168994] Bye! \nWARNING: interrupt 29 on 81120000 while PE masked se-\u003eaffinity:0 ep:ffff800010015210 arg:fffffdffbfa4dba8 flags:1 \nASSERT: services/std_svc/sdei/sdei_intr_mgmt.c:306 \nBACKTRACE: START: assert \n0: EL3: 0xff002088 \n1: EL3: 0xff0001a0 \n2: EL3: 0xff00dba8 \n3: EL3: 0xff0053ec \n4: EL3: 0xff011d6c \n5: EL3: 0xe213d034 \n6: EL3: 0xe213d134 \n7: EL3: 0xe213d678 \nBACKTRACE: END: assert",
+      "parentUuid": "628cf598_84aad482",
+      "range": {
+        "startLine": 16,
+        "startChar": 1,
+        "endLine": 18,
+        "endChar": 11
+      },
+      "revId": "fdee17c80ffa9fbd4d76610b3b8488e2f61eb447",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7b03c883_1e2db9b7",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-09-18T15:42:34Z",
       "side": 1,
       "message": "why can the kernel not pass the correct mpidr? dont have a problem with the fix but i\u0027m curious to understand why we are encoding linux kernel behavior into TF-A. WHat happens when windows comes along and does something else? or some other OS?",
+      "range": {
+        "startLine": 365,
+        "startChar": 5,
+        "endLine": 366,
+        "endChar": 10
+      },
+      "revId": "fdee17c80ffa9fbd4d76610b3b8488e2f61eb447",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02f2686e_7f32b994",
+        "filename": "services/std_svc/sdei/sdei_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000464
+      },
+      "writtenOn": "2021-09-21T08:40:47Z",
+      "side": 1,
+      "message": "Maybe there was a issue in kernel arm_sdei.c. The issue was introduced by hardlockup feature, i am no sure if there is hardlockup feature for windows. \n\nThis is hardlockup feature:\nhttps://www.kernel.org/doc/Documentation/lockup-watchdogs.txt\n\nThe source for register sdei with flags \u003d\u003d 0 and affinity \u003d\u003d 0 in kerenl (drivers/firmware/arm_sdei.c):\nstatic int sdei_api_event_register(u32 event_num, unsigned long entry_point,\n\t\t\t\t   void *arg, u64 flags, u64 affinity)\n{\n\treturn invoke_sdei_fn(SDEI_1_0_FN_SDEI_EVENT_REGISTER, event_num,\n\t\t\t      (unsigned long)entry_point, (unsigned long)arg,\n\t\t\t      flags, affinity, NULL);\n}\n\n/* Called directly by the hotplug callbacks */\nstatic void _local_event_register(void *data)\n{\n\tint err;\n\tstruct sdei_registered_event *reg;\n\tstruct sdei_crosscall_args *arg \u003d data;\n\n\tWARN_ON(preemptible());\n\n\treg \u003d per_cpu_ptr(arg-\u003eevent-\u003eprivate_registered, smp_processor_id());\n\terr \u003d sdei_api_event_register(arg-\u003eevent-\u003eevent_num, sdei_entry_point,\n\t\t\t\t      reg, 0, 0);",
+      "parentUuid": "8fbfb695_8c15e978",
       "range": {
         "startLine": 365,
         "startChar": 5,
