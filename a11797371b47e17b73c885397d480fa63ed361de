@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f7443a0_217a3b48",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-22T14:03:25Z",
+      "side": 1,
+      "message": "This function is only called from within one of the assertions later on. If you compile without assertions, you get an unused function error for this function and the one below.",
+      "parentUuid": "5f050add_16643b6c",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 21
+      },
+      "revId": "a11797371b47e17b73c885397d480fa63ed361de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d91f7fb1_e592412f",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-22T13:46:23Z",
       "side": 1,
       "message": "Why is this check required?",
+      "range": {
+        "startLine": 61,
+        "startChar": 30,
+        "endLine": 61,
+        "endChar": 47
+      },
+      "revId": "a11797371b47e17b73c885397d480fa63ed361de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0d4c2d4_80d9d0f7",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-22T14:03:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "d91f7fb1_e592412f",
       "range": {
         "startLine": 61,
         "startChar": 30,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a557586_848c199a",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-22T14:03:25Z",
+      "side": 1,
+      "message": "Ditto (see similar comments on AArch32).",
+      "parentUuid": "43a63ffb_6463f25f",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 21
+      },
+      "revId": "a11797371b47e17b73c885397d480fa63ed361de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "458c7b53_ef41497c",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-09-22T13:46:23Z",
       "side": 1,
       "message": "Why is this check required?",
+      "range": {
+        "startLine": 90,
+        "startChar": 30,
+        "endLine": 90,
+        "endChar": 47
+      },
+      "revId": "a11797371b47e17b73c885397d480fa63ed361de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ced948a6_e7d1b79d",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-22T14:03:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "458c7b53_ef41497c",
       "range": {
         "startLine": 90,
         "startChar": 30,
