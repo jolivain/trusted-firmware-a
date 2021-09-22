@@ -22,6 +22,30 @@
       },
       "revId": "038b9a54fb816a4cd32c24916e3ba61b4284e676",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "288edf3a_87514a07",
+        "filename": "plat/arm/board/fvp/fvp_measured_boot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-22T15:45:34Z",
+      "side": 0,
+      "message": "This patch mainly sets the base for subsequent patches where BL2 measurement and recording get done in the BL1 image.\nI know it looks odd, but I thought not to change the existing logic (i.e. BL2 recording by BL2 itself) abruptly till the previous patch.",
+      "parentUuid": "586a2304_529067f1",
+      "range": {
+        "startLine": 52,
+        "startChar": 1,
+        "endLine": 57,
+        "endChar": 49
+      },
+      "revId": "038b9a54fb816a4cd32c24916e3ba61b4284e676",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
