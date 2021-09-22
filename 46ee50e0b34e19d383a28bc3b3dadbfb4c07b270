@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d652c627_fd639669",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-09-22T11:12:57Z",
+      "side": 1,
+      "message": "Strictly speaking as the top patch for this two patch stack had had the CI run and passed this patch did not really need the CI running again as there were no further changes and the running of the CI on the top patch tests all the changes in the stack.\n\nJulius L2 (AllowCI+2) failed as the patch needed a rebase as some build tests failed. On doing that these tests passed.\n\nA re run of the of L2 suffered some LAVA time out issues which is a know infrastructure issue for which Linaro are investigating and working on a fix for. If in doubt these failed tests can be re run and eventually will pass. \n\nStrictly a lesser L1 (AllowCI+1) is only required for platform only changes but there is no harm running the full L2 tests. L2 included L1 and all the L1 tests passed.\n\n",
+      "revId": "46ee50e0b34e19d383a28bc3b3dadbfb4c07b270",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
