@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c590da33_e520b93e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000464
+      },
+      "writtenOn": "2021-09-22T11:06:06Z",
+      "side": 1,
+      "message": "There are three priority for event in TF-A:\n#define PLAT_RAS_PRI\t\t\t0x10\n#define PLAT_SDEI_CRITICAL_PRI\t\t0x60\n#define PLAT_SDEI_NORMAL_PRI\t\t0x70\n\nWe configure all RAS interrupts with 0x10 and SDEI with 0x60. Do an EOI of the RAS interrupt before SDEI was dispatch. The core may be preempted by another RAS\ninterrupt While dispatch SDEI. After the second RAS handle finished(include dispatch SDEI), the first RAS\u0027s dispatch  will failed with return -1.\n\nI think there was a problem about RAS flow and dispatch SDEI. As sdei_dispatch_event() was call only in RAS flow, so i modify simply it to a hard coded value.\n\nsgi_ras_intr_configure():\n...\n\t/*\n\t * Do an EOI of the RAS interrupt. This allows the\n\t * sdei event to be dispatched at the SDEI event\u0027s\n\t * priority.\n\t */\n\tplat_ic_end_of_interrupt(intr);\n\nThis is not a perfect solution. i can\u0027t get a perfect solution about this problem.",
+      "parentUuid": "775b5045_db58016c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "60188d3bc582866a2bacbebaf2193c0d9aa8ebbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "602f2a66_c20639f3",
