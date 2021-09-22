@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b081a247_70bcdbd9",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-22T11:43:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad65429c_402ca84a",
+      "revId": "60ee890c45417267c3164491dd7a77be45082c16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31529d29_f5ecfc59",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-09-20T13:00:13Z",
       "side": 1,
       "message": "\u003d NULL is obsolete, amu_topology() will return NULL if topology is not populated.",
+      "revId": "60ee890c45417267c3164491dd7a77be45082c16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2ea3a45_9376205c",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-22T11:43:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31529d29_f5ecfc59",
       "revId": "60ee890c45417267c3164491dd7a77be45082c16",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf074ca8_da23b293",
+        "filename": "lib/extensions/amu/amu.mk",
+        "patchSetId": 18
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-22T11:43:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebdb8e36_fea93aa8",
+      "revId": "60ee890c45417267c3164491dd7a77be45082c16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "464bbb98_b1952164",
@@ -69,6 +123,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfe55726_02e57215",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-22T11:43:33Z",
+      "side": 1,
+      "message": "As far as I can see, yes.",
+      "parentUuid": "464bbb98_b1952164",
+      "revId": "60ee890c45417267c3164491dd7a77be45082c16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf5b7aec_f75a21bc",
@@ -82,6 +154,24 @@
       "writtenOn": "2021-09-20T13:00:13Z",
       "side": 1,
       "message": "amu_topology_populated_ is always set to true, even in the case of an error.",
+      "revId": "60ee890c45417267c3164491dd7a77be45082c16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35e165be_ddd4ddd4",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-22T11:43:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf5b7aec_f75a21bc",
       "revId": "60ee890c45417267c3164491dd7a77be45082c16",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
