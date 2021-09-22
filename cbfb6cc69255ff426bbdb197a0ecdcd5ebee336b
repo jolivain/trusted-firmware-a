@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38fb9459_3fc98b98",
+        "filename": "plat/nxp/soc-ls1028a/soc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-09-22T22:20:28Z",
+      "side": 1,
+      "message": "In patchset 3, you were checking if this condition is false but here you are implicitly checking if its true. Is this intentional?",
+      "revId": "cbfb6cc69255ff426bbdb197a0ecdcd5ebee336b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
