@@ -22,6 +22,30 @@
       },
       "revId": "df270585fe87f1fd03423a3b2e1f6263796e6489",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccd42753_ca89245c",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-22T08:37:49Z",
+      "side": 0,
+      "message": "Hi John, thanks for your comment!\n\nIMO, the code looks cleaner if we remove #ifdef\u0027ry while calling the functions and convey the usage of those functions via documentation. do you agree?\nThese platform functions are documented [1] that mentions these functions don\u0027t do anything if the MEASURED_BOOT flag is disabled.\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/11589/1",
+      "parentUuid": "4f53f3b3_78fbe109",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 17
+      },
+      "revId": "df270585fe87f1fd03423a3b2e1f6263796e6489",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
