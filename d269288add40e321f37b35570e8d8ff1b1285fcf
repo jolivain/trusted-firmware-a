@@ -22,6 +22,30 @@
       },
       "revId": "d269288add40e321f37b35570e8d8ff1b1285fcf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d645fe3_0d649666",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-22T15:44:32Z",
+      "side": 1,
+      "message": "IMO such short names should be acceptable if platform functions are well documented. \nHaving said that, I don\u0027t see any issue in changing these names as you suggested. \n@Sandrine do you agree to this name change?",
+      "parentUuid": "ded5195b_76300621",
+      "range": {
+        "startLine": 214,
+        "startChar": 14,
+        "endLine": 214,
+        "endChar": 19
+      },
+      "revId": "d269288add40e321f37b35570e8d8ff1b1285fcf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
