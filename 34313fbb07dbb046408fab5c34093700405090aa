@@ -22,6 +22,30 @@
       },
       "revId": "34313fbb07dbb046408fab5c34093700405090aa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b166f85_0fb7bf4e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-22T14:13:19Z",
+      "side": 1,
+      "message": "Platforms that wish to expose auxiliary counters *must* enable the AMU FCONF feature - we don\u0027t support an alternative method for communicating the auxiliary counters because there are intricacies to doing so that make it unsuitable for configuring via the preprocessor (or at least very difficult to scale).",
+      "parentUuid": "d32b6bdc_4f959090",
+      "range": {
+        "startLine": 13,
+        "startChar": 17,
+        "endLine": 15,
+        "endChar": 50
+      },
+      "revId": "34313fbb07dbb046408fab5c34093700405090aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
