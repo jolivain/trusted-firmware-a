@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5528b8b3_db141277",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-23T13:07:04Z",
+      "side": 1,
+      "message": "Hi Sandrine, This init function needs information from the platform to update log_ptr(running Event Log ptr) and event_log_end ptr, so I don\u0027t think we need to cover 1) over here. \nIf BL2 platform code specifies where to start logging and end that is quite enough right? that means BL2 platform code needs to call the function as:\n  /* retrieve offset and event_log_base from tb_fw_config */\n  event_log_start \u003d event_log_base + offset;\n  event_log_finish \u003d event_log_base + PLAT_EVENT_LOG_MAX_SIZE;\n  event_log_init(event_log_start, event_log_finish);\n\nTo print the log BL2 platform needs to call:\n  dump_event_log(event_log_base, event_log_cur_size) -\u003e present in event_print.c\n\nPlease correct me if I am wrong. Thanks!",
+      "parentUuid": "041fc124_2c537f40",
+      "range": {
+        "startLine": 156,
+        "startChar": 11,
+        "endLine": 156,
+        "endChar": 44
+      },
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cd5403ce_7aff6357",
         "filename": "drivers/measured_boot/event_log/event_log.c",
         "patchSetId": 1
