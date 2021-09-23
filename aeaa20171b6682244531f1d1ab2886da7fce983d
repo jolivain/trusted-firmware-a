@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eb58167_53b754f0",
+        "filename": "plat/nxp/soc-ls1028a/ls1028ardb/ddr_init.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-09-23T02:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e1517fc_07acb9e9",
+      "range": {
+        "startLine": 59,
+        "startChar": 8,
+        "endLine": 59,
+        "endChar": 27
+      },
+      "revId": "aeaa20171b6682244531f1d1ab2886da7fce983d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9e5e843_44e389c4",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "868e6015_3d8e32cc",
+        "filename": "plat/nxp/soc-ls1028a/ls1028ardb/ddr_init.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-09-23T02:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9e5e843_44e389c4",
+      "range": {
+        "startLine": 79,
+        "startChar": 5,
+        "endLine": 79,
+        "endChar": 8
+      },
+      "revId": "aeaa20171b6682244531f1d1ab2886da7fce983d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3ea0688_ed58199c",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-09-22T22:52:20Z",
       "side": 1,
       "message": "uint64_t",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 9
+      },
+      "revId": "aeaa20171b6682244531f1d1ab2886da7fce983d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7d1a044_aa9b5674",
+        "filename": "plat/nxp/soc-ls1028a/ls1028ardb/ddr_init.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-09-23T02:04:35Z",
+      "side": 1,
+      "message": "replace type with int64_t but not uint64_t, thanks.",
+      "parentUuid": "f3ea0688_ed58199c",
       "range": {
         "startLine": 161,
         "startChar": 0,
