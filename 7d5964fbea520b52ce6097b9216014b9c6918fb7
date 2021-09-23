@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c0d59ae5_72c0f9d5",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-23T06:06:01Z",
+      "side": 1,
+      "message": "\u003e what\u0027s the point of passing the base and offset? \nTo avoid common operation at caller side.\n\n\u003e Why not add this and send the ptr as input param instead?\nIf we agree to pre-process these pointers at the caller side before passing to this function, then we can make this function simpler as below:\nevent_log_start for BL1 - event_log array base \nevent_log_start for BL2 - event_log + offset (no.of bytes filled by BL1 in Event Log buffer)\n\n void event_log_init(uint8_t *event_log_start, uint8_t *event_log_finish)\n {\n     assert(event_log_start !\u003d NULL);\n     assert(event_log_finish \u003e event_log_base);\n\n     log_ptr \u003d event_log_start;\n     event_log_end \u003d event_log_finish;\n     ...\n }",
+      "parentUuid": "91d03de5_5f96c28c",
+      "range": {
+        "startLine": 156,
+        "startChar": 11,
+        "endLine": 156,
+        "endChar": 44
+      },
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cd5403ce_7aff6357",
         "filename": "drivers/measured_boot/event_log/event_log.c",
         "patchSetId": 1
@@ -37,6 +61,24 @@
       "writtenOn": "2021-09-22T20:28:06Z",
       "side": 1,
       "message": "assert(event_log_end \u003e event_log_base);",
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb64e285_fa7950cd",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-23T06:06:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cd5403ce_7aff6357",
       "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -60,6 +102,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21631b72_1ed523e8",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-23T06:06:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8e8363e1_42814f14",
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a36f31c4_44fb3bd6",
         "filename": "drivers/measured_boot/event_log/event_log.c",
         "patchSetId": 1
@@ -71,6 +131,30 @@
       "writtenOn": "2021-09-22T20:28:06Z",
       "side": 1,
       "message": "should we check for wrap around?",
+      "range": {
+        "startLine": 291,
+        "startChar": 19,
+        "endLine": 291,
+        "endChar": 55
+      },
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89c395bd_0d9ea189",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-23T06:06:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a36f31c4_44fb3bd6",
       "range": {
         "startLine": 291,
         "startChar": 19,
@@ -106,6 +190,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae948403_24a42ae8",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-23T06:06:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1f5d1f35_6a6dcb78",
+      "range": {
+        "startLine": 220,
+        "startChar": 31,
+        "endLine": 220,
+        "endChar": 41
+      },
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e207ce0_13bf9b76",
         "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
         "patchSetId": 1
@@ -117,6 +225,30 @@
       "writtenOn": "2021-09-22T20:28:06Z",
       "side": 1,
       "message": "should check if image_info is non-NULL first",
+      "range": {
+        "startLine": 263,
+        "startChar": 31,
+        "endLine": 263,
+        "endChar": 41
+      },
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "499fbd1b_a0575165",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-23T06:06:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3e207ce0_13bf9b76",
       "range": {
         "startLine": 263,
         "startChar": 31,
