@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bbdd444_468ab233",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-23T14:16:25Z",
+      "side": 1,
+      "message": "I can\u0027t seem to reproduce locally the unused error I was encountering previously. If it fails the CI I\u0027ll give `__unused` a shot.",
+      "parentUuid": "ed87ffe0_c1977a0b",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 21
+      },
+      "revId": "a11797371b47e17b73c885397d480fa63ed361de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d91f7fb1_e592412f",
