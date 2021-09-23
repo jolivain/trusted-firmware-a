@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b67e5126_48dcfe43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-23T18:28:16Z",
+      "side": 1,
+      "message": "I have a question in the comments, but I\u0027ll assume the code is good (i.e., I\u0027ll assume you\u0027ll fix it if not).",
+      "revId": "e74da31119cdb5850c708f90318f23626376cb9c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6a5d07c_0c136982",
+        "filename": "lib/extensions/amu/amu.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-23T18:28:16Z",
+      "side": 1,
+      "message": "Perhaps it doesn\u0027t matter either way, but would \u003d instead of +\u003d be ... safer?\n\nI\u0027ll assume you know what you\u0027re doing, and give it a CR+1.",
+      "revId": "e74da31119cdb5850c708f90318f23626376cb9c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
