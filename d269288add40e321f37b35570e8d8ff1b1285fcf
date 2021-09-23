@@ -94,6 +94,30 @@
       },
       "revId": "d269288add40e321f37b35570e8d8ff1b1285fcf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46d63bd1_cc6a6d42",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-23T16:17:42Z",
+      "side": 1,
+      "message": "I had a similar opinion on this as platform APIs are well documented so short names don\u0027t matter (until meaningless names are given) even if it matches with some bootloaders like uboot/tboot etc. so better stick to the \u0027plat_mboot_*\u0027 name only and people can read the documentation to get the description about it.",
+      "parentUuid": "f971b7ae_c0ca9ebc",
+      "range": {
+        "startLine": 214,
+        "startChar": 14,
+        "endLine": 214,
+        "endChar": 19
+      },
+      "revId": "d269288add40e321f37b35570e8d8ff1b1285fcf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
