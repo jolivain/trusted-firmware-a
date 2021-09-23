@@ -16,6 +16,24 @@
       "message": "In patchset 3, you were checking if this condition is false but here you are implicitly checking if its true. Is this intentional?",
       "revId": "cbfb6cc69255ff426bbdb197a0ecdcd5ebee336b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57c182ff_381b1c83",
+        "filename": "plat/nxp/soc-ls1028a/soc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-09-23T02:12:29Z",
+      "side": 1,
+      "message": "Yes, I keep the same logic to initialize SEC when sec is enabled.",
+      "parentUuid": "38fb9459_3fc98b98",
+      "revId": "cbfb6cc69255ff426bbdb197a0ecdcd5ebee336b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
