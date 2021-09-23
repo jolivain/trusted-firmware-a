@@ -22,6 +22,30 @@
       },
       "revId": "d8d1692c52086a8eef45875c7575a0521042cfbf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e1b818a_211fa899",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-09-23T12:26:57Z",
+      "side": 1,
+      "message": "I think that Varun has a point here. This function is specific to measuring an image, it knows how to get the image data from the input image id. I think that plat_mboot_measure() would have been more appropriate for a low level function that just measures a data buffer (taking a void* ptr and size of a buffer in argument).\n\nI am not too fond of the \"image\" terminology but that\u0027s how we name these things in TF-A so I vote for plat_mboot_measure_image() (just throwing the mboot_ namespace in the mix on top of Varun\u0027s suggestion).",
+      "parentUuid": "26856275_f80aceca",
+      "range": {
+        "startLine": 128,
+        "startChar": 18,
+        "endLine": 128,
+        "endChar": 36
+      },
+      "revId": "d8d1692c52086a8eef45875c7575a0521042cfbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
