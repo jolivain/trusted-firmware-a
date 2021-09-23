@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82cadc61_91ec9a36",
+        "filename": "bl1/aarch64/bl1_arch_setup.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-23T19:25:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "57b74efd_4a5333e6",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "7d748818f8f6dc38be8ea547fc1c77b85b2f1ac2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cad9343_754b36d6",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-23T16:03:25Z",
       "side": 1,
       "message": "don\u0027t change as there is no real change in the file",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "7d748818f8f6dc38be8ea547fc1c77b85b2f1ac2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdaec031_94cb5f61",
+        "filename": "bl1/aarch64/bl1_exceptions.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-23T19:25:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9cad9343_754b36d6",
       "range": {
         "startLine": 2,
         "startChar": 22,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24b52291_78133fee",
+        "filename": "include/lib/xlat_tables/xlat_mmu_helpers.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-23T19:25:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b3f20a33_6f7521cf",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "7d748818f8f6dc38be8ea547fc1c77b85b2f1ac2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36c71b75_38cf554d",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-09-23T16:03:25Z",
       "side": 1,
       "message": "There are no SMC calls in R-class, should be HVC",
+      "range": {
+        "startLine": 96,
+        "startChar": 11,
+        "endLine": 96,
+        "endChar": 25
+      },
+      "revId": "7d748818f8f6dc38be8ea547fc1c77b85b2f1ac2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "380cd0b0_9eb62288",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_exceptions.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-23T19:25:21Z",
+      "side": 1,
+      "message": "Aha!  Good catch, Manish!",
+      "parentUuid": "36c71b75_38cf554d",
       "range": {
         "startLine": 96,
         "startChar": 11,
