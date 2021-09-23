@@ -70,6 +70,30 @@
       },
       "revId": "d269288add40e321f37b35570e8d8ff1b1285fcf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f971b7ae_c0ca9ebc",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-09-23T12:05:35Z",
+      "side": 1,
+      "message": "Personally I believe that \"measured_boot\" is too long as a namespace. Although mboot is undoubtedly less intuitive the first time you encounter it, I think it\u0027s just a matter of reading the function doc once to figure out what it is about and then you are past the difficulty. IMHO, if we make namespaces too long we lose the benefits they can bring to the table because it becomes less straight-forward to read the code.\n\nTBH I am not too worried about the similarity with uboot/cboot/tboot... Yes, they only differ by a letter but I don\u0027t think we have functions names referring to these terms right now in TF-A. Besides, it\u0027s not surprising that we end up with similar names, given that they\u0027re all related to the boot phase ;)",
+      "parentUuid": "269b2920_6678ca39",
+      "range": {
+        "startLine": 214,
+        "startChar": 14,
+        "endLine": 214,
+        "endChar": 19
+      },
+      "revId": "d269288add40e321f37b35570e8d8ff1b1285fcf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
