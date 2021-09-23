@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "041fc124_2c537f40",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-09-23T12:21:19Z",
+      "side": 1,
+      "message": "I think that BL2 needs all 3 pieces of info:\n1) The base address of the buffer is needed for BL2 to print the complete event log, including the measurements recorded by BL1. Further boot stages in secure \u0026 normal world also need to know the base address, I think.\n2) The offset within the buffer is needed for BL2 to append its measurements after BL1\u0027s.\n3) The total size of the buffer (or remaining space) is needed for BL2 to check that it does not write past the end of the buffer.\n\nIt seems to me that we cannot pull this off without all 3 pieces of data, can we? How would we implement 1) with Manish\u0027s suggestion?",
+      "parentUuid": "1458c18b_fd12d384",
+      "range": {
+        "startLine": 156,
+        "startChar": 11,
+        "endLine": 156,
+        "endChar": 44
+      },
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cd5403ce_7aff6357",
         "filename": "drivers/measured_boot/event_log/event_log.c",
         "patchSetId": 1
