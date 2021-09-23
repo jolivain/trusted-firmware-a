@@ -67,7 +67,7 @@ void mpmm_enable(void)
 
 	topology = mpmm_topology();
 	if (topology != NULL) {
-		ctx->supported = topology->cores[core_pos].supported &&
+		ctx->supported = mpmm_fconf_topology_supported(topology, core_pos) &&
 			(read_cpuppmcr_el3_mpmmpinctl() == 0U);
 	}
 

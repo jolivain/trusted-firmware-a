@@ -26,6 +26,31 @@ const struct mpmm_fconf_topology *mpmm_topology(void)
 	return &mpmm_topology_;
 }
 
+bool mpmm_fconf_topology_supported(
+	const struct mpmm_fconf_topology *topology, unsigned int core_pos)
+{
+	uint8_t byte;
+
+	assert(core_pos < PLATFORM_CORE_COUNT);
+
+	byte = topology->supported[core_pos / 8U];
+
+	return ((byte >> (core_pos % 8)) & 0x1) != 0U;
+}
+
+void mpmm_fconf_topology_set_supported(
+	struct mpmm_fconf_topology *topology, unsigned int core_pos, bool supported)
+{
+	uint8_t *byte;
+
+	assert(core_pos < PLATFORM_CORE_COUNT);
+
+	byte = &topology->supported[core_pos / 8U];
+
+	*byte &= ~(UINT8_C(1) << core_pos);
+	*byte |= ((uint8_t)supported) << core_pos;
+}
+
 /*
  * Within a `cpu` node, determine support for MPMM via the `supports-mpmm`
  * property.
@@ -34,17 +59,18 @@ const struct mpmm_fconf_topology *mpmm_topology(void)
  */
 static int mpmm_fconf_populate_cpu(const void *fdt, int off, uintptr_t mpidr)
 {
-	struct mpmm_fconf_core *core;
 	int ret, len;
 
-	core = &mpmm_topology_.cores[plat_core_pos_by_mpidr(mpidr)];
+	unsigned int core_pos = plat_core_pos_by_mpidr(mpidr);
 
 	fdt_getprop(fdt, off, "supports-mpmm", &len);
 	if (len >= 0) {
-		core->supported = true;
+		mpmm_fconf_topology_set_supported(&mpmm_topology_, core_pos, true);
+
 		ret = 0;
 	} else {
-		core->supported = false;
+		mpmm_fconf_topology_set_supported(&mpmm_topology_, core_pos, false);
+
 		ret = len;
 	}
 
