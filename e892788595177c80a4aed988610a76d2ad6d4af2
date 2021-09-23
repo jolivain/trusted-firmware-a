@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2029608c_92902e5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-23T20:08:45Z",
+      "side": 1,
+      "message": "I reran the one L2 test that failed and it passed here: https://jenkins.oss.arm.com/job/tf-ci-gateway/103425/\n\nI think this patch is ready to merge once all code review requirements are met.",
+      "revId": "e892788595177c80a4aed988610a76d2ad6d4af2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
