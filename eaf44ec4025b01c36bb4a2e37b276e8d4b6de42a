@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdf680dc_9838b7c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-23T15:42:55Z",
+      "side": 1,
+      "message": "Thanks, John.  Got \u0027em.",
+      "revId": "eaf44ec4025b01c36bb4a2e37b276e8d4b6de42a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4c4cd94_134fa3cc",
@@ -41,6 +58,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98a5fc79_87fcf88b",
+        "filename": "plat/arm/board/fvp_r/fvp_r_common.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-23T15:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4c4cd94_134fa3cc",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 49
+      },
+      "revId": "eaf44ec4025b01c36bb4a2e37b276e8d4b6de42a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7fac63c9_b8cfd11d",
@@ -54,6 +95,30 @@
       "writtenOn": "2021-09-16T01:58:03Z",
       "side": 1,
       "message": "nit: remove this tab so it lines up with the other definitions",
+      "range": {
+        "startLine": 183,
+        "startChar": 34,
+        "endLine": 183,
+        "endChar": 35
+      },
+      "revId": "eaf44ec4025b01c36bb4a2e37b276e8d4b6de42a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "900c3fe4_ab5b668e",
+        "filename": "plat/arm/board/fvp_r/include/platform_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-23T15:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fac63c9_b8cfd11d",
       "range": {
         "startLine": 183,
         "startChar": 34,
