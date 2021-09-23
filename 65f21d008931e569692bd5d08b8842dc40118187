@@ -46,6 +46,30 @@
       },
       "revId": "65f21d008931e569692bd5d08b8842dc40118187",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7a95072_e0e3926c",
+        "filename": "lib/extensions/amu/amu.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-09-23T12:10:13Z",
+      "side": 1,
+      "message": "I see. But, IIUC, with this change you are asking platform to switch to FCONF (?). For Tegra, we dont want to switch. At least not now.",
+      "parentUuid": "0b21905e_8818055d",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "65f21d008931e569692bd5d08b8842dc40118187",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
