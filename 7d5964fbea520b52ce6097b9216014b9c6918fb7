@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1458c18b_fd12d384",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-09-23T09:32:08Z",
+      "side": 1,
+      "message": "I think your suggestion is better. We should use it.",
+      "parentUuid": "c0d59ae5_72c0f9d5",
+      "range": {
+        "startLine": 156,
+        "startChar": 11,
+        "endLine": 156,
+        "endChar": 44
+      },
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cd5403ce_7aff6357",
         "filename": "drivers/measured_boot/event_log/event_log.c",
         "patchSetId": 1
