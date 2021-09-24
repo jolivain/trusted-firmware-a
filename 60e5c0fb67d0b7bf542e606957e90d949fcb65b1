@@ -70,6 +70,30 @@
       },
       "revId": "60e5c0fb67d0b7bf542e606957e90d949fcb65b1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01753ddb_57fa1698",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-09-24T08:09:19Z",
+      "side": 1,
+      "message": "That is not a valid reason to switch the code to FCONF and break the migration path for platforms. I hope you understand that some platforms are slow to catch up and so will not have coverage in the CI.",
+      "parentUuid": "fabe3201_5c752ff1",
+      "range": {
+        "startLine": 197,
+        "startChar": 1,
+        "endLine": 201,
+        "endChar": 4
+      },
+      "revId": "60e5c0fb67d0b7bf542e606957e90d949fcb65b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
