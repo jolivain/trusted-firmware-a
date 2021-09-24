@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fb88c66_3e51de4c",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T19:11:53Z",
+      "side": 1,
+      "message": "Since this only applies to r2p0 we can\u0027t use the cpu_rev_var_ls function since that will apply this to r2p0 and anything below that. For this case I would use cpu_rev_var_range with 0x20 as both arguments so it only matches r2p0.",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 17
+      },
+      "revId": "3a570f43a2926c370669340ee81f80f581f1da66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
