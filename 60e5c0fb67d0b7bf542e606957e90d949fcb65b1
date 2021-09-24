@@ -94,6 +94,30 @@
       },
       "revId": "60e5c0fb67d0b7bf542e606957e90d949fcb65b1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96db1df8_752fdcbd",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-24T09:11:08Z",
+      "side": 1,
+      "message": "I understand and agree with your concern, but there don\u0027t appear to be any upstream platforms utilising the AMU\u0027s auxiliary counter functionality at present, so there are currently no upstream platforms requiring explicit migration. Is your concern about a downstream platform that we do not have visibility of?",
+      "parentUuid": "01753ddb_57fa1698",
+      "range": {
+        "startLine": 197,
+        "startChar": 1,
+        "endLine": 201,
+        "endChar": 4
+      },
+      "revId": "60e5c0fb67d0b7bf542e606957e90d949fcb65b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
