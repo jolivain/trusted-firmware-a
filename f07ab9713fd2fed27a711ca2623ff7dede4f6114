@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50c1cb1f_628ab9bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "See whether the Juno 404s may allow a clean(er) Legacy-CI+2.",
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "977d8a3e_46b9f50c",
@@ -14,6 +31,30 @@
       "writtenOn": "2021-09-24T16:20:51Z",
       "side": 1,
       "message": "nit: extra tab to line up with the definitions above and below.",
+      "range": {
+        "startLine": 160,
+        "startChar": 17,
+        "endLine": 160,
+        "endChar": 19
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34ffc1a8_44110ea7",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "977d8a3e_46b9f50c",
       "range": {
         "startLine": 160,
         "startChar": 17,
@@ -41,6 +82,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bee80b56_f8086b82",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "This file originally *had* substantive changes, but they were subsequently reverted out.  I\u0027ll replace this file with that from the latest TF-A.",
+      "parentUuid": "476f1c83_fb1f02d8",
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5fc38ae_7fbe258c",
@@ -54,6 +113,30 @@
       "writtenOn": "2021-09-24T16:20:51Z",
       "side": 1,
       "message": "If this is used specifically in the case where EL3 does not exist it would be good to mention that here I think.",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f7c5b3d_21751dc3",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Interesting...  I\u0027m doing a sweep for any other EL3-register mentions that I may have missed.",
+      "parentUuid": "e5fc38ae_7fbe258c",
       "range": {
         "startLine": 18,
         "startChar": 4,
@@ -87,6 +170,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3d194aa_6d5fcf35",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Thanks.  Most of these are inherited from equivalent MMU-library code, FWIW, but right, I\u0027ll fix them.",
+      "parentUuid": "23aa83c5_fb10df52",
+      "range": {
+        "startLine": 181,
+        "startChar": 2,
+        "endLine": 181,
+        "endChar": 65
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08801934_12f738f8",
@@ -100,6 +207,30 @@
       "writtenOn": "2021-09-24T16:20:51Z",
       "side": 1,
       "message": "nit: 0UL",
+      "range": {
+        "startLine": 401,
+        "startChar": 21,
+        "endLine": 401,
+        "endChar": 22
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fded589_019aea50",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "08801934_12f738f8",
       "range": {
         "startLine": 401,
         "startChar": 21,
@@ -133,6 +264,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "630828e8_172aa983",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "I\u0027ll change it to just 1UL, but ... just asking:  Is it pretty much accepted that 1UL (i.e., unsigned long) is of the same type as uint64_t, under *all* compilers of interest?",
+      "parentUuid": "9c4f1f47_1f98bfa4",
+      "range": {
+        "startLine": 407,
+        "startChar": 40,
+        "endLine": 407,
+        "endChar": 54
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5d47656_d3270122",
@@ -146,6 +301,30 @@
       "writtenOn": "2021-09-24T16:20:51Z",
       "side": 1,
       "message": "Ditto",
+      "range": {
+        "startLine": 411,
+        "startChar": 17,
+        "endLine": 411,
+        "endChar": 31
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "680741a1_08b130bc",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Ditto (i.e., I\u0027ll make the same change, but still wonder about the same question).",
+      "parentUuid": "c5d47656_d3270122",
       "range": {
         "startLine": 411,
         "startChar": 17,
@@ -179,6 +358,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cd9ca65_15369567",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5c18c8c8_a333fd70",
+      "range": {
+        "startLine": 260,
+        "startChar": 16,
+        "endLine": 260,
+        "endChar": 28
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e785879f_10b5093e",
@@ -192,6 +395,30 @@
       "writtenOn": "2021-09-24T16:20:51Z",
       "side": 1,
       "message": "table_level is unsigned",
+      "range": {
+        "startLine": 261,
+        "startChar": 16,
+        "endLine": 261,
+        "endChar": 17
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c38852a4_c1d98b96",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Ah, good point!",
+      "parentUuid": "e785879f_10b5093e",
       "range": {
         "startLine": 261,
         "startChar": 16,
@@ -225,6 +452,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d1e1ec2_af3fd690",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1e17547a_0595a978",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 67
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d86befb_9c117b36",
@@ -238,6 +489,30 @@
       "writtenOn": "2021-09-24T16:20:51Z",
       "side": 1,
       "message": "Does this register still have meaning when EL3 does not exist?",
+      "range": {
+        "startLine": 136,
+        "startChar": 10,
+        "endLine": 136,
+        "endChar": 17
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c37ba493_2da9516e",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_exceptions.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "These good catches, John.  Thanks!  \n\nIf I recall correctly, this was originally addressed as #ifdef NO_EL3 in bl1_exceptions.S, but I was asked to be split off into a separate fvp_r_ file (this file).  It looks like I didn\u0027t resolve the NO_EL3 references completely!\n\nI did a sweep for EL3-register references if fvp_r files.  The only other one was the el2_exit() function in fvp_r_context.S.  So working on that one too.",
+      "parentUuid": "4d86befb_9c117b36",
       "range": {
         "startLine": 136,
         "startChar": 10,
@@ -317,6 +592,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "872c517b_6b4ffb90",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b7634c59_ebe26f90",
+      "range": {
+        "startLine": 98,
+        "startChar": 31,
+        "endLine": 98,
+        "endChar": 32
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "187a1685_ce610edc",
@@ -330,6 +629,30 @@
       "writtenOn": "2021-09-24T16:20:51Z",
       "side": 1,
       "message": "nit: braces",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 63
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88d767c6_54020009",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "187a1685_ce610edc",
       "range": {
         "startLine": 112,
         "startChar": 2,
@@ -363,6 +686,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4073edd_bd2af4e8",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ed9fab5a_01240deb",
+      "range": {
+        "startLine": 142,
+        "startChar": 2,
+        "endLine": 142,
+        "endChar": 17
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc8200ce_c9da4ea6",
@@ -376,6 +723,30 @@
       "writtenOn": "2021-09-24T16:20:51Z",
       "side": 1,
       "message": "This function seems like it will need to be reworked to not rely on SCR_EL3 before it can be used in a system without EL3.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 49
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e350e631_bc42aaf1",
+        "filename": "plat/arm/board/fvp_r/fvp_r_context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Indeed, good catches, John!  Again, I\u0027m doing a sweep through .../plat/arm/board/fvp_r to search for further EL3 register references I may have missed.  Looks like you found a few good ones!  Thanks.\n\nActually, FWIW, this particular function and file degenerates to \"not much,\" since there\u0027s no non-secure state on v8-R64.",
+      "parentUuid": "dc8200ce_c9da4ea6",
       "range": {
         "startLine": 68,
         "startChar": 0,
@@ -432,6 +803,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9d98a19_1626e3f7",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6dfd2bbb_875aa591",
+      "range": {
+        "startLine": 209,
+        "startChar": 69,
+        "endLine": 209,
+        "endChar": 75
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "813da737_5d4470fd",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "33658e90_19685be5",
+      "range": {
+        "startLine": 209,
+        "startChar": 26,
+        "endLine": 209,
+        "endChar": 32
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "413fbd35_58ee7ecd",
@@ -473,6 +892,54 @@
         "startChar": 22,
         "endLine": 217,
         "endChar": 30
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5a38324_7bde9904",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "63e6822a_c508c0ae",
+      "range": {
+        "startLine": 217,
+        "startChar": 22,
+        "endLine": 217,
+        "endChar": 30
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d9b2eeb_fe493220",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-24T23:48:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "413fbd35_58ee7ecd",
+      "range": {
+        "startLine": 217,
+        "startChar": 32,
+        "endLine": 217,
+        "endChar": 38
       },
       "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
