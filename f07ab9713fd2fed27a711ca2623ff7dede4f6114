@@ -1,0 +1,481 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "977d8a3e_46b9f50c",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "nit: extra tab to line up with the definitions above and below.",
+      "range": {
+        "startLine": 160,
+        "startChar": 17,
+        "endLine": 160,
+        "endChar": 19
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "476f1c83_fb1f02d8",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "I think this file can be removed from this patch as no real changes are made.",
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5fc38ae_7fbe258c",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "If this is used specifically in the case where EL3 does not exist it would be good to mention that here I think.",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23aa83c5_fb10df52",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "nit: braces\n\nAnd other instances further down.",
+      "range": {
+        "startLine": 181,
+        "startChar": 2,
+        "endLine": 181,
+        "endChar": 65
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08801934_12f738f8",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "nit: 0UL",
+      "range": {
+        "startLine": 401,
+        "startChar": 21,
+        "endLine": 401,
+        "endChar": 22
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c4f1f47_1f98bfa4",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "I don\u0027t think both UL and a cast to uint64_t are necessary here.",
+      "range": {
+        "startLine": 407,
+        "startChar": 40,
+        "endLine": 407,
+        "endChar": 54
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5d47656_d3270122",
+        "filename": "lib/xlat_mpu/xlat_mpu_core.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 411,
+        "startChar": 17,
+        "endLine": 411,
+        "endChar": 31
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c18c8c8_a333fd70",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "I don\u0027t think a cast is needed when assigning NULL to a pointer type.",
+      "range": {
+        "startLine": 260,
+        "startChar": 16,
+        "endLine": 260,
+        "endChar": 28
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e785879f_10b5093e",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "table_level is unsigned",
+      "range": {
+        "startLine": 261,
+        "startChar": 16,
+        "endLine": 261,
+        "endChar": 17
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e17547a_0595a978",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "nit: braces",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 67
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d86befb_9c117b36",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_exceptions.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "Does this register still have meaning when EL3 does not exist?",
+      "range": {
+        "startLine": 136,
+        "startChar": 10,
+        "endLine": 136,
+        "endChar": 17
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f9ddc46_6f2da806",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_exceptions.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "EL3 context?",
+      "range": {
+        "startLine": 145,
+        "startChar": 16,
+        "endLine": 145,
+        "endChar": 36
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00684ca9_02674137",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_exceptions.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "More EL3 stuff?",
+      "range": {
+        "startLine": 235,
+        "startChar": 1,
+        "endLine": 253,
+        "endChar": 50
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7634c59_ebe26f90",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "nit: I assume this is mostly inherited from bl1_main.c but this should probably be 0U since val is unsigned.",
+      "range": {
+        "startLine": 98,
+        "startChar": 31,
+        "endLine": 98,
+        "endChar": 32
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "187a1685_ce610edc",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "nit: braces",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 63
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed9fab5a_01240deb",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "nit: braces",
+      "range": {
+        "startLine": 142,
+        "startChar": 2,
+        "endLine": 142,
+        "endChar": 17
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc8200ce_c9da4ea6",
+        "filename": "plat/arm/board/fvp_r/fvp_r_context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "This function seems like it will need to be reworked to not rely on SCR_EL3 before it can be used in a system without EL3.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 49
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dfd2bbb_875aa591",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "nit: tab",
+      "range": {
+        "startLine": 209,
+        "startChar": 69,
+        "endLine": 209,
+        "endChar": 75
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33658e90_19685be5",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "nit: tab",
+      "range": {
+        "startLine": 209,
+        "startChar": 26,
+        "endLine": 209,
+        "endChar": 32
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "413fbd35_58ee7ecd",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "nit: tab",
+      "range": {
+        "startLine": 217,
+        "startChar": 32,
+        "endLine": 217,
+        "endChar": 38
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63e6822a_c508c0ae",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T16:20:51Z",
+      "side": 1,
+      "message": "nit: tab",
+      "range": {
+        "startLine": 217,
+        "startChar": 22,
+        "endLine": 217,
+        "endChar": 30
+      },
+      "revId": "f07ab9713fd2fed27a711ca2623ff7dede4f6114",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
