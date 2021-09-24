@@ -156,6 +156,42 @@
       "parentUuid": "43921a1f_8cc2b5f5",
       "revId": "efd2c24416cf3ec37cfde52966075ded6a498bd7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6347d3e_4849189b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-09-24T09:19:54Z",
+      "side": 1,
+      "message": "Sorry, I had an additional comment in draft and not sent as I thought I had!. See see above :-)",
+      "parentUuid": "0d429aea_cd9ef441",
+      "revId": "efd2c24416cf3ec37cfde52966075ded6a498bd7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bec4623c_73cd68f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-09-24T09:19:54Z",
+      "side": 1,
+      "message": "Ignore the QA reports link. It adds only confusion. I\u0027m trying to get it removed and clean up the Gerrit reporting (FYI https://linaro.atlassian.net/browse/TFC-87?atlOrigin\u003deyJpIjoiNmM2ZDUyNjk1ZDIxNGI3MTllZDE4Mzg2ZmEzMzE0NzEiLCJwIjoiaiJ9).\n\nAs you have confirmed the patch looks good with the OpenCI with the reruns of the failed timeout tests I thin you can add verified+1 manually and we just need a Code Owner review to allow this to be merged.\n\nFrom https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/about/maintainers.rst#n206 @Alexei is our only listed AMU Code Owner but if he cannot review any other Maintainer can fill in.",
+      "parentUuid": "c512631a_b89796dd",
+      "revId": "efd2c24416cf3ec37cfde52966075ded6a498bd7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
