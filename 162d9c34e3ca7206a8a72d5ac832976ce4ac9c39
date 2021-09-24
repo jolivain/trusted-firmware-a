@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "293def52_1f4fcbba",
+        "filename": "include/lib/el3_runtime/cpu_data.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T20:08:40Z",
+      "side": 1,
+      "message": "Thsi should go after arch_helpers.h for alphabetical order.",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 19
+      },
+      "revId": "162d9c34e3ca7206a8a72d5ac832976ce4ac9c39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7093183a_6dd73300",
+        "filename": "include/lib/el3_runtime/cpu_data.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T20:08:40Z",
+      "side": 1,
+      "message": "Could we use a switch here instead of nested if statements?  Seems like it would be a lot cleaner.\n\n  switch (security_state) {\n    case SECURE:\n      return CPU_CONTEXT_SECURE;\n    case NON_SECURE:\n      return CPU_CONTEXT_NS;\n#if ENABLE_RME\n    case REALM:\n      return CPU_CONTEXT_REALM;\n#endif\n    default:\n      panic();\n  }",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 1
+      },
+      "revId": "162d9c34e3ca7206a8a72d5ac832976ce4ac9c39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
