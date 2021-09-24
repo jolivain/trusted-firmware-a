@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0ada06b_18827684",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T19:13:04Z",
+      "side": 1,
+      "message": "Looks good just a few nitpicks.",
+      "revId": "69c059ff6fd8ad152425a6cea5c1ca5055d834e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e255dbf_4a736d7f",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T19:13:04Z",
+      "side": 1,
+      "message": "Extra white space.",
+      "range": {
+        "startLine": 395,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 3
+      },
+      "revId": "69c059ff6fd8ad152425a6cea5c1ca5055d834e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f9576e7_3d97dc50",
+        "filename": "include/lib/cpus/aarch64/cortex_a710.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T19:13:04Z",
+      "side": 1,
+      "message": "Would be good to fix alignment here even though it was already like that.",
+      "revId": "69c059ff6fd8ad152425a6cea5c1ca5055d834e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bda4bf94_163b865d",
+        "filename": "include/lib/cpus/aarch64/cortex_a710.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T19:13:04Z",
+      "side": 1,
+      "message": "Add another tab here for alignment.",
+      "range": {
+        "startLine": 40,
+        "startChar": 48,
+        "endLine": 40,
+        "endChar": 49
+      },
+      "revId": "69c059ff6fd8ad152425a6cea5c1ca5055d834e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c3bfb97_af771363",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-24T19:13:04Z",
+      "side": 1,
+      "message": "Applies to r2p0 and lower.",
+      "range": {
+        "startLine": 213,
+        "startChar": 4,
+        "endLine": 213,
+        "endChar": 19
+      },
+      "revId": "69c059ff6fd8ad152425a6cea5c1ca5055d834e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
