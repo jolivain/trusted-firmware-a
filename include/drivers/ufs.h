@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -254,6 +254,10 @@
 #define UFS_VENDOR_SKHYNIX		U(0x1AD)
 
 #define MAX_MODEL_LEN 16
+
+/* maximum number of retries for a general UIC command  */
+#define UFS_UIC_COMMAND_RETRIES		3
+
 /**
  * ufs_dev_desc - ufs device details from the device descriptor
  * @wmanufacturerid: card details
