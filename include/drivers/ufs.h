@@ -254,6 +254,9 @@
 #define UFS_VENDOR_SKHYNIX		U(0x1AD)
 
 #define MAX_MODEL_LEN 16
+
+#define UFS_UIC_COMMAND_RETRIES		10
+
 /**
  * ufs_dev_desc - ufs device details from the device descriptor
  * @wmanufacturerid: card details
