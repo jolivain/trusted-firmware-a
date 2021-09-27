@@ -14,6 +14,7 @@
 	.globl	zeromem
 	.globl	zero_normalmem
 	.globl	memcpy4
+	.globl	memcpy8
 	.globl	disable_mmu_icache_secure
 	.globl	disable_mmu_secure
 	.globl	fixup_gdt_reloc
@@ -166,6 +167,31 @@ m_loop1:
 	bne	m_loop1
 	bx	lr
 endfunc memcpy4
+
+/* --------------------------------------------------------------------------
+ * void memcpy8(void *dest, const void *src, unsigned int length)
+ *
+ * Copy length bytes from memory area src to memory area dest.
+ * The memory areas should not overlap.
+ * Destination and source addresses must be 8-byte aligned.
+ * --------------------------------------------------------------------------
+ */
+func memcpy8
+#if ENABLE_ASSERTIONS
+	orr	r3, r0, r1
+	tst	r3, #0x7
+	ASM_ASSERT(eq)
+#endif
+/* copy 8 bytes at a time */
+m_loop8:
+	cmp	r2, #8
+	blo	m_loop1
+	ldrd	r4, r5, [r1], #8
+	strd	r4, r5, [r0], #8
+	subs	r2, r2, #8
+	bne	m_loop8
+	bx	lr
+endfunc memcpy8
 
 /* ---------------------------------------------------------------------------
  * Disable the MMU in Secure State
