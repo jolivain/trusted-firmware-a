@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d90bdfd5_43a35009",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2021-09-27T15:26:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef5220e0_c13e70ab",
+      "range": {
+        "startLine": 55,
+        "startChar": 26,
+        "endLine": 55,
+        "endChar": 27
+      },
+      "revId": "e164f4825737a9da5496d1660b28904500ece4a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f4c21a9e_9e7ae5aa",
         "filename": "drivers/arm/ethosn/ethosn_smc.c",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2021-09-27T14:09:26Z",
       "side": 1,
       "message": "nit: leave one blank line before return.",
+      "range": {
+        "startLine": 60,
+        "startChar": 1,
+        "endLine": 60,
+        "endChar": 14
+      },
+      "revId": "e164f4825737a9da5496d1660b28904500ece4a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edc489a4_462653eb",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2021-09-27T15:26:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4c21a9e_9e7ae5aa",
       "range": {
         "startLine": 60,
         "startChar": 1,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aaa464bd_f2127876",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2021-09-27T15:26:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d595290c_9ce7d2bd",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 5
+      },
+      "revId": "e164f4825737a9da5496d1660b28904500ece4a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a4299c34_e098b96a",
         "filename": "drivers/arm/ethosn/ethosn_smc.c",
         "patchSetId": 2
@@ -100,6 +172,30 @@
       "writtenOn": "2021-09-27T14:09:26Z",
       "side": 1,
       "message": "Just wondering without this have a received any warnings?",
+      "range": {
+        "startLine": 159,
+        "startChar": 2,
+        "endLine": 159,
+        "endChar": 31
+      },
+      "revId": "e164f4825737a9da5496d1660b28904500ece4a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afe6d32a_b507835d",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2021-09-27T15:26:46Z",
+      "side": 1,
+      "message": "Reverted to comment as TF-A wont complain",
+      "parentUuid": "a4299c34_e098b96a",
       "range": {
         "startLine": 159,
         "startChar": 2,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "319b1635_7250940f",
+        "filename": "plat/arm/common/fconf/fconf_ethosn_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2021-09-27T15:26:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "288bb1d3_1849d976",
+      "range": {
+        "startLine": 39,
+        "startChar": 15,
+        "endLine": 39,
+        "endChar": 18
+      },
+      "revId": "e164f4825737a9da5496d1660b28904500ece4a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dcee54ec_0e1721ce",
         "filename": "plat/arm/common/fconf/fconf_ethosn_getter.c",
         "patchSetId": 2
@@ -146,6 +266,30 @@
       "writtenOn": "2021-09-27T14:09:26Z",
       "side": 1,
       "message": "This \u0027for\u0027 loop looks little odd from readability PoV, can this be changed to while loop instead?\nThinking as below (not tested though)\n  ethosn_node \u003d fdt_node_offset_by_compatible(hw_conf_dtb, -1, \"ethosn\")\n  while (ethosn_node \u003e\u003d 0) {\n     ethosn_node \u003d fdt_node_offset_by_compatible(hw_conf_dtb, ethosn_node, \"ethosn\"));\n     ...\n  }",
+      "range": {
+        "startLine": 42,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 83
+      },
+      "revId": "e164f4825737a9da5496d1660b28904500ece4a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58c3a29d_9d4b0065",
+        "filename": "plat/arm/common/fconf/fconf_ethosn_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2021-09-27T15:26:46Z",
+      "side": 1,
+      "message": "Changed into a helper macro",
+      "parentUuid": "dcee54ec_0e1721ce",
       "range": {
         "startLine": 42,
         "startChar": 6,
@@ -181,6 +325,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9931f457_bba2e8de",
+        "filename": "plat/arm/common/fconf/fconf_ethosn_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2021-09-27T15:26:46Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "0ed62eec_e354a060",
+      "range": {
+        "startLine": 67,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 17
+      },
+      "revId": "e164f4825737a9da5496d1660b28904500ece4a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "769ccc21_5cb373d6",
         "filename": "plat/arm/common/fconf/fconf_ethosn_getter.c",
         "patchSetId": 2
@@ -192,6 +360,30 @@
       "writtenOn": "2021-09-27T14:09:26Z",
       "side": 1,
       "message": "Align these parameters below the open brace.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 45
+      },
+      "revId": "e164f4825737a9da5496d1660b28904500ece4a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acee68a6_71c3c148",
+        "filename": "plat/arm/common/fconf/fconf_ethosn_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2021-09-27T15:26:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "769ccc21_5cb373d6",
       "range": {
         "startLine": 117,
         "startChar": 0,
