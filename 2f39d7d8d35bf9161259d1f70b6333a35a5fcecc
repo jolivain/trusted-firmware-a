@@ -16,6 +16,727 @@
       "message": "Zapped all remaining mentions of NO_EL3. Marked xlat_mpu library as Experimental.\n\nRe-running Legacy-CI+2.",
       "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2bf8844_1b15ca03",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "There is no BL31",
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7cd21cf_6289ec7c",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "Should this say EL2 in the name ?",
+      "range": {
+        "startLine": 130,
+        "startChar": 15,
+        "endLine": 130,
+        "endChar": 34
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5a127d0_986a6d94",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "cptr_el2",
+      "range": {
+        "startLine": 175,
+        "startChar": 15,
+        "endLine": 175,
+        "endChar": 23
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f4bc0a8_4432da90",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "Most these configs dont make sense in R-Class",
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53ba0cf2_a371e38e",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "Cleanup BL31 references",
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3fe4686_0e1aa391",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "This does not make sense for a PMSA system.",
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fca8ebab_2b93a5c3",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "Cleanp configs used here.",
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e780cc2_385e565e",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "Is this errata applicable for R-Class ?",
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e948d05_94d758d3",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "See comment above .",
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0cfecf2_49563a91",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "This is the wrong tradeoff. All differing #defines should be removed from this file and made unique for that platform.  arm_def.h is an extremely complicated header and would like cleanup the complexity.",
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ab1afe7_37cb78e2",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "These are global variable references. This is not the right way to define macros. We should have arguments coming into the macro or depend on other macros.\n\nThese should already be defined for BL1 somewhere I suppose, Can we not re-use those ?",
+      "range": {
+        "startLine": 72,
+        "startChar": 5,
+        "endLine": 72,
+        "endChar": 32
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9b197a9_b4f028c4",
+        "filename": "lib/xlat_mpu/aarch64/xlat_mpu_arch.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "remove el3.",
+      "range": {
+        "startLine": 47,
+        "startChar": 8,
+        "endLine": 51,
+        "endChar": 2
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9d92e1b_59e602f8",
+        "filename": "lib/xlat_mpu/aarch64/xlat_mpu_arch.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "Is there dcache at EL2?",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 54,
+        "endChar": 22
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b643922d_a496326e",
+        "filename": "lib/xlat_mpu/aarch64/xlat_mpu_arch.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "remove el3.",
+      "range": {
+        "startLine": 62,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 2
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7ad0c62_78cabae3",
+        "filename": "lib/xlat_mpu/ro_xlat_mpu.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "remove BL31",
+      "range": {
+        "startLine": 15,
+        "startChar": 11,
+        "endLine": 15,
+        "endChar": 26
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dc5c69b_3061e51d",
+        "filename": "lib/xlat_mpu/ro_xlat_mpu.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "These are not valid config for R-Class",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 44
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5746b55a_c9172ff7",
+        "filename": "lib/xlat_mpu/xlat_mpu.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "Do not use this macro. This is a different lib.",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 27
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e72e8fbf_f92a2374",
+        "filename": "lib/xlat_mpu/xlat_mpu.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "Is there a V1 and V2 for MPU ?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 42
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1480e338_fdea2b7b",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "Invalid API  for MPU.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 1
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62017b4d_87ac9f2c",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "invalid API for MPU.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 1
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20f9a1cf_236ca416",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "invalid API.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 1
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2318b7de_bdee9cfb",
+        "filename": "lib/xlat_mpu/xlat_mpu_context.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "Not sure what does dynamic xlat mean for MPU. As I understand, we should be able to add entries for a new PMSA region depending on MPU capability without allocating new tables in memory. Or is there some inmemory data structure for MPU ?",
+      "range": {
+        "startLine": 191,
+        "startChar": 7,
+        "endLine": 191,
+        "endChar": 31
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8fd9de9_a247336e",
+        "filename": "lib/xlat_tables/aarch64/xlat_tables.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "nit: this change is not related to this patch.",
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "558b86dd_bc0c9f51",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_context_mgmt.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "only one security state is valid.",
+      "range": {
+        "startLine": 21,
+        "startChar": 33,
+        "endLine": 21,
+        "endChar": 34
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8ee285f_4e43a326",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_main.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "aarch32 is not valid ?",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 8
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ac0e4e8_6a6afecf",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "invalid config.",
+      "range": {
+        "startLine": 73,
+        "startChar": 23,
+        "endLine": 74,
+        "endChar": 3
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bc8db9c_95146e04",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "aarch32 is not valid ?",
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f586a73b_73ec8ae2",
+        "filename": "plat/arm/board/fvp_r/fvp_r_common.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "Not needed. There is only one version of MPU lib.",
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d785f961_9abc8e6a",
+        "filename": "plat/arm/board/fvp_r/fvp_r_context.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "BL31 is not valid.",
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0921a3a9_d443ed24",
+        "filename": "plat/arm/board/fvp_r/fvp_r_context_mgmt.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "are all these headers needed ?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 31
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb64286_ecb385ef",
+        "filename": "plat/arm/board/fvp_r/fvp_r_trusted_boot.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "Is this code path  tested ?",
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62192983_0ede31f6",
+        "filename": "plat/arm/board/fvp_r/include/fvp_r_arch_helpers.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "If the #defines for the regs are in a common location, why aren\u0027t these helpers as well in a common location?",
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b9ea6db_90d7bbc2",
+        "filename": "plat/arm/board/fvp_r/include/platform_def.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "is ROM lib tested for fvp_r?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 5
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c787b589_a07e4146",
+        "filename": "plat/arm/board/fvp_r/include/platform_def.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "max xlat tables does not make sense for MPU system I think.",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 27
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ce760d2_694357ee",
+        "filename": "plat/arm/board/fvp_r/platform.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-27T13:32:37Z",
+      "side": 1,
+      "message": "not needed.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 28
+      },
+      "revId": "2f39d7d8d35bf9161259d1f70b6333a35a5fcecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
