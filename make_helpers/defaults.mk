@@ -155,7 +155,9 @@ ERROR_DEPRECATED		:= 0
 FAULT_INJECTION_SUPPORT		:= 0
 
 # Byte alignment that each component in FIP is aligned to
-FIP_ALIGN			:= 0
+FIP_ALIGN         := 0
+FIP_ALIGN_aarch32 := 8
+FIP_ALIGN_aarch64 := 16
 
 # Default FIP file name
 FIP_NAME			:= fip.bin
