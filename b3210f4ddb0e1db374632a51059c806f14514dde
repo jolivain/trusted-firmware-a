@@ -34,6 +34,24 @@
       "parentUuid": "483033b5_48453cac",
       "revId": "b3210f4ddb0e1db374632a51059c806f14514dde",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22df9085_f9353f45",
+        "filename": "lib/cpus/aarch64/cortex_a78_ae.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-09-27T15:18:15Z",
+      "side": 0,
+      "message": "To expand on that, while the A78\u0027s AMU \"looks like\" an architectural AMU, it\u0027s controlled through an entirely different set of IMPDEF registers which the AMU library does not touch.",
+      "parentUuid": "52c953c8_15f1fc01",
+      "revId": "b3210f4ddb0e1db374632a51059c806f14514dde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
