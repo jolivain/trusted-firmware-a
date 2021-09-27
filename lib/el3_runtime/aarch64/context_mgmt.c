@@ -106,7 +106,7 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 #if ENABLE_RME
 	/* Check for realm state if RME support enabled. */
 	if (security_state == REALM) {
-		scr_el3 |= SCR_NS_BIT | SCR_NSE_BIT;
+		scr_el3 |= SCR_NS_BIT | SCR_NSE_BIT | SCR_EnSCXT_BIT;
 	}
 #endif /* ENABLE_RME */
 

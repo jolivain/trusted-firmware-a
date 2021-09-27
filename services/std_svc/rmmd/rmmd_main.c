@@ -109,35 +109,8 @@ __dead2 void rmmd_rmm_sync_exit(uint64_t rc)
 
 static void rmm_el2_context_init(el2_sysregs_t *regs)
 {
-	/*
-	 * el2_sysregs_t is just a structure containing an array of
-	 * uint64_t named named ctx_regs of size CTX_EL2_SYSREGS_ALL.
-	 *
-	 * typedef struct {
-	 *   uint64_t ctx_regs[CTX_EL2_SYSREGS_ALL];
-	 * } el2_sysregs_t;
-	 */
-	regs->ctx_regs[CTX_ACTLR_EL2 >> 3] = REALM_ACTLR_EL2;
-	regs->ctx_regs[CTX_AFSR0_EL2 >> 3] = REALM_AFSR0_EL2;
-	regs->ctx_regs[CTX_AFSR1_EL2 >> 3] = REALM_AFSR1_EL2;
-	regs->ctx_regs[CTX_AMAIR_EL2 >> 3] = REALM_AMAIR_EL2;
-	regs->ctx_regs[CTX_CNTHCTL_EL2 >> 3] = REALM_CNTHCTL_EL2;
-	regs->ctx_regs[CTX_CNTVOFF_EL2 >> 3] = REALM_CNTVOFF_EL2;
-	regs->ctx_regs[CTX_CPTR_EL2 >> 3] = REALM_CPTR_EL2;
-	regs->ctx_regs[CTX_HACR_EL2 >> 3] = REALM_HACR_EL2;
-	regs->ctx_regs[CTX_HCR_EL2 >> 3] = REALM_HCR_EL2;
-	regs->ctx_regs[CTX_MAIR_EL2 >> 3] = REALM_MAIR_EL2;
-	regs->ctx_regs[CTX_MDCR_EL2 >> 3] = REALM_MDCR_EL2;
-	regs->ctx_regs[CTX_PMSCR_EL2 >> 3] = REALM_PMSCR_EL2;
-	regs->ctx_regs[CTX_SCTLR_EL2 >> 3] = REALM_SCTLR_EL2;
-	regs->ctx_regs[CTX_SCXTNUM_EL2 >> 3] = REALM_SCXTNUM_EL2;
 	regs->ctx_regs[CTX_SPSR_EL2 >> 3] = REALM_SPSR_EL2;
-	regs->ctx_regs[CTX_TCR_EL2 >> 3] = REALM_TCR_EL2;
-
-#if ENABLE_MPAM_FOR_LOWER_ELS
-	regs->ctx_regs[CTX_MPAM2_EL2 >> 3] = REALM_MPAM_EL2;
-	regs->ctx_regs[CTX_MPAMHCR_EL2 >> 3] = REALM_MPAMHCR_EL2;
-#endif
+	regs->ctx_regs[CTX_SCTLR_EL2 >> 3] = SCTLR_EL2_RES1;
 }
 
 /*******************************************************************************
