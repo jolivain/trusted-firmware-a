@@ -144,6 +144,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "537b1201_833aae93",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-27T21:04:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28080adf_a03f1867",
+      "range": {
+        "startLine": 156,
+        "startChar": 11,
+        "endLine": 156,
+        "endChar": 44
+      },
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd5403ce_7aff6357",
@@ -179,6 +203,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0c5d8c8_b060451c",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-27T21:04:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb64e285_fa7950cd",
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e8363e1_42814f14",
@@ -210,6 +252,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "8e8363e1_42814f14",
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20ac6e91_8334f830",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-27T21:04:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21631b72_1ed523e8",
       "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -251,6 +311,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "a36f31c4_44fb3bd6",
+      "range": {
+        "startLine": 291,
+        "startChar": 19,
+        "endLine": 291,
+        "endChar": 55
+      },
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ade102cb_e5599af4",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-27T21:04:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89c395bd_0d9ea189",
       "range": {
         "startLine": 291,
         "startChar": 19,
@@ -310,6 +394,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ff846a7_3a1301a7",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-27T21:04:09Z",
+      "side": 1,
+      "message": "image_info is not a pointer and allocated statically, so it must be valid at any time.",
+      "parentUuid": "ae948403_24a42ae8",
+      "range": {
+        "startLine": 220,
+        "startChar": 31,
+        "endLine": 220,
+        "endChar": 41
+      },
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e207ce0_13bf9b76",
         "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
         "patchSetId": 1
@@ -345,6 +453,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "3e207ce0_13bf9b76",
+      "range": {
+        "startLine": 263,
+        "startChar": 31,
+        "endLine": 263,
+        "endChar": 41
+      },
+      "revId": "7d5964fbea520b52ce6097b9216014b9c6918fb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05a7f423_4b9d616e",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-27T21:04:09Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "499fbd1b_a0575165",
       "range": {
         "startLine": 263,
         "startChar": 31,
