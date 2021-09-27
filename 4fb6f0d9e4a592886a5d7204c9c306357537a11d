@@ -16,6 +16,24 @@
       "message": "Jaifei, FYI on a patch stack like you have here you can just run the CI on the top patch as that will also test every change in rest of the stack. You can run on every patch but that is not necessary. Once the top patch has passed a manual setting of Verified+1 can be done to all patches in the stack. Of course if changes are done in any patch in the stack the CI should be rerun. Hope this helps. Joanna",
       "revId": "4fb6f0d9e4a592886a5d7204c9c306357537a11d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1b9f48b_dc6502d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-09-27T08:00:18Z",
+      "side": 1,
+      "message": "Got it, thanks Joanna.",
+      "parentUuid": "c0388623_f718bdc0",
+      "revId": "4fb6f0d9e4a592886a5d7204c9c306357537a11d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
