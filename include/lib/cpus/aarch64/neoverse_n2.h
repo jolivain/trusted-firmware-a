@@ -41,4 +41,10 @@
 #define NEOVERSE_N2_CPUACTLR5_EL1		S3_0_C15_C8_0
 #define NEOVERSE_N2_CPUACTLR5_EL1_BIT_44	(ULL(1) << 44)
 
+/*******************************************************************************
+ * CPU Auxiliary Control register specific definitions.
+ ******************************************************************************/
+#define NEOVERSE_N2_CPUECTLR2_EL1				S3_0_C15_C1_5
+#define NEOVERSE_N2_CPUECTLR2_EL1_PF_MODE_CNSRV			ULL(9)
+
 #endif /* NEOVERSE_N2_H */
