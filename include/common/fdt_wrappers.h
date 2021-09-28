@@ -41,6 +41,17 @@ int fdt_get_stdout_node_offset(const void *dtb);
 uint64_t fdtw_translate_address(const void *dtb, int bus_node,
 				uint64_t base_address);
 
+/*
+ * For every CPU node (`/cpus/cpu@n`) in an FDT, execute a callback passing a
+ * pointer to the FDT and the offset of the CPU node. If the return value of the
+ * callback is negative, it is treated as an error and the loop is aborted. In
+ * this situation, the value of the callback is returned from the function.
+ *
+ * Returns `0` on success, or a negative integer representing an error code.
+ */
+int fdtw_for_each_cpu(const void *fdt,
+		      int (*callback)(const void *, int, uintptr_t));
+
 static inline uint32_t fdt_blob_size(const void *dtb)
 {
 	const uint32_t *dtb_header = dtb;
