@@ -6,6 +6,7 @@
 
 CRASH_REPORTING	:=	1
 
+include common/fdt_wrappers.mk
 include lib/libfdt/libfdt.mk
 
 ifeq (${SPM_MM},1)
@@ -86,8 +87,10 @@ BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a57.S			\
 				${PLAT_QEMU_COMMON_PATH}/aarch64/plat_helpers.S	\
 				${PLAT_QEMU_COMMON_PATH}/qemu_bl31_setup.c	\
 				common/fdt_fixup.c				\
-				common/fdt_wrappers.c				\
 				${QEMU_GIC_SOURCES}
+
+BL31_SOURCES		+=	${FDT_WRAPPERS_SOURCES}
+
 ifeq (${SPM_MM},1)
 	BL31_SOURCES		+=	${PLAT_QEMU_COMMON_PATH}/qemu_spm.c
 endif

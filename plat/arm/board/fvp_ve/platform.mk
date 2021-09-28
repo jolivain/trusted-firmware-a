@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019-2020, Arm Limited. All rights reserved.
+# Copyright (c) 2019-2021, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -126,9 +126,10 @@ endif
 include lib/fconf/fconf.mk
 
 # Add `libfdt` and Arm common helpers required for Dynamic Config
+include common/fdt_wrappers.mk
 include lib/libfdt/libfdt.mk
 
 DYN_CFG_SOURCES		+=	plat/arm/common/arm_dyn_cfg.c		\
-				plat/arm/common/arm_dyn_cfg_helpers.c	\
-				common/fdt_wrappers.c
+				plat/arm/common/arm_dyn_cfg_helpers.c
 
+DYN_CFG_SOURCES		+=	${FDT_WRAPPERS_SOURCES}

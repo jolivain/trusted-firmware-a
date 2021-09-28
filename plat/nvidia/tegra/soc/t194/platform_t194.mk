@@ -74,10 +74,11 @@ endif
 
 # SPM dispatcher
 ifeq (${SPD},spmd)
-# include device tree helper library
+include common/fdt_wrappers.mk
 include lib/libfdt/libfdt.mk
 # sources to support spmd
 BL31_SOURCES		+=	plat/common/plat_spmd_manifest.c	\
-				common/fdt_wrappers.c			\
 				${LIBFDT_SRCS}
+
+BL31_SOURCES		+=	${FDT_WRAPPERS_SOURCES}
 endif
