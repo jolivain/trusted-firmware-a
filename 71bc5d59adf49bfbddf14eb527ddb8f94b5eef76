@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b27c2950_234910d1",
+        "filename": "fdts/fvp-defs.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-28T15:03:35Z",
+      "side": 1,
+      "message": "This change may not be required anymore. Linux should be able to issue PSCI SUSPEND \ncalls now.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 6
+      },
+      "revId": "71bc5d59adf49bfbddf14eb527ddb8f94b5eef76",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
