@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce2a7987_36b47b3b",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-28T15:00:08Z",
+      "side": 1,
+      "message": "Hmm, yes, the REALM and L1 GPT would affect this. OK, lets us keep it like this.",
+      "parentUuid": "77f3798d_ac216002",
+      "range": {
+        "startLine": 95,
+        "startChar": 4,
+        "endLine": 95,
+        "endChar": 14
+      },
+      "revId": "d0b24727f4a9df1b45cbdf4d06055affe733e37e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92f18904_e79c5e9a",
         "filename": "include/plat/arm/common/arm_def.h",
         "patchSetId": 9
