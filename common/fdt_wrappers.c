@@ -572,3 +572,47 @@ uint64_t fdtw_translate_address(const void *dtb, int node,
 	/* Translate the local device address recursively */
 	return fdtw_translate_address(dtb, local_bus_node, global_address);
 }
+
+int fdtw_for_each_cpu(const void *dtb,
+		      int (*callback)(const void *, int, uintptr_t))
+{
+	int ret = 0;
+	int parent, node = 0;
+
+	parent = fdt_path_offset(dtb, "/cpus");
+	if (parent < 0) {
+		if (parent == -FDT_ERR_NOTFOUND) {
+			parent = 0;
+		}
+
+		return parent;
+	}
+
+	fdt_for_each_subnode(node, dtb, parent) {
+		const char *name;
+		int len;
+
+		uintptr_t mpidr = 0U;
+
+		name = fdt_get_name(dtb, node, &len);
+		if (strncmp(name, "cpu@", 4) != 0) {
+			continue;
+		}
+
+		ret = fdt_get_reg_props_by_index(dtb, node, 0, &mpidr, NULL);
+		if (ret < 0) {
+			break;
+		}
+
+		ret = callback(dtb, node, mpidr);
+		if (ret < 0) {
+			break;
+		}
+	}
+
+	if ((node < 0) && (node != -FDT_ERR_NOTFOUND)) {
+		return node;
+	}
+
+	return ret;
+}
