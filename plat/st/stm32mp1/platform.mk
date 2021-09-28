@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+include common/fdt_wrappers.mk
+
 ARM_CORTEX_A7		:=	yes
 ARM_WITH_NEON		:=	yes
 BL2_AT_EL3		:=	1
@@ -156,10 +158,11 @@ PLAT_INCLUDES		+=	-Iplat/st/stm32mp1/include/
 
 include lib/libfdt/libfdt.mk
 
-PLAT_BL_COMMON_SOURCES	:=	common/fdt_wrappers.c					\
-				common/uuid.c						\
+PLAT_BL_COMMON_SOURCES	:=	common/uuid.c						\
 				plat/st/common/stm32mp_common.c				\
 				plat/st/stm32mp1/stm32mp1_private.c
+
+PLAT_BL_COMMON_SOURCES	+=	${FDT_WRAPPERS_SOURCES}
 
 PLAT_BL_COMMON_SOURCES	+=	drivers/st/uart/aarch32/stm32_console.S
 
