@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8b9c77d_4e170d45",
+        "filename": "plat/arm/common/fconf/fconf_ethosn_getter.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-28T13:55:02Z",
+      "side": 1,
+      "message": "Instead can we have parent listing all ethson nodes? something like below:\n\n  ethsons {\n          compatible \u003d \"ethosn-N\";\n\n\t  ethosn0: ethosn@6f300000 {\n\t\t  compatible \u003d \"ethosn\";\n\t\t  reg \u003d \u003c0 0x6f300000 0 0x00100000\u003e;\n\t\t  status \u003d \"okay\";\n\n\t\t  core0 {\n\t\t\tcompatible \u003d \"ethosn-core\";\n\t\t\tstatus \u003d \"okay\";\n\t\t  };\n\t  };\n          ....\n  }\n\n1. Retrieve parent \u0027ethosns\u0027 node offset in some variable (say ethosn_parent_node)\n2. Then use fdt_for_each_subnode(ethosn_node, hw_conf_dtb, ethosn_parent_node)\n\nThis will help us to use existing fdt_for_each_subnode fdtlib API.",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 53
+      },
+      "revId": "425f5bf3af6bdeb08a9e605909d8668acccdaec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9b976c9_d0643a06",
+        "filename": "plat/arm/common/fconf/fconf_ethosn_getter.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-28T13:55:02Z",
+      "side": 1,
+      "message": "0U?",
+      "range": {
+        "startLine": 45,
+        "startChar": 31,
+        "endLine": 45,
+        "endChar": 32
+      },
+      "revId": "425f5bf3af6bdeb08a9e605909d8668acccdaec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
