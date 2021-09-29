@@ -92,6 +92,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c8d649a_55179092",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-29T18:58:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f00052f5_a849be40",
+      "range": {
+        "startLine": 221,
+        "startChar": 2,
+        "endLine": 221,
+        "endChar": 11
+      },
+      "revId": "02eb38aacac85fc443d83359c66fd94ce3d26dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9533aae_58dfaedd",
@@ -105,6 +129,30 @@
       "writtenOn": "2021-09-29T17:46:10Z",
       "side": 1,
       "message": "When doing math in definitions like this it would be better to have parenthesis around the whole definition.",
+      "range": {
+        "startLine": 106,
+        "startChar": 32,
+        "endLine": 106,
+        "endChar": 60
+      },
+      "revId": "02eb38aacac85fc443d83359c66fd94ce3d26dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3609b25d_03a63897",
+        "filename": "plat/arm/board/fvp_r/include/platform_def.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-29T18:58:18Z",
+      "side": 1,
+      "message": "Indeed!  Good catch.",
+      "parentUuid": "d9533aae_58dfaedd",
       "range": {
         "startLine": 106,
         "startChar": 32,
@@ -151,6 +199,30 @@
       "writtenOn": "2021-09-29T17:46:10Z",
       "side": 1,
       "message": "nit: use tabs instead of spaces",
+      "range": {
+        "startLine": 358,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 13
+      },
+      "revId": "02eb38aacac85fc443d83359c66fd94ce3d26dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3e4e1f3_40e3c3d9",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-29T18:58:18Z",
+      "side": 1,
+      "message": "This file looks like it\u0027s a bit of a free-for-all, indentation-wise.  John and I decided to postpone opening this particular can of worms, for now.",
+      "parentUuid": "ec0ce17e_9e805758",
       "range": {
         "startLine": 358,
         "startChar": 0,
