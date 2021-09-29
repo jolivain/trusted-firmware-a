@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2ab173d_5ad27940",
+        "filename": "include/lib/cpus/aarch64/cortex_a78.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000620
+      },
+      "writtenOn": "2021-09-29T23:45:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82bf3a67_e62b9c36",
+      "range": {
+        "startLine": 19,
+        "startChar": 47,
+        "endLine": 19,
+        "endChar": 55
+      },
+      "revId": "435c87b526e24a65b2b04b84270874b8d988782d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06824c98_03d88bec",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-29T23:11:45Z",
       "side": 1,
       "message": "Looking at the SDEN, this errata is present in r0p0, r1p0, r1p1, and r1p2, and is still open.",
+      "range": {
+        "startLine": 330,
+        "startChar": 57,
+        "endLine": 332,
+        "endChar": 50
+      },
+      "revId": "435c87b526e24a65b2b04b84270874b8d988782d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c435826_62de696e",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000620
+      },
+      "writtenOn": "2021-09-29T23:45:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06824c98_03d88bec",
       "range": {
         "startLine": 330,
         "startChar": 57,
