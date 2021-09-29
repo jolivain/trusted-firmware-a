@@ -33,6 +33,23 @@
       "message": "Seems unlikely docs would affect CI results, but worth a try...",
       "revId": "bb6d00868189fca918012756b73d4e1dd53b2370",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f229bed_b439b4c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-09-29T21:35:52Z",
+      "side": 1,
+      "message": "Removing Verified-1.  The problems are known:  The Static-Checks module sees new files -- files that weren\u0027t in the parent build and complains about them.  It also wants us to reverse two header files, but we can\u0027t because one is inside an #if-#else clause.  Everything else passed.",
+      "revId": "bb6d00868189fca918012756b73d4e1dd53b2370",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
