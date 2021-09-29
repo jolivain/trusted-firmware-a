@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5adc7b06_6a14994b",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000620
+      },
+      "writtenOn": "2021-09-29T21:30:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7353e60f_7207d536",
+      "revId": "50b30e5357b538c4c482e4a52f8f2ec16ebf92af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc7b37fe_9aed5b24",
@@ -52,6 +70,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2c61464_7b696ca5",
+        "filename": "include/lib/cpus/aarch64/neoverse_v1.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000620
+      },
+      "writtenOn": "2021-09-29T21:30:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc7b37fe_9aed5b24",
+      "revId": "50b30e5357b538c4c482e4a52f8f2ec16ebf92af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2992b74_fac47ae2",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-09-29T20:08:46Z",
       "side": 1,
       "message": "Again, does it really clobber all of these registers?",
+      "revId": "50b30e5357b538c4c482e4a52f8f2ec16ebf92af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8fb9397_689a0331",
+        "filename": "lib/cpus/aarch64/neoverse_v1.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000620
+      },
+      "writtenOn": "2021-09-29T21:30:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2992b74_fac47ae2",
       "revId": "50b30e5357b538c4c482e4a52f8f2ec16ebf92af",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
