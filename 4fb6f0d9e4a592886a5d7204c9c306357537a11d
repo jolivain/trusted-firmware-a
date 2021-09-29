@@ -34,6 +34,29 @@
       "parentUuid": "c0388623_f718bdc0",
       "revId": "4fb6f0d9e4a592886a5d7204c9c306357537a11d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80e20350_5835e821",
+        "filename": "plat/nxp/common/ocram/aarch64/ocram.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-09-29T13:54:21Z",
+      "side": 1,
+      "message": "Can you tell why is an isb required here?",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 4
+      },
+      "revId": "4fb6f0d9e4a592886a5d7204c9c306357537a11d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
