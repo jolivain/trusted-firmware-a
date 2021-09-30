@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8757b30_8ac580c4",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-30T00:33:27Z",
+      "side": 1,
+      "message": "TFA coding style guidelines require braces around even a single line body like this.  Since this is a large file and this is the way things are done in the rest of I don\u0027t think it\u0027s much of an issue, but if the aim is to refactor this driver it might not be a bad idea to make these changes. https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 17
+      },
+      "revId": "512e26df294764b5aab62144999954e641ea57e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
