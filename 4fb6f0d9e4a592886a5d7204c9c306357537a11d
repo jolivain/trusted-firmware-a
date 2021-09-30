@@ -81,6 +81,30 @@
       },
       "revId": "4fb6f0d9e4a592886a5d7204c9c306357537a11d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52b81040_c8744b1a",
+        "filename": "plat/nxp/common/ocram/aarch64/ocram.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-09-30T14:43:38Z",
+      "side": 1,
+      "message": "I believe you need DSB not ISB in such scenario.",
+      "parentUuid": "f22c9a93_7eaeb29c",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 4
+      },
+      "revId": "4fb6f0d9e4a592886a5d7204c9c306357537a11d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
