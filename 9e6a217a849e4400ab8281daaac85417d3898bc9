@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ac6fa8d_f51da75c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-09-30T23:47:35Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "ffaa90bc_c1e9bb59",
+      "revId": "9e6a217a849e4400ab8281daaac85417d3898bc9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "101e6795_d07fd9ac",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-09-29T10:34:47Z",
       "side": 1,
       "message": "We could use the same command line at line 166 here and no need for 2 versions.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 4
+      },
+      "revId": "9e6a217a849e4400ab8281daaac85417d3898bc9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39bc157f_f6323953",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-09-30T23:47:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "101e6795_d07fd9ac",
       "range": {
         "startLine": 73,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0594dbbf_a6934e96",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-09-30T23:47:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83e16521_9678940c",
+      "range": {
+        "startLine": 157,
+        "startChar": 67,
+        "endLine": 157,
+        "endChar": 68
+      },
+      "revId": "9e6a217a849e4400ab8281daaac85417d3898bc9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f98ed57e_ebc9b075",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-09-30T20:28:23Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 158,
+        "startChar": 26,
+        "endLine": 158,
+        "endChar": 27
+      },
+      "revId": "9e6a217a849e4400ab8281daaac85417d3898bc9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c0aca3d_d6de8cb2",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-09-30T23:47:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f98ed57e_ebc9b075",
       "range": {
         "startLine": 158,
         "startChar": 26,
