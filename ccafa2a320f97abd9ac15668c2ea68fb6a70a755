@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdf925bd_b7be102b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-30T01:48:09Z",
+      "side": 1,
+      "message": "Code looks good but one question.",
+      "revId": "ccafa2a320f97abd9ac15668c2ea68fb6a70a755",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8126afe5_a1ea84ae",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-09-30T01:48:09Z",
+      "side": 1,
+      "message": "Would this be better as an \"if\" check? How is the total space needed by the event log determined and can we guarantee that it will never overrun?",
+      "range": {
+        "startLine": 97,
+        "startChar": 1,
+        "endLine": 98,
+        "endChar": 23
+      },
+      "revId": "ccafa2a320f97abd9ac15668c2ea68fb6a70a755",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
