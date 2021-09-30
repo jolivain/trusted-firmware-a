@@ -257,6 +257,10 @@
 
 #define UFS_UIC_COMMAND_RETRIES		3
 
+#define HCE_ENABLE_OUTER_RETRIES	3
+#define HCE_ENABLE_INNER_RETRIES	150
+#define HCE_ENABLE_TIMEOUT_US		1
+
 /**
  * ufs_dev_desc - ufs device details from the device descriptor
  * @wmanufacturerid: card details
