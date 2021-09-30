@@ -22,6 +22,30 @@
       },
       "revId": "512e26df294764b5aab62144999954e641ea57e2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdb4d8e7_ee26b556",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2021-09-30T18:48:20Z",
+      "side": 1,
+      "message": "Thanks for the input John! Since the rest of the file doesn\u0027t use braces around single line bodies, I\u0027m going to keep the code as is for now.\n\nIn the future, I will consider refactoring the entire file to add braces.",
+      "parentUuid": "f8757b30_8ac580c4",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 17
+      },
+      "revId": "512e26df294764b5aab62144999954e641ea57e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
