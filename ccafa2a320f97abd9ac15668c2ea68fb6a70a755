@@ -39,6 +39,30 @@
       },
       "revId": "ccafa2a320f97abd9ac15668c2ea68fb6a70a755",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4520e570_a7f5e62f",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-09-30T08:51:39Z",
+      "side": 1,
+      "message": "Total space needed by the Event Log buffer is a platform decision.\nThe platform needs to ensure that this buffer is large enough to hold all image measurements it is supposed to do. No of image measurements and Event Log buffer size gets decided statically.\nIf the platform provides the small buffer that unable to hold all measurement should be treated as programmatical error hence assert makes sense here. Do you agree?",
+      "parentUuid": "8126afe5_a1ea84ae",
+      "range": {
+        "startLine": 97,
+        "startChar": 1,
+        "endLine": 98,
+        "endChar": 23
+      },
+      "revId": "ccafa2a320f97abd9ac15668c2ea68fb6a70a755",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
