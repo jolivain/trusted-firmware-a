@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "292a71cc_69765c16",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-09-30T15:25:06Z",
+      "side": 1,
+      "message": "Could you move that line just before \"include lib/libfdt/libfdt.mk\", line 159?\nThanks,\nYann",
+      "revId": "8f426fc5b74c4a46e0dcfd099a199985c9444f63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
