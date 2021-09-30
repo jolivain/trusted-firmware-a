@@ -39,6 +39,30 @@
       },
       "revId": "69886af85c0046a323ab8eb5ae9e55c81940eb7d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4becd52e_c9d9289c",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-09-30T23:56:35Z",
+      "side": 1,
+      "message": "It was my suggestion :) The RME patches don\u0027t touch these registers anymore so I thought it would be out of scope.",
+      "parentUuid": "2a8e9178_67e4441d",
+      "range": {
+        "startLine": 526,
+        "startChar": 0,
+        "endLine": 528,
+        "endChar": 33
+      },
+      "revId": "69886af85c0046a323ab8eb5ae9e55c81940eb7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
