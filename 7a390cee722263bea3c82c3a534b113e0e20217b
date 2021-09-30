@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3882c905_d7cb9880",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-09-30T20:23:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "64e27a5c_cf2fa359",
+      "range": {
+        "startLine": 142,
+        "startChar": 23,
+        "endLine": 142,
+        "endChar": 25
+      },
+      "revId": "7a390cee722263bea3c82c3a534b113e0e20217b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aaaef463_5a573c84",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-27T13:54:13Z",
       "side": 1,
       "message": "Rephrase this comment. Say there is a context mgmt issue where in the macros try to access secure only regs and this will need to be refactored as a TODO",
+      "range": {
+        "startLine": 92,
+        "startChar": 1,
+        "endLine": 92,
+        "endChar": 53
+      },
+      "revId": "7a390cee722263bea3c82c3a534b113e0e20217b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2ca14ef_927401da",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-09-30T20:23:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aaaef463_5a573c84",
       "range": {
         "startLine": 92,
         "startChar": 1,
