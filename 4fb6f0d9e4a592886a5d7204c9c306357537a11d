@@ -57,6 +57,30 @@
       },
       "revId": "4fb6f0d9e4a592886a5d7204c9c306357537a11d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f22c9a93_7eaeb29c",
+        "filename": "plat/nxp/common/ocram/aarch64/ocram.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-09-30T02:26:54Z",
+      "side": 1,
+      "message": "isb can make sure all instruction in previous loop is done before go into the next loop, that is to say 64bit write is done for previous address region and then write to next address region.",
+      "parentUuid": "80e20350_5835e821",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 4
+      },
+      "revId": "4fb6f0d9e4a592886a5d7204c9c306357537a11d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
