@@ -16,6 +16,23 @@
       "message": "Kicking off legacy CI instead. ",
       "revId": "a74b896e673999ea2b759727e4249caf72799bb3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6577c83e_b3fffe1b",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-09-30T21:16:18Z",
+      "side": 1,
+      "message": "nitpick:\nUse macro for PF_MODE LSB position and width\n#define PF_MODE_LSB 11\n#define PF_MODE_WIDTH 4",
+      "revId": "a74b896e673999ea2b759727e4249caf72799bb3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
