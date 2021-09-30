@@ -26,6 +26,280 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "675d59de_8ae130ca",
+        "filename": "include/lib/gpt_rme/gpt_rme.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": ".",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 38
+      },
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "946df58f_8779c1d6",
+        "filename": "include/lib/gpt_rme/gpt_rme.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "I may have confused you because I have placed the comment at the wrong place. Basically I wanted these macros to be made enum types. The advantage of making these enum is that these are  the external interface to the lib and using the enum allows the compiler to perform validation at compile time.\n\nbut not mandatory to be done. can be deferred for later.",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 38
+      },
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33f73fef_f1e26646",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "need a dsb here.",
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5378128_c266c575",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "a tlbipallos~() would be needed after GPC is enabled.",
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4951dcc0_cf439d0a",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "Assert that the sctlr_el3.C bit is enabled. This is so that we enforce the cache assumption in the API.",
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aad0366_af605411",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "Do this at the end before the final retrun.\n\nAdd the following to the comment : \".. This also maintains that l0 is initialized in memory\".",
+      "range": {
+        "startLine": 726,
+        "startChar": 0,
+        "endLine": 727,
+        "endChar": 41
+      },
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "191ecfed_de3c8a24",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "We could do a dczva which is faster. I think there is a helper for this in TF-A.Treat this comment as low prio. Not necessary to be done.\n\nThis zeroing may not be needed. See below comment.",
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fccbd78_dfa12df9",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "Since we are writing the memory anyway, should we scrub in line 730 ?",
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "540b0691_f6777c11",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "ensure cache is enabled using assertion.",
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc2c9c56_2afc638c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "Would it be possible to change these to INFO.",
+      "range": {
+        "startLine": 810,
+        "startChar": 1,
+        "endLine": 810,
+        "endChar": 8
+      },
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "606e4a94_52671cb8",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "INFO ?",
+      "range": {
+        "startLine": 819,
+        "startChar": 2,
+        "endLine": 819,
+        "endChar": 9
+      },
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "016ab8da_e816f461",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "It does seem flushing the full L0 tables is not required. Perhaps this needs to be where L0 entry is modified ?",
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f48313aa_c9d33773",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "assert cache is already enabled.",
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae6fddbb_408baebc",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "Does this check fail if we try to transition a GPI from Realm to Realm , assuming the source is NS.",
+      "range": {
+        "startLine": 920,
+        "startChar": 11,
+        "endLine": 920,
+        "endChar": 35
+      },
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0a90faf9_c9ad4536",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 14
@@ -88,6 +362,69 @@
         "startChar": 2,
         "endLine": 945,
         "endChar": 17
+      },
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8548d43d_778ea952",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "assert lib is already initialized by checking value of gpt_config.plat_gpt_l0_base",
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4605a8a_af77255d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "ERROR. Same comment for all ERROR prints.",
+      "range": {
+        "startLine": 982,
+        "startChar": 2,
+        "endLine": 982,
+        "endChar": 9
+      },
+      "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1fa2dd0_7f54e2d4",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-09-30T13:34:55Z",
+      "side": 1,
+      "message": "Lock the Global lock",
+      "range": {
+        "startLine": 1015,
+        "startChar": 5,
+        "endLine": 1015,
+        "endChar": 34
       },
       "revId": "a9516774635fb1d17d2147b5f3bf031fbdb4419a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
