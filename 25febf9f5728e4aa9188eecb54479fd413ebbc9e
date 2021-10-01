@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a959b8b7_152ba7d5",
+        "filename": "plat/xilinx/versal/pm_service/pm_client.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000534
+      },
+      "writtenOn": "2021-10-01T13:36:23Z",
+      "side": 1,
+      "message": "Changes added in Patch-set 4",
+      "parentUuid": "9549979f_5e2f6804",
+      "range": {
+        "startLine": 179,
+        "startChar": 31,
+        "endLine": 179,
+        "endChar": 41
+      },
+      "revId": "25febf9f5728e4aa9188eecb54479fd413ebbc9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "88b68c87_5c628318",
         "filename": "plat/xilinx/versal/pm_service/pm_client.c",
         "patchSetId": 3
@@ -83,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21a3a8c3_3c16b146",
+        "filename": "plat/xilinx/versal/pm_service/pm_client.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000534
+      },
+      "writtenOn": "2021-10-01T13:36:23Z",
+      "side": 1,
+      "message": "Changes added in Patch-set 4",
+      "parentUuid": "88b68c87_5c628318",
+      "range": {
+        "startLine": 199,
+        "startChar": 31,
+        "endLine": 199,
+        "endChar": 41
+      },
+      "revId": "25febf9f5728e4aa9188eecb54479fd413ebbc9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5a877e8f_af13415d",
         "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
         "patchSetId": 3
@@ -94,6 +142,24 @@
       "writtenOn": "2021-08-25T12:19:05Z",
       "side": 1,
       "message": "That looks weird, pm_up is a boolean. So the change shouldn\u0027t be necessary. But maybe I\u0027ve missed something in this MISRA rule.",
+      "revId": "25febf9f5728e4aa9188eecb54479fd413ebbc9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a6c0c53_85a64976",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000534
+      },
+      "writtenOn": "2021-10-01T13:36:23Z",
+      "side": 1,
+      "message": "As per \"include/lib/libc/stdbool.h\" true and false are not actually boolean.",
+      "parentUuid": "5a877e8f_af13415d",
       "revId": "25febf9f5728e4aa9188eecb54479fd413ebbc9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
