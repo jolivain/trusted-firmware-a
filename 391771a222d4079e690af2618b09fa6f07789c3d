@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecb36e5a_b11c6b5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-01T09:21:11Z",
+      "side": 1,
+      "message": "@Varun: I believe that your comment about the naming convention has been \"resolved\", in the sense that we\u0027ve discussed the matter and a decision has been made.\nDo you have any other comments on the patch? Else I will assume you\u0027re happy with this patch now.",
+      "revId": "391771a222d4079e690af2618b09fa6f07789c3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74249362_86df0654",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-01T09:21:11Z",
+      "side": 1,
+      "message": "Please remove the least part of this sentence. This is platform-specific behaviour, we can\u0027t assume all platforms will do that.",
+      "range": {
+        "startLine": 108,
+        "startChar": 39,
+        "endLine": 109,
+        "endChar": 36
+      },
+      "revId": "391771a222d4079e690af2618b09fa6f07789c3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
