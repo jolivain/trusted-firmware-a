@@ -12,7 +12,8 @@ SPMC_SOURCES	:=	$(addprefix services/std_svc/spm/el3_spmc/,	\
 			spmc_main.c				\
 			spmc_setup.c				\
 			logical_sp.c				\
-			spmc_pm.c)
+			spmc_pm.c				\
+			spmc_shared_mem.c)
 
 # Specify LP implementations separately for clarity.
 SPMC_LP_SOURCES  := $(addprefix services/std_svc/spm/el3_spmc/,	\
