@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ee1bf16_fc5fa80f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-01T09:45:38Z",
+      "side": 1,
+      "message": "(minor) Should be plat_mboot_measure_image() now.",
+      "range": {
+        "startLine": 14,
+        "startChar": 37,
+        "endLine": 14,
+        "endChar": 55
+      },
+      "revId": "abdc345ddabd12b1015f1dd397b025ecb15c60ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2c249b5_90ae8f69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-01T09:45:38Z",
+      "side": 1,
+      "message": "Just some minor comments from me, nothing blocking the merge of this patch from my point of view.\nHowever, let\u0027s wait for Raghu\u0027s answer before proceeding further.",
+      "revId": "abdc345ddabd12b1015f1dd397b025ecb15c60ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74bbdd5f_ad38f547",
+        "filename": "common/bl_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-01T09:45:38Z",
+      "side": 1,
+      "message": "(minor) I think we can remove this TODO comment, as it gets addressed later on in the patch stack (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/11585/4).",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 5
+      },
+      "revId": "abdc345ddabd12b1015f1dd397b025ecb15c60ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3560a9ba_27d99044",
+        "filename": "common/bl_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-01T09:45:38Z",
+      "side": 1,
+      "message": "@Raghu: We definitely need further discussions about certificate measurement (please see Manish\u0027s questions on this). I think we should continue discussing this topic on the mailing list, if that\u0027s fine with you. I just want to point out that certificates are not measured right now (@Manish, please correct me if I am wrong!) so this patch per se does not change this behaviour, it\u0027s only highlighting it. With this in mind, would it be OK to proceed with this patch and address the certificate measurement issue later on?",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 0
+      },
+      "revId": "abdc345ddabd12b1015f1dd397b025ecb15c60ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
