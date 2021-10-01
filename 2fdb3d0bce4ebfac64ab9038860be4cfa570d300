@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6ab5e649_00737767",
+        "filename": "plat/xilinx/versal/pm_service/pm_client.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000534
+      },
+      "writtenOn": "2021-10-01T13:36:15Z",
+      "side": 1,
+      "message": "Here changes are limited to xilinx files only. zeromem is used by many agent so i prefer to put this change in prototype out of this patches.\n\nAlso as you suggested this change in prototype require approval from TF-A maintainers.",
+      "parentUuid": "58cd0fde_c2da0fa1",
+      "revId": "2fdb3d0bce4ebfac64ab9038860be4cfa570d300",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "64976f12_03b3ff93",
         "filename": "plat/xilinx/versal/pm_service/pm_client.c",
         "patchSetId": 3
@@ -48,6 +66,30 @@
       "writtenOn": "2021-08-25T21:27:23Z",
       "side": 1,
       "message": "I see that you have changed ret from uint32_t to enum based on my comment. I am curious what does (!ret) mean in line 157?",
+      "range": {
+        "startLine": 138,
+        "startChar": 22,
+        "endLine": 138,
+        "endChar": 25
+      },
+      "revId": "2fdb3d0bce4ebfac64ab9038860be4cfa570d300",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "826a5447_b325637f",
+        "filename": "plat/xilinx/versal/pm_service/pm_client.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000534
+      },
+      "writtenOn": "2021-10-01T13:36:15Z",
+      "side": 1,
+      "message": "here at Line#157 storing the status as any node is setup as wake-up source successfully or not. pm_set_wakeup_source will return 0 for success and default value in pm_wakeup_nodes_set as 0. where 0 stand for non wake-up source and non-zero stand for wake-up source.\nSo here need to do logical alter of return value as (!ret).",
+      "parentUuid": "64976f12_03b3ff93",
       "range": {
         "startLine": 138,
         "startChar": 22,
