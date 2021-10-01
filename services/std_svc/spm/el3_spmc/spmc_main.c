@@ -25,6 +25,7 @@
 #include <services/spmc_svc.h>
 #include <services/spmd_svc.h>
 #include "spmc.h"
+#include "spmc_shared_mem.h"
 
 #include <platform_def.h>
 
@@ -1088,6 +1089,7 @@ static uint64_t ffa_features_handler(uint32_t smc_fid,
 		case FFA_RXTX_MAP_SMC32:
 		case FFA_RXTX_MAP_SMC64:
 		case FFA_RXTX_UNMAP:
+		case FFA_MEM_FRAG_TX:
 		case FFA_MSG_RUN:
 
 			/*
@@ -1105,6 +1107,9 @@ static uint64_t ffa_features_handler(uint32_t smc_fid,
 		case FFA_SECONDARY_EP_REGISTER_SMC64:
 		case FFA_MSG_SEND_DIRECT_RESP_SMC32:
 		case FFA_MSG_SEND_DIRECT_RESP_SMC64:
+		case FFA_MEM_RETRIEVE_REQ_SMC32:
+		case FFA_MEM_RETRIEVE_REQ_SMC64:
+		case FFA_MEM_RELINQUISH:
 		case FFA_MSG_WAIT:
 
 			if (!secure_origin) {
@@ -1113,6 +1118,21 @@ static uint64_t ffa_features_handler(uint32_t smc_fid,
 			}
 			SMC_RET1(handle, FFA_SUCCESS_SMC32);
 			/* Execution stops here. */
+
+
+		/* Supported features only from the normal world. */
+		case FFA_MEM_SHARE_SMC32:
+		case FFA_MEM_SHARE_SMC64:
+		case FFA_MEM_LEND_SMC32:
+		case FFA_MEM_LEND_SMC64:
+		case FFA_MEM_RECLAIM:
+		case FFA_MEM_FRAG_RX:
+
+			if (secure_origin) {
+				return spmc_ffa_error_return(handle,
+						FFA_ERROR_NOT_SUPPORTED);
+			}
+			SMC_RET1(handle, FFA_SUCCESS_SMC32);
 
 		default:
 			return spmc_ffa_error_return(handle,
@@ -1711,6 +1731,18 @@ int32_t spmc_setup(void)
 	initalize_sp_descs();
 	initalize_ns_ep_descs();
 
+	/*
+	 * Retrieve the information of the datastore for tracking shared memory
+	 * requests allocated by platform code and zero the region if available.
+	 */
+	ret = plat_spmc_shmem_datastore_get(&spmc_shmem_obj_state.data,
+					    &spmc_shmem_obj_state.data_size);
+	if (ret != 0) {
+		ERROR("Failed to obtain memory descriptor backing store!\n");
+		return ret;
+	}
+	memset(spmc_shmem_obj_state.data, 0, spmc_shmem_obj_state.data_size);
+
 	/* Setup logical SPs. */
 	ret = logical_sp_init();
 	if (ret != 0) {
@@ -1833,6 +1865,35 @@ uint64_t spmc_smc_handler(uint32_t smc_fid,
 	case FFA_MSG_RUN:
 		return ffa_run_handler(smc_fid, secure_origin, x1, x2, x3, x4,
 				       cookie, handle, flags);
+
+	case FFA_MEM_SHARE_SMC32:
+	case FFA_MEM_SHARE_SMC64:
+	case FFA_MEM_LEND_SMC32:
+	case FFA_MEM_LEND_SMC64:
+		return spmc_ffa_mem_send(smc_fid, secure_origin, x1, x2, x3, x4,
+					 cookie, handle, flags);
+
+	case FFA_MEM_FRAG_TX:
+		return spmc_ffa_mem_frag_tx(smc_fid, secure_origin, x1, x2, x3,
+					    x4, cookie, handle, flags);
+
+	case FFA_MEM_FRAG_RX:
+		return spmc_ffa_mem_frag_rx(smc_fid, secure_origin, x1, x2, x3,
+					    x4, cookie, handle, flags);
+
+	case FFA_MEM_RETRIEVE_REQ_SMC32:
+	case FFA_MEM_RETRIEVE_REQ_SMC64:
+		return spmc_ffa_mem_retrieve_req(smc_fid, secure_origin, x1, x2,
+						 x3, x4, cookie, handle, flags);
+
+	case FFA_MEM_RELINQUISH:
+		return spmc_ffa_mem_relinquish(smc_fid, secure_origin, x1, x2,
+					       x3, x4, cookie, handle, flags);
+
+	case FFA_MEM_RECLAIM:
+		return spmc_ffa_mem_reclaim(smc_fid, secure_origin, x1, x2, x3,
+					    x4, cookie, handle, flags);
+
 	default:
 		WARN("Unsupported FF-A call 0x%08x.\n", smc_fid);
 		break;
