@@ -16,6 +16,24 @@
       "message": "So then, I presume that NEED_BL2 is set, either way, in the platform.mk for each platform?  Do we need to add that for all platforms?\n\n(More just a question than a critique.)",
       "revId": "980cbc54c75e67f188c40bc1ddb2f7033ea438e7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42efae2e_584e4d5c",
+        "filename": "make_helpers/tbbr/tbbr_tools.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-10-01T18:47:49Z",
+      "side": 1,
+      "message": "Oh, never mind!  I was assuming, incorrectly, this was a all-new #define label, but it already exists.",
+      "parentUuid": "c5b3c0ff_82629df0",
+      "revId": "980cbc54c75e67f188c40bc1ddb2f7033ea438e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
