@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,6 +16,9 @@
 
 	.globl	tsp_entrypoint
 	.globl  tsp_vector_table
+#if SPMC_AT_EL3
+	.globl tsp_cpu_on_entry
+#endif
 
 
 
