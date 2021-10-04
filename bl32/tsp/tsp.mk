@@ -6,8 +6,13 @@
 
 INCLUDES		+=	-Iinclude/bl32/tsp
 
-BL32_SOURCES		+=	bl32/tsp/tsp_main.c			\
-				bl32/tsp/aarch64/tsp_entrypoint.S	\
+ifeq (${SPMC_AT_EL3},1)
+   BL32_SOURCES            +=      bl32/tsp/tsp_ffa_main.c
+else
+   BL32_SOURCES            +=      bl32/tsp/tsp_main.c
+endif
+
+BL32_SOURCES		+=	bl32/tsp/aarch64/tsp_entrypoint.S	\
 				bl32/tsp/aarch64/tsp_exceptions.S	\
 				bl32/tsp/aarch64/tsp_request.S		\
 				bl32/tsp/tsp_interrupt.c		\
