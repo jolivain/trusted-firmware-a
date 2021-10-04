@@ -1002,6 +1002,7 @@ static uint64_t ffa_features_handler(uint32_t smc_fid,
 			SMC_RET1(handle, FFA_SUCCESS_SMC32);
 
 		/* Supported features only from the secure world. */
+		case FFA_SECONDARY_EP_REGISTER_SMC64:
 		case FFA_MSG_SEND_DIRECT_RESP_SMC32:
 		case FFA_MSG_SEND_DIRECT_RESP_SMC64:
 		case FFA_MSG_WAIT:
@@ -1121,6 +1122,88 @@ static uint64_t rx_release_handler(uint32_t smc_fid,
 	}
 	mbox->state = MAILBOX_STATE_EMPTY;
 	spin_unlock(&mbox->lock);
+
+	SMC_RET1(handle, FFA_SUCCESS_SMC32);
+}
+
+/*
+ * Perform initial validation on the provided secondary entry point.
+ * For now ensure it does not lie within the BL31 Image or the SP's
+ * RX/TX buffers as these are mapped within EL3.
+ * TODO: perform validation for additional invalid memory regions.
+ */
+static int validate_secondary_ep(uintptr_t ep, sp_desc_t *sp)
+{
+	struct mailbox *mb;
+	uintptr_t buffer_size, sp_rx_buffer, sp_tx_buffer;
+	uintptr_t sp_rx_buffer_limit, sp_tx_buffer_limit;
+
+	mb = &sp->mailbox;
+	buffer_size = (uintptr_t) (mb->rxtx_page_count * FFA_PAGE_SIZE);
+	sp_rx_buffer = (uintptr_t) mb->rx_buffer;
+	sp_tx_buffer = (uintptr_t) mb->tx_buffer;
+	sp_rx_buffer_limit = sp_rx_buffer + buffer_size;
+	sp_tx_buffer_limit = sp_tx_buffer + buffer_size;
+
+	/*
+	 * Check if the entry point lies within BL31, or the
+	 * SP's RX or TX buffer.
+	 */
+	if ((ep >= BL31_BASE && ep < BL31_LIMIT) ||
+	    (ep >= sp_rx_buffer && ep < sp_rx_buffer_limit) ||
+	    (ep >= sp_tx_buffer && ep < sp_tx_buffer_limit)) {
+		return -EINVAL;
+	}
+	return 0;
+}
+
+/*******************************************************************************
+ * spmc_pm_secondary_ep_register
+ ******************************************************************************/
+static uint64_t ffa_sec_ep_register_handler(uint32_t smc_fid,
+					    bool secure_origin,
+					    uint64_t x1,
+					    uint64_t x2,
+					    uint64_t x3,
+					    uint64_t x4,
+					    void *cookie,
+					    void *handle,
+					    uint64_t flags)
+{
+	sp_desc_t *sp;
+
+	/*
+	 * This request cannot originate from the Normal world.
+	 */
+	if (!secure_origin) {
+		return spmc_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
+	}
+
+	/* Get the context of the current SP. */
+	sp = spmc_get_current_sp_ctx();
+	if (sp == NULL) {
+		return spmc_ffa_error_return(handle, FFA_ERROR_INVALID_PARAMETER);
+	}
+
+	/*
+	 * Only an S-EL1 SP should be invoking this ABI.
+	 */
+	if (sp->runtime_el != EL1) {
+		return spmc_ffa_error_return(handle, FFA_ERROR_DENIED);
+	}
+
+	/* Perform initial validation of the secondary entry point. */
+	if (validate_secondary_ep(x1, sp)) {
+		return spmc_ffa_error_return(handle, FFA_ERROR_INVALID_PARAMETER);
+	}
+
+	/*
+	 * Lock and update the secondary entrypoint in SP context.
+	 */
+	spin_lock(&sp->secondary_ep_lock);
+	sp->secondary_ep = x1;
+	VERBOSE("%s %lx\n", __func__, sp->secondary_ep);
+	spin_unlock(&sp->secondary_ep_lock);
 
 	SMC_RET1(handle, FFA_SUCCESS_SMC32);
 }
@@ -1516,6 +1599,9 @@ int32_t spmc_setup(void)
 		return ret;
 	}
 
+	/* Register power management hooks with PSCI */
+	psci_register_spd_pm_hook(&spmc_pm);
+
 	/* Register init function for deferred init.  */
 	bl31_register_bl32_init(&sp_init);
 
@@ -1550,6 +1636,10 @@ uint64_t spmc_smc_handler(uint32_t smc_fid,
 	case FFA_FEATURES:
 		return ffa_features_handler(smc_fid, secure_origin, x1, x2, x3, x4,
 					   cookie, handle, flags);
+
+	case FFA_SECONDARY_EP_REGISTER_SMC64:
+		return ffa_sec_ep_register_handler(smc_fid, secure_origin, x1, x2, x3, x4,
+						   cookie, handle, flags);
 
 	case FFA_MSG_SEND_DIRECT_REQ_SMC32:
 	case FFA_MSG_SEND_DIRECT_REQ_SMC64:
