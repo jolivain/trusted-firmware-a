@@ -35,6 +35,40 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cbf8cac_327e9aaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000149
+      },
+      "writtenOn": "2021-10-04T17:03:55Z",
+      "side": 1,
+      "message": "I\u0027m very ignorant around the UFS and TF code, so apologies if I\u0027m off base (Haojian would hopefully have more context).\n\nBut abstractly this looks ok, though it would be good to get some testing on HiKey960 (or HiKey970?) as it has a long history UFS issues (depending on the UFS chip) when not using the proprietary bootloader.\n\nI\u0027m not sure I have a ton of cycles free to do a bootloader rebuild and testing (unfortunately the UFS issues we\u0027ve seen over time are rare, and there are 3 versions with different UFS chips, so testing will be fairly time consuming).\n\nBut assuming no other objections, maybe we can do a quick smoke test with this and let it be merged? I\u0027m not sure how much longer the HiKey960 will have lifetime wise, so we may get away without another bootloader update, and I don\u0027t want to block useful changes on its account.\n \n",
+      "revId": "b278b0caa1b6b402bb53aa3cb13229518d24e542",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8783c15_e8086b3b",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1000149
+      },
+      "writtenOn": "2021-10-04T17:03:55Z",
+      "side": 1,
+      "message": "Is returning a failure here ok? So much of the rest of this function just asserts on failure, suggesting the caller isn\u0027t likely to expect a failure and handle it in a useful way.",
+      "revId": "b278b0caa1b6b402bb53aa3cb13229518d24e542",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25325b63_47f8a7a3",
