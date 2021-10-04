@@ -52,6 +52,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d3beceb_c6250fb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2021-10-04T18:46:56Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "b30f4bf0_cf61c1f0",
+      "revId": "b278b0caa1b6b402bb53aa3cb13229518d24e542",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8783c15_e8086b3b",
@@ -65,6 +83,24 @@
       "writtenOn": "2021-10-04T17:03:55Z",
       "side": 1,
       "message": "Is returning a failure here ok? So much of the rest of this function just asserts on failure, suggesting the caller isn\u0027t likely to expect a failure and handle it in a useful way.",
+      "revId": "b278b0caa1b6b402bb53aa3cb13229518d24e542",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2b654b9_c64d5398",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2021-10-04T18:46:56Z",
+      "side": 1,
+      "message": "I returned a failure here because in a future CL I want to remove all asserts in ufs_init and replace them with returned error values. Having said that, I agree that it would be better to keep a consistent pattern for now, so I changed this to an assert in patchset 2.",
+      "parentUuid": "b8783c15_e8086b3b",
       "revId": "b278b0caa1b6b402bb53aa3cb13229518d24e542",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -92,6 +128,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d08f28af_d0e1b973",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2021-10-04T18:46:56Z",
+      "side": 1,
+      "message": "I\u0027ll keep this for now since I replaced line 815 with an assert in patchset 2.",
+      "parentUuid": "25325b63_47f8a7a3",
+      "range": {
+        "startLine": 832,
+        "startChar": 1,
+        "endLine": 832,
+        "endChar": 14
+      },
+      "revId": "b278b0caa1b6b402bb53aa3cb13229518d24e542",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90dcf3d8_a3eadffd",
@@ -105,6 +165,30 @@
       "writtenOn": "2021-10-04T07:03:47Z",
       "side": 1,
       "message": "Does this match any timing recommendation from the spec? If so, would it be possible to add a reference to the section?",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 32
+      },
+      "revId": "b278b0caa1b6b402bb53aa3cb13229518d24e542",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0567e0e2_5e74546c",
+        "filename": "include/drivers/ufs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2021-10-04T18:46:56Z",
+      "side": 1,
+      "message": "This doesn\u0027t match any timing recommendations from the spec, but we verified these changes on our own board. Anand can provide more details about tests we conducted.",
+      "parentUuid": "90dcf3d8_a3eadffd",
       "range": {
         "startLine": 260,
         "startChar": 0,
