@@ -16,6 +16,86 @@
       "message": "Actually flushing by a word is inefficient. The flush operation affect the entire cache line (64 bytes) and hence we would be doing redundant flushes for adj descriptors. \n\nAs I suggested, it is better to flush the region in one go at the end of  gpt_init_pas_l1_tables(). Also from a code readability PoV, it is better to have the flush operations at one place in the main API.",
       "revId": "0bc26fc32e905dfc438ad87747b8ab11fa92090d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3938b8f9_32b6f93d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-04T14:30:08Z",
+      "side": 1,
+      "message": "This condition can be inversed to make it read better : \nif (size !\u003d GPT_PGS_ACTUAL_SIZE(gpt_config.p)) \n   panic()\n\nAnd then have the rest of code underneath.",
+      "revId": "0bc26fc32e905dfc438ad87747b8ab11fa92090d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd796c79_2b59d6a3",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-04T14:30:08Z",
+      "side": 1,
+      "message": "This can be cached locally.",
+      "range": {
+        "startLine": 1010,
+        "startChar": 13,
+        "endLine": 1010,
+        "endChar": 46
+      },
+      "revId": "0bc26fc32e905dfc438ad87747b8ab11fa92090d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4025166_6b9ab342",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-04T14:30:08Z",
+      "side": 1,
+      "message": "check can be performed outside the spin lock",
+      "revId": "0bc26fc32e905dfc438ad87747b8ab11fa92090d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "321a3056_4db207bc",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-04T14:30:08Z",
+      "side": 1,
+      "message": "clean would be faster. clean can be done outside the lock.",
+      "range": {
+        "startLine": 1049,
+        "startChar": 2,
+        "endLine": 1049,
+        "endChar": 20
+      },
+      "revId": "0bc26fc32e905dfc438ad87747b8ab11fa92090d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
