@@ -9,7 +9,7 @@
 
 #include <assert.h>
 
-#include "../../../../lib/xlat_mpu/xlat_mpu.h"
+#include "lib/xlat_mpu/xlat_mpu.h"
 #include <bl1/bl1.h>
 #include <common/tbbr/tbbr_img_def.h>
 #include <drivers/arm/sp805.h>
