@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -106,6 +106,10 @@ extern work_statistics_t tsp_stats[PLATFORM_CORE_COUNT];
 
 /* Vector table of jumps */
 extern tsp_vectors_t tsp_vector_table;
+
+#if SPMC_AT_EL3
+extern void tsp_cpu_on_entry(void);
+#endif
 
 /* functions */
 int32_t tsp_common_int_handler(void);
