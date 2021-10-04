@@ -238,6 +238,9 @@ struct ffa_partition_info_v1_1 {
 	uint32_t uuid[4];
 };
 
+/* Reference to power management hooks */
+extern const spd_pm_ops_t spmc_pm;
+
 /* Setup Function for different SP types. */
 void spmc_sp_common_setup(sp_desc_t *sp, entry_point_info_t *ep_info);
 void spmc_el1_sp_setup(sp_desc_t *sp, entry_point_info_t *ep_info);
