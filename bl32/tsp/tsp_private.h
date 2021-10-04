@@ -1,11 +1,19 @@
 /*
- * Copyright (c) 2014-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #ifndef TSP_PRIVATE_H
 #define TSP_PRIVATE_H
+
+/*******************************************************************************
+ * The TSP memory footprint starts at address BL32_BASE and ends with the
+ * linker symbol __BL32_END__. Use these addresses to compute the TSP image
+ * size.
+ ******************************************************************************/
+#define BL32_TOTAL_LIMIT BL32_END
+#define BL32_TOTAL_SIZE (BL32_TOTAL_LIMIT - (unsigned long) BL32_BASE)
 
 /* Definitions to help the assembler access the SMC/ERET args structure */
 #define TSP_ARGS_SIZE		0x40
@@ -50,6 +58,7 @@ typedef struct work_statistics {
 typedef struct tsp_args {
 	uint64_t _regs[TSP_ARGS_END >> 3];
 } __aligned(CACHE_WRITEBACK_GRANULE) tsp_args_t;
+extern tsp_args_t tsp_smc_args[PLATFORM_CORE_COUNT];
 
 /* Macros to access members of the above structure using their offsets */
 #define read_sp_arg(args, offset)	((args)->_regs[offset >> 3])
@@ -63,6 +72,14 @@ CASSERT(TSP_ARGS_SIZE == sizeof(tsp_args_t), assert_sp_args_size_mismatch);
 
 uint128_t tsp_get_magic(void);
 
+tsp_args_t *set_smc_args(uint64_t arg0,
+				uint64_t arg1,
+				uint64_t arg2,
+				uint64_t arg3,
+				uint64_t arg4,
+				uint64_t arg5,
+				uint64_t arg6,
+				uint64_t arg7);
 tsp_args_t *tsp_cpu_resume_main(uint64_t max_off_pwrlvl,
 				uint64_t arg1,
 				uint64_t arg2,
