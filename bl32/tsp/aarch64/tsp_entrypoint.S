@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,6 +16,9 @@
 
 	.globl	tsp_entrypoint
 	.globl  tsp_vector_table
+#if SPMC_AT_EL3
+	.globl tsp_cpu_on_entry
+#endif
 
 
 
@@ -186,6 +189,22 @@ func tsp_entrypoint _align=3
 	 */
 	bl	tsp_main
 
+#if SPMC_AT_EL3
+loop:
+	/* ---------------------------------------------
+	 * Tell SPMD that we are done initialising.
+	 * Also mask FIQ interrupts to avoid preemption
+	 * in case EL3 SPMC delegates an IRQ next or a
+	 * managed exit. Lastly, unmask IRQs so that
+	 * they can be handled immediately upon re-entry
+	 * ---------------------------------------------
+	 */
+	msr	daifset, #DAIF_FIQ_BIT
+	msr	daifclr, #DAIF_IRQ_BIT
+	restore_args_call_smc
+	bl	tsp_event_loop
+	b	loop
+#else
 	/* ---------------------------------------------
 	 * Tell TSPD that we are done initialising
 	 * ---------------------------------------------
@@ -196,6 +215,7 @@ func tsp_entrypoint _align=3
 
 tsp_entrypoint_panic:
 	b	tsp_entrypoint_panic
+#endif
 endfunc tsp_entrypoint
 
 
@@ -319,7 +339,16 @@ func tsp_cpu_on_entry
 	 * ---------------------------------------------
 	 */
 	bl	tsp_cpu_on_main
+#if SPMC_AT_EL3
+	/* ---------------------------------------------
+	 * Jump to the main event loop to return to EL3
+	 * and be ready for the next request on this cpu
+	 * ---------------------------------------------
+	 */
+	b	loop
+#else
 	restore_args_call_smc
+#endif
 
 	/* Should never reach here */
 tsp_cpu_on_entry_panic:
