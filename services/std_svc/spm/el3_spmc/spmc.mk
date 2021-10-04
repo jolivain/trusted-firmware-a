@@ -26,3 +26,21 @@ NEED_BL32		:=	yes
 
 # Enable save and restore for non-secure timer register
 NS_TIMER_SWITCH		:=	1
+
+ifndef BL32
+# The SPMC is paired with a Test Secure Payload source and we intend to
+# build the Test Secure Payload if no other image has been provided
+# for BL32.
+#
+# In cases where an associated Secure Payload lies outside this build
+# system/source tree, the dispatcher Makefile can either invoke an external
+# build command or assume it is pre-built.
+
+BL32_ROOT		:=	bl32/tsp
+
+# Conditionally include SP's Makefile. The assumption is that the TSP's build
+# system is compatible with that of Trusted Firmware, and it'll add and populate
+# necessary build targets and variables.
+
+include ${BL32_ROOT}/tsp.mk
+endif
