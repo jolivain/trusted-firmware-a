@@ -12,7 +12,8 @@ SPMC_SOURCES	:=	$(addprefix services/std_svc/spm/spmc/,	\
 			spmc_main.c				\
 			spmc_setup.c				\
 			logical_sp.c				\
-			logical_sp_test.c)
+			logical_sp_test.c			\
+			spmc_pm.c)
 
 
 # Let the top-level Makefile know that we intend to include a BL32 image
