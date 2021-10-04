@@ -50,6 +50,23 @@
       "message": "@John, could you please change your vote to CoR.\n\nAs only print logs has been changed, CI +1 should be enough.",
       "revId": "df9dc27de72c764a19036fcfcf97caa064caa8c8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c1d7f85_863cef5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-04T11:10:29Z",
+      "side": 1,
+      "message": "Static check failed https://ci.trustedfirmware.org/job/tf-a-commitlint/816/console because of commit message\nCould you please refer to https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#making-changes conventional commit and modify the commit msg accordingly ",
+      "revId": "df9dc27de72c764a19036fcfcf97caa064caa8c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
