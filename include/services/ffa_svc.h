@@ -67,6 +67,11 @@
 #define FFA_PM_MSG_WB_REQ	0x1 /* Warm boot request */
 #define FFA_PM_MSG_PM_RESP	0x2 /* Response to a PSCI or warmboot request */
 
+/* FF-A warm boot types. */
+#define FFA_WB_TYPE_S2RAM	0x0
+#define FFA_WB_TYPE_NOTS2RAM	0x1
+
+
 /* Get FFA fastcall std FID from function number */
 #define FFA_FID(smc_cc, func_num)			\
 		((SMC_TYPE_FAST << FUNCID_TYPE_SHIFT) |	\
