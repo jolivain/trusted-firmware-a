@@ -33,10 +33,6 @@
 /* Align with Hafnium implementation */
 #define INV_SP_ID		0x7FFF
 
-/* FF-A warm boot types. */
-#define FFA_WB_TYPE_S2RAM	0
-#define FFA_WB_TYPE_NOTS2RAM	1
-
 /* FF-A Related helper macros. */
 #define FFA_ID_MASK			U(0xFFFF)
 #define FFA_PARTITION_ID_SHIFT		U(16)
