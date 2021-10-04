@@ -16,6 +16,52 @@
       "message": "Thanks for the review John! Who do I need approval from to submit this patch?",
       "revId": "788ca0a6dc6b4640805e5b5fd108e18e8f9e292f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5358f6fb_bbdae284",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-10-04T07:03:52Z",
+      "side": 1,
+      "message": "This logic now looks very much like lines 82-89.\nAny chance to make it a static function helper?",
+      "range": {
+        "startLine": 112,
+        "startChar": 1,
+        "endLine": 121,
+        "endChar": 14
+      },
+      "revId": "788ca0a6dc6b4640805e5b5fd108e18e8f9e292f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab72b644_b8d9dc89",
+        "filename": "include/drivers/ufs.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-10-04T07:03:52Z",
+      "side": 1,
+      "message": "How did you assess this number? Is it part of the spec as a recommendation for retry logic when sending a command?",
+      "range": {
+        "startLine": 258,
+        "startChar": 8,
+        "endLine": 258,
+        "endChar": 34
+      },
+      "revId": "788ca0a6dc6b4640805e5b5fd108e18e8f9e292f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
