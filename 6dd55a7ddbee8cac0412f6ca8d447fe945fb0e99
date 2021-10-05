@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa28689b_8a0f06cb",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-05T17:05:14Z",
+      "side": 1,
+      "message": "Better put function description in this file instead of in the header file.",
+      "revId": "6dd55a7ddbee8cac0412f6ca8d447fe945fb0e99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "067cdc7f_4dd3c383",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-05T17:05:14Z",
+      "side": 1,
+      "message": "IIUC this function does not throw any error if the device tree does not contain \u0027cpus\u0027 node. Like to know the reason behind it. I think it makes sense this function should throw an error in such a scenario.",
+      "range": {
+        "startLine": 584,
+        "startChar": 0,
+        "endLine": 588,
+        "endChar": 16
+      },
+      "revId": "6dd55a7ddbee8cac0412f6ca8d447fe945fb0e99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10d6984f_33714005",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-05T17:05:14Z",
+      "side": 1,
+      "message": "can we return here itself?",
+      "range": {
+        "startLine": 604,
+        "startChar": 3,
+        "endLine": 604,
+        "endChar": 9
+      },
+      "revId": "6dd55a7ddbee8cac0412f6ca8d447fe945fb0e99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86f68268_8848c41f",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-05T17:05:14Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 609,
+        "startChar": 3,
+        "endLine": 609,
+        "endChar": 9
+      },
+      "revId": "6dd55a7ddbee8cac0412f6ca8d447fe945fb0e99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
