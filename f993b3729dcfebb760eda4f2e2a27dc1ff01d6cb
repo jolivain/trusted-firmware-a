@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e40ff08b_b717ec58",
+        "filename": "make_helpers/tbbr/tbbr_tools.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-05T19:59:07Z",
+      "side": 1,
+      "message": "This check will not work as tb-fw-cert contains hashes of fw_config, tb_fw_config, hw_config and BL2 image, so we need this certificate for both BL1(to load fw_config, tb_fw_config, and BL2) and BL2 (to load hw_config).\nWe don\u0027t use hw_config when BL2_AT_EL3\u003d1 when TBBR is enabled as per the current code (need to check this again!).",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 22
+      },
+      "revId": "f993b3729dcfebb760eda4f2e2a27dc1ff01d6cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
