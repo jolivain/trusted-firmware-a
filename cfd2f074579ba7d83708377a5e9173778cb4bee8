@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "992977e5_c989c5df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-05T11:31:14Z",
+      "side": 1,
+      "message": "Thanks for the rework. I also noticed some static check failure for whitespace errors on gpt_rme.c file.",
+      "revId": "cfd2f074579ba7d83708377a5e9173778cb4bee8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e09c060_eccb4ab3",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-05T11:31:14Z",
+      "side": 1,
+      "message": "nit: no need for the else clause.\nif (size !\u003d GPT_PGS_ACTUAL_SIZE(gpt_config.p)) {\n\t/*\n\t * TODO: Add support for transitioning multiple granules with a\n\t * single call to this function.\n\t */\n\tpanic();\n} \n/* Get the L0 descriptor and make sure it is for a table. */\ngpt_l0_base \u003d (uint64_t *)gpt_config.plat_gpt_l0_base;\ngpt_l0_desc \u003d gpt_l0_base[GPT_L0_IDX(base)];\n...",
+      "revId": "cfd2f074579ba7d83708377a5e9173778cb4bee8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29a0a634_7c9ea347",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-05T11:31:14Z",
+      "side": 1,
+      "message": "dmbishst(); would be required to ensure that the write is ordered prior to the spin_unlock operation,",
+      "revId": "cfd2f074579ba7d83708377a5e9173778cb4bee8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
