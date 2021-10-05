@@ -22,6 +22,30 @@
       },
       "revId": "f993b3729dcfebb760eda4f2e2a27dc1ff01d6cb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ab53c47_fef3e56c",
+        "filename": "make_helpers/tbbr/tbbr_tools.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-05T23:49:17Z",
+      "side": 1,
+      "message": "Sorry, this certificate is required only when the platform needs BL2, but there seem to be a few CI boot failures with this patch. Failure looks like tbbr_tool Makefile is not able to resolve the correct value of NEED_BL2. \nAfter going through the main Makefile, it looks like the inclusion of tbbr_tools.mk [1] happened before defining the value of NEED_BL2 [2]. We may need to correct this ordering to resolve the CI boot failures.\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/Makefile#n826\n[2]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/Makefile#n883",
+      "parentUuid": "e40ff08b_b717ec58",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 22
+      },
+      "revId": "f993b3729dcfebb760eda4f2e2a27dc1ff01d6cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
