@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46a1efd3_240cd103",
+        "filename": "plat/qti/common/src/pmk7325.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-10-06T23:58:15Z",
+      "side": 1,
+      "message": "Since this is basically the same file with just two lines changed, I\u0027d consider factoring that out somewhere else. Maybe just move PON_PS_HOLD_RESET_CTL and PON_PS_HOLD_RESET_CTL2 into platform_def.h so they can be different for the two SoCs, then they can share the rest of the file.",
+      "revId": "80d5909e044dffa1de334d6955e82e6128f95be5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87e57eea_bbe93ac7",
+        "filename": "plat/qti/common/src/pmk7325.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-10-06T23:58:15Z",
+      "side": 1,
+      "message": "nit: Need to update the comment now.",
+      "revId": "80d5909e044dffa1de334d6955e82e6128f95be5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
