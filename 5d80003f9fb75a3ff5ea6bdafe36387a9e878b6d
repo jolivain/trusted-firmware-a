@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c68cfe9d_94b92377",
+        "filename": "lib/optee/optee_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-10-06T11:27:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "09d23043_6b8bd8dd",
+      "revId": "5d80003f9fb75a3ff5ea6bdafe36387a9e878b6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d43bba6_ea731df9",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-10-06T10:46:37Z",
       "side": 1,
       "message": "I\u0027m not sure this \u0027U\u0027 is very useful here.",
+      "range": {
+        "startLine": 185,
+        "startChar": 13,
+        "endLine": 185,
+        "endChar": 14
+      },
+      "revId": "5d80003f9fb75a3ff5ea6bdafe36387a9e878b6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b8cc4a2_4c25473b",
+        "filename": "lib/optee/optee_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-10-06T11:27:41Z",
+      "side": 1,
+      "message": "I\u0027ve had remarks about this in some of my patches (e.g. https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10672/comment/505071eb_0417b542/). And I think it is some MISRA requirement.",
+      "parentUuid": "2d43bba6_ea731df9",
       "range": {
         "startLine": 185,
         "startChar": 13,
