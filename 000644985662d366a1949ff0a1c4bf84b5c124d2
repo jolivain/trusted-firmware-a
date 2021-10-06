@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a29d09ae_d510adcd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-06T08:56:49Z",
+      "side": 1,
+      "message": "(minor) This sentence sounds a bit misleading to me. BL1 already had the capability to measure BL2, it just didn\u0027t record the measurement. Perhaps reword this to say that we are pulling in the full-fledged measured boot driver into BL1, which replaces the former ad-hoc interfaces (bl1_set_bl2_hash() or whatever the name was).",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 62
+      },
+      "revId": "000644985662d366a1949ff0a1c4bf84b5c124d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a1e1946_ca8c7f36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-06T08:56:49Z",
+      "side": 1,
+      "message": "Minor comments only.",
+      "revId": "000644985662d366a1949ff0a1c4bf84b5c124d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9672c2eb_d0bfbf11",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-06T08:56:49Z",
+      "side": 1,
+      "message": "(minor) This is too specific to FVP. Some platforms might choose to do something else. I think the best we can say is:\n\n /* Teardown the measured boot driver */",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 27
+      },
+      "revId": "000644985662d366a1949ff0a1c4bf84b5c124d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
