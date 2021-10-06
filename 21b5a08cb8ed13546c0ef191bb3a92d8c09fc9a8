@@ -93,6 +93,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8761f834_de8a7adf",
+        "filename": "plat/arm/board/fvp/fvp_measured_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-06T08:52:14Z",
+      "side": 1,
+      "message": "Nevermind, I see this is getting changed in the next patch, where this gets moved to fvp_common_measured_boot.c and so it needs to be a global variable.",
+      "parentUuid": "371429f8_974502cf",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 51
+      },
+      "revId": "21b5a08cb8ed13546c0ef191bb3a92d8c09fc9a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5fb805d_219c2e5f",
