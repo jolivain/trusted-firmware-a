@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33aa67fc_a21f2644",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2021-10-06T05:31:12Z",
+      "side": 1,
+      "message": "Note: ufshc_reset() follows the pattern used in Linux, with inner and outer retries. See ufshcd_hba_execute_hce() defined in Linux\u0027s ufshcd.c\n\n- https://elixir.bootlin.com/linux/latest/source/drivers/scsi/ufs/ufshcd.c#L4526",
+      "revId": "edcb1a1d512b1d9b6417ec4106ef20be5eb584d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
