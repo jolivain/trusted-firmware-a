@@ -387,6 +387,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b39b23e9_0eb7c408",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-06T11:10:33Z",
+      "side": 1,
+      "message": "Preferring to adhere to MISRA than the code-style on the understanding that it takes priority over the coding style.",
+      "parentUuid": "6e4590ad_d5ed54f7",
+      "revId": "b65bc727429481e29ed956cd167557645bcc41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eca9bcad_c8686f22",
