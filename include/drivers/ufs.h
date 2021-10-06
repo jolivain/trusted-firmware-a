@@ -261,6 +261,8 @@
 #define HCE_ENABLE_INNER_RETRIES	150
 #define HCE_ENABLE_TIMEOUT_US		1
 
+#define DME_LINKSTARTUP_RETRIES		10
+
 /**
  * ufs_dev_desc - ufs device details from the device descriptor
  * @wmanufacturerid: card details
