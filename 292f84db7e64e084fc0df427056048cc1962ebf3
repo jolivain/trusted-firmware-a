@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51d66567_a6d872c4",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-06T07:56:29Z",
+      "side": 0,
+      "message": "(minor) It might too late in the review process to flag this but I believe that this change belongs to another patch. In this patch fvp_bl2_setup.c still uses event_log_measure_and_record().",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 6
+      },
+      "revId": "292f84db7e64e084fc0df427056048cc1962ebf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
