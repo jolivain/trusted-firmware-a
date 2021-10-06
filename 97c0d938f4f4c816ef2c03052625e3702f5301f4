@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4ddf692_4ed20be9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2021-10-06T05:26:00Z",
+      "side": 1,
+      "message": "Note: ufshc_dme_get() and ufshc_dme_set() follow the pattern used in Linux. See ufshcd_dme_set_attr() and ufshcd_dme_get_attr() defined in Linux\u0027s ufshcd.c\n\n- https://elixir.bootlin.com/linux/latest/source/drivers/scsi/ufs/ufshcd.c#L3838\n- https://elixir.bootlin.com/linux/latest/source/drivers/scsi/ufs/ufshcd.c#L3882",
+      "revId": "97c0d938f4f4c816ef2c03052625e3702f5301f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

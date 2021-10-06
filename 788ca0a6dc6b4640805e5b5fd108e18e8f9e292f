@@ -145,6 +145,30 @@
       },
       "revId": "788ca0a6dc6b4640805e5b5fd108e18e8f9e292f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7dcde01_6e1cad5f",
+        "filename": "include/drivers/ufs.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2021-10-06T05:26:00Z",
+      "side": 1,
+      "message": "Actually, I switched this back to 3 to mimic Linux. See https://elixir.bootlin.com/linux/latest/source/drivers/scsi/ufs/ufshcd.c#L53",
+      "parentUuid": "8345eab2_2e0dc31b",
+      "range": {
+        "startLine": 258,
+        "startChar": 8,
+        "endLine": 258,
+        "endChar": 34
+      },
+      "revId": "788ca0a6dc6b4640805e5b5fd108e18e8f9e292f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
