@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2021, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -23,6 +23,16 @@
 #include <plat/common/platform.h>
 
 #define LIB_NAME		"mbed TLS"
+
+#if MEASURED_BOOT
+/*
+ * CRYPTO_MD_MAX_SIZE value is as per current stronger algorithm available
+ * so make sure that mbed TLS MD maximum size must be lesser than this.
+ */
+CASSERT(CRYPTO_MD_MAX_SIZE >= MBEDTLS_MD_MAX_SIZE,
+	assert_mbedtls_md_size_overflow);
+
+#endif /* MEASURED_BOOT */
 
 /*
  * AlgorithmIdentifier  ::=  SEQUENCE  {
@@ -211,22 +221,49 @@ static int verify_hash(void *data_ptr, unsigned int data_len,
 
 #if MEASURED_BOOT
 /*
+ * Map a generic crypto message digest algorithm to the corresponding macro used
+ * by Mbed TLS.
+ */
+static inline mbedtls_md_type_t md_type(enum crypto_md_algo algo)
+{
+	switch (algo) {
+	case CRYPTO_MD_SHA512:
+		return MBEDTLS_MD_SHA512;
+	case CRYPTO_MD_SHA384:
+		return MBEDTLS_MD_SHA384;
+	case CRYPTO_MD_SHA256:
+		return MBEDTLS_MD_SHA256;
+	default:
+		/* Invalid hash algorithm. */
+		return MBEDTLS_MD_NONE;
+	}
+}
+
+/*
  * Calculate a hash
  *
  * output points to the computed hash
  */
-int calc_hash(unsigned int alg, void *data_ptr,
-	      unsigned int data_len, unsigned char *output)
+static int calc_hash(enum crypto_md_algo md_algo, void *data_ptr,
+		     unsigned int data_len,
+		     unsigned char output[CRYPTO_MD_MAX_SIZE])
 {
 	const mbedtls_md_info_t *md_info;
+	unsigned char data_hash[MBEDTLS_MD_MAX_SIZE];
 
-	md_info = mbedtls_md_info_from_type((mbedtls_md_type_t)alg);
+	md_info = mbedtls_md_info_from_type(md_type(md_algo));
 	if (md_info == NULL) {
 		return CRYPTO_ERR_HASH;
 	}
 
 	/* Calculate the hash of the data */
-	return mbedtls_md(md_info, data_ptr, data_len, output);
+	int rc = mbedtls_md(md_info, data_ptr, data_len, data_hash);
+	if (rc == 0) {
+		(void)memcpy((void *)output, (const void *)data_hash,
+			     MBEDTLS_MD_MAX_SIZE);
+	}
+
+	return rc;
 }
 #endif /* MEASURED_BOOT */
 
