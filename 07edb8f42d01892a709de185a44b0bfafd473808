@@ -95,6 +95,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73209af9_acd1b90b",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-06T12:00:04Z",
+      "side": 1,
+      "message": "Alright.",
+      "parentUuid": "abb9f212_3702a707",
+      "range": {
+        "startLine": 1500,
+        "startChar": 3,
+        "endLine": 1501,
+        "endChar": 26
+      },
+      "revId": "07edb8f42d01892a709de185a44b0bfafd473808",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95236f21_1f409b06",
@@ -173,6 +197,24 @@
       "side": 1,
       "message": "I didn\u0027t get this comment. This line is describing Arm FVP platform specific behaviour only right?",
       "parentUuid": "3179eb64_bae8869a",
+      "revId": "07edb8f42d01892a709de185a44b0bfafd473808",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f79ee26_3b583f38",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1809,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-06T12:00:04Z",
+      "side": 1,
+      "message": "Sorry I meant to comment on line 1811 (about the panic on error).",
+      "parentUuid": "e05092d7_dc7ad434",
       "revId": "07edb8f42d01892a709de185a44b0bfafd473808",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
