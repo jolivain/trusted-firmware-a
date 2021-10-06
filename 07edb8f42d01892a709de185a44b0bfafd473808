@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6dce821_976bcbde",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1485,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-06T11:05:18Z",
+      "side": 1,
+      "message": "Agree! Let me move this line to previous bullet point.",
+      "parentUuid": "56a54a15_60d47490",
+      "range": {
+        "startLine": 1485,
+        "startChar": 3,
+        "endLine": 1485,
+        "endChar": 43
+      },
+      "revId": "07edb8f42d01892a709de185a44b0bfafd473808",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "069fcadc_309e5e99",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-06T09:47:25Z",
       "side": 1,
       "message": "I think this is platform specific as well. For example, the event log buffer might be stored at a fixed address hard-coded within BL1 and BL2.",
+      "range": {
+        "startLine": 1500,
+        "startChar": 3,
+        "endLine": 1501,
+        "endChar": 26
+      },
+      "revId": "07edb8f42d01892a709de185a44b0bfafd473808",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abb9f212_3702a707",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-06T11:05:18Z",
+      "side": 1,
+      "message": "Can I change this to \u0027set the information for the next bootloader component to extend the measurement if needed\u0027? Let me know if that make sense. I still think partners may use device tree to pass on this address with the framework being provided.",
+      "parentUuid": "069fcadc_309e5e99",
       "range": {
         "startLine": 1500,
         "startChar": 3,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e1b6a12e_84896d06",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1505,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-06T11:05:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "95236f21_1f409b06",
+      "range": {
+        "startLine": 1505,
+        "startChar": 2,
+        "endLine": 1505,
+        "endChar": 43
+      },
+      "revId": "07edb8f42d01892a709de185a44b0bfafd473808",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3179eb64_bae8869a",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 5
@@ -89,6 +161,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e05092d7_dc7ad434",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1809,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-06T11:05:18Z",
+      "side": 1,
+      "message": "I didn\u0027t get this comment. This line is describing Arm FVP platform specific behaviour only right?",
+      "parentUuid": "3179eb64_bae8869a",
+      "revId": "07edb8f42d01892a709de185a44b0bfafd473808",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d9a648e_2e85888c",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 5
@@ -100,6 +190,30 @@
       "writtenOn": "2021-10-06T09:47:25Z",
       "side": 1,
       "message": "This is platform specific.",
+      "range": {
+        "startLine": 1831,
+        "startChar": 3,
+        "endLine": 1831,
+        "endChar": 43
+      },
+      "revId": "07edb8f42d01892a709de185a44b0bfafd473808",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44a6cc44_38085d66",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1831,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-06T11:05:18Z",
+      "side": 1,
+      "message": "I will move this to previous bullet point.",
+      "parentUuid": "5d9a648e_2e85888c",
       "range": {
         "startLine": 1831,
         "startChar": 3,
