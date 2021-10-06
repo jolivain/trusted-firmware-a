@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9d62f69_34eb3596",
+        "filename": "plat/arm/board/fvp/fvp_bl1_measured_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-06T19:50:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df2c5d58_e521f7a1",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 10
+      },
+      "revId": "31dbd296895677372beb483c43618ba921e7a182",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb206f0c_acf5584f",
@@ -119,6 +143,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e394d16_85c12ef1",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-06T19:50:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d75a6c2_29d32237",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 22
+      },
+      "revId": "31dbd296895677372beb483c43618ba921e7a182",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3687440_dfd53a80",
@@ -166,6 +214,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20b6add5_09df72a8",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-06T19:50:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fea2c0b9_bb8a797c",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 10
+      },
+      "revId": "31dbd296895677372beb483c43618ba921e7a182",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c975848_50a5377f",
@@ -203,6 +275,30 @@
       "side": 1,
       "message": "Ack, I thought this calculation provides the meaning that event_log_buffer shared across the BL1 and BL2, but I agree explicit comment make this more clear.",
       "parentUuid": "5c975848_50a5377f",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 75
+      },
+      "revId": "31dbd296895677372beb483c43618ba921e7a182",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dff8c6ae_17b785ee",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-06T19:50:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d348ff1a_9cd28daa",
       "range": {
         "startLine": 44,
         "startChar": 1,
@@ -274,6 +370,30 @@
       "side": 1,
       "message": "I don\u0027t feel strongly about it, your call.",
       "parentUuid": "bd1d0afc_33dfbea4",
+      "range": {
+        "startLine": 323,
+        "startChar": 50,
+        "endLine": 323,
+        "endChar": 53
+      },
+      "revId": "31dbd296895677372beb483c43618ba921e7a182",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55245457_9be11213",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-06T19:50:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c084ee81_b34df405",
       "range": {
         "startLine": 323,
         "startChar": 50,
