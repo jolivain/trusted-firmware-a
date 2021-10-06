@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09d23043_6b8bd8dd",
+        "filename": "lib/optee/optee_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2021-10-06T10:46:37Z",
+      "side": 1,
+      "message": "It would be more correct to check\nif (image-\u003eload_addr_hi \u003d\u003d UINT32_MAX \u0026\u0026\n    image-\u003eload_addr_lo \u003d\u003d UINT32_MAX)",
+      "revId": "5d80003f9fb75a3ff5ea6bdafe36387a9e878b6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d43bba6_ea731df9",
+        "filename": "lib/optee/optee_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2021-10-06T10:46:37Z",
+      "side": 1,
+      "message": "I\u0027m not sure this \u0027U\u0027 is very useful here.",
+      "range": {
+        "startLine": 185,
+        "startChar": 13,
+        "endLine": 185,
+        "endChar": 14
+      },
+      "revId": "5d80003f9fb75a3ff5ea6bdafe36387a9e878b6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
