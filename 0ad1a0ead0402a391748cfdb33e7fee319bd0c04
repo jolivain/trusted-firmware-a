@@ -16,6 +16,24 @@
       "message": "Hi Patrick,\n\nJust wondering, can you consider the PSA firmware update specification [1] to do the firmware update securely as an alternative to the USB DFU stack?\nTF-A BL code following this PSA specification is available here [2]. Please let us know what do you think? Thanks!\n\n[1]: https://developer.arm.com/documentation/den0118/a/\n[2]: https://review.trustedfirmware.org/q/topic:%22fw-update-2%22+(status:open%20OR%20status:merged)",
       "revId": "0ad1a0ead0402a391748cfdb33e7fee319bd0c04",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02978935_b7baefde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-10-06T12:38:24Z",
+      "side": 1,
+      "message": "Hi Manish,\nThose are 2 different things.\nThe USB boot is used when no boot device is programmed yet, so we cannot use FWU.\nBy the way we are also working internally and with Linaro to support FWU on STM32MP1.\n\nBest regards,\nYann",
+      "parentUuid": "54bea5cd_6aede95a",
+      "revId": "0ad1a0ead0402a391748cfdb33e7fee319bd0c04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
