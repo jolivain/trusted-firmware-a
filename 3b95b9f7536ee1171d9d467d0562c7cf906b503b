@@ -16,6 +16,23 @@
       "message": "3 fails looks false failures. All show pass",
       "revId": "3b95b9f7536ee1171d9d467d0562c7cf906b503b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f29d62d4_ecbddd3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-10-06T16:17:32Z",
+      "side": 1,
+      "message": "What about the Commitlint report in https://ci.trustedfirmware.org/job/tf-a-commitlint/831/console\n\n✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]\n⚠   header must not be longer than 50 characters, current length is 68 [header-max-length]\n\n✖   found 1 problems, 1 warnings",
+      "revId": "3b95b9f7536ee1171d9d467d0562c7cf906b503b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
