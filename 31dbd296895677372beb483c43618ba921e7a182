@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddc648ec_39a7ecff",
+        "filename": "plat/arm/board/fvp/fvp_bl1_measured_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-06T09:39:13Z",
+      "side": 1,
+      "message": "Add a comment to explain this behaviour?",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 10
+      },
+      "revId": "31dbd296895677372beb483c43618ba921e7a182",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb206f0c_acf5584f",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-06T09:39:13Z",
+      "side": 1,
+      "message": "(minor) Perhaps bl1_measurements_size or something similar would be more explicit? I am worried that the current name might suggest this is the total size of the buffer...",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 22
+      },
+      "revId": "31dbd296895677372beb483c43618ba921e7a182",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3687440_dfd53a80",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-06T09:39:13Z",
+      "side": 1,
+      "message": "Add a comment to explain this behaviour?",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 10
+      },
+      "revId": "31dbd296895677372beb483c43618ba921e7a182",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c975848_50a5377f",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-06T09:39:13Z",
+      "side": 1,
+      "message": "Perhaps add a comment for this line, saying that BL1 and BL2 share the same event log buffer and that BL2 will append its measurements after BL1\u0027s?",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 75
+      },
+      "revId": "31dbd296895677372beb483c43618ba921e7a182",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb5112b5_c7d903f2",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-06T09:39:13Z",
+      "side": 1,
+      "message": "Called by BL2, rather.\n\nBut TBH, I am not sure this kind of comments is useful. If I am not mistaken, there is nothing in the implementation of arm_get_tb_fw_info() that ties it to BL2. This is really just a design note but I think it\u0027s misplaced.",
+      "range": {
+        "startLine": 323,
+        "startChar": 50,
+        "endLine": 323,
+        "endChar": 53
+      },
+      "revId": "31dbd296895677372beb483c43618ba921e7a182",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3daaf7a0_824b0eb6",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-06T09:39:13Z",
+      "side": 1,
+      "message": "(nit) Just for the logical structure of the code, I would prefer to return rc here, and return 0 at the end of the function. But that\u0027s personal preference I guess, feel free to ignore if you disagree.",
+      "range": {
+        "startLine": 362,
+        "startChar": 2,
+        "endLine": 363,
+        "endChar": 45
+      },
+      "revId": "31dbd296895677372beb483c43618ba921e7a182",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
