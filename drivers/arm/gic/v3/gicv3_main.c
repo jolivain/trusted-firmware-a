@@ -15,6 +15,8 @@
 
 #include "gicv3_private.h"
 
+#define FDT_MAX_PHANDLE 0xfffffffe
+
 const gicv3_driver_data_t *gicv3_driver_data;
 
 /*
@@ -98,6 +100,7 @@ void __init gicv3_driver_init(const gicv3_driver_data_t *plat_driver_data)
 {
 	unsigned int gic_version;
 	unsigned int gicv2_compat;
+	uint32_t tval = 0x80000000;
 
 	assert(plat_driver_data != NULL);
 	assert(plat_driver_data->gicd_base != 0U);
@@ -118,7 +121,7 @@ void __init gicv3_driver_init(const gicv3_driver_data_t *plat_driver_data)
 			(ID_AA64PFR0_GIC_MASK << ID_AA64PFR0_GIC_SHIFT)) != 0U);
 #endif /* !__aarch64__ */
 
-	gic_version = gicd_read_pidr2(plat_driver_data->gicd_base);
+	gic_version = gicd_read_pidr2(plat_driver_data->gicd_base) & tval;
 	gic_version >>= PIDR2_ARCH_REV_SHIFT;
 	gic_version &= PIDR2_ARCH_REV_MASK;
 
@@ -134,7 +137,7 @@ void __init gicv3_driver_init(const gicv3_driver_data_t *plat_driver_data)
 	gicv2_compat >>= CTLR_ARE_S_SHIFT;
 	gicv2_compat = gicv2_compat & CTLR_ARE_S_MASK;
 
-	if (plat_driver_data->gicr_base != 0U) {
+	if (plat_driver_data->gicr_base != 0) {
 		/*
 		 * Find the base address of each implemented Redistributor interface.
 		 * The number of interfaces should be equal to the number of CPUs in the
@@ -183,7 +186,7 @@ void __init gicv3_distif_init(void)
 	unsigned int bitmap;
 
 	assert(gicv3_driver_data != NULL);
-	assert(gicv3_driver_data->gicd_base != 0U);
+	assert(gicv3_driver_data->gicd_base != 0);
 
 	assert(IS_IN_EL3());
 
@@ -495,7 +498,7 @@ void gicv3_its_save_disable(uintptr_t gits_base,
 	its_ctx->gits_cbaser = gits_read_cbaser(gits_base);
 	its_ctx->gits_cwriter = gits_read_cwriter(gits_base);
 
-	for (i = 0U; i < ARRAY_SIZE(its_ctx->gits_baser); i++) {
+	for (i = 0; i < ARRAY_SIZE(its_ctx->gits_baser); i++) {
 		its_ctx->gits_baser[i] = gits_read_baser(gits_base, i);
 	}
 }
@@ -525,7 +528,7 @@ void gicv3_its_restore(uintptr_t gits_base,
 	gits_write_cbaser(gits_base, its_ctx->gits_cbaser);
 	gits_write_cwriter(gits_base, its_ctx->gits_cwriter);
 
-	for (i = 0U; i < ARRAY_SIZE(its_ctx->gits_baser); i++) {
+	for (i = 0; i < ARRAY_SIZE(its_ctx->gits_baser); i++) {
 		gits_write_baser(gits_base, i, its_ctx->gits_baser[i]);
 	}
 
