@@ -53,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce3281ca_c5b57ac9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-10-07T14:47:27Z",
+      "side": 1,
+      "message": "It\u0027s an output from the conventional commit linter so I assume it follows the related spec. I admit I don\u0027t find it in https://www.conventionalcommits.org/en/v1.0.0/#specification\nNotice it\u0027s spotted as a warning so this doesn\u0027t block the change to merge.\nI reckon it follows the 50/72 rule commonly used for linux kernel patches.",
+      "parentUuid": "7cf5029b_e866e216",
+      "revId": "788ca0a6dc6b4640805e5b5fd108e18e8f9e292f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5358f6fb_bbdae284",
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "Good idea. Maybe we can put the retry logic inside ufshc_send_uic_cmd(). If it\u0027s okay with you, I\u0027m going to wait for Haojian\u0027s feedback/comments before deciding how to move forward.",
       "parentUuid": "5358f6fb_bbdae284",
+      "range": {
+        "startLine": 112,
+        "startChar": 1,
+        "endLine": 121,
+        "endChar": 14
+      },
+      "revId": "788ca0a6dc6b4640805e5b5fd108e18e8f9e292f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92e2b8a5_66801df5",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-10-07T14:47:27Z",
+      "side": 1,
+      "message": "Yes I\u0027m fine with this.",
+      "parentUuid": "d499ea72_05960b1e",
       "range": {
         "startLine": 112,
         "startChar": 1,
