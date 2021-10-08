@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d566883b_58282103",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-10-08T21:59:42Z",
+      "side": 1,
+      "message": "Can we either have a #define for this special value or use NULL instead? NULL is much more standard for an unused address parameter than ~0.",
+      "range": {
+        "startLine": 401,
+        "startChar": 56,
+        "endLine": 401,
+        "endChar": 58
+      },
+      "revId": "a5c159816e6cc2569625fb1c4b4762355e746d9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ea9b4ba_85c6ba6e",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-10-08T21:59:42Z",
+      "side": 1,
+      "message": "Variable ret is not a boolean type.",
+      "range": {
+        "startLine": 460,
+        "startChar": 6,
+        "endLine": 460,
+        "endChar": 9
+      },
+      "revId": "a5c159816e6cc2569625fb1c4b4762355e746d9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
