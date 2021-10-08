@@ -422,6 +422,9 @@ For Neoverse N2, the following errata build flags are defined :
 -  ``ERRATA_N2_2138953``: This applies errata 2138953 workaround to Neoverse-N2
    CPU. This needs to be enabled for revision r0p0 of the CPU and is still open.
 
+-  ``ERRATA_N2_2242400``: This applies errata 2242400 workaround to Neoverse-N2
+   CPU. This needs to be enabled for revision r0p0 of the CPU and is still open.
+
 DSU Errata Workarounds
 ----------------------
 
