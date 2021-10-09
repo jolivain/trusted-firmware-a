@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6bb5d47_6ed96da0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-10-09T15:01:18Z",
+      "side": 1,
+      "message": "Misunderstanding most likely :-) Madhukar has MR+1 the patch so I\u0027m guessing he is fine with the patch? However, this patch does not have the CO+1 and I\u0027m not seeing it set in the history as that can get lost with a new patch set update. The second patch in the stack does but I did not want to presume it applied here.\n\nI set off a CI run ant that is showing failures, those need to be looked at next week, some what look like real but minor static and commit-lint issues and some others which I\u0027m not sure if they are false positive or not.",
+      "parentUuid": "eb4e4f87_3b0e1319",
+      "revId": "3d1c58fe142ce8c40cee4d508a298b365372a4bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "066744d5_1c38265f",
         "filename": "plat/rockchip/rk3399/drivers/gpio/rk3399_gpio.h",
         "patchSetId": 8
