@@ -16,6 +16,23 @@
       "message": "@Maxim, you have mentioned a dependency for this patch, could you please confirm if that patch is now merged? ",
       "revId": "e33ae780e867cecf883ae68aa5cf3317f09fcfd7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2caa4fd_31996431",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-11T13:12:49Z",
+      "side": 1,
+      "message": "Static check has failed, https://ci.trustedfirmware.org/job/tf-a-commitlint/886/console\n\nRefer to https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#making-changes to update commit msg.",
+      "revId": "e33ae780e867cecf883ae68aa5cf3317f09fcfd7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
