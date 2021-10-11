@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2a8823d_eb9d6fd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2021-10-11T22:15:25Z",
+      "side": 1,
+      "message": "I noticed that some of the tf-ci-gateway tests failed. See https://ci.trustedfirmware.org/job/tf-gerrit-tforg-l1/1355/\n\nSeveral of the validation bot tests also failed. See https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/1355/\n\nAre these failures expected?",
+      "revId": "743cdcb281e507d496e5ea7368d3fe8335afef39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
