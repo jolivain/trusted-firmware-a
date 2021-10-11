@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35170042_f468683e",
+        "filename": "include/drivers/ufs.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2021-10-11T23:15:24Z",
+      "side": 1,
+      "message": "I updated these values to mimic Linux (verified on our platform). See https://elixir.bootlin.com/linux/v5.14.11/source/drivers/scsi/ufs/ufshcd.c#L4525.",
+      "revId": "3571f203d383730f950738c123b18fcba52a3885",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
