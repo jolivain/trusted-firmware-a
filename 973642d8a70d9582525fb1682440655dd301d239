@@ -353,6 +353,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f2742af_0b789988",
+        "filename": "plat/arm/board/fvp/fvp_measured_boot.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-12T16:59:46Z",
+      "side": 1,
+      "message": "It\u0027s more readable and doesn\u0027t depend on PLAT_ARM_EVENT_LOG_MAX_SIZE. Let compiler to calculate the size of buffer.",
+      "parentUuid": "d0775230_ce3434c9",
+      "revId": "973642d8a70d9582525fb1682440655dd301d239",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5505599_5928458f",
@@ -490,6 +508,24 @@
       "side": 1,
       "message": "Not now. We will move it to the build option in the future if needed.",
       "parentUuid": "4f994203_589d1411",
+      "revId": "973642d8a70d9582525fb1682440655dd301d239",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0577bda_0fed815a",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-12T16:59:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a55541e2_f41d0788",
       "revId": "973642d8a70d9582525fb1682440655dd301d239",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
