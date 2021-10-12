@@ -71,6 +71,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5194d3b_63378eaf",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 1482,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-12T14:21:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c7cc019c_66bebee1",
+      "revId": "59556ff10b1e4674d2aedc5cf392cd356e33a526",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7648ea4b_6f432df9",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 7
@@ -88,6 +106,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5522076a_1beb0927",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 1806,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-12T14:21:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7648ea4b_6f432df9",
+      "revId": "59556ff10b1e4674d2aedc5cf392cd356e33a526",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "83855f37_c2f3fddf",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 7
@@ -99,6 +135,24 @@
       "writtenOn": "2021-10-12T14:14:04Z",
       "side": 1,
       "message": "teardown -\u003e finali(s/z)e?",
+      "revId": "59556ff10b1e4674d2aedc5cf392cd356e33a526",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "875ab473_55f1d08f",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 1823,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-12T14:21:44Z",
+      "side": 1,
+      "message": "teardown makes sense right? Platform can use this function to de-iniitialize backend driver(s).",
+      "parentUuid": "83855f37_c2f3fddf",
       "revId": "59556ff10b1e4674d2aedc5cf392cd356e33a526",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
