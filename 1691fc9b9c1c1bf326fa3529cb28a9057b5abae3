@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a021904_741a2239",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-12T15:40:10Z",
+      "side": 1,
+      "message": "Please fix Following static failure \n\n CHECKING STYLE\n\n[*] Checking style of \u00271691fc9b9c1c1bf326fa3529cb28a9057b5abae3\u0027\n\ndrivers/ufs/ufs.c:172: ERROR: open brace \u0027{\u0027 following function definitions go on the next line\n+static int ufshc_dme_link_startup(uintptr_t base) {\n",
+      "revId": "1691fc9b9c1c1bf326fa3529cb28a9057b5abae3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
