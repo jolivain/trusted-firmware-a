@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "944df4f7_61c418e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-12T15:21:30Z",
+      "side": 1,
+      "message": "Thanks for your comments!",
+      "revId": "973642d8a70d9582525fb1682440655dd301d239",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f9c9304_24ab9238",
@@ -31,6 +48,24 @@
       "writtenOn": "2021-10-12T14:04:19Z",
       "side": 1,
       "message": "Add comment that this is the first byte past end of the buffer.",
+      "revId": "973642d8a70d9582525fb1682440655dd301d239",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d20db69_b1a87668",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-12T15:21:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8f9c9304_24ab9238",
       "revId": "973642d8a70d9582525fb1682440655dd301d239",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -54,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8247389e_7f89d263",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-12T15:21:30Z",
+      "side": 1,
+      "message": "Yes, let me update the comment.",
+      "parentUuid": "3b6528c9_a8e5401d",
+      "revId": "973642d8a70d9582525fb1682440655dd301d239",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "729be260_126c08ea",
         "filename": "drivers/measured_boot/event_log/event_log.c",
         "patchSetId": 6
@@ -65,6 +118,24 @@
       "writtenOn": "2021-10-12T14:04:19Z",
       "side": 1,
       "message": "This function will assert if it is called right after event_log_init().",
+      "revId": "973642d8a70d9582525fb1682440655dd301d239",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44559e51_f92df84e",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-12T15:21:30Z",
+      "side": 1,
+      "message": "assert(log_ptr \u003e\u003d event_log_start) will work then. Let me update.",
+      "parentUuid": "729be260_126c08ea",
       "revId": "973642d8a70d9582525fb1682440655dd301d239",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -88,6 +159,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b7a27e1a_0e3c753c",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-12T15:21:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "170dc06c_82a4fd9e",
+      "revId": "973642d8a70d9582525fb1682440655dd301d239",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fd0d63f7_246582f2",
         "filename": "plat/arm/board/fvp/fvp_measured_boot.c",
         "patchSetId": 6
@@ -99,6 +188,24 @@
       "writtenOn": "2021-10-12T14:04:19Z",
       "side": 1,
       "message": "return fvp_event_log_metadata;",
+      "revId": "973642d8a70d9582525fb1682440655dd301d239",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f078b0ad_3d8336b0",
+        "filename": "plat/arm/board/fvp/fvp_measured_boot.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-12T15:21:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fd0d63f7_246582f2",
       "revId": "973642d8a70d9582525fb1682440655dd301d239",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -122,6 +229,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a27e12f_2a190496",
+        "filename": "plat/arm/board/fvp/fvp_measured_boot.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-12T15:21:30Z",
+      "side": 1,
+      "message": "May I know why this is preferred one? I can say it is a choice by developer right?\nBut let me change this to as you mentioned.",
+      "parentUuid": "94644244_824b6ad5",
+      "revId": "973642d8a70d9582525fb1682440655dd301d239",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f5505599_5928458f",
         "filename": "plat/arm/board/fvp/fvp_measured_boot.c",
         "patchSetId": 6
@@ -133,6 +258,24 @@
       "writtenOn": "2021-10-12T14:04:19Z",
       "side": 1,
       "message": "Please put the comments on the same lines with declarations to make code more readable, or add new lines before comments.",
+      "revId": "973642d8a70d9582525fb1682440655dd301d239",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e1e433d_c1c5464e",
+        "filename": "plat/arm/board/fvp/fvp_measured_boot.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-12T15:21:30Z",
+      "side": 1,
+      "message": "Okay, let me add new line before comments.",
+      "parentUuid": "f5505599_5928458f",
       "revId": "973642d8a70d9582525fb1682440655dd301d239",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -156,6 +299,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a13a185_042e1249",
+        "filename": "plat/arm/board/fvp/fvp_measured_boot.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-12T15:21:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8e8a231c_3cdb1520",
+      "revId": "973642d8a70d9582525fb1682440655dd301d239",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f994203_589d1411",
         "filename": "plat/arm/board/fvp/include/platform_def.h",
         "patchSetId": 6
@@ -167,6 +328,24 @@
       "writtenOn": "2021-10-12T14:04:19Z",
       "side": 1,
       "message": "Can it be passed as a build option?",
+      "revId": "973642d8a70d9582525fb1682440655dd301d239",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a55541e2_f41d0788",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-12T15:21:30Z",
+      "side": 1,
+      "message": "Not now. We will move it to the build option in the future if needed.",
+      "parentUuid": "4f994203_589d1411",
       "revId": "973642d8a70d9582525fb1682440655dd301d239",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
