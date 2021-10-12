@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e01a9f5_0181b78b",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-10-12T21:55:09Z",
+      "side": 1,
+      "message": "nitpick: Why is this needed? This helper function is invoked in amu_enable() irrespective of build flags such as AMU_GROUP1_NR_COUNTERS.",
+      "range": {
+        "startLine": 35,
+        "startChar": 14,
+        "endLine": 35,
+        "endChar": 22
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
