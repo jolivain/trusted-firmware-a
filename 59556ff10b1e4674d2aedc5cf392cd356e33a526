@@ -155,6 +155,24 @@
       "parentUuid": "83855f37_c2f3fddf",
       "revId": "59556ff10b1e4674d2aedc5cf392cd356e33a526",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9844a3df_95a5e643",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 1823,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-12T15:12:24Z",
+      "side": 1,
+      "message": "teardown means dismantling. Platform doesn\u0027t de-initialise the driver.",
+      "parentUuid": "875ab473_55f1d08f",
+      "revId": "59556ff10b1e4674d2aedc5cf392cd356e33a526",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
