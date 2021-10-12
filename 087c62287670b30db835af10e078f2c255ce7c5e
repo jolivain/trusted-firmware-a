@@ -16,6 +16,23 @@
       "message": "Hmm... I can\u0027t really see anything in those failures related to this patch, I assume they\u0027re flakes. IIRC for platform patches it should be good enough if we can pass Allow-CI+1.",
       "revId": "087c62287670b30db835af10e078f2c255ce7c5e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed013dca_a63a458d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-10-12T21:51:55Z",
+      "side": 1,
+      "message": "Odd... I think it somehow took the same old CI results again even though I only asked for +1 this time? Let me try to rebase and try again...",
+      "revId": "087c62287670b30db835af10e078f2c255ce7c5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
