@@ -542,6 +542,11 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 					     &len_in_resp);
 		SMC_RET3(handle, status, mbox_status, len_in_resp);
 
+	case INTEL_SIP_SMC_SVC_VERSION:
+		SMC_RET3(handle, INTEL_SIP_SMC_STATUS_OK,
+					SIP_SVC_VERSION_MAJOR,
+					SIP_SVC_VERSION_MINOR);
+
 	default:
 		return socfpga_sip_handler(smc_fid, x1, x2, x3, x4,
 			cookie, handle, flags);
