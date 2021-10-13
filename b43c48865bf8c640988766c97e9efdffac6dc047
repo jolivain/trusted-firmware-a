@@ -22,6 +22,30 @@
       },
       "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db3658c6_32214140",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-13T10:02:02Z",
+      "side": 1,
+      "message": "It was getting quite painful identifying which register access functions were and weren\u0027t used in which contexts within which patches. Quite a lot of them require `__unused` by the last patch, so I\u0027ve applied it to all of them to maintain consistency.",
+      "parentUuid": "3e01a9f5_0181b78b",
+      "range": {
+        "startLine": 35,
+        "startChar": 14,
+        "endLine": 35,
+        "endChar": 22
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
