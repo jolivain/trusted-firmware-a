@@ -50,6 +50,24 @@
       "message": "It took me a bit to wrap my head around it, so can we maybe add a comment here what this does?\n\"Check that the reported SCMI version is same or higher as the driver\u0027s version. We accept higher major version numbers, as all affected protocols so far stay backwards compatible. This might need to be revisited in the future.\"\nOr something like that.",
       "revId": "95896bf14d68ea9461c509a4dfcd12a3abeb77c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d11032b_1ba9c5b4",
+        "filename": "include/drivers/arm/css/scmi.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000505
+      },
+      "writtenOn": "2021-10-13T13:58:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c7a5f2d_38070145",
+      "revId": "95896bf14d68ea9461c509a4dfcd12a3abeb77c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
