@@ -130,8 +130,8 @@ typedef enum {
 #define GPT_L0_IDX_SHIFT		(GPT_S_VAL)
 
 /* Mask for the L0 index field, must be shifted. */
-#define GPT_L0_IDX_MASK(_t)		(0xFFFFFFFFFFFFFFFFUL >> \
-					(64U - (GPT_L0_IDX_WIDTH(_t))))
+#define GPT_L0_IDX_MASK(_t)		(0x3FFFFFUL >> (22U - \
+					(GPT_L0_IDX_WIDTH(_t))))
 
 /* Total number of L0 regions. */
 #define GPT_L0_REGION_COUNT(_t)		((GPT_L0_IDX_MASK(_t)) + 1U)
@@ -153,8 +153,8 @@ typedef enum {
 #define GPT_L1_IDX_SHIFT(_p)		((_p) + 4U)
 
 /* Mask for the L1 index field, must be shifted. */
-#define GPT_L1_IDX_MASK(_p)		(0xFFFFFFFFFFFFFFFFUL >> \
-					(64U - (GPT_L1_IDX_WIDTH(_p))))
+#define GPT_L1_IDX_MASK(_p)		(0x7FFFFFUL >> (23U - \
+					(GPT_L1_IDX_WIDTH(_p))))
 
 /* Bit shift for the index of the L1 GPI in a PA. */
 #define GPT_L1_GPI_IDX_SHIFT(_p)	(_p)
