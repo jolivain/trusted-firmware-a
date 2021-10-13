@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24a74a92_d42b26f3",
+        "filename": "include/drivers/arm/css/scmi.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-10-13T16:52:40Z",
+      "side": 1,
+      "message": "Did you mean higher? Line 35 checks if driver major version is higher than scmi",
+      "range": {
+        "startLine": 30,
+        "startChar": 22,
+        "endLine": 30,
+        "endChar": 27
+      },
+      "revId": "dcc1ed4d2cf81082f608dfeeac025e6c226497a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
