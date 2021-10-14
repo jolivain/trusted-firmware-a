@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c78ac9f_10eefe5e",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-10-14T16:10:32Z",
+      "side": 1,
+      "message": "As you mentioned in commit message, only a few PSCI calls are allowed from secure world such as PSCI_FEATURES. However, with this change, it looks like you are allowing unrestricted access to all PSCI calls when invoked from secure world.",
+      "revId": "b759ef088a5d7fc483d59d6a926c629ffb2cd268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
