@@ -33,6 +33,40 @@
       "message": "No overlap between test failures from the OpenCI and the internal CI - looks like CI instability.",
       "revId": "4caa4943c5597e283286aaa298064387c3e60bb8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd67891f_25511da1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 43
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-10-14T20:02:44Z",
+      "side": 1,
+      "message": "OK!",
+      "revId": "4caa4943c5597e283286aaa298064387c3e60bb8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41f59414_75180ca9",
+        "filename": "fdts/tc.dts",
+        "patchSetId": 43
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-10-14T20:02:44Z",
+      "side": 1,
+      "message": "Not sure about the blank lines here, but I don\u0027t perceive that as super-important, so I\u0027ll mark it as resolved.",
+      "revId": "4caa4943c5597e283286aaa298064387c3e60bb8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
