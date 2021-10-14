@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "766bde46_a98af861",
+        "filename": "lib/gpt_rme/gpt_rme_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-14T14:43:59Z",
+      "side": 1,
+      "message": "I didn\u0027t understand by looking at this how this value was derived. Suggest to add a comment here:\nMax t value - min S value \u003d 22.",
+      "range": {
+        "startLine": 133,
+        "startChar": 44,
+        "endLine": 133,
+        "endChar": 50
+      },
+      "revId": "c6be5c7d665cae64f2c8f49e926fb1168b5c45e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b33378bc_9a6f38c8",
+        "filename": "lib/gpt_rme/gpt_rme_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-14T14:43:59Z",
+      "side": 1,
+      "message": "Here also, would like to see how 32 and the mask is calculated in the comments for this macro.",
+      "revId": "c6be5c7d665cae64f2c8f49e926fb1168b5c45e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
