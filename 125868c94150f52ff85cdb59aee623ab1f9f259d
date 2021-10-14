@@ -16,6 +16,23 @@
       "message": "Thanks for the fixes, the comment is much better than my version!",
       "revId": "125868c94150f52ff85cdb59aee623ab1f9f259d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5dfefc5_e636d285",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-10-14T09:35:58Z",
+      "side": 1,
+      "message": "\u003e Patch Set 3: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 1392 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/1392/)\n\u003e Some tests failed (3)\n\nVerified by booting on an N1SDP with older SCP firmware (advertising v1.0).\nWith the current master branch the boot stops at:\nWARNING: SCMI power domain protocol version 0x10000 incompatible with driver version 0x20000\nERROR:   SCMI Initialization failed on channel 0\nAfter applying the patch everything works fine:\nINFO:    Initializing driver on Channel 0\nINFO:    SCMI driver initialized\n",
+      "revId": "125868c94150f52ff85cdb59aee623ab1f9f259d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
