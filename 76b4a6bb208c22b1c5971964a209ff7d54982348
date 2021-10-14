@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eca71f3_0f1ee42d",
+        "filename": "plat/arm/board/tc/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-10-14T15:25:17Z",
+      "side": 1,
+      "message": "Why is this different from the first NS region using TZC_REGION_S_RDWR line 268?\n\nARM_TZC_NS_DRAM_S_ACCESS seems to resolve to TZC_REGION_S_NONE when Cryptocell is unused?",
+      "range": {
+        "startLine": 272,
+        "startChar": 2,
+        "endLine": 272,
+        "endChar": 26
+      },
+      "revId": "76b4a6bb208c22b1c5971964a209ff7d54982348",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
