@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "baa58dc6_6b9110b5",
+        "filename": "lib/extensions/amu/aarch32/amu.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-14T11:25:46Z",
+      "side": 1,
+      "message": "Replaced with the helper call.",
+      "parentUuid": "464cf99d_1f662dbc",
+      "revId": "6043fd1bd60e660d1810c896e58ecac09bce8949",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f64028a_91f8c10c",
@@ -351,6 +369,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7276dd04_758a5a3a",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-14T11:25:46Z",
+      "side": 1,
+      "message": "Preferring MISRA guidelines.",
+      "parentUuid": "57deacd2_02714b62",
+      "revId": "6043fd1bd60e660d1810c896e58ecac09bce8949",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2978cd2_55660c80",
@@ -382,6 +418,24 @@
       "side": 1,
       "message": "Ack, as above",
       "parentUuid": "e2978cd2_55660c80",
+      "revId": "6043fd1bd60e660d1810c896e58ecac09bce8949",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bb90119_98a66cc8",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-14T11:25:46Z",
+      "side": 1,
+      "message": "As above",
+      "parentUuid": "57c5acac_12363e6a",
       "revId": "6043fd1bd60e660d1810c896e58ecac09bce8949",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -678,6 +732,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d088c4e_ac8e0bb2",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-14T11:25:46Z",
+      "side": 1,
+      "message": "Resolving as this comment is not attached to any changed code.",
+      "parentUuid": "fc223e93_1c3e8af7",
+      "revId": "6043fd1bd60e660d1810c896e58ecac09bce8949",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3e3bdb9_a329aa07",
@@ -748,6 +820,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64162992_a3d5bf4b",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-14T11:25:46Z",
+      "side": 1,
+      "message": "As above.",
+      "parentUuid": "3c21b0e6_b5814376",
+      "revId": "6043fd1bd60e660d1810c896e58ecac09bce8949",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1941362b_0192853a",
@@ -779,6 +869,24 @@
       "side": 1,
       "message": "Ack, as above",
       "parentUuid": "1941362b_0192853a",
+      "revId": "6043fd1bd60e660d1810c896e58ecac09bce8949",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "667b1ff0_385b7536",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-14T11:25:46Z",
+      "side": 1,
+      "message": "As above.",
+      "parentUuid": "16f25f96_a6ea6613",
       "revId": "6043fd1bd60e660d1810c896e58ecac09bce8949",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
