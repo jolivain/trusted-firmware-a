@@ -63,6 +63,259 @@
       },
       "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a66d5fc_d6f3bac5",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-10-14T20:30:41Z",
+      "side": 1,
+      "message": "amu_supported() \u003d\u003d 0U",
+      "range": {
+        "startLine": 156,
+        "startChar": 6,
+        "endLine": 156,
+        "endChar": 21
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61b83331_934c882f",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-10-14T20:30:41Z",
+      "side": 1,
+      "message": "amu_group1_supported() \u003d\u003d 0U",
+      "range": {
+        "startLine": 162,
+        "startChar": 6,
+        "endLine": 162,
+        "endChar": 28
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d82f7411_cbd68d03",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-10-14T20:30:41Z",
+      "side": 1,
+      "message": "amu_v1p1_supported() \u003d\u003d 0U",
+      "range": {
+        "startLine": 205,
+        "startChar": 6,
+        "endLine": 205,
+        "endChar": 26
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4785f9bb_b06e4c44",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-10-14T20:30:41Z",
+      "side": 1,
+      "message": "el2_unused !\u003d 0U",
+      "range": {
+        "startLine": 209,
+        "startChar": 5,
+        "endLine": 209,
+        "endChar": 15
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6048615_6444d200",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-10-14T20:30:41Z",
+      "side": 1,
+      "message": "amu_supported() !\u003d 0U",
+      "range": {
+        "startLine": 338,
+        "startChar": 6,
+        "endLine": 338,
+        "endChar": 21
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e65fbf92_c51bb6c3",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-10-14T20:30:41Z",
+      "side": 1,
+      "message": "amu_group1_supported() \u003d\u003d 0U",
+      "range": {
+        "startLine": 343,
+        "startChar": 6,
+        "endLine": 343,
+        "endChar": 28
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3542facf_e705bff5",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-10-14T20:30:41Z",
+      "side": 1,
+      "message": "amu_v1p1_supported() !\u003d 0U",
+      "range": {
+        "startLine": 370,
+        "startChar": 5,
+        "endLine": 370,
+        "endChar": 25
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bd390ad_de1cbcdc",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-10-14T20:30:41Z",
+      "side": 1,
+      "message": "amu_v1p1_supported() !\u003d 0U",
+      "range": {
+        "startLine": 386,
+        "startChar": 5,
+        "endLine": 386,
+        "endChar": 25
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abf31c5f_1311962d",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-10-14T20:30:41Z",
+      "side": 1,
+      "message": "amu_supported() \u003d\u003d 0U",
+      "range": {
+        "startLine": 406,
+        "startChar": 6,
+        "endLine": 406,
+        "endChar": 21
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5f3f671_bc21e19d",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-10-14T20:30:41Z",
+      "side": 1,
+      "message": "amu_v1p1_supported() !\u003d 0U",
+      "range": {
+        "startLine": 428,
+        "startChar": 5,
+        "endLine": 428,
+        "endChar": 25
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b118bde_833b96a1",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-10-14T20:30:41Z",
+      "side": 1,
+      "message": "amu_v1p1_supported() !\u003d 0U",
+      "range": {
+        "startLine": 447,
+        "startChar": 5,
+        "endLine": 447,
+        "endChar": 25
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
