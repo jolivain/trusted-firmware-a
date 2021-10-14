@@ -16,6 +16,40 @@
       "message": "CI check failure is a coding style failure for an earlier patch. No other test failures.",
       "revId": "8dbc09e78701bceba0cd4e5185c8fc40fd885c43",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aabc9a0b_7361e0da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-10-14T22:16:42Z",
+      "side": 1,
+      "message": "I\u0027ll leave this as a question (neither +1 nor -1).",
+      "revId": "8dbc09e78701bceba0cd4e5185c8fc40fd885c43",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fe33df3_045c50b9",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-10-14T22:16:42Z",
+      "side": 1,
+      "message": "Does it make sense to add some () here to make the order of operations crystal clear?",
+      "revId": "8dbc09e78701bceba0cd4e5185c8fc40fd885c43",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
