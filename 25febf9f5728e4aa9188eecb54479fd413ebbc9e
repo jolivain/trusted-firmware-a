@@ -198,6 +198,24 @@
       "parentUuid": "2fe91155_7292dd45",
       "revId": "25febf9f5728e4aa9188eecb54479fd413ebbc9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e4517a7_04acce5f",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-10-14T19:08:32Z",
+      "side": 1,
+      "message": "Hi Abhyuday\nI am looking at stdbool.h. I dont think true is defined as 1. It is defined as a comparison that is guaranteed to return a bool true. Same observation for false.\n\n#define true    (0 \u003c 1)\n#define false   (0 \u003e 1)",
+      "parentUuid": "39b2c1cc_a970e10f",
+      "revId": "25febf9f5728e4aa9188eecb54479fd413ebbc9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
