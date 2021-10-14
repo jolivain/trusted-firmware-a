@@ -13,6 +13,8 @@ VERSION_MINOR			:= 5
 # Default goal is build all images
 .DEFAULT_GOAL			:= all
 
+# **************** TEST PATCH TO FIX OPEN CI ISSUES ****************
+
 # Avoid any implicit propagation of command line variable definitions to
 # sub-Makefiles, like CFLAGS that we reserved for the firmware images'
 # usage. Other command line options like "-s" are still propagated as usual.
