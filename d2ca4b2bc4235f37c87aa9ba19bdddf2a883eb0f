@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bec656e0_439985c6",
+        "filename": "plat/xilinx/versal/pm_service/pm_api_sys.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000534
+      },
+      "writtenOn": "2021-10-14T17:13:41Z",
+      "side": 1,
+      "message": "This covered in separate patch https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10986",
+      "parentUuid": "63a383ae_29759374",
+      "range": {
+        "startLine": 376,
+        "startChar": 6,
+        "endLine": 376,
+        "endChar": 37
+      },
+      "revId": "d2ca4b2bc4235f37c87aa9ba19bdddf2a883eb0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4ebf2263_454e35f5",
         "filename": "plat/xilinx/versal/pm_service/pm_client.c",
         "patchSetId": 3
@@ -54,6 +78,30 @@
       "writtenOn": "2021-10-05T18:55:42Z",
       "side": 1,
       "message": "reg \u003d\u003d 0",
+      "range": {
+        "startLine": 131,
+        "startChar": 7,
+        "endLine": 131,
+        "endChar": 10
+      },
+      "revId": "d2ca4b2bc4235f37c87aa9ba19bdddf2a883eb0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af13375c_6348cbba",
+        "filename": "plat/xilinx/versal/pm_service/pm_client.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000534
+      },
+      "writtenOn": "2021-10-14T17:13:41Z",
+      "side": 1,
+      "message": "This covered in separate patch https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10986",
+      "parentUuid": "4ebf2263_454e35f5",
       "range": {
         "startLine": 131,
         "startChar": 7,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "74e60928_a4bce9c5",
+        "filename": "plat/xilinx/versal/pm_service/pm_client.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000534
+      },
+      "writtenOn": "2021-10-14T17:13:41Z",
+      "side": 1,
+      "message": "This covered in separate patch https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10986",
+      "parentUuid": "8fa06db4_cd80b17d",
+      "range": {
+        "startLine": 135,
+        "startChar": 9,
+        "endLine": 135,
+        "endChar": 12
+      },
+      "revId": "d2ca4b2bc4235f37c87aa9ba19bdddf2a883eb0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce1772f4_8ec244e1",
         "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
         "patchSetId": 3
@@ -100,6 +172,30 @@
       "writtenOn": "2021-10-05T18:55:42Z",
       "side": 1,
       "message": "pm_up \u003d\u003d 0",
+      "range": {
+        "startLine": 141,
+        "startChar": 6,
+        "endLine": 141,
+        "endChar": 11
+      },
+      "revId": "d2ca4b2bc4235f37c87aa9ba19bdddf2a883eb0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e83969e_cb8ca60b",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000534
+      },
+      "writtenOn": "2021-10-14T17:13:41Z",
+      "side": 1,
+      "message": "This covered in separate patch https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10986",
+      "parentUuid": "ce1772f4_8ec244e1",
       "range": {
         "startLine": 141,
         "startChar": 6,
