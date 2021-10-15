@@ -127,6 +127,30 @@
       },
       "revId": "fdee17c80ffa9fbd4d76610b3b8488e2f61eb447",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f03848d_e284428e",
+        "filename": "services/std_svc/sdei/sdei_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-15T12:38:12Z",
+      "side": 1,
+      "message": "Section 5.1.2.1 of spec says\nFor a shared event, SDEI_EVENT_REGISTER registers the handler globally for the calling\nclient. For a private event, this call only registers the handler for the calling PE.\nSection 5.1.2.2 says \nRouting mode is valid only for a shared event. For a private event, the routing mode is ignored This specification requires the support of the following routing modes,\n• RM_ANY : The event is routed to any PE in the system.\n• RM_PE : The event is routed to a single PE as specified by the affinity argument.\nAlso, affinity is only valid for shared events.\n\nConsidering above two points, since we are changing this event to type RM_PE, its logical to attach with mpidr.\nOne change i recommend is not to have if (mpidr \u003d\u003d 0) check (it\u0027s not mandated to pass mpidr as 0 from caller\u0027s side)\n\n\tif (is_event_private(map)) {\n\t\tflags \u003d SDEI_REGF_RM_PE;\n                mpidr \u003d read_mpidr_el1();\n}",
+      "parentUuid": "02f2686e_7f32b994",
+      "range": {
+        "startLine": 365,
+        "startChar": 5,
+        "endLine": 366,
+        "endChar": 10
+      },
+      "revId": "fdee17c80ffa9fbd4d76610b3b8488e2f61eb447",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
