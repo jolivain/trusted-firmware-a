@@ -16,6 +16,24 @@
       "message": "As you mentioned in commit message, only a few PSCI calls are allowed from secure world such as PSCI_FEATURES. However, with this change, it looks like you are allowing unrestricted access to all PSCI calls when invoked from secure world.",
       "revId": "b759ef088a5d7fc483d59d6a926c629ffb2cd268",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58e7e8de_8692f6d1",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2021-10-15T12:46:23Z",
+      "side": 1,
+      "message": "Yes, it seems to me that there is some ambiguity in the PSCI and SMCCC specifications due to the introduction of SMCCC v1.1.\n\nThe PSCI specification ([1]) explicitly states that PSCI functions should only be available to normal world (introduction to section 5):\n\n\"PSCI functions can only be called from the Normal world\"\n\nwhich matches the currently implemented behavior.\n\nHowever, SMCCC v1.1 specification ([2]) introduces SMCCC_ARCH_WORKAROUND_1 and SMCCC_ARCH_WORKAROUND_2 to counter CVE-2017-5715 and CVE-2018-3639. According to appendix B of [2], the presence of these SMCs should be discovered using PSCI_VERSION and PSCI_FEATURES. It seems logical that secure software can invoke SMCCC_ARCH_WORKAROUND_1 and SMCCC_ARCH_WORKAROUND_2 and this is actually what our SP does (disabling and re-enabling MMU at S-EL1 to counter CVE-2017-5715 cannot be easily done). Moreover, SMCCC specification does not say anything about these SMCs being reserved for normal world.\n\nWhat is your opinion about this? Should we statically configure our SP to know about the implementation status of SMCCC_ARCH_WORKAROUND_1 and SMCCC_ARCH_WORKAROUND_2? Or should we lift the limitation in the BL31 to allow secure world to call PSCI_VERSION ans PSCI_FEATURES?\n\nThank you.\n\n[1] https://developer.arm.com/documentation/den0022/latest/\n[2] https://developer.arm.com/documentation/den0028/latest/",
+      "parentUuid": "6c78ac9f_10eefe5e",
+      "revId": "b759ef088a5d7fc483d59d6a926c629ffb2cd268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
