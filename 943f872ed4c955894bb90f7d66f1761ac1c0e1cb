@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efe25321_d6d9c183",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-15T10:00:25Z",
+      "side": 1,
+      "message": "The guidelines, are \n1. If you change the Copy right Year, you should keep the original year, \"2017-21\"\n2. Its better to change copyright year only if you are doing a major rework, if its a small fix(like this) then you can safely ignore it.\n\nSo, for your patch you should be alright with leaving it as original one or changing it to 2017-21. (but you can\u0027t have 2021 which means the file is created in 2021).\nSorry for confusion, but once you do it, your patches should be ready to be merged.",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "943f872ed4c955894bb90f7d66f1761ac1c0e1cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
