@@ -430,11 +430,19 @@
 		 * includes the data and NOBITS sections. This is done to
 		 * safeguard against possible corruption of this memory by
 		 * dirty cache lines in a system cache as a result of use by
-		 * an earlier boot loader stage.
+		 * an earlier boot loader stage. If PIE is enabled however,
+		 * RO sections including the GOT may be modified during
+                 * pie fixup. Therefore, to be on the safe side, invalidate
+		 * the entire image region if PIE is enabled.
 		 * -------------------------------------------------------------
 		 */
+#if ENABLE_PIE
+		adrp	x0, __TEXT_START__
+		add	x0, x0, :lo12:__TEXT_START__
+#else
 		adrp	x0, __RW_START__
 		add	x0, x0, :lo12:__RW_START__
+#endif
 		adrp	x1, __RW_END__
 		add	x1, x1, :lo12:__RW_END__
 		sub	x1, x1, x0
