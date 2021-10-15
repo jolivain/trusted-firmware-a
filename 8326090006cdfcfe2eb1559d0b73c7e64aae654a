@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcf13adc_1e64b3b9",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-15T16:38:00Z",
+      "side": 1,
+      "message": "Yep, that\u0027s a limitation of the macro. Here\u0027s the prototype for these functions:\n\n    typedef void* (*pubsub_cb_t)(const void *arg);\n\nIt should be passed a `NULL` value for all events that don\u0027t pass an argument, which includes PSCI suspend power down/up.",
+      "parentUuid": "46fb93e4_a52a2d31",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 352,
+        "endChar": 46
+      },
+      "revId": "8326090006cdfcfe2eb1559d0b73c7e64aae654a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb839078_da4c8cf2",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-10-15T13:27:28Z",
       "side": 1,
       "message": "No magic numbers, please",
+      "range": {
+        "startLine": 422,
+        "startChar": 28,
+        "endLine": 422,
+        "endChar": 30
+      },
+      "revId": "8326090006cdfcfe2eb1559d0b73c7e64aae654a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24e4f9e5_559227fc",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-15T16:38:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bb839078_da4c8cf2",
       "range": {
         "startLine": 422,
         "startChar": 28,
@@ -87,6 +135,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "909a0899_39da383f",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-15T16:38:00Z",
+      "side": 1,
+      "message": "I agree, but it\u0027s the style used across the codebase for these subscribers. There\u0027s no documentation on the semantics of the return value, and it\u0027s ignored by the pubsub framework anyway, so I\u0027ve chosen to just continue with the pre-existing scheme in case I\u0027ve not fully understood what\u0027s going on.",
+      "parentUuid": "3d914048_6f637d20",
+      "range": {
+        "startLine": 443,
+        "startChar": 8,
+        "endLine": 443,
+        "endChar": 17
+      },
+      "revId": "8326090006cdfcfe2eb1559d0b73c7e64aae654a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfc4ba9f_5be4ba15",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-10-15T13:27:28Z",
       "side": 1,
       "message": "same concerns as the save routine",
+      "range": {
+        "startLine": 446,
+        "startChar": 13,
+        "endLine": 446,
+        "endChar": 32
+      },
+      "revId": "8326090006cdfcfe2eb1559d0b73c7e64aae654a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "856789bd_a4641ea7",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-15T16:38:00Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "dfc4ba9f_5be4ba15",
       "range": {
         "startLine": 446,
         "startChar": 13,
