@@ -22,6 +22,30 @@
       },
       "revId": "9e78ba12e517e3b62d4fa2730cd7d173f08961b9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9972f26e_8071ea8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-15T15:16:18Z",
+      "side": 1,
+      "message": "It\u0027s introduced as part of the same feature integration, so while not the same commit precisely it should be part of the same merge commit.\n\nThe paragraph is explicitly anticipatory for one other reason: the `BREAKING CHANGE` footer is a part of the Conventional Commits specification, and changelog generator tooling will append this paragraph to the list of breaking changes. As such, it should be read not so much in the context of the current commit specifically, but in the context of the whole feature integration/pull request/merge commit.\n\nI can add some extra detail to the commit message to justify it and make reference to the commits further up the stack if that helps?",
+      "parentUuid": "805a1f98_e7e3046b",
+      "range": {
+        "startLine": 14,
+        "startChar": 18,
+        "endLine": 15,
+        "endChar": 56
+      },
+      "revId": "9e78ba12e517e3b62d4fa2730cd7d173f08961b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
