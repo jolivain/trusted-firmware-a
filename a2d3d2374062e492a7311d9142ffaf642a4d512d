@@ -56,6 +56,30 @@
       },
       "revId": "a2d3d2374062e492a7311d9142ffaf642a4d512d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4e713e6_2a8a98e1",
+        "filename": "common/fdt_wrappers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-15T15:25:55Z",
+      "side": 1,
+      "message": "Yes, we treat an error from the callback as fatal. The primary reason for that is that if we continue and another iteration of the loop fails with a different error, we would either have to choose which iteration\u0027s error we bubble up, or choose a single error code to represent all failures.\n\nWe could avoid this by passing the result of the previous iteration of the loop to the next iteration\u0027s callback and allow it to decide what to do, but I think this is *generally* sufficient, and any DTB corruption is likely to be fatal anyway.",
+      "parentUuid": "182ece0f_ca7e6800",
+      "range": {
+        "startLine": 578,
+        "startChar": 54,
+        "endLine": 579,
+        "endChar": 74
+      },
+      "revId": "a2d3d2374062e492a7311d9142ffaf642a4d512d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
