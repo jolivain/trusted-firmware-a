@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f37f30f_b83f046c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-10-15T08:45:01Z",
+      "side": 1,
+      "message": "Generic question: Why do we need uint64_t for writing one bit?",
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e01a9f5_0181b78b",
@@ -60,6 +77,99 @@
         "startChar": 14,
         "endLine": 35,
         "endChar": 22
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a0412a_e298520e",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-10-15T08:45:01Z",
+      "side": 1,
+      "message": "Why do we need uint64_t for writing one bit?",
+      "range": {
+        "startLine": 35,
+        "startChar": 47,
+        "endLine": 35,
+        "endChar": 61
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d6b91c6_ff4c9c12",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-10-15T08:45:01Z",
+      "side": 1,
+      "message": "I agree. It is always a good design choice to reduce human intervention and let the tools do all the work. With the __unused usage, the linker will take care of removing the code from the final image and we dont have to litter the code with #if \u003cFEATURE_ENABLED\u003e conditions.",
+      "parentUuid": "db3658c6_32214140",
+      "range": {
+        "startLine": 35,
+        "startChar": 14,
+        "endLine": 35,
+        "endChar": 22
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b587759_9b8048df",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-10-15T08:45:01Z",
+      "side": 1,
+      "message": "Why do we need uint64_t for writing one bit?",
+      "range": {
+        "startLine": 41,
+        "startChar": 67,
+        "endLine": 41,
+        "endChar": 79
+      },
+      "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a397b5f_85b24fcf",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-10-15T08:45:01Z",
+      "side": 1,
+      "message": "Why do we need uint64_t for writing one bit?",
+      "range": {
+        "startLine": 51,
+        "startChar": 51,
+        "endLine": 51,
+        "endChar": 65
       },
       "revId": "b43c48865bf8c640988766c97e9efdffac6dc047",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
