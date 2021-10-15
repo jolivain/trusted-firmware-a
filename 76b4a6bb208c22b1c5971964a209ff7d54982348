@@ -22,6 +22,30 @@
       },
       "revId": "76b4a6bb208c22b1c5971964a209ff7d54982348",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d16a0d72_ea121c40",
+        "filename": "plat/arm/board/tc/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000181
+      },
+      "writtenOn": "2021-10-15T09:38:58Z",
+      "side": 1,
+      "message": "The first entry is for the last 48MB of DRAM1 used for secure world/SCP so should only allow secure read/write access.\n\nThe new entry is the same as the 2nd entry. Both 2nd and 3rd entry need access from non secure world world, the entries are the same as those used in FVP for normal world. \n\nARM_TZC_NS_DRAM_S_ACCESS does resolve to TZC_REGION_S_NONE as only the first entry is where secure world/scp access happen.",
+      "parentUuid": "1eca71f3_0f1ee42d",
+      "range": {
+        "startLine": 272,
+        "startChar": 2,
+        "endLine": 272,
+        "endChar": 26
+      },
+      "revId": "76b4a6bb208c22b1c5971964a209ff7d54982348",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
