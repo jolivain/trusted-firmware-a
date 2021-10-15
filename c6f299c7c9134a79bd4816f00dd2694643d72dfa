@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb189329_ab5b1350",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-10-15T13:27:28Z",
+      "side": 0,
+      "message": "I wonder why these functions were removed. It is less error prone to place the checks and register reads in one function.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 6
+      },
+      "revId": "c6f299c7c9134a79bd4816f00dd2694643d72dfa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

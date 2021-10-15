@@ -16,6 +16,98 @@
       "message": "CI check failure is a coding style failure for an earlier patch. No other test failures.",
       "revId": "8326090006cdfcfe2eb1559d0b73c7e64aae654a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46fb93e4_a52a2d31",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-10-15T13:27:28Z",
+      "side": 1,
+      "message": "arg is unused in the function. May I propose a simpler interface? - static bool amu_context_save(void). Or it this a limitation of the SUBSCRIBE_TO_EVENT macro?",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 352,
+        "endChar": 46
+      },
+      "revId": "8326090006cdfcfe2eb1559d0b73c7e64aae654a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb839078_da4c8cf2",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-10-15T13:27:28Z",
+      "side": 1,
+      "message": "No magic numbers, please",
+      "range": {
+        "startLine": 422,
+        "startChar": 28,
+        "endLine": 422,
+        "endChar": 30
+      },
+      "revId": "8326090006cdfcfe2eb1559d0b73c7e64aae654a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d914048_6f637d20",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-10-15T13:27:28Z",
+      "side": 1,
+      "message": "I find this a bit odd. We usually return NULL to indicate errors, but here we are using it to indicate success.",
+      "range": {
+        "startLine": 443,
+        "startChar": 8,
+        "endLine": 443,
+        "endChar": 17
+      },
+      "revId": "8326090006cdfcfe2eb1559d0b73c7e64aae654a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfc4ba9f_5be4ba15",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2021-10-15T13:27:28Z",
+      "side": 1,
+      "message": "same concerns as the save routine",
+      "range": {
+        "startLine": 446,
+        "startChar": 13,
+        "endLine": 446,
+        "endChar": 32
+      },
+      "revId": "8326090006cdfcfe2eb1559d0b73c7e64aae654a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
