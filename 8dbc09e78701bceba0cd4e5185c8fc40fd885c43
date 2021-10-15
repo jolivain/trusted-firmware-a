@@ -50,6 +50,24 @@
       "message": "Does it make sense to add some () here to make the order of operations crystal clear?",
       "revId": "8dbc09e78701bceba0cd4e5185c8fc40fd885c43",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3ddb477_83682133",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-15T10:39:52Z",
+      "side": 1,
+      "message": "The shift is already parenthesised to delimit it from the subtraction, so the order of operations here is explicit (shift first, then subtract), unless you mean parentheses around something else?",
+      "parentUuid": "6fe33df3_045c50b9",
+      "revId": "8dbc09e78701bceba0cd4e5185c8fc40fd885c43",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
