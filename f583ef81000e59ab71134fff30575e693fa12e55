@@ -39,6 +39,30 @@
       },
       "revId": "f583ef81000e59ab71134fff30575e693fa12e55",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46b19d9a_00de3c80",
+        "filename": "lib/extensions/amu/amu_fconf.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-15T14:58:15Z",
+      "side": 1,
+      "message": "`amu_topology_populated_` is of `bool` type.",
+      "parentUuid": "07cf9340_14f4efe1",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 29
+      },
+      "revId": "f583ef81000e59ab71134fff30575e693fa12e55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
