@@ -34,6 +34,24 @@
       "parentUuid": "6c78ac9f_10eefe5e",
       "revId": "b759ef088a5d7fc483d59d6a926c629ffb2cd268",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f20e805_6d773e58",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-10-15T17:54:37Z",
+      "side": 1,
+      "message": "Hi Florian\nYes, I think you are right that there is some ambiguity in the spec.\nSMCCC_ARCH_WORKAROUND_1 needs SMCCC_ARCH_FEATURES to know if it\u0027s supported; SMCCC_ARCH_FEATURES needs PSCI_FEATURES to know if its implemented; PSCI_FEATURES needs PSCI_VERSION to know if it\u0027s supported.\n\nOn a relevant note, SMCCC spec also says that, apart from discovering via PSCI_fEATURES, the software can rely on two other mechanisms to discover SMCCC_VERSION\n1) built-in knowledge of firmware implementation. We know TF-A implements SMCCC v1.1 extensions. \n2) Use fdt. TF-A passes various firmware configuration dtbs to BL32(TrustedOS).\n\nCan\u0027t ProvenCore OS use these two mechanisms?\n\nI am just thinking out loud. Also, SMCCC_ARCH_WORKAROUND_1 and SMCCC_ARCH_WORKAROUND_2 are applied by default during boot by TF-A BL31[Note-1]. Why does secure software need to invoke these workarounds again? If I am not mistaken, applying these workarounds through SMC call may be futile[Note-2].\n\n[Note-1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/cpus/cpu-ops.mk#n24\n[Note-2] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/services/arm_arch_svc/arm_arch_svc_setup.c#n129\n\nPlease let me know your thoughts.",
+      "parentUuid": "58e7e8de_8692f6d1",
+      "revId": "b759ef088a5d7fc483d59d6a926c629ffb2cd268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
