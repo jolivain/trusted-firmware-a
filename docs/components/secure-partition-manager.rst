@@ -919,6 +919,27 @@ streams.
    Fault handling, Performance Monitor Extensions, Event Handling, MPAM.
 -  No support for independent peripheral devices.
 
+S-EL0 Parition support
+-------------------------
+The SPMC (Hafnium) has limited capaibility to run S-EL0 FF-A partitions using
+FEAT_VHE (mandatory with ARMv8.1).
+S-EL0 partitions may be useful for simple partitions that don't require full
+Trusted OS functionality. It may also be useful to reduce jitter and cycle
+stealing from normal world since they are more lightweight than VMs.
+S-EL0 partitions are presented, loaded and initialized the same as S-EL1 VMs by
+the SPMC. They are differentiated primarily by the 'exception-level' property
+and the 'execution-ctx-count' property in the SP manifest.
+S-EL0 partitions are required by the FF-A specification to be UP endpoints,
+capable of migrating, and the SPMC enforces this requirement. The SPMC allows
+a S-EL0 partition to accept a direct message from secure world and normal world,
+and generate direct responses to them.
+Memory sharing between and with S-EL0 partitions is supported.
+Indirect messaging, Interrupt handling and Notifications are not supported with
+S-EL0 partitions and is work in progress, planned for future releases.
+All S-EL0 partitions must use AArch64. AArch32 S-EL0 partitions are not
+supported.
+
+
 References
 ==========
 
