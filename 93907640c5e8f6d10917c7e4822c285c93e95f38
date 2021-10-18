@@ -22,6 +22,30 @@
       },
       "revId": "93907640c5e8f6d10917c7e4822c285c93e95f38",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b026cd3_f66718b2",
+        "filename": "lib/cpus/aarch64/neoverse_v1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-10-18T22:29:17Z",
+      "side": 1,
+      "message": "I meant to remove that comment due to it just being confusing. Will push another patch set shortly.",
+      "parentUuid": "1aa96456_d12b319e",
+      "range": {
+        "startLine": 307,
+        "startChar": 36,
+        "endLine": 307,
+        "endChar": 40
+      },
+      "revId": "93907640c5e8f6d10917c7e4822c285c93e95f38",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
