@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bcb8ea3_e20bd787",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-10-18T07:59:06Z",
+      "side": 1,
+      "message": "Hi Zelalem,\nI\u0027ve made one remark in the code, and I also wonder if the same should be done for aarch32?\n\nThanks,\nYann",
+      "revId": "f62a0dabf35860e00d7676a00bbbe73320e773c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf6ad923_3e34e5a7",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-10-18T07:59:06Z",
+      "side": 1,
+      "message": "This is only defined with SEPARATE_CODE_AND_RODATA. You may have something like this:\n\n\n#if ENABLE_PIE\n#if SEPARATE_CODE_AND_RODATA\n\t\tadrp\tx0, __TEXT_START__\n\t\tadd\tx0, x0, :lo12:__TEXT_START__\n#else /* SEPARATE_CODE_AND_RODATA */\n\t\tadrp\tx0, __RO_START__\n\t\tadd\tx0, x0, :lo12:__RO_START__\n#endif /* SEPARATE_CODE_AND_RODATA */\n#else /* ENABLE_PIE */",
+      "revId": "f62a0dabf35860e00d7676a00bbbe73320e773c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
