@@ -124,6 +124,24 @@
       "parentUuid": "95d75ebb_f1732275",
       "revId": "b759ef088a5d7fc483d59d6a926c629ffb2cd268",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b167225_081d9b55",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2021-10-19T11:54:38Z",
+      "side": 1,
+      "message": "I get your point and, from our point of view, statically configuring ProvenCore to match the implemented features in the firmware is perfectly fine.\n\nI\u0027d like to give a little bit of context to share our point of view about how tightly coupled the TOS and firmware should be: ProvenCore OS is a preemptive micro-kernel with formally proven security properties in terms of isolation of its applications. Although it provides some general purpose OS features (IPCs, dynamic allocation, etc.), its simplicity and hardened security make it best fitted for being used as a TOS. However, it is also able to run standalone (in normal world) as a general purpose OS. Also, we maintain a custom implementation of a minimal firmware which is interchangeable with TF-A from the point of view of ProvenCore. Furthermore, ProvenCore has been ported on other architectures, such as RISC-V where some of the TF-A functionalities are implemented by the M-mode software (OpenSBI for instance). So, from our point of view (which may differ from TF-A\u0027s), there is a limit to how tightly coupled firmware and TOS should be. This is why I have been reluctant to using boot params passed from TF-A and prefer to use a ProvenCore static configuration, which would still be needed to specify whether we should expect boot params from firmware or not.",
+      "parentUuid": "f747b0f6_13b9eaf5",
+      "revId": "b759ef088a5d7fc483d59d6a926c629ffb2cd268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
