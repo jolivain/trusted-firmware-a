@@ -262,4 +262,26 @@ static inline bool ffa_is_normal_world_id(uint16_t id)
 	return !ffa_is_secure_world_id(id);
 }
 
+
+/******************************************************************************
+ * Name value size tuple descriptor to pass boot information as per the FF-A
+ * v1.1 spec.
+ *****************************************************************************/
+typedef struct ffa_name_value_sz_tuple {
+	uint32_t name[4];
+	uint64_t value;
+	uint64_t size;
+} ffa_nvs_tuple_t;
+
+/******************************************************************************
+ * Initialization descriptor that contains an array of ffa_name_value_sz_tuples
+ * as per the FF-A v1.1 spec.
+ *****************************************************************************/
+struct ffa_init_desc {
+	uint32_t magic; /* FF-A */
+	uint32_t count; /* Count of name value size pairs */
+	ffa_nvs_tuple_t nvp[]; /* Array of name value size pairs */
+};
+
+#define FFA_INIT_DESC_MAGIC	0x00000ffa
 #endif /* FFA_SVC_H */
