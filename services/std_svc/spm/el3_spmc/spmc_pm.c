@@ -45,6 +45,7 @@ static void spmc_cpu_on_finish_handler(u_register_t unused)
 	unsigned int linear_id = plat_my_core_pos();
 	entry_point_info_t sec_ec_ep_info = {0};
 	uint64_t rc;
+	int32_t boot_info_reg = -1;
 
 	/* Sanity check for a NULL pointer dereference */
 	assert(sp != NULL);
@@ -69,8 +70,8 @@ static void spmc_cpu_on_finish_handler(u_register_t unused)
 	/*
 	 * Setup and initialise the SP execution context on this physical cpu.
 	 */
-	spmc_sp_common_setup(sp, &sec_ec_ep_info);
-	spmc_el1_sp_setup(sp, &sec_ec_ep_info);
+	spmc_sp_common_setup(sp, &sec_ec_ep_info, boot_info_reg);
+	spmc_el1_sp_setup(sp, &sec_ec_ep_info, boot_info_reg);
 	spmc_sp_common_ep_commit(sp, &sec_ec_ep_info);
 
 	/* Obtain a reference to the SP execution context */
