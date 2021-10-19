@@ -106,6 +106,24 @@
       "parentUuid": "cd7053fc_5ba0b29d",
       "revId": "b759ef088a5d7fc483d59d6a926c629ffb2cd268",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f747b0f6_13b9eaf5",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-10-19T10:03:27Z",
+      "side": 1,
+      "message": "Calling PSCI functions from the secure side (or SEL1) shall be discouraged to my opinion. As said it contradicts the PSCI standard itself. IIUC the code snippet in SMCCC Appendix B relates to execution from the normal world. There is no other way for the normal world to know about firmware capabilities. Whereas TOS and (TF-A) firmware are close companions so a TOS \u0027statically knows\u0027 which firmware version it runs on to. Eventually the SPD can communicate the built in SMCCC version when entering the TOS through boot parms. Notice SMCCC_VERSION and SMCCC_ARCH_FEATURES are mandatory from SMCCCv1.1 (which is the point of probing for Spectre/Meltdown mitigation services). Provided TF-A advertises support for SMCCCv1.2, I guess it\u0027s just safe to call them straight without invoking any PSCI service.",
+      "parentUuid": "95d75ebb_f1732275",
+      "revId": "b759ef088a5d7fc483d59d6a926c629ffb2cd268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
