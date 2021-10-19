@@ -16,6 +16,24 @@
       "message": "Hi, can you please rebase to tip of the tree? Thanks.",
       "revId": "1ca333aa9b149a4f99b258e649be15dbc0e0aa74",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80f661ef_446757bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-19T16:11:34Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this patch after recent Measured Boot driver refactoring, but @Jells please let me know what do you think? Thanks!",
+      "parentUuid": "6bc9bffb_bdcd9c7e",
+      "revId": "1ca333aa9b149a4f99b258e649be15dbc0e0aa74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
