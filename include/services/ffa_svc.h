@@ -267,4 +267,42 @@ static inline bool ffa_is_normal_world_id(uint16_t id)
 	return !ffa_is_secure_world_id(id);
 }
 
+
+/******************************************************************************
+ * Boot information protocol as per the FF-A v1.1 spec.
+ *****************************************************************************/
+#define FFA_BOOT_INFO_TYPE_STD			U(0 << 7)
+#define FFA_BOOT_INFO_TYPE_IMPL			U(1 << 7)
+
+#define FFA_BOOT_INFO_TYPE_FDT			U(0 << 0)
+#define FFA_BOOT_INFO_TYPE_HOB			U(1 << 0)
+
+#define FFA_BOOT_INFO_FLAG_NAME_STRING		U(0 << 0)
+#define FFA_BOOT_INFO_FLAG_NAME_UUID		U(1 << 0)
+
+#define FFA_BOOT_INFO_FLAG_CONTENT_ADR		U(0 << 2)
+#define FFA_BOOT_INFO_FLAG_CONTENT_VAL		U(1 << 2)
+
+/* Boot information descriptor. */
+struct ffa_boot_info_desc {
+	uint32_t name[4];
+	uint8_t type;
+	uint8_t reserved;
+	uint16_t flags;
+	uint32_t size_boot_info;
+	uint64_t content;
+};
+
+/* Boot information header. */
+struct ffa_boot_info_header {
+	uint32_t magic; /* 0xFFA */
+	uint32_t version;
+	uint32_t size_boot_info_blob;
+	uint32_t size_boot_info_desc;
+	uint32_t count_boot_info_desc;
+	uint32_t offset_boot_info_desc;
+	uint64_t reserved;
+};
+
+#define FFA_INIT_DESC_MAGIC	0x00000ffa
 #endif /* FFA_SVC_H */
