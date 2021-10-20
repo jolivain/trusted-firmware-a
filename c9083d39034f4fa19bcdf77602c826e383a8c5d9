@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ec47ca8_a0564242",
+        "filename": "Makefile",
+        "patchSetId": 43
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-20T12:27:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ea6875f2_613551fa",
+      "range": {
+        "startLine": 1091,
+        "startChar": 0,
+        "endLine": 1092,
+        "endChar": 27
+      },
+      "revId": "c9083d39034f4fa19bcdf77602c826e383a8c5d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a33e328a_225f0023",
@@ -61,6 +85,30 @@
       "writtenOn": "2021-10-19T16:26:48Z",
       "side": 1,
       "message": "I think better not to guard includes with #define if possible.",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "c9083d39034f4fa19bcdf77602c826e383a8c5d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63c2aafc_617315c8",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-20T12:27:05Z",
+      "side": 1,
+      "message": "Is there a particular reason? This helped quite a lot during development, as it would trigger a compilation error if any part of this file attempted to use any part of AMU_FCONF or MPMM when they weren\u0027t enabled. Without wrapping the include there\u0027s no way to do this short of wrapping everything inside `mpmm.h` in an even bigger #if.",
+      "parentUuid": "a33e328a_225f0023",
       "range": {
         "startLine": 26,
         "startChar": 4,
@@ -96,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "20a898cb_dfbb7f28",
+        "filename": "lib/mpmm/mpmm.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-20T12:27:05Z",
+      "side": 1,
+      "message": "Ack, discussion continued in `amu.c`",
+      "parentUuid": "d4616f55_4fecb045",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 21
+      },
+      "revId": "c9083d39034f4fa19bcdf77602c826e383a8c5d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19196f69_d5bb3ac8",
         "filename": "lib/mpmm/mpmm.c",
         "patchSetId": 43
@@ -107,6 +179,30 @@
       "writtenOn": "2021-10-19T16:26:48Z",
       "side": 1,
       "message": "nit: can we directly call mpmm_supported() instead?",
+      "range": {
+        "startLine": 69,
+        "startChar": 5,
+        "endLine": 69,
+        "endChar": 14
+      },
+      "revId": "c9083d39034f4fa19bcdf77602c826e383a8c5d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b18d604f_d0be43c4",
+        "filename": "lib/mpmm/mpmm.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-20T12:27:05Z",
+      "side": 1,
+      "message": "I\u0027ve left this function call out of the controlling expression because `mpmm_supported()` can have side-effects, and I think it\u0027s generally inadvisable to combine a call with side-effects and a controlling expression. MISRA has a rule against using expressions with side-effects on the right-hand side of an \u0026\u0026 or || expression only, but I\u0027m erring on the side of caution here in case anybody comes along and makes modifications later.",
+      "parentUuid": "19196f69_d5bb3ac8",
       "range": {
         "startLine": 69,
         "startChar": 5,
@@ -130,6 +226,30 @@
       "writtenOn": "2021-10-19T16:26:48Z",
       "side": 1,
       "message": "Can we document this flag also?",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 17
+      },
+      "revId": "c9083d39034f4fa19bcdf77602c826e383a8c5d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90b1ab1a_9c4ec041",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 43
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-20T12:27:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "092c22dc_43a31446",
       "range": {
         "startLine": 103,
         "startChar": 0,
