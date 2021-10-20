@@ -16,6 +16,24 @@
       "message": "\u003e Patch Set 3:\n\u003e \n\u003e Build created: 1428 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/1428/)\n\nNew source files have been identified in your patch..\ndrivers/usb/usb_device.c\nplat/st/common/usb_dfu.c\n\nDid you add a build options in tf-cov-make script to cover the compilation of these newly added files? ",
       "revId": "84263655093459828cf3b40ae3bf0e1bf2f50ee7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7592e223_2192af22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-10-20T18:38:51Z",
+      "side": 1,
+      "message": "I guess its this one: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/11493",
+      "parentUuid": "86464b41_0a01a767",
+      "revId": "84263655093459828cf3b40ae3bf0e1bf2f50ee7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
