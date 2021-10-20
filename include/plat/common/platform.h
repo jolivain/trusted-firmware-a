@@ -124,9 +124,17 @@ int plat_try_next_boot_source(void);
 
 #if MEASURED_BOOT
 int plat_mboot_measure_image(unsigned int image_id, image_info_t *image_data);
+int plat_mboot_measure_critical_data(unsigned int image_id, const void *base,
+				     size_t size);
 #else
 static inline int plat_mboot_measure_image(unsigned int image_id __unused,
 					   image_info_t *image_data __unused)
+{
+	return 0;
+}
+int plat_mboot_measure_critical_data(unsigned int image_id __unused,
+				     const void *base __unused,
+				     size_t size __unused)
 {
 	return 0;
 }
