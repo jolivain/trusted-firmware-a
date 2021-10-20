@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee600923_727d0ac5",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-20T13:35:54Z",
+      "side": 1,
+      "message": "\u003e Is there a particular reason? This helped quite a lot during development, \nIMO it is good to have such wrapping while experimenting with the code, but the final version should be free of such #ifs for header inclusion. There is no particular reason, but only I think from code readability PoV. Also, in general including these un-necessary headers (when feature is disabled) does not harm the program size IMO.\n\n\u003e as it would trigger a compilation error if any part of this file attempted to use any part of AMU_FCONF or MPMM when they weren\u0027t enabled. \nAgree but this can be done during the development of the features only, once the code is ready we should look towards how to minimize #def\u0027ry.\nThis is just minor comment and I\u0027m fine even if you keep this conditional inclusion. May be others can provide more thought on this.\n\n\u003e Without wrapping the include there\u0027s no way to do this short of wrapping everything inside `mpmm.h` in an even bigger #if.",
+      "parentUuid": "63c2aafc_617315c8",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "c9083d39034f4fa19bcdf77602c826e383a8c5d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d4616f55_4fecb045",
         "filename": "lib/mpmm/mpmm.c",
         "patchSetId": 43
