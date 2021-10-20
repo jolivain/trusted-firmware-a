@@ -16,6 +16,24 @@
       "message": "There is similar file introduced for FVP_R platform (el2_common_macros.S), It\u0027s not urgent to fix in this patch as there are already a clean up patch for FVP_R under revie. https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/11934\n\n",
       "revId": "596d20d9e4d50c02b5a0cce8cad2a1c205cd687a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e853307b_01f75379",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-10-20T16:02:59Z",
+      "side": 1,
+      "message": "I looked at that file but I couldn\u0027t find a similar cache invalidation operation.",
+      "parentUuid": "1e3b6651_91e68870",
+      "revId": "596d20d9e4d50c02b5a0cce8cad2a1c205cd687a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
