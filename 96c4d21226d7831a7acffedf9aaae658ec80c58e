@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c3304d2_06a0eff0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-20T13:47:38Z",
+      "side": 1,
+      "message": "Quite a lot of build failures because of usage of llx/lld, replacing all the occurrence of these will be a lot of work.\n\nBTW, i am trying understand your motive behind this change. Looking at earlier comments it appears that the reason for this change was\n1) Code is not portable.  Code with printf format specifiers for 64_t types will not recompile when ported to/from ATF.\n2) Static analysis tools get confused.  We get parse errors when running coverity scan analysis on ATF due to a different type of stdint type for uint64_t.\n\nWhere do you want to port it. TF-A code is meant for Arm (32/64 bit) and its working perfectly fine.\nAlso, https://developer.arm.com/documentation/den0024/a/Porting-to-A64/Data-types does not mentions about not using long long for Aarch64.\n\nRegarding coverity scan, we also use it in our CI, it would be interesting to look at the errors you are mentioning.\n",
+      "revId": "96c4d21226d7831a7acffedf9aaae658ec80c58e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
