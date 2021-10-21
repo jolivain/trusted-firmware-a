@@ -1000,6 +1000,150 @@ static int gpt_check_transition_gpi(unsigned int src_sec_state,
 	return 0;
 }
 
+static inline int gpt_get_nse(uint64_t *nse, unsigned int target_gpi)
+{
+	switch (target_gpi) {
+	  case GPT_GPI_SECURE:
+	    *nse = GPT_NSE_SECURE;
+	    break;
+	  case GPT_GPI_NS:
+	    *nse = GPT_NSE_NS;
+	    break;
+	  case GPT_GPI_ROOT:
+	    *nse = GPT_NSE_ROOT;
+	    break;
+	  case GPT_GPI_REALM:
+	    *nse = GPT_NSE_REALM;
+	    break;
+	  default:
+	    VERBOSE("[GPT] Invalid Target PAS!\n");
+	    return -EPERM;
+	}
+	*nse <<= 62;
+	return 0;
+}
+
+static inline void write_gpt(uint64_t *gpt_l1_desc, uint64_t *gpt_l1_addr,
+		      unsigned int gpi_shift, int idx, unsigned int target_pas)
+{
+	*gpt_l1_desc &= ~(GPT_L1_GRAN_DESC_GPI_MASK << gpi_shift);
+	*gpt_l1_desc |= ((uint64_t)target_pas << gpi_shift);
+	gpt_l1_addr[idx] = *gpt_l1_desc;
+
+	return;
+}
+
+static inline void gpt_transition_delegate(unsigned int gpi_shift,
+				    unsigned int target_gpi,
+				    uint64_t base,
+				    uint64_t *gpt_l1_desc,
+				    uint64_t *gpt_l1_addr,
+				    int idx)
+{
+	int res;
+	uint64_t nse = 0;
+	unsigned int i = 0;
+
+	res = gpt_get_nse(&nse, target_gpi);
+	if (res != 0) {
+	  return;
+	}
+
+	/*
+	 * In order to maintain mutual distrust between Realm and Secure
+	 * states, remove any data speculatively fetched into the target
+	 * physical address space.
+	 */
+	for (i = 0;
+	     i < GPT_PGS_ACTUAL_SIZE(gpt_config.p);
+	     i += CACHE_WRITEBACK_GRANULE) {
+	  do_dcache_maintenance_by_pa_to_popa(nse | (base + i));
+	}
+	dsbosh();
+
+	write_gpt(gpt_l1_desc, gpt_l1_addr, gpi_shift, idx, target_gpi);
+	dsboshst();
+
+	gpt_tlbi_by_pa(base, GPT_PGS_ACTUAL_SIZE(gpt_config.p));
+	dsbosh();
+
+	nse = 0;
+	res = gpt_get_nse(&nse, GPT_GPI_NS);
+	if (res != 0) {
+	  return;
+	}
+	for (i = 0;
+	     i < GPT_PGS_ACTUAL_SIZE(gpt_config.p);
+	     i += CACHE_WRITEBACK_GRANULE) {
+	  do_dcache_maintenance_by_pa_to_popa(nse | (base + i));
+	}
+	dsbosh();
+
+	return;
+}
+
+static inline void gpt_transition_undelegate(unsigned int gpi_shift,
+				      unsigned int gpi,
+				      uint64_t base,
+				      uint64_t *gpt_l1_desc,
+				      uint64_t *gpt_l1_addr,
+				      int idx)
+{
+	int res;
+	uint64_t nse = 0;
+	unsigned int i = 0;
+
+	/*
+	 * In order to maintain mutual distrust between Realm and Secure
+	 * states, remove access now, in order to guarantee that writes
+	 * to the currently-accessible physical address space will not
+	 * later become observable.
+	 */
+	write_gpt(gpt_l1_desc, gpt_l1_addr, gpi_shift, idx, GPT_GPI_NO_ACCESS);
+	dsboshst();
+
+	gpt_tlbi_by_pa(base, GPT_PGS_ACTUAL_SIZE(gpt_config.p));
+	dsbosh();
+
+	res = gpt_get_nse(&nse, gpi);
+	if (res != 0) {
+	  return;
+	}
+
+	/* Ensure that the scrubbed data has made it past the PoPA */
+	for (i = 0;
+	     i < GPT_PGS_ACTUAL_SIZE(gpt_config.p);
+	     i += CACHE_WRITEBACK_GRANULE) {
+	  do_dcache_maintenance_by_pa_to_popa(nse | (base + i));
+	}
+	dsbosh();
+
+	/*
+	 * Remove any data loaded speculatively
+	 * in NS space from before the scrubbing
+	 */
+	nse = 0;
+	res = gpt_get_nse(&nse, GPT_GPI_NS);
+	if (res != 0) {
+	  return;
+	}
+	for (i = 0;
+	     i < GPT_PGS_ACTUAL_SIZE(gpt_config.p);
+	     i += CACHE_WRITEBACK_GRANULE) {
+	  do_dcache_maintenance_by_pa_to_popa(nse | (base + i));
+	}
+	dsbosh();
+
+	/* Clear existing GPI encoding and transition granule. */
+	write_gpt(gpt_l1_desc, gpt_l1_addr, gpi_shift, idx, GPT_GPI_NS);
+	dsboshst();
+
+	/* Ensure that all agents observe the new NS configuration */
+	gpt_tlbi_by_pa(base, GPT_PGS_ACTUAL_SIZE(gpt_config.p));
+	dsbosh();
+	return;
+}
+
 /*
  * This function is the core of the granule transition service. When a granule
  * transition request occurs it is routed to this function where the request is
@@ -1095,19 +1239,28 @@ int gpt_transition_pas(uint64_t base, size_t size, unsigned int src_sec_state,
 		return -EPERM;
 	}
 
-	/* Clear existing GPI encoding and transition granule. */
-	gpt_l1_desc &= ~(GPT_L1_GRAN_DESC_GPI_MASK << gpi_shift);
-	gpt_l1_desc |= ((uint64_t)target_pas << gpi_shift);
-	gpt_l1_addr[idx] = gpt_l1_desc;
-
-	/* Ensure that the write operation will be observed by GPC */
-	dsbishst();
+	if (gpi == GPT_GPI_NS && target_pas == GPT_GPI_REALM) {
+	  gpt_transition_delegate(gpi_shift,
+				  target_pas,
+				  base,
+				  &gpt_l1_desc,
+				  gpt_l1_addr,
+				  idx);
+	} else if  (gpi == GPT_GPI_REALM && target_pas == GPT_GPI_NS) {
+	  gpt_transition_undelegate(gpi_shift,
+				    gpi,
+				    base,
+				    &gpt_l1_desc,
+				    gpt_l1_addr,
+				    idx);
+	} else {
+	  spin_unlock(&gpt_lock);
+	  VERBOSE("[GPT] Unknown transition\n");
+	  return -EINVAL;
+	}
 
 	/* Unlock access to the L1 tables. */
 	spin_unlock(&gpt_lock);
-
-	gpt_tlbi_by_pa(base, GPT_PGS_ACTUAL_SIZE(gpt_config.p));
-	dsbishst();
 	/*
 	 * The isb() will be done as part of context
 	 * synchronization when returning to lower EL

@@ -238,6 +238,8 @@ void disable_mmu_icache_el1(void);
 void disable_mmu_icache_el3(void);
 void disable_mpu_icache_el2(void);
 
+void do_dcache_maintenance_by_pa_to_popa(uint64_t op);
+
 /*******************************************************************************
  * Misc. accessor prototypes
  ******************************************************************************/
@@ -274,8 +276,10 @@ DEFINE_SYSOP_TYPE_FUNC(dmb, sy)
 DEFINE_SYSOP_TYPE_FUNC(dmb, st)
 DEFINE_SYSOP_TYPE_FUNC(dmb, ld)
 DEFINE_SYSOP_TYPE_FUNC(dsb, ish)
+DEFINE_SYSOP_TYPE_FUNC(dsb, osh)
 DEFINE_SYSOP_TYPE_FUNC(dsb, nsh)
 DEFINE_SYSOP_TYPE_FUNC(dsb, ishst)
+DEFINE_SYSOP_TYPE_FUNC(dsb, oshst)
 DEFINE_SYSOP_TYPE_FUNC(dmb, oshld)
 DEFINE_SYSOP_TYPE_FUNC(dmb, oshst)
 DEFINE_SYSOP_TYPE_FUNC(dmb, osh)

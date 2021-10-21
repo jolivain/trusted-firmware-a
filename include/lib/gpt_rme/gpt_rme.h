@@ -35,6 +35,11 @@ typedef struct pas_region {
 #define GPT_GPI_ANY			U(0xF)
 #define GPT_GPI_VAL_MASK		UL(0xF)
 
+#define GPT_NSE_SECURE			U(0b00)
+#define GPT_NSE_NS			U(0b01)
+#define GPT_NSE_ROOT			U(0b10)
+#define GPT_NSE_REALM			U(0b11)
+
 /* PAS attribute GPI definitions. */
 #define GPT_PAS_ATTR_GPI_SHIFT		U(0)
 #define GPT_PAS_ATTR_GPI_MASK		U(0xF)
