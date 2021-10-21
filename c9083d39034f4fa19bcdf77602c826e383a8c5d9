@@ -143,6 +143,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ba457c3_dc81cef0",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-21T16:29:25Z",
+      "side": 1,
+      "message": "I\u0027m not sure I could ever consider any code to not be under development to be honest - this is, after all, refactoring code that somebody presumably thought was complete at some point. I think unless there\u0027s an alternative solution it\u0027s best to leave this as is, in case we have to revisit this code again in the future (which is quite possible, as there are still AMU things we don\u0027t support, like setting the counter event type).",
+      "parentUuid": "ee600923_727d0ac5",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "c9083d39034f4fa19bcdf77602c826e383a8c5d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4616f55_4fecb045",
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "Ack, discussion continued in `amu.c`",
       "parentUuid": "d4616f55_4fecb045",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 21
+      },
+      "revId": "c9083d39034f4fa19bcdf77602c826e383a8c5d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5394c0a2_cdb419e0",
+        "filename": "lib/mpmm/mpmm.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-21T16:29:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20a898cb_dfbb7f28",
       "range": {
         "startLine": 14,
         "startChar": 0,
