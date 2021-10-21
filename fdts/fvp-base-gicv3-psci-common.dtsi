@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -25,7 +25,7 @@
 	#size-cells = <2>;
 
 #if (ENABLE_RME == 1)
-	chosen { bootargs = "mem=1G console=ttyAMA0 earlycon=pl011,0x1c090000 root=/dev/vda ip=on";};
+	chosen { bootargs = "mem=1G console=ttyAMA0 earlycon=pl011,0x1c090000 root=/dev/vda ip=off";};
 #else
 	chosen {};
 #endif
@@ -115,18 +115,18 @@
 				compatible = "arm,idle-state";
 				local-timer-stop;
 				arm,psci-suspend-param = <0x0010000>;
-				entry-latency-us = <40>;
-				exit-latency-us = <100>;
-				min-residency-us = <150>;
+				entry-latency-us = <4000>;
+				exit-latency-us = <10000>;
+				min-residency-us = <15000>;
 			};
 
 			CLUSTER_SLEEP_0: cluster-sleep-0 {
 				compatible = "arm,idle-state";
 				local-timer-stop;
 				arm,psci-suspend-param = <0x1010000>;
-				entry-latency-us = <500>;
-				exit-latency-us = <1000>;
-				min-residency-us = <2500>;
+				entry-latency-us = <50000>;
+				exit-latency-us = <100000>;
+				min-residency-us = <250000>;
 			};
 		};
 
