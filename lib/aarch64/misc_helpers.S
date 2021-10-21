@@ -607,7 +607,7 @@ func gpt_tlbi_by_pa
 	ASM_ASSERT(eq)
 #endif
 	lsr	x0, x0, #FOUR_KB_SHIFT	/* 4KB size encoding is zero */
-	sys	#6, c8, c4, #3, x0 	/* TLBI RPAOS, <Xt> */
+	sys	#6, c8, c4, #7, x0 	/* TLBI RPALOS, <Xt> */
 	dsb	sy
 	ret
 endfunc gpt_tlbi_by_pa
