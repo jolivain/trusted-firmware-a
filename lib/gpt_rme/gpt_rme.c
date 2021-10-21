@@ -1000,8 +1000,105 @@ static int gpt_check_transition_gpi(unsigned int src_sec_state,
 	return 0;
 }
 
+static inline int gpt_get_nse(uint64_t *nse, unsigned int target_gpi)
+{
+	switch (target_gpi) {
+	case GPT_GPI_SECURE:
+	    *nse = GPT_NSE_SECURE;
+	break;
+	case GPT_GPI_NS:
+	    *nse = GPT_NSE_NS;
+	break;
+	case GPT_GPI_ROOT:
+	    *nse = GPT_NSE_ROOT;
+	break;
+	case GPT_GPI_REALM:
+	    *nse = GPT_NSE_REALM;
+	break;
+	default:
+	    VERBOSE("[GPT] Invalid Target PAS!\n");
+	return -EPERM;
+	}
+	*nse <<= 62;
+	return 0;
+}
+
+static inline void write_gpt(uint64_t *gpt_l1_desc, uint64_t *gpt_l1_addr,
+		      unsigned int gpi_shift, int idx, unsigned int target_pas)
+{
+	*gpt_l1_desc &= ~(GPT_L1_GRAN_DESC_GPI_MASK << gpi_shift);
+	*gpt_l1_desc |= ((uint64_t)target_pas << gpi_shift);
+	gpt_l1_addr[idx] = *gpt_l1_desc;
+
+	return;
+}
+
+#define GPT_GENERIC_CHECKS do { \
+  	/* Ensure that the tables have been set up before taking requests. */   \
+	assert(gpt_config.plat_gpt_l0_base != 0U);				\
+										\
+	/* Ensure that MMU and caches are enabled. */				\
+	assert((read_sctlr_el3() & SCTLR_C_BIT) != 0U);				\
+										\
+	/* Check for address range overflow. */					\
+	if ((ULONG_MAX - base) < size) {					\
+		VERBOSE("[GPT] Transition request address overflow!\n");	\
+		VERBOSE("      Base=0x%llx\n", base);				\
+		VERBOSE("      Size=0x%lx\n", size);				\
+		return -EINVAL;							\
+	}									\
+										\
+	/* Make sure base and size are valid. */				\
+	if (((base & (GPT_PGS_ACTUAL_SIZE(gpt_config.p) - 1)) != 0U) ||		\
+	    ((size & (GPT_PGS_ACTUAL_SIZE(gpt_config.p) - 1)) != 0U) ||		\
+	    (size == 0U) ||							\
+	    ((base + size) >= GPT_PPS_ACTUAL_SIZE(gpt_config.t))) {		\
+		VERBOSE("[GPT] Invalid granule transition address range!\n");	\
+		VERBOSE("      Base=0x%llx\n", base);				\
+		VERBOSE("      Size=0x%lx\n", size);				\
+		return -EINVAL;							\
+	}									\
+										\
+	/* See if this is a single or a range of granule transition. */		\
+	if (size != GPT_PGS_ACTUAL_SIZE(gpt_config.p)) {			\
+		panic();							\
+	}									\
+	} while(0)
+
+#define GET_GPI_SHIFT do {							\
+	/* Get the L0 descriptor and make sure it is for a table. */		\
+	gpt_l0_base = (uint64_t *)gpt_config.plat_gpt_l0_base;			\
+	gpt_l0_desc = gpt_l0_base[GPT_L0_IDX(base)];				\
+	if (GPT_L0_TYPE(gpt_l0_desc) != GPT_L0_TYPE_TBL_DESC) {			\
+		VERBOSE("[GPT] Granule is not covered by a table descr!\n");	\
+		VERBOSE("      Base=0x%llx\n", base);				\
+		return -EINVAL;							\
+	}									\
+										\
+	/* Get the table index and GPI shift from PA. */			\
+	gpt_l1_addr = GPT_L0_TBLD_ADDR(gpt_l0_desc);				\
+	idx = GPT_L1_IDX(gpt_config.p, base);					\
+	gpi_shift = GPT_L1_GPI_IDX(gpt_config.p, base) << 2;			\
+	} while(0)
+
+#define GET_GPI do {								\
+	gpt_l1_desc = gpt_l1_addr[idx];						\
+	gpi = (gpt_l1_desc >> gpi_shift) & GPT_L1_GRAN_DESC_GPI_MASK;		\
+	} while(0)
+
+#define GPT_TRANSITION_CHECKS(target_pas) do {					\
+	/* Make sure caller state and source/target PAS are allowed. */		\
+	if (gpt_check_transition_gpi(src_sec_state, gpi, (target_pas)) < 0) {	\
+		spin_unlock(&gpt_lock);						\
+			VERBOSE("[GPT] Invalid caller state and PAS combo!\n");	\
+		VERBOSE("      Caller: %u, Current GPI: %u, Target GPI: %u\n",	\
+			src_sec_state, gpi, target_pas);			\
+		return -EPERM;							\
+	}									\
+	} while(0)
+
 /*
- * This function is the core of the granule transition service. When a granule
+ * This function is the granule transition delegate service. When a granule
  * transition request occurs it is routed to this function where the request is
  * validated then fulfilled if possible.
  *
@@ -1013,13 +1110,11 @@ static int gpt_check_transition_gpi(unsigned int src_sec_state,
  *   size		Size of region to transition, must be aligned to granule
  *			size.
  *   src_sec_state	Security state of the caller.
- *   target_pas		Target PAS of the specified memory region.
  *
  * Return
  *    Negative Linux error code in the event of a failure, 0 for success.
  */
-int gpt_transition_pas(uint64_t base, size_t size, unsigned int src_sec_state,
-	unsigned int target_pas)
+int gpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
 {
 	int idx;
 	unsigned int gpi_shift;
@@ -1028,92 +1123,166 @@ int gpt_transition_pas(uint64_t base, size_t size, unsigned int src_sec_state,
 	uint64_t gpt_l1_desc;
 	uint64_t *gpt_l1_addr;
 	uint64_t *gpt_l0_base;
+	int res;
+	uint64_t nse = 0;
+	unsigned int i = 0;
 
-	/* Ensure that the tables have been set up before taking requests. */
-	assert(gpt_config.plat_gpt_l0_base != 0U);
-
-	/* Ensure that MMU and caches are enabled. */
-	assert((read_sctlr_el3() & SCTLR_C_BIT) != 0U);
-
-	/* Check for address range overflow. */
-	if ((ULONG_MAX - base) < size) {
-		VERBOSE("[GPT] Transition request address overflow!\n");
-		VERBOSE("      Base=0x%llx\n", base);
-		VERBOSE("      Size=0x%lx\n", size);
-		return -EINVAL;
-	}
-
-	/* Make sure base and size are valid. */
-	if (((base & (GPT_PGS_ACTUAL_SIZE(gpt_config.p) - 1)) != 0U) ||
-	    ((size & (GPT_PGS_ACTUAL_SIZE(gpt_config.p) - 1)) != 0U) ||
-	    (size == 0U) ||
-	    ((base + size) >= GPT_PPS_ACTUAL_SIZE(gpt_config.t))) {
-		VERBOSE("[GPT] Invalid granule transition address range!\n");
-		VERBOSE("      Base=0x%llx\n", base);
-		VERBOSE("      Size=0x%lx\n", size);
-		return -EINVAL;
-	}
-
-	/* See if this is a single granule transition or a range of granules. */
-	if (size != GPT_PGS_ACTUAL_SIZE(gpt_config.p)) {
-		/*
-		 * TODO: Add support for transitioning multiple granules with a
-		 * single call to this function.
-		 */
-		panic();
-	}
-
-	/* Get the L0 descriptor and make sure it is for a table. */
-	gpt_l0_base = (uint64_t *)gpt_config.plat_gpt_l0_base;
-	gpt_l0_desc = gpt_l0_base[GPT_L0_IDX(base)];
-	if (GPT_L0_TYPE(gpt_l0_desc) != GPT_L0_TYPE_TBL_DESC) {
-		VERBOSE("[GPT] Granule is not covered by a table descriptor!\n");
-		VERBOSE("      Base=0x%llx\n", base);
-		return -EINVAL;
-	}
-
-	/* Get the table index and GPI shift from PA. */
-	gpt_l1_addr = GPT_L0_TBLD_ADDR(gpt_l0_desc);
-	idx = GPT_L1_IDX(gpt_config.p, base);
-	gpi_shift = GPT_L1_GPI_IDX(gpt_config.p, base) << 2;
-
+	GPT_GENERIC_CHECKS;
+	GET_GPI_SHIFT;
 	/*
 	 * Access to L1 tables is controlled by a global lock to ensure
 	 * that no more than one CPU is allowed to make changes at any
 	 * given time.
 	 */
 	spin_lock(&gpt_lock);
-	gpt_l1_desc = gpt_l1_addr[idx];
-	gpi = (gpt_l1_desc >> gpi_shift) & GPT_L1_GRAN_DESC_GPI_MASK;
+	GET_GPI;
+	GPT_TRANSITION_CHECKS(GPT_GPI_REALM);
 
-	/* Make sure caller state and source/target PAS are allowed. */
-	if (gpt_check_transition_gpi(src_sec_state, gpi, target_pas) < 0) {
-		spin_unlock(&gpt_lock);
-			VERBOSE("[GPT] Invalid caller state and PAS combo!\n");
-		VERBOSE("      Caller: %u, Current GPI: %u, Target GPI: %u\n",
-			src_sec_state, gpi, target_pas);
-		return -EPERM;
+	res = gpt_get_nse(&nse, GPT_GPI_REALM);
+	if (res != 0) {
+	  return -EINVAL;
 	}
 
-	/* Clear existing GPI encoding and transition granule. */
-	gpt_l1_desc &= ~(GPT_L1_GRAN_DESC_GPI_MASK << gpi_shift);
-	gpt_l1_desc |= ((uint64_t)target_pas << gpi_shift);
-	gpt_l1_addr[idx] = gpt_l1_desc;
+	/*
+	 * In order to maintain mutual distrust between Realm and Secure
+	 * states, remove any data speculatively fetched into the target
+	 * physical address space.
+	 */
+	for (i = 0;
+	     i < GPT_PGS_ACTUAL_SIZE(gpt_config.p);
+	     i += CACHE_WRITEBACK_GRANULE) {
+	  do_dcache_maintenance_by_pa_to_popa(nse | (base + i));
+	}
+	dsbosh();
 
-	/* Ensure that the write operation will be observed by GPC */
-	dsbishst();
+	write_gpt(&gpt_l1_desc, gpt_l1_addr, gpi_shift, idx, GPT_GPI_REALM);
+	dsboshst();
+
+	gpt_tlbi_by_pa(base, GPT_PGS_ACTUAL_SIZE(gpt_config.p));
+	dsbosh();
+
+	nse = 0;
+	res = gpt_get_nse(&nse, GPT_GPI_NS);
+	if (res != 0) {
+	  return -EINVAL;
+	}
+	for (i = 0;
+	     i < GPT_PGS_ACTUAL_SIZE(gpt_config.p);
+	     i += CACHE_WRITEBACK_GRANULE) {
+	  do_dcache_maintenance_by_pa_to_popa(nse | (base + i));
+	}
+	dsbosh();
 
 	/* Unlock access to the L1 tables. */
 	spin_unlock(&gpt_lock);
-
-	gpt_tlbi_by_pa(base, GPT_PGS_ACTUAL_SIZE(gpt_config.p));
-	dsbishst();
 	/*
 	 * The isb() will be done as part of context
 	 * synchronization when returning to lower EL
 	 */
 	VERBOSE("[GPT] Granule 0x%llx, GPI 0x%x->0x%x\n", base, gpi,
-		target_pas);
+		GPT_GPI_REALM);
+
+	return 0;
+}
+
+/*
+ * This function is the granule transition undelegate service. When a granule
+ * transition request occurs it is routed to this function where the request is
+ * validated then fulfilled if possible.
+ *
+ * TODO: implement support for transitioning multiple granules at once.
+ *
+ * Parameters
+ *   base		Base address of the region to transition, must be
+ *			aligned to granule size.
+ *   size		Size of region to transition, must be aligned to granule
+ *			size.
+ *   src_sec_state	Security state of the caller.
+ *
+ * Return
+ *    Negative Linux error code in the event of a failure, 0 for success.
+ */
+int gpt_undelegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
+{
+	int idx;
+	unsigned int gpi_shift;
+	unsigned int gpi;
+	uint64_t gpt_l0_desc;
+	uint64_t gpt_l1_desc;
+	uint64_t *gpt_l1_addr;
+	uint64_t *gpt_l0_base;
+	int res;
+	uint64_t nse = 0;
+	unsigned int i = 0;
+
+	GPT_GENERIC_CHECKS;
+	GET_GPI_SHIFT;
+	/*
+	 * Access to L1 tables is controlled by a global lock to ensure
+	 * that no more than one CPU is allowed to make changes at any
+	 * given time.
+	 */
+	spin_lock(&gpt_lock);
+	GET_GPI;
+	GPT_TRANSITION_CHECKS(GPT_GPI_NS);
+
+	/*
+	 * In order to maintain mutual distrust between Realm and Secure
+	 * states, remove access now, in order to guarantee that writes
+	 * to the currently-accessible physical address space will not
+	 * later become observable.
+	 */
+	write_gpt(&gpt_l1_desc, gpt_l1_addr, gpi_shift, idx, GPT_GPI_NO_ACCESS);
+	dsboshst();
+
+	gpt_tlbi_by_pa(base, GPT_PGS_ACTUAL_SIZE(gpt_config.p));
+	dsbosh();
+
+	res = gpt_get_nse(&nse, gpi);
+	if (res != 0) {
+	  return -EINVAL;
+	}
+
+	/* Ensure that the scrubbed data has made it past the PoPA */
+	for (i = 0;
+	     i < GPT_PGS_ACTUAL_SIZE(gpt_config.p);
+	     i += CACHE_WRITEBACK_GRANULE) {
+	  do_dcache_maintenance_by_pa_to_popa(nse | (base + i));
+	}
+	dsbosh();
+
+	/*
+	 * Remove any data loaded speculatively
+	 * in NS space from before the scrubbing
+	 */
+	nse = 0;
+	res = gpt_get_nse(&nse, GPT_GPI_NS);
+	if (res != 0) {
+	  return -EINVAL;
+	}
+	for (i = 0;
+	     i < GPT_PGS_ACTUAL_SIZE(gpt_config.p);
+	     i += CACHE_WRITEBACK_GRANULE) {
+	  do_dcache_maintenance_by_pa_to_popa(nse | (base + i));
+	}
+	dsbosh();
+
+	/* Clear existing GPI encoding and transition granule. */
+	write_gpt(&gpt_l1_desc, gpt_l1_addr, gpi_shift, idx, GPT_GPI_NS);
+	dsboshst();
+
+	/* Ensure that all agents observe the new NS configuration */
+	gpt_tlbi_by_pa(base, GPT_PGS_ACTUAL_SIZE(gpt_config.p));
+	dsbosh();
+
+	/* Unlock access to the L1 tables. */
+	spin_unlock(&gpt_lock);
+	/*
+	 * The isb() will be done as part of context
+	 * synchronization when returning to lower EL
+	 */
+	VERBOSE("[GPT] Granule 0x%llx, GPI 0x%x->0x%x\n", base, gpi,
+		GPT_GPI_NS);
 
 	return 0;
 }
