@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "938e437a_5c868e8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-10-21T19:20:14Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "922348b0c24bebb4978fb54f09e6157bf96acd95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abcc8dcd_fdd70763",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-10-21T19:20:14Z",
+      "side": 1,
+      "message": "nitpick: It looks odd to have this generic helper utility in this file. If its not too much trouble, can you find a helper file suitable for this? I am curious if libc can provide such functionality.",
+      "revId": "922348b0c24bebb4978fb54f09e6157bf96acd95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdadb1c0_74c1766e",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-10-21T19:20:14Z",
+      "side": 1,
+      "message": "nitpick: Could you define macros for various numbers used in this calculation?",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 29
+      },
+      "revId": "922348b0c24bebb4978fb54f09e6157bf96acd95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
