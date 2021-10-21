@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,6 +10,7 @@
 	.globl	flush_dcache_range
 	.globl	clean_dcache_range
 	.globl	inv_dcache_range
+	.globl	do_dcache_maintenance_by_pa_to_popa
 	.globl	dcsw_op_louis
 	.globl	dcsw_op_all
 	.globl	dcsw_op_level1
@@ -62,6 +63,12 @@ func inv_dcache_range
 	do_dcache_maintenance_by_mva ivac
 endfunc inv_dcache_range
 
+
+func do_dcache_maintenance_by_pa_to_popa
+	sys #6, c7, c14, #1, x0 /* DC CIPAPA,<Xt> */
+	dsb sy
+	ret
+endfunc do_dcache_maintenance_by_pa_to_popa
 
 	/* ---------------------------------------------------------------
 	 * Data cache operations by set/way to the level specified
