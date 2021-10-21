@@ -226,6 +226,7 @@ DEFINE_SYSOP_PARAM_FUNC(xpaci)
 void flush_dcache_range(uintptr_t addr, size_t size);
 void clean_dcache_range(uintptr_t addr, size_t size);
 void inv_dcache_range(uintptr_t addr, size_t size);
+void do_dcache_maintenance_by_pa_to_popa(uintptr_t addr);
 bool is_dcache_enabled(void);
 
 void dcsw_op_louis(u_register_t op_type);
@@ -274,8 +275,10 @@ DEFINE_SYSOP_TYPE_FUNC(dmb, sy)
 DEFINE_SYSOP_TYPE_FUNC(dmb, st)
 DEFINE_SYSOP_TYPE_FUNC(dmb, ld)
 DEFINE_SYSOP_TYPE_FUNC(dsb, ish)
+DEFINE_SYSOP_TYPE_FUNC(dsb, osh)
 DEFINE_SYSOP_TYPE_FUNC(dsb, nsh)
 DEFINE_SYSOP_TYPE_FUNC(dsb, ishst)
+DEFINE_SYSOP_TYPE_FUNC(dsb, oshst)
 DEFINE_SYSOP_TYPE_FUNC(dmb, oshld)
 DEFINE_SYSOP_TYPE_FUNC(dmb, oshst)
 DEFINE_SYSOP_TYPE_FUNC(dmb, osh)
