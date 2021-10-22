@@ -570,6 +570,11 @@ static uintptr_t tspd_smc_handler(uint32_t smc_fid,
 	case TSP_YIELD_FID(TSP_SUB):
 	case TSP_YIELD_FID(TSP_MUL):
 	case TSP_YIELD_FID(TSP_DIV):
+		/*
+		 * Request from non-secure client to perform a check
+		 * of the DIT PSTATE bit.
+		 */
+	case TSP_YIELD_FID(TSP_CHECK_DIT):
 		if (ns) {
 			/*
 			 * This is a fresh request from the non-secure client.
