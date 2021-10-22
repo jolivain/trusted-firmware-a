@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "76d96909_8a2a1873",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-22T09:41:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "130bd7e6_c3d76fac",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 19
+      },
+      "revId": "59ff0f40cf95eb185944b10ac9078c9d94c45265",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "271c0bdf_745b15eb",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-10-22T07:31:39Z",
       "side": 1,
       "message": "A few refactored/enhancement patches for MEASURED_BOOT are still in review, so can we wait to remove the MEASURED_BOOT experimental flag until these patches get merged?",
+      "revId": "59ff0f40cf95eb185944b10ac9078c9d94c45265",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0684447b_1c0e7c46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-22T09:41:21Z",
+      "side": 1,
+      "message": "IMO we should not keep it as experimental feature anymore even though you are working on some refactoring(which is part of improvement).\nThe reasons are\n1. Measured boot architecture is quite stable and we do not expect radical changes in it.\n2. I agree that its only been deployed on FVP platform but if a new platform wants to add support for measured boot would mostly need changes in platform code(which is expected) and generic code is expected to be same.\n3. Also, this features is being tested regularly on FVP platform for quite some time without any issues.",
+      "parentUuid": "271c0bdf_745b15eb",
       "revId": "59ff0f40cf95eb185944b10ac9078c9d94c45265",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
