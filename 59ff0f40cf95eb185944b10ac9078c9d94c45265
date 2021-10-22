@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "130bd7e6_c3d76fac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-22T06:57:18Z",
+      "side": 1,
+      "message": "(minor) Perhaps just say \"FCONF and associated build flags\"? COT_DESC_IN_DTB is one example but I also see SEC_INT_DESC_IN_FCONF and ARM_IO_IN_DTB being marked as stable but they are not mentioned in the commit message.",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 19
+      },
+      "revId": "59ff0f40cf95eb185944b10ac9078c9d94c45265",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
