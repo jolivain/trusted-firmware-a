@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb5a52f1_aa46c48a",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-10-22T16:20:10Z",
+      "side": 1,
+      "message": "I thought about this as well, but couldn\u0027t find a nice place. Also it\u0027s not a standard C library function, at least I didn\u0027t find anything that would give a prototype for \"round an integer to the nearest multiple of X\". ALIGN() is actually close, but is somewhat misleading here, since it\u0027s about pure arithmetic, and has nothing to do with alignment.\nSo if you suggest I place, I am happy to move it there.",
+      "parentUuid": "abcc8dcd_fdd70763",
+      "revId": "922348b0c24bebb4978fb54f09e6157bf96acd95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bdadb1c0_74c1766e",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 2
@@ -48,6 +66,30 @@
       "writtenOn": "2021-10-21T19:20:14Z",
       "side": 1,
       "message": "nitpick: Could you define macros for various numbers used in this calculation?",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 29
+      },
+      "revId": "922348b0c24bebb4978fb54f09e6157bf96acd95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d90a5c1_05b59ccb",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-10-22T16:20:10Z",
+      "side": 1,
+      "message": "I can try, but I am not sure that\u0027s more readable. Maybe with the help of a helper function, otherwise the line break would make this look worse.",
+      "parentUuid": "bdadb1c0_74c1766e",
       "range": {
         "startLine": 166,
         "startChar": 0,
