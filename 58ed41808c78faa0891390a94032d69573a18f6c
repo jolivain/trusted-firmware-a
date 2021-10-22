@@ -143,6 +143,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18adeac5_8681d818",
+        "filename": "plat/arm/board/fvp/include/fvp_critical_data.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-22T18:10:07Z",
+      "side": 1,
+      "message": "Created a common base macro that can be used across the platform to create platform specific critical_data ids. Let me know, what do you think?",
+      "parentUuid": "b059d0e0_e1719f3a",
+      "range": {
+        "startLine": 16,
+        "startChar": 25,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "58ed41808c78faa0891390a94032d69573a18f6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e21b4097_14443243",
