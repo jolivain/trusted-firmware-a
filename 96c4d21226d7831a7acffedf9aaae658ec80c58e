@@ -50,6 +50,42 @@
       "message": "Oops, wrong label.",
       "revId": "96c4d21226d7831a7acffedf9aaae658ec80c58e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43b2ae36_8c93cf00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000319
+      },
+      "writtenOn": "2021-10-22T23:57:44Z",
+      "side": 1,
+      "message": "The coverity scan reports the incorrect use of format specifiers with 64_t types which was the reason I make these changes (and we have made and use these changes to our version of ATF).  The documentation you point to I believe is wrong.",
+      "parentUuid": "8c3304d2_06a0eff0",
+      "revId": "96c4d21226d7831a7acffedf9aaae658ec80c58e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "083560c6_76dcaa01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000319
+      },
+      "writtenOn": "2021-10-22T23:57:44Z",
+      "side": 1,
+      "message": "Hi Chris,\n\nSee my first comment in Patchset1 and reply from Raghu.  Also, your link to arm documentation does not match what 64-bit arm gcc compiler does.\n\n\"\nPatch Set 1:\n\nI am unsure if uint64_t is supposed to be long or long long for aarch64.\n\nBut, the move to inttypes.h should be done for fixed width types for portability reasons and proper printf format specifiers.\nPerhaps I should introduce that inttypes.h first and then have the stdint.h change in a follow on commit?\n\nunsigned long on aarch64 gcc is 64 bits. unsigned long long is usually not used on aarch64.\n\"",
+      "parentUuid": "6ee62f8f_aca29734",
+      "revId": "96c4d21226d7831a7acffedf9aaae658ec80c58e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
