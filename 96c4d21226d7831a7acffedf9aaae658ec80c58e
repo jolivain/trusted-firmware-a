@@ -33,6 +33,23 @@
       "message": "So Manish and I had a quick chat about this patch, and I think we\u0027ve come to a conclusion:\n\n- According to the ABI, `long` is 32-bits and `long long` is 64 bits in both A32 and A64 [1], so we can\u0027t switch out `uint64_t` for `unsigned long`. I\u0027ve verified that this is the case on GCC.\n- The rest of the patch introducing the printf specifiers makes sense, and is probably necessary for us to comply with the language standard.\n- In the longer term we ought to consider using the freestanding standard library headers provided by the compiler to avoid issues like this in the future.\n\nI think it makes sense to take this change, but we just need to undo the change to the 64-bit datatypes first.\n\n[1]: https://developer.arm.com/documentation/den0024/a/Porting-to-A64/Data-types",
       "revId": "96c4d21226d7831a7acffedf9aaae658ec80c58e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcd27bc0_d8ccaecb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-22T14:59:25Z",
+      "side": 1,
+      "message": "Oops, wrong label.",
+      "revId": "96c4d21226d7831a7acffedf9aaae658ec80c58e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
