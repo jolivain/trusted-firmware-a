@@ -33,6 +33,24 @@
       "message": "Remove till line 49",
       "revId": "b53f291ce3381059128686d29ef2fd9cd07a9c0f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21758b92_050964eb",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-10-22T18:28:36Z",
+      "side": 1,
+      "message": "Ah!  Missed that one.  Thanks.",
+      "parentUuid": "daf6e927_086822fe",
+      "revId": "b53f291ce3381059128686d29ef2fd9cd07a9c0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
