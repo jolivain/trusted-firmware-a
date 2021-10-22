@@ -39,6 +39,30 @@
       },
       "revId": "d761f80d01ee0b74bd945da4490195770efa893e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee46355d_132101bd",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-10-22T16:28:22Z",
+      "side": 1,
+      "message": "True, always happens to me when I switch from U-Boot or the kernel to TF-A in a hacking frenzy ;-)",
+      "parentUuid": "ccaccdc0_6e88438b",
+      "range": {
+        "startLine": 180,
+        "startChar": 2,
+        "endLine": 180,
+        "endChar": 44
+      },
+      "revId": "d761f80d01ee0b74bd945da4490195770efa893e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
