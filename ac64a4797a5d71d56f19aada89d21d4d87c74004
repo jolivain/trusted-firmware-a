@@ -16,6 +16,23 @@
       "message": "Theoretically, patchset 5 couldn\u0027t possibly affect anything, since pointer-authentication is never used on TB-R, but I\u0027ll rerun Legacy-CI+2 anyway.",
       "revId": "ac64a4797a5d71d56f19aada89d21d4d87c74004",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa34ffe1_662a84a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-10-23T02:28:02Z",
+      "side": 1,
+      "message": "The only fail in the L2 test was a juno test so I think this patch is good to go.",
+      "revId": "ac64a4797a5d71d56f19aada89d21d4d87c74004",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
