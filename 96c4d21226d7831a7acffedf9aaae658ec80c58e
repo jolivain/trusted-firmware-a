@@ -104,6 +104,24 @@
       "parentUuid": "083560c6_76dcaa01",
       "revId": "96c4d21226d7831a7acffedf9aaae658ec80c58e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b0e5630_219859fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-23T11:30:08Z",
+      "side": 1,
+      "message": "Hm, you\u0027re right. It looks like my quick experiment probably used the wrong GCC, because Arm64 does use 64-bit long [1]. GCC also defines `__UINT64_TYPE__` to be `unsigned long` and not `unsigned long long` [2], so it does seem that using ULL violates GCC\u0027s (and probably Clang\u0027s and ArmClang\u0027s as a result as well) expectations about the size of the fixed-width types.\n\nBoth GCC and Clang define `__[U]INT[N]_TYPE__` and `__\u003cT\u003e_FMT\u003cs\u003e__`, so maybe rather than trying to guess the correct primitive types explicitly we should just use these in our fixed-width typedefs and printf specifiers?\n\nEither way, to merge this we\u0027ll need to clean up the build failures caused by downsizing U64 - it looks like some of these are sign errors (I\u0027m not sure how these ever passed the CI, nor why they\u0027re not picked up by static analysis), but some of them are due to the change in size.\n\n\u003e Perhaps I should introduce that inttypes.h first and then have the stdint.h change in a follow on commit?\n\nI think this makes sense to do to keep these two changes isolated.\n\n[1]: https://gcc.godbolt.org/z/xz4asvx9b\n[2]: https://gcc.godbolt.org/z/7oY6KT8eK",
+      "parentUuid": "e4a74f85_01a68726",
+      "revId": "96c4d21226d7831a7acffedf9aaae658ec80c58e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
