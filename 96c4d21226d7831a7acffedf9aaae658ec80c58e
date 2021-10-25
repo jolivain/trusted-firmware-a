@@ -139,6 +139,24 @@
       "message": "Hi Scott,\n\nThere is a planned release of TF-A in first half of next month and we would like to get this change to be part of the release.\n\nPlease let me know if you could provide 2 patches(as suggested by Chris) and fixing the CI errors (i hope you can see the CI logs)\nSuggested 2 patch\n1. Introduce inttypes.h without changing the existing types(it should not cause a build failure)\n2. Modify the types and fix the CI errors.",
       "revId": "96c4d21226d7831a7acffedf9aaae658ec80c58e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acb1d58b_f05421f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000319
+      },
+      "writtenOn": "2021-10-25T17:29:10Z",
+      "side": 1,
+      "message": "Sorry, I can\u0027t see the CI logs.",
+      "parentUuid": "8482be0f_c96f3a82",
+      "revId": "96c4d21226d7831a7acffedf9aaae658ec80c58e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
