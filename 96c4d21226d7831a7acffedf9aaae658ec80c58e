@@ -157,6 +157,24 @@
       "parentUuid": "8482be0f_c96f3a82",
       "revId": "96c4d21226d7831a7acffedf9aaae658ec80c58e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9803573_e786917b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-10-25T17:49:04Z",
+      "side": 1,
+      "message": "You having problems with this URL? http://ci.trustedfirmware.org/job/tf-gerrit-tforg-l1/1426/  ?\n\nIf you can access that if you click on the \"Build #15650 it should take you to:\nhttps://ci.trustedfirmware.org/job/tf-ci-gateway/15650/\n\nOn that page if you click on any of the Red \"FAILURE\" links it should take you to a page like this:\nhttps://ci.trustedfirmware.org/job/tf-a-builder/516813/\n\nThere may be some log files there but also on the left there should be something called \"Console Output\" which takes you to a page like this:\nhttps://ci.trustedfirmware.org/job/tf-a-builder/516813/console \n\nWhich will show more info in this case\n\n....\n13:53:00 In file included from include/lib/libc/assert.h:14,\n13:53:00                  from bl32/tsp/tsp_main.c:7:\n13:53:00 bl32/tsp/tsp_main.c: In function \u0027tsp_cpu_resume_main\u0027:\n13:53:00 include/common/debug.h:47:27: error: format \u0027%lld\u0027 expects argument of type \u0027long long int\u0027, but argument 3 has type \u0027uint64_t\u0027 {aka \u0027long unsigned int\u0027} [-Werror\u003dformat\u003d]\n13:53:00    47 | #define LOG_MARKER_INFO   \"\\x28\" /* 40 */\n13:53:00       |                           ^~~~~~\n13:53:00 include/common/debug.h:83:27: note: in expansion of macro \u0027LOG_MARKER_INFO\u0027\n13:53:00    83 | # define INFO(...) tf_log(LOG_MARKER_INFO __VA_ARGS__)\n13:53:00       |                           ^~~~~~~~~~~~~~~\n13:53:00 bl32/tsp/tsp_main.c:274:2: note: in expansion of macro \u0027INFO\u0027\n13:53:00   274 |  INFO(\"TSP: cpu 0x%lx resumed. maximum off power level %lld\\n\",\n13:53:00       |  ^~~~\n13:53:00 bl32/tsp/tsp_main.c: In function \u0027tsp_smc_handler\u0027:\n13:53:00 include/common/debug.h:47:27: error: format \u0027%llx\u0027 expects argument of type \u0027long long unsigned int\u0027, but argument 4 has type \u0027uint64_t\u0027 {aka \u0027long unsigned int\u0027} [-Werror\u003dformat\u003d]\n13:53:00    47 | #define LOG_MARKER_INFO   \"\\x28\" /* 40 */\n13:53:00       |                           ^~~~~~\n13:53:00 include/common/debug.h:83:27: note: in expansion of macro \u0027LOG_MARKER_INFO\u0027\n13:53:00    83 | # define INFO(...) tf_log(LOG_MARKER_INFO __VA_ARGS__)\n13:53:00       |                           ^~~~~~~~~~~~~~~\n13:53:00 bl32/tsp/tsp_main.c:378:2: note: in expansion of macro \u0027INFO\u0027\n13:53:00   378 |  INFO(\"TSP: cpu 0x%lx received %s smc 0x%llx\\n\", read_mpidr(),\n13:53:00       |  ^~~~\n13:53:00 cc1: all warnings being treated as errors\n....\n\nThe patten above is similar and other FAILURE links I looked at seems to show similar issues to the above on other files.\n\nIf you cannot access the above we will have to look into why as they should be public.",
+      "parentUuid": "acb1d58b_f05421f1",
+      "revId": "96c4d21226d7831a7acffedf9aaae658ec80c58e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
