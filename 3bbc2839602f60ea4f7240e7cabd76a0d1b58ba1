@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74e8c12c_a8346bb4",
+        "filename": "plat/nxp/common/include/default/tzc380_def_regions.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-10-25T10:28:48Z",
+      "side": 1,
+      "message": "This macro, needs to be over-ridable.\nPlease refer the \"include/drivers/nxp/tzc/plat_tzc400.h\", for more details.",
+      "revId": "3bbc2839602f60ea4f7240e7cabd76a0d1b58ba1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab1c3027_08b93b1b",
+        "filename": "plat/nxp/common/include/default/tzc380_def_regions.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-10-25T10:28:48Z",
+      "side": 1,
+      "message": "No need to create the static array for tzc380_default_reg_list, to increase the BL2 binary size.\n\nUse the similar implementation flow as that of tzc400.",
+      "revId": "3bbc2839602f60ea4f7240e7cabd76a0d1b58ba1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
