@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e26fe1be_0f2b889c",
+        "filename": "plat/arm/board/fvp_r/fvp_r_helpers.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-25T11:19:12Z",
+      "side": 0,
+      "message": "keep it,as it will be required in Runtime support and the implementation looks to be correct.",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 30
+      },
+      "revId": "3deb0600151b929fdd61e4fc764c99bdb9268f22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

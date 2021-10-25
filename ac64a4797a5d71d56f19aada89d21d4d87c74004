@@ -50,6 +50,98 @@
       "message": "I gather \"I\u0027m elected\" as the code owner for the R-class work...",
       "revId": "ac64a4797a5d71d56f19aada89d21d4d87c74004",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6930c3fc_f5e56eb6",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-25T11:19:12Z",
+      "side": 1,
+      "message": "Even though xlat_ctx_t is currently unused we should match the data types used in there.\n\ne.g: if region_base is PA its better to use \"unsigned long long\" and for VA \"uintptr_t\"",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 9
+      },
+      "revId": "ac64a4797a5d71d56f19aada89d21d4d87c74004",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cad0b24_516b3b05",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-25T11:19:12Z",
+      "side": 1,
+      "message": "can we use \"size_t\" or \"unsigned int\"",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 43,
+        "endChar": 9
+      },
+      "revId": "ac64a4797a5d71d56f19aada89d21d4d87c74004",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9da73d01_6188caf4",
+        "filename": "lib/xlat_mpu/xlat_mpu_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-25T11:19:12Z",
+      "side": 1,
+      "message": "same here, check what is the best suited data type.\n\nIts better to use standard data types and use size based data types only if concerned about the size?",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 9
+      },
+      "revId": "ac64a4797a5d71d56f19aada89d21d4d87c74004",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44f219cd_6e51d64c",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-25T11:19:12Z",
+      "side": 1,
+      "message": "Remove it, not being used.",
+      "range": {
+        "startLine": 259,
+        "startChar": 1,
+        "endLine": 267,
+        "endChar": 6
+      },
+      "revId": "ac64a4797a5d71d56f19aada89d21d4d87c74004",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
