@@ -11,6 +11,7 @@
 #include <common/debug.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <plat/common/platform.h>
+#include <lib/el3_runtime/pubsub_events.h>
 
 #include "opteed_private.h"
 
@@ -34,6 +35,8 @@ static int32_t opteed_cpu_off_handler(u_register_t unused)
 
 	assert(optee_vector_table);
 	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_ON);
+
+	PUBLISH_EVENT(cm_exited_normal_world);
 
 	/* Program the entry point and enter OPTEE */
 	cm_set_elr_el3(SECURE, (uint64_t) &optee_vector_table->cpu_off_entry);
@@ -67,6 +70,8 @@ static void opteed_cpu_suspend_handler(u_register_t max_off_pwrlvl)
 
 	assert(optee_vector_table);
 	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_ON);
+
+	PUBLISH_EVENT(cm_exited_normal_world);
 
 	write_ctx_reg(get_gpregs_ctx(&optee_ctx->cpu_ctx), CTX_GPREG_X0,
 		      max_off_pwrlvl);
@@ -176,6 +181,8 @@ static void opteed_system_off(void)
 	assert(optee_vector_table);
 	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_ON);
 
+	PUBLISH_EVENT(cm_exited_normal_world);
+
 	/* Program the entry point */
 	cm_set_elr_el3(SECURE, (uint64_t) &optee_vector_table->system_off_entry);
 
@@ -195,6 +202,8 @@ static void opteed_system_reset(void)
 
 	assert(optee_vector_table);
 	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_ON);
+
+	PUBLISH_EVENT(cm_exited_normal_world);
 
 	/* Program the entry point */
 	cm_set_elr_el3(SECURE, (uint64_t) &optee_vector_table->system_reset_entry);
