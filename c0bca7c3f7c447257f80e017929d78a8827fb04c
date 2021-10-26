@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99cf5df6_d1474553",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1208,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-26T13:38:47Z",
+      "side": 1,
+      "message": "I think we should also document the possible return values, just like you\u0027ve done for plat_mboot_measure_critical_data() in this patch.",
+      "range": {
+        "startLine": 1208,
+        "startChar": 4,
+        "endLine": 1208,
+        "endChar": 18
+      },
+      "revId": "c0bca7c3f7c447257f80e017929d78a8827fb04c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fa89f0b_da8a96a7",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-10-26T13:38:47Z",
+      "side": 1,
+      "message": "(minor) This FVP-specific sentence doesn\u0027t add much on top of the generic one above IMO. Besides, it\u0027s not future proof if we support other backends than the event log in the future... Chances are we might forget to update it when this day comes. Suggest removing it.",
+      "range": {
+        "startLine": 1233,
+        "startChar": 3,
+        "endLine": 1235,
+        "endChar": 24
+      },
+      "revId": "c0bca7c3f7c447257f80e017929d78a8827fb04c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
