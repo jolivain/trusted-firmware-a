@@ -33,6 +33,23 @@
       "message": "\"Build Failed \n\nhttp://ci.trustedfirmware.org/job/tf-gerrit-tforg-l1/1467/ : FAILURE\"\n\nThe failure is in tf-l1-boot-tests-cortex test group, which is unrelated to this patch.",
       "revId": "7186a29bbfe3044d5e8001ddfe1d9238578e0944",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d399b06b_95e7f242",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2021-10-26T17:26:13Z",
+      "side": 1,
+      "message": "\u003e Patch Set 1: Verified-1\n\u003e \n\u003e Build Failed \n\u003e \n\u003e https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l2/2324/ : This Jenkins server is not publicly accessible. A core maintainer will let you know if this CI failure is blocking the merge of this patch.\n\nThe failure is in aemva fvp, which is unrelated to this patch.",
+      "revId": "7186a29bbfe3044d5e8001ddfe1d9238578e0944",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
