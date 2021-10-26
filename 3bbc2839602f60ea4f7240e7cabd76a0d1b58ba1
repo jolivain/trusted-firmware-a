@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4423ced4_5becd4cb",
+        "filename": "plat/nxp/common/include/default/tzc380_def_regions.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-10-26T04:30:19Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "74e8c12c_a8346bb4",
+      "revId": "3bbc2839602f60ea4f7240e7cabd76a0d1b58ba1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab1c3027_08b93b1b",
         "filename": "plat/nxp/common/include/default/tzc380_def_regions.h",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2021-10-25T10:28:48Z",
       "side": 1,
       "message": "No need to create the static array for tzc380_default_reg_list, to increase the BL2 binary size.\n\nUse the similar implementation flow as that of tzc400.",
+      "revId": "3bbc2839602f60ea4f7240e7cabd76a0d1b58ba1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11b08d6a_35b4a555",
+        "filename": "plat/nxp/common/include/default/tzc380_def_regions.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-10-26T04:30:19Z",
+      "side": 1,
+      "message": "Done, please review, thanks.",
+      "parentUuid": "ab1c3027_08b93b1b",
       "revId": "3bbc2839602f60ea4f7240e7cabd76a0d1b58ba1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
