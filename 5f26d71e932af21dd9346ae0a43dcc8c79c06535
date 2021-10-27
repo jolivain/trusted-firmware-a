@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b9cb6dc_6f188bd5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-27T10:20:46Z",
+      "side": 1,
+      "message": "Add reference to the appropriate section in the specification.",
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1cc4ec5a_abbd3aed",
         "filename": "include/arch/aarch64/arch_helpers.h",
         "patchSetId": 1
@@ -14,6 +31,30 @@
       "writtenOn": "2021-10-27T10:02:03Z",
       "side": 1,
       "message": "nit: use u_register_t and rename argument to op_type to remain consistent with lines 231, 232?",
+      "range": {
+        "startLine": 241,
+        "startChar": 41,
+        "endLine": 241,
+        "endChar": 52
+      },
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "028f89fa_ae652e80",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-27T10:20:46Z",
+      "side": 1,
+      "message": "Actually this argument is wrong as its not the op that the input but the PA (phy addr).",
+      "parentUuid": "1cc4ec5a_abbd3aed",
       "range": {
         "startLine": 241,
         "startChar": 41,
