@@ -26,6 +26,137 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5f1d8ab8_fd891a91",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-27T10:18:14Z",
+      "side": 1,
+      "message": "Insert function declaration as function comments with args.",
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09f518d4_1877e021",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-27T10:18:14Z",
+      "side": 1,
+      "message": "If this functionality need to be invoked from asm code, an asm helper would be been useful (although I cant find an usecase for this atm). A  flush_dcache_range_by_pa_to_popa() utility can be introduced (can be in C or asm).",
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7855895f_e8806d75",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-27T10:18:14Z",
+      "side": 1,
+      "message": "dsb after every line is heavy weight. The dsb can be at the end of loop.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 7
+      },
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f058b83_dfddc3b7",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-27T10:18:14Z",
+      "side": 1,
+      "message": "doing a branch operation for every line flush can be optimized if everything is done as a single function.",
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccab9458_893a0a54",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-27T10:18:14Z",
+      "side": 1,
+      "message": "Would prefer to keep the original operation as last line is something we need to understand the implication.",
+      "range": {
+        "startLine": 610,
+        "startChar": 36,
+        "endLine": 610,
+        "endChar": 37
+      },
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "173255bf_8f2dea42",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-27T10:18:14Z",
+      "side": 1,
+      "message": "This function needs to be broken down into 2 separate APIs from gpt lib. It was unusual to expose the target_pas argument to the user anyway since it a custom macro defined by this lib.\n\ngpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state);\nand gpt_undelegate_pas(uint64_t base, size_t size, unsigned int src_sec_state);\n\n\nThe main impact would be for gpt_check_transition_gpi() as the check would be much simpler.\n\nFor the delegate, the check has to ensure that the current_gpi is NS\nfor undelegate, the check will ensure that the current_gpi \u003d\u003d src_sec_state.",
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28d9eea3_cccbdde8",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-10-27T10:18:14Z",
+      "side": 1,
+      "message": "Need to cater for Secure world as well. We should not restrict this to Realm. The suggestion above to split the API will remove the need for this check.",
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6de8ba40_3c192042",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 1
