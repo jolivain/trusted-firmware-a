@@ -34,6 +34,24 @@
       "parentUuid": "a71a9cfa_e0c3757b",
       "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f9b7167_86d3338d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-10-27T18:14:01Z",
+      "side": 1,
+      "message": "I see that it is failing on some other errors:\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/535063/console\n\n11:04:55 plat/common/plat_spmd_manifest.c:9:10: fatal error: intypes.h: No such file or directory\n11:04:55     9 | #include \u003cintypes.h\u003e\n11:04:55       |          ^~~~~~~~~~~\n11:04:55 compilation terminated.\n11:04:55 Makefile:1212: recipe for target \u0027/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl31/plat_spmd_manifest.o\u0027 failed\n\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/535089/console\n\n11:05:31 In file included from drivers/marvell/io_win.c:10:0:\n11:05:31 drivers/marvell/io_win.c: In function \u0027io_win_check\u0027:\n11:05:31 include/common/debug.h:45:28: error: format \u0027%llx\u0027 expects argument of type \u0027long long unsigned int\u0027, but argument 3 has type \u0027uint64_t {aka long unsigned int}\u0027 [-Werror\u003dformat\u003d]\n11:05:31  #define LOG_MARKER_NOTICE  \"\\x14\" /* 20 */",
+      "parentUuid": "dd437b50_6ea840d7",
+      "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
