@@ -171,7 +171,7 @@
 static inline u_register_t gicd_irouter_val_from_mpidr(u_register_t mpidr,
 						       unsigned int irm)
 {
-	return (mpidr & ~(U(0xff) << 24)) |
+	return (mpidr & ~(ULL(0xff) << 24)) |
 		((irm & IROUTER_IRM_MASK) << IROUTER_IRM_SHIFT);
 }
 
