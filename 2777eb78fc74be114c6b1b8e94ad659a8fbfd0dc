@@ -142,6 +142,24 @@
       "parentUuid": "278f615d_290000f1",
       "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b69269af_dcb98ff9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-10-27T19:07:08Z",
+      "side": 1,
+      "message": "But what you want to change? I do not quite understand it. mv-ddr is external library used by more projects with no known compile issue. So if some TF-A patch cause compile errors, it is probably issue in TF-A patch... and issue should be fixed in TF-A. That external library is backward and forward compatible. And talking about ifdef sounds like a hack for a bug in one specific project (TF-A). So really, please fix it properly in TF-A without hacks in other projects.",
+      "parentUuid": "5fdf3741_d203ecbe",
+      "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
