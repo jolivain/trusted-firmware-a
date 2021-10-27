@@ -106,6 +106,24 @@
       "parentUuid": "55280426_e75f5387",
       "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "278f615d_290000f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-10-27T18:50:06Z",
+      "side": 1,
+      "message": "Well, if test is passing then issue in this patch, not in mv-ddr.\n\nThat mv-ddr is used by current and older versions of TF-A and then also by other projects like U-Boot or A3700-utils. And I have not seen any compile error neither on 32-bit nor 64-bit with those other projects.\n\nSo I do not think that there is some big issue with 64-bit types as other projects would also see this failure too.\n\nAnyway, you cannot change types or formats in mv-ddr. As it would break building of current versions of TF-A (beware that Marvell is using also older versions) and also breakage of other projects like U-Boot or A3700-utils.",
+      "parentUuid": "80dcf3b1_5489998d",
+      "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
