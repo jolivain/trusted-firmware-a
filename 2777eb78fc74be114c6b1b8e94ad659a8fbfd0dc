@@ -214,6 +214,24 @@
       "parentUuid": "9815aa45_c3814c4f",
       "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5fa2855_3c56be4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000319
+      },
+      "writtenOn": "2021-10-27T20:23:02Z",
+      "side": 1,
+      "message": "Actually, that still won\u0027t change anything in your other cases.  Probably just going to have to go with a cast\n\n#if (UINT64_MAX \u003d\u003d ULONG_MAX)\n/* Use properly defined uint64_t type for LP64 (long)  */\nDEBUG_LEVELING(DEBUG_LEVEL_INFO, (\"0x%16lx\\n\", (long)read_pattern_64[edge]));\n#else\nDEBUG_LEVELING(DEBUG_LEVEL_INFO, (\"0x%16llx\\n\", read_pattern_64[edge]));\n#endif",
+      "parentUuid": "292635c7_a426096e",
+      "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
