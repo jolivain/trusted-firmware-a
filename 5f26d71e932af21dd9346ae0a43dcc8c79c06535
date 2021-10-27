@@ -65,6 +65,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d48d6d25_4faa663a",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-10-27T10:25:16Z",
+      "side": 1,
+      "message": "actually it\u0027s more an uintptr_t addr.\n\nI will rename to be more consistent",
+      "parentUuid": "1cc4ec5a_abbd3aed",
+      "range": {
+        "startLine": 241,
+        "startChar": 41,
+        "endLine": 241,
+        "endChar": 52
+      },
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f1d8ab8_fd891a91",
@@ -209,6 +233,30 @@
       "writtenOn": "2021-10-27T10:02:03Z",
       "side": 1,
       "message": "nit: fix tabs as per above?",
+      "range": {
+        "startLine": 1243,
+        "startChar": 1,
+        "endLine": 1243,
+        "endChar": 3
+      },
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93c04f6e_c8f3c67b",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-10-27T10:25:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6de8ba40_3c192042",
       "range": {
         "startLine": 1243,
         "startChar": 1,
