@@ -286,6 +286,23 @@
       "parentUuid": "32f45262_4af5f87d",
       "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d1b197c_685a8b6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2021-10-27T20:36:52Z",
+      "side": 1,
+      "message": "I\u0027m marking it with -1 for now as this change is breaking compilation of mvebu platforms with mv-ddr library. Breaking compilation of mvebu platforms is not a good solution. And I do not think that issue is in mv-ddr (mv-ddr is working in other projects and also without this change). Hacking mv-ddr just because of problematic change in TF-A is also not a solution.",
+      "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
