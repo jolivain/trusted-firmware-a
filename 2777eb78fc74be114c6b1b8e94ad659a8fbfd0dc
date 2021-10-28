@@ -321,6 +321,24 @@
       "parentUuid": "4d1b197c_685a8b6f",
       "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e294781_79085d99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-28T09:45:21Z",
+      "side": 1,
+      "message": "Hi Pali, I\u0027m not sure I see a better way around this. Our libc currently assumes a different data model than the compilers we support; this opens us up to potential security issues and impacts our ability to analyse the codebase accurately, for which our only resolution is to align these types as expected by the toolchain. In the longer term, we are looking at reorienting the libc around compiler-provided headers to avoid issues like these in the future.\n\nSome of these changes during the transition will inevitably be breaking, but we do stable releases so that we can make these sorts of changes mid-cycle. We coordinate updates to platform code when we do make breaking changes in TF-A, and I think it\u0027s fair to consider this library to be \"platform code\" if it is relying on TF-A implementation details, regardless of whether it lives in the upstream repository or elsewhere.\n\nTo resolve the build failures you could always explicitly cast to ULL, e.g.:\n\n    DEBUG_LEVELING(DEBUG_LEVEL_INFO, (\"0x%16llx\\n\", (unsigned long long)read_pattern_64[edge]));\n\nAnd that should work for both pre and post-fix versions with absolutely minimal changes to your library.",
+      "parentUuid": "c8ee0fa7_56c3b9cf",
+      "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
