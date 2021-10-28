@@ -188,6 +188,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27ec048f_9f91c7d6",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-10-28T14:30:03Z",
+      "side": 1,
+      "message": "the reference documentation states the use of RPALOS\n\nRPAOS:\nInvalidates TLB entries containing GPT information from all levels of the GPT walk that relates to the supplied physical address.\n\nRPALOS:\nInvalidates TLB entries containing GPT information from the final level of the GPT walk that relates to the supplied physical address.\n\nTHE RPALOS is doing less than the RPAOS",
+      "parentUuid": "ccab9458_893a0a54",
+      "range": {
+        "startLine": 610,
+        "startChar": 36,
+        "endLine": 610,
+        "endChar": 37
+      },
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "173255bf_8f2dea42",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 1
@@ -199,6 +223,24 @@
       "writtenOn": "2021-10-27T10:18:14Z",
       "side": 1,
       "message": "This function needs to be broken down into 2 separate APIs from gpt lib. It was unusual to expose the target_pas argument to the user anyway since it a custom macro defined by this lib.\n\ngpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state);\nand gpt_undelegate_pas(uint64_t base, size_t size, unsigned int src_sec_state);\n\n\nThe main impact would be for gpt_check_transition_gpi() as the check would be much simpler.\n\nFor the delegate, the check has to ensure that the current_gpi is NS\nfor undelegate, the check will ensure that the current_gpi \u003d\u003d src_sec_state.",
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6959ffa_1b29b17d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-10-28T14:30:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "173255bf_8f2dea42",
       "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -216,6 +258,24 @@
       "writtenOn": "2021-10-27T10:18:14Z",
       "side": 1,
       "message": "Need to cater for Secure world as well. We should not restrict this to Realm. The suggestion above to split the API will remove the need for this check.",
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4cd9b3f_ca349422",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-10-28T14:30:03Z",
+      "side": 1,
+      "message": "This could be added later, the current code didn\u0027t handle it and there is now way to test it currently",
+      "parentUuid": "28d9eea3_cccbdde8",
       "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
