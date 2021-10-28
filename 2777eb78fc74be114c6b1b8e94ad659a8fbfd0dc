@@ -393,6 +393,24 @@
       "parentUuid": "ff12e8df_daedccb0",
       "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ba46bf8_473b40b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000319
+      },
+      "writtenOn": "2021-10-28T17:33:52Z",
+      "side": 1,
+      "message": "From 3dc3dfafb2d4cb90042df653192335c4ce188d54 Mon Sep 17 00:00:00 2001\nFrom: Scott Branden \u003cscott.branden@broadcom.com\u003e\nDate: Thu, 28 Oct 2021 10:30:33 -0700\nSubject: [PATCH] mv_ddr_4_training: cast uint64_t to unsigned long long\n\nCast uint64_t to unsigned long long to use hard coded llx printf\nformat specifier rather than PRIx64 printf specifier that is supposed\nto be used for uint64_t fixed width data type.\n\nSigned-off-by: Scott Branden \u003cscott.branden@broadcom.com\u003e\n---\n mv_ddr4_training_leveling.c | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)\n\ndiff --git a/mv_ddr4_training_leveling.c b/mv_ddr4_training_leveling.c\nindex 4c0c0ab..2f6939f 100644\n--- a/mv_ddr4_training_leveling.c\n+++ b/mv_ddr4_training_leveling.c\n@@ -249,7 +249,7 @@ static u8 mv_ddr4_xsb_comp_test(u32 dev_num, u32 subphy_num, u32 if_id,\n \n \t\tDEBUG_LEVELING(DEBUG_LEVEL_INFO, (\"xsb comp: if %d bus id %d\\n\", 0, subphy_num));\n \t\tfor (edge \u003d 0; edge \u003c 8; edge++)\n-\t\t\tDEBUG_LEVELING(DEBUG_LEVEL_INFO, (\"0x%16llx\\n\", read_pattern_64[edge]));\n+\t\t\tDEBUG_LEVELING(DEBUG_LEVEL_INFO, (\"0x%16llx\\n\", (unsigned long long)read_pattern_64[edge]));\n \t\tDEBUG_LEVELING(DEBUG_LEVEL_INFO, (\"\\n\"));\n \t} else if (MV_DDR_IS_32BIT_IN_64BIT_DRAM_MODE(tm-\u003ebus_act_mask, subphy_max)) {\n \t\tstatus \u003d ddr3_tip_if_write(0, ACCESS_TYPE_MULTICAST, PARAM_NOT_CARE, ODPG_DATA_CTRL_REG,\n-- \n2.33.1",
+      "parentUuid": "46ff4cc8_244cb4bd",
+      "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
