@@ -357,6 +357,24 @@
       "parentUuid": "4e294781_79085d99",
       "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff12e8df_daedccb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-10-28T12:41:03Z",
+      "side": 1,
+      "message": "Hi, sorry, perhaps I\u0027ve not made my suggestion clear. I\u0027m not recommending introducing any preprocessor workarounds, but rather introducing an explicit cast to maintain the validity of these debug print specifiers regardless of the width of `uint64_t`. Just replacing something like this:\n\n    DEBUG_LEVELING(DEBUG_LEVEL_INFO, (\"0x%16llx\\n\", read_pattern_64[edge]));\n\nWith this:\n\n    DEBUG_LEVELING(DEBUG_LEVEL_INFO, (\"0x%16llx\\n\", (unsigned long long)read_pattern_64[edge]));\n\nThis would ensure the code continues to build both before and after these changes.\n\nFundamentally, the issue is that this code assumes the underlying type of the fixed-width typedefs - we need to move away from that for the reasons already stated elsewhere in the discussion.",
+      "parentUuid": "d335e8cc_26f1977c",
+      "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
