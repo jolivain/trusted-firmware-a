@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfa999fa_af00da28",
+        "filename": "services/std_svc/sdei/sdei_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-28T10:02:24Z",
+      "side": 1,
+      "message": "static check failed \nservices/std_svc/sdei/sdei_main.c:363: ERROR: code indent should use tabs where possible\n+                /*$\n\nservices/std_svc/sdei/sdei_main.c:364: ERROR: code indent should use tabs where possible\n+                 * SDEI internally handles private events in the same manner$\n\nservices/std_svc/sdei/sdei_main.c:365: ERROR: code indent should use tabs where possible\n+                 * as public events with routing mode\u003dRM_PE, since the routing$\n\nservices/std_svc/sdei/sdei_main.c:366: ERROR: code indent should use tabs where possible\n+                 * mode flag and affinity fields are not used when registering$\n\nservices/std_svc/sdei/sdei_main.c:367: ERROR: code indent should use tabs where possible\n+                 * a private event, set them here.$\n\nservices/std_svc/sdei/sdei_main.c:368: ERROR: code indent should use tabs where possible",
+      "revId": "22ffff91e7ec9f5e03c8542559e98987ec3e388a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
