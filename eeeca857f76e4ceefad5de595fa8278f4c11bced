@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fd8548a_91eed937",
+        "filename": "plat/st/stm32mp1/stm32mp1_usb_dfu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000690
+      },
+      "writtenOn": "2021-10-28T11:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7485ffa3_91a23495",
+      "revId": "eeeca857f76e4ceefad5de595fa8278f4c11bced",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f856931c_a38111cf",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-10-20T21:24:43Z",
       "side": 1,
       "message": "Can you give an example?",
+      "revId": "eeeca857f76e4ceefad5de595fa8278f4c11bced",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5f223b1_e0191fb1",
+        "filename": "plat/st/stm32mp1/stm32mp1_usb_dfu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000690
+      },
+      "writtenOn": "2021-10-28T11:27:56Z",
+      "side": 1,
+      "message": "With \u0027Add support for hexadecimal and pointer format specifiers to snprintf\u0027\nin v2.4-rc0\n\nthis function can be removed and replaced by sprintf %0\u003cn\u003eX (capitalized)",
+      "parentUuid": "f856931c_a38111cf",
       "revId": "eeeca857f76e4ceefad5de595fa8278f4c11bced",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -71,6 +107,47 @@
         "endLine": 184,
         "endChar": 11
       },
+      "revId": "eeeca857f76e4ceefad5de595fa8278f4c11bced",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d08a3e0_56cdf8b7",
+        "filename": "plat/st/stm32mp1/stm32mp1_usb_dfu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000690
+      },
+      "writtenOn": "2021-10-28T11:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e676c25_a70f2c28",
+      "range": {
+        "startLine": 184,
+        "startChar": 10,
+        "endLine": 184,
+        "endChar": 11
+      },
+      "revId": "eeeca857f76e4ceefad5de595fa8278f4c11bced",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c691095_3a13201f",
+        "filename": "plat/st/stm32mp1/stm32mp1_usb_dfu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000690
+      },
+      "writtenOn": "2021-10-28T11:27:56Z",
+      "side": 1,
+      "message": "please use stm32mp_get_chip_dev_id instead of STM32MP1_CHIP_ID\n\u003d\u003e use dbgmcu value when available",
       "revId": "eeeca857f76e4ceefad5de595fa8278f4c11bced",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
