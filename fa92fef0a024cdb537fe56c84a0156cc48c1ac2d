@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbf047d9_4f4c1578",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-29T14:55:09Z",
+      "side": 1,
+      "message": "Static check failed because it detected newly added files which are not covered by any CI configuration, could you please add a test script in ssh://review.trustedfirmware.org:29418/ci/tf-a-ci-scripts.\n\nOr if you are happy then we can add \"STM32MP_USB_PROGRAMMER\u003d1\" in existing ST configuration tf_config/stm32mp1-default",
+      "revId": "fa92fef0a024cdb537fe56c84a0156cc48c1ac2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
