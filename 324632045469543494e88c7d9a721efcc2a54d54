@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89067bfe_3eacb39e",
+        "filename": "include/lib/gpt_rme/gpt_rme.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T14:36:12Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be:\n#define GPT_NSE_ROOTU\t\tU(0b01)\n#define GPT_NSE_NS\t\t\tU(0b10)\n?\n\nSee documentation:\nNSE[62]    NS[63]\n0b0        0b1     Non-secure.\n0b1        0b0     Root. (edited) \n\nI\u0027d also prefer (UL(xx) \u003c\u003c 62)",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "21ea7202_26f9db01",
         "filename": "lib/aarch64/cache_helpers.S",
         "patchSetId": 3
