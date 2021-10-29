@@ -16,6 +16,23 @@
       "message": "There is a static check failure now, it did not occur last time because the check for detecting new files in CI is recently been added.",
       "revId": "fe5ce14dddcd010efc156ce8a01626bda586c531",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36843170_fa9027e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-10-29T14:03:06Z",
+      "side": 1,
+      "message": "Does the newly added file compiled in any of the QEMU CI configuration ?\n",
+      "revId": "fe5ce14dddcd010efc156ce8a01626bda586c531",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
