@@ -1,0 +1,299 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21ea7202_26f9db01",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "use tabs",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82c59325_e5a89548",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "else is obsolete",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b47f7e10_906b3b3e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "as above",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d0081e5_8689dc52",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "use tabs \u003d 8",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "901cee53_3cf50040",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "Why not\n*nse \u003d GPT_NSE_SECURE \u003c\u003c 62U\nand for all other cases, with removed code on line #1022?",
+      "range": {
+        "startLine": 1007,
+        "startChar": 5,
+        "endLine": 1007,
+        "endChar": 27
+      },
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d2e8892_3eeb5a1a",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14c45700_9e310994",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "base is uint64_t, so 0ULL\nsize is size_t, so 0UL",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c601140_4fd1fa4d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "return res;",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26c8528d_7d1e0fda",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "add new line",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cd2ba5f_ead3b9cb",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "return res;",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c74f9f9_c0d78d4c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "add new line. i \u003d 0U;",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d24b25a_5f34ee3b",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "add new line",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67b71c32_eebd8cd7",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "return res;",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "927751b9_4adcddd2",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "see comments for gpt_delegate_pas()",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "719d54e2_b3e3505c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "add new lines",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8437a120_4c1f0d1e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "return res;",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bb65c16_751715e4",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-10-29T13:25:11Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
