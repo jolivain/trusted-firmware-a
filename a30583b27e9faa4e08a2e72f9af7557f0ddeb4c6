@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9cf542a0_33d193ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-10-30T09:08:05Z",
+      "side": 1,
+      "message": "Commit lint says:\n✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]\n⚠   header must not be longer than 50 characters, current length is 56 [header-max-length]\n\n",
+      "revId": "a30583b27e9faa4e08a2e72f9af7557f0ddeb4c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29a664ba_98a0e74a",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 2
