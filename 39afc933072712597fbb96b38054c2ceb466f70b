@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a378359_2165e462",
+        "filename": "include/drivers/measured_boot/event_log/event_log.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-31T16:10:52Z",
+      "side": 1,
+      "message": "Ack, added a separate patch for this change: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/12211/",
+      "parentUuid": "7c46e8ea_b1238c37",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 18
+      },
+      "revId": "39afc933072712597fbb96b38054c2ceb466f70b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ab16aca_6878a5ca",
@@ -72,6 +96,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "5ab16aca_6878a5ca",
+      "revId": "39afc933072712597fbb96b38054c2ceb466f70b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1e2bed8_7f2fae44",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-31T16:10:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee26d36a_de0f3e6d",
       "revId": "39afc933072712597fbb96b38054c2ceb466f70b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -113,6 +155,30 @@
       "side": 1,
       "message": "Accessing invalid oid (accessing out-of-bound nv_ctr_oids array value) results in \u0027plat_get_nv_ctr\u0027 returning an error,  but agreed it is better to mention the nv_ctr_oids array size explicitly that helps in detecting problems without accessing any out-of-bound array values.",
       "parentUuid": "a2b1709e_b33fbbc8",
+      "range": {
+        "startLine": 90,
+        "startChar": 7,
+        "endLine": 90,
+        "endChar": 20
+      },
+      "revId": "39afc933072712597fbb96b38054c2ceb466f70b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ac84c80_285b9abb",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-31T16:10:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3857148_42a64f25",
       "range": {
         "startLine": 90,
         "startChar": 7,
