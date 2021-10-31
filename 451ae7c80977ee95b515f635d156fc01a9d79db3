@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "424745bd_4f72e669",
+        "filename": "docs/plat/arm/fvp/index.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-31T22:35:39Z",
+      "side": 1,
+      "message": "I tested the released version (11.16/16) of the GIC600AE model, and the corresponding patch [1] was posted for a review, so IMO let\u0027s wait till this patch [1] gets merged and then remove this line from the documentation.\n\n[1]: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/12212",
+      "range": {
+        "startLine": 20,
+        "startChar": 32,
+        "endLine": 20,
+        "endChar": 56
+      },
+      "revId": "451ae7c80977ee95b515f635d156fc01a9d79db3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
