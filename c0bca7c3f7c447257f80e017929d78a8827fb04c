@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "983daa4c_2905f515",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1208,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-31T16:08:54Z",
+      "side": 1,
+      "message": "Possible return values are already documented at line no.1217. Though let me update that documentation as return values can either be positive or negative in case of error.",
+      "parentUuid": "99cf5df6_d1474553",
+      "range": {
+        "startLine": 1208,
+        "startChar": 4,
+        "endLine": 1208,
+        "endChar": 18
+      },
+      "revId": "c0bca7c3f7c447257f80e017929d78a8827fb04c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8fa89f0b_da8a96a7",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-26T13:38:47Z",
       "side": 1,
       "message": "(minor) This FVP-specific sentence doesn\u0027t add much on top of the generic one above IMO. Besides, it\u0027s not future proof if we support other backends than the event log in the future... Chances are we might forget to update it when this day comes. Suggest removing it.",
+      "range": {
+        "startLine": 1233,
+        "startChar": 3,
+        "endLine": 1235,
+        "endChar": 24
+      },
+      "revId": "c0bca7c3f7c447257f80e017929d78a8827fb04c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7757004b_5bdde1ab",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-31T16:08:54Z",
+      "side": 1,
+      "message": "Ack. Added this to be in sync with the other measured boot platform functions documentation, but agree this sentence does not add any extra information on top of the generic description of this function. I will remove this in the next version.",
+      "parentUuid": "8fa89f0b_da8a96a7",
       "range": {
         "startLine": 1233,
         "startChar": 3,
