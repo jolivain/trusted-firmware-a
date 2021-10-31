@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b897a1d_637ac75c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-31T23:13:37Z",
+      "side": 1,
+      "message": "\u003e Patch Set 6:\n\u003e \n\u003e Build Failed \n\u003e \n\u003e https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l1/4555/ : This Jenkins server is not publicly accessible. A core maintainer will let you know if this CI failure is blocking the merge of this patch.\n\nun-related static-check failure[1] and open CI failures[2],[3], so manually overriding Verified vote.\n\n[1]: https://jenkins.oss.arm.com/job/tf-static-checks/16713/\n[2]: https://ci-builds.trustedfirmware.org/static-files/z9rEWR0oUtkW5l-JYYXHx52o13I72Bh5KxhAbBMptIwxNjM1NzIxODUyMjI2Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvNTQxMzUzL2FydGlmYWN0/lava.log -\u003e /usr/sbin/setup-sshd: 9: exec: /opt/model/FVP_ARM_Std_Library/models/Linux64_GCC-6.4/FVP_Base_Cortex-A35x4: not found\n[3]: https://ci-builds.trustedfirmware.org/static-files/5nX3y24F27NbeW7ZHp_HQPawcRQlb0L7iiICdgN-gLAxNjM1NzIxOTgxNjM4Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvNTQxMzU1L2FydGlmYWN0/lava.log -\u003e /usr/sbin/setup-sshd: 9: exec: /opt/model/FVP_ARM_Std_Library/models/Linux64_GCC-6.4/FVP_Base_Cortex-A57x4-A53x4: not found\n\n\n",
+      "revId": "d2d8a23a8a690593308136f125fc930856c6d690",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
