@@ -60,6 +60,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee26d36a_de0f3e6d",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-31T16:09:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5ab16aca_6878a5ca",
+      "revId": "39afc933072712597fbb96b38054c2ceb466f70b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2b1709e_b33fbbc8",
         "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
         "patchSetId": 4
@@ -71,6 +89,30 @@
       "writtenOn": "2021-10-26T13:33:52Z",
       "side": 1,
       "message": "(minor) Should we make the size of this array explicit, as in:\n\n char *nv_ctr_oids[MAX_NV_CTR_IDS]\n\n? It would show an explicit relation between the source array (nv_ctr_oids[]) and the destination array (critical_data-\u003env_ctr[]).\n\nBesides making the code clearer (IMHO), it might help detect problems if both array sizes go out of sync some day. I reckon that:\n* if MAX_NV_CTR_IDS gets increased to say, 3, nv_ctr_oids[] will have an extra zero entry. It\u0027s not the data that we want but it\u0027s better than an out-of-bound access!\n* if MAX_NV_CTR_IDS gets decreased, I think that the compiler should throw a warning (if not an error).",
+      "range": {
+        "startLine": 90,
+        "startChar": 7,
+        "endLine": 90,
+        "endChar": 20
+      },
+      "revId": "39afc933072712597fbb96b38054c2ceb466f70b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3857148_42a64f25",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-10-31T16:09:10Z",
+      "side": 1,
+      "message": "Accessing invalid oid (accessing out-of-bound nv_ctr_oids array value) results in \u0027plat_get_nv_ctr\u0027 returning an error,  but agreed it is better to mention the nv_ctr_oids array size explicitly that helps in detecting problems without accessing any out-of-bound array values.",
+      "parentUuid": "a2b1709e_b33fbbc8",
       "range": {
         "startLine": 90,
         "startChar": 7,
