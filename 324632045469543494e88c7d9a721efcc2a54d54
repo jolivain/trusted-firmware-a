@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41bb2b59_e482f346",
+        "filename": "include/lib/gpt_rme/gpt_rme.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "yes for the first question\n\nNo to the second.\nI added the GPT_NSE_SHIFT definition, but I will not shift the value in the macro itself, as it doesn\u0027t help the reading.\nThe compiler will do the job as I applied the shifting at the time of assignement",
+      "parentUuid": "89067bfe_3eacb39e",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21ea7202_26f9db01",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-10-29T13:25:11Z",
       "side": 1,
       "message": "use tabs",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fc5381a_eaf041ae",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "my text editor tells me it is a tab as much as the \"do_cache_maintenance_by_mva\" (line 63) is",
+      "parentUuid": "21ea7202_26f9db01",
       "revId": "324632045469543494e88c7d9a721efcc2a54d54",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3307ba67_cc6959e5",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82c59325_e5a89548",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b47f7e10_906b3b3e",
@@ -69,6 +123,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "886a47d4_fe81eaaf",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b47f7e10_906b3b3e",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d0081e5_8689dc52",
@@ -82,6 +154,24 @@
       "writtenOn": "2021-10-29T13:25:11Z",
       "side": 1,
       "message": "use tabs \u003d 8",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1f386ad_f08f447e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d0081e5_8689dc52",
       "revId": "324632045469543494e88c7d9a721efcc2a54d54",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -109,6 +199,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74fe8094_1a715eda",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "901cee53_3cf50040",
+      "range": {
+        "startLine": 1007,
+        "startChar": 5,
+        "endLine": 1007,
+        "endChar": 27
+      },
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d2e8892_3eeb5a1a",
@@ -122,6 +236,24 @@
       "writtenOn": "2021-10-29T13:25:11Z",
       "side": 1,
       "message": "remove",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2fc696d_8cca1500",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d2e8892_3eeb5a1a",
       "revId": "324632045469543494e88c7d9a721efcc2a54d54",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -143,6 +275,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ec64627_50d25fa7",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14c45700_9e310994",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c601140_4fd1fa4d",
@@ -156,6 +306,24 @@
       "writtenOn": "2021-10-29T13:25:11Z",
       "side": 1,
       "message": "return res;",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f1818de_97fe9a5b",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c601140_4fd1fa4d",
       "revId": "324632045469543494e88c7d9a721efcc2a54d54",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -177,6 +345,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfcd2423_b223b9b7",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26c8528d_7d1e0fda",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cd2ba5f_ead3b9cb",
@@ -190,6 +376,24 @@
       "writtenOn": "2021-10-29T13:25:11Z",
       "side": 1,
       "message": "return res;",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cecd3c0_a66f0169",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd2ba5f_ead3b9cb",
       "revId": "324632045469543494e88c7d9a721efcc2a54d54",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -211,6 +415,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61100cba_fb4f1a59",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c74f9f9_c0d78d4c",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d24b25a_5f34ee3b",
@@ -224,6 +446,24 @@
       "writtenOn": "2021-10-29T13:25:11Z",
       "side": 1,
       "message": "add new line",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4766ed5a_de835462",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d24b25a_5f34ee3b",
       "revId": "324632045469543494e88c7d9a721efcc2a54d54",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -245,6 +485,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42143e7d_db0a037f",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67b71c32_eebd8cd7",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "927751b9_4adcddd2",
@@ -258,6 +516,24 @@
       "writtenOn": "2021-10-29T13:25:11Z",
       "side": 1,
       "message": "see comments for gpt_delegate_pas()",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5c1abe9_3e26295d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "927751b9_4adcddd2",
       "revId": "324632045469543494e88c7d9a721efcc2a54d54",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -279,6 +555,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "512b7380_82ccf9de",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "719d54e2_b3e3505c",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8437a120_4c1f0d1e",
@@ -296,6 +590,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abff9c10_1d868ab2",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8437a120_4c1f0d1e",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2bb65c16_751715e4",
@@ -309,6 +621,24 @@
       "writtenOn": "2021-10-29T13:25:11Z",
       "side": 1,
       "message": "remove",
+      "revId": "324632045469543494e88c7d9a721efcc2a54d54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f638941a_8e0f118b",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-01T10:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bb65c16_751715e4",
       "revId": "324632045469543494e88c7d9a721efcc2a54d54",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
