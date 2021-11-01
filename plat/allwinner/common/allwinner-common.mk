@@ -61,6 +61,10 @@ BL31_SOURCES		+=	drivers/allwinner/sunxi_msgbox.c	\
 				${AW_PLAT}/common/sunxi_scpi_pm.c
 endif
 
+SUNXI_SKIP_REGULATOR_SETUP	?=	0
+$(eval $(call assert_boolean,SUNXI_SKIP_REGULATOR_SETUP))
+$(eval $(call add_define,SUNXI_SKIP_REGULATOR_SETUP))
+
 # The bootloader is guaranteed to only run on CPU 0 by the boot ROM.
 COLD_BOOT_SINGLE_CPU		:=	1
 

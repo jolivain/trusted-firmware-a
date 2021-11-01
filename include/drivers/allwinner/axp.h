@@ -47,6 +47,13 @@ int axp_clrsetbits(uint8_t reg, uint8_t clr_mask, uint8_t set_mask);
 
 int axp_check_id(void);
 void axp_power_off(void);
+
+#if SUNXI_SKIP_REGULATOR_SETUP
+static inline void axp_setup_regulators(const void *fdt)
+{
+}
+#else
 void axp_setup_regulators(const void *fdt);
+#endif
 
 #endif /* AXP_H */
