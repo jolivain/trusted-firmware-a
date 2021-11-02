@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7523f374_70aafa17",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd31ac1f_868ed39a",
+      "range": {
+        "startLine": 551,
+        "startChar": 35,
+        "endLine": 552,
+        "endChar": 21
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b973f9d2_498129bf",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-02T07:55:50Z",
       "side": 1,
       "message": "Use the cross reference `[1]`_",
+      "range": {
+        "startLine": 599,
+        "startChar": 28,
+        "endLine": 599,
+        "endChar": 31
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa19a93a_501dc523",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b973f9d2_498129bf",
       "range": {
         "startLine": 599,
         "startChar": 28,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d8d86d3_4c0d2281",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6cdbc6f_256c8201",
+      "range": {
+        "startLine": 618,
+        "startChar": 36,
+        "endLine": 618,
+        "endChar": 39
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12def973_4aa8c2a3",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-10-05T20:15:02Z",
       "side": 1,
       "message": "..by ..",
+      "range": {
+        "startLine": 621,
+        "startChar": 24,
+        "endLine": 621,
+        "endChar": 29
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e61f13e_be354076",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12def973_4aa8c2a3",
       "range": {
         "startLine": 621,
         "startChar": 24,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c7e11c7_9ec447fb",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a7e0cbf_0a758b4a",
+      "range": {
+        "startLine": 623,
+        "startChar": 65,
+        "endLine": 623,
+        "endChar": 69
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10cef51e_e6f59594",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-11-02T07:55:50Z",
       "side": 1,
       "message": "\u0027scheduler\u0027 may refer to the primary scheduler (e.g. linux scheduler) or the receiver endpoint scheduler.\nIt should be \u0027receiver scheduler\u0027, which is typically part of the endpoint driver. The driver itself is scheduled by the primary scheduler.",
+      "range": {
+        "startLine": 627,
+        "startChar": 71,
+        "endLine": 627,
+        "endChar": 80
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "878354c8_eaf30294",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10cef51e_e6f59594",
       "range": {
         "startLine": 627,
         "startChar": 71,
@@ -162,6 +306,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a564e35_7c632b05",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "038ecb56_9fc8dd35",
+      "range": {
+        "startLine": 628,
+        "startChar": 10,
+        "endLine": 628,
+        "endChar": 23
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0f471cf_b05cc032",
@@ -175,6 +343,30 @@
       "writtenOn": "2021-10-05T20:15:02Z",
       "side": 1,
       "message": "targeted",
+      "range": {
+        "startLine": 632,
+        "startChar": 19,
+        "endLine": 632,
+        "endChar": 25
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a0ffdc7_20a69865",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0f471cf_b05cc032",
       "range": {
         "startLine": 632,
         "startChar": 19,
@@ -208,6 +400,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66eb229e_3db60e9b",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52d011f3_f08bb38f",
+      "range": {
+        "startLine": 634,
+        "startChar": 11,
+        "endLine": 634,
+        "endChar": 13
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c894739_936b66ae",
@@ -221,6 +437,30 @@
       "writtenOn": "2021-11-02T07:55:50Z",
       "side": 1,
       "message": "relates?",
+      "range": {
+        "startLine": 640,
+        "startChar": 23,
+        "endLine": 640,
+        "endChar": 29
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd26ee85_626259fb",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "I actually meant \"resort\". Translated into the wrong word.",
+      "parentUuid": "5c894739_936b66ae",
       "range": {
         "startLine": 640,
         "startChar": 23,
@@ -268,6 +508,30 @@
       "side": 1,
       "message": "Agree. The generic \u0027scheduler\u0027 term alludes to different concepts. I left a comment line 626. I think we should separate the primary scheduler vs the receiver scheduler. The former being the HLOS scheduler, the latter being part of the receiver endpoint driver. The FF-A spec permits other combinations but I expect this will be the most common case at least with existing TEE implementations.\n\nYou can also state the Scheduler Receiver Interrupt is a NS physical interrupt handled by the FF-A \u0027transport\u0027 driver (under the receiver endpoint driver).",
       "parentUuid": "2592dced_0fd402db",
+      "range": {
+        "startLine": 641,
+        "startChar": 52,
+        "endLine": 641,
+        "endChar": 75
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0614d44e_e52c4db1",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Using receiver scheduler. applied remaining suggestions.",
+      "parentUuid": "03b5bb8c_c1ff6c6f",
       "range": {
         "startLine": 641,
         "startChar": 52,
@@ -351,6 +615,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf8091f2_38e8fc5e",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "The section includes the brief overview of the spec for each interface to provide context.\nI have added a few implementation specific information.\n\nI think it is ok as is. Let me know what you think.",
+      "parentUuid": "7e90103b_0c053b57",
+      "range": {
+        "startLine": 790,
+        "startChar": 0,
+        "endLine": 790,
+        "endChar": 6
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f07bd5da_a31986c3",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -362,6 +650,30 @@
       "writtenOn": "2021-11-02T07:55:50Z",
       "side": 1,
       "message": "bitmaps are",
+      "range": {
+        "startLine": 793,
+        "startChar": 36,
+        "endLine": 793,
+        "endChar": 45
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "754b63ba_509476ce",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f07bd5da_a31986c3",
       "range": {
         "startLine": 793,
         "startChar": 36,
@@ -395,6 +707,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5b2cd20_53cf410c",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f51a407_9b986f70",
+      "range": {
+        "startLine": 796,
+        "startChar": 51,
+        "endLine": 796,
+        "endChar": 64
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "533afba8_b686d1a7",
@@ -408,6 +744,30 @@
       "writtenOn": "2021-11-02T07:55:50Z",
       "side": 1,
       "message": "uses the FFA_NOTIFICATION_BITMAP_CREATE interface",
+      "range": {
+        "startLine": 800,
+        "startChar": 28,
+        "endLine": 800,
+        "endChar": 71
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32698fb8_1856b205",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "533afba8_b686d1a7",
       "range": {
         "startLine": 800,
         "startChar": 28,
@@ -441,6 +801,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f3b73a1_3f82b9ca",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ef3b6f8_21708525",
+      "range": {
+        "startLine": 804,
+        "startChar": 28,
+        "endLine": 804,
+        "endChar": 72
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d015396_9a949fc3",
@@ -454,6 +838,30 @@
       "writtenOn": "2021-11-02T07:55:50Z",
       "side": 1,
       "message": "The FFA_NOTIFICATION_SET interface is used by a sender..",
+      "range": {
+        "startLine": 824,
+        "startChar": 0,
+        "endLine": 824,
+        "endChar": 38
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58e7e9f8_c1a4277f",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d015396_9a949fc3",
       "range": {
         "startLine": 824,
         "startChar": 0,
@@ -487,6 +895,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "174d73e5_64c71246",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a80f66f_979a983c",
+      "range": {
+        "startLine": 829,
+        "startChar": 0,
+        "endLine": 829,
+        "endChar": 24
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fd7bf23_fbe5693f",
@@ -500,6 +932,30 @@
       "writtenOn": "2021-11-02T07:55:50Z",
       "side": 1,
       "message": "targeted",
+      "range": {
+        "startLine": 830,
+        "startChar": 14,
+        "endLine": 830,
+        "endChar": 20
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62881be5_6fcf73d8",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fd7bf23_fbe5693f",
       "range": {
         "startLine": 830,
         "startChar": 14,
@@ -533,6 +989,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8d831fd_a4ebd753",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd5166c2_ce76d2ad",
+      "range": {
+        "startLine": 835,
+        "startChar": 0,
+        "endLine": 835,
+        "endChar": 47
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "887d1809_70741e06",
@@ -546,6 +1026,30 @@
       "writtenOn": "2021-11-02T07:55:50Z",
       "side": 1,
       "message": "The partition\u0027s scheduler is expected to be implemented in a VM ...",
+      "range": {
+        "startLine": 843,
+        "startChar": 0,
+        "endLine": 843,
+        "endChar": 44
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c784f5b_282b7588",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Removed this sentence as this was described in the introduction.",
+      "parentUuid": "887d1809_70741e06",
       "range": {
         "startLine": 843,
         "startChar": 0,
@@ -579,6 +1083,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23c6efe0_38e79dcd",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ff0d988_8bdb80c4",
+      "range": {
+        "startLine": 849,
+        "startChar": 28,
+        "endLine": 849,
+        "endChar": 38
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "220406fe_9734f083",
@@ -592,6 +1120,24 @@
       "writtenOn": "2021-11-02T07:55:50Z",
       "side": 1,
       "message": "The call emitted at NS and secure physical FF-A instances returns the SPM ID specified in the SPMC manifest.",
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd8a6719_89184ac9",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "220406fe_9734f083",
       "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -619,6 +1165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "884ed3bd_11a8ad81",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "893c12d1_8f8de48d",
+      "range": {
+        "startLine": 852,
+        "startChar": 0,
+        "endLine": 852,
+        "endChar": 44
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da7a99aa_c074640a",
@@ -632,6 +1202,30 @@
       "writtenOn": "2021-11-02T07:55:50Z",
       "side": 1,
       "message": "You can put a cross reference to this section in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/11758/1/docs/components/secure-partition-manager.rst#550",
+      "range": {
+        "startLine": 858,
+        "startChar": 0,
+        "endLine": 858,
+        "endChar": 25
+      },
+      "revId": "f5998174c879ef3a11e35a0d60a40fbcc74a3a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfda73e2_4417ac8e",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-02T14:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da7a99aa_c074640a",
       "range": {
         "startLine": 858,
         "startChar": 0,
