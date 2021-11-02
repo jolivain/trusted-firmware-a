@@ -22,6 +22,30 @@
       },
       "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3626e731_1e1692d4",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-02T20:20:31Z",
+      "side": 1,
+      "message": "I wondered if I\u0027d made them macro or static inline functions.\n\nThe reason why I chose macros over inline:\n  - will be handled by the pre-processor rather than the compiler\n  - would simplify the handling of variable passing and return\n  - inline fonctions would have return checks within the main functions which would for the GPT_*_CHECKS would most certainly end up with the same code size in the caller and in the callee.\n  - for GET_GPI_SHIFT ans GET_GPI the reason for spliting is the spin_lock call that I wanted to stay in the main function so that it\u0027s easier to see when reading it through\n  - (less important) inline is a suggestion to the compiler, it might ignore it\n\nWhat do you think of:\n   - keeping the checks as macros?\n   - moving GET_GPI_SHIFT and GET_GPI as 1 inline function that would include the spin_lock?",
+      "parentUuid": "d98d85c1_ac0eb904",
+      "range": {
+        "startLine": 1031,
+        "startChar": 0,
+        "endLine": 1093,
+        "endChar": 11
+      },
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
