@@ -25,6 +25,7 @@
 #include <services/spmd_svc.h>
 #include <services/logical_sp.h>
 #include <smccc_helpers.h>
+#include <tools_share/sptool.h>
 
 #include <plat/arm/common/plat_arm.h>
 #include <platform_def.h>
@@ -813,9 +814,9 @@ static void populate_sp_mem_regions(sp_desc_t *sp,
 	for (offset = fdt_first_subnode(sp_manifest, node), mem_region = 0;
 	     offset >= 0;
 	     offset = fdt_next_subnode(sp_manifest, offset), mem_region++) {
-		if (offset < 0)
+		if (offset < 0) {
 			WARN("Error happened in SPMC manifest bootargs reading\n");
-		else {
+		} else {
 			ret = fdt_get_reg_props_by_index(sp_manifest, offset,
 							 0, &base_address,
 							 &size);
@@ -916,7 +917,7 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 			     entry_point_info_t *ep_info)
 {
 	int32_t ret, node;
-	uint64_t config;
+	uint64_t config_64;
 	uint32_t config_32;
 	uint8_t be_uuid[16];
 
@@ -924,23 +925,21 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 	 * Look for the mandatory fields that are expected to be present in
 	 * both S-EL1 and S-EL0 SP manifests.
 	 */
-	node = fdt_subnode_offset_namelen(sp_manifest, offset,
-					  "ffa-config",
-					  sizeof("ffa-config") - 1);
+	node = fdt_path_offset(sp_manifest, "/");
 	if (node < 0) {
-		ERROR("Not found any ffa-config for SP.\n");
+		ERROR("Did not find root node.\n");
 		return node;
 	}
 
 	ret = fdt_read_uint32(sp_manifest, node,
-			      "runtime-el", &config_32);
+			      "exception-level", &config_32);
 	if (ret) {
 		ERROR("Missing SP Runtime EL information.\n");
 		return ret;
 	} else
 		sp->runtime_el = config_32;
 
-	ret = fdtw_read_uuid(sp_manifest, node, "uuid", 16,
+	ret = fdtw_read_uuid(sp_manifest, node, "uuid", UUID_STRING_LENGTH,
 			     be_uuid);
 	if (ret) {
 		ERROR("Missing Secure Partition UUID.\n");
@@ -955,35 +954,53 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 	if (ret) {
 		ERROR("Missing Secure Partition FFA Version.\n");
 		return ret;
-	} else
+	} else {
 		sp->ffa_version = config_32;
+	}
 
-	ret = fdt_read_uint32(sp_manifest, node,
-			      "execution-state", &config_32);
+	ret = fdt_read_uint32(sp_manifest, node, "execution-state", &config_32);
 	if (ret) {
 		ERROR("Missing Secure Partition Execution State.\n");
 		return ret;
-	} else
+	} else {
 		sp->execution_state = config_32;
+	}
+
+	ret = fdt_read_uint32(sp_manifest, node, "messaging-method", &config_32);
+	if (ret) {
+		WARN("Missing Secure Partition properties.\n");
+	} else {
+		sp->properties = config_32;
+	}
 
 	/*
 	 * Look for the optional fields that are expected to be present in
 	 * both S-EL1 and S-EL0 SP manifests.
 	 */
 
-	ret = fdt_read_uint32(sp_manifest, node,
-			      "partition_id", &config_32);
-	if (ret)
+	ret = fdt_read_uint32(sp_manifest, node, "partition-id", &config_32);
+	if (ret) {
 		WARN("Missing Secure Partition ID.\n");
-	else
+	} else {
 		sp->sp_id = config_32;
+	}
 
-	ret = fdt_read_uint64(sp_manifest, node,
-			      "load_address", &config);
-	if (ret)
+	ret = fdt_read_uint64(sp_manifest, node, "load-address", &config_64);
+	if (ret) {
+		ERROR("Missing Secure Partition Load Address.\n");
+		return ret;
+	} else {
+		ep_info->pc = config_64;
+	}
+
+	ret = fdt_read_uint32(sp_manifest, node, "entrypoint-offset", &config_32);
+	if (ret) {
 		WARN("Missing Secure Partition Entry Point.\n");
-	else
-		ep_info->pc = config;
+	} else {
+		ep_info->pc += config_32;
+	}
+
+	INFO("SP Entrypoint Address is 0x%lx\n", ep_info->pc);
 
 	/*
 	 * Look for the mandatory fields that are expected to be present in only
@@ -992,52 +1009,58 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 	 */
 	if (sp->runtime_el == EL0) {
 		ret = fdt_read_uint64(sp_manifest, node,
-				      "sp_arg0", &config);
+				      "sp_arg0", &config_64);
 		if (ret) {
 			ERROR("Missing Secure Partition arg0.\n");
 			return ret;
-		} else
-			ep_info->args.arg0 = config;
+		} else {
+			ep_info->args.arg0 = config_64;
+		}
 
 		ret = fdt_read_uint64(sp_manifest, node,
-				      "sp_arg1", &config);
+				      "sp_arg1", &config_64);
 		if (ret) {
 			ERROR("Missing Secure Partition  arg1.\n");
 			return ret;
-		} else
-			ep_info->args.arg1 = config;
+		} else {
+			ep_info->args.arg1 = config_64;
+		}
 
 		ret = fdt_read_uint64(sp_manifest, node,
-				      "sp_arg2", &config);
+				      "sp_arg2", &config_64);
 		if (ret) {
 			ERROR("Missing Secure Partition  arg2.\n");
 			return ret;
-		} else
-			ep_info->args.arg2 = config;
+		} else {
+			ep_info->args.arg2 = config_64;
+		}
 
 		ret = fdt_read_uint64(sp_manifest, node,
-				      "sp_arg3", &config);
+				      "sp_arg3", &config_64);
 		if (ret) {
 			ERROR("Missing Secure Partition  arg3.\n");
 			return ret;
-		} else
-			ep_info->args.arg3 = config;
+		} else {
+			ep_info->args.arg3 = config_64;
+		}
 
 		ret = fdt_read_uint64(sp_manifest, node,
-				      "stack_base", &config);
+				      "stack_base", &config_64);
 		if (ret) {
 			ERROR("Missing Secure Partition Stack Base.\n");
 			return ret;
-		} else
-			sp->sp_stack_base = config;
+		} else {
+			sp->sp_stack_base = config_64;
+		}
 
 		ret = fdt_read_uint64(sp_manifest, node,
-				      "stack_size", &config);
+				      "stack_size", &config_64);
 		if (ret) {
 			ERROR("Missing Secure Partition Stack Size.\n");
 			return ret;
-		} else
-			sp->sp_stack_size = config;
+		} else {
+			sp->sp_stack_size = config_64;
+		}
 	}
 
 	node = fdt_subnode_offset_namelen(sp_manifest, offset,
@@ -1048,95 +1071,6 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 	else {
 		populate_sp_mem_regions(sp, sp_manifest, node);
 	}
-
-	return 0;
-}
-
-/*******************************************************************************
- * This function gets the Secure Partition Manifest base and maps the manifest
- * region.
- * Currently, one Secure partition manifest is considered and prepared the
- * Secure Partition context for the same.
- *
- ******************************************************************************/
-static int find_and_prepare_sp_context(void)
-{
-	void *sp_manifest;
-	uintptr_t manifest_base, manifest_base_align;
-	entry_point_info_t *next_image_ep_info;
-	int32_t ret;
-	sp_desc_t *sp;
-	entry_point_info_t ep_info = {0};
-
-	next_image_ep_info = bl31_plat_get_next_image_ep_info(SECURE);
-	if (next_image_ep_info == NULL) {
-		WARN("TEST: No Secure Partition image provided by BL2\n");
-		return -ENOENT;
-	}
-
-	sp_manifest = (void *)next_image_ep_info->args.arg0;
-	if (sp_manifest == NULL) {
-		WARN("Secure Partition(SP) manifest absent\n");
-		return -ENOENT;
-	}
-
-	manifest_base = (uintptr_t)sp_manifest;
-	manifest_base_align = page_align(manifest_base, UP);
-	manifest_base_align = page_align(manifest_base, DOWN);
-
-	/* Map the secure partition manifest region in the EL3 translation regime.
-	 * Map an area equal to (2 * PAGE_SIZE) for now. During manifest base
-	 * alignment the region of 1 PAGE_SIZE from manifest align base may not
-	 * completely accommodate the secure partition manifest region.
-	 */
-	ret = mmap_add_dynamic_region((unsigned long long)manifest_base_align,
-				      manifest_base_align,
-				      PAGE_SIZE * 2,
-				      MT_RO_DATA);
-	if (ret != 0) {
-		ERROR("Error while mapping SP manifest (%d).\n", ret);
-		return ret;
-	}
-
-	ret = fdt_node_offset_by_compatible(sp_manifest, -1, "arm,ffa-manifest");
-	if (ret < 0) {
-		ERROR("Error happened in SP manifest reading.\n");
-		return -EINVAL;
-	}
-
-	/*
-	 * Allocate an SP descriptor for initialising the partition's execution
-	 * context on the primary CPU.
-	 */
-	sp = &(sp_desc[ACTIVE_SP_DESC_INDEX]);
-
-	/* Assign translation tables context. */
-	sp_desc->xlat_ctx_handle = spm_get_sp_xlat_context();
-
-	/* Initialize entry point information for the SP */
-	SET_PARAM_HEAD(&ep_info, PARAM_EP, VERSION_1, SECURE | EP_ST_ENABLE);
-
-	/* Parse the SP manifest. */
-	ret = sp_manifest_parse(sp_manifest, ret, sp, &ep_info);
-	if (ret) {
-		ERROR(" Error in Secure Partition(SP) manifest parsing.\n");
-		return ret;
-	}
-
-	/* Check that the runtime EL in the manifest was correct */
-	if (sp->runtime_el != EL0 && sp->runtime_el != EL1) {
-		ERROR("Unexpected runtime EL: %d\n", sp->runtime_el);
-		return -EINVAL;
-	}
-
-	/* Perform any initialisation common to S-EL0 and S-EL1 SP */
-	spmc_sp_common_setup(sp, &ep_info);
-
-	/* Perform any initialisation specific to S-EL0 or S-EL1 SP */
-	if (sp->runtime_el == 0)
-		spmc_el0_sp_setup(sp, &ep_info);
-	else
-		spmc_el1_sp_setup(sp, &ep_info);
 
 	return 0;
 }
@@ -1198,21 +1132,23 @@ static int32_t sp_init(void)
 	sp_desc_t *sp;
 	sp_exec_ctx_t *ec;
 
-	sp = &(sp_desc[ACTIVE_SP_DESC_INDEX]);
-	ec = &sp->ec[get_ec_index(sp)];
-	ec->rt_model = RT_MODEL_INIT;
-	ec->rt_state = RT_STATE_RUNNING;
+	for (int i = 0; i < SECURE_PARTITION_COUNT; i++) {
+		sp = &(sp_desc[i]);
+		ec = &sp->ec[get_ec_index(sp)];
+		ec->rt_model = RT_MODEL_INIT;
+		ec->rt_state = RT_STATE_RUNNING;
 
-	INFO("Secure Partition (0x%x) init start.\n", sp->sp_id);
+		INFO("Secure Partition (0x%x) init start.\n", sp->sp_id);
 
-	rc = spmc_sp_synchronous_entry(ec);
-	assert(rc == 0);
+		rc = spmc_sp_synchronous_entry(ec);
+		assert(rc == 0);
 
-	ERROR("S-EL1 SP context on core%u is in %u state\n", get_ec_index(sp), ec->rt_state);
-	ec->rt_state = RT_STATE_WAITING;
-	ERROR("S-EL1 SP context on core%u is in %u state\n", get_ec_index(sp), ec->rt_state);
+		ERROR("S-EL1 SP context on core%u is in %u state\n", get_ec_index(sp), ec->rt_state);
+		ec->rt_state = RT_STATE_WAITING;
+		ERROR("S-EL1 SP context on core%u is in %u state\n", get_ec_index(sp), ec->rt_state);
 
-	INFO("Secure Partition initialized.\n");
+		INFO("Secure Partition%d initialized.\n", i);
+	}
 
 	return !rc;
 }
@@ -1221,7 +1157,7 @@ static void initalize_sp_descs(void) {
 	sp_desc_t *sp;
 	for (int i = 0; i < SECURE_PARTITION_COUNT; i++) {
 		sp = &sp_desc[i];
-		sp->sp_id = INV_SP_ID;
+		sp->sp_id = FFA_SP_ID_BASE + i;
 		sp->mailbox.rx_buffer = 0;
 		sp->mailbox.tx_buffer = 0;
 		sp->mailbox.state = MAILBOX_STATE_EMPTY;
@@ -1239,6 +1175,165 @@ static void initalize_ns_ep_descs(void) {
 		ns_ep->mailbox.tx_buffer = 0;
 		ns_ep->mailbox.state = MAILBOX_STATE_EMPTY;
 	}
+}
+
+static int32_t find_and_prepare_sp_context(void)
+{
+	void *spmc_manifest, *sp_manifest;
+	struct sp_pkg_header *sp_pkg;
+	entry_point_info_t *next_image_ep_info, ep_info;
+	sp_desc_t *sp;
+	int32_t spmc_node, node, ret;
+	uint64_t config_64;
+	uintptr_t manifest_base, manifest_base_align;
+	uint32_t sp_desc_idx = 0U;
+
+	next_image_ep_info = bl31_plat_get_next_image_ep_info(SECURE);
+	if (next_image_ep_info == NULL) {
+		WARN("TEST: No Secure Partition image provided by BL2\n");
+		return -ENOENT;
+	}
+
+	spmc_manifest = (void *)next_image_ep_info->args.arg0;
+	if (spmc_manifest == NULL) {
+		WARN("Secure Partition Management Core (SPMC) manifest absent\n");
+		return -ENOENT;
+	}
+
+	/* Map the SPMC manifest before reading it */
+	manifest_base = (uintptr_t)spmc_manifest;
+	manifest_base_align = page_align(manifest_base, UP);
+	manifest_base_align = page_align(manifest_base, DOWN);
+
+	ret = mmap_add_dynamic_region((unsigned long long)manifest_base_align,
+				      manifest_base_align,
+				      PAGE_SIZE,
+				      MT_MEMORY | MT_RO | MT_SECURE);
+	if (ret) {
+		WARN("Secure Partition Management Core (SPMC) manifest mapping failed (%d)\n", ret);
+		return -ENOENT;
+	}
+
+	ret = fdt_node_offset_by_compatible(spmc_manifest, -1,
+		"arm,ffa-core-manifest-1.0");
+	if (ret < 0) {
+		ERROR("'Compatible' propoperty not found in SPMC manifest.\n");
+		ret = -EINVAL;
+		goto err_spmc_manifest;
+	}
+
+	/* Find SPMC node. */
+	spmc_node = fdt_path_offset(spmc_manifest, "/spmc");
+	if (spmc_node < 0) {
+		ERROR("/spmc node not found in SPMC manifest.\n");
+		ret = -ENOENT;
+		goto err_spmc_manifest;
+	}
+
+	/* Initialize SPs published in the SPMC manifest */
+	fdt_for_each_subnode(node, spmc_manifest, spmc_node) {
+		/*
+		 * Find base address for the SP's manifest
+		 */
+		ret = fdt_read_uint64(spmc_manifest, node, "load_address",
+			&config_64);
+		if (ret) {
+			WARN("Missing Secure Partition Load Address.\n");
+			ret = -ENOENT;
+			goto err_spmc_manifest;
+		} else {
+			sp_pkg = (void *)(uintptr_t)config_64;
+		}
+		VERBOSE("SP Manifest Address is 0x%llx\n", config_64);
+
+		/* 4 Byte magic name "SPKG" */
+		if (sp_pkg->magic != SECURE_PARTITION_MAGIC) {
+			ERROR("Invalid package magic.\n");
+			ret = -EINVAL;
+			goto err_spmc_manifest;
+		}
+
+		/* SPKG version field */
+		if (sp_pkg->version != SECURE_PARTITION_VERSION) {
+			ERROR("Invalid package version.\n");
+			ret = -EINVAL;
+			goto err_spmc_manifest;
+		}
+
+		/* Expect DTB to immediately follow the header */
+		if (sp_pkg->pm_offset != sizeof(struct sp_pkg_header)) {
+			ERROR("Invalid package manifest offset.\n");
+			return -EINVAL;
+		}
+
+		/* SP manifest starts after the header */
+		sp_manifest = (void *)(config_64 + sp_pkg->pm_offset);
+
+		/*
+		 * Allocate an SP descriptor for initialising the partition's execution
+		 * context on the primary CPU.
+		 */
+		sp = &(sp_desc[sp_desc_idx++]);
+
+		/* Assign translation tables context. */
+		sp_desc->xlat_ctx_handle = spm_get_sp_xlat_context();
+
+		/* Initialize entry point information for the SP */
+		SET_PARAM_HEAD(&ep_info, PARAM_EP, VERSION_1, SECURE | EP_ST_ENABLE);
+
+		/* Map the manifest before accessing it */
+		manifest_base = (uintptr_t)sp_manifest;
+		manifest_base_align = page_align(manifest_base, UP);
+		manifest_base_align = page_align(manifest_base, DOWN);
+
+		ret = mmap_add_dynamic_region((unsigned long long)manifest_base_align,
+				      manifest_base_align,
+				      PAGE_SIZE * 2,
+				      MT_MEMORY | MT_RO | MT_SECURE);
+		if (ret) {
+			WARN("Secure Partition (SP) manifest mapping failed (%d)\n", ret);
+			goto err_spmc_manifest;
+		}
+
+		/* Parse the SP manifest. */
+		ret = sp_manifest_parse(sp_manifest, 0, sp, &ep_info);
+
+		/* Unmap manifest after use */
+		mmap_remove_dynamic_region(manifest_base_align, PAGE_SIZE * 2);
+
+		if (ret) {
+			ERROR(" Error in Secure Partition(SP) manifest parsing.\n");
+			goto err_spmc_manifest;
+		}
+
+		/* Check that the runtime EL in the manifest was correct */
+		if (sp->runtime_el != EL0 && sp->runtime_el != EL1) {
+			ERROR("Unexpected runtime EL: %d\n", sp->runtime_el);
+			goto err_spmc_manifest;
+		}
+
+		/* Perform any initialisation common to S-EL0 and S-EL1 SP */
+		spmc_sp_common_setup(sp, &ep_info);
+
+		/* Perform any initialisation specific to S-EL0 or S-EL1 SP */
+		if (sp->runtime_el == 0) {
+			spmc_el0_sp_setup(sp, &ep_info);
+		} else {
+			spmc_el1_sp_setup(sp, &ep_info);
+		}
+	}
+
+err_spmc_manifest:
+
+	/* Map the SPMC manifest before reading it */
+	manifest_base = (uintptr_t)spmc_manifest;
+	manifest_base_align = page_align(manifest_base, UP);
+	manifest_base_align = page_align(manifest_base, DOWN);
+	mmap_remove_dynamic_region(manifest_base_align, PAGE_SIZE);
+
+	INFO("Secure Partition Manager Core manifest parsing complete.\n");
+
+	return ret;
 }
 
 /*******************************************************************************
@@ -1264,6 +1359,7 @@ int32_t spmc_setup(void)
 	/* Initialize context of the SP */
 	INFO("Secure Partition context setup start.\n");
 
+	/* Find the SP manifest and prepare context */
 	ret = find_and_prepare_sp_context();
 	if (ret) {
 		ERROR(" Error in Secure Partition finding and context preparation.\n");

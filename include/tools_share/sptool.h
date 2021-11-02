@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020, Arm Limited. All rights reserved.
+ * Copyright (c) 2018-2021, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,6 +11,8 @@
 
 /* 4 Byte magic name "SPKG" */
 #define SECURE_PARTITION_MAGIC		0x474B5053
+
+#define SECURE_PARTITION_VERSION	1U
 
 /* Header for a secure partition package. */
 struct sp_pkg_header {
