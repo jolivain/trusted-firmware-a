@@ -110,12 +110,12 @@ typedef struct secure_partition_desc {
 	/*
 	 * ID of the Secure Partition
 	 */
-	uint16_t sp_id;
+	uint32_t sp_id;
 
 	/*
 	 * Runtime EL
 	 */
-	uint16_t runtime_el;
+	uint32_t runtime_el;
 
 	/*
 	 * Mailbox tracking
