@@ -535,6 +535,24 @@
       "message": "FYI the \"Run Boot Test\" failures are a CI Infrastructure issue with one if the FVP\u0027s. Ignore them.\n\nMainly the \"Run Build Tests\" https://ci.trustedfirmware.org/job/tf-ci-gateway/16408/ are what need looking at.",
       "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66f3beeb_2e35757f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000319
+      },
+      "writtenOn": "2021-11-02T17:49:01Z",
+      "side": 1,
+      "message": "@Manish, please do look at the failure as I updated the mv-ddr-marvell repo with the change:\nhttps://github.com/MarvellEmbeddedProcessors/mv-ddr-marvell/blob/master/mv_ddr4_training_leveling.c\n\nYet, the build doesn\u0027t seem to be picking up the change from that repo?\nhttps://ci.trustedfirmware.org/job/tf-a-builder/544675/console",
+      "parentUuid": "3d7c80bf_38aaa2c6",
+      "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
