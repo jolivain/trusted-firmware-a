@@ -16,6 +16,24 @@
       "message": "Hi @Patrick, @Yann\n\nCI is showing static checks fails. Can you please fix them?\nhttps://ci.trustedfirmware.org/job/tf-static-checks/1619/\n",
       "revId": "afad5214a79259f56bc2003b00859abfe8a18d4d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aef7436_e7b3b68b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-02T08:38:42Z",
+      "side": 1,
+      "message": "Hi @Madhukar,\nThere are several things reported there.\nFirst, the copyright dates in the DT files: I\u0027d prefer keeping them as-is, as those files are mainly copied from Linux. Adding 2021 will add another difference in the files.\nSecond the checkpatch errors: those seems like false issues, the \u0027return -EIO;\u0027 looks perfectly valid. Same for other issues I think. Has the checkpatch version changed, or is there something we should configure?\nThe other warning comes from an fvp_r patch.\n\nBest regards,\nYann",
+      "parentUuid": "af1eef22_794f7ea1",
+      "revId": "afad5214a79259f56bc2003b00859abfe8a18d4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
