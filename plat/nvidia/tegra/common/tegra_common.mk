@@ -24,7 +24,6 @@ TEGRA_GICv3_SOURCES	:=	$(GICV3_SOURCES)				\
 
 # Include GICv2 driver files
 include drivers/arm/gic/v2/gicv2.mk
-
 TEGRA_GICv2_SOURCES	:=	${GICV2_SOURCES}				\
 				plat/common/plat_gicv2.c			\
 				${TEGRA_COMMON}/tegra_gicv2.c
@@ -51,6 +50,9 @@ BL31_SOURCES		+=	drivers/delay_timer/delay_timer.c		\
 				${TEGRA_COMMON}/tegra_sip_calls.c		\
 				${TEGRA_COMMON}/tegra_sdei.c
 
+ifeq (${SPMC_AT_EL3}, 1)
+BL31_SOURCES		+=	common/uuid.c
+endif
 ifneq ($(ENABLE_STACK_PROTECTOR), 0)
 BL31_SOURCES		+=	${TEGRA_COMMON}/tegra_stack_protector.c
 endif
