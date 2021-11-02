@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d98d85c1_ac0eb904",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-11-02T16:10:42Z",
+      "side": 1,
+      "message": "Could these be inline functions instead of macros? These seem quite complex for macros and well suited to be helper functions.",
+      "range": {
+        "startLine": 1031,
+        "startChar": 0,
+        "endLine": 1093,
+        "endChar": 11
+      },
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
