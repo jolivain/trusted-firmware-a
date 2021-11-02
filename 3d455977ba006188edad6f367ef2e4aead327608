@@ -16,6 +16,29 @@
       "message": "commitlint error is for the parent patch.",
       "revId": "3d455977ba006188edad6f367ef2e4aead327608",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b72af8f3_6b06284a",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-11-02T17:33:12Z",
+      "side": 1,
+      "message": "\"...that runs at R-EL2 and implements a subset of RMI commands to primarily test EL3 firmware and the interface between R-EL2 and EL3\".",
+      "range": {
+        "startLine": 78,
+        "startChar": 44,
+        "endLine": 78,
+        "endChar": 47
+      },
+      "revId": "3d455977ba006188edad6f367ef2e4aead327608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
