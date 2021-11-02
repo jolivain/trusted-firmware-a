@@ -34,6 +34,24 @@
       "parentUuid": "38af830b_d978ec11",
       "revId": "8000b84b073d58a1c5c90ba8688e35fca69ac73f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4295afea_764862c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-11-02T23:44:43Z",
+      "side": 1,
+      "message": "I tried the tf.org CI, but it consistently failed, and removed all the positive votes that the Legacy CI just gave a few minutes earlier - I think that\u0027s new, it used to be two separate votes. See the history above.\n- Yes, there is recent changes to remove few votes.\n\n.\nAnd while I see your point about running CI only on the top patch (sorry for the spam!), does this give Verified+1 votes on all patches? IIUC those are needed for getting them merged?\n- No, it does not gives verified +1 votes on all but we manually extend it to others",
+      "parentUuid": "f8ecbbcd_40c6d68c",
+      "revId": "8000b84b073d58a1c5c90ba8688e35fca69ac73f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
