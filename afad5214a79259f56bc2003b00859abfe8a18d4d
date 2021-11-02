@@ -70,6 +70,24 @@
       "parentUuid": "d3dd8c9a_0b2688a5",
       "revId": "afad5214a79259f56bc2003b00859abfe8a18d4d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f844500a_9343055d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-02T15:40:20Z",
+      "side": 1,
+      "message": "Thank you, Yann.\n\nIf I am not mistaken, the reason why CI reports a (false) issue on the merged patch 4fcbbb33c31ddf4461e6b557f8aec1a72411ac1 is that it is still in integration and not yet in the master branch. Anyways, Since the \"double signed-of-by\" are just reported as WARNINGS, I am not too concerned by them.",
+      "parentUuid": "e6f8dce3_2eddc24c",
+      "revId": "afad5214a79259f56bc2003b00859abfe8a18d4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
