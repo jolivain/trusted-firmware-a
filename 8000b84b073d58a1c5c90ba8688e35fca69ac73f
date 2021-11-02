@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38af830b_d978ec11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-11-02T23:34:25Z",
+      "side": 1,
+      "message": "@Andre, FYI : no need to run CI on each patch (only top should be enough).\nAlso, if you are only doing CI+1 then no need to run Legacy CI\n\nFinally, this patch series does have few generic changes its better to run CI+2(legacy_",
+      "revId": "8000b84b073d58a1c5c90ba8688e35fca69ac73f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
