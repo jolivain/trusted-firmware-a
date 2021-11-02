@@ -106,6 +106,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c526613f_0af9b00b",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-02T13:52:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f1d8ab8_fd891a91",
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09f518d4_1877e021",
@@ -119,6 +137,24 @@
       "writtenOn": "2021-10-27T10:18:14Z",
       "side": 1,
       "message": "If this functionality need to be invoked from asm code, an asm helper would be been useful (although I cant find an usecase for this atm). A  flush_dcache_range_by_pa_to_popa() utility can be introduced (can be in C or asm).",
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6abe2c11_6a8a1198",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-02T13:52:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09f518d4_1877e021",
       "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -146,6 +182,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bd33b08_df5ec637",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-02T13:52:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7855895f_e8806d75",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 7
+      },
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f058b83_dfddc3b7",
@@ -159,6 +219,24 @@
       "writtenOn": "2021-10-27T10:18:14Z",
       "side": 1,
       "message": "doing a branch operation for every line flush can be optimized if everything is done as a single function.",
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4d9a643_14c98157",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2021-11-02T13:52:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f058b83_dfddc3b7",
       "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
