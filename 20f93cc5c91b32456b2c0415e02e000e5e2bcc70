@@ -16,6 +16,443 @@
       "message": "Thanks a lot for the review comments, Joao!",
       "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22cc5984_53a0dd31",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "I wonder if we can just generalize to \"interrupt handling\" or \"interrupt management\" provided that the framework also cover the cases of partitions interrupted by an NS-Int.",
+      "range": {
+        "startLine": 781,
+        "startChar": 47,
+        "endLine": 781,
+        "endChar": 76
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "554b34c0_92110f51",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "The description is specific to the SPMC, as \u0027Hafnium\u0027 as an Hypervisor is meant to remain untouched.",
+      "range": {
+        "startLine": 782,
+        "startChar": 0,
+        "endLine": 782,
+        "endChar": 7
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15c055ad_9465c074",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "Actually they have access, but this is not supported by the current implementation.",
+      "range": {
+        "startLine": 785,
+        "startChar": 13,
+        "endLine": 785,
+        "endChar": 47
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5bddc56_6357cc97",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "Actually restricted to SEL1/SEL0. SEL2 has interrupts masked so not trapped while it executes.\nEL3 runs in \u0027secure state\u0027 but it is not interrupted (and hence interrupts not routed to SPMC).",
+      "range": {
+        "startLine": 790,
+        "startChar": 59,
+        "endLine": 790,
+        "endChar": 71
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dac669c_aa58a0a0",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "physical interrupts",
+      "range": {
+        "startLine": 790,
+        "startChar": 8,
+        "endLine": 790,
+        "endChar": 18
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6052946_4941e383",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 809,
+        "startChar": 77,
+        "endLine": 809,
+        "endChar": 78
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe07e585_65becaa0",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "nit: space",
+      "range": {
+        "startLine": 855,
+        "startChar": 36,
+        "endLine": 855,
+        "endChar": 37
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d8d8073_3c016569",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "nit: normal world",
+      "range": {
+        "startLine": 888,
+        "startChar": 39,
+        "endLine": 888,
+        "endChar": 51
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea8dfb1_2343810e",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "nit: space",
+      "range": {
+        "startLine": 891,
+        "startChar": 70,
+        "endLine": 891,
+        "endChar": 71
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b78070bb_0aa20a36",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "nit: waiting state",
+      "range": {
+        "startLine": 893,
+        "startChar": 28,
+        "endLine": 893,
+        "endChar": 35
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f44d3979_64eae3fa",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "nit: there is no mention of SP1 in the picture (and bullet 6)",
+      "range": {
+        "startLine": 893,
+        "startChar": 13,
+        "endLine": 893,
+        "endChar": 16
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53661496_cd397cb2",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "(if PSTATE.I unmasks virtual IRQs)",
+      "range": {
+        "startLine": 895,
+        "startChar": 17,
+        "endLine": 895,
+        "endChar": 22
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c917a72_a2b4b0f9",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "Eventually SP interrupt completion signaling would already have happened at step 8, but I agree the implementation is not following exactly this.",
+      "range": {
+        "startLine": 899,
+        "startChar": 7,
+        "endLine": 899,
+        "endChar": 46
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a66b0ae7_4a5ff34e",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "nit: secure world",
+      "range": {
+        "startLine": 904,
+        "startChar": 18,
+        "endLine": 904,
+        "endChar": 30
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ee03e87_f3b2e300",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "IRQ",
+      "range": {
+        "startLine": 911,
+        "startChar": 31,
+        "endLine": 911,
+        "endChar": 34
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa8d16f3_33b7c829",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "nit: ERET",
+      "range": {
+        "startLine": 915,
+        "startChar": 40,
+        "endLine": 915,
+        "endChar": 44
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f604da9f_6aa00418",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "(if PSTATE.I\u003d0)",
+      "range": {
+        "startLine": 916,
+        "startChar": 17,
+        "endLine": 916,
+        "endChar": 22
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2541c031_f1e96c99",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "To make it clearer, assumptions should be stated before the scenario description.",
+      "range": {
+        "startLine": 920,
+        "startChar": 7,
+        "endLine": 920,
+        "endChar": 39
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6129c59_5a2647ff",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-02T07:41:37Z",
+      "side": 1,
+      "message": "Is this a \u0027target\u0027 eventually? The pre-empted SP2 vCPU is simply resumed after SP1 has handled the interrupt.",
+      "range": {
+        "startLine": 922,
+        "startChar": 24,
+        "endLine": 922,
+        "endChar": 30
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
