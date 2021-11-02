@@ -17,10 +17,13 @@ SPMC_SOURCES	:=	$(addprefix services/std_svc/spm/spmc/,	\
 
 
 # Let the top-level Makefile know that we intend to include a BL32 image
-NEED_BL32		:=	yes
+NEED_BL32		?=	yes
 
 # Enable save and restore for non-secure timer register
 NS_TIMER_SWITCH		:=	1
+
+# Enable TSP for platforms that do not support another SP
+ifeq (${NEED_BL32},yes)
 
 # The SPMC is paired with a Test Secure Payload source and we intend to
 # build the Test Secure Payload along with this dispatcher.
@@ -35,3 +38,5 @@ BL32_ROOT		:=	bl32/tsp
 # compatible with that of Trusted Firmware, and it'll add and populate necessary
 # build targets and variables
 include ${BL32_ROOT}/tsp.mk
+
+endif
