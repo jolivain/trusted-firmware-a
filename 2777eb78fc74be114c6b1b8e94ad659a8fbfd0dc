@@ -518,6 +518,23 @@
       "message": "@Scott, number of failures are quite less now, please let us know if you need any help from us.",
       "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2e2f92b_c44ffc03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-11-02T15:45:02Z",
+      "side": 1,
+      "message": "FYI the \"Run Boot Test\" failures are a CI Infrastructure issue with one if the FVP\u0027s. Ignore them.\n\nMainly the \"Run Build Tests\" https://ci.trustedfirmware.org/job/tf-ci-gateway/16408/ are what need looking at.",
+      "revId": "2777eb78fc74be114c6b1b8e94ad659a8fbfd0dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
