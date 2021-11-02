@@ -16,6 +16,24 @@
       "message": "I think using an existing macro (MPIDR_AFFINITY_MASK) would be better.\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/arch/aarch64/arch.h#n40",
       "revId": "115cf817b0b677580c0fd3e49d1a7362aa946cd0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0e048a6_983e4e03",
+        "filename": "drivers/arm/gic/v3/gicv3_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000464
+      },
+      "writtenOn": "2021-11-02T10:40:58Z",
+      "side": 1,
+      "message": "Agree with you, i will modify it soon.",
+      "parentUuid": "580b1c96_bca11683",
+      "revId": "115cf817b0b677580c0fd3e49d1a7362aa946cd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
