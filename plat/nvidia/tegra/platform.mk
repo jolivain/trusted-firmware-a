@@ -75,8 +75,11 @@ override LIBC_SRCS :=	$(addprefix lib/libc/,		\
 			memset.c			\
 			printf.c			\
 			putchar.c			\
+			strncmp.c			\
+			strnlen.c			\
 			strrchr.c			\
 			strlen.c			\
+			strlcpy.c			\
 			snprintf.c)
 
 INCLUDES	+=	-Iinclude/lib/libc		\

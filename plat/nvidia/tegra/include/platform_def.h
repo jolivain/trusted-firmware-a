@@ -49,6 +49,28 @@
 #define PLAT_NUM_PWR_DOMAINS		(PLATFORM_CORE_COUNT + \
 					 PLATFORM_CLUSTER_COUNT + U(1))
 
+#if defined(SPMC_AT_EL3)
+/* Number of memory regions for the secure partitions */
+#define PLAT_SP_IMAGE_MMAP_REGIONS	5
+
+/* Number of xlat table regions for secure partitions */
+#define PLAT_SP_IMAGE_MAX_XLAT_TABLES	5
+
+/*
+ * Number of Secure Partitions supported.
+ * SPMC at EL3, uses this count to configure the maximum number of supported
+ * secure partitions.
+ */
+#define SECURE_PARTITION_COUNT		2
+
+/*
+ * Number of Nwld Partitions supported.
+ * SPMC at EL3, uses this count to configure the maximum number of supported
+ * nwld partitions.
+ */
+#define NS_PARTITION_COUNT		2
+#endif
+
 /*******************************************************************************
  * Platform console related constants
  ******************************************************************************/
@@ -95,9 +117,10 @@
  ******************************************************************************/
 #define PLAT_PRI_BITS			U(3)
 #define PLAT_RAS_PRI			U(0x10)
-#define PLAT_SDEI_CRITICAL_PRI		U(0x20)
-#define PLAT_SDEI_NORMAL_PRI		U(0x30)
-#define PLAT_TEGRA_WDT_PRIO		U(0x40)
+#define PLAT_SP_PRI			U(0x20)
+#define PLAT_SDEI_CRITICAL_PRI		U(0x30)
+#define PLAT_SDEI_NORMAL_PRI		U(0x40)
+#define PLAT_TEGRA_WDT_PRIO		U(0x50)
 
 #define PLAT_EHF_DESC			EHF_PRI_DESC(PLAT_PRI_BITS,\
 						     PLAT_TEGRA_WDT_PRIO)
