@@ -16,6 +16,24 @@
       "message": "@Andre, FYI : no need to run CI on each patch (only top should be enough).\nAlso, if you are only doing CI+1 then no need to run Legacy CI\n\nFinally, this patch series does have few generic changes its better to run CI+2(legacy_",
       "revId": "8000b84b073d58a1c5c90ba8688e35fca69ac73f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8ecbbcd_40c6d68c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-11-02T23:40:55Z",
+      "side": 1,
+      "message": "Manish, thanks for your votes and for taking care!\nI tried the tf.org CI, but it consistently failed, and removed all the positive votes that the Legacy CI just gave a few minutes earlier - I think that\u0027s new, it used to be two separate votes. See the history above.\nAnd while I see your point about running CI only on the top patch (sorry for the spam!), does this give Verified+1 votes on all patches? IIUC those are needed for getting them merged?",
+      "parentUuid": "38af830b_d978ec11",
+      "revId": "8000b84b073d58a1c5c90ba8688e35fca69ac73f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
