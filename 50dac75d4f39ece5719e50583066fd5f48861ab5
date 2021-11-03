@@ -16,6 +16,46 @@
       "message": "Adding Javier for CoR",
       "revId": "50dac75d4f39ece5719e50583066fd5f48861ab5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df19d767_97bf434e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-11-03T12:08:25Z",
+      "side": 1,
+      "message": "Just a minor detail, but other than that looks good to me. I will add COR+1 once the nit is fixed or at least discussed.",
+      "revId": "50dac75d4f39ece5719e50583066fd5f48861ab5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c38b39f8_294460f5",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2021-11-03T12:08:25Z",
+      "side": 1,
+      "message": "nit: You use this \u00274\u0027 value in several places. Wouldn\u0027t it be better to replace it by strlen(\"CMD:\") instead, just to make it clear where it comes from?\n\nEven better, you could use a couple of macros, such as:\n\n#define SIGNATURE \"CMD:\"\n#define SIGNATURE_LEN (strlen(SIGNATURE))",
+      "range": {
+        "startLine": 175,
+        "startChar": 54,
+        "endLine": 175,
+        "endChar": 55
+      },
+      "revId": "50dac75d4f39ece5719e50583066fd5f48861ab5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
