@@ -3,6 +3,108 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff355ec3_f299391a",
+        "filename": "include/lib/gpt_rme/gpt_rme.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-03T18:57:48Z",
+      "side": 1,
+      "message": "won\u0027t parameters fit on one line?",
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ab0a011_ad8fada9",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-03T18:57:48Z",
+      "side": 1,
+      "message": "please use tab after \u0027dsb\u0027",
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86513ab8_87a9e418",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-03T18:57:48Z",
+      "side": 1,
+      "message": "can this function be modified to just return \"nse\" value and assert in the case of error parameter?\nstatic inline uint64_t gpt_get_nse(unsigned int target_gpi)",
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ca1dfbc_bc094787",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-03T18:57:48Z",
+      "side": 1,
+      "message": "To make MISRA-C happy:\nwhile (false)",
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7bcd61a_16accc0f",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1077,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-03T18:57:48Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18f17563_76da0ede",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-03T18:57:48Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d98d85c1_ac0eb904",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 5
@@ -68,6 +170,125 @@
         "endLine": 1093,
         "endChar": 11
       },
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50ea30d4_20d794e8",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-03T18:57:48Z",
+      "side": 1,
+      "message": "while (false)\nI\u0027d prefer to have static functions. The current macro implementation use hard coded parameters and variables as \nbase, size, etc., which doesn\u0027t look right to me. Using function will also make code more readble and less in size.",
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d24e3a56_b5f57955",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-03T18:57:48Z",
+      "side": 1,
+      "message": "\u003d 0 is obsolete",
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91cdce4f_fa2c51fe",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-03T18:57:48Z",
+      "side": 1,
+      "message": "\u003d 0 is obsolete",
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "558af855_13d77ab5",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-03T18:57:48Z",
+      "side": 1,
+      "message": "combine similar variables for readability?\nuint64_t gpt_l0_desc, gpt_l1_desc, *gpt_l1_addr, *gpt_l0_base;",
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9f8f1e6_1cebd5f1",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-03T18:57:48Z",
+      "side": 1,
+      "message": "\u003d 0 is obsolete",
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a302e91_2e67531a",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-03T18:57:48Z",
+      "side": 1,
+      "message": "\u003d 0 is obsolete",
+      "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61d97e08_a75ea88d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-03T18:57:48Z",
+      "side": 1,
+      "message": "add a new line",
       "revId": "da26185e786cfc2ec601a21ef55a98f05529127f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
