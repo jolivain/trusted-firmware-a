@@ -106,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42d7b281_9efe01a7",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-03T20:37:55Z",
+      "side": 1,
+      "message": "Since we have two separate sections, I would like to keep it as it is. Moreover, I have emphasized only secure interrupt handling in this section(as reiterated by the two new diagrams)",
+      "parentUuid": "e006275f_b5b7fbce",
+      "range": {
+        "startLine": 781,
+        "startChar": 47,
+        "endLine": 781,
+        "endChar": 76
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "554b34c0_92110f51",
@@ -167,6 +191,30 @@
       "side": 1,
       "message": "Can you specify SPMC explicitly? Assumptions below do not apply to Hafnium in general (aka the Hypervisor).",
       "parentUuid": "7da7a700_fe02bc68",
+      "range": {
+        "startLine": 782,
+        "startChar": 0,
+        "endLine": 782,
+        "endChar": 7
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3204f7f7_2725b992",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-03T20:37:55Z",
+      "side": 1,
+      "message": "My apologies. I mistakenly undid my changes.",
+      "parentUuid": "604f22e3_36241c95",
       "range": {
         "startLine": 782,
         "startChar": 0,

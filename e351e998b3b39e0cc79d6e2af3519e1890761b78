@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6737f4a1_6fb77983",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-03T20:37:55Z",
+      "side": 1,
+      "message": "Shall I rephrase it the following way?\n\nIn the current iteration, we expect the S-EL1 SP to rely on para virtualized ABIs for interrupt management rather than accessing virtual GIC interface.",
+      "parentUuid": "b082ad62_2d428065",
+      "range": {
+        "startLine": 785,
+        "startChar": 13,
+        "endLine": 785,
+        "endChar": 59
+      },
+      "revId": "e351e998b3b39e0cc79d6e2af3519e1890761b78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e6610f23_039e7e8c",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-03T18:22:02Z",
       "side": 1,
       "message": "when running a secure partition execution context.",
+      "range": {
+        "startLine": 790,
+        "startChar": 47,
+        "endLine": 791,
+        "endChar": 13
+      },
+      "revId": "e351e998b3b39e0cc79d6e2af3519e1890761b78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88e87590_4e8bcefe",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-03T20:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6610f23_039e7e8c",
       "range": {
         "startLine": 790,
         "startChar": 47,
