@@ -31,8 +31,8 @@
  * All rights reserved.
  */
 
-#ifndef UUID_H
-#define UUID_H
+#ifndef TOOLS_UUID_H
+#define TOOLS_UUID_H
 
 /* Length of a node address (an IEEE 802 address). */
 #define	_UUID_NODE_LEN		6
