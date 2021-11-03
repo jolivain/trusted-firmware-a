@@ -84,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e006275f_b5b7fbce",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-03T18:22:02Z",
+      "side": 1,
+      "message": "Did you intend to change anything here?",
+      "parentUuid": "bbd94f87_16ce77f8",
+      "range": {
+        "startLine": 781,
+        "startChar": 47,
+        "endLine": 781,
+        "endChar": 76
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "554b34c0_92110f51",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 2
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "554b34c0_92110f51",
+      "range": {
+        "startLine": 782,
+        "startChar": 0,
+        "endLine": 782,
+        "endChar": 7
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "604f22e3_36241c95",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-03T18:22:02Z",
+      "side": 1,
+      "message": "Can you specify SPMC explicitly? Assumptions below do not apply to Hafnium in general (aka the Hypervisor).",
+      "parentUuid": "7da7a700_fe02bc68",
       "range": {
         "startLine": 782,
         "startChar": 0,
@@ -871,6 +919,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "2541c031_f1e96c99",
+      "range": {
+        "startLine": 920,
+        "startChar": 7,
+        "endLine": 920,
+        "endChar": 39
+      },
+      "revId": "20f93cc5c91b32456b2c0415e02e000e5e2bcc70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d7de4c0_fbf4200a",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-03T18:22:02Z",
+      "side": 1,
+      "message": "Did you intend to fix this?",
+      "parentUuid": "4823367a_2f802787",
       "range": {
         "startLine": 920,
         "startChar": 7,

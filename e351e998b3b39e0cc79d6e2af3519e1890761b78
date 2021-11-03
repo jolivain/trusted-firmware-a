@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b082ad62_2d428065",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-03T18:22:02Z",
+      "side": 1,
+      "message": "I don\u0027t think this is correct. SPs can easily access the virtual CPU interface through system register read/writes as of today. The SPMC implementation simply doesn\u0027t support it from a functional perspective. So the recommendation for the current implementation is to not use the GIC virtual CPU interface as defined by the architecture, but rely on the SPMC para virtualized interface.",
+      "range": {
+        "startLine": 785,
+        "startChar": 13,
+        "endLine": 785,
+        "endChar": 59
+      },
+      "revId": "e351e998b3b39e0cc79d6e2af3519e1890761b78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6610f23_039e7e8c",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-03T18:22:02Z",
+      "side": 1,
+      "message": "when running a secure partition execution context.",
+      "range": {
+        "startLine": 790,
+        "startChar": 47,
+        "endLine": 791,
+        "endChar": 13
+      },
+      "revId": "e351e998b3b39e0cc79d6e2af3519e1890761b78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
