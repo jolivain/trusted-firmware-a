@@ -16,6 +16,23 @@
       "message": "Need to add files for coverity analyses",
       "revId": "0164b781f290b81d3c447b6a4eba8ff2c539974a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31eb287c_53b631f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2021-11-04T20:38:06Z",
+      "side": 1,
+      "message": "New source files have been identified in your patch..\ndrivers/nxp/ifc/nand/ifc_nand.c\ndrivers/nxp/ifc/nor/ifc_nor.c\ndrivers/nxp/tzc/plat_tzc380.c\nplat/nxp/common/soc_errata/errata_a008850.c\n\n1. Kindly ensure they are updated in the \"tf-cov-make\" build script as well to \n   consider them for Coverity Scan analysis. Please refer to the tf-a documentation \n   \"https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-build-configurations\" \n   for more detailed explanation on adding your new build configurations.\n\n2. Please ignore if files are already updated. Further the Code Maintainer will \n   resolve the issue by taking appropriate action.",
+      "revId": "0164b781f290b81d3c447b6a4eba8ff2c539974a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
