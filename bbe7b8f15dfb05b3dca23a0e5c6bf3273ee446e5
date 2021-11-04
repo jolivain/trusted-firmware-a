@@ -16,6 +16,24 @@
       "message": "Hum the linter seems to be strict about the title being fully lower case..\n\n✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]",
       "revId": "bbe7b8f15dfb05b3dca23a0e5c6bf3273ee446e5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "593d9f10_00c5282e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-04T14:22:14Z",
+      "side": 1,
+      "message": "okay done. Somewhat weird that we need to use all lower case in the subject but upper case for the same things in the commit message. FF-A, S-EL0 etc will be inconsistent.. We need to pick the same convention for hafnium as well if possible. I dont mind all lower case everywhere. makes things easier i think..",
+      "parentUuid": "127f5eb0_3632e3f0",
+      "revId": "bbe7b8f15dfb05b3dca23a0e5c6bf3273ee446e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
