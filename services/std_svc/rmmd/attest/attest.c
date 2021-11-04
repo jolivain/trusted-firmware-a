@@ -21,6 +21,15 @@ int get_attestation_token(uint8_t *buf, size_t *len, uint8_t *hash,
 	return -ENOTSUP;
 }
 
+int get_attestation_key(uint8_t *buf, size_t *len, uint8_t type, size_t size)
+{
+	if ((attest_ops != NULL) && (attest_ops->get_key != NULL)) {
+		return attest_ops->get_key(buf, len, type, size);
+	}
+
+	return -ENOTSUP;
+}
+
 void plat_arm_attest_init(const attest_ops_t *ops_ptr)
 {
 	assert(ops_ptr != NULL);

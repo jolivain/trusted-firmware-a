@@ -196,7 +196,8 @@ BL2_SOURCES		+=	plat/arm/board/fvp/aarch64/fvp_helpers.S
 endif
 
 ifeq (${ATTEST_TOKEN_PROTO},1)
-BL31_SOURCES		+=	plat/arm/board/fvp/fvp_plat_attest_token.c
+BL31_SOURCES		+=	plat/arm/board/fvp/fvp_plat_attest_token.c	\
+				plat/arm/board/fvp/fvp_attest_key.c
 endif
 
 ifeq (${BL2_AT_EL3},1)

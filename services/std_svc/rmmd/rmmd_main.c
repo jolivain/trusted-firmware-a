@@ -377,6 +377,56 @@ uint64_t rmmd_attest_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 		}
 
 		SMC_RET2(handle, SMC_OK, attestation_data_length);
+	case ATTEST_GET_REALM_KEY:
+
+		if (x2 > PAGE_SIZE) {
+			ERROR("Can't map regions larger than a page.\n");
+			SMC_RET1(handle, SMC_UNK);
+		}
+
+		spin_lock(&lock);
+
+		/* Map the buffer that was provided by the RMM. */
+		err = mmap_add_dynamic_region_alloc_va(x1, &va, PAGE_SIZE,
+						       MT_RW_DATA | MT_REALM);
+		if (err != 0) {
+			ERROR("mmap_add_dynamic_region_alloc_va failed: %d (%p).\n"
+			      , err, (void *)x1);
+			spin_unlock(&lock);
+			SMC_RET1(handle, SMC_UNK);
+		}
+
+		/* Get the attestation key. */
+		err = get_attestation_key(attestation_data,
+					  &attestation_data_length,
+					  (uint8_t)x3, x4);
+		if (err != 0) {
+			ERROR("Failed to get attestation key: %d.\n", err);
+			mmap_remove_dynamic_region(va, PAGE_SIZE);
+			spin_unlock(&lock);
+			SMC_RET1(handle, SMC_UNK);
+		}
+
+		/* Copy the attestation key to the RMM's memory. */
+		if (attestation_data_length > x2) {
+			ERROR("Invalid buffer size from RMM: %lu.\n", x2);
+			mmap_remove_dynamic_region(va, PAGE_SIZE);
+			spin_unlock(&lock);
+			SMC_RET1(handle, SMC_UNK);
+		}
+		(void)memcpy((uint8_t *)va, attestation_data,
+			     attestation_data_length);
+
+		/* Unmap RMM memory. */
+		err = mmap_remove_dynamic_region(va, PAGE_SIZE);
+		spin_unlock(&lock);
+		if (err != 0) {
+			ERROR("mmap_remove_dynamic_region failed: %d (%p).\n",
+			      err, (void *)x1);
+			SMC_RET1(handle, SMC_UNK);
+		}
+
+		SMC_RET2(handle, SMC_OK, attestation_data_length);
 	default:
 		WARN("RMM: Unsupported Attestation call 0x%08x\n", smc_fid);
 		SMC_RET1(handle, SMC_UNK);

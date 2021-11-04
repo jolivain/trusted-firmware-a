@@ -485,6 +485,7 @@ void fvp_timer_init(void)
 #if ATTEST_TOKEN_PROTO
 static const attest_ops_t plat_attest_ops = {
 	.get_token	= plat_get_attestation_token,
+	.get_key	= plat_get_attestation_key,
 };
 
 void fvp_attest_init(void)

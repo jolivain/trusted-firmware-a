@@ -14,7 +14,7 @@
  * function ID.
  */
 #define ATTEST_FNUM_MIN_VALUE	U(0x1B2)
-#define ATTEST_FNUM_MAX_VALUE	U(0x1B2)
+#define ATTEST_FNUM_MAX_VALUE	U(0x1B3)
 #define is_attest_fid(fid) __extension__ ({			\
 	__typeof__(fid) _fid = (fid);				\
 	((GET_SMC_NUM(_fid) >= ATTEST_FNUM_MIN_VALUE) &&	\
@@ -31,7 +31,8 @@
 	 (OEN_STD_START << FUNCID_OEN_SHIFT)	|	\
 	 ((func_num) << FUNCID_NUM_SHIFT))
 
-#define ATTEST_FNUM_GET_PLAT_TOKEN	U(0x1B2)
+#define ATTEST_FNUM_GET_REALM_KEY	U(0x1B2)
+#define ATTEST_FNUM_GET_PLAT_TOKEN	U(0x1B3)
 
 /*
  * arg0  == Function ID.
@@ -43,6 +44,7 @@
  * ret1  == Size of the platform token.
  *
  */
+#define ATTEST_GET_REALM_KEY	ATTEST_FID(SMC_64, ATTEST_FNUM_GET_REALM_KEY)
 #define ATTEST_GET_PLAT_TOKEN	ATTEST_FID(SMC_64, ATTEST_FNUM_GET_PLAT_TOKEN)
 
 #endif /* ATTEST_SVC_H */

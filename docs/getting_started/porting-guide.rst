@@ -2043,6 +2043,32 @@ The parameters of the function are:
 
 The function returns 0 on success, -EINVAL on failure.
 
+Function : plat_get_attestation_key() [mandatory when ATTEST_TOKEN_PROTO == 1]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : uint8_t *, size_t *, uint8_t, size_t
+    Return   : int
+
+This function returns the delegated attestation key.
+
+The parameters of the function are:
+
+    arg0 - A pointer to the buffer where the attestation key should be copied by
+           this function. The buffer must be big enough to hold the attestation
+           key.
+
+    arg1 - Contains the size of the buffer passed in arg0. The function returns
+           the attestation key length in this parameter.
+
+    arg2 - The type of the elliptic curve to which the requested attestation key
+           belongs.
+
+    arg3 - The size (in bits) the requested attestation key.
+
+The function returns 0 on success, -EINVAL on failure.
+
 Function : bl31_plat_enable_mmu [optional]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -24,11 +24,16 @@
 typedef struct attest_ops {
 	int (*get_token)(uint8_t *buf, size_t *len, uint8_t *hash,
 			 size_t hash_size);
+
+	int (*get_key)(uint8_t *buf, size_t *len, uint8_t type, size_t size);
+
 } attest_ops_t;
 
 void plat_arm_attest_init(const attest_ops_t *ops_ptr);
 
 int get_attestation_token(uint8_t *buf, size_t *len, uint8_t *hash,
 			 size_t hash_size);
+
+int get_attestation_key(uint8_t *buf, size_t *len, uint8_t type, size_t size);
 
 #endif /* ATTEST_H */
