@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4a9d33a_49e7faf7",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-04T15:45:20Z",
+      "side": 1,
+      "message": "return (uint64_t)GPT_NSE_SECURE \u003c\u003c GPT_NSE_SHIFT;\n?",
+      "revId": "17c7358949aa7b869b0426b8ead59560c40fc564",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06bb87f6_7e9a717a",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-04T15:45:20Z",
+      "side": 1,
+      "message": "please add tabs to align with previous parameters",
+      "revId": "17c7358949aa7b869b0426b8ead59560c40fc564",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ebcbafd_dee22411",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-04T15:45:20Z",
+      "side": 1,
+      "message": "see the comment above",
+      "revId": "17c7358949aa7b869b0426b8ead59560c40fc564",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe938a6_377c3bc8",
+        "filename": "lib/gpt_rme/gpt_rme_private.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-04T15:45:20Z",
+      "side": 1,
+      "message": "TF-A uses \"xxx_t\" naming for typedef struct ...:\ntypedef struct gpi_info {\n...\n} gpi_info_t;",
+      "revId": "17c7358949aa7b869b0426b8ead59560c40fc564",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
