@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2401d44_c91374d2",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-04T11:03:45Z",
+      "side": 1,
+      "message": "Yes something like this..\nIn the current implementation, S-EL1 SPs are expected to use the para virtualized ABIs ..\n\nThanks.",
+      "parentUuid": "6737f4a1_6fb77983",
+      "range": {
+        "startLine": 785,
+        "startChar": 13,
+        "endLine": 785,
+        "endChar": 59
+      },
+      "revId": "e351e998b3b39e0cc79d6e2af3519e1890761b78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e6610f23_039e7e8c",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 3
