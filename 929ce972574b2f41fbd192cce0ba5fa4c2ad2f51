@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb62e27b_d158eb02",
+        "filename": "drivers/st/uart/stm32_uart.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-04T16:59:05Z",
+      "side": 1,
+      "message": "0, the function returns an int",
+      "range": {
+        "startLine": 185,
+        "startChar": 8,
+        "endLine": 185,
+        "endChar": 10
+      },
+      "revId": "929ce972574b2f41fbd192cce0ba5fa4c2ad2f51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5118266_db587c6a",
+        "filename": "drivers/st/uart/stm32_uart.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-04T16:59:05Z",
+      "side": 1,
+      "message": "ditto, and some tests might be changed when comparing the return of this function.",
+      "revId": "929ce972574b2f41fbd192cce0ba5fa4c2ad2f51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48cfa1af_2977e89e",
+        "filename": "drivers/st/uart/stm32_uart.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-04T16:59:05Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "929ce972574b2f41fbd192cce0ba5fa4c2ad2f51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aeb2222_1f4d375d",
+        "filename": "drivers/st/uart/stm32_uart.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-04T16:59:05Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "929ce972574b2f41fbd192cce0ba5fa4c2ad2f51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b822fcff_483d15bb",
+        "filename": "drivers/st/uart/stm32_uart.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-04T16:59:05Z",
+      "side": 1,
+      "message": "remove extra line",
+      "revId": "929ce972574b2f41fbd192cce0ba5fa4c2ad2f51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
