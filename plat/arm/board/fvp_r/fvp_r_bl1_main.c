@@ -31,7 +31,7 @@ void bl1_run_next_image(const struct entry_point_info *bl_ep_info);
 
 /*******************************************************************************
  * Function to perform late architectural and platform specific initialization.
- * It also queries the platform to load and run next BL image. Only called
+ * It also queries the platform to load and run next BL image.  Only called
  * by the primary cpu after a cold boot.
  ******************************************************************************/
 void bl1_transfer_bl33(void)

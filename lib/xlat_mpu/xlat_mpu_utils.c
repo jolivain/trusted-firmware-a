@@ -19,7 +19,7 @@
 #include <fvp_r_arch_helpers.h>
 #include <platform_def.h>
 
-#warning "xlat_mpu library is currently experimental and its API may change in future."
+#warning "xlat_mpu library is currently experimental, and its API may change in future."
 
 
 void xlat_mmap_print(__unused const mmap_region_t *mmap)
