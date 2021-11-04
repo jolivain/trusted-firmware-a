@@ -12,8 +12,7 @@ SPMC_SOURCES	:=	$(addprefix services/std_svc/spm/spmc/,	\
 			spmc_main.c				\
 			spmc_setup.c				\
 			spmc_pm.c				\
-			spmc_shared_mem.c			\
-			logical_sp_test.c)
+			spmc_shared_mem.c)
 
 
 # Let the top-level Makefile know that we intend to include a BL32 image
@@ -24,6 +23,9 @@ NS_TIMER_SWITCH		:=	1
 
 # Enable TSP for platforms that do not support another SP
 ifeq (${NEED_BL32},yes)
+
+SPMC_SOURCES	+=	$(addprefix services/std_svc/spm/spmc/,	\
+			logical_sp_test.c)
 
 # The SPMC is paired with a Test Secure Payload source and we intend to
 # build the Test Secure Payload along with this dispatcher.
