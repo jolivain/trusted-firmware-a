@@ -50,4 +50,10 @@
 #define HIKEY960_UFS_DATA_BASE		0x10000000
 #define HIKEY960_UFS_DATA_SIZE		0x0A000000	/* 160MB */
 
+#define IRQ_SEC_PHY_TIMER       29
+/*
+ * ID of the secure physical generic timer interrupt used by the TSP.
+ */
+#define TSP_IRQ_SEC_PHY_TIMER       IRQ_SEC_PHY_TIMER
+
 #endif /* HIKEY960_DEF_H */
