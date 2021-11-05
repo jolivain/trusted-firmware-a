@@ -174,15 +174,6 @@ typedef struct secure_partition_desc {
 } sp_desc_t;
 
 /*
- * This define identifies the only SP that will be initialised and participate
- * in FF-A communication. The implementation leaves the door open for more SPs
- * to be managed in future but for now it reasonable to assume that either a
- * single S-EL0 or a single S-EL1 SP will be supported. This define will be used
- * to identify which SP descriptor to initialise and manage during SP runtime.
- */
-#define ACTIVE_SP_DESC_INDEX	0
-
-/*
  * Structure to describe the cumulative properties of the Hypervisor and
  * NS-Endpoints.
  */
@@ -245,5 +236,10 @@ uint64_t spmc_ffa_error_return(void *handle, int error_code);
  * or the last SP that was run.
  */
 struct mailbox *spmc_get_mbox_desc(uint64_t flags);
+
+/*
+ * Helper function to obtain the index number of the active SP descriptor.
+ */
+uint32_t spmc_get_active_sp_desc_index(void);
 
 #endif /* SPMC_H */

@@ -193,7 +193,7 @@ void spmc_sp_common_setup(sp_desc_t *sp, entry_point_info_t *ep_info)
 
 	/* Assign FFA Partition ID if not already assigned */
 	if (sp->sp_id == INV_SP_ID)
-		sp->sp_id = FFA_SP_ID_BASE + ACTIVE_SP_DESC_INDEX;
+		sp->sp_id = FFA_SP_ID_BASE + spmc_get_active_sp_desc_index();
 
 	/*
 	 * The initialisation of the SPSR in the ep_info should ideally be done
