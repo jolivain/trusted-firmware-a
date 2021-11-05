@@ -35,6 +35,17 @@
 #include "spmc_shared_mem.h"
 
 /*
+ * Number of secure partitions present in the SPMC manifest
+ */
+static uint32_t num_secure_partitions;
+
+/*
+ * This variable will be used to identify which SP descriptor to initialize
+ * and manage during SP runtime. Default value is '0'.
+ */
+static uint32_t active_sp_desc_idx;
+
+/*
  * Allocate a secure partition descriptor to describe each SP in the system that
  * does reside at EL3.
  */
@@ -66,14 +77,14 @@ el3_lp_desc_t* get_el3_lp_array(void) {
  * TODO: Expand to track multiple partitions. In this case, the last S-EL0 SP on
  * each physical cpu could be different.
  */
-sp_desc_t* spmc_get_current_sp_ctx() {
-	return &(sp_desc[ACTIVE_SP_DESC_INDEX]);
+sp_desc_t* spmc_get_current_sp_ctx(void) {
+	return &(sp_desc[active_sp_desc_idx]);
 }
 
 /* Helper function to get pointer to SP context from it's ID. */
 sp_desc_t* spmc_get_sp_ctx(uint16_t id) {
 	/* Check for Swld Partitions. */
-	for (int i = 0; i < SECURE_PARTITION_COUNT; i++) {
+	for (int i = 0; i < num_secure_partitions; i++) {
 		if (sp_desc[i].sp_id == id) {
 			return &(sp_desc[i]);
 		}
@@ -100,6 +111,14 @@ struct mailbox *spmc_get_mbox_desc(uint64_t flags)
 		return &(spmc_get_current_sp_ctx()->mailbox);
 	else
 		return &(spmc_get_hyp_ctx()->mailbox);
+}
+
+/*
+ * Helper function to obtain the index number of the active SP descriptor.
+ */
+uint32_t spmc_get_active_sp_desc_index(void)
+{
+	return active_sp_desc_idx;
 }
 
 /*******************************************************************************
@@ -231,7 +250,7 @@ static uint64_t partition_info_get_handler(uint32_t smc_fid,
 	}
 
 	/* Deal with physical SP's. */
-	for(index = 0; index < SECURE_PARTITION_COUNT; index++){
+	for(index = 0; index < num_secure_partitions; index++){
 		unsigned int execution_ctx_count;
 		if (compare_uuid(uuid, sp_desc[index].uuid) ||
 			(uuid[0] == 0 && uuid[1] == 0 && uuid[2] == 0 && uuid[3] == 0)) {
@@ -1231,11 +1250,14 @@ static int32_t sp_init(void)
 	sp_desc_t *sp;
 	sp_exec_ctx_t *ec;
 
-	for (int i = 0; i < SECURE_PARTITION_COUNT; i++) {
+	for (int i = 0; i < num_secure_partitions; i++) {
 		sp = &(sp_desc[i]);
 		ec = &sp->ec[get_ec_index(sp)];
 		ec->rt_model = RT_MODEL_INIT;
 		ec->rt_state = RT_STATE_RUNNING;
+
+		/* Current SP index */
+		active_sp_desc_idx = i;
 
 		INFO("Secure Partition (0x%x) init start.\n", sp->sp_id);
 
@@ -1246,7 +1268,7 @@ static int32_t sp_init(void)
 		ec->rt_state = RT_STATE_WAITING;
 		ERROR("S-EL1 SP context on core%u is in %u state\n", get_ec_index(sp), ec->rt_state);
 
-		INFO("Secure Partition%d initialized.\n", i);
+		INFO("Secure Partition (0x%x) initialized.\n", sp->sp_id);
 	}
 
 	return !rc;
@@ -1254,7 +1276,7 @@ static int32_t sp_init(void)
 
 static void initalize_sp_descs(void) {
 	sp_desc_t *sp;
-	for (int i = 0; i < SECURE_PARTITION_COUNT; i++) {
+	for (int i = 0; i < ARRAY_SIZE(sp_desc); i++) {
 		sp = &sp_desc[i];
 		sp->sp_id = FFA_SP_ID_BASE + i;
 		sp->mailbox.rx_buffer = 0;
@@ -1372,7 +1394,7 @@ static int32_t find_and_prepare_sp_context(void)
 		 * Allocate an SP descriptor for initialising the partition's execution
 		 * context on the primary CPU.
 		 */
-		sp = &(sp_desc[sp_desc_idx++]);
+		sp = &(sp_desc[sp_desc_idx]);
 
 		/* Assign translation tables context. */
 		sp_desc->xlat_ctx_handle = spm_get_sp_xlat_context();
@@ -1420,6 +1442,21 @@ static int32_t find_and_prepare_sp_context(void)
 		} else {
 			spmc_el1_sp_setup(sp, &ep_info);
 		}
+
+		/* Increment the index tracking the 'live' SP descriptor ID */
+		sp_desc_idx++;
+
+		/*
+		 * Increment counter for tracking number of secure
+		 * partitions present in the SPMC manifest
+		 */
+		num_secure_partitions++;
+
+		/*
+		 * Actual secure parition count cannot exceed the max allowed
+		 * secure partition count
+		 */
+		assert(num_secure_partitions <= SECURE_PARTITION_COUNT);
 	}
 
 err_spmc_manifest:
