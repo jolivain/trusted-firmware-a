@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2fcdcbf_d18479bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-11-05T17:25:09Z",
+      "side": 1,
+      "message": "To clarify, this patch is in conjunction with https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/12296 to run MISRA checks on v8-R64-support code.  The initial change here is not important and just to create the gerrit review.  Subsequent MISRA changes will go into this patch, however.",
+      "revId": "57579e024ca33f37f8bc139e545987138ae621b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
