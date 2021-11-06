@@ -71,6 +71,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4eb1ebf9_3f0f225f",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-11-06T00:24:01Z",
+      "side": 1,
+      "message": "It\u0027s quite common to use 32-bit values for frequencies, even for silicon. And in particular here we are talking about 9 MHz, 10 MHz or 12.5 MHz ;-)",
+      "parentUuid": "f93856d5_a0227e7e",
+      "revId": "422b44fb56db7ca8b1a2f9f706733d7d4c2fdeb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "54c19226_3a72ede1",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 5
@@ -99,6 +117,24 @@
       "writtenOn": "2021-11-05T22:20:20Z",
       "side": 1,
       "message": "So then, if these concerns are detected, is it OK to just return \"as if nothing happened\"?",
+      "revId": "422b44fb56db7ca8b1a2f9f706733d7d4c2fdeb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbbc3643_dba65c38",
+        "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-11-06T00:24:01Z",
+      "side": 1,
+      "message": "What would be the alternative? Crashing or panicking? I understand the reflex of \"handling errors\", but that only makes sense if we can do something about it, or if it\u0027s critical.\nHere it\u0027s about *updating* the DTB, in most cases we actually have the correct frequency (10 MHz) in the UART clock node already. In the worst case the output gets garbled at some point (because of the wrong baudrate) - this is exactly what happens today, without this patch. A user can always patch the DTB manually, or override the provided DTB, as plan B.\nWe actually don\u0027t even know if the non-secure payload will use the DTB, so I think it\u0027s not justified to prevent further booting.",
+      "parentUuid": "23204e0c_c3ee07b0",
       "revId": "422b44fb56db7ca8b1a2f9f706733d7d4c2fdeb1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
