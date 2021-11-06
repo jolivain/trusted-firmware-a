@@ -71,6 +71,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ed91067f_c87c733d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-11-06T01:26:53Z",
+      "side": 1,
+      "message": "\u003e Patch Set 5: Verified-1\n\u003e \n\u003e Build Failed \n\u003e \n\u003e https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l2/2337/ : This Jenkins server is not publicly accessible. A core maintainer will let you know if this CI failure is blocking the merge of this patch.\n\nSome unspecific model timeout, and the existing compilation problem of origin/integration, due to an upgraded toolchain, actually fixed by the first patch in this series.",
+      "revId": "422b44fb56db7ca8b1a2f9f706733d7d4c2fdeb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f93856d5_a0227e7e",
         "filename": "plat/arm/board/arm_fpga/fpga_bl31_setup.c",
         "patchSetId": 5
