@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f27e5238_142caf6a",
+        "filename": "lib/libc/memcpy.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-07T01:18:44Z",
+      "side": 1,
+      "message": "dont believe we use C++ style comments. use /* */",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 2
+      },
+      "revId": "d15e148680ba0bdaae6c9ea407a786acc891589f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f854d29c_70a98b18",
+        "filename": "lib/libc/memcpy.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-07T01:18:44Z",
+      "side": 1,
+      "message": "have you run check patch? looks a little off to have capitalized name for a parameter. usually it is lower case and macros are upper case...",
+      "range": {
+        "startLine": 22,
+        "startChar": 19,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "d15e148680ba0bdaae6c9ea407a786acc891589f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6b4fe6a_9558a4de",
+        "filename": "lib/libc/memcpy.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-07T01:18:44Z",
+      "side": 1,
+      "message": "since align is always a power of two, can remove the % operator to optimize. Compiler might do it anyway, but might be better/faster to write as (pointer \u0026 (align - 1) \u003d\u003d 0)",
+      "range": {
+        "startLine": 23,
+        "startChar": 50,
+        "endLine": 23,
+        "endChar": 51
+      },
+      "revId": "d15e148680ba0bdaae6c9ea407a786acc891589f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faff3791_8a1f4cfb",
+        "filename": "lib/libc/memcpy.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-07T01:18:44Z",
+      "side": 1,
+      "message": "we usually dont intend preprocessor macros.",
+      "range": {
+        "startLine": 29,
+        "startChar": 3,
+        "endLine": 29,
+        "endChar": 18
+      },
+      "revId": "d15e148680ba0bdaae6c9ea407a786acc891589f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
