@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019-2020, NVIDIA CORPORATION. All rights reserved.
+# Copyright (c) 2019-2021, NVIDIA CORPORATION. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -80,4 +80,9 @@ include lib/libfdt/libfdt.mk
 BL31_SOURCES		+=	plat/common/plat_spmd_manifest.c	\
 				common/fdt_wrappers.c			\
 				${LIBFDT_SRCS}
+
+# SPMC manifest
+ifeq (${SPMC_AT_EL3},1)
+FDT_SOURCES		+=	plat/nvidia/tegra/soc/t194/fdts/spmc_manifest.dts
+endif
 endif
