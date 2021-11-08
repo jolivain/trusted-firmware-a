@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc13f736_d44cb066",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-08T09:39:46Z",
+      "side": 1,
+      "message": "Sorry to comment a little late in the review process, but I think the file drivers/mtd/spi-mem/spi_mem.c should be updated as well (line 153), as op-\u003eaddr.val is an uint64_t.\nThanks",
+      "revId": "3f5f1f9867bf46ac5e3da660b93920d5dfe5664f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
