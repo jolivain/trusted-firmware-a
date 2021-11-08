@@ -1003,6 +1003,70 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 	INFO("SP Entrypoint Address is 0x%lx\n", ep_info->pc);
 
 	/*
+	 * Read Rx phandle and use it to query the buffer address
+	 */
+	node = fdt_subnode_offset_namelen(sp_manifest, offset,
+					  "rx_tx-info",
+					  sizeof("rx_tx-info") - 1);
+	if (node < 0) {
+		ERROR("SP manifest contains no RX/TX buffers\n");
+		return -ENOENT;
+	}
+
+	ret = fdt_read_uint32(sp_manifest, node, "rx-buffer", &config_32);
+	if (ret) {
+		ERROR("SP manifest does not contain rx-buffer phandle\n");
+		return -ENOENT;
+	}
+
+	node = fdt_node_offset_by_phandle(sp_manifest, config_32);
+	if (node < 0) {
+		ERROR("SP manifest contains no Rx buffers\n");
+		return -ENOENT;
+	}
+
+	ret = fdt_read_uint64(sp_manifest, node, "base-address", &config_64);
+	if (ret) {
+		ERROR("Rx buffer address not found.\n");
+		return -ENOENT;
+	} else {
+		sp->mailbox.rx_buffer = (void *)config_64;
+		INFO("Rx buffer address is 0x%llx\n", config_64);
+	}
+
+	/*
+	 * Read Tx phandle and use it to query the buffer address
+	 */
+	node = fdt_subnode_offset_namelen(sp_manifest, offset,
+					  "rx_tx-info",
+					  sizeof("rx_tx-info") - 1);
+	if (node < 0) {
+		ERROR("SP manifest contains no RX/TX buffers\n");
+		return -ENOENT;
+	}
+
+	ret = fdt_read_uint32(sp_manifest, node, "tx-buffer", &config_32);
+	if (ret) {
+		ERROR("SP manifest does not contain tx-buffer phandle\n");
+		return -ENOENT;
+	}
+
+	node = fdt_node_offset_by_phandle(sp_manifest, config_32);
+	if (node < 0) {
+		ERROR("SP manifest contains no Tx buffers\n");
+		return -ENOENT;
+	}
+
+	ret = fdt_read_uint64(sp_manifest, node, "base-address", &config_64);
+	if (ret) {
+		ERROR("Tx buffer address not found.\n");
+		return -ENOENT;
+	} else {
+		sp->mailbox.tx_buffer = (void *)config_64;
+		INFO("Tx buffer address is 0x%llx\n", config_64);
+	}
+
+	/*
 	 * Look for the mandatory fields that are expected to be present in only
 	 * a StMM S-EL0 SP manifest. We are assuming deployment of only a single
 	 * StMM SP with the EL3 SPMC for now.
