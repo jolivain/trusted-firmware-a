@@ -16,6 +16,24 @@
       "message": "\u003e Patch Set 9:\n\u003e \n\u003e Sorry I did not notice this before this was submitted, but this change breaks platforms that use TRUSTY_SPD_WITH_GENERIC_SERVICES\n\nHi @Varun @Arve,\n\nAny idea how to properly resolve this? IIUC this is gating upstream TF-A merge into Android tree.",
       "revId": "fc19818874f1f18c3617df9e426fc27e3425c910",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65cc3431_796fc532",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000329
+      },
+      "writtenOn": "2021-11-08T19:53:44Z",
+      "side": 1,
+      "message": "I think the change to \"DECLARE_RT_SVC(trusty_fast\" needs to be replaced with another DECLARE_RT_SVC entry instead that only contains OEN_TOS_END instead.",
+      "parentUuid": "73c691d6_45f32325",
+      "revId": "fc19818874f1f18c3617df9e426fc27e3425c910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
