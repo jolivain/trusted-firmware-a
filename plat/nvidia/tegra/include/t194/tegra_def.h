@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, NVIDIA CORPORATION. All rights reserved.
+ * Copyright (c) 2019-2021, NVIDIA CORPORATION. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,7 +12,7 @@
 /*******************************************************************************
  * Platform BL31 specific defines.
  ******************************************************************************/
-#define BL31_SIZE			U(0x40000)
+#define BL31_SIZE			U(0x100000)
 
 /*******************************************************************************
  * Chip specific cluster and cpu numbers
