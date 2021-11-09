@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "139642ff_d6e4738b",
+        "filename": "plat/nxp/soc-ls1043a/soc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-11-09T08:00:34Z",
+      "side": 1,
+      "message": "Please create a separate function \"populate_tzc380_reg_list\", for the above code.\nMake it symmetrical to the earlier implementation for tzc400.\n\nAlso, it will remove the requirement of creating a static array for tzc380_default_reg_list.",
+      "revId": "b08219d1860d31c1f54f89c92b52926f6fff6bf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
