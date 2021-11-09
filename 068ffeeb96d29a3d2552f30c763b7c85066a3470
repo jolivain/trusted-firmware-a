@@ -16,6 +16,23 @@
       "message": "The MISRA \"nomination\" mechanism doesn\u0027t kick in for fvp_r unless I modify an fvp_r file.  Try again after innocuous tweak to fvp_r_bl1_main.c.",
       "revId": "068ffeeb96d29a3d2552f30c763b7c85066a3470",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "698783f1_c627ba46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-11-09T16:11:18Z",
+      "side": 1,
+      "message": "Temporarily moved MISRA checks from nominated to always, hoping it will actually run...",
+      "revId": "068ffeeb96d29a3d2552f30c763b7c85066a3470",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
