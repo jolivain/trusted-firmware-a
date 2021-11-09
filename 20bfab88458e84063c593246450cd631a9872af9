@@ -157,6 +157,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdc42c13_8dfbf59d",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-11-09T04:06:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f3cfb482_c62d50b9",
+      "revId": "20bfab88458e84063c593246450cd631a9872af9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c89166f9_45af24e4",
@@ -174,6 +192,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb24c79a_7a8ff3aa",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-11-09T04:06:01Z",
+      "side": 1,
+      "message": "I will look into this and update the patch accordingly.",
+      "parentUuid": "c89166f9_45af24e4",
+      "revId": "20bfab88458e84063c593246450cd631a9872af9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa0e747e_35d9e361",
@@ -187,6 +223,24 @@
       "writtenOn": "2021-11-08T16:54:13Z",
       "side": 1,
       "message": "Since this a global register for all worlds, perhaps this doesn\u0027t need to be programmed on a per world basis.",
+      "revId": "20bfab88458e84063c593246450cd631a9872af9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c44386f_276058d0",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-11-09T04:06:01Z",
+      "side": 1,
+      "message": "This patch only enables SME for the non-secure world like the existing SVE for NS functionality, wouldn\u0027t we want to keep the register values separate from secure context? (This is why I added the SMCR_EL3 register to the context save/restore functions, thats how it works for SVE as well.)",
+      "parentUuid": "fa0e747e_35d9e361",
       "revId": "20bfab88458e84063c593246450cd631a9872af9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
