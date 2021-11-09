@@ -261,6 +261,24 @@
       "parentUuid": "0c44386f_276058d0",
       "revId": "20bfab88458e84063c593246450cd631a9872af9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cba0ff03_71eae276",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-11-09T17:14:15Z",
+      "side": 1,
+      "message": "I removed SMCR_EL3 from context save/restore in the latest patch set.",
+      "parentUuid": "a3ecc490_eac49f8b",
+      "revId": "20bfab88458e84063c593246450cd631a9872af9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
