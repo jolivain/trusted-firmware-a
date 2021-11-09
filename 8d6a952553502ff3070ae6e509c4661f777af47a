@@ -86,6 +86,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b45eaa9b_647f6093",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-09T10:57:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a0a3a6c_d8f5fbd6",
+      "revId": "8d6a952553502ff3070ae6e509c4661f777af47a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d86ddc5_80e60dcd",
@@ -123,6 +141,30 @@
       "side": 1,
       "message": "Hi,\nWe are working on the corresponding patch in hafnium which processes the FFA_INTERRUPT call for secure interrupt handling and delegation to the target SP.",
       "parentUuid": "5d86ddc5_80e60dcd",
+      "range": {
+        "startLine": 212,
+        "startChar": 37,
+        "endLine": 212,
+        "endChar": 52
+      },
+      "revId": "8d6a952553502ff3070ae6e509c4661f777af47a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b48ebcb_4dc193d9",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-09T10:57:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c105ba4c_cfdba2a2",
       "range": {
         "startLine": 212,
         "startChar": 37,
