@@ -243,6 +243,24 @@
       "parentUuid": "fa0e747e_35d9e361",
       "revId": "20bfab88458e84063c593246450cd631a9872af9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3ecc490_eac49f8b",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-11-09T09:46:33Z",
+      "side": 1,
+      "message": "If the trap bits are programmed correctly for the respective world (which is in cptr_el3 and is saved and restored on a per-world basis), then then vector length register can be globally programmed to the highest length. \n\nIf the secure world tries to use SME, then it would trap due to trap bit setting in cptr_el3. In the case of NS, this trap would be disabled and hence it would be able to use SME.",
+      "parentUuid": "0c44386f_276058d0",
+      "revId": "20bfab88458e84063c593246450cd631a9872af9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
