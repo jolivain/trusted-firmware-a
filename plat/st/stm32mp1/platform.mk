@@ -31,6 +31,18 @@ endif
 # Not needed for Cortex-A7
 WORKAROUND_CVE_2017_5715:=	0
 
+ifeq (${PSA_FWU_SUPPORT},1)
+ifneq (${STM32MP_USE_STM32IMAGE},1)
+# Number of banks of updatable firmware
+NR_OF_FW_BANKS			:=	2
+NR_OF_IMAGES_IN_FW_BANK		:=	1
+
+# Number of TF-A copies in the device
+STM32_TF_A_COPIES		:=	2
+STM32_BL33_PARTS_NUM		:=	2
+STM32_RUNTIME_PARTS_NUM		:=	4
+endif
+else
 # Number of TF-A copies in the device
 STM32_TF_A_COPIES		:=	2
 STM32_BL33_PARTS_NUM		:=	1
@@ -40,6 +52,7 @@ else ifeq ($(STM32MP_USE_STM32IMAGE),1)
 STM32_RUNTIME_PARTS_NUM		:=	0
 else
 STM32_RUNTIME_PARTS_NUM		:=	1
+endif
 endif
 PLAT_PARTITION_MAX_ENTRIES	:=	$(shell echo $$(($(STM32_TF_A_COPIES) + \
 							 $(STM32_BL33_PARTS_NUM) + \
@@ -216,6 +229,17 @@ BL2_SOURCES		+=	drivers/io/io_dummy.c					\
 				plat/st/common/bl2_stm32_io_storage.c			\
 				plat/st/stm32mp1/plat_bl2_stm32_mem_params_desc.c	\
 				plat/st/stm32mp1/stm32mp1_security.c
+endif
+
+ifeq (${PSA_FWU_SUPPORT},1)
+include lib/zlib/zlib.mk
+
+BL2_SOURCES		+=	$(ZLIB_SOURCES)
+
+include drivers/fwu/fwu.mk
+
+#BL2_SOURCES		+=	drivers/fwu/fwu.c
+
 endif
 
 BL2_SOURCES		+=	drivers/io/io_block.c					\
