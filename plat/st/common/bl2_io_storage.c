@@ -10,6 +10,8 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <common/desc_image_load.h>
+#include <common/efi.h>
+#include <drivers/fwu/fwu_metadata.h>
 #include <drivers/io/io_block.h>
 #include <drivers/io/io_driver.h>
 #include <drivers/io/io_fip.h>
@@ -359,6 +361,12 @@ int bl2_plat_handle_pre_image_load(unsigned int image_id)
 	case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_SD:
 	case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_EMMC:
 		if (!gpt_init_done) {
+/*
+ * With FWU Multi Bank feature enabled, the selection of
+ * the image to boot will be done by fwu_init calling the
+ * platform hook, plat_fwu_set_images_source.
+ */
+#if !PSA_FWU_SUPPORT
 			const partition_entry_t *entry;
 
 			partition_init(GPT_IMAGE_ID);
@@ -371,7 +379,7 @@ int bl2_plat_handle_pre_image_load(unsigned int image_id)
 
 			image_block_spec.offset = entry->start;
 			image_block_spec.length = entry->length;
-
+#endif
 			gpt_init_done = true;
 		} else {
 			bl_mem_params_node_t *bl_mem_params = get_bl_mem_params_node(image_id);
@@ -438,3 +446,55 @@ int plat_get_image_source(unsigned int image_id, uintptr_t *dev_handle,
 
 	return rc;
 }
+
+#if GPT_PART && PSA_FWU_SUPPORT
+
+static void *stm32_fip_get_spec(const uuid_t *img_type_uuid)
+{
+	int i, npolicies;
+	efi_guid_t null_guid = NULL_GUID;
+
+	npolicies = MAX_NUMBER_IDS;
+
+	for (i = 0; i < npolicies; i++) {
+		if (!guidcmp(&policies[i].img_type_guid, &null_guid))
+			continue;
+		if (!guidcmp(&policies[i].img_type_guid, img_type_uuid)) {
+			return (void *)policies[i].image_spec;
+		}
+	}
+
+	return NULL;
+
+}
+
+void plat_fwu_set_images_source(const struct fwu_metadata *metadata)
+{
+	int i;
+	uint32_t nimages;
+	uint32_t active_idx;
+	const partition_entry_t *entry;
+	const uuid_t *img_type_uuid, *img_uuid;
+	io_block_spec_t *image_spec;
+
+	nimages = NR_OF_IMAGES_IN_FW_BANK;
+	active_idx = metadata->active_index;
+
+	for (i = 0; i < nimages; i++) {
+		img_type_uuid = &metadata->img_entry[i].img_type_uuid;
+		image_spec = stm32_fip_get_spec(img_type_uuid);
+		if (!image_spec) {
+			INFO("Unable to get image spec for the image in the metadata\n");
+			panic();
+		}
+		img_uuid =
+			&metadata->img_entry[i].img_props[active_idx].img_uuid;
+
+		entry = get_partition_entry_by_uuid(img_uuid);
+
+		image_spec->offset = entry->start;
+		image_spec->length = entry->length;
+	}
+}
+
+#endif
