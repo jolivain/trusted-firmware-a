@@ -113,6 +113,13 @@
 #define BOOT_API_CORE1_BRANCH_ADDRESS_TAMP_BCK_REG_IDX		5U
 
 /*
+ * TAMP_BCK5R register index
+ * This register is used to contain the branch address of
+ * Cortex A7 Core 1 when restarted by a TAMP_BCK4R magic number writing
+ */
+#define BOOT_API_FWU_BOOT_IDX_TAMP_BCK_REG_IDX			10U
+
+/*
  * Possible value of boot context field 'hse_clock_value_in_hz'
  */
 #define BOOT_API_CTX_HSE_CLOCK_VALUE_UNDEFINED			0U
