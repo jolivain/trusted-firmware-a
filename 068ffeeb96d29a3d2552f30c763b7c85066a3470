@@ -84,6 +84,23 @@
       "message": "Firing off Legacy-CI+2 again.",
       "revId": "068ffeeb96d29a3d2552f30c763b7c85066a3470",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d8050f5_cf5379c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2021-11-10T16:30:34Z",
+      "side": 1,
+      "message": "I got a passing run of MISRA checks on fvp_r.  Madhu suggested I keep the MISRA runs (see https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/12296) out of the \"nominated\" group, so I reverted out the changes to script/trusted-firmware.nomination.py.  Doing a run again, just to make sure the MISRA checks still run cleanly.",
+      "revId": "068ffeeb96d29a3d2552f30c763b7c85066a3470",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
