@@ -9,6 +9,7 @@
 
 #include <assert.h>
 
+#include <common/efi.h>
 #include <lib/fconf/fconf.h>
 
 /* IO policies */
@@ -20,6 +21,7 @@
 struct plat_io_policy {
 	uintptr_t *dev_handle;
 	uintptr_t image_spec;
+	efi_guid_t img_type_guid;
 	int (*check)(const uintptr_t spec);
 };
 
