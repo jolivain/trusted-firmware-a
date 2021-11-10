@@ -10,6 +10,7 @@
 #include <string.h>
 
 #include <common/debug.h>
+#include <common/efi.h>
 #include <drivers/io/io_storage.h>
 #include <drivers/partition/partition.h>
 #include <drivers/partition/gpt.h>
@@ -245,6 +246,21 @@ const partition_entry_t *get_partition_entry(const char *name)
 	}
 	return NULL;
 }
+
+#if GPT_PART
+const partition_entry_t *get_partition_entry_by_uuid(const uuid_t *part_uuid)
+{
+	int i;
+
+	for (i = 0; i < list.entry_count; i++) {
+		if (!guidcmp(part_uuid, &list.list[i].part_guid)) {
+			return &list.list[i];
+		}
+	}
+
+	return NULL;
+}
+#endif
 
 const partition_entry_list_t *get_partition_entry_list(void)
 {
