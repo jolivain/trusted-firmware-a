@@ -34,6 +34,24 @@
       "parentUuid": "074f54ea_61456ffb",
       "revId": "15899b74f524d5503f4a92066a35104d85c183d6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb5dc895_21f9f8b2",
+        "filename": "include/drivers/nxp/dcfg/scfg.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-11-11T08:03:46Z",
+      "side": 1,
+      "message": "Thanks for the clarification.\nCan you please prepend the macros with \"SCFG_\"?\n\nThese comments will help code better code readability.",
+      "parentUuid": "29fa55ac_51b4c5c4",
+      "revId": "15899b74f524d5503f4a92066a35104d85c183d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
