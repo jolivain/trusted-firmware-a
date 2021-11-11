@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "91528b86_b17884e6",
+        "filename": "plat/mediatek/mt8186/aarch64/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-11T23:20:21Z",
+      "side": 1,
+      "message": "I believe this is not completely true. Arm ARM does not say anything about mapping affinities in a specific way. It is completely up to the platform to implement the topology. Some implementations can choose to map AFF2 to clusters, AFF1 to CPUs and AFF0 to threads.",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 22
+      },
+      "revId": "47e685ed71ab6e8d97c6f9d03d2c9679d641d3df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b72fe6d_99de0ec6",
         "filename": "plat/mediatek/mt8186/bl31_plat_setup.c",
         "patchSetId": 1
