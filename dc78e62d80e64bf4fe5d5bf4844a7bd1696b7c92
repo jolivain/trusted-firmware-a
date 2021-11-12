@@ -35,6 +35,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d40afeae_4fd2560a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-11-12T18:36:53Z",
+      "side": 1,
+      "message": "Two fails in the L2 tests:\n\n1) static checks for new files, this fails on added files and is a reminder to add new files to coverity scan which I\u0027ve submitted a patch for here: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/12279\n\n2) one boot test failed, i re-ran it here and it passed: https://jenkins.oss.arm.com/job/tf-ci-gateway/107094/\n\nI think this patch should be good to go as far as the CI is concerned.",
+      "revId": "dc78e62d80e64bf4fe5d5bf4844a7bd1696b7c92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1a795dc_5ce47f8d",
