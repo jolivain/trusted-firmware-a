@@ -122,6 +122,24 @@
       "message": "@Rex thanks for letting me know! while we are here the doc for mt8173/ is missing (though not urgent)\n\nPushed a CI patch for 8195 https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/12452",
       "revId": "964ee4e6be70ef638d6c875a761ab5ca359d84fe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51fe162d_424d9736",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2021-11-12T11:18:59Z",
+      "side": 1,
+      "message": "@Manish:\nWe also have a new soc(mt8186) which is reviewing on this patch:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/12285\n\nPlease also add this soc to list when this patch is merged.\nThanks!",
+      "parentUuid": "919a87b7_4d5304e5",
+      "revId": "964ee4e6be70ef638d6c875a761ab5ca359d84fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
