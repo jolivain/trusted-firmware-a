@@ -70,6 +70,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca80f80e_366ebf29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-11-12T18:48:21Z",
+      "side": 1,
+      "message": "I\u0027ve merged John\u0027s patch below\n\n1) static checks for new files, this fails on added files and is a reminder to add new files to coverity scan which I\u0027ve submitted a patch for here: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/12279\n\nI\u0027ve set verified +1 as it seems we should be good for CI.",
+      "revId": "dc78e62d80e64bf4fe5d5bf4844a7bd1696b7c92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1a795dc_5ce47f8d",
