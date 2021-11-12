@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2697db47_d357fb5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-11-12T03:21:44Z",
+      "side": 1,
+      "message": "Only updated macros\u0027 name:\n\n\n        /* x0 \u003d GIC400_ADDR_ALIGN value */\n-       and     x0, x0, #GIC400_ADDR_ALIGN_4KMODE_MASK\n-       mov     x1, #GIC400_ADDR_ALIGN_4KMODE_EN\n+       and     x0, x0, #SCFG_GIC400_ADDR_ALIGN_4KMODE_MASK\n+       mov     x1, #SCFG_GIC400_ADDR_ALIGN_4KMODE_EN\n        cmp     x0, x1\n        b.ne    9f\n\n@@ -1448,8 +1448,8 @@ _getGICC_BaseAddr:\n        rev     w0, w1\n\n        /* x0 \u003d GIC400_ADDR_ALIGN value */\n-       and     x0, x0, #GIC400_ADDR_ALIGN_4KMODE_MASK\n-       mov     x1, #GIC400_ADDR_ALIGN_4KMODE_EN\n+       and     x0, x0, #SCFG_GIC400_ADDR_ALIGN_4KMODE_MASK\n+       mov     x1, #SCFG_GIC400_ADDR_ALIGN_4KMODE_EN\n        cmp     x0, x1\n        b.ne    9f\n",
+      "revId": "b83cfd730f0bbd4196c2127f13d36549400ad5f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
