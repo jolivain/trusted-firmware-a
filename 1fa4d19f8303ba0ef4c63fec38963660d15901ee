@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a114525d_4217c520",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-11-12T11:15:11Z",
+      "side": 1,
+      "message": "\"SPM\" is enough.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 4
+      },
+      "revId": "1fa4d19f8303ba0ef4c63fec38963660d15901ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af1b2716_ec4cd652",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-11-12T11:15:11Z",
+      "side": 1,
+      "message": "This seems redundant info.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 59
+      },
+      "revId": "1fa4d19f8303ba0ef4c63fec38963660d15901ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe889b15_69557491",
+        "filename": "Makefile",
+        "patchSetId": 16
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-11-12T11:15:11Z",
+      "side": 1,
+      "message": "This is probably a fix in CI rather than override here.",
+      "range": {
+        "startLine": 789,
+        "startChar": 8,
+        "endLine": 789,
+        "endChar": 16
+      },
+      "revId": "1fa4d19f8303ba0ef4c63fec38963660d15901ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "852a94ed_133bfd0a",
+        "filename": "Makefile",
+        "patchSetId": 16
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-11-12T11:15:11Z",
+      "side": 1,
+      "message": "Remove as SVE_FOR_NS is supported for RMM.",
+      "range": {
+        "startLine": 798,
+        "startChar": 0,
+        "endLine": 803,
+        "endChar": 9
+      },
+      "revId": "1fa4d19f8303ba0ef4c63fec38963660d15901ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "509d79f9_3c4a9ef2",
+        "filename": "Makefile",
+        "patchSetId": 16
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-11-12T11:15:11Z",
+      "side": 1,
+      "message": "Would prefer to fix CI rather than CI and error out here.",
+      "range": {
+        "startLine": 825,
+        "startChar": 0,
+        "endLine": 827,
+        "endChar": 47
+      },
+      "revId": "1fa4d19f8303ba0ef4c63fec38963660d15901ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d51db3ee_1f81824f",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-11-12T11:15:11Z",
+      "side": 1,
+      "message": "Would be good to have confirmation that SPM build will set this build flag as part of build.",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 20
+      },
+      "revId": "1fa4d19f8303ba0ef4c63fec38963660d15901ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4ca2271_dc248de8",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-11-12T11:15:11Z",
+      "side": 1,
+      "message": "generally dislike Overrides as it is difficult to keep track which override is happening and it depends on Makefile inclusion order.\n\nSince this file is for defaults, we dont need to override here.",
+      "range": {
+        "startLine": 329,
+        "startChar": 1,
+        "endLine": 329,
+        "endChar": 10
+      },
+      "revId": "1fa4d19f8303ba0ef4c63fec38963660d15901ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
