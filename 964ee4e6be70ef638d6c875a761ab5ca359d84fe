@@ -22,6 +22,47 @@
       },
       "revId": "964ee4e6be70ef638d6c875a761ab5ca359d84fe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f99dc88_74f30c65",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-11-12T10:52:50Z",
+      "side": 1,
+      "message": "Its gonna be too big for commit header, if you are OK with current change then i can merge it now.",
+      "parentUuid": "0b981a76_b43b561e",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "964ee4e6be70ef638d6c875a761ab5ca359d84fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46f74319_87868ca8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-11-12T10:52:50Z",
+      "side": 1,
+      "message": "@Rex, The important question is, currently there 5 mediatek platforms in TF-A but the CI covers only 3 of them, that is the reason these failures were not detected in CI run. Could you please update the documentation in TF-A (docs/plat/mt***) to give us the build config\n\nPlatforms in TF-A \"mt6795 mt8173 mt8183 mt8192 mt8195\" but CI only covering \"mt8173, mt8183, mt8192\" ",
+      "revId": "964ee4e6be70ef638d6c875a761ab5ca359d84fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
