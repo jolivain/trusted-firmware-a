@@ -16,6 +16,24 @@
       "message": "General Comment:\nFollow the same approach as it was there for tzc400.\nThis will ensure the common view in soc.c of lx2, ls1028 and ls1043a\n",
       "revId": "0bf50e9b766fc86e421730a130bb25bf03934715",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41b106ec_5267a86a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-11-12T03:17:10Z",
+      "side": 1,
+      "message": "Hi, Pankaj,\n\nIn fact I have already updated the driver according to comments several days before, now tzc380a and tzc400 use the similar implementation, so please double check whether the code is okay, thanks.\n\nJiafei",
+      "parentUuid": "1ca905ae_723e67dc",
+      "revId": "0bf50e9b766fc86e421730a130bb25bf03934715",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
