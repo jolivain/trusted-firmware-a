@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf7a494d_4ec8915a",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-13T17:46:54Z",
+      "side": 1,
+      "message": "not sure i follow this statement. If there are multiple SPs, how does BL2 know which one to boot next. The order of what SP is booted next is defined by the SPMC no?\nOr are we just using this to get the SPMC manifest address below?",
+      "range": {
+        "startLine": 1191,
+        "startChar": 22,
+        "endLine": 1191,
+        "endChar": 54
+      },
+      "revId": "c4308d5f0e6442588f457d29c916c1d8b8483055",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce3589a7_b436832e",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-13T17:46:54Z",
+      "side": 1,
+      "message": "do we really need RW? can we do with just RO (principle of least privilege)?",
+      "range": {
+        "startLine": 1211,
+        "startChar": 22,
+        "endLine": 1211,
+        "endChar": 27
+      },
+      "revId": "c4308d5f0e6442588f457d29c916c1d8b8483055",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2c06ae5_86e3b52a",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-13T17:46:54Z",
+      "side": 1,
+      "message": "unmap the dynamic region? no need for it to be mapped once parsed right? same on all error paths further down.",
+      "range": {
+        "startLine": 1221,
+        "startChar": 10,
+        "endLine": 1221,
+        "endChar": 16
+      },
+      "revId": "c4308d5f0e6442588f457d29c916c1d8b8483055",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a78ea7d4_85e13406",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-13T17:46:54Z",
+      "side": 1,
+      "message": "not sure i follow this. WHy are we remapping the SPMC manifest? Error says failed to map SP manifest but how is manifest_base \u003d spmc_manifest pointing to SP manifest?",
+      "range": {
+        "startLine": 1246,
+        "startChar": 2,
+        "endLine": 1257,
+        "endChar": 3
+      },
+      "revId": "c4308d5f0e6442588f457d29c916c1d8b8483055",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d85d0ec6_9dfd1a4f",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1287,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-13T17:46:54Z",
+      "side": 1,
+      "message": "if we use the same xlat context for all SP\u0027s, how are they isolated? it appears we will use the same xlat context to map all regions for all SPs..",
+      "range": {
+        "startLine": 1287,
+        "startChar": 29,
+        "endLine": 1287,
+        "endChar": 52
+      },
+      "revId": "c4308d5f0e6442588f457d29c916c1d8b8483055",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42360b39_81e34acf",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-13T17:46:54Z",
+      "side": 1,
+      "message": "having multiple S-EL1 contexts is not possible (easily or practically) without virtualization. This check should be removed.",
+      "range": {
+        "startLine": 1300,
+        "startChar": 31,
+        "endLine": 1300,
+        "endChar": 52
+      },
+      "revId": "c4308d5f0e6442588f457d29c916c1d8b8483055",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec35c387_e1f1214e",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1312,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-13T17:46:54Z",
+      "side": 1,
+      "message": "needs to be removed. multiple S-EL0 contexts makes sense, not multiple S-EL1 contexts. If you ahve multiple S-EL1 SPs, there is no way for you to isolate them in a reasonable manner, and if you are not isolating them, then the same can be achieved using a single SP...",
+      "range": {
+        "startLine": 1312,
+        "startChar": 3,
+        "endLine": 1312,
+        "endChar": 20
+      },
+      "revId": "c4308d5f0e6442588f457d29c916c1d8b8483055",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
