@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3cba9f9_cb3584cf",
+        "filename": "drivers/st/uart/stm32_uart.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000690
+      },
+      "writtenOn": "2021-11-15T13:03:18Z",
+      "side": 1,
+      "message": "bad order for #include \u003cdrivers/st/stm32mp_clkfunc.h\u003e",
+      "revId": "726baef94d0eab07861224a74af1aede6912c7c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
