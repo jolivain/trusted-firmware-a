@@ -33,7 +33,7 @@ int fconf_populate_arm_sp(uintptr_t config)
 	bool is_plat_owned = false;
 	const unsigned int sip_start = SP_PKG1_ID;
 	unsigned int sip_index = sip_start;
-	const unsigned int sip_end = sip_start + MAX_SP_IDS / 2;
+	const unsigned int sip_end = sip_start + MAX_SP_IDS / 2 + 1;
 	const unsigned int plat_start = SP_PKG5_ID;
 	unsigned int plat_index = plat_start;
 	const unsigned int plat_end = plat_start + MAX_SP_IDS / 2;

@@ -57,6 +57,13 @@
 			vcpu_count = <1>;
 			mem_size = <1048576>;
 		};
+		vm5 {
+			is_ffa_partition;
+			debug_name = "cactus_el0";
+			load_address = <0x7800000>;
+			vcpu_count = <1>;
+			mem_size = <1048576>;
+		};
 	};
 
 	cpus {
