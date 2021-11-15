@@ -223,7 +223,7 @@ void __init arm_bl31_early_platform_setup(void *from_bl2, uintptr_t soc_fw_confi
 	 * dts (passed to the primary VM) by adding 'hypervisor' and chosen
 	 * nodes specifying the Hypervisor configuration.
 	 */
-#if RESET_TO_BL31
+#ifdef ARM_PRELOADED_DTB_BASE
 	bl33_image_ep_info.args.arg0 = (u_register_t)ARM_PRELOADED_DTB_BASE;
 #else
 	bl33_image_ep_info.args.arg0 = (u_register_t)hw_config;
