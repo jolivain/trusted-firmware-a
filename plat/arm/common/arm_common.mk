@@ -102,8 +102,11 @@ ifeq (${ARM_LINUX_KERNEL_AS_BL33},1)
       $(error "ARM_PRELOADED_DTB_BASE must be set if ARM_LINUX_KERNEL_AS_BL33 is
        used with RESET_TO_BL31.")
     endif
-    $(eval $(call add_define,ARM_PRELOADED_DTB_BASE))
   endif
+endif
+
+ifdef ARM_PRELOADED_DTB_BASE
+  $(eval $(call add_define,ARM_PRELOADED_DTB_BASE))
 endif
 
 # Arm Ethos-N NPU SiP service
