@@ -34,6 +34,24 @@
       "parentUuid": "cfc014e4_edba683b",
       "revId": "9f77e42124b27136cdde6582226e7ee4dbd34808",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2851b4a_117b7f34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-11-16T17:37:36Z",
+      "side": 1,
+      "message": "Rex, please check the bottom log of https://ci.trustedfirmware.org/job/tf-static-checks/1724/, instructions are there: coverity should consider these new files, so code coverage % does not decrease",
+      "parentUuid": "692903b5_fc766d44",
+      "revId": "9f77e42124b27136cdde6582226e7ee4dbd34808",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
