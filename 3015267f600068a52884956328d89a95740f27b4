@@ -22,6 +22,30 @@
       },
       "revId": "3015267f600068a52884956328d89a95740f27b4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51c29c7b_1b4f6f4c",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-11-16T10:59:47Z",
+      "side": 0,
+      "message": "You are right, we won\u0027t have the hw_config fallback in this case.\nHowever the setting of the CPP macro needs to happen outside of the RESET_TO_BL31 clause.",
+      "parentUuid": "d9638e23_a4f5e91a",
+      "range": {
+        "startLine": 100,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 33
+      },
+      "revId": "3015267f600068a52884956328d89a95740f27b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
