@@ -520,33 +520,42 @@ static uint64_t ffa_features_handler(uint32_t smc_fid,
 	if (function_id & FFA_VERSION_BIT31_MASK) {
 
 		switch (function_id) {
-		case FFA_ERROR:
-		case FFA_SUCCESS_SMC32:
 		case FFA_SUCCESS_SMC64:
-		case FFA_SPM_ID_GET:
-		case FFA_ID_GET:
-		case FFA_FEATURES:
-		case FFA_VERSION:
-		case FFA_RX_RELEASE:
-		case FFA_MSG_SEND_DIRECT_REQ_SMC32:
 		case FFA_MSG_SEND_DIRECT_REQ_SMC64:
-		case FFA_MSG_SEND_DIRECT_RESP_SMC32:
 		case FFA_MSG_SEND_DIRECT_RESP_SMC64:
-		case FFA_PARTITION_INFO_GET:
 		case FFA_RXTX_MAP_SMC64:
-		case FFA_RXTX_UNMAP:
 		case FFA_MEM_SHARE_SMC64:
 		case FFA_MEM_LEND_SMC64:
+		case FFA_MEM_RETRIEVE_REQ_SMC64:
+
+			SMC_RET1(handle, FFA_SUCCESS_SMC64);
+
+		case FFA_ERROR:
+		case FFA_SUCCESS_SMC32:
+		case FFA_VERSION:
+		case FFA_FEATURES:
+		case FFA_ID_GET:
+		case FFA_SPM_ID_GET:
+		case FFA_RX_RELEASE:
+		case FFA_PARTITION_INFO_GET:
+		case FFA_INTERRUPT:
+		case FFA_RXTX_UNMAP:
 		case FFA_MEM_FRAG_TX:
 		case FFA_MEM_FRAG_RX:
 		case FFA_MEM_RETRIEVE_REQ_SMC32:
-		case FFA_MEM_RETRIEVE_REQ_SMC64:
+		case FFA_MEM_RETRIEVE_RESP:
 		case FFA_MEM_RELINQUISH:
 		case FFA_MEM_RECLAIM:
+		case FFA_MSG_POLL:
+		case FFA_MSG_YIELD:
+		case FFA_MSG_SEND:
 		case FFA_MSG_RUN:
 		case FFA_MSG_WAIT:
+		case FFA_MEM_DONATE_SMC32:
+		case FFA_MEM_LEND_SMC32:
+		case FFA_MEM_SHARE_SMC32:
 
-			SMC_RET1(handle, FFA_SUCCESS_SMC64);
+			SMC_RET1(handle, FFA_SUCCESS_SMC32);
 
 		default:
 			return spmc_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
