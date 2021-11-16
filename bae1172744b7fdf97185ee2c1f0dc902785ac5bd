@@ -33,6 +33,23 @@
       "message": "\u003e Patch Set 2: Validation-Bot-Review-1\n\u003e \n\u003e Build finished: 1425 (https://qa-reports.linaro.org/tf/tf-gerrit-tforg-l1/build/1425/)\n\u003e Some tests failed (4)\n\nBoth LegacyCI and OpenCI passed on this patch, so manually giving Verified+1.",
       "revId": "bae1172744b7fdf97185ee2c1f0dc902785ac5bd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06da30f7_5a4e24b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-16T11:00:58Z",
+      "side": 1,
+      "message": "This patch is not marked for v2.6 release. Commenting to take this patch out from \u003e21 days radar tracking.",
+      "revId": "bae1172744b7fdf97185ee2c1f0dc902785ac5bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
