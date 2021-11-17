@@ -102,4 +102,31 @@
 #define PLAT_REBOOT_PRI		GIC_HIGHEST_SEC_PRIORITY
 #define PLAT_EHF_DESC		EHF_PRI_DESC(PLAT_PRI_BITS, PLAT_REBOOT_PRI)
 
+/*
+ * Number of Secure Partitions supported.
+ * SPMC at EL3, uses this count to configure the maximum number of supported
+ * secure partitions.
+ */
+#if defined(SPMC_AT_EL3)
+#define SECURE_PARTITION_COUNT          1
+#endif
+
+/*
+ * Number of Nwld Partitions supported.
+ * SPMC at EL3, uses this count to configure the maximum number of supported
+ * nwld partitions.
+ */
+#if defined(SPMC_AT_EL3)
+#define NS_PARTITION_COUNT              1
+#endif
+
+/*
+ * Number of Logical Partitions supported.
+ * SPMC at EL3, uses this count to configure the maximum number of supported
+ * logical partitions.
+ */
+#if defined(SPMC_AT_EL3)
+#define MAX_EL3_LP_DESCS_COUNT		1
+#endif
+
 #endif /* PLATFORM_DEF_H */
