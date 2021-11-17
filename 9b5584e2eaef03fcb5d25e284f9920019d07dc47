@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f2f8b23_20f17e96",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-17T17:19:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6bc7c38_049a8655",
+      "range": {
+        "startLine": 615,
+        "startChar": 62,
+        "endLine": 615,
+        "endChar": 70
+      },
+      "revId": "9b5584e2eaef03fcb5d25e284f9920019d07dc47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f064a00_99ad5336",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-13T17:04:07Z",
       "side": 1,
       "message": "might want to reword since saying SPMC trusts a NWd entity sounds odd... I think this should say the SPMC makes no guarantees to the normal world if the hypervisor is compromised. SPMC never really trusts anything the hypervisor says and in this particular case, in the threat model, if the hypervisor is compromised, all bets are off for normal world VMs. SPMC cant do anything to fix that..\nSame applies to all below...shouldnt say SPMC trusts the hypervisor..really SPMC cannot do anything to prevent a malicious hypervisor from performing STRIDE on normal world VMs. The bes t SPMC can is protect itself and SPs from a malicious hypervisor.",
+      "range": {
+        "startLine": 727,
+        "startChar": 67,
+        "endLine": 729,
+        "endChar": 48
+      },
+      "revId": "9b5584e2eaef03fcb5d25e284f9920019d07dc47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "059a6e34_db95759e",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-17T17:19:05Z",
+      "side": 1,
+      "message": "Rewrote the sections below, as suggested.\nLet me know if you have any other thoughts.\n\nThank you for your comments.",
+      "parentUuid": "8f064a00_99ad5336",
       "range": {
         "startLine": 727,
         "startChar": 67,
