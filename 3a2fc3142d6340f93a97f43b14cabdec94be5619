@@ -47,6 +47,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98b8c4e0_f86093bc",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-17T17:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e59fc2f7_b95bec25",
+      "range": {
+        "startLine": 627,
+        "startChar": 11,
+        "endLine": 627,
+        "endChar": 12
+      },
+      "revId": "3a2fc3142d6340f93a97f43b14cabdec94be5619",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9f2b912_3bb6c224",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-17T17:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43ca6683_b71083ed",
+      "range": {
+        "startLine": 627,
+        "startChar": 41,
+        "endLine": 627,
+        "endChar": 45
+      },
+      "revId": "3a2fc3142d6340f93a97f43b14cabdec94be5619",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "560e5895_4bac6085",
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba9b95e2_dff60c01",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-17T17:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "560e5895_4bac6085",
+      "range": {
+        "startLine": 628,
+        "startChar": 70,
+        "endLine": 628,
+        "endChar": 71
+      },
+      "revId": "3a2fc3142d6340f93a97f43b14cabdec94be5619",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d8f8fb0_0f0a6697",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-11-17T03:01:47Z",
       "side": 1,
       "message": "general comment for all lines below. Dont think explanation of the ABI is required since that is covered by the spec...this can be kept to hafnium specific details that are considered impdef, in my view. But generally looks good.",
+      "range": {
+        "startLine": 792,
+        "startChar": 0,
+        "endLine": 792,
+        "endChar": 26
+      },
+      "revId": "3a2fc3142d6340f93a97f43b14cabdec94be5619",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0724ebd6_6bfa79b4",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 792,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-17T17:00:15Z",
+      "side": 1,
+      "message": "I removed the details that can be seen as duplicate from the spec.\nLet me know if you are happy with this.",
+      "parentUuid": "3d8f8fb0_0f0a6697",
       "range": {
         "startLine": 792,
         "startChar": 0,
