@@ -16,6 +16,24 @@
       "message": "This change seems to move the config from commitlint.config.js to .commitlintrc.js is it worth mentioning in the commit message why this is needed?",
       "revId": "cba6c3f54a349e85d22c0ed6a07a43719ffee39d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae612f42_6c29ef72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-11-17T14:25:29Z",
+      "side": 1,
+      "message": "It\u0027s not needed, and actually completely unimportant - it\u0027s more just to align the naming with the .versionrc.js file introduced later. Will update the commit message.",
+      "parentUuid": "d967c733_2e03b0e6",
+      "revId": "cba6c3f54a349e85d22c0ed6a07a43719ffee39d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
