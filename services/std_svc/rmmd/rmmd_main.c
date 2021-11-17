@@ -205,10 +205,20 @@ static uint64_t	rmmd_smc_forward(uint32_t smc_fid, uint32_t src_sec_state,
 	cm_el2_sysregs_context_restore(dst_sec_state);
 	cm_set_next_eret_context(dst_sec_state);
 
-	SMC_RET8(cm_get_context(dst_sec_state), smc_fid, x1, x2, x3, x4,
-			SMC_GET_GP(handle, CTX_GPREG_X5),
-			SMC_GET_GP(handle, CTX_GPREG_X6),
-			SMC_GET_GP(handle, CTX_GPREG_X7));
+	/*
+	 * As per SMCCCv1.1, we need to preserve x4 to x7 unless
+	 * being used as return args. Hence we differentiate the
+	 * onward and backward path. Support upto 7 args in the
+	 * onward path and 3 args in return path.
+	 */
+	if (src_sec_state == NON_SECURE) {
+		SMC_RET8(cm_get_context(dst_sec_state), smc_fid, x1, x2, x3, x4,
+				SMC_GET_GP(handle, CTX_GPREG_X5),
+				SMC_GET_GP(handle, CTX_GPREG_X6),
+				SMC_GET_GP(handle, CTX_GPREG_X7));
+	} else {
+		SMC_RET4(cm_get_context(dst_sec_state), smc_fid, x1, x2, x3);
+	}
 }
 
 /*******************************************************************************
