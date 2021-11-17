@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7fb0a7c_bd33803f",
+        "filename": "plat/nxp/common/setup/ls_bl2_el3_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-11-17T07:13:01Z",
+      "side": 0,
+      "message": "Rather than removing this check, modify it to:\nif (dram_regions_info.total_dram_size !\u003d 0)",
+      "revId": "672e7eceb0d6085aa29ff57812cc06b25e24e07e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
