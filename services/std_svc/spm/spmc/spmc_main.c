@@ -905,6 +905,123 @@ void convert_uuid_endian(uint8_t *be_8, uint32_t *le_32) {
 	}
 }
 
+/*
+ * Helper function to read Rx buffer addresses
+ */
+static int fdt_read_rx_buffer_address(void *sp_manifest, sp_desc_t *sp, int offset)
+{
+	int32_t ret, node;
+	uint64_t config_64;
+	uint32_t config_32;
+	uintptr_t rx_buffer_base, rx_buffer_base_align;
+
+	/*
+	 * Read Rx phandle and use it to query the buffer address
+	 */
+	node = fdt_subnode_offset_namelen(sp_manifest, offset,
+					  "rx_tx-info",
+					  sizeof("rx_tx-info") - 1);
+	if (node < 0) {
+		WARN("SP manifest does not contains rx_tx-info node\n");
+		return -ENOENT;
+	}
+
+	ret = fdt_read_uint32(sp_manifest, node, "rx-buffer", &config_32);
+	if (ret) {
+		WARN("SP manifest does not contain rx-buffer phandle\n");
+		return -ENOENT;
+	}
+
+	node = fdt_node_offset_by_phandle(sp_manifest, config_32);
+	if (node < 0) {
+		ERROR("SP manifest contains no rx-buffer\n");
+		return -ENOENT;
+	}
+
+	ret = fdt_read_uint64(sp_manifest, node, "base-address", &config_64);
+	if (ret) {
+		ERROR("Rx buffer address not found.\n");
+		return -ENOENT;
+	} else {
+		sp->mailbox.rx_buffer = (void *)config_64;
+		INFO("Rx buffer address is 0x%llx\n", config_64);
+	}
+
+	/* Map the Rx buffer for future accesses */
+	rx_buffer_base = (uintptr_t)config_64;
+	rx_buffer_base_align = page_align(rx_buffer_base, UP);
+	rx_buffer_base_align = page_align(rx_buffer_base, DOWN);
+
+	ret = mmap_add_dynamic_region((unsigned long long)rx_buffer_base_align,
+					rx_buffer_base_align,
+					PAGE_SIZE,
+					MT_SECURE | MT_RW_DATA);
+	if (ret) {
+		WARN("Tx buffer mapping failed (%d)\n", ret);
+		return -ENOENT;
+	}
+
+	return 0;
+}
+
+/*
+ * Helper function to read Tx buffer addresses
+ */
+static int fdt_read_tx_buffer_address(void *sp_manifest, sp_desc_t *sp, int offset)
+{
+	int32_t ret, node;
+	uint64_t config_64;
+	uint32_t config_32;
+	uintptr_t tx_buffer_base, tx_buffer_base_align;
+
+	/*
+	 * Read Tx phandle and use it to query the buffer address
+	 */
+	node = fdt_subnode_offset_namelen(sp_manifest, offset,
+					  "rx_tx-info",
+					  sizeof("rx_tx-info") - 1);
+	if (node < 0) {
+		WARN("SP manifest does not contains rx_tx-info node\n");
+		return -ENOENT;
+	}
+
+	ret = fdt_read_uint32(sp_manifest, node, "tx-buffer", &config_32);
+	if (ret) {
+		WARN("SP manifest does not contain tx-buffer phandle\n");
+		return -ENOENT;
+	}
+
+	node = fdt_node_offset_by_phandle(sp_manifest, config_32);
+	if (node < 0) {
+		ERROR("SP manifest contains no Tx buffers\n");
+		return -ENOENT;
+	}
+
+	ret = fdt_read_uint64(sp_manifest, node, "base-address", &config_64);
+	if (ret) {
+		ERROR("Tx buffer address not found.\n");
+		return -ENOENT;
+	} else {
+		sp->mailbox.tx_buffer = (void *)config_64;
+		INFO("Tx buffer address is 0x%llx\n", config_64);
+	}
+
+	tx_buffer_base = (uintptr_t)config_64;
+	tx_buffer_base_align = page_align(tx_buffer_base, UP);
+	tx_buffer_base_align = page_align(tx_buffer_base, DOWN);
+
+	ret = mmap_add_dynamic_region((unsigned long long)tx_buffer_base_align,
+					tx_buffer_base_align,
+					PAGE_SIZE,
+					MT_SECURE | MT_RO_DATA);
+	if (ret) {
+		WARN("Tx buffer mapping failed (%d)\n", ret);
+		return -ENOENT;
+	}
+
+	return 0;
+}
+
 /*******************************************************************************
  * This function will parse the Secure Partition Manifest. From manifest, it
  * will fetch details for preparing Secure partition image context and secure
@@ -1001,6 +1118,17 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 	}
 
 	INFO("SP Entrypoint Address is 0x%lx\n", ep_info->pc);
+
+	/* Query the Rx/Tx buffer addresses, if available */
+	ret = fdt_read_rx_buffer_address(sp_manifest, sp, offset);
+	if (ret) {
+		WARN("SP manifest does not contain Rx buffers\n");
+	}
+
+	ret = fdt_read_tx_buffer_address(sp_manifest, sp, offset);
+	if (ret) {
+		WARN("SP manifest does not contain Tx buffers\n");
+	}
 
 	/*
 	 * Look for the mandatory fields that are expected to be present in only
