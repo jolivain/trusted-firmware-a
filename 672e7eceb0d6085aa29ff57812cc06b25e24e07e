@@ -16,6 +16,24 @@
       "message": "Rather than removing this check, modify it to:\nif (dram_regions_info.total_dram_size !\u003d 0)",
       "revId": "672e7eceb0d6085aa29ff57812cc06b25e24e07e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a50e361_d7116305",
+        "filename": "plat/nxp/common/setup/ls_bl2_el3_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2021-11-17T07:17:48Z",
+      "side": 0,
+      "message": "Put this if statement, under the compile time flag. \n#ifdef DDR_INIT\n#endif\n\n\nNOTICE(\"ERROR: DRAM0 Size is not correctly configured.\");\nPlease modify the above message to:\n\nNOTICE(\"ERROR: Asserting as the DDR is not initialized yet.\");",
+      "parentUuid": "e7fb0a7c_bd33803f",
+      "revId": "672e7eceb0d6085aa29ff57812cc06b25e24e07e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
