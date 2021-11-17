@@ -50,6 +50,23 @@
       "message": "Can you check the code for me or give me some suggestions? or there are other ways to solve this problem。",
       "revId": "6dc2bdd90d1e3b0eebeea3392760db0b84168b97",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2632f5ce_0269e516",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2021-11-17T08:11:49Z",
+      "side": 1,
+      "message": "From an OP-TEE point of view this looks OK, but it seems this might be more about interrupt handling/routing in TF-A. I\u0027d appreciate feedback from other maintainers.",
+      "revId": "6dc2bdd90d1e3b0eebeea3392760db0b84168b97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
