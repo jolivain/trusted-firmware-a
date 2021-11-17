@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c8e0bfb_33f69acc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2021-11-17T11:31:42Z",
+      "side": 1,
+      "message": "Thanks for pointing this out, however thinking a bit more it seems like this was a mistake in the original code. \nFFA_FEATURES is a 32bit only SMC therefore I don\u0027t think it would make sense to return a 64bit response in any circumstances.\n \nCan I ask which caller you have in mind that is expecting A FFA_SUCCESS_64 to complete a FFA_FEATURES_32 call?",
+      "revId": "3f71025f49989c73f46651559dbe6f23506ee6a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
