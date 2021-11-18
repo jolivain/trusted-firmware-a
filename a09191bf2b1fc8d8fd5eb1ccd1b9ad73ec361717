@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a05109fb_e2965f40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-18T17:30:33Z",
+      "side": 1,
+      "message": "i had the same dilemma about repurposing ivy or creating a fifth partition... it was 50/50 so i just picked one approach. Happy to go either way for me. I dont think shim approach will go away in the near future so there is value in having that type of test...and let me explore ARM_BL2_SP_LIST_DTS little more and see if i can clean it up.",
+      "parentUuid": "a848b665_0a5a80df",
+      "revId": "a09191bf2b1fc8d8fd5eb1ccd1b9ad73ec361717",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b8a0f676_001db545",
         "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
         "patchSetId": 1
@@ -49,6 +67,24 @@
       "writtenOn": "2021-11-17T16:01:36Z",
       "side": 1,
       "message": "Is this required if owner is declared as SiP? There\u0027s no real consequence appart for the signing process. The build/signing flow is a bit sensitive in the sense it expects maximum 4 platform owned partitions and 4 sip owned partitions.",
+      "revId": "a09191bf2b1fc8d8fd5eb1ccd1b9ad73ec361717",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "827ea5dd_9a8e5110",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-18T17:30:33Z",
+      "side": 1,
+      "message": "yes, i was trying to get around the 4 partition limitation. I did not think of changing ownership to SiP. can try that :)",
+      "parentUuid": "b8a0f676_001db545",
       "revId": "a09191bf2b1fc8d8fd5eb1ccd1b9ad73ec361717",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
