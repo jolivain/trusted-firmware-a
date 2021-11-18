@@ -101,6 +101,29 @@
       "message": "Looking at other partner platform changes I again sense some may need to be moved down a level?\n\nExample\n\nMarvell\n - introduce t9130_cex7_eval (d01139f)\n - Armada\n   -A8K\n    -allow overriding default paths (0b702af)\n\nThere are others if you look at other platforms",
       "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39aabedf_56faf5c6",
+        "filename": "docs/change-log.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-11-18T15:27:23Z",
+      "side": 1,
+      "message": "I think these fit more into new **Architecture** features above. They can be listed under the umbrella \"Support for FEAT_RME\".",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 183
+      },
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
