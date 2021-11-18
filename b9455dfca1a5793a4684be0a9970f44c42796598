@@ -16,6 +16,23 @@
       "message": "For reference the rendered change log is here https://ci-builds.trustedfirmware.org/static-files/WHcc5u62xDxz7bivOwZza7ZMzbbD8KZZ5RzhEZKOK38xNjM3MjM2NzY4MTc5OjE2OmpvYW5uYWZhcmxleS1hcm06am9iL3RmLWEtYnVpbGRlci81OTAwNzkvYXJ0aWZhY3Q\u003d/artefacts/release/build/html/change-log.html as a build artefact\n\nGoal I think is to identify any manual changes to the automated generated change-log.",
       "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cfd7e01_e3f29a6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-11-18T12:07:54Z",
+      "side": 1,
+      "message": "In the New features section I guess these need to me moved into a manually added Diphda Platform\n\nadding the diphda platform (bf3ce99)\ndisabling non volatile counters in diphda (7f70cd2)\nenabling stack protector for diphda (c7e4f1c)",
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
