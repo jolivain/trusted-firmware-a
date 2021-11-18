@@ -67,6 +67,24 @@
       "message": "From an OP-TEE point of view this looks OK, but it seems this might be more about interrupt handling/routing in TF-A. I\u0027d appreciate feedback from other maintainers.",
       "revId": "6dc2bdd90d1e3b0eebeea3392760db0b84168b97",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28b72cc2_773749d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-11-18T17:08:40Z",
+      "side": 1,
+      "message": "This looks incorrect.. why is OPTEED publishing a context management library event? Can we not use cm_context_save* APIs to actually save the NS context, that then triggers the exit normal world event?",
+      "parentUuid": "2632f5ce_0269e516",
+      "revId": "6dc2bdd90d1e3b0eebeea3392760db0b84168b97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
