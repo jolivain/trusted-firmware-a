@@ -50,6 +50,23 @@
       "message": "In the Resolved Issues section all the following need to be added manually to existing sub sections or new subsections added to hold them?\n\na3900: pm: fix number of CPU power switches. (5cf6faf)\navoid redefinition of ‘efi_guid’ structure (f34322c)\nfixing coverity issue for SPM Core. (f7fb0bf)\nlibc: use long for 64-bit types on aarch64 (4ce3e99)\nmarvell: Check the required libraries before building doimage (dd47809)\nOP-TEE SP manifest per latest SPMC changes (b7bc51a)\nplat: marvell: fix MSS loader for A8K family (dceac43)\nplat/ea_handler: print newline before fatal abort error message (a5fea81)\nplat/marvell: a3700: Remove encryption password (076374c)\nrandom typos in tf-a code base (2e61d68)\nremove “experimental” tag for stable features (700e768)\nRemove save/restore of EL2 timer registers (a7cf274)\nrename Matterhorn, Matterhorn ELP, and Klein CPUs (c6ac4df)\nSP UUID little to big endian in TF-A build (dcdbcdd)\ntools: Fix doimage syntax breaking secure mode build (6d55ef1)\nuse correct printf format for uint64_t (4ef449c)",
       "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7ffd2c9_1aac0472",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-11-18T12:26:39Z",
+      "side": 1,
+      "message": "In the New feature Arm area we have these:\nArm\nAdd DRAM2 to TZC non-secure region (76b4a6b)\nadd FWU support in Arm platforms (2f1177b)\nadd GPT initialization code for Arm platforms (deb4b3a)\nadd GPT parser support (ef1daa4)\nenable PIE when RESET_TO_SP_MIN\u003d1 (7285fd5)\nIntroduce TC1 platform (6ec0c65)\n\nI sense some of these are not generic across all Arm platforms and should be moved to specific Arm Platforms?",
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
