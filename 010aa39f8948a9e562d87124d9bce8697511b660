@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5c95c1f_8d8582b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-19T13:06:07Z",
+      "side": 1,
+      "message": "remove extra space",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "010aa39f8948a9e562d87124d9bce8697511b660",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "274a58de_d3f63450",
+        "filename": "include/plat/st/stm32mp1_efi.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-19T13:06:07Z",
+      "side": 1,
+      "message": "Could you move this file to plat/st/common/include?\nIt should be renamed stm32mp_efi.h, as well as the macros in this file",
+      "revId": "010aa39f8948a9e562d87124d9bce8697511b660",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3be85621_2d2c6f41",
+        "filename": "include/plat/st/stm32mp1_efi.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-19T13:06:07Z",
+      "side": 1,
+      "message": "STM32MP_FIP_GUID",
+      "revId": "010aa39f8948a9e562d87124d9bce8697511b660",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
