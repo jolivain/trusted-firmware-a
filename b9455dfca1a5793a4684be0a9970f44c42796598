@@ -105,6 +105,96 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "59e5af44_8162c1d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-22T20:54:28Z",
+      "side": 1,
+      "message": "Let me do the necessary changes for this.",
+      "parentUuid": "913d7f19_046e3a9c",
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb4b5f17_9178ab62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-22T20:54:28Z",
+      "side": 1,
+      "message": "Let me move these chunk of messages in manually created \u0027diphda\u0027 platform section.",
+      "parentUuid": "7cfd7e01_e3f29a6f",
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6f0a1e3_cc9d8ae5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-22T20:54:28Z",
+      "side": 1,
+      "message": "Let me move the applicable one to specific Arm platforms.",
+      "parentUuid": "e7ffd2c9_1aac0472",
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "231ff061_1f5593c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-22T20:54:28Z",
+      "side": 1,
+      "message": "Let me move these chunk of messages in appropriate sections.",
+      "parentUuid": "1ca58a57_58444bb6",
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22751c1a_3df209c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-22T20:54:28Z",
+      "side": 1,
+      "message": "For TF-A, the main difference between TC0 (TARGET_PLATFORM\u003d0) and TC1\n(TARGET_PLATFORM\u003d1) platforms is the CPUs supported. so I believe these changes are applicable for TC1 also.",
+      "parentUuid": "52abc617_e86e59bb",
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "88ed4b09_65fa415e",
         "filename": "docs/change-log.md",
         "patchSetId": 8
@@ -116,6 +206,30 @@
       "writtenOn": "2021-11-18T16:35:08Z",
       "side": 1,
       "message": "2.6",
+      "range": {
+        "startLine": 6,
+        "startChar": 3,
+        "endLine": 6,
+        "endChar": 8
+      },
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "415645a3_33672a85",
+        "filename": "docs/change-log.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-22T20:54:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "88ed4b09_65fa415e",
       "range": {
         "startLine": 6,
         "startChar": 3,
@@ -151,6 +265,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7af3908_4937bfb5",
+        "filename": "docs/change-log.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-22T20:54:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a10591e0_91e91447",
+      "range": {
+        "startLine": 90,
+        "startChar": 6,
+        "endLine": 90,
+        "endChar": 9
+      },
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a44a59d6_4575ef17",
         "filename": "docs/change-log.md",
         "patchSetId": 8
@@ -162,6 +300,30 @@
       "writtenOn": "2021-11-18T16:35:08Z",
       "side": 1,
       "message": "introduce",
+      "range": {
+        "startLine": 95,
+        "startChar": 6,
+        "endLine": 95,
+        "endChar": 15
+      },
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfd53b2f_b3ba9f7d",
+        "filename": "docs/change-log.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-22T20:54:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a44a59d6_4575ef17",
       "range": {
         "startLine": 95,
         "startChar": 6,
@@ -191,6 +353,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44942b93_acf4c097",
+        "filename": "docs/change-log.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-22T20:54:28Z",
+      "side": 1,
+      "message": "These are auto-generated logs, hence there is no separate entry present in the change-log to mention about TB-R addition. \nDo you still think we should mention about TB-R addition explicitly somewhere in the change-log?",
+      "parentUuid": "a7c27283_4ebf98c5",
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "39aabedf_56faf5c6",
         "filename": "docs/change-log.md",
         "patchSetId": 8
@@ -202,6 +382,30 @@
       "writtenOn": "2021-11-18T15:27:23Z",
       "side": 1,
       "message": "I think these fit more into new **Architecture** features above. They can be listed under the umbrella \"Support for FEAT_RME\".",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 183
+      },
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "400e34fa_2bfef88b",
+        "filename": "docs/change-log.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-22T20:54:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "39aabedf_56faf5c6",
       "range": {
         "startLine": 304,
         "startChar": 0,
@@ -237,6 +441,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10de42ba_562fb804",
+        "filename": "docs/change-log.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-22T20:54:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6c1e1eb4_33960c8b",
+      "range": {
+        "startLine": 317,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 168
+      },
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae4405f9_577c343c",
         "filename": "docs/change-log.md",
         "patchSetId": 8
@@ -248,6 +476,30 @@
       "writtenOn": "2021-11-18T16:35:08Z",
       "side": 1,
       "message": "remove?",
+      "range": {
+        "startLine": 438,
+        "startChar": 8,
+        "endLine": 438,
+        "endChar": 12
+      },
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89b0e9c3_8bb577cb",
+        "filename": "docs/change-log.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-22T20:54:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ae4405f9_577c343c",
       "range": {
         "startLine": 438,
         "startChar": 8,
@@ -306,6 +558,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e57ad981_89a6f4de",
+        "filename": "docs/change-log.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-22T20:54:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7a718273_a9501e5d",
+      "range": {
+        "startLine": 532,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 157
+      },
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5e50d7dd_6557bb12",
         "filename": "docs/change-log.md",
         "patchSetId": 8
@@ -317,6 +593,30 @@
       "writtenOn": "2021-11-18T16:35:08Z",
       "side": 1,
       "message": "This is a bit vague unless we open the review link. I think we can drop this entry as it doesnt add much value. Or update it reflect that it fixes __aarch64__ primitive",
+      "range": {
+        "startLine": 730,
+        "startChar": 0,
+        "endLine": 730,
+        "endChar": 149
+      },
+      "revId": "b9455dfca1a5793a4684be0a9970f44c42796598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea645d1d_7b42fba0",
+        "filename": "docs/change-log.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-22T20:54:28Z",
+      "side": 1,
+      "message": "Ack, let me drop this as it is minor change.",
+      "parentUuid": "5e50d7dd_6557bb12",
       "range": {
         "startLine": 730,
         "startChar": 0,
