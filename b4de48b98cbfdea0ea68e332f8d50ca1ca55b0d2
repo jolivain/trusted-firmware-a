@@ -16,6 +16,190 @@
       "message": "Doc build fails because of this fix missing https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/12514\n\nChecked doc build locally.",
       "revId": "b4de48b98cbfdea0ea68e332f8d50ca1ca55b0d2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84dfa160_4b2f95ae",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-22T18:00:06Z",
+      "side": 1,
+      "message": "exhaust?",
+      "range": {
+        "startLine": 617,
+        "startChar": 55,
+        "endLine": 617,
+        "endChar": 61
+      },
+      "revId": "b4de48b98cbfdea0ea68e332f8d50ca1ca55b0d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35d40b63_38ed0eab",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-22T18:00:06Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 654,
+        "startChar": 62,
+        "endLine": 654,
+        "endChar": 70
+      },
+      "revId": "b4de48b98cbfdea0ea68e332f8d50ca1ca55b0d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff5cd2ea_7e49692e",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-22T18:00:06Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 657,
+        "startChar": 69,
+        "endLine": 657,
+        "endChar": 78
+      },
+      "revId": "b4de48b98cbfdea0ea68e332f8d50ca1ca55b0d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b7e7c62_16151224",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-22T18:00:06Z",
+      "side": 1,
+      "message": "by the call?",
+      "range": {
+        "startLine": 692,
+        "startChar": 69,
+        "endLine": 692,
+        "endChar": 74
+      },
+      "revId": "b4de48b98cbfdea0ea68e332f8d50ca1ca55b0d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6765ea6e_0ce6a6ad",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-22T18:00:06Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 692,
+        "startChar": 51,
+        "endLine": 692,
+        "endChar": 52
+      },
+      "revId": "b4de48b98cbfdea0ea68e332f8d50ca1ca55b0d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9122b528_7fc7e7b0",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-22T18:00:06Z",
+      "side": 1,
+      "message": "The TF-A SPMC implementation?",
+      "range": {
+        "startLine": 717,
+        "startChar": 27,
+        "endLine": 717,
+        "endChar": 41
+      },
+      "revId": "b4de48b98cbfdea0ea68e332f8d50ca1ca55b0d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fce0a9a9_87fb9b47",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-22T18:00:06Z",
+      "side": 1,
+      "message": "If the sender is an SP?",
+      "range": {
+        "startLine": 763,
+        "startChar": 43,
+        "endLine": 763,
+        "endChar": 62
+      },
+      "revId": "b4de48b98cbfdea0ea68e332f8d50ca1ca55b0d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76238b94_ca0e14f2",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-22T18:00:06Z",
+      "side": 1,
+      "message": "running vCPU?",
+      "range": {
+        "startLine": 765,
+        "startChar": 27,
+        "endLine": 765,
+        "endChar": 34
+      },
+      "revId": "b4de48b98cbfdea0ea68e332f8d50ca1ca55b0d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
