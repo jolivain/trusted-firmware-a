@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e0f060a_1fc6e308",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-23T17:09:28Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 765,
+        "startChar": 35,
+        "endLine": 765,
+        "endChar": 43
+      },
+      "revId": "667354c414246ccda34fae636566be859644b9dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8f473c5_dc1b6193",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-23T17:09:28Z",
+      "side": 1,
+      "message": "able to",
+      "range": {
+        "startLine": 803,
+        "startChar": 41,
+        "endLine": 803,
+        "endChar": 45
+      },
+      "revId": "667354c414246ccda34fae636566be859644b9dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e744c01_f4e7990b",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-23T17:09:28Z",
+      "side": 1,
+      "message": "\u0027Primary FF-A partition\u0027 may refer to primary VM in context of Hafnium hypervisor ?\n\nIf there\u0027s no hypervisor in the normal world, the call is emitted by the FF-A kernel driver in the OS kernel.\n\nPerhaps you can just mention normal world FF-A driver (wherever it lands, in the primary VM or the OS kernel).",
+      "range": {
+        "startLine": 813,
+        "startChar": 57,
+        "endLine": 814,
+        "endChar": 36
+      },
+      "revId": "667354c414246ccda34fae636566be859644b9dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45e8ebc0_014397e4",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-23T17:09:28Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 836,
+        "startChar": 27,
+        "endLine": 836,
+        "endChar": 29
+      },
+      "revId": "667354c414246ccda34fae636566be859644b9dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bacf8c3_e0ebfa49",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-11-23T17:09:28Z",
+      "side": 1,
+      "message": "has been emitted or sent?",
+      "range": {
+        "startLine": 875,
+        "startChar": 68,
+        "endLine": 875,
+        "endChar": 76
+      },
+      "revId": "667354c414246ccda34fae636566be859644b9dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
