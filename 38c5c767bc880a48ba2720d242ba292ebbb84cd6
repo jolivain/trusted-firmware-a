@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e288bba_856e3223",
+        "filename": "lib/libc/memcpy.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-23T16:59:13Z",
+      "side": 1,
+      "message": "Can we use a macro which checks both pointers at once?\n#define are_aligned(dest, src) ((((uintptr_t)dest | (uintptr_t)src) \u0026 (ALIGN - 1)) \u003d\u003d 0U)",
+      "revId": "38c5c767bc880a48ba2720d242ba292ebbb84cd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc9e0d53_3b4250b4",
+        "filename": "lib/libc/memcpy.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-23T16:59:13Z",
+      "side": 1,
+      "message": "memcpy16() already has alignment check, why not use m_loop16?\n\nfunc memcpy16\n#if ENABLE_ASSERTIONS\n\torr\tx3, x0, x1\n\ttst\tx3, #0xf\n\tASM_ASSERT(eq)\n#endif\n/* copy 16 bytes at a time */\nm_loop16:",
+      "range": {
+        "startLine": 29,
+        "startChar": 3,
+        "endLine": 29,
+        "endChar": 11
+      },
+      "revId": "38c5c767bc880a48ba2720d242ba292ebbb84cd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c499c9e7_53688d3e",
+        "filename": "lib/libc/memcpy.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-23T16:59:13Z",
+      "side": 1,
+      "message": "m_loop8?",
+      "revId": "38c5c767bc880a48ba2720d242ba292ebbb84cd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
