@@ -16,6 +16,24 @@
       "message": "This is already done at line 780 of the main Makefile, was that not sufficient?",
       "revId": "ca9905f75543d0a16771761b141e000e66544049",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8278be8_4aee52c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-23T12:51:21Z",
+      "side": 1,
+      "message": "Hi John, it would be OK without the warning. The feature was silently disabled for aarch32, which is no more the case now. I had no warning when compiling aarch32 platforms. I remember a similar discussion where it was decided to have such features disabled by default, and platform should enable them. See: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10807/comment/68ff259d_cd4b0ac3/\n\nMaybe my patch is incomplete here, and I can also change the warning and override with an error in the Makefile?\n\n\nBest regards,\nYann",
+      "parentUuid": "86012ca2_d6490700",
+      "revId": "ca9905f75543d0a16771761b141e000e66544049",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
