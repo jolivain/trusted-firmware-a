@@ -16,6 +16,183 @@
       "message": "Hi, Madhukar,\nThe patch is ready for review and merge. Pleas help to check it.",
       "revId": "fd63630c3216152b6a72b62bc1d103bb99e39f21",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46a30ed1_85be8462",
+        "filename": "plat/mediatek/mt8195/drivers/apusys/apupll.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-24T18:22:42Z",
+      "side": 1,
+      "message": "no need to initialize ret here.",
+      "range": {
+        "startLine": 90,
+        "startChar": 15,
+        "endLine": 90,
+        "endChar": 22
+      },
+      "revId": "fd63630c3216152b6a72b62bc1d103bb99e39f21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddbcda75_be4c3f11",
+        "filename": "plat/mediatek/mt8195/drivers/apusys/apupll.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-24T18:22:42Z",
+      "side": 1,
+      "message": "use braces\nif () {\n\n}",
+      "revId": "fd63630c3216152b6a72b62bc1d103bb99e39f21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62120ec1_526da03c",
+        "filename": "plat/mediatek/mt8195/drivers/apusys/apupll.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-24T18:22:42Z",
+      "side": 1,
+      "message": "on !\u003d 0U",
+      "range": {
+        "startLine": 274,
+        "startChar": 5,
+        "endLine": 274,
+        "endChar": 7
+      },
+      "revId": "fd63630c3216152b6a72b62bc1d103bb99e39f21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5abc39b7_5bf713b9",
+        "filename": "plat/mediatek/mt8195/drivers/apusys/apupll.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-24T18:22:42Z",
+      "side": 1,
+      "message": "same as above.",
+      "revId": "fd63630c3216152b6a72b62bc1d103bb99e39f21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c567929_6e003158",
+        "filename": "plat/mediatek/mt8195/drivers/apusys/apupll.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-24T18:22:42Z",
+      "side": 1,
+      "message": "either change enable to boolean or do explicit comparison:\nif(enable !\u003d 0U)",
+      "revId": "fd63630c3216152b6a72b62bc1d103bb99e39f21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a98c8edb_e566c6dd",
+        "filename": "plat/mediatek/mt8195/drivers/apusys/apupll.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-24T18:22:42Z",
+      "side": 1,
+      "message": "same as above",
+      "revId": "fd63630c3216152b6a72b62bc1d103bb99e39f21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e407326d_dfb48fd3",
+        "filename": "plat/mediatek/mt8195/drivers/apusys/apupwr_clkctl.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-24T18:22:42Z",
+      "side": 1,
+      "message": "if(div2) {",
+      "range": {
+        "startLine": 251,
+        "startChar": 1,
+        "endLine": 251,
+        "endChar": 20
+      },
+      "revId": "fd63630c3216152b6a72b62bc1d103bb99e39f21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea2f66a_d1d81f84",
+        "filename": "plat/mediatek/mt8195/drivers/apusys/apupwr_clkctl.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-24T18:22:42Z",
+      "side": 1,
+      "message": "break?",
+      "revId": "fd63630c3216152b6a72b62bc1d103bb99e39f21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c02ce05e_36b71649",
+        "filename": "plat/mediatek/mt8195/drivers/apusys/apupwr_clkctl.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-24T18:22:42Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 318,
+        "startChar": 7,
+        "endLine": 318,
+        "endChar": 10
+      },
+      "revId": "fd63630c3216152b6a72b62bc1d103bb99e39f21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
