@@ -22,6 +22,7 @@
 
 /* SID Version values for RD-N2 variants */
 #define RD_N2_CFG1_SID_VER_PART_NUM		0x07B6
+#define RD_N2_CFG3_SID_VER_PART_NUM		0x07F1
 
 /* SID Version values for RD-V2 */
 #define RD_V2_SID_VER_PART_NUM			0x07F2
