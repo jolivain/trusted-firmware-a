@@ -39,7 +39,17 @@
 #define RMI_FNUM_REQ_COMPLETE		U(0x18F)
 #define RMMD_RMI_REQ_COMPLETE		RMM_FID(SMC_64, RMI_FNUM_REQ_COMPLETE)
 
-/* The SMC in the range 0x8400 0190 - 0x8400 01AF are reserved for RSIs.*/
+/* RMMD_RMI_BOOT_COMPLETE error codes */
+#define E_RMM_BOOT_SUCCESS				(0)
+#define E_RMM_BOOT_VERSION_MISMATCH			(-1)
+#define E_RMM_BOOT_CPUS_OUT_OF_RANGE			(-2)
+#define E_RMM_BOOT_CPU_ID_OUT_OF_RANGE			(-3)
+#define E_RMM_BOOT_INVALID_SHARED_BUFFER		(-4)
+#define E_RMM_BOOT_MANIFEST_VERSION_NOT_SUPPORTED	(-5)
+#define E_RMM_BOOT_MANIFEST_DATA_ERROR			(-7)
+#define E_RMM_BOOT_UNKNOWN				(-8)
+
+/* The SMC in the range 0x8400 0191 - 0x8400 01AF are reserved for RSIs.*/
 
 /*
  * EL3 - RMM SMCs used for requesting RMMD services. These SMCs originate in Realm
@@ -115,6 +125,34 @@
 /* ECC Curve types for attest key generation */
 #define ATTEST_KEY_CURVE_ECC_SECP384R1		0
 
+/*
+ * RMMD_RMI_BOOT_COMPLETE originates on RMM when the boot finishes (either cold
+ * or warm boot). This is handled by the RMM-EL3 interface SMC handler.
+ */
+#define RMI_FNUM_BOOT_COMPLETE		U(0x1CF)
+#define RMMD_RMI_BOOT_COMPLETE		RMM_FID(SMC_64, RMI_FNUM_BOOT_COMPLETE)
+
+/*
+ * The major version number of the RMM Boot Interface implementation.
+ * Increase this whenever the semantics of the boot arguments change making it
+ * backwards incompatible.
+ */
+#define RMM_BOOT_INTERFACE_VERSION_MAJOR	(U(0))
+
+/*
+ * The minor version number of the RMM Boot Interface implementation.
+ * Increase this when a bug is fixed, or a feature is added without
+ * breaking compatibility.
+ */
+#define RMM_BOOT_INTERFACE_VERSION_MINOR	(U(1))
+
+#define RMM_BOOT_INTERFACE_VERSION			\
+	((RMM_BOOT_INTERFACE_VERSION_MAJOR << 16) |	\
+		RMM_BOOT_INTERFACE_VERSION_MINOR)
+
+#define RMM_BOOT_INTERFACE_VERSION_GET_MAJOR(_version) (((_version) >> 16) \
+								& 0xFFFF)
+#define RMM_BOOT_INTERFACE_VERSION_GET_MINOR(_version) ((_version) & 0xFFFF)
 
 #ifndef __ASSEMBLER__
 #include <stdint.h>

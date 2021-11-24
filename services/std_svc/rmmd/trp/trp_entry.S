@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <platform_def.h>
+
 #include <asm_macros.S>
 #include <services/rmmd_svc.h>
 #include "trp_private.h"
@@ -26,11 +28,54 @@
 	smc	#0
 	.endm
 
+	/* ----------------------------------------------
+ 	 * Cancel the boot process and return to EL3 with
+	 * the Error Code on _ec if condition _cc is met.
+	 * ----------------------------------------------
+ 	 */
+	.macro abort_boot_err_if _cc, _ec
+	b.\_cc	1f
+	b	2f
+1:
+	mov_imm	x0, RMMD_RMI_BOOT_COMPLETE
+	mov_imm x1, \_ec
+	smc	#0
+
+	/* EL3 should never return back here, so panic if it does */
+	b	trp_panic
+2:
+	.endm
+
 	/* ---------------------------------------------
 	 * Entry point for TRP
 	 * ---------------------------------------------
 	 */
 trp_head:
+	/*
+	 * Stash arguments from previous boot stage
+	 */
+	mov	x20, x0
+	mov	x21, x1
+	mov	x22, x2
+	mov	x23, x3
+	mov	x24, x4
+	mov	x25, x5
+	mov	x26, x6
+	mov	x27, x7
+
+	/* ---------------------------------------------
+	 * Process the Boot parameters.
+	 *
+	 * According to the Boot Interface ABI v.0.1, the
+	 * parameters recived from EL3 are:
+	 * x0 (stashed in x20): CPUID
+	 * x1 (stashed in x21): Boot Interface version
+	 * x2 (stashed in x22): Pointer to the shared memory area.
+	 * ---------------------------------------------
+	 */
+	cmp	x20, #PLATFORM_CORE_COUNT
+	abort_boot_err_if ge, E_RMM_BOOT_CPU_ID_OUT_OF_RANGE
+
 	bl	plat_set_my_stack
 
 	/*
@@ -39,12 +84,22 @@ trp_head:
 	ldr	x1, cold_boot_flag
 	cbz	x1, warm_boot
 
+	/* Verify that the Boot Interface ABI is supported */
+	lsr	x0, x21, #16
+	cmp	x0, #TRP_BOOT_ABI_VERS_MAJOR
+	abort_boot_err_if ne, E_RMM_BOOT_VERSION_MISMATCH
+
+	/*
+	 * Check that the pointer to the shared space is not null.
+	 */
+	cmp	x22, #0
+	abort_boot_err_if eq, E_RMM_BOOT_INVALID_SHARED_BUFFER
+
 	/*
 	 * Update cold boot flag to indicate cold boot is done
 	 */
 	adr	x2, cold_boot_flag
 	str	xzr, [x2]
-
 
 	/* ---------------------------------------------
 	 * Zero out BSS section
@@ -54,14 +109,24 @@ trp_head:
 	ldr	x1, =__BSS_SIZE__
 	bl	zeromem
 
+	mov	x0, x20
+	mov	x1, x21
+	mov	x2, x22
+	mov	x3, x23
+	mov	x4, x24
+	mov	x5, x25
+	mov	x6, x26
+	mov	x7, x27
 	bl	trp_setup
-
 	bl	trp_main
 warm_boot:
-	mov_imm	x0, RMMD_RMI_REQ_COMPLETE
-	mov	x1, xzr
+	mov_imm	x0, RMMD_RMI_BOOT_COMPLETE
+	mov	x1, xzr /* RMM_BOOT_SUCCESS */
 	smc	#0
 	b	trp_handler
+
+trp_panic:
+	no_ret plat_panic_handler
 
 	/*
 	 * Flag to mark if it is a cold boot.
