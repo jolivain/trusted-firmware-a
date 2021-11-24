@@ -169,6 +169,7 @@ const mmap_region_t plat_arm_mmap[] = {
 #endif
 #if ENABLE_RME
 	ARM_MAP_GPT_L1_DRAM,
+	ARM_MAP_EL3_RMM_SHARED_MEM,
 #endif
 	{0}
 };
@@ -512,3 +513,12 @@ int32_t plat_get_soc_revision(void)
 	return (int32_t)(((sys_id >> V2M_SYS_ID_REV_SHIFT) &
 			  V2M_SYS_ID_REV_MASK) & SOC_ID_REV_MASK);
 }
+
+#if ENABLE_RME
+size_t plat_rmmd_get_el3_rmm_shared_memory(uintptr_t *shared)
+{
+	*shared = (uintptr_t)RMM_SHARED_BASE;
+
+	return (size_t)RMM_SHARED_SIZE;
+}
+#endif
