@@ -242,4 +242,10 @@ bool validate_partition_id(uint16_t partition_id);
  */
 el3_lp_desc_t *get_el3_lp_array(void);
 
+/*
+ * Helper function to obtain the RX/TX buffer pair descriptor of the Hypervisor
+ * or the last SP that was run.
+ */
+struct mailbox *spmc_get_mbox_desc(bool secure_origin);
+
 #endif /* SPMC_H */
