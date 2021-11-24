@@ -215,4 +215,10 @@ uint64_t spmc_ffa_error_return(void *handle, int error_code);
  */
 bool validate_partition_id(uint16_t partition_id);
 
+/*
+ * Helper function to obtain the RX/TX buffer pair descriptor of the Hypervisor
+ * or the last SP that was run.
+ */
+struct mailbox *spmc_get_mbox_desc(bool secure_origin);
+
 #endif /* SPMC_H */
