@@ -81,6 +81,15 @@ sp_desc_t *spmc_get_sp_ctx(uint16_t id)
 	return NULL;
 }
 
+/*
+ * Helper function to obtain the descriptor of the Hypervisor. We assume that
+ * the first descriptor is reserved for the Hypervisor.
+ */
+ns_ep_desc_t *spmc_get_hyp_ctx(void)
+{
+	return &(ns_ep_desc[0]);
+}
+
 
 /******************************************************************************
  * This function returns to the place where spmc_sp_synchronous_entry() was
