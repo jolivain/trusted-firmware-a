@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0446e4d0_ffca9cbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-11-24T15:08:33Z",
+      "side": 1,
+      "message": "I noticed that in the return path the `smc_fid` arg to rmmd_smc_forward() will used at x0 when returning to NS and is truncated to 32 bit.\n\nThis is incorrect. Will be providing a corrected version.",
+      "revId": "deb08ac057ed4a6abc24fc72b2ec5c3d245dcd14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
