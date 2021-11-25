@@ -1041,6 +1041,9 @@ $(eval $(call assert_booleans,\
         ENABLE_FEAT_HCX \
         ENABLE_MPMM \
         ENABLE_MPMM_FCONF \
+        ENABLE_FEAT_FGT \
+        ENABLE_FEAT_AMUv1 \
+        ENABLE_FEAT_ECV \
 )))
 
 $(eval $(call assert_numerics,\
@@ -1153,6 +1156,9 @@ $(eval $(call add_defines,\
         ENABLE_FEAT_HCX \
         ENABLE_MPMM \
         ENABLE_MPMM_FCONF \
+        ENABLE_FEAT_FGT \
+        ENABLE_FEAT_AMUv1 \
+        ENABLE_FEAT_ECV \
 )))
 
 ifeq (${SANITIZE_UB},trap)
