@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "560a3056_8e79033e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-11-25T13:12:34Z",
+      "side": 1,
+      "message": "There are 2 static failures \"https://ci.trustedfirmware.org/job/tf-static-checks/1851/\"\n1. Checking files modified between patches origin/master and HEAD...\n4a5f6911f:plat/qemu/common/qemu_spmd_manifest.c: [\u0027services/spm_core_manifest.h should\n    be in project group, after system group\u0027]\n-- you can easily fix that\n2. New source files have been identified in your patch.. plat/qemu/common/qemu_spmd_manifest.c\nYou can create a CI patch referring to https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-build-configurations  , it should fairly simple but if you face any problem please let me know \n",
+      "revId": "4a5f6911fde315804953d200775ed7fc16f85101",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
