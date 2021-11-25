@@ -145,11 +145,15 @@ func el2_sysregs_context_save
 	stp	x11, x12, [x0, #CTX_MPAMVPM7_EL2]
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 6)
+#if ENABLE_FEAT_FGT
+#if ENABLE_FEAT_AMUv1
 	mrs	x13, HAFGRTR_EL2
+#endif
 	mrs	x14, HDFGRTR_EL2
+#endif
 	stp	x13, x14, [x0, #CTX_HAFGRTR_EL2]
 
+#if ENABLE_FEAT_FGT
 	mrs	x15, HDFGWTR_EL2
 	mrs	x16, HFGITR_EL2
 	stp	x15, x16, [x0, #CTX_HDFGWTR_EL2]
@@ -157,7 +161,9 @@ func el2_sysregs_context_save
 	mrs	x9, HFGRTR_EL2
 	mrs	x10, HFGWTR_EL2
 	stp	x9, x10, [x0, #CTX_HFGRTR_EL2]
+#endif
 
+#if ENABLE_FEAT_ECV
 	mrs	x11, CNTPOFF_EL2
 	str	x11, [x0, #CTX_CNTPOFF_EL2]
 #endif
@@ -319,9 +325,11 @@ func el2_sysregs_context_restore
 	msr	MPAMVPMV_EL2, x12
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 6)
+#if ENABLE_FEAT_FGT
+#if ENABLE_FEAT_AMUv1
 	ldp	x13, x14, [x0, #CTX_HAFGRTR_EL2]
 	msr	HAFGRTR_EL2, x13
+#endif
 	msr	HDFGRTR_EL2, x14
 
 	ldp	x15, x16, [x0, #CTX_HDFGWTR_EL2]
@@ -331,7 +339,9 @@ func el2_sysregs_context_restore
 	ldp	x9, x10, [x0, #CTX_HFGRTR_EL2]
 	msr	HFGRTR_EL2, x9
 	msr	HFGWTR_EL2, x10
+#endif
 
+#if ENABLE_FEAT_ECV
 	ldr	x11, [x0, #CTX_CNTPOFF_EL2]
 	msr	CNTPOFF_EL2, x11
 #endif
