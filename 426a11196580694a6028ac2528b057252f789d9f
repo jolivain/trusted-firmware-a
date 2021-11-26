@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3a19e15_f1a858d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-11-26T14:57:28Z",
+      "side": 1,
+      "message": "But we do want to use the same image ids in the event log metadata, don\u0027t we? If you look at fvp_event_log_metadata[] array in fvp_bl{1,2}_measured_boot.c, other entries use the usual image ids from tbbr_img_def_exp.h, e.g. FW_CONFIG_ID, BL2_IMAGE_ID and so on. Why would it be any different for INVALID_ID? Sorry, I don\u0027t understand the value of this patch.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 22
+      },
+      "revId": "426a11196580694a6028ac2528b057252f789d9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
