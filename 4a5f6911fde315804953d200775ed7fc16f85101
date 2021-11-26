@@ -16,6 +16,24 @@
       "message": "There are 2 static failures \"https://ci.trustedfirmware.org/job/tf-static-checks/1851/\"\n1. Checking files modified between patches origin/master and HEAD...\n4a5f6911f:plat/qemu/common/qemu_spmd_manifest.c: [\u0027services/spm_core_manifest.h should\n    be in project group, after system group\u0027]\n-- you can easily fix that\n2. New source files have been identified in your patch.. plat/qemu/common/qemu_spmd_manifest.c\nYou can create a CI patch referring to https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-build-configurations  , it should fairly simple but if you face any problem please let me know \n",
       "revId": "4a5f6911fde315804953d200775ed7fc16f85101",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69bfad30_6e2fdc03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2021-11-26T09:57:40Z",
+      "side": 1,
+      "message": "Thanks, I\u0027ve updated the commit here, but I don\u0027t see how to upload patches to https://git.trustedfirmware.org/ci/tf-a-ci-scripts.git so here\u0027s the patch:\nFrom 1be2426e886faea14d90fe1f109a12405cd6186b Mon Sep 17 00:00:00 2001\nFrom: Jens Wiklander \u003cjens.wiklander@linaro.org\u003e\nDate: Fri, 26 Nov 2021 09:56:55 +0100\nSubject: [PATCH] qemu: add configuration with OP-TEE as SPMC\n\nSigned-off-by: Jens Wiklander \u003cjens.wiklander@linaro.org\u003e\n---\n script/tf-coverity/tf-cov-make | 6 +++++-\n 1 file changed, 5 insertions(+), 1 deletion(-)\n\ndiff --git a/script/tf-coverity/tf-cov-make b/script/tf-coverity/tf-cov-make\nindex 44574ef6a725..8439bae5c72a 100755\n--- a/script/tf-coverity/tf-cov-make\n+++ b/script/tf-coverity/tf-cov-make\n@@ -557,7 +557,11 @@ clean_build PLAT\u003dqemu $(common_flags) QEMU_USE_GIC_DRIVER\u003dQEMU_GICV3 \\\n clean_build PLAT\u003dqemu $(common_flags) ${TBB_OPTIONS} \\\n     BL32_RAM_LOCATION\u003dtdram DECRYPTION_SUPPORT\u003daes_gcm ENCRYPT_BL31\u003d1 \\\n     ENCRYPT_BL32\u003d1 FW_ENC_STATUS\u003d0 SPD\u003dopteed\n-\n+# QEMU with SPMD support\n+clean_build PLAT\u003dqemu $(common_flags) BL32\u003dMakefile \\\n+\tBL32_RAM_LOCATION\u003dtdram ARM_BL31_IN_DRAM\u003d1 \\\n+\tSPD\u003dspmd CTX_INCLUDE_EL2_REGS\u003d0 SPMD_SPM_AT_SEL2\u003d0 SPMC_OPTEE\u003d1\n+\t\n clean_build PLAT\u003dqemu_sbsa $(common_flags)\n \n # QEMU with SPM support\n-- \n2.31.1",
+      "parentUuid": "560a3056_8e79033e",
+      "revId": "4a5f6911fde315804953d200775ed7fc16f85101",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
