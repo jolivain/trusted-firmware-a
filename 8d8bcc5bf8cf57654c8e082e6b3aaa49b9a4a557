@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "160cc71c_baef1f92",
+        "filename": "include/common/efi.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-26T17:26:47Z",
+      "side": 1,
+      "message": "I think better put efi.h header to \u0027include/drivers/partition\u0027 folder.\nIIUC this header is mainly used to copy and compare operation of \u0027uniqueGUID\u0027 that looks more related to the GUID partition table.\nDo you foresee usage of this file for the platform that does not support \u0027GUID partition table\u0027?",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 15
+      },
+      "revId": "8d8bcc5bf8cf57654c8e082e6b3aaa49b9a4a557",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
