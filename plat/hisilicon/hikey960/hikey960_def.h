@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -28,7 +28,7 @@
  *   - Secure DDR (4MB aligned on 4MB) for OP-TEE's "Secure Data Path" feature
  *   - Non-secure DDR (8MB) reserved for OP-TEE's future use
  */
-#define DDR_SEC_SIZE			0x01000000
+#define DDR_SEC_SIZE			0x04000000 /* Trustonic: reserve 64MB secure memory */
 #define DDR_SEC_BASE			0x3F000000
 
 #define DDR_SDP_SIZE			0x00400000
