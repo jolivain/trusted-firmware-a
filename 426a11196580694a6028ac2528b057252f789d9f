@@ -22,6 +22,30 @@
       },
       "revId": "426a11196580694a6028ac2528b057252f789d9f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3bd9a15_6c261a54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-11-26T15:08:38Z",
+      "side": 1,
+      "message": "Nevermind, I withdraw my comment, now that I\u0027ve looked at the next patch in the series... fvp_event_log_metadata[] is not only meant to reference image ids (as provided by tbbr_img_def_exp.h), it also references platform specific IDs, such as metadata.",
+      "parentUuid": "a3a19e15_f1a858d4",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 22
+      },
+      "revId": "426a11196580694a6028ac2528b057252f789d9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
