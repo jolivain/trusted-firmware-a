@@ -260,14 +260,11 @@ static uint64_t partition_info_get_handler(uint32_t smc_fid,
 
 	/* Deal with physical SP's. */
 	for(index = 0; index < num_secure_partitions; index++){
-		unsigned int execution_ctx_count;
 		if (compare_uuid(uuid, sp_desc[index].uuid) ||
 			(uuid[0] == 0 && uuid[1] == 0 && uuid[2] == 0 && uuid[3] == 0)) {
 			/* Found a matching UUID, populate appropriately. */
 			info[partition_count].ep_id = sp_desc[index].sp_id;
-			/* Use the EL to determine the number of execution contexts */
-			execution_ctx_count = (sp_desc[index].runtime_el == EL0) ? 1: PLATFORM_CORE_COUNT;
-			info[partition_count].execution_ctx_count = execution_ctx_count;
+			info[partition_count].execution_ctx_count = sp_desc[index].execution_ctx_count;
 			info[partition_count].properties = sp_desc[index].properties;
 			partition_count++;
 		}
@@ -1109,6 +1106,14 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 		return ret;
 	} else {
 		sp->execution_state = config_32;
+	}
+
+	ret = fdt_read_uint32(sp_manifest, node, "execution-ctx-count", &config_32);
+	if (ret) {
+		ERROR("Missing Secure Partition Execution Context Count.\n");
+		return ret;
+	} else {
+		sp->execution_ctx_count = config_32;
 	}
 
 	ret = fdt_read_uint32(sp_manifest, node, "messaging-method", &config_32);

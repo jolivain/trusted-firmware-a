@@ -143,6 +143,11 @@ typedef struct secure_partition_desc {
 	uint32_t execution_state;
 
 	/*
+	 * Execution Context Count
+	 */
+	uint32_t execution_ctx_count;
+
+	/*
 	 * Lock to protect the runtime state of a S-EL0 SP execution context.
 	 */
 	spinlock_t rt_state_lock;
