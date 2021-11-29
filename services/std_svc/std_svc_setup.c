@@ -19,6 +19,7 @@
 #include <services/rmmd_svc.h>
 #include <services/sdei.h>
 #include <services/spm_mm_svc.h>
+#include <services/spmc_svc.h>
 #include <services/spmd_svc.h>
 #include <services/std_svc.h>
 #include <services/trng_svc.h>
@@ -149,6 +150,17 @@ static uintptr_t std_svc_smc_handler(uint32_t smc_fid,
 	 * dispatcher and return its return value
 	 */
 	if (is_ffa_fid(smc_fid)) {
+#if (SPMC_AT_EL3)
+		/* If we have an SPMC at EL3 allow handling first.
+		 * SPMC will call through to SPMD if required.
+		 */
+		if (is_caller_secure(flags)) {
+			return spmc_smc_handler(smc_fid,
+						is_caller_secure(flags),
+						x1, x2, x3, x4, cookie,
+						handle, flags);
+		}
+#endif
 		return spmd_smc_handler(smc_fid, x1, x2, x3, x4, cookie,
 					handle, flags);
 	}
