@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ff770a4_65316f0a",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-11-29T18:42:15Z",
+      "side": 1,
+      "message": "Just curious to know, is this explicit clock enablement required to access this \u0027bkpr_fwu_boot_idx_addr\u0027 address?",
+      "range": {
+        "startLine": 473,
+        "startChar": 0,
+        "endLine": 474,
+        "endChar": 50
+      },
+      "revId": "ece2477e99a827f770f5c80499a315c876dd4b62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
