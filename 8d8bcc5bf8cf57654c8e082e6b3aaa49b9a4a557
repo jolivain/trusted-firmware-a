@@ -22,6 +22,30 @@
       },
       "revId": "8d8bcc5bf8cf57654c8e082e6b3aaa49b9a4a557",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe10c56f_5584aeb1",
+        "filename": "include/common/efi.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-29T12:36:31Z",
+      "side": 1,
+      "message": "I can put the file under include/drivers/partition directory as you suggest. You are correct, in that the primary usage of the file would be for GPT based partitions.",
+      "parentUuid": "160cc71c_baef1f92",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 15
+      },
+      "revId": "8d8bcc5bf8cf57654c8e082e6b3aaa49b9a4a557",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
