@@ -74,6 +74,31 @@
 					FVP_DTB_DRAM_MAP_START,		\
 					FVP_DTB_DRAM_MAP_SIZE,		\
 					MT_MEMORY | MT_RO | MT_NS)
+
+#if SPMC_AT_EL3
+/*
+ * Number of Secure Partitions supported.
+ * SPMC at EL3, uses this count to configure the maximum number of supported
+ * secure partitions.
+ */
+#define SECURE_PARTITION_COUNT		1
+
+/*
+ * Number of Nwld Partitions supported.
+ * SPMC at EL3, uses this count to configure the maximum number of supported
+ * nwld partitions.
+ */
+#define NS_PARTITION_COUNT		1
+
+/*
+ * Number of Logical Partitions supported.
+ * SPMC at EL3, uses this count to configure the maximum number of supported
+ * logical partitions.
+ */
+#define MAX_EL3_LP_DESCS_COUNT		1
+
+#endif /* SPMC_AT_EL3 */
+
 /*
  * Load address of BL33 for this platform port
  */
@@ -90,9 +115,12 @@
 #   define MAX_XLAT_TABLES		10
 #  else
 #   define MAX_XLAT_TABLES		9
-# endif
+#  endif
 #  define PLAT_SP_IMAGE_MMAP_REGIONS	30
 #  define PLAT_SP_IMAGE_MAX_XLAT_TABLES	10
+# elif SPMC_AT_EL3
+#  define PLAT_ARM_MMAP_ENTRIES		13
+#  define MAX_XLAT_TABLES		11
 # else
 #  define PLAT_ARM_MMAP_ENTRIES		9
 #  if USE_DEBUGFS
@@ -110,8 +138,13 @@
 #  endif
 # endif
 #elif defined(IMAGE_BL32)
-# define PLAT_ARM_MMAP_ENTRIES		9
-# define MAX_XLAT_TABLES		6
+# if SPMC_AT_EL3
+#  define PLAT_ARM_MMAP_ENTRIES		270
+#  define MAX_XLAT_TABLES		10
+# else
+#  define PLAT_ARM_MMAP_ENTRIES		9
+#  define MAX_XLAT_TABLES		6
+# endif
 #elif !USE_ROMLIB
 # define PLAT_ARM_MMAP_ENTRIES		11
 # define MAX_XLAT_TABLES		5
