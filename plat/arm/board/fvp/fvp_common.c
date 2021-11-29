@@ -121,7 +121,7 @@ const mmap_region_t plat_arm_mmap[] = {
 	ARM_MAP_BL1_RW,
 #endif
 #endif /* TRUSTED_BOARD_BOOT */
-#if SPM_MM
+#if SPM_MM || SPMC_AT_EL3
 	ARM_SP_IMAGE_MMAP,
 #endif
 #if ARM_BL31_IN_DRAM
