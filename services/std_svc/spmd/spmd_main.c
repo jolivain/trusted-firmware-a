@@ -28,15 +28,27 @@
 #include <smccc_helpers.h>
 #include "spmd_private.h"
 
+#include <services/spmc_svc.h>
+
 /*******************************************************************************
  * SPM Core context information.
  ******************************************************************************/
 static spmd_spm_core_context_t spm_core_context[PLATFORM_CORE_COUNT];
 
 /*******************************************************************************
- * SPM Core attribute information read from its manifest.
+ * SPM Core attribute information is read from its manifest if the SPMC is not
+ * at EL3. Else, it is initialised statically.
  ******************************************************************************/
+#if SPMC_AT_EL3
+static spmc_manifest_attribute_t spmc_attrs = {
+	.major_version  = FFA_VERSION_MAJOR,
+	.minor_version  = FFA_VERSION_MINOR,
+	.exec_state     = MODE_RW_64,
+	.spmc_id        = 0x8000,
+};
+#else
 static spmc_manifest_attribute_t spmc_attrs;
+#endif
 
 /*******************************************************************************
  * SPM Core entry point information. Discovered on the primary core and reused
@@ -370,8 +382,20 @@ static int spmd_spmc_init(void *pm_addr)
  ******************************************************************************/
 int spmd_setup(void)
 {
-	void *spmc_manifest;
 	int rc;
+	void *spmc_manifest;
+
+	/*
+	 * If the SPMC is at EL3, then just initialise it directly. The
+	 * shenanigans of when it is at a lower EL are not needed.
+	 */
+	if (is_spmc_at_el3()) {
+		rc = spmc_setup();
+		if (rc != 0) {
+			ERROR("SPMC initialisation failed 0x%x", rc);
+		}
+		return rc;
+	}
 
 	spmc_ep_info = bl31_plat_get_next_image_ep_info(SECURE);
 	if (spmc_ep_info == NULL) {
