@@ -30,6 +30,13 @@
 #define FFA_WB_TYPE_S2RAM		0
 #define FFA_WB_TYPE_NOTS2RAM		1
 
+/* FF-A Related helper macros. */
+#define FFA_ID_MASK			U(0xFFFF)
+#define FFA_PARTITION_ID_SHIFT		U(16)
+
+#define FFA_MSG_WAIT_EP_ID(ep_vcpu_ids) \
+		((ep_vcpu_ids >> FFA_PARTITION_ID_SHIFT) & FFA_ID_MASK)
+
 /*
  * Runtime states of an execution context as per the FF-A v1.1 specification.
  */
