@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0cbf85e2_c33c24d2",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-30T10:00:29Z",
+      "side": 1,
+      "message": "This should be changed this way:\n\tif (image_id \u003d\u003d FWU_METADATA_IMAGE_ID) {\n\t\tresult \u003d plat_set_image_source(image_id, handle, image_spec,\n\t\t\t\t\t       METADATA_PART_1);\n\t} else {\n\t\tresult \u003d plat_set_image_source(image_id, handle, image_spec,\n\t\t\t\t\t       METADATA_PART_2);\n\t}",
+      "parentUuid": "c7dd7612_af312e78",
+      "revId": "c92b29be02a71c2bff24c2fb066f8dbd0670ef80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f53caf11_658f5f59",
         "filename": "plat/st/common/stm32mp_fconf_io.c",
         "patchSetId": 3
