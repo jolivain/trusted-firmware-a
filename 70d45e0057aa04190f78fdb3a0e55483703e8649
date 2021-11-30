@@ -70,6 +70,30 @@
       },
       "revId": "70d45e0057aa04190f78fdb3a0e55483703e8649",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "061df603_de807f7e",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T10:37:49Z",
+      "side": 1,
+      "message": "\u003e The GPT partitionning will be used in STM32MP1 code for SD-cards and eMMC cards. Maybe the code you\u0027ve added there should just be under:\n\u003e #if STM32MP_SDMMC || STM32MP_EMMC\n\u003e or\n\u003e #if (STM32MP_SDMMC || STM32MP_EMMC) \u0026\u0026 PSA_FWU_SUPPORT\n\u003e And this flag could then be removed.\n\u003e But maybe I\u0027ve missed some parts?\n\nI can use the method you suggested. Although I think having a generic symbol will help in other platforms reusing it for their GPT based FWU solution. But I don\u0027t have a strong opinion about this. Let me know what you think.",
+      "parentUuid": "c596429d_a831db8e",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 8
+      },
+      "revId": "70d45e0057aa04190f78fdb3a0e55483703e8649",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
