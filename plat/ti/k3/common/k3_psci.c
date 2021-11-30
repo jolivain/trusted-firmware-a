@@ -16,6 +16,7 @@
 #include <ti_sci_protocol.h>
 #include <k3_gicv3.h>
 #include <ti_sci.h>
+#include <bl31/bl31.h>
 
 #define CORE_PWR_STATE(state) ((state)->pwr_domain_state[MPIDR_AFFLVL0])
 #define CLUSTER_PWR_STATE(state) ((state)->pwr_domain_state[MPIDR_AFFLVL1])
@@ -83,21 +84,9 @@ static int k3_pwr_domain_on(u_register_t mpidr)
 	return PSCI_E_SUCCESS;
 }
 
-void k3_pwr_domain_off(const psci_power_state_t *target_state)
+void k3_power_down_core_clstr(const psci_power_state_t *target_state, int core, int cluster, int proc_id, int device_id, int cluster_id)
 {
-	int core, cluster, proc_id, device_id, cluster_id, ret;
-
-	/* At very least the local core should be powering down */
-	assert(CORE_PWR_STATE(target_state) == PLAT_MAX_OFF_STATE);
-
-	/* Prevent interrupts from spuriously waking up this cpu */
-	k3_gic_cpuif_disable();
-
-	core = plat_my_core_pos();
-	cluster = MPIDR_AFFLVL1_VAL(read_mpidr_el1());
-	proc_id = PLAT_PROC_START_ID + core;
-	device_id = PLAT_PROC_DEVICE_START_ID + core;
-	cluster_id = PLAT_CLUSTER_DEVICE_START_ID + (cluster * 2);
+	int ret;
 
 	/*
 	 * If we are the last core in the cluster then we take a reference to
@@ -195,6 +184,26 @@ void k3_pwr_domain_off(const psci_power_state_t *target_state)
 	}
 }
 
+void k3_pwr_domain_off(const psci_power_state_t *target_state)
+{
+	int core, cluster, proc_id, device_id, cluster_id;
+
+	/* At very least the local core should be powering down */
+	assert(CORE_PWR_STATE(target_state) == PLAT_MAX_OFF_STATE);
+
+	core = plat_my_core_pos();
+	cluster = MPIDR_AFFLVL1_VAL(read_mpidr_el1());
+	proc_id = PLAT_PROC_START_ID + core;
+	device_id = PLAT_PROC_DEVICE_START_ID + core;
+	cluster_id = PLAT_CLUSTER_DEVICE_START_ID + (cluster * 2);
+
+	/* Prevent interrupts from spuriously waking up this cpu */
+	k3_gic_cpuif_disable();
+
+	k3_power_down_core_clstr(target_state, core, cluster, proc_id, device_id, cluster_id);
+
+}
+
 void k3_pwr_domain_on_finish(const psci_power_state_t *target_state)
 {
 	/* TODO: Indicate to System firmware about completion */
@@ -234,11 +243,54 @@ static int k3_validate_ns_entrypoint(uintptr_t entrypoint)
 	return PSCI_E_SUCCESS;
 }
 
+#if K3_PM_SYSTEM_SUSPEND
+static void k3_pwr_domain_suspend(const psci_power_state_t *target_state)
+{
+
+	int core, cluster, proc_id, device_id, cluster_id;
+	/* This call should not return in successful suspend */
+	core = plat_my_core_pos();
+	cluster = MPIDR_AFFLVL1_VAL(read_mpidr_el1());
+	proc_id = PLAT_PROC_START_ID + core;
+	device_id = PLAT_PROC_DEVICE_START_ID + core;
+	cluster_id = PLAT_CLUSTER_DEVICE_START_ID + (cluster * 2);
+
+	/* Prevent interrupts from spuriously waking up this cpu */
+	k3_gic_cpuif_disable();
+	k3_gic_save_context();
+
+	k3_power_down_core_clstr(target_state, core, cluster, proc_id, device_id, cluster_id);
+
+	ti_sci_enter_sleep(proc_id, 0, (uint64_t)bl31_warm_entrypoint, 0);
+}
+
+static void k3_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
+{
+	k3_gic_restore_context();
+	k3_gic_cpuif_enable();
+}
+
+static void k3_get_sys_suspend_power_state(psci_power_state_t *req_state)
+{
+	unsigned int i;
+
+	/* CPU & cluster off, system in retention */
+	for (i = MPIDR_AFFLVL0; i < PLAT_MAX_PWR_LVL; i++)
+		req_state->pwr_domain_state[i] = PLAT_MAX_OFF_STATE;
+	req_state->pwr_domain_state[PLAT_MAX_PWR_LVL] = PLAT_MAX_OFF_STATE;
+}
+#endif
+
 static const plat_psci_ops_t k3_plat_psci_ops = {
 	.cpu_standby = k3_cpu_standby,
 	.pwr_domain_on = k3_pwr_domain_on,
 	.pwr_domain_off = k3_pwr_domain_off,
 	.pwr_domain_on_finish = k3_pwr_domain_on_finish,
+#if K3_PM_SYSTEM_SUSPEND
+	.pwr_domain_suspend = k3_pwr_domain_suspend,
+	.pwr_domain_suspend_finish = k3_pwr_domain_suspend_finish,
+	.get_sys_suspend_power_state = k3_get_sys_suspend_power_state,
+#endif
 	.system_off = k3_system_off,
 	.system_reset = k3_system_reset,
 	.validate_power_state = k3_validate_power_state,
