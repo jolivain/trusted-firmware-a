@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7dd7612_af312e78",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:51:49Z",
+      "side": 1,
+      "message": "\u003e missing braces for MISRA\n\nWill add. Btw, just for my understanding, I believe you mean\n\nif ((image_id \u003d\u003d FWU_METADATA_IMAGE_ID))\n\nIs that correct?",
+      "parentUuid": "bb1c290f_8d20e169",
+      "revId": "c92b29be02a71c2bff24c2fb066f8dbd0670ef80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f53caf11_658f5f59",
         "filename": "plat/st/common/stm32mp_fconf_io.c",
         "patchSetId": 3
@@ -31,6 +49,24 @@
       "writtenOn": "2021-11-30T08:36:27Z",
       "side": 1,
       "message": "/* GPT_PART \u0026\u0026 PSA_FWU_SUPPORT */",
+      "revId": "c92b29be02a71c2bff24c2fb066f8dbd0670ef80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1064a0e_bfdb8393",
+        "filename": "plat/st/common/stm32mp_fconf_io.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:51:49Z",
+      "side": 1,
+      "message": "\u003e /* GPT_PART \u0026\u0026 PSA_FWU_SUPPORT */\n\nWill add",
+      "parentUuid": "f53caf11_658f5f59",
       "revId": "c92b29be02a71c2bff24c2fb066f8dbd0670ef80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
