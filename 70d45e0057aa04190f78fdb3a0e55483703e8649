@@ -22,6 +22,30 @@
       },
       "revId": "70d45e0057aa04190f78fdb3a0e55483703e8649",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "625bdd56_f1702937",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T05:56:35Z",
+      "side": 1,
+      "message": "\u003e As discussed in the earlier patches, IMO we do not need this global flag.\n\u003e Please let me know what do you think?\n\nI have given the rationale for having this symbol in response to your comment in the earlier patch. Please let me know if you are fine with my explanation. Thanks.",
+      "parentUuid": "663c5255_398820d4",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 8
+      },
+      "revId": "70d45e0057aa04190f78fdb3a0e55483703e8649",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
