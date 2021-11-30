@@ -16,6 +16,23 @@
       "message": "rebase to top of integration and fix include header sequence by group.",
       "revId": "296b590206aa6db51e5c82b1a97a4f9707b49c4d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a8d243b_6de5f78c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-11-30T19:46:49Z",
+      "side": 1,
+      "message": "****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\n\nResult : FAILURE\n\n\nNew source files have been identified in your patch..\nplat/mediatek/mt8195/drivers/apusys/apupll.c\nplat/mediatek/mt8195/drivers/apusys/apupwr_clkctl.c\nplat/mediatek/mt8195/drivers/apusys/mtk_apusys.c\n\n1. Kindly ensure they are updated in the \"tf-cov-make\" build script as well to \n   consider them for Coverity Scan analysis. Please refer to the tf-a documentation \n   \"https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-build-configurations\" \n   for more detailed explanation on adding your new build configurations.\n\n2. Please ignore if files are already updated. Further the Code Maintainer will \n   resolve the issue by taking appropriate action.",
+      "revId": "296b590206aa6db51e5c82b1a97a4f9707b49c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
