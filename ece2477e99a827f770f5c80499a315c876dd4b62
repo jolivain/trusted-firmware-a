@@ -46,6 +46,47 @@
       },
       "revId": "ece2477e99a827f770f5c80499a315c876dd4b62",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ab4e129_1dd986af",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-30T08:50:17Z",
+      "side": 1,
+      "message": "Yes, the backup registers where we put the information are in the RTCTAMP peripheral, which requires the clock to be explicitly enabled.\nThe clock should be disabled if you don\u0027t need to copy something else in the backup registers after that.",
+      "parentUuid": "a27181aa_6070e601",
+      "range": {
+        "startLine": 473,
+        "startChar": 0,
+        "endLine": 474,
+        "endChar": 50
+      },
+      "revId": "ece2477e99a827f770f5c80499a315c876dd4b62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74a059b0_fa8b8726",
+        "filename": "plat/st/stm32mp1/include/boot_api.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-30T08:50:17Z",
+      "side": 1,
+      "message": "I don\u0027t think you should use this register, but I\u0027ll check with Lionel. And this file comes from ROM code, so any backup register we may use in TF-A shouldn\u0027t be described here. Check what is currently done in plat/st/stm32mp1/stm32mp1_context.c.",
+      "revId": "ece2477e99a827f770f5c80499a315c876dd4b62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
