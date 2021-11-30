@@ -34,6 +34,24 @@
       "parentUuid": "9dd2fc82_b57a3d34",
       "revId": "f64fb95f53678dff45bd3e1acd065bab094af62a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4684215c_0ac66f8c",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-30T08:37:30Z",
+      "side": 1,
+      "message": "Maybe the assert should just be assert(is_fwu_initialized), as is_fwu_initialized is already a boolean",
+      "parentUuid": "093c14f2_9b875a17",
+      "revId": "f64fb95f53678dff45bd3e1acd065bab094af62a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
