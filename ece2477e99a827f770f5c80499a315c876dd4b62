@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "31a7aeea_846d3661",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-30T09:50:25Z",
+      "side": 1,
+      "message": "Yes, the sequence is correct. This should be done the same way it is done in stm32_save_boot_interface().",
+      "parentUuid": "6a2f62a3_043034c3",
+      "range": {
+        "startLine": 473,
+        "startChar": 0,
+        "endLine": 474,
+        "endChar": 50
+      },
+      "revId": "ece2477e99a827f770f5c80499a315c876dd4b62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "74a059b0_fa8b8726",
         "filename": "plat/st/stm32mp1/include/boot_api.h",
         "patchSetId": 3
