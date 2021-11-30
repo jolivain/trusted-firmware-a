@@ -16,6 +16,24 @@
       "message": "IMO better to add the assertion  \u0027assert(is_fwu_initialized \u003d\u003d true)\u0027 here instead of assuming that this function gets called always after \u0027fwu_init\u0027.",
       "revId": "f64fb95f53678dff45bd3e1acd065bab094af62a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "093c14f2_9b875a17",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T05:46:38Z",
+      "side": 1,
+      "message": "\u003e IMO better to add the assertion  \u0027assert(is_fwu_initialized \u003d\u003d true)\u0027 here instead of assuming that this function gets called always after \u0027fwu_init\u0027.\n\nYes. Good point. Will add. Thanks.",
+      "parentUuid": "9dd2fc82_b57a3d34",
+      "revId": "f64fb95f53678dff45bd3e1acd065bab094af62a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
