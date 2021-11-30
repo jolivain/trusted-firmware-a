@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee119020_8724fd9c",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-11-30T13:39:44Z",
+      "side": 1,
+      "message": "Since FEAT_FGT is mandatory for 8.6 or greater I think it would be better to set it in the makefile like is done for FEAT_SB\n\nifeq \"8.5\" \"$(word 1, $(sort 8.5 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))\"\nENABLE_FEAT_SB          \u003d       1\nendif",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 15
+      },
+      "revId": "785c8b1ed99e6c6d327686019807fc7012ff7527",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
