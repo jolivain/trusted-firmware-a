@@ -85,6 +85,24 @@
       "parentUuid": "2632f5ce_0269e516",
       "revId": "6dc2bdd90d1e3b0eebeea3392760db0b84168b97",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6a8f962_ed097a8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000178
+      },
+      "writtenOn": "2021-11-30T06:51:04Z",
+      "side": 1,
+      "message": "For power off a CPU, it‘s not necessary to save the NS context, because the CPU doesn\u0027t returns to the NS OS. but using cm_el1_sysregs_context_save(NON_SECURE) is effective for this problem. for this problem just needs to call the ehf_exited_normal_world() to mask the NS interrupts in the end. so which method can I use?",
+      "parentUuid": "28b72cc2_773749d3",
+      "revId": "6dc2bdd90d1e3b0eebeea3392760db0b84168b97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
