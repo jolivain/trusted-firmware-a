@@ -94,6 +94,30 @@
       },
       "revId": "785c8b1ed99e6c6d327686019807fc7012ff7527",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7a1de86_9a61ba14",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-11-30T18:33:49Z",
+      "side": 1,
+      "message": "I think that adding the check Alexei mentioned it better than nothing but it still means a user can\u0027t just set the version to v8.6 and know the required flags are set but instead needs to set the version to v8.6 and any flags that now must be mandatory which doesn\u0027t seem ideal. \n\nMost architectural features in TF-A are not detected using build flags but by querying feature registers which I think is why there aren\u0027t any other other examples of flags being set like FEAT_SB. I don\u0027t know what the reasoning for using a build flag for FEAT_SB is, I imagine performance, in which case having a FEAT_FGT build flag seems reasonable as well.",
+      "parentUuid": "379c54f2_495fc866",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 15
+      },
+      "revId": "785c8b1ed99e6c6d327686019807fc7012ff7527",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
