@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e3fdd9f_f144c319",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T05:54:27Z",
+      "side": 1,
+      "message": "\u003e I believe, we will not need this guard anymore for FWU platform API implementations after removing it from previous patches.\n\nAlthough we might compile in the parts you had mentioned earlier in the partition driver without this guard, I think this symbol is actually needed here. This would be used to differentiate between implementations which have the firmware images on a GPT partitioned device, as against another platform which might use the FWU feature which does not have a GPT based partitioning scheme on the device.\n\nSo, for e.g. there are other ST boards which boot off of a SPI NOR, or a Nand Flash, which do not have GPT, but they still might enable FWU. They will need a different bunch of fwu platform  hooks for selection of images.",
+      "parentUuid": "2138ac55_89c83420",
+      "range": {
+        "startLine": 451,
+        "startChar": 4,
+        "endLine": 451,
+        "endChar": 12
+      },
+      "revId": "85bac17aa7b8f57bea765fe4380319782594e863",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8a3b316_a786f031",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-29T18:39:13Z",
       "side": 1,
       "message": "I expect this function should do below checks to set the boot_idx to previous_active_index\n1. Check if the previous failure happened due to authentication  OR\n2. Continuous WDT reset for maximum value \nMay I know why you can\u0027t add these checks to decide the boot_idx? Is there any platform limitation?\n\nAlso, it will be good if you document platform function in porting guide here: https://trustedfirmware-a.readthedocs.io/en/latest/getting_started/porting-guide.html",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 36
+      },
+      "revId": "85bac17aa7b8f57bea765fe4380319782594e863",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66381f1f_568410b3",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T05:54:27Z",
+      "side": 1,
+      "message": "\u003e I expect this function should do below checks to set the boot_idx to previous_active_index\n\u003e 1. Check if the previous failure happened due to authentication  OR\n\u003e 2. Continuous WDT reset for maximum value \n\u003e May I know why you can\u0027t add these checks to decide the boot_idx? Is there any platform limitation?\n\nCurrently, we do not have this for the platform. I will have to check with someone from ST on the way to implement what you mention. In fact, I have stated this in my comment for this function.\n\n\u003e \n\u003e Also, it will be good if you document platform function in porting guide here: https://trustedfirmware-a.readthedocs.io/en/latest/getting_started/porting-guide.html\n\nOkay. I will add this to the porting guide. Will check with you offline on the process to add this. Thanks.",
+      "parentUuid": "f8a3b316_a786f031",
       "range": {
         "startLine": 462,
         "startChar": 0,
