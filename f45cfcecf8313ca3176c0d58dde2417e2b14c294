@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "878378d0_0f2e4988",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2021-11-30T07:51:35Z",
+      "side": 1,
+      "message": "could use a unsigned int",
+      "range": {
+        "startLine": 473,
+        "startChar": 1,
+        "endLine": 473,
+        "endChar": 6
+      },
+      "revId": "f45cfcecf8313ca3176c0d58dde2417e2b14c294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17b6b4f8_1545bbcd",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2021-11-30T07:51:35Z",
+      "side": 1,
+      "message": "Could be defined in the for loop",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 478,
+        "endChar": 29
+      },
+      "revId": "f45cfcecf8313ca3176c0d58dde2417e2b14c294",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
