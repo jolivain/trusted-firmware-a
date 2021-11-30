@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7bf6c8e3_e7c6d7b5",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:49:47Z",
+      "side": 1,
+      "message": "\u003e remove empty line\n\nWill do.",
+      "parentUuid": "db5b35e1_b5710e56",
+      "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c5ca8f5_e581f5ce",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 3
@@ -31,6 +49,30 @@
       "writtenOn": "2021-11-30T07:51:35Z",
       "side": 1,
       "message": "could be unsigned int here",
+      "range": {
+        "startLine": 454,
+        "startChar": 1,
+        "endLine": 454,
+        "endChar": 18
+      },
+      "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64127e85_e0cf2f07",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:49:47Z",
+      "side": 1,
+      "message": "\u003e could be unsigned int here\n\nWill change.",
+      "parentUuid": "3c5ca8f5_e581f5ce",
       "range": {
         "startLine": 454,
         "startChar": 1,
@@ -66,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c2bd9e1_5bc6da4d",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:49:47Z",
+      "side": 1,
+      "message": "\u003e if i becomes unsigned, this should then be 0U\n\nOkay. Will change.",
+      "parentUuid": "df9e015f_3634663d",
+      "range": {
+        "startLine": 459,
+        "startChar": 10,
+        "endLine": 459,
+        "endChar": 11
+      },
+      "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cfacfeb5_ad7a66e5",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 3
@@ -77,6 +143,30 @@
       "writtenOn": "2021-11-30T07:51:35Z",
       "side": 1,
       "message": "MISRA rules require brackets here.\nCheck function must test \u003d\u003d 0 as int is return (MISRA Convention)",
+      "range": {
+        "startLine": 460,
+        "startChar": 2,
+        "endLine": 461,
+        "endChar": 12
+      },
+      "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fc9664b_7bd57cc2",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:49:47Z",
+      "side": 1,
+      "message": "\u003e MISRA rules require brackets here.\n\u003e Check function must test \u003d\u003d 0 as int is return (MISRA Convention)\n\nOkay. Will change.",
+      "parentUuid": "cfacfeb5_ad7a66e5",
       "range": {
         "startLine": 460,
         "startChar": 2,
@@ -112,6 +202,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "899ec03f_173c0b1c",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:49:47Z",
+      "side": 1,
+      "message": "\u003e Same here.\n\nWill change.",
+      "parentUuid": "0c6bc74b_62d7cb13",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 4
+      },
+      "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14745872_af919dfb",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 3
@@ -129,6 +243,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fed3cf2d_6d5009f6",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:49:47Z",
+      "side": 1,
+      "message": "\u003e remove empty line\n\nOkay.",
+      "parentUuid": "14745872_af919dfb",
+      "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2656a10b_c6e55028",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 3
@@ -140,6 +272,30 @@
       "writtenOn": "2021-11-30T07:51:35Z",
       "side": 1,
       "message": "Prefer unsigned int here",
+      "range": {
+        "startLine": 473,
+        "startChar": 0,
+        "endLine": 473,
+        "endChar": 3
+      },
+      "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4f01281_d7f28409",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:49:47Z",
+      "side": 1,
+      "message": "\u003e Prefer unsigned int here\n\nWill change.",
+      "parentUuid": "2656a10b_c6e55028",
       "range": {
         "startLine": 473,
         "startChar": 0,
@@ -175,6 +331,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "00ce3389_afa8e763",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:49:47Z",
+      "side": 1,
+      "message": "\u003e Could be defined in the for loop\n\nI personally prefer to declare all variables at the start of the function. But I can declare them in the for loop if that is the preferred way in tf-a.",
+      "parentUuid": "a471ba9a_93016692",
+      "range": {
+        "startLine": 476,
+        "startChar": 1,
+        "endLine": 478,
+        "endChar": 29
+      },
+      "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "838046b7_5858f23b",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 3
@@ -186,6 +366,30 @@
       "writtenOn": "2021-11-30T07:51:35Z",
       "side": 1,
       "message": "Directly use NR_OF_IMAGES_IN_FW_BANK",
+      "range": {
+        "startLine": 483,
+        "startChar": 17,
+        "endLine": 483,
+        "endChar": 24
+      },
+      "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd240670_9c014a24",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:49:47Z",
+      "side": 1,
+      "message": "\u003e Directly use NR_OF_IMAGES_IN_FW_BANK\n\nOkay",
+      "parentUuid": "838046b7_5858f23b",
       "range": {
         "startLine": 483,
         "startChar": 17,
@@ -221,6 +425,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e344bdf5_9cfafa6e",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:49:47Z",
+      "side": 1,
+      "message": "\u003e Misra: image_spec \u003d\u003d NULL\n\nWill change",
+      "parentUuid": "9f060d4e_5e6e7566",
+      "range": {
+        "startLine": 486,
+        "startChar": 7,
+        "endLine": 486,
+        "endChar": 17
+      },
+      "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da00e486_7f26f876",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 3
@@ -232,6 +460,30 @@
       "writtenOn": "2021-11-30T07:51:35Z",
       "side": 1,
       "message": "empty line before",
+      "range": {
+        "startLine": 490,
+        "startChar": 2,
+        "endLine": 490,
+        "endChar": 10
+      },
+      "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfd36571_fe27f748",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:49:47Z",
+      "side": 1,
+      "message": "\u003e empty line before\n\nWill add.",
+      "parentUuid": "da00e486_7f26f876",
       "range": {
         "startLine": 490,
         "startChar": 2,
@@ -267,6 +519,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f67f7265_7162d7d2",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:49:47Z",
+      "side": 1,
+      "message": "\u003e you must control that the entry is !\u003d NULL\n\nSorry, I did not understand this comment. If the metadata contains some image uuid, and the partition with that UniquePartitionGUID value is not present, this function will return NULL. That will be a case of incorrect population of the metadata, but it is a possible scenario.\n\nAm I misunderstanding your comment?",
+      "parentUuid": "6ee8ef87_8c10162f",
+      "range": {
+        "startLine": 493,
+        "startChar": 2,
+        "endLine": 493,
+        "endChar": 7
+      },
+      "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec9a9e00_a88bd9eb",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 3
@@ -290,6 +566,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b37e6baf_9bbc59f5",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:49:47Z",
+      "side": 1,
+      "message": "\u003e entry \u003d\u003d NULL\n\nWill change.",
+      "parentUuid": "ec9a9e00_a88bd9eb",
+      "range": {
+        "startLine": 494,
+        "startChar": 6,
+        "endLine": 494,
+        "endChar": 12
+      },
+      "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1ab285aa_768ae3d6",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 3
@@ -301,6 +601,24 @@
       "writtenOn": "2021-11-30T07:51:35Z",
       "side": 1,
       "message": "remove empty line",
+      "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "779243ec_65a80fe5",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-11-30T09:49:47Z",
+      "side": 1,
+      "message": "\u003e remove empty line\n\nWill do",
+      "parentUuid": "1ab285aa_768ae3d6",
       "revId": "c65ddea6c1c137cf7654727bb5dd627a95064612",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
