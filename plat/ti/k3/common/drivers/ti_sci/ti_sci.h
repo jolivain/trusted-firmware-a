@@ -2,7 +2,7 @@
  * Texas Instruments System Control Interface API
  *   Based on Linux and U-Boot implementation
  *
- * Copyright (C) 2018 Texas Instruments Incorporated - http://www.ti.com/
+ * Copyright (C) 2018-2022 Texas Instruments Incorporated - https://www.ti.com/
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -205,6 +205,11 @@ int ti_sci_proc_wait_boot_status_no_wait(uint8_t proc_id,
 					 uint32_t status_flags_1_set_any_wait,
 					 uint32_t status_flags_1_clr_all_wait,
 					 uint32_t status_flags_1_clr_any_wait);
+
+int ti_sci_enter_sleep(uint8_t proc_id,
+		       uint8_t mode,
+		       uint32_t core_resume_lo,
+		       uint32_t core_resume_hi);
 
 /**
  * ti_sci_init() - Basic initialization
