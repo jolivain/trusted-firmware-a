@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec08cd79_0964fc26",
+        "filename": "lib/libc/aarch32/memcpy_align8.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-30T17:07:45Z",
+      "side": 1,
+      "message": "Arm",
+      "revId": "7750bfa95b614bec4f6676490fc6f49104cce908",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "733a906f_cf5e6591",
+        "filename": "lib/libc/libc_asm.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-30T17:07:45Z",
+      "side": 1,
+      "message": "please add extra tab to align \\",
+      "revId": "7750bfa95b614bec4f6676490fc6f49104cce908",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21069829_2c3c78a9",
+        "filename": "lib/libc/memcpy_align.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-30T17:07:45Z",
+      "side": 1,
+      "message": "2021? Arm",
+      "revId": "7750bfa95b614bec4f6676490fc6f49104cce908",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eed1360b_3d1b367d",
+        "filename": "lib/libc/memcpy_align.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-30T17:07:45Z",
+      "side": 1,
+      "message": "violation of MISRA-C 14.4 Rule",
+      "revId": "7750bfa95b614bec4f6676490fc6f49104cce908",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "392f7ebe_cbe5d47f",
+        "filename": "lib/libc/memcpy_align.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-30T17:07:45Z",
+      "side": 1,
+      "message": "size_t is insigned long for Aarch64.",
+      "revId": "7750bfa95b614bec4f6676490fc6f49104cce908",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e9d9084_ff8d6594",
+        "filename": "lib/libc/memcpy_align.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-30T17:07:45Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "7750bfa95b614bec4f6676490fc6f49104cce908",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cbd8360_2ee93c2d",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-11-30T17:07:45Z",
+      "side": 1,
+      "message": "add extra tabs for alignment with other build options",
+      "revId": "7750bfa95b614bec4f6676490fc6f49104cce908",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
