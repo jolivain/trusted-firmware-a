@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d7b3ed7_48d7e363",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-30T08:58:22Z",
+      "side": 1,
+      "message": "I\u0027d prefer you put the 2 include lines together:\nifeq (${PSA_FWU_SUPPORT},1)\ninclude lib/zlib/zlib.mk\ninclude drivers/fwu/fwu.mk\n\nBL2_SOURCES\t\t+\u003d\t$(ZLIB_SOURCES)\nBL2_SOURCES\t\t+\u003d\tdrivers/fwu/fwu.c\nendif",
+      "revId": "91587b2dd42569e3cd2bd3e57231a077c99fca0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f24a571_2cc1a840",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-30T08:58:22Z",
+      "side": 1,
+      "message": "Any reason to have this commented out?",
+      "revId": "91587b2dd42569e3cd2bd3e57231a077c99fca0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60fad860_860e8715",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-11-30T08:58:22Z",
+      "side": 1,
+      "message": "you could remove that blank line",
+      "revId": "91587b2dd42569e3cd2bd3e57231a077c99fca0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
