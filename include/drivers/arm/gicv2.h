@@ -30,7 +30,16 @@
 #define GICD_SGIR		U(0xF00)
 #define GICD_CPENDSGIR		U(0xF10)
 #define GICD_SPENDSGIR		U(0xF20)
+
+/*
+ * The Qualcomm QGIC2 implementation seems to have PIDR0-4 and PIDR4-7
+ * erroneously swapped for some reason. PIDR2 is actually at 0xFD8.
+ */
+#if GICV2_QTI_QGIC2
+#define GICD_PIDR2_GICV2	U(0xFD8)
+#else
 #define GICD_PIDR2_GICV2	U(0xFE8)
+#endif
 
 #define ITARGETSR_SHIFT		2
 #define GIC_TARGET_CPU_MASK	U(0xff)
