@@ -49,6 +49,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "31531436_42eb6e67",
+        "filename": "lib/libc/libc_asm.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-12-01T12:04:02Z",
+      "side": 1,
+      "message": "remove extra tab for alignment",
+      "revId": "14a334fab237ef30a607506a52ecbcc472a33158",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "041cae99_76d53594",
         "filename": "lib/libc/memcpy.c",
         "patchSetId": 8
@@ -106,6 +123,40 @@
       "writtenOn": "2021-12-01T11:43:15Z",
       "side": 1,
       "message": "nit: /* __aarch64__ */",
+      "revId": "14a334fab237ef30a607506a52ecbcc472a33158",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8aa68b9_e84c9e6f",
+        "filename": "lib/libc/memcpy_align.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-12-01T12:04:02Z",
+      "side": 1,
+      "message": "0U for aarch32 and 0UL for aarch64",
+      "revId": "14a334fab237ef30a607506a52ecbcc472a33158",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e02930d9_a0278c26",
+        "filename": "lib/libc/memcpy_align.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-12-01T12:04:02Z",
+      "side": 1,
+      "message": "violation of MISRA-C 14.4 Rule",
       "revId": "14a334fab237ef30a607506a52ecbcc472a33158",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
