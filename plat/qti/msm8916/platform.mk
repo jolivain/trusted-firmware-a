@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+# Enable workaround for incorrect register offset in Qualcomm QGIC2
+GICV2_QTI_QGIC2	:= 1
+
 include drivers/arm/gic/v2/gicv2.mk
 include lib/xlat_tables_v2/xlat_tables.mk
 
@@ -19,6 +22,7 @@ BL31_SOURCES	+=	${GICV2_SOURCES}				\
 			plat/common/plat_gicv2.c			\
 			plat/common/plat_psci_common.c			\
 			plat/qti/msm8916/msm8916_bl31_setup.c		\
+			plat/qti/msm8916/msm8916_gicv2.c		\
 			plat/qti/msm8916/msm8916_pm.c			\
 			plat/qti/msm8916/msm8916_topology.c		\
 			plat/qti/msm8916/$(ARCH)/msm8916_helpers.S	\
