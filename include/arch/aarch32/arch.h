@@ -122,6 +122,10 @@
 #define ID_MMFR4_CNP_LENGTH	U(4)
 #define ID_MMFR4_CNP_MASK	U(0xf)
 
+#define ID_MMFR4_CCIDX_SHIFT    U(24)
+#define ID_MMFR4_CCIDX_LENGTH   U(4)
+#define ID_MMFR4_CCIDX_MASK     U(0xf)
+
 /* ID_PFR0 definitions */
 #define ID_PFR0_AMU_SHIFT	U(20)
 #define ID_PFR0_AMU_LENGTH	U(4)
@@ -559,6 +563,7 @@
 #define CLIDR		p15, 1, c0, c0, 1
 #define CSSELR		p15, 2, c0, c0, 0
 #define CCSIDR		p15, 1, c0, c0, 0
+#define CCSIDR2     p15, 1, c0, c0, 2
 #define HTCR		p15, 4, c2, c0, 2
 #define HMAIR0		p15, 4, c10, c2, 0
 #define ATS1CPR		p15, 0, c7, c8, 0
