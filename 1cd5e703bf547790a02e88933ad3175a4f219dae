@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48b9cf9b_8811adc4",
+        "filename": "plat/imx/imx8m/imx8m_dyn_cfg_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000148
+      },
+      "writtenOn": "2021-12-01T05:27:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "179c3f7c_8831cb09",
+      "range": {
+        "startLine": 3,
+        "startChar": 1,
+        "endLine": 3,
+        "endChar": 3
+      },
+      "revId": "1cd5e703bf547790a02e88933ad3175a4f219dae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f81c5b8_c0e8c425",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-24T16:17:14Z",
       "side": 1,
       "message": "Implemented code does not use this property, so better remove it.\nJFYI, Please see details about this property [1], it is used to pass \u0027Event Log base address in secure memory\u0027 to OPTEE. \n\n[1]: https://trustedfirmware-a.readthedocs.io/en/latest/components/measured_boot/event_log.html",
+      "range": {
+        "startLine": 20,
+        "startChar": 8,
+        "endLine": 20,
+        "endChar": 31
+      },
+      "revId": "1cd5e703bf547790a02e88933ad3175a4f219dae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8315816d_a849f3cc",
+        "filename": "plat/imx/imx8m/imx8m_dyn_cfg_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000148
+      },
+      "writtenOn": "2021-12-01T05:27:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f81c5b8_c0e8c425",
       "range": {
         "startLine": 20,
         "startChar": 8,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "302d8869_b7da3e39",
+        "filename": "plat/imx/imx8m/imx8m_measured_boot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000148
+      },
+      "writtenOn": "2021-12-01T05:27:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35ba079a_48f05c14",
+      "range": {
+        "startLine": 3,
+        "startChar": 1,
+        "endLine": 3,
+        "endChar": 3
+      },
+      "revId": "1cd5e703bf547790a02e88933ad3175a4f219dae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9acf1be6_daab69fb",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-11-24T16:17:14Z",
       "side": 1,
       "message": "This comment is very much specific to the \u0027FVP\u0027 Arm platform.\nIf the \u0027imx8m\u0027 platform also like to treat this error as fatal then please update this comment accordingly.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 5
+      },
+      "revId": "1cd5e703bf547790a02e88933ad3175a4f219dae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33b08552_d716d78f",
+        "filename": "plat/imx/imx8m/imx8m_measured_boot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000148
+      },
+      "writtenOn": "2021-12-01T05:27:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9acf1be6_daab69fb",
       "range": {
         "startLine": 69,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a0070e2_ec7373a4",
+        "filename": "plat/imx/imx8m/imx8mm/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000148
+      },
+      "writtenOn": "2021-12-01T05:27:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72257c99_220b3aa0",
+      "range": {
+        "startLine": 158,
+        "startChar": 8,
+        "endLine": 158,
+        "endChar": 35
+      },
+      "revId": "1cd5e703bf547790a02e88933ad3175a4f219dae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d45bbdd6_b651df14",
@@ -139,6 +259,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c6bae37_0dd352df",
+        "filename": "plat/imx/imx8m/include/imx8m_measured_boot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000148
+      },
+      "writtenOn": "2021-12-01T05:27:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d45bbdd6_b651df14",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 38
+      },
+      "revId": "1cd5e703bf547790a02e88933ad3175a4f219dae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e28964f8_50bbb63d",
@@ -152,6 +296,30 @@
       "writtenOn": "2021-11-24T16:17:14Z",
       "side": 1,
       "message": "Is this true for IMX platform?\nAFAIU from this patch [1], we need only ns_log_addr right?\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/12494",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 6
+      },
+      "revId": "1cd5e703bf547790a02e88933ad3175a4f219dae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eab8c91f_6e857d8e",
+        "filename": "plat/imx/imx8m/include/imx8m_measured_boot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000148
+      },
+      "writtenOn": "2021-12-01T05:27:36Z",
+      "side": 1,
+      "message": "The current situation is that we haven\u0027t implemented OpTEE to measured something for iMX platform. So OpTEE will never modify the event log right now. We plan to do it. Currently TF-A measured the hash of some images and pass it to U-boot. U-boot will measure more and update PCRs. Would you recommend to remove this options first for this review?",
+      "parentUuid": "e28964f8_50bbb63d",
       "range": {
         "startLine": 14,
         "startChar": 0,
