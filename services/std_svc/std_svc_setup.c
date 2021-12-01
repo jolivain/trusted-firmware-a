@@ -20,6 +20,7 @@
 #include <services/sdei.h>
 #include <services/spm_mm_svc.h>
 #include <services/spmd_svc.h>
+#include <services/spmc_svc.h>
 #include <services/std_svc.h>
 #include <services/trng_svc.h>
 #include <smccc_helpers.h>
