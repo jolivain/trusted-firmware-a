@@ -91,6 +91,9 @@ endfunc inv_dcache_range
 
 func do_dcsw_op
 	push	{r4-r12, lr}
+	// load CCIDX feature identifier into r8
+	ldcopr	r8, ID_MMFR4
+	ubfx	r8, r8, #ID_MMFR4_CCIDX_SHIFT, #ID_MMFR4_CCIDX_LENGTH
 	adr	r11, dcsw_loop_table	// compute cache op based on the operation type
 	add	r6, r11, r0, lsl #3	// cache op is 2x32-bit instructions
 loop1:
@@ -105,7 +108,15 @@ loop1:
 	ldcopr	r12, CCSIDR		// read the new ccsidr
 	and	r10, r12, #7		// extract the length of the cache lines
 	add	r10, r10, #4		// add 4 (r10 = line length offset)
-	ubfx	r4, r12, #3, #10	// r4 = maximum way number (right aligned)
+
+	// see if we need to use expanded FEAT_CCIDX associativity field or not
+	cmp	r8, #0
+	beq	1f
+	ubfx	r4, r12, #3, #21 	// if supported, use the FEAT_CCIDX field
+	b	2f
+1:
+	ubfx	r4, r12, #3, #10 	// if zero, use the non-FEAT_CCIDX field
+2:
 	clz	r5, r4			// r5 = the bit position of the way size increment
 	mov	r9, r4			// r9 working copy of the aligned max way number
 

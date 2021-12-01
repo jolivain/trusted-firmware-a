@@ -122,6 +122,10 @@
 #define ID_MMFR4_CNP_LENGTH	U(4)
 #define ID_MMFR4_CNP_MASK	U(0xf)
 
+#define ID_MMFR4_CCIDX_SHIFT    U(24)
+#define ID_MMFR4_CCIDX_LENGTH   U(4)
+#define ID_MMFR4_CCIDX_MASK     U(0xf)
+
 /* ID_PFR0 definitions */
 #define ID_PFR0_AMU_SHIFT	U(20)
 #define ID_PFR0_AMU_LENGTH	U(4)
