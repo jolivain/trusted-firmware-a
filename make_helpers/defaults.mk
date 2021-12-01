@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2021, Arm Limited. All rights reserved.
+# Copyright (c) 2016-2022, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -256,6 +256,9 @@ SPD				:= none
 
 # Enable the Management Mode (MM)-based Secure Partition Manager implementation
 SPM_MM				:= 0
+
+# Use the FF-A SPMC implementation in EL3.
+SPMC_AT_EL3			:= 0
 
 # Use SPM at S-EL2 as a default config for SPMD
 SPMD_SPM_AT_SEL2		:= 1
