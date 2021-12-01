@@ -118,6 +118,30 @@
       },
       "revId": "785c8b1ed99e6c6d327686019807fc7012ff7527",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c290fa57_16962e3b",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-12-01T12:19:15Z",
+      "side": 1,
+      "message": "If a platform doesn\u0027t use HDFGRTR_EL2 register in EL2, in that case Makefile could produce a warning if FEAT_FGT is not set for 8.6+. If we choose this option, then saving/restoring of all othere feature related registers should follow the same approach, but this needs to be discussed.\nUsing of FEAT_FGT also should be documented.",
+      "parentUuid": "e7a1de86_9a61ba14",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 15
+      },
+      "revId": "785c8b1ed99e6c6d327686019807fc7012ff7527",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
