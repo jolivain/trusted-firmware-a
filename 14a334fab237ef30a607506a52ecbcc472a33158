@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06c2d569_d6e6227a",
+        "filename": "lib/libc/aarch32/memcpy_align8.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-01T11:43:15Z",
+      "side": 1,
+      "message": "can this be 2021 instead?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "14a334fab237ef30a607506a52ecbcc472a33158",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f986257c_ae6df2bb",
+        "filename": "lib/libc/aarch64/memcpy_align16.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-01T11:43:15Z",
+      "side": 1,
+      "message": "2021?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "14a334fab237ef30a607506a52ecbcc472a33158",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "041cae99_76d53594",
+        "filename": "lib/libc/memcpy.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-01T11:43:15Z",
+      "side": 1,
+      "message": "why copyright being changed? I can\u0027t see any changes in this file.",
+      "range": {
+        "startLine": 2,
+        "startChar": 1,
+        "endLine": 2,
+        "endChar": 78
+      },
+      "revId": "14a334fab237ef30a607506a52ecbcc472a33158",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69997c38_5a3e7cf8",
+        "filename": "lib/libc/memcpy_align.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-01T11:43:15Z",
+      "side": 1,
+      "message": "2021?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "14a334fab237ef30a607506a52ecbcc472a33158",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0041dfe6_ba569bf0",
+        "filename": "lib/libc/memcpy_align.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-01T11:43:15Z",
+      "side": 1,
+      "message": "nit: /* __aarch64__ */",
+      "revId": "14a334fab237ef30a607506a52ecbcc472a33158",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfc93c76_68803320",
+        "filename": "lib/libc/memcpy_align.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-01T11:43:15Z",
+      "side": 1,
+      "message": "nit: insert a blank line before this.",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 43,
+        "endChar": 12
+      },
+      "revId": "14a334fab237ef30a607506a52ecbcc472a33158",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
