@@ -10,6 +10,7 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <common/desc_image_load.h>
+#include <drivers/fwu/fwu.h>
 #include <drivers/fwu/fwu_metadata.h>
 #include <drivers/io/io_block.h>
 #include <drivers/io/io_driver.h>
@@ -448,6 +449,25 @@ int plat_get_image_source(unsigned int image_id, uintptr_t *dev_handle,
 }
 
 #if (STM32MP_SDMMC || STM32MP_EMMC) && PSA_FWU_SUPPORT
+/*
+ * Eventually, this function will return the
+ * boot index to be passed on to the Update
+ * Agent after performing certain checks like
+ * a watchdog timeout, or Auth failure while
+ * trying to load from a certain bank.
+ * For now, since we do not have that logic
+ * implemented, just pass the active_index
+ * read from the metadata.
+ */
+uint32_t plat_fwu_get_boot_idx(void)
+{
+	const struct fwu_metadata *metadata;
+
+	metadata = fwu_get_metadata();
+
+	return metadata->active_index;
+}
+
 static void *stm32_fip_get_spec(const uuid_t *img_type_uuid)
 {
 	unsigned int i, npolicies;
