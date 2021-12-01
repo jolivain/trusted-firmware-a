@@ -540,6 +540,9 @@ ifneq (${SPD},none)
             ifeq ($(CTX_INCLUDE_EL2_REGS),0)
                 $(error SPMD with SPM at S-EL2 requires CTX_INCLUDE_EL2_REGS option)
             endif
+	    ifeq ($(SPMC_AT_EL3),1)
+                $(error SPM cannot be enabled in both S-EL2 and EL3.)
+            endif
         endif
 
         ifeq ($(findstring optee_sp,$(ARM_SPMC_MANIFEST_DTS)),optee_sp)
@@ -1017,6 +1020,7 @@ $(eval $(call assert_booleans,\
         SEPARATE_NOBITS_REGION \
         SPIN_ON_BL1_EXIT \
         SPM_MM \
+        SPMC_AT_EL3 \
         SPMD_SPM_AT_SEL2 \
         TRUSTED_BOARD_BOOT \
         CRYPTO_SUPPORT \
@@ -1132,6 +1136,7 @@ $(eval $(call add_defines,\
         SPD_${SPD} \
         SPIN_ON_BL1_EXIT \
         SPM_MM \
+        SPMC_AT_EL3 \
         SPMD_SPM_AT_SEL2 \
         TRUSTED_BOARD_BOOT \
         CRYPTO_SUPPORT \
