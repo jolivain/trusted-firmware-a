@@ -89,6 +89,8 @@ endfunc inv_dcache_range
 
 func do_dcsw_op
 	cbz	x3, exit
+	mrs	x8, ID_AA64MMFR2_EL1	// stash FEAT_CCIDX identifier in x8
+	ubfx	x8, x8, #ID_AA64MMFR2_EL1_CCIDX_SHIFT, #ID_AA64MMFR2_EL1_CCIDX_LENGTH
 	adr	x14, dcsw_loop_table	// compute inner loop address
 	add	x14, x14, x0, lsl #5	// inner loop is 8x32-bit instructions
 #if ENABLE_BTI
@@ -108,7 +110,13 @@ loop1:
 	mrs	x1, ccsidr_el1		// read the new ccsidr
 	and	x2, x1, #7		// extract the length of the cache lines
 	add	x2, x2, #4		// add 4 (line length offset)
-	ubfx	x4, x1, #3, #10		// maximum way number
+
+	cbz	x8, 1f			// check for FEAT_CCIDX
+	ubfx	x4, x1, #3, #21 	// if supported, use expanded bitfield
+	b 	2f
+1:
+	ubfx	x4, x1, #3, #10 	// if not, use the smaller bitfield
+2:
 	clz	w5, w4			// bit position of way size increment
 	lsl	w9, w4, w5		// w9 = aligned max way number
 	lsl	w16, w8, w5		// w16 = way number loop decrement
