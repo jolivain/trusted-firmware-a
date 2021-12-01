@@ -465,6 +465,12 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 		bl32_mem_params = get_bl_mem_params_node(BL32_IMAGE_ID);
 		assert(bl32_mem_params != NULL);
 		bl32_mem_params->ep_info.lr_svc = bl_mem_params->ep_info.pc;
+#if !STM32MP_USE_STM32IMAGE && PSA_FWU_SUPPORT
+		stm32mp_clk_enable(RTCAPB);
+		mmio_write_32(tamp_bkpr(BOOT_API_FWU_BOOT_IDX_TAMP_BCK_REG_IDX),
+			      plat_fwu_get_boot_idx());
+		stm32mp_clk_disable(RTCAPB);
+#endif /* !STM32MP_USE_STM32IMAGE && PSA_FWU_SUPPORT */
 		break;
 
 	default:

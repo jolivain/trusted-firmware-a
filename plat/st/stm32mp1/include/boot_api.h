@@ -116,6 +116,14 @@
 #define BOOT_API_CORE1_BRANCH_ADDRESS_TAMP_BCK_REG_IDX		5U
 
 /*
+ * TAMP_BCK10R register index
+ * This register is used to contain the boot index of the platform
+ * when the FWU(PSA_FWU_SUPPORT) feature is enabled. The boot index is
+ * the bank from which the platform booted its images
+ */
+#define BOOT_API_FWU_BOOT_IDX_TAMP_BCK_REG_IDX			10U
+
+/*
  * Possible value of boot context field 'hse_clock_value_in_hz'
  */
 #define BOOT_API_CTX_HSE_CLOCK_VALUE_UNDEFINED			0U
