@@ -1022,6 +1022,7 @@ $(eval $(call assert_booleans,\
         SEPARATE_NOBITS_REGION \
         SPIN_ON_BL1_EXIT \
         SPM_MM \
+        SPMC_AT_EL3 \
         SPMD_SPM_AT_SEL2 \
         TRUSTED_BOARD_BOOT \
         USE_COHERENT_MEM \
@@ -1136,6 +1137,7 @@ $(eval $(call add_defines,\
         SPD_${SPD} \
         SPIN_ON_BL1_EXIT \
         SPM_MM \
+        SPMC_AT_EL3 \
         SPMD_SPM_AT_SEL2 \
         TRUSTED_BOARD_BOOT \
         TRNG_SUPPORT \
