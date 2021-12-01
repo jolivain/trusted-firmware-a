@@ -7,6 +7,8 @@
 #ifndef GICV2_H
 #define GICV2_H
 
+#include <platform_def.h>
+
 #include <drivers/arm/gic_common.h>
 
 /*******************************************************************************
@@ -30,7 +32,14 @@
 #define GICD_SGIR		U(0xF00)
 #define GICD_CPENDSGIR		U(0xF10)
 #define GICD_SPENDSGIR		U(0xF20)
+
+/*
+ * Some GICv2 implementations violate the specification and have this register
+ * at a different address. Allow overriding it in platform_def.h as workaround.
+ */
+#ifndef GICD_PIDR2_GICV2
 #define GICD_PIDR2_GICV2	U(0xFE8)
+#endif
 
 #define ITARGETSR_SHIFT		2
 #define GIC_TARGET_CPU_MASK	U(0xff)
