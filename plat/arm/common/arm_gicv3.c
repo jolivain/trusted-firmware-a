@@ -244,3 +244,11 @@ void plat_arm_gic_resume(void)
 	 * re-enabled after this sequence has been executed.
 	 */
 }
+
+/******************************************************************************
+ * ARM common helper to mark a CPU is in asleep
+ *****************************************************************************/
+void plat_arm_gic_mark_core_asleep(unsigned int core_pos)
+{
+	gicv3_mark_core_asleep(core_pos);
+}

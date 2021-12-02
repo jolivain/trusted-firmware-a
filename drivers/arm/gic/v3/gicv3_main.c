@@ -369,6 +369,27 @@ void gicv3_cpuif_disable(unsigned int proc_num)
 }
 
 /*******************************************************************************
+ * This function marks the CPU core is in sleep state by configuring the waker
+ * logic.
+ ******************************************************************************/
+void gicv3_mark_core_asleep(unsigned int proc_num)
+{
+	uintptr_t gicr_base;
+
+	assert(gicv3_driver_data != NULL);
+	assert(proc_num < gicv3_driver_data->rdistif_num);
+	assert(gicv3_driver_data->rdistif_base_addrs != NULL);
+
+	assert(IS_IN_EL3());
+
+	/* Mark the connected core as asleep */
+	gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+	if (gicr_base != 0U) {
+		gicv3_rdistif_mark_core_asleep(gicr_base);
+	}
+}
+
+/*******************************************************************************
  * This function returns the id of the highest priority pending interrupt at
  * the GIC cpu interface.
  ******************************************************************************/

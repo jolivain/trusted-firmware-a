@@ -283,6 +283,7 @@ void plat_arm_gic_driver_init(void);
 void plat_arm_gic_init(void);
 void plat_arm_gic_cpuif_enable(void);
 void plat_arm_gic_cpuif_disable(void);
+void plat_arm_gic_mark_core_asleep(unsigned int core_pos);
 void plat_arm_gic_redistif_on(void);
 void plat_arm_gic_redistif_off(void);
 void plat_arm_gic_pcpu_init(void);
