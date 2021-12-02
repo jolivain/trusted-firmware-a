@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -70,6 +70,15 @@ void plat_arm_gic_cpuif_enable(void)
 void plat_arm_gic_cpuif_disable(void)
 {
 	gicv2_cpuif_disable();
+}
+
+/******************************************************************************
+ * GIC V3 and above, the waker logic resides in redistributor base and require
+ * to program each redistributor. Adding dummy function to maintain
+ * compatibility with GIC V3 code
+ *****************************************************************************/
+void plat_arm_gic_mark_core_asleep(unsigned int core_pos)
+{
 }
 
 /******************************************************************************
