@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdbe0318_5361e5ae",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-12-02T14:31:03Z",
+      "side": 1,
+      "message": "those variables should be under PSA_FWU_SUPPORT flag. Or better is to put them as __unused:\nuint32_t boot_idx __unused;\nuint32_t bkpr_fwu_boot_idx_addr __unused;\n\nAnd assign bkpr_fwu_boot_idx_addr after line 472.",
+      "revId": "2bbf1153e17518ddea7bcfa69e2aab6ef36eae0c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
