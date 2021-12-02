@@ -34,6 +34,24 @@
       "parentUuid": "2f29b79c_a8d319ce",
       "revId": "b3c832ac0775f621273812557a203690bfe28cae",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5212e33f_cad41d80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-12-02T17:44:28Z",
+      "side": 1,
+      "message": "Hi Patrick\nIt looks like you rebased on old master. commitlint check is still failing. Please rebase on current integration branch(29ad12a7b545c847b09700ae9125b9864c5b4ec1) since the fix from Yann has not yet landed to master.",
+      "parentUuid": "c9295f6d_315534e5",
+      "revId": "b3c832ac0775f621273812557a203690bfe28cae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
