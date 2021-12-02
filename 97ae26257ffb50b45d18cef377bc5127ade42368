@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7894ca88_a6bb566f",
+        "filename": "plat/nxp/common/setup/ls_io_storage.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-02T09:27:48Z",
+      "side": 1,
+      "message": "use \u0027ret !\u003d 0\u0027 instead.",
+      "range": {
+        "startLine": 416,
+        "startChar": 5,
+        "endLine": 416,
+        "endChar": 8
+      },
+      "revId": "97ae26257ffb50b45d18cef377bc5127ade42368",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4acfac6_5d196ec5",
+        "filename": "plat/nxp/common/setup/ls_io_storage.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-02T09:27:48Z",
+      "side": 1,
+      "message": "Also, put braces around \u0027if\u0027",
+      "range": {
+        "startLine": 416,
+        "startChar": 0,
+        "endLine": 416,
+        "endChar": 9
+      },
+      "revId": "97ae26257ffb50b45d18cef377bc5127ade42368",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb8e309e_d94af43d",
+        "filename": "plat/nxp/common/setup/ls_io_storage.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-02T09:27:48Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 441,
+        "startChar": 0,
+        "endLine": 442,
+        "endChar": 13
+      },
+      "revId": "97ae26257ffb50b45d18cef377bc5127ade42368",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
