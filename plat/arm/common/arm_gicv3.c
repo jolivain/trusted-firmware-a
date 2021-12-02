@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -243,4 +243,12 @@ void plat_arm_gic_resume(void)
 	 * restore the whole ITS state. The ITS must also be
 	 * re-enabled after this sequence has been executed.
 	 */
+}
+
+/******************************************************************************
+ * ARM common helper to mark a CPU is in asleep
+ *****************************************************************************/
+void plat_arm_gic_mark_core_asleep(unsigned int core_pos)
+{
+	gicv3_mark_core_asleep(core_pos);
 }
