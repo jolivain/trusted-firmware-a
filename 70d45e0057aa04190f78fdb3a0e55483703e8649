@@ -118,6 +118,30 @@
       },
       "revId": "70d45e0057aa04190f78fdb3a0e55483703e8649",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4586f7a4_aedda648",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-12-02T14:27:49Z",
+      "side": 1,
+      "message": "I\u0027m not sure the flag is required, as only GPT partitions are managed for the moment. For STM32MP1, we could have something like this in platform.mk till NOR and NAND devices are supported for FWU:\nifeq (${PSA_FWU_SUPPORT},1)\nifeq ($(filter 1,${STM32MP_EMMC} ${STM32MP_SDMMC}),)\n$(error PSA_FWU_SUPPORT only supported for eMMC or SD-cards)\nendif\nendif\n\nFor other platform, I don\u0027t know how that can be managed. If you think it is mandatory, then we should enable this flag for STM32MP1:\nifneq ($(filter 1,${STM32MP_EMMC} ${STM32MP_SDMMC}),)\nGPT_PART :\u003d 1\nendif",
+      "parentUuid": "01fb7ed3_3e7bbae3",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 8
+      },
+      "revId": "70d45e0057aa04190f78fdb3a0e55483703e8649",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
