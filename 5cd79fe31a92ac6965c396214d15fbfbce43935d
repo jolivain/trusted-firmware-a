@@ -16,6 +16,24 @@
       "message": "I recall you mentioned that this was already work-in-progress some time ago. I\u0027ve skimmed https://wiki.st.com/stm32mpu/wiki/How_to_configure_TF-A_FIP#Updating_the_FIP_binary and trying to understand the use case:\n\n- So the FIP image would contain the SSBL as well, right?\n- Can you still fit FIP image into eMMC boot partition?",
       "revId": "5cd79fe31a92ac6965c396214d15fbfbce43935d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e38e058_5612ff83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-12-03T13:41:18Z",
+      "side": 1,
+      "message": "Hi Vyacheslav,\n\nThe FIP image contains SSBL (and its device tree) and BL32: either TF-A SP_min  (and its device tree) or OP-TEE.\nThe FIP file is usually between 1MB and 1.5MB, and BL2 ~220kB. So if your eMMC boot partition is 2MB, it should be OK. This is what we have on STM32MP157C-EV1 board.\nMaybe it is possible with a 1MB boot partition size with some optimizations.",
+      "parentUuid": "0ff97a18_7d62c797",
+      "revId": "5cd79fe31a92ac6965c396214d15fbfbce43935d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
