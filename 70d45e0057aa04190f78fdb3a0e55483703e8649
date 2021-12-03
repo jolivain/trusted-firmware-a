@@ -142,6 +142,30 @@
       },
       "revId": "70d45e0057aa04190f78fdb3a0e55483703e8649",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c81f671_e2076868",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-03T11:53:14Z",
+      "side": 1,
+      "message": "I will remove the GPT_PART symbol in my next version. We can add a symbol later if there are multiple platforms which use the GPT partition based storage devices with FWU feature.",
+      "parentUuid": "4586f7a4_aedda648",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 8
+      },
+      "revId": "70d45e0057aa04190f78fdb3a0e55483703e8649",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
