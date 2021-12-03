@@ -16,6 +16,24 @@
       "message": "Two types of static failures\n1. ****** Order of includes on the last patch(es) ******\nResult : FAILURE\n\nChecking files modified between patches origin/master and HEAD...\n562091ba5:plat/nxp/soc-ls1043a/soc.c: [\u0027plat_console.h should be in project group,\n    after system group\u0027, \u0027plat_gic.h should be in project group, after system group\u0027,\n  \u0027plat_tzc380.h should be in project group, after system group\u0027, \u0027scfg.h should be\n    in project group, after system group\u0027, \u0027sfp.h should be in project group, after\n    system group\u0027]\n\nb5c990590:drivers/nxp/ifc/nand/ifc_nand.c: [\u0027Project includes not in order. Include\n    order should be common/debug.h, drivers/io/io_block.h, ifc.h, lib/xlat_tables/xlat_tables_v2.h,\n    mmio.h, nxp_timer.h\u0027]\n\n\u003e\u003e Please fix in the patch which has this change\n\n2. ****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\n\nResult : FAILURE\n\n\nNew source files have been identified in your patch..\ndrivers/nxp/ifc/nand/ifc_nand.c\ndrivers/nxp/ifc/nor/ifc_nor.c\ndrivers/nxp/tzc/plat_tzc380.c\nplat/nxp/common/soc_errata/errata_a008850.c\nplat/nxp/soc-ls1043a/ls1043ardb/ddr_init.c\nplat/nxp/soc-ls1043a/ls1043ardb/platform.c\nplat/nxp/soc-ls1043a/soc.c\n\n1. Kindly ensure they are updated in the \"tf-cov-make\" build script as well to \n   consider them for Coverity Scan analysis. Please refer to the tf-a documentation \n   \"https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-build-configurations\" \n   for more detailed explanation on adding your new build configurations.\n\n2. Please ignore if files are already updated. Further the Code Maintainer will \n   resolve the issue by taking appropriate action.\n\n\n\u003e\u003e IF these files are already part of any existing platform, then you can ignore it.\n\nPlease make sure that all the newly added files are compiled in one of the platform configuration present at script/tf-coverity/tf-cov-make in CI repo (https://review.trustedfirmware.org/admin/repos/ci/tf-a-ci-scripts)  ",
       "revId": "3e51d354f6112663b5d4454c995b98c613fc1b89",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e5b5c97_5240bf27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2021-12-03T03:56:38Z",
+      "side": 1,
+      "message": "Hi, Manish,\n\n1. For this issue:\n\n\"562091ba5:plat/nxp/soc-ls1043a/soc.c: [\u0027plat_console.h should be in project group,\n\n    after system group\u0027, \u0027plat_gic.h should be in project group, after system group\u0027,\n  \u0027plat_tzc380.h should be in project group, after system group\u0027, \u0027scfg.h should be\n    in project group, after system group\u0027, \u0027sfp.h should be in project group, after\n    system group\u0027]\"\n\nPlease find the following code in plat/nxp/soc-ls1043a/soc.c, I am sure all these header files listed above are all in project groupt, what\u0027s the issue? maybe script scanning issue? thanks.\n\n#include \u003cassert.h\u003e\n\n#include \u003carch.h\u003e\n#include \u003ccaam.h\u003e\n#include \u003ccassert.h\u003e\n#include \u003ccci.h\u003e\n#include \u003ccommon/debug.h\u003e\n#include \u003cdcfg.h\u003e\n#ifdef I2C_INIT\n#include \u003ci2c.h\u003e\n#endif\n#include \u003clib/mmio.h\u003e\n#include \u003clib/xlat_tables/xlat_tables_v2.h\u003e\n#include \u003cls_interconnect.h\u003e\n#ifdef POLICY_FUSE_PROVISION\n#include \u003cnxp_gpio.h\u003e\n#endif\n#if TRUSTED_BOARD_BOOT\n#include \u003cnxp_smmu.h\u003e\n#endif\n#include \u003cnxp_timer.h\u003e\n#ifdef CONFIG_OCRAM_ECC_EN\n#include \u003cocram.h\u003e\n#endif\n#include \u003cplat_console.h\u003e\n#include \u003cplat_gic.h\u003e\n#include \u003cplat_tzc380.h\u003e\n#include \u003cscfg.h\u003e\n#if defined(NXP_SFP_ENABLED)\n#include \u003csfp.h\u003e\n#endif\n\n\n2. Fixed the following issue:\n\nb5c990590:drivers/nxp/ifc/nand/ifc_nand.c: [\u0027Project includes not in order. Include\n\n    order should be common/debug.h, drivers/io/io_block.h, ifc.h, lib/xlat_tables/xlat_tables_v2.h,\n    mmio.h, nxp_timer.h\u0027]\n\u003e\u003e Please fix in the patch which has this change\n\n3. About coverity and CI, please find the following patch to update build config and variants:\n\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/12537\n\nAny more comments, please let me know, thanks.\n\nJiafei.",
+      "parentUuid": "b7ce52b4_307cea42",
+      "revId": "3e51d354f6112663b5d4454c995b98c613fc1b89",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
