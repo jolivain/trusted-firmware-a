@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e63672f_22458d21",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-03T13:45:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0a74a32d_f2da8822",
+      "revId": "419293bab084b1250f8fa5cf75ba5291981e3d47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0983cb0f_31c56cbc",
         "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
         "patchSetId": 3
@@ -31,6 +49,24 @@
       "writtenOn": "2021-12-03T12:51:20Z",
       "side": 1,
       "message": "Can this use the same prototype as crypto_mod_calc_hash?\n\n    int crypto_mod_calc_hash(enum crypto_md_algo alg, void *data_ptr,\n                             unsigned int data_len, unsigned char *output)\n                             unsigned int data_len,\n                    \u003e\u003e\u003e\u003e\u003e\u003e\u003e\u003e unsigned char output[CRYPTO_MD_MAX_SIZE])",
+      "revId": "419293bab084b1250f8fa5cf75ba5291981e3d47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1679a481_32345c84",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-03T13:45:48Z",
+      "side": 1,
+      "message": "Yes, let me change this. Thanks!",
+      "parentUuid": "0983cb0f_31c56cbc",
       "revId": "419293bab084b1250f8fa5cf75ba5291981e3d47",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -60,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "911e143c_e27f4344",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-03T13:45:48Z",
+      "side": 1,
+      "message": "CRYPTO_MD_MAX_SIZE is generic macro and can be used by all underlying crypto libraries. Its value is chosen with the current stronger algorithm available [1] i.e. SHA512.\nWe may need to update its value in the future if any stronger algorithm gets evolved.\n\nLet me add \u0027CASSERT(CRYPTO_MD_MAX_SIZE \u003e MBEDTLS_MD_MAX_SIZE)\u0027 to make sure build flag such issue.\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/11878/3/include/drivers/auth/crypto_mod.h#36",
+      "parentUuid": "08d565ae_9696b83b",
+      "range": {
+        "startLine": 241,
+        "startChar": 25,
+        "endLine": 241,
+        "endChar": 44
+      },
+      "revId": "419293bab084b1250f8fa5cf75ba5291981e3d47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0e739ab_8071150b",
         "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
         "patchSetId": 3
@@ -71,6 +131,24 @@
       "writtenOn": "2021-12-03T12:51:20Z",
       "side": 1,
       "message": "Should we check that `md_type(md_algo) !\u003d MBEDTLS_MD_NONE`, or does `mbedtls_md_info_from_type` validate this?",
+      "revId": "419293bab084b1250f8fa5cf75ba5291981e3d47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f9299e1_5035032c",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-03T13:45:48Z",
+      "side": 1,
+      "message": "right \u0027mbedtls_md_info_from_type\u0027 function validate this hence avoided checking that here again.",
+      "parentUuid": "b0e739ab_8071150b",
       "revId": "419293bab084b1250f8fa5cf75ba5291981e3d47",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
