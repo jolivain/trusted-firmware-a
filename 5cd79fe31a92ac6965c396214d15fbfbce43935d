@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ff97a18_7d62c797",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000578
+      },
+      "writtenOn": "2021-12-03T13:19:59Z",
+      "side": 1,
+      "message": "I recall you mentioned that this was already work-in-progress some time ago. I\u0027ve skimmed https://wiki.st.com/stm32mpu/wiki/How_to_configure_TF-A_FIP#Updating_the_FIP_binary and trying to understand the use case:\n\n- So the FIP image would contain the SSBL as well, right?\n- Can you still fit FIP image into eMMC boot partition?",
+      "revId": "5cd79fe31a92ac6965c396214d15fbfbce43935d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
