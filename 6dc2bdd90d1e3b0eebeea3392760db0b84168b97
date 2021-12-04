@@ -103,6 +103,24 @@
       "parentUuid": "28b72cc2_773749d3",
       "revId": "6dc2bdd90d1e3b0eebeea3392760db0b84168b97",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4590e1af_29d108a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-12-04T20:33:25Z",
+      "side": 1,
+      "message": "Just mask the non secure interrupts by writing the the ICC_*registers? why will that not work?",
+      "parentUuid": "d6a8f962_ed097a8b",
+      "revId": "6dc2bdd90d1e3b0eebeea3392760db0b84168b97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
