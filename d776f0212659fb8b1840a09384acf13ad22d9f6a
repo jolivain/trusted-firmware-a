@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49335dc0_7fef7a77",
+        "filename": ".cz.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2021-12-06T16:13:23Z",
+      "side": 1,
+      "message": "Blessed scopes should be kebab-case:\n\n    \"scopes\": [\"sys-reg-trace\" /* or maybe etm and ete separately? */, \"sys_reg_trace\"]",
+      "revId": "d776f0212659fb8b1840a09384acf13ad22d9f6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
