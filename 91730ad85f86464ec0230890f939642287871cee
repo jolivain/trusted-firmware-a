@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55b376b1_c40ae59c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000130
+      },
+      "writtenOn": "2021-12-06T03:38:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "701b66ce_d8004295",
+      "range": {
+        "startLine": 9,
+        "startChar": 49,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "91730ad85f86464ec0230890f939642287871cee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df398a80_191e9f04",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-26T13:31:49Z",
       "side": 1,
       "message": "multi-chip",
+      "range": {
+        "startLine": 11,
+        "startChar": 58,
+        "endLine": 11,
+        "endChar": 67
+      },
+      "revId": "91730ad85f86464ec0230890f939642287871cee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e0de137_f54da0b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000130
+      },
+      "writtenOn": "2021-12-06T03:38:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "df398a80_191e9f04",
       "range": {
         "startLine": 11,
         "startChar": 58,
@@ -123,6 +171,78 @@
       "writtenOn": "2021-11-26T13:31:49Z",
       "side": 1,
       "message": "Should this be rather:\n\"Enabling multi-chip support for RD-N2 variant\\n\" ?",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 51
+      },
+      "revId": "91730ad85f86464ec0230890f939642287871cee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "766ab55f_bf56804c",
+        "filename": "plat/arm/board/rdn2/rdn2_plat.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000130
+      },
+      "writtenOn": "2021-12-06T03:38:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bc3a307d_acc4e02c",
+      "range": {
+        "startLine": 115,
+        "startChar": 40,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "revId": "91730ad85f86464ec0230890f939642287871cee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4107823f_f85726bb",
+        "filename": "plat/arm/board/rdn2/rdn2_plat.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000130
+      },
+      "writtenOn": "2021-12-06T03:38:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "99a71740_fdef521b",
+      "range": {
+        "startLine": 115,
+        "startChar": 49,
+        "endLine": 115,
+        "endChar": 51
+      },
+      "revId": "91730ad85f86464ec0230890f939642287871cee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f670b45_b1912e81",
+        "filename": "plat/arm/board/rdn2/rdn2_plat.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000130
+      },
+      "writtenOn": "2021-12-06T03:38:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0681e293_2dffdcef",
       "range": {
         "startLine": 115,
         "startChar": 8,
