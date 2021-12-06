@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bda5fe55_b563878b",
+        "filename": ".cz.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-12-06T18:14:42Z",
+      "side": 1,
+      "message": "This comment is not related to the patch but just wanted to ask others\u0027 opinions.\nI think spm_mm is a completely different implementation compared to spm. Should we separate it into its own scope?\n\n                {\n                    \"title\": \"SPM\",\n                    \"scopes\": [\"spm\", \"spmc\", \"spmd\", \"SPMD\"]\n\n                }\n                {\n                    \"title\": \"SPM_MM\",\n                    \"scopes\": [\"spm_mm\"]\n\n                }",
+      "range": {
+        "startLine": 396,
+        "startChar": 62,
+        "endLine": 396,
+        "endChar": 71
+      },
+      "revId": "b937a9880f3ae710462b192f5166314e48580ff6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
