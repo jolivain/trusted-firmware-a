@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da8f08d4_cae18b7a",
+        "filename": "include/drivers/partition/partition.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-12-06T09:42:00Z",
+      "side": 1,
+      "message": "drivers/partition/gpt.h already defines GUID_LEN.\nShould be factories with a guid.h header file or like.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "7001dd1130fec33f71ef7128a15a893fe61a9244",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
