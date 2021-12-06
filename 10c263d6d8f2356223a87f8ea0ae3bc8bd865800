@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57186df3_1dc44819",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-12-06T18:01:05Z",
+      "side": 1,
+      "message": "It\u0027s just about EL3 not having any left over state from the lower EL. It\u0027s not strictly necessary but just added protection about things going wrong.",
+      "parentUuid": "2cc08f7c_221c0bc8",
+      "range": {
+        "startLine": 681,
+        "startChar": 16,
+        "endLine": 681,
+        "endChar": 20
+      },
+      "revId": "10c263d6d8f2356223a87f8ea0ae3bc8bd865800",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0657f56c_0138accb",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-04T20:39:25Z",
       "side": 1,
       "message": "do we have a check somewhere in code that checks if FEAT_DIT is set in the build, it is actually iplemented in hardware?",
+      "range": {
+        "startLine": 686,
+        "startChar": 4,
+        "endLine": 686,
+        "endChar": 12
+      },
+      "revId": "10c263d6d8f2356223a87f8ea0ae3bc8bd865800",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8a6d8f7_1d781dc1",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-12-06T18:01:05Z",
+      "side": 1,
+      "message": "Yes, sorry. I should have left a comment to say I was adding this check. It\u0027s in the newest patch in the stack",
+      "parentUuid": "0657f56c_0138accb",
       "range": {
         "startLine": 686,
         "startChar": 4,
