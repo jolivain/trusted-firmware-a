@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c389367_2a029313",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-12-06T11:47:34Z",
+      "side": 1,
+      "message": "All changes are further improvements and can be add-on patch",
+      "revId": "dbc1ded6d215271c13f060822f1e50e279bdbb8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "deee0fa5_1899c098",
+        "filename": "include/services/gtsi_svc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-12-06T11:47:34Z",
+      "side": 1,
+      "message": "Would all these checks be covered if we do a check like below:\n\n(((_fid) \u003e\u003d GTSI_FID(GTSI_FNUM_MIN_VALUE)) \u0026\u0026\t\\\n\t((_fid) \u003c\u003d GTSI_FID(GTSI_FNUM_MAX_VALUE))",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 33
+      },
+      "revId": "dbc1ded6d215271c13f060822f1e50e279bdbb8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eee0fc36_55877387",
+        "filename": "include/services/rmi_svc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-12-06T11:47:34Z",
+      "side": 1,
+      "message": "worth to check whether the comment I gave for GTSI is applicable for these tests as well.",
+      "revId": "dbc1ded6d215271c13f060822f1e50e279bdbb8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2dff847_49c76d01",
+        "filename": "include/services/rmi_svc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-12-06T11:47:34Z",
+      "side": 1,
+      "message": "These can be moved to TRP specific header since generic EL3 firmware does not need to know the details of RMI FID.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 44
+      },
+      "revId": "dbc1ded6d215271c13f060822f1e50e279bdbb8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e7986ad_819ce0ec",
+        "filename": "include/services/rmi_svc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-12-06T11:47:34Z",
+      "side": 1,
+      "message": "same comment as above.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 34
+      },
+      "revId": "dbc1ded6d215271c13f060822f1e50e279bdbb8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
