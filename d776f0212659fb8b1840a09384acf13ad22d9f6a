@@ -16,6 +16,24 @@
       "message": "Blessed scopes should be kebab-case:\n\n    \"scopes\": [\"sys-reg-trace\" /* or maybe etm and ete separately? */, \"sys_reg_trace\"]",
       "revId": "d776f0212659fb8b1840a09384acf13ad22d9f6a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfad7472_e912a0ac",
+        "filename": ".cz.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-06T16:48:22Z",
+      "side": 1,
+      "message": "let me add \u0027sys-reg-trace\u0027 as a blessed scope then.",
+      "parentUuid": "49335dc0_7fef7a77",
+      "revId": "d776f0212659fb8b1840a09384acf13ad22d9f6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
