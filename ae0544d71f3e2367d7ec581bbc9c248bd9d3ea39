@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cfff377d_d7d04356",
+        "filename": "include/drivers/partition/efi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-07T04:38:28Z",
+      "side": 1,
+      "message": "\u003e sugegst DIRVERS_PARTITION_EFI_H to prevent conflicts with other possible exposed efi.h header files in the source tree.\n\nAre you suggesting renaming the file as well, or only the guard. Also, this is a header file which contains all the generic efi related macros and definitions. Do you think there will be another efi.h file that might get introduced later(there is none currently).",
+      "parentUuid": "d16dc18f_c978c971",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "ae0544d71f3e2367d7ec581bbc9c248bd9d3ea39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "63933494_f4fd0e8f",
         "filename": "include/drivers/partition/efi.h",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-06T09:41:56Z",
       "side": 1,
       "message": "Using EFI_GUID macro would be preferred",
+      "range": {
+        "startLine": 13,
+        "startChar": 11,
+        "endLine": 13,
+        "endChar": 13
+      },
+      "revId": "ae0544d71f3e2367d7ec581bbc9c248bd9d3ea39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53f07a54_4ea9da9e",
+        "filename": "include/drivers/partition/efi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-07T04:38:28Z",
+      "side": 1,
+      "message": "\u003e Using EFI_GUID macro would be preferred\n\nDo you mean GUID_LEN?",
+      "parentUuid": "63933494_f4fd0e8f",
       "range": {
         "startLine": 13,
         "startChar": 11,
