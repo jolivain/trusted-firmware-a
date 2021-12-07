@@ -22,6 +22,30 @@
       },
       "revId": "45c403b0e7c32c87ee7cdc803135cf4cafe9b50b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b4f8627_ed4f3ff6",
+        "filename": "include/bl32/tsp/tsp.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-12-07T14:08:40Z",
+      "side": 1,
+      "message": "Sorry, I realized I didn\u0027t push the accompanying tf-a-tests and platform-ci patches that trigger the SMC",
+      "parentUuid": "9c9a436f_b522f679",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 21
+      },
+      "revId": "45c403b0e7c32c87ee7cdc803135cf4cafe9b50b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
