@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cd08d9d1_b56062da",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-07T05:08:42Z",
+      "side": 1,
+      "message": "\u003e This doesn\u0027t sound correct in the longer term. You must retrieve the boot_index and take all the images from that index to boot the platform. \n\u003e Consider if the last boot failed because of authentication/maximum watchdog reset, then in the subsequence reboot, the image must be taken from the previous active bank (i.e. calling plat_fwu_get_boot_idx). \n\u003e \n\u003e so IMO better change this to \n\u003e    boot_index \u003d plat_fwu_get_boot_idx()\n\u003e \n\u003e I don\u0027t think then needs to re-execute the whole logic of retrieving the boot_index during the post-load operation [1]. You can reuse this function \u0027plat_fwu_get_boot_idx\u0027 to return the calculated boot_index directly.\n\u003e \n\u003e [1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/12577/5/plat/st/stm32mp1/bl2_plat_setup.c#471\n\nYes, what you say does make sense. I will change the patches accordingly.",
+      "parentUuid": "a5b09661_9e579f1e",
+      "range": {
+        "startLine": 498,
+        "startChar": 1,
+        "endLine": 498,
+        "endChar": 37
+      },
+      "revId": "2c478d29b3d96bef8cc6b55c1923b3a668ec655c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d09ceb8_a8470235",
         "filename": "plat/st/stm32mp1/include/boot_api.h",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-06T11:15:25Z",
       "side": 1,
       "message": "s/Core 1/Primary boot core/   (unless I missed something).",
+      "range": {
+        "startLine": 118,
+        "startChar": 13,
+        "endLine": 118,
+        "endChar": 19
+      },
+      "revId": "2c478d29b3d96bef8cc6b55c1923b3a668ec655c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "251b4c43_f5ea4336",
+        "filename": "plat/st/stm32mp1/include/boot_api.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-07T05:08:42Z",
+      "side": 1,
+      "message": "\u003e s/Core 1/Primary boot core/   (unless I missed something).\n\nI will change the comment as per the usage of the register.",
+      "parentUuid": "1d09ceb8_a8470235",
       "range": {
         "startLine": 118,
         "startChar": 13,
