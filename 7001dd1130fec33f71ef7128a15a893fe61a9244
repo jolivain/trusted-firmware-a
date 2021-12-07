@@ -70,6 +70,30 @@
       },
       "revId": "7001dd1130fec33f71ef7128a15a893fe61a9244",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6c58f1e_434923db",
+        "filename": "include/drivers/partition/partition.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-12-07T08:33:13Z",
+      "side": 1,
+      "message": "Maybe introduce a uuid.h (or guid.h) heade file for that purpose, from some generic library path (lib/...).",
+      "parentUuid": "452c7722_94534fa6",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "7001dd1130fec33f71ef7128a15a893fe61a9244",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
