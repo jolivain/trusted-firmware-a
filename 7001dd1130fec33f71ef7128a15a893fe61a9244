@@ -118,6 +118,30 @@
       },
       "revId": "7001dd1130fec33f71ef7128a15a893fe61a9244",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac218bed_57db861b",
+        "filename": "include/drivers/partition/partition.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-07T09:34:46Z",
+      "side": 1,
+      "message": "\u003e include/tools_share/uuid.h ?\n\nOkay. So if i understand correctly, you are suggesting putting EFI_NAMELEN and GUID_LEN macros in the include/tools_share/uuid.h header, right?",
+      "parentUuid": "77c7c606_3125b152",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "7001dd1130fec33f71ef7128a15a893fe61a9244",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
