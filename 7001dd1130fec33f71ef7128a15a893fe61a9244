@@ -166,6 +166,30 @@
       },
       "revId": "7001dd1130fec33f71ef7128a15a893fe61a9244",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ced147f1_dfbcf393",
+        "filename": "include/drivers/partition/partition.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-07T11:00:55Z",
+      "side": 1,
+      "message": "\u003e EFI_NAMELEN relates to EFI stuff, so better placed in efi.h.\n\u003e GUID_LEN rely to GUID so should relate to sizeof(uuid_t), from uuid.h.\n\nIt can also be sizeof(efi_guid_t). In that case, both the macros can come from the same file. Will that be fine?",
+      "parentUuid": "1a93c86e_f3cbac6f",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "7001dd1130fec33f71ef7128a15a893fe61a9244",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
