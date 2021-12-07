@@ -46,6 +46,30 @@
       },
       "revId": "7001dd1130fec33f71ef7128a15a893fe61a9244",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "452c7722_94534fa6",
+        "filename": "include/drivers/partition/partition.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-12-07T08:31:19Z",
+      "side": 1,
+      "message": "GUID are not EFI specific. Is there a generic header file both partition/gpt.h and partition/efi.h could rely on?\n\n(sorry, I meant \"factorized\" not \"factories\" :)",
+      "parentUuid": "3c97d2ae_78883fd1",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "7001dd1130fec33f71ef7128a15a893fe61a9244",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
