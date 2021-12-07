@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2021, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -143,7 +143,8 @@ else
 					lib/cpus/aarch64/cortex_a78c.S		\
 					lib/cpus/aarch64/cortex_hayes.S		\
 					lib/cpus/aarch64/cortex_hunter.S	\
-					lib/cpus/aarch64/cortex_x2.S
+					lib/cpus/aarch64/cortex_x2.S		\
+					lib/cpus/aarch64/neoverse_poseidon.S
 	endif
 	# AArch64/AArch32 cores
 	FVP_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a55.S		\
