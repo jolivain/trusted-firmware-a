@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23258153_4a8fffd7",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-12-07T08:47:46Z",
+      "side": 1,
+      "message": "nitpicking: since only last argument changes, it would be easier to read as\n\n\tif (image_id \u003d\u003d FWU_METADATA_IMAGE_ID) {\n\t\tpart_name \u003d METADATA_PART_1;\n\t} else {\n\t\tpart_name \u003d METADATA_PART_2;\n\t}\n\n\treturn plat_set_image_source(image_id, handle, image_spec, part_name);",
+      "range": {
+        "startLine": 539,
+        "startChar": 0,
+        "endLine": 545,
+        "endChar": 2
+      },
+      "revId": "6553c2b6c35fd736f5bea530c377876e674a9937",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43bab97f_f874309f",
+        "filename": "plat/st/common/stm32mp_fconf_io.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-12-07T08:47:46Z",
+      "side": 1,
+      "message": "nitpicking: i would add a come here too (despite there\u0027s none in the above cells)",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 23
+      },
+      "revId": "6553c2b6c35fd736f5bea530c377876e674a9937",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
