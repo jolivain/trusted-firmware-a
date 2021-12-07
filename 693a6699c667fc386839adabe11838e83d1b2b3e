@@ -34,6 +34,23 @@
       "parentUuid": "62c32e37_8d285d5d",
       "revId": "693a6699c667fc386839adabe11838e83d1b2b3e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a7fb57a_e00983c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-12-07T17:48:49Z",
+      "side": 1,
+      "message": "Hi Thierry, thanks for posting this!\nSo which regulators do you actually need? Just ALDO1, or ALDO2 as well? ALDO3 seems to be the essential VCC-PLL everywhere, and it\u0027s on from reset (per the AXP803 datasheet), so we don\u0027t need to handle that.\nThe reason is that this list is some kind of a kludge anyway. It used to work much better in the past, but U-Boot spoiled this when adding phandles to *every* node, so now many more regulators get enabled, even though they are not actually referenced. And this applies to all boards, so I\u0027d rather keep this list short.\nIn the long term we should enable the needed regulators in U-Boot, and drop most of the code here, which would be safer as well. But this is still some way out ...\n",
+      "revId": "693a6699c667fc386839adabe11838e83d1b2b3e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
