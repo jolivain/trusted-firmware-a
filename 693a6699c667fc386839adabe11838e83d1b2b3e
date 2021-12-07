@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62c32e37_8d285d5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-12-07T15:48:47Z",
+      "side": 1,
+      "message": "Hi Chris,\n\nCan you advise how to fix this issue?\n1) Simplify the commit message to: \n    feat(allwinner): added aldo1, aldo2, aldo3\n\n2) use the commit message from patchset3 and fix the commit lint issue by adding axp803 to the blessed scope\nfeat(axp803): added support for aldo1, aldo2 \u0026 aldo3\n\n------------------------------------------------------------------------------------\n\n⧗   input: feat(allwinner):apx803: added aldo1, aldo2, aldo3\n\nNotice that aldo1 is typically useful for the Olimex A64 board, where\nit powers the PE bank through the vcc-pe line.\nWithout it, it is not possible to light the user led on PE17, for\ninstance.\n\nSigned-off-by: Thierry Bultel \u003cthierry.bultel@linatsea.fr\u003e\nChange-Id: I70588bc977b884b22df87f1b075549cb8925925a\n✖   subject may not be empty [subject-empty]\n✖   type may not be empty [type-empty]\n\n✖   found 2 problems, 0 warnings",
+      "revId": "693a6699c667fc386839adabe11838e83d1b2b3e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
