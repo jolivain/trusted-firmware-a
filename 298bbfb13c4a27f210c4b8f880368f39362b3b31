@@ -72,6 +72,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da976c65_70bd6bb3",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-07T04:54:59Z",
+      "side": 1,
+      "message": "\u003e instead \u0027platform should boot its image(s) from\u0027. This bank index used by I/O layer to load the image(s) from NV-storage to memory.\n\nSorry, I don\u0027t get this comment. I believe when this function gets called, the bl2_load_images function would have already loaded the images from the selected bank right? The wording \u0027should boot its image(s) from\u0027 implies that the act of selecting the images is yet to happen.",
+      "parentUuid": "e78c5ae7_eefd2b06",
+      "range": {
+        "startLine": 951,
+        "startChar": 40,
+        "endLine": 951,
+        "endChar": 76
+      },
+      "revId": "298bbfb13c4a27f210c4b8f880368f39362b3b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fa439f1c_c095f8f2",
         "filename": "include/plat/common/platform.h",
         "patchSetId": 5
