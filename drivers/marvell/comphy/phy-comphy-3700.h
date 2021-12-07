@@ -224,7 +224,7 @@ enum {
 
 /* SGMII */
 #define COMPHY_PHY_CFG1_OFFSET(lane)	((1 - (lane)) * 0x28)
-#define PIN_PU_IVEREF_BIT		BIT(1)
+#define PIN_PU_IVREF_BIT		BIT(1)
 #define PIN_RESET_CORE_BIT		BIT(11)
 #define PIN_RESET_COMPHY_BIT		BIT(12)
 #define PIN_PU_PLL_BIT			BIT(16)
