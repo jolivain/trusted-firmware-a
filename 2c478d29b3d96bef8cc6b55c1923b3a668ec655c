@@ -50,6 +50,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "00d9bbb8_11dedbc8",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-12-07T08:58:13Z",
+      "side": 1,
+      "message": "nitpicking again: I think the below is easier to read or more concise (IMO)\n\n\t\tstm32mp_clk_enable(RTCAPB);\n\t\tmmio_write_32(tamp_bkpr(BOOT_API_FWU_BOOT_IDX_TAMP_BCK_REG_IDX),\n\t\t\t      plat_fwu_get_boot_idx());\n\t\tstm32mp_clk_disable(RTCAPB);",
+      "range": {
+        "startLine": 474,
+        "startChar": 0,
+        "endLine": 476,
+        "endChar": 30
+      },
+      "revId": "2c478d29b3d96bef8cc6b55c1923b3a668ec655c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d09ceb8_a8470235",
         "filename": "plat/st/stm32mp1/include/boot_api.h",
         "patchSetId": 5
@@ -85,6 +108,30 @@
       "side": 1,
       "message": "\u003e s/Core 1/Primary boot core/   (unless I missed something).\n\nI will change the comment as per the usage of the register.",
       "parentUuid": "1d09ceb8_a8470235",
+      "range": {
+        "startLine": 118,
+        "startChar": 13,
+        "endLine": 118,
+        "endChar": 19
+      },
+      "revId": "2c478d29b3d96bef8cc6b55c1923b3a668ec655c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd098d21_cc7b4884",
+        "filename": "plat/st/stm32mp1/include/boot_api.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-12-07T08:58:13Z",
+      "side": 1,
+      "message": "My bad, I miss the above line phrasing that is obviously not right.\nShould be something like:\n\n/*\n * TAMP_BCK10R register index\n * This register stores the bank index used to boot the FWU capable image.\n */",
+      "parentUuid": "251b4c43_f5ea4336",
       "range": {
         "startLine": 118,
         "startChar": 13,
