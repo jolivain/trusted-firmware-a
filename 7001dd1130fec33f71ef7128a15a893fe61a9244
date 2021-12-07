@@ -22,6 +22,30 @@
       },
       "revId": "7001dd1130fec33f71ef7128a15a893fe61a9244",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c97d2ae_78883fd1",
+        "filename": "include/drivers/partition/partition.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-07T04:43:56Z",
+      "side": 1,
+      "message": "\u003e drivers/partition/gpt.h already defines GUID_LEN.\n\u003e Should be factories with a guid.h header file or like.\n\nOne option is to define the EFI_NAMELEN and GUID_LEN macros in drivers/partition/efi.h and include that file in drivers/partition/gpt.h and drivers/partition/partittion.h. Will that be fine?",
+      "parentUuid": "da8f08d4_cae18b7a",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "7001dd1130fec33f71ef7128a15a893fe61a9244",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
