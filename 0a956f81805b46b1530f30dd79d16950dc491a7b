@@ -22,6 +22,30 @@
       },
       "revId": "0a956f81805b46b1530f30dd79d16950dc491a7b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15255e31_5ae5295f",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000422
+      },
+      "writtenOn": "2021-12-08T17:30:48Z",
+      "side": 1,
+      "message": "Yes, if openssl isn\u0027t on the default search path then fiptool won\u0027t compile.  The other tools all respect OPENSSL_DIR to specify where to find libcrypto.\n\nI have a follow-up patch to rip OPENSSL_DIR out entirely and just use pkg-config, but it doesn\u0027t quite work yet.",
+      "parentUuid": "275aec03_841e0537",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 11
+      },
+      "revId": "0a956f81805b46b1530f30dd79d16950dc491a7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
