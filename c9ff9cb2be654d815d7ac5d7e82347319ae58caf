@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1db3c0ec_b7729750",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-08T11:06:40Z",
+      "side": 1,
+      "message": "Yes, I think it makes sense. Let me add a comment and pass the \u0027output\u0027 buffer pointer to \u0027mbedtls_md\u0027 function.",
+      "parentUuid": "09f01d4f_cd233d4b",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 29
+      },
+      "revId": "c9ff9cb2be654d815d7ac5d7e82347319ae58caf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2411a6fd_22f7795f",
         "filename": "include/drivers/auth/crypto_mod.h",
         "patchSetId": 5
@@ -71,6 +95,30 @@
       "writtenOn": "2021-12-08T07:08:00Z",
       "side": 1,
       "message": "Should this rather be enum crypto_md_algo?",
+      "range": {
+        "startLine": 93,
+        "startChar": 25,
+        "endLine": 93,
+        "endChar": 37
+      },
+      "revId": "c9ff9cb2be654d815d7ac5d7e82347319ae58caf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ffdbc88_8f17dff3",
+        "filename": "include/drivers/auth/crypto_mod.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-08T11:06:40Z",
+      "side": 1,
+      "message": "yes, somehow missed this, and build also didn\u0027t flag this out.",
+      "parentUuid": "2411a6fd_22f7795f",
       "range": {
         "startLine": 93,
         "startChar": 25,
