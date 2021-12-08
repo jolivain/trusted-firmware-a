@@ -16,6 +16,24 @@
       "message": "Konstantin, this whole series does not change any functionality (I have tested what changes are actually made to the registers before this series and after this series). This series only fixes, unifies and refactors register names and comments and changes the semantics of reg_set() and reg_set16() functions.",
       "revId": "8338c55f515054e3b25b818f65dcf846d8a504ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "981096f8_bbea647e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2021-12-08T00:51:40Z",
+      "side": 1,
+      "message": "Also more refactors are coming after this series is merged. I didn\u0027t want to discourage you by sending them all at once :) I know it\u0027s a lot of patches even in this series, but the patches are simple and easy to review.",
+      "parentUuid": "8da947e7_9f78e017",
+      "revId": "8338c55f515054e3b25b818f65dcf846d8a504ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
