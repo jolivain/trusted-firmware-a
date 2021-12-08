@@ -597,7 +597,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		 * If caller is secure and SPMC was initialized,
 		 * return FFA_VERSION of SPMD.
 		 * If caller is non secure and SPMC was initialized,
-		 * return SPMC's version.
+		 * forward to the EL3 SPMC if enabled, otherwise return
+		 * the SPMC version if implemented at a lower EL.
 		 * Sanity check to "input_version".
 		 * If the EL3 SPMC is enabled, ignore the SPMC state as
 		 * this is not used.
@@ -606,6 +607,16 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		    (!is_spmc_at_el3() && (ctx->state == SPMC_STATE_RESET))) {
 			ret = FFA_ERROR_NOT_SUPPORTED;
 		} else if (!secure_origin) {
+#if SPMC_AT_EL3
+			/*
+			 * Forward the call directly to the EL3 SPMC, if
+			 * enabled, as we don't need to wrap the call in a
+			 * direct request.
+			 */
+			return spmd_smc_forward(smc_fid, secure_origin,
+						x1, x2, x3, x4, cookie,
+						handle, flags);
+#endif
 			gp_regs_t *gpregs = get_gpregs_ctx(&ctx->cpu_ctx);
 			uint64_t rc;
 
